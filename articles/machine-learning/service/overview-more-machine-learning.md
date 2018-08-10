@@ -1,6 +1,6 @@
 ---
-title: Other machine learning products from Microsoft - Azure Machine Learning | Microsoft Docs
-description: In addition to Azure Machine Learning, there are a variety of options at Microsoft to build, deploy, and manage your machine learning models. 
+title: Machine learning products from Microsoft - Azure Machine Learning | Microsoft Docs
+description: Microsoft provides a variety of products and services to build, deploy, and manage your machine learning models. 
 services: machine-learning
 author: haining
 ms.author: haining
@@ -10,28 +10,62 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: overview
-ms.date: 04/11/2018
+ms.date: 08/10/2018
 ---
 
-# Other machine learning products and services from Microsoft
+# Machine learning products and services from Microsoft
+
+Microsoft provides a variety of products and services to build, deploy, and manage your machine learning models. 
 
 In addition to [Azure Machine Learning Services](overview-what-is-azure-ml.md), there are a variety of options at Microsoft to build, deploy, and manage your machine learning models.
 
 | Use this option...                                                            | if you want to do this... |
 | ----------------------------------------------------------------------------- | ---------------- |
+| [Azure Machine Learning Services](#azure-machine-learning-services) | build and deploy models in the cloud using Python and CLI |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio)               | build and deploy models using a drag-and-drop visual interface |
 | [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | build and deploy models on-premises or inside SQL Server  |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server)       | build and deploy R and Python models on an enterprise server |
+| | |
 | [Spark MLLib in HDInsight](#spark-mllib-in-hdinsight)                         | create models as part of Spark jobs executing on big data |
 | [Microsoft Cognitive Toolkit (CNTK)](#microsoft-cognitive-toolkit-cntk)       | develop models using deep learning algorithms             |
-| [Azure Batch AI Training](#azure-batch-ai-training)                           | experiment and train models at scale across clustered GPUs |
+| | |
 | [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine)     | use a customized virtual machine with pre-installed data science tools |
+| | |
 | [Azure Cognitive Services](#azure-cognitive-services)                         | use pre-built machine learning models in applications     |
 | | |
 
-<!-- 
-Run this list by Carolyn and Hai, and ML writers
+<!-- Trying a different kind of table
+| | | | | | | |
+|-|-|-|-|-|-|-|
+| Environment | Interactive Experimentation | Data visualization | Collaboration (sharing) | Pre-configured | Control over environment | Development tools |
+| Azure Notebooks | ✓ | ✓ | ✓ | ✓ | Low |
+| Jupyter Notebooks (local or on a VM) | ✓ | ✓ |   |   | High |
+| Data Science Virtual Machine (includes Jupyter Notebooks) | ✓ | ✓ |   | ✓ | High |
+| Visual Studio Code & other IDEs |   |   |   |   | High | ✓ |
 -->
+
+| Microsoft machine learning product/service | What it is | What you do with it |
+|-|-|-|
+| [Azure Machine Learning Services](#azure-machine-learning-services) | Managed machine learning cloud service | Build, experiment, and deploy models in the cloud using Python and CLI |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Drag-and-drop visual interface for machine learning | Build, experiment, and deploy models using preconfigured algorithms |
+| [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | Analytics engine embedded in SQL | Build and deploy models on-premises or inside SQL Server |
+| [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Standalone enterprise server for machine learning | Build and deploy models with R and Python |
+| [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
+| | | |
+| [ML.NET](#ml-net) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications |
+| [Windows ML](#windows-ml) | Windows 10 machine learning platform | Evaluate trained models on a Windows 10 device |
+| | | |
+| [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools |  |
+| | | |
+| [Azure Cognitive Services](#azure-cognitive-services) | Azure services with pre-built machine learning models | Add machine learning to applications quickly |
+
+## Azure Machine Learning Services
+
+[Azure Machine Learning Services](overview-what-is-azure-ml.md) is a fully managed cloud service that you can use to build, train, deploy, and manage machine learning models at cloud scale.
+It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages.
+Rich tools are also available, such as [Jupyter notebooks](http://jupyter.org) or the [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) that make it easy to interactively explore data, transform it, and then develop, test, and deploy models.
+
+Use Azure Machine Learning Services when you want to develop, deploy, and manage models using Python and CLI at cloud scale.
 
 ## Azure Machine Learning Studio
 
@@ -61,41 +95,35 @@ Use Microsoft Machine Learning Server when you need to:
 - Build and deploy models built with R and Python on a server
 - Distribute R and Python training at scale on a Hadoop or Spark cluster
 
-## Spark MLLib in HDInsight
+## Azure Databricks
 
-[Spark MLLib in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-ipython-notebook-machine-learning) lets you create models as part of Spark jobs that are executing on big data. Spark lets you easily transform and prepare data and then scale out model creation in a single job.
-You can use Azure Machine Learning Services to deploy, manage, and monitor models created through Spark MLLib, and dispatch and manage training runs.
+[Azure Databricks](/articles/azure-databricks/what-is-azure-databricks.md)  is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.
 
-Use Spark when you need to scale out your data processing and create models as part of a data pipeline. You can author Spark jobs in Scala, Java, Python, or R.
+Use Databricks when you want to collaborate on building machine learning solutions on Apache Spark.
 
-## Microsoft Cognitive Toolkit (CNTK)
+## ML.NET
 
-The [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) is a unified deep-learning toolkit that describes neural networks as computational steps in a directed graph. In this directed graph, leaf nodes represent input values or network parameters, while other nodes represent matrix operations upon their inputs. The Cognitive Toolkit allows you to easily realize and combine popular model types such as feed-forward DNNs, convolutional nets (CNNs), and recurrent networks (RNNs/LSTMs). It implements stochastic gradient descent (SGD, error backpropagation) learning with automatic differentiation and parallelization across multiple GPUs and servers.
+[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/) is a free, open-source, and cross-platform machine learning framework that enables you to build custom machine learning solutions and integrate them into your .NET applications.
 
-Use the Cognitive Toolkit when you want to build a model using deep learning.  The Cognitive Toolkit can be used in any of the preceding services.
+Use ML.NET when you want to integrate machine learning solutions into your .NET applications.
 
-## Azure Batch AI Training
+## Windows ML
 
-[Azure Batch AI Training](https://aka.ms/batchaitraining) helps you experiment in parallel with your AI models using any framework, and then trains them at scale across clustered GPUs. Describe your job requirements and configuration to run, and Batch AI handles the rest.
+[Windows ML](https://docs.microsoft.com/windows/uwp/machine-learning/) allows you to use trained machine learning models in your applications, evaluating trained models locally on Windows 10 devices.
 
-Batch AI Training enables you to scale-out deep learning jobs across clustered GPUs, using frameworks such as:
-
-Cognitive Toolkit
-Caffe
-Chainer
-TensorFlow
-
-Azure Machine Learning Services can be used to take models from Batch AI Training to deploy, manage, and monitor them.
+Use Windows ML when you want to use machine learning within your Windows applications.
 
 ## Azure Data Science Virtual Machine
 
-The [Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) is a customized virtual machine environment on the Microsoft Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics. The Data Science VM is available in Windows Server editions, versions 2016 and 2012, and in a Linux edition on Ubuntu 16.04 LTS and OpenLogic CentOS 7.4.
+The [Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md) is a customized virtual machine environment on the Microsoft Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics.
+
+The Data Science Virtual Machine is available in both Windows and Linux versions. For specific version information and a list of what’s included, see [Introduction to the Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md).
 
 Use the Data Science VM when you need to run or host your jobs on a single node. Or if you need to remotely scale up your processing on a single machine. The Data Science Virtual Machine is supported as a target for Azure Machine Learning Services.
 
 ## Azure Cognitive Services
 
-[Azure Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai) is a set of about 30 APIs that enable you build apps that use natural methods of communication. These APIs allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. Easily add intelligent features to your apps, such as: 
+[Azure Cognitive Services](/articles/cognitive-services/welcome.md) is a set of about 30 APIs that enable you to build apps that use natural methods of communication. These APIs allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. Easily add intelligent features to your apps, such as: 
 
 - Emotion and sentiment detection
 - Vision and speech recognition
