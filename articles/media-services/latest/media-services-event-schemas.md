@@ -52,7 +52,7 @@ Track-level events are raised per track. The track event types are:
 * LiveEventIngestHeartbeat
 * LiveEventTrackDiscontinuityDetected
 
-## JobStateChange event
+## JobStateChange
 
 The following example shows the schema of the **JobStateChange** event: 
 
@@ -83,7 +83,7 @@ The data object has the following properties:
 
 Where the Job state can be one of the values: *Queued*, *Scheduled*, *Processing*, *Finished*, *Error*, *Canceled*, *Canceling*
 
-## LiveEventConnectionRejected event
+## LiveEventConnectionRejected
 
 The following example shows the schema of the **LiveEventConnectionRejected** event: 
 
@@ -130,7 +130,7 @@ The result codes are:
 | MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | Aggregated bitrate exceeds max allowed limit. |
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from RTMP encoder. |
 
-## LiveEventEncoderConnected event
+## LiveEventEncoderConnected
 
 The following example shows the schema of the **LiveEventEncoderConnected** event: 
 
@@ -219,7 +219,7 @@ The graceful disconnect result codes are:
 | MPI_REST_API_CHANNEL_STOP | Channel undergoing maintenance. |
 | MPI_STREAM_HIT_EOF | EOF stream is sent by the encoder. |
 
-## LiveEventIncomingDataChunkDropped event
+## LiveEventIncomingDataChunkDropped
 
 The following example shows the schema of the **LiveEventIncomingDataChunkDropped** event: 
 
@@ -255,7 +255,7 @@ The data object has the following properties:
 | Timescale | string | Timescale of the timestamp. |
 | ResultCode | string | Reason of the data chunk drop. **FragmentDrop_OverlapTimestamp** or **FragmentDrop_NonIncreasingTimestamp**. |
 
-## LiveEventIncomingStreamReceived event
+## LiveEventIncomingStreamReceived
 
 The following example shows the schema of the **LiveEventIncomingStreamReceived** event: 
 
@@ -297,7 +297,7 @@ The data object has the following properties:
 | Timestamp | string | First timestamp of the data chunk received. |
 | Timescale | string | Timescale in which timestamp is represented. |
 
-## LiveEventIncomingStreamsOutOfSync event
+## LiveEventIncomingStreamsOutOfSync
 
 The following example shows the schema of the **LiveEventIncomingStreamsOutOfSync** event: 
 
@@ -330,7 +330,7 @@ The data object has the following properties:
 | MaxLastTimestamp | string | Maximum of all the timestamps among all the tracks (audio or video). |
 | TypeOfTrackWithMaxLastTimestamp | string | Type of the track (audio or video) with maximum last timestamp. |
 
-## LiveEventIncomingVideoStreamsOutOfSync event
+## LiveEventIncomingVideoStreamsOutOfSync
 
 The following example shows the schema of the **LiveEventIncomingVideoStreamsOutOfSync** event: 
 
@@ -362,7 +362,7 @@ The data object has the following properties:
 | SecondTimestamp | string  | Timestamp received for some other track/quality level of the type video. |
 | SecondDuration | string | Duration of the data chunk with second timestamp. |
 
-## LiveEventIngestHeartbeat event
+## LiveEventIngestHeartbeat
 
 The following example shows the schema of the **LiveEventIngestHeartbeat** event: 
 
@@ -411,7 +411,7 @@ The data object has the following properties:
 | State | string | State of the live event. |
 | Healthy | bool | Indicates whether ingest is healthy based on the counts and flags. Healthy is true if OverlapCount = 0 && DiscontinuityCount = 0 && NonIncreasingCount = 0 && UnexpectedBitrate = false. |
 
-## LiveEventTrackDiscontinuityDetected event
+## LiveEventTrackDiscontinuityDetected
 
 The following example shows the schema of the **LiveEventTrackDiscontinuityDetected** event: 
 
@@ -450,7 +450,7 @@ The data object has the following properties:
 | DiscontinuityGap | string | Gap between above two timestamps. |
 | Timescale | string | Timescale in which both timestamp and discontinuity gap are represented. |
 
-### Common event properties
+## Common event properties
 
 An event has the following top-level data:
 
