@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Azure Virtual Machines (VM) go through different states that can be categorized into *provisioning* and *power* states. The purpose of this article is to describe these states and specifically highlight when customers are billed for instance usage. 
+Azure Virtual Machines (VMs) go through different states that can be categorized into *provisioning* and *power* states. The purpose of this article is to describe these states and specifically highlight when customers are billed for instance usage. 
 
 ## Power States
 
@@ -150,11 +150,11 @@ Instance usage billing
 
 ## Provisioning states
 
-A provisioning state is the status of an user-initiated, control plane operation on the VM. These states are separate from the power state of a VM.
+A provisioning state is the status of a user-initiated, control-plane operation on the VM. These states are separate from the power state of a VM.
 
 - **Create** – VM creation.
 
-- **Update** – Update the model for an existing VM. Some non-model changes to VM such as Start/Restart also fall under update.
+- **Update** – updates the model for an existing VM. Some non-model changes to VM such as Start/Restart also fall under update.
 
 - **Delete** – VM deletion.
 
@@ -162,7 +162,7 @@ A provisioning state is the status of an user-initiated, control plane operation
 
 
 
-Here are the transitional operation states after the platform has accepted an user-initiated action:
+Here are the transitional operation states after the platform has accepted a user-initiated action:
 
 <br>
 
@@ -222,7 +222,7 @@ Here are the transitional operation states after the platform has accepted an us
 <p><b>OS provisioning states</b></p>
 </td>
 <td width="366">
-<p>If a VM is created with an OS image and not with a specialized image, then following sub-states can be observed:</p>
+<p>If a VM is created with an OS image and not with a specialized image, then following substates can be observed:</p>
 <p>1. <b>OSProvisioningInprogress</b> &ndash; The VM is running, and installation of guest OS is in progress. <p /> 
 <code> "statuses": [</br>
  {</br>
