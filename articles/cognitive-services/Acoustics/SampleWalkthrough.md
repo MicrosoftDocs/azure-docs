@@ -12,7 +12,7 @@ ms.author: kegodin
 ---
 
 # Acoustics Unity Sample Walkthrough
-This is a walkthrough of the sample Unity project for Microsoft Acoustics. For more information about what Microsoft Acoustics is, check out the [Introduction to Microsoft Acoustics](index.md). For help in adding the Microsoft Acoustics package to a pre-existing Unity project, use the [Getting Started guide](GettingStarted.md).
+This is a walkthrough of the sample Unity project for Microsoft Acoustics. For more information about what Microsoft Acoustics is, check out the [Introduction to Microsoft Acoustics](What-Is-Acoustics.md). For help in adding the Microsoft Acoustics package to a pre-existing Unity project, use the [Getting Started guide](GettingStarted.md).
 
 ## Requirements for running the sample project
 * Unity 2018+, using .NET 4.x scripting runtime version

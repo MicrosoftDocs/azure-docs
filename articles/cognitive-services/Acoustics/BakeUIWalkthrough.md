@@ -11,7 +11,7 @@ ms.date: 08/03/2018
 ms.author: kegodin
 ---
 # Unity bake UI
-This document describes the process of submitting an acoustics bake using the Unity editor extension. For information about what Microsoft Acoustics is, check out the [Introduction to Microsoft Acoustics](index.md).
+This document describes the process of submitting an acoustics bake using the Unity editor extension. For information about what Microsoft Acoustics is, check out the [Introduction to Microsoft Acoustics](What-Is-Acoustics.md).
 
 ## Importing the plugin
 Import the Acoustics plugin package to your project by following the instructions on the [Getting Started](GettingStarted.md) page. Then open the Acoustics UI by choosing Window > Acoustics from the Unity menu:

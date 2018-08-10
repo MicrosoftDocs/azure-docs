@@ -12,7 +12,7 @@ ms.author: kegodin
 ---
 
 # Getting Started With Acoustics in Unity
-For more information about what Microsoft Acoustics is, check out the [Introduction to Microsoft Acoustics](index.md).
+For more information about what Microsoft Acoustics is, check out the [Introduction to Microsoft Acoustics](What-Is-Acoustics.md).
 
 ## Supported platforms
 * Unity 2018+ for bakes, using .NET 4.x scripting runtime version

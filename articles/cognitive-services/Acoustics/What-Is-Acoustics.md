@@ -16,9 +16,11 @@ A new way to design dynamic acoustics. Experience smooth wave effects, true occl
 
 ## Today's approach to acoustics
 Let's revisit today's common approach to acoustics. In the existing approach, you draw reverb volumes:
+
 ![Design View](media/reverbZonesAltSPace2.png)
 
 Then you tweak parameters for each zone:
+
 ![Design View](media/TooManyReverbParameters.png)
 
 Then you may have to create and align some box-colliders to turn reverb zones off and on, usually to prevent bleed from one reverb zone to another:
@@ -49,6 +51,9 @@ First mark up the scene with materials properties and a player navigation mesh. 
 
 ### Bake
 The scene data file is uploaded to Azure and the analysis runs on a compute cluster. Depending on scene complexity and simulation parameter configuration, these bakes can take anywhere from a few minutes to many hours.
+
+### Post-Bake Design
+Once the bake has completed, a file is downloaded to your project, known as an ACE file. This is the lookup table that is used at runtime to drive the acoustic parameters for each sound source. If something doesn't sound quite right, you can either go back and redesign the origin of the acoustics simulation by changing scene materials and other simulation parameters, or you can tweak individual acoustic parameters without needing to do another bake.
 
 ### Runtime
 After bake completion, the simulation results are downloaded into your scene as a lookup table. This table is used at runtime to drive the acoustic parameters for each sound source.

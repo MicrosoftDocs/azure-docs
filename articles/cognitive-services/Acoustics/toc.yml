@@ -1,5 +1,5 @@
 - name: Acoustics
-  href: index.md
+  href: What-Is-Acoustics.md
   items:
   - name: Getting Started
     href: GettingStarted.md
