@@ -8426,6 +8426,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/documentdb/table-powershell.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/azure/cosmos-db/table-introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/documentdb/documentdb-change-notification.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/change-feed-hl7-fhir-logic-apps",
             "redirect_document_id": false
@@ -12858,7 +12863,7 @@
         },
         {
             "source_path": "articles/service-fabric/service-fabric-update-vmss-sku.md",
-            "redirect_url": "/azure/service-fabric/service-fabric-cluster-upgrade-primary-nodetype-vm",
+            "redirect_url": "/azure/service-fabric/service-fabric-cluster-upgrade",
             "redirect_document_id": false
         },
         {
