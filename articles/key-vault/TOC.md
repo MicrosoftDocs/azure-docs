@@ -21,6 +21,7 @@
 ## [Soft-delete](key-vault-ovw-soft-delete.md)
 ## [Storage account keys](key-vault-ovw-storage-keys.md)
 ## [Throttling](key-vault-ovw-throttling.md)
+## [Virtual network service endpoints](key-vault-ovw-vnet-service-endpoints.md)
 
 
 # How-to guides
@@ -34,6 +35,7 @@
 ### [How to use Key Vault soft-delete Azure PowerShell](key-vault-soft-delete-powershell.md)
 ### [Use groups to grant access](key-vault-group-permissions-for-apps.md)
 ### [Secure your key vault](key-vault-secure-your-key-vault.md)
+### [Configure firewalls and virtual networks](key-vault-network-security.md)
 
 ## Automate
 ### [Azure automation](automation-manage-key-vault.md)
