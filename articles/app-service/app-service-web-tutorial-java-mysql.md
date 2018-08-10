@@ -239,7 +239,7 @@ When the plan is ready, the Azure CLI shows similar output to the following exam
 
 ### Create an Azure Web app
 
-In the Cloud Shell, use the [`az webapp create`](/cli/azure/appservice/web#az-appservice-web-create) CLI command to create a web app definition in the `myAppServicePlan` App Service plan. The web app definition provides a URL to access your application with and configures several options to deploy your code to Azure. 
+In the Cloud Shell, use the [`az webapp create`](/cli/azure/webapp#az-webapp-create) CLI command to create a web app definition in the `myAppServicePlan` App Service plan. The web app definition provides a URL to access your application with and configures several options to deploy your code to Azure. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
