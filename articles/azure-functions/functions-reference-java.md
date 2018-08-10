@@ -29,7 +29,7 @@ You can put more than one function in a project. Avoid putting your functions in
 
  Azure functions are invoked by a trigger, such as an HTTP request, a timer, or an update to data. Your function needs to process that trigger and any other inputs to produce one or more outputs.
 
-Use the Java annotations included in the [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) package to bind input and outputs to your methods. Sample code using the annotations is available in the [Java reference docs]((/java/api/com.microsoft.azure.functions.annotation) for each annotation and in the Azure Functions binding reference documentation, such as the one for [HTTP triggers](/azure/azure-functions/functions-bindings-http-webhook).
+Use the Java annotations included in the [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) package to bind input and outputs to your methods. Sample code using the annotations is available in the [Java reference docs](/java/api/com.microsoft.azure.functions.annotation) for each annotation and in the Azure Functions binding reference documentation, such as the one for [HTTP triggers](/azure/azure-functions/functions-bindings-http-webhook).
 
 Trigger inputs and outputs can also be defined in the [function.json](/azure/azure-functions/functions-reference#function-code) for your function instead of through annotations. Using `function.json` instead of annotations in this way is not recommended.
 
@@ -40,7 +40,8 @@ Example using annotations:
 
 ```java
 public class Function {
-    public String echo(@HttpTrigger(name = "req", methods = {"post"},  authLevel = AuthorizationLevel.ANONYMOUS) 
+    public String echo(@HttpTrigger(name = "req", 
+      methods = {"post"},  authLevel = AuthorizationLevel.ANONYMOUS) 
         String req, ExecutionContext context) {
         return String.format(req);
     }
