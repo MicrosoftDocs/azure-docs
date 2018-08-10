@@ -25,7 +25,7 @@ ms.author: vashan
 
 # Throttling errors retries and backoff in Azure Compute 
  
-Azure Compute requests may be throttled at a subscription and on a per-region basis to help with the overall performance of the service. We ensure that all the calls to the Azure Compute Resource Provider that manages resources under Microsoft.Compute namespace don't exceed the maximum allowed API request rate. This document describes API throttling, details on how to troubleshoot throttling issues, and best practices to avoid being throttled.  
+Azure Compute requests may be throttled at a subscription and on a per-region basis to help with the overall performance of the service. We ensure all the calls to the Azure Compute Resource Provider that manages resources under Microsoft.Compute namespace don't exceed the maximum allowed API request rate. This document describes API throttling, details on how to troubleshoot throttling issues, and best practices to avoid being throttled.  
 
 ## Throttling by Azure Resource Manager vs Resource Providers  
 
@@ -96,4 +96,4 @@ As illustrated above, every throttling error includes the `Retry-After` header, 
 
 ## Next steps
 
-For more information about X, see [Y](https://)
+For more information about retry guidance for other services in Azure, see [Retry guidance for specific services](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific)
