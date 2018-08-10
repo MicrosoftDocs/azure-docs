@@ -1,15 +1,14 @@
 ---
-title: Cognitive Services Speech SDK Documentation | Microsoft Docs
+title: Cognitive Services Speech SDK Documentation
 description: Release notes - what has changed in the most recent releases
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wolfma61
-manager: onano
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/17/2018
 ms.author: wolfma
 ---
 
@@ -31,19 +30,29 @@ ms.author: wolfma
 **Functional changes**
 
 * `StartContinuousRecognitionAsync()` supports long running recognition
-* The recognition result contains more fields: offset from the audio begining and duration (both in ticks) of the recognized text, additional values representing recognition status, e.g., `InitialSilenceTimeout`, `InitialBabbleTimeout`.
+* The recognition result contains more fields: offset from the audio beginning and duration (both in ticks) of the recognized text, additional values representing recognition status, e.g., `InitialSilenceTimeout`, `InitialBabbleTimeout`.
 * Support AuthorizationToken for creating factory instances.
 
 **Breaking changes**
 
 * Recognition events: NoMatch event type is merged into the Error event.
 * SpeechOutputFormat in C# is renamed to OutputFormat to keep aligned with C++.
+* The return type of some methods of the `AudioInputStream` interface slightly changed:
+   * In Java, the `read` method now returns `long` instead of `int`.
+   * In C#, the `Read` method now returns `uint` instead of `int`.
+   * In C++, the `Read` and `GetFormat` methods now return `size_t` instead of `int`.
+* C++: instances of audio input streams can now only be passed as a `shared_ptr`.
 
 **Bug fixes**
 
 * Fixed incorrect return values in result when `RecognizeAsync()` times out.
 * The dependency on media foundation libraries on Windows is removed. The SDK is now using Core Audio APIs.
 * Documentation fix: added a region page to describe what are the supported regions.
+
+**Known issues**
+
+* The Speech SDK for Android does not report speech synthesis results for translation.
+  This will be fixed in the next release.
 
 ## Cognitive Services Speech SDK 0.4.0: 2018-June release
 

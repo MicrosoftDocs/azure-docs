@@ -1,14 +1,13 @@
 ---
 title: Authenticate access to Azure Storage using Azure Active Directory (Preview) | Microsoft Docs
-description: Authenticate access to Azure Storage using Azure Active Directory (Preview).  
+description: Authenticate access to Azure Storage using Azure Active Directory (Preview).
 services: storage
 author: tamram
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: tamram
+ms.component: common
 ---
 
 # Authenticate access to Azure Storage using Azure Active Directory (Preview)

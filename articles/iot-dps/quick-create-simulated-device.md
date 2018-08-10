@@ -1,14 +1,15 @@
 ---
-title: Provision a simulated TPM device to Azure IoT Hub using C | Microsoft Docs
-description: Azure Quickstart - Create and provision a simulated TPM device using C device SDK for Azure IoT Hub Device Provisioning Service
-author: dsk-2015
-ms.author: dkshir
+title: This quickstart shows how to provision a simulated TPM device to Azure IoT Hub using C | Microsoft Docs
+description: In this quickstart you create and provision a simulated TPM device using C device SDK for Azure IoT Hub Device Provisioning Service
+author: wesmc7777
+ms.author: wesmc
 ms.date: 07/13/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 manager: timlt
 ms.custom: mvc
+#Customer intent: As a new IoT developer, I want simulate a TPM device using the C SDK so that I can learn how secure provisioning works.
 ---
 
 # Quickstart: Provision a simulated TPM device using the Azure IoT C SDK
@@ -71,7 +72,7 @@ In this section, you will build the Azure IoT C SDK, which includes the TPM devi
 
     If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
-    If the build succeeds, the last few output lines will look similar to the following output:
+    Once the build succeeds, the last few output lines will look similar to the following output:
 
     ```cmd/sh
     $ cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
@@ -106,7 +107,7 @@ In this section, you will build and execute a sample that will read the endorsem
 
 1. Launch Visual Studio and open the new solution file named `azure_iot_sdks.sln`. This solution file is located in the `cmake` folder you previously created in the root of the azure-iot-sdk-c git repository.
 
-2. On the Visual Studio menu, select **Build** > **Build** > **1 ALL_BUILD** to build all projects in the solution.
+2. On the Visual Studio menu, select **Build** > **Build Solution** to build all projects in the solution.
 
 3. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Tools** folder. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. 
 
@@ -119,7 +120,7 @@ In this section, you will build and execute a sample that will read the endorsem
 
 1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
-2. On the Device Provisioning Service summary, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
+2. Select the **Manage enrollments** tab, and then click the **Add individual enrollment** button at the top. 
 
 3. On **Add enrollment**, enter the following information, and click the **Save** button.
 

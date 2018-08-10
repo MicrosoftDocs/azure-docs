@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box Disk troubleshooting | Microsoft Docs 
-description: Describes how to issues seen in Azure Data Box Disk.
+description: Describes how to troubleshoot issues seen in Azure Data Box Disk.
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -14,14 +14,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/20/2018
+ms.date: 08/03/2018
 ms.author: alkohli
 ---
 # Troubleshoot issues in Azure Data Box Disk (Preview)
 
 This article applies to Microsoft Azure Data Box running Preview release. This article describes some of the complex workflows and management tasks that can be performed on the Data Box and Data Box Disk. 
 
-You can manage the Data Box using the Data Box service UI (referred to as the portal UI) and the local web UI for the device. Data Box Disk can only be managed via the Azure portal. This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage devices, and track the status of the order as it proceeds to the terminal stage.
+You can manage the Data Box Disk via the Azure portal. This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage devices, and track the status of the order as it proceeds to completion.
 
 This article includes the following tutorials:
 
@@ -59,11 +59,11 @@ To navigate to the path for copy log, go to the storage account associated with 
 
 Use the activity logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource. Through activity logs, you can determine:
 
-- what operations were taken on the resources in your subscription
-- who initiated the operation 
-- when the operation occurred
-- the status of the operation
-- the values of other properties that might help you research the operation
+- What operations were taken on the resources in your subscription.
+- Who initiated the operation. 
+- When the operation occurred.
+- The status of the operation.
+- The values of other properties that might help you research the operation.
 
 The activity log contains all write operations (such as PUT, POST, DELETE) performed on your resources but not the read operations (such as GET). 
 
@@ -76,7 +76,7 @@ Activity logs are retained for 90 days. You can query for any range of dates, as
 |-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | None<br><br>Data Box Disk unlock tool crashes.                                                                            | Bitlocker not installed. Ensure that the host computer that is running the Data Box Disk unlock tool has BitLocker installed.                                                                            |
 | The current .NET Framework is not supported. The supported versions are 4.5 and later.<br><br>Tool exits with a message.  | .NET 4.5 is not installed. Install .NET 4.5 or later on the host computer that runs the Data Box Disk unlock tool.                                                                            |
-| Could not unlock or verify any volumes. Contact Microsoft Support.  <br><br>The tool fails to unlock or verify any locked drive. | The tool could not unlock any of the unlocked drives with the supplied passkey. Contact Microsoft Support for next steps.                                                |
+| Could not unlock or verify any volumes. Contact Microsoft Support.  <br><br>The tool fails to unlock or verify any locked drive. | The tool could not unlock any of the locked drives with the supplied passkey. Contact Microsoft Support for next steps.                                                |
 | Following volumes are unlocked and verified. <br>Volume drive letters: E:<br>Could not unlock any volumes with the following passkeys: werwerqomnf, qwerwerqwdfda <br><br>The tool unlocks some drives and lists the successful and failed drive letters.| Partially succeeded. Could not unlock some of the drives with the supplied passkey. Contact Microsoft Support for next steps. |
 | Could not find locked volumes. Verify disk received from Microsoft is connected properly and is in locked state.          | The tool fails to find any locked drives. Either the drives are already unlocked or not detected. Ensure that the drives are connected and are locked.                                                           |
 | Fatal error: Invalid parameter<br>Parameter name: invalid_arg<br>USAGE:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Example: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Example: DataBoxDiskUnlock /SystemCheck<br>Example: DataBoxDiskUnlock /Help<br><br>/PassKeys:       Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.<br>/Help:           This option provides help on cmdlet usage and examples.<br>/SystemCheck:    This option checks if your system meets the requirements to run the tool.<br><br>Press any key to exit. | Invalid parameter entered. The only allowed parameteres are /SystemCheck, /PassKey, and /Help.                                                                            |

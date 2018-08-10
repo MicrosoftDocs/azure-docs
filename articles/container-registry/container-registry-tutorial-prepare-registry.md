@@ -86,7 +86,7 @@ When the replication is complete, the portal reflects *Ready* for both regions. 
 
 Now that you've configured geo-replication, build a container image and push it to your registry. You must first log in to your ACR instance before pushing images to it.
 
-Use the [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) command to authenticate and cache the credentials for your registry. Replace `<acrName>` with the name of the registry you created earlier.
+Use the [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) command to authenticate and cache the credentials for your registry. Replace `<acrName>` with the name of the registry you created earlier.
 
 ```azurecli
 az acr login --name <acrName>

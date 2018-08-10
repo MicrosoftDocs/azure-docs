@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
@@ -70,7 +70,7 @@ To view logs related to the Pass-through Authentication Agent, open the **Event 
 You should regularly check the contents of **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\** and delete the contents of this folder every 48 hours. 
 
 >[!IMPORTANT]
->If the Authentication Agent service is running, you'll not be able to delete the current log file in the folder. Stop the service before trying again. To avoid user sign-in failures, you should have already configured Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+>If the Authentication Agent service is running, you'll not be able to delete the current log file in the folder. Stop the service before trying again. To avoid user sign-in failures, you should have already configured Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 You can either review and delete these files using Windows Explorer or you can use the following script to perform the necessary actions:
 

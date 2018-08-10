@@ -25,7 +25,7 @@ The X.509 CA feature enables device authentication to IoT Hub using a Certificat
 
 ## Prerequisite
 
-Using the X.509 CA feature requires that you have an IoT Hub account.  [Learn how to create an IoT Hub instance](iot-hub-csharp-csharp-getstarted.md) if you don't already have one.
+Using the X.509 CA feature requires that you have an IoT Hub account.  [Learn how to create an IoT Hub instance](quickstart-send-telemetry-dotnet.md) if you don't already have one.
 
 ## How to get an X.509 CA certificate
 

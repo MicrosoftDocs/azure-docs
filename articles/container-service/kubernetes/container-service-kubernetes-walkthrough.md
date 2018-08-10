@@ -32,7 +32,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *westeurope* location.
 
@@ -57,13 +57,13 @@ Output:
 
 ## Create Kubernetes cluster
 
-Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#az_acs_create) command. The following example creates a cluster named *myK8sCluster* with one Linux master node and three Linux agent nodes.
+Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#az-acs-create) command. The following example creates a cluster named *myK8sCluster* with one Linux master node and three Linux agent nodes.
 
 ```azurecli-interactive 
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys
 ```
 
-In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#az_acs_create) command. 
+In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#az-acs-create) command. 
 
 After several minutes, the command completes and returns json formatted information about the cluster. 
 
@@ -199,7 +199,7 @@ You can now browse to the external IP address to see the Azure Vote App.
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)  
 
 ## Delete cluster
-When the cluster is no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, and all related resources.
+When the cluster is no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes --no-wait
