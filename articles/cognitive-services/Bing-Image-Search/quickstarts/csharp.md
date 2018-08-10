@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 8/9/2018
 ms.author: aahi
 ---
-# Quickstart: Send search queries using the REST API using C#
+# Quickstart: Send search queries using the REST API and C#
 
 The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
 

@@ -11,7 +11,7 @@ ms.date: 9/21/2017
 ms.author: v-jerkin
 ---
 
-# Quickstart: Send search queries using the REST API using Node.js
+# Quickstart: Send search queries using the REST API and Node.js
 
 The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
 
