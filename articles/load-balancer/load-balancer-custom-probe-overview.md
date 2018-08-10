@@ -40,7 +40,7 @@ Health probes can observe any port on a backend instance, including the port on 
 - [HTTP endpoints](#httpprobe)
 - [HTTPS endpoints](#httpsprobe)
 
-The available types of health probe varies by Load Balancer SKU:
+The available types of health probes vary depending on the Load Balancer SKU selected:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
