@@ -239,6 +239,8 @@ This example depicts a simple scenario. Real life scenarios may be more complex 
   Links to reference documentation for PowerShell cmdlets to manage key vault access policy.
 
 ## Next Steps
+[Configure Key Vault firewalls and virtual networks](key-vault-network-security.md)
+
 For a getting started tutorial for an administrator, see [Get Started with Azure key vault](key-vault-get-started.md).
 
 For more information about usage logging for key vault, see [Azure key vault Logging](key-vault-logging.md).
