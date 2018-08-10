@@ -23,11 +23,11 @@ ms.author: routlaw
 
 Your Azure function should be a stateless class method that processes input and produces output. Although you can write instance methods, your function must not depend on any instance fields of the class. All function methods must have a `public` access modifier.
 
-You can put more than one functions in one project. We recommend avoiding putting your functions into separate jars.
+You can put more than one function in a project. Avoid putting your functions into separate jars.
 
 ## Triggers and annotations
 
- Azure functions are usually invoked by a trigger. Your function needs to process that trigger and any other inputs to produce one or more outputs.
+ Azure functions are invoked by a trigger, such as an HTTP request, a timer, or an update to data. Your function needs to process that trigger and any other inputs to produce one or more outputs.
 
 Use the Java annotations included in the [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) package to bind input and outputs to your methods. Sample code using the annotations is available in the [Java reference docs]((/java/api/com.microsoft.azure.functions.annotation) for each annotation and in the Azure Functions binding reference documentation, such as the one for [HTTP triggers](/azure/azure-functions/functions-bindings-http-webhook).
 
@@ -85,7 +85,7 @@ with the corresponding `function.json`:
 
 ## Third-party libraries 
 
-Azure Functions supports the use of third party libraries. By default, all dependencies specified in your project `pom.xml` file will be automatically bundled during the `mvn package` goal. For libraries not specified as dependencies in the `pom.xml` file, place them in a `lib` directory in the function's root directory. Dependencies placed in the `lib` directory will be added to the system class loader for your function application at runtime.
+Azure Functions supports the use of third-party libraries. By default, all dependencies specified in your project `pom.xml` file will be automatically bundled during the `mvn package` goal. For libraries not specified as dependencies in the `pom.xml` file, place them in a `lib` directory in the function's root directory. Dependencies placed in the `lib` directory will be added to the system class loader at runtime.
 
 ## Data Types
 
@@ -141,7 +141,7 @@ Empty input values could be `null` as your functions argument, but a recommended
 
 ## Function method overloading
 
-You are allowed to overload function methods with the same name but with different types. For example, you can have both `String echo(String s)` and `String echo(MyType s)` in a class. Azure Functions will decides which method to invoke based on the input type (for HTTP input, MIME type `text/plain` leads to `String` while `application/json` represents `MyType`).
+You are allowed to overload function methods with the same name but with different types. For example, you can have both `String echo(String s)` and `String echo(MyType s)` in a class. Azure Functions decides which method to invoke based on the input type (for HTTP input, MIME type `text/plain` leads to `String` while `application/json` represents `MyType`).
 
 ## Inputs
 
@@ -174,9 +174,9 @@ When this function is triggered, the HTTP request is passed to the function by `
 
 Outputs can be expressed both in return value or output parameters. If there is only one output, you are recommended to use the return value. For multiple outputs, you have to use output parameters.
 
-Return value is the simplest form of output, you just return the value of any type, and Azure Functions runtime will try to marshal it back to the actual type (such as a HTTP response).  You could apply any output annotations to the function method (the name property of the annotation has to be $return) to define the return value output.
+Return value is the simplest form of output, you just return the value of any type, and Azure Functions runtime will try to marshal it back to the actual type (such as an HTTP response).  You could apply any output annotations to the function method (the name property of the annotation has to be $return) to define the return value output.
 
-To produce multiple output values, use `OutputBinding<T>` type defined in the `azure-functions-java-library` package. If you need to make a HTTP response and push a message to a queue as well, you can write something like:
+To produce multiple output values, use `OutputBinding<T>` type defined in the `azure-functions-java-library` package. If you need to make an HTTP response and push a message to a queue as well, you can write something like:
 
 For example, a blob content copying function could be defined as the following code. `@StorageAccount` annotation is used here to prevent the duplicating of the connection property for both `@BlobTrigger` and `@BlobOutput`.
 
@@ -199,7 +199,7 @@ Use `OutputBinding<byte[]`>  to make a binary output value (for parameters); for
 
 ## Specialized Types
 
-Sometimes a function must have detailed control over inputs and outputs. Specialized types in the `azure-functions-java-core` package are provided for you to manipulate request information and tailor the return status of a HTTP trigger:
+Sometimes a function must have detailed control over inputs and outputs. Specialized types in the `azure-functions-java-core` package are provided for you to manipulate request information and tailor the return status of an HTTP trigger:
 
 | Specialized Type      |       Target        | Typical Usage                  |
 | --------------------- | :-----------------: | ------------------------------ |
@@ -260,9 +260,9 @@ public class Function {
 
 ## Environment variables
 
-You should keep secret information such as keys or tokens out of your source code for security reasons. This can be achieved by putting this values in environment variables and reading the value of the variables when your function executes.
+Keep secret information such as keys or tokens out of your source code for security reasons. Use keys and tokens in your function code by reading them from environment variables.
 
-To set environment variables when running Azure Functions locally, you may choose to add these variables to the local.settings.json file. If one is not present in the root directory of your function project, you should create one. Here is what the file should look like:
+To set environment variables when running Azure Functions locally, you may choose to add these variables to the local.settings.json file. If one is not present in the root directory of your function project, you can create one. Here is what the file should look like:
 
 ```xml
 {
