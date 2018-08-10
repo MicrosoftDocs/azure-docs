@@ -81,5 +81,5 @@ In addition, a list of partners has ported our C SDK on to more platforms and th
 | Espressif           | ESP32                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  |
 
 ## Next steps
-[Device and service SDKs](iot-hub-devguide-sdks.md)
-[Porting Guidance](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
+- [Device and service SDKs](iot-hub-devguide-sdks.md)
+- [Porting Guidance](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
