@@ -34,4 +34,4 @@ The IoT solution accelerators support the following Cipher Suites, in this order
 
 Read about IoT Hub security in [Control access to IoT Hub][lnk-devguide-security] in the IoT Hub developer guide.
 
-[lnk-devguide-security]: /azure/iot-hub/iot-hub-devguide-security.md
+[lnk-devguide-security]: /azure/iot-hub/iot-hub-devguide-security

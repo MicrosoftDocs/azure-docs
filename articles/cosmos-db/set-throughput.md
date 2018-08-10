@@ -2,14 +2,14 @@
 title: Provision throughput for Azure Cosmos DB | Microsoft Docs
 description: Learn  how to set provisioned throughput for your Azure Cosmos DB containsers, collections, graphs, and tables.
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
-ms.author: sngun
+ms.author: andrl
 
 ---
 
