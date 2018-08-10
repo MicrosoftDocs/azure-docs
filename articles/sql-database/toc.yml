@@ -232,6 +232,18 @@
         href: sql-database-always-encrypted.md
       - name: Use the Azure key vault
         href: sql-database-always-encrypted-azure-key-vault.md
+    - name: TDE with Azure SQL
+      items:
+      - name: TDE with Azure SQL  
+        href: transparent-data-encryption-azure-sql.md
+      - name: TDE with Bring Your Own Key
+        href: transparent-data-encryption-byok-azure-sql.md
+      - name: Configure TDE with BYOK
+        href: transparent-data-encryption-byok-azure-sql-configure.md
+      - name: Rotate TDE BYOK keys
+        href: transparent-data-encryption-byok-azure-sql-key-rotation.md
+      - name: Remove TDE protector
+        href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
   - name: Elastic scalability
     items:
     - name: Resource scalability
@@ -290,6 +302,12 @@
       href: sql-database-single-database-monitor.md
     - name: Perf recommendations
       href: sql-database-advisor.md
+    - name: Intelligent query processing
+      items:
+      - name: Intelligent query processing
+        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+      - name: Adaptive query processing
+        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
     - name: Automatic tuning
       items:
       - name: Automatic tuning

@@ -27,7 +27,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Apps4Rent](https://www.apps4rent.com)|
 |[Apptus](https://apttus.com)|
 |[ArcherPoint, Inc.](https://www.archerpoint.com)|
-|[ATLGaming]()|
+|ATLGaming|
 |[Atmosera, Inc.](https://www.atmosera.com)|
 |[Atos IT Solutions and Services](https://atos.net)|
 |[Avolve Software Corp.](https://www.avolvesoftware.com)|

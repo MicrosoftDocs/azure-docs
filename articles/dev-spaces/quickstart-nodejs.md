@@ -38,9 +38,9 @@ The Azure CLI and the Azure Dev Spaces extension can be installed and run on Win
 
 Follow these steps to set up Azure Dev Spaces:
 
-1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.38 or higher).
+1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.43 or higher).
 1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Download the [Azure Dev Spaces extension](https://aka.ms/get-azds-code) for VS Code. Click Install once on the extension's Marketplace page, and again in VS Code.
+1. Download the [Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) for VS Code. Click Install once on the extension's Marketplace page, and again in VS Code.
 
 ## Build and run code in Kubernetes
 
