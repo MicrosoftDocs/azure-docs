@@ -113,7 +113,7 @@ The device state condition excludes hybrid Azure AD joined devices and devices m
 
 ![Configure device state](./media/conditions/112.png)
 
-If you want to block access for unmanaged devices, implement [device-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
+If you want to block access for unmanaged devices, implement [device-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
 
 
 ## Locations
@@ -147,7 +147,7 @@ For a list of the client apps you can use in your conditional access policy, see
 
 Common use cases for this condition are policies with the following protections: 
 
-- Require a [compliant device](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) for mobile and desktop applications that download large amounts of data to the device. At the same time, allow browser access from any device.
+- Require a [compliant device](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) for mobile and desktop applications that download large amounts of data to the device. At the same time, allow browser access from any device.
 
 - Block access from web applications but allow access from mobile and desktop applications.
 
@@ -171,7 +171,7 @@ Applying this condition only to supported platforms is equal to all device platf
 
 - [Set up SharePoint Online and Exchange Online for Azure Active Directory conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
  
-- [Azure Active Directory app-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). 
+- [Azure Active Directory app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
 
 
 ### Legacy authentication  
