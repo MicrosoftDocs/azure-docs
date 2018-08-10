@@ -5,6 +5,7 @@ services: azure-databricks
 ms.service: azure-databricks
 author: jamesbak
 ms.author: jamesbak
+ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
