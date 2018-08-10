@@ -21,22 +21,22 @@
     displayName: get started, subscription key
   - name: Recognize speech
     items:
-    - name: 'C# (.NET on Windows)'
+    - name: 'Using C# (.NET on Windows)'
       href: quickstart-csharp-dotnet-windows.md
       displayName: recognize speech, speech recognition, speech to text, stt
-    - name: 'C# (.NET Core on Windows)'
+    - name: 'Using C# (.NET Core on Windows)'
       href: quickstart-csharp-dotnetcore-windows.md
       displayName: recognize speech, speech recognition, speech to text, stt
-    - name: 'C# (Universal Windows Platform)'
+    - name: 'Using C# (Universal Windows Platform)'
       href: quickstart-csharp-uwp.md
       displayName: 'recognize speech, speech recognition, speech to text, stt, C#'
-    - name: C++ (Windows)
+    - name: 'Using C++ (Windows)'
       href: quickstart-cpp-windows.md
       displayName: recognize speech, speech recognition, speech to text, stt
-    - name: C++ (Linux)
+    - name: 'Using C++ (Linux)'
       href: quickstart-cpp-linux.md
       displayName: recognize speech, speech recognition, speech to text, stt
-    - name: Java (Android)
+    - name: 'Using Java (Android)'
       href: quickstart-java-android.md
       displayName: recognize speech, speech recognition, speech to text, stt
   - name: Get started with Speech Devices SDK
