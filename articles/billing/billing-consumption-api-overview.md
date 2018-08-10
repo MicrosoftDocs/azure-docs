@@ -100,7 +100,7 @@ For more information, see the technical specification for the [Budgets API](http
 
 ## Reservation Recommendations API
 
-Use this API to get recommendations for purchasing VM reserved instances. Recommendations are designed to allows customers to analyze expected cost savings and purchase amounts. 
+Use this API to get recommendations for purchasing Reserved VM Instances. Recommendations are designed to allows customers to analyze expected cost savings and purchase amounts. 
 
 The API includes:
 

@@ -27,10 +27,6 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: media/index/logo_NET.svg
-      text: .NET
-      href: /azure/key-vault/quick-create-net
-    - image: 
         src: media/index/cli.svg
       text: Azure CLI
       href: /azure/key-vault/quick-create-cli
@@ -42,6 +38,15 @@ sections:
         src: media/index/portal.svg
       text: Azure Portal
       href: /azure/key-vault/quick-create-portal
+    - image: 
+        src: media/index/logo_NET.svg
+      text: .NET
+      href: /azure/key-vault/quick-create-net
+    - image: 
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: /azure/key-vault/quick-create-node
+    
 - title: Step-by-Step Tutorials
   items:
   - type: list
@@ -53,11 +58,6 @@ sections:
       image: 
         src: media/index/get-started.svg
         href: /azure/key-vault/key-vault-use-from-web-application
-    - title:  Set up Azure Key Vault with end-to-end key rotation and auditing
-      href: /azure/key-vault/key-vault-key-rotation-log-monitoring
-      image: 
-        src: media/index/tutorial.svg
-        href: /azure/key-vault/key-vault-key-rotation-log-monitoring
 - title: Reference
   items:
   - type: list
