@@ -48,6 +48,7 @@ Development resources:
 * [Docker CE](https://docs.docker.com/install/). 
 
 ## Create a container registry
+
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
 
 You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services that are available in the cloud are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry. 
@@ -56,21 +57,34 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 
     ![Create a container registry](./media/tutorial-deploy-function/create-container-registry.png)
 
-2. Enter a name for your registry, and choose a subscription.
-3. For the resource group, it's recommended that you use the same resource group name that contains your IoT hub. By keeping all of the resources together in the same group, you can manage them together. For example, when the resource group that's used for testing is deleted, all test resources in the group are deleted. 
-4. Set the SKU to **Basic**, and toggle **Admin user** to **Enable**. 
+2. Provide the following values to create your container registry:
+
+   | Field | Value | 
+   | ----- | ----- |
+   | Registry name | Provide a unique name. |
+   | Subscription | Select a subscription from the drop-down list. |
+   | Resource group | We recommend that you use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials. For example, **IoTEdgeResources**. |
+   | Location | Choose a location close to you. |
+   | Admin user | Set to **Enable**. |
+   | SKU | Select **Basic**. | 
+
 5. Select **Create**.
+
 6. After your container registry is created, browse to it, and then select **Access keys**. 
+
 7. Copy the values for **Login server**, **Username**, and **Password**. You use these values later in the tutorial. 
 
 ## Create a function project
-The following steps create an IoT Edge function by using Visual Studio Code and the Azure IoT Edge extension.
 
-1. Open Visual Studio Code.
-2. Open the VS Code integrated terminal by selecting **View** > **Integrated Terminal**. 
+The Azure IoT Edge extension for Visual Studio Code that you installed in the prerequisites provides management capabilities as well as some code templates. In this section, you use Visual Studio Code to create an IoT Edge solution that contains an Azure function. 
+
+1. Open Visual Studio Code on your development machine.
+
 2. Open the VS Code command palette by selecting **View** > **Command Palette**.
-3. In the command palette, enter and run the command **Azure: Sign in**. Follow the instructions to sign in your Azure account. If you're already signed in, you can skip this step.
-3. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
+
+3. In the command palette, enter and run the command **Azure: Sign in**. Follow the instructions to sign in your Azure account.
+
+4. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. Follow the prompts in the command palette to create your solution.
 
    1. Select the folder where you want to create the solution. 
    2. Provide a name for your solution or accept the default **EdgeSolution**.
@@ -78,9 +92,11 @@ The following steps create an IoT Edge function by using Visual Studio Code and 
    4. Name your module **CSharpFunction**. 
    5. Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like \<registry name\>.azurecr.io/csharpfunction.
 
+   ![Provide Docker image repository](./media/tutorial-deploy-function/repository.png)
+
 4. The VS Code window loads your IoT Edge solution workspace: a \.vscode folder, a modules folder, a deployment manifest template file. and a \.env file. In the VS Code explorer, open **modules** > **CSharpFunction** > **EdgeHubTrigger-Csharp** > **run.csx**.
 
-5. Replace the contents of the file with the following code:
+5. Replace the contents of the **run.csx** file with the following code:
 
    ```csharp
    #r "Microsoft.Azure.Devices.Client"
@@ -144,21 +160,27 @@ The following steps create an IoT Edge function by using Visual Studio Code and 
 
 In the previous section, you created an IoT Edge solution and added code to the **CSharpFunction** to filter out messages where the reported machine temperature is less than the acceptable threshold. Now you need to build the solution as a container image and push it to your container registry.
 
-1. Sign in to Docker by entering the following command in the Visual Studio Code integrated terminal. Then you can push your module image to your Azure container registry: 
+In this section, you provide the credentials for your container registry twice. The first is to sign in locally from your development machine so that Visual Studio Code can push images to your registry. The second is in the **.env** file of your IoT Edge solution, which gives your IoT Edge device permissions to pull images from your registry. 
+
+1. Open the VS Code integrated terminal by selecting **View** > **Integrated Terminal**. 
+
+1. Sign in to your container registry by entering the following command in the integrated terminal. Then you can push your module image to your Azure container registry: 
      
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
     ```
-    Use the username and login server that you copied from your Azure container registry earlier. You're prompted for the password. Paste your password into the prompt and press **Enter**.
+    Use the username and login server that you copied from your Azure container registry earlier. When you're prompted for the password, paste the password for your container registry and press **Enter**.
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>
     Login Succeeded
     ```
 
-2. In the VS Code explorer, open the deployment.template.json file in your IoT Edge solution workspace. This file tells the IoT Edge runtime which modules to deploy to a device. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
+2. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the IoT Edge runtime which modules to deploy to a device. Notice that your Function module, **CSharpFunction** is listed along with the **tempSensor** module that provides test data. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
-3. Find the **registryCredentials** section in the deployment manifest. Update the **username**, **password**, and **address** with the credentials from your container registry. This section gives the IoT Edge runtime on your device permission to pull the container images that you store in your private registry. The actual username and password pairs are stored in the .env file, which is ignored by git.
+   ![View your module in the deployment manifest](./media/tutorial-deploy-function/deployment-template.png)
+
+3. Open the **.env** file in your IoT Edge solution workspace. This git-ignored file stores your container registry credentials so that you don't have to put them in the deployment manifest template. Provide the **username** and **password** for your container registry. 
 
 5. Save this file.
 
@@ -208,46 +230,13 @@ To stop monitoring messages, run the command **Azure IoT Hub: Stop monitoring D2
 
 ## Clean up resources
 
-[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)]
+If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them. You can also keep using the same IoT Edge device as a test device. 
 
-Remove the IoT Edge service runtime that's based on your IoT device platform (Linux or Windows).
+Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges. 
 
-#### Windows
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-Remove the IoT Edge runtime.
-
-```Powershell
-stop-service iotedge -NoWait
-sleep 5
-sc.exe delete iotedge
-```
-
-Delete the containers that were created on your device. 
-
-```Powershell
-docker rm -f $(docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor" --filter "name=CSharpFunction")
-```
-
-#### Linux
-
-Remove the IoT Edge runtime.
-
-```bash
-sudo apt-get remove --purge iotedge
-```
-
-Delete the containers that were created on your device. 
-
-```bash
-sudo docker rm -f $(sudo docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor" --filter "name=CSharpFunction")
-```
-
-Remove the container runtime.
-
-```bash
-sudo apt-get remove --purge moby
-```
-
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## Next steps

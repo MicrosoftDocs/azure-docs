@@ -34,7 +34,6 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 An Azure IoT Edge device:
 
 * You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
-* The Azure Machine Learning module does not support ARM processors.
 
 Cloud resources:
 
@@ -218,32 +217,14 @@ You could use the Azure portal to deploy your Node.ms module to an IoT Edge devi
 
 ## Clean up resources 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
+If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them. You can also keep using the same IoT Edge device as a test device. 
 
-If you will be continuing to the next recommended article, you can keep the resources and configurations you've already created and reuse them.
+Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges. 
 
-Otherwise, you can delete the local configurations and the Azure resources created in this article to avoid charges. 
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-> [!IMPORTANT]
-> Deleting Azure resources and resource group is irreversible. Once deleted, the resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
->
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
-To delete only the IoT Hub execute the following command using your hub name and resource group name:
-
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-To delete the entire resource group by name:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
-
-2. In the **Filter by name...** textbox, type the name of the resource group containing your IoT Hub. 
-
-3. To the right of your resource group in the result list, click **...** then **Delete resource group**.
-
-4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
 
 ## Next steps
 
