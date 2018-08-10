@@ -24,9 +24,9 @@ This guide describes step-by-step instructions to configure Key Vault firewalls 
 2. Click on 'Firewalls and virtual networks'.
 3. Click on 'Selected networks' under 'Allow access from:'.
 4. To add existing virtual networks to firewalls and virtual network rules, click '+ Add existing virtual networks'.
-5. In the new blade that pops up, select the subscription, virtual network(s), and subnet(s) that you want to allow access to this key vault. If the virtual network(s) and subnet(s) you select do not have service endpoints enabled you'll a message as shown below. Click 'Enable' after confirming that you want to enable service endpoints for the listed the virtual network(s) and subnet(s). It may take up to 15 minutes to take effect.
+5. In the new blade that pops up, select the subscription, virtual network(s), and subnet(s) that you want to allow access to this key vault. If the virtual network(s) and subnet(s) you select, do not have service endpoints enabled you'll see a message saying, "The following networks don't have service endpoints enavled...". Click 'Enable' after confirming that you want to enable service endpoints for the listed the virtual network(s) and subnet(s). It may take up to 15 minutes to take effect.
 6. You can also add new virtual network(s) and subnet(s) and then enable service endpoints for the newly created virtual network(s) and subnet(s), by clicking '+ Add new virtual network' and following prompts.
-7. Under 'IP Networks' you can add IPv4 address ranges by typing IPv4 address ranges in [CIDR (Classless Inter-domain Routing) notation](https://tools.ietf.org/html/rfc4632) or individual IP addresses.
+7. Under 'IP Networks', you can add IPv4 address ranges by typing IPv4 address ranges in [CIDR (Classless Inter-domain Routing) notation](https://tools.ietf.org/html/rfc4632) or individual IP addresses.
 8. Click 'Save'.
 
 ## Azure CLI 2.0
