@@ -1,6 +1,6 @@
 ---
-title: Quickstart: Set and retrieve a secret from Azure Key Vault using a Node Web App | Microsoft Docs
-description: Quickstart: Set and retrieve a secret from Azure Key Vault using a Node Web App 
+title: Quickstart- Set and retrieve a secret from Azure Key Vault using a Node Web App | Microsoft Docs
+description: Quickstart- Set and retrieve a secret from Azure Key Vault using a Node Web App 
 services: key-vault
 documentationcenter: 
 author: prashanthyv
