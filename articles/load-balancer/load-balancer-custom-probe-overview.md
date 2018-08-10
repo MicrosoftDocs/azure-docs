@@ -40,7 +40,7 @@ Health probes can observe any port on a backend instance, including the port on 
 - [HTTP endpoints](#httpprobe)
 - [HTTPS endpoints](#httpsprobe)
 
-The available type of health probe varies by Load Balancer SKU:
+The available types of health probes vary depending on the Load Balancer SKU selected:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ The available type of health probe varies by Load Balancer SKU:
 
 For UDP load balancing, you should generate a custom health probe signal for the backend instance using either a TCP, HTTP, or HTTPS health probe.
 
-When using [HA Ports load balancing rules](load-balancer-ha-ports-overview.md) with [Standard Load Balancer](load-balancer-standard-overview.md), all ports are load balanced and a single health probe response should reflect the status of the entire instance.  
+When using [HA Ports load balancing rules](load-balancer-ha-ports-overview.md) with [Standard Load Balancer](load-balancer-standard-overview.md), all ports are load balanced and a single health probe response must reflect the status of the entire instance.  
 
 You should not NAT or proxy a health probe through the instance which receives the health probe to another instance in your VNet as this can lead to cascading failures in your scenario.
 
