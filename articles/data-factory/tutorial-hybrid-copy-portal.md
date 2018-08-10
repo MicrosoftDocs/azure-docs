@@ -266,15 +266,15 @@ The name of the data factory must be *globally unique*. If you see the following
 
 1. You should be back in the window with the sink dataset open. On the **Connection** tab, take the following steps: 
 
-       a. In **Linked service**, confirm that **AzureStorageLinkedService** is selected.
+    a. In **Linked service**, confirm that **AzureStorageLinkedService** is selected.
 
-       b. For the **folder**/ **Directory** part of **File path**, enter **adftutorial/fromonprem**. If the output folder doesn't exist in the adftutorial container, Data Factory automatically creates the output folder.
+    b. For the **folder**/ **Directory** part of **File path**, enter **adftutorial/fromonprem**. If the output folder doesn't exist in the adftutorial container, Data Factory automatically creates the output folder.
 
-       c. For the **file name** part of **File path**, select **Add dynamic content**.   
+    c. For the **file name** part of **File path**, select **Add dynamic content**.   
 
     ![dynamic file name value](./media/tutorial-hybrid-copy-portal/file-name.png)
 
-       d. Add `@CONCAT(pipeline().RunId, '.txt')`, select **Finish**. This will rename the file with PipelineRunID.txt. 
+    d. Add `@CONCAT(pipeline().RunId, '.txt')`, select **Finish**. This will rename the file with PipelineRunID.txt. 
 
     ![dynamic expression for resolving file name](./media/tutorial-hybrid-copy-portal/add-dynamic-file-name.png)
 
