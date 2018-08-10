@@ -151,3 +151,7 @@ The following shows an example Bing implementation that uses expanded queries. I
 ## Throttling requests
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
+
+## Next steps
+
+If you haven't tried the Bing Image Search API before, Try a [quickstart](../quickstarts/csharp.md). If you're looking for something more complex, try the tutorial for creating a [single-page web app](../tutorial-bing-image-search-single-page-app?branch=master)
