@@ -193,7 +193,6 @@ Set-AzsRegistration `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
     -AgreementNumber <EA agreement number> `
     -BillingModel Capacity
-    -UsageReportingEnabled False
     -RegistrationName $RegistrationName
 ```
    > [!Note]  
