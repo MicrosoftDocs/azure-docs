@@ -30,6 +30,6 @@ Bing Visual Search provides the following client SDKs that you can use to exerci
 SDK samples for each language include a ReadMe file with prerequisites for using the SDK along with steps for installing and running the samples.
 
 ### SDK tools
-Ready to use SDK tools to explore capabilities of Bing Visual Search can be found in this Git Repo: [Bing Visual Search tools](https://github.com/Azure-Samples/bing-visualsearch-tools)
+SDK tools to explore capabilities of Bing Visual Search can be found in this Git Repo: [Bing Visual Search tools](https://github.com/Azure-Samples/bing-visualsearch-tools)
 
 
