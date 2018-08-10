@@ -40,7 +40,7 @@ Health probes can observe any port on a backend instance, including the port on 
 - [HTTP endpoints](#httpprobe)
 - [HTTPS endpoints](#httpsprobe)
 
-The available type of health probe varies by Load Balancer SKU:
+The available types of health probes vary depending on the Load Balancer SKU selected:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ The available type of health probe varies by Load Balancer SKU:
 
 For UDP load balancing, you should generate a custom health probe signal for the backend instance using either a TCP, HTTP, or HTTPS health probe.
 
-When using [HA Ports load balancing rules](load-balancer-ha-ports-overview.md) with [Standard Load Balancer](load-balancer-standard-overview.md), all ports are load balanced and a single health probe response should reflect the status of the entire instance.  
+When using [HA Ports load balancing rules](load-balancer-ha-ports-overview.md) with [Standard Load Balancer](load-balancer-standard-overview.md), all ports are load balanced and a single health probe response must reflect the status of the entire instance.  
 
 You should not NAT or proxy a health probe through the instance which receives the health probe to another instance in your VNet as this can lead to cascading failures in your scenario.
 
@@ -65,7 +65,7 @@ A TCP probe fails when:
 * The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of failed probe requests, which were configured to go unanswered before marking the probe down.
 * The probe receives a TCP reset from the instance.
 
-### <a name="httpprobe"></a><a name="httpsprobe"></a> HTTP / HTTPS probe
+### <a name="httpprobe"></a> <a name="httpsprobe"></a> HTTP / HTTPS probe
 
 > [!NOTE]
 > HTTPS probe is only available for [Standard Load Balancer](load-balancer-standard-overview.md).
@@ -151,9 +151,9 @@ If you have multiple interfaces on your VM, you need to insure you respond to th
 
 ## Monitoring
 
-All [Standard Load Balancer](load-balancer-standard-overview.md) exposes health probe status as multi-dimensional metrics per instance via Azure Monitor.
+Both public and internal [Standard Load Balancer](load-balancer-standard-overview.md) expose per endpoint and backend instance health probe status as multi-dimensional metrics through Azure Monitor. This can then be consumed by other Azure services or 3rd party applications. 
 
-Basic Load Balancer exposes health probe status per backend pool via Log Analytics.  This is only available for public Basic Load Balancers and not available for internal Basic Load Balancers.  You can use [log analytics](load-balancer-monitor-log.md) to check on the public load balancer probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about load balancer health status.
+Basic public Load Balancer exposes health probe status summarized per backend pool via Log Analytics.  This is not available for internal Basic Load Balancers.  You can use [log analytics](load-balancer-monitor-log.md) to check on the public load balancer probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about load balancer health status.
 
 ## Limitations
 

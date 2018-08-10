@@ -150,7 +150,7 @@ Apply the following normalization to your text before importing it.
 *   Decimal point should be "," and not "."
 *   Time separator between hours and minutes should be ":" and not ".": 12:00 Uhr
 *   Abbreviations such as 'ca.' aren't replaced. We recommend you use the full form.
-*   The five main mathematical operators are removed: +, -, \*, /. We recommend replacing them with their literal form: plus, minus, mal, geteilt.
+*   The four main mathematical operators are removed: +, -, \*, /. We recommend replacing them with their literal form: plus, minus, mal, geteilt.
 *   Same applies for comparison operators (=, <, >) - gleich, kleiner als, grösser als
 *   Use fractions, such as 3/4, in word form (such as 'drei viertel' instead of ¾)
 *   Replace the € symbol with the word form "Euro"

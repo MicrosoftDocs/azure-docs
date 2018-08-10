@@ -28,7 +28,11 @@ Each time a module image is deployed to a device and started by the IoT Edge run
 
 ![Module images in cloud - module instances on devices][1]
 
-In implementation, modules images exist as container images in a repository, and module instances are containers on devices. As use cases for Azure IoT Edge grow, new types of module images and instances will be created. For example, resource constrained devices cannot run containers so may require module images that exist as dynamic link libraries and instances that are executables. 
+In implementation, modules images exist as container images in a repository, and module instances are containers on devices. 
+
+<!--
+As use cases for Azure IoT Edge grow, new types of module images and instances will be created. For example, resource constrained devices cannot run containers so may require module images that exist as dynamic link libraries and instances that are executables. 
+-->
 
 ## Module identities
 
