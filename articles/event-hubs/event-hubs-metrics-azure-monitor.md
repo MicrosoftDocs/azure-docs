@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2018
-ms.author: sethm
+ms.author: shvija
 
 ---
 # Azure Event Hubs metrics in Azure Monitor (preview)

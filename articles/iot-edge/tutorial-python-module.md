@@ -35,7 +35,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 An Azure IoT Edge device:
 
 * You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md).
-* Python modules for IoT Edge don't support ARM processors or Windows devices.
+* Python modules for IoT Edge don't Windows devices.
 
 Cloud resources:
 
@@ -49,6 +49,9 @@ Development resources:
 * [Docker CE](https://docs.docker.com/engine/installation/). 
 * [Python](https://www.python.org/downloads/).
 * [Pip](https://pip.pypa.io/en/stable/installing/#installation) for installing Python packages (typically included with your Python installation).
+
+   >[!Note]
+   >Ensure that your `bin` folder is on your path for your platform. Typically `~/.local/` for UNIX and macOS, or `%APPDATA%\Python` on Windows.
 
 ## Create a container registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
@@ -76,6 +79,8 @@ Use the Python package **cookiecutter** to create a Python solution template tha
     ```cmd/sh
     pip install --upgrade --user cookiecutter
     ```
+   >[!Note]
+   >Ensure the directory where cookiecutter will be installed is in your environment’s `Path` in order to make it possible to invoke it from a command prompt.
 
 3. Select **View** > **Command Palette** to open the VS Code command palette. 
 
@@ -198,7 +203,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 4. Save this file.
 
-5. In the VS Code explorer, right-click the deployment.template.json file and select **Build IoT Edge solution**. 
+5. In the VS Code explorer, right-click the deployment.template.json file and select **Build and Push IoT Edge solution**. 
 
 When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a deployment.json file in a new folder named **config**. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the Python code, and then push the code to the container registry that you specified when you initialized the solution. 
 
