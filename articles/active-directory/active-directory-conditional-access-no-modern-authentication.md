@@ -106,6 +106,7 @@ To effectively protect access to Exchange Online from Exchange ActiveSync, you c
 
 In addition to modern authentication, Exchange Online also supports legacy authentication protocols. If legacy authentication protocols are enabled, your conditional access policies for Exchange Online are not enforced for clients that don't use modern authentication.
 
+
 You can disable legacy authentication protocols for Exchange Online by setting AD FS rules. This blocks access from:
 
 - Older Office clients, such as Office 2013 that don't have modern authentication enabled 
@@ -127,6 +128,8 @@ By applying the following three rules:
     - Modern authentication traffic
 - You block access for: 
     - Legacy client apps from the extranet
+    
+For the following rules to effectively block legacy authentication, you first need to delete the default "Permit Access to All Users" authorization rule on ADFS.
 
 **Rule 1:**
 
@@ -157,6 +160,8 @@ By applying the following three rules:
     - Modern authentication traffic
 - You block access for: 
     - Legacy apps from any location
+
+For the following rules to effectively block legacy authentication, you first need to delete the default "Permit Access to All Users" authorization rule on ADFS.
 
 ##### Rule 1
     @RuleName = "Allow all intranet traffic only for browser and modern authentication clients"
