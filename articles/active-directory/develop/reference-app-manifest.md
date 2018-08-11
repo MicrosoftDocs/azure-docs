@@ -26,6 +26,9 @@ Apps that integrate with Azure Active Directory (Azure AD) must be registered wi
 
 ## Manifest reference
 
+> [!NOTE]
+> If you can't see the descriptions, maximize your browser window or scroll/swipe to see the descriptions.
+
 >[!div class="mx-tdBreakAll"]
 >[!div class="mx-tdCol2BreakAll"]
 
