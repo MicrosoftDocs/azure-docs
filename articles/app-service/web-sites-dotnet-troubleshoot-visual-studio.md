@@ -130,7 +130,7 @@ public ActionResult About()
     return View();
 }
 ```
-4. [Set a breakpoint](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) on the `ViewBag.Message` line.
+4. [Set a breakpoint](https://docs.microsoft.com/visualstudio/debugger/) on the `ViewBag.Message` line.
 
 5. In **Solution Explorer**, right-click the project, and click **Publish**.
 
