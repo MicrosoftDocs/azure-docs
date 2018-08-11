@@ -197,7 +197,7 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/au-protected-iaaswa-tm) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![IaaS Web Application for AU-Protected Threat Model](images/au-protected-iaaswa-threat-model.png/?raw=true "IaaS Web Application for AU-Protected Threat Model Diagram")
+![IaaS Web Application for AU-Protected Threat Model](images/au-protected-iaaswa-threat-model.png?raw=true "IaaS Web Application for AU-Protected Threat Model Diagram")
 
 ## Compliance documentation
 
