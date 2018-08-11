@@ -74,9 +74,9 @@ All of the examples in this article specify the **queryType=full** search parame
 
 ## Example 1: Field-scoped query
 
-The first query is not parser-specific (the query works for either parser) but we lead with this example to introduce the first fundamental query concept: containment. This query scopes search to specific fields and constrains the response to include just a subset of fields. Knowing how to structure a readable JSON response is important when your tool is Postman or Search explorer. 
+This first example is not parser-specific, but we lead with it to introduce the first fundamental query concept: containment. This example scopes query execution and the reponse to just a few specific fields. Knowing how to structure a readable JSON response is important when your tool is Postman or Search explorer. 
 
-For brevity, the query targets only the *business_title* field and specifies only business titles are returned. The syntax is **searchFields** to restrict search to just the business_title field, and **select** to specify which fields are included in the response.
+For brevity, the query targets only the *business_title* field and specifies only business titles are returned. The syntax is **searchFields** to restrict query executuion to just the business_title field, and **select** to specify which fields are included in the response.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*

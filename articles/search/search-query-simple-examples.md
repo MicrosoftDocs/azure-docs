@@ -65,9 +65,9 @@ For interactive queries, you don't have to specify anything: simple is the defau
 
 ## Example 1: Field-scoped query
 
-The first query is not parser-specific (the query works for either parser) but we lead with this example to introduce the first fundamental query concept: containment. This query scopes search to specific fields and constrains the response to include just a subset of fields. Knowing how to structure a readable JSON response is important when your tool is Postman or Search explorer. 
+This first example is not parser-specific, but we lead with it to introduce the first fundamental query concept: containment. This example scopes query execution and the reponse to just a few specific fields. Knowing how to structure a readable JSON response is important when your tool is Postman or Search explorer. 
 
-For brevity, the query targets only the *business_title* field and specifies only business titles are returned. The syntax is **searchFields** to restrict search to just the business_title field, and **select** to specify which fields are included in the response.
+For brevity, the query targets only the *business_title* field and specifies only business titles are returned. The syntax is **searchFields** to restrict query executuion to just the business_title field, and **select** to specify which fields are included in the response.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
@@ -171,10 +171,24 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 The sample index includes a geo_location field with latitude and longitude coordinates. This example uses the [geo.distance function](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) that filters on documents within the circumferance of a starting point, out to an arbitrary distance (in kilometers) that you provide. You can adjust the last value in the query (4) to reduce or enlarge the surface area of the query.
 
+The following example is in POST format for readability:
+
+```http
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
+    {  
+      "search": "",
+      "filter": "geo.distance(geo_location, geography'POINT(-75.6107025146484 42.937084197998 )') le 4",
+      "select": "job_id, business_title, work_location",
+      "count": "true"
+    }
+```
+For more readable results, search results are trimmed to include a job id, job title, and the work location. The starting coordinates were obtained from a random document in the index (in this case, job_id 192296 for a work location at 9 Metrotech Center, Brooklyn N).
+
+You can also try this out in Postman using GET:
+
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=&$select=job_id, business_title, work_location&$filter=geo.distance(geo_location, geography'POINT(-75.6107025146484 42.937084197998 )') le 4
- ```
-For more readable results, search results are trimmed to include a job id, job title, and the work location. The starting coordinates were obtained from a random document in the index (in this case, job_id 192296 for a work location at 9 Metrotech Center, Brooklyn N).
+ ``
 
 ## Example 6: Search precision
 
