@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Workstars | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Workstars.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Workstars from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Workstars from the gallery
 To configure the integration of Workstars into Azure AD, you need to add Workstars from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of Workstars into Azure AD, you need to add Worksta
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **Workstars**, select **Workstars** from result panel then click **Add** button to add the application.
+1. In the search box, type **Workstars**, select **Workstars** from result panel then click **Add** button to add the application.
 
 	![Workstars in the results list](./media/workstars-tutorial/tutorial_workstars_addfromgallery.png)
 
@@ -84,10 +84,10 @@ In Workstars, assign the value of the **user name** in Azure AD as the value of 
 To configure and test Azure AD single sign-on with Workstars, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Workstars test user](#create-a-workstars-test-user)** - to have a counterpart of Britta Simon in Workstars that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a Workstars test user](#create-a-workstars-test-user)** - to have a counterpart of Britta Simon in Workstars that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -99,11 +99,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/workstars-tutorial/tutorial_workstars_samlbase.png)
 
-3. On the **Workstars Domain and URLs** section, perform the following steps:
+1. On the **Workstars Domain and URLs** section, perform the following steps:
 
 	![Workstars Domain and URLs single sign-on information](./media/workstars-tutorial/tutorial_workstars_url.png)
 
@@ -114,31 +114,31 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> The value is not real. Update the value with the actual Reply URL. Contact [Workstars support team](https://support.workstars.com) to get the value.
  
-4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/workstars-tutorial/tutorial_workstars_certificate.png) 
 
-5. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/workstars-tutorial/tutorial_general_400.png)
 
-6. On the **Workstars Configuration** section, click **Configure Workstars** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **Workstars Configuration** section, click **Configure Workstars** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Workstars Configuration](./media/workstars-tutorial/tutorial_workstars_configure.png) 
 
-7. In another browser window, sign on to your Workstars company site as an administrator.
+1. In another browser window, sign on to your Workstars company site as an administrator.
 
-8. In the main toolbar, click **Settings**.
+1. In the main toolbar, click **Settings**.
 
 	![Workstars sett](./media/workstars-tutorial/tutorial_workstars_sett.png)
 
-9. Go to **Sign On** > **Settings**.
+1. Go to **Sign On** > **Settings**.
 
 	![Workstars signon](./media/workstars-tutorial/tutorial_workstars_signon.png)
 
     ![Workstars settings](./media/workstars-tutorial/tutorial_workstars_settings.png)
 
-10. On the **Single Sign On (SAML) - Settings** page, perform the following steps:
+1. On the **Single Sign On (SAML) - Settings** page, perform the following steps:
 	
 	![Workstars saml](./media/workstars-tutorial/tutorial_workstars_saml.png)
 
@@ -171,15 +171,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/workstars-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/workstars-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/workstars-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/workstars-tutorial/create_aaduser_04.png)
 
@@ -207,23 +207,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Workstars**.
+1. In the applications list, select **Workstars**.
 
 	![The Workstars link in the Applications list](./media/workstars-tutorial/tutorial_workstars_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 

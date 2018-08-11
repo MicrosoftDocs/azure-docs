@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 08/08/2018
 ms.author: marsma
 ---
 
@@ -17,7 +17,7 @@ When you create an Azure Kubernetes Service (AKS) cluster, you can select from t
 
 ## Basic networking
 
-The **Basic** networking option is the default configuration for AKS cluster creation. The network configuration of the cluster and its pods are managed completely by Azure, and is appropriate for deployments that do not require custom VNet configuration. You do not have control over network configuration such as subnets or the IP address ranges assigned to the cluster when you select Basic networking.
+The **Basic** networking option is the default configuration for AKS cluster creation. The network configuration of the cluster and its pods is managed completely by Azure, and is appropriate for deployments that do not require custom VNet configuration. You do not have control over network configuration such as subnets or the IP address ranges assigned to the cluster when you select Basic networking.
 
 Nodes in an AKS cluster configured for Basic networking use the [kubenet][kubenet] Kubernetes plugin.
 
@@ -45,9 +45,10 @@ Advanced networking provides the following benefits:
 
 * The VNet for the AKS cluster must allow outbound internet connectivity.
 * Do not create more than one AKS cluster in the same subnet.
-* Advanced networking for AKS does not support VNets that use Azure Private DNS Zones.
 * AKS clusters may not use `169.254.0.0/16`, `172.30.0.0/16`, or `172.31.0.0/16` for the Kubernetes service address range.
-* The service principal used for the AKS cluster must have `Contributor` permissions to the resource group containing the existing VNet.
+* The service principal used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) permissions on the subnet within your VNet. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
+  * `Microsoft.Network/virtualNetworks/subnets/join/action`
+  * `Microsoft.Network/virtualNetworks/subnets/read`
 
 ## Plan IP addressing for your cluster
 
@@ -92,15 +93,14 @@ When you create an AKS cluster, the following parameters are configurable for ad
 
 **Subnet**: The subnet within the VNet where you want to deploy the cluster. If you want to create a new subnet in the VNet for your cluster, select *Create new* and follow the steps in the *Create subnet* section.
 
-**Kubernetes service address range**: The *Kubernetes service address range* is the IP range from which addresses are assigned to Kubernetes services in your cluster (for more information on Kubernetes services, see [Services][services] in the Kubernetes documentation).
-
-The Kubernetes service IP address range:
+**Kubernetes service address range**: This is the set of virtual IPs that Kubernetes assigns to [services][services] in your cluster. You can use any private address range that satisfies the following requirements:
 
 * Must not be within the VNet IP address range of your cluster
 * Must not overlap with any other VNets with which the cluster VNet peers
 * Must not overlap with any on-premises IPs
+* Must not be within the ranges `169.254.0.0/16`, `172.30.0.0/16`, or `172.31.0.0/16`
 
-Unpredictable behavior can result if overlapping IP ranges are used. For example, if a pod tries to access an IP outside the cluster, and that IP also happens to be a service IP, you might see unpredictable behavior and failures.
+Although it's technically possible to specify a service address range within the same VNet as your cluster, doing so is not recommended. Unpredictable behavior can result if overlapping IP ranges are used. For more information, see the [FAQ](#frequently-asked-questions) section of this article. For more information on Kubernetes services, see [Services][services] in the Kubernetes documentation.
 
 **Kubernetes DNS service IP address**:  The IP address for the cluster's DNS service. This address must be within the *Kubernetes service address range*.
 
@@ -149,6 +149,10 @@ The following questions and answers apply to the **Advanced** networking configu
 * *How do I configure additional properties for the subnet that I created during AKS cluster creation? For example, service endpoints.*
 
   The complete list of properties for the VNet and subnets that you create during AKS cluster creation can be configured in the standard VNet configuration page in the Azure portal.
+
+* *Can I use a different subnet within my cluster VNet for the* **Kubernetes service address range**?
+
+  It's not recommended, but this configuration is possible. The service address range is a set of virtual IPs (VIPs) that Kubernetes assigns to the services in your cluster. Azure Networking has no visibility into the service IP range of the Kubernetes cluster. Because of the lack of visibility into the cluster's service address range, it's possible to later create a new subnet in the cluster VNet that overlaps with the service address range. If such an overlap occurs, Kubernetes could assign a service an IP that's already in use by another resource in the subnet, causing unpredictable behavior or failures. By ensuring you use an address range outside the cluster's VNet, you can avoid this overlap risk.
 
 ## Next steps
 

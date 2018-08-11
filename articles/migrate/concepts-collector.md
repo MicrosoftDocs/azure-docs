@@ -4,7 +4,7 @@ description: Provides an overview of the Collector appliance and how to configur
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/27/2018
 ms.author: ruturajd
 services: azure-migrate
 ---
@@ -183,7 +183,7 @@ We also recommend the following steps to secure your appliance
 
 You can upgrade the Collector to the latest version without downloading the OVA once again.
 
-1. Download the latest [upgrade package](https://aka.ms/migrate/col/upgrade_9_11) (version 1.0.9.11).
+1. Download the latest [upgrade package](https://aka.ms/migrate/col/upgrade_9_13) (version 1.0.9.13).
 2. To ensure that the downloaded hotfix is secure, open Administrator command window and run the following command to generate the hash for the ZIP file. The generated hash should match with the hash mentioned against the specific version:
 
 	```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
@@ -194,6 +194,16 @@ You can upgrade the Collector to the latest version without downloading the OVA 
 5. Right-click on Setup.ps1 and select Run with PowerShell and follow the instructions on screen to install the update.
 
 ### List of updates
+
+#### Upgrade to version 1.0.9.13
+
+Hash values for upgrade [package 1.0.9.13](https://aka.ms/migrate/col/upgrade_9_13)
+
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
+SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
+SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
 #### Upgrade to version 1.0.9.11
 

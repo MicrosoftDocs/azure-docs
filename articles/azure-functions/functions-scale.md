@@ -4,7 +4,7 @@ description: Learn how to choose between Azure Functions Consumption plan and Ap
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, functions,  consumption plan, app service plan, event processing, webhooks, dynamic compute, serverless architecture
@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/17/2018
+ms.date: 08/09/2018
 ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
@@ -93,6 +93,8 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 ```  
 
 When the output from this command is `dynamic`, your function app is in the Consumption plan. All other values indicate tiers of an App Service plan.
+
+Even with Always On enabled, the execution timeout for individual functions is controlled by the `functionTimeout` setting in the [host.json](functions-host-json.md#functiontimeout) project file.
 
 ## Storage account requirements
 

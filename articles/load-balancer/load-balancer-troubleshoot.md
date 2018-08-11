@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 08/09/2018
 ms.author: genli
 ---
 
@@ -83,7 +83,7 @@ If a backend pool VM is listed as healthy and responds to the health probes, but
 * Load Balancer Backend pool VM is not listening on the data port 
 * Network security group is blocking the port on the Load Balancer backend pool VM  
 * Accessing the Load Balancer from the same VM and NIC 
-* Accessing the Internet Load Balancer VIP from the participating Load Balancer backend pool VM 
+* Accessing the Internet Load Balancer frontend from the participating Load Balancer backend pool VM 
 
 ### Cause 1: Load Balancer backend pool VM is not listening on the data port 
 If a VM does not respond to the data traffic, it may be because either the target port is not open on the participating VM, or, the VM is not listening on that port. 
@@ -116,11 +116,12 @@ You can resolve this issue via one of the following methods:
 * Configure separate backend pool VMs per application. 
 * Configure the application in dual NIC VMs so each application was using its own Network interface and IP address. 
 
-### Cause 4: Accessing the Internal Load Balancer VIP from the participating Load Balancer backend pool VM
+### Cause 4: Accessing the internal Load Balancer frontend from the participating Load Balancer backend pool VM
 
-If an ILB VIP is configured inside a VNet, and one of the participant backend VMs is trying to access the Internal Load Balancer VIP, that results in failure. This is an unsupported scenario.
+If an internal Load Balancer is configured inside a VNet, and one of the participant backend VMs is trying to access the internal Load Balancer frontend, failures can occur when the flow is mapped to the originating VM. This scenario is not supported. Review [limitations](load-balancer-overview.md#limitations) for a detailed discussion.
+
 **Resolution**
-Evaluate Application Gateway or other proxies (for example, nginx or haproxy) to support that kind of scenario. For more information about Application Gateway, see [Overview of Application Gateway](../application-gateway/application-gateway-introduction.md)
+There are several ways to unblock this scenario, including using a proxy. Evaluate Application Gateway or other 3rd party proxies (for example, nginx or haproxy). For more information about Application Gateway, see [Overview of Application Gateway](../application-gateway/application-gateway-introduction.md)
 
 ## Additional network captures
 If you decide to open a support case, collect the following information for a quicker resolution. Choose a single backend VM to perform the following tests:

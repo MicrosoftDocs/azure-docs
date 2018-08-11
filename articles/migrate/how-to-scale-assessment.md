@@ -33,7 +33,7 @@ Azure Migrate needs access to VMware servers to automatically discover VMs for a
 
 If you're deploying in a tenant environment, here's one way to set this up:
 
-1.  Create a user per tenant and and using [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assign read-only permissions to all the VM’s belonging to a particular tenant. Then, use those credentials for discovery. RBAC ensures that the corresponding vCenter user will have access to only tenant specific VM’s.
+1.  Create a user per tenant and using [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assign read-only permissions to all the VM’s belonging to a particular tenant. Then, use those credentials for discovery. RBAC ensures that the corresponding vCenter user will have access to only tenant specific VM’s.
 2. You set up RBAC for different tenant users as described in the following example for User#1 and User#2:
 
     - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs in

@@ -103,7 +103,7 @@ az image create \
 
 
 ## Create a scale set from the custom VM image
-Create a scale set with [az vmss create](/cli/az/vmss#az_vmss_create). Instead of a platform image, such as *UbuntuLTS* or *CentOS*, specify the name of your custom VM image. The following example creates a scale set named *myScaleSet* that uses the custom image named *myImage* from the previous step:
+Create a scale set with [az vmss create](/cli/azure/vmss#az-vmss-create). Instead of a platform image, such as *UbuntuLTS* or *CentOS*, specify the name of your custom VM image. The following example creates a scale set named *myScaleSet* that uses the custom image named *myImage* from the previous step:
 
 ```azurecli-interactive
 az vmss create \

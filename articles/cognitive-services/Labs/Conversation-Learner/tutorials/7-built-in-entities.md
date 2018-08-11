@@ -1,7 +1,7 @@
 ---
-title: How to add pre-built entities to a Conversation Learner application - Microsoft Cognitive Services | Microsoft Docs
+title: How to add pre-built entities to a Conversation Learner model - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to add pre-built entities to a Conversation Learner application.
+description: Learn how to add pre-built entities to a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -13,7 +13,11 @@ ms.author: v-jaswel
 ---
 
 # How to add pre-built entities
-This tutorial shows how to add "pre-built" entities to your Conversation Learner application.
+This tutorial shows how to add "pre-built" entities to your Conversation Learner model.
+
+## Video
+
+[![Tutorial 7 Preview](http://aka.ms/cl-tutorial-07-preview)](http://aka.ms/blis-tutorial-07)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running
@@ -26,9 +30,9 @@ Pre-built entities recognize common types of entities, such as numbers, dates, m
 
 ## Steps
 
-### Create the application
+### Create the model
 
-1. In the Web UI, click New App
+1. In the Web UI, click New Model
 2. In Name, enter BuiltInEntities. Then click Create.
 
 ### Create an entity

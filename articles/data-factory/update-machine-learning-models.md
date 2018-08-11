@@ -20,7 +20,7 @@ ms.author: shlo
 This article complements the main Azure Data Factory - Azure Machine Learning integration article: [Create predictive pipelines using Azure Machine Learning and Azure Data Factory](transform-data-using-machine-learning.md). If you haven't already done so, review the main article before reading through this article. 
 
 ## Overview
-As part of the process of operationalizing Azure Machine Learning models, your model is trained and saved. You then use it to create a predicative Web service. The Web service can then be consumed in web sites, dashboards, and mobile apps.
+As part of the process of operationalizing Azure Machine Learning models, your model is trained and saved. You then use it to create a predictive Web service. The Web service can then be consumed in web sites, dashboards, and mobile apps.
 
 Models you create using Machine Learning are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained. Refer to [Retrain a Machine Learning Model](../machine-learning/machine-learning-retrain-machine-learning-model.md) for details about how you can retrain a model in Azure Machine Learning. 
 

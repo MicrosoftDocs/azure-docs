@@ -17,6 +17,8 @@ IoT Hub enables devices to communicate with the IoT Hub device endpoints using:
 * [MQTT v3.1.1][lnk-mqtt-org] on port 8883
 * MQTT v3.1.1 over WebSocket on port 443.
 
+IoT Hub is not a full-featured MQTT broker and does not support all the behaviors specified in the MQTT v3.1.1 standard. This article describes how devices can use supported MQTT behaviors to communicate with IoT Hub.
+
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 All device communication with IoT Hub must be secured using TLS/SSL. Therefore, IoT Hub doesn’t support non-secure connections over port 1883.
@@ -74,7 +76,16 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
   For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens][lnk-sas-tokens].
 
-  When testing, you can also use the [device explorer][lnk-device-explorer] tool to quickly generate a SAS token that you can copy and paste into your own code:
+  When testing, you can also use the cross-platform [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) or the [Device Explorer][lnk-device-explorer] tool to quickly generate a SAS token that you can copy and paste into your own code:
+
+For Azure IoT Toolkit:
+
+  1. Expand the **AZURE IOT HUB DEVICES** tab in the bottom left corner of Visual Studio Code.
+  2. Right-click your device and select **Generate SAS Token for Device**.
+  3. Set **expiration time** and press 'Enter'.
+  4. The SAS token is created and copied to clipboard.
+
+For Device Explorer:
 
   1. Go to the **Management** tab in **Device Explorer**.
   2. Click **SAS Token** (top right).

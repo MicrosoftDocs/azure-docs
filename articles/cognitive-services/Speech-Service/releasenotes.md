@@ -1,10 +1,9 @@
 ---
-title: Cognitive Services Speech SDK Documentation | Microsoft Docs
+title: Cognitive Services Speech SDK Documentation
 description: Release notes - what has changed in the most recent releases
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wolfma61
-manager: onano
 
 ms.service: cognitive-services
 ms.component: speech-service
@@ -31,7 +30,7 @@ ms.author: wolfma
 **Functional changes**
 
 * `StartContinuousRecognitionAsync()` supports long running recognition
-* The recognition result contains more fields: offset from the audio begining and duration (both in ticks) of the recognized text, additional values representing recognition status, e.g., `InitialSilenceTimeout`, `InitialBabbleTimeout`.
+* The recognition result contains more fields: offset from the audio beginning and duration (both in ticks) of the recognized text, additional values representing recognition status, e.g., `InitialSilenceTimeout`, `InitialBabbleTimeout`.
 * Support AuthorizationToken for creating factory instances.
 
 **Breaking changes**
