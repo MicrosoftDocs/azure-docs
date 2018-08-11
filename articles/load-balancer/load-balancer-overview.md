@@ -81,11 +81,11 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
 * **Health probes**
 
-To determine the health of instances in the backend pool, Load Balancer uses health probes that you define. When a probe fails to respond, the load balancer stops sending new connections to the unhealthy instances. Existing connections are not affected, and they continue until the application terminates the flow, an idle timeout occurs, or the VM is shut down.
+    To determine the health of instances in the backend pool, Load Balancer uses health probes that you define. When a probe fails to respond, the load balancer stops sending new connections to the unhealthy instances. Existing connections are not affected, and they continue until the application terminates the flow, an idle timeout occurs, or the VM is shut down.
      
-Load Balancer provides [different health probe types](load-balancer-custom-probe-overview.md#types) for TCP, HTTP, and HTTPS endpoints.
+    Load Balancer provides [different health probe types](load-balancer-custom-probe-overview.md#types) for TCP, HTTP, and HTTPS endpoints.
 
-Additionally, when using Classic cloud services, an additional type is allowed:  [Guest agent](load-balancer-custom-probe-overview.md#guestagent).  This should be consider to be a health probe of last resort and is not recommended when other options are viable.
+    Additionally, when using Classic cloud services, an additional type is allowed:  [Guest agent](load-balancer-custom-probe-overview.md#guestagent).  This should be consider to be a health probe of last resort and is not recommended when other options are viable.
     
 * **Outbound connections (SNAT)**
 
