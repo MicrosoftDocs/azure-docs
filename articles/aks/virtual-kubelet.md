@@ -54,7 +54,7 @@ subjects:
 Apply the binding with [kubectl apply][kubectl-apply] and specify your *rbac-virtualkubelet.yaml* file, as shown in the following example:
 
 ```
-$ kubectl apply -f rbac-virtual-kubelet.yaml
+$ kubectl apply -f rbac-virtualkubelet.yaml
 
 clusterrolebinding.rbac.authorization.k8s.io/virtual-kubelet created
 ```
