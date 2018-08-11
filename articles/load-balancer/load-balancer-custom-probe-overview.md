@@ -96,8 +96,6 @@ An HTTP / HTTPS probe fails when:
 
 #### Resource Manager templates
 
-- HTTP probe
-
 ```json
     {
       "name": "http",
@@ -109,8 +107,6 @@ An HTTP / HTTPS probe fails when:
         "numberOfProbes": 2
       },
 ```
-
-- HTTPS probe
 
 ```json
     {
