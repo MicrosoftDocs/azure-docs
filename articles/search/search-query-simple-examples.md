@@ -126,16 +126,46 @@ For more information about the function, see [search.ismatch in "Filter examples
 
 ## Example 4: Range filters
 
-Range filtering is supported through **`$filter`** expressions for any data type.
+Range filtering is supported through **`$filter`** expressions for any data type. The following examples search over numeric and string fields. 
 
-```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=&$filter=job_id ge 100000 and job_id lt 200000
+Data types are important in range filters and work best when numeric data is in numeric fields, and string data in string fields. Numeric data in string fields is not suitable for ranges because numeric strings are not comparable in Azure Search. 
+
+The following examples are in POST format for readability:
+
+```http numeric range
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
+    {  
+      "search": "",
+      "filter": "num_of_positions ge 5 and num_of_positions lt 10",
+      "select": "job_id, business_title, num_of_positions, agency",
+      "orderby": "agency",
+      "count": "true"
+    }
+```
+
+```http string range in alphabetical order
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
+    {  
+      "search": "",
+      "filter": "business_title ge 'A*' and business_title lt 'C*'",
+      "select": "job_id, business_title, agency",
+      "orderby": "business_title",
+      "count": "true"
+    }
+```
+
+You can also try these out in Postman using GET:
+
+```http GET numeric ranges
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=&$filter=num_of_positions ge 5 and num_of_positions lt 10&$select=job_id, business_title, num_of_positions, agency&$orderby=agency&$count=true
+```
+
+```http GET string ranges
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=&$filter=business_title ge 'A*' and business_title lt 'C*'&$select=job_id, business_title, agency&$orderby=business_title&$count=true
  ```
 
-Please also take a look at search.ismatch*() in $filter. The functions allow issuing search queries within $filter and are useful in expressing more complex queries that involve both search and filter (https://docs.microsoft.com/en-us/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-
-
-Faceting over ranges of values is a common search application requirement. For more information and examples, see ["Filter based on a range" in *How to implement faceted navigation*](search-faceted-navigation.md#filter-based-on-a-range).
+> [!NOTE]
+> Faceting over ranges of values is a common search application requirement. For more information and examples on building filters for facet navigation structures, see ["Filter based on a range" in *How to implement faceted navigation*](search-faceted-navigation.md#filter-based-on-a-range).
 
 ## Example 5: Geo-search
 
