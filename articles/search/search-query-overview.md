@@ -73,7 +73,7 @@ Required elements on a query request include the following components:
 
 All other search parameters are optional. For the full list of attributes, see [Create Index (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). For a closer look at how parameters are used during processing, see [How full-text search works in Azure Search](search-lucene-query-architecture.md).
 
-## Choose a syntax: simple | full
+## Choose a parser: simple | full
 
 Azure Search sits on top of Apache Lucene and gives you a choice between two query parsers for handling typical and specialized queries. Requests using the simple parser are formulated using the [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search), selected as the default for its speed and effectiveness in free form text queries. This syntax supports a number of common search operators including the AND, OR, NOT, phrase, suffix, and precedence operators.
 

@@ -52,12 +52,12 @@ URL composition has the following elements:
 As a verification step, paste the following request into GET and click **Send**. Results are returned as verbose JSON documents. You can copy-paste this URL in first example below.
 
   ```http
-  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=*
+  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
   ```
 
 The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do.
 
-Optionally, you can add **`$count=true`** to the URL to return a count of the documents matching the search criteria. On an empty search string, this is all the documents in the index (2802 in the case of NYC Jobs).
+Optionally, you can add **`$count=true`** to the URL to return a count of the documents matching the search criteria. On an empty search string, this is all the documents in the index (about 2800 in the case of NYC Jobs).
 
 ## How to invoke simple query parsing
 
@@ -97,7 +97,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 
 ## Example 3: Filter queries
 
-You can use search and filter together or separately. A standalone filter, without a query string, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking. Notice the search string is empty.
+You can use search and filter together or separately. [Filter syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) is an OData expression. A standalone filter, without a query string, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring (all scores are 1), and no ranking. Notice the search string is empty.
 
 ```
 POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
@@ -110,9 +110,41 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
 
 Used together, the filter is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
 
+If you want to try this out in Postman using GET, you can paste in this string:
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
+ ```
+
+Another powerful way to combine filter and search is through **`search.ismatch*()`** in a filter expression, where you can use a search query within the filter. This filter expression uses a wildcard on *plan* to select business_title including the term plan, planner, planning, and so forth.
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
+ ```
+
+For more information about the function, see [search.ismatch in "Filter examples"](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
+
 ## Example 4: Range filters
 
+Range filtering is supported through **`$filter`** expressions for any data type.
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=&$filter=job_id ge 100000 and job_id lt 200000
+ ```
+
+Please also take a look at search.ismatch*() in $filter. The functions allow issuing search queries within $filter and are useful in expressing more complex queries that involve both search and filter (https://docs.microsoft.com/en-us/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+
+
+Faceting over ranges of values is a common search application requirement. For more information and examples, see ["Filter based on a range" in *How to implement faceted navigation*](search-faceted-navigation.md#filter-based-on-a-range).
+
 ## Example 5: Geo-search
+
+The sample index includes a geo_location field with latitude and longitude coordinates. This example uses the [geo.distance function](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) that filters on documents within the circumferance of a starting point, out to an arbitrary distance (in kilometers) that you provide. You can adjust the last value in the query (4) to reduce or enlarge the surface area of the query.
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=&$select=job_id, business_title, work_location&$filter=geo.distance(geo_location, geography'POINT(-75.6107025146484 42.937084197998 )') le 4
+ ```
+For more readable results, search results are trimmed to include a job id, job title, and the work location. The starting coordinates were obtained from a random document in the index (in this case, job_id 192296 for a work location at 9 Metrotech Center, Brooklyn N).
 
 ## Example 6: Search precision
 
@@ -120,19 +152,19 @@ Term queries are single terms, perhaps many of them, that are evaluated independ
 
 Example 1: **`&search=fire`**  returns 150 results, where all matches contain the word fire somewhere in the document.
 
-```
+```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=fire
 ```
 
 Example 2: **`&search=fire department`** returns 2002 results. Matches are returned for documents containing either fire or department.
 
-```
+```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=fire department
 ```
 
 Example 3: **`&search="fire department"`** returns 82 results. Enclosing the string in quotation marks is a verbatim search on both terms, and matches are found on tokenized terms in the index consisting of the combined terms. This explains why a search like **`search=+fire +department`** is not equivalent. Both terms are required, but are scanned for independently. 
 
-```
+```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search="fire department"
 ```
 
@@ -142,12 +174,12 @@ Simple syntax supports boolean operators in the form of characters (`+, -, |`). 
 
 Using the default searchMode (any), 2800 documents are returned: those containing the multi-part term "fire department", plus all documents that do not have the term "Metrotech Center".
 
-```
+```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 Changing searchMode to `all` enforces a cumulative effect on criteria and returns a smaller result set - 21 documents - consisting of documents containing the entire phrase "fire department", minus those jobs at the Metrotech Center address.
 
-```
+```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
 
@@ -189,3 +221,4 @@ Additional syntax reference, query architecture, and examples can be found in th
 + [How full text search works in Azure Search](search-lucene-query-architecture.md)
 + [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Full Lucene query](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Filter and Orderby syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
