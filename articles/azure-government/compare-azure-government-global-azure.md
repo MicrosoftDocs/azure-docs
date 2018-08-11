@@ -22,7 +22,7 @@ ms.author: juliako
 
 Microsoft Azure Government uses same underlying technologies as global/commercial Azure, which includes the core components of [Infrastructure-as-a-Service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/), [Platform-as-a-Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/), and [Software-as-a-Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/). Azure Government includes Geo-Synchronous data replication, auto scaling, network, storage, data management, identity management, among other services. However, there are some key differences that developers working on applications hosted in Azure Government must be aware of. For detailed information, see [Guidance for developers](documentation-government-developer-guide.md).
 
-As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as global Azure. This document provides links to variations in each service. The services specific articles including two key types of information:
+As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as global Azure. This document provides links to variations in each service. Services specific articles include two key types of information:
 
 * **Variations**: Variations due to features that are not deployed yet or properties (for example, URLs) that are unique to the government environment.  
 * **Considerations**: Government-specific implementation detail to ensure that data stays within your compliance boundary.
