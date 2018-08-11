@@ -103,7 +103,7 @@
     - name: Manage group settings    
       href: ../fundamentals/active-directory-groups-settings-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context 
     - name: Dynamic groups    
-      href: 
+      items: 
       - name: Create a dynamic group    
         href: groups-create-rule.md
       - name: Rule syntax and propertiess    
