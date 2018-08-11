@@ -14,14 +14,15 @@ ms.date: 09/21/2017
 
 # What is Azure Machine Learning?
 
-Azure Machine Learning services  (Preview) is a fully managed service for the end to end development and deployment of machine learning models.  Azure Machine Learning lets developers and data scientists track all of their model training and then deploy and manage those models. Azure Machine Learning fully supports open-source technologies so you can use tens of thousands of open-source Python packages, such as the following machine learning frameworks: 
+Azure Machine Learning services  (Preview) is a fully managed service for the end to end development, management, deployment and monitoring of machine learning models.  Azure Machine Learning lets developers and data scientists track all of their model training and then deploy and manage those models. Azure Machine Learning fully supports open-source technologies so you can use tens of thousands of open-source Python packages, such as the following machine learning frameworks: 
 - [PyTorch](https://pytorch.org)
 - [Scikit-learn](http://scikit-learn.org/stable/)
 - [Tensorflow](https://www.tensorflow.org)
 - [CNTK](https://www.microsoft.com/cognitive-toolkit/)
 - [MXNet](http://mxnet.io)
+- [Chainer](https://chainer.org)
 
-Rich tools, such as [Jupyter notebooks](http://jupyter.org) or the [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) make it easy to interactively explore data, transform it, and then develop, test, and deploy models.  
+Rich tools, such as [Jupyter notebooks](http://jupyter.org) or  [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) make it easy to interactively explore data, transform it, and then develop, test, and deploy models.  
 
 Azure Machine Learning lets you start training on your local machine, and then scale out to the cloud.  With native support for [Azure Batch AI](https://azure.microsoft.com/services/batch-ai/) and advanced hyperparameter tuning services (TODO for a link), you can build better models faster, using the power of the cloud.  When you have the right model, you can easily deploy with full Docker support, meaning it is simple to deploy to [Azure Container Instances](how-to-deploy-to-aci.md), [Azure Kubernetes Service](how-to-deploy-to-aks.md), or use that Docker container in your own deployments, on-premises or in the cloud. 
 
@@ -37,11 +38,14 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 ## Key capabilities
 + BatchAI
 + AutoML
-+ Training and deploying
++ Training 
++ Model Optimization for hardware acceleration
++ Deployment of autoscaling load balanced models to the cloud or the edge 
++ Service or App and model monitoring
 
 ## How can I use Azure Machine Learning Services?
 
-Use AML to build and deploy custom machine learning and AI models. 
+Use AML to build, manage, deploy and monitor custom machine learning and AI models. 
 
 ## Free trial
 If you aren't a subscriber, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). You get credits for trying out paid Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged. Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services. 
