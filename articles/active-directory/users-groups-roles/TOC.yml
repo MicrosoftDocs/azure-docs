@@ -102,8 +102,16 @@
       href: ../fundamentals/active-directory-groups-restore-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Manage group settings    
       href: ../fundamentals/active-directory-groups-settings-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context 
-    - name: Create dynamic groups    
-      href: groups-dynamic-membership.md
+    - name: Dynamic groups    
+      href: 
+      - name: Create a dynamic group    
+        href: groups-create-rule.md
+      - name: Rule syntax and propertiess    
+        href: groups-dynamic-membership.md
+      - name: Change group membership type    
+        href: groups-change-type.md
+      - name: Troubleshoot    
+        href: groups-troubleshooting.md
     - name: Set up user-created groups    
       href: groups-self-service-management.md
   - name: Assign licenses
