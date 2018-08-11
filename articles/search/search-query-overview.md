@@ -12,7 +12,7 @@ ms.date: 08/03/2018
 ---
 # Query types and composition in Azure Search
 
-In Azure Search, a query is a full specification of a round-trip operation. Parameters provide match criteria for finding documents in an index, execution instructions, and directives for shaping the response. More precisely, you can specify which fields are in-scope, how to search, which fields to return, whether to sort or filter, and so forth. Unspecified, a query runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
+In Azure Search, a query is a full specification of a round-trip operation. Parameters provide match criteria for finding documents in an index, execution instructions for the engine, and directives for shaping the response. More precisely, you can specify which fields are in-scope, how to search, which fields to return, whether to sort or filter, and so forth. Unspecified, a query runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
 
 ## A first look at query requests
 
