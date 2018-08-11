@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 08/13/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
