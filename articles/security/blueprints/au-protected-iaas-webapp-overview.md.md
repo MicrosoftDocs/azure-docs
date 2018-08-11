@@ -33,7 +33,7 @@ The solution uses Azure Storage accounts, which customers can configure to use S
 
 For enhanced security, all resources in this solution are managed as a resource group through Azure Resource Manager. Azure Active Directory role-based access control is used for controlling access to deployed resources and keys in Azure Key Vault. System health is monitored through Azure Security Center and Azure Monitor. Customers configure both monitoring services to capture logs and display system health in a single, easily navigable dashboard. Azure Application Gateway is configured as a firewall in prevention mode and requires TLS traffic with a minimum version of 1.2.
 
-![IaaS Web Application for AU-Protected Reference Architecture](imagine/au-protected-iaaswa-reference-architecture.png?raw=true "IaaS Web Application for AU-Protected Reference Architecture Diagram") 
+![IaaS Web Application for AU-Protected Reference Architecture](images/au-protected-iaaswa-reference-architecture.png?raw=true "IaaS Web Application for AU-Protected Reference Architecture Diagram") 
 
 This solution uses the following Azure services. Further details are in the [deployment architecture](#deployment-architecture) section.
 
@@ -197,7 +197,7 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/au-protected-iaaswa-tm) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![IaaS Web Application for AU-Protected Threat Model](image/au-protected-iaaswa-threat-model.png/?raw=true "IaaS Web Application for AU-Protected Threat Model Diagram")
+![IaaS Web Application for AU-Protected Threat Model](images/au-protected-iaaswa-threat-model.png/?raw=true "IaaS Web Application for AU-Protected Threat Model Diagram")
 
 ## Compliance documentation
 

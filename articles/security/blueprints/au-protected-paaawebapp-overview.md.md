@@ -33,7 +33,7 @@ The solution uses Azure Storage accounts, which customers can configure to use S
 
 For enhanced security, all Azure resources in this solution are managed as a resource group through Azure Resource Manager. Azure Active Directory role-based access control is used for controlling access to deployed resources and keys in Azure Key Vault. System health is monitored through Azure Security Center and Azure Monitor. Customers configure both monitoring services to capture logs and display system health in a single, easily navigable dashboard. Azure Application Gateway is configured as a firewall in prevention mode and disallows traffic that is not TLSv1.2 or above. The solution utilizes Azure Application Service Environment v2 to isolate the web tier in a non-multi-tenant environment.
 
-![PaaS Web Application for AU-Protected Reference Architecture](images/au-protected-paaswa-reference-architecture-diagram.png?raw=true"PaaS Web Application for AU-PROTECTED Reference Architecture Diagram")
+![PaaS Web Application for AU-Protected Reference Architecture](images/au-protected-paaswa-reference-architecture-diagram.png?raw=true "PaaS Web Application for AU-PROTECTED Reference Architecture Diagram")
 
 This solution uses the following Azure services. Further details are in the [deployment architecture](#deployment-architecture) section.
 
