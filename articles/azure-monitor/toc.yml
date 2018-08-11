@@ -600,8 +600,7 @@
       - name: AD Replication Status
         href: ../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2fazure-monitor%2ftoc.json
       - name: Office 365
-        href: ../operations-managemetoc fix
-        nt-suite/oms-solution-office-365.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2fazure-monitor%2ftoc.json
       - name: Surface Hub
         href: ../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2fazure-monitor%2ftoc.json
       - name: Key Vault Analytics
