@@ -61,23 +61,23 @@ Optionally, you can add **`$count=true`** to the URL to return a count of the do
 
 ## How to invoke simple query parsing
 
-For interactive queries, you don't have to specify anything: simple is the default. In code, if you previously invoked **queryType=full** for full query syntax, you could reset back to default with **queryType=simple**.
+For interactive queries, you don't have to specify anything: simple is the default. In code, if you previously invoked **queryType=full** for full query syntax, you could reset the default with **queryType=simple**.
 
 ## Example 1: Field-scoped query
 
-The first query is not syntax-specific (the query works for both simple and full syntax) but we lead with this example to introduce a baseline query concept that produces a reasonably readable JSON response. For brevity, the query targets only the *business_title* field and specifies only business titles are returned. 
+The first query is not parser-specific (the query works for either parser) but we lead with this example to introduce the first fundamental query concept: containment. This query scopes search to specific fields and constrains the response to include just a subset of fields. Knowing how to structure a readable JSON response is important when your tool is Postman or Search explorer. 
+
+For brevity, the query targets only the *business_title* field and specifies only business titles are returned. The syntax is **searchFields** to restrict search to just the business_title field, and **select** to specify which fields are included in the response.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
 ```
 
-The **searchFields** parameter restricts the search to just the business title field. The **select** parameter determines which fields are included in the result set.
-
 Response for this query should look similar to the following screenshot.
 
   ![Postman sample response](media/search-query-lucene-examples/postman-sample-results.png)
 
-You might have noticed that the search score is also returned for every document even though search score is not specified. This is because search score is metadata, with the value indicating rank order of results. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because there is no criteria to apply. For null search, there is no criteria and the rows coming back are in arbitrary order. As the search criteria takes on more definition, you will see search scores evolve into meaningful values.
+You might have noticed that the search score in the response, indicating rank order of results. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because there is no criteria to apply. For null search with no criteria, rows come bac in arbitrary order. As the search criteria becomes more substantial, you will see search scores evolve into meaningful values.
 
 ## Example 2: Look-up by ID
 
@@ -99,7 +99,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 
 You can use search and filter together or separately. [Filter syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) is an OData expression. A standalone filter, without a query string, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring (all scores are 1), and no ranking. Notice the search string is empty.
 
-```
+```http
 POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
     {  
       "search": "",
@@ -130,9 +130,9 @@ Range filtering is supported through **`$filter`** expressions for any data type
 
 Data types are important in range filters and work best when numeric data is in numeric fields, and string data in string fields. Numeric data in string fields is not suitable for ranges because numeric strings are not comparable in Azure Search. 
 
-The following examples are in POST format for readability:
+The following examples are in POST format for readability (numeric range, followed by text range):
 
-```http numeric range
+```http
 POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
     {  
       "search": "",
@@ -143,7 +143,7 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
     }
 ```
 
-```http string range in alphabetical order
+```http
 POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
     {  
       "search": "",
@@ -156,11 +156,11 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
 
 You can also try these out in Postman using GET:
 
-```http GET numeric ranges
+```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=&$filter=num_of_positions ge 5 and num_of_positions lt 10&$select=job_id, business_title, num_of_positions, agency&$orderby=agency&$count=true
 ```
 
-```http GET string ranges
+```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=&$filter=business_title ge 'A*' and business_title lt 'C*'&$select=job_id, business_title, agency&$orderby=business_title&$count=true
  ```
 

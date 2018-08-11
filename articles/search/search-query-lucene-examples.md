@@ -74,19 +74,19 @@ All of the examples in this article specify the **queryType=full** search parame
 
 ## Example 1: Field-scoped query
 
-The first query is not a demonstration of full Lucene syntax (it works for both simple and full syntax) but we lead with this example to introduce a baseline query concept that produces a reasonably readable JSON response. For brevity, the query targets only the *business_title* field and specifies only business titles are returned. 
+The first query is not parser-specific (the query works for either parser) but we lead with this example to introduce the first fundamental query concept: containment. This query scopes search to specific fields and constrains the response to include just a subset of fields. Knowing how to structure a readable JSON response is important when your tool is Postman or Search explorer. 
 
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=*
+For brevity, the query targets only the *business_title* field and specifies only business titles are returned. The syntax is **searchFields** to restrict search to just the business_title field, and **select** to specify which fields are included in the response.
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
 ```
-
-The **searchFields** parameter restricts the search to just the business title field. The **select** parameter determines which fields are included in the result set.
 
 Response for this query should look similar to the following screenshot.
 
   ![Postman sample response](media/search-query-lucene-examples/postman-sample-results.png)
 
-You might have noticed that the search score is also returned for every document even though search score is not specified. This is because search score is metadata, with the value indicating rank order of results. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because there is no criteria to apply. For null search, there is no criteria and the rows coming back are in arbitrary order. As the search criteria takes on more definition, you will see search scores evolve into meaningful values.
+You might have noticed that the search score in the response, indicating rank order of results. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because there is no criteria to apply. For null search with no criteria, rows come bac in arbitrary order. As the search criteria becomes more substantial, you will see search scores evolve into meaningful values.
 
 ## Example 2: Intra-field filtering
 
