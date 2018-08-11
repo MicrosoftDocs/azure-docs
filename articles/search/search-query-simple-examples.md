@@ -65,9 +65,9 @@ For interactive queries, you don't have to specify anything: simple is the defau
 
 ## Example 1: Field-scoped query
 
-This first example is not parser-specific, but we lead with it to introduce the first fundamental query concept: containment. This example scopes query execution and the reponse to just a few specific fields. Knowing how to structure a readable JSON response is important when your tool is Postman or Search explorer. 
+This first example is not parser-specific, but we lead with it to introduce the first fundamental query concept: containment. This example scopes query execution and the response to just a few specific fields. Knowing how to structure a readable JSON response is important when your tool is Postman or Search explorer. 
 
-For brevity, the query targets only the *business_title* field and specifies only business titles are returned. The syntax is **searchFields** to restrict query executuion to just the business_title field, and **select** to specify which fields are included in the response.
+For brevity, the query targets only the *business_title* field and specifies only business titles are returned. The syntax is **searchFields** to restrict query execution to just the business_title field, and **select** to specify which fields are included in the response.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
@@ -77,9 +77,9 @@ Response for this query should look similar to the following screenshot.
 
   ![Postman sample response](media/search-query-lucene-examples/postman-sample-results.png)
 
-You might have noticed that the search score in the response, indicating rank order of results. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because there is no criteria to apply. For null search with no criteria, rows come bac in arbitrary order. As the search criteria becomes more substantial, you will see search scores evolve into meaningful values.
+You might have noticed that the search score in the response, indicating rank order of results. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because there is no criteria to apply. For null search with no criteria, rows come back in arbitrary order. As the search criteria becomes more substantial, you will see search scores evolve into meaningful values.
 
-## Example 2: Look-up by ID
+## Example 2: Look up by ID
 
 This example is a bit atypical, but when evaluating search behaviors, you might want to inspect the entire contents of a document to understand why it was included or excluded from results. To return an entire document, use a [Lookup operation](https://docs.microsoft.com/rest/api/searchservice/lookup-document) to pass in the document ID.
 
@@ -169,7 +169,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 ## Example 5: Geo-search
 
-The sample index includes a geo_location field with latitude and longitude coordinates. This example uses the [geo.distance function](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) that filters on documents within the circumferance of a starting point, out to an arbitrary distance (in kilometers) that you provide. You can adjust the last value in the query (4) to reduce or enlarge the surface area of the query.
+The sample index includes a geo_location field with latitude and longitude coordinates. This example uses the [geo.distance function](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) that filters on documents within the circumference of a starting point, out to an arbitrary distance (in kilometers) that you provide. You can adjust the last value in the query (4) to reduce or enlarge the surface area of the query.
 
 The following example is in POST format for readability:
 
