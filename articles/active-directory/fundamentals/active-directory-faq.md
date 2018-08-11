@@ -208,4 +208,4 @@ For more information, see [Automate user provisioning and deprovisioning to SaaS
 - - -
 **Q:  Can I set up a secure LDAP connection with Azure AD?**
 
-**A:**  No. Azure AD does not support the LDAP protocol.
+**A:**  No. Azure AD does not support the LDAP protocol. However, you can configure secure LDAP with Azure AD Domain Services.
