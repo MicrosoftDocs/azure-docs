@@ -63,7 +63,7 @@ You can enable additional security features inside your VM or Cloud Service.
 
 Your target operating system must be up-to-date to enable these additional security features. While numerous speculative execution side channel mitigations are enabled by default, the additional features described here must be enabled manually and may cause a performance impact. 
 
-**Step 1**: [Contact Azure Support](https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%22subId%22%3A+%22%22%2C%0D%0A%22pesId%22%3A+%2214749%22%2C+%0D%0A%22supportTopicId%22%3A+%2232583097%22%2C%0D%0A%22contextInfo%22%3A+%22context+info+string%22%0D%0A%7D) to expose updated firmware (microcode) into your Virtual Machines 
+**Step 1**: [Contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to expose updated firmware (microcode) into your Virtual Machines 
 
 **Step 2**: Enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support. Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections via the **Session Manager** registry keys. A reboot is required. 
 
@@ -92,7 +92,7 @@ All VMs should show:
 
 <a name="linux"></a>Enabling the set of additional security features inside requires that the target operating system be fully up-to-date. Some mitigations will be enabled by default. The following section describes the features which are off by default and/or reliant on hardware support (microcode). Enabling these features may cause a performance impact. Reference your operating system provider’s documentation for further instructions
  
-**Step 1**: [Contact Azure Support](https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%22subId%22%3A+%22%22%2C%0D%0A%22pesId%22%3A+%2214749%22%2C+%0D%0A%22supportTopicId%22%3A+%2232583097%22%2C%0D%0A%22contextInfo%22%3A+%22context+info+string%22%0D%0A%7D) to expose updated firmware (microcode) into your virtual machines.
+**Step 1**: [Contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to expose updated firmware (microcode) into your virtual machines.
  
 **Step 2**: Enable Branch Target Injection (BTI) OS support to mitigate CVE-2017-5715 (Spectre Variant 2) by following your operating system provider’s documentation. 
  
