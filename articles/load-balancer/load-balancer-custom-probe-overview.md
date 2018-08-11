@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2018
+ms.date: 08/10/2018
 ms.author: kumud
 ---
 
@@ -65,7 +65,7 @@ A TCP probe fails when:
 * The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of failed probe requests, which were configured to go unanswered before marking the probe down.
 * The probe receives a TCP reset from the instance.
 
-#### ARM template
+#### Resource Manager template
 
 ```json
     {
@@ -94,7 +94,7 @@ An HTTP / HTTPS probe fails when:
 * Probe endpoint doesn't respond at all during the a 31 second timeout period. Depending on the timeout value that is set, multiple probe requests might go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
 * Probe endpoint closes the connection via a TCP reset.
 
-#### ARM templates
+#### Resource Manager templates
 
 - HTTP probe
 
