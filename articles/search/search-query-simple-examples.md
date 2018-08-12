@@ -77,11 +77,11 @@ Response for this query should look similar to the following screenshot.
 
   ![Postman sample response](media/search-query-lucene-examples/postman-sample-results.png)
 
-You might have noticed that the search score in the response, indicating rank order of results. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because there is no criteria to apply. For null search with no criteria, rows come back in arbitrary order. As the search criteria becomes more substantial, you will see search scores evolve into meaningful values.
+You might have noticed the search score in the response. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because no criteria was applied. For null search with no criteria, rows come back in arbitrary order. When you include actual criteria, you will see search scores evolve into meaningful values.
 
 ## Example 2: Look up by ID
 
-This example is a bit atypical, but when evaluating search behaviors, you might want to inspect the entire contents of a document to understand why it was included or excluded from results. To return an entire document, use a [Lookup operation](https://docs.microsoft.com/rest/api/searchservice/lookup-document) to pass in the document ID.
+This example is a bit atypical, but when evaluating search behaviors, you might want to inspect the entire contents of a specific document to understand why it was included or excluded from results. To return a single document in its entirety, use a [Lookup operation](https://docs.microsoft.com/rest/api/searchservice/lookup-document) to pass in the document ID.
 
 All documents have a unique identifier. To try out the syntax for a lookup query, first return a list of document IDs so that you can find one to use. For NYC Jobs, the identifiers are stored in the `id` field.
 
@@ -97,23 +97,26 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 
 ## Example 3: Filter queries
 
-You can use search and filter together or separately. [Filter syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) is an OData expression. A standalone filter, without a query string, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring (all scores are 1), and no ranking. Notice the search string is empty.
+[Filter syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) is an OData expression that you can use with **search** or by itself. A standalone filter, without a search parameter, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring (all scores are 1), and no ranking. Notice the search string is empty.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
     {  
       "search": "",
       "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
+      "select": "select=job_id, business_title, agency, salary_range_from",
       "count": "true"
     }
 ```
 
 Used together, the filter is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
 
+  ![Filter query response](media/search-query-simple-examples/filtered-query.png)
+
 If you want to try this out in Postman using GET, you can paste in this string:
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
  ```
 
 Another powerful way to combine filter and search is through **`search.ismatch*()`** in a filter expression, where you can use a search query within the filter. This filter expression uses a wildcard on *plan* to select business_title including the term plan, planner, planning, and so forth.
@@ -142,6 +145,8 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
       "count": "true"
     }
 ```
+  ![Range filter for numeric ranges](media/search-query-simple-examples/rangefilternumeric.png)
+
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
@@ -153,6 +158,8 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
       "count": "true"
     }
 ```
+
+  ![Range filter for text ranges](media/search-query-simple-examples/rangefiltertext.png)
 
 You can also try these out in Postman using GET:
 
@@ -221,12 +228,15 @@ Using the default searchMode (any), 2800 documents are returned: those containin
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
+
+  ![search mode any](media/search-query-simple-examples/searchmodeany.png)
+
 Changing searchMode to `all` enforces a cumulative effect on criteria and returns a smaller result set - 21 documents - consisting of documents containing the entire phrase "fire department", minus those jobs at the Metrotech Center address.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-
+  ![search mode all](media/search-query-simple-examples/searchmodeall.png)
 
 ## Example 8: Structuring results
 
