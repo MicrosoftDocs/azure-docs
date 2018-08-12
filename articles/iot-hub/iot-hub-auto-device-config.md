@@ -118,7 +118,7 @@ Review your configuration information, then select **Submit**.
 
 To view the details of a configuration and monitor the devices running it, use the following steps:
 
-1. In the [Azure portal][lnk-portal], go to your IoT hub. 
+1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
 
 2. Select **IoT device configuration**.
 
@@ -162,7 +162,7 @@ If you update the target condition, the following updates occur:
 
 To modify a configuration, use the following steps: 
 
-1. In the [Azure portal][lnk-portal], go to your IoT hub. 
+1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
 
 2. Select **IoT device configuration**. 
 
@@ -183,7 +183,7 @@ To modify a configuration, use the following steps:
 
 When you delete a configuration, any device twins take on their next highest priority configuration. If device twins don't meet the target condition of any other configuration, then no other settings are applied. 
 
-1. In the [Azure portal][lnk-portal], go to your IoT hub. 
+1. In the [Azure portal](https://portal.azure.com) go to your IoT hub. 
 
 2. Select **IoT device configuration**. 
 

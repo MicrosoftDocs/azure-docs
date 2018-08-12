@@ -26,10 +26,9 @@ At the end of this tutorial, you have two C apps:
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. (If you don't have an account, you can create a [free account](http://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+* An active Azure account. (If you don't have an account, you can create an [Azure free account](http://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 * An IoT Hub.
-* The latest [C SDK](https://github.com/Azure/azure-iot-sdk-c).
-
+* The latest [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
 You have now created your IoT hub, and you have the host name and IoT Hub connection string that you need to complete the rest of this tutorial.
 
@@ -168,7 +167,7 @@ int main(void)
 This app creates a device identity with ID **myFirstDevice** and a module identity with ID **myFirstModule** under device **myFirstDevice**. (If that module ID already exists in the identity registry, the code simply retrieves the existing module information.) The app then displays the primary key for that identity. You use this key in the simulated module app to connect to your IoT hub.
 
 > [!NOTE]
-> The IoT Hub identity registry only stores device and module identities to enable secure access to the IoT hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your application needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide][lnk-devguide-identity].
+> The IoT Hub identity registry only stores device and module identities to enable secure access to the IoT hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your application needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide](iot-hub-devguide-identity-registry.md).
 
 <!-- robin -- anchor -->
 <a id="D2C_csharp"></a>
@@ -376,5 +375,5 @@ int main(void)
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
-* [Getting started with device management](iot-hub-node-node-device-management-get-started.md))
+* [Getting started with device management](iot-hub-node-node-device-management-get-started.md)
 * [Getting started with IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

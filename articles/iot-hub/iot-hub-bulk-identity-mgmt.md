@@ -91,7 +91,8 @@ The **ExportDevicesAsync** method requires two parameters:
 * A *string* that contains a URI of a blob container. This URI must contain a SAS token that grants write access to the container. The job creates a block blob in this container to store the serialized export device data. The SAS token must include these permissions:
 
 ```csharp
-SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
+SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
+  | SharedAccessBlobPermissions.Delete
 ```
 
 * A *boolean* that indicates if you want to exclude authentication keys from your export data. If **false**, authentication keys are included in export output. Otherwise, keys are exported as **null**.
@@ -213,7 +214,8 @@ SharedAccessBlobPermissions.Read
 * A *string* that contains a URI of an [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob container to use as *output* from the job. The job creates a block blob in this container to store any error information from the completed import **Job**. The SAS token must include these permissions:
 
 ```csharp
-SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
+SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
+  | SharedAccessBlobPermissions.Delete
 ```
 
 > [!NOTE]
@@ -416,7 +418,7 @@ In this article, you learned how to perform bulk operations against the identity
 
 To further explore the capabilities of IoT Hub, see:
 
-* [IoT Hub developer guide](iot-hub-devguide.md))
+* [IoT Hub developer guide](iot-hub-devguide.md)
 * [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
