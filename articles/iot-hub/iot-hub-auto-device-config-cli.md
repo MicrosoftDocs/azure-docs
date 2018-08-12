@@ -202,4 +202,4 @@ To further explore the capabilities of IoT Hub, see:
 
 To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
 
-* [Azure IoT Hub Device Provisioning Service](azure/iot-dps)
+* [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
