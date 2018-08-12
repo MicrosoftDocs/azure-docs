@@ -1,6 +1,6 @@
 ---
-title:  | Microsoft Docs
-description: 
+title: Use Azure Cosmos DB change feed to visualize real-time data analytics | Microsoft Docs
+description: This article describes how change feed can be used by a retail company to understand user patterns, perform real-time data analysis and visualization.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -42,13 +42,13 @@ The following diagram represents the data flow and components involved in the so
 
 2. **Cosmos DB:** The generated data is stores in an Azure Cosmos DB collection.  
 
-3. **Change Feed:** The change feed will listen for changes to the Azure Cosmos DB collection. Each time a new document is added into the collection (that is when an event occurs such a user viewing an item, adding an item to their cart, or purchasing an item), the change feed will trigger an [Azure Function]().  
+3. **Change Feed:** The change feed will listen for changes to the Azure Cosmos DB collection. Each time a new document is added into the collection (that is when an event occurs such a user viewing an item, adding an item to their cart, or purchasing an item), the change feed will trigger an [Azure Function](../azure-functions/functions-overview.md).  
 
-4. **Azure Function:** The Azure Function processes the new data and sends it to an [Azure Event Hub]().  
+4. **Azure Function:** The Azure Function processes the new data and sends it to an [Azure Event Hub](../event-hubs/event-hubs-about.md).  
 
-5. **Event Hub:** The Azure Event Hub stores these events and sends them to [Azure Stream Analytics]() to perform further analysis.  
+5. **Event Hub:** The Azure Event Hub stores these events and sends them to [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) to perform further analysis.  
 
-6. **Azure Stream Analytics:** Azure Stream Analytics defines queries to process the events and perform real-time data analysis. This data is then sent to [Microsoft Power BI]().  
+6. **Azure Stream Analytics:** Azure Stream Analytics defines queries to process the events and perform real-time data analysis. This data is then sent to [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
 
 7. **Power BI:** Power BI is used to visualize the data sent by Azure Stream Analytics. You can build a dashboard to see how the metrics change in real time.  
 
@@ -96,28 +96,28 @@ You will now create a collection to hold e-commerce site events. When a user vie
 
 2. From the **Data Explorer** pane, select **New Collection** and fill the form with the following details:  
 
-   a. For the **Database id** field, select **Create new**, then enter **changefeedlabdatabase**. Leave the **Provision database throughput** box unchecked.  
-   b. For the **Collection** id field, enter **changefeedlabcollection**.  
-   c. For **Storage capacity**, select **Unlimited**.  
-   d. For the **Partition key** field, enter **/Item**. This is case-sensitive, so make sure you enter it correctly.  
-   e. For the **Throughput** field, enter **10000**.  
-   f. Click the **OK** button.  
+   * For the **Database id** field, select **Create new**, then enter **changefeedlabdatabase**. Leave the **Provision database throughput** box unchecked.  
+   * For the **Collection** id field, enter **changefeedlabcollection**.  
+   * For **Storage capacity**, select **Unlimited**.  
+   * For the **Partition key** field, enter **/Item**. This is case-sensitive, so make sure you enter it correctly.  
+   * For the **Throughput** field, enter **10000**.  
+   * Click the **OK** button.  
 
 3. Next create another collection named **leases** for change feed processing. The leases collection coordinates processing the change feed across multiple workers. A separate collection is used to store the leases with one lease per partition.  
 
 4.	Return to the **Data Explorer** pane and select **New Collection** and fill the form with the following details:
 
-   a. For the **Database id** field, select **Use existing**, then enter **changefeedlabdatabase**.  
-   b. For the **Collection id** field, enter **leases**.  
-   c. For **Storage capacity**, select **Fixed**.  
-   d. Leave the **Throughput** field set to its default value.  
-   e. Click the **OK** button.
+   * For the **Database id** field, select **Use existing**, then enter **changefeedlabdatabase**.  
+   * For the **Collection id** field, enter **leases**.  
+   * For **Storage capacity**, select **Fixed**.  
+   * Leave the **Throughput** field set to its default value.  
+   * Click the **OK** button.
 
 ## Get the connection string and keys
 
 ### Get the Azure Cosmos DB connection string
 
-1. Go to [Azure Portal]() and find the **Azure Cosmos DB Account** that’s created by the template deployment.  
+1. Go to [Azure Portal](http://portal.azure.com/) and find the **Azure Cosmos DB Account** that’s created by the template deployment.  
 
 2. Navigate to the **Keys** pane, copy the PRIMARY CONNECTION STRING and copy it to a notepad or another document that you will have access to throughout the lab. You should label it **Cosmos DB Connection String**. You'll need to copy the string into your code later, so take a note and remember where you are storing it.
 
@@ -153,11 +153,11 @@ When a new document is created, or a current document is modified in a Cosmos DB
 
 4. Navigate to **ChangeFeedProcessor.cs**. In the parameters for the **Run** function, perform the following actions:  
 
-   a. Replace the text **YOUR COLLECTION NAME HERE** with the name of your collection. If you followed earlier instructions, the name of your collection is changefeedlabcollection.  
-   b. Replace the text **YOUR LEASES COLLECTION NAME HERE** with the name of your leases collection. If you followed earlier instructions, the name of your leases collection is **leases**.  
-   c. At the top of Visual Studio, make sure that the Startup Project box on the left of the green arrow says **ChangeFeedFunction**.  
-   d. Select **Start**  at the top of the page to run the program  
-   e. You can confirm that the function is running when the console app says "Job host started".
+   * Replace the text **YOUR COLLECTION NAME HERE** with the name of your collection. If you followed earlier instructions, the name of your collection is changefeedlabcollection.  
+   * Replace the text **YOUR LEASES COLLECTION NAME HERE** with the name of your leases collection. If you followed earlier instructions, the name of your leases collection is **leases**.  
+   * At the top of Visual Studio, make sure that the Startup Project box on the left of the green arrow says **ChangeFeedFunction**.  
+   * Select **Start**  at the top of the page to run the program  
+   * You can confirm that the function is running when the console app says "Job host started".
 
 ## Insert simulated data into Azure Cosmos DB 
 
@@ -177,7 +177,7 @@ To see how change feed processes new actions on an e-commerce site, have to simu
  
 6. Wait for the program to run. The stars mean that data is coming in! Keep the program running - it is important that lots of data is collected.  
 
-7. If you navigate to [Azure Portal]() , then to the Cosmos DB account within your resource group, then to **Data Explorer**, you will see the randomized data imported in your **changefeedlabcollection** .
+7. If you navigate to [Azure Portal](http://portal.azure.com/) , then to the Cosmos DB account within your resource group, then to **Data Explorer**, you will see the randomized data imported in your **changefeedlabcollection** .
  
    ![Data generated in portal](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -185,7 +185,7 @@ To see how change feed processes new actions on an e-commerce site, have to simu
 
 Azure Stream Analytics is a fully managed cloud service for real-time processing of streaming data. In this lab, you will use stream analytics to process new events from the Event Hub (i.e. when an item is viewed, added to a cart, or purchased), incorporate those events into real-time data analysis, and send them into Power BI for visualization.
 
-1. From the [Azure Portal](), navigate to your resource group, then to **streamjob1** (the stream analytics job that you created in the prelab).  
+1. From the [Azure Portal](http://portal.azure.com/), navigate to your resource group, then to **streamjob1** (the stream analytics job that you created in the prelab).  
 
 2. Select **Inputs** as demonstrated below.  
 
@@ -195,16 +195,16 @@ Azure Stream Analytics is a fully managed cloud service for real-time processing
 
 4. Fill the new input form with the following details:
 
-   a. In the **Input** alias field, enter **input**.  
-   b. Select the option for **Select Event Hub from your subscriptions**.  
-   c. Set the **Subscription** field to your subscription.  
-   d. In the **Event Hub namespace** field, enter the name of your Event Hub Namespace that you created during the prelab.  
-   e. In the **Event Hub name** field, select the option for **Use existing** and choose **event-hub1** from the drop-down menu.  
-   f. Leave **Event Hub policy** name field set to its default value.  
-   g. Leave **Event serialization format** as **JSON**.  
-   h. Leave **Encoding field** set to **UTF-8**.  
-   i. Leave **Event compression type** field set to **None**.  
-   j. Click the **Save** button.
+   * In the **Input** alias field, enter **input**.  
+   * Select the option for **Select Event Hub from your subscriptions**.  
+   * Set the **Subscription** field to your subscription.  
+   * In the **Event Hub namespace** field, enter the name of your Event Hub Namespace that you created during the prelab.  
+   * In the **Event Hub name** field, select the option for **Use existing** and choose **event-hub1** from the drop-down menu.  
+   * Leave **Event Hub policy** name field set to its default value.  
+   * Leave **Event serialization format** as **JSON**.  
+   * Leave **Encoding field** set to **UTF-8**.  
+   * Leave **Event compression type** field set to **None**.  
+   * Click the **Save** button.
 
 5. Navigate back to the stream analytics job page, and select **Outputs**.  
 
@@ -212,12 +212,12 @@ Azure Stream Analytics is a fully managed cloud service for real-time processing
 
 7. To create a new Power BI output to visualize average price, perform the following actions:
 
-   a. In the **Output alias** field, enter **averagePriceOutput**.  
-   b. Leave the **Group workspace** field set to **Authorize connection to load workspaces**.  
-   c. In the **Dataset name** field, enter **averagePrice**.  
-   d. In the **Table name** field, enter **averagePrice**.  
-   e. Click the **Authorize** button, then follow the instructions to authorize the connection to Power BI.  
-   f. Click the **Save** button.  
+   * In the **Output alias** field, enter **averagePriceOutput**.  
+   * Leave the **Group workspace** field set to **Authorize connection to load workspaces**.  
+   * In the **Dataset name** field, enter **averagePrice**.  
+   * In the **Table name** field, enter **averagePrice**.  
+   * Click the **Authorize** button, then follow the instructions to authorize the connection to Power BI.  
+   * Click the **Save** button.  
 
 8. Then go back to **streamjob1** and click **Edit query**.
 
@@ -320,7 +320,7 @@ Power BI is a suite of business analytics tools to analyze data and share insigh
 
 You will now observe how you can use your new data analysis tool to connect with a real e-commerce site. In order to build the e-commerce site, use an Azure Cosmos DB database to store the list of product categories (Women's, Men's, Unisex), the product catalog, and a list of the most popular items.
 
-1. Navigate back to the [Azure Portal](), then to your **Cosmos DB account**, then to **Data Explorer**.  
+1. Navigate back to the [Azure Portal](http://portal.azure.com/), then to your **Cosmos DB account**, then to **Data Explorer**.  
 
    Add two collections under **changefeedlabdatabase** - **products** and **categories** with Fixed storage capacity.
 
@@ -390,4 +390,9 @@ You will now observe how you can use your new data analysis tool to connect with
 
 ## Delete the resources
 
-To delete the resources that you created during this lab, navigate to the resource group on [Azure Portal](), then select **Delete resource group** from the menu at the top of the page and follow the instructions provided.
+To delete the resources that you created during this lab, navigate to the resource group on [Azure Portal](http://portal.azure.com/), then select **Delete resource group** from the menu at the top of the page and follow the instructions provided.
+
+## Next Steps 
+  
+* To learn more about change feed, see [working with change feed support in Azure Cosmos DB](change-feed.md) 
+* [Change feed notification solution](change-feed-hl7-fhir-logic-apps.md) for healthcare organization using Azure Cosmos DB.
