@@ -1,6 +1,6 @@
 ---
-title: Use Azure Database Migration Service module in Microsoft Azure PowerShell to migrate SQL Server on-premises to Azure SQL DB | Microsoft Docs
-description: Learn to migrate from on-premises SQL Server to Azure SQL by using Azure PowerShell.
+title: Use Azure Database Migration Service module in Microsoft Azure PowerShell to migrate SQL Server on-premises to Azure SQL DB MI | Microsoft Docs
+description: Learn to migrate from on-premises SQL Server to Azure SQL DB MI by using Azure PowerShell.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -14,7 +14,7 @@ ms.date: 08/13/2018
 ---
 
 # Migrate SQL Server on-premises to Azure SQL DB using Azure PowerShell
-In this article, you migrate the **Adventureworks2012** database restored to an on-premises instance of SQL Server 2016 or above to an Azure SQL Database by using Microsoft Azure PowerShell. You can migrate databases from an on-premises SQL Server instance to Azure SQL Database by using the `AzureRM.DataMigration` module in Microsoft Azure PowerShell.
+In this article, you migrate the **Adventureworks2012** database restored to an on-premises instance of SQL Server 2005 or above to an Azure SQL Database by using Microsoft Azure PowerShell. You can migrate databases from an on-premises SQL Server instance to Azure SQL Database by using the `AzureRM.DataMigration` module in Microsoft Azure PowerShell.
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -33,13 +33,13 @@ To complete these steps, you need:
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 - To have created a VNET by using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - To have completed assessment of your on-premises database and schema migration using Data Migration Assistant as described in the article [ Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
-- To download and install the AzureRM.DataMigration module from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1); be sure to open the powershell command window using run as an Administrator.
+- To download and install the AzureRM.DataMigration module from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
 - To ensure that the credentials used to connect to source SQL Server instance has the [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permission.
 - To ensure that the credentials used to connect to target Azure SQL DB instance has the CONTROL DATABASE permission on the target Azure SQL Database databases.
 - An Azure subscription. If you don't have one, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Log in to your Microsoft Azure subscription
-Use the directions in the article [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.4.1) to sign in to your Azure subscription by using PowerShell.
+Use the directions in the article [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.4.1) to log in to your Azure subscription by using PowerShell.
 
 ## Create a resource group
 An Azure resource group is a logical container into which Azure resources are deployed and managed. Create a resource group before you can create a virtual machine.
@@ -93,11 +93,11 @@ $sourceConnInfo = New-AzureRmDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-The next example shows creation of Connection Info for an Azure SQL database server called SQLAzureTarget using sql authentication:
+The next example shows creation of Connection Info for an Azure SQL Database Managed Instance server called ‘targetmanagedinstance.database.windows.net’ using sql authentication:
 
 ```powershell
 $targetConnInfo = New-AzureRmDmsConnInfo -ServerType SQL `
-  -DataSource "sqlazuretarget.database.windows.net" `
+  -DataSource "targetmanagedinstance.database.windows.net" `
   -AuthType SqlAuthentication `
   -TrustServerCertificate:$false
 ```
@@ -105,10 +105,10 @@ $targetConnInfo = New-AzureRmDmsConnInfo -ServerType SQL `
 ### Provide databases for the migration project
 Create a list of `AzureRmDataMigrationDatabaseInfo` objects that specifies databases as part of the Azure Database Migration project that can be provided  as parameter for creation of the project. The Cmdlet `New-AzureRmDataMigrationDatabaseInfo` can be used to create AzureRmDataMigrationDatabaseInfo. 
 
-The following example creates `AzureRmDataMigrationDatabaseInfo` project for the **AdventureWorks2016** database and adds it to the list to be provided as parameter for project creation.
+The following example creates `AzureRmDataMigrationDatabaseInfo` project for the **AdventureWorks** database and adds it to the list to be provided as parameter for project creation.
 
 ```powershell
-$dbInfo1 = New-AzureRmDataMigrationDatabaseInfo -SourceDatabaseName AdventureWorks2016
+$dbInfo1 = New-AzureRmDataMigrationDatabaseInfo -SourceDatabaseName AdventureWorks
 $dbList = @($dbInfo1)
 ```
 
@@ -121,7 +121,7 @@ $project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `
   -ProjectName MyDMSProject `
   -Location EastUS `
   -SourceType SQL `
-  -TargetType SQLDB `
+  -TargetType SQLMI `
   -SourceConnection $sourceConnInfo `
   -TargetConnection $targetConnInfo `
   -DatabaseInfo $dbList
@@ -142,45 +142,73 @@ $secpasswd = ConvertTo-SecureString -String $targetPassword -AsPlainText -Force
 $targetCred = New-Object System.Management.Automation.PSCredential ($targetUserName, $secpasswd)
 ```
 
-### Create a table map and select source and target parameters for migration
-Another parameter needed for migration is mapping of tables from source to target to be migrated. Create dictionary of tables that provides a mapping between source and target tables for migration. The following example illustrates mapping between source and target tables Human Resources schema for the AdventureWorks 2016 database.
+### Create backup fileshare object
+Now create FileShare object representing the local SMB network share that the Azure Database Migration Service can take the source database backups to using the New-AzureRmDmsFileShare cmdlet.
 
 ```powershell
-$tableMap = New-Object 'system.collections.generic.dictionary[string,string]'
-$tableMap.Add("HumanResources.Department", "HumanResources.Department")
-$tableMap.Add("HumanResources.Employee","HumanResources.Employee")
-$tableMap.Add("HumanResources.EmployeeDepartmentHistory","HumanResources.EmployeeDepartmentHistory")
-$tableMap.Add("HumanResources.EmployeePayHistory","HumanResources.EmployeePayHistory")
-$tableMap.Add("HumanResources.JobCandidate","HumanResources.JobCandidate")
-$tableMap.Add("HumanResources.Shift","HumanResources.Shift")
+$backupPassword = ConvertTo-SecureString -String $password -AsPlainText -Force
+$backupCred = New-Object System.Management.Automation.PSCredential ($backupUserName, $backupPassword)
+
+$backupFileSharePath="\\10.0.0.76\SharedBackup"
+$backupFileShare = New-AzureRmDmsFileShare -Path $backupFileSharePath -Credential $backupCred
 ```
 
-The next step is to select the source and target databases and provide table mapping to migrate as a parameter by using the `New-AzureRmDmsSelectedDB` cmdlet, as shown in the following example:
+### Create selected database object
+The next step is to select the source and target databases by using the New-AzureRmDmsSelectedDB cmdlet, as shown in the following example:
 
 ```powershell
-$selectedDbs = New-AzureRmDmsSelectedDB -MigrateSqlServerSqlDb -Name AdventureWorks2016 `
+$selectedDbs = @()
+$selectedDbs += New-AzureRmDmsSelectedDB -MigrateSqlServerSqlDbMi `
+  -Name AdventureWorks2016 `
   -TargetDatabaseName AdventureWorks2016 `
-  -TableMap $tableMap
+  -BackupFileShare $backupFileShare `
+```
+
+### SAS URI for Azure Storage Container
+Create variable containing the SAS URI that provides the Azure Database Migration Service with access to the storage account container to which the service uploads the backup files.
+
+```powershell
+$blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%3A33Z&se=2019-07-14T18%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=qKlSA512EVtest3xYjvUg139tYSDrasbftY%3D"
+```
+
+### Select logins
+Create list of logins to be migrated as shown in below example:  Note, currently DMS supports migrating SQL logins only. 
+
+```powershell
+$selectedLogins = @("user1", "user2")
+```
+
+### Select agent jobs
+Create list of agent jobs to be migrated as shown in below example:  Note:  Currently DMS supports the jobs with T-SQL susbsystem job steps only.
+
+**Note**:  Currently DMS supports the jobs with T-SQL susbsystem job steps only.
+
+```powershell
+$selectedAgentJobs = @("agentJob1", "agentJob2")
 ```
 
 ### Create and start a migration task
 
 Use the `New-AzureRmDataMigrationTask` cmdlet to create and start a migration task. This cmdlet expects the following parameters:
-- *TaskType*. Type of migration task to create for SQL Server to Azure SQL Database migration type *MigrateSqlServerSqlDb* is expected. 
+- *TaskType*. Type of migration task to create for SQL Server to Azure SQL Database Managaged Instance migration type *MigrateSqlServerSqlDbMi* is expected. 
 - *Resource Group Name*. Name of Azure resource group in which to create the task.
 - *ServiceName*. Azure Database Migration Service instance in which to create the task.
 - *ProjectName*. Name of Azure Database Migration Service project in which to create the task. 
 - *TaskName*. Name of task to be created. 
 - *SourceConnection*. AzureRmDmsConnInfo object representing source SQL Server connection.
-- *TargetConnection*. AzureRmDmsConnInfo object representing target Azure SQL Database connection.
+- *TargetConnection*. AzureRmDmsConnInfo object representing target Azure SQL Database Managed Instance connection.
 - *SourceCred*. [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) object for connecting to source server.
 - *TargetCred*. [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) object for connecting to target server.
 - *SelectedDatabase*. AzureRmDataMigrationSelectedDB object representing the source and target database mapping.
+- *BackupFileShare*. FileShare object representing the local network share that the Azure Database Migration Service can take the source database backups to.
+- *BackupBlobSasUri*. The SAS URI that provides the Azure Database Migration Service with access to the storage account container to which the service uploads the backup files. Learn how to get the SAS URI for blob container.
+- *SelectedLogins*. List of selected logins to migrate.
+- *SelectedAgentJobs*. List of selected agent jobs to migrate.
 
 The following example creates and starts a migration task named myDMSTask:
 
 ```powershell
-$migTask = New-AzureRmDataMigrationTask -TaskType MigrateSqlServerSqlDb `
+$migTask = New-AzureRmDataMigrationTask -TaskType MigrateSqlServerSqlDbMi `
   -ResourceGroupName myResourceGroup `
   -ServiceName $service.Name `
   -ProjectName $project.Name `
@@ -190,6 +218,10 @@ $migTask = New-AzureRmDataMigrationTask -TaskType MigrateSqlServerSqlDb `
   -TargetConnection $targetConnInfo `
   -TargetCred $targetCred `
   -SelectedDatabase  $selectedDbs`
+  -BackupFileShare $backupFileShare `
+  -BackupBlobSasUri $blobSasUri `
+  -SelectedLogins $selectedLogins `
+  -SelectedAgentJobs $selectedJobs `
 ```
 
 ## Monitor the migration
