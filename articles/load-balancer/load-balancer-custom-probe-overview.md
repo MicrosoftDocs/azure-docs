@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2018
+ms.date: 08/10/2018
 ms.author: kumud
 ---
 
@@ -158,7 +158,7 @@ Basic public Load Balancer exposes health probe status summarized per backend po
 ## Limitations
 
 -  HTTPS probes do not support mutual authentication with a client certificate.
--  HTTPS probes can be configured via REST, template, and Azure CLI 2.0.
+-  SDK, PowerShell do not support HTTPS probes at this time.
 
 ## Next steps
 
