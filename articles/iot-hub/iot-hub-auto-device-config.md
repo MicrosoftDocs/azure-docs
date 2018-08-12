@@ -18,7 +18,7 @@ Automatic device management in Azure IoT Hub automates many of the repetitive an
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Automatic device configurations work by updating a set of device twins with desired properties and reporting a summary based on device twin reported properties.  It introduces a new class and JSON document called a _Configuration_ which has three parts:
+Automatic device configurations work by updating a set of device twins with desired properties and reporting a summary based on device twin reported properties.  It introduces a new class and JSON document called a *Configuration* which has three parts:
 
 * The **target condition** defines the scope of device twins to be updated. The target condition is specified as a query on device twin tags and/or reported properties.
 
@@ -28,7 +28,7 @@ Automatic device configurations work by updating a set of device twins with desi
 
 ## Implement device twins to configure devices
 
-Automatic device configurations require the use of device twins to synchronize state between the cloud and devices.  Refer to [Understand and use device twins in IoT Hub][lnk-device-twin] for guidance on using device twins.
+Automatic device configurations require the use of device twins to synchronize state between the cloud and devices. Refer to [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) for guidance on using device twins.
 
 ## Identify devices using tags
 
@@ -153,25 +153,15 @@ When you delete a configuration, any device twins take on their next highest pri
 ## Next steps
 In this article, you learned how configure and monitor IoT devices at scale. Follow these links to learn more about managing Azure IoT Hub:
 
-* [Manage your IoT Hub device identities in bulk][lnk-bulkIDs]
-* [IoT Hub metrics][lnk-metrics]
-* [Operations monitoring][lnk-monitor]
+* [Manage your IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md)
+* [IoT Hub metrics](iot-hub-metrics.md)
+* [Operations monitoring](iot-hub-operations-monitoring.md)
 
 To further explore the capabilities of IoT Hub, see:
 
-* [IoT Hub developer guide][lnk-devguide]
-* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
+* [IoT Hub developer guide](iot-hub-devguide.md)
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
 
-* [Azure IoT Hub Device Provisioning Service][lnk-dps]
-
-[lnk-device-twin]: iot-hub-devguide-device-twins.md
-[lnk-bulkIDs]: iot-hub-bulk-identity-mgmt.md
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-monitor]: iot-hub-operations-monitoring.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
-[lnk-portal]: https://portal.azure.com
+* [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
