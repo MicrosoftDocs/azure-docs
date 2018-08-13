@@ -1,6 +1,6 @@
 ---
 title: 'Azure portal: Create a SQL Managed Instance | Microsoft Docs'
-description: Create a SQL Managed Instance, networs and client VM for access.
+description: Create a SQL Managed Instance, network environment, and client VM for access.
 keywords: sql database tutorial, create a sql managed instance
 services: sql-database
 author: jovanpop-msft
@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 08/113/2018
+ms.date: 08/13/2018
 ms.author: jovanpop-msft
 
 ---
@@ -110,7 +110,7 @@ When you click on the "Purchase" button, Azure VM will be deployed in the networ
 
 ## Next steps
 
-1. [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
-2. [Migrate your databases from on-premises to Managed Instance](/sql-database-managed-instance-migrate.md).
+ - [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
+ - [Migrate your databases from on-premises to Managed Instance](/sql-database-managed-instance-migrate.md).
 
 
