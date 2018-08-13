@@ -46,8 +46,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To complete the scenario in this tutorial, you need:
 
- - Access to an Azure AD Premium edition - Azure AD conditional access is an Azure AD Premium capability. 
- - An email account for the test guest user – You’ll need a valid email account that you can add to your tenant directory as a guest user, and that you can use to sign in. If you don't know how to create a guest account, see [Add a B2B guest user in the Azure portal](add-users-administrator.md).
+ - Access to an Azure AD Premium edition. Azure AD conditional access is an Azure AD Premium capability. 
+ - An email account for the test guest user. You’ll need a valid email account that you can add to your tenant directory as a guest user, and that you can use to sign in. If you don't know how to create a guest account, see [Add a B2B guest user in the Azure portal](add-users-administrator.md).
 
 ## Create a test guest user in Azure AD
 
@@ -62,16 +62,16 @@ To complete the scenario in this tutorial, you need:
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-user-4.png)
 
-6.	Select **Invite** to automatically send the invitation to the guest user. In the **Notification** area, look for a **Successfully invited user** message. 
+6.	Select **Invite** to automatically send the invitation to the guest user. A **Successfully invited user** message appears. 
 7.	After you send the invitation, the user account is automatically added to the directory as a guest.
 
 ## Test the sign-in experience before MFA setup
-1.	Use your test user name and password to sign in to your Azure portal.
-2.	Note that you’re able to access the Azure portal immediately.
+1.	Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
+2.	Note that you’re able to access the Azure portal using just your sign-in credentials. No additional authentication is required.
 3.	Sign out.
 
 ## Create a conditional access policy that requires MFA
-1.	Sign in to your Azure portal as global administrator, security administrator, or a conditional access administrator.
+1.	Sign in to your [Azure portal](https://portal.azure.com/) as global administrator, security administrator, or a conditional access administrator.
 2.	In the Azure portal, select **Azure Active Directory**. 
 3.	On the **Azure Active Directory** page, in the **Security** section, select **Conditional access**.
 
@@ -81,11 +81,11 @@ To complete the scenario in this tutorial, you need:
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-3.png)
 
-5.	On the **New** page, in the **Name** textbox, type Require MFA for Azure portal access.
+5.	On the **New** page, in the **Name** textbox, type **Require MFA for B2B portal access**.
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-4.png)
 
-6.	In the **Assignment** section, select **Users and groups**.
+6.	In the **Assignments** section, select **Users and groups**.
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-5.png)
 
@@ -93,7 +93,7 @@ To complete the scenario in this tutorial, you need:
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 
-8.	On the **Select** page, select the check box next to your test user account, and then choose **Select**.
+8.	On the **Select** page, select your test user account, and then choose **Select**.
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-7.png)
 
@@ -110,7 +110,7 @@ To complete the scenario in this tutorial, you need:
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
-13.	On the **Cloud apps** page, select **Done.
+13.	On the **Cloud apps** page, select **Done**.
 14.	In the **Access controls** section, select **Grant**.
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-12.png)
@@ -146,14 +146,16 @@ To complete the scenario in this tutorial, you need:
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
 ## Test your conditional access policy
-1.	Use your test user name and password to sign in to your Azure portal.
+1.	Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
 2.	You should see a request for additional authentication methods. Note that it could take some time for the policy to take effect.
+
+    ![Select Azure Active Directory](media/tutorial-mfa/mfa-required.png)
  
 3.	Sign out.
 
 ## Clean up resources
-When no longer needed, remote the test user and the test conditional access policy.
-1.	Sign in to the Azure portal as an Azure AD administrator.
+When no longer needed, remove the test user and the test conditional access policy.
+1.	Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
 2.	In the left pane, select **Azure Active Directory**.
 3.	Under **Manage**, select **Users**.
 4.	Select the test user, and then select **Delete user**.
@@ -162,7 +164,7 @@ When no longer needed, remote the test user and the test conditional access poli
 
 5.	In the left pane, select **Azure Active Directory**.
 6.	Under **Security**, select **Conditional Access**.
-7.	In the **Policy Name** list, select the context menu (…) for your test policy, and then select **Delete**.
+7.	In the **Policy Name** list, select the context menu (…) for your test policy, and then select **Delete**. Select **Yes** to confirm.
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-cleanup-2.png)
 
