@@ -50,19 +50,15 @@ When you start PowerShell, you have to tell Azure PowerShell to connect to Azure
 | [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
 | [Azure Active Directory (Classic deployment model)](https://msdn.microsoft.com/library/azure/jj151815.aspx) commands |`Connect-MsolService -AzureEnvironment UsGovernment` |
 
-Use the `Environment` switch when connecting to a storage account using `New-AzureStorageContext` and specify `AzureUSGovernment`.
+## To print the current regions 
 
-To see available environments across Azure, run:
+To validate the available regions in Azure Government, run the following commands and print the current list:
 
 ```powershell
-Get-AzureRMEnvironment
+Get-AzureRMLocation
 
-Get-AzureEnvironment # For classic deployment model 
+Get-AzureLocation # For classic deployment model 
 ```
-
-## Determining Azure Government regions
-
-Once you are connected, there is one additional difference – The regions used to target a service. Every Azure cloud has different regions. You can see them listed on the service availability page. You normally use the region in the `Location` parameter for a command.
 
 > [!NOTE]
 > The Azure Government region display names have no spaces between `US` and `Gov` or `US` and `DoD` when using the `Location` parameter.
@@ -75,16 +71,6 @@ Once you are connected, there is one additional difference – The regions used 
 | US Gov Arizona |`USGov Arizona` | `usgovarizona` |
 | US DoD East |`USDoD East` | `usdodeast` |
 | US DoD Central |`USDoD Central` | `usdodcentral` |
-
-As is the case with PowerShell for global Azure, you can use either the Display Name or the Location Name for the `Location` parameter.
-
-To validate the available regions in Azure Government, run the following commands and print the current list:
-
-```powershell
-Get-AzureRMLocation
-
-Get-AzureLocation # For classic deployment model 
-```
 
 ## Next steps
 
