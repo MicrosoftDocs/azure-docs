@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2018
+ms.date: 08/13/2018
 ms.author: daseidma;bwren
 
 ---
@@ -83,19 +83,12 @@ The following section list the supported operating systems for the Dependency ag
 | 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
 
-### Red Hat Linux 5
-
-| OS version | Kernel version |
-|:--|:--|
-| 5.8 | 2.6.18-308 |
-| 5.9 | 2.6.18-348 |
-| 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419<br>2.6.18-420 |
-
 ### Ubuntu Server
 
 | OS version | Kernel version |
 |:--|:--|
+| Ubuntu 18.04 | kernel 4.15.* |
+| Ubuntu 16.04.3 | kernel 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
@@ -114,6 +107,13 @@ The following section list the supported operating systems for the Dependency ag
 |:--|:--|
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
+
+## SUSE Linux 12 Enterprise Server
+
+| OS version | Kernel version
+|:--|:--|
+|12 SP2 | 4.4.* |
+|12 SP3 | 4.4.* |
 
 ### SUSE Linux 11 Enterprise Server
 
