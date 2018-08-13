@@ -59,7 +59,7 @@ There are five steps to create a configuration. The following sections walk thro
 
 2. Add labels to help track your configurations. Labels are **Name**, **Value** pairs that describe your configuration. For example, `HostPlatform, Linux` or `Version, 3.0.1`.
 
-3. Select **Next** to move to step two. 
+3. Select **Next** to move to the next step. 
 
 ### Specify Settings
 
