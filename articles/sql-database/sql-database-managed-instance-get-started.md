@@ -6,7 +6,7 @@ services: sql-database
 author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.custom: DBs & servers
 ms.topic: quickstart
 ms.date: 08/113/2018
 ms.author: jovanpop-msft
@@ -40,7 +40,7 @@ This button will open a form where you can configure your network environment be
 You might change names of VNet and subnets and adjust IP ranges associated to your networking resources. Once you press "Purchase" button, this form will create and configure your environment. If you don't need two subnets you can delete the default one. 
 
  > [!Note]
- > If you change the names of VNet and subnets, make sure that you remember new names because they will be needed in the following secrions. In the rest of the tutorial will be assumed that you create **MyNewVNet** network, **ManagedInstances** subnet for SQL Managed Instances and **Default** subnet for Virtual machines and other resources.
+ > If you change the names of VNet and subnets, make sure that you remember new names because they will be needed in the following sections. In the rest of the tutorial will be assumed that you have created VNet called **MyNewVNet**, **ManagedInstances** subnet for SQL Managed Instances and **Default** subnet for Virtual machines and other resources.
 
 ## Create a Managed Instance
 
