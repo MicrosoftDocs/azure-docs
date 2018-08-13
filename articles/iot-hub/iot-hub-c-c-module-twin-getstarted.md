@@ -2,7 +2,6 @@
 title: Get started with Azure IoT Hub module identity and module twin (C) | Microsoft Docs
 description: Learn how to create module identity and update module twin using IoT SDKs for C.
 author: chrissie926
-manager: 
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
@@ -11,7 +10,7 @@ ms.date: 06/25/2018
 ms.author: menchi
 ---
 
-# Get started with IoT Hub module identity and module twin using C back end and C device
+# Get started with IoT Hub module identity and module twin using C backend and C device
 
 > [!NOTE]
 > [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device’s conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
@@ -19,24 +18,23 @@ ms.author: menchi
 At the end of this tutorial, you have two C apps:
 
 * **CreateIdentities**, which creates a device identity, a module identity and associated security key to connect your device and module clients.
+
 * **UpdateModuleTwinReportedProperties**, which sends updated module twin reported properties to your IoT Hub.
 
 > [!NOTE]
-> For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution back end, see [Azure IoT SDKs][lnk-hub-sdks].
+> For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution backend, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
+* An active Azure account. (If you don't have an account, you can create an [Azure free account](http://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 * An IoT Hub.
-* Install the latest [C SDK](https://github.com/Azure/azure-iot-sdk-c).
-
+* The latest [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
 You have now created your IoT hub, and you have the host name and IoT Hub connection string that you need to complete the rest of this tutorial.
 
-<a id="DeviceIdentity_csharp"></a>
 ## Create a device identity and a module identity in IoT Hub
 
-In this section, you create a C app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide][lnk-devguide-identity]. When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
+In this section, you create a C app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the **Identity registry** section of the [IoT Hub developer guide](iot-hub-devguide-identity-registry.md). When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
 
 Add the following code to your C file:
 
@@ -53,7 +51,8 @@ Add the following code to your C file:
 
 static const char* hubConnectionString ="[your hub's connection string]"; // modify
 
-static void createDevice(IOTHUB_REGISTRYMANAGER_HANDLE iotHubRegistryManagerHandle, const char* deviceId)
+static void createDevice(IOTHUB_REGISTRYMANAGER_HANDLE 
+  iotHubRegistryManagerHandle, const char* deviceId)
 {
     IOTHUB_REGISTRY_DEVICE_CREATE_EX deviceCreateInfo;
     IOTHUB_REGISTRYMANAGER_RESULT result;
@@ -70,7 +69,8 @@ static void createDevice(IOTHUB_REGISTRYMANAGER_HANDLE iotHubRegistryManagerHand
     deviceInfoEx.version = 1;
     
     // Create device
-    result = IoTHubRegistryManager_CreateDevice_Ex(iotHubRegistryManagerHandle, &deviceCreateInfo, &deviceInfoEx);
+    result = IoTHubRegistryManager_CreateDevice_Ex(iotHubRegistryManagerHandle, 
+      &deviceCreateInfo, &deviceInfoEx);
     if (result == IOTHUB_REGISTRYMANAGER_OK)
     {
         (void)printf("IoTHubRegistryManager_CreateDevice: Device has been created successfully: deviceId=%s, primaryKey=%s\n", deviceInfoEx.deviceId, deviceInfoEx.primaryKey);
@@ -165,17 +165,15 @@ int main(void)
 This app creates a device identity with ID **myFirstDevice** and a module identity with ID **myFirstModule** under device **myFirstDevice**. (If that module ID already exists in the identity registry, the code simply retrieves the existing module information.) The app then displays the primary key for that identity. You use this key in the simulated module app to connect to your IoT hub.
 
 > [!NOTE]
-> The IoT Hub identity registry only stores device and module identities to enable secure access to the IoT hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your application needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide][lnk-devguide-identity].
+> The IoT Hub identity registry only stores device and module identities to enable secure access to the IoT hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your application needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide](iot-hub-devguide-identity-registry.md).
 
-
-<a id="D2C_csharp"></a>
 ## Update the module twin using C device SDK
 
 In this section, you create a C app on your simulated device that updates the module twin reported properties.
 
-1. **Get your module connection string** -- now if you login to [Azure portal][lnk-portal]. Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfuly created. Copy the module connection string. It is needed in the next step.
+1. **Get your module connection string** -- now if you login to [Azure portal](https://portal.azure.com). Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfuly created. Copy the module connection string. It is needed in the next step.
 
-    ![Azure portal module detail][15]
+    ![Azure portal module detail](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
 
 2. **Create UpdateModuleTwinReportedProperties app**
 Add the following `using` statements at the top of the **Program.cs** file:
@@ -237,6 +235,7 @@ Add the following `using` statements at the top of the **Program.cs** file:
 This code sample shows you how to retrieve the module twin and update reported properties. 
 
 ## Get updates on the device side
+
 In addition to the above code, you can add below code block to get the twin update message on your device.
 
 ```C
@@ -296,7 +295,6 @@ static void reportedStateCallback(int status_code, void* userContextCallback)
 
     g_continueRunning = false;
 }
-
 
 void iothub_module_client_sample_device_twin_run(void)
 {
@@ -369,23 +367,9 @@ int main(void)
 }
 ```
 
-
 ## Next steps
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
-* [Getting started with device management][lnk-device-management]
-* [Getting started with IoT Edge][lnk-iot-edge]
-
-
-<!-- Images. -->
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
-<!-- Links -->
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-portal]: https://portal.azure.com/
-
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
-[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+* [Getting started with device management](iot-hub-node-node-device-management-get-started.md)
+* [Getting started with IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

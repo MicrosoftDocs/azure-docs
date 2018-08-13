@@ -3,10 +3,8 @@ title: Azure Advisor Cost recommendations | Microsoft Docs
 description: Use Azure Advisor to optimize the cost of your Azure deployments.
 services: advisor
 documentationcenter: NA
-author: KumudD
-manager: carmonm
-editor: ''
-
+author: manbeenkohli
+manager: 
 ms.assetid: 
 ms.service: advisor
 ms.devlang: NA
@@ -14,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumud
+ms.author: makohli
 ---
 
 # Advisor Cost recommendations
