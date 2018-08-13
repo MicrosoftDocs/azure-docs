@@ -76,8 +76,6 @@ Migration of Functions between Azure Germany and global Azure isn't supported at
 
 ## Notification Hubs
 
-This service is also covered under [Internet of Things](./germany-migration-iot.md#notification-hub).
-
 You can export and import all registration tokens along with tags from one Hub to another. Here's how:
 
 - [Export the existing Hub registrations](https://msdn.microsoft.com/en-us/library/azure/dn790624.aspx) into an Azure Blob Storage container.

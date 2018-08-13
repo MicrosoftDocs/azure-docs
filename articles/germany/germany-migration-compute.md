@@ -7,6 +7,7 @@ ms.date: 8/13/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
+
 # Compute
 
 ## Compute IaaS
