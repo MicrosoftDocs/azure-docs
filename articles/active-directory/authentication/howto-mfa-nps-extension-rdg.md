@@ -172,7 +172,7 @@ Remote Desktop connection authorization policies (RD CAPs) specify the requireme
 
   ![Remote Desktop Services](./media/howto-mfa-nps-extension-rdg/image8.png)
 
-3. In the RD Gateway Manger, right-click **\[Server Name\] (Local)**, and click **Properties**.
+3. In the RD Gateway Manager, right-click **\[Server Name\] (Local)**, and click **Properties**.
 
   ![Server Name](./media/howto-mfa-nps-extension-rdg/image9.png)
 
