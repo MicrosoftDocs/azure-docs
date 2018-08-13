@@ -1,5 +1,5 @@
 ---
-title: Go Quickstart for Azure Cognitive Services, Bing Web Search API | Microsoft Docs
+title: Quickstart: Use Go to call the Bing Web Search API
 description: Quickly get started using Go language to query the Bing Web Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: Nhoya
@@ -8,201 +8,167 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: rosh
-ms.reviewer: nhoyadx@gmail.com, v-gedod
+ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ---
 
-# Call and response: Your first Bing Web Search query in Go
+# Quickstart: Use Go to access the Bing Web Search API  
 
-The Bing Web Search API is similar to Bing.com, returning search results relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The results are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
+Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response in less than 10 minutes.  
 
-Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) for details about the APIs.
+[!INCLUDE [cognitive-services-bing-web-search-quickstart-signup](../../includes/cognitive-services-bing-web-search-quickstart-signup.md)]  
 
 ## Prerequisites
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
-Install the [Go binaries](https://golang.org/dl/).
- 
-This tutorial uses only **core** libraries, so there are no external dependencies.
+* [Go binaries](https://golang.org/dl/)
 
-## Core libraries
+This quickstart only requires **core** libraries, there are no external dependencies.  
 
-Use `http` to send the request to the endpoint, `ioutil` to read the answer, `time` and `json` to handle the json and `fmt` to print the output
+## Make a call to the Bing Web Search API  
 
-```
-package main
+To run this application, follow these steps.
 
-import (
-    "fmt"
-    "net/http"
-    "io/iutil"
-    "time"
-    "encoding/json"
-)
-```
+1. Create a new Go project in your favorite IDE or editor.
+2. Copy this sample code into your project:  
+    ```
+    package main
+    import (
+        "fmt"
+        "net/http"
+        "io/ioutil"
+        "time"
+        "encoding/json"
+    )
 
-## Define variables
-Set the API endpoint and the search term.
-
-```
-//This is the valid endpoint at the time of the writing
-const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/search"
-//API token
-token := "YOUR-ACCESS-KEY"
-searchTerm := "Microsoft Cognitive Services"
-```
-
-## Building and sending the request
-
-```
-//Declare a new GET request
-req, err := http.NewRequest("GET", endpoint, nil)
-if err != nil {
-    panic(err)
-}
-//Add the payload to the request
-param := req.URL.Query()
-param.Add("q", searchTerm)
-//Encoding the payload
-req.URL.RawQuery = param.Encode()
-
-//Insert the API token in the request header
-req.Header.Add("Ocp-Apim-Subscription-Key", token)
-
-//create new client
-client := new(http.Client)
-//Send the request
-resp, err := client.Do(req)
-if err != nil {
-    panic(err)
-}
-//Close the response body at the function exit
-defer resp.Body.Close() 
-```
-
-## Printing the answer
-The search result is inside the `resp` variable. Print the answer body from the variable.
-
-```
-body, err := ioutil.ReadAll(resp.Body)
-if err != nil {
-    panic(err)
-}
-//Convert body from byte to string.
-fmt.Println(string(body))
-```
-
-## Put everything together
-
-```
-package main
-import (
-    "fmt"
-    "net/http"
-    "io/ioutil"
-    "time"
-    "encoding/json"
-)
-
-//The struct that will contain the answer
-type BingAnswer struct {
-        Type         string `json:"_type"`
-        QueryContext struct {
-                OriginalQuery string `json:"originalQuery"`
-        } `json:"queryContext"`
-        WebPages struct {
-                WebSearchURL          string `json:"webSearchUrl"`
-                TotalEstimatedMatches int    `json:"totalEstimatedMatches"`
-                Value                 []struct {
-                        ID               string    `json:"id"`
-                        Name             string    `json:"name"`
-                        URL              string    `json:"url"`
-                        IsFamilyFriendly bool      `json:"isFamilyFriendly"`
-                        DisplayURL       string    `json:"displayUrl"`
-                        Snippet          string    `json:"snippet"`
-                        DateLastCrawled  time.Time `json:"dateLastCrawled"`
-                        SearchTags       []struct {
-                                Name    string `json:"name"`
-                                Content string `json:"content"`
-                        } `json:"searchTags,omitempty"`
-                        About []struct {
-                                Name string `json:"name"`
-                        } `json:"about,omitempty"`
-                } `json:"value"`
-        } `json:"webPages"`
-        RelatedSearches struct {
-                ID    string `json:"id"`
-                Value []struct {
-                        Text         string `json:"text"`
-                        DisplayText  string `json:"displayText"`
-                        WebSearchURL string `json:"webSearchUrl"`
-                } `json:"value"`
-        } `json:"relatedSearches"`
-        RankingResponse struct {
-                Mainline struct {
-                        Items []struct {
-                                AnswerType  string `json:"answerType"`
-                                ResultIndex int    `json:"resultIndex"`
-                                Value       struct {
-                                        ID string `json:"id"`
-                                } `json:"value"`
-                        } `json:"items"`
-                } `json:"mainline"`
-                Sidebar struct {
-                        Items []struct {
-                                AnswerType string `json:"answerType"`
-                                Value      struct {
-                                        ID string `json:"id"`
-                                } `json:"value"`
-                        } `json:"items"`
-                } `json:"sidebar"`
-        } `json:"rankingResponse"`
-}
-
-func main() {
-    const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/search"
-    token := "YOUR-ACCESS-KEY"
-    searchTerm := "Microsoft Cognitive Services"
-    
-    req, err := http.NewRequest("GET", endpoint, nil)
-    if err != nil {
-        panic(err)
-    }
-    
-    param := req.URL.Query()
-    param.Add("q", searchTerm)
-    req.URL.RawQuery = param.Encode()
-
-    req.Header.Add("Ocp-Apim-Subscription-Key", token)
-    
-    client := new(http.Client)
-    resp, err := client.Do(req)
-    if err != nil {
-        panic(err)
-    }
-    defer resp.Body.Close() 
-    body, err := ioutil.ReadAll(resp.Body)
-    if err != nil {
-        panic(err)
-    }
-    //creating a new answer struct
-    ans := new(BingAnswer)
-    err = json.Unmarshal(body, &ans)
-    if err != nil {
-         fmt.Println(err)
-    }
-    //Iterate over search results
-    for _, result := range ans.WebPages.Value {
-         //Printing result name and URL
-         fmt.Println(result.Name, "||", result.URL)
+    // The is the struct for the answer returned
+    // by Bing.
+    type BingAnswer struct {
+            Type         string `json:"_type"`
+            QueryContext struct {
+                    OriginalQuery string `json:"originalQuery"`
+            } `json:"queryContext"`
+            WebPages struct {
+                    WebSearchURL          string `json:"webSearchUrl"`
+                    TotalEstimatedMatches int    `json:"totalEstimatedMatches"`
+                    Value                 []struct {
+                            ID               string    `json:"id"`
+                            Name             string    `json:"name"`
+                            URL              string    `json:"url"`
+                            IsFamilyFriendly bool      `json:"isFamilyFriendly"`
+                            DisplayURL       string    `json:"displayUrl"`
+                            Snippet          string    `json:"snippet"`
+                            DateLastCrawled  time.Time `json:"dateLastCrawled"`
+                            SearchTags       []struct {
+                                    Name    string `json:"name"`
+                                    Content string `json:"content"`
+                            } `json:"searchTags,omitempty"`
+                            About []struct {
+                                    Name string `json:"name"`
+                            } `json:"about,omitempty"`
+                    } `json:"value"`
+            } `json:"webPages"`
+            RelatedSearches struct {
+                    ID    string `json:"id"`
+                    Value []struct {
+                            Text         string `json:"text"`
+                            DisplayText  string `json:"displayText"`
+                            WebSearchURL string `json:"webSearchUrl"`
+                    } `json:"value"`
+            } `json:"relatedSearches"`
+            RankingResponse struct {
+                    Mainline struct {
+                            Items []struct {
+                                    AnswerType  string `json:"answerType"`
+                                    ResultIndex int    `json:"resultIndex"`
+                                    Value       struct {
+                                            ID string `json:"id"`
+                                    } `json:"value"`
+                            } `json:"items"`
+                    } `json:"mainline"`
+                    Sidebar struct {
+                            Items []struct {
+                                    AnswerType string `json:"answerType"`
+                                    Value      struct {
+                                            ID string `json:"id"`
+                                    } `json:"value"`
+                            } `json:"items"`
+                    } `json:"sidebar"`
+            } `json:"rankingResponse"`
     }
 
-}
+    // Verify the endpoint URI.  
+    // Replace the token string with your access key.  
+    func main() {
+        const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/search"
+        token := "YOUR-ACCESS-KEY"
+        searchTerm := "Microsoft Cognitive Services"
+
+    	  // Declare a new GET request.
+        req, err := http.NewRequest("GET", endpoint, nil)
+        if err != nil {
+            panic(err)
+        }
+
+    		// Add the payload to the request.  
+        param := req.URL.Query()
+        param.Add("q", searchTerm)
+        req.URL.RawQuery = param.Encode()
+
+    		// Insert the request header.  
+        req.Header.Add("Ocp-Apim-Subscription-Key", token)
+
+    		// Create a new client.  
+        client := new(http.Client)
+
+        // Send the request to Bing.  
+        resp, err := client.Do(req)
+        if err != nil {
+            panic(err)
+        }
+
+        // Close the response.
+        defer resp.Body.Close()
+        body, err := ioutil.ReadAll(resp.Body)
+        if err != nil {
+            panic(err)
+        }
+
+        // Create a new answer.  
+        ans := new(BingAnswer)
+        err = json.Unmarshal(body, &ans)
+        if err != nil {
+             fmt.Println(err)
+        }
+
+        // Iterate over search results and print
+        // result name and URL.   
+        for _, result := range ans.WebPages.Value {
+             fmt.Println(result.Name, "||", result.URL)
+        }
+
+    }
+    ```
+3. Replace `accessKey` with an access key for your subscription.
+4. Run the program. For example: `go run your_program.go`.
+
+## Sample response  
+
+Responses from the Bing Web Search API are returned as JSON. This sample response has been formatted using the `BingAnswer` struct and shows the `result.Name` and `result.URL`.
+
+```
+Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services
+Cognitive Services | Microsoft Azure || https://azure.microsoft.com/services/cognitive-services/
+Cognitive Service Try experience | Microsoft Azure || https://azure.microsoft.com/en-us/try/cognitive-services/
+What is Microsoft Cognitive Services? | Microsoft Docs || https://docs.microsoft.com/en-us/azure/cognitive-services/Welcome
+Microsoft Cognitive Toolkit || https://www.microsoft.com/en-us/cognitive-toolkit/
+Microsoft Customers || https://customers.microsoft.com/en-us/search?sq=%22Microsoft%20Cognitive%20Services%22&ff=&p=0&so=story_publish_date%20desc
+Microsoft Enterprise Services - Microsoft Enterprise || https://enterprise.microsoft.com/en-us/services/
+Microsoft Cognitive Services || https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236
+Cognitive Services - msdn.microsoft.com || https://msdn.microsoft.com/en-us/magazine/mt742868.aspx  
 ```
 
 ## Next steps
 
-[Bing Web Search overview](../overview.md)  
-[Try it](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-[Bing Web Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+> [!div class="nextstepaction"]
+> [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
+[!INCLUDE [cognitive-services-bing-web-search-quickstart-see-also](../../includes/cognitive-services-bing-web-search-quickstart-see-also.md)]

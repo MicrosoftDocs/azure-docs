@@ -1,5 +1,5 @@
 ---
-title: Call and response - Node.js Quickstart for Azure Cognitive Services, Bing Web Search API | Microsoft Docs
+title: Quickstart: Use Node.js to call the Bing Web Search API
 description: Get information and code samples to help you quickly get started using the Bing Web Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
@@ -8,97 +8,94 @@ ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
 ms.date: 9/18/2017
-ms.author: v-jerkin
+ms.author: v-jerkin, erhopf
 ---
-# Call and response: your first Bing Web Search query for Node.js
 
-The Bing Web Search API provides a experience similar to Bing.com/Search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
+# Quickstart: Use Node.js to access the Bing Web Search API  
 
-This article includes a simple console application that performs a Bing Web Search API query and displays the returned raw search results, which are in JSON format. While this application is written in JavaScript and runs under Node.js, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response in less than 10 minutes.  
+
+[!INCLUDE [cognitive-services-bing-web-search-quickstart-signup](../../includes/cognitive-services-bing-web-search-quickstart-signup.md)]
 
 ## Prerequisites
 
-You need [Node.js 6](https://nodejs.org/en/download/) to run this code.
+* [Node.js 6](https://nodejs.org/en/download/) or later  
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
-
-## Running the application
+## Make a call to the Bing Web Search API  
 
 To run this application, follow these steps.
 
-1. Create a new Node.js project in your favorite IDE or editor.
-2. Add the provided code.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. Run the program.
+1. Create a new Node.js project in your favorite IDE or editor.  
+2. Copy this sample code into your project:   
+    ```javascript
+    'use strict';
 
-```javascript
-'use strict';
+    let https = require('https');
 
-let https = require('https');
+    // **********************************************
+    // *** Update or verify the following values. ***
+    // **********************************************
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    // Replace the subscriptionKey string value with your valid subscription key.
+    let subscriptionKey = 'enter key here';
 
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'enter key here';
+    // Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
+    // search APIs.  In the future, regional endpoints may be available.  If you
+    // encounter unexpected authorization errors, double-check this host against
+    // the endpoint for your Bing Web search instance in your Azure dashboard.
+    let host = 'api.cognitive.microsoft.com';
+    let path = '/bing/v7.0/search';
 
-// Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-// search APIs.  In the future, regional endpoints may be available.  If you
-// encounter unexpected authorization errors, double-check this host against
-// the endpoint for your Bing Web search instance in your Azure dashboard.
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/search';
+    let term = 'Microsoft Cognitive Services';
 
-let term = 'Microsoft Cognitive Services';
+    let response_handler = function (response) {
+        let body = '';
+        response.on('data', function (d) {
+            body += d;
+        });
+        response.on('end', function () {
+            console.log('\nRelevant Headers:\n');
+            for (var header in response.headers)
+                // header keys are lower-cased by Node.js
+                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                     console.log(header + ": " + response.headers[header]);
+            body = JSON.stringify(JSON.parse(body), null, '  ');
+            console.log('\nJSON Response:\n');
+            console.log(body);
+        });
+        response.on('error', function (e) {
+            console.log('Error: ' + e.message);
+        });
+    };
 
-let response_handler = function (response) {
-    let body = '';
-    response.on('data', function (d) {
-        body += d;
-    });
-    response.on('end', function () {
-        console.log('\nRelevant Headers:\n');
-        for (var header in response.headers)
-            // header keys are lower-cased by Node.js
-            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                 console.log(header + ": " + response.headers[header]);
-        body = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log('\nJSON Response:\n');
-        console.log(body);
-    });
-    response.on('error', function (e) {
-        console.log('Error: ' + e.message);
-    });
-};
+    let bing_web_search = function (search) {
+      console.log('Searching the Web for: ' + term);
+      let request_params = {
+    		method : 'GET',
+    		hostname : host,
+    		path : path + '?q=' + encodeURIComponent(search),
+    		headers : {
+    			'Ocp-Apim-Subscription-Key' : subscriptionKey,
+    		}
+    	};
 
-let bing_web_search = function (search) {
-  console.log('Searching the Web for: ' + term);
-  let request_params = {
-		method : 'GET',
-		hostname : host,
-		path : path + '?q=' + encodeURIComponent(search),
-		headers : {
-			'Ocp-Apim-Subscription-Key' : subscriptionKey,
-		}
-	};
+    	let req = https.request(request_params, response_handler);
+    	req.end();
+    }
 
-	let req = https.request(request_params, response_handler);
-	req.end();
-}
+    if (subscriptionKey.length === 32) {
+        bing_web_search(term);
+    } else {
+        console.log('Invalid Bing Search API subscription key!');
+        console.log('Please paste yours into the source code.');
+    }
+    ```
+3. Replace the `subscriptionKey` value with an access key valid for your subscription.  
+4. Run the program. For example: `node your_program.js`.   
 
-if (subscriptionKey.length === 32) {
-    bing_web_search(term);
-} else {
-    console.log('Invalid Bing Search API subscription key!');
-    console.log('Please paste yours into the source code.');
-}
+## Sample response
 
-```
-
-## JSON response
-
-A sample response follows. To limit the length of the JSON, only a single result is shown, and other parts of the response have been truncated. 
+Responses from the Bing Web Search API are returned as JSON. This sample response has been truncated to show a single result.  
 
 ```json
 {
@@ -227,9 +224,4 @@ A sample response follows. To limit the length of the JSON, only a single result
 > [!div class="nextstepaction"]
 > [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
-## See also 
-
-[Bing Web Search overview](../overview.md)  
-[Try it](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
-[Bing Web Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [cognitive-services-bing-web-search-quickstart-see-also](../../includes/cognitive-services-bing-web-search-quickstart-see-also.md)]
