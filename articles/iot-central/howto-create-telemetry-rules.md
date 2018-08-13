@@ -109,6 +109,6 @@ Navigate to the device and choose the rule you want to enable or disable. Toggle
 Now that you have learned how to create rules in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Add Microsoft Flow action in rules](howto-add-microsoft-flow.md).
-> [Add Webhook action in rules](howto-create-webhooks.md).
-> [How to manage your devices](howto-manage-devices.md).
+> [Add Microsoft Flow action in rules](howto-add-microsoft-flow.md)
+> [Add Webhook action in rules](howto-create-webhooks.md)
+> [How to manage your devices](howto-manage-devices.md)
