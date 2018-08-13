@@ -90,10 +90,10 @@ The **ExportDevicesAsync** method requires two parameters:
 
 * A *string* that contains a URI of a blob container. This URI must contain a SAS token that grants write access to the container. The job creates a block blob in this container to store the serialized export device data. The SAS token must include these permissions:
 
-```csharp
-SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
-  | SharedAccessBlobPermissions.Delete
-```
+   ```csharp
+   SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
+     | SharedAccessBlobPermissions.Delete
+   ```
 
 * A *boolean* that indicates if you want to exclude authentication keys from your export data. If **false**, authentication keys are included in export output. Otherwise, keys are exported as **null**.
 
@@ -208,15 +208,16 @@ The **ImportDevicesAsync** method takes two parameters:
 
 * A *string* that contains a URI of an [Azure Storage](../storage/index.yml) blob container to use as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
 
-```csharp
-SharedAccessBlobPermissions.Read
-```
+   ```csharp
+   SharedAccessBlobPermissions.Read
+   ```
+
 * A *string* that contains a URI of an [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob container to use as *output* from the job. The job creates a block blob in this container to store any error information from the completed import **Job**. The SAS token must include these permissions:
 
-```csharp
-SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
-  | SharedAccessBlobPermissions.Delete
-```
+   ```csharp
+   SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
+     | SharedAccessBlobPermissions.Delete
+   ```
 
 > [!NOTE]
 > The two parameters can point to the same blob container. The separate parameters simply enable more control over your data as the output container requires additional permissions.
