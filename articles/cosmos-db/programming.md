@@ -587,7 +587,7 @@ The following JavaScript constructs do not get optimized for Azure Cosmos DB ind
 * Control flow (for example, if, for, while)
 * Function calls
 
-For more information, see the [Server-Side JSDocs](http://azure.github.io/azure-documentdb-js-server/).
+For more information, see the [Server-Side JSDocs](https://azure.github.io/azure-cosmosdb-js-server/).
 
 ### Example: Write a stored procedure using the JavaScript query API
 The following code sample is an example of how the JavaScript Query API can be used in the context of a stored procedure. The stored procedure inserts a document, given by an input parameter, and updates a metadata document, using the `__.filter()` method, with minSize, maxSize, and totalSize based upon the input document's size property.
@@ -670,7 +670,7 @@ The following descriptions explain each query in the table above.
 
 
 ## Runtime support
-The Azure Cosmos DB [JavaScript server side API](http://azure.github.io/azure-documentdb-js-server/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+The Azure Cosmos DB [JavaScript server side API](https://azure.github.io/azure-cosmosdb-js-server/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### Security
 JavaScript stored procedures and triggers are sandboxed so that the effects of one script do not leak to the other without going through the snapshot transaction isolation at the database level. The runtime environments are pooled but cleaned of the context after each run. Hence they are guaranteed to be safe of any unintended side effects from each other.
@@ -824,7 +824,7 @@ Triggers, unlike stored procedures, cannot be executed directly. Instead they ar
 Here the pre-trigger to be run with the request is specified in the x-ms-documentdb-pre-trigger-include header. Correspondingly, any post-triggers are given in the x-ms-documentdb-post-trigger-include header. Both pre- and post-triggers can be specified for a given request.
 
 ## Sample code
-You can find more server-side code examples (including [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), and [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) in the [GitHub repository](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+You can find more server-side code examples (including [bulk-delete](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/bulkDelete.js), and [update](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/update.js)) in the [GitHub repository](https://github.com/Azure/azure-cosmosdb-js-server/tree/master/samples).
 
 Want to share your awesome stored procedure? contribute to the repository and create a pull-request! 
 
