@@ -104,7 +104,7 @@ Each template comes with sample code included, which takes simulated sensor data
 5. Add a temperature threshold variable below required node modules. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
 
     ```javascript
-    var temperatureThreshold = 30;
+    var temperatureThreshold = 25;
     ```
 
 6. Replace the entire `PipeMessage` function with the `FilterMessage` function.
