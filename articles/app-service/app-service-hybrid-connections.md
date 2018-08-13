@@ -30,7 +30,7 @@ The Hybrid Connections feature consists of two outbound calls to Azure Service B
 
 Through the two joined connections, your app has a TCP tunnel to a fixed host:port combination on the other side of the HCM. The connection uses TLS 1.2 for security and shared access signature (SAS) keys for authentication and authorization.    
 
-![Diagram of Hybrid Connection high level flow][1]
+![Diagram of Hybrid Connection high-level flow][1]
 
 When your app makes a DNS request that matches a configured Hybrid Connection endpoint, the outbound TCP traffic will be redirected through the Hybrid Connection.  
 
@@ -97,7 +97,7 @@ In addition to the portal experience from within your app, you can create Hybrid
 
 ## Hybrid Connections and App Service plans ##
 
-The Hybrid Connections feature is only available in Basic, Standard, Premium, and Isolated pricing SKUs. There are limits tied to the pricing plan.  
+App Service Hybrid Connections are only available in Basic, Standard, Premium, and Isolated pricing SKUs. There are limits tied to the pricing plan.  
 
 | Pricing plan | Number of Hybrid Connections usable in the plan |
 |----|----|
@@ -106,7 +106,7 @@ The Hybrid Connections feature is only available in Basic, Standard, Premium, an
 | Premium | 200 |
 | Isolated | 200 |
 
-Note that the App Service plan shows you how many Hybrid Connections are being used and by what apps.  
+The App Service plan UI shows you how many Hybrid Connections are being used and by what apps.  
 
 ![Screenshot of App Service plan properties][6]
 
@@ -116,7 +116,7 @@ There is a limit on the number of Hybrid Connection endpoints that can be used i
 
 ### Pricing ###
 
-In addition to there being an App Service plan SKU requirement, there is an additional cost to using Hybrid Connections. There is a charge for each listener used by a Hybrid Connection. The listener is the Hybrid Connection Manager. If you had 5 Hybrid Connections that were supported by 2 Hybrid Connection Managers, that would be 10 listeners. For more details, see [Service Bus pricing][sbpricing].
+In addition to there being an App Service plan SKU requirement, there is an additional cost to using Hybrid Connections. There is a charge for each listener used by a Hybrid Connection. The listener is the Hybrid Connection Manager. If you had five Hybrid Connections supported by two Hybrid Connection Managers, that would be 10 listeners. For more information, see [Service Bus pricing][sbpricing].
 
 ## Hybrid Connection Manager ##
 
@@ -163,7 +163,7 @@ Each HCM can support multiple Hybrid Connections. Also, any given Hybrid Connect
 
 ### Manually add a Hybrid Connection ###
 
-To enable someone outside your subscription to host an HCM instance for a given Hybrid Connection, share the gateway connection string for the Hybrid Connection with them. You can see this in the properties for a Hybrid Connection in the [Azure portal][portal]. To use that string, select **Enter Manually** in the HCM, and paste in the gateway connection string.
+To enable someone outside your subscription to host an HCM instance for a given Hybrid Connection, share the gateway connection string for the Hybrid Connection with them. You can see the gateway connection string in the Hybrid Connection properties in the [Azure portal][portal]. To use that string, select **Enter Manually** in the HCM, and paste in the gateway connection string.
 
 ![Manually add a Hybrid Connection][11]
 
@@ -194,7 +194,7 @@ The JSON object associated with a Hybrid Connection looks like:
       }
     }
 
-One way to use this information is with the armclient which you can get from the [ARMClient][armclient] github project. Here is an example on attaching a pre-existing Hybrid Connection to your web app. 
+One way to use this information is with the armclient, which you can get from the [ARMClient][armclient] github project. Here is an example on attaching a pre-existing Hybrid Connection to your web app. 
 Create a JSON file per the above schema like:
 
     {
@@ -212,7 +212,7 @@ Create a JSON file per the above schema like:
       }
     }
 
-To do this you need the send key and relay resource ID. If you saved your information with the filename hctest.json then to attach your Hybrid Connection to your app, issue the command: 
+To use this API, you need the send key and relay resource ID. If you saved your information with the filename hctest.json, issue this command to attach your Hybrid Connection to your app: 
 
     armclient login
     armclient put /subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myapp-rg/providers/Microsoft.Web/sites/myhcdemoapp/hybridConnectionNamespaces/demo-relay/relays/relay-demo-hc?api-version=2016-08-01 @hctest.json
@@ -227,7 +227,7 @@ In App Service, the tcpping tool can be invoked from the Advanced Tools (Kudu) c
 
 ## BizTalk Hybrid Connections ##
 
-The early form of this feature was called BizTalk Hybrid Connections. This capability went End of Life on May 31, 2018 and ceased operations. BizTalk hybrid connections have been removed from all web apps and are not accessible through the portal or API. If you still have these older connections configured in the Hybrid Connection Manager then it will give a status of Discontinued and display an End of Life statement at the bottom.
+The early form of this feature was called BizTalk Hybrid Connections. This capability went End of Life on May 31, 2018 and ceased operations. BizTalk hybrid connections have been removed from all web apps and are not accessible through the portal or API. If you still have these older connections configured in the Hybrid Connection Manager, then you will see a status of Discontinued and display an End of Life statement at the bottom.
 
 ![BizTalk Hybrid Connections in the HCM][12]
 
