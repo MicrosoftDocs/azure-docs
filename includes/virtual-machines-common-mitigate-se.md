@@ -39,7 +39,7 @@ While an OS update is not required to isolate your applications running on Azure
 | Offering | Recommended Action  |
 |----------|---------------------|
 | Azure Cloud Services  | Enable [auto update](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) or ensure you are running the newest Guest OS. |
-| Azure Linux Virtual Machines | Install updates from your operating system provider. Fore more information, see [Linux](#linux) later in this document. |
+| Azure Linux Virtual Machines | Install updates from your operating system provider. For more information, see [Linux](#linux) later in this document. |
 | Azure Windows Virtual Machines  | Install the latest security rollup.
 | Other Azure PaaS Services | There is no action needed for customers using these services. Azure automatically keeps your OS versions up-to-date. |
 
