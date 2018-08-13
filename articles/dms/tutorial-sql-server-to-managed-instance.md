@@ -150,7 +150,8 @@ After an instance of the service is created, locate it within the Azure portal, 
  
 1. On the **Select logins** screen, select the logins that you want to migrate.
 
-    **Note**: This release only supports migrating the SQL logins.
+    >[!NOTE]
+    >This release only supports migrating the SQL logins.
 
     ![Select logins](media\tutorial-sql-server-to-managed-instance\select-logins.png)
 

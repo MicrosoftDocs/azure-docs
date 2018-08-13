@@ -179,9 +179,10 @@ $selectedLogins = @("user1", "user2")
 ```
 
 ### Select agent jobs
-Create list of agent jobs to be migrated as shown in below example:  Note:  Currently DMS supports the jobs with T-SQL susbsystem job steps only.
+Create list of agent jobs to be migrated as shown in below example:
 
-**Note**:  Currently DMS supports the jobs with T-SQL susbsystem job steps only.
+>[!NOTE]
+>Currently DMS supports the jobs with T-SQL subsystem job steps only.
 
 ```powershell
 $selectedAgentJobs = @("agentJob1", "agentJob2")
