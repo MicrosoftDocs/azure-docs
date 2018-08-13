@@ -4,14 +4,14 @@ description: 'Learn how to use mongoimport and mongorestore to import data to an
 keywords: mongoimport, mongorestore
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
+manager: slyons
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.author: sngun
+ms.author: sclyon
 ms.custom: mvc
 ---
 

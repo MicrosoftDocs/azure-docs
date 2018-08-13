@@ -182,7 +182,7 @@ Approximate time to Complete: 15 minutes
 | --- | --- |
 | Install the browser extension | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configure Application from Gallery | [What's new in Enterprise Application management in Azure Active Directory: The new and improved application gallery](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Assign the app to the group identified in the Prerequisites | [Assign a user or group to an enterprise app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Log in to https://myapps.microsoft.com/ as a test user that has access |  |
 | Click on the tile for the application that was just created. | [What is the Access Panel?: Password-based SSO without identity provisioning](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -217,7 +217,7 @@ Approximate time to Complete: 30 minutes
 | --- | --- |
 | Install the browser extension | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configure Application from Gallery | [What's new in Enterprise Application management in Azure Active Directory: The new and improved application gallery](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Assign the app to the group identified in the Prerequisites while assigning them credentials | [Assign a user or group to an enterprise app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Log in as different users that access app as the **same shared account.**  |  |
 | Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](reports-monitoring/reference-reports-data-retention.md) |
@@ -497,17 +497,17 @@ Approximate time to Complete: 20 minutes
 | Pre-requisite | Resources |
 | --- | --- |
 | Device with Tor browser downloaded and installed | [Download Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Access to POC user to do the login | [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md) |
+| Access to POC user to do the login | [Azure Active Directory Identity Protection playbook](identity-protection/playbook.md) |
 
 ### Steps
 
 | Step | Resources |
 | --- | --- |
 | Open tor browser | [Download Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Log in to https://myapps.microsoft.com with the POC user account | [Azure Active Directory Identity Protection playbook: Simulating Risk Events](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Log in to https://myapps.microsoft.com with the POC user account | [Azure Active Directory Identity Protection playbook: Simulating Risk Events](identity-protection/playbook.md#simulating-risk-events) |
 | Wait 5-7 minutes |  |
 | Log in as a global admin to https://portal.azure.com and open up the Identity Protection blade | https://aka.ms/aadipgetstarted |
-| Open the risk events blade. You should see an entry under "Sign-ins from anonymous IP addresses"  | [Azure Active Directory Identity Protection playbook: Simulating Risk Events](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Open the risk events blade. You should see an entry under "Sign-ins from anonymous IP addresses"  | [Azure Active Directory Identity Protection playbook: Simulating Risk Events](identity-protection/playbook.md#simulating-risk-events) |
 
 ### Considerations
 
@@ -531,10 +531,10 @@ Approximate time to Complete: 10 minutes
 | Step | Resources |
 | --- | --- |
 | Log in as a global admin to https://portal.azure.com and open the Identity Protection blade | https://aka.ms/aadipgetstarted |
-| Enable a sign-in risk policy as follows:<br/>- Assigned to: POC user<br/>- Conditions: Sign-in risk medium or higher (sign-in from anonymous location is deemed as a medium risk level)<br/>- Controls: Require MFA | [Azure Active Directory Identity Protection playbook: Sign-in risk](active-directory-identityprotection-playbook.md) |
+| Enable a sign-in risk policy as follows:<br/>- Assigned to: POC user<br/>- Conditions: Sign-in risk medium or higher (sign-in from anonymous location is deemed as a medium risk level)<br/>- Controls: Require MFA | [Azure Active Directory Identity Protection playbook: Sign-in risk](identity-protection/playbook.md) |
 | Open tor browser | [Download Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Log in to https://myapps.microsoft.com with the PoC user account |  |
-| Notice the MFA challenge | [Sign-in experiences with Azure AD Identity Protection: Risky sign-in recovery](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
+| Notice the MFA challenge | [Sign-in experiences with Azure AD Identity Protection: Risky sign-in recovery](identity-protection/flows.md#risky-sign-in-recovery)
 
 ### Considerations
 

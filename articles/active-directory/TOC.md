@@ -235,13 +235,14 @@
 ### Manage enterprise apps
 #### [Add an application](manage-apps/add-application-portal.md)
 #### [View tenant apps](manage-apps/view-applications-portal.md)
+#### [Configure single sign-on](manage-apps/configure-single-sign-on-portal.md)
 #### [Assign users](manage-apps/assign-user-or-group-access-portal.md)
 #### [Customize branding](manage-apps/change-name-or-logo-portal.md)
 #### [Disable user sign-ins](manage-apps/disable-user-sign-in-portal.md)
 #### [Remove users](manage-apps/remove-user-or-group-access-portal.md)
 
 #### [Manage user account provisioning](manage-apps/configure-automatic-user-provisioning-portal.md)
-#### [Manage single sign-on for enterprise apps](manage-apps/configure-single-sign-on-portal.md)
+
 #### [Advanced certificate signing for SAML apps](manage-apps/certificate-signing-options.md)
 #### [Hide an application from a user's experience](manage-apps/hide-application-from-user-portal.md)
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](manage-apps/configure-authentication-for-federated-users-portal.md)
@@ -435,17 +436,18 @@
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
 #### [Get started](active-directory-certificate-based-authentication-get-started.md)
 
-### [Azure AD Identity Protection](active-directory-identityprotection.md)
-#### [Enable](active-directory-identityprotection-enable.md)
-#### [Detect vulnerabilities](active-directory-identityprotection-vulnerabilities.md)
+### Azure AD Identity Protection
+#### [Overview](identity-protection/overview.md)
+#### [Enable](identity-protection/enable.md)
+#### [Detect vulnerabilities](identity-protection/vulnerabilities.md)
 #### [Risk events](active-directory-identity-protection-risk-events.md)
-#### [Notifications](active-directory-identityprotection-notifications.md)
-#### [Sign-in experience](active-directory-identityprotection-flows.md)
-#### [Simulate risk events](active-directory-identityprotection-playbook.md)
-#### [Unblock users](active-directory-identityprotection-unblock-howto.md)
-#### [FAQs](active-directory-identity-protection-faqs.md)
-#### [Glossary](active-directory-identityprotection-glossary.md)
-#### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+#### [Notifications](identity-protection/notifications.md)
+#### [Sign-in experience](identity-protection/flows.md)
+#### [Simulate risk events](identity-protection/playbook.md)
+#### [Unblock users](identity-protection/howto-unblock-user.md)
+#### [FAQs](identity-protection/faqs.md)
+#### [Glossary](identity-protection/glossary.md)
+#### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## Integrate other services with Azure AD 

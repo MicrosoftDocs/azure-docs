@@ -39,7 +39,7 @@ Call centers accumulate large quantities of audio. Hidden within those audio fil
 
 The best starting point is the [Batch transcription API](batch-transcription.md) along with related [Sample](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
-You will need to first obtain an [Azure Subscription key](https://azure.microsoft.com/try/cognitive-services/) and then you will need to consult the [documentation]([Batch transcription API](batch-transcription.md)).
+You will need to first obtain an [Azure Subscription key](https://azure.microsoft.com/try/cognitive-services/) and then you will need to consult the [Batch transcript API](batch-transcription.md) documentation.
 
 ### Transcribe Call center audio calls with baseline models
 
