@@ -30,7 +30,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `OpenIdCon
 
 ## Input claims
 
-The **InputClaims** element is not required. But you may want to send additional parameters to your identity provider. The following example adds the `doamin_hint` query string parameter with the value of `contoso.com` to the authorization request.
+The **InputClaims** element is not required. But you may want to send additional parameters to your identity provider. The following example adds the `domain_hint` query string parameter with the value of `contoso.com` to the authorization request.
 
 ```XML
 <InputClaims>
@@ -40,7 +40,7 @@ The **InputClaims** element is not required. But you may want to send additional
 
 ## Output claims
 
-The **OutputClaims** element contains a list of claims returned by the OpenId Connect identity provider. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider, as long as the you set the `DefaultValue` attribute.
+The **OutputClaims** element contains a list of claims returned by the OpenId Connect identity provider. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider, as long as you set the `DefaultValue` attribute.
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
@@ -48,7 +48,7 @@ The following example shows the claims returned by the Microsoft Account identit
 
 - The `sub` claim that is mapped to the `socialIdpUserId` claim.
 - The `name` claim that is mapped to the `displayName` claim.
-- The `email` claim that is not mapped to another claim. Azure AD B2C use the `email` claim.
+- The `email` claim that is not mapped to another claim. Azure AD B2C uses the `email` claim.
 
 The technical profile also returns claims that aren't return by the identity provider:
 
@@ -70,7 +70,7 @@ The technical profile also returns claims that aren't return by the identity pro
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | client_id | Yes | The application identifier of the identity provider. |
-| IdTokenAudience | No | The audience of the Id token. If specified, Azure AD B2C checks whether the token is in a claim returned by the identity provider and is equal to the one specified. |
+| IdTokenAudience | No | The audience of the id_token. If specified, Azure AD B2C checks whether the token is in a claim returned by the identity provider and is equal to the one specified. |
 | METADATA | Yes | A URL that points to a JSON configuration document formatted according to the OpenID Connect Discovery specification, which is also known as a well-known openid configuration endpoint. |
 | ProviderName | No | The name of the identity provider. |
 | response_types | No | The response type according to the OpenID Connect Core 1.0 specification. Possible values: `id_token`, `code`, or `token`. |

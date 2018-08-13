@@ -57,7 +57,7 @@ The **OutputClaims** element contains the mapping information between a claim ty
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
-The **ClaimType** element in the **OutputClaims** collection needs to set the **UserInputType** element to any user input type supported by Azure AD B2C, such as `TextBox` or `DropdownSingleSelect`. Or the **OutputClaim** element must set a **DefaultValue**. The order the claims in **OutputClaims** controls the order that Azure AD B2C renders the claims on the screen. The **DefaultValue** attribute takes affect only if the claim has never been set before. But, if it has been set before in a previous orchestration step, even if the user leaves the value empty, the default value does not take effect. 
+The **ClaimType** element in the **OutputClaims** collection needs to set the **UserInputType** element to any user input type supported by Azure AD B2C, such as `TextBox` or `DropdownSingleSelect`. Or the **OutputClaim** element must set a **DefaultValue**. The order the claims in **OutputClaims** controls the order that Azure AD B2C renders the claims on the screen. The **DefaultValue** attribute takes effect only if the claim has never been set before. But, if it has been set before in a previous orchestration step, even if the user leaves the value empty, the default value does not take effect. 
 
 To force the use of a default value, set the **AlwaysUseDefaultValue** attribute to `true`. To force the user to provide a value for a specific output claim, set the **Required** attribute of the **OutputClaims** element to `true`.
 
@@ -76,7 +76,7 @@ There are four scenarios for output claims:
 - **A validation technical profile returns the output claims** - Your technical profile may call a validation technical profile that returns some claims. You may want to bubble up the claims and return them to the next orchestration steps in the user journey. For example, when signing in with a local account, the self-asserted technical profile named `SelfAsserted-LocalAccountSignin-Email` calls the validation technical profile named `login-NonInteractive`. This technical profile validates the user credentials and also returns the user profile. Such as 'userPrincipalName', 'displayName', 'givenName' and 'surName'.
 - **Output the claims via output claims transformation**
 
-In the following example the `LocalAccountSignUpWithLogonEmail` self-asserted technical profile demonstrates the use of output claims and sets **executed-SelfAsserted-Input** to `true`. The `objectId`, `authenticationSource`, `newUser` claims are output of the `AAD-UserWriteUsingLogonEmail` validation technical profile and are not shown to the user.
+In the following example, the `LocalAccountSignUpWithLogonEmail` self-asserted technical profile demonstrates the use of output claims and sets **executed-SelfAsserted-Input** to `true`. The `objectId`, `authenticationSource`, `newUser` claims are output of the `AAD-UserWriteUsingLogonEmail` validation technical profile and are not shown to the user.
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -123,7 +123,7 @@ If the **PersistedClaims** element is absent, the self-asserted technical profil
 
 A validation technical profile is used for validating some or all of the output claims of the referencing technical profile. The input claims of the validation technical profile must appear in the output claims of the self-asserted technical profile. The validation technical profile validates the user input and can return an error to the user. 
 
-The validation tehcnical profile can be any technical profile in the policy, such as OpenId Connect or a REST API call. In the previous example, the `LocalAccountSignUpWithLogonEmail` technical profile validates that the signinName does not exist in the directory. If not, the validation technical profile creates a local account and returns the objectId, authenticationSource, newUser. The `SelfAsserted-LocalAccountSignin-Email` technical profile calls the `login-NonInteractive` validation technical profile to validate the user credenatils.
+The validation technical profile can be any technical profile in the policy, such as OpenId Connect or a REST API call. In the previous example, the `LocalAccountSignUpWithLogonEmail` technical profile validates that the signinName does not exist in the directory. If not, the validation technical profile creates a local account and returns the objectId, authenticationSource, newUser. The `SelfAsserted-LocalAccountSignin-Email` technical profile calls the `login-NonInteractive` validation technical profile to validate the user credentials.
 
 You can also call a REST API technical profile with your business logic, overwrite input claims, or enrich user data by further integrating with corporate line-of-business application. For more information, see [Validation technical profile](validation-technical-profile.md)
 
@@ -136,7 +136,7 @@ You can also call a REST API technical profile with your business logic, overwri
 | setting.operatingMode | No | For a sign-in page, this property controls the behavior of the username field, such as input validation and error messages. Expected values: `Username` or `Email`. |
 | ContentDefinitionReferenceId | Yes | The identifier of the [content definition](contentdefinitions.md) associated with this technical profile. |
 | EnforceEmailVerification | No | For sign-up or profile edit, enforces email verification. The default value is `true`. | 
-| SignUpTarget | No | The signup target exchange identifier. When the user clicks the sign-up button, Azure AD B2C executes the specified exchange Id. |
+| SignUpTarget | No | The signup target exchange identifier. When the user clicks the sign-up button, Azure AD B2C executes the specified exchange identifier. |
 
 ## Cryptographic keys
 

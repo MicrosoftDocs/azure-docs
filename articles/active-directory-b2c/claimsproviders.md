@@ -57,9 +57,9 @@ The **ClaimsProviders** element contains the following element:
 
 The **ClaimsProvider** element contains the following child elements:
 
-| Element | Occurences | Description |
+| Element | Occurrences | Description |
 | ------- | ---------- | ----------- |
 | Domain | 0:1 | A string that contains the domain name for the claim provider. For example, if your claims provider includes the Facebook technical profile, the domain name is Facebook.com. This domain name is used for all technical profiles defined in the claims provider unless overridden by the technical profile. |
 | DisplayName | 0:1 | A string that contains the name of the claims provider that can be displayed to users. |
-| [TechnicalProfiles](technicalprofiles.md) | 0:1 | A set of technical profiles supported by the claim provider. Every claims provider must have one or more technical profiles that determines the endpoints and the protocols needed to communicate with the claims provider. A claims provider can have multiple technical profiles. For example, multiple technical profiles may be defined because the claims provider supports multiple protocols, various endpoints with different capabilities, or releases different claims at different assurance levels. It may be acceptable to release sensitive claims in one user journey, but not in another. |
+| [TechnicalProfiles](technicalprofiles.md) | 0:1 | A set of technical profiles supported by the claim provider. Every claims provider must have one or more technical profiles that determine the endpoints and the protocols needed to communicate with the claims provider. A claims provider can have multiple technical profiles. For example, multiple technical profiles may be defined because the claims provider supports multiple protocols, various endpoints with different capabilities, or releases different claims at different assurance levels. It may be acceptable to release sensitive claims in one user journey, but not in another. |
  

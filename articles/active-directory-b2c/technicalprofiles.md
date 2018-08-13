@@ -15,7 +15,7 @@ ms.component: B2C
 
 # TechnicalProfiles 
 
-A **TechnicalProfiles** element contains a set of technical profiles supported by the claim provider. Every claims provider must have one or more technical profiles that determines the endpoints and the protocols needed to communicate with the claims provider. A claims provider can have multiple technical profiles.
+A **TechnicalProfiles** element contains a set of technical profiles supported by the claim provider. Every claims provider must have one or more technical profiles that determine the endpoints and the protocols needed to communicate with the claims provider. A claims provider can have multiple technical profiles.
 
 ```XML
 <ClaimsProvider>
@@ -66,11 +66,11 @@ A **TechnicalProfiles** element contains a set of technical profiles supported b
 </ClaimsProvider>
 ```
 
-The **TechnicalProfile** element contains the follwoing attribute:
+The **TechnicalProfile** element contains the following attribute:
 
 | Attribute | Required | Description |
 |---------|---------|---------|
-| Id | Yes | A unique identifier that is used to identify the technical profile. The technical profile can be referenced using this ID from other elements in the policy file. For example, **OrchestrationSteps** and **ValidationTechnicalProfile**. |
+| Id | Yes | A unique identifier that is used to identify the technical profile. The technical profile can be referenced using this identifier from other elements in the policy file. For example, **OrchestrationSteps** and **ValidationTechnicalProfile**. |
 
 The **TechnicalProfile** contains the following elements:
 
@@ -106,7 +106,7 @@ The **Protocol** element contains the following attributes:
 
 ### Metadata
 
-A **Metadata** elment contains the following elements:
+A **Metadata** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
@@ -118,7 +118,7 @@ The **Item** element of the **Metadata** element contains the following attribut
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Key | Yes | The metadata key. See each technical profile types, for the list of metadata itmes. |
+| Key | Yes | The metadata key. See each technical profile type, for the list of metadata items. |
 
 ### CryptographicKeys
 
@@ -139,7 +139,7 @@ The **Key** element contains the following attribute:
 
 ### InputClaimsTransformations
 
-The `InputClaimsTransformations` elements contains the following element:
+The `InputClaimsTransformations` element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
@@ -169,7 +169,7 @@ The **InputClaim** element contains the following attributes:
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Yes | The identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file. |
 | DefaultValue | No | A default value to use to create a claim if the claim indicated by ClaimTypeReferenceId does not exist so that the resulting claim can be used as an InputClaim by the technical profile. |
-| PartnerClaimType | No | The identifier of the claim type of the external partner that the specified policy claim type maps to. If the PartnerClaimType attribute is not specified, then the specified policy claim type is mapped to the partner claim type of the same name. Use this property when your claim type name is differnet from the other party. For example, the first claim name is 'givenName', while the partner uses a claim named 'first_name'. |
+| PartnerClaimType | No | The identifier of the claim type of the external partner that the specified policy claim type maps to. If the PartnerClaimType attribute is not specified, then the specified policy claim type is mapped to the partner claim type of the same name. Use this property when your claim type name is different from the other party. For example, the first claim name is 'givenName', while the partner uses a claim named 'first_name'. |
 
 ### PersistedClaims
 
@@ -187,7 +187,7 @@ The **PersistedClaim** element contains the following attributes:
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Yes | The identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file. |
 | DefaultValue | No | A default value to use to create a claim if the claim indicated by ClaimTypeReferenceId does not exist so that the resulting claim can be used as an InputClaim by the technical profile. |
-| PartnerClaimType | No | The identifier of the claim type of the external partner that the specified policy claim type maps to. If the PartnerClaimType attribute is not specified, then the specified policy claim type is mapped to the partner claim type of the same name. Use this property when your claim type name is differnet from the other party. For example, the first claim name is 'givenName', while the partner uses a claim named 'first_name'. |
+| PartnerClaimType | No | The identifier of the claim type of the external partner that the specified policy claim type maps to. If the PartnerClaimType attribute is not specified, then the specified policy claim type is mapped to the partner claim type of the same name. Use this property when your claim type name is different from the other party. For example, the first claim name is 'givenName', while the partner uses a claim named 'first_name'. |
 
 ### OutputClaims
 
@@ -205,11 +205,11 @@ The **OutputClaim** element contains the following attributes:
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Yes | The identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file. |
 | DefaultValue | No | A default value to use to create a claim if the claim indicated by ClaimTypeReferenceId does not exist so that the resulting claim can be used as an InputClaim by the technical profile. |
-| PartnerClaimType | No | The identifier of the claim type of the external partner that the specified policy claim type maps to. If the PartnerClaimType attribute is not specified, then the specified policy claim type is mapped to the partner claim type of the same name. Use this property when your claim type name is differnet from the other party. For example, the first claim name is 'givenName', while the partner uses a claim named 'first_name'. |
+| PartnerClaimType | No | The identifier of the claim type of the external partner that the specified policy claim type maps to. If the PartnerClaimType attribute is not specified, then the specified policy claim type is mapped to the partner claim type of the same name. Use this property when your claim type name is different from the other party. For example, the first claim name is 'givenName', while the partner uses a claim named 'first_name'. |
 
 ### OutputClaimsTransformations
 
-The **OutputClaimsTransformations** contains the following element:
+The **OutputClaimsTransformations** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |

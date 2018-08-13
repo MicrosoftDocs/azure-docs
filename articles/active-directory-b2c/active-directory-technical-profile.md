@@ -1,6 +1,6 @@
 ---
-title: Define a Azure Active Directory technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
-description: Define a Azure Active Directory technical profile in a custom policy in Azure Active Directory B2C.
+title: Define an Azure Active Directory technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
+description: Define an Azure Active Directory technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.component: B2C
 ---
 
-# Define a Azure Active Directory technical profile in an Azure Active Directory B2C custom policy
+# Define an Azure Active Directory technical profile in an Azure Active Directory B2C custom policy
 
 Azure Active Directory (Azure AD) B2C provides support for the Azure Active Directory identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol.
 
@@ -23,9 +23,9 @@ The **Name** attribute of the **Protocol** element needs to be set to `Proprieta
 
 All Azure AD technical profiles include the `AAD-Common` technical profile. The following technical profiles don't specify the protocol because the protocol is configured in the `AAD-Common` technical profile:
 
-- **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingAlternativeSecurityId-NoError** - Lookup a social account in the directory.
+- **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingAlternativeSecurityId-NoError** - Look up a social account in the directory.
 - **AAD-UserWriteUsingAlternativeSecurityId** - Create a new social account.
-- **AAD-UserReadUsingEmailAddress** - Lookup a local account in the directory. 
+- **AAD-UserReadUsingEmailAddress** - Look up a local account in the directory. 
 - **AAD-UserWriteUsingLogonEmail** - Create a new local account.
 - **AAD-UserWritePasswordUsingObjectId** - Update a password of a local account.
 - **AAD-UserWriteProfileUsingObjectId** - Update a user profile of a local or social account.
@@ -116,7 +116,7 @@ The name of the claim is the name of the Azure AD attribute unless the `PartnerC
 
 ### Read
 
-The **Read** operation reads data about a single user account. To read user data, you need to provide a key as an input claim, such as `objectId`, `userPrincipalName`, `signInNames` (any type, user name and email based account) or `alternativeSecurityId`.  
+The **Read** operation reads data about a single user account. To read user data, you need to provide a key as an input claim, such as `objectId`, `userPrincipalName`, `signInNames` (any type, user name and email-based account) or `alternativeSecurityId`.  
 
 The following technical profile reads data about a user account using the user's objectId:
 
@@ -249,7 +249,7 @@ The following technical profile deletes a social user account using `alternative
 | --------- | -------- | ----------- |
 | Operation | Yes | The operation to be performed. Possible values: `Read`, `Write`, `DeleteClaims`, and `DeleteClaimsPrincipal`. | 
 | RaiseErrorIfClaimsPrincipalDoesNotExist | No | Raise an error if the user object does not exist in the directory. Possible values: `true` or `false`. | 
-| UserMessageIfClaimsPrincipalDoesNotExist | No | If an error is to be raised (see the RaiseErrorIfClaimsPrincipalDoesNotExist attribute desciption), specify the message to show to the user if user object does not exist. | 
+| UserMessageIfClaimsPrincipalDoesNotExist | No | If an error is to be raised (see the RaiseErrorIfClaimsPrincipalDoesNotExist attribute description), specify the message to show to the user if user object does not exist. | 
 | RaiseErrorIfClaimsPrincipalAlreadyExists | No | Raise an error if the user object already exists. Possible values: `true` or `false`.| 
 | UserMessageIfClaimsPrincipalAlreadyExists | No | If an error is to be raised (see RaiseErrorIfClaimsPrincipalAlreadyExists attribute description), specify the message to show to the user if user object already exists. | 
 | ApplicationObjectId | No | The application object identifier for extension attributes. Value: ObjectId of an application. For more information, see [Use custom attributes in a custom profile edit policy](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 

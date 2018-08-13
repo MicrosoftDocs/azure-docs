@@ -42,8 +42,8 @@ The following example shows the claims returned by the Facebook identity provide
 
 - The `first_name` claim is mapped to the `givenName` claim.
 - The `last_name` claim is mapped to the `surname` claim.
-- The `displayName` claim that is not mapped to another claim. Azure AD B2C use the `name` claim.
-- The `email` claim that is not mapped to another claim. Azure AD B2C use the `email` claim.
+- The `displayName` claim that is not mapped to another claim. Azure AD B2C uses the `name` claim.
+- The `email` claim that is not mapped to another claim. Azure AD B2C uses the `email` claim.
 
 The technical profile also returns claims that aren't returned by the identity provider: 
 
@@ -67,7 +67,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | client_id | Yes | The application identifier of the identity provider. |
-| IdTokenAudience | No | The audience of the Id token. If specified, Azure AD B2C checks whether the token is in a claim returned by the identity provider and is equal to the one specified. |
+| IdTokenAudience | No | The audience of the id_token. If specified, Azure AD B2C checks whether the token is in a claim returned by the identity provider and is equal to the one specified. |
 | authorization_endpoint | Yes | The URL of the authorization endpoint as per RFC 6749. |
 | AccessTokenEndpoint | Yes | The URL of the token endpoint as per RFC 6749. |  
 | ClaimsEndpoint | Yes | The URL of the user information endpoint as per RFC 6749. | 
@@ -80,8 +80,8 @@ The technical profile also returns claims that aren't returned by the identity p
 | scope | No | The scope of the access request defined according to the OpenID Connect Core 1.0 specification. Such as `openid`, `profile`, and `email`. |
 | HttpBinding | No | The expected HTTP binding to the access token and claims token endpoints. Possible values: `GET` or `POST`.  |
 | ResponseErrorCodeParamName | No | The name of the parameter that contains the error message returned over HTTP 200 (Ok). |
-| ExtraParamsInAccessTokenEndpointResponse | No | Contains the extra parameters that can be returned in the the response from **AccessTokenEndpoint** by some identity providers. For example, the response from **AccessTokenEndpoint** contains an extra parameter such as `openid`, which is a mandatory parameter besides the access_token in a **ClaimsEndpoint** request query string. Multiple parameter names should be escaped and separated by the comma ',' delimiter. |
-| ExtraParamsInClaimsEndpointRequest | No | Contains the extra parameters that can be returned in the the **ClaimsEndpoint** request by some identity providers. Multiple parameter names should be escaped and separated by the comma ',' delimiter. |
+| ExtraParamsInAccessTokenEndpointResponse | No | Contains the extra parameters that can be returned in the response from **AccessTokenEndpoint** by some identity providers. For example, the response from **AccessTokenEndpoint** contains an extra parameter such as `openid`, which is a mandatory parameter besides the access_token in a **ClaimsEndpoint** request query string. Multiple parameter names should be escaped and separated by the comma ',' delimiter. |
+| ExtraParamsInClaimsEndpointRequest | No | Contains the extra parameters that can be returned in the **ClaimsEndpoint** request by some identity providers. Multiple parameter names should be escaped and separated by the comma ',' delimiter. |
 
 ## Cryptographic keys
 

@@ -34,7 +34,7 @@ The **InputClaims** and **InputClaimsTransformations**  elements are empty or ab
 
 ## Output claims
 
-The **OutputClaims** element contains a list of claims returned by the OpenId Connect identity provider. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider as long as the you set the **DefaultValue** attribute.
+The **OutputClaims** element contains a list of claims returned by the OpenId Connect identity provider. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider as long as you set the **DefaultValue** attribute.
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
@@ -81,7 +81,7 @@ The **CryptographicKeys** element contains the following attribute:
 
 ## Redirect URI
 
-When you configure the redirect URL of your identity provider, enter `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Make sure to replace **tenant** with your tienant's name (for example, contosob2c.onmicrosoft.com) and **policyId** with the identifier of your policy (for example, b2c_1_policy). The redirect URI needs to be in all lowercase. You should add a redirect UR for all policies that use the identity provider login. 
+When you configure the redirect URL of your identity provider, enter `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Make sure to replace **tenant** with your tenant name (for example, contosob2c.onmicrosoft.com) and **policyId** with the identifier of your policy (for example, b2c_1_policy). The redirect URI needs to be in all lowercase. You should add a redirect UR for all policies that use the identity provider login. 
 
 If you are using the **b2clogin.com** domain instead of **login.microsoftonline.com** Make sure to use b2clogin.com instead of login.microsoftonline.com.
 

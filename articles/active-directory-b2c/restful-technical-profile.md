@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Define a RESTful technical profile in an Azure Active Directory B2C custom policy
 
-Azure Active Directory (Azure AD) B2C provides support for your own RESTful service. Azure AD B2C sends data to the RESTful service in a input claims collection and receives data back in an output claims collection. With RESTful service integration, you can:
+Azure Active Directory (Azure AD) B2C provides support for your own RESTful service. Azure AD B2C sends data to the RESTful service in an input claims collection and receives data back in an output claims collection. With RESTful service integration, you can:
 
 - **Validate user input data** - Prevents malformed data from persisting into Azure AD B2C. If the value from the user is not valid, your RESTful service returns an error message that instructs the user to provide an entry. For example, you can verify that the email address provided by the user exists in your customer's database.
 - **Overwrite input claims** - Enables you to reformat values in input claims. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized.
@@ -43,7 +43,7 @@ The following example shows a RESTful technical profile:
 
 ## Input claims
 
-The **InputClaims** element contains a list of claims to send to the REST API. You can also map the name of your claim to the name defined in the REST API. Following example showss the mapping between your policy and the REST API. The `givenName` claim is sent to the REST API as `firstName`, while `surname` is sent as `lastName`. The `email` claim is set as is.
+The **InputClaims** element contains a list of claims to send to the REST API. You can also map the name of your claim to the name defined in the REST API. Following example shows the mapping between your policy and the REST API. The `givenName` claim is sent to the REST API as `firstName`, while `surname` is sent as `lastName`. The `email` claim is set as is.
 
 ```XML
 <InputClaims>
@@ -81,7 +81,7 @@ The technical profile also returns claims, that aren't return by the identity pr
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ServiceUrl | Yes | The URL of the REST API endpoint. | 
-| AuthenticationType | Yes | The type of authentication being performed by the RESTful claims provider. Possible values: <ul><li>`None` - Indicates that the REST API is not anonymous.</li><li>`Basic` - The REST API is secured with HTTP basic authentication. Only verified users, including Azure AD B2C, can access your API.</li><li>`ClientCertificate` (recommended) - The REST API restricts access using client certificate authentication. Only services that have the apropriate certificates, such as Azure AD B2C can access your service.</li></ul> | 
+| AuthenticationType | Yes | The type of authentication being performed by the RESTful claims provider. Possible values: <ul><li>`None` - Indicates that the REST API is not anonymous.</li><li>`Basic` - The REST API is secured with HTTP basic authentication. Only verified users, including Azure AD B2C, can access your API.</li><li>`ClientCertificate` (recommended) - The REST API restricts access using client certificate authentication. Only services that have the appropriate certificates, such as Azure AD B2C can access your service.</li></ul> | 
 | SendClaimsIn | No | Specifies how the input claims are sent to the RESTful claims provider. Possible values:<ul><li>`Body` (default) - The input claim is sent in the request body in JSON format.</li><li>`Form` - The input claim is sent in the request body in an ampersand '&' separated key value format.</li><li>`Header` - The input claim is sent in the request header.</li><li>`QueryString` - The input claim is sent in the request query string.</li></ul> | 
 | ClaimsFormat | No | Specifies the format for the output claims. Possible values:<ul><li>`Body` (default) - The output claim is sent in the request body in JSON format.</li><li>`Form` - The output claim is sent in the request body in an ampersand '&' separated key value format.</li><li>`Header` - The output claim is sent in the request header.</li><li>`QueryString` - The output claim is sent in the request query string.</li></ul> | 
 | DebugMode | No | Runs the technical profile in debug mode. In debug mode, the REST API can return more information. See the returning error message section. | 
@@ -150,7 +150,7 @@ If the type of authentication is set to `ClientCertificate`, the **Cryptographic
 
 ## Returning error message
 
-Your REST API may need to return an error message, such as 'The user was not found in the CRM system'. In case of an error, the REST API should return an HTTP 409 error message (Conflict response status code) with following attributes:
+Your REST API may need to return an error message, such as 'The user was not found in the CRM system'. In an error occurs, the REST API should return an HTTP 409 error message (Conflict response status code) with following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
@@ -162,7 +162,7 @@ Your REST API may need to return an error message, such as 'The user was not fou
 | developerMessage | No | The verbose description of the problem and how to fix it, which is displayed when `DebugMode` is enabled. | 
 | moreInfo | No | A URI that points to additional information, which is displayed when `DebugMode` is enabled. | 
 
-The following example shows a REST API that returns an error message formmated in JSON:
+The following example shows a REST API that returns an error message formatted in JSON:
 
 ```JSON
 {
