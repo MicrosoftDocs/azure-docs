@@ -117,18 +117,6 @@ Before you proceed, review the [Prerequisites](azure-security-disk-encryption-pr
 
 ### Encrypt or decrypt VMs with an Azure AD app (deprecated) 
  
-- [Enable disk encryption on new IaaS Windows VM from the Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)
-    - This template creates a new encrypted Windows VM that uses the Windows Server 2012 gallery image.
-
-- [Create a new encrypted Windows IaaS Managed Disk VM from gallery image](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
-    - This template creates a new encrypted  Windows VM with managed disks using the Windows Server 2012 gallery image.
-
-- [Deployment of RHEL 7.2 with full disk encryption](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
-    - This template creates a fully-encrypted RHEL 7.2 VM in Azure with a 30 GB encrypted OS drive and a 200 GB RAID-0 array mounted at /mnt/raidencrypted. See the [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article for supported Linux server distributions. 
-
-- [Deployment of RHEL 7.2 with full disk encryption with unmanaged disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel-unmanaged)
-    - This template creates a fully-encrypted RHEL 7.2 VM in Azure with a 30 GB encrypted OS drive and a 200 GB RAID-0 array mounted at /mnt/raidencrypted. See the [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article for supported Linux server distributions. 
-
 - [Enable disk encryption on existing or running IaaS Windows VMs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)
 
 - [Enable disk encryption on an existing or running IaaS Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
@@ -137,6 +125,18 @@ Before you proceed, review the [Prerequisites](azure-security-disk-encryption-pr
 
 -  [Disable encryption on a running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
     - Disabling encryption is only allowed on Data volumes for Linux VMs. 
+
+- [Enable disk encryption on new IaaS Windows VM from the Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)
+    - This template creates a new encrypted Windows VM that uses the Windows Server 2012 gallery image.
+
+- [Create a new encrypted Windows IaaS Managed Disk VM from gallery image](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
+    - This template creates a new encrypted  Windows VM with managed disks using the Windows Server 2012 gallery image.
+
+- [Deployment of RHEL 7.2 with full disk encryption with managed disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
+    - This template creates a fully-encrypted RHEL 7.2 VM in Azure using managed disks. It includes a 30 GB encrypted OS drive and a 200 GB RAID-0 array mounted at /mnt/raidencrypted. See the [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article for supported Linux server distributions. 
+
+- [Deployment of RHEL 7.2 with full disk encryption with unmanaged disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel-unmanaged)
+    - This template creates a fully-encrypted RHEL 7.2 VM in Azure with a 30 GB encrypted OS drive and a 200 GB RAID-0 array mounted at /mnt/raidencrypted. See the [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article for supported Linux server distributions. 
 
 - [Enable disk encryption on a pre-encrypted VHD for Windows or Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
 

@@ -30,6 +30,10 @@ Azure disk encryption for Windows and Linux IaaS VMs is in **General Availabilit
 * IaaS VMs are secured at rest using industry-standard encryption technology to address organizational security and compliance requirements.
 * IaaS VMs boot under customer-controlled keys and policies, and you can audit their usage in your key vault.
 
+
+If you use Azure Security Center, it  will alert you if you have virtual machines that are not encrypted. These alerts will show as High Severity and the recommendation is to encrypt these virtual machines.
+![Azure Security Center disk encryption alert](media/azure-security-disk-encryption/security-center-disk-encryption-fig1.png)
+
 > [!NOTE]
 > Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs.
 
@@ -40,8 +44,12 @@ The Azure Disk Encryption solution supports the following customer scenarios:
 * Enable encryption on new Windows IaaS VMs created from pre-encrypted VHD and encryption keys 
 * Enable encryption on new IaaS VMs created from the supported Azure Gallery images
 * Enable encryption on existing IaaS VMs running in Azure
+* Enable encryption on Windows virtual machine scale sets
+* Enable encryption on data drives for Linux virtual machine scale sets
 * Disable encryption on Windows IaaS VMs
 * Disable encryption on data drives for Linux IaaS VMs
+* Disable encryption on Windows virtual machine scale sets
+* Disable encryption on data drives for Linux virtual machine scale sets
 * Enable encryption of managed disk VMs
 * Update encryption settings of an existing encrypted premium and non-premium storage VM
 * Backup and restore of encrypted VMs
@@ -51,9 +59,9 @@ The solution supports the following scenarios for IaaS VMs when they are enabled
 * Integration with Azure Key Vault
 * Standard tier VMs: [A, D, DS, G, GS, F, and so forth series IaaS VMs](https://azure.microsoft.com/pricing/details/virtual-machines/)
     * [Linux VMs](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) within these tiers must meet the minimum memory requirement of 7GB
-* Enable encryption on Windows and Linux IaaS VMs and managed disk VMs from the supported Azure Gallery images
-* Disable encryption on OS and data drives for Windows IaaS VMs and managed disk VMs
-* Disable encryption on data drives for Linux IaaS VMs and managed disk VMs
+* Enable encryption on Windows and Linux IaaS VMs, managed disk, and scale set VMs from the supported Azure Gallery images
+* Disable encryption on OS and data drives for Windows IaaS VMs, scale set VMs, and managed disk VMs
+* Disable encryption on data drives for Linux IaaS VMs, scale set VMs, and managed disk VMs
 * Enable encryption on IaaS VMs running Windows Client OS
 * Enable encryption on volumes with mount paths
 * Enable encryption on Linux VMs configured with disk striping (RAID) using mdadm

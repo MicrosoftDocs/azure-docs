@@ -112,15 +112,14 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
-## Troubleshooting encryption status
+<!-- ## Troubleshooting encryption status
 
 If the expected encryption state does not match what is being reported in the portal, see the following support article:
-[Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
+[Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) --> 
 
 ## Next steps
 
 In this document, you learned more about some common problems in Azure Disk Encryption and how to troubleshoot those problems. For more information about this service and its capabilities, see the following articles:
 
 - [Apply disk encryption in Azure Security Center](../security-center/security-center-apply-disk-encryption.md)
-- [Encrypt an Azure virtual machine](../security-center/security-center-disk-encryption.md)
 - [Azure data encryption at rest](azure-security-encryption-atrest.md)
