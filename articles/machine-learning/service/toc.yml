@@ -59,6 +59,8 @@
       href: how-to-deploy-to-aci.md
     - name: Deploy to AKS
       href: how-to-deploy-to-aks.md
+    - name: Consume a deployed model
+      href: model-management-consumption.md
 - name: Reference
   items:    
   - name: Machine learning SDK
