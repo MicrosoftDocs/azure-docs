@@ -52,11 +52,11 @@
           href: azure-security-disk-encryption-linux.md
       - name: Azure Disk Encryption with Azure AD app (deprecated)
         items:
-        - name: Disk encryption prerequisites
+        - name: Disk encryption prerequisites (deprecated)
           href: azure-security-disk-encryption-prerequisites-aad.md
-        - name: Disk encryption for Windows VMs
+        - name: Disk encryption for Windows VMs (deprecated)
           href: azure-security-disk-encryption-windows-aad.md
-        - name: Disk encryption for Linux VMs
+        - name: Disk encryption for Linux VMs (deprecated)
           href: azure-security-disk-encryption-linux-aad.md
       - name: Appendix for disk encryption
         href: azure-security-disk-encryption-appendix.md
