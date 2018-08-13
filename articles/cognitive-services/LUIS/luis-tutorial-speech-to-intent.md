@@ -1,7 +1,7 @@
 ---
 title: Use Speech C# SDK with LUIS - Azure Cognitive Services  | Microsoft Docs 
 titleSuffix: Azure
-description: Use the Speech C# SDK sample to speak into microphone and get LUIS intent and entities predictions returned.
+description: The Speech service allows you to use a single request to receive audio and return LUIS prediction JSON objects. In this article, you download and use a C# project in Visual Studio to speak an utterance into a microphone and receive LUIS prediction information. The project uses the Speech NuGet package, already included as a reference.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -9,16 +9,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 08/13/2018
 ms.author: diberry;
 #Customer intent: Use speech service and get LUIS prediction information -- without calling LUIS directly.
 #dfb - verified this tutorial works on 6/26 using logitech wireless headset
 ---
 
 # Integrate Speech service
-The [Speech service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) allows you to use a single request to receive audio and return LUIS prediction JSON objects.
-
-In this article, you download and use a C# project in Visual Studio to speak an utterance into a microphone and receive LUIS prediction information. The project uses the Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) package, already included as a reference. 
+The [Speech service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) allows you to use a single request to receive audio and return LUIS prediction JSON objects. In this article, you download and use a C# project in Visual Studio to speak an utterance into a microphone and receive LUIS prediction information. The project uses the Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) package, already included as a reference. 
 
 For this article, you need a free [LUIS][LUIS] website account in order to import the application.
 

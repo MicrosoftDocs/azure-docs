@@ -1,21 +1,19 @@
 ---
 title: Manage versions in LUIS apps - Azure Cognitive Services  | Microsoft Docs
-description: Learn how to manage versions in Language Understanding (LUIS) applications.
+description: Versions allow you to build and publish different models. A good practice is to clone the current active model to a different version of the app before making changes to the model.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/013/2018
 ms.author: diberry
 ---
 
 # Manage versions
 
-Versions allow you to build and publish different models. 
-
-A good practice is to clone the current active model to a different [version](luis-concept-version.md) of the app before making changes to the model. 
+Versions allow you to build and publish different models. A good practice is to clone the current active model to a different [version](luis-concept-version.md) of the app before making changes to the model. 
 
 To work with versions, open your app by selecting its name on **My Apps** page, and then select **Manage** in the top bar, then select **Versions** in the left navigation. 
 

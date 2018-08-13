@@ -7,13 +7,13 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/13/2018
 ms.author: diberry
 ---
 
 # How to manage authors and collaborators 
 
-You can collaborate with others on your LUIS app together. 
+An app owner can add collaborators to the app. These collaborators can modify the model, train, and publish the app. 
 
 <a name="owner-and-collaborators"></a>
 
@@ -65,3 +65,4 @@ If the tenant admin only wants certain users to use LUIS, refer to this [identit
 ### User accounts with multiple emails for collaborators
 
 If you add collaborators to a LUIS app, you are specifying the exact email address a collaborator needs to use LUIS as a collaborator. While Azure Active Directory (Azure AD) allows a single user to have more than one email account used interchangeably, LUIS requires the user to sign in with the email address specified in the collaborator's list.
+
