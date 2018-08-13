@@ -1,6 +1,6 @@
 ---
-title: Understanding how roles are used in pattern-based entities - Azure| Microsoft Docs
-description: Learn how a role is used in an pattern-based entity to give a name to a contextual entity subtype.
+title: Understanding how roles are used in pattern-based entities - Azure Cognitive Services| Microsoft Docs
+description: Roles are named, contextual subtypes of an entity used only in patterns. For example, in the utterance buy a ticket from New York to London, both New York and London are cities but each has a different meaning in the sentence. New York is the origin city and London is the destination city.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -8,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 08/13/2018
 ms.author: diberry
 ---
 # Entity roles in Patterns are contextual subtypes

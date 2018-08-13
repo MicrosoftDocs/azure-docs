@@ -1,7 +1,7 @@
 ---
-title: Learn how Patterns increase prediction accuracy | Microsoft Docs 
+title: Learn how Patterns increase prediction accuracy - Azure Cognitive Services| Microsoft Docs 
 titleSuffix: Azure
-description: Learn how to design patterns to increase intent prediction scores and find entities.
+description: Patterns are designed to improve accuracy when several utterances are very similar. A pattern allows you to gain more accuracy for an intent without providing many more utterances.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -9,11 +9,11 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 08/13/2018
 ms.author: diberry
 ---
 # Patterns improve prediction accuracy
-Patterns are designed to improve accuracy when several utterances are very similar. By providing a pattern for the utterance, LUIS can have a high confidence in the prediction. 
+Patterns are designed to improve accuracy when several utterances are very similar.  A pattern allows you to gain more accuracy for an intent without providing many more utterances. 
 
 ## Patterns solve low intent confidence
 Consider a Human Resources app that reports on the organizational chart in relation to an employee. Given an employee's name and relationship, LUIS returns the employees involved. Consider an employee, Tom, with a manager name Alice, and a team of subordinates named: Michael, Rebecca, and Carl.

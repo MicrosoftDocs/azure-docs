@@ -1,18 +1,18 @@
 ---
-title: Understand data alteration concepts in LUIS - Azure | Microsoft Docs
-description: Learn how data can be changed before predictions in Language Understanding (LUIS)
+title: Understand data alteration concepts in LUIS - Azure Cognitive Services| Microsoft Docs
+description: LUIS provides ways to manipulate the utterance before or during the prediction. These include fixing spelling, and fixing timezone issues for prebuild datetimeV2.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 08/13/2018
 ms.author: diberry
 ---
 
 # Data alterations
-LUIS provides ways to manipulate the utterance before or during the prediction. 
+LUIS provides ways to manipulate the utterance before or during the prediction. These include fixing spelling, and fixing timezone issues for prebuild datetimeV2. 
 
 ## Correct spelling errors in utterance
 LUIS uses [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) to correct spelling errors in the utterance. LUIS needs the key associated with that service. Create the key, then add the key as a querystring parameter at the [endpoint](https://aka.ms/luis-endpoint-apis). 
