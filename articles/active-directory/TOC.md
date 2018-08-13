@@ -102,50 +102,51 @@
 ### [View all groups](fundamentals/active-directory-groups-view-azure-portal.md)
 ### [Add group access to SaaS apps](users-groups-roles/groups-saasapps.md)
 ### [Restore a deleted Office 365 group](fundamentals/active-directory-groups-restore-azure-portal.md)
-### [Manage group settings](fundamentals/active-directory-groups-settings-azure-portal.md) 
-### Create advanced rules
-#### [Azure portal](users-groups-roles/groups-dynamic-membership.md)
+### [Manage group settings](fundamentals/active-directory-groups-settings-azure-portal.md)
 ### [Set up self-service groups](users-groups-roles/groups-self-service-management.md)
-### [Troubleshoot](users-groups-roles/groups-troubleshooting.md)
+### Dynamic groups
+#### [Create a dynamic group](users-groups-roles/groups-create-rule.md)
+#### [Rule syntax and properties](users-groups-roles/groups-dynamic-membership.md)
+#### [Change group membership type](users-groups-roles/groups-change-type.md)
+#### [Troubleshoot](users-groups-roles/groups-troubleshooting.md)
 
-## [Manage reports](active-directory-reporting-azure-portal.md)
-### [Sign-ins activity](active-directory-reporting-activity-sign-ins.md)
-### [Audit activity](active-directory-reporting-activity-audit-logs.md)
-### [Users at risk](active-directory-reporting-security-user-at-risk.md)
-### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
-### [Risk events](active-directory-reporting-risk-events.md)
-### [Monitoring logs using Azure Monitor](reporting-azure-monitor-diagnostics-overview.md)
-### [FAQ](active-directory-reporting-faq.md)
+## [Manage reports](reports-monitoring/overview-reports.md)
+### [Sign-ins activity](reports-monitoring/concept-sign-ins.md)
+### [Audit activity](reports-monitoring/concept-audit-logs.md)
+### [Users at risk](reports-monitoring/concept-user-at-risk.md)
+### [Risky sign-ins](reports-monitoring/concept-risky-sign-ins.md)
+### [Risk events](reports-monitoring/concept-risk-events.md)
+### [Monitoring logs using Azure Monitor](reports-monitoring/overview-activity-logs-in-azure-monitor.md)
+### [FAQ](reports-monitoring/reports-faq.md)
 
 ### Tasks
 #### [Configure named locations](active-directory-named-locations.md)
-#### [Find activity reports](active-directory-reporting-migration.md)
-#### [Use the Azure AD Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
-#### [Remediate users flagged for risk](active-directory-report-security-user-at-risk-remediation.md)
-#### [Route activity logs to an Azure event hub](reporting-azure-monitor-diagnostics-azure-event-hub.md)
-#### [Archive activity logs to an Azure storage account](reporting-azure-monitor-diagnostics-azure-storage-account.md)
-#### [Integrate activity logs with Splunk using Azure Monitor](reporting-azure-monitor-diagnostics-splunk-integration.md)
+#### [Find activity reports](reports-monitoring/howto-find-activity-reports.md)
+#### [Use the Azure AD Power BI Content Pack](reports-monitoring/howto-power-bi-content-pack.md)
+#### [Remediate users flagged for risk](reports-monitoring/howto-remediate-users-flagged-for-risk.md)
+#### [Route activity logs to an Azure event hub](reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
+#### [Archive activity logs to an Azure storage account](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
+#### [Integrate activity logs with Splunk using Azure Monitor](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
 
 ### Reference
-#### [Retention](active-directory-reporting-retention.md)
-#### [Latencies](active-directory-reporting-latencies-azure-portal.md)
-#### [Audit activity reference](active-directory-reporting-activity-audit-reference.md)
-#### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
-#### [Interpret the audit log schema in Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
-#### [Interpret the sign-in log schema in Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+#### [Retention](reports-monitoring/reference-reports-data-retention.md)
+#### [Latencies](reports-monitoring/reference-reports-latencies.md)
+#### [Audit activity reference](reports-monitoring/reference-audit-activities.md)
+#### [Sign-in activity error codes](reports-monitoring/reference-sign-ins-error-codes.md)
+#### [Interpret the audit log schema in Azure Monitor](reports-monitoring/reference-azure-monitor-audit-log-schema.md)
+#### [Interpret the sign-in log schema in Azure Monitor](reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md)
 
 ### Troubleshoot
-#### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
-#### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Azure AD Activity logs content pack errors](active-directory-reporting-troubleshoot-content-pack.md)
-#### [Errors in Azure AD Reporting API](active-directory-reporting-troubleshoot-graph-api.md)
+#### [Missing audit data](reports-monitoring/troubleshoot-missing-audit-data.md)
+#### [Missing data in downloads](reports-monitoring/troubleshoot-missing-data-download.md)
+#### [Azure AD Activity logs content pack errors](reports-monitoring/troubleshoot-content-pack.md)
+#### [Errors in Azure AD Reporting API](reports-monitoring/troubleshoot-graph-api.md)
 
-###	[Programmatic Access](active-directory-reporting-api-getting-started-azure-portal.md)
-#### [Prerequisites](active-directory-reporting-api-prerequisites-azure-portal.md)
-#### [Audit samples](active-directory-reporting-api-audit-samples.md)
-#### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
-#### [Using certificates](active-directory-reporting-api-with-certificates.md)
+###	[Programmatic Access](reports-monitoring/concept-reporting-api.md)
+#### [Prerequisites](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
+#### [Audit samples](reports-monitoring/sample-audit-api.md)
+#### [Sign-in samples](reports-monitoring/sample-sign-in-api.md)
+#### [Using certificates](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [Manage passwords](authentication/concept-sspr-howitworks.md)
 ### User documents
@@ -154,19 +155,29 @@
 
 
 ## Manage devices
-### [Introduction](device-management-introduction.md)
-### [Using the Azure portal](device-management-azure-portal.md)
-### [Plan Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
-### [FAQs](device-management-faq.md)
-### Tasks
+### [Overview](devices/overview.md)
+
+### Quickstarts
 #### [Set up Azure AD registered Windows 10 devices](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Set up Azure AD joined devices](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Set up hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md)
-#### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
-#### [Azure AD join during Windows 10 first-run experience](device-management-azuread-joined-devices-frx.md)
-### Troubleshoot
-#### [Hybrid Azure AD joined Windows 10 and Windows Server 2016 devices](device-management-troubleshoot-hybrid-join-windows-current.md)
-#### [Hybrid Azure AD joined legacy Windows devices](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+
+### Tutorials
+#### [Configure hybrid Azure AD join for managed domains](devices/hybrid-azuread-join-managed-domains.md)
+#### [Configure hybrid Azure AD join for federated domains](devices/hybrid-azuread-join-federated-domains.md)
+#### [Configure hybrid Azure AD join manually](devices/hybrid-azuread-join-manual-steps.md)
+#### [Configure Azure AD join during Windows 10 first-run experience](devices/azuread-joined-devices-frx.md)
+
+### How-to-guides
+#### [Plan Azure AD join](devices/azureadjoin-plan.md)
+#### [Plan your hybrid Azure AD join implementation](devices/hybrid-azuread-join-plan.md)
+#### [Control the hybrid Azure AD join of your devices](devices/hybrid-azuread-join-control.md)
+#### [Assign local admins to Azure AD joined devices](devices/assign-local-admin.md)
+#### [Troubleshoot hybrid Azure AD joined Windows current devices](devices/troubleshoot-hybrid-join-windows-current.md)
+#### [Troubleshoot hybrid Azure AD joined legacy Windows devices](devices/troubleshoot-hybrid-join-windows-legacy.md)
+
+### Concepts
+#### [Manage devices using the Azure portal](devices/device-management-azure-portal.md)
+#### [FAQs](devices/faq.md)
 
 ## Manage apps
 ### [Overview](manage-apps/what-is-application-management.md)
@@ -224,13 +235,14 @@
 ### Manage enterprise apps
 #### [Add an application](manage-apps/add-application-portal.md)
 #### [View tenant apps](manage-apps/view-applications-portal.md)
+#### [Configure single sign-on](manage-apps/configure-single-sign-on-portal.md)
 #### [Assign users](manage-apps/assign-user-or-group-access-portal.md)
 #### [Customize branding](manage-apps/change-name-or-logo-portal.md)
 #### [Disable user sign-ins](manage-apps/disable-user-sign-in-portal.md)
 #### [Remove users](manage-apps/remove-user-or-group-access-portal.md)
 
 #### [Manage user account provisioning](manage-apps/configure-automatic-user-provisioning-portal.md)
-#### [Manage single sign-on for enterprise apps](manage-apps/configure-single-sign-on-portal.md)
+
 #### [Advanced certificate signing for SAML apps](manage-apps/certificate-signing-options.md)
 #### [Hide an application from a user's experience](manage-apps/hide-application-from-user-portal.md)
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](manage-apps/configure-authentication-for-federated-users-portal.md)
@@ -390,50 +402,52 @@
 ### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Secure your identities
-### [Conditional access](active-directory-conditional-access-azure-portal.md)
-#### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
+### Conditional access
+#### [Overview](conditional-access/overview.md)
 #### Quickstarts
-##### [Configure per cloud app MFA](active-directory-conditional-access-app-based-mfa.md)
-##### [Require terms of use to be accepted](active-directory-conditional-access-tou.md)
-##### [Block access when a session risk is detected](active-directory-conditional-access-app-sign-in-risk.md)
+##### [Require MFA for specific apps](conditional-access/app-based-mfa.md)
+##### [Require terms of use to be accepted](conditional-access/require-tou.md)
+##### [Block access when a session risk is detected](conditional-access/app-sign-in-risk.md)
 #### Tutorials
-##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
+##### [Migrate classic MFA policy](conditional-access/policy-migration-mfa.md)
 #### Concepts
-##### [Baseline Protection](active-directory-conditional-access-baseline-protection.md)
-##### [Conditions](active-directory-conditional-access-conditions.md)
-##### [Location conditions](active-directory-conditional-access-locations.md)
-##### [Controls](active-directory-conditional-access-controls.md)
-##### [What if tool](active-directory-conditional-access-whatif.md)
+##### [Baseline Protection](conditional-access/baseline-protection.md)
+##### [Conditions](conditional-access/conditions.md)
+##### [Location conditions](conditional-access/location-condition.md)
+##### [Controls](conditional-access/controls.md)
+##### [What if tool](conditional-access/what-if-tool.md)
 ##### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
 #### How-to guides
-##### [Best practices](active-directory-conditional-access-best-practices.md)
-##### [Configure conditional access policies for access attempts from untrusted networks](active-directory-conditional-access-untrusted-networks.md)
-##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)
-##### [Set up app-based conditional access](active-directory-conditional-access-mam.md)
-##### [Provide terms of use for users and apps](active-directory-tou.md)
-##### [Migrate classic policies](active-directory-conditional-access-migration.md)
+##### [Best practices](conditional-access/best-practices.md)
+##### [Require MFA for access attempts from untrusted networks](conditional-access/untrusted-networks.md)
+##### [Require managed devices](conditional-access/require-managed-devices.md)
+##### [Require approved client apps](conditional-access/app-based-conditional-access.md)
+##### [Require terms of use for users and apps](active-directory-tou.md)
+##### [Migrate classic policies](conditional-access/policy-migration.md)
 ##### [Set up VPN connectivity](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Set up SharePoint and Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Remediation](active-directory-conditional-access-device-remediation.md)
-#### [Technical reference](active-directory-conditional-access-technical-reference.md)
-#### [FAQs](active-directory-conditional-faqs.md)
+#### [Reference](conditional-access/technical-reference.md)
+##### [Technical reference](conditional-access/technical-reference.md)
+#### [FAQs](conditional-access/faqs.md)
 
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
 #### [Get started](active-directory-certificate-based-authentication-get-started.md)
 
-### [Azure AD Identity Protection](active-directory-identityprotection.md)
-#### [Enable](active-directory-identityprotection-enable.md)
-#### [Detect vulnerabilities](active-directory-identityprotection-vulnerabilities.md)
+### Azure AD Identity Protection
+#### [Overview](identity-protection/overview.md)
+#### [Enable](identity-protection/enable.md)
+#### [Detect vulnerabilities](identity-protection/vulnerabilities.md)
 #### [Risk events](active-directory-identity-protection-risk-events.md)
-#### [Notifications](active-directory-identityprotection-notifications.md)
-#### [Sign-in experience](active-directory-identityprotection-flows.md)
-#### [Simulate risk events](active-directory-identityprotection-playbook.md)
-#### [Unblock users](active-directory-identityprotection-unblock-howto.md)
-#### [FAQs](active-directory-identity-protection-faqs.md)
-#### [Glossary](active-directory-identityprotection-glossary.md)
-#### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+#### [Notifications](identity-protection/notifications.md)
+#### [Sign-in experience](identity-protection/flows.md)
+#### [Simulate risk events](identity-protection/playbook.md)
+#### [Unblock users](identity-protection/howto-unblock-user.md)
+#### [FAQs](identity-protection/faqs.md)
+#### [Glossary](identity-protection/glossary.md)
+#### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## Integrate other services with Azure AD 
@@ -467,6 +481,7 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # Resources
+## [Azure AD deployment plans](./fundamentals/active-directory-deployment-plans.md)
 ## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)

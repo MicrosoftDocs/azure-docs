@@ -3,14 +3,14 @@ title: Azure Event Hubs Role-Based Access Control (RBAC) preview | Microsoft Doc
 description: Azure Event Hubs Role-Based Access Control
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
-ms.author: sethm
+ms.author: shvija
 
 ---
 
@@ -54,7 +54,7 @@ Before you can run the sample application, register it in Azure AD and approve t
 
 Because the sample application is a console application, you must register a native application and add API permissions for **Microsoft.EventHub** to the "required permissions" set. Native applications also need a **redirect-URI** in Azure AD that serves as an identifier; the URI does not need to be a network destination. Use `http://eventhubs.microsoft.com` for this example, because the sample code already uses that URI.
 
-The detailed registration steps are explained in [this tutorial](../active-directory/develop/active-directory-integrating-applications.md). Follow the steps to register a **Native** app, and then follow the update instructions to add the **Microsoft.EventHub** API to the required permissions. As you follow the steps, make note of the **TenantId** and the **ApplicationId**, as you will need these values to run the application.
+The detailed registration steps are explained in [this tutorial](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Follow the steps to register a **Native** app, and then follow the update instructions to add the **Microsoft.EventHub** API to the required permissions. As you follow the steps, make note of the **TenantId** and the **ApplicationId**, as you will need these values to run the application.
 
 ### Run the app
 

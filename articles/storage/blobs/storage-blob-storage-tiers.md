@@ -2,21 +2,15 @@
 title: Azure hot, cool, and archive storage for blobs | Microsoft Docs
 description: Hot, cool, and archive storage for Azure storage accounts.
 services: storage
-documentationcenter: ''
 author: kuhussai
-manager: jwillis
-editor:
 
-ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/11/2017
 ms.author: kuhussai
-
+ms.component: blobs
 ---
+
 # Azure Blob storage: Hot, cool, and archive storage tiers
 
 ## Overview
@@ -73,6 +67,9 @@ Blobs in all three storage tiers can co-exist within the same account. Any blob 
 
 > [!NOTE]
 > Archive storage and blob-level tiering only support block blobs. You also cannot change the tier of a block blob that has snapshots.
+
+### Blob lifecycle management
+Blob Storage lifecycle management (Preview) offers a rich, rule-based policy which you can use to transition your data to the best access tier and to expire data at the end of its lifecycle. See [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) to learn more.  
 
 ### Blob-level tiering billing
 
@@ -189,6 +186,8 @@ Data storage along with other limits are set at the account level and not per st
 ### Evaluate hot, cool, and archive in GPv2 Blob storage accounts
 
 [Check availability of hot, cool, and archive by region](https://azure.microsoft.com/regions/#services)
+
+[Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)
 
 [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

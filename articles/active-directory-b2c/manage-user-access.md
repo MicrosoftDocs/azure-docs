@@ -8,12 +8,12 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
-# Manage user access in Azure AD B2C
+# Manage user access in Azure Active Directory B2C
 
 This article discusses how to manage user access to your applications by using Azure Active Directory (Azure AD) B2C. Access management in your application includes:
 
@@ -23,9 +23,6 @@ This article discusses how to manage user access to your applications by using A
 - Capturing a terms-of-use agreement and gating access.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
->[!Note] 
->This article provides information that you can use to support your obligations under the GDPR. If you’re looking for general info about GDPR, see the [GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## Control minor access
 
@@ -105,7 +102,7 @@ The following steps describe how you can manage terms of use:
 You can capture terms of use acceptance under the following scenarios:
 
 - A new user is signing up. The terms of use are displayed, and the acceptance result is stored.
-- A user is signing in who has previously accepted the latest or active terms of agreement. The terms of use are not displayed.
+- A user is signing in who has previously accepted the latest or active terms of use. The terms of use are not displayed.
 - A user is signing in who has not already accepted the latest or active terms of use. The terms of use are displayed, and the acceptance result is stored.
 - A user is signing in who has already accepted an older version of the terms of use, which are now updated to the latest version. The terms of use are displayed, and the acceptance result is stored.
 

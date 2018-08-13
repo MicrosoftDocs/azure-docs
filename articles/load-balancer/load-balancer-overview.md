@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/10/2018
 ms.author: kumud
 ms.custom: mvc
 ---
@@ -81,15 +81,11 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
 * **Health probes**
 
-     To determine the health of instances in the backend pool, Load Balancer uses health probes that you define. When a probe fails to respond, the load balancer stops sending new connections to the unhealthy instances. Existing connections are not affected, and they continue until the application terminates the flow, an idle timeout occurs, or the VM is shut down.
+    To determine the health of instances in the backend pool, Load Balancer uses health probes that you define. When a probe fails to respond, the load balancer stops sending new connections to the unhealthy instances. Existing connections are not affected, and they continue until the application terminates the flow, an idle timeout occurs, or the VM is shut down.
+     
+    Load Balancer provides [different health probe types](load-balancer-custom-probe-overview.md#types) for TCP, HTTP, and HTTPS endpoints.
 
-    Three types of probes are supported:
-
-    - **HTTP custom probe**: You can use this probe to create your own custom logic to determine the health of a backend pool instance. The load balancer regularly probes your endpoint (every 15 seconds, by default). The instance is considered to be healthy if it responds with an HTTP 200 within the timeout period (default of 31 seconds). Any status other than HTTP 200 causes this probe to fail. This probe is also useful for implementing your own logic to remove instances from the load balancer's rotation. For example, you can configure the instance to return a non-200 status if the instance is greater than 90 percent CPU.  This probe overrides the default guest agent probe.
-
-    - **TCP custom probe**: This probe relies on establishing a successful TCP session to a defined probe port. As long as the specified listener on the VM exists, this probe succeeds. If the connection is refused, the probe fails. This probe overrides the default guest agent probe.
-
-    - **Guest agent probe**: The load balancer can also utilize the guest agent inside the VM. The guest agent listens and responds with an HTTP 200 OK response only when the instance is in the ready state. If the agent fails to respond with an HTTP 200 OK, the load balancer marks the instance as unresponsive and stops sending traffic to that instance. The load balancer continues to attempt to reach the instance. If the guest agent responds with an HTTP 200, the load balancer sends traffic to that instance again. Guest agent probes are a _last resort and not recommended_ when HTTP or TCP custom probe configurations are possible. 
+    Additionally, when using Classic cloud services, an additional type is allowed:  [Guest agent](load-balancer-custom-probe-overview.md#guestagent).  This should be consider to be a health probe of last resort and is not recommended when other options are viable.
     
 * **Outbound connections (SNAT)**
 
@@ -118,20 +114,7 @@ _It is a best practice to specify the SKUs explicitly, even though it is not yet
 >[!IMPORTANT]
 >Standard Load Balancer is a new Load Balancer product and largely a superset of Basic Load Balancer. There are important and deliberate differences between the two products. Any end-to-end scenario that's possible with Basic Load Balancer can also be created with Standard Load Balancer. If you're already used to Basic Load Balancer, you should familiarize yourself with Standard Load Balancer to understand the latest changes in behavior between Standard and Basic and their impact. Review this section carefully.
 
-| | Standard SKU | Basic SKU |
-| --- | --- | --- |
-| Backend pool size | up to 1000 instances | up to 100 instances |
-| Backend pool endpoints | any virtual machine in a single virtual network, including blend of virtual machines, availability sets, virtual machine scale sets. | virtual machines in a single availability set or virtual machine scale set |
-| Availability Zones | zone-redundant and zonal frontends for inbound and outbound, outbound flows mappings survive zone failure, cross-zone load balancing | / |
-| Diagnostics | Azure Monitor, multi-dimensional metrics including byte and packet counters, health probe status, connection attempts (TCP SYN), outbound connection health (SNAT successful and failed flows), active data plane measurements | Azure Log Analytics for public Load Balancer only, SNAT exhaustion alert, backend pool health count |
-| HA Ports | internal Load Balancer | / |
-| Secure by default | default closed for public IP and Load Balancer endpoints and a network security group must be used to explicitly whitelist for traffic to flow | default open, network security group optional |
-| [Outbound connections](load-balancer-outbound-connections.md) | Multiple frontends with per load balancing rule opt-out. An outbound scenario _must_ be explicitly created for the virtual machine to be able to use outbound connectivity.  [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) can be reached without outbound connectivity and do not count towards data processed.  Any public IP addresses, including Azure PaaS services not available as VNet Service Endpoints, must be reached via outbound connectivity and count towards data processed. When only an internal Load Balancer is serving a virtual machine, outbound connections via default SNAT are not available. Outbound SNAT programming is transport protocol specific based on protocol of the inbound load balancing rule. | Single frontend, selected at random when multiple frontends are present.  When only internal Load Balancer is serving a virtual machine, default SNAT is used. |
-| [Multiple frontends](load-balancer-multivip-overview.md) | Inbound and [outbound](load-balancer-outbound-connections.md) | Inbound only |
-| [Health probe down behavior](load-balancer-custom-probe-overview.md) | TCP connections stay alive on instance probe down __and__ on all probes down | TCP connections stay alive on instance probe down. All TCP connections terminate on all probes down |
-| Management Operations | Most operations < 30 seconds | 60-90+ seconds typical |
-| SLA | 99.99% for data path with two healthy virtual machines | Implicit in VM SLA | 
-| Pricing | Charged based on number of rules, data processed inbound or outbound associated with resource  | No charge |
+[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
 For more information, see [service limits for Load Balancer](https://aka.ms/lblimits). For Standard Load Balancer details, see [overview](load-balancer-standard-overview.md), [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla).
 
@@ -141,7 +124,7 @@ For more information, see [service limits for Load Balancer](https://aka.ms/lbli
 
 A public load balancer maps the public IP address and port number of incoming traffic to the private IP address and port number of the VM, and vice versa for the response traffic from the VM. By applying load-balancing rules, you can distribute specific types of traffic across multiple VMs or services. For example, you can spread the load of web request traffic across multiple web servers.
 
-The following figure shows a load-balanced endpoint for web traffic that is shared among three VMs for the public and private TCP port 80. These three VMs are in a load-balanced set.
+The following figure shows a load-balanced endpoint for web traffic that is shared among three VMs for the public and  TCP port 80. These three VMs are in a load-balanced set.
 
 ![Public load balancer example](./media/load-balancer-overview/IC727496.png)
 

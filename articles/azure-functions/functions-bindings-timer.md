@@ -3,8 +3,8 @@ title: Timer trigger for Azure Functions
 description: Understand how to use timer triggers in Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
+author: ggailey777
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
@@ -15,8 +15,8 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
-ms.author: tdykstra
+ms.date: 08/08/2018
+ms.author: glenga
 
 ms.custom: 
 
@@ -259,6 +259,8 @@ Or create an app setting for your function app named `WEBSITE_TIME_ZONE` and set
 ```json
 "schedule": "0 0 10 * * *"
 ```	
+
+When you use `WEBSITE_TIME_ZONE`, the time is adjusted for time changes in the specific timezone, such as daylight savings time. 
 
 ## TimeSpan
 
