@@ -24,7 +24,7 @@ More information about how security is integrated into every aspect of Azure is 
 > [!NOTE] 
 > Since this document was first published, multiple variants of this vulnerability class have been disclosed. Microsoft continues to be heavily invested in protecting our customers and providing guidance. This page will be updated as we continue to release further fixes. 
 > 
-> On August 14th, 2018, the industry disclosed a new speculative execution side channel vulnerability known as [L1 Terminal Fault](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018) (L1TF) which has been assigned multiple CVEs (CVE-2018-3615, CVE-2018-3620, and CVE-2018-3646). This vulnerability affects Intel® Core® processors and Intel® Xeon® processors. Microsoft has deployed mitigations across our cloud services which reinforce the isolation between deployments.   
+> On August 14th, 2018, the industry disclosed a new speculative execution side channel vulnerability known as [L1 Terminal Fault](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018) (L1TF) which has been assigned multiple [CVEs](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00161.html) (CVE-2018-3615, CVE-2018-3620, and CVE-2018-3646). This vulnerability affects Intel® Core® processors and Intel® Xeon® processors. Microsoft has deployed mitigations across our cloud services which reinforce the isolation between customers.
 >  
 
 
@@ -34,7 +34,7 @@ More information about how security is integrated into every aspect of Azure is 
 
 ## Keeping your Operating Systems up-to-date
 
-While an OS update is not required to isolate your applications running on Azure from other Azure customers, it is always a best practice to keep your software up-to-date. The latest [Security Rollups for Windows](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) contain mitigations for several speculative execution side channel vulnerabilities. Similarly, Linux distributions have released multiple updates to address these vulnerabilities.  Similarly, Linux distributions have released multiple updates to address these vulnerabilities.  Here are our recommended actions to update your Operating System:
+While an OS update is not required to isolate your applications running on Azure from other Azure customers, it is always a best practice to keep your software up-to-date. The latest Security Rollups for Windows contain mitigations for several speculative execution side channel vulnerabilities. Similarly, Linux distributions have released multiple updates to address these vulnerabilities. Here are our recommended actions to update your Operating System:
 
 | Offering | Recommended Action  |
 |----------|---------------------|
@@ -66,9 +66,9 @@ You can enable additional security features inside your VM or Cloud Service.
 
 Your target operating system must be up-to-date to enable these additional security features. While numerous speculative execution side channel mitigations are enabled by default, the additional features described here must be enabled manually and may cause a performance impact. 
 
-**Step 1**: [Contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to expose updated firmware (microcode) into your Virtual Machines 
+**Step 1**: [Contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to expose updated firmware (microcode) into your Virtual Machines. 
 
-**Step 2**: Enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support. Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections via the **Session Manager** registry keys. A reboot is required. 
+**Step 2**: Enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support. Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections via the `Session Manager` registry keys. A reboot is required. 
 
 **Step 3**: For deployments that are using [nested virtualization](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 and E3 only): 
 These instructions apply inside the VM you are using as a Hyper-V host. 
@@ -83,19 +83,22 @@ These instructions apply inside the VM you are using as a Hyper-V host.
 > If you previously downloaded this module, you will need to install the newest version.
 >
 
-All VMs should show: 
+All VMs should show:
 
-1. branch target injection mitigation is enabled: True 
-1. kernel VA shadow is enabled: True  
-1. L1TFWindowsSupportEnabled: True 
+```
+branch target injection mitigation is enabled: True
 
+kernel VA shadow is enabled: True  
+
+L1TFWindowsSupportEnabled: True
+```
 
 
 ### Linux
 
 <a name="linux"></a>Enabling the set of additional security features inside requires that the target operating system be fully up-to-date. Some mitigations will be enabled by default. The following section describes the features which are off by default and/or reliant on hardware support (microcode). Enabling these features may cause a performance impact. Reference your operating system provider’s documentation for further instructions
  
-**Step 1**: [Contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to expose updated firmware (microcode) into your virtual machines.
+**Step 1**: [Contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to expose updated firmware (microcode) into your Virtual Machines.
  
 **Step 2**: Enable Branch Target Injection (BTI) OS support to mitigate CVE-2017-5715 (Spectre Variant 2) by following your operating system provider’s documentation. 
  
