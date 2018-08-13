@@ -1,4 +1,4 @@
----
+---Data
 title: Rehost a Contoso on-premises app by migrating to Azure VMs and Azure SQL Database Managed Instance | Microsoft Docs
 description: Learn how Contoso rehosts an on-premises app on Azure VMs and by using Azure SQL Database Managed Instance.
 services: site-recovery
@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/13/2018
 ms.author: raynew
 
 ---
