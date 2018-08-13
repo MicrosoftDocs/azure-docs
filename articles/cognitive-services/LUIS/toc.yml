@@ -239,7 +239,7 @@
 - name: Reference
   items: 
   - name: User privacy
-    href: luis-reference-gdpr.md
+    href: luis-user-privacy.md
   - name: Regions
     href: luis-reference-regions.md
   - name: Boundaries
