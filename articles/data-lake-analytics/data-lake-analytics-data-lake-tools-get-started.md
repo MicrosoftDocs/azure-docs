@@ -74,7 +74,7 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-### Submit a Data Lake Analytics job
+## Submit a Data Lake Analytics job
 
 1. Select **File** > **New** > **Project**.
 
@@ -100,17 +100,22 @@ OUTPUT @a
    * **AU Analysis** shows how many AUs were used in the job and explore simulations of different AUs allocation strategies.
    * **Diagnostics** provides an advanced analysis for job execution and performance optimization.
 
-### To check job state
+## Check job status
 
-1. In Server Explorer, select **Azure** > **Data Lake Analytics**. 
+1. In Server Explorer, select **Azure** > **Data Lake Analytics**.
+
 2. Expand the Data Lake Analytics account name.
+
 3. Double-click **Jobs**.
+
 4. Select the job that you previously submitted.
 
-### To see the output of a job
+## See the job output
 
 1. In Server Explorer, browse to the job you submitted.
+
 2. Click the **Data** tab.
+
 3. In the **Job Outputs** tab, select the `"/data.csv"` file.
 
 ## Next steps
