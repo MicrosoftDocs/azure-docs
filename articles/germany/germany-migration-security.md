@@ -3,7 +3,7 @@ title: Migration from Azure Germany compute resources to public Azure
 description: Provides help for migrating security resources
 author: gitralf
 ms.author: ralfwi 
-ms.date: 7/20/2018
+ms.date: 8/13/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
@@ -12,7 +12,7 @@ ms.custom: bfmigrate
 
 ## Azure Active Directory
 
-This service is also covered under [Identity](./germany-migration-identity.md#azure-active-directory)
+This service is covered under [Identity](./germany-migration-identity.md#azure-active-directory)
 
 
 
@@ -61,17 +61,16 @@ Refresh your knowledge about Key Vault by following these [Step-by-step tutorial
 
 ## VPN Gateway
 
-This service is also covered under [Networking](./germany-migration-networking.md#vpn-gateway).
 
 Migration of Virtual Private Network (VPN) Gateways between Azure Germany and global Azure isn't supported at this time. The recommended approach is to create and configure a new VPN Gateway.
 
-Collect information about your current VPN gateway configuration by using the portal or by using PowerShell. There's a set of cmdlets starting with `Get-AzureRmVirtualNetworkGateway\*`.
+Collect information about your current VPN gateway configuration by using the portal or by using PowerShell. There's a set of cmdlets starting with `Get-AzureRmVirtualNetworkGateway*`.
 
 Don't forget to update your on-premise configuration and delete any existing rules for the old IP ranges once you updated your Azure network environment.
 
 ### Next steps
 
-Refresh your knowledge about VPN Gateways by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/vpn-gateway/#step-by-step-tutorials).
+- Refresh your knowledge about VPN Gateways by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/vpn-gateway/#step-by-step-tutorials).
 
 ### References
 
@@ -96,15 +95,13 @@ Refresh your knowledge about VPN Gateways by following these [Step-by-Step tutor
 
 ## Application Gateway
 
-This service is also covered under [Networking](./germany-migration-networking.md#application-gateway)
-
 Migration of Application Gateways between Azure Germany and global Azure isn't supported at this time. The recommended approach is to create and configure a new Gateway.
 
-Collect information about your current gateway configuration by using the portal or by using PowerShell. There's a set of cmdlets starting with `Get-AzureRmApplicationGateway\*`.
+Collect information about your current gateway configuration by using the portal or by using PowerShell. There's a set of cmdlets starting with `Get-AzureRmApplicationGateway*`.
 
 ### Next steps
 
-Refresh your knowledge about Application Gateway by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/application-gateway/#step-by-step-tutorials).
+- Refresh your knowledge about Application Gateway by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/application-gateway/#step-by-step-tutorials).
 
 ### References
 

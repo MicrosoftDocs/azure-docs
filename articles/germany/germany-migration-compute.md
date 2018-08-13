@@ -3,7 +3,7 @@ title: Migration from Azure Germany compute resources to global Azure
 description: Provides help for migrating compute resources
 author: gitralf
 ms.author: ralfwi 
-ms.date: 7/20/2018
+ms.date: 8/13/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
@@ -129,7 +129,6 @@ https://management.core.windows.net/<subscription-id>/services/hostedservices/<c
 https://management.core.cloudapi.de/<subscription-id>/services/hostedservices/<old-cloudservice-name>
 ```
 
-
 ### References
 - [Cloud Services Overview](../cloud-services/cloud-services-choose-me.md)
 
@@ -145,18 +144,15 @@ https://management.core.cloudapi.de/<subscription-id>/services/hostedservices/<o
 
 ## Service Fabric
 
-When the network connectivity between Azure Germany and the target region is enabled, follow these steps:
+It's not possible to migrate Service Fabric resources from Azure Germany to global Azure. You must re-deploy in the new environment.
 
-- [Enable network ports](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG)
-- [Scale out capacity](../service-fabric/service-fabric-cluster-windows-server-add-remove-nodes.md) for the cluster by including resources from target region
-- [Use placement constraints](../service-fabric/service-fabric-cluster-resource-manager-configure-services.md#placement-constraints) to distribute load to the target region
-- Drain out the workload in the Azure Germany region and remove machines from the cluster
+You can gather some information about your current service fabric environment by using PowerShell cmdlets. You find all cmdlets related to service fabric by entering `Get-Help *ServiceFabric*` in PowerShell.
 
-Without network connectivity between Azure Germany and target region, [create a new cluster](../service-fabric/service-fabric-cluster-creation-via-portal.md).
-
+ 
 ### Next steps
 
-Refresh your knowledge about Service Fabric by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/service-fabric/#step-by-step-tutorials).
+- Refresh your knowledge about Service Fabric by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/service-fabric/#step-by-step-tutorials).
+- [Create a new cluster](../service-fabric/service-fabric-cluster-creation-via-portal.md)
 
 ### References
 
@@ -187,7 +183,7 @@ Redeploy your deployment scripts, templates, or code in the new region, includin
 
 ### Next steps
 
-Refresh your knowledge about Azure Batch by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/batch/#step-by-step-tutorials).
+- Refresh your knowledge about Azure Batch by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/batch/#step-by-step-tutorials).
 
 ### References
 
@@ -203,8 +199,6 @@ Refresh your knowledge about Azure Batch by following these [Step-by-Step tutori
 
 
 ## Functions
-
-This service is also covered under [Internet of Things](./germany-migration-iot.md#functions).
 
 Migration of Functions between Azure Germany and global Azure isn't supported at this time. The recommended approach is to export Resource Manager template, change the location, and redeploy to target region.
 
@@ -235,15 +229,16 @@ Migration of Functions between Azure Germany and global Azure isn't supported at
 
 ## Virtual Machines Scale Set
 
-The recommended approach is to export Resource Manager template, change the location, and redeploy to target region.
+The recommended approach is to export the Resource Manager template, adopt it to the new environment, and redeploy it to target region. You should just export the base template and redeploy it in the new environment, as individual VMSS instances should all be the same.
 
 > [!IMPORTANT]
-> Change Location, Key Vault secrets, certs, and other GUIDs to be consistent with new region (location).
+> Change Location, Key Vault secrets, certs, and other GUIDs to be consistent with the new region.
 
 ### Next steps
 
 - Refresh your knowledge about Virtual Machine Scale Sets following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/virtual-machine-scale-sets/#step-by-step-tutorials).
-- Make yourself familiar how to [export an ARM template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Make yourself familiar how to [export an ARM template](../azure-resource-manager/resource-manager-export-template.md) 
+- Read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### References
 
@@ -262,8 +257,6 @@ The recommended approach is to export Resource Manager template, change the loca
 
 
 ## App Service - Web Apps
-
-This service is also covered under [Web](./germany-migration-web.md#app-service---web-apps).
 
 The migration of App Services from Azure Germany to global Azure isn't supported at this time. The recommended approach is to export as Resource Manager template and redeploy after changing the location property to the new destination region.
 

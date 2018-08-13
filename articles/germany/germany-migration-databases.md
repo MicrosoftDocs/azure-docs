@@ -3,7 +3,7 @@ title: Migration from Azure Germany compute resources to global Azure
 description: Provides help for migrating database resources
 author: gitralf
 ms.author: ralfwi 
-ms.date: 7/20/2018
+ms.date: 8/13/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
@@ -14,8 +14,8 @@ ms.custom: bfmigrate
 
 To migrate Azure SQL databases, you can use (for smaller workloads) the export function to create a BACPAC file. BaACPAC file is a compressed (zip'ed) file with metadata and data from the SQL Server database. Once created, you can copy it to the target environment (for example with AzCopy) and use the import function to rebuild the database. Be aware of the following considerations (see more in the links provided below):
 
-- For an export to be transactionally consistent, make sure either 
-  - that no write activity is occurring during the export, or 
+- For an export to be transactionally consistent, make sure either
+  - that no write activity is occurring during the export, or
   - that you're exporting from a transactionally consistent copy of your Azure SQL database.
 - For export to blob storage, the BACPAC file is limited to 200 GB. For a larger BACPAC file, export to local storage.
 - If the export operation from Azure SQL Database takes longer than 20 hours, it may be canceled. Look for hints how to increase performance in the links below.
@@ -30,7 +30,7 @@ To migrate Azure SQL databases, you can use (for smaller workloads) the export f
 
 ### References
 
-[Azure SQL Database documentation](https://docs.microsoft.com/azure/sql-database/)
+- [Azure SQL Database documentation](https://docs.microsoft.com/azure/sql-database/)
 
 
 
@@ -134,4 +134,4 @@ For this approach, you need to modify your application. It needs to write data t
 
 ### References
 
-[Overview Azure Redis Cache](../redis-cache/cache-overview.md)
+- [Overview Azure Redis Cache](../redis-cache/cache-overview.md)

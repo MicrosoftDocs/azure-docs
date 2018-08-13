@@ -3,7 +3,7 @@ title: Migration from Azure Germany compute resources to public Azure
 description: Provides help for migrating media resources
 author: gitralf
 ms.author: ralfwi 
-ms.date: 7/20/2018
+ms.date: 8/13/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
@@ -16,7 +16,7 @@ In Media Services, you configure your own storage account and all media assets. 
 
 ### Next steps
 
-Refresh your knowledge about Media Services by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/media-services/#step-by-step-tutorials).
+- Refresh your knowledge about Media Services by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/media-services/#step-by-step-tutorials).
 
 ### References
 

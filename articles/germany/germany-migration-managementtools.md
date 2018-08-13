@@ -3,7 +3,7 @@ title: Migration from Azure Germany compute resources to public Azure
 description: Provides help for migrating management resources
 author: gitralf
 ms.author: ralfwi 
-ms.date: 7/20/2018
+ms.date: 8/13/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
@@ -16,11 +16,15 @@ Unfortunately, Azure Backup jobs and snapshots can't be migrated from Azure Germ
 
 ### Next Steps
 
-Refresh your knowledge about Azure Backup by following [these Step-by-Step tutorials](https://docs.microsoft.com/azure/backup/#step-by-step-tutorials).
+- Refresh your knowledge about Azure Backup by following [these Step-by-Step tutorials](https://docs.microsoft.com/azure/backup/#step-by-step-tutorials).
 
 ### References
 
--[Azure Backup overview](../backup/backup-introduction-to-azure-backup.md)
+- [Azure Backup overview](../backup/backup-introduction-to-azure-backup.md)
+
+
+
+
 
 
 
@@ -33,9 +37,7 @@ Azure Scheduler is being deprecated. Use Azure Logic apps instead to create sche
 
 ### Next Steps
 
-Make yourself familiar with the features that [Azure Logic Apps provides by following the [Step-by-Step tutorials](https://docs.microsoft.com/azure/logic-apps/#step-by-step-tutorials).
-
-See how you can [transition from Scheduler to Logic Apps](../scheduler/scheduler-to-logic-apps.md).
+- Make yourself familiar with the features that [Azure Logic Apps provides by following the [Step-by-Step tutorials](https://docs.microsoft.com/azure/logic-apps/#step-by-step-tutorials).
 
 ### Reference
 
@@ -51,8 +53,6 @@ See how you can [transition from Scheduler to Logic Apps](../scheduler/scheduler
 
 ## Traffic Manager
 
-This service is also covered under [Networking](./germany-migration-networking.md#traffic-manager)
-
 Traffic Manager profiles created in Azure Germany can't be migrated over to global Azure. Since you also migrate all the Traffic Manager endpoints to the target environment, you need to update the Traffic Manager profile anyway.
 
 Traffic Manager can help you with a smooth migration. With Traffic Manager still running in the old environment, you can already define additional endpoints in the target environment. Once Target Manager runs in the new environment, you can still define endpoints in the old environment that you didn't migrate so far. This is known as [the Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/). In short:
@@ -65,7 +65,7 @@ Traffic Manager can help you with a smooth migration. With Traffic Manager still
 
 ### Next steps
 
-Refresh your knowledge about Traffic Manager by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/traffic-manager/#step-by-step-tutorials).
+- Refresh your knowledge about Traffic Manager by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/traffic-manager/#step-by-step-tutorials).
 
 ### References
 
@@ -84,9 +84,8 @@ Refresh your knowledge about Traffic Manager by following these [Step-by-Step tu
 
 
 
-## Network Watcher
 
-This service is also covered under [Management Tools](./germany-migration-managementtools.md#network-watcher).
+## Network Watcher
 
 Migration of Network Watcher between Azure Germany and global Azure isn't supported at this time. The recommended approach is to create and configure a new Network Watcher. Afterwards, compare the results between old and new environment:
 
@@ -95,12 +94,11 @@ Migration of Network Watcher between Azure Germany and global Azure isn't suppor
 
 ### Next steps
 
-Refresh your knowledge about Network Watcher by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/network-watcher/#step-by-step-tutorials).
+- Refresh your knowledge about Network Watcher by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/network-watcher/#step-by-step-tutorials).
 
 ### References
 
 - [Network Watcher Overview](../network-watcher/network-watcher-monitoring-overview.md)
-
 
 
 
@@ -207,7 +205,7 @@ az policy assignment list
 
 ## Next Steps
 
-Refresh your knowledge about Azure Policy with [this Step-by-Step tutorial](../azure-policy/create-manage-policy.md).
+- Refresh your knowledge about Azure Policy with [this Step-by-Step tutorial](../azure-policy/create-manage-policy.md).
 
 ## References
 

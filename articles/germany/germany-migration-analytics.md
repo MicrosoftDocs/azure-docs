@@ -3,7 +3,7 @@ title: Migration from Azure Germany compute resources to public Azure
 description: Provides help for migrating analytics resources
 author: gitralf
 ms.author: ralfwi 
-ms.date: 7/20/2018
+ms.date: 8/13/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
@@ -49,7 +49,7 @@ Event Hubs services don't provide data export or import capabilities. However, y
 HDInsight clusters can be migrated to a new region by following these steps:
 
 - Stop HDI cluster
-- Migrate the data in WASB to the new region using AzCopy or similar tool
+- Migrate the data in storage to the new region using AzCopy or similar tool
 - Create new Compute resources in new region and attach the migrated WASB resources as the primary attached storage
 
 For more specialized, long running clusters (Kafka, Spark streaming, Storm, or HBase) it's recommended to orchestrate transition of workloads to the new region.
@@ -61,8 +61,8 @@ For more specialized, long running clusters (Kafka, Spark streaming, Storm, or H
 - Read how to use [AzCopy](../storage/common/storage-use-azcopy.md).
 
 ### References
- 
-[Azure HD Insight Documentation](https://docs.microsoft.com/azure/hdinsight/)
+
+- [Azure HD Insight Documentation](https://docs.microsoft.com/azure/hdinsight/)
 
 
 
@@ -76,7 +76,7 @@ Manually recreate the entire setup in a global Azure region of your choice using
 
 ### Next Steps
 
-Refresh your knowledge about Stream Analytics by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/stream-analytics/#step-by-step-tutorials).
+- Refresh your knowledge about Stream Analytics by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/stream-analytics/#step-by-step-tutorials).
 
 ### References
 - [Stream Analytics overview](../stream-analytics/stream-analytics-introduction.md)
@@ -89,7 +89,25 @@ Refresh your knowledge about Stream Analytics by following these [Step-by-Step t
 
 ## SQL Data Warehouse
 
-This service is already covered under [Databases](./germany-migration-databases.md#sql-data-warehouse)
+To migrate Azure SQL databases, you can use (for smaller workloads) the export function to create a BACPAC file. BaACPAC file is a compressed (zip'ed) file with metadata and data from the SQL Server database. Once created, you can copy it to the target environment (for example with AzCopy) and use the import function to rebuild the database. Be aware of the following considerations (see more in the links provided below):
+
+- For an export to be transactionally consistent, make sure either
+  - that no write activity is occurring during the export, or
+  - that you're exporting from a transactionally consistent copy of your Azure SQL database.
+- For export to blob storage, the BACPAC file is limited to 200 GB. For a larger BACPAC file, export to local storage.
+- If the export operation from Azure SQL Database takes longer than 20 hours, it may be canceled. Look for hints how to increase performance in the links below.
+
+> [!NOTE]
+> The connection string will change since the DNS name of the server will change.
+
+### Next Steps
+
+- [Export DB to Bacpac file](../sql-database/sql-database-export.md)
+- [Import Bacpac file to a DB](../sql-database/sql-database-import.md)
+
+### References
+
+- [Azure SQL Database documentation](https://docs.microsoft.com/azure/sql-database/)
 
 
 

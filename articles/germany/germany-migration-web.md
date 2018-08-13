@@ -3,7 +3,7 @@ title: Migration from Azure Germany compute resources to public Azure
 description: Provides help for migrating web resources
 author: gitralf
 ms.author: ralfwi 
-ms.date: 7/20/2018
+ms.date: 8/13/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
@@ -11,8 +11,6 @@ ms.custom: bfmigrate
 # Web
 
 ## App Service - Web Apps
-
-This service is also covered under [Compute](./germany-migration-compute.md#app-service---web-apps).
 
 The migration of App Services from Azure Germany to global Azure isn't supported at this time. The recommended approach is to export as Resource Manager template and redeploy after changing the location property to the new destination region.
 

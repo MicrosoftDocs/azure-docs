@@ -3,7 +3,7 @@ title: Migration from Azure Germany compute resources to public Azure
 description: Provides help for migrating IoT resources
 author: gitralf
 ms.author: ralfwi 
-ms.date: 7/20/2018
+ms.date: 8/13/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
@@ -12,7 +12,6 @@ ms.custom: bfmigrate
 
 ## Azure Cosmos DB
 
-This service is also covered under [Databases](./germany-migration-database.md#azure-cosmos-db).
 
 With the Azure Cosmos DB Data Migration tool, you can easily migrate data to Azure Cosmos DB. The Azure Cosmos DB Data Migration tool is an open source solution that imports data to Azure Cosmos DB from different sources.
 
@@ -42,8 +41,6 @@ The tool is available as a graphical interface tool or as command-line tool. The
 
 
 ## Functions
-
-This service is also covered under [Compute](./germany-migration-compute.md#functions).
 
 Migration of Functions between Azure Germany and global Azure isn't supported at this time. The recommended approach is to export Resource Manager template, change the location, and redeploy to target region.
 
@@ -75,9 +72,11 @@ Migration of Functions between Azure Germany and global Azure isn't supported at
 
 
 
-## Notification Hub
 
-This service is also covered under [Web](./germany-migration-web.md#notification-hubs).
+
+## Notification Hubs
+
+This service is also covered under [Internet of Things](./germany-migration-iot.md#notification-hub).
 
 You can export and import all registration tokens along with tags from one Hub to another. Here's how:
 

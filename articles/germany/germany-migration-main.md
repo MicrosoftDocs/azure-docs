@@ -3,7 +3,7 @@ title: Migration from Azure Germany to global Azure
 description: Main intro to the rest of the articles.
 author: gitralf
 ms.author: ralfwi 
-ms.date: 7/20/2018
+ms.date: 8/13/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
@@ -17,6 +17,8 @@ The two regions in Germany are strictly separated from global Azure, including s
 ## Migration Process
 
 Your journey to migrate workload from Azure Germany to global Azure will typically follow similar process used for migrating applications to Cloud.
+
+![Assess -> Plan -> Migrate -> Validate](/media/germany-migration-main/migration-steps.png)
 
 ### Assess
 
@@ -52,10 +54,10 @@ At the end of this stage, you'll have
 
 ### Validate
 
-- Perform User acceptance test 
+- Perform User acceptance test
 - make sure applications are working as expected
 - Copy latest data to target environment if applicable
-- Cutover to new application instance in Azure global 
+- Cutover to new application instance in Azure global
 - confirm production environment is working as expected
 - Decommission resources in Azure Germany
 
@@ -83,6 +85,8 @@ These terms are used in the following migration articles:
 Also add the global Azure portal to your favorite links in your browser. While Azure Germany portal is available under [https://portal.microsoftazure.de/](https://portal.microsoftazure.de/), the global Azure portal can be reached under [https://portal.azure.com/](https://portal.azure.com/).
 
 ### Next Steps
+
+Learn about tools, techniques, and recommendations to migrate resources of the following service categories:
 
 - [Compute](./germany-migration-compute.md)
 - [Networking](./germany-migration-networking.md)
