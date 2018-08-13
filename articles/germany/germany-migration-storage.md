@@ -1,5 +1,5 @@
 ---
-title: Migration from Azure Germany compute resources to global Azure
+title: Migration from Azure Germany storage resources to global Azure
 description: Provides help for migrating storage resources
 author: gitralf
 ms.author: ralfwi 

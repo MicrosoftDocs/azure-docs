@@ -1,5 +1,5 @@
 ---
-title: Migration from Azure Germany compute resources to public Azure
+title: Migration from Azure Germany analytics resources to public Azure
 description: Provides help for migrating analytics resources
 author: gitralf
 ms.author: ralfwi 

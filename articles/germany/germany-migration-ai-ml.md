@@ -1,5 +1,5 @@
 ---
-title: Migration from Azure Germany compute resources to global Azure
+title: Migration from Azure Germany AI and ML resources to global Azure
 description: Provides help for migrating AI and ML resources
 author: gitralf
 ms.author: ralfwi 

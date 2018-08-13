@@ -1,5 +1,5 @@
 ---
-title: Migration from Azure Germany compute resources to public Azure
+title: Migration from Azure Germany media resources to public Azure
 description: Provides help for migrating media resources
 author: gitralf
 ms.author: ralfwi 

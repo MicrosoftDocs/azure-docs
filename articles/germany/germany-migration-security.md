@@ -1,5 +1,5 @@
 ---
-title: Migration from Azure Germany compute resources to public Azure
+title: Migration from Azure Germany security resources to public Azure
 description: Provides help for migrating security resources
 author: gitralf
 ms.author: ralfwi 

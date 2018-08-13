@@ -1,5 +1,5 @@
 ---
-title: Migration from Azure Germany compute resources to global Azure
+title: Migration from Azure Germany networking resources to global Azure
 description: Provides help for migrating network resources
 author: gitralf
 ms.author: ralfwi 
