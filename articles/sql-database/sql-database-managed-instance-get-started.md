@@ -27,17 +27,17 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 SQL Managed Instance is secure service that is placed in your own Azure Virtual Network (VNet). In order to create a Managed Instance, you would need to prepare network environment for managed instance, which includes:
  - Azure VNet where your Managed Instance will be placed.
  - Subnet in your Azure VNet where Managed Instances will be placed.
- - User-defined route that will enable Managed Instance to communicate with the Azure services that control and managed the instance
+ - User-defined route that will enable Managed Instance to communicate with the Azure services that control and managed the instance.
 
- Subnet is dedicated to Managed Instances and you cannot create any other resources (for example Azure Virtual Machines) in that subnet. Therefore, you might want to create two subnets in your VNet so you can place Managed Instances in one subnet, and other resources in default subnet.
+The subnet is dedicated to Managed Instances and you cannot create any other resources (for example Azure Virtual Machines) in that subnet. You might want to create two subnets in your Azure VNet so you can place Managed Instances in the subnet dedicated to Managed Instances, and other the resources in the default subnet.
 
- <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener"> <img src="http://azuredeploy.net/deploybutton.png"> </a>
+<a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener"> <img src="http://azuredeploy.net/deploybutton.png"> </a>
 
- This button will open a form where you can configure your network environment before you deploy it:
+This button will open a form where you can configure your network environment before you deploy it:
 
 ![create managed instance environment](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
 
-You might change names of VNet and subnets and adjust IP ranges associated to your networking resources. Once you press "Purchase" button, this form will create and configure your environment 
+You might change names of VNet and subnets and adjust IP ranges associated to your networking resources. Once you press "Purchase" button, this form will create and configure your environment. If you don't need two subnets you can delete the default one. 
 
  > [!Note]
  > If you change the names of VNet and subnets, make sure that you remember new names because they will be needed in the following secrions. In the rest of the tutorial will be assumed that you create **MyNewVNet** network, **ManagedInstances** subnet for SQL Managed Instances and **Default** subnet for Virtual machines and other resources.
