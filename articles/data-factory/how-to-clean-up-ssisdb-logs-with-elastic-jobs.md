@@ -18,7 +18,7 @@ manager: craigg
 
 This article describes how to use Azure Elastic Database Jobs to trigger the stored procedure that cleans up logs for the SQL Server Integration Services catalog database, `SSISDB`.
 
-Elastic Database Jobs is an Azure service that makes it easy to automate and run jobs against a database or a group of databases. You can schedule, run, and monitor these jobs by using the Azure portal, Transact-SQL, PowerShell, or REST APIs. You can use the Elastic Database Job to trigger the stored procedure for log cleanup one time or on aschedule. You can choose the schedule interval based on SSISDB resource usage to avoid heavy database load.
+Elastic Database Jobs is an Azure service that makes it easy to automate and run jobs against a database or a group of databases. You can schedule, run, and monitor these jobs by using the Azure portal, Transact-SQL, PowerShell, or REST APIs. Use the Elastic Database Job to trigger the stored procedure for log cleanup one time or on a schedule. You can choose the schedule interval based on SSISDB resource usage to avoid heavy database load.
 
 For more info, see [Manage groups of databases with Elastic Database Jobs](../sql-database/elastic-jobs-overview.md).
 
@@ -167,7 +167,7 @@ The following sample Transact-SQL scripts create a new Elastic Job to trigger th
     CREATE DATABASE SCOPED CREDENTIAL SSISDBLogCleanupCred WITH IDENTITY = 'SSISDBLogCleanupUser', SECRET = '<EnterStrongPasswordHere>'; 
     ```
 
-3. Define the target group which includes the SSISDB database for which you want to run the cleanup stored procedure.
+3. Define the target group that includes the SSISDB database for which you want to run the cleanup stored procedure.
 
     ```sql
     -- Connect to the job database 
