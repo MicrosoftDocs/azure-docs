@@ -19,6 +19,7 @@
   - name: Create a dynamically populated group    
     href: groups-dynamic-tutorial.md
 - name: Concepts
+  expanded: true
   items:
   - name: Delegate Azure AD admin roles    
     href: roles-concept-delegation.md
