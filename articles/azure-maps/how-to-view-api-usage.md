@@ -54,10 +54,6 @@ Continue to the next section if you need to customize these graphs for your part
 
 ## Next steps
 
-Now that you have learned how to track your Azure Maps usage, you may proceed to learn more advanced features, such as:
+Now that you have learned how to track your Azure Maps usage, you may proceed to read more about the APIs you are using with the:
 
-* [Vehicle consumption](consumption-model.md), or
-* [Extend GeoJSON](extend-geojson.md)
-
-Finally, read more about the APIs you are using with the:
 * [Azure Maps REST API documentation](https://docs.microsoft.com/rest/api/maps)

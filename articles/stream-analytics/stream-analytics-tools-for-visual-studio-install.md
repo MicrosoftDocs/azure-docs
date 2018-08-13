@@ -2,6 +2,8 @@
 title: Set up Azure Stream Analytics tools for Visual Studio
 description: This article describes installation requirements and how to setup the Azure Stream Analytics tools for Visual Studio.
 services: stream-analytics
+ms.technology: vs-azure
+ms.workload: azure-vs
 author: su-jie
 ms.author: sujie
 manager: kfile
