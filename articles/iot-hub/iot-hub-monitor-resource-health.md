@@ -219,7 +219,7 @@ The jobs operations category reports on job requests to update device twins or i
 
 #### Direct Methods
 
-The direct methods category tracks request-reponse interactions sent to individual devices. These requests are initiated in the cloud. 
+The direct methods category tracks request-response interactions sent to individual devices. These requests are initiated in the cloud. 
 
 ```json
 {
