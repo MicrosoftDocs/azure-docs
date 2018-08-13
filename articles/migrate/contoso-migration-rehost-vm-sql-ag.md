@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/13/2018
 ms.author: raynew
 ---
 
@@ -109,7 +109,7 @@ Here's how Contoso will run the migration:
 > [!div class="checklist"]
 > * **Step 1: Create the SQL Server VMs in Azure**: For high availability, Contoso want to deploy a clustered database in Azure. They deploy two SQL Server VMs, and an Azure internal load balancer.
 > * **Step 2: Deploy the cluster**: After deploying the SQL Server VMs, they prepare an Azure SQL Server cluster.  They'll migrate their database into this pre-created cluster.
-> * **Step 3: Prepare DMS**: To prepare DMS they register the Database Migration provider, create a DMS instance, and a project. They set up a shared access signature (SAS) Uniform Resource Identifier (URI). DMS uses the SA URI to access the storage account container to which the service uploads the SQL Server back-up files.
+> * **Step 3: Prepare DMS**: To prepare DMS they register the Database Migration provider, create a DMS instance, and a project. They set up a shared access signature (SAS) Uniform Resource Identifier (URI). DMS uses the SAS URI to access the storage account container to which the service uploads the SQL Server back-up files.
 > * **Step 4: Prepare Azure for Site Recovery**: They create an Azure storage account to hold replicated data, and a Recovery Services vault.
 > * **Step 5: Prepare on-premises VMware for Site Recovery**: They prepare accounts for VM discovery and agent installation, and prepare on-premises VMs so that they can connect to Azure VMs after failover.
 > * **Step 6: Replicate VMs**: They configure replication settings, and enable VM replication.
