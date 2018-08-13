@@ -16,34 +16,39 @@
       href: quickstarts/java.md
     - name: Quickstart: Node.js
       href: quickstarts/nodejs.md
-    - name: PHP
-      href: Quickstart: quickstarts/php.md
-    - name: Python
-      href: Quickstart: quickstarts/python.md
+    - name: Quickstart: PHP
+      href: quickstarts/php.md
+    - name: Quickstart: Python
+      href: quickstarts/python.md
     - name: Quickstart: Ruby
       href: quickstarts/ruby.md
   - name: SDKs
     items:
     - name: Quickstart: C# SDK
       href: web-search-sdk-quickstart.md
+    - name: Quickstart: Java SDK
+      href: web-sdk-java-quickstart.md
     - name: Quickstart: Node.js SDK
       href: web-search-sdk-node-quickstart.md
     - name: Quickstart: Python SDK
       href: web-sdk-python-quickstart.md
-    - name: Quickstart: Java SDK
-      href: web-sdk-java-quickstart.md
 - name: Tutorials
   items:
   - name: Build a single-page web app
     href: tutorial-bing-web-search-single-page-app.md
+  - name: Single-page web app (source code)
+    href: tutorial-bing-web-search-single-page-app-source.md
+  - name: Visual Search mobile app
+    href: computer-vision-web-search-tutorial.md
+  - name: Visual Search mobile app (Visual Studio solution)
+    href: https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/
+    maintainContext: true
 - name: Samples
   items:
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Web+Search
 - name: How-to guides
   items:
-  - name: Use and display results
-    href: UseAndDisplayRequirements.md
   - name: Filter answers
     href: filter-answers.md
   - name: Rank results
@@ -58,14 +63,22 @@
     href: bing-web-upgrade-guide-v5-to-v7.md
 - name: Concepts
   items:
-  - name:
-    href:
+  - name: Suggesting search terms
+    href: suggesting-and-using-search-terms.md  
+  - name: Search responses
+    href: search-responses.md
+  - name: Throttling requests
+    href: throttling-requests.md
 - name: Reference
   items:
   - name: Bing Web Search API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
   - name: Bing Web Search API v5
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
+  - name: CLI reference
+    href: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: Powershell reference
+    href: https://aka.ms/azure-powershell-cognitiveservices
 - name: Resources
   items:
   - name: FAQ
@@ -88,6 +101,8 @@
     href: https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/
   - name: Bing Web Search endpoint
     href: web-search-endpoints.md
+  - name: Use and display requirements
+    href: UseAndDisplayRequirements.md
   - name: Supported countries and markets
     href: supported-countries-markets.md
   - name: Analytics for Bing Web Search API
