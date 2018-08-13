@@ -131,7 +131,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. Click **Save**.
 
-11. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Tableau Online**.
+11. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Tableau**.
 
 	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/UserMappings.png)
 
@@ -139,20 +139,27 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/UserAttributeMapping.png)
 
-13. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../active-directory-saas-scoping-filters.md).
+13. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Tableau**.
 
-14. To enable the Azure AD provisioning service for Tableau Online, change the **Provisioning Status** to **On** in the **Settings** section.
+	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/GroupMappings.png)
+
+14.	Review the group attributes that are synchronized from Azure AD to Tableau Online in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Tableau Online for update operations. Select the **Save** button to commit any changes.
+
+	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/GroupAttributeMapping.png)
+
+15. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../active-directory-saas-scoping-filters.md).
+
+16. To enable the Azure AD provisioning service for Tableau Online, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/ProvisioningStatus.png)
 
-15. Define the users and/or groups that you would like to provision to Tableau Online by choosing the desired values in **Scope** in the **Settings** section.
+17. Define the users and/or groups that you would like to provision to Tableau Online by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/ScopeSync.png)
 
-16. When you are ready to provision, click **Save**.
+18. When you are ready to provision, click **Save**.
 
 	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/SaveProvisioning.png)
-
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Tableau Online.
 
