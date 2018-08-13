@@ -110,12 +110,12 @@ This template defines two parameters: `$machine_type` and `$slots`. Using this t
 ``` JSON
 # dev-params.json
 {
-  "machine_type": "m1.small",
+  "machine_type": "H16r",
   "slots": 2
 }
 
 # prod-params.properties
-machine_type = m1.4xlarge
+machine_type = Standard_D4v3
 slots = 8
 ```
 
@@ -146,7 +146,7 @@ It is also possible to define some or all of the parameters within the cluster t
 
 [parameters]
   [[parameter machine_type]]
-  DefaultValue = m1.small
+  DefaultValue = Standard_D4v3
 
   [[parameter slots]]
   DefaultValue = 2
@@ -272,7 +272,7 @@ Defining parameters within the cluster template enables one to take advantage of
 
 [parameters]
   [[parameter machine_type]]
-  DefaultValue = m1.small
+  DefaultValue = Standard_D4v3
   Label = Machine Type
   Description = MachineType to use for the Grid Engine master node
   ParameterType = Cloud.MachineType
