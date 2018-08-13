@@ -16,7 +16,7 @@
   - name: Create DB - Azure PowerShell
     href: sql-database-get-started-powershell.md
   - name: Create Managed Instance
-    href: sql-database-managed-instance-get-started
+    href: sql-database-managed-instance-get-started.md
   - name: Connect and query
     href: sql-database-connect-query.md
     items:
