@@ -5,8 +5,8 @@ description: Storage account keys provide a seemless integration between Azure K
 ms.topic: article
 services: key-vault
 ms.service: key-vault
-author: lleonard-msft
-ms.author: alleonar
+author: bryanla
+ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/12/2017
 ---
@@ -251,7 +251,7 @@ Key Vault must verify that the identity has *regenerate* permissions before it c
 - Key Vault lists RBAC permissions on the storage account resource.
 - Key Vault validates the response via regular expression matching of actions and non-actions.
 
-Find some supporting examples at [Key Vault - Managed Storage Account Keys Samples](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167).
+Find some supporting examples at [Key Vault - Managed Storage Account Keys Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=).
 
 If the identity does not have *regenerate* permissions or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails returning an appropriate error code and message.
 
