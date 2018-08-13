@@ -69,6 +69,10 @@ Publishing regions are different from authoring regions. Make sure you create an
 ## Key limit errors
 If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. Fix these errors by getting a LUIS [endpoint](#endpoint-key) key, [assigning](luis-how-to-manage-keys.md#assign-endpoint-key) the key to the app on the **Publish** page of the [LUIS](luis-reference-regions.md#luis-website) website.
 
+## Automating assignment of the endpoint key
+
+In order to assign the endpoint key to a LUIS app, you must use the LUIS website for the correct authoring and publishing [regions](luis-reference-regions.md). There is **no** automated method of doing this, regardless of mechanism such as with an Azure resource manager script, Azure CLI, programmatic SDK, or with the APIs.
+
 ## Next steps
 
 * Learn [concepts](luis-how-to-manage-keys.md#assign-endpoint-key) about authoring and endpoint keys.
