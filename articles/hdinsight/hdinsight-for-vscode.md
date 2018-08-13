@@ -72,12 +72,12 @@ Before you can submit scripts to HDInsight clusters from VS Code, you need to ei
 
 2. Right-click the script editor, and then, on the context menu, select **HDInsight: Login**. You can also enter **Ctrl+Shift+P**, and then enter **HDInsight: Login**.
 
-    ![HDInsight Tools for Visual Studio Code log in](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
+    ![HDInsight Tools for Visual Studio Code login](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
 3. To sign in, follow the sign-in instructions in the **OUTPUT** pane.
     + For Azure environment, HDInsight sign in will trigger Azure sign in process.
 
-        ![Sign in instructions for azrue](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
+        ![Sign in instructions for azure](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
 
     + For Other environment, follow the sign-in instructions in the **OUTPUT** pane.
 
@@ -199,7 +199,7 @@ Running the interactive query takes much less time than [running a Hive batch jo
 [Submitting interactive Hive queries](#submit-interactive-hive-queries) takes much less time than submitting a batch job.
 
 ## Submit interactive PySpark queries
-HDInsight Tools for VS Code also enables you to submit interactive PySpark queries to Spark clusters.
+HDInsight Tools for VS Code also enable you to submit interactive PySpark queries to Spark clusters.
 1. Create a new work folder and a new script file with the .py extension if you don't already have them.
 
 2. Connect to your Azure account if you haven't yet done so.
@@ -277,18 +277,18 @@ HDInsight Tools for VS Code also enables you to submit interactive PySpark queri
 After you submit a Python job, submission logs appear in the **OUTPUT** window in VS Code. The **Spark UI URL** and **Yarn UI URL** are shown as well. You can open the URL in a web browser to track the job status.
 
 >[!NOTE]
->PySpark3 is not supported anymore in Livy 0.4 (which is HDI spark 2.2 cluster). Only “PySpark” is supported for python. It is known issue that submit to spark 2.2 fail with python3.
+>PySpark3 is not supported anymore in Livy 0.4 (which is HDI spark 2.2 cluster). Only "PySpark" is supported for Python. It is known issue that submit to spark 2.2 fail with Python3.
 
 
 ## Livy configuration
 
-Livy configuration is supported, it could be set at the **.VSCode\settings.json** in work space folder. Currently, livy configuration only support pathon scirpt. More details, see [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
+Livy configuration is supported, it could be set at the **.VSCode\settings.json** in work space folder. Currently, livy configuration only supports Python script. More details, see [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
 
 <a id="triggerlivyconf"></a>**How to trigger livy configuration**
    
 You can find on **File** menu, select **Preferences**, and choose **Settings** on context menu. Click **WORKSPACE SETTINGS** tab, you can start to set livy configuration.
 
-You also can submit a file, notice the .vscode file is added automatically to the work folder. You can find the livy configuration by click **.vscode\settings.json**.
+You also can submit a file, notice the .vscode folder is added automatically to the work folder. You can find the livy configuration by clicking **.vscode\settings.json**.
 
 + The project settings:
 
@@ -349,11 +349,11 @@ Azure HDInsight has been added to the left panel. You can browse and manage the 
 
 4. After signed in, the available subscriptions will show up.
 
-   ![Azure Hdinsight Subscription](./media/hdinsight-for-vscode/hdi-azure-hdinsight-subscription.png)
+   ![Azure HDInsight Subscription](./media/hdinsight-for-vscode/hdi-azure-hdinsight-subscription.png)
 
 5. Expand the subscription, all related clusters show up. You can browse and manage the cluster.
 
-   ![Azure hdinsight cluster](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
+   ![Azure HDInsight cluster](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
 
 ## Additional features
 
