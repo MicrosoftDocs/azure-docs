@@ -23,8 +23,8 @@ You'll learn how to:
 > [!div class="checklist"]
 > * Set up your development environment
 > * Access and examine the data
-> * Train a simple logistic regression locally using the popular scikit-learn maching learning library 
-> * Traing multiple models on a remote GPU cluster
+> * Train a simple logistic regression locally using the popular scikit-learn machine learning library 
+> * Train multiple models on a remote GPU cluster
 > * Review training details and register the best model
 
 You'll train a simple logistic regression using the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset and scikit-learn with Azure Machine Learning. 
@@ -52,11 +52,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    conda install -y matplotlib scikit-learn
    ``` 
 
-1. The file [utils.py]() downloaded into your `docs-prj` folder.
+1. The file [utils.py](https://aka.ms/aml-file-utils-py) downloaded into your `docs-prj` folder.
 
 ## Get the sample notebook
 
-To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification) into the `docs-prj` folder created during the quickstart.
+To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-train-model) into the `docs-prj` folder created during the quickstart.
 
 To run the notebook, execute these commands in your activated conda environment:
 
@@ -548,8 +548,8 @@ In this Azure Machine Learning tutorial, you used Python to:
 > [!div class="checklist"]
 > * Set up your development environment
 > * Access and examine the data
-> * Train a simple logistic regression locally using the popular scikit-learn maching learning library 
-> * Traing multiple models on a remote GPU cluster
+> * Train a simple logistic regression locally using the popular scikit-learn machine learning library
+> * Train multiple models on a remote GPU cluster
 > * Review training details and register the best model
 
 You are ready to move on to the next part in the tutorial series, where you will deploy the registered model:
