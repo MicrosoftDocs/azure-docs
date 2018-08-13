@@ -3,6 +3,8 @@ title: Install Azure Data Lake Tools for Visual Studio
 description: This article describes how to install Azure Data Lake Tools for Visual Studio. 
 services: data-lake-analytics
 ms.service: data-lake-analytics
+ms.technology: vs-azure
+ms.workload: azure-vs
 author: saveenr
 ms.author: saveenr
 manager: kfile
