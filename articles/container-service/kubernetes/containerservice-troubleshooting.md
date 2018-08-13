@@ -1,4 +1,18 @@
-# AKS Troubleshooting
+---
+title: Troubleshoot common Azure Kubernetes Services problems
+description: Learn how to troubleshoot and resolve common problems when using Azure Kubernetes Service (AKS)
+services: container-service
+author: sauryadas
+
+ms.service: container-service
+ms.topic: troubleshooting
+ms.date: 08/13/2018
+ms.author: saudas
+---
+
+
+# AKS troubleshooting
+When you create or manager AKS clusters, you may occasionally encounter issues. This article details some common issues and troubleshooting steps.
 
 ## In general, where do I find information about debugging Kubernetes issues?
 
