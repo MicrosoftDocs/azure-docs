@@ -1,19 +1,25 @@
 ---
-title: Azure HDInsight Tools - Use Visual Studio Code for Hive, LLAP or pySpark 
+title: Azure HDInsight Tools - Use Visual Studio Code for Hive, LLAP or pySpark | Microsoft Docs
 description: Learn how to use the Azure HDInsight Tools for Visual Studio Code to create and submit queries and scripts.
-keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
-services: hdinsight
+Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
+services: HDInsight
+documentationcenter: ''
 author: jejiang
-ms.author: jejiang
-editor: jasonwhowell
-ms.service: hdinsight
-ms.topic: conceptual
+manager: 
+editor: jgao
+tags: azure-portal
+
+ms.assetid: 
+ms.service: HDInsight
+ms.devlang: na
+ms.topic: article
 ms.date: 10/27/2017
+ms.author: jejiang
 ---
 
 # Use Azure HDInsight Tools for Visual Studio Code
 
-Learn how to use the Azure HDInsight Tools for Visual Studio Code (VS Code) to create and submit Hive batch jobs, interactive Hive queries, and pySpark scripts. The Azure HDInsight Tools can be installed on the platforms that are supported by VS Code. These include Windows, Linux, and macOS. You can find the prerequisites for different platforms.
+Learn how to use the Azure HDInsight Tools for Visual Studio Code (VS Code) to create and submit Hive batch jobs, interactive Hive queries, and PySpark scripts. The Azure HDInsight Tools can be installed on the platforms that are supported by VS Code. These include Windows, Linux, and macOS. You can find the prerequisites for different platforms.
 
 
 ## Prerequisites
@@ -34,11 +40,11 @@ After you have installed the prerequisites, you can install the Azure HDInsight 
 
 2. In the left pane, select **Extensions**. In the search box, enter **HDInsight**.
 
-3. Next to **Azure HDInsight tools**, select **Install**. After a few seconds, the **Install** button changes to **Reload**.
+3. Next to **Azure HDInsight Tools**, select **Install**. After a few seconds, the **Install** button changes to **Reload**.
 
-4. Select **Reload** to activate the **Azure HDInsight tools** extension.
+4. Select **Reload** to activate the **Azure HDInsight Tools** extension.
 
-5. Select **Reload Window** to confirm. You can see **Azure HDInsight tools** in the **Extensions** pane.
+5. Select **Reload Window** to confirm. You can see **Azure HDInsight Tools** in the **Extensions** pane.
 
    ![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
@@ -54,9 +60,7 @@ Create a workspace in VS Code before you can connect to Azure.
 
    ![New file](./media/hdinsight-for-vscode/new-file.png)
 
-3. Name the new file with either the .hql (Hive queries) or the .py (Spark script) file extension. Notice that an **XXXX_hdi_settings.json** configuration file is automatically added to the work folder.
-
-4. Open **XXXX_hdi_settings.json** from **EXPLORER**, or right-click the script editor to select **Set Configuration**. You can configure login entry, default cluster, and job submission parameters as shown in the sample in the file. You also can leave the remaining parameters empty.
+3. Name the new file with either the .hql (Hive queries) or the .py (Spark script) file extension. 
 
 ## Connect to HDInsight Cluster
 
@@ -71,9 +75,13 @@ Before you can submit scripts to HDInsight clusters from VS Code, you need to ei
     ![HDInsight Tools for Visual Studio Code log in](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
 3. To sign in, follow the sign-in instructions in the **OUTPUT** pane.
+    + For Azure environment, HDInsight sign in will trigger Azure sign in process.
 
-    **Azure:**
-    ![HDInsight Tools for Visual Studio Code login info](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-Azurelogin-info.png)
+        ![Sign in instructions for azrue](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
+
+    + For Other environment, follow the sign-in instructions in the **OUTPUT** pane.
+
+        ![Sign in instructions for other environment](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
     After you're connected, your Azure account name is shown on the status bar at the bottom left of the VS Code window. 
 
@@ -131,18 +139,18 @@ To test the connection, you can list your HDInsight clusters:
 
 2. Right-click the script editor, and then select **HDInsight: Set Default Cluster**. 
 
-3. Select a cluster as the default cluster for the current script file. The tools automatically update the configuration file **XXXX_hdi_settings.json**. 
+3. Select a cluster as the default cluster for the current script file. The tools automatically update the configuration file **.VSCode\settings.json**. 
 
    ![Set default cluster configuration](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
 
-## Set the Azure environment 
+## Set the Azure environment
 1. Open the command palette by selecting **CTRL+SHIFT+P**.
 
 2. Enter **HDInsight: Set Azure Environment**.
 
 3. Select one way from Azure and AzureChina as your default login entry.
 
-4. Meanwhile, the tool has already saved your default login entry in **XXXX_hdi_settings.json**. You also directly update it in this configuration file. 
+4. Meanwhile, the tool has already saved your default login entry in **.VSCode\settings.json**. You also directly update it in this configuration file. 
 
    ![Set default login entry configuration](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
 
@@ -184,7 +192,7 @@ Running the interactive query takes much less time than [running a Hive batch jo
 
 4. Select the cluster to which you want to submit.  
 
-    After you submit a Hive job, the submission success info and jobid appears in the **OUTPUT** panel. The Hive job also opens **WEB BROWSER**, which shows the real-time job  logs and status.
+    After you submit a Hive job, the submission success info and jobid appears in the **OUTPUT** panel. The Hive job also opens **WEB BROWSER**, which shows the real-time job logs and status.
 
    ![submit Hive job result](./media/hdinsight-for-vscode/submit-Hivejob-result.png)
 
@@ -231,13 +239,12 @@ HDInsight Tools for VS Code also enables you to submit interactive PySpark queri
 
 >[!NOTE]
 >The clusters can maintain session information. The defined variable, function and corresponding values are kept in the session, so they can be referenced across multiple service calls for the same cluster. 
- 
 
 ## Submit PySpark batch job
 
 1. Create a new work folder and a new script file with the .py extension if you don't already have them.
 
-2. Connect to your Azure account, if you haven't already done so.
+2. Connect to your Azure account if you haven't already done so.
 
 3. Copy and paste the following code into the script file:
 
@@ -271,13 +278,24 @@ After you submit a Python job, submission logs appear in the **OUTPUT** window i
 
 >[!NOTE]
 >PySpark3 is not supported anymore in Livy 0.4 (which is HDI spark 2.2 cluster). Only “PySpark” is supported for python. It is known issue that submit to spark 2.2 fail with python3.
-   
+
+
 ## Livy configuration
-Livy configuration is supported, it could be set at the project settings in work space folder. More details, see [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
+
+Livy configuration is supported, it could be set at the **.VSCode\settings.json** in work space folder. Currently, livy configuration only support pathon scirpt. More details, see [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
+
+<a id="triggerlivyconf"></a>**How to trigger livy configuration**
+   
+You can find on **File** menu, select **Preferences**, and choose **Settings** on context menu. Click **WORKSPACE SETTINGS** tab, you can start to set livy configuration.
+
+You also can submit a file, notice the .vscode file is added automatically to the work folder. You can find the livy configuration by click **.vscode\settings.json**.
 
 + The project settings:
 
     ![Livy configuration](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+
+>[!NOTE]
+>For settings **driverMomory** and **executorMomry**, set the value with unit, for example 1g or 1024m. 
 
 + The supported Livy configurations:   
 
@@ -314,6 +332,28 @@ Livy configuration is supported, it could be set at the project settings in work
     | log | The log lines | list of strings |
     | state | 	The batch state | string |
 
+>[!NOTE]
+>The assigned livy config will display in output pane when submit script.
+
+## Integrate with Azure HDInsight from Explorer
+
+Azure HDInsight has been added to the left panel. You can browse and manage the cluster directly.
+
+1. Expand the **AZURE HDINSIGHT**, if not sign in, it will show **Sign in to Azure...** link.
+
+    ![Sign in link image](./media/hdinsight-for-vscode/hid-azure-hdinsight-sign-in.png)
+
+2. Click **Sign in to Azure**, it shows loading and pop up the sign in link and code at the right bottom.
+
+3. Click **Copy & Open** button will open browser, paste the code, click **Continue** button, then you will see the hint about sign in successfully.
+
+4. After signed in, the available subscriptions will show up.
+
+   ![Azure Hdinsight Subscription](./media/hdinsight-for-vscode/hdi-azure-hdinsight-subscription.png)
+
+5. Expand the subscription, all related clusters show up. You can browse and manage the cluster.
+
+   ![Azure hdinsight cluster](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
 
 ## Additional features
 
