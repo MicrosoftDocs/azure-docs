@@ -85,6 +85,7 @@
       - name: Application data collection, retention, and storage
         href: ../application-insights/app-insights-data-retention-privacy.md?toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: Data collection
+    items:
     - name: Azure resources
       href: ../monitoring/monitoring-data-sources.md?toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: Analyze data
