@@ -11,7 +11,7 @@ You will need to request cores [here](https://docs.microsoft.com/en-us/azure/azu
 ## What is the max pods per node setting for AKS?
 
 The max pods per node are set to 30 by default if you deploy an AKS cluster in the Azure portal.
-The max pods per node are set to 110 by default if you deploy an AKS cluster in the Azure CLI. (Please ensure you are using the latest version of the Azure CLI). This default setting can be changed using the –max-nodes-per-pod flag in the az aks create command.
+The max pods per node are set to 110 by default if you deploy an AKS cluster in the Azure CLI. (Ensure you are using the latest version of the Azure CLI). This default setting can be changed using the –max-nodes-per-pod flag in the az aks create command.
 
 ## I am getting  “insufficientSubnetSize” error while deploying an AKS cluster with Advanced networking. What should I do?
 
@@ -28,11 +28,11 @@ There might be various reasons for the pod being stuck in that mode. You might w
 
 Unfortunately enabling RBAC on existing clusters is not supported at this time. You will need to explicitly create new clusters. If you use the CLI, RBAC is enabled by default whereas a toggle button to enable it is available in the AKS portal create workflow.
 
-## I created a cluster using the Azure CLI with defaults or the Azure portal with RBAC enabled and am getting a lot of warnings in the kubernetes dashboard. This used to work before. What should I do?
+## I created a cluster using the Azure CLI with defaults or the Azure portal with RBAC enabled and numerous warnings in the kubernetes dashboard. The dashboard used to work before without any warnings. What should I do?
 
 The reason for getting warnings on the dashboard is that now it is enabled with RBAC'ed and access to it has been disabled by default. In general, 
 this is considered good practice since the default exposure of the dashboard to all users of the cluster can lead to security 
-threats. If you still want to enable the dashboard, please follow this [blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/)
+threats. If you still want to enable the dashboard, follow this [blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/)
 to enable it.
 
 ## I can’t seem to connect to the dashboard. What should I do?
@@ -40,15 +40,15 @@ to enable it.
 The easiest way to access your service outside the cluster is to run kubectl proxy, which will proxy requests to your localhost port 8001 to the Kubernetes API server. From there, the apiserver can proxy to your service:
 http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default
 
-If you don’t see the kubernetes dashboard, then please check if the kube-proxy pod is running in the kube-system namespace. If it is not in running state, please delete the pod and it will restart.
+If you don’t see the kubernetes dashboard, then check if the kube-proxy pod is running in the kube-system namespace. If it is not in running state, delete the pod and it will restart.
 
 ## I could not get logs using Kubectl logs or cannot connect to the api server getting the “Error from server: error dialing backend: dial tcp…”. What should I do?
 
-Please make sure that the default NSG is not modified and port 22 is open for connection to the API server. Please check if the tunnelfront pod is running in the kube-system namespace. If it is not, please force delete it and it will restart.
+Make sure that the default NSG is not modified and port 22 is open for connection to the API server. Check if the tunnelfront pod is running in the kube-system namespace. If it is not, force delete it and it will restart.
 
 ## I have modified the tags in the agent nodes inside the AKS cluster. I am trying to upgrade or scale and am getting "message": "Changing property 'imageReference' is not allowed." Error. What should I do?
 
-Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Please refrain from modifying the resources under the MC_* as the AKS cluster is then no longer a part of the SLO.
+Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Refrain from modifying the resources under the MC_* as the AKS cluster is then no longer a part of the SLO.
 
 
 
