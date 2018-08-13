@@ -1,6 +1,6 @@
 ---
-title: Call and response - Node.js Quickstart for Azure Cognitive Services, Bing Image Search API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Image Search API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Send search queries using the REST API for the Bing Image Search API using Node.js"
+description: In this quickstart, you send search queries to the Bing Search API to get a list of relevant images using Node.js.
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -10,7 +10,8 @@ ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
 ---
-# Call and response: your first Bing Image Search query for Node.js
+
+# Quickstart: Send search queries using the REST API and Node.js
 
 The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
 
@@ -20,7 +21,7 @@ This article includes a simple console application that performs a Bing Image Se
 
 You need [Node.js 6](https://nodejs.org/en/download/) to run this code.
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Running the application
 
