@@ -48,7 +48,7 @@ If your device is brand-new and hasn't been set up yet, you can go through the W
 
 5. Complete the OOBE process, including setting your privacy settings and setting up Windows Hello (if necessary).
 
-Your device is now joined to your organization's network.
+    Your device is now joined to your organization's network.
 
 ## To make sure you're joined
 You can make sure that you're joined by looking at your settings.
