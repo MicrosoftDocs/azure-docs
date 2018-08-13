@@ -27084,6 +27084,10 @@
             "redirect_url": "/azure/active-directory/devices/azuread-joined-devices-frx",
             "redirect_document_id": true
         },
+        {
+            "source_path": "articles/cognitive-services/Bing-Image-Search/sdk.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Image-Search/image-search-sdk-quickstart"
+        },
 		{
             "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
             "redirect_url": "/azure/active-directory/conditional-access/baseline-protection",
