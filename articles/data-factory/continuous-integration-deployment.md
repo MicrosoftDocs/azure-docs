@@ -714,7 +714,7 @@ Here is a sample deployment template that you can import in VSTS.
 }
 ```
 
-Here is a sample script to stop triggers before deployment and to restart triggers afterwards:
+Here is a sample script to clean up deleted resources, to stop triggers before deployment, and to restart triggers afterwards:
 
 ```powershell
 param
@@ -877,103 +877,4 @@ The following example shows a sample parameters file. Use this sample as a refer
 		}
 	}
 }
-```
-
-## Clean up deployed resources
-
-To clean up previously deployed resources, you can adapt a script like the following example for your requirements.
-
-```powershell
-param
-(
-    [parameter(Mandatory = $false)] [String] $rootFolder="<resource manager template folder>",
-    [parameter(Mandatory = $false)] [String] $armTemplate="$rootFolder\arm_template.json",
-    [parameter(Mandatory = $false)] [String] $armTemplateParameters="$rootFolder\arm_template_parameters.json",
-    [parameter(Mandatory = $false)] [String] $domain="<domain>",
-    [parameter(Mandatory = $false)] [String] $TenantId="<tenant ID>",
-    [parameter(Mandatory = $false)] [String] $appId="<app ID>",
-    [parameter(Mandatory = $false)] [String] $password="<password>",
-    [parameter(Mandatory = $false)] [String] $ResourceGroupName="<resource group>",
-    [parameter(Mandatory = $false)] [String] $DataFactoryName="<data factory name>",
-    [parameter(Mandatory = $false)] [String] $keyvault="<key vault>"
-)
-
-$userId = "$appId@$domain"
-$passwordSecured = ConvertTo-SecureString -String $password -AsPlainText -Force
-$cred = New-Object -TypeName System.Management.Automation.PSCredential($userId ,$passwordSecured)
-Login-AzureRmAccount -ServicePrincipal -Credential $cred -TenantId $TenantId
-
-$templateJson = Get-Content $armTemplate | ConvertFrom-Json
-$templateParametersJson = Get-Content $armTemplateParameters | ConvertFrom-Json
-$resources = $templateJson.resources
-
-#Get all secrets
-Write-Host "Checking parameters"
-$templateParametersJson.parameters.factoryName.value = $DataFactoryName
-$templateParametersJson.parameters.PSObject.Properties | ForEach-Object { 
-    if ($_.Value.value -eq "" -or $_.Value.value -eq $null) { 
-        $secretName = "$DataFactoryName-$($_.Name.Replace('_','-'))"
-        Write-Host "Getting parameter '$secretName' from vault"
-        $secretValue = Get-AzureKeyVaultSecret -VaultName $keyvault -Name $secretName
-        $_.Value.Value = $secretValue.SecretValueText
-    }
-}
-
-
-#Deleted resources
-#Pipelines
-Write-Host "Getting pipelines"
-$pipelinesADF = Get-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
-$pipelinesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/pipelines" }
-$pipelinesNames = $pipelinesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
-$deletedpipelines = $pipelinesADF | Where-Object { $pipelinesNames -notcontains $_.Name }
-#Datasets
-Write-Host "Getting datasets"
-$datasetsADF = Get-AzureRmDataFactoryV2Dataset -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
-$datasetsTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/datasets" }
-$datasetsNames = $datasetsTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40) }
-$deleteddataset = $datasetsADF | Where-Object { $datasetsNames -notcontains $_.Name }
-#Linked Services
-Write-Host "Getting linked services"
-$linkedservicesADF = Get-AzureRmDataFactoryV2LinkedService -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
-$linkedservicesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/linkedservices" }
-$linkedservicesNames = $linkedservicesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
-$deletedlinkedservices = $linkedservicesADF | Where-Object { $linkedservicesNames -notcontains $_.Name }
-#Integration Runtimes
-Write-Host "Getting integration runtimes"
-$integrationruntimesADF = Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
-$integrationruntimesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/integrationruntimes" }
-$integrationruntimesNames = $integrationruntimesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
-$deletedintegrationruntimes = $integrationruntimesADF | Where-Object { $integrationruntimesNames -notcontains $_.Name }
-#Triggers 
-Write-Host "Getting triggers"
-$triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
-$triggersTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/triggers" }
-$triggerNames = $triggersTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
-$activeTriggerNames = $triggersTemplate | Where-Object { $_.properties.runtimeState -eq "Started" -and $_.properties.pipelines.Count -gt 0} | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
-$deletedtriggers = $triggersADF | Where-Object { $triggerNames -notcontains $_.Name }
-$triggerstostop = $triggerNames | where { ($triggersADF | Select-Object name).name -contains $_ }
-
-#Stop all triggers
-Write-Host "Stopping deployed triggers"
-$triggerstostop | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force }
-
-Write-Host "Deploying template"
-New-AzureRmResourceGroupDeployment -Name "Integration" -ResourceGroupName $ResourceGroupName -TemplateFile $armTemplate -TemplateParameterObject $templateParametersJson
-
-#Start Active triggers
-Write-Host "Starting active triggers"
-$activeTriggerNames | ForEach-Object { Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force }
-
-#Delete resources
-Write-Host "Deleting triggers"
-$deletedtriggers | ForEach-Object { Remove-AzureRmDataFactoryV2Trigger -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
-Write-Host "Deleting pipelines"
-$deletedpipelines | ForEach-Object { Remove-AzureRmDataFactoryV2Pipeline -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
-Write-Host "Deleting datasets"
-$deleteddataset | ForEach-Object { Remove-AzureRmDataFactoryV2Dataset -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
-Write-Host "Deleting linked services"
-$deletedlinkedservices | ForEach-Object { Remove-AzureRmDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
-Write-Host "Deleting integration runtimes"
-$deletedintegrationruntimes | ForEach-Object { Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
 ```
