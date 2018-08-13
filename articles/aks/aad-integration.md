@@ -12,6 +12,8 @@ ms.author: iainfou
 ms.custom: mvc
 ---
 
+#### Note: Some of the earlier versions of the az-cli does not support these features, try to updrade your az-cli if you get unrecognized arguments.  
+
 # Integrate Azure Active Directory with AKS
 
 Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory for user authentication. In this configuration, you can log into an Azure Kubernetes Service cluster using your Azure Active Directory authentication token. Additionally, cluster administrators are able to configure Kubernetes role-based access control based on a users identity or directory group membership.
