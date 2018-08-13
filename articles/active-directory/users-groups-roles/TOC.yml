@@ -2,31 +2,17 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Active Directory?
-    href: ../fundamentals/active-directory-whatis.md?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Azure identity management
     href: ../fundamentals/identity-fundamentals.md?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Azure identity solutions    
-    href: ../fundamentals/understand-azure-identity-solutions.md?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Hybrid identity solutions    
-    href: ../choose-hybrid-identity-solution.md?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Associate Azure subscriptions    
-    href: ../fundamentals/active-directory-how-subscriptions-associated-directory.md?context=azure/active-directory/users-groups-roles/context/ugr-context
 - name: Quickstarts
   items:
   - name: Add users to Azure AD
     href: ../fundamentals/add-users-azure-active-directory.md?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Get started with Azure AD  
-    href: ../fundamentals/get-started-azure-ad.md?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Sign up for Azure AD Premium   
-    href: ../fundamentals/active-directory-get-started-premium.md?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Assign licenses to users    
     href: ../fundamentals/license-users-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Add a custom domain name    
-    href: ../fundamentals/add-custom-domain.md?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Enforce group expiration    
+  - name: Set groups expiration    
     href: groups-quickstart-expiration.md
-  - name: Enforce group naming policy    
+  - name: Set groups naming policy    
     href: groups-quickstart-naming-policy.md
 - name: Tutorials
   items:
