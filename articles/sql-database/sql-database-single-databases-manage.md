@@ -5,6 +5,7 @@ services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
+ms.subservice: single-database
 ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018

@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Search?
+  - name: About Azure Search
     href: search-what-is-azure-search.md
 - name: Quickstarts
   expanded: true
