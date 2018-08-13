@@ -20,6 +20,10 @@ ms.author: yujhong
 
 Visual Studio is used by developers to easily manage their Azure subscriptions while building solutions. Visual Studio does not currently allow you to configure a connection to Azure Government in the user interface. 
 
+The following video demostrates how to use the VS 2017 extension that enables you to switch between different Azure environments. It walks you through installation and showing how easy it is to connect to Azure Government. The same steps are described in this article. The topic also shows how you can achieve the same configuration manually. 
+
+> [!VIDEO https://channel9.msdn.com/blogs/Azure-Government/Azure-Environment-Selector-Visual-Studio-Extension/player]
+
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 
 ## Prerequisites
@@ -28,13 +32,11 @@ If you don't have an Azure Government subscription, create a [free account](http
 * Review [Compare Azure Government and global Azure](compare-azure-government-global-azure.md) and click on a service of interest to see variations between Azure Government and global Azure.
 
 ## Visual Studio 2017
-Visual Studio 2017 requires a configuration file for Visual Studio to connect to Azure Government. With this file in place, Visual Studio connects to Azure Government instead of global Azure. You can do this by using a Visual Studio Extension, or through manual configuration. 
 
 ### Automatically configuring your target using a Visual Studio Extension 
 
 >[!NOTE] 
 >This is the recommended way to connect to Azure Government through Visual Studio. 
->
 >
 
 The Visual Studio extension allows for quickly and easily switching between Azure environments. 
@@ -59,13 +61,11 @@ From here, you can restart Visual Studio and the change will take effect. Once V
 
 ![download5](./media/documentation-government-get-started-connect-with-vs-extension5.png)
 
-This [short video](https://channel9.msdn.com/blogs/Azure-Government/Azure-Environment-Selector-Visual-Studio-Extension) shows the extension in action – walking you through installation and showing how easy it is to connect to Azure Government. 
  
 ### Manually configuring your target 
 
 >[!NOTE] 
 >If you have successfully completed the extension installation above, you do not need to complete this section.
->
 >
 
 #### Manually creating a configuration file for Azure Government 
