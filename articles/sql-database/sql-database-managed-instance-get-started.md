@@ -18,14 +18,14 @@ This quickstart walks through how to create a SQL Managed Instance in Azure. Azu
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Prepare network environment
 
-SQL Managed Instance is secure service that is placed in your own Azure Virtual Network (VNet). In order to create a Managed Instance, you woudl need to prepare network environment for managed instance, which includes:
- - Azure VNet where your anaged Instance will be placed.
+SQL Managed Instance is secure service that is placed in your own Azure Virtual Network (VNet). In order to create a Managed Instance, you would need to prepare network environment for managed instance, which includes:
+ - Azure VNet where your Managed Instance will be placed.
  - Subnet in your Azure VNet where Managed Instances will be placed.
  - User defined route that will enable Managed Instance to communicate with the Azure services that control and managed the instance
 
@@ -33,7 +33,7 @@ SQL Managed Instance is secure service that is placed in your own Azure Virtual 
 
  <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener"> <img src="http://azuredeploy.net/deploybutton.png"> </a>
 
- This button wil open a form where you can configure your network environment befor you create it:
+ This button will open a form where you can configure your network environment before you deploy it:
 
 ![create managed instance environment](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
 
@@ -90,7 +90,7 @@ While deployment occurs, continue to the next procedure.
 
 ## Query the SQL database
 
-Since SQL Managed Instance is placed in your private Virtual Network, you need to create an Azure VM sith some SLQ client tool like SQL server Management Studio or SQL Operations Studio to query Managed Instance. The easiest way to create a client virtual machine with all nesseccary tools is to use the following button (make sue that you are logged in in Azure portal):
+Since SQL Managed Instance is placed in your private Virtual Network, you need to create an Azure VM with some SQL client tool like SQL Server Management Studio or SQL Operations Studio to query Managed Instance. The easiest way to create a client virtual machine with all nesseccary tools is to use the following button (make sure that you are signed-in to the Azure portal):
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
@@ -100,12 +100,13 @@ This button will lead you to the following form in Azure portal where you can co
 
 ![create client VM](./media/sql-database-managed-instance-get-started/create-client-sql-vm.png)
 
-You need to enter the name of virtual machine, username and password that you will use to connect to the VM. If you have not changed VNet name and the default subnet, you don't need to change last two parameters, otherwise you should change these values to the values that you entered when you setup network environment.
+You would need to enter the name of virtual machine, username and password that you will use to connect to the VM. If you have not changed VNet name and the default subnet, you don't need to change last two parameters, otherwise you should change these values to the values that you entered when you set up the network environment.
 
-When you click on the "Purchase" button Azure VM in the network that you prepered will be deployed. You cna connect to your VM using Remote Desktop connection and use SQL Server Management Studio or SQL Operation Studion installed on VM to connect to your Managed Instance.
-
-
+When you click on the "Purchase" button Azure VM will be deployed in the network that you prepared. You can connect to your VM using Remote Desktop connection and use SQL Server Management Studio or SQL Operation Studio installed on VM to connect to your Managed Instance.
 
 ## Next steps
+
+1. [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
+2. [Migrate your databases from on-premises to Managed Instance](/sql-database-managed-instance-migrate.md).
 
 
