@@ -57,7 +57,7 @@ To get the keys for your account, visit the [Custom Vision web page](https://cus
 
 ## Create a new project
 
-The following examples create a new project named `myproject` in your Custom Vision service instance. This service defaults to the `General` domain. For more information on this request, see [CreateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8290).
+The following examples create a new project named `myproject` in your Custom Vision service instance. This service defaults to the `General` domain:
 
 ```bash
 curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects?name=myproject" -H "Training-Key: $TRAININGKEY" --data-ascii ""
@@ -67,7 +67,7 @@ curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2
 $resp = Invoke-WebRequest -Method 'POST' `
     -Uri "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects?name=myproject" `
     -UseBasicParsing `
-    -Headers @{ "Training-Key"=$trainingKey }
+    -Headers @{ "Training-Key"="$trainingKey" }
 $resp.Content
 ```
 
@@ -93,6 +93,8 @@ The response to the request is similar to the following JSON document:
 > [!TIP]
 > The `id` entry in the response is the ID of the new project. This is used in other examples later in this document.
 
+For more information on this request, see [CreateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8290).
+
 ### Specific domains
 
 To create a project for a specific domain, you can provide the __domain Id__ as an optional paramter. The following examples show how to retrieve a list of available domains:
@@ -105,7 +107,7 @@ curl -X GET "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.
 $resp = Invoke-WebRequest -Method 'GET' `
     -Uri "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/domains" `
     -UseBasicParsing `
-    -Headers @{ "Training-Key"=$trainingKey }
+    -Headers @{ "Training-Key"="$trainingKey" }
 $resp.Content
 ```
 
@@ -138,6 +140,8 @@ The response to the request is similar to the following JSON document:
 ]
 ```
 
+For more information on this request, see [GetDomains](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a827d).
+
 The following example demonstrates creating a new project that uses the __Landmarks__ domain:
 
 ```bash
@@ -148,7 +152,7 @@ curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2
 $resp = Invoke-WebRequest -Method 'POST' `
     -Uri "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects?name=myproject&domainId=ca455789-012d-4b50-9fec-5bb63841c793" `
     -UseBasicParsing `
-    -Headers @{ "Training-Key"=$trainingKey }
+    -Headers @{ "Training-Key"="$trainingKey" }
 $resp.Content
 ```
 
@@ -156,7 +160,7 @@ $resp.Content
 
 When tagging images, you use a tag Id. To get a tag Id, you must create a tag or get the information for an existing tag.
 
-The following example demonstrates how to create a new tag:
+The following example demonstrates how to create a new tag named `cat`. Replace `{projectId}` with the ID of your project. Use the `name=` parameter to specify the name of the tag:
 
 ```bash
 curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/tags?name=cat" -H "Training-Key: $TRAININGKEY" --data-ascii ""
@@ -166,10 +170,77 @@ curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2
 $resp = Invoke-WebRequest -Method 'POST' `
     -Uri "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/tags?name=cat" `
     -UseBasicParsing `
-    -Headers @{ "Training-Key"=$trainingKey }
+    -Headers @{ "Training-Key"="$trainingKey" }
 $resp.Content
 ```
 
+The response to the request is similar to the following: 
+
+```json
+{"id":"ed6f7ab6-5132-47ad-8649-3ec42ee62d43","name":"cat","description":null,"imageCount":0}
+```
+
+Save the `id` value, as it is used when tagging images.
+
+For more information on this requst, see [CreateTag](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829d).
+
 ## Add images
 
-Images can be added from files or from URLs. The following examples demonstrate 
+The following examples demonstrate adding a file from URL. Replace `{projectId}` with the ID of your project. Replace `{tagId}` with the ID of the tag for the image:
+
+```bash
+curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/images/urls" -H "Training-Key: $TRAININGKEY" -H "Content-Type: application/json" --data-ascii '{"images": [{"url": "http://myimages/cat.jpg","tagIds": ["{tagId}"],"regions": [{"tagId": "{tagId}","left": 119.0,"top": 94.0,"width": 240.0,"height": 140.0}]}], "tagIds": ["{tagId}"]}'
+```
+
+```powershell
+$resp = Invoke-WebRequest -Method 'POST' `
+    -Uri "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/images/urls" `
+    -UseBasicParsing `
+    -Headers @{ "Training-Key"="$trainingKey"; "Content-Type"="application/json" } `
+    -Body '{"images": [{"url": "http://myimages/cat.jpg","tagIds": ["{tagId}"],"regions": [{"tagId": "{tagId}","left": 119.0,"top": 94.0,"width": 240.0,"height": 140.0}]}], "tagIds": ["{tagId}"]}'
+$resp.Content
+```
+
+The response to the request is similar to the following:
+
+```json
+{
+    "isBatchSuccessful": true,
+    "images": [
+        {
+            "sourceUrl": "http://myimages/cat.jpg",
+            "status": "OK",
+            "image": {
+                "id": "081adaee-a76b-4d94-a70e-e4fd0935a28f",
+                "created": "2018-08-13T13:24:22.0815638",
+                "width": 640,
+                "height": 480,
+                "imageUri": "https://linktoimage",
+                "thumbnailUri": "https://linktothumbnail",
+                "tags": [
+                    {
+                        "tagId": "ed6f7ab6-5132-47ad-8649-3ec42ee62d43",
+                        "tagName": null,
+                        "created": "2018-08-13T13:24:22.104936"
+                    }
+                ],
+                "regions": [
+                    {
+                        "regionId": "40f206a1-3f8a-4de7-a6c3-c7b4643117df",
+                        "tagName": null,
+                        "created": "2018-08-13T13:24:22.104936",
+                        "tagId": "ed6f7ab6-5132-47ad-8649-3ec42ee62d43",
+                        "left": 119,
+                        "top": 94,
+                        "width": 240,
+                        "height": 140
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+For more information on this request, see [CreateImagesFromUrls](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8287).
+
