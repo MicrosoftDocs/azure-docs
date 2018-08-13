@@ -28,8 +28,9 @@ In this tutorial, you learn how to:
 > * Connect the new Azure Stream Analytics job with other IoT Edge modules.
 > * Deploy the Azure Stream Analytics job to an IoT Edge device from the Azure portal.
 
+<center>
 ![Tutorial architecture diagram](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
-
+</center>
 
 >[!NOTE]
 >Azure Stream Analytics modules for IoT Edge are in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
