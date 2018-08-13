@@ -27,7 +27,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 SQL Managed Instance is secure service that is placed in your own Azure Virtual Network (VNet). In order to create a Managed Instance, you would need to prepare network environment for managed instance, which includes:
  - Azure VNet where your Managed Instance will be placed.
  - Subnet in your Azure VNet where Managed Instances will be placed.
- - User defined route that will enable Managed Instance to communicate with the Azure services that control and managed the instance
+ - User-defined route that will enable Managed Instance to communicate with the Azure services that control and managed the instance
 
  Subnet is dedicated to Managed Instances and you cannot create any other resources (for example Azure Virtual Machines) in that subnet. Therefore, you might want to create two subnets in your VNet so you can place Managed Instances in one subnet, and other resources in default subnet.
 
@@ -50,7 +50,7 @@ The following steps show you how to create your Managed Instance after your prev
 2. Locate **Managed Instance** and then select **Azure SQL Database Managed Instance (preview)**.
 3. Click **Create**.
 
-   ![managed instance create](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![Create managed instance](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
 4. Select your subscription and verify that the preview terms show **Accepted**.
 
@@ -100,7 +100,7 @@ This button will lead you to the following form in Azure portal where you can co
 
 ![create client VM](./media/sql-database-managed-instance-get-started/create-client-sql-vm.png)
 
-You would need to enter the name of virtual machine, username and password that you will use to connect to the VM. If you have not changed VNet name and the default subnet, you don't need to change last two parameters, otherwise you should change these values to the values that you entered when you set up the network environment.
+You would need to enter the name of virtual machine, administrator username, and password that you will use to connect to the VM. If you have not changed VNet name and the default subnet, you don't need to change last two parameters, otherwise you should change these values to the values that you entered when you set up the network environment.
 
 When you click on the "Purchase" button Azure VM will be deployed in the network that you prepared. You can connect to your VM using Remote Desktop connection and use SQL Server Management Studio or SQL Operation Studio installed on VM to connect to your Managed Instance.
 
