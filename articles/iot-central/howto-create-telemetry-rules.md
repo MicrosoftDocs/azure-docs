@@ -10,9 +10,9 @@ services: iot-central
 manager: peterpr
 ---
 
-# Create a telemetry rule and set up notifications in your Azure IoT Central application
+# Create a Telemetry rule and set up notifications in your Azure IoT Central application
 
-You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules enable you to monitor your devices in near real time and automatically invoke actions, such as send an email or trigger Microsoft Flow, when the rule triggers. In just a few clicks, you can define the condition to monitor your device data and configure the corresponding action to invoke. This article explains how to create a telemetry rule in detail.
+You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules enable you to monitor your devices in near real time and automatically invoke actions, such as send an email or trigger Microsoft Flow, when the rule triggers. In just a few clicks, you can define the condition to monitor your device data and configure the corresponding action. This article explains how to create a telemetry rule in detail.
 
 Devices can use [telemetry measurements](howto-set-up-template.md) to send numerical data from the device. A telemetry rule triggers when the selected device telemetry crosses a specified threshold.
 
@@ -24,7 +24,8 @@ To create a telemetry rule, the device template must have atleast one telemetry 
 
 1. Under the selected template click on an existing device. 
 
-    >[!TIP] If the template doesn't have any devices then add a new device first.
+    >[!TIP] 
+    >If the template doesn't have any devices then add a new device first.
 
 1. If you haven’t created any rules yet, you will see the following screen:
 
@@ -42,8 +43,9 @@ To create a telemetry rule, the device template must have atleast one telemetry 
 
    ![Rule Detail](media\howto-create-telemetry-rules\Rule_Detail.png)
 
->[!NOTE] The rule automatically scopes all the devices under the device template.
-
+    > [!NOTE] 
+    > The rule automatically scopes all the devices under the device template.
+    
 
 ### Configure the rule condition
 
@@ -60,7 +62,8 @@ Condition defines the criteria that is monitored by the rule.
     - If an aggregate function like Average, Min, Max, Count is chosen then the user must provide an **Aggregate time window** over which the condition needs to be evaluated. For example, if you set the period as "5 minutes" and your rule looks for Average temperature above 80, the rule triggers when the average temperature is above 80 for 5 minutes. The rule evaluation frequency is the same as **Aggregate time window**, which means the rule is evaluated once every 5 minutes in this example.
 
 
-    >[!NOTE] More than one telemetry measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each conditon gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
+    > [!NOTE] 
+    > More than one telemetry measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each conditon gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
     
     
 
@@ -95,7 +98,7 @@ If you no longer need a rule, delete it by opening the rule and choosing **Delet
 
 ## Enable or disable a rule for a device template
 
-Navigate to the device and choose the rule you want to enable or disable. Toggling the **Enable rule for all devices of this template** button in the rule enables or disables the rule for all devices associated with the device template.
+Navigate to the device and choose the rule you want to enable or disable. Toggle the **Enable rule for all devices of this template** button in the rule to enable or disable the rule for all devices that are associated with the device template.
 
 ## Enable or disable a rule for a device
 
@@ -103,7 +106,7 @@ Navigate to the device and choose the rule you want to enable or disable. Toggle
 
 ## Next steps
 
-Now that you have learned how to edit rules in your Azure IoT Central application, here is the suggested next step:
+Now that you have learned how to create rules in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
 > [How to manage your devices](howto-manage-devices.md).

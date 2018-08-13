@@ -12,7 +12,7 @@ manager: peterpr
 
 # Create an Event rule and set up notifications in your Azure IoT Central application
 
-You can use Microsoft Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email or trigger Microsoft Flow, when the rule triggers. In just a few clicks, you can define the condition to monitor your device data and configure the action to invoke. This article explains event monitoring rule in detail.
+You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules enable you to monitor your devices in near real time and automatically invoke actions, such as send an email or trigger Microsoft Flow, when the rule triggers. In just a few clicks, you can define the condition to monitor your device data and configure the corresponding action. This article explains event monitoring rule in detail.
 
 Devices can use [event measurement](howto-set-up-template.md) to send important or informational device events. An event rule triggers when the selected device event is reported by the device.
 
@@ -24,7 +24,8 @@ To create an event rule, the device template must have atleast one Event measure
 
 1. Under the selected template click on an existing device. 
 
-    >[!TIP] If the template doesn't have any devices then add a new device first.
+    >[!TIP] 
+    >If the template doesn't have any devices then add a new device first.
 
 1. If you haven’t created any rules yet, you see the following screen:
 
@@ -45,7 +46,8 @@ To create an event rule, the device template must have atleast one Event measure
 
     ![Rule Detail](media\howto-create-event-rules\Rule_Detail.png)
 
->[!NOTE] The rule automatically scopes all the devices under the device template.
+    >[!NOTE] 
+    >The rule automatically scopes all the devices under the device template.
 
 ### Configure the rule condition
 
@@ -61,13 +63,14 @@ Condition defines the criteria that is monitored by the rule.
 1. Optionally, you can also set **Count** as **Aggregation** and provide the corresponding threshold.
 
     - Without aggregation, the rule triggers for each event data point that meets the condition. For example, if the rule is configured to trigger when 'Fan Motor Error' event occurs then the rule will trigger almost instantaneously when the device reports that event.
-    - If Count is used as an aggregate function, then you have to  provide a **Threshold** and an **Aggregate time window** over which the condition needs to be evaluated. In this case, the count of events will be aggregated and the rule will trigger only if the aggregated event count matches the threshold.
+    - If Count is used as an aggregate function, then you have to  provide a **Threshold** and an **Aggregate time window** over which the condition needs to be evaluated. In this case, the count of events are aggregated and the rule will trigger only if the aggregated event count matches the threshold.
  
     For example, if you want to alert when there are more than three device events within 5 minutes, then select the event and set the aggregate function as "count",  operator as "greater than" and "threshold" as 3. Set "Aggregation time period" as "5 minutes". The rule triggers when more than three events are sent by the device within 5 minutes. The rule evaluation frequency is the same as **Aggregate time window**, which means the rule is  evaluated once every 5 minutes in this example. 
 
     ![Add Event Condition](media\howto-create-event-rules\Aggregate_Condition_Filled_Out.png)
 
-    >[!NOTE] More than one event measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each conditon gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
+    >[!NOTE] 
+    >More than one event measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each conditon gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
 
 ### Configure the action
 
@@ -96,7 +99,7 @@ If you no longer need a rule, delete it by opening the rule and choosing **Delet
 
 ## Enable or disable a rule for a device template
 
-Navigate to the device and choose the rule you want to enable or disable. Toggling the **Enable rule for all devices of this template** button in the rule enables or disables the rule for all devices associated with the device template.
+Navigate to the device and choose the rule you want to enable or disable. Toggle the **Enable rule for all devices of this template** button to enable or disable the rule for all devices that are associated with the device template.
 
 ## Enable or disable a rule for a device
 
