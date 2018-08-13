@@ -1,14 +1,11 @@
 - name: Kusto Documentation
-  href: index.yml
 - name: Overview
   items:
   - name: What is Kusto?
-    href: kusto-overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Quickstart placeholder
-    href: placeholder-qs.md
 - name: Tutorials
 - name: Concepts
 - name: How-to guides
