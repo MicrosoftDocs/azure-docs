@@ -151,7 +151,7 @@ In the **New update deployment** pane, specify the following information:
    |Reboot if required| **(Default)** If required, a reboot is intitated if the maintenance window allows.|
    |Always reboot|A reboot is initiated regardless of whether one is required. |
    |Never reboot|Regardless of if a reboot is reuired, reboots are surpressed.|
-   |Don't install updates and reboot|This option ignores installing updates, and only initiates a reboot.|
+   |Only reboot - will not install updates|This option ignores installing updates, and only initiates a reboot.|
 
 When you're finished configuring the schedule, select the **Create** button to return to the status dashboard. The **Scheduled** table shows the deployment schedule that you created.
 
