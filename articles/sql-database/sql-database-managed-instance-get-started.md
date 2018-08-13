@@ -88,7 +88,7 @@ While deployment occurs, continue to the next procedure.
 > [!IMPORTANT]
 > For the first instance in a subnet, deployment time is typically much longer than in case of the subsequent instances - sometimes more than 24 hours to complete. Do not cancel deployment operation because it lasts longer than you expected. This length of time to deploy your first instance is a temporary situation. Expect a significant reduction of deployment time shortly after the beginning of the public preview.
 
-## Query the SQL database
+## Connect to Managed Instance
 
 Since SQL Managed Instance is placed in your private Virtual Network, you need to create an Azure VM with some SQL client tool like SQL Server Management Studio or SQL Operations Studio to query Managed Instance. The easiest way to create a client virtual machine with all nesseccary tools is to use the following button (make sure that you are signed-in to the Azure portal):
 
@@ -102,7 +102,7 @@ This button will lead you to the following form in Azure portal where you can co
 
 You would need to enter the name of virtual machine, administrator username, and password that you will use to connect to the VM. If you have not changed VNet name and the default subnet, you don't need to change last two parameters, otherwise you should change these values to the values that you entered when you set up the network environment.
 
-When you click on the "Purchase" button Azure VM will be deployed in the network that you prepared. You can connect to your VM using Remote Desktop connection and use SQL Server Management Studio or SQL Operation Studio installed on VM to connect to your Managed Instance.
+When you click on the "Purchase" button, Azure VM will be deployed in the network that you prepared. You can connect to your VM using Remote Desktop connection and use SQL Server Management Studio or SQL Operation Studio installed on VM to connect to your Managed Instance.
 
 ## Next steps
 
