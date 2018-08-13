@@ -38,9 +38,9 @@ sections:
             src: media/index/i_get-started.svg
           title: Clusters and Nodes
   - items:
-  - type: markdown
-    text: |
-      Get Azure CycleCloud today and start making things go for stuff and things
+  - type: paragraph
+    text:
+          Get Azure CycleCloud today and start making things go for stuff and things
   - items:
     - type: list
       style: cards
