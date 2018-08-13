@@ -68,19 +68,31 @@
     items: 
     - name: Metrics
       href: ../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+    - name: Logs
+      href: ../log-analytics/log-analytics-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json
     - name: Activity log
       href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=%2fazure%2fazure-monitor%2ftoc.json
     - name: Diagnostic logs
       href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+    - name: Data security
+      items:
+      - name: Log data
+        href: ../log-analytics/log-analytics-data-security.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Personal log data handling
+        href: ../log-analytics/log-analytics-personal-data-mgmt.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Personal application data handling
+        href: ../application-insights/app-insights-customer-data.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Application data collection, retention, and storage
+        href: ../application-insights/app-insights-data-retention-privacy.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+  - name: Data collection
     - name: Azure resources
       href: ../monitoring/monitoring-data-sources.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-    - name: Logs
-      href: ../log-analytics/log-analytics-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      items:
-        - name: Log searches
-          href: ../log-analytics/log-analytics-log-search.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Log Search portals
-          href: ../log-analytics/log-analytics-log-search-portals.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+  - name: Analyze data
+    items: 
+    - name: Log searches
+      href: ../log-analytics/log-analytics-log-search.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+    - name: Log Search portals
+      href: ../log-analytics/log-analytics-log-search-portals.md?toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: Alerts
     href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md?toc=%2fazure%2fazure-monitor%2ftoc.json
     items:
@@ -96,16 +108,6 @@
       href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=%2fazure%2fazure-monitor%2ftoc.json
     - name: Action groups
       href: ../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-  - name: Data security
-    items:
-    - name: Log data
-      href: ../log-analytics/log-analytics-data-security.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-    - name: Personal log data handling
-      href: ../log-analytics/log-analytics-personal-data-mgmt.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-    - name: Personal application data handling
-      href: ../application-insights/app-insights-customer-data.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-    - name: Application data collection, retention, and storage
-      href: ../application-insights/app-insights-data-retention-privacy.md?toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: OMS portal transition
     items:
       - name: Overview
