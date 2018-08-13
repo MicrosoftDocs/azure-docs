@@ -129,7 +129,7 @@
 - name: Resources
   items:
   - name: Get Azure CycleCloud
-    href: https://azure.microsoft.com/en-us/features/cyclecloud/
+    href: https://www.microsoft.com/en-us/download/details.aspx?id=57182
   - name: CycleCloud Cluster Templates
     href: https://github.com/CycleCloud
   - name: CycleCloud Community
