@@ -31,13 +31,15 @@ SQL Managed Instance is secure service that is placed in your own Azure Virtual 
 
 The subnet is dedicated to Managed Instances and you cannot create any other resources (for example Azure Virtual Machines) in that subnet. You might want to create two subnets in your Azure VNet so you can place Managed Instances in the subnet dedicated to Managed Instances, and other the resources in the default subnet.
 
+You can deploy Azure network environmnet prepared for Azure SQL Managed Instance by clicking on the following button:
+
 <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener"> <img src="http://azuredeploy.net/deploybutton.png"> </a>
 
 This button will open a form where you can configure your network environment before you deploy it:
 
 ![create managed instance environment](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
 
-You might change names of VNet and subnets and adjust IP ranges associated to your networking resources. Once you press "Purchase" button, this form will create and configure your environment. If you don't need two subnets you can delete the default one. 
+You might change the names of VNet and subnets and adjust IP ranges associated to your networking resources. Once you press "Purchase" button, this form will create and configure your environment. If you don't need two subnets you can delete the default one. 
 
  > [!Note]
  > If you change the names of VNet and subnets, make sure that you remember new names because they will be needed in the following sections. In the rest of the tutorial will be assumed that you have created VNet called **MyNewVNet**, **ManagedInstances** subnet for SQL Managed Instances and **Default** subnet for Virtual machines and other resources.
@@ -88,15 +90,17 @@ While deployment occurs, continue to the next procedure.
 > [!IMPORTANT]
 > For the first instance in a subnet, deployment time is typically much longer than in case of the subsequent instances - sometimes more than 24 hours to complete. Do not cancel deployment operation because it lasts longer than you expected. This length of time to deploy your first instance is a temporary situation. Expect a significant reduction of deployment time shortly after the beginning of the public preview.
 
-## Connect to Managed Instance
+## Prepare client machine
 
-Since SQL Managed Instance is placed in your private Virtual Network, you need to create an Azure VM with some SQL client tool like SQL Server Management Studio or SQL Operations Studio to query Managed Instance. The easiest way to create a client virtual machine with all nesseccary tools is to use the following button (make sure that you are signed-in to the Azure portal):
+Since SQL Managed Instance is placed in your private Virtual Network, you need to create an Azure VM with some installed SQL client tool like SQL Server Management Studio or SQL Operations Studio to connect to the Managed Instance and execute queries.
+
+The easiest way to create a client virtual machine with all nesseccary tools is to use the following button (make sure that you are signed-in to the Azure portal):
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-This button will lead you to the following form in Azure portal where you can configure your Azure Virtual Machine that you will use to connect to your Managed Instance.
+This button will lead you to the following form in Azure portal where you can configure your Azure Virtual Machine that you will use to connect to your Managed Instance:
 
 ![create client VM](./media/sql-database-managed-instance-get-started/create-client-sql-vm.png)
 
