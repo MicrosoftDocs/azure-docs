@@ -22,6 +22,8 @@ You can use Azure Functions to deploy code that implements your business logic d
 > * Deploy the module from the container registry to your IoT Edge device.
 > * View filtered data.
 
+![Tutorial architecture diagram](./media/tutorial-deploy-function/FunctionsTutDiagram.png)
+
 >[!NOTE]
 >Azure Function modules on Azure IoT Edge are in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
