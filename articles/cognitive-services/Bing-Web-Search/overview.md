@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: overview
 ms.date: 10/11/2017
-ms.author: scottwhi
+ms.author: scottwhi, erhopf
 ---
 
 # What is Bing Web Search?
@@ -26,11 +26,7 @@ The Bing Web Search API ... << something about constructing a query to use speci
 
 | Feature | Description |  
 |---------|-------------|  
-| Filter results | ... |
-| Rank results | ... |  
-| Decoration markers | ... |  
-| Pagination | ... |  
-| Resize and crop thumbnails | ... |
+| Filter and restrict search results | ... |  
 
 ## Workflow
 
@@ -44,5 +40,5 @@ The Bing Web Search API is easy to call from any programming language that can m
 
 * Use a quickstart guide to make your first request to the Bing Web Search API.
 * Follow the tutorial to [build a single-page web app](tutorial-bing-web-search-single-page-app.md).
-* Review the [Web Search API v7 reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) documentation.  
+* Review [Web Search API v7 reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) documentation.  
 * Learn more about [use and display requirements](UseAndDisplayRequirements.md) for Bing Web Search.  
