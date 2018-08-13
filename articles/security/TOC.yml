@@ -39,9 +39,8 @@
     - name: Data encryption-at-rest
       href: azure-security-encryption-atrest.md
     - name: Disk encryption for IaaS VMs
+      href: azure-security-disk-encryption-overview.md
       items:
-      - name: Azure Disk Encryption overview
-        href: azure-security-disk-encryption-overview.md
       - name: Azure Disk Encryption
         items:
         - name: Disk encryption prerequisites
