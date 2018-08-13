@@ -207,7 +207,7 @@ The following sample Transact-SQL scripts create a new Elastic Job to trigger th
     @credential_name='SSISDBLogCleanupCred',
     @target_group_name='SSISDBTargetGroup'
     ```
-6. Before you continue, make sure the retention window has been set appropriately. SSISDB logs outside the window are deleted and cannot be recovered.
+6. Before you continue, make sure the retention window has been set appropriately. SSISDB logs outside the window are deleted and can't be recovered.
 
    Then you can run the job immediately to begin SSISDB log cleanup.
 
@@ -257,7 +257,7 @@ ORDER BY start_time DESC
 
 ## Next steps
 
-For management and monitoring tasks related to the Azure-SSIS Integration Runtime, see the following articles. The Azure-SSIS IR is the runtime engine for SSIS packages stored in SSIDDB in Azure SQL Database.
+For management and monitoring tasks related to the Azure-SSIS Integration Runtime, see the following articles. The Azure-SSIS IR is the runtime engine for SSIS packages stored in SSISDB in Azure SQL Database.
 
 -   [Reconfigure the Azure-SSIS integration runtime](manage-azure-ssis-integration-runtime.md)
 
