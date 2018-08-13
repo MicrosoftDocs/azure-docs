@@ -42,6 +42,15 @@
     href: key-vault-ovw-storage-keys.md
   - name: Throttling
     href: key-vault-ovw-throttling.md
+  - name: About keys, secrets and certificates
+    href: about-keys-secrets-and-certificates.md
+    items:
+    - name: Get started with certificates
+      href: certificate-scenarios.md
+    - name: Certificate creation methods
+      href: create-certificate.md
+    - name: Monitor and manage certificate creation
+      href: create-certificate-scenarios.md
 - name: How-to guides
   items:
   - name: Azure Key Vault logging
@@ -110,34 +119,19 @@
   items:
   - name: Service overview
     href: https://azure.microsoft.com/services/key-vault/
-  - name: About keys, secrets and certificates
-    href: about-keys-secrets-and-certificates.md
-    items:
-    - name: Get started with certificates
-      href: certificate-scenarios.md
-    - name: Certificate creation methods
-      href: create-certificate.md
-    - name: Monitor and manage certificate creation
-      href: create-certificate-scenarios.md
   - name: Authentication, requests and responses
     href: authentication-requests-and-responses.md
-  - name: Customer data features
+  - name: Customer Data 
     href: key-vault-customer-data.md
   - name: Common parameters and headers
     href: common-parameters-and-headers.md
-  - name: Key Vault versions
+  - name: Release Notes
     href: key-vault-versions.md
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Blog
+  - name: Azure Key Vault Blog
     href: http://blogs.technet.com/b/kv/
-  - name: Code samples
-    href: https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault&type=&language=
-  - name: Forums
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
-  - name: Pricing calculator
+  - name: Pricing Calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Product feedback
+  - name: Product Feedback
     href: https://feedback.azure.com/forums/906355-azure-key-vault

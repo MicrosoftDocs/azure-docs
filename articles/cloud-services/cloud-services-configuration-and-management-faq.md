@@ -122,7 +122,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0), you can set each location value.
+Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-4.0.0), you can set each location value.
 
 Ability to monitor metrics at the instance level. Additional monitoring capabilities are available in [How to Monitor Cloud Services](cloud-services-how-to-monitor.md).
 
@@ -291,7 +291,7 @@ The journal settings are non-configurable, so you can't turn it off.
 You can enable Antimalware extension using PowerShell script in the Startup Task. Follow the steps in these articles to implement it: 
  
 - [Create a PowerShell startup task](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
 For more information about Antimalware deployment scenarios and how to enable it from the portal, see [Antimalware Deployment Scenarios](../security/azure-security-antimalware.md#antimalware-deployment-scenarios).
 
