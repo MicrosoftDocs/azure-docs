@@ -27,15 +27,21 @@ For the sake of time, let's download sample code from a GitHub repository. Go to
 
 ### Run *mywebapi*
 1. Open the folder `mywebapi` in a *separate VS Code window*.
-1. Open the **Command Palette** (using the **View | Command Palette** menu), and use auto-complete to type and select this command: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. 
+1. Open the **Command Palette** (using the **View | Command Palette** menu), and use auto-complete to type and select this command: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 1. Hit F5, and wait for the service to build and deploy. You'll know it's ready when the VS Code debug bar appears.
 1. The endpoint URL will look something like http://localhost:\<portnumber\>. **Tip: The VS Code status bar will display a clickable URL.** It might seem like the container is running locally, but actually it is running in our dev space in Azure. The reason for the localhost address is because `mywebapi` has not defined any public endpoints and can only be accessed from within the Kubernetes instance. For your convenience, and to facilitate interacting with the private service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure.
-1. When `mywebapi` is ready, open your browser to the localhost address. Append `/api/values` to the URL to invoke the default GET API for the `ValuesController`. 
+1. When `mywebapi` is ready, open your browser to the localhost address.
 1. If all the steps were successful, you should be able to see a response from the `mywebapi` service.
 
 ### Make a request from *webfrontend* to *mywebapi*
 Let's now write code in `webfrontend` that makes a request to `mywebapi`.
 1. Switch to the VS Code window for `webfrontend`.
+1. *Add* the following `import` statements under the `package` statement:
+
+   ```java
+   import java.io.*;
+   import java.net.*;
+   ```
 1. *Replace* the code for the greeting method:
 
     ```java
@@ -60,7 +66,6 @@ The preceding code example forwards the `azds-route-as` header from the incoming
 1. Invoke the web app, and step through code in both services.
 1. In the web app, the About page will display a message concatenated by the two services: "Hello from webfrontend and Hello from mywebapi."
 
-
 Well done! You now have a multi-container application where each container can be developed and deployed separately.
 
 ## Learn about team development
@@ -75,7 +80,6 @@ public String index() {
     return "Hello from mywebapi says something new";
 }
 ```
-
 
 [!INCLUDE[](includes/team-development-2.md)]
 

@@ -23,7 +23,7 @@ You're now ready to create a Kubernetes-based dev space in Azure.
 [!INCLUDE[](includes/portal-aks-cluster.md)]
 
 ## Install the Azure CLI
-Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
+Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 > [!IMPORTANT]
 > If you already have the Azure CLI installed, make sure you are using version 2.0.38 or higher.
@@ -55,7 +55,7 @@ Azure Dev Spaces isn't just about getting code running in Kubernetes - it's abou
 1. In the terminal window, press `Ctrl+C` (to stop `azds up`).
 1. Open the code file named `src/main/java/com/ms/sample/webfrontend/Application.java`, and edit the greeting message: `return "Hello from webfrontend in Azure!";`
 1. Save the file.
-1. Run  `azds up` in the terminal window. 
+1. Run  `azds up` in the terminal window.
 
 This command rebuilds the container image and redeploys the Helm chart. To see your code changes take effect in the running application, simply refresh the browser.
 
@@ -97,7 +97,7 @@ public String greeting()
 }
 ```
 
-Save the file, and in the **Debug actions pane**, click the **Refresh** button. 
+Save the file, and in the **Debug actions pane**, click the **Refresh** button.
 
 ![](media/get-started-java/debug-action-refresh.png)
 
