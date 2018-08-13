@@ -24,7 +24,7 @@ More information about how security is integrated into every aspect of Azure is 
 > [!NOTE] 
 > Since this document was first published, multiple variants of this vulnerability class have been disclosed. Microsoft continues to be heavily invested in protecting our customers and providing guidance. This page will be updated as we continue to release further fixes. 
 > 
-> On August 14th, 2018, the industry disclosed a new speculative execution side channel vulnerability known as [L1 Terminal Fault](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018) (L1TF) which has been assigned multiple CVEs ([CVE-2018-3615, CVE-2018-3620, and CVE-2018-3646](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00161.html)). This vulnerability affects Intel® Core® processors and Intel® Xeon® processors. Microsoft has deployed mitigations across our cloud services which reinforce the isolation between customers.
+> On August 14, 2018, the industry disclosed a new speculative execution side channel vulnerability known as [L1 Terminal Fault](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018) (L1TF) which has been assigned multiple CVEs ([CVE-2018-3615, CVE-2018-3620, and CVE-2018-3646](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00161.html)). This vulnerability affects Intel® Core® processors and Intel® Xeon® processors. Microsoft has deployed mitigations across our cloud services which reinforce the isolation between customers.
 >  
 
 
