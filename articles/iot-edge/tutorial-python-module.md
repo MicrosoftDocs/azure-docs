@@ -35,7 +35,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 An Azure IoT Edge device:
 
 * You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md).
-* Python modules for IoT Edge don't support ARM processors or Windows devices.
+* Python modules for IoT Edge don't support Windows devices.
 
 Cloud resources:
 
@@ -49,6 +49,9 @@ Development resources:
 * [Docker CE](https://docs.docker.com/engine/installation/). 
 * [Python](https://www.python.org/downloads/).
 * [Pip](https://pip.pypa.io/en/stable/installing/#installation) for installing Python packages (typically included with your Python installation).
+
+>[!Note]
+>Ensure that your `bin` folder is on your path for your platform. Typically `~/.local/` for UNIX and macOS, or `%APPDATA%\Python` on Windows.
 
 ## Create a container registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
@@ -76,6 +79,8 @@ Use the Python package **cookiecutter** to create a Python solution template tha
     ```cmd/sh
     pip install --upgrade --user cookiecutter
     ```
+   >[!Note]
+   >Ensure the directory where cookiecutter will be installed is in your environment’s `Path` in order to make it possible to invoke it from a command prompt.
 
 3. Select **View** > **Command Palette** to open the VS Code command palette. 
 
@@ -198,7 +203,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 4. Save this file.
 
-5. In the VS Code explorer, right-click the deployment.template.json file and select **Build IoT Edge solution**. 
+5. In the VS Code explorer, right-click the deployment.template.json file and select **Build and Push IoT Edge solution**. 
 
 When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a deployment.json file in a new folder named **config**. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the Python code, and then push the code to the container registry that you specified when you initialized the solution. 
 
@@ -234,32 +239,42 @@ You can use the Azure portal to deploy your Python module to an IoT Edge device 
 
 ## Clean up resources 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
-If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them.
+If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them. You can also keep using the same IoT Edge device as a test device. 
 
 Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges. 
 
-> [!IMPORTANT]
-> Deleting Azure resources and resource groups is irreversible. When these items are deleted, the resource group and all of the resources that are contained in it are permanently deleted. Make sure that you don't accidentally delete the wrong resource group or resources. If you created the IoT hub inside an existing resource group that has resources that you want to keep, delete only the IoT hub resource itself, instead of deleting the resource group.
->
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-To delete only the IoT hub, execute the following command by using your hub name and resource group name:
+### Delete local resources
 
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
+If you want to remove the IoT Edge runtime and related resources from your device, use the following commands. 
 
+Remove the IoT Edge runtime.
 
-To delete the entire resource group by name:
+   ```bash
+   sudo apt-get remove --purge iotedge
+   ```
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
+When the IoT Edge runtime is removed, the containers that it created are stopped, but still exist on your device. View all containers.
 
-2. In the **Filter by name** textbox, enter the name of the resource group that contains your IoT hub. 
+   ```bash
+   sudo docker ps -a
+   ```
 
-3. To the right of your resource group in the result list, select the ellipsis (**...**), and then select **Delete resource group**.
+Delete the runtime containers that were created on your device.
 
-4. You're asked to confirm the deletion of the resource group. Reenter the name of your resource group to confirm and select **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
+   ```bash
+   docker rm -f edgeHub
+   docker rm -f edgeAgent
+   ```
+
+Delete any additional containers that were listed in the `docker ps` output by referring to the container names. 
+
+Remove the container runtime.
+
+   ```bash
+   sudo apt-get remove --purge moby
+   ```
 
 ## Next steps
 

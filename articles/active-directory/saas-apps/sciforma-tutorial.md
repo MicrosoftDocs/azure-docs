@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.sciforma.net/sciforma/saml`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Sciforma Client support team](http://www.sciforma.com/company/contact_us) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Sciforma Client support team](https://www.sciforma.com/about/contact) to get these values. 
  
 
 
@@ -126,7 +126,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/sciforma-tutorial/tutorial_general_400.png)
 
-1. To configure single sign-on on **Sciforma** side, you need to send the downloaded **Metadata XML** to [Sciforma support team](http://www.sciforma.com/company/contact_us).
+1. To configure single sign-on on **Sciforma** side, you need to send the downloaded **Metadata XML** to [Sciforma support team](https://www.sciforma.com/about/contact).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)

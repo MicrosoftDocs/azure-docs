@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -100,7 +100,7 @@ To configure a hybrid Azure AD join using Azure AD Connect, you need:
 
     ![Device options](./media/hybrid-azuread-join-managed-domains/15.png)
 
-6. On the **SCP** page, for each forest you want Azure AD Connect to the SCP, perform the following steps, and then click **Next**: 
+6. On the **SCP** page, for each forest you want Azure AD Connect to configure the SCP, perform the following steps, and then click **Next**: 
 
     ![SCP](./media/hybrid-azuread-join-managed-domains/16.png)
 
@@ -152,8 +152,6 @@ The following policy must be set to **All**: **Users may register their devices 
 ### Configure the local intranet settings for device registration
 
 To successfully complete hybrid Azure AD join of your Windows down-level devices, and to avoid certificate prompts when devices authenticate authenticate to Azure AD you can push a policy to your domain-joined devices to add the following URLs to the Local Intranet zone in Internet Explorer:
-
-- `https://device.login.microsoftonline.com`
 
 - `https://device.login.microsoftonline.com`
 

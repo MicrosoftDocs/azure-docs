@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance-reports
+ms.component: report-monitor
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
@@ -93,12 +93,6 @@ This article includes answers to frequently asked questions about Azure Active D
 **Q: How many records I can download from Azure portal?**
 
 **A:** You can download up to 5000 records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 5000 records.
-
----
-
-**Q: How many records can I query through the activities API?**
-
-**A:** You can query up to 1 million records (if you don’t use the top operator, which sorts the record by most recent). If you do use the “top” operator, you can query up to 500K records. You can find sample queries on how to use the API [here](concept-reporting-api.md).
 
 ---
 
