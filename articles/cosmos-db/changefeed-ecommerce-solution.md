@@ -88,7 +88,7 @@ Create the Azure resources - Azure Cosmos DB, Storage account, Event Hub, Stream
    ```
 5. When prompted, enter your Azure **Subcription ID**, **changefeedlab** for the resource group name, and **run1** for the deployment name. Once the resources begin to deploy, it may take up to 10 minutes for it to complete.
 
-## Create a database and the collections
+## Create a database and the collection
 
 You will now create a collection to hold e-commerce site events. When a user views an item, adds an item to their cart, or purchases an item, the collection will receive a record that includes the action ("viewed", "added", or "purchased"), the name of the item involved, the price of the item involved, and the ID number of the user cart involved.
 
@@ -141,7 +141,7 @@ An Azure Event Hub receives the event data, stores, processes, and forwards the 
 
 3. Select **RootManageSharedAccessKey**. Copy the **Connection string-primary key** to a notepad or another document that you will have access to throughout the lab. You should label it **Event Hub Namespace** connection string. You'll need to copy the string into your code later, so take a note and remember where you are storing it.
 
-## Set up Azure Function to process the change feed data
+## Set up Azure Function to read the change feed
 
 When a new document is created, or a current document is modified in a Cosmos DB collection, the change feed automatically adds that modified document to its history of collection changes. You will now build and run an Azure Function that processes the change feed. When a document is created or modified in the collection you created, the Azure Function will be triggered by the change feed. Then the Azure Function will send the modified document to the Event Hub.
 
@@ -159,7 +159,7 @@ When a new document is created, or a current document is modified in a Cosmos DB
    * Select **Start**  at the top of the page to run the program  
    * You can confirm that the function is running when the console app says "Job host started".
 
-## Insert simulated data into Azure Cosmos DB 
+## Insert data into Azure Cosmos DB 
 
 To see how change feed processes new actions on an e-commerce site, have to simulate data that represents users viewing items from the product catalog, adding those items to their carts, and purchasing the items in their carts. This data is arbitrary and for the purpose of replicating what data on an Ecommerce site would look like.
 
@@ -330,7 +330,7 @@ You will now observe how you can use your new data analysis tool to connect with
 
    ![Time to live](./media/changefeed-ecommerce-solution/time-to-live.png)
 
- 3. In order to populate the **topItems** collection with the most frequently purchased items, navigate back to **streamjob1** and add a new **Output**. Select **Cosmos DB**.
+3. In order to populate the **topItems** collection with the most frequently purchased items, navigate back to **streamjob1** and add a new **Output**. Select **Cosmos DB**.
 
 4. Fill in the required fields as pictured below.
 
@@ -392,7 +392,7 @@ You will now observe how you can use your new data analysis tool to connect with
 
 To delete the resources that you created during this lab, navigate to the resource group on [Azure Portal](http://portal.azure.com/), then select **Delete resource group** from the menu at the top of the page and follow the instructions provided.
 
-## Next Steps 
+## Next steps 
   
 * To learn more about change feed, see [working with change feed support in Azure Cosmos DB](change-feed.md) 
 * [Change feed notification solution](change-feed-hl7-fhir-logic-apps.md) for healthcare organization using Azure Cosmos DB.
