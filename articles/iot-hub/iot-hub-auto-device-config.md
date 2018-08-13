@@ -18,7 +18,7 @@ Automatic device management in Azure IoT Hub automates many of the repetitive an
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Automatic device configurations work by updating a set of device twins with desired properties and reporting a summary based on device twin reported properties.  It introduces a new class and JSON document called a _Configuration_ which has three parts:
+Automatic device configurations work by updating a set of device twins with desired properties and reporting a summary based on device twin reported properties.  It introduces a new class and JSON document called a *Configuration* which has three parts:
 
 * The **target condition** defines the scope of device twins to be updated. The target condition is specified as a query on device twin tags and/or reported properties.
 
@@ -28,7 +28,7 @@ Automatic device configurations work by updating a set of device twins with desi
 
 ## Implement device twins to configure devices
 
-Automatic device configurations require the use of device twins to synchronize state between the cloud and devices.  Refer to [Understand and use device twins in IoT Hub][lnk-device-twin] for guidance on using device twins.
+Automatic device configurations require the use of device twins to synchronize state between the cloud and devices. Refer to [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) for guidance on using device twins.
 
 ## Identify devices using tags
 
@@ -45,55 +45,72 @@ Before you can create a configuration, you must specify which devices you want t
 
 ## Create a configuration
 
-1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **IoT device configuration**.
-1. Select **Add Configuration**.
+1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
+
+2. Select **IoT device configuration**.
+
+3. Select **Add Configuration**.
 
 There are five steps to create a configuration. The following sections walk through each one. 
 
-### Step 1: Name and Label
+### Name and Label
 
 1. Give your configuration a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
-1. Add labels to help track your configurations. Labels are **Name**, **Value** pairs that describe your configuration. For example, `HostPlatform, Linux` or `Version, 3.0.1`.
-1. Select **Next** to move to step two. 
 
-### Step 2: Specify Settings
+2. Add labels to help track your configurations. Labels are **Name**, **Value** pairs that describe your configuration. For example, `HostPlatform, Linux` or `Version, 3.0.1`.
+
+3. Select **Next** to move to the next step. 
+
+### Specify Settings
 
 This section specifies the target content to be set in targeted device twins. There are two inputs for each set of settings. The first is the device twin path, which is the path to the JSON section within the twin desired properties that will be set.  The second is the JSON content to be inserted in that section. For example, set the Device Twin Path and Content to the following:
 
 ![Set the Device Twin Path and Content](./media/iot-hub-auto-device-config/create-configuration-full-browser.png)
 
-You can also set individual settings by specifying the entire path in the Device Twin Path and the value in the Content with no brackets. For example, set the Device Twin Path to `properties.desired.chiller-water.temperature` and set the Content to: `66`
+You can also set individual settings by specifying the entire path in the Device Twin Path and the value in the Content with no brackets. For example, set the Device Twin Path to `properties.desired.chiller-water.temperature` and set the Content to `66`.
 
 If two or more configurations target the same Device Twin Path, the Content from the highest priority configuration will apply (priority is defined in Step 4).
 
 If you wish to remove a property, specify the property value to `null`.
 
-You can add additional settings by selecting **Add Device Twin Setting**
+You can add additional settings by selecting **Add Device Twin Setting**.
 
-### Step 3: Specify Metrics (optional)
+### Specify Metrics (optional)
 
 Metrics provide summary counts of the various states that a device may report back as a result of applying configuration content. For example, you may create a metric for pending settings changes, a metric for errors, and a metric for successful settings changes.
 
-1. Enter a name for **Metric Name**
-1. Enter a query for **Metric Criteria**.  The query is based on device twin reported properties.  The metric represents the number of rows returned by the query.
+1. Enter a name for **Metric Name**.
 
-For example: `SELECT deviceId FROM devices WHERE properties.reported.chillerWaterSettings.status='pending'`
+2. Enter a query for **Metric Criteria**.  The query is based on device twin reported properties.  The metric represents the number of rows returned by the query.
 
-You can include a clause that the configuration was applied, for example: `SELECT deviceId FROM devices WHERE configurations.[[yourconfigname]].status='Applied'` including the double brackets.
+For example:
 
+```sql
+SELECT deviceId FROM devices 
+  WHERE properties.reported.chillerWaterSettings.status='pending'
+```
 
-### Step 4: Target Devices
+You can include a clause that the configuration was applied, for example: 
+
+```sql
+/* Include the double brackets. */
+SELECT deviceId FROM devices 
+  WHERE configurations.[[yourconfigname]].status='Applied'
+```
+
+### Target Devices
 
 Use the tags property from your device twins to target the specific devices that should receive this configuration.  You can also target devices by device twin reported properties.
 
 Since multiple configurations may target the same device, you should give each configuration a priority number. If there's ever a conflict, the configuration with the highest priority wins. 
 
-1. Enter a positive integer for the configuration **Priority**. Highest numerical value is considered the highest priority. If two configurations have the same priority number, the one that was created most recently wins. 
-1. Enter a **Target condition** to determine which devices will be targeted with this configuration. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.chillerProperties.model='4000x'`. You can specify `*` to target all devices.
-1. Select **Next** to move on to the final step.
+1. Enter a positive integer for the configuration **Priority**. The highest numerical value is considered the highest priority. If two configurations have the same priority number, the one that was created most recently wins. 
 
-### Step 5: Review Configuration
+2. Enter a **Target condition** to determine which devices will be targeted with this configuration. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.chillerProperties.model='4000x'`. You can specify `*` to target all devices.
+
+3. Select **Next** to move on to the final step.
+
+### Review Configuration
 
 Review your configuration information, then select **Submit**.
 
@@ -101,21 +118,34 @@ Review your configuration information, then select **Submit**.
 
 To view the details of a configuration and monitor the devices running it, use the following steps:
 
-1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **IoT device configuration**.
-2. Inspect the configuration list. For each configuration, you can view the following details:
+1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
+
+2. Select **IoT device configuration**.
+
+3. Inspect the configuration list. For each configuration, you can view the following details:
+
    * **ID** - the name of the configuration.
+
    * **Target condition** - the query used to define targeted devices.
+
    * **Priority** - the priority number assigned to the configuration.
+
    * **Creation time** - the timestamp from when the configuration was created. This timestamp is used to break ties when two configurations have the same priority. 
+
    * **System metrics** - metrics that are calculated by IoT Hub and cannot be customized by developers. Targeted specifies the number of device twins that match the target condition. Applies specified the number of device twins that have been modified by the configuration, which can include partial modifications in the event that a separate, higher priority configuration also made changes. 
+
    * **Custom metrics** - metrics that have been specified by the developer as queries against device twin reported properties.  Up to five custom metrics can be defined per configuration. 
    
-1. Select the configuration that you want to monitor.  
-1. Inspect the configuration details. You can use tabs to view specific details about the devices that received the configuration: 
+4. Select the configuration that you want to monitor.  
+
+5. Inspect the configuration details. You can use tabs to view specific details about the devices that received the configuration.
+
    * **Target Condition** - the devices that match the target condition. 
+
    * **Metrics** - a list of system metrics and custom metrics.  You can view a list of devices that are counted for each metric by selecting the metric in the drop-down and then selecting **View Devices**.
+
    * **Device Twin Settings** - the device twin settings that are set by the configuration. 
+
    * **Configuration Labels** - key-value pairs used to describe a configuration.  Labels have no impact on functionality. 
 
 ## Modify a configuration
@@ -123,55 +153,59 @@ To view the details of a configuration and monitor the devices running it, use t
 When you modify a configuration, the changes immediately replicate to all targeted devices. 
 
 If you update the target condition, the following updates occur:
+
 * If a device twin didn't meet the old target condition, but meets the new target condition and this configuration is the highest priority for that device twin, then this configuration is applied to the device twin. 
+
 * If a device twin no longer meets the target condition, the settings from the configuration will be removed and the device twin will be modified by the next highest priority configuration. 
+
 * If a device twin currently running this configuration no longer meets the target condition and doesn't meet the target condition of any other configurations, then the settings from the configuration will be removed and no other changes will be made on the twin. 
 
 To modify a configuration, use the following steps: 
 
-1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **IoT device configuration**. 
-2. Select the configuration that you want to modify. 
-3. Make updates to the following fields: 
+1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
+
+2. Select **IoT device configuration**. 
+
+3. Select the configuration that you want to modify. 
+
+4. Make updates to the following fields: 
+
    * Target condition 
    * Labels 
    * Priority 
    * Metrics
+
 4. Select **Save**.
-5. Follow the steps in [Monitor a configuration][anchor-monitor] to watch the changes roll out. 
+
+5. Follow the steps in [Monitor a configuration](#monitor-a-configuration) to watch the changes roll out. 
 
 ## Delete a configuration
 
 When you delete a configuration, any device twins take on their next highest priority configuration. If device twins don't meet the target condition of any other configuration, then no other settings are applied. 
 
-1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **IoT device configuration**. 
-2. Use the checkbox to select the configuration that you want to delete. 
-3. Select **Delete**.
-4. A prompt will ask you to confirm.
+1. In the [Azure portal](https://portal.azure.com) go to your IoT hub. 
+
+2. Select **IoT device configuration**. 
+
+3. Use the checkbox to select the configuration that you want to delete. 
+
+4. Select **Delete**.
+
+5. A prompt will ask you to confirm.
 
 ## Next steps
+
 In this article, you learned how configure and monitor IoT devices at scale. Follow these links to learn more about managing Azure IoT Hub:
 
-* [Manage your IoT Hub device identities in bulk][lnk-bulkIDs]
-* [IoT Hub metrics][lnk-metrics]
-* [Operations monitoring][lnk-monitor]
+* [Manage your IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md)
+* [IoT Hub metrics](iot-hub-metrics.md)
+* [Operations monitoring](iot-hub-operations-monitoring.md)
 
 To further explore the capabilities of IoT Hub, see:
 
-* [IoT Hub developer guide][lnk-devguide]
-* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
+* [IoT Hub developer guide](iot-hub-devguide.md)
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
 
-* [Azure IoT Hub Device Provisioning Service][lnk-dps]
-
-[lnk-device-twin]: iot-hub-devguide-device-twins.md
-[lnk-bulkIDs]: iot-hub-bulk-identity-mgmt.md
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-monitor]: iot-hub-operations-monitoring.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
-[lnk-portal]: https://portal.azure.com
+* [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
