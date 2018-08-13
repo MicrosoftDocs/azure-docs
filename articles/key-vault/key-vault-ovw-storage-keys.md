@@ -40,8 +40,8 @@ use Managed Storage Account Keys.
     - Azure Key Vault regenerates (rotates) the keys periodically.
     - Key values are never returned in response to caller.
     - Azure Key Vault manages keys of both Storage Accounts and Classic Storage Accounts.
-- Azure Key Vault allows you, the vault/object owner, to create SAS (account or service SAS) definitions.
-    - The SAS value, created using SAS definition, is returned as a secret via the REST URI path. For more information, see [Azure Key Vault storage account operations](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations).
+- Azure Key Vault allows you, the vault/object owner, to create SAS (Shared Access Signature, account or service SAS) definitions.
+    - The SAS value, created using SAS definition, is returned as a secret via the REST URI path. For more information, see the SAS definition operations in the [Azure Key Vault REST API reference](/rest/api/keyvault).
 
 ## Naming guidance
 
@@ -127,7 +127,7 @@ New-AzureRmRoleAssignment -ObjectId $servicePrincipal.Id -RoleDefinitionName 'St
 ## Working example
 
 The following example demonstrates creating a Key Vault managed Azure Storage
-Account and the associated Shared Access Signature (SAS) definitions.
+Account and the associated SAS definitions.
 
 ### Prerequisite
 
