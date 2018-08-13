@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 08/07/2018
 ms.author: babanisa
 ---
 # Event Grid security and authentication 
@@ -39,7 +39,7 @@ This mechanism of manual validation is in preview. To use it, you must install t
 ### Validation details
 
 * At the time of event subscription creation/update, Event Grid posts a Subscription Validation Event to the target endpoint. 
-* The event contains a header value "Aeg-Event-Type: SubscriptionValidation".
+* The event contains a header value "aeg-event-type: SubscriptionValidation".
 * The event body has the same schema as other Event Grid events.
 * The eventType property of the event is "Microsoft.EventGrid.SubscriptionValidationEvent".
 * The data property of the event includes a "validationCode" property with a randomly generated string. For example, "validationCode: acb13…".

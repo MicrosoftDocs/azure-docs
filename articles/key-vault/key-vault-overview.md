@@ -26,13 +26,12 @@ You have passwords, connection strings, and other pieces of information that are
 
 Key Vault allows you to create multiple secure containers, called vaults. These vaults are backed by hardware security modules (HSMs). Vaults help reduce the chances of accidental loss of security information by centralizing the storage of application secrets. Key Vaults also control and log the access to anything stored in them. Azure Key Vault can handle requesting and renewing Transport Layer Security (TLS) certificates, providing the features required for a robust certificate lifecycle management solution.
 
- Azure Key vault is designed to support application keys and secrets. Key Vault is not intended to be used as a store for user passwords.
-
+ Azure Key vault is designed to support any type of secret. By this we mean Key Vault can be used to store passwords, database credentials, API keys and, certificates, which can be either software protected or HSM protected
 ## Why use Azure Key Vault?
 
 ### Centralize application secrets
 
-Centralizing storage of application secrets in Azure Key Vault allows you to control their distribution. This greatly reduces the chances that secrets may be accidentally leaked. When using Key Vault, application developers no longer need to store security information in their application. This eliminates the need to make this information part of the code. For example, an application may need to connect to a database. Instead of storing the connection string in the app codes, store it securely in Key Vault.
+Centralizing storage of application secrets in Azure Key Vault allows you to control their distribution. Key Vault greatly reduces the chances that secrets may be accidentally leaked. When using Key Vault, application developers no longer need to store security information in their application. This eliminates the need to make this information part of the code. For example, an application may need to connect to a database. Instead of storing the connection string in the app codes, store it securely in Key Vault.
 
 Your applications can securely access the information they need by using URIs that allow them to retrieve specific versions of a secret after the application’s key or secret is stored in Azure Key Vault. This happens without having to write custom code to protect any of the secret information.
 
@@ -50,7 +49,7 @@ Finally, Azure Key Vault is designed so that Microsoft does not see or extract y
 
 ### Monitor access and use
 
-Once that you have created a couple of Key Vaults you will want to monitor how and when your keys and secrets are being accessed. You can do this by enabling logging for Key Vault. You can configure Azure Key Vault to:
+Once you have created a couple of Key Vaults, you will want to monitor how and when your keys and secrets are being accessed. You can do this by enabling logging for Key Vault. You can configure Azure Key Vault to:
 
 - Archive to a storage account.
 - Stream to an event hub.
@@ -62,9 +61,9 @@ You have control over your logs and you may secure them by restricting access an
 
 When storing valuable data, you must take several steps. Security information must be secured, it must follow a lifecycle, it must be highly available. Azure Key Vault simplifies a lot of this by:
 
-- Removing the need for in-house knowledge of HSMs.
+- Removing the need for in-house knowledge of Hardware Security Modules
 - Scaling up on short notice to meet your organization’s usage spikes.
-- Replicating the contents of your Key Vault within a region and to a secondary region. This ensures high availability and takes away the need of any action from the administrator to trigger the fail over.
+- Replicating the contents of your Key Vault within a region and to a secondary region. Key Vault ensures high availability and takes away the need of any action from the administrator to trigger the failover.
 - Providing standards Azure administration options via the portal, Azure CLI and PowerShell.
 - Automating certain tasks on certificates that you purchase from Public CAs, such as enroll and renew.
 
@@ -72,7 +71,7 @@ In addition, Azure Key Vaults allow you to segregate application secrets. Applic
 
 ### Integrate with other Azure services
 
-As a secure store in Azure, Key Vault has been used to simplify scenarios like [Azure Disk Encryption](../security/azure-security-disk-encryption.md), the [always encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) functionality in SQL server and Azure SQL, [Azure web apps]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). Key Vault itself can integrate with storage accounts, event hubs and log analytics.
+As a secure store in Azure, Key Vault has been used to simplify scenarios like [Azure Disk Encryption](../security/azure-security-disk-encryption.md), the [always encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) functionality in SQL server and Azure SQL, [Azure web apps]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). Key Vault itself can integrate with storage accounts, event hubs, and log analytics.
 
 ## Next steps
 
