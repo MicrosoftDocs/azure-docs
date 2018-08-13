@@ -50,11 +50,11 @@ Customers who allow untrusted users to execute arbitrary code may wish to implem
 Example scenarios where additional security features are recommended:
 
 - You allow code that you do not trust to run inside your VM.  
-	- For example, you allow one of your customers to upload a binary or script that you then execute within your application. 
+	- *For example, you allow one of your customers to upload a binary or script that you then execute within your application*. 
 - You allow users that you do not trust to log into your VM using low privileged accounts.   
-	- For example, you allow a low-privileged user to log into one of your VMs using remote desktop or SSH.  
+	- *For example, you allow a low-privileged user to log into one of your VMs using remote desktop or SSH*.  
 - You allow untrusted users access to virtual machines implemented via nested virtualization.  
-	- For example, you control the Hyper-V host, but allocate the VMs to untrusted users. 
+	- *For example, you control the Hyper-V host, but allocate the VMs to untrusted users*. 
 
 Customers who do not implement a scenario involving untrusted code do not need to enable these additional security features. 
 
