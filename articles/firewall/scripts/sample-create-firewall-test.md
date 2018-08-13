@@ -14,10 +14,6 @@ ms.author: victorh
 
 # Create an Azure Firewall test environment
 
-[!INCLUDE [firewall-preview-notice](../../../includes/firewall-preview-notice.md)]
-
-The examples in the Azure Firewall articles assume that you have already enabled the Azure Firewall public preview. For more information, see [Enable the Azure Firewall public preview](../public-preview.md).
-
 This script sample creates a firewall and a test network environment. The network has one VNet, with three subnets: an *AzureFirewallSubnet*, and *ServersSubnet*, and a *JumpboxSubnet*. The ServersSubnet and JumpboxSubnet each have one 2-core Windows Server in them.
 
 The firewall is in the AzureFirewallSubnet and is configured with an Application Rule Collection with a single rule that allows access to www.microsoft.com.
@@ -37,12 +33,6 @@ You can use `PowerShellGet` if you need to upgrade, which is built into Windows 
 For more information, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0)
 
 Any existing Azure PowerShell installation done with the Web Platform installer will conflict with the PowerShellGet installation and needs to be removed.
-
-Additionally, you must install the preview version of AzureRM.Network (version 6.4.0). If have an older module, run `Uninstall-Module AzureRM.Network -Force` to remove it. Then run:
-
- `Install-Module -Name AzureRM.Network -Repository PSGallery -RequiredVersion 6.4.0-preview -AllowPrerelease -Force`
-
-to install verion 6.4.0.
 
 Remember that if you run PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 

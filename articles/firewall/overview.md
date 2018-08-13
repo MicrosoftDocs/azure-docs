@@ -20,7 +20,7 @@ You can centrally create, enforce, and log application and network connectivity 
 
 ## Features
 
-The Azure Firewall public preview offers the following features:
+Azure Firewall offers the following features:
 
 ### Built-in high availability
 High availability is built in, so no additional load balancers are required and there is nothing you need to configure.
@@ -54,7 +54,7 @@ All events are integrated with Azure Monitor, allowing you to archive logs to a 
 
 ## Known issues
 
-The Azure Firewall public preview has the following known issues:
+Azure Firewall has the following known issues:
 
 
 |Issue  |Description  |Mitigation  |

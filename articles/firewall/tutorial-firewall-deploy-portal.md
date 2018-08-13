@@ -27,7 +27,7 @@ Network traffic is subjected to the configured firewall rules when you route you
 
 Application and network rules are stored in *rule collections*. A rule collection is a list of rules that share the same action and priority.  A network rule collection is a list of network rules and an application rule collection is a list of application rules.
 
-Network rule collections are always processed before application rule collections. All rules are terminating, so if a match is found in a network rule collection, the following application rule collections for the session are not be processed.
+Network rule collections are always processed before application rule collections. All rules are terminating, so if a match is found in a network rule collection, the following application rule collections for the session are not processed.
 
 In this tutorial, you learn how to:
 
@@ -42,10 +42,6 @@ In this tutorial, you learn how to:
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-The examples in the Azure Firewall articles assume that you have already enabled the Azure Firewall public preview. For more information, see [Enable the Azure Firewall public preview](public-preview.md).
 
 For this tutorial, you create a single VNet with three subnets:
 - **FW-SN** - the firewall is in this subnet.
