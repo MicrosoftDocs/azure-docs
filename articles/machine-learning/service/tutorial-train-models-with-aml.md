@@ -41,8 +41,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    - [Python 3.5 or higher](https://www.python.org/) installed
    - A package manager, such as [Continuum Anaconda](https://anaconda.org/anaconda/continuum-docs) or [Miniconda](https://conda.io/miniconda.html), installed
    - The Azure Machine Learning SDK for Python installed
-   - An Azure Machine Learning Workspace named docs-ws 
-   - A local folder named docs-prj
+   - An Azure Machine Learning Workspace named `docs-ws` 
+   - A local folder named `docs-prj`
 
    If these are not yet created or installed, follow the steps in the [Get started with Azure Machine Learning Services](quickstart-get-started.md) article.
 
@@ -52,11 +52,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    conda install -y matplotlib scikit-learn
    ``` 
 
-1. The file [utils.py]() downloaded into your docs-prj folder.
+1. The file [utils.py]() downloaded into your `docs-prj` folder.
 
 ## Get the sample notebook
 
-To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification) into the **docs-prj** folder created during the quickstart.
+To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification) into the `docs-prj` folder created during the quickstart.
 
 To run the notebook, execute these commands in your activated conda environment:
 
@@ -99,7 +99,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### Load workspace
 
-Instantiate a workspace object from the existing workspace created as part of the prerequisites.  `Workspace.from_config()` will read your **config.json** file in the **aml_config** folder and load the workspace into an object named `ws`.  You'll use `ws` throughout the rest of the code in this tutorial.
+Instantiate a workspace object from the existing workspace created as part of the prerequisites.  `Workspace.from_config()` will read your `config.json` file in the `aml_config` folder and load the workspace into an object named `ws`.  You'll use `ws` throughout the rest of the code in this tutorial.
 
 ```python
 ws = Workspace.from_config()
@@ -162,7 +162,7 @@ You now have the necessary modules and compute resources to train a model in the
 
 ### Download the MNIST dataset
 
-Download the MNIST dataset from Yan LeCun's web site directly and save them in a **data** folder locally.  This downloads training and testing images and labels.
+Download the MNIST dataset from Yan LeCun's web site directly and save them in a `data` folder locally.  This downloads training and testing images and labels.
 
 
 ```python
@@ -215,7 +215,7 @@ plt.show()
 
 You have the data on your local machine.  Now you need to upload it into the cloud so it can be accessed for remote training. The datastore is a convenient construct associated with your workspace for you to upload/download data, and interact with it from your remote compute targets. (If your data is already stored in Azure, you would not need this step.)
 
-The MNIST files are uploaded into a folder named **mnist** at the root of the datastore.
+The MNIST files are uploaded into a folder named `mnist` at the root of the datastore.
 
 ```python
 ds = ws.get_default_datastore()
@@ -229,7 +229,7 @@ ds.upload(src_dir = './data', target_path = 'mnist', overwrite = True, show_prog
 
 You now have everything you need to start training a model. You can train a simple logistic regression model from scikit-learn. 
 
-> This may take a minute or two, depending on your computer configuration.
+> **This may take a minute or two**, depending on your computer configuration.
 
 
 ```python
