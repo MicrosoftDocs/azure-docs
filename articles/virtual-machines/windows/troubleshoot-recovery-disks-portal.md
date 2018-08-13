@@ -96,9 +96,9 @@ For the next few steps, you use another VM for troubleshooting purposes. You att
 
 ## Mount the attached data disk
 
-1. Open a Remote Desktop connection to your VM. Select your VM in the portal and click **Connect**. Download and open the RDP connection file. Enter your credentials to log in to your VM as follows:
+1. Open a Remote Desktop connection to your VM. Select your VM in the portal and click **Connect**. Download and open the RDP connection file. Enter your credentials to sign in to your VM as follows:
 
-    ![Log in to your VM using Remote Desktop](./media/troubleshoot-recovery-disks-portal/open-remote-desktop.png)
+    ![Sign in to your VM using Remote Desktop](./media/troubleshoot-recovery-disks-portal/open-remote-desktop.png)
 
 2. Open **Server Manager**, then select **File and Storage Services**. 
 
