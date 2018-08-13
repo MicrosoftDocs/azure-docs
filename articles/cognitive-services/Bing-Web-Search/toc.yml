@@ -40,9 +40,6 @@
     href: tutorial-bing-web-search-single-page-app-source.md
   - name: Visual Search mobile app
     href: computer-vision-web-search-tutorial.md
-  - name: Visual Search mobile app (Visual Studio solution)
-    href: https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/
-    maintainContext: true
 - name: Samples
   items:
   - name: Code samples
@@ -64,7 +61,7 @@
 - name: Concepts
   items:
   - name: Suggesting search terms
-    href: suggesting-and-using-search-terms.md  
+    href: suggesting-and-using-search-terms.md
   - name: Search responses
     href: search-responses.md
   - name: Throttling requests
