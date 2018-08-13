@@ -2,10 +2,10 @@
 title: Azure rendering - reference architectures 
 description: Architectures for using Azure Batch and other Azure services to extend an on-premises render farm by bursting to the cloud 
 services: batch
-author: dlepow
+author: davefellows
 manager: jeconnoc
 ms.author: danlep
-ms.date: 08/10/2018
+ms.date: 08/13/2018
 ms.topic: conceptual
 ---
 
@@ -17,11 +17,11 @@ This article shows high-level architecture diagrams for scenarios to extend, or 
 
 The following diagram shows a hybrid scenario that includes the following Azure services:
 
-* **Compute** - Azure Batch pool or Virtual Machine Scale Set,
+* **Compute** - Azure Batch pool or Virtual Machine Scale Set.
 
-* **Network** - Cross-premises: Azure ExpressRoute or VPN. Azure: Azure VNet.
+* **Network** - On-premises: Azure ExpressRoute or VPN. Azure: Azure VNet.
 
-* **Storage** - Input files: NFS or CFS using Azure VMs, synchronized with on-premises storage via Azure File Sync or RSync. Output files: Blob storage.
+* **Storage** - Input and output files: NFS or CFS using Azure VMs, synchronized with on-premises storage via Azure File Sync or RSync.
 
   ![Cloud bursting - Hybrid with NFS or CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs.png)
 
@@ -31,7 +31,7 @@ The following diagram shows a hybrid scenario that includes the following Azure 
 
 * **Compute** - Azure Batch pool or Virtual Machine Scale Set.
 
-* **Network** - Cross-premises: Azure ExpressRoute or VPN. Azure: Azure VNet.
+* **Network** - On-premises: Azure ExpressRoute or VPN. Azure: Azure VNet.
 
 * **Storage** - Input and output files: Blob storage, mounted to compute resources via Azure Blobfuse.
 
@@ -39,13 +39,13 @@ The following diagram shows a hybrid scenario that includes the following Azure 
 
 ## Hybrid compute and storage
 
-The following diagram shows a hybrid scenario that includes the following Azure services:
+The following diagram shows a fully connected hybrid scenario for both compute and storage and includes the following Azure services:
 
 * **Compute** - Azure Batch pool or Virtual Machine Scale Set.
 
-* **Network** - Cross-premises: Azure ExpressRoute or VPN. Azure: Azure VNet.
+* **Network** - On-premises: Azure ExpressRoute or VPN. Azure: Azure VNet.
 
-* **Storage** - Cross-premises: Avere vFXT. Output files: archive via Azure Data Box to blob storage.
+* **Storage** - Cross-premises: Avere vFXT. Optional archiving of on-premises files via Azure Data Box to Blob storage.
 
   ![Cloud bursting - Hybrid compute and storage](./media/batch-rendering-architectures/hybrid-compute-storage.png)
 
