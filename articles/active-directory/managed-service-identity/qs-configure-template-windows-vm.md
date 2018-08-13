@@ -177,7 +177,9 @@ If you have a VM that no longer needs a managed service identity:
    
    If your `apiVersion` is `2017-12-01` and your VM has both system and user assigned identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user assigned identities.  
 
-   If your `apiVersion` is `2018-06-01`, and your VM has both system and user assigned identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `userAssignedIdentities` dictionary values. The following example shows you how remove a system assigned identity from a VM with no user assigned identities:
+   If your `apiVersion` is `2018-06-01`, and your VM has both system and user assigned identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `userAssignedIdentities` dictionary values. 
+
+   The following example shows you how remove a system assigned identity from a VM with no user assigned identities:
    
    ```JSON
     {
