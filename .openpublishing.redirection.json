@@ -6950,16 +6950,6 @@
             "redirect_url": "/azure/azure-stack/user/azure-stack-sql-server-vm-considerations",
             "redirect_document_id": false
         },
-        { 
-            "source_path": "articles/azure-stack/azure-stack-update-1807.md",
-            "redirect_url": "/azure/azure-stack",
-            "redirect_document_id": false
-        },
-        { 
-            "source_path": "articles/azure-stack/azure-stack-add-scale-node.md",
-            "redirect_url": "/azure/azure-stack",
-            "redirect_document_id": false
-        },
         {
             "source_path": "articles/azure-resource-manager/best-practices-resource-manager-security.md",
             "redirect_url": "/azure/best-practices-network-security",
@@ -8383,6 +8373,11 @@
         {
             "source_path": "articles/documentdb/documentdb-change-feed.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/change-feed",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/documentdb/table-powershell.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/azure/cosmos-db/table-introduction",
             "redirect_document_id": false
         },
         {
@@ -9847,12 +9842,22 @@
         },
         {
             "source_path": "articles/machine-learning/cortana-intelligence-appsource-evaluation-tool.md",
-            "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-evaluation-tool",
+            "redirect_url": "https://azure.microsoft.com/overview/ai-platform/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/cortana-intelligence-appsource-evaluation-tool.md",
+            "redirect_url": "https://azure.microsoft.com/overview/ai-platform/",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/machine-learning/cortana-intelligence-appsource-publishing-guide.md",
-            "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide",
+            "redirect_url": "https://azure.microsoft.com/overview/ai-platform/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide.md",
+            "redirect_url": "https://azure.microsoft.com/overview/ai-platform/",
             "redirect_document_id": false
         },
         {
@@ -12818,7 +12823,7 @@
         },
         {
             "source_path": "articles/service-fabric/service-fabric-update-vmss-sku.md",
-            "redirect_url": "/azure/service-fabric/service-fabric-cluster-upgrade-primary-nodetype-vm",
+            "redirect_url": "/azure/service-fabric/service-fabric-cluster-upgrade",
             "redirect_document_id": false
         },
         {

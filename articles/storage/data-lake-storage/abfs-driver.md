@@ -40,7 +40,11 @@ Internally, the ABFS driver translates the resource(s) specified in the URI to f
 
 ### Authentication
 
-The ABFS driver currently supports Shared Key authentication so that the Hadoop application may securely access resources contained within Data Lake Storage Gen2. The key is encrypted and stored in Hadoop configuration.
+The ABFS driver supports two forms of authentication so that the Hadoop application may securely access resources contained within a Data Lake Storage Gen2 capable account. Full details of the available authentication schemes are provided in the [Azure Storage security guide](../common/storage-security-guide.md). They are:
+
+- **Shared Key:** This permits users access to ALL resources in the account. The key is encrypted and stored in Hadoop configuration.
+
+- **Azure Active Directory OAuth Bearer Token:** Azure AD bearer tokens are acquired and refreshed by the driver using either the identity of the end user or a configured Service Principal. Using this authentication model, all access is authorized on a per-call basis using the identity associated with the supplied token and evaluated against the assigned POSIX Access Control List (ACL).
 
 ### Configuration
 

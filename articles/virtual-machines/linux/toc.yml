@@ -120,6 +120,8 @@
     href: infrastructure-automation.md
   - name: Security and policy
     href: security-policy.md
+  - name: States and lifecycle
+    href: states-lifecycle.md
   - name: Monitoring
     href: monitor.md
   - name: Backup and recovery
