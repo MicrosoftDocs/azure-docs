@@ -39,6 +39,7 @@
     - name: Choose an environment 
       href: how-to-choose-a-dev-environment.md 
     - name: Configure an environment
+      href: how-to-configure-environment.md
   - name: Set up training environments	
     items:    
     - name: VMs (Data Science/Deep Learning) 

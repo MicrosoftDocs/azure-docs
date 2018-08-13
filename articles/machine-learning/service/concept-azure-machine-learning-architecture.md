@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 
 # Azure Machine Learning Services architecture and concepts
 
-The __Azure Machine Learning workspace__ is the top-level Azure resource for Azure Machine Learning. It's a logical container for all artifacts created by users when using Azure Machine Learning, including run history records, compute targets, models, Docker images, and deployments, among other things. Each workspace is supported by a list of associated Azure sources including a blob storage account, a KeyVault, an Azure Container Registry, and an AppInsights instance. It is also the security boundary for enabling secured sharing and collaboration among multiple users. 
+The __Azure Machine Learning workspace__ is the top-level Azure resource for Azure Machine Learning. It's a logical container for all artifacts created by users when using Azure Machine Learning. Each workspace is supported by a list of associated Azure sources including a blob storage account, a KeyVault, an Azure Container Registry, and an Application Insights instance. The workspace is also the security boundary for enabling secured sharing and collaboration among multiple users. 
 
 The following diagram shows the major components of Azure Machine Learning, and illustrates the general workflow when using Azure Machine Learning: 
 
@@ -24,10 +24,11 @@ The workflow for developing and deploying a model with Azure Machine Learning ge
 1. Develop machine learning training scripts in __Python__ using __Jupyter Notebooks__, __Visual Studio Code__, or any other Python development environment of your choice.
 2. Provision and configure a __compute target__, which can be either local or cloud compute resources, to use when training the model.
 3. Submit the scripts to the configured __compute target__ to run in that environment.
-4. Query the __run history__ for logged metric from this run (and past runs) of your training job. If the metric does not indicate a desired outcome, loop back to step 1 and iterate on your scripts.
+4. Query the __run history__ for logged metric from the current, and past runs, of your training job. If the metric does not indicate a desired outcome, loop back to step 1 and iterate on your scripts.
 5. Once a satisfactory run is found, register the persisted model in the __model registry__.
 6. Develop a scoring script.
-7. Deploy the model and the scoring scripts as a __web service__ in Azure.
+7. Create an Image and register it in the __image registry__. 
+8. Deploy the image as a __web service__ in Azure.
 
 
 ## Workspace
@@ -68,25 +69,46 @@ When you submit a project for training, the entire folder is copied to the compu
 
 ## Model
 
-A model is a scoring logic operation materialized in one or more files. A model can be produced by a run in Azure Machine Learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under a Workspace, and can be version-managed. It is used to create a Docker image and deployment. You can use any popular machine learning framework of your choice, including scikit-learn, xgboost, TensorFlow, CNTK etc. Azure Machine Learning takes a framework-agnostic approach when it comes to model type and model file format.
+A model is a scoring logic operation materialized in one or more files. A model can be produced by a run in Azure Machine Learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under a Workspace, and can be version-managed. It is used to create a Docker image and deployment. 
 
-## Docker image
-A Docker image is created from your project, and registered with the workspace. It encapsulates:
+Azure Machine Learning is framework agnostic. You can use any popular machine learning framework, including scikit-learn, xgboost, TensorFlow, and CNTK.
+
+## Image
+
+We use images to group all the assets for your deployment. We currently support only Docker images. A Docker image is created from your project, and registered with the workspace. It encapsulates:
+
 * A model file, or a folder of model files
-* A scoring script
+* A scoring script or application for device deployments
 * Any number of supporting library files (optional)
 * A Conda environment file listing Python package dependencies (optional)
 * Schema files for swagger generation (optional)
 
 ## Deployment
 
-A deployment is a deployed web service in either Azure Container Instances or Azure Kubernetes Service.
-It is a live Docker container created from a Docker image that encapsulates your model, script, and associated files, with an HTTP endpoint to send scoring request to.
+A deployment is an instantiation of your image into either a Web Service that may be hosted in the cloud or and IoT Module for integrated device deployments. 
+
+### Web Services
+
+A deployed web service can use either Azure Container Instances or Azure Kubernetes Service.
+It is a Docker container created from a Docker image, and encapsulates your model, script, and associated files. The image has an HTTP Load balanced endpoint to send scoring request to.
+
+Azure helps you monitor your Web service deployment by collecting Application Insight telemetry and/or model telemetry if you have chosen to enable this feature. The telemetry data is only accessible to you, and stored in your Application Insights and storage account instances.
+
+If you have enabled automatic scaling, Azure will automatically scale your deployment.
+
+### IoT Modules
+
+A deployed IoT Module is a Docker container that includes your model and associated script or application and any additional dependencies. These modules are deployed using Azure IoT Edge on edge devices. 
+
+If you have enabled monitoring, Azure collects telemetry data from the model inside the Azure IoT Edge module. The telemetry data is only accessible to you, and stored in your storage account instance.
+
+Azure IoT Edge will ensure that your module is running and monitor the device that is hosting it.
 
 ## Datastore
+
 A datastore is a storage abstraction over an Azure Storage Account. The datastore can use either an Azure blob container or an Azure file share as the backend storage. Each workspace has a default datastore, and you may register additional datastores. 
 
-You can use the Python SDK API or Azure ML CLI to store and retrieve files from the datastore. 
+You can use the Python SDK API or Azure Machine Learning CLI to store and retrieve files from the datastore. 
 
 ## Run
 A run is an execution record stored in a run history under a workspace.
@@ -111,7 +133,7 @@ A run configuration can be persisted into a file inside your project, or can be 
 
 ## Compute target
 
-A compute target is the compute resource used to execute your training script or host your web service deployment. They can be created and managed by using Azure ML Python SDK or CLI. You can also attach existing compute targeted in Azure. The supported compute targets are: 
+A compute target is the compute resource used to execute your training script or host your web service deployment. They can be created and managed by using Azure Machine Learning Python SDK or CLI. You can also attach existing compute targeted in Azure. The supported compute targets are: 
 
 * Your local computer
 * A Linux VM in Azure (such as the Data Science Virtual Machine)

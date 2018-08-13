@@ -46,16 +46,6 @@ You can choose from many machine learning frameworks available in open-source Py
 - [MXNet](http://mxnet.io)
 -->
 
-<!--
-<ul>
-<li><a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a></li>
-<li><a href="https://www.tensorflow.org" target="_blank">Tensorflow</a></li>
-<li><a href="https://pytorch.org" target="_blank">PyTorch</a></li>
-<li><a href="https://www.microsoft.com/cognitive-toolkit/" target="_blank">CNTK</a></li>
-<li><a href="http://mxnet.io" target="_blank">MXNet</a></li>
-</ul>
--->
-
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
@@ -66,6 +56,8 @@ Once you have a model, you use it to create a Docker container that can be deplo
 
 You then can manage your deployed models using the [Azure portal](https://portal.azure.com/) or the [Azure Machine Learning CLI extension](https://review.docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
 You can evaluate model metrics, retrain and redeploy new versions of the model, all while tracking the model's rich run history.
+
+Use Azure Machine Learning Services to build, manage, deploy and monitor custom machine learning and AI models.
 
 To get started using Azure Machine Learning Services, see [Next steps](#next-steps) below.
 
@@ -87,8 +79,8 @@ If you aren't a subscriber, you can [open an Azure account for free](https://azu
 
 - Create a machine learning workspace using one of the "Get started with Azure Machine Learning Services" quickstarts:
 
-   - [Use Azure Portal to get started](quickstart-get-started.md) 
-   - [Use Azure CLI to get started](quickstart-get-started-with-cli.md)
+  - [Use Azure Portal to get started](quickstart-get-started.md)
+  - [Use Azure CLI to get started](quickstart-get-started-with-cli.md)
 
 - Follow the full-length [tutorial](tutorial-train-models-with-aml.md) to learn how to train and deploy models with Azure Machine Learning Services
 
