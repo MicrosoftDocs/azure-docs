@@ -2881,6 +2881,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-migrate-account-subscription.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources",
+            "redirect_document_id": false
+        },
+        
+        {
             "source_path": "articles/automation/automation-troubleshooting-automation-errors.md",
             "redirect_url": "/azure/automation/troubleshoot/runbooks",
             "redirect_document_id": false
