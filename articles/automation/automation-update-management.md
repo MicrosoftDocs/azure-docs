@@ -207,12 +207,14 @@ To create a new update deployment, select **Schedule update deployment**. The **
 
 | Property | Description |
 | --- | --- |
-|Name |Unique name to identify the update deployment. |
-|Operating System| Select **Linux** or **Windows**.|
-|Machines to update |Select a saved search, or select **Machine** from the drop-down list, and then select individual machines. |
-|Update classifications|Select all the update classifications that you need. CentOS does not support this out of the box.|
-|Updates to exclude|Enter the updates to exclude. For Windows, enter the KB article without the **KB** prefix. For Linux, enter the package name or use a wildcard character.  |
-|Schedule settings|Select the time to start, and then select either **Once** or **Recurring** for the recurrence.|| Maintenance window |Number of minutes set for updates. The value can't be less than 30 minutes or more than 6 hours. |
+| Name |Unique name to identify the update deployment. |
+|Operating System| Linux or Windows|
+| Machines to update |Select a Saved search or pick Machine from the drop-down and select individual machines |
+|Update classifications|Select all the update classifications that you need|
+|Updates to exclude|Enter the updates to exclude. For  Windows enter the KB without the 'KB' prefix. For Linux, enter the package name or use a wildcard.  |
+|Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
+| Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
+| Reboot control| Detemines how reboots should be handled.</br>Available options are:</br>Reboot if required (Default)</br>Always reboot</br>Never reboot</br>Only reboot - will not install updates|
 
 ## Update classifications
 
