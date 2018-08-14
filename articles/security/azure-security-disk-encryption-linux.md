@@ -136,12 +136,15 @@ The following table lists Resource Manager template parameters for existing or r
 
 | Parameter | Description |
 | --- | --- |
-| keyVaultName | Name of the key vault that the key should be uploaded to. You can get it by using the Azure CLI command `az keyvault show --name "MySecureVault" --query resourceGroup`. |
-|  keyEncryptionKeyURL | URL of the key encryption key that's used to encrypt the generated key. This parameter is optional if you select **nokek** in the UseExistingKek drop-down list. If you select **kek** in the UseExistingKek drop-down list, you must enter the _keyEncryptionKeyURL_ value. |
-| volumeType | Type of volume that the encryption operation is performed on. Valid supported values are _OS_ or _All_ (see supported Linux distros and their versions for OS and data disks in prerequisite section earlier). |
-| sequenceVersion | Sequence version of the BitLocker operation. Increment this version number every time a disk-encryption operation is performed on the same VM. |
 | vmName | Name of the VM that the encryption operation is to be performed on. |
-| passphrase | Type a strong passphrase as the data encryption key. |
+| keyVaultName | Name of the key vault that the BitLocker key should be uploaded to. You can get it by using the cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` or the Azure CLI command `az keyvault list --resource-group "MySecureGroup" |Convertfrom-JSON`|
+| keyVaultResourceGroup | Name of the resource group that contains the key vault|
+|  keyEncryptionKeyURL | URL of the key encryption key that's used to encrypt the generated BitLocker key. This parameter is optional if you select **nokek** in the UseExistingKek drop-down list. If you select **kek** in the UseExistingKek drop-down list, you must enter the _keyEncryptionKeyURL_ value. |
+| volumeType | Type of volume that the encryption operation is performed on. Valid values are _OS_, _Data_, and _All_. 
+| forceUpdateTag | Pass in an unique value like a GUID every time the operation needs to be force run. |
+| resizeOSDisk | Should the OS partition be resized to occupy full OS VHD before splitting system volume. |
+| location | Location for all resources. |
+
 
 
 ## Encrypt virtual machine scale sets
