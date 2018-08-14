@@ -255,9 +255,9 @@ print(np.average(y_hat == y_test))
 Now you can expand on this simple model. You can build multiple versions of the model using different regularization rates.  For this task, you'll submit the job to the Batch AI cluster you set up earlier.
  In this section you will:
 
-+ Create a training script
-+ Create an estimator
-+ Submit job 
+* Create a training script
+* Create an estimator
+* Submit job 
 
 ### Create a training script
 
@@ -265,13 +265,13 @@ You need a training script to submit the job to the cluster. Let's write one now
 
 Notice how the script gets data and saves models:
 
-+ The training script will read an argument to find the data folder.  When you submit the job, you'll point to the datastore for this argument:
+* The training script will read an argument to find the data folder.  When you submit the job, you'll point to the datastore for this argument:
 
     ```Python
     parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data folder mounting point')
     ```
     
-+ The training script will save your model into a folder named `outputs`. The `outputs` folder is a special construct - anything written in this folder is automatically uploaded into your workspace. You'll access your model from here later in the tutorial.
+* The training script will save your model into a folder named `outputs`. The `outputs` folder is a special construct - anything written in this folder is automatically uploaded into your workspace. You'll access your model from here later in the tutorial.
 
     ```Python
     saver.save(sess, './outputs/model/mnist-tf.model')
