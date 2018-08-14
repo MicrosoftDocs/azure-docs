@@ -42,7 +42,7 @@ Before you start, make sure that you have the following:
 
 ## Components 
 
-Your ability to monitor performance relies on a containerized OMS Agent for Linux, which collects performance and event data from all nodes in the cluster. The agent is automatically deployed and registered with the specified Log Analytics workspace after you enable container monitoring. 
+Your ability to monitor performance relies on a containerized Log Analytics agent for Linux, which collects performance and event data from all nodes in the cluster. The agent is automatically deployed and registered with the specified Log Analytics workspace after you enable container monitoring. 
 
 >[!NOTE] 
 >If you have already deployed an AKS cluster, you enable monitoring by using either Azure CLI or a provided Azure Resource Manager template, as demonstrated later in this article. You cannot use `kubectl` to upgrade, delete, re-deploy, or deploy the agent. 
@@ -301,7 +301,7 @@ omsagent   1         1         1            1            3h
 
 ### Agent version earlier than 06072018
 
-To verify that the OMS agent version released before *06072018* is deployed properly, run the following command:  
+To verify that the Log Analytics agent version released before *06072018* is deployed properly, run the following command:  
 
 ```
 kubectl get ds omsagent --namespace=kube-system
