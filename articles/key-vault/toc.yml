@@ -20,12 +20,8 @@
   items:
   - name: Read a secret from Key Vault
     href: tutorial-web-application-keyvault.md
-  - name: Get started with Key Vault
-    href: key-vault-get-started.md
   - name: Set up key rotation and auditing
     href: key-vault-key-rotation-log-monitoring.md
-  - name: Use Key Vault from a web app
-    href: key-vault-use-from-web-application.md
 - name: Samples
   items:
   - name: Code samples
