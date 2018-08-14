@@ -11,7 +11,8 @@ ms.date: 09/15/2017
 ms.author: zhouwang
 ---
 
->[!NOTE] In May, 2018, we have also released the new [Speech service](/speech-service/overview.md) in public preview. We encourage you to [try it out for free](/speech-service/get-started.md).
+> [!NOTE] 
+> In May, 2018, we have also released the new [Speech service](/speech-service/overview.md) in public preview. We encourage you to [try it out for free](/speech-service/get-started.md).
 
 # Microsoft Bing Speech API overview
 
