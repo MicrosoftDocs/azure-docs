@@ -75,17 +75,40 @@ Copy the values for **Username** and one of the passwords. You'll use these valu
 
 ## Create an IoT Edge module project
 The following steps show you how to create an IoT Edge module project based on .NET core 2.0 using Visual Studio Code and the Azure IoT Edge extension.
-1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the VS Code integrated terminal.
-2. Select **View** > **Command Palette** to open the VS Code command palette. 
-3. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you've already signed in, you can skip this step.
-4. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
+
+### Create a new solution
+
+Create a C solution template that you can customize with your own code. 
+
+1. Select **View** > **Command Palette** to open the VS Code command palette. 
+
+2. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you've already signed in, you can skip this step.
+
+3. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
+
    1. Select the folder where you want to create the solution. 
    2. Provide a name for your solution or accept the default **EdgeSolution**.
    3. Choose **C Module** as the module template. 
    4. Name your module **CModule**. 
    5. Specify the Azure Container Registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like **\<registry name\>.azurecr.io/cmodule**.
- 
-4. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder, a deployment manifest template file and a **.env** file. The default module code is implemented as a pipe module. 
+
+   ![Provide Docker image repository](./media/tutorial-c-module/repository.png)
+
+The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial. The **modules** folder contains the C code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. 
+
+If you didn't specify a container registry when creating your solution, but accepted the default localhost:5000 value, you won't have a \.env file. 
+
+   ![C solution workspace](./media/tutorial-c-module/workspace.png)
+
+### Add your registry credentials
+
+The environment file stores the credentials for your container registry and shares them with the IoT Edge runtime. The runtime needs these credentials to pull your private images onto the IoT Edge device. 
+
+1. In the VS Code explorer, open the .env file. 
+2. Update the fields with the **username** and **password** values that you copied from your Azure container registry. 
+3. Save this file. 
+
+### Update the module with custom code
 
 5. To filter messages in JSON format, a JSON library for C need to be imported. You can choose any JSON library or write your own to parse JSON in your C module. Below steps are using [Parson](https://github.com/kgabis/parson) as a example.
    1. Download **parson.c** and **parson.h** from [Parson Github repository](https://github.com/kgabis/parson). And copy paste these two files into the **CModule** folder.

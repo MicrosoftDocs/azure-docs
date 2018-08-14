@@ -94,7 +94,13 @@ Use the Python package **cookiecutter** to create a Python solution template tha
    4. Name your module **PythonModule**. 
    5. Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like \<registry name\>.azurecr.io/pythonmodule.
  
-The VS Code window loads your IoT Edge solution workspace: the modules folder, a deployment manifest template file, and a \.env file. 
+   ![Provide Docker image repository](./media/tutorial-python-module/repository.png)
+
+The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. You won't edit the **\.gitignore** file in this tutorial. The **modules** folder contains the Python code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. 
+
+If you didn't specify a container registry when creating your solution, but accepted the default localhost:5000 value, you won't have a \.env file. 
+
+   ![Python solution workspace](./media/tutorial-python-module/workspace.png)
 
 ### Add your registry credentials
 

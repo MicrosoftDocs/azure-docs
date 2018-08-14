@@ -84,8 +84,14 @@ Use **npm** to create a Node.js solution template that you can build on top of.
    3. Choose **Node.js Module** as the module template. 
    4. Name your module **NodeModule**. 
    5. Specify the Azure Container Registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like **\<registry name\>.azurecr.io/nodemodule**.
- 
-The VS Code window loads your IoT Edge solution workspace. There is a **.vscode** folder, a **modules** folder, an **.env** file, and a deployment manifest template file
+
+   ![Provide Docker image repository](./media/tutorial-node-module/repository.png)
+
+The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial. The **modules** folder contains the Node.js code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. 
+
+If you didn't specify a container registry when creating your solution, but accepted the default localhost:5000 value, you won't have a \.env file. 
+
+   ![Node.js solution workspace](./media/tutorial-node-module/workspace.png)
 
 ### Add your registry credentials
 

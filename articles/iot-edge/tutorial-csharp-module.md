@@ -64,8 +64,14 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 ## Create an IoT Edge module project
 The following steps create an IoT Edge module project that's based on the .NET Core 2.0 SDK by using Visual Studio Code and the Azure IoT Edge extension.
 
+### Create a new solution
+
+Create a C# solution template that you can customize with your own code. 
+
 1. In Visual Studio Code, select **View** > **Command Palette** to open the VS Code command palette. 
+
 2. In the command palette, enter and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you're already signed in, you can skip this step.
+
 3. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
 
    1. Select the folder where you want to create the solution. 
@@ -74,7 +80,25 @@ The following steps create an IoT Edge module project that's based on the .NET C
    4. Replace the default module name with **CSharpModule**. 
    5. Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like \<registry name\>.azurecr.io/csharpmodule.
 
-4.  The VS Code window loads your IoT Edge solution workspace: the modules folder, a \.vscode folder, a deployment manifest template file, and a \.env file. In the VS Code explorer, open **modules** > **CSharpModule** > **Program.cs**.
+   ![Provide Docker image repository](./media/tutorial-csharp-module/repository.png)
+
+The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial. The **modules** folder contains the C# code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. 
+
+If you didn't specify a container registry when creating your solution, but accepted the default localhost:5000 value, you won't have a \.env file. 
+
+   ![C# solution workspace](./media/tutorial-csharp-module/workspace.png)
+
+### Add your registry credentials
+
+The environment file stores the credentials for your container registry and shares them with the IoT Edge runtime. The runtime needs these credentials to pull your private images onto the IoT Edge device. 
+
+1. In the VS Code explorer, open the .env file. 
+2. Update the fields with the **username** and **password** values that you copied from your Azure container registry. 
+3. Save this file. 
+
+### Update the module with custom code
+
+1. In the VS Code explorer, open **modules** > **CSharpModule** > **Program.cs**.
 
 5. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
 
