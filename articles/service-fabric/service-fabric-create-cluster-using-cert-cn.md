@@ -113,10 +113,11 @@ Next, open the *azuredeploy.json* file in a text editor and make three updates t
     ```
 
 3. In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint.  In **virtualMachineProfile**->**extenstionProfile**->**extensions**->**properties**->**settings**->**certificate**, add 
-   ```json
-   "commonNames": [
-      "[parameters('certificateCommonName')]"
-   ],``` 
+    ```json
+       "commonNames": [
+        "[parameters('certificateCommonName')]"
+       ],
+    ```
 
     and remove `"thumbprint": "[parameters('certificateThumbprint')]",`.
 
