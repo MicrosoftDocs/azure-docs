@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
 

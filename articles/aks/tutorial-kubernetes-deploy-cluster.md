@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 07/02/2018
+ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
 
@@ -30,7 +30,7 @@ In subsequent tutorials, the Azure Vote application is deployed to the cluster, 
 
 In previous tutorials, a container image was created and uploaded to an Azure Container Registry instance. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
-This tutorial requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This tutorial requires that you are running the Azure CLI version 2.0.44 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Create a service principal
 
@@ -74,7 +74,7 @@ az role assignment create --assignee <appId> --scope <acrId> --role Reader
 
 ## Create a Kubernetes cluster
 
-AKS clusters can use Kubernetes role-based access controls (RBAC). These controls let you define access to resources based on roles assigned to users. Permissions can be combined if a user is assigned multiple roles, and permissions can be scoped to either a single namespace or across the whole cluster. Kubernetes RBAC is currently in preview for AKS clusters. In these tutorials, we enable Kubernetes RBAC in the AKS cluster.
+AKS clusters can use Kubernetes role-based access controls (RBAC). These controls let you define access to resources based on roles assigned to users. Permissions can be combined if a user is assigned multiple roles, and permissions can be scoped to either a single namespace or across the whole cluster. Kubernetes RBAC is currently in preview for AKS clusters. The Azure CLI automatically enables RBAC when you create an AKS cluster.
 
 Create an AKS cluster using [az aks create][]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr]. Provide your own `<appId>` and `<password>` from the previous step where the service principal was created.
 
@@ -85,8 +85,7 @@ az aks create \
     --node-count 1 \
     --service-principal <appId> \
     --client-secret <password> \
-    --generate-ssh-keys \
-    --enable-rbac
+    --generate-ssh-keys
 ```
 
 After several minutes, the deployment completes, and returns JSON-formatted information about the AKS deployment.
