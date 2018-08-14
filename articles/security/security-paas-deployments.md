@@ -100,7 +100,7 @@ In this article, we focused on security advantages of an Azure PaaS deployment. 
 
 - [Azure App Service](security-paas-applications-using-app-services.md)
 - [Azure SQL Database and Azure SQL Data Warehouse](security-paas-applications-using-sql.md)
-- Azure Storage
+- [Azure Storage](security-paas-applications-using-storage.md)
 - Azure REDIS Cache
 - Azure Service Bus
 - Web Application Firewalls
