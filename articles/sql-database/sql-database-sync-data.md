@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/09/2018
 ms.author: xiwu
 ms.reviewer: douglasl
 ms.custom: data-sync
@@ -160,7 +160,7 @@ There is no charge for the SQL Data Sync service itself.  However, you still acc
 
 ### What regions support Data Sync?
 
-SQL Data Sync is available in all public cloud regions.
+SQL Data Sync is available in all regions.
 
 ### Is a SQL Database account required? 
 

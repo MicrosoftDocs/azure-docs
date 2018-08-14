@@ -6,6 +6,8 @@
     href: azure-stack-poc.md
   - name: Release notes
     items:
+    - name: 1807 update 
+      href: azure-stack-update-1807.md 
     - name: 1805 update
       href: azure-stack-update-1805.md
     - name: 1804 update
@@ -81,8 +83,12 @@
         href: azure-stack-validation-report.md
     - name: External monitoring
       href: azure-stack-integrate-monitor.md
-    - name : Security integration
-      href: azure-stack-integrate-security.md
+    - name: External auditing
+      items:
+      - name: Syslog forwarding
+        href: azure-stack-integrate-security.md
+      - name: Device auditing
+        href: azure-stack-integrate-physical-device-auditing.md
   - name: Servicing policy
     href: azure-stack-servicing-policy.md
   - name: Key features and concepts
@@ -139,6 +145,8 @@
           href: azure-stack-manage-storage-shares.md
         - name: Manage physical memory capacity
           href: azure-stack-manage-storage-physical-memory-capacity.md
+        - name: Add scale unit nodes
+          href: azure-stack-add-scale-node.md
     - name: Replace hardware
       items:
       - name: Node actions

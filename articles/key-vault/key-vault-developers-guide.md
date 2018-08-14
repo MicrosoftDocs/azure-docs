@@ -2,13 +2,13 @@
 title: Azure Key Vault Developer's Guide
 description: Developers can use Azure Key Vault to manage cryptographic keys within the Microsoft Azure environment.
 services: key-vault
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
-ms.author: alleonar
+ms.author: bryanla
 ---
 # Azure Key Vault Developer's Guide
 
@@ -17,7 +17,7 @@ Key Vault allows you to securely access sensitive information from within your a
 - Keys and secrets are protected without having to write the code yourself and you are easily able to use them from your applications.
 - You are able to have your customers own and manage their own keys so you can concentrate on providing the core software features. In this way, your applications will not own the responsibility or potential liability for your customers’ tenant keys and secrets.
 - Your application can use keys for signing and encryption yet keeps the key management external from your application, allowing your solution to be suitable as a geographically distributed app.
-- As of the September 2016 release of Key Vault, your applications can now use Key Vault [certificates](https://docs.microsoft.com/rest/api/keyvault/certificate-operations). For more information, see [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
+- As of the September 2016 release of Key Vault, your applications can now manage Key Vault certificates. For more information, see [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
 
 For more general information on Azure Key Vault, see [What is Key Vault](key-vault-whatis.md).
 

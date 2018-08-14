@@ -263,7 +263,7 @@ The Remote Desktop Gateway needs to be configured as a RADIUS client to the NPS 
 ### Configure Network Policy
 Recall that the NPS server with the Azure MFA extension is the designated central policy store for the Connection Authorization Policy (CAP). Therefore, you need to implement a CAP on the NPS server to authorize valid connections requests.  
 
-1. In the NPS (Local) console, expand **Policies**, and click **Network Policies**.
+1. On the NPS Server, open the NPS (Local) console, expand **Policies**, and click **Network Policies**.
 2. Right-click **Connections to other access servers**, and click **Duplicate policy**. 
 
  ![Duplicate Policy](./media/howto-mfa-nps-extension-rdg/image19.png)

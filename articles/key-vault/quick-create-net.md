@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Configure an Azure web application to set and retrieve a secret from Key vault | Microsoft Docs
-description: Quickstart showing how to configure an ASP.Net core application to set and retrieve a secret from Key vault
+title: Quickstart- Set and retrieve a secret from Azure Key Vault using a Node Web App | Microsoft Docs
+description: Quickstart- Set and retrieve a secret from Azure Key Vault using a Node Web App 
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -25,7 +25,10 @@ In this quickstart, you go over the necessary steps for getting an Azure web app
 > * [Enable managed service identities](../active-directory/managed-service-identity/overview.md).
 > * Grant the required permissions for the web application to read data from Key vault.
 
-Before we go any further, read the [basic concepts](key-vault-whatis.md#basic-concepts) especially [Managed Service Identity](../active-directory/managed-service-identity/overview.md)
+Before we go any further, please read the [basic concepts](key-vault-whatis.md#basic-concepts).
+
+>[!NOTE]
+To understand why the below tutorial is the best practice we need to understand a few concepts. Key Vault is a central repository to store secrets programmatically. But to do so applications / users need to first authenticate to Key Vault i.e. present a secret. To follow security best practices this first secret needs to be rotated periodically as well. But with [Managed Service Identity](../active-directory/managed-service-identity/overview.md) applications that run in Azure are given an identity which is automatically managed by Azure. This helps solve the **Secret Introduction Problem** where users / applications can follow best practices and not have to worry about rotating the first secret
 
 ## Prerequisites
 

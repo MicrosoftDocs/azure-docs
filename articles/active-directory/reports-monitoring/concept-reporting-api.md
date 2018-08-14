@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: compliance-reports
+ms.component: report-monitor
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
@@ -52,17 +52,9 @@ You can use the [MSGraph explorer](https://developer.microsoft.com/en-us/graph/g
 
 ## Use certificates to access the Azure AD reporting API 
 
-Consider using the Azure AD Reporting API with certificates if you plan to retrieve reporting data without user intervention.
+Use the Azure AD Reporting API with certificates if you plan to retrieve reporting data without user intervention.
 
 For detailed instructions, see [Get data using the Azure AD Reporting API with certificates](tutorial-access-api-with-certificates.md).
-
-
-## Explore
-
-Get a first impression of the reporting APIs:
-   
-   - [Using the samples for the audit API](sample-audit-api.md) 
-   - [Using the samples for the sign-in activity report API](sample-sign-in-api.md)
 
 
 ## Next steps

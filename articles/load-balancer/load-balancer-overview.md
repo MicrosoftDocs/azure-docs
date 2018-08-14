@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/10/2018
 ms.author: kumud
 ms.custom: mvc
 ---
@@ -81,15 +81,11 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
 * **Health probes**
 
-     To determine the health of instances in the backend pool, Load Balancer uses health probes that you define. When a probe fails to respond, the load balancer stops sending new connections to the unhealthy instances. Existing connections are not affected, and they continue until the application terminates the flow, an idle timeout occurs, or the VM is shut down.
+    To determine the health of instances in the backend pool, Load Balancer uses health probes that you define. When a probe fails to respond, the load balancer stops sending new connections to the unhealthy instances. Existing connections are not affected, and they continue until the application terminates the flow, an idle timeout occurs, or the VM is shut down.
+     
+    Load Balancer provides [different health probe types](load-balancer-custom-probe-overview.md#types) for TCP, HTTP, and HTTPS endpoints.
 
-    Three types of probes are supported:
-
-    - **HTTP custom probe**: You can use this probe to create your own custom logic to determine the health of a backend pool instance. The load balancer regularly probes your endpoint (every 15 seconds, by default). The instance is considered to be healthy if it responds with an HTTP 200 within the timeout period (default of 31 seconds). Any status other than HTTP 200 causes this probe to fail. This probe is also useful for implementing your own logic to remove instances from the load balancer's rotation. For example, you can configure the instance to return a non-200 status if the instance is greater than 90 percent CPU.  This probe overrides the default guest agent probe.
-
-    - **TCP custom probe**: This probe relies on establishing a successful TCP session to a defined probe port. As long as the specified listener on the VM exists, this probe succeeds. If the connection is refused, the probe fails. This probe overrides the default guest agent probe.
-
-    - **Guest agent probe**: The load balancer can also utilize the guest agent inside the VM. The guest agent listens and responds with an HTTP 200 OK response only when the instance is in the ready state. If the agent fails to respond with an HTTP 200 OK, the load balancer marks the instance as unresponsive and stops sending traffic to that instance. The load balancer continues to attempt to reach the instance. If the guest agent responds with an HTTP 200, the load balancer sends traffic to that instance again. Guest agent probes are a _last resort and not recommended_ when HTTP or TCP custom probe configurations are possible. 
+    Additionally, when using Classic cloud services, an additional type is allowed:  [Guest agent](load-balancer-custom-probe-overview.md#guestagent).  This should be consider to be a health probe of last resort and is not recommended when other options are viable.
     
 * **Outbound connections (SNAT)**
 
