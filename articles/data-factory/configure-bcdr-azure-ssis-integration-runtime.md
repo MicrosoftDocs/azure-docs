@@ -46,7 +46,15 @@ This section applies when one of the following conditions is true:
 
 - The database server is a SQL Database Managed Instance configured with a virtual network.
 
-When failover occurs, you have to stop the Azure-SSIS IR, reconfigure the IR to point to the new primary endpoint and to a virtual network in the new region, and then restart the IR. The following sections describe these steps in more detail.
+When failover occurs, you have to do the following things:
+
+1. stop the Azure-SSIS IR.
+
+2. Reconfigure the IR to point to the new primary endpoint and to a virtual network in the new region.
+
+3. Restart the IR.
+
+The following sections describe these steps in more detail.
 
 ### Prerequisites
 
