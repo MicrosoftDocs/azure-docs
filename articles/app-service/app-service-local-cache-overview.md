@@ -3,8 +3,8 @@ title: Azure App Service Local Cache overview | Microsoft Docs
 description: This article describes how to enable, resize, and query the status of the Azure App Service Local Cache feature
 services: app-service
 documentationcenter: app-service
-author: SyntaxC4
-manager: yochayk
+author: cephalin
+manager: jpconnock
 editor: ''
 tags: optional
 keywords: ''
@@ -16,10 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
-ms.author: cfowler
+ms.author: cephalin
 
 ---
 # Azure App Service Local Cache overview
+
+> [!NOTE]
+> Local cache is not supported in containerized App Service apps, such as on [App Service on Linux](containers/app-service-linux-intro.md).
+
 Azure web app content is stored on Azure Storage and is surfaced up in a durable manner as a content share. This design is intended to work with a variety of apps and has the following attributes:  
 
 * The content is shared across multiple virtual machine (VM) instances of the web app.
@@ -37,11 +41,11 @@ The Azure App Service Local Cache feature provides a web role view of your conte
 
 ## How Local Cache changes the behavior of App Service
 * The local cache is a copy of the /site and /siteextensions folders of the web app. It is created on the local VM instance on web app startup. The size of the local cache per web app is limited to 300 MB by default, but you can increase it up to 2 GB.
-* The local cache is read-write. However, any modifications is discarded when the web app moves virtual machines or gets restarted. Do not use Local Cache for apps that store mission-critical data in the content store.
+* The local cache is read-write. However, any modification is discarded when the web app moves virtual machines or gets restarted. Do not use Local Cache for apps that store mission-critical data in the content store.
 * Web apps can continue to write log files and diagnostic data as they do currently. Log files and data, however, are stored locally on the VM. Then they are copied over periodically to the shared content store. The copy to the shared content store is a best-case effort--write backs could be lost due to a sudden crash of a VM instance.
 * There is a change in the folder structure of the LogFiles and Data folders for web apps that use Local Cache. There are now subfolders in the storage LogFiles and Data folders that follow the naming pattern of "unique identifier" + time stamp. Each of the subfolders corresponds to a VM instance where the web app is running or has run.  
-* Publishing changes to the web app through any of the publishing mechanisms will publish to the shared content store. This is by design because we want the published content to be durable. To refresh the local cache of the web app, it needs to be restarted. Does this seem like an excessive step? To make the lifecycle seamless, see the information later in this article.
-* D:\Home points to the local cache. D:\local continue to point to the temporary VM-specific storage.
+* Publishing changes to the web app through any of the publishing mechanisms will publish to the durable shared content store. To refresh the local cache of the web app, it needs to be restarted. To make the lifecycle seamless, see the information later in this article.
+* D:\Home points to the local cache. D:\local continues to point to the temporary VM-specific storage.
 * The default content view of the SCM site continues to be that of the shared content store.
 
 ## Enable Local Cache in App Service

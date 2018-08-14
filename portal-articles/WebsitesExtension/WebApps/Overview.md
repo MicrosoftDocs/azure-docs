@@ -25,7 +25,7 @@ Learn how to deploy your first application to the cloud using App Service for We
 - [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
 - [PHP](/azure/app-service/app-service-web-get-started-php)
 - [Java](/azure/app-service/app-service-web-get-started-java)
-- [Python](/azure/app-service/app-service-web-get-started-python)
+- [Python](/azure/app-service/containers/quickstart-python)
 - [HTML](/azure/app-service/app-service-web-get-started-html)
 
 ## Step-by-Step Tutorials
@@ -36,7 +36,7 @@ Learn how to deploy, manage, and monitor secure web applications on Azure.
   - [.NET with Azure SQL DB](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
   - [Node.js with MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
   - [Java with MySQL](/app-service/app-service-web-tutorial-java-mysql)
-  - [Python with PostgreSQL](/app-service/app-service-web-tutorial-python-postgresql)
+  - [Python with PostgreSQL](/app-service/containers/tutorial-docker-python-postgresql-app)
 - [Map an existing custom domain to your application](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Bind an existing SSL certificate to your application](/azure/app-service/app-service-web-tutorial-custom-SSL)
 

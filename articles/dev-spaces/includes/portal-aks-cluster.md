@@ -5,11 +5,11 @@ ms.custom: "include file"
 services: azure-dev-spaces
 ms.service: "azure-dev-spaces"
 ms.component: "azds-kubernetes"
-author: "ghogen"
-ms.author: "ghogen"
+author: ghogen
+ms.author: ghogen
 ms.date: "05/11/2018"
 ms.topic: "include"
-manager: "douge"
+manager: douge
 ---
 
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces
@@ -27,7 +27,11 @@ manager: "douge"
 
    ![Kubernetes configuration settings](../media/common/Kubernetes-Create-Cluster-2.PNG)
 
-   Select **Next: Networking** when complete.
+   Select **Next: Authentication** when complete.
+
+1. Choose your desired setting for Role-based Access Control (RBAC). Azure Dev Spaces supports clusters with RBAC enabled, or disabled.
+
+    ![RBAC setting](../media/common/k8s-RBAC.PNG)
 
 1. Make sure that Http Application Routing is enabled.
 
@@ -35,9 +39,5 @@ manager: "douge"
 
     > [!IMPORTANT]
     > You must be sure to enable Http Application Routing when you create your AKS cluster. It is not possible to change this setting later.
-
-1. Choose your desired setting for Role-based Access Control (RBAC). Azure Dev Spaces supports clusters with RBAC enabled, or disabled.
-
-    ![RBAC setting](../media/common/k8s-RBAC.PNG)
 
 1. Select **Review + create** and then **Create** when complete.

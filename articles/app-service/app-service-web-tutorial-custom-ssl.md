@@ -1,6 +1,6 @@
 ---
 title: Bind an existing custom SSL certificate to Azure Web Apps | Microsoft Docs
-description: Learn to to bind a custom SSL certificate to your web app, mobile app backend, or API app in Azure App Service.
+description: Learn how to bind a custom SSL certificate to your web app, mobile app backend, or API app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin

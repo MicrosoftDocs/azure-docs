@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with QPrism | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and QPrism.
 services: active-directory
@@ -47,7 +47,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding QPrism from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Add QPrism from the gallery
 To configure the integration of QPrism into Azure AD, you need to add QPrism from the gallery to your list of managed SaaS apps.
@@ -58,15 +58,15 @@ To configure the integration of QPrism into Azure AD, you need to add QPrism fro
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications** > **All applications**.
+1. Navigate to **Enterprise applications** > **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add a new application, at the top of the dialog box, select **New application**.
+1. To add a new application, at the top of the dialog box, select **New application**.
 
 	![The New application button][3]
 
-4. In the search box, type **QPrism**, and select **QPrism** from result panel. Then click **Add** to add the application.
+1. In the search box, type **QPrism**, and select **QPrism** from result panel. Then click **Add** to add the application.
 
 	![QPrism in the results list](./media/qprism-tutorial/tutorial_qprism_addfromgallery.png)
 
@@ -81,10 +81,10 @@ To establish this relationship, in QPrism, assign the value of the **user name**
 To configure and test Azure AD single sign-on with QPrism, complete the following building blocks:
 
 1. [Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on) to enable your users to use this feature.
-2. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with Britta Simon.
-3. [Create a QPrism test user](#create-a-qprism-test-user) to have a counterpart of Britta Simon in QPrism who is linked to the Azure AD representation of user.
-4. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
-5. [Test single sign-on](#test-single-sign-on) to verify whether the configuration works.
+1. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with Britta Simon.
+1. [Create a QPrism test user](#create-a-qprism-test-user) to have a counterpart of Britta Simon in QPrism who is linked to the Azure AD representation of user.
+1. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
+1. [Test single sign-on](#test-single-sign-on) to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -94,11 +94,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal, and con
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog box, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog box, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/qprism-tutorial/tutorial_qprism_samlbase.png)
 
-3. In the **QPrism Domain and URLs** section, do the following:
+1. In the **QPrism Domain and URLs** section, do the following:
 
 	![QPrism Domain and URLs single sign-on information](./media/qprism-tutorial/tutorial_qprism_url.png)
 
@@ -109,15 +109,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal, and con
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual identifier and sign-on URL. Contact [QPrism Client support team](mailto:qsupport-ce@quatrro.com) to get these values. 
 
-4. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+1. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
 
      ![The Certificate download link](./media/qprism-tutorial/tutorial_qprism_certificate.png)
 
-5. Select **Save**.
+1. Select **Save**.
 
 	![Configure single sign-on Save button](./media/qprism-tutorial/tutorial_general_400.png)
 	
-6. To configure single sign-on on **QPrism** side, you need to send the **App Federation Metadata Url** to [QPrism support team](mailto:qsupport-ce@quatrro.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **QPrism** side, you need to send the **App Federation Metadata Url** to [QPrism support team](mailto:qsupport-ce@quatrro.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -131,15 +131,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/qprism-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/qprism-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, at the top of the **All Users** dialog box, select **Add**.
+1. To open the **User** dialog box, at the top of the **All Users** dialog box, select **Add**.
 
     ![The Add button](./media/qprism-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, do the following:
+1. In the **User** dialog box, do the following:
 
     ![The User dialog box](./media/qprism-tutorial/create_aaduser_04.png)
 
@@ -167,23 +167,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **QPrism**.
+1. In the applications list, select **QPrism**.
 
 	![The QPrism link in the applications list](./media/qprism-tutorial/tutorial_qprism_app.png)  
 
-3. In the menu on the left, select **Users and groups**.
+1. In the menu on the left, select **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Select **Add**. Then, under **Add Assignment**, select **Users and groups**.
+1. Select **Add**. Then, under **Add Assignment**, select **Users and groups**.
 
 	![The Add Assignment pane][203]
 
-5. On the **Users and groups** dialog box, select **Britta Simon** in the **Users** list.
+1. On the **Users and groups** dialog box, select **Britta Simon** in the **Users** list.
 
-6. On the **Users and groups** dialog box, select **Select**.
+1. On the **Users and groups** dialog box, select **Select**.
 
-7. Under **Add Assignment**, select **Assign**.
+1. Under **Add Assignment**, select **Assign**.
 	
 ### Test single sign-on
 

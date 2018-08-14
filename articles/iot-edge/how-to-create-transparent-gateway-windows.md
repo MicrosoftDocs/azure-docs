@@ -50,7 +50,7 @@ The following steps walk you through the process of creating the certificates an
          ```PowerShell
          .\vcpkg install openssl:x64-windows
          ```
-      1. Add `$VCPKGDIR\vcpkg\packages\openssl_x64-windows\tools\openssl` to your `PATH` environment variable so that the `openssl.exe` file is available for invocation.
+      1. Add `$VCPKGDIR\installed\x64-windows\tools\openssl` to your `PATH` environment variable so that the `openssl.exe` file is available for invocation.
 
 1. Navigate to the directory in which you want to work. From here on we'll refer to this as $WRKDIR.  All files will be created in this directory.
    
@@ -217,7 +217,7 @@ Refer to the [module composition article][lnk-module-composition] for more detai
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
 [lnk-edge-as-gateway]: ./iot-edge-as-gateway.md
 [lnk-module-dev]: module-development.md
-[lnk-iothub-getstarted]: ../iot-hub/iot-hub-csharp-csharp-getstarted.md
+[lnk-iothub-getstarted]: ../iot-hub/quickstart-send-telemetry-dotnet.md
 [lnk-iothub-x509]: ../iot-hub/iot-hub-x509ca-overview.md
 [lnk-iothub-secure-deployment]: ../iot-hub/iot-hub-security-deployment.md
 [lnk-iothub-tokens]: ../iot-hub/iot-hub-devguide-security.md#security-tokens

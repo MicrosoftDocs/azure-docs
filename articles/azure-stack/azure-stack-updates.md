@@ -21,7 +21,7 @@ ms.author: mabrigg
 
 *Applies to: Azure Stack integrated systems*
 
-Microsoft update packages for Azure Stack integrated systems typically release around the fourth Tuesday of each month. Ask your OEM about their specific notification process to ensure update notifications reach your organization. You can also check in this documentation library under under **Overview** > **Release notes** for information about releases that are in active support. 
+Microsoft update packages for Azure Stack integrated systems typically release around the fourth Tuesday of each month. Ask your OEM about their specific notification process to ensure update notifications reach your organization. You can also check in this documentation library under **Overview** > **Release notes** for information about releases that are in active support. 
 
 Each release of Microsoft software updates is bundled as a single update package. As an Azure Stack operator, you can import, install, and monitor the installation progress of these update packages from the administrator portal. 
 

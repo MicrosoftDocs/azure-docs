@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Add TargetProcess from the gallery
-2. Configure and test Azure AD single sign-on
+1. Configure and test Azure AD single sign-on
 
 ## Add TargetProcess from the gallery
 To configure the integration of TargetProcess into Azure AD, you need to add TargetProcess from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of TargetProcess into Azure AD, you need to add Tar
 
 	![Active Directory][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![Applications][3]
 
-4. In the search box, type **TargetProcess**, select **TargetProcess**  from result panel then click **Add** button to add the application.
+1. In the search box, type **TargetProcess**, select **TargetProcess**  from result panel then click **Add** button to add the application.
 
 	![ADD TargetProcess from gallery](./media/target-process-tutorial/tutorial_target-process_addfromgallery.png)
 
@@ -83,10 +83,10 @@ In TargetProcess, assign the value of the **user name** in Azure AD as the value
 To configure and test Azure AD single sign-on with TargetProcess, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a TargetProcess test user](#create-a-targetprocess-test-user)** - to have a counterpart of Britta Simon in TargetProcess that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test Single Sign-On](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a TargetProcess test user](#create-a-targetprocess-test-user)** - to have a counterpart of Britta Simon in TargetProcess that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test Single Sign-On](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -98,11 +98,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![SAML-based Sign-on](./media/target-process-tutorial/tutorial_target-process_samlbase.png)
 
-3. On the **TargetProcess Domain and URLs** section, perform the following steps:
+1. On the **TargetProcess Domain and URLs** section, perform the following steps:
 
 	![TargetProcess Domain and URLs section](./media/target-process-tutorial/tutorial_target-process_url.png)
 
@@ -113,33 +113,33 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [TargetProcess Client support team](mailto:support@targetprocess.com) to get these values. 
  
-4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![SAML Signing Certificate section](./media/target-process-tutorial/tutorial_target-process_certificate.png) 
 
-5. Click **Save** button.
+1. Click **Save** button.
 
 	![Save button](./media/target-process-tutorial/tutorial_general_400.png)
 
-6. On the **TargetProcess Configuration** section, click **Configure TargetProcess** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **TargetProcess Configuration** section, click **Configure TargetProcess** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![TargetProcess Configuration section](./media/target-process-tutorial/tutorial_target-process_configure.png) 
 
-7. Sign-on to your TargetProcess application as an administrator.
+1. Sign-on to your TargetProcess application as an administrator.
 
-8. In the menu on the top, click **Setup**.
+1. In the menu on the top, click **Setup**.
    
     ![Setup](./media/target-process-tutorial/tutorial_target_process_05.png)
 
-9. Click **Settings**.
+1. Click **Settings**.
    
     ![Settings](./media/target-process-tutorial/tutorial_target_process_06.png) 
 
-10. Click **Single Sign-on**.
+1. Click **Single Sign-on**.
    
     ![click Single Sign-On](./media/target-process-tutorial/tutorial_target_process_07.png) 
 
-11. On the Single Sign-on settings dialog, perform the following steps:
+1. On the Single Sign-on settings dialog, perform the following steps:
    
     ![Configure Single Sign-On](./media/target-process-tutorial/tutorial_target_process_08.png)
 	
@@ -168,15 +168,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	![Creating an Azure AD test user](./media/target-process-tutorial/create_aaduser_01.png) 
 
-2. To display the list of users, go to **Users and groups** and click **All users**.
+1. To display the list of users, go to **Users and groups** and click **All users**.
 	
 	![To display the list of users](./media/target-process-tutorial/create_aaduser_02.png) 
 
-3. To open the **User** dialog, click **Add** on the top of the dialog.
+1. To open the **User** dialog, click **Add** on the top of the dialog.
  
 	![Add button](./media/target-process-tutorial/create_aaduser_03.png) 
 
-4. On the **User** dialog page, perform the following steps:
+1. On the **User** dialog page, perform the following steps:
  
 	![User section](./media/target-process-tutorial/create_aaduser_04.png) 
 
@@ -208,23 +208,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **TargetProcess**.
+1. In the applications list, select **TargetProcess**.
 
 	![TargetProcess in app list](./media/target-process-tutorial/tutorial_target-process_app.png) 
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![Assign User][202] 
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![Assign User][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 

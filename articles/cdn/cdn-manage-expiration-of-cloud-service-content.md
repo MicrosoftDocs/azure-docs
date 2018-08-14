@@ -43,7 +43,7 @@ The preferred method for setting a web server's `Cache-Control` header is to use
 
 1. In the Azure portal, select a CDN profile, then select the endpoint for the web server.
 
-2. In the left pane under Settings, select **Caching rules**.
+1. In the left pane under Settings, select **Caching rules**.
 
    ![CDN caching rules button](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
 
@@ -56,13 +56,13 @@ The preferred method for setting a web server's `Cache-Control` header is to use
 
 1. Under **Global caching rules**, set **Query string caching behavior** to **Ignore query strings** and set **Caching behavior** to **Override**.
       
-2. For **Cache expiration duration**, enter 3600 in the **Seconds** box or 1 in the **Hours** box. 
+1. For **Cache expiration duration**, enter 3600 in the **Seconds** box or 1 in the **Hours** box. 
 
    ![CDN global caching rules example](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
    This global caching rule sets a cache duration of one hour and affects all requests to the endpoint. It overrides any `Cache-Control` or `Expires` HTTP headers that are sent by the origin server specified by the endpoint.   
 
-3. Select **Save**.
+1. Select **Save**.
 
 **To set a web server file's Cache-Control headers by using custom caching rules:**
 
@@ -76,7 +76,7 @@ The preferred method for setting a web server's `Cache-Control` header is to use
 
     The first custom caching rule sets a cache duration of four hours for any files in the `/webfolder1` folder on the origin server specified by your endpoint. The second rule overrides the first rule for the `file1.txt` file only and sets a cache duration of two hours for it.
 
-2. Select **Save**.
+1. Select **Save**.
 
 
 ## Setting Cache-Control headers by using configuration files
@@ -109,10 +109,10 @@ For ASP.NET applications, you control the CDN caching behavior programmatically 
 
 To programmatically cache application content in ASP.NET, follow these steps:
    1. Verify that the content is marked as cacheable by setting `HttpCacheability` to `Public`. 
-   2. Set a cache validator by calling one of the following `HttpCachePolicy` methods:
+   1. Set a cache validator by calling one of the following `HttpCachePolicy` methods:
       - Call `SetLastModified` to set a timestamp value for the `Last-Modified` header.
       - Call `SetETag` to set a value for the `ETag` header.
-   3. Optionally, specify a cache expiration time by calling `SetExpires` to set a value for the `Expires` header. Otherwise, the default cache heuristics described previously in this document apply.
+   1. Optionally, specify a cache expiration time by calling `SetExpires` to set a value for the `Expires` header. Otherwise, the default cache heuristics described previously in this document apply.
 
 For example, to cache content for one hour, add the following C# code:  
 

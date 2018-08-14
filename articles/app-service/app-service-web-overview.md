@@ -64,7 +64,7 @@ Create your first web app.
 > [Java](app-service-web-get-started-java.md)
 
 > [!div class="nextstepaction"]
-> [Python](app-service-web-get-started-python.md)
+> [Python (on Linux)](containers/quickstart-python.md)
 
 > [!div class="nextstepaction"]
 > [HTML](app-service-web-get-started-html.md)

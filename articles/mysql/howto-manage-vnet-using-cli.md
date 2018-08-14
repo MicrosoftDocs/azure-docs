@@ -36,7 +36,31 @@ If you are running the CLI locally, you need to log in to your account using the
 az login
 ```
 
+<<<<<<< HEAD
 If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account#az_account_set) command. Substitute the **id** property from the **az login** output for your subscription into the subscription id placeholder.
+=======
+Install the CLI extension for Azure Database for MySQL VNet service endpoints using the `az extension add --name rdbms-vnet` command. 
+```azurecli-interactive
+az extension add --name rdbms-vnet
+```
+
+Run the `az extension list` command to verify the installation of the CLI extension.
+```azurecli-interactive
+az extension list
+```
+The output of the command lists all installed extensions. The Azure Database for MySQL CLI extension is:
+
+ {
+    "extensionType": "whl",
+    "name": "rdbms-vnet",
+    "version": "10.0.0"
+  }
+
+> [!NOTE]
+> To uninstall the CLI extension run the `az extension remove -n rdbms-vnet` command. 
+
+If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account#az-account-set) command. Substitute the **id** property from the **az login** output for your subscription into the subscription id placeholder.
+>>>>>>> e001d53c75d262be3b6966103c7b7b90451485d6
 
 - The account must have the necessary permissions to create a virtual network and service endpoint.
 

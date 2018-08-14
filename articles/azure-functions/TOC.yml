@@ -64,6 +64,8 @@
     href: https://azure.microsoft.com/en-us/resources/samples/?service=functions
   - name: Azure CLI
     href: functions-cli-samples.md
+  - name: Azure Functions Recipes
+    href: https://docs.microsoft.com/sandbox/functions-recipes/    
 - name: Concepts
   items:
   - name: Compare 1.x and 2.x
@@ -92,6 +94,8 @@
     href: functions-best-practices.md 
   - name: Functions Proxies
     href: functions-proxies.md 
+  - name: IP addresses
+    href: ip-addresses.md 
   - name: On-premises functions
     href: functions-runtime-overview.md
   - name: Durable Functions
@@ -148,6 +152,8 @@
        href: functions-run-local.md
      - name: IntelliJ IDEA development
        href: functions-create-maven-intellij.md
+     - name: Eclipse development
+       href: functions-create-maven-eclipse.md
      - name: Manage connections
        href: manage-connections.md
      - name: Error handling
@@ -168,6 +174,8 @@
       href: functions-how-to-use-azure-function-app-settings.md
     - name: Set the runtime version 
       href: set-runtime-version.md
+    - name: Disable a function 
+      href: disable-function.md
   - name: Monitor
     href: functions-monitoring.md
   - name: Integrate

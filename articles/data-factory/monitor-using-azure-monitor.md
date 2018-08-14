@@ -58,7 +58,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 * Replace `{api-version}` with `2016-09-01`.
 * Replace `{resource-id}` with the resource ID of the resource for which you would like to edit diagnostic settings. For more information [Using Resource groups to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
 * Set the `Content-Type` header to `application/json`.
-* Set the authorization header to a JSON web token that you obtain from Azure Active Directory. For more information, see [Authenticating requests](../active-directory/develop/active-directory-authentication-scenarios.md).
+* Set the authorization header to a JSON web token that you obtain from Azure Active Directory. For more information, see [Authenticating requests](../active-directory/develop/authentication-scenarios.md).
 
 **Body**
 ```json

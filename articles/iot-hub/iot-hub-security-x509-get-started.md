@@ -1,13 +1,13 @@
 ---
 title: Tutorial for X.509 security in Azure IoT Hub | Microsoft Docs
 description: Get started on the X.509 based security in your Azure IoT hub in a simulated environment.
-author: dsk-2015
+author: dominicbetts
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.author: dkshir
+ms.author: dobett
 ---
 
 # Set up X.509 security in your Azure IoT hub
@@ -172,8 +172,8 @@ To further explore the capabilities of IoT Hub, see:
 
 * [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
-[lnk-security-best-practices]: iot-hub-security-best-practices.md
-[lnk-security-architecture]: iot-hub-security-architecture.md
-[lnk-security-deployment]: iot-hub-security-deployment.md
+[lnk-security-best-practices]: ../iot-fundamentals/iot-security-best-practices.md
+[lnk-security-architecture]: ../iot-fundamentals/iot-security-architecture.md
+[lnk-security-deployment]: ../iot-fundamentals/iot-security-deployment.md
 
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

@@ -65,7 +65,7 @@ After creating your DevOps Project, you can:
 
 ## How do I start using the Azure DevOps Project?
 
-* [Get Started with the Azure DevOps Project](https://docs.microsoft.com/azure/azure-devops-project-github)
+* [Get Started with the Azure DevOps Project](https://docs.microsoft.com/azure/devops-project/azure-devops-project-github)
 
 ## Azure DevOps Project videos
 

@@ -184,7 +184,7 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 
 [IoT Hub developer guide]: iot-hub-devguide.md
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Get started with IoT Hub]: quickstart-send-telemetry-dotnet.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Azure IoT Remote Monitoring solution accelerator]: https://docs.microsoft.com/azure/iot-suite/
 [Azure IoT device SDKs]: iot-hub-devguide-sdks.md

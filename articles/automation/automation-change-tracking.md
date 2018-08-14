@@ -93,7 +93,7 @@ Use the following steps to configure files tracking on Windows computers:
 
 ## Configure File Content tracking
 
-You can view the the contents before and after a change of a file with File Content Change Tracking. This is available for Windows and Linux files, for each change to the file, the contents of the file is stored in a storage account, and shows the file before and after the change, inline or side by side. To learn more, see [View the contents of a tracked file](change-tracking-file-contents.md).
+You can view the contents before and after a change of a file with File Content Change Tracking. This is available for Windows and Linux files, for each change to the file, the contents of the file is stored in a storage account, and shows the file before and after the change, inline or side by side. To learn more, see [View the contents of a tracked file](change-tracking-file-contents.md).
 
 ![view changes in a file](./media/change-tracking-file-contents/view-file-changes.png)
 
