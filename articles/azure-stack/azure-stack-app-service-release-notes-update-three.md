@@ -23,7 +23,7 @@ ms.reviewer: brenduns
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 These release notes describe the improvements and fixes in Azure App Service on Azure Stack Update 3 and any known issues. Known issues are divided into issues directly related to the deployment, update process, and issues with the build (post-installation).
-    
+
 > [!IMPORTANT]
 > Apply the 1807 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.3.
 >
@@ -67,7 +67,8 @@ Azure App Service on Azure Stack Update 3 includes the following improvements an
 
 For customers wishing to migrate to contained database for existing Azure App Service on Azure Stack deployments, execute these steps after the Azure App Service on Azure Stack 1.3 update has completed:
 
-> [!IMPORTANT] This procedure takes approximately 5-10 minutes.  This procedure involves killing the existing database login sessions.  Plan for downtime to migrate and validate Azure App Service on Azure Stack post migration
+> [!IMPORTANT] 
+> This procedure takes approximately 5-10 minutes.  This procedure involves killing the existing database login sessions.  Plan for downtime to migrate and validate Azure App Service on Azure Stack post migration
 >
 >
 
