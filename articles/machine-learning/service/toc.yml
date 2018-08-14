@@ -60,7 +60,7 @@
     - name: Deploy to AKS
       href: how-to-deploy-to-aks.md
     - name: Consume a deployed model
-      href: model-management-consumption.md
+      href: how-to-consume-web-services.md
 - name: Reference
   items:    
   - name: Machine learning SDK
