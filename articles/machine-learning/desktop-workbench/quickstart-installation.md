@@ -1,5 +1,5 @@
 ﻿---
-title: Installation Quickstart for Azure Machine Learning services | Microsoft Docs
+title: Installation Quickstart for Azure Machine Learning service | Microsoft Docs
 description: In this Quickstart, you can learn how to create Azure Machine Learning resources, and how to install and get started with Azure Machine Learning Workbench.
 services: machine-learning
 author: hning86
@@ -15,23 +15,23 @@ ms.date: 3/7/2018
 ROBOTS: NOINDEX 
 ---
 
-# Quickstart: Install and get started with Azure Machine Learning services
+# Quickstart: Install and get started with Azure Machine Learning service
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 
-Azure Machine Learning services (preview) are an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
+Azure Machine Learning service (preview) is an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
 
 This quickstart shows you how to:
 
-* Create service accounts for Azure Machine Learning services
+* Create service accounts for Azure Machine Learning service
 * Install and log in to Azure Machine Learning Workbench.
 * Create a project in Workbench
 * Run a script in that project  
 * Access the command-line interface (CLI)
 
 
-As part of the Microsoft Azure portfolio, Azure Machine Learning services require an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+As part of the Microsoft Azure portfolio, Azure Machine Learning service requires an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 Additionally, you must have adequate permissions to create assets such as Resource Groups, Virtual Machines, and so on. 
 
@@ -39,7 +39,7 @@ Additionally, you must have adequate permissions to create assets such as Resour
 - Windows 10 or Windows Server 2016
 - macOS Sierra or High Sierra
 
-## Create Azure Machine Learning services accounts
+## Create Azure Machine Learning service accounts
 Use the Azure portal to provision your Azure Machine Learning accounts: 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using the credentials for the Azure subscription you'll use. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now. 
 
@@ -190,7 +190,7 @@ Now, you can run the **iris_sklearn.py** script on your local computer. This scr
 
 ## Start the CLI
 
-The Azure Machine Learning command-line interface (CLI) is also installed. The CLI interface allows you to access and interact with your Azure Machine Learning services using the `az` commands to perform all tasks required for an end-to-end data science workflow. [Learn more.](../desktop-workbench/tutorial-iris-azure-cli.md)
+The Azure Machine Learning command-line interface (CLI) is also installed. The CLI interface allows you to access and interact with your Azure Machine Learning service using the `az` commands to perform all tasks required for an end-to-end data science workflow. [Learn more.](../desktop-workbench/tutorial-iris-azure-cli.md)
 
 You can launch the Azure Machine Learning CLI from the Workbench's toolbar using **File → Open Command Prompt**.
 

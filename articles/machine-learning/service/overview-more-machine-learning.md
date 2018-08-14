@@ -20,7 +20,7 @@ Microsoft provides a variety of products and services to build, deploy, and mana
 <!--
 | Use this option...                                                            | if you want to do this... |
 | ----------------------------------------------------------------------------- | ---------------- |
-| [Azure Machine Learning Services](#azure-machine-learning-services) | build and deploy models in the cloud using Python and CLI |
+| [Azure Machine Learning service](#azure-machine-learning-services) | build and deploy models in the cloud using Python and CLI |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio)               | build and deploy models using a drag-and-drop visual interface |
 | [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | build and deploy models on-premises or inside SQL Server  |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server)       | build and deploy R and Python models on an enterprise server |
@@ -49,7 +49,7 @@ Microsoft provides a variety of products and services to build, deploy, and mana
 -->
 | | | |
 |-|-|-|
-| [Azure Machine Learning Services](#azure-machine-learning-services) | Managed machine learning cloud service | Build, experiment, and deploy models in the cloud using Python and CLI |
+| [Azure Machine Learning service](#azure-machine-learning-services) | Managed machine learning cloud service | Build, experiment, and deploy models in the cloud using Python and CLI |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | Drag-and-drop visual interface for machine learning | Build, experiment, and deploy models using preconfigured algorithms |
 | [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | Analytics engine embedded in SQL | Build and deploy models on-premises or inside SQL Server |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Standalone enterprise server for machine learning | Build and deploy models with R and Python |
@@ -62,13 +62,13 @@ Microsoft provides a variety of products and services to build, deploy, and mana
 | | | |
 | [Azure Cognitive Services](#azure-cognitive-services) | Azure services with pre-built machine learning models | Easily add intelligent features to your apps |
 
-## Azure Machine Learning Services
+## Azure Machine Learning service
 
-[Azure Machine Learning Services](overview-what-is-azure-ml.md) is a fully managed cloud service that you can use to build, train, deploy, and manage machine learning models at cloud scale.
+[Azure Machine Learning service](overview-what-is-azure-ml.md) is a fully managed cloud service that you can use to build, train, deploy, and manage machine learning models at cloud scale.
 It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages.
 Rich tools are also available, such as [Jupyter notebooks](http://jupyter.org) or the [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) that make it easy to interactively explore data, transform it, and then develop, test, and deploy models.
 
-Use Azure Machine Learning Services when you want to develop, deploy, and manage models using Python and CLI at cloud scale.
+Use Azure Machine Learning service when you want to develop, deploy, and manage models using Python and CLI at cloud scale.
 
 ## Azure Machine Learning Studio
 
@@ -76,11 +76,11 @@ Use Azure Machine Learning Services when you want to develop, deploy, and manage
 
 Use Machine Learning Studio when you want to develop and deploy models with no code required. With only a browser, you can sign in, upload data, and immediately start machine learning experiments. Drag-and-drop predictive modeling, a large pallet of modules, and a library of starting templates make common machine learning tasks simple and quick.
 
-## SQL Server Machine Learning Services
+## SQL Server Machine Learning service
 
-[SQL Server Microsoft Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services) enables you to run, train, and deploy machine learning models using R or Python. You can use data located on-premises and in SQL Server databases.
+[SQL Server Microsoft Machine Learning service](https://docs.microsoft.com/sql/advanced-analytics/r/r-services) enables you to run, train, and deploy machine learning models using R or Python. You can use data located on-premises and in SQL Server databases.
 
-Use Microsoft Machine Learning Services when you need to train or deploy models on-premises, or inside of Microsoft SQL Server. Models built with Machine Learning Services can be deployed and managed using Azure Machine Learning Services. 
+Use Microsoft Machine Learning service when you need to train or deploy models on-premises, or inside of Microsoft SQL Server. Models built with Machine Learning service can be deployed and managed using Azure Machine Learning service. 
 
 ## Microsoft Machine Learning Server
 
@@ -122,7 +122,7 @@ The [Azure Data Science Virtual Machine](../data-science-virtual-machine/overvie
 
 The Data Science Virtual Machine is available in both Windows and Linux versions. For specific version information and a list of what’s included, see [Introduction to the Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md).
 
-Use the Data Science VM when you need to run or host your jobs on a single node. Or if you need to remotely scale up your processing on a single machine. The Data Science Virtual Machine is supported as a target for Azure Machine Learning Services.
+Use the Data Science VM when you need to run or host your jobs on a single node. Or if you need to remotely scale up your processing on a single machine. The Data Science Virtual Machine is supported as a target for Azure Machine Learning service.
 
 ## Azure Cognitive Services
 

@@ -15,7 +15,7 @@ metadata:
   ms.date: 09/24/2018
   ms.author: jmartens
 abstract:
-  description: With Azure Machine Learning (Preview), you can build, train, deploy, and manage machine learning and AI models using any Python tools and libraries or the CLI. You can use a wide variety of data and compute services in Azure to store and process your data.
+  description: With Azure Machine Learning (Preview), you can build, train, deploy, and manage machine learning and AI models using any Python tools and libraries or the CLI. You can use a wide variety of data and compute services in Azure to store and process your data. 
 sections:
 
 - items:
@@ -46,7 +46,7 @@ sections:
     style: unordered
     items:
     - html: <a href="tutorial-train-models-with-aml">Train your own machine learning model</a>
-    - html: <a href="../desktop-workbench/tutorial-bikeshare-dataprep">Let us pick and tune an algorithm for you</a>
+    - html: <a href="../desktop-workbench/tutorial-bikeshare-dataprep">Let us auto-generate and auto-tune a model for you</a>
     - html: <a href="tutorial-deploy-models-with-aml">Deploy a model as a web service</a>
 
 - title: Reference

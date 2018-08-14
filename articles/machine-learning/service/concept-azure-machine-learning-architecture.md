@@ -1,6 +1,6 @@
 ---
-title: How does Azure Machine Learning services work?
-description: Learn about the architecture and concepts that make up Azure Machine Learning Services. 
+title: How does Azure Machine Learning service work?
+description: Learn about the architecture and concepts that make up Azure Machine Learning service. 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,7 +11,7 @@ ms.date: 09/24/2018
 
 ---
 
-# Azure Machine Learning Services architecture and concepts
+# Azure Machine Learning service architecture and concepts
 
 The __Azure Machine Learning workspace__ is the top-level Azure resource for Azure Machine Learning. It's a logical container for all artifacts created by users when using Azure Machine Learning. Each workspace is supported by a list of associated Azure sources including a blob storage account, a KeyVault, an Azure Container Registry, and an Application Insights instance. The workspace is also the security boundary for enabling secured sharing and collaboration among multiple users. 
 
@@ -30,6 +30,8 @@ The workflow for developing and deploying a model with Azure Machine Learning ge
 7. Create an Image and register it in the __image registry__. 
 8. Deploy the image as a __web service__ in Azure.
 
+
+[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
 ## Workspace
 
@@ -60,7 +62,7 @@ The following diagram is a taxonomy of the workspace:
 ## Project
 
 A project is a local folder that contains the files for your machine learning solution.
-To use a local folder with Azure Machine Learning Services, you simply attach it to a workspace with a run history name. For an example of how to attach a project to a workspace, see one of the following documents:
+To use a local folder with Azure Machine Learning service, you simply attach it to a workspace with a run history name. For an example of how to attach a project to a workspace, see one of the following documents:
 
 * [Create a workspace with Python](quickstart-get-started.md)
 * [Create a workspace with Azure CLI](quickstart-get-started-with-cli.md)
@@ -165,7 +167,7 @@ Tasks can provide notifications through the SDK or Web UI so you can easily moni
 
 You can get started using Azure Machine Learning:
 
-* [What is Azure Machine Learning services](overview-what-is-azure-ml.md)
+* [What is Azure Machine Learning service](overview-what-is-azure-ml.md)
 * [Quickstart: Create a workspace with Python](quickstart-get-started.md)
 * [Quickstart: Create a workspace with Azure CLI](quickstart-get-started-with-cli.md)
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md)

@@ -1,6 +1,6 @@
 ---
 title: Migrate to Azure Machine Learning, general availability
-description: Learn how to upgrade or migrate to the latest version of Azure Machine Learning Services.
+description: Learn how to upgrade or migrate to the latest version of Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,7 +11,7 @@ ms.reviewer: sgilley
 ms.date: 09/24/2018
 ---
 
-# How to deploy web services from Azure Machine Learning Services to Azure Kubernetes Service
+# How to deploy web services from Azure Machine Learning service to Azure Kubernetes Service
 
 You can deploy your trained model as a web service API on either [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) (ACI) or  [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS).
 

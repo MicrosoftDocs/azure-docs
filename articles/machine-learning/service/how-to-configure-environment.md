@@ -131,5 +131,5 @@ To use a custom code editor with Azure Machine Learning SDK, first create conda 
  
 ## Next steps
 
-* [Quickstart: Get started with Azure Machine Learning Services](quickstart-get-started.md)
+* [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md)
 * [Train a model on Azure Machine Learning with the MNIST dataset and TensorFlow](tutorial-train-models-with-aml.md)
