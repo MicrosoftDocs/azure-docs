@@ -38,7 +38,7 @@ If you created your AKS cluster using the commands in the previous tutorial, it 
 To manually increase the number of nodes in your AKS cluster, use the [az aks scale][az-aks-scale] command. The following example increases the number of nodes in the AKS cluster named *myAKSCluster* to *3* nodes. The command takes a couple of minutes to complete:
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
+az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 ```
 
 The output is similar to the following example, which shows that there are now three nodes available.

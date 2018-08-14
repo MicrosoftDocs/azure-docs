@@ -43,19 +43,19 @@ In the following example, the current version is *1.9.6*, and the available vers
 
 ```
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  ----------
-default  myResourceGroup  1.9.6            1.9.6              1.10.3
+-------  ---------------  ---------------  -----------------  ----------------------
+default  myResourceGroup  1.9.9            1.9.9              1.10.3, 1.10.5, 1.10.6
 ```
 
 ## Upgrade a cluster
 
-Use the [az aks upgrade][] command to upgrade the AKS cluster. The following example upgrades the cluster to Kubernetes version *1.10.3*.
+Use the [az aks upgrade][] command to upgrade the AKS cluster. The following example upgrades the cluster to Kubernetes version *1.10.6*.
 
 ```azurecli
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.10.3
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.10.6
 ```
 
-The following condensed example output shows the *kubernetesVersion* now reports *1.10.3*:
+The following condensed example output shows the *kubernetesVersion* now reports *1.10.6*:
 
 ```json
 {
@@ -73,7 +73,7 @@ The following condensed example output shows the *kubernetesVersion* now reports
   "enableRbac": false,
   "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io",
   "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "kubernetesVersion": "1.10.3",
+  "kubernetesVersion": "1.10.6",
   "location": "eastus",
   "name": "myAKSCluster",
   "type": "Microsoft.ContainerService/ManagedClusters"
@@ -88,12 +88,12 @@ Confirm that the upgrade was successful using the [az aks show][] command as fol
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-The following example output shows the AKS cluster runs *KubernetesVersion 1.10.3*:
+The following example output shows the AKS cluster runs *KubernetesVersion 1.10.6*:
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.10.3               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.10.6               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
 ## Next steps

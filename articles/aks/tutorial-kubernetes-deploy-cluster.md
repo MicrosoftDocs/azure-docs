@@ -74,7 +74,7 @@ az role assignment create --assignee <appId> --scope <acrId> --role Reader
 
 ## Create a Kubernetes cluster
 
-AKS clusters can use Kubernetes role-based access controls (RBAC). These controls let you define access to resources based on roles assigned to users. Permissions can be combined if a user is assigned multiple roles, and permissions can be scoped to either a single namespace or across the whole cluster. Kubernetes RBAC is currently in preview for AKS clusters. The Azure CLI automatically enables RBAC when you create an AKS cluster.
+AKS clusters can use Kubernetes role-based access controls (RBAC). These controls let you define access to resources based on roles assigned to users. Permissions can be combined if a user is assigned multiple roles, and permissions can be scoped to either a single namespace or across the whole cluster. Kubernetes RBAC is currently in preview for AKS clusters. By default, the Azure CLI automatically enables RBAC when you create an AKS cluster.
 
 Create an AKS cluster using [az aks create][]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr]. Provide your own `<appId>` and `<password>` from the previous step where the service principal was created.
 
@@ -114,7 +114,7 @@ To verify the connection to your cluster, run the [kubectl get nodes][kubectl-ge
 $ kubectl get nodes
 
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.6
+aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.9
 ```
 
 ## Next steps
