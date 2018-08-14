@@ -19,6 +19,8 @@ The pre-bake design process produces the scene and metadata that are used for th
 
 The default absorption coefficient for all surfaces is 0.02, which is highly reflective. You can achieve aesthetic and gameplay effects by tuning the absorption coefficients of different materials throughout the scene, which are especially prominent to listeners when they hear the transitions. For example, transitioning from a dark reverberant room to a bright, non-reverberant outdoor scene enhances the impact of the transition. To achieve this effect, tune the absorption coefficients on the outdoor scene materials higher.
 
+The reverberation time of a given material in a room is inversely related to its absorption coefficient, with most materials having absorption values in the 0.01 to 0.20 range. Materials with absorption coefficients outside this range are very absorbent. 
+
 The [bake UI walk through](bakeuiwalkthrough.md) describes the pre-bake controls in detail.
 
 ## Sound source placement
