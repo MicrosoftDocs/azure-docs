@@ -43,7 +43,7 @@ To add a globally unique identifier (GUID), you make a single modification to th
 1. Create a GUID (for example, eb7927c8-dd66-43e1-b0cf-c346a422063).
 1. Open the Resource Manager template
 1. Add a new resource in the main template file. The resource needs to be in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
-1. Enter the GUID value after the **pid-** prefix like this: `pid-eb7927c8-dd66-43e1-b0cf-c346a422063`.
+1. Enter the GUID value after the **pid-** prefix (for example, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
 1. Check the template for any errors.
 1. Republish the template in the appropriate repositories.
 
