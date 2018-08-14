@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 08/14/2018
 ms.author: shlo
 
 ---
@@ -118,7 +118,7 @@ For a nine-minute introduction and demonstration of this feature, watch the foll
 
 - You can store script and data files in a GitHub repository. However, you have to upload the files manually to Azure Storage. A Data Factory pipeline does not automatically upload script or data files stored in a GitHub repository to Azure Storage.
 
-- At this time, GitHub Enterprise is only supported in the Google Chrome browser. GitHub Enterprise doesn't work in the Microsoft Edge browser due to a known issue.
+- GitHub Enterprise with a version older than 2.14.0 doesn't work in the Microsoft Edge browser.
 
 - GitHub integration with the Data Factor visual authoring tools only works in the generally available version of Data Factory.
 
