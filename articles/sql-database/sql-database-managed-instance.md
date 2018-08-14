@@ -121,7 +121,7 @@ The following list outlines the key characteristics of the Business Critical ser
 | SQL Server version / build | SQL Server (latest available) |
 | Additional features | [In-Memory OLTP](sql-database-in-memory.md)<br> 1 additional read-only replica ([Read Scale-Out](sql-database-read-scale-out.md))
 | Min storage size | 32 GB |
-| Max storage size | Gen 4: 1 TB (all vCore sizes<br> Gen 5:<ul><li>1 TB for 8, 16 vCores</li><li>2 TB for 24 vCores</li><li>4 TB for 32, 40, 64, 80 vCores</ul>|
+| Max storage size | Gen 4: 1 TB (all vCore sizes)<br> Gen 5:<ul><li>1 TB for 8, 16 vCores</li><li>2 TB for 24 vCores</li><li>4 TB for 32, 40, 64, 80 vCores</ul>|
 | Max storage per database | Determined by the max storage size per instance |
 | Number of data files (ROWS) per the database | Multiple | 
 | Number of log files (LOG) per database | 1 | 
@@ -138,7 +138,9 @@ For more information see [Premium/Business Critical availability and architectur
 
 ## Advanced security and compliance 
 
-### Managed Instance security isolation 
+Azure SQL Database Managed Instance combines advanced security features provided by Azure cloud and SQL Server Database Engine. 
+
+### Managed Instance security isolation in Azure cloud 
 
 Managed Instance provide additional security isolation from other tenants in the Azure cloud. Security isolation includes: 
 
@@ -157,7 +159,7 @@ To learn more details about VNet integration and networking policy enforcements 
 
 ### Database Engine Security Features
 
-- Auditing for compliance and security - [Managed Instance auditing](sql-database-managed-instance-auditing.md) tracks database events and writes them to an audit log file placed in your Azure storage account. Auditing can help maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. 
+- [Managed Instance auditing](sql-database-managed-instance-auditing.md) tracks database events and writes them to an audit log file placed in your Azure storage account. Auditing can help maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. 
 - Data encryption in motion - Managed Instance secures your data by providing encryption for data in motion using Transport Layer Security. In addition to transport layer security, SQL Database Managed Instance offers protection of sensitive data in flight, at rest and during query processing with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted is an industry-first that offers unparalleled data security against breaches involving the theft of critical data. For example, with Always Encrypted, credit card numbers are stored encrypted in the database always, even during query processing, allowing decryption at the point of use by authorized staff or applications that need to process that data. 
 - [Threat Detection](sql-database-managed-instance-threat-detection.md) complements [Managed Instance auditing](sql-database-managed-instance-auditing.md) by providing an additional layer of security intelligence built into the service that detects unusual and potentially harmful attempts to access or exploit databases. You are alerted about suspicious activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access patterns. Threat Detection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/) and provide details of suspicious activity and recommend action on how to investigate and mitigate the threat.  
 - [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking) limits sensitive data exposure by masking it to nonprivileged users. Dynamic data masking helps prevent unauthorized access to sensitive data by enabling you to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed. 
@@ -168,12 +170,14 @@ Migration of an encrypted database to SQL Managed Instance is supported via the 
 
 ## Azure Active Directory Integration
 
+Azure SQL Database Managed Instance supports traditional SQL server Database engine logins and logins integrated with Azure Active Directory (AAD). AAD Logins are Azure cloud version of Windows database logins that you are using in your on-premises environment.
+
 ### Azure Active Directory integration and multi-factor authentication 
 
-SQL Database enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](sql-database-aad-authentication.md). This capability simplified permission management and enhances security. Azure Active Directory supports [multi-factor authentication](sql-database-ssms-mfa-authentication-configure.md) (MFA) to increase data and application security while supporting a single sign-on process. 
+Managed Instance enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](sql-database-aad-authentication.md). This capability simplified permission management and enhances security. Azure Active Directory supports [multi-factor authentication](sql-database-ssms-mfa-authentication-configure.md) (MFA) to increase data and application security while supporting a single sign-on process. 
 
 ### Authentication 
-SQL database authentication refers to how users prove their identity when connecting to the database. SQL Database supports two types of authentication:  
+Managed Instance authentication refers to how users prove their identity when connecting to the database. SQL Database supports two types of authentication:  
 
 - SQL Authentication, which uses a username and password.
 - Azure Active Directory Authentication, which uses identities managed by Azure Active Directory and is supported for managed and integrated domains. 
