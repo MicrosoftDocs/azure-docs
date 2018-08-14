@@ -60,19 +60,19 @@ If you plan to deploy multiple Managed Instances inside the subnet and need to o
 
 ## Create a new virtual network for Managed Instance using ARM deployment
 
-The easiest way to 
+The easiest way to create and configure virtual network is to use ARM deplozment template.
 
 1. Sign in to the Azure portal 
 
 2. Use **Deploy to Azure** button to deploy virtual network in Azure cloud:
 
-<a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+  <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
 
-This button will open a form that you can use to configure network environment where you can deploy Managed Instance.
+  This button will open a form that you can use to configure network environment where you can deploy Managed Instance.
 
-> [!Note]
-> This ARM template will deploy virtual network with two subnets. One **ManagedInstances** is
-> reserved for Managed Instances and has configured route table, while the other **Default** is used > for other resources that should access Managed Instance. You can remove **Default** subnet if you don't need it.
+  > [!Note]
+  > This ARM template will deploy virtual network with two subnets. One **ManagedInstances** is
+  > reserved for Managed Instances and has configured route table, while the other **Default** is used for other resources that should access Managed Instance. You can remove **Default** subnet if you don't need it.
 
 3. Configure network environment. On the following form you can configure parameters of your network environment:
 

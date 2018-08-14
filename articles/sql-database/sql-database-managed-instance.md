@@ -157,7 +157,9 @@ To learn more details about VNet integration and networking policy enforcements 
 > [!IMPORTANT]
 > Place multiple managed instance in the same subnet, wherever that is allowed by your security requirements, as that will bring you additional benefits. Collocating instances in the same subnet will significantly simplify networking infrastructure maintenance and reduce instance provisioning time, since long provisioning duration is associated with the cost of deploying first managed instance in a subnet.
 
-### Database Engine Security Features
+### Azure SQL Database Security Features
+
+Azure SQL Database provides a set of advanced security features that can be used to protect your data.
 
 - [Managed Instance auditing](sql-database-managed-instance-auditing.md) tracks database events and writes them to an audit log file placed in your Azure storage account. Auditing can help maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. 
 - Data encryption in motion - Managed Instance secures your data by providing encryption for data in motion using Transport Layer Security. In addition to transport layer security, SQL Database Managed Instance offers protection of sensitive data in flight, at rest and during query processing with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted is an industry-first that offers unparalleled data security against breaches involving the theft of critical data. For example, with Always Encrypted, credit card numbers are stored encrypted in the database always, even during query processing, allowing decryption at the point of use by authorized staff or applications that need to process that data. 
