@@ -1,5 +1,5 @@
 ---
-title: Getting started with acoustics | Microsoft Docs
+title: Frequently Asked Questions about Acoustics | Microsoft Docs
 description: Use advanced acoustics and spatialization in your Unity title
 services: cognitive-services
 author: kegodin
@@ -10,6 +10,7 @@ ms.topic: article
 ms.date: 08/03/2018
 ms.author: kegodin
 ---
+# Acoustics Frequently Asked Questions
 
 ## What is this?
 A pre-baked acoustics system, akin to static lighting. Azure does the heavy lifting of wave physics at design time, so runtime CPU is light.
