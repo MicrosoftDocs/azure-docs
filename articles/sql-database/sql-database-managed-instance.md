@@ -33,7 +33,7 @@ Managed Instance is envisioned as preferred platform for the following scenarios
 
 By General Availability, Managed Instance aims to deliver close to 100% surface area compatibility with the latest on-premises SQL Server version through a staged release plan. 
 
-To decide between Azure SQL Database Single Database, Azure SQL Database Managed Instance, and SQL Server IaaS hosetd in Virtual Machine see [how to choose the right version of SQL Server in Azure cloud](sql-database-paas-vs-sql-server-iaas.md).
+To decide between Azure SQL Database Single Database, Azure SQL Database Managed Instance, and SQL Server IaaS hosted in Virtual Machine see [how to choose the right version of SQL Server in Azure cloud](sql-database-paas-vs-sql-server-iaas.md).
 
 ## Key features and capabilities of a Managed Instance 
 
@@ -118,7 +118,7 @@ The following list outlines the key characteristics of the Business Critical ser
 -	Comes with super-fast SSD storage (up to 1 TB on Gen 4 and up to 4 TB on Gen 5)
 -	Supports up to 100 databases per instance 
 - Built-in additional read-only instance that can be used for reporting and other read-only workloads
-- [In-Memory OLTP](sql-database-in-memory.md) that can be use for workload with high-prefrmance requirements  
+- [In-Memory OLTP](sql-database-in-memory.md) that can be used for workload with high-prefrmance requirements  
 
 |Feature | Description|
 |---|---|
@@ -162,7 +162,7 @@ To learn more details about VNet integration and networking policy enforcements 
 
 ### Database Engine Security Features
 
-- Auditing for compliance and security - [Managed Instance auditing](sql-database-managed-instance-auditing.md) tracks database events and writes them to an audit log in your Azure storage account. Auditing can help maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. 
+- Auditing for compliance and security - [Managed Instance auditing](sql-database-managed-instance-auditing.md) tracks database events and writes them to an audit log file placed in your Azure storage account. Auditing can help maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. 
 - Data encryption in motion - Managed Instance secures your data by providing encryption for data in motion using Transport Layer Security. In addition to transport layer security, SQL Database Managed Instance offers protection of sensitive data in flight, at rest and during query processing with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted is an industry-first that offers unparalleled data security against breaches involving the theft of critical data. For example, with Always Encrypted, credit card numbers are stored encrypted in the database always, even during query processing, allowing decryption at the point of use by authorized staff or applications that need to process that data. 
 - [Threat Detection](sql-database-managed-instance-threat-detection.md) complements [Managed Instance auditing](sql-database-managed-instance-auditing.md) by providing an additional layer of security intelligence built into the service that detects unusual and potentially harmful attempts to access or exploit databases. You are alerted about suspicious activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access patterns. Threat Detection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/) and provide details of suspicious activity and recommend action on how to investigate and mitigate the threat.  
 - [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking) limits sensitive data exposure by masking it to nonprivileged users. Dynamic data masking helps prevent unauthorized access to sensitive data by enabling you to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed. 
