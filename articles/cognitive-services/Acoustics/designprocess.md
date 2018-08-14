@@ -15,21 +15,21 @@ ms.author: kegodin
 The design process is in three parts: pre-bake design, sound source placement, and post-bake design.
 
 ## Pre-bake design
-The pre-bake design process produces the scene and metadata that are used for the sound wave simulation. This includes selecting which scene elements will participate in the simulation so that they provide occlusions, reflections, and reverberation. It also includes selecting the materials properties of these scene elements. The materials properties control the amount of absorbed and reflected sound energy from each surface.
+The pre-bake design process produces the scene and metadata that are used for the sound wave simulation, which includes selecting which scene elements will participate in the simulation so that they provide occlusions, reflections, and reverberation. This process also includes selecting the materials properties of these scene elements. The materials properties control the amount of sound energy reflected back from each surface.
 
-The default absorption coefficient for all surfaces is 0.02, which is highly reflective. The designer can achieve aesthetic and gameplay effects by tuning the absorption coefficients of different materials throughout the scene, which are especially prominent to listeners when they hear the transitions For example, transitioning from a dark reverberant room into a bright, non-reverberant outdoor scene can enhance the impact of the transition. This can be achieved by tuning the absorption coefficients on the outdoor scene materials higher.
+The default absorption coefficient for all surfaces is 0.02, which is highly reflective. You can achieve aesthetic and gameplay effects by tuning the absorption coefficients of different materials throughout the scene, which are especially prominent to listeners when they hear the transitions. For example, transitioning from a dark reverberant room to a bright, non-reverberant outdoor scene enhances the impact of the transition. To achieve this effect, tune the absorption coefficients on the outdoor scene materials higher.
 
-Using the UI for pre-bake design is described in detail in [bake UI walk through](bakeuiwalkthrough.md).
+The [bake UI walk through](bakeuiwalkthrough.md) describes the pre-bake controls in detail.
 
 ## Sound source placement
-Viewing voxels and probe points at runtime can help debug issues with sound sources being stuck inside the voxelized geometry. To toggle the voxel grid and probe points display, click the corresponding checkbox in the Gizmos menu.  
+Viewing voxels and probe points at runtime can help debug issues with sound sources being stuck inside the vowelized geometry. To toggle the voxel grid and probe points display, click the corresponding checkbox in the Gizmos menu.  
 
 ![Gizmos Menu](media/GizmosMenu.png)  
 
 The voxel display can help determine if visual components in the game have a transform applied to them. If so, apply the same transform to the GameObject hosting the Acoustics Manager.
 
 ## Post-bake design
-The bake results are stored as occlusion and reverberation parameters for source-listener location pairs throughout the scene. This physically-accurate result can be useful in some cases and is a good quickstart for acoustics in your title, and is also a good starting point for design. Post-bake design involves specifying rules for transforming the bake result parameters at runtime on a scene-level and per-source level.
+Bake results are stored as occlusion and reverberation parameters for all source-listener location pairs throughout the scene. This physically accurate result can be great acoustics for your title as-is, and is also a great starting point for design. The post-bake design process specifies rules for transforming the bake result parameters at runtime.
 
 ### Distance-based attenuation
 The acoustics spatializer plugin respects the per-source distance-based attenuation built into the Unity Editor. 
@@ -44,6 +44,6 @@ To adjust parameters for a single source, attach the AcousticsSourceCustomizatio
 
 ![Source Customization](media/SourceCustomization.png)
 
-* **Reverb Power Adjust** - This value adjusts the reverb power, in dB. Positive values make a sound more reverberant, negative values make a sound more dry.
-* **Decay Time Scale** - This value adjusts the decay time in a multiplicative fashion. For example, if the acoustics table query results in a decay time of 750 milliseconds, but this value is set to 1.5, the resulting decay time is 1.125 seconds.
-* **Enable Acoustics** - This checkbox controls whether this sound source uses the results of the acoustics table query or not. When checked, acoustic parameters from the lookup table will be applied. When unchecked, the source will still be spatialized, without acoustics. The result is through-the-wall directionality, with no obstruction/occlusion effects, and no dynamic change in reverb.  
+* **Reverb Power Adjust** - Adjusts the reverb power, in dB. Positive values make a sound more reverberant, while negative values make a sound more dry.
+* **Decay Time Scale** - Adjusts a multiplier for the decay time. For example, if the bake result specifies a decay time of 750 milliseconds, but this value is set to 1.5, the decay time applied to the source is 1,125 milliseconds.
+* **Enable Acoustics** - Controls whether acoustics is applied to this source. When unchecked, the source will be spatialized but without acoustics. The result is through-the-wall directionality, with no obstruction/occlusion effects, and no dynamic change in reverb. Reverb is still applied.
