@@ -271,4 +271,4 @@ A successful result is the creation of a file named "speak2.wav". The file conta
 ## See also 
 
 [Translator Speech overview](../overview.md)
-[API Reference](http://docs.microsofttranslator.com/speech-translate.html)
+[API Reference](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

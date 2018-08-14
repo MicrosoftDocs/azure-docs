@@ -19,7 +19,7 @@ Rolling certificates is a security best practice to help secure your system in t
 Rolling device certificates will involve updating the certificate stored on the device and the IoT hub. Afterwards, the device can reprovision itself with the IoT hub using normal [auto-provisioning](concepts-auto-provisioning.md) with the Device Provisioning Service.
 
 
-## Obtaining new certificates
+## Obtain new certificates
 
 There are many ways to obtain new certificates for your IoT devices. These include obtaining certificates from the device factory, generating your own certificates, and having a third party manage certificate creation for you. 
 
@@ -30,7 +30,7 @@ There are two different ways to obtain a signing certificate. The first way, whi
 The second way is to create your own X.509 certificates using a tool like OpenSSL. This approach is great for testing X.509 certificates but provides few guarantees around security. We recommend you only use this approach for testing unless you prepared to act as your own CA provider.
  
 
-## Rolling the certificate on the device
+## Roll the certificate on the device
 
 Certificates on a device should always be stored in a safe place like a [hardware security module (HSM)](concepts-device.md#hardware-security-module). The way you roll device certificates will depend on how they were created and installed in the devices in the first place. 
 
@@ -39,7 +39,7 @@ If you got your certificates from a third party, you must look into how they rol
 If you're managing your own device certificates, you'll have to build your own pipeline for updating certificates. Make sure both old and new leaf certificates have the same common name (CN). By having the same CN, the device can reprovision itself without creating a duplicate registration record.
 
 
-## Rolling the certificate in the IoT hub
+## Roll the certificate in the IoT hub
 
 The device certificate can be manually added to an IoT hub. The certificate can also be automated using a Device Provisioning Service instance. In this article, we'll assume a provisioning service instance is being used to support auto-provisioning.
 
@@ -97,7 +97,7 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 
 To update a group enrollment in response to a security breach, you should use one of the following approaches that will delete the current root CA, or intermediate certificate immediately.
 
-#### Updating compromised root CA certificates
+#### Update compromised root CA certificates
 
 1. Click the **Certificates** tab for your provisioning service instance.
 
@@ -118,7 +118,7 @@ To update a group enrollment in response to a security breach, you should use on
     ![Remove IoT hub device registration](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
 
-#### Updating compromised intermediate certificates
+#### Update compromised intermediate certificates
 
 1. Click **Enrollment Groups**, and then click the group name in the list. 
 
@@ -140,7 +140,7 @@ If you are rolling certificates to handle certificate expirations, you should us
 
 Later when the secondary certificate also nears expiration, and needs to be rolled, you can rotate to using the primary configuration. Rotating between the primary and secondary certificates in this way ensures no downtime for devices attempting to provision. 
 
-#### Updating expiring root CA certificates
+#### Update expiring root CA certificates
 
 1. Follow steps outlined in [Configure verified CA certificates](how-to-verify-certificates.md) to add and verify new root CA certificates.
 
@@ -156,7 +156,7 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 
 
 
-#### Updating expiring intermediate certificates
+#### Update expiring intermediate certificates
 
 
 1. Click **Enrollment Groups**, and click the group name in the list. 
@@ -170,7 +170,7 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 3. Later when the primary certificate has expired, come back and delete that primary certificate by clicking the **Delete current certificate** button.
 
 
-## Device reprovisioning
+## Reprovision the device
 
 Once the certificate is rolled on both the device, and the Device Provisioning Service, the device can reprovision itself by contacting the Device Provisioning Service. 
 
@@ -181,7 +181,7 @@ Another way is for both the old and the new certificates to be valid for a short
 Once reprovisioning is complete, devices will be able to connect to IoT Hub using their new certificates.
 
 
-## Blacklisting certificates
+## Blacklist certificates
 
 In response to a security breach, you may need to blacklist a device certificate. To blacklist a device certificate, disable the enrollment entry for the target device/certificate. For more information, see blacklisting devices in the [Manage disenrollment](how-to-revoke-device-access-portal.md) article.
 

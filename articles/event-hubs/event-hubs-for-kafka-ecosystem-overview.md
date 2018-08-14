@@ -14,11 +14,13 @@ ms.author: shvija
 ---
 # Azure Event Hubs for Apache Kafka (preview)
 
-Event Hubs provides a Kafka endpoint that can be used by your existing Kafka based applications as an alternative to running your own Kafka cluster. Event Hubs supports [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) and newer client versions, and works with your existing Kafka applications, including MirrorMaker. Change your connection string and start streaming events from your applications that use the Kafka protocol into Event Hubs.
+Event Hubs provides a Kafka endpoint that can be used by your existing Kafka based applications as an alternative to running your own Kafka cluster. Event Hubs supports [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) and newer client versions, and works with your existing Kafka applications, including MirrorMaker. 
 
 ## What does Event Hubs for Kafka provide?
 
-The Event Hubs for Kafka feature provides a protocol head on top of Azure Event Hubs that is binary compatible with Kafka versions 1.0 and later for both reading from and writing to Kafka topics. Conceptually Kafka and Event Hubs are nearly identical: they are both partitioned logs built for streaming data. The following table maps concepts between Kafka and Event Hubs.
+The Event Hubs for Kafka feature provides a protocol head on top of Azure Event Hubs that is binary compatible with Kafka versions 1.0 and later for both reading from and writing to Kafka topics. You may start using the Kafka endpoint from your applications with no code change but a minimal configuration change. You update the connection string in configurations to point to the Kafka endpoint exposed by your event hub instead of pointing to your Kafka cluster. Then, you can start streaming events from your applications that use the Kafka protocol into Event Hubs. 
+
+Conceptually Kafka and Event Hubs are nearly identical: they are both partitioned logs built for streaming data. The following table maps concepts between Kafka and Event Hubs.
 
 ### Kafka and Event Hub conceptual mapping
 

@@ -1,5 +1,5 @@
 - name: VM Extensions Documentation
-  href: ../index.md
+  href: ../index.yml
 - name: Overview
   items:
   - name: About Azure Extensions

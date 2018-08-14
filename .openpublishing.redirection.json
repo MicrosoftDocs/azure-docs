@@ -2881,6 +2881,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-migrate-account-subscription.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources",
+            "redirect_document_id": false
+        },
+        
+        {
             "source_path": "articles/automation/automation-troubleshooting-automation-errors.md",
             "redirect_url": "/azure/automation/troubleshoot/runbooks",
             "redirect_document_id": false
@@ -6950,16 +6956,6 @@
             "redirect_url": "/azure/azure-stack/user/azure-stack-sql-server-vm-considerations",
             "redirect_document_id": false
         },
-        { 
-            "source_path": "articles/azure-stack/azure-stack-update-1807.md",
-            "redirect_url": "/azure/azure-stack",
-            "redirect_document_id": false
-        },
-        { 
-            "source_path": "articles/azure-stack/azure-stack-add-scale-node.md",
-            "redirect_url": "/azure/azure-stack",
-            "redirect_document_id": false
-        },
         {
             "source_path": "articles/azure-resource-manager/best-practices-resource-manager-security.md",
             "redirect_url": "/azure/best-practices-network-security",
@@ -8383,6 +8379,11 @@
         {
             "source_path": "articles/documentdb/documentdb-change-feed.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/change-feed",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/documentdb/table-powershell.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/azure/cosmos-db/table-introduction",
             "redirect_document_id": false
         },
         {
@@ -9847,12 +9848,22 @@
         },
         {
             "source_path": "articles/machine-learning/cortana-intelligence-appsource-evaluation-tool.md",
-            "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-evaluation-tool",
+            "redirect_url": "https://azure.microsoft.com/overview/ai-platform/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/cortana-intelligence-appsource-evaluation-tool.md",
+            "redirect_url": "https://azure.microsoft.com/overview/ai-platform/",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/machine-learning/cortana-intelligence-appsource-publishing-guide.md",
-            "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide",
+            "redirect_url": "https://azure.microsoft.com/overview/ai-platform/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide.md",
+            "redirect_url": "https://azure.microsoft.com/overview/ai-platform/",
             "redirect_document_id": false
         },
         {
@@ -12818,7 +12829,7 @@
         },
         {
             "source_path": "articles/service-fabric/service-fabric-update-vmss-sku.md",
-            "redirect_url": "/azure/service-fabric/service-fabric-cluster-upgrade-primary-nodetype-vm",
+            "redirect_url": "/azure/service-fabric/service-fabric-cluster-upgrade",
             "redirect_document_id": false
         },
         {
@@ -17846,6 +17857,16 @@
             "redirect_url": "/azure/active-directory/reports-monitoring/sample-audit-api",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/active-directory/reports-monitoring/sample-audit-api.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/reports-monitoring/sample-sign-in-api.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates",
+            "redirect_document_id": false
+        },        
         {
             "source_path": "articles/active-directory/active-directory-reporting-api-getting-started-azure-portal.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/concept-reporting-api",
@@ -27078,6 +27099,10 @@
             "source_path": "articles/active-directory/device-management-azuread-joined-devices-frx.md",
             "redirect_url": "/azure/active-directory/devices/azuread-joined-devices-frx",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Image-Search/sdk.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Image-Search/image-search-sdk-quickstart"
         },
 		{
             "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",

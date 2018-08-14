@@ -175,7 +175,7 @@
         href: search-indexer-field-mappings.md
   - name: Searching data
     items:
-    - name: Query types/composition
+    - name: Query types & composition
       href: search-query-overview.md
     - name: Search explorer (portal)
       href: search-explorer.md
