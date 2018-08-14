@@ -14,7 +14,7 @@ ms.date: 8/6/2018
 
 # How to choose a development environment for Azure Machine Learning 
 
-In this document, you'll learn about different choices for development environment when building and deploying models with Azure Machine Learning. When choosing your environment, consider these factors:
+In this document, you'll learn about different choices for development environment when building and deploying models with the Azure Machine Learning service. When choosing your environment, consider these factors:
 
 * Do you need interactive experimentation and data exploration? 
 * Is your goal to integrate your machine learning code with larger solution?

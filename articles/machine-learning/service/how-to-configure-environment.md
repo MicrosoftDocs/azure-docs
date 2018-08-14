@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 8/6/2018
 ---
 
-# How to configure a development environment for Azure Machine Learning 
+# How to configure a development environment for the Azure Machine Learning service
 
 You'll learn about configuring following develop environments:
 
