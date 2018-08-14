@@ -1,5 +1,5 @@
 ---
-title: Distributed training using Horovod - Azure Batch AI | Microsoft Docs
+title: Tutorial - Distributed training with Azure Batch AI and Horovod | Microsoft Docs
 description: Tutorial - How to train a distributed model with Horovod using the Azure Batch AI service and Azure CLI.
 services: batch-ai
 author: johnwu10
@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Train a distributed model with Horovod
 
-In this tutorial, you train a distributed deep learning model by running it in parallel across multiple nodes in a Batch AI cluster. Batch AI is a managed service for training machine learning and AI models at scale on clusters of Azure GPUs. A common Batch AI workflow is introduced along with how to interact with Batch AI resources through the Azure CLI. Topics covered include:
+In this tutorial, you train a distributed deep learning model by running it in parallel across multiple nodes in a Batch AI cluster. Batch AI is a managed service for training machine learning and AI models at scale on clusters of Azure GPUs. This tutorial introduces a common Batch AI workflow along with how to interact with Batch AI resources through the Azure CLI. Topics covered include:
 
 > [!div class="checklist"]
 > * Set up a Batch AI workspace, experiment, and cluster
@@ -25,7 +25,7 @@ In this tutorial, you train a distributed deep learning model by running it in p
 > * Monitor the job
 > * Retrieve the training results
 
-You modify a Keras object detection model to run in parallel with [Horovod](https://github.com/uber/horovod). The model trains on the [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) of images. The training job runs on a cluster containing 24 vCPUs and 4 GPUs, and takes approximately 60 minutes to complete.
+For this tutorial, an object detection model is modified to run in parallel with [Horovod](https://github.com/uber/horovod). The model trains on the [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) of images. The training job runs on a cluster containing 24 vCPUs and 4 GPUs, and takes approximately 60 minutes to complete.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 before you begin.
@@ -36,9 +36,9 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Why use Horovod?
 
-Horovod is a distributed training framework for Tensorflow, Keras, and PyTorch, and is used for this tutorial. With Horovod, you can convert a training script designed to run on a single GPU to one that runs efficiently on a distributed system using just a few lines of code. 
+Horovod is a distributed training framework for Tensorflow, Keras, and PyTorch, and is used for this tutorial. With Horovod, you can convert a training script designed to run on a single GPU to one that runs efficiently on a distributed system using just a few lines of code.
 
-Batch AI supports distributed training with several other popular open-source frameworks. Be sure to review the license terms of any framework that you use to train models in production.
+In addition to Horovod, Batch AI supports distributed training with several other popular open-source frameworks. Be sure to review the license terms of any framework that you use to train models in production.
 
 ## Prepare the Batch AI environment
 
@@ -47,12 +47,12 @@ Batch AI supports distributed training with several other popular open-source fr
 Use the `az group create` command to create a resource group named `batchai.horovod` in the `eastus` region. You use the resource group to deploy Batch AI resources.
 
 ```azurecli-interactive
-az group create --name batchai.horovod --location eastus 
+az group create --name batchai.horovod --location eastus
 ```
 
 ### Create a workspace
 
-Create a Batch AI workspace using the `az batchai workspace create` command. A workspace in Batch AI is a top-level collection of other Batch AI resources. The following command creates a workspace called `batchaidev` under your resource group.
+Create a Batch AI workspace using the `az batchai workspace create` command. A workspace is a top-level collection of other Batch AI resources. The following command creates a workspace called `batchaidev` under your resource group.
 
 ```azurecli-interactive
 az batchai workspace create --resource-group batchai.horovod --workspace batchaidev 
@@ -60,47 +60,48 @@ az batchai workspace create --resource-group batchai.horovod --workspace batchai
 
 ### Create an experiment
 
- The following `az batchai experiment create` command creates a Batch AI experiment called `cifar` under the workspace and resource group. An experiment groups one or more jobs that you query and manage together. 
+A Batch AI experiment groups one or more jobs that you query and manage together. The following `az batchai experiment create` command creates an experiment called `cifar` under the workspace and resource group.
 
 ```azurecli-interactive
 az batchai experiment create --resource-group batchai.horovod --workspace batchaidev --name cifar 
 ```
 
-## Provision a GPU cluster
+## Set up a GPU cluster
 
-The next step is to provision a GPU cluster that can be used to run the experiment. Batch AI provides a flexible range of options for customizing clusters for specific needs.
+Next, set up a GPU cluster to run the experiment. Batch AI provides a flexible range of options for customizing clusters for specific needs.
 
-The following `az batchai cluster create` command creates a 4-node cluster called `nc6cluster` under your workspace and resource group. By default, the VMs in the cluster run a default Ubuntu Server image designed to host container-based applications.
+The following `az batchai cluster create` command creates a 4-node cluster called `nc6cluster` under your workspace and resource group. By default, the VMs in the cluster run an Ubuntu Server image designed to host container-based applications. The cluster nodes in this example use the `Standard_NC6` size, which contains one NVIDIA Tesla K80 GPU.
 
 ```azurecli-interactive
 az batchai cluster create --resource-group batchai.horovod --workspace batchaidev --name nc6cluster --vm-priority dedicated  --vm-size Standard_NC6 --target 4 --use-auto-storage --generate-ssh-keys
 ```
 
-Command parameters:
-|Parameter | Description |
-| -------- | -----------|
-| `--vm-priority` | Whether the nodes are reserved (`dedicated`) for your cluster.|
-| `--vm-size` | The VM size for the cluster nodes. This cluster uses the `Standard_NC6` size, which contains one NVIDIA Tesla K80 GPU. |
-| `--target` | The number of cluster nodes, in this case 4. |
-| `--use-auto-storage` | Create an associated storage account in a new or existing resource group named **batchaiautostorage**. It also creates an Azure file share and blob storage container in the account, and mounts these resources on each cluster node. |
-| `--generate-ssh-keys` | Generate an SSH key pair for connecting to the cluster nodes, if the keys don't already exist in the default location. |
+In this example, the `--use-auto-storage` parameter creates an associated storage account in a new or existing resource group named **batchaiautostorage**. It also creates an Azure file share and blob storage container in the account, and mounts these resources on each cluster node. 
 
 
-Run the `az batchai cluster show` command to confirm the successful creation of a cluster. It usually takes a few minutes for the cluster to be fully provisioned.
+Run the `az batchai cluster show` command to view the cluster status. It usually takes a few minutes to fully provision the cluster.
 
 ```azurecli-interactive
 az batchai cluster show --name nc6cluster --workspace batchaidev --resource-group batchai.horovod --output table
 ```
 
+Early in cluster creation, the cluster is in the `resizing` state. Continue the following steps while the cluster state changes. The cluster is ready to run the training job when the state is `steady`and the nodes are `idle`.
+
+```
+Name        Resource Group    Workspace    VM Size       State      Idle    Running    Preparing    Leaving    Unusable
+----------  ----------------  -----------  ------------  -------  ------  ---------  -----------  ---------  ----------
+nc6cluster  batchai.horovod  batchaidev   STANDARD_NC6  steady        4          0            0          0           0
+```
+
 ## Access the auto-storage
 
-During creation, a unique storage account name was generated which must be retrieved in order to access and modify the storage. The [az batchai cluster show](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-show) command can be used again to perform this action. The following command queries the storage account name from the cluster.
+During cluster creation, a unique storage account name was generated which must be retrieved in order to access and modify the storage. Run the following `az batchai cluster show` command to query the storage account name from the cluster.
 
 ```azurecli-interactive
 az batchai cluster show --name nc6cluster --workspace batchaidev --resource-group batchai.horovod --query "nodeSetup.mountVolumes.azureFileShares[0].{storageAccountName:accountName}"
 ```
 
-The output should be similar to the following. Substitute the storage account name for `<STORAGE ACCOUNT NAME>` in later commands in this tutorial. 
+The output should be similar to the following.
 
 ```json
 {
@@ -108,7 +109,9 @@ The output should be similar to the following. Substitute the storage account na
 }
 ```
 
-The storage account name can be used to access the file share named `batchaishare`, which was automatically created as mentioned earlier. In practice, this same storage can be used across multiple jobs and experiments. Therefore, create a directory within the file share to store files related to this specific experiment in order to keep things organized. The following [az storage directory create](/cli/azure/storage/directory?view=azure-cli-latest#az-storage-directory-create) command creates a directory called `cifar`.
+Substitute the storage account name for `<STORAGE ACCOUNT NAME>` in later commands in this tutorial. 
+
+The storage account name can be used to access the file share named `batchaishare`, which was automatically created as mentioned earlier. In practice, this same storage can be used across multiple jobs and experiments. To keep things organized, create a directory within the file share to store files related to this specific experiment. The following `az storage directory create` command creates a directory called `cifar`.
 
 ```azurecli-interactive
 az storage directory create --name cifar --share-name batchaishare --account-name <STORAGE ACCOUNT NAME>
@@ -118,7 +121,9 @@ The next step is to prepare the actual training script, which you then upload to
 
 ## Create the training script
 
-For this experiment, an existing [Python script](https://raw.githubusercontent.com/keras-team/keras/master/examples/cifar10_cnn.py) is modified with a few small changes in order to parallelize the model. Create a file named `cifar_cnn_distributed.py` with the content below. All changes that were made to the original source code are commented with a `HOROVOD` prefix.
+For this experiment, you run a Python script that is updated with a few  changes in order to run an object detection model in parallel using Horovod. The [original model](https://raw.githubusercontent.com/keras-team/keras/master/examples/cifar10_cnn.py) uses Keras with a TensorFlow backend. 
+
+In a working directory in your shell, use your favorite text editor to create a file named `cifar_cnn_distributed.py` with the following content. Changes to the original source code are commented with a `HOROVOD` prefix.
 
 ```python
 from __future__ import print_function
@@ -274,13 +279,13 @@ print('Test loss:', scores[0])
 print('Test accuracy:', scores[1])
 ```
 
-As shown in this example, it is easy to modify a model to enable distributed training using the Horovod framework. More information can be found at the [Horovod repo](https://github.com/uber/horovod) on how to use Horovod with other machine learning libraries.
+As shown in this example, only a few updates to the model are needed to enable distributed training using the Horovod framework. 
 
-Keep in mind that this script uses a relatively small model and dataset for demo purposes, so a distributed model will not necessarily show a substantial performance improvement. In order to truly see the power of distributed training, a much larger model, and dataset must be used.
+Keep in mind that this script uses a relatively small model and dataset for demo purposes, so this distributed model will not necessarily show a substantial performance improvement. To truly see the power of distributed training, use a much larger model and dataset.
 
 ## Upload the training script
 
-Once the script is ready, the next step is to upload it to the file share directory that was created earlier. The following [az storage file upload](/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-upload) command uploads it to the proper location.
+Once the script is ready, the next step is to upload it to the file share directory that you created earlier. The following `az storage file upload` command uploads it from the local working directory to the proper location. Substitute the name of the auto-storage account for `<STORAGE ACCOUNT NAME>`.
 
 ```azurecli-interactive
 az storage file upload --path cifar --share-name batchaishare --source cifar_cnn_distributed.py --account-name <STORAGE ACCOUNT NAME>
@@ -288,7 +293,7 @@ az storage file upload --path cifar --share-name batchaishare --source cifar_cnn
 
 ## Submit the training job
 
-After completing the previous steps, create a training job can then be created. In Batch AI, a `job.json` file ([see schema](https://raw.githubusercontent.com/Azure/BatchAI/master/schemas/2018-05-01/job.json) is used to define the parameters on how to run a job. For the experiment, create a job configuration file called `job.json` with the following content.
+After completing the previous steps, create a training job. In Batch AI, you use a `job.json` file to define the parameters for how to run a job. Using your favorite text editor, create a job configuration file called `job.json` with the following content.
 
 ```json
 {
@@ -312,39 +317,37 @@ After completing the previous steps, create a training job can then be created. 
 }
 ```
 
-Going through each of the properties:
+Note the following properties:
 
-* **nodeCount** - The number of nodes to dedicate for the job. In this experiment, the job will be run in parallel on `4` different nodes. 
+| Property | Description |
+| --------- | --------- |
+| `nodeCount` | The number of nodes to dedicate for the job. Here, the job will run in parallel on `4` nodes. |
+| `horovodSettings` | The `pythonScriptFilePath` field defines the path to the Horovod script, located in the `cifar` directory created previously. The `commandLineArgs` field is the command-line arguments for running the script. For this experiment, the directory of where to save the model is the only required argument. `$AZ_BATCHAI_MOUNT_ROOT/autoafs` is the path where the auto-storage file share was mounted. | 
+| `stdOutErrPathPrefix` | The path to store the job outputs and logs, which for this example is the same `cifar` directory. |
+| `jobPreparation` | Any special instructions for preparing the environment for running the job. This script requires installation of the indicated MPI and Horovod packages. |
+| `containerSettings` | Settings for the container that the job runs on. This job uses a Docker container built with `tensorflow`.
 
-* **horovodSettings** - The `pythonScriptFilePath` field defines the path to the Horovod script, which is located in the `cifar` directory created previously. The `commandLineArgs` field is the command-line arguments for running the script. For this experiment, the directory of where to save the model is the only required argument. `$AZ_BATCHAI_MOUNT_ROOT/autoafs` is the path where the auto-storage was mounted. 
-
-* **stdOutErrPathPrefix** - The path to store the job outputs and logs, which for this experiment will be the same `cifar` directory. 
-
-* **jobPreparation** - Any special instructions for preparing the environment for running the job. This experiment requires installation of the indicated MPI and Horovod packages.
-
-* **containerSettings** - The settings on the type of container that the job should run on. This experiment uses a Docker container built with `tensorflow`.
-
-Using the configuration, create the job using the [az batchai job create](/cli/azure/batchai/job?view=azure-cli-latest#az-batchai-job-create) command. The following command queues a new job called `cifar_distributed` using all the resources that have been set up to this point.
+Using the configuration, create the job using the `az batchai job create` command. The following command queues a new job called `cifar_distributed` using all the resources that have been set up to this point. Substitute the name of the auto-storage account for `<STORAGE ACCOUNT NAME>`.
 
 ```azurecli-interactive
 az batchai job create --cluster nc6cluster --name cifar_distributed --resource-group batchai.horovod --workspace batchaidev --experiment cifar --config-file job.json --storage-account-name <STORAGE ACCOUNT NAME>
 ```
 
-If the nodes are currently busy, the job may take a while before it actually starts running. Use the [az batchai job show](/cli/azure/batchai/job?view=azure-cli-latest#az-batchai-job-show) command to view the execution state of the job.
+If the nodes are currently busy, the job may take a while before it actually starts running. Use the `az batchai job show` command to view the execution state of the job.
 
 ```azurecli-interactive
 az batchai job show --experiment cifar --name cifar_distributed --resource-group batchai.horovod --workspace batchaidev --query "executionState"
 ```
 
-## Visualize the distributed training
+### Visualize the distributed training
 
-Once the job starts running, use the [az batchai cluster show](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-show) command once again to query the status of the cluster nodes. 
+Once the job starts running, use the `az batchai cluster show` command again to query the status of the cluster nodes. 
 
 ```azurecli-interactive
 az batchai cluster show --name nc6cluster --workspace batchaidev --resource-group batchai.horovod --query "nodeStateCounts"
 ```
 
-The output should be similar to the following example, which shows all four in a running state. This result shows that all four nodes are currently being utilized in the distributed training.
+The output should be similar to the following, which shows all four in a running state. This result shows that all four nodes are currently being utilized in the distributed training.
 
 ```
 {
@@ -358,13 +361,15 @@ The output should be similar to the following example, which shows all four in a
 
 ## Monitor the job
 
-While the job is running, use the [az batchai job file list](https://docs.microsoft.com/en-us/cli/azure/batchai/job/file?view=azure-cli-latest#az-batchai-job-file-list) command to list the output files for the job.
+### List output files
+
+While the job is running, use the `az batchai job file list` command to list the output files that the job generates.
 
 ```azurecli-interactive
 az batchai job file list --experiment cifar --job cifar_distributed --resource-group batchai.horovod --workspace batchaidev --output table
 ```
 
-For this specific experiment, the output should be similar to what is shown below. The overall output for the job is logged to `stdout.txt` while `stderr.txt` outputs any errors that occur in the main execution. The other files are `output, error, and job preparation` logs corresponding to each individual node.
+For this specific experiment, the output should be similar to the following. The overall output for the job is logged to `stdout.txt` while `stderr.txt` outputs any errors that occur in the main execution. The other files are output, error, and job preparation logs corresponding to each individual node.
 
 ```
 Name                                                    Type       Size  Modified
@@ -385,35 +390,87 @@ stdout-job_prep-tvm-676767296_4-20180718t174802z-p.txt  file      13651  2018-07
 stdout.txt                                              file    2316480  2018-07-18T22:46:32+00:00
 ```
 
-Use the [az batchai job file stream](https://docs.microsoft.com/en-us/cli/azure/batchai/job/file?view=azure-cli-latest#az-batchai-job-file-stream) command to stream the contents of the files. The following example streams the main output log.
+### Stream an output file
+
+Use the `az batchai job file stream` command to stream the contents of a files. The following example streams the main output log.
 
 ```azurecli-interactive
 az batchai job file stream --experiment cifar --file-name stdout.txt --job cifar_distributed --resource-group batchai.horovod --workspace batchaidev
 ```
 
+While the job runs, the command streams the progress through the training job, showing output similar to the following.
+
+```
+...
+50000 train samples
+10000 test samples
+Using real-time data augmentation.
+Epoch 1/25
+
+
+   1/1563 [..............................] - ETA: 2:42:25 - loss: 2.3334 - acc: 0.0312   1/1563 [..............................] - ETA: 2:30:42 - loss: 2.2973 - acc: 0.0938
+   1/1563 [..............................] - ETA: 30:36 - loss: 2.3175 - acc: 0.1250
+   1/1563 [..............................] - ETA: 2:32:58 - loss: 2.3489 - acc: 0.0625
+   2/1563 [..............................] - ETA: 1:21:59 - loss: 2.3230 - acc: 0.0625
+
+   2/1563 [..............................]   2/1563 [..............................] - ETA: 1:16:09 - loss: 2.2913 - acc: 0.0938 - ETA: 1:17:15 - loss: 2.3147 - acc: 0.0781
+   2/1563 [..............................] - ETA: 16:07 - loss: 2.3678 - acc: 0.0938
+   3/1563 [..............................] - ETA: 55:05 - loss: 2.3232 - acc: 0.0938  
+   3/1563 [..............................] - ETA: 51:57 - loss: 2.3185 - acc: 0.1146  
+   3/1563 [..............................] - ETA: 51:12 - loss: 2.3179 - acc: 0.1042  
+   3/1563 [..............................] - ETA: 11:13 - loss: 2.3504 - acc: 0.0833
+   4/1563 [..............................] - ETA: 39:43 - loss: 2.3224 - acc: 0.1094
+   4/1563 [..............................] - ETA: 42:09 - loss: 2.3049 - acc: 0.1250
+   4/1563 [..............................] - ETA: 39:15 - loss: 2.3089 - acc: 0.1094
+   4/1563 [..............................] - ETA: 9:16 - loss: 2.3316 - acc: 0.1016 
+   5/1563 [..............................] - ETA: 39:51 - loss: 2.3153 - acc: 0.1125
+   5/1563 [..............................] - ETA: 37:58 - loss: 2.3197 - acc: 0.1125
+   5/1563 [..............................] - ETA: 37:35 - loss: 2.3148 - acc: 0.1062
+   5/1563 [..............................] - ETA: 13:38 - loss: 2.3263 - acc: 0.1062
+   6/1563 [..............................] - ETA: 35:48 - loss: 2.3168 - acc: 0.1198
+
+   6/1563 [..............................]   6/1563 [..............................] - ETA: 34:13 - loss: 2.3142 - acc: 0.1198 - ETA: 33:51 - loss: 2.3162 - acc: 0.1042
+   6/1563 [..............................] - ETA: 13:54 - loss: 2.3225 - acc: 0.1094
+   7/1563 [..............................] - ETA: 30:53 - loss: 2.3181 - acc: 0.1071
+
+   7/1563 [..............................]   7/1563 [..............................] - ETA: 29:32 - loss: 2.3149 - acc: 0.1161 - ETA: 29:13 - loss: 2.3140 - acc: 0.0938
+   7/1563 [..............................] - ETA: 12:09 - loss: 2.3174 - acc: 0.1205
+   8/1563 [..............................] - ETA: 26:04 - loss: 2.3113 - acc: 0.1133
+   8/1563 [..............................] - ETA: 27:15 - loss: 2.3169 - acc: 0.1133
+   8/1563 [..............................] - ETA: 10:51 - loss: 2.3152 - acc: 0.1172
+...
+```
+
+The script trains over 25 epochs, or passes through the training dataset. This process takes approximately 60 minutes. 
+
 ## Retrieve the results
 
-The script that was executed performed 25 epochs through the dataset, which takes some time. If everything went well, the validation accuracy should be about 70-75% and the trained model should be saved to the file share storage at `cifar/saved_models/keras_cifar10_trained_model.h5`. This model can be downloaded locally using the [az storage file download](/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-download) command.
+When the script completes, if everything went well, the validation accuracy should be about 70-75% and the trained model is saved to the file share at `cifar/saved_models/keras_cifar10_trained_model.h5`. 
+
+Typically you use a trained model as part of a larger workflow. For example, you might expose it as part of another application. To download the trained model locally, use the `az storage file download` command. Substitute the name of the auto-storage account for `<STORAGE ACCOUNT NAME>`.
 
 ```azurecli-interactive
 az storage file download --path cifar/saved_models/keras_cifar10_trained_model.h5 --share-name batchaishare --account-name <STORAGE ACCOUNT NAME> 
 ```
 
-## Delete the resources
+## Clean up resources
 
-Once jobs are finished running, a best practice for saving compute costs is to downscale all clusters to `0 nodes` in order to not be charged for idle time. This action can be performed using the [az batchai cluster resize](/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-resize) command. Use the same command with a different target to reallocate the nodes in the future.
+Once jobs are finished running, a best practice for saving compute costs is to downscale all clusters to `0 nodes` so that you don't get charged for idle time. Use the following `az batchai cluster resize` command. 
 
 ```azurecli-interactive
 az batchai cluster resize --name nc6cluster --resource-group batchai.horovod --target 0 --workspace batchaidev
 ```
 
-If you don't plan to use the workspace in the future, delete the resource group  using the [az group delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-delete) command. Deleting a resource group deletes all resources that are part of that group.
+Later, resize it to 1 or more nodes to run your jobs. 
+
+If you don't plan to use the workspace in the future, delete the resource group using the `az group delete` command. Deleting a resource group deletes all resources that are part of that group.
 
 ```azurecli-interactive
 az group delete --name batchai.horovod
+
 ```
 
-Note, this command will not delete the auto-storage that was created with the cluster as that was created using a different resource group. To delete the auto-storage, use the same command to delete the `batchaiautostorage` resource group. If not deleted, future auto-storage options will use this existing storage account instead of creating a new one.
+To delete the auto-storage resources, use the same command to delete the `batchaiautostorage` resource group. If not deleted, future auto-storage options will use the storage account in this group instead of creating a new one.
 
 ```azurecli-interactive
 az group delete --name batchaiautostorage
@@ -431,7 +488,7 @@ In this tutorial, you learned about how to:
 > * Monitor the job
 > * Retrieve the training results
 
-For more examples of using Batch AI, see the recipes on GitHub.
+For examples of using Batch AI with different frameworks, see the recipes on GitHub.
 
 > [!div class="nextstepaction"]
 > [Batch AI recipes](https://github.com/Azure/BatchAI/tree/master/recipes)
