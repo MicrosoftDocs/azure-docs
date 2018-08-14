@@ -25,7 +25,7 @@ This article provides an overview of Azure Event Grid. If you want to get starte
 
 Please note: this image shows how Event Grid connects sources and handlers, and is not a comprehensive list of supported integrations.
 
-## Event sources]
+## Event sources
 
 For full details on the capabilities of each source as well as related articles, see [event sources](./event-sources.md). Currently, the following Azure services support sending events to Event Grid:
 
