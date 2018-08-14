@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 08/13/2018
 ms.author: raynew
 ---
 
@@ -465,7 +465,7 @@ Now Contoso can publish their website.
     ![Deploy the function](./media/contoso-migration-rebuild/function6.png)
 
 
-7. They browse to the app to test that the Pet Checker AI is working as expected, at [http://smarthotel360public.azurewebsites.net/Pets](http://smarthotel360public.azurewebsites.net/Pets).
+7. They browse to the app to test that the Pet Checker app is working as expected, at [http://smarthotel360public.azurewebsites.net/Pets](http://smarthotel360public.azurewebsites.net/Pets).
 8. They click on the avatar to upload a picture.
 
     ![Deploy the function](./media/contoso-migration-rebuild/function7.png)

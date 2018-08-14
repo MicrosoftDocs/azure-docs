@@ -65,6 +65,19 @@ A TCP probe fails when:
 * The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of failed probe requests, which were configured to go unanswered before marking the probe down.
 * The probe receives a TCP reset from the instance.
 
+#### Resource Manager template
+
+```json
+    {
+      "name": "tcp",
+      "properties": {
+        "protocol": "Tcp",
+        "port": 1234,
+        "intervalInSeconds": 5,
+        "numberOfProbes": 2
+      },
+```
+
 ### <a name="httpprobe"></a> <a name="httpsprobe"></a> HTTP / HTTPS probe
 
 > [!NOTE]
@@ -80,6 +93,32 @@ An HTTP / HTTPS probe fails when:
 * Probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500). This will mark the health probe down immediately. 
 * Probe endpoint doesn't respond at all during the a 31 second timeout period. Depending on the timeout value that is set, multiple probe requests might go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
 * Probe endpoint closes the connection via a TCP reset.
+
+#### Resource Manager templates
+
+```json
+    {
+      "name": "http",
+      "properties": {
+        "protocol": "Http",
+        "port": 80,
+        "requestPath": "/",
+        "intervalInSeconds": 5,
+        "numberOfProbes": 2
+      },
+```
+
+```json
+    {
+      "name": "https",
+      "properties": {
+        "protocol": "Https",
+        "port": 443,
+        "requestPath": "/",
+        "intervalInSeconds": 5,
+        "numberOfProbes": 2
+      },
+```
 
 ### <a name="guestagent"></a>Guest agent probe (Classic only)
 
@@ -166,4 +205,3 @@ Basic public Load Balancer exposes health probe status summarized per backend po
 - [Get started creating a public load balancer in Resource Manager by using PowerShell](load-balancer-get-started-internet-arm-ps.md)
 - [REST API for health probes](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
 - Request new health probe abilities with [Load Balancer's Uservoice](https://aka.ms/lbuservoice)
-

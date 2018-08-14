@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 08/13/2018
 ms.author: douglasl
 ---
 # Continuous integration and deployment in Azure Data Factory
@@ -170,11 +170,7 @@ Deployment can fail if you try to update active triggers. To update active trigg
 
 You can follow similar steps and use similar code (with the `Start-AzureRmDataFactoryV2Trigger` function) to restart the triggers after deployment.
 
-## Sample template and script
-Here are two samples that you can use to get started with continuous integration and deployment for Data Factory:
-
--   A sample deployment template that you can import in VSTS.
--   A sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes the code to delete resources that have been removed.
+## Sample deployment template
 
 Here is a sample deployment template that you can import in VSTS.
 
@@ -714,7 +710,9 @@ Here is a sample deployment template that you can import in VSTS.
 }
 ```
 
-Here is a sample script to stop triggers before deployment and to restart triggers afterwards:
+## Sample script to stop and restart triggers and clean up
+
+Here is a sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes code to delete resources that have been removed.
 
 ```powershell
 param
