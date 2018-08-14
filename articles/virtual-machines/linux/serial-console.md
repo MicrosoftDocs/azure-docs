@@ -87,7 +87,7 @@ Network lock down system| Access serial console via portal to manage system | Li
 Interacting with bootloader | Access GRUB/BCD via the serial console | Linux/Windows 
 
 ## Accessing Serial Console for Linux
-In order for serial console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) have the serial console configured by default. Simply clicking Serial Console section in the Azure Portal will provide access to the console. 
+In order for serial console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) have the serial console configured by default. Simply clicking the Serial Console section in the Azure portal will provide access to the console. 
 
 Distro      | Serial Console access
 :-----------|:---------------------
@@ -97,10 +97,10 @@ Ubuntu      | Ubuntu images available on Azure have console access enabled by de
 CoreOS      | CoreOS images available on Azure have console access enabled by default.
 SUSE        | Newer SLES images available on Azure have console access enabled by default. If you are using older versions (10 or below) of SLES on Azure, follow the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console. 
 Oracle Linux        | Oracle Linux images available on Azure have console access enabled by default.
-Custom Linux images     | To enable serial console for your custom Linux VM image, enable console access in /etc/inittab to run a terminal on ttyS0. Here is an example to add this in the inittab file: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` 
+Custom Linux images     | To enable serial console for your custom Linux VM image, enable console access in /etc/inittab to run a terminal on ttyS0. Here is an example to add this in the inittab file: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` . For more information on properly creating custom images see [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd).
 
 ## Using Serial Console to access GRUB and Single User Mode
-Single user mode is a minimal environment minimal functionality. It can be useful for investigating boot issues or network issues. Some distros will automatically drop you into single user mode or emergency mode if the VM is unable to boot. Others, however, require additional setup before they can drop you into single-user or emergency mode automatically.
+Single user mode is a minimal environment with minimal functionality. It can be useful for investigating boot issues or network issues. Some distros will automatically drop you into single user mode or emergency mode if the VM is unable to boot. Others, however, require additional setup before they can drop you into single-user or emergency mode automatically.
 
 You will want to ensure that GRUB is enabled on your VM in order to be able to access single user mode. Depending on your distro, there may be some setup work to ensure that GRUB is enabled. 
 
@@ -110,7 +110,7 @@ RHEL will drop you into single user mode automatically if it cannot boot normall
 #### GRUB access in RHEL
 RHEL comes with GRUB enabled out of the box. To enter GRUB, reboot your VM with `sudo reboot` and press any key. You will see the GRUB screen show up.
 
-> Note that Red Hat also provides documentation for booting into Rescue Mode, Emergency Mode, Debug Mode, and resetting the root password. [Click here to access it](https://aka.ms/rhel7grubterminal).
+> Note: Red Hat also provides documentation for booting into Rescue Mode, Emergency Mode, Debug Mode, and resetting the root password. [Click here to access it](https://aka.ms/rhel7grubterminal).
 
 #### Setting up root access for single user mode in RHEL
 Single-user mode in RHEL requires the root user to be enabled, which is disabled by default. If you have a need to enable single user mode, use the following instructions:
@@ -144,18 +144,20 @@ If you have set up GRUB and root access with the instructions above, then you ca
 #### Single user mode without root account enabled in RHEL
 If you did not go through the steps above to enable the root user, you can still reset your  root password. Use the following instructions:
 
+> Note: if you are using SELinux, please ensure you have taken the additional steps described in the Red Hat documentation [here](https://aka.ms/rhel7grubterminal) when resetting the root password.
+
 1. Press 'Esc' while restarting the VM to enter GRUB
 1. In GRUB, press 'e' to edit the selected OS you want to boot into (usually the first line)
 1. Find the kernel line - in Azure, this will start with `linux16`
 1. Add `rd.break` to the end of the line, ensuring there is a space before `rd.break` (see example below)
-    - This will interrupt the boot process before control is passed from `initramfs` to `systemd`. ([Source](https://aka.ms/rhel7rootpassword))
+    - This will interrupt the boot process before control is passed from `initramfs` to `systemd`, as described in the Red Hat documentation [here](https://aka.ms/rhel7rootpassword).
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-shell-rd-break.png)
 1. Press Ctrl + X to exit and reboot with the applied settings
 1. Once you boot, you will be dropped into emergency mode with a read-only file system. Enter  `mount -o remount,rw /sysroot` into the shell to remount the root file system with read/write permissions
 1. Once you boot into single user mode, type in `chroot /sysroot` to switch into the `sysroot` jail
 1. You are now root. You can reset your root password with `passwd` and then use the instructions above to enter single user mode. Type `reboot -f` to reboot once you are done
 
-> Note that running through the instructions above will drop you into emergency shell, so you can also perform tasks such as editing `fstab`. However, the generally accepted suggestion is to reset your root password and use that to enter single user mode. 
+> Note: Running through the instructions above will drop you into emergency shell, so you can also perform tasks such as editing `fstab`. However, the generally accepted suggestion is to reset your root password and use that to enter single user mode. 
 
 
 ### Access for CentOS
@@ -191,7 +193,7 @@ To access GRUB, press any key when your VM is booting up.
 CoreOS will drop you into single user mode automatically if it cannot boot normally. To manually enter single user mode, use the following instructions:
 1. From GRUB, press 'e' to edit your boot entry
 1. Look for the line that starts with `linux$`. There should be 2, encapsulated in different if/else clauses
-1. Append `coreos.autologin=ttyS0` to the end of the both `linux$` lines
+1. Append `coreos.autologin=ttyS0` to the end of both `linux$` lines
 1. Press Ctrl + X to reboot with these settings and enter single user mode
 
 ### Access for SUSE SLES
@@ -232,7 +234,7 @@ Follow the instructions for RHEL above to enable single user mode in Oracle Linu
 ## Using Serial Console for SysRq and NMI calls
 
 ### System Request (SysRq)
-A SysRq is a sequence of keys understood by the Linux operation system kernel which can trigger a set of pre-defined actions. These commands are often used when virtual machine troubleshooting or recovery can not be performed through traditional administration (for example the VM is hung). Using the SysRq feature of Azure Serial Console will mimic pressing of the SysRq key and characters entered on a physical keyboard.
+A SysRq is a sequence of keys understood by the Linux operation system kernel which can trigger a set of pre-defined actions. These commands are often used when virtual machine troubleshooting or recovery cannot be performed through traditional administration (for example the VM is hung). Using the SysRq feature of Azure Serial Console will mimic pressing of the SysRq key and characters entered on a physical keyboard.
 
 Once the SysRq sequence is delivered, the kernel configuration will control how the system responds. For information on enabling and disabling SysRq, see the *SysRq Admin Guide* [text](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
 
@@ -251,8 +253,8 @@ As described in the *SysRq Admin Guide* above, SysRq can be configured such that
 ```
 echo "1" >/proc/sys/kernel/sysrq
 ```
-To make the SysReq configuration persistent you can do the followig to enable all SysRq commands
-1. Adding the this line to */etc/sysctl.conf* <br>
+To make the SysReq configuration persistent you can do the following to enable all SysRq commands
+1. Adding this line to */etc/sysctl.conf* <br>
     `kernel.sysrq = 1`
 1. Rebooting or updating sysctl by running <br>
     `sysctl -p`
@@ -291,7 +293,7 @@ From the SysRq Admin Guide above:
 |``0``-``9`` | Sets the console log level, controlling which kernel messages will be printed to your console. (``0``, for example would make it so that only emergency messages like PANICs or OOPSes would make it to your console.)
 
 #### Distribution-specific documentation ###
-For distribution specific documentation on SysRq and steps to configure Linux to create a crash dump when it receives a SysRq "Crash" command, see the links below:
+For distribution-specific documentation on SysRq and steps to configure Linux to create a crash dump when it receives a SysRq "Crash" command, see the links below:
 ##### Ubuntu ####
  - [Kernel Crash Dump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 ##### Red Hat ####
@@ -303,19 +305,19 @@ For distribution specific documentation on SysRq and steps to configure Linux to
 - [Collecting crash logs](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ### Non-Maskable Interrupt (NMI) 
-A non-maskable interrupt (NMI) is designed to create a signal that sofware on a virtual machine will not ignore. Historically, NMIs have been used to monitor for hardware issues on systems that required specific response times.  Today, programmers and system administrators often use NMI as a mechanism to debug or troubleshoot systems which are hung.
+A non-maskable interrupt (NMI) is designed to create a signal that software on a virtual machine will not ignore. Historically, NMIs have been used to monitor for hardware issues on systems that required specific response times.  Today, programmers and system administrators often use NMI as a mechanism to debug or troubleshoot systems which are hung.
 
 The Serial Console can be used to send a NMI to an Azure virtual machine using the keyboard icon in the command bar shown below. Once the NMI is delivered, the virtual machine configuration will control how the system responds.  Linux operating systems can be configured to crash and create a memory dump when receiving an NMI.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
 For Linux systems which support sysctl for configuring kernel parameters, you can enable a panic when receiving this NMI by using the following:
-1. Adding the this line to */etc/sysctl.conf* <br>
+1. Adding this line to */etc/sysctl.conf* <br>
     `kernel.panic_on_unrecovered_nmi=1`
 1. Rebooting or updating sysctl by running <br>
     `sysctl -p`
 
-For additional information on Linux kernel configurations, including `unknown_nmi_panic`, `panic_on_io_nmi`, and `panic_on_unrecovered_nmi`, see: [Documentation for /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). For distribution specific documentation  on NMI and steps to configure Linux to create a crash dump when it receives an NMI, see the links below:
+For additional information on Linux kernel configurations, including `unknown_nmi_panic`, `panic_on_io_nmi`, and `panic_on_unrecovered_nmi`, see: [Documentation for /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). For distribution-specific documentation  on NMI and steps to configure Linux to create a crash dump when it receives an NMI, see the links below:
  
  #### Ubuntu 
  - [Kernel Crash Dump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
@@ -339,7 +341,7 @@ Error                            |   Mitigation
 Unable to retrieve boot diagnostics settings for '<VMNAME>'. To use the serial console, ensure that boot diagnostics is enabled for this VM. | Ensure that the VM has [boot diagnostics](boot-diagnostics.md) enabled. 
 The VM is in a stopped deallocated state. Start the VM and retry the serial console connection. | Virtual machine must be in a started state to access the serial console
 You do not have the required permissions to use this VM the serial console. Ensure you have at least VM Contributor role permissions.| Serial console access requires certain permission to access. See [access requirements](#prerequisites) for details
-Unable to determine the resource group for the boot diagnostics storage account '<STORAGEACCOUNTNAME>'. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permission to access.See [access requirements](#prerequisites) for details
+Unable to determine the resource group for the boot diagnostics storage account '<STORAGEACCOUNTNAME>'. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permission to access. See [access requirements](#prerequisites) for details
 
 ## Known issues 
 As we are still in the preview stages for serial console access, we are working through some known issues, below is the list of these with possible workarounds 
