@@ -82,7 +82,7 @@ For customers wishing to migrate to contained database for existing Azure App Se
             GO
     ```
 
-1. Converting a Database to Partially Contained.  This may need downtime as all active sessions need to be killed
+1. Converting a Database to Partially Contained.  This step will incur downtime as all active sessions need to be killed
 
     '''sql
         /******** [appservice_metering] Migration Start********/
