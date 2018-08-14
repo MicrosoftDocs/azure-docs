@@ -197,8 +197,6 @@
       items:
         - name: Migrate from Orchestrator
           href: automation-orchestrator-migration.md
-        - name: Move Automation account
-          href: automation-migrate-account-subscription.md
     - name: Troubleshoot
       items:
         - name: Onboarding
