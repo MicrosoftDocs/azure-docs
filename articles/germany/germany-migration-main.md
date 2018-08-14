@@ -18,7 +18,7 @@ The two regions in Germany are strictly separated from global Azure, including s
 
 Your journey to migrate workload from Azure Germany to global Azure will typically follow similar processes used for migrating applications to the Cloud.
 
-![Assess -> Plan -> Migrate -> Validate](/media/germany-migration-main/migration-steps.png)
+![Assess -> Plan -> Migrate -> Validate](./media/germany-migration-main/migration-steps.png)
 
 ### Assess
 
