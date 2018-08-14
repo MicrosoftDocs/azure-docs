@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Machine Learning Services | Microsoft Docs
+title: Get started with Azure Machine Learning service | Microsoft Docs
 description: In this quickstart, you will learn how to create a workspace and a project to get started with Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -11,9 +11,9 @@ ms.author: roastala
 ms.date: 09/24/2018
 ---
 
-# Quickstart: Get started with Azure Machine Learning Services
+# Quickstart: Get started with Azure Machine Learning service
 
-In this quickstart, you'll use the Azure portal to get started with [Azure Machine Learning Services](overview-what-is-azure-ml.md) (Preview).
+In this quickstart, you'll use the Azure portal to get started with [Azure Machine Learning service](overview-what-is-azure-ml.md) (Preview).
 
 You'll learn how to:
 

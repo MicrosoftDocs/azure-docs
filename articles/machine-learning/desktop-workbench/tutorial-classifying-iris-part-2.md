@@ -1,6 +1,6 @@
 ---
-title: Build a model tutorial for Azure Machine Learning services (preview) | Microsoft Docs
-description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end to end. This is part two and discusses experimentation.
+title: Build a model tutorial for Azure Machine Learning service (preview) | Microsoft Docs
+description: This full-length tutorial shows how to use Azure Machine Learning service (preview) end to end. This is part two and discusses experimentation.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -21,9 +21,9 @@ ROBOTS: NOINDEX
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
-Azure Machine Learning services (preview) are an integrated, data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
+Azure Machine Learning service (preview) are an integrated, data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
-This tutorial is **part two of a three-part series**. In this part of the tutorial, you use Azure Machine Learning services to:
+This tutorial is **part two of a three-part series**. In this part of the tutorial, you use Azure Machine Learning service to:
 
 > [!div class="checklist"]
 > * Open scripts and review code

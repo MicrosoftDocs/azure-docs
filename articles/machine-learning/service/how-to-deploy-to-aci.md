@@ -1,6 +1,6 @@
 ---
 title: Deploy web services to an Azure Container Instance | Azure Machine Learning
-description: Learn how to deploy a trained model as a web service API on Azure Container Instances with Azure Machine Learning Services.
+description: Learn how to deploy a trained model as a web service API on Azure Container Instances with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core

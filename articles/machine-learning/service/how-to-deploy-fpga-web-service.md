@@ -115,7 +115,7 @@ From the Jupyter Notebook, open the `00_QuickStart.ipynb` notebook from the `not
 Azure Machine Learning provides SSL support and key-based authentication. This enables you to restrict access to your service and secure data submitted by clients.
 
 > [!NOTE]
-> The steps in this section only apply to Azure Machine Learning Hardware Accelerated Models. For standard Azure Machine Learning services, see the [How to set up SSL on Azure Machine Learning Compute](https://docs.microsoft.com/azure/machine-learning/preview/how-to-setup-ssl-on-mlc) document.
+> The steps in this section only apply to Azure Machine Learning Hardware Accelerated Models. For standard Azure Machine Learning service, see the [How to set up SSL on Azure Machine Learning Compute](https://docs.microsoft.com/azure/machine-learning/preview/how-to-setup-ssl-on-mlc) document.
 
 > [!IMPORTANT]
 > Authentication is only enabled for services that have provided an SSL certificate and key. 

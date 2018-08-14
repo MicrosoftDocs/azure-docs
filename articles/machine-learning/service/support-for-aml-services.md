@@ -1,6 +1,6 @@
 ---
-title: Get support and training for Azure Machine Learning services
-description: This article tells you how you can get support and training for Azure Machine Learning Services
+title: Get support and training for Azure Machine Learning service
+description: This article tells you how you can get support and training for Azure Machine Learning service
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -11,9 +11,9 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018 
 ---
-# Get support and training for Azure Machine Learning services
+# Get support and training for Azure Machine Learning service
 
-This article provides information on how to learn more about Azure Machine Learning services as well as get support for your issues and questions. 
+This article provides information on how to learn more about Azure Machine Learning service as well as get support for your issues and questions. 
 
 ## Learn more about Azure Machine Learning
 
@@ -24,13 +24,13 @@ In addition to the documentation on this site, you can find:
 
 You can **submit requests** for additional learning materials using the feedback link at the bottom of the article.
 
-## Get support for Azure Machine Learning services
+## Get support for Azure Machine Learning service
 
 Check out these support resources:
 
 + **Technical support**: Visit [Azure technical support](https://azure.microsoft.com/support/options/) and select Machine Learning. 
 
-+ **User forum**: Ask questions, answer questions, and connect with other users in the [Azure Machine Learning services support forum on MSDN](https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning).
++ **User forum**: Ask questions, answer questions, and connect with other users in the [Azure Machine Learning service support forum on MSDN](https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning).
 
 + **Stack Overflow**: Visit the Azure Machine Learning community on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) tagged with "Azure-Machine-Learning".
 

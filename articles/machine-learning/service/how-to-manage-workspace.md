@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 
 # Manage Azure Machine Learning Workspaces
 
-In this article, you'll create, view, and delete [**Azure Machine Learning Workspaces**](concept-azure-machine-learning-architecture.md#workspace) in the Azure portal for [Azure Machine Learning Services](overview-what-is-azure-ml.md).  You can also create and delete workspaces [using the CLI]() or [with Python code]().
+In this article, you'll create, view, and delete [**Azure Machine Learning Workspaces**](concept-azure-machine-learning-architecture.md#workspace) in the Azure portal for [Azure Machine Learning service](overview-what-is-azure-ml.md).  You can also create and delete workspaces [using the CLI]() or [with Python code]().
 
 To create a workspace, you need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -56,7 +56,7 @@ Use the Delete button at the top of the workspace you wish to delete.
 
 ## Next steps
 
-Follow the full-length tutorial to learn how to use a workspace to build, train, and deploy models with Azure Machine Learning Services.
+Follow the full-length tutorial to learn how to use a workspace to build, train, and deploy models with Azure Machine Learning service.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Train models](tutorial-train-models-with-aml.md)

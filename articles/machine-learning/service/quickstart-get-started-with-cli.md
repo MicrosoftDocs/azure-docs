@@ -1,6 +1,6 @@
 ﻿---
-title: Get started with Azure Machine Learning using the CLI extension | Microsoft Docs
-description: In this quickstart, you will learn how to get started with Azure Machine Learning Services using the Azure Machine Learning CLI extension.
+title: Get started with Azure Machine Learning service using the CLI extension | Microsoft Docs
+description: In this quickstart, you will learn how to get started with Azure Machine Learning service using the Azure Machine Learning CLI extension.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 ---
 # Quickstart: Get started with Azure Machine Learning using the CLI extension
 
-In this quickstart, you'll use a machine learning CLI extension to get started with [Azure Machine Learning Services](overview-what-is-azure-ml.md) (Preview).
+In this quickstart, you'll use a machine learning CLI extension to get started with [Azure Machine Learning service](overview-what-is-azure-ml.md) (Preview).
 
 Using the CLI, you'll learn how to:
 
@@ -26,7 +26,7 @@ Using the CLI, you'll learn how to:
 
 The resources you create can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles.
 
-This CLI was built on top of the [Python-based SDK for Azure Machine Learning services](reference-azure-machine-learning-sdk.md).
+This CLI was built on top of the [Python-based SDK for Azure Machine Learning service](reference-azure-machine-learning-sdk.md).
 
 ## Prerequisites
 

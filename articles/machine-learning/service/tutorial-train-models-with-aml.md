@@ -35,6 +35,9 @@ You'll learn how to select a model and deploy it in [part two of this tutorial](
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+
+[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
+
 ## Prerequisites
 
 1. The following resources and assets must be available:
@@ -44,7 +47,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    - An Azure Machine Learning Workspace named `docs-ws` 
    - A local folder named `docs-prj`
 
-   If these are not yet created or installed, follow the steps in the [Get started with Azure Machine Learning Services](quickstart-get-started.md) article.
+   If these are not yet created or installed, follow the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) article.
 
 1. The following package dependencies (matplotlib and scikit-learn) also installed in the conda environment in which you installed the Azure Machine Learning SDK.
 

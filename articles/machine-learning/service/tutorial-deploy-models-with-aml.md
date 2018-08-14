@@ -1,6 +1,6 @@
 ﻿---
-title: Build, train, deploy models in Azure Machine Learning
-description: This full-length tutorial shows how to use Azure Machine Learning services to build, train, and deploy a model with Azure Machine Learning in Python.
+title: Build, train, deploy models in Azure Machine Learning service
+description: This full-length tutorial shows how to use Azure Machine Learning service to build, train, and deploy a model with Azure Machine Learning in Python.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 
 # Tutorial #2: Deploy model on Azure Machine Learning with MNIST dataset and TensorFlow
 
-This tutorial is **part two of a three-part series**. In this part of the tutorial, you use Azure Machine Learning services (Preview) to:
+This tutorial is **part two of a three-part series**. In this part of the tutorial, you use Azure Machine Learning service (Preview) to:
 
 > [!div class="checklist"]
 > * Choose the best model

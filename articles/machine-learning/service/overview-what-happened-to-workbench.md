@@ -14,7 +14,7 @@ ms.date: 09/24/2018
  
 The Workbench application and some other early features were deprecated in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md). The release contains many significant updates prompted by customer feedback to better your experience. The core functionality from experiment execution to model deployment have not changed, but now you can use the robust SDK and CLI to accomplish your machine learning tasks and pipelines.  
 
-In this article, you'll learn about what changed and how it affects your pre-existing work with Azure Machine Learning Services.
+In this article, you'll learn about what changed and how it affects your pre-existing work with Azure Machine Learning service.
 
 ## What changed?
 
@@ -28,9 +28,12 @@ The [architecture](concept-azure-machine-learning-architecture.md) was redesigne
 
 While there are improved CLI and SDK clients, the desktop Workbench application was deprecated. You can still monitor your run histories, but now you'll do so in the Azure portal online. In the online workspace dashboard, you can run history reports, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
+
+[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
+
 ## How do I migrate?
 
-Most of the artifacts created in the earlier version of Azure Machine Learning Services are stored in your own local or cloud storage. These artifacts won't ever disappear. To migrate, you need to register the artifacts again with the updated Azure Machine Learning offering. Learn what you can migrate and how in this [migration article](how-to-migrate.md).
+Most of the artifacts created in the earlier version of Azure Machine Learning service are stored in your own local or cloud storage. These artifacts won't ever disappear. To migrate, you need to register the artifacts again with the updated Azure Machine Learning offering. Learn what you can migrate and how in this [migration article](how-to-migrate.md).
 
 <a name="timeline"></a>
 
@@ -51,9 +54,9 @@ While you can still use the older features, you'll be able to find that document
 
 ## What about run histories?
 
-The older run histories will remain accessible for a while. When you ready to move to the updated version of Azure Machine Learning Services, you can export these run histories if you want to keep a copy. 
+The older run histories will remain accessible for a while. When you ready to move to the updated version of Azure Machine Learning service, you can export these run histories if you want to keep a copy. 
 
-In the latest version of Azure Machine Learning Services, you can still collect the run history of your models and explore them using the SDK and CLI as well as in the web portal.
+In the latest version of Azure Machine Learning service, you can still collect the run history of your models and explore them using the SDK and CLI as well as in the web portal.
 
 ## Can I still prepare data?
 Data preparation files are not portable to the latest release since we don't have Workbench anymore. However, you can still prepare your data for modeling.  With smaller data sets, you can use the data preparation SDK to quickly prepare your data prior to modeling. You can use this same SDK for larger data sets or use Azure Databricks to prepare big data sets.
@@ -75,7 +78,7 @@ In the newer version, models are deployed as web services to [Azure Container In
 ## Will the SDK and CLI still work?
 Yes, they will continue to work for a while (see the [timeline](#timeline) above). But, you can start creating your new experiments and models with the latest SDK and/or CLI.
 
-In the latest release, the new Python SDK allows you to interact with the Azure Machine Learning services in any Python environment. Learn how to [install the SDK](reference-azure-machine-learning-sdk.md).  You can also use the [updated Azure CLI machine learning extension](reference-azure-machine-learning-cli.md),with the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
+In the latest release, the new Python SDK allows you to interact with the Azure Machine Learning service in any Python environment. Learn how to [install the SDK](reference-azure-machine-learning-sdk.md).  You can also use the [updated Azure CLI machine learning extension](reference-azure-machine-learning-cli.md),with the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
 
 ## What about Visual Studio Code Tools for AI?
 
@@ -84,9 +87,9 @@ With this latest release, the Visual Studio Code Tools for AI extension has been
 
 ## Next steps
 
-Learn about [the latest architecture for Azure Machine Learning services](concept-azure-machine-learning-architecture.md) and try one of the quickstarts:
+Learn about [the latest architecture for Azure Machine Learning service](concept-azure-machine-learning-architecture.md) and try one of the quickstarts:
 
-* [What is Azure Machine Learning services](overview-what-is-azure-ml.md)
+* [What is Azure Machine Learning service](overview-what-is-azure-ml.md)
 * [Quickstart: Create a workspace with Python](quickstart-get-started.md)
 * [Quickstart: Create a workspace with Azure CLI](quickstart-get-started-with-cli.md)
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md)
