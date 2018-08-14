@@ -67,109 +67,113 @@ Azure App Service on Azure Stack Update 3 includes the following improvements an
 
 For customers wishing to migrate to contained database for existing Azure App Service on Azure Stack deploments, execute these steps after the Azure App Service on Azure Stack 1.3 update has completed:
 
-> [!IMPORTANT] This procedure takes approximately 5-10 minutes.  This procedure involves killing the existing database login sessions.  Plan for downtime to migrate and validate Azure App Service on Azure Stack post migration 
+> [!IMPORTANT] This procedure takes approximately 5-10 minutes.  This procedure involves killing the existing database login sessions.  Plan for downtime to migrate and validate Azure App Service on Azure Stack post migration
+>
+>
 
-1. Add database to an Availability group - https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database
+1. Add [database to an Availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
 
 1. Enable contained database
-```sql
+    ```sql
 
-sp_configure 'contained database authentication', 1;
-GO
-RECONFIGURE;
-GO
-```
+        sp_configure 'contained database authentication', 1;
+        GO
+        RECONFIGURE;
+            GO
+    ```
 
 1. Converting a Database to Partially Contained.  This may need downtime as all active sessions need to be killed
-'''sql
-/******** [appservice_metering] Migration Start********/
-	USE [master];
-	
-	-- kill all active sessions
-	DECLARE @kill varchar(8000) = '';  
-	SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'  
-	FROM sys.dm_exec_sessions
-	WHERE database_id  = db_id('appservice_metering')
-	
-	EXEC(@kill);
-	
-	USE [master]  
-	GO  
-	ALTER DATABASE [appservice_metering] SET CONTAINMENT = PARTIAL  
-	GO  
-	
-	/********[appservice_metering] Migration End********/
 
-	
-	/********[appservice_hosting] Migration Start********/
-	
-	-- kill all active sessions
-	USE [master];
-	
-	DECLARE @kill varchar(8000) = '';  
-	SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'  
-	FROM sys.dm_exec_sessions
-	WHERE database_id  = db_id('appservice_hosting')
-	
-	EXEC(@kill);
-	
-	-- Convert database to contained
-	USE [master]  
-	GO  
-	ALTER DATABASE [appservice_hosting] SET CONTAINMENT = PARTIAL  
-	GO  
-	
-	/********[appservice_hosting] Migration End********/
-'''
+    '''sql
+        /******** [appservice_metering] Migration Start********/
+            USE [master];
+
+            -- kill all active sessions
+            DECLARE @kill varchar(8000) = '';  
+            SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'  
+            FROM sys.dm_exec_sessions
+            WHERE database_id  = db_id('appservice_metering')
+
+            EXEC(@kill);
+
+            USE [master]  
+            GO  
+            ALTER DATABASE [appservice_metering] SET CONTAINMENT = PARTIAL  
+            GO  
+
+        /********[appservice_metering] Migration End********/
+
+        /********[appservice_hosting] Migration Start********/
+
+            -- kill all active sessions
+            USE [master];
+
+            DECLARE @kill varchar(8000) = '';  
+            SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'  
+            FROM sys.dm_exec_sessions
+            WHERE database_id  = db_id('appservice_hosting')
+
+            EXEC(@kill);
+
+            -- Convert database to contained
+            USE [master]  
+            GO  
+            ALTER DATABASE [appservice_hosting] SET CONTAINMENT = PARTIAL  
+            GO  
+
+            /********[appservice_hosting] Migration End********/
+    '''
 
 1. Migrate Logins to Contained Database Users
-```sql
-IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
-	BEGIN
-	        DECLARE @username sysname ;  
-	        DECLARE user_cursor CURSOR  
-	            FOR   
-	            SELECT dp.name   
-	            FROM sys.database_principals AS dp  
-	            JOIN sys.server_principals AS sp   
-	            ON dp.sid = sp.sid  
-	            WHERE dp.authentication_type = 1 AND dp.name NOT IN ('dbo','sys','guest','INFORMATION_SCHEMA');
-	        OPEN user_cursor  
-	        FETCH NEXT FROM user_cursor INTO @username  
-	            WHILE @@FETCH_STATUS = 0  
-	            BEGIN  
-	                EXECUTE sp_migrate_user_to_contained   
-	                @username = @username,  
-	                @rename = N'copy_login_name',  
-	                @disablelogin = N'do_not_disable_login';  
-	            FETCH NEXT FROM user_cursor INTO @username  
-	            END  
-	        CLOSE user_cursor ;  
-	    DEALLOCATE user_cursor ;
-	END
-	GO
-```
 
-Validate 
+    ```sql
+        IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
+        BEGIN
+        DECLARE @username sysname ;  
+        DECLARE user_cursor CURSOR  
+        FOR
+            SELECT dp.name
+            FROM sys.database_principals AS dp  
+            JOIN sys.server_principals AS sp
+                ON dp.sid = sp.sid  
+                WHERE dp.authentication_type = 1 AND dp.name NOT IN ('dbo','sys','guest','INFORMATION_SCHEMA');
+            OPEN user_cursor  
+            FETCH NEXT FROM user_cursor INTO @username  
+                WHILE @@FETCH_STATUS = 0  
+                BEGIN  
+                    EXECUTE sp_migrate_user_to_contained
+                    @username = @username,  
+                    @rename = N'copy_login_name',  
+                    @disablelogin = N'do_not_disable_login';  
+                FETCH NEXT FROM user_cursor INTO @username  
+            END  
+            CLOSE user_cursor ;  
+            DEALLOCATE user_cursor ;
+            END
+        GO
+    ```
+
+Validate
 
 1. Check if SQL Server has containment enabled
-```sql
-sp_configure  @configname='contained database authentication'
-```
 
-1. Check existing contained behaviour
-'''sql
-SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
-```
+    ```sql
+        sp_configure  @configname='contained database authentication'
+    ```
+
+1. Check existing contained behavior
+    ```sql
+        SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
+    ```
 
 1. Migrate individual login to database contained user
 
-```sql
-EXECUTE sp_migrate_user_to_contained   
-        @username = @username,  
-        @rename = N'copy_login_name',  
-        @disablelogin = N'disable_login';
-```
+    ```sql
+        EXECUTE sp_migrate_user_to_contained
+            @username = @username,  
+            @rename = N'copy_login_name',  
+            @disablelogin = N'disable_login';
+    ```
 
 ### Known issues for Cloud Admins operating Azure App Service on Azure Stack
 
