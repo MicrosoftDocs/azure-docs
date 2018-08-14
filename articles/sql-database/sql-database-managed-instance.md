@@ -134,7 +134,7 @@ The following list outlines the key characteristics of the Business Critical ser
 | Portal support | Yes|
 |||
 
-For more information see [Premium/Business Critical availability and architecture](sql-database-high-availability.md#premiumbusiness-critical) in Azure SQL Database.
+For more information see [Premium/Business Critical availability and architecture](sql-database-high-availability.md#premiumbusiness-critical-availability) in Azure SQL Database.
 
 ## Advanced security and compliance 
 
