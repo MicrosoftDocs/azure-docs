@@ -35,6 +35,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 An Azure IoT Edge device:
 
 * You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+* C modules for Azure IoT Edge don't support Windows containers. If your IoT Edge device is a Windows machine, configure it to [use Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 
 Cloud resources:
 
@@ -47,9 +48,8 @@ Development resources:
 * [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code.
 * [Docker CE](https://docs.docker.com/install/). 
 
-
-   >[!Note]
-   >C modules for Azure IoT Edge don't support Windows containers. 
+>[!Note]
+>C modules for Azure IoT Edge don't support Windows containers. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -305,27 +305,13 @@ You can see the full container image address with tag in the VS Code integrated 
  
 ## Clean up resources 
 
-If you will be continuing to the next recommended article, you can keep the resources and configurations you've already created and reuse them.
+If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them. You can also keep using the same IoT Edge device as a test device. 
 
-Otherwise, you can delete the local configurations and the Azure resources created in this article to avoid charges. 
+Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges. 
 
-> [!IMPORTANT]
-> Deleting Azure resource groups is irreversible. Once deleted, the resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
->
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-To delete only the IoT Hub execute the following command using your hub name and resource group name:
-
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-To delete the entire resource group by name:
-
-   ```azurecli-interactive
-   az group delete --name IoTEdgeResources 
-   ```
-
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## Next steps

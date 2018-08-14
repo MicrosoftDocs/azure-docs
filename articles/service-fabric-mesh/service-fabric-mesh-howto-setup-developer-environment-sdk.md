@@ -8,7 +8,7 @@ ms.author: twhitney
 ms.date: 08/08/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
-manager: JeanPaul.Connock
+manager: jeconnoc
 #Customer intent: As a developer, I need to install the prerequisites to enable service fabric mesh development in visual studio.
 ---
 
@@ -38,7 +38,7 @@ Visual Studio 2017 is required to deploy Service Fabric Mesh applications. [Inst
 
 Download and install the latest version of [Docker Community Edition for Windows][download-docker] to support the containerized Service Fabric apps used by Service Fabric Mesh.
 
-During installation, select **Use Windows containers instead of Linux containers** when asked. 
+During installation, select **Use Windows containers instead of Linux containers** when asked.
 
 If Hyper-V is not enabled on your machine, Docker's installer will offer to enable it. Click **OK** to do so if prompted.
 
