@@ -60,9 +60,9 @@ If you plan to deploy multiple Managed Instances inside the subnet and need to o
 
 ## Create a new virtual network for Managed Instance using ARM deployment
 
-The easiest way to create and configure virtual network is to use ARM deplozment template.
+The easiest way to create and configure virtual network is to use ARM deployment template.
 
-1. Sign in to the Azure portal 
+1. Sign in to the Azure portal.
 
 2. Use **Deploy to Azure** button to deploy virtual network in Azure cloud:
 
