@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/15/2018
 ms.author: anwestg
 
 ---
@@ -24,7 +24,7 @@ ms.author: anwestg
 Use the guidance in this article to deploy App Service in Azure Stack.
 
 >[!IMPORTANT]  
->Apply the 1804 update to your Azure Stack integrated system or deploy the latest Azure Stack Development Kit (ASDK) before you deploy Azure App Service 1.2.
+>Apply the 1807 update to your Azure Stack integrated system or deploy the latest Azure Stack Development Kit (ASDK) before you deploy Azure App Service 1.3.
 
 You can give your users the ability to create web and API applications. To let users create these applications, you need to:
 
