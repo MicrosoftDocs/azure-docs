@@ -22,7 +22,7 @@ Azure SQL Database is based on SQL Server Database Engine architecture that is a
 
 Azure upgrades and patches underlying operating system, drivers, and SQL Server Database Engine transparently with the minimal down-time for end users. Azure SQL Database runs on the latest stable version of SQL Server Database Engine and Windows OS, and most of the users would not notice that the upgrades are performed continuously.
 
-## Standard availability
+## Standard/General Purpose availability
 
 Standard availability refers to 99.99% SLA that is applied in Standard/Basic/General Purpose tiers. High availability in this architectural model is achieved by separation of compute and storage layers. The following figure shows four nodes in standard architectural model with the separated compute and storage layers.
 
@@ -35,7 +35,7 @@ In the standard availability model there are two layers:
 
 Whenever database engine or operating system is upgraded, some part of underlying infrastructure fails, or if some critical issue is detected in Sql Server process, Azure Service Fabric will move the stateless SQL Server process to another stateless compute node. There is a set of spare nodes that is waiting to run new compute service in case of failover in order to minimize failover time. Data in Azure Storage layer is not affected, and data/log files are attached to newly initialized SQL Server process. Expected failover time can be measured in seconds. This process guarantees 99.99% availability, but it might have some performance impacts on heavy workload that is running due to transition time and the fact the new SQL Server node starts with cold cache.
 
-## Premium availability
+## Premium/Business Critical availability
 
 Premium availability is enabled in Premium tier of Azure SQL Database and it is designed for intensive workloads that cannot tolerate any performance impact due to the ongoing maintenance operations.
 
@@ -44,6 +44,8 @@ In the premium model, Azure SQL database integrates compute and storage on the s
 ![Cluster of database engine nodes](media/sql-database-managed-instance/business-critical-service-tier.png)
 
 High availability is implemented using standard [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Every database is a cluster of database nodes with one primary database that is accessible for customer workload, and a three secondary processes containing copies of data. The primary node constantly pushes the changes to secondary nodes in order to ensure that the data is available on secondary replicas if the primary node crashes for any reason. Failover is handled by the SQL Server Database Engine – one secondary replica becomes the primary node and a new secondary replica is created to ensure enough nodes in the cluster. The workload is automatically redirected to the new primary node. Failover time is measured in milliseconds and the new primary instance is immediately ready to continue serving requests.
+
+In addition, Business Critical cluster provides built-in read-only node that can be used to run read-only queries (for example reports) that should not affect performance of your primary workload. 
 
 ## Zone redundant configuration (preview)
 
