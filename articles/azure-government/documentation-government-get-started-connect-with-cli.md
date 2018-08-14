@@ -53,7 +53,7 @@ Once the cloud has been set, you can continue logging in:
 az login
 ```
 
-When you type `login`, a browser is launched for you to login. Choose your Azure Government account and lotin with appropriate credentials.
+When you type `login`, a browser is launched for you to log in. Choose your Azure Government account and log in with appropriate credentials.
 
 ## Confirm 
 
@@ -77,7 +77,7 @@ az account list-locations
 
 ## Next steps
 
-This quickstart showed you how to use CLI to connect to Azure Government. Once you are connected to Azure Government, you may want to explore Azure services. Make sure you checkout the variations, described in [Compare Azure Government and global Azure](compare-azure-government-global-azure.md). To learn more about Azure services continue to the Azure documentation.
+This quickstart showed you how to use CLI to connect to Azure Government. Once you are connected to Azure Government, you may want to explore Azure services. Make sure you check out the variations, described in [Compare Azure Government and global Azure](compare-azure-government-global-azure.md). To learn more about Azure services continue to the Azure documentation.
 
 > [!div class="nextstepaction"]
 > [Azure documentation](https://docs.microsoft.com/azure/).

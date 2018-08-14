@@ -20,7 +20,7 @@ ms.author: sdubeymsft
 
 # Tutorial: Deploy an Azure App Services app
 
-Microsoft Azure Government delivers a dedicated cloud with world-class security and compliance, enabling US government agencies and their partners to transform their workloads to the cloud. For example, your may want to provistion and deploy a web app in the Azure Government cloud. To learn more about Azure App Service and see end-to-end scenarios, see [App Service - API Apps Documentation](../app-service/index.yml)
+Microsoft Azure Government delivers a dedicated cloud with world-class security and compliance, enabling US government agencies and their partners to transform their workloads to the cloud. For example, your may want to provision and deploy a web app in the Azure Government cloud. To learn more about Azure App Service and see end-to-end scenarios, see [App Service - API Apps Documentation](../app-service/index.yml)
 
 This article describes how to deploy an Azure App Services app to Azure Government using Visual Studio 2017.
 
@@ -76,7 +76,7 @@ In Visual Studio, make sure the **Azure Government** environment is selected. To
 
 In Visual Studio, click **File** -> **New** -> **Project**. Select **ASP.NET Core Web Application** as the project type and give the application a name.
 
-Once it is created, right click on your web app in the **Solution Explorer** and and click **Publish**.
+Once it is created, right-click on your web app in the **Solution Explorer** and click **Publish**.
 
 Select **Select Existing** because we want to use the existing Web App that we have created in the preceding section.
 
