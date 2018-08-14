@@ -266,7 +266,7 @@ The following are post-installation known issues for this build version.
 
 ### SQL and MySQL
 
-- <!-- TBD - ASDK --> The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
+
 
 - <!-- No Number - IS, ASDK -->  Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers. 
 
