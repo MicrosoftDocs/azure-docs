@@ -114,6 +114,8 @@ An "Editor" subfolder will also be created under this location. For more informa
 6. After the probes have been calculated, the controls above will be disabled. Click the "Clear" button to erase the calculations and enable the controls so that you can re-calculate using new settings.
 7. Click the "Calculate..." button to voxelize the scene and calculate the probe point locations. **This is done locally on your machine**, and must be done prior to doing a bake.
 
+Probes can't be placed manually and must be placed through the automated process provided in the Probes tab.
+
 ### What does the "Calculate..." button calculate?
 The Calculate... button takes all the data you have provided so far (geometry, navigation, materials, and the Coarse/Fine setting) and goes through several steps:
 1. It takes the geometry from the scene meshes and calculates a voxel volume. The voxel volume is a 3-dimensional volume that encloses your entire scene, and is made up of small cubic "voxels". 
@@ -128,6 +130,9 @@ Depending on the size of your scene and the speed of your machine, these calcula
 
 Once these calculations are complete you can preview both the voxel data and the probe point locations to help ensure that the bake will give you good results. Things like a bad navigation mesh or missing/extra geometry
 will typically be quickly visible in the preview so you can correct it.
+
+### Scene rename
+The scene name is used to connect the scene to files storing the probe point placement and voxelization. If the scene is renamed after probe points are calculated, the material assignment and placement data is lost and should be re-run.
 
 ## Debug display through Gizmos
 By default, both the Probes and Voxels gizmos are turned on. These will show you the voxels and probe point locations that were calculated. They can be enabled or disabled using the Gizmos menu:
@@ -170,6 +175,7 @@ plays out in a given situation depends completely on how the voxels line up with
 ## Bake tab
 Once you're happy with the preview data, use the Bake tab to submit your bake to the cloud.
 
+### Parts of the bake tab
 ![Bake Tab Detail](media/BakeTabDetails.png)
 
 1. The Bake Tab button used to bring up this page.
@@ -186,6 +192,9 @@ when ready, will **not** be downloaded, and **this is not the same as canceling 
 Once you've started a bake, you can leave Unity. Depending on the project, node type, and number of nodes, a cloud bake can take several hours. The bake job status will be updated when you reload
 the project and open the Acoustics window. If the job has completed, the output file will be downloaded.
 
+### Reviewing the bake results
+After the bake completes, check that the voxels and probe points are in their expected locations by running the runtime plugin. More information is in [Design Process](designprocess.md).
+
 ## Data files
 There are four data files created by this plugin at various points. Only one of them is needed at runtime, therefore the other three are inside folders named "Editor" so they won't be compiled into your project.
 * **Assets/Editor/[SceneName]\_AcousticsParameters.asset**: This file stores the data you enter in fields in the Acoustics UI. The location and name of this file can't be changed.
@@ -194,3 +203,6 @@ There are four data files created by this plugin at various points. Only one of 
 * **Assets/AcousticsData/Editor/[SceneName]\_Acoustics\_config.xml**: This file stores parameters computed using the "Calculate..." button on the Probes Tab. The location and name of this file can be changed using the fields on the Probes Tab.
 
 Take care not to delete the bake result (.ace.bytes file). This file isn't recoverable except by rebaking the scene.
+
+## Next steps
+* Apply bake results to sound sources in [Design Process](designprocess.md)

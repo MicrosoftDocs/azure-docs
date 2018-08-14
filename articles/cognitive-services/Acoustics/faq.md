@@ -48,3 +48,6 @@ Accurate and reliable results on complex scenes. Smooth occlusion/obstruction wi
 The system considers potential player locations to generate a set of uniformly spaced “probe” sample positions. A job for a level consists of independent tasks for probe: The system considers a cylindrical “Simulation Region” centered at the probe and does a detailed wave simulation within that region at 25cm resolution. Each simulation takes about 15mins, for a region of radius 45 meter and 10-20 meters total height. Intuitively, only geometry in the simulation region around the player causes occlusion/reverb.
 
 To use Microsoft Acoustics on Android, change your build target to Android. Some versions of Unity have a bug with deploying audio plugins -- make sure you are not using a version affected by [this bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).
+
+## I get an error that 'could not find metadata file System.Security.dll'
+Ensure the Scripting Runtime Version in Player settings is set to '.NET 4.x Equivalent', and restart Unity.

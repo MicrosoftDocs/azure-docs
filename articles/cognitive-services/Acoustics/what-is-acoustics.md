@@ -41,6 +41,7 @@ With the approach provided by Project Acoustics' Unity plugin, you provide a sta
 * Unity 2018.2+ for bakes, and Unity 5.2+ for sound design and deployment
 * Windows 64-bit Unity Editor
 * Azure Batch subscription for bakes
+* Unity scripting runtime must be set to '.NET 4.x equivalent'
 
 ## Platform support
 * Windows desktop (x86 and AMD64)
