@@ -33,7 +33,7 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 1. Open a command-prompt or shell.
 
 2. To create a conda environment, use the following commands:
-1. 
+
     ```shell
     # create a new conda environment with Python 3.6, numpy and cython
     conda create -n myenv Python=3.6 cython numpy
@@ -106,7 +106,7 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
     pip install --upgrade azureml-sdk
     ```
 
-4. To install the Visual Studio code Tools for AI, see [https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai). 
+4. To install the Visual Studio code Tools for AI, see the Visual Studio marketplace entry for [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai). 
 
 5. To install packages for your machine learning experimentation, use the following command and replace `<new package>` with the package you want to install:
 
