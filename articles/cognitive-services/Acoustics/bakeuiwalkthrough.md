@@ -13,25 +13,24 @@ ms.author: kegodin
 # Unity bake UI
 This document describes the process of submitting an acoustics bake using the Unity editor extension. For information about what Microsoft Acoustics is, check out the [Introduction to Microsoft Acoustics](what-is-acoustics.md).
 
-## Importing the plugin
-Import the Acoustics plugin package to your project by following the instructions on the [Getting Started](gettingstarted.md) page. Then open the Acoustics UI by choosing Window > Acoustics from the Unity menu:
+## Import the plugin
+Import the Acoustics plugin package to your project. Then open the Acoustics UI by choosing Window > Acoustics from the Unity menu:
 
 ![Open Acoustics Window](media/WindowAcoustics.png)
-# Principles
+
+## Principles
 The Acoustics tool window gathers the information the acoustics engine needs to calculate the acoustics for your scene. There are four pre-bake steps:
 1. Mark your player navigation mesh
 2. Mark acoustics geometry
 3. Assign acoustic materials properties to geometry
 4. Preview probe placement, and bake
 
-See [Getting Started](gettingstarted.md) for post-bake steps.
+See [design process](designprocess.md) for post-bake steps.
 
-# Unity Navigation vs. Custom Navigation (or no navigation)
+## Unity Navigation vs. Custom Navigation
 A player navigation mesh is used to place probe points for simulation. Unity includes a navigation mesh workflow, or you can specify your own navigation mesh. Unity's navigation mesh documentation is [here](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html). If you use Unity's navigation mesh workflow, it will be picked up by the acoustics system. Or, you can mark your own meshes as navigation meshes in the Objects tab of the acoustics plugin.
 
-The system does an acoustics simulation at each probe location. Without the constraints of a navigation mesh, a large number of probes will be placed, increasing the time and expense of the bake.
-
-# Objects Tab
+## Objects Tab
 After specifying the navigation mesh, open the Objects tab. Use this tab to mark objects in your scene acoustics geometry.  "Marking" an object simply adds the AcousticsGeometry component to the object. You can also use the [standard component workflow](https://docs.unity3d.com/Manual/UsingComponents.html) to mark or unmark objects.
 
 If you have nothing selected in your scene, it will look like the following picture:
@@ -40,7 +39,8 @@ If you have nothing selected in your scene, it will look like the following pict
 If you have something selected in your scene or hierarchy window, it will look like the following picture:
 ![Objects Tab No Selection](media/ObjectsTabWithSelectionDetail.png)
 
-The various parts of the tab page are:
+### Objects tab parts
+The parts of the tab page are:
 * Available filters for the hierarchy window
 * When no objects are selected, the filter shows the status of the objects in the scene:
    - Total - The total number of active, non-hidden objects in the scene.
@@ -75,8 +75,10 @@ as collision meshes.
 
 If you are not using a Unity NavMesh and are instead marking your own meshes for navigation, be sure to mark all horizontal surfaces where the player can travel. Marking vertical surfaces will not have any affect on the probe point calculations.
 
-# Materials Tab
-Once your objects are marked, click the "Materials" button to go to the Materials Tab:
+## Materials Tab
+Once your objects are marked, click the "Materials" button to go to the Materials Tab.
+
+### Parts of the Materials tab
 
 ![Materials Tab Detail](media/MaterialsTabDetail.png)
 
@@ -100,8 +102,10 @@ This tab is initially populated with absorption value guesses based on string ma
 
 You can re-assign acoustic materials to each scene material. For example, if a room sounds too reverberant, change the acoustic material of the walls, floor, and/or ceiling to something of higher absorptivity. Note that the acoustic assignments apply to all objects that use that scene material.
 
-# Probes Tab
-After assigning the materials, proceed to the Probes Tab:
+## Probes Tab
+After assigning the materials, proceed to the Probes Tab.
+
+### Parts of the Probes tab
 
 ![Probes Tab Detail](media/ProbesTabDetail.png)
 
@@ -129,7 +133,7 @@ Depending on the size of your scene and the speed of your machine, these calcula
 Once these calculations are complete you can preview both the voxel data and the probe point locations to help ensure that the bake will give you good results. Things like a bad navigation mesh or missing/extra geometry
 will typically be quickly visible in the preview so you can correct it.
 
-## Gizmos
+## Debug display through Gizmos
 By default, both the Probes and Voxels gizmos are turned on. These will show you the voxels and probe point locations that were calculated. They can be enabled or disabled using the Gizmos menu:
 
 ![Gizmos Menu](media/GizmosMenu.png)
@@ -142,7 +146,7 @@ If you compare the voxels created with Coarse resolution vs Fine resolution, you
 
 ![Voxel Preview](media/VoxelCubesPreview.png)
 
-### Probe Points
+### Probe points
 Probe points are synonymous with listening locations. When doing a bake, the acoustics for a sound source anywhere in the scene is calculated for each of these probe points. If the player is not directly at a probe point
 location, the data from the probe points nearest to the player are used to interpolate the parameters at that location.
 
@@ -151,7 +155,7 @@ Future versions will allow the ability to edit/add/delete probe points, but for 
 
 ![Probes Preview](media/ProbesPreview.png)
 
-### Coarse vs Fine Resolution
+### Coarse vs fine resolution
 The only difference between the Coarse and Fine resolution settings is the frequency at which the simulation is performed. Fine uses a frequency twice as high as Coarse.
 While this may seem simple, it has a number of implications on the acoustic simulation:
 * The wavelength for Coarse is twice as big as Fine, and therefore the voxels are twice as big
@@ -167,8 +171,8 @@ plays out in a given situation depends completely on how the voxels line up with
 ![Course Doorway](media/CoarseVoxelDoorway.png)
 ![Fine Doorway](media/FineVoxelDoorway.png)
 
-# Bake Tab
-Once you are happy with the preview data, then use the Bake Tab to submit your bake to the cloud:
+## Bake Tab
+Once you are happy with the preview data, then use the Bake Tab to submit your bake to the cloud.
 
 ![Bake Tab Detail](media/BakeTabDetails.png)
 
@@ -186,15 +190,10 @@ when ready, will **not** be downloaded. In addition, **this is not the same as c
 Once you have started a bake, you can leave Unity (**don't forget to save first!**). Depending on the project, node type, and number of nodes, a cloud bake can take many hours. When you reload
 the project and open the Acoustics window the job status will be updated. If the job has completed then the output file will be downloaded.
 
-Once the cloud bake has completed and the data file downloaded, follow the instructions on the [Getting Started](gettingstarted.md) page to use the data at runtime.
-
-# Data Files
+## Data files
 There are four data files created by this plugin at various points. Only one of them is needed at runtime, therefore the other three are inside folders named "Editor" so they will not be compiled into your project.
 * **Assets/Editor/[SceneName]\_AcousticsParameters.asset**: This file stores the data you enter into the various fields in the Acoustics UI. It also contains a number of advanced fields that manipulate the simulation bake 
 (See "Advanced Parameters" below). The location and name of this file cannot be changed.
 * **Assets/AcousticsData/[SceneName]\_Acoustics.ace.bytes**: This contains the results of the bake and is used by the runtime. The location and name of this file can be changed using the fields on the Probes Tab.
 * **Assets/AcousticsData/Editor/[SceneName]\_Acoustics.vox**: Contains the voxelized representation of the scene including material data. Computed using the "Calculate..." button on the Probes Tab. The location and name of this file can be changed using the fields on the Probes Tab.
 * **Assets/AcousticsData/Editor/[SceneName]\_Acoustics\_config.xml**: Contains probe point locations and other simulation parameters used for the bake. Computed using the "Calculate..." button on the Probes Tab. The location and name of this file can be changed using the fields on the Probes Tab.
-
-# Advanced Parameters
-TBD - Describe a few of the advanced parameters fields (particularly Max Probe Spacing).

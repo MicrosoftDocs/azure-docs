@@ -30,6 +30,13 @@ With the approach provided by Project Acoustics' Unity plugin, you provide a sta
 
 ![Design View](media/GearsWithVoxels.jpg)
 
+## Platform support
+* Requires Unity 2018.2+ for the bake process, and Unity 5.2+ for deployment
+* Requires Windows AMD64 Unity Editor
+* Supports Windows desktop (x86 and AMD64)
+* Supports Windows UWP (x86, AMD64, and ARM)
+* Supports Android (x86 and ARM64)
+
 ## Next steps
 * Learn more about the [design process](designprocess.md)
 * Get started [integrating acoustics in your Unity title](gettingstarted.md)
