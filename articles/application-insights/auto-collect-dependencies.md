@@ -10,8 +10,8 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: conceptual
-ms.date: 08/06/2018
+ms.topic: reference
+ms.date: 08/13/2018
 ms.reviewer: mbullwin
 ms.author: nimolnar
 
