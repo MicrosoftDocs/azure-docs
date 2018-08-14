@@ -40,7 +40,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[cBEYONData](http://cbeyondata.com/)|
 |[CDO Technologies Inc.](https://www.cdotech.com/contact/)|
 |[CDW-G, LLC](https://www.cdwg.com)|
-|[CENTRALE LLC]()|
+|CENTRALE LLC|
 |[Centurylink](http://www.centurylink.com/public-sector/federal-government.html)|
 |[cFocus Software Incorporated](https://cfocussoftware.com)|
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
@@ -110,12 +110,12 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[mindSHIFT Technologies, Inc.](https://www.mindshift.com/)|
 |[MIS Sciences Corp](http://www.mis-sciences.com/)|
 |[Mobomo, LLC](https://www.mobomo.com)|
-|[MS Cloud Express, LLC]()|
+|MS Cloud Express, LLC|
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[Netwize](https://www.netwize.com)|
 |[NewWave Telecom & Technologies, Inc](http://www.newwave.io)|
 |[Norseman, Inc](https://www.norseman.com)|
-|[NTSMCloud]()|
+|NTSMCloud|
 |[NTT America, Inc.](https://www.us.ntt.net)|
 |[Nubelity LLC](http://www.nubelity.com)|
 |[NuSoft Solutions (Atrio Systems, Inc.)](https://nusoftsolutions.com)|
