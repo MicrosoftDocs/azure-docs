@@ -5,7 +5,7 @@
   items:
   - name: What is Azure Machine Learning?
     href: overview-what-is-azure-ml.md
-  - name: Choose an machine learning solution
+  - name: Choose a machine learning solution
     href: overview-more-machine-learning.md    
   - name: What happened to Workbench?
     href: overview-what-happened-to-workbench.md
