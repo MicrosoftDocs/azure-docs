@@ -16,7 +16,7 @@ ms.date: 08/10/2018
 ms.author: alkohli
 
 ---
-# Migrate data from StorSimple 5000-7000 series 
+# Migrate data from StorSimple 5000-7000 series to Azure File Sync
 
 Data migration is the process of moving data from one storage location to another. This entails making an exact copy of an organization’s current data from one device to another device—preferably without disrupting or disabling active applications — and then redirecting all input/output (I/O) activity to the new device. 
 
