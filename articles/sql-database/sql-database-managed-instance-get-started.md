@@ -111,6 +111,6 @@ When you click on the "Purchase" button, Azure VM will be deployed in the networ
 ## Next steps
 
  - [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
- - [Migrate your databases from on-premises to Managed Instance](/sql-database-managed-instance-migrate.md).
+ - [Migrate your databases from on-premises to Managed Instance](sql-database-managed-instance-migrate.md).
 
 

@@ -28,6 +28,8 @@ This tutorial demonstrates how to create an Azure SQL Database Managed Instance 
 > * Connect to virtual machine
 > * Install SSMS and connect to the Managed Instance
 
+> [!Note]
+> This tutorial explains how to configure network, subnets, instance, and virtual machine using Azure portal, which might be a longer process. If you need shorter a quick-start tutorial where the network and virtual machine used for access the instance are created using one-click on "Deploy to Azure" button, you might take a look at [Getting started tutorial](sql-database-managed-instance-get-started.md).
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
