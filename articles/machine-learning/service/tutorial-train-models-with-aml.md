@@ -24,7 +24,7 @@ You'll learn how to:
 > * Set up your development environment
 > * Access and examine the data
 > * Train a simple logistic regression locally using the popular scikit-learn maching learning library 
-> * Traing multiple models on a remote GPU cluster
+> * Train multiple models on a remote GPU cluster
 > * Review training details and register the best model
 
 You'll train a simple logistic regression using the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset and scikit-learn with Azure Machine Learning. 
@@ -127,7 +127,7 @@ proj.get_details()
 Azure Batch AI Cluster is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  You'll use a Batch AI cluster to train your model. This code will create a cluster for you if it does not already exist in your workspace. 
 
 > [!IMPORTANT]
-> **Creation of the cluster will take approximately 5 minutes.** If the cluster is already in the workspace this code simply uses it and skips the creation process.
+> **Cluster creation takes approximately 5 minutes.** If the cluster already exists in the workspace, this code skips the creation process and get started using the cluster.
 
 
 ```python
@@ -227,13 +227,14 @@ print(ds.datastore_type, ds.account_name, ds.container_name)
 ds.upload(src_dir = './data', target_path = 'mnist', overwrite = True, show_progress = True)
 ```
 
+You now have everything you need to start training a model. 
 
 ## Train a local model
 
-You now have everything you need to start training a model. You can train a simple logistic regression model from scikit-learn. 
+Train a simple logistic regression model from scikit-learn locally.
 
-> **This may take a minute or two**, depending on your computer configuration.
-
+> [!IMPORTANT]
+> **Training locally can take a minute or two** depending on your computer configuration.
 
 ```python
 %%time
@@ -243,8 +244,7 @@ clf = LogisticRegression()
 clf.fit(X_train, y_train)
 ```
 
-Now make predictions on the test set, and calculate accuracy. With almost no effort, you have a 92% accuracy. This is not bad! 
-
+Next, make predictions using the test set and calculate the accuracy. 
 
 ```python
 y_hat = clf.predict(X_test)
@@ -252,35 +252,21 @@ print(np.average(y_hat == y_test))
 ```
 
     0.9202
-    
+
+With almost no effort, you have a 92% accuracy.
 
 ## Train on a remote cluster
-Now you can expand on this simple model. You can build multiple versions of the model using different regularization rates.  For this task, you'll submit the job to the Batch AI cluster you set up earlier.
- In this section you will:
 
+Now you can expand on this simple model by building multiple versions of the model using different regularization rates.  
+
+For this task, submit the job to the Batch AI cluster you set up earlier so you can:
 + Create a training script
 + Create an estimator
 + Submit job 
 
 ### Create a training script
 
-You need a training script to submit the job to the cluster. Let's write one now.
-
-Notice how the script gets data and saves models:
-
-+ The training script will read an argument to find the data folder.  When you submit the job, you'll point to the datastore for this argument:
-
-    ```Python
-    parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data folder mounting point')
-    ```
-    
-+ The training script will save your model into a folder named `outputs`. The `outputs` folder is a special construct - anything written in this folder is automatically uploaded into your workspace. You'll access your model from here later in the tutorial.
-
-    ```Python
-    saver.save(sess, './outputs/model/mnist-tf.model')
-    ```
-
-
+To submit the job to the cluster, you need to create a training script. Run the following code to create the training script called train.py in a place the workspace can find it.
 
 ```python
 %%writefile $proj.project_directory/train.py
@@ -336,6 +322,21 @@ os.makedirs('outputs', exist_ok = True)
 joblib.dump(value = clf, filename = 'outputs/sklearn_mnist_model.pkl')
 ```
 
+Notice how the script gets data and saves models:
+
++ The training script reads an argument to find the folder containing the data.  When you submit the job later, you point to the datastore for this argument:
+
+    ```Python
+    parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data folder mounting point')
+    ```
+    
++ The training script saves your model into a folder named outputs. Anything written in this folder is automatically uploaded into your workspace. You'll access your model from this folder later in the tutorial.
+
+    ```Python
+    saver.save(sess, './outputs/model/mnist-tf.model')
+    ```
+
+
 You also need to copy the utility library that loads the dataset into the project folder.
 
 
@@ -347,9 +348,11 @@ shutil.copy('utils.py', proj.project_directory)
 
 ### Create an estimator
 
-Next, construct an estimator(`est`) with the training script, set to run on the Batch AI cluster. This code shows how you specify the `data-folder` parameter that the training script uses to access your data. 
-
-The estimator automatically configures a Docker container with scikit-learn installed to run the training code.
+Create an estimator by running the following code to define:
++ The name of the estimator object, est
++ The compute target, such as the Batch AI cluster you created
++ The training script name, train.py
++ The `data-folder` parameter used by the training script to access the data
 
 
 ```python
@@ -367,9 +370,13 @@ est = Estimator(project = proj,
                 conda_packages = ['scikit-learn'])
 ```
 
-### Submit job 
+The estimator automatically configures a Docker container with scikit-learn installed to run the training code.
 
-Calling the `fit` function on the estimator submits the job to run in the Batch AI cluster. All files in the project folder are uploaded into the Batch AI cluster nodes for execution. Since the call is asynchronous, it returns a **running** state as soon as the job is kicked-off.
+### Submit the job to the cluster
+
+Calling the `fit` function on the estimator submits the job to execution in the target you defined. 
+
+In this tutorial, this target is the Batch AI cluster. All files in the project folder are uploaded into the Batch AI cluster nodes for execution. 
 
 
 ```python
@@ -378,24 +385,27 @@ print(run.get_details().status)
 ```
 
     Running
-    
+
+Since the call is asynchronous, it returns a **running** state as soon as the job is started.
+
+Now, we need to wait for the training to complete.
 
 ## Monitor a remote run
 
-The previous step submitted the job for execution, which started a job on your cluster. Now we need to wait for the training to complete.  
+Each run goes through the following stages:
 
-As the run is executed, it will go through the following stages:
+- **Image creation**: A Docker image is created matching the Python environment specified by the estimator. The image is uploaded to the workspace. Image creation and uploading **takes about 5 minutes**. 
 
-- **Preparing**: A docker image is created matching the Python environment specified by the estimator and it will be uploaded to the workspace. This step will only happen once for each Python environment -- the container will then be cached for subsequent runs.  While the job is preparing, logs are streamed to the run history and can be viewed to monitor the progress of the image creation. **Creating and uploading the image takes about 5 minutes.**
+  This stage happens once for each Python environment since the container is cached for subsequent runs.  During image creation, logs are streamed to the run history. You can monitor the image creation progress using these logs.
 
-- **Scaling**: If the compute needs to be scaled up (that is, the Batch AI cluster requires more nodes to execute the run than currently available), the Batch AI cluster will attempt to scale up in order to make the required amount of nodes available. **Scaling typically takes about 5 minutes.**
+- **Scaling**: If the compute needs to be scaled up (that is, the Batch AI cluster requires more nodes to execute the run than currently available), the cluster attempts make the required amount of nodes available. Scaling typically **takes about 5 minutes.**
 
-- **Running**: The project files are deployed to the compute target, data stores are mounted/copied and the entry_script is executed. While the job is running, stdout and the ./logs folder are streamed to the run history and can be viewed to monitor the progress of the run.
+- **Running**: In this stage, the necessary scripts and files are sent to the compute target, then data stores are mounted/copied, then the entry_script is run. While the job is running, stdout and the ./logs folder are streamed to the run history. You can monitor the run's progress using these logs.
 
 - **Post-Processing**: The ./outputs folder of the run is copied over to the run history.
 
 > [!IMPORTANT]
-> In total, the first run will take **approximately 10 minutes**. But for subsequent runs, as long as the dependencies of the project don't change, the same image is reused and hence the container start up time will be much faster.
+> In total, the first run will take **approximately 10 minutes**. But for subsequent runs, as long as the script dependencies don't change, the same image will be reused and hence the container start up time is much faster.
 
 
 There are multiple ways to check the progress of a running job. You can use a Jupyter notebook widget.
@@ -410,11 +420,13 @@ RunDetails(run).show()
 ![notebook widget](./media/tutorial-train-models-with-aml/widget.png)
 
 
-### Wait for results
+### Get log results upon completion
 
-We can also just block and wait.  This code completes when the run is finished.  `show_output = True` prints detailed logging information of the run, while `show_output = False` prints a summary when the job is complete.
+You can print the logging output after the run completes. 
 
++ For a detailed log of the run, set `show_output = True`.
 
++ For a short summary of the run, set `show_output = False`.
 
 ```python
 run.wait_for_completion(show_output = False)
@@ -422,8 +434,7 @@ run.wait_for_completion(show_output = False)
 
 ## Submit multiple training jobs
 
-Now let's make use of the normalization rate parameter by kicking off several runs with different values.
-
+You can introduce a regularization rate to prevent the overfitting of the model to the training sample. You can start several experiments using different values for each run.
 
 ```python
 # try a few different regularization rates
@@ -452,10 +463,10 @@ for reg in regs:
     Kick off a job to train model with regularizaion rate of 1
     
 
-The cluster was created during the first run.  Now these runs can start right away.  However, the training itself still takes some time.  Wait until they are all complete:
+Since the cluster was created when you submitted the first run, these new jobs start immediately. However, training itself still takes time.  Wait until they are all complete:
 
 > [!IMPORTANT]
-> This will take approximately 12 minutes to complete
+> Training takes approximately 10-15 minutes to complete.
 
 
 ```python
@@ -485,11 +496,11 @@ for r in history.get_runs():
 
 ## Evaluate and register a model
 
-You have now trained multiple models using various regularization rates.  Let's take a look at how they perform and select the best model.
+For each model trained with different regularization rates, you can inspect how well it performed. The model performance can help you choose the best model for you.
 
 ### Plot accuracy over regularization rate
 
-Retrieve the logged metrics and use `matplotlib` to examine accuracy and regularization rates.
+Compare accuracy across the models. Retrieve the logged metrics. Then, use `matplotlib` to examine accuracy and regularization rates.
 
 
 ```python
@@ -508,7 +519,11 @@ plt.show()
 
 ![accuracy plot](./media/tutorial-train-models-with-aml/accuracy.png)
 
-You can see that lower regularization rates lead to worse accuracy. Here you see the best model in the graph is the one with a rate of 1.0. Find the ID for this model and register it in the workspace.
+By looking at this plot, you can see that:
++ Lower regularization rates lead to worse accuracy
++ The best model is the one with an accuracy rate of 1.0
+
+Find the ID for the best model and register it in the workspace.
 
 
 ```python
@@ -555,7 +570,7 @@ In this Azure Machine Learning tutorial, you used Python to:
 > * Traing multiple models on a remote GPU cluster
 > * Review training details and register the best model
 
-You are ready to move on to the next part in the tutorial series, where you will deploy the registered model:
+You are ready to deploy this registered model using the instructions in the next part of the tutorial series:
 
 > [!div class="nextstepaction"]
 > [Tutorial 2 - Deploy models](tutorial-deploy-models-with-aml.md)
