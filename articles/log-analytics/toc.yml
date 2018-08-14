@@ -107,6 +107,8 @@
         href: log-analytics-custom-fields.md
       - name: Data collector API
         href: log-analytics-data-collector-api.md
+      - name: Data Collector API Pipeline example
+        href: log-analytics-create-pipeline-datacollector-api.md
   - name: Query data
     items:
     - name: Language documentation

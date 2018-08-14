@@ -43,7 +43,7 @@ To start sending data into Log Analytics. Several options exist:
 
  ![Screenshot choose and action](./media/app-insights-custom-data-correlation/01-logic-app-connector.png)  
 
-- For an asynchronous option, use the Data Collector API to build a processing pipeline. See [this article](Second doc about how to build a custom pipeline) for details.
+- For an asynchronous option, use the Data Collector API to build a processing pipeline. See [this article](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) for details.
 
 ## Correlating data
 
