@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 08/14/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 ---
@@ -58,7 +58,28 @@ If you plan to deploy multiple Managed Instances inside the subnet and need to o
 
 **Example**: You plan to have three General Purpose and two Business Critical Managed Instances. That means you need 5 + 3 * 2 + 2 * 4 = 19 IP addresses. As IP ranges are defined in power of 2, you need the IP range of 32 (2^5) IP addresses. Therefore, you need to reserve the subnet with subnet mask of /27. 
 
-## Create a new virtual network for Managed Instances 
+## Create a new virtual network for Managed Instance using Azure Resource Manager deployment
+
+The easiest way to create and configure virtual network is to use Azure Resource Manager deployment template.
+
+1. Sign in to the Azure portal.
+
+2. Use **Deploy to Azure** button to deploy virtual network in Azure cloud:
+
+  <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+
+  This button will open a form that you can use to configure network environment where you can deploy Managed Instance.
+
+  > [!Note]
+  > This Azure Resource Manager template will deploy virtual network with two subnets. One subnet called **ManagedInstances** is reserved for Managed Instances and has pre-configured route table, while the other subnet called **Default** is used for other resources that should access Managed Instance (for example, Azure Virtual Machines). You can remove **Default** subnet if you don't need it.
+
+3. Configure network environment. On the following form you can configure parameters of your network environment:
+
+![Configure azure network](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+
+You might change the names of VNet and subnets and adjust IP ranges associated to your networking resources. Once you press "Purchase" button, this form will create and configure your environment. If you don't need two subnets you can delete the default one. 
+
+## Create a new virtual network for Managed Instances using portal
 
 Creating an Azure virtual network is a prerequisite for creating a Managed Instance. You can use the Azure portal, [PowerShell](../virtual-network/quick-create-powershell.md), or [Azure CLI](../virtual-network/quick-create-cli.md). The following section shows the steps using the Azure portal. The details discussed here apply to each of these methods.
 
@@ -87,7 +108,7 @@ Creating an Azure virtual network is a prerequisite for creating a Managed Insta
 
    ![virtual network create form](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
 
-## Create the required route table and associate it
+### Create the required route table and associate it
 
 1. Sign in to the Azure portal  
 2. Locate and then click **Route table**, and then click **Create** on the Route table page.
