@@ -65,21 +65,28 @@ in the Logic App Designer.
   * Your function uses the **HTTP trigger** function 
   template for either **JavaScript** or **C#**. 
 
-    This template can accept content with the `application/json` type from your logic app. 
-    Also, when you add an Azure function to your logic app, the Logic App Designer shows 
-    custom functions created from this template and with your Azure subscription. 
+    This template can accept content with the 
+    `application/json` type from your logic app. 
+    Also, when you add an Azure function to your logic app, 
+    the Logic App Designer shows custom functions created 
+    from this template and with your Azure subscription. 
 
   * For your function template, check these property values: 
   
     * The **Mode** property value is **Webhook**.
     * The **Webhook type** property value is **Generic JSON**.
+    
+    To find these values, follow these steps:
 
-    1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
-    2. On the main Azure menu, select **Function Apps**. 
-    3. In the **Function Apps** list, select your function app, 
-    expand your function, and select **Integrate**. 
-    4. Check the **Mode** property value is **Webhook** and 
-    the **Webhook type** property value is **Generic JSON**. 
+      1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
+
+      2. On the main Azure menu, select **Function Apps**. 
+
+      3. In the **Function Apps** list, select your function app, 
+      expand your function, and select **Integrate**. 
+
+      4. Check the **Mode** property value is **Webhook** and 
+      the **Webhook type** property value is **Generic JSON**. 
 
   * If your function has an 
   [API definition](../azure-functions/functions-openapi-definition.md), 
@@ -114,7 +121,9 @@ check your function template's property values:
   2. Under **Triggers**, select these property values: 
 
      1. For the **Mode** property, select **Webhook**.
+
      2. After the **Webhook type** property appears, select **Generic JSON**.
+
      3. When you're done, choose **Save**.
 
         ![Your function template's "Integrate" properties](./media/logic-apps-azure-functions/function-integrate-properties.png)
@@ -131,7 +140,7 @@ follow these steps:
   * Make sure your function app is actively running.
 
   * In your function app, set up [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so all 
-  origins are permitted:
+  origins are permitted by following these steps:
 
     1. Starting from the **Function Apps** list, 
     select your function app > **Platform features** > **CORS**.
@@ -142,7 +151,7 @@ follow these steps:
     but remove all the other origins in the list, 
     and choose **Save**.
 
-       ![Select your function app > "Platform features" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
+       ![Set "CORS* to the wildcard character "*"](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
 
 ### Access property values inside HTTP requests
 
