@@ -70,7 +70,7 @@ The **TechnicalProfile** element contains the following attribute:
 
 | Attribute | Required | Description |
 |---------|---------|---------|
-| Id | Yes | A unique identifier that is used to identify the technical profile. The technical profile can be referenced using this identifier from other elements in the policy file. For example, **OrchestrationSteps** and **ValidationTechnicalProfile**. |
+| Id | Yes | A unique identifier of the technical profile. The technical profile can be referenced using this identifier from other elements in the policy file. For example, **OrchestrationSteps** and **ValidationTechnicalProfile**. |
 
 The **TechnicalProfile** contains the following elements:
 
@@ -81,15 +81,15 @@ The **TechnicalProfile** contains the following elements:
 | Description | 0:1 | The description of the technical profile that can be displayed to users. |
 | Protocol | 0:1 | The protocol used for the communication with the other party. |
 | Metadata | 0:1 | A collection of key/value pairs that are utilized by the protocol for communicating with the endpoint in the course of a transaction. |
-| InputTokenFormat | 0:1 | The format of the input token. Possible values: `JSON`, `JWT`, `SAML11`, or `SAML2`. The `JWT` value represents a JSON Web Token as per IETF specification. The `'SAML11` value represents a SAML 1.1 security token as per OASIS specification.  The `SAML2` value represents a SAML 2.0 security token as per OASIS specification. |
+| InputTokenFormat | 0:1 | The format of the input token. Possible values: `JSON`, `JWT`, `SAML11`, or `SAML2`. The `JWT` value represents a JSON Web Token as per IETF specification. The `SAML11` value represents a SAML 1.1 security token as per OASIS specification.  The `SAML2` value represents a SAML 2.0 security token as per OASIS specification. |
 | OutputTokenFormat | 0:1 | The format of the output token. Possible values: `JSON`, `JWT`, `SAML11`, or `SAML2`. |
 | CryptographicKeys | 0:1 | A list of cryptographic keys that are used in the technical profile. |
-| InputClaimsTransformations | 0:1 | An optional list of previously defined references to claims transformations that should be executed before any claims are sent to the claims provider or the relying party. |
-| InputClaims | 0:1 | An optional list of the previously defined references to claim types that are taken as input in the technical profile. |
-| PersistedClaims | 0:1 | An optional list of the previously defined references to claim types that are persisted by the claims provider that relates to the technical profile. |
-| OutputClaims | 0:1 | An optional list of the previously defined references to claim types that are taken as output in the technical profile. |
-| OutputClaimsTransformations | 0:1 | An optional list of previously defined references to claims transformations that should be executed after the claims are received from the claims provider. |
-| ValidationTechnicalProfiles | 0:n | An optional list of references to other technical profiles that the technical profile uses for validation purposes. |
+| InputClaimsTransformations | 0:1 | A list of previously defined references to claims transformations that should be executed before any claims are sent to the claims provider or the relying party. |
+| InputClaims | 0:1 | A list of the previously defined references to claim types that are taken as input in the technical profile. |
+| PersistedClaims | 0:1 | A list of the previously defined references to claim types that are persisted by the claims provider that relates to the technical profile. |
+| OutputClaims | 0:1 | An list of the previously defined references to claim types that are taken as output in the technical profile. |
+| OutputClaimsTransformations | 0:1 | A list of previously defined references to claims transformations that should be executed after the claims are received from the claims provider. |
+| ValidationTechnicalProfiles | 0:n | A list of references to other technical profiles that the technical profile uses for validation purposes. |
 | SubjectNamingInfo | 0:1 | Controls the production of the subject name in tokens where the subject name is specified separately from claims. For example, OAuth or SAML.  |
 | IncludeClaimsFromTechnicalProfile | 0:1 | An identifier of a technical profile from which you want all of the input and output claims to be added to this technical profile. The referenced technical profile must be defined in the same policy file. | 
 | IncludeTechnicalProfile |0:1 | An identifier of a technical profile from which you want all data to be added to this technical profile. The referenced technical profile must exist in the same policy file. |
@@ -135,7 +135,7 @@ The **Key** element contains the following attribute:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | No | A unique identifier of a particular key pair referenced from other elements in the policy file. |
-| StorageReferenceId | True | An identifer of a storage key container referenced from other elements in the policy file. |
+| StorageReferenceId | Yes | An identifer of a storage key container referenced from other elements in the policy file. |
 
 ### InputClaimsTransformations
 

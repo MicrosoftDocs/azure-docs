@@ -15,7 +15,7 @@ ms.component: B2C
 
 # ClaimsProviders 
 
-Identity providers, attribute providers, attribute verifiers, directory providers, MFA providers, self-asserted, etc. are all modeled as **Claims Providers**. 
+Identity providers, attribute providers, attribute verifiers, directory providers, MFA providers, self-asserted, etc. are all modeled as **ClaimsProviders**. 
 
 ```XML
 <TrustFrameworkPolicy 

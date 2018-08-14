@@ -52,7 +52,7 @@ You can use the following types of technical profiles:
 - [Restful provider](restful-technical-profile.md) - Call to REST API services, such as validate user input, enrich user data, or integrate with line-of-business applications.
 - [SAML2](saml-technical-profile.md) - Federation with any SAML protocol identity provider.
 - [Self-Asserted](self-asserted-technical-profile.md) - Interact with the user. For example, collect the user's credential to sign in, render the sign-up page, or password reset.
-- **Token Issuer** - Issue an access token.
+- [Token Issuer](jwt-issuer-technical-profile.md) - Issue an access token.
 - **WsFed** - Federation with any OAuth 1.0 protocol identity provider. 
 - **Session management** - Handle different types of sessions. 
 - **User journey context provider**
