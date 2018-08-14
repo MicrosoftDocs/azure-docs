@@ -114,11 +114,11 @@ Assuming the request is successful, the webhook response contains the job id in 
 {"JobIds":["<JobId>"]}
 ```
 
-The client cannot determine when the runbook job completes or its completion status from the webhook. It can determine this information using the job id with another method such as [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) or the [Azure Automation API](/rest/api/automation/job).
+The client cannot determine when the runbook job completes or its completion status from the webhook. It can determine this information using the job id with another method such as [Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) or the [Azure Automation API](/rest/api/automation/job).
 
 ## Sample runbook
 
-The following sample runbook accepts the webhook data and starts the virtual machines specified in the request body. To test this runbook, in your Automation Account under **Runbooks**, click **+ Add a runbook**. If you do not know how to create a runbook, see [Creating a runbook](automation-quickstart-create-runbook.md).
+The following sample runbook accepts the accepts webhook data and starts the virtual machines specified in the request body. To test this runbook, in your Automation Account under **Runbooks**, click **+ Add a runbook**. If you do not know how to create a runbook, see [Creating a runbook](automation-quickstart-create-runbook.md).
 
 ```powershell
 param
