@@ -1,8 +1,8 @@
 ---
-title: Features Overview for Acoustics | Microsoft Docs
+title: Design Process Overview for Acoustics | Microsoft Docs
 description: Use advanced acoustics and spatialization in your Unity title
 services: cognitive-services
-author: ashtat
+author: kegodin
 manager: noelc
 ms.service: cognitive-services
 ms.component: acoustics
@@ -10,7 +10,8 @@ ms.topic: article
 ms.date: 08/03/2018
 ms.author: kegodin
 ---
-# Features Overview
+
+# Design Process Overview
 ## Why acoustics?
 Humans use audio-visual cues to understand the world around them. In virtual worlds, combining spatial audio with acoustics increases user immersion. The acoustics tool described here analyzes virtual worlds to create a realistic acoustic simulation, and supports a post-simulation design process. The analysis includes both the geometry and the materials for each surface in the world. The simulation includes parameters such as arrival direction (portaling), reverb power and decay times, and occlusion and obstruction effects.
 
