@@ -39,7 +39,7 @@ In this document, you'll learn about the following development environments:
 | Sharing | ✓ | &nbsp; | &nbsp; |
 | Pre-configured | ✓ | &nbsp; | &nbsp; |
 | Customization | Low | High | High |
-| Development tools | ✓ | &nbsp; | &nbsp; |
+| Development tools | &nbsp; | &nbsp; | ✓ |
 
 > [!TIP]
 > If you're new to Azure Machine Learning, or want to get started quickly, we recommend Azure Notebooks. It's a free, cloud hosted notebook service with the Azure Machine Learning SDK already installed.
