@@ -159,3 +159,5 @@
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: FAQ
     href: faq.md
+  - name: Troubleshooting
+    href: troubleshooting.md
