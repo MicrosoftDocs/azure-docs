@@ -110,7 +110,7 @@ RHEL will drop you into single user mode automatically if it cannot boot normall
 #### GRUB access in RHEL
 RHEL comes with GRUB enabled out of the box. To enter GRUB, reboot your VM with `sudo reboot` and press any key. You will see the GRUB screen show up.
 
-> NOTE: Red Hat also provides documentation for booting into Rescue Mode, Emergency Mode, Debug Mode, and resetting the root password. [Click here to access it](https://aka.ms/rhel7grubterminal).
+> Note that Red Hat also provides documentation for booting into Rescue Mode, Emergency Mode, Debug Mode, and resetting the root password. [Click here to access it](https://aka.ms/rhel7grubterminal).
 
 #### Setting up root access for single user mode in RHEL
 Single-user mode in RHEL requires the root user to be enabled, which is disabled by default. If you have a need to enable single user mode, use the following instructions:
@@ -155,7 +155,7 @@ If you did not go through the steps above to enable the root user, you can still
 1. Once you boot into single user mode, type in `chroot /sysroot` to switch into the `sysroot` jail
 1. You are now root. You can reset your root password with `passwd` and then use the instructions above to enter single user mode. Type `reboot -f` to reboot once you are done
 
-> Note that running through the instructions above will drop you into emergency shell, so you can also perform tasks such as editing fstab. However, the generally accepted suggestion is to reset your root password and use that to enter single user mode. 
+> Note that running through the instructions above will drop you into emergency shell, so you can also perform tasks such as editing `fstab`. However, the generally accepted suggestion is to reset your root password and use that to enter single user mode. 
 
 
 ### Access for CentOS
@@ -217,7 +217,7 @@ You will be automatically dropped into emergency shell if SLES cannot boot norma
 1. Look for the kernel line it will start with `linux`
 1. Append `systemd.unit=emergency.target` to the end of the line
 1. Press Ctrl + X to reboot with these settings and enter emergency shell
-> NOTE: You will be dropped into emergency shell with a _read-only_ filesystem. If you want to make any edits to any files, you will need to remount the filesystem with read-write permissions. To do this, enter `mount -o remount,rw /` into the shell
+> Note that you will be dropped into emergency shell with a _read-only_ filesystem. If you want to make any edits to any files, you will need to remount the filesystem with read-write permissions. To do this, enter `mount -o remount,rw /` into the shell
 
 ### Access for Oracle Linux
 Much like Red Hat Enterprise Linux, single user mode in Oracle Linux requires GRUB and the root user to be enabled. 
