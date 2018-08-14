@@ -41,14 +41,14 @@ Many partner solutions are deployed on a customer’s subscription by using Reso
 To add a globally unique identifier (GUID), you make a single modification to the main template file:
 
 1. Create a GUID (for example, `eb7927c8-dd66-43e1-b0cf-c346a422063`).
-2. Open the Resource Manager template
-3. Add a new resource in the main template file. The resource needs to be in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
-4. Enter the GUID value after the `pid-` prefix as shown in this example:
+1. Open the Resource Manager template
+1. Add a new resource in the main template file. The resource needs to be in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
+1. Enter the GUID value after the `pid-` prefix as shown in this example:
 
    `pid-eb7927c8-dd66-43e1-b0cf-c346a422063`
 
-5. Check the template for any errors.
-6. Republish the template in the appropriate repositories.
+1. Check the template for any errors.
+1. Republish the template in the appropriate repositories.
 
 ### Sample template code
 
@@ -111,7 +111,7 @@ When you use the Azure CLI to append your GUID, set the `AZURE_HTTP_USER_AGENT` 
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
 
-## Register GUIDs and offers
+## Register GUIDs and Offers
 
 To include a GUID in our tracking, the GUID must be registered.  
 
