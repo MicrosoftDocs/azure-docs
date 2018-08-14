@@ -74,19 +74,17 @@ This environment is recommended when you need the following features:
 * __Data visualization__: There are many data visualization packages available for use with Jupyter Notebooks.
 * __A high degree of control over local compute resources__: You can install any library, kernel, or make any configuration changes you want to the local environment.
 
-## Data Science/Deep Learning Virtual Machine
+## Data Science Virtual Machine
 
-The Data Science Virtual Machine (DSVM) is a VM image on Azure. It comes with many common data science and machine learning libraries pre-installed. When creating DSVM, you can choose the size of virtual machine, allowing you to choose the number of CPU cores and amount of memory. 
+The Data Science Virtual Machine (DSVM) is a VM image on Azure. It comes with many common data science and machine learning libraries pre-installed. When creating DSVM, you can choose the size of virtual machine, allowing you to choose the number of CPU cores, GPU, and amount of memory. 
 
-The Deep Learning Virtual Machine (DLVM) is a GPU-enabled variant of DSVM, aimed at training deep neural network models.
-
-Both DSVM and DLVM comes with the Azure Machine Learning SDK, Jupyter Notebooks, PyCharm, and a variety of other components used for machine learning. This environment is recommended when you need the following features:
+The DSVM comes with the Azure Machine Learning SDK, Jupyter Notebooks, PyCharm, and a variety of other components used for machine learning. This environment is recommended when you need the following features:
 
 * __Little setup or configuration__: DSVM is pre-installed with Jupyter Notebooks and other popular software. Configuring the VM can be as simple as selecting the CPU cores, memory, and other basic characteristics of the VM.
 * __Interactive experimentation__: Jupter Notebooks allow you to interactively modify and rerun code sections.
 * __Data visualization__: DSVM provides pre-installed versions of popular data visualization libraries, and you can install others as needed.
 * __IDEs and code editors__: DSVM provides Visual Studio Code, PyCharm Community Edition, Atom, Vim, Emacs, and other code editors.
-* __Machine Learning and Deep Learning tools__: Xgboost, TensorFlow, Keras, PyTorch, and others are pre-installed.
+* __Machine Learning tools and frameworks__: Xgboost, TensorFlow, Keras, PyTorch, and others are pre-installed.
 * __A high degree of control over local compute resources__: You can install any library, kernel, or make other configuration changes you want to the DSVM environment.
 
 For more information, see the [What is the Data Science Virtual Machine](../data-science-virtual-machine/overview.md) document.
