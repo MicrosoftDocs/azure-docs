@@ -605,7 +605,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
 | **Steps** | <p>Not placing a limit on the use of system resources could result in resource exhaustion and ultimately a denial of service.</p><ul><li>**EXPLANATION:** Windows Communication Foundation (WCF) offers the ability to throttle service requests. Allowing too many client requests can flood a system and exhaust its resources. On the other hand, allowing only a small number of requests to a service can prevent legitimate users from using the service. Each service should be individually tuned to and configured to allow the appropriate amount of resources.</li><li>**RECOMMENDATIONS** Enable WCF's service throttling feature and set limits appropriate for your application.</li></ul>|
 
 ### Example
@@ -628,7 +628,7 @@ The following is an example configuration with throttling enabled:
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
 | **Steps** | Metadata can help attackers learn about the system and plan a form of attack. WCF services can be configured to expose metadata. Metadata gives detailed service description information and should not be broadcast in production environments. The `HttpGetEnabled` / `HttpsGetEnabled` properties of the ServiceMetaData class defines whether a service will expose the metadata | 
 
 ### Example

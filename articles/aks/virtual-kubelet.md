@@ -135,7 +135,7 @@ spec:
     spec:
       containers:
       - name: nanoserver-iis
-        image: nanoserver/iis
+        image: microsoft/iis:nanoserver
         ports:
         - containerPort: 80
       nodeSelector:
