@@ -166,6 +166,8 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ```
 
+**Now when you run the application you should see your secret value retrieved**
+
 ## Next steps
 
 * [Azure Key Vault Home Page](https://azure.microsoft.com/services/key-vault/)
