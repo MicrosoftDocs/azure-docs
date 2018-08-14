@@ -1,6 +1,6 @@
 ---
 title: Migrate to Azure Machine Learning, general availability
-description: Learn how to upgrade or migrate to the late version of Azure Machine Learning Services.
+description: Learn how to upgrade or migrate to the late version of Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,13 +10,13 @@ author: haining
 ms.date: 09/24/2018
 ---
 
-# How to migrate to the latest version of Azure Machine Learning Services 
+# How to migrate to the latest version of Azure Machine Learning service 
 
 **If you have installed the Workbench (preview) application and/or have experimentation and model management preview accounts, use this article to migrate to the latest version.**  If you don't have preview Workbench installed, or an experimentation and/or model management account, you don't need to migrate anything.
 
-Most artifacts created in the first preview of Azure Machine Learning Services are stored in your own local or cloud storage. These artifacts won't disappear. To migrate, register the artifacts again with the updated Azure Machine Learning offering. 
+Most artifacts created in the first preview of Azure Machine Learning service are stored in your own local or cloud storage. These artifacts won't disappear. To migrate, register the artifacts again with the updated Azure Machine Learning offering. 
 
-The following table and article explain what you can do with your existing assets and resources before or after moving over to the latest version of Azure Machine Learning Services. You can also continue to use the previous version and your assets for some time ([see transition support timeline](overview-what-happened-to-workbench.md#timeline)).
+The following table and article explain what you can do with your existing assets and resources before or after moving over to the latest version of Azure Machine Learning service. You can also continue to use the previous version and your assets for some time ([see transition support timeline](overview-what-happened-to-workbench.md#timeline)).
 
 |Previous preview asset or resource|Can I migrate?|Actions|
 |-----------------|:-------------:|-------------|
@@ -42,13 +42,13 @@ Learn more about [what changed in this release](overview-what-happened-to-workbe
 
 ## Azure resources
 
-Resources such as your experimentation accounts, model management accounts, and machine learning compute environments cannot be migrated over to the latest version of Azure Machine Learning Services. See the [timeline](overview-what-happened-to-workbench.md#timeline) on how long your assets will continue to work.
+Resources such as your experimentation accounts, model management accounts, and machine learning compute environments cannot be migrated over to the latest version of Azure Machine Learning service. See the [timeline](overview-what-happened-to-workbench.md#timeline) on how long your assets will continue to work.
 
 Get started with the latest version by creating an Azure Machine Learning Workspace:
 + In the [Azure portal](quickstart-get-started.md)
 + Using the new [machine learning CLI extension](quickstart-get-started-with-cli.md)
 
-This new workspace is the top-level service resource and enables you to use all of the latest features of Azure Machine Learning Services. [Learn more about this workspace and architecture](concept-azure-machine-learning-architecture.md).
+This new workspace is the top-level service resource and enables you to use all of the latest features of Azure Machine Learning service. [Learn more about this workspace and architecture](concept-azure-machine-learning-architecture.md).
 
 <a name="projects"></a>
 
@@ -84,7 +84,7 @@ In the latest version, models are deployed as web services to [Azure Container I
 Learn more in these articles:
 + [Deploy to ACI](how-to-deploy-to-aci.md)
 + [Deploy to AKS](how-to-deploy-to-aks.md)
-+ [Tutorial:Deploy models with Azure Machine Learning Services](tutorial-deploy-models-with-aml.md)
++ [Tutorial:Deploy models with Azure Machine Learning service](tutorial-deploy-models-with-aml.md)
 
 When [support for the previous CLI ends](overview-what-happened-to-workbench.md#timeline), you won't be able to manage the web services you originally deployed with your Model Management account. However, those web services will continue to work for as long as Azure Container Service (ACS) is still supported.
 
@@ -94,7 +94,7 @@ When [support for the previous CLI ends](overview-what-happened-to-workbench.md#
 
 While you can't continue to add to your existing run histories under the old workspace, you can export the histories you have using the previous CLI. When [support for the previous CLI ends](overview-what-happened-to-workbench.md#timeline), you won't be able to export these run histories anymore.
 
-Start training your models and tracking the run histories using the new CLI and SDK. You can learn how with the [Tutorial: train models with Azure Machine Learning Services](tutorial-train-models-with-aml.md).
+Start training your models and tracking the run histories using the new CLI and SDK. You can learn how with the [Tutorial: train models with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
 To export the run history with previous CLI:
 
@@ -114,11 +114,11 @@ Data preparation files are not portable to the new release since we don't have W
 
 ## Next steps
 
-For a quickstart showing you how to create a workspace, create a project, run a script, and explore the run history of the script with the latest version of Azure Machine Learning Services, try:
-+ [Get started with Azure Machine Learning Services](quickstart-get-started.md)
+For a quickstart showing you how to create a workspace, create a project, run a script, and explore the run history of the script with the latest version of Azure Machine Learning service, try:
++ [Get started with Azure Machine Learning service](quickstart-get-started.md)
 + [Get started with Azure Machine Learning using the CLI extension](quickstart-get-started-with-cli.md)
 
-For a more in-depth experience of this workflow, follow the full-length tutorial that contains detailed steps for training and deploying models with Azure Machine Learning Services. 
+For a more in-depth experience of this workflow, follow the full-length tutorial that contains detailed steps for training and deploying models with Azure Machine Learning service. 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Train and deploy models](tutorial-train-models-with-aml.md)

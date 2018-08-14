@@ -5,7 +5,7 @@
   items:
   - name: What is Azure Machine Learning?
     href: overview-what-is-azure-ml.md
-  - name: Choose an machine learning solution
+  - name: Choose a machine learning solution
     href: overview-more-machine-learning.md    
   - name: What happened to Workbench?
     href: overview-what-happened-to-workbench.md
@@ -59,6 +59,8 @@
       href: how-to-deploy-to-aci.md
     - name: Deploy to AKS
       href: how-to-deploy-to-aks.md
+    - name: Consume a deployed model
+      href: how-to-consume-web-services.md
 - name: Reference
   items:    
   - name: Machine learning SDK

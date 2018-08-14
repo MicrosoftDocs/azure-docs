@@ -10,7 +10,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Azure IoT Edge Support
+# Azure IoT Edge support
 There are a variety of ways to seek support for the Azure IoT Edge product.
 
 **Reporting bugs** – The majority of development that goes into the Azure IoT Edge product happens in the IoT Edge open-source project. Bugs can be reported on the [issues page](https://github.com/azure/iotedge/issues) of the project. Fixes rapidly make their way from the project in to product updates.
@@ -19,7 +19,7 @@ There are a variety of ways to seek support for the Azure IoT Edge product.
 
 **Feature requests** – The Azure IoT Edge product tracks feature requests via the product’s [User Voice page](https://feedback.azure.com/forums/907045-azure-iot-edge).
 
-## Operating Systems
+## Operating systems
 Azure IoT Edge runs on most operating systems that can run containers; however, all of these are not equally supported. Operating systems are grouped into tiers that represent the level of support users can expect.
 
 ### Tier 1
@@ -27,12 +27,12 @@ Tier 1 systems can be thought of as officially supported. This means that Micros
 * has these operating system in automated tests
 * provides installation packages for them
 
-Generally Available
+Generally available
 * Ubuntu Server 18.04
 * Ubuntu Server 16.04
 * Raspbian-stretch
 
-Public Preview
+PublicpPreview
 * Windows 10 Server 1803
 * Windows 10 IoT Enterprise (with April 2018 update)
 * Windows 10 IoT Core (with April 2018 update)

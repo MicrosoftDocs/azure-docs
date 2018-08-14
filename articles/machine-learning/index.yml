@@ -61,7 +61,7 @@ sections:
         values:
         - href: /azure/machine-learning/services/tutorial-train-models-with-aml
         - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
-      - title: Auto-select and auto-tune an algorithm
+      - title: Automatically generate and tune algorithms
         values:
         - href: /azure/machine-learning/services/tutorial-deploy-models-with-aml
         - href: 

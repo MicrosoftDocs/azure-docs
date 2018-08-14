@@ -189,7 +189,7 @@ The [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloa
 Here are some next steps to continue your learning and exploration. 
 
 * Explore the various data science tools on the data science VM by clicking the start menu and checking out the tools listed on the menu.
-* Learn about Azure Machine Learning Services and Workbench by visiting the product [quickstart and tutorials page](../service/index.yml). 
+* Learn about Azure Machine Learning Serviceby visiting the product [quickstart and tutorials page](../service/index.yml). 
 * Navigate to **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** for samples using the RevoScaleR library in R that supports data analytics at enterprise scale.  
 * Read the article: [10 things you can do on the Data science Virtual Machine](http://aka.ms/dsvmtenthings)
 * Learn how to build end to end analytical solutions systematically using the [Team Data Science Process](../team-data-science-process/index.yml).

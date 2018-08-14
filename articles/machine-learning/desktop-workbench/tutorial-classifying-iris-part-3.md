@@ -1,6 +1,6 @@
 ---
-title: Deploy a model tutorial for Azure Machine Learning services
-description: This full-length tutorial shows how to use Azure Machine Learning services end to end. This is part three and discusses the deploying model.
+title: Deploy a model tutorial for Azure Machine Learning service
+description: This full-length tutorial shows how to use Azure Machine Learning service end to end. This is part three and discusses the deploying model.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
