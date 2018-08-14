@@ -24,15 +24,16 @@ There are two versions of AzCopy that you can download. AzCopy on Windows offers
 
 ## Download and install AzCopy on Windows
 
-### Latest version (v8.1.0)
+### Latest version (v8.1)
 Download the [latest version of AzCopy on Windows](https://aka.ms/downloadazcopy).
 
-#### AzCopy on Windows 8.1.0 Release Notes
-- Table service is no longer supported in the latest version. If you use Table export feature, download AzCopy 7.3.0 version.
+#### AzCopy on Windows 8.1 Release Notes
+- Table service is no longer supported in the latest version. If you use Table export feature, download AzCopy 7.3 version.
 - Built with .NET Core 2.1, and all .NET Core dependencies are now packaged in the installation.
+- Added OAuth authentication support. Use ```azcopy login``` to log on using Azure Active Directory.
 
-### Azcopy with Table support (v7.3.0)
-Download the [AzCopy 7.3.0 with Table support](https://aka.ms/downloadazcopynet).
+### Azcopy with Table support (v7.3)
+Download the [AzCopy 7.3 with Table support](https://aka.ms/downloadazcopynet).
 
 ### Post-installation Step
 
