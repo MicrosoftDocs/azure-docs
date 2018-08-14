@@ -71,8 +71,7 @@ The easiest way to create and configure virtual network is to use ARM deployment
   This button will open a form that you can use to configure network environment where you can deploy Managed Instance.
 
   > [!Note]
-  > This ARM template will deploy virtual network with two subnets. One **ManagedInstances** is
-  > reserved for Managed Instances and has configured route table, while the other **Default** is used for other resources that should access Managed Instance. You can remove **Default** subnet if you don't need it.
+  > This ARM template will deploy virtual network with two subnets. One subnet called **ManagedInstances** is reserved for Managed Instances and has pre-configured route table, while the other subnet called **Default** is used for other resources that should access Managed Instance (for example, Azure Virtual Machines). You can remove **Default** subnet if you don't need it.
 
 3. Configure network environment. On the following form you can configure parameters of your network environment:
 
