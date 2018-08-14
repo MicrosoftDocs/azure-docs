@@ -118,7 +118,7 @@ Next, open the *azuredeploy.json* file in a text editor and make three updates t
       "[parameters('certificateCommonName')]"
    ],``` 
 
-and remove `"thumbprint": "[parameters('certificateThumbprint')]",`.
+    and remove `"thumbprint": "[parameters('certificateThumbprint')]",`.
 
     ```json
     "virtualMachineProfile": {
