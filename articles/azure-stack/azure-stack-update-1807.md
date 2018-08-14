@@ -112,14 +112,14 @@ This update includes the following improvements for Azure Stack.
 
 ### Common Vulnerabilities and Exposures
 Azure Stack uses Server Core installations of Windows Server 2016 to host key infrastructure. This release installs the following Windows Server 2016 updates on the infrastructure servers for Azure Stack: 
-- [CVE-2018-8206](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2018-8206)
-- [CVE-2018-8222](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2018-8222)
-- [CVE-2018-8282](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2018-8282)
-- [CVE-2018-8304](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2018-8304)
-- [CVE-2018-8307](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2018-8307)
-- [CVE-2018-8308](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2018-8308) 
-- [CVE-2018-8309](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2018-8309)
-- [CVE-2018-8313](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2018-8313)  
+- [CVE-2018-8206](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8206)
+- [CVE-2018-8222](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8222)
+- [CVE-2018-8282](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8282)
+- [CVE-2018-8304](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8304)
+- [CVE-2018-8307](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8307)
+- [CVE-2018-8308](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8308) 
+- [CVE-2018-8309](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8309)
+- [CVE-2018-8313](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8313)  
 
 For more information about these vulnerabilities, click on the preceding links, or see Microsoft Knowledge Base articles [4338814](https://support.microsoft.com/help/4338814)  and [4345418](https://support.microsoft.com/help/4345418).
 
