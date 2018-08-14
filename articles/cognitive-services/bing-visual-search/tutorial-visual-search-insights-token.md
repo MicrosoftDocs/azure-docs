@@ -277,4 +277,4 @@ namespace VisualSearchFeatures
 
 ```
 ## Next steps
-[Visual Search response](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/overview#the-response)
+[Visual Search response](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)
