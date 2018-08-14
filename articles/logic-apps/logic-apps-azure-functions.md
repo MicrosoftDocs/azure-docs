@@ -7,7 +7,7 @@ author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 08/14/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
@@ -62,7 +62,7 @@ in the Logic App Designer.
 
   * Your function app must belong to the same Azure subscription as your logic app.
 
-  * Your function must use the **Generic webhook** function 
+  * Your function uses the **HTTP trigger** function 
   template for either **JavaScript** or **C#**. 
 
     This template can accept content with the `application/json` type from your logic app. 
@@ -98,12 +98,12 @@ as your logic app, and then create your Azure function.
 If you're new to Azure Functions, learn how to 
 [create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md), 
 but note these requirements for creating Azure functions 
-that you can add and call from logic apps.
+that you can add and call from logic apps:
 
-* Make sure you select the **Generic webhook** 
+* Make sure you select the **HTTP trigger** 
 function template for either **JavaScript** or **C#**.
 
-  ![Generic webhook - JavaScript or C#](./media/logic-apps-azure-functions/generic-webhook.png)
+  ![HTTP trigger - JavaScript or C#](./media/logic-apps-azure-functions/http-trigger-function.png)
 
 * After you create your Azure function, 
 check your function template's property values: 
@@ -111,12 +111,13 @@ check your function template's property values:
   1. In the **Function Apps** list, expand your function, 
   and select **Integrate**. 
 
-  2. Check these property values: 
+  2. Under **Triggers**, select these property values: 
 
-     * The **Mode** property value is **Webhook**.
-     * The **Webhook type** property value is **Generic JSON**.
+     1. For the **Mode** property, select **Webhook**.
+     2. After the **Webhook type** property appears, select **Generic JSON**.
+     3. When you're done, choose **Save**.
 
-     ![Your function template's "Integrate" properties](./media/logic-apps-azure-functions/function-integrate-properties.png)
+        ![Your function template's "Integrate" properties](./media/logic-apps-azure-functions/function-integrate-properties.png)
 
 <a name="function-swagger"></a>
 
