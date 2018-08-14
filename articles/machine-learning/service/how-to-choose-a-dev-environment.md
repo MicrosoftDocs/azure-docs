@@ -47,6 +47,8 @@ In this document, you'll learn about the following development environments:
 > [!NOTE]
 > The Data Science Virtual Machine provides Jupyter Notebooks, Visual Studio Code, PyCharm, and a variety of other IDEs, tools, and utilities, along with a high degree of control for configuration. For more information, see the [What is the Data Science Virtual Machine](../data-science-virtual-machine/overview.md) document.
 
+[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
+
 ## Azure Notebooks
 
 Azure Notebooks (preview) are a managed service in the Azure cloud. It is powered by Jupyter, and is compatible with Jupyter Notebooks.

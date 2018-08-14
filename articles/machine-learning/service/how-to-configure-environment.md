@@ -22,6 +22,8 @@ You'll learn about configuring following develop environments:
 
 The recommended approach is to use Continuum Anaconda [conda virtual environments](https://conda.io/docs/user-guide/tasks/manage-environments.html) to isolate your working environment so as to avoid dependency conflicts between packages. This article shows the steps of setting up a conda environment and using it for Azure Machine Learning.
 
+[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
+
 ## Pre-requisites
 
  * [Continuum Anaconda](https://anaconda.org/anaconda/continuum-docs) or [Miniconda](https://conda.io/miniconda.html) package manager installed
