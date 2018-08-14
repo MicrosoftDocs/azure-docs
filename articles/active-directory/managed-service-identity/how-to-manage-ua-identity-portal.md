@@ -50,7 +50,7 @@ In this article, you learn how to create, list and delete a user assigned identi
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to list the user assigned managed identities.
 2. In the search box, type *Managed Identities*, and under Services, click **Managed Identities**.
-3. A list of the user assigned managed identities for your subscription is returned.  To see the details of the user assigned you created, click it.
+3. A list of the user assigned managed identities for your subscription is returned.  To see the details of a user assigned you click its name.
 
 ![List user assigned managed identity](./media/how-to-manage-ua-identity-portal/list-user-assigned-managed-identity-portal.png)
 
