@@ -1,9 +1,9 @@
-﻿---
+---
 title: Set up Device Provisioning using an Azure Resource Manager template | Microsoft Docs
 description: Azure Quickstart - Set up the Azure IoT Hub Device Provisioning Service using a template
-author: bryanla
-ms.author: bryanla
-ms.date: 02/26/2018
+author: wesmc7777
+ms.author: wesmc
+ms.date: 06/18/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
@@ -148,7 +148,8 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
                 "iotHubs": [
                     {
                         "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                        "location": "[parameters('hubLocation')]"
+                        "location": "[parameters('hubLocation')]",
+                        "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
                     }
                 ]
             },
@@ -216,7 +217,8 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
                    "iotHubs": [
                        {
                            "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                           "location": "[parameters('hubLocation')]"
+                           "location": "[parameters('hubLocation')]",
+                           "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
                        }
                    ]
                },
@@ -294,7 +296,7 @@ The template that you defined in the last step uses parameters to specify the na
 
 Use the following Azure CLI commands to deploy your templates and verify the deployment.
 
-1. To deploy your template, run the following [command to start a deployment](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create):
+1. To deploy your template, run the following [command to start a deployment](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -305,7 +307,7 @@ Use the following Azure CLI commands to deploy your templates and verify the dep
    ![Provisioning output](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. To verify your deployment, run the following [command to list resources](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az_resource_list) and look for the new provisioning service and IoT hub in the output:
+2. To verify your deployment, run the following [command to list resources](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) and look for the new provisioning service and IoT hub in the output:
 
     ```azurecli
      az resource list -g {your resource group name}

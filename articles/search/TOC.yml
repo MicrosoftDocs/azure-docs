@@ -2,23 +2,15 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Search?
+  - name: About Azure Search
     href: search-what-is-azure-search.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Try cognitive search
-    href: cognitive-search-quickstart-blob.md
   - name: Create a service
     href: search-create-service-portal.md
-  - name: Portal
-    items:
-    - name: Create an index
-      href: search-create-index-portal.md
-    - name: Import data
-      href: search-import-data-portal.md
-    - name: Search Explorer
-      href: search-explorer.md
+  - name: Try cognitive search
+    href: cognitive-search-quickstart-blob.md
   - name: .NET
     items:
     - name: Create an index
@@ -35,26 +27,26 @@
       href: search-import-data-rest-api.md
     - name: Search
       href: search-query-rest-api.md
-    - name: Test with REST clients
+    - name: Expore using Postman or Fiddler
       href: search-fiddler.md
 - name: Tutorials
   items:
-  - name: Cognitive search development
+  - name: Use built-in tools
+    href: search-get-started-portal.md
+  - name: Learn cognitive search APIs
     href: cognitive-search-tutorial-blob.md
-  - name: Index Azure SQL Database
-    href: search-indexer-tutorial.md
   - name: Index Azure blobs
     href: search-semi-structured-data.md
+  - name: Index Azure SQL Database
+    href: search-indexer-tutorial.md
   - name: Add synonyms in .NET
     href: search-synonyms-tutorial-sdk.md
-  - name: Portal walkthrough
-    href: search-get-started-portal.md
+  - name: Add auto-complete in .NET
+    href: search-autocomplete-tutorial.md
 - name: Samples
   items:
   - name: Azure code samples
     href: https://azure.microsoft.com/resources/samples/?service=search
-  - name: GitHub samples
-    href: https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search
 - name: Concepts
   items:
   - name: Cognitive search (Preview)
@@ -79,6 +71,8 @@
       href: cognitive-search-create-custom-skill-example.md
     - name: Troubleshooting tips
       href: cognitive-search-concept-troubleshooting.md
+    - name: Documentation links
+      href: cognitive-search-resources-documentation.md
   - name: Planning
     items:
     - name: Choose a tier
@@ -127,6 +121,8 @@
     items:
     - name: Index definition
       href: search-what-is-an-index.md
+    - name: Create an index (portal)
+      href: search-create-index-portal.md
     - name: Analyzers
       items:
       - name: Text Analyzers
@@ -143,14 +139,16 @@
       href: search-faceted-navigation.md
     - name: Relevance tuning
       href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
-    - name: Synonyms (Preview)
+    - name: Synonyms
       href: search-synonyms.md
   - name: Indexing data
     items:
-    - name: Push vs. Pull indexing
+    - name: Load data
       href: search-what-is-data-import.md
     - name: Rebuild an index
       href: search-howto-reindex.md
+    - name: Import wizard (portal)
+      href: search-import-data-portal.md
     - name: Index large data sets
       href: search-howto-large-index.md
     - name: Handle concurrent updates
@@ -177,14 +175,20 @@
         href: search-indexer-field-mappings.md
   - name: Searching data
     items:
-    - name: Basic query construction
+    - name: Query types & composition
       href: search-query-overview.md
-    - name: Simple query syntax
-      href: https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search
-    - name: Lucene query syntax
-      href: https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search
-    - name: Lucene query examples
+    - name: Search explorer (portal)
+      href: search-explorer.md
+    - name: Simple syntax examples 
+      href: search-query-simple-examples.md
+    - name: Full syntax examples
       href: search-query-lucene-examples.md
+    - name: Query reference
+      items:
+      - name: Simple query syntax
+        href: https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search
+      - name: Lucene query syntax
+        href: https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search
     - name: Paging results
       href: search-pagination-page-layout.md
     - name: Relevance tuning
@@ -211,6 +215,10 @@
       href: search-traffic-analytics.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest
+  - name: Azure PowerShell
+    href: https://www.powershellgallery.com/packages/AzureRM.search/0.1.0-preview
   - name: .NET
     href: /dotnet/api/?term=microsoft.azure.search
   - name: .NET (Management)
@@ -246,35 +254,27 @@
       href: cognitive-search-skill-shaper.md
 - name: Resources
   items:
-  - name: FAQ - Frequently Asked Questions
+  - name: Azure Community Support
+    href: https://azure.microsoft.com/support/community/?product=search
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?tag=azure-search
+  - name: Demo sites
+    items:
+    - name: Financial files demo
+      href: http://wolterskluwereap.azurewebsites.net/
+    - name: JFK files demo
+      href: http://aka.ms/jfkfiles
+    - name: Job listings app
+      href: http://aka.ms/azjobsdemo
+    - name: Search Analyzer demo
+      href: http://alice.unearth.ai/
+    - name: Search use cases
+      href: https://searchsamples.azurewebsites.net/
+  - name: FAQ
     href: search-faq-frequently-asked-questions.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=search
-  - name: Cognitive search documentation
-    href: cognitive-search-resources-documentation.md
-  - name: Courseware & tutorials
-    items:
-    - name: Videos & tutorials
-      href: search-video-demo-tutorial-list.md
-    - name: Virtual academy
-      href: https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382
-  - name: Demo sites
-    items:
-    - name: Search Analyzer Demo
-      href: http://alice.unearth.ai/
-    - name: Live demo apps
-      href: https://searchsamples.azurewebsites.net/
-    - name: Job listings app
-      href: http://aka.ms/azjobsdemo
-  - name: Partner & community
-    items:
-    - name: Azure Search MSDN Forum
-      href: https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch
-    - name: Stack Overflow
-      href: http://stackoverflow.com/questions/tagged/azure-search
-    - name: 'blog: Model relational data'
-      href: http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx
-    - name: 'blog: Multilevel faceting'
-      href: http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=search

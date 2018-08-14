@@ -15,7 +15,7 @@ ms.author: ramkris
 
 ---
 
-# .NET BulkExecutor library: Download information 
+# .NET bulk executor library: Download information 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
@@ -28,12 +28,12 @@ ms.author: ramkris
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [bulk executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 <table>
 
-<tr><td>**Description**</td><td>The BulkExecutor library allows client applications to perform bulk operations in Azure Cosmos DB accounts. BulkExecutor library provides BulkImport, and BulkUpdate namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent. The BulkUpdate module can bulk update existing data in Azure Cosmos DB containers as patches.</td></tr>
+<tr><td>**Description**</td><td>The bulk executor library allows client applications to perform bulk operations in Azure Cosmos DB accounts. bulk executor library provides BulkImport, and BulkUpdate namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent. The BulkUpdate module can bulk update existing data in Azure Cosmos DB containers as patches.</td></tr>
 
 <tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/)</td></tr>
 
@@ -41,7 +41,7 @@ ms.author: ramkris
 
 <tr><td>**API documentation**</td><td>[.Net API reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)</td></tr>
 
-<tr><td>**Get started**</td><td>[Get started with the BulkExecutor library .NET SDK](bulk-executor-dot-net.md)</td></tr>
+<tr><td>**Get started**</td><td>[Get started with the bulk executor library .NET SDK](bulk-executor-dot-net.md)</td></tr>
 
 <tr><td>**Current supported framework**</td><td><ul><li>[Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)(version >= 1.21.1)</li><li>
 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)(version >= 10.0.2)

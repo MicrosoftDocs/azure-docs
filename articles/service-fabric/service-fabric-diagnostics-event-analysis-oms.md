@@ -19,8 +19,7 @@ ms.author: srrengar
 ---
 
 # Event analysis and visualization with Log Analytics
-
-Log Analytics, also known as OMS (Operations Management Suite), is a collection of management services that help with monitoring and diagnostics for applications and services hosted in the cloud. This article outlines how to run queries in Log Analytics to gain insights and troubleshoot what is happening in your cluster. The following common questions are addressed:
+Log Analytics collects and analyzes telemetry from applications and services hosted in the cloud and provides analysis tools to help you maximize their availability and performance. This article outlines how to run queries in Log Analytics to gain insights and troubleshoot what is happening in your cluster. The following common questions are addressed:
 
 * How do I troubleshoot health events?
 * How do I know when a node goes down?
@@ -34,15 +33,15 @@ After data is received by Log Analytics, Azure has several *Management Solutions
 
 ## Access the Service Fabric Analytics solution
 
-1. In Azure Portal, go to the resource group in which you created the Service Fabric Analytics solution.
+1. In the Azure Portal, go to the resource group in which you created the Service Fabric Analytics solution.
 
 2. Select the resource **ServiceFabric\<nameOfOMSWorkspace\>**.
 
 2. In Summary, you will see tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Click the **Service Fabric** graph (first image below) to continue to the Service Fabric Analytics solution (second image below).
 
-    ![OMS SF solution](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
+    ![Service Fabric solution](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-    ![OMS SF solution](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
+    ![Service Fabric solution](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
 The image above is the home page of the Service Fabric Analytics solution. This is a snapshot view of what's happening in your cluster. If you enabled diagnostics upon cluster creation, you can see events for 
 
@@ -57,12 +56,12 @@ The image above is the home page of the Service Fabric Analytics solution. This 
 
 1. On the Service Fabric Analytics page, click on the graph for **Service Fabric Events**.
 
-    ![OMS SF Solution Operational Channel](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
+    ![Service Fabric Solution Operational Channel](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
 2. Click **List** to view the events in a list. 
 Once here you will see all the system events that have been collected. For reference, these are from the WADServiceFabricSystemEventsTable in the Azure Storage account, and similarly the reliable services and actors events you see next are from those respective tables.
     
-    ![OMS Query Operational Channel](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
+    ![Query Operational Channel](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
 Alternatively you can click the magnifying glass on the left and use the Kusto query language to find what you're looking for. For example, to find all actions taken on nodes in the cluster, you can use the following query. The event IDs used below are found in the [operational channel events reference](service-fabric-diagnostics-event-generation-operational.md).
 
@@ -77,11 +76,11 @@ You can query on many more fields such as the specific nodes (Computer) the syst
 
 1. On the Service Fabric Analytics page, click the graph for **Reliable Services**.
 
-    ![OMS SF Solution Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
+    ![Service Fabric Solution Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
 
 2. Click **List** to view the events in a list. Here you can see events from the reliable services. You can see different events for when the service runasync is started and completed which typically happens on deployments and upgrades. 
 
-    ![OMS Query Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
+    ![Query Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
 
 Reliable actor events can be viewed in a similar fashion. To configure more detailed events for reliable actors, you need to change the `scheduledTransferKeywordFilter` in the config for the diagnostic extension (shown below). Details on the values for these are in the [reliable actors events reference](service-fabric-reliable-actors-diagnostics.md#keywords).
 
@@ -99,12 +98,12 @@ Reliable actor events can be viewed in a similar fashion. To configure more deta
 
 The Kusto query language is powerful. Another valuable query you can run is to find out which nodes are generating the most events. The query in the screenshot below shows Service Fabric operational events aggregated with the specific service and node.
 
-![OMS Query Events per Node](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
+![Query Events per Node](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
 
 ## Next steps
 
-* To enable infrastructure monitoring i.e. performance counters, head over to [adding the OMS agent](service-fabric-diagnostics-oms-agent.md). The agent collects performance counters and adds them to your existing workspace.
-* For on-premises clusters, OMS offers a Gateway (HTTP Forward Proxy) that can be used to send data to OMS. Read more about that in [Connecting computers without Internet access to OMS using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md)
-* Configure OMS to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detection and diagnostics
+* To enable infrastructure monitoring i.e. performance counters, head over to [adding the Log Analytics agent](service-fabric-diagnostics-oms-agent.md). The agent collects performance counters and adds them to your existing workspace.
+* For on-premises clusters, Log Analytics offers a Gateway (HTTP Forward Proxy) that can be used to send data to Log Analytics. Read more about that in [Connecting computers without Internet access to Log Analytics using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md)
+* Configure  [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detection and diagnostics
 * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics
 * Get a more detailed overview of Log Analytics and what it offers, read [What is Log Analytics?](../operations-management-suite/operations-management-suite-overview.md)

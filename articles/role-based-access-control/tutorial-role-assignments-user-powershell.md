@@ -41,7 +41,7 @@ To complete this tutorial, you will need:
 
 ## Role assignments
 
-A role assignment consists of three elements: security principal, role definition, and scope. Here are the two role assignments you will perform in this tutorial:
+In RBAC, to grant access, you create a role assignment. A role assignment consists of three elements: security principal, role definition, and scope. Here are the two role assignments you will perform in this tutorial:
 
 | Security principal | Role definition | Scope |
 | --- | --- | --- |

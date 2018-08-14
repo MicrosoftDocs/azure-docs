@@ -121,6 +121,9 @@ If your device uses one of the IoT Hub device SDKs, the SDK library code generat
 
 In some scenarios, such as in a cloud protocol gateway or as part of a custom authentication scheme, you may need to generate the SAS token yourself. To troubleshoot issues with your SAS generation code, it's useful to be able to generate a known-good SAS token to use during testing.
 
+> [!NOTE]
+> The SimulatedDevice-2.js sample includes examples of generating a SAS token both with and without the SDK.
+
 To generate a known-good SAS token using the CLI, run the following command:
 
 ```azurecli-interactive

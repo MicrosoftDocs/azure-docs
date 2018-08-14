@@ -3,7 +3,7 @@ title: Export the Azure Cosmos DB Emulator certificates | Microsoft Docs
 description: When developing in languages and runtimes that do not use the Windows Certificate Store you will need to export and manage the SSL certificates. This post gives step by step instructions.
 services: cosmos-db
 keywords: Azure Cosmos DB Emulator
-author: voellm
+author: David-Noble-at-work
 manager: kfile
 editor: ''
 
@@ -11,8 +11,7 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/06/2017
-ms.author: tvoellm
-ms.custom: H1Hack27Feb2017
+ms.author: danoble
 
 ---
 
@@ -96,7 +95,7 @@ In this tutorial, you've done the following:
 > * Exported the SSL certificate
 > * Learned how to use the certificate in Java, Python and Node.js
 
-You can now proceed to the Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding tutorial.
+You can now proceed to the concepts section for more information about Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Create an Azure Function with input from Azure Cosmos DB](tutorial-functions-http-trigger.md) 
+>[Tunable data consistency levels in Azure Cosmos DB](../cosmos-db/consistency-levels.md)

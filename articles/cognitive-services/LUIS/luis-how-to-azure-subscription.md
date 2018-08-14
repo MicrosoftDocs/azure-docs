@@ -2,13 +2,13 @@
 title: Manage Azure endpoint subscription | Microsoft Docs
 description: In this article, you create a metered endpoint key for your LUIS account to provide unlimited traffic to your endpoint following a payment plan.
 services: cognitive-services
-author: v-geberr
-manager: Kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Manage Azure endpoint subscription keys
@@ -35,7 +35,7 @@ For testing and prototype only, use the free (F0) tier. For production systems, 
     ![Azure Keys](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Log into your region's [LUIS](luis-reference-regions.md) website and [add the new LUIS endpoint key](Manage-Keys.md#assign-endpoint-key). 
+    > * Log into your region's [LUIS](luis-reference-regions.md) website and [add the new LUIS endpoint key](luis-how-to-manage-keys.md#assign-endpoint-key). 
     > * You need to remember the name of the Azure service you created in order to select it on the region's [LUIS](luis-reference-regions.md) publish page.  
 
 ## Change LUIS pricing tier
@@ -48,7 +48,7 @@ For testing and prototype only, use the free (F0) tier. For production systems, 
     ![Change your LUIS payment tier](./media/luis-usage-tiers/plans.png)
 4.  When the pricing change is complete, a pop-up window verifies the new pricing tier. 
     ![Verify your LUIS payment tier](./media/luis-usage-tiers/updated.png)
-5. Remember to [assign this endpoint key](manage-keys.md#assign-endpoint-key) on the **Publish** page and use it in all endpoint queries. 
+5. Remember to [assign this endpoint key](luis-how-to-manage-keys.md#assign-endpoint-key) on the **Publish** page and use it in all endpoint queries. 
 
 ## Exceed pricing tier usage
 Each tier allows endpoint requests to your LUIS account at a specific rate. If the rate of requests is higher than the allowed rate of your metered account per minute or per month, requests receive an HTTP error of "429: Too Many Requests."

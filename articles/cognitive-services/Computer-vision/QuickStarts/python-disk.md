@@ -43,9 +43,17 @@ The following code uses the Python `requests` library to call the Computer Visio
 
 ## Analyze Image request
 
-```py
+```python
+import requests
+# If you are using a Jupyter notebook, uncomment the following line.
+#%matplotlib inline
+import matplotlib.pyplot as plt
+from PIL import Image
+from io import BytesIO
+
 # Replace <Subscription Key> with your valid subscription key.
 subscription_key = "<Subscription Key>"
+assert subscription_key
 
 # You must use the same region in your REST call as you used to get your
 # subscription keys. For example, if you got your subscription keys from
@@ -56,32 +64,27 @@ subscription_key = "<Subscription Key>"
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
 
-vision_analyze_url = vision_base_url + "analyze"
+analyze_url = vision_base_url + "analyze"
 
 # Set image_path to the local path of an image that you want to analyze.
 image_path = "C:/Documents/ImageToAnalyze.jpg"
 
-import requests
 # Read the image into a byte array
 image_data = open(image_path, "rb").read()
 headers    = {'Ocp-Apim-Subscription-Key': subscription_key,
               'Content-Type': 'application/octet-stream'}
 params     = {'visualFeatures': 'Categories,Description,Color'}
-response   = requests.post(vision_analyze_url, headers=headers,
-                           params=params, data=image_data)
+response = requests.post(
+    analyze_url, headers=headers, params=params, data=image_data)
 response.raise_for_status()
 
 # The 'analysis' object contains various fields that describe the image. The most
-# relevant caption for the image is obtained from the 'descriptions' property.
+# relevant caption for the image is obtained from the 'description' property.
 analysis = response.json()
+print(analysis)
 image_caption = analysis["description"]["captions"][0]["text"].capitalize()
 
 # Display the image and overlay it with the caption.
-# If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
-from PIL import Image
-from io import BytesIO
-import matplotlib.pyplot as plt
 image = Image.open(BytesIO(image_data))
 plt.imshow(image)
 plt.axis("off")

@@ -5,7 +5,7 @@
  author: dlepow
  ms.service: virtual-machines-linux
  ms.topic: include
- ms.date: 03/19/2018
+ ms.date: 06/19/2018
  ms.author: danlep
  ms.custom: include file
 ---

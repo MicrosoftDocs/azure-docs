@@ -3,17 +3,18 @@ title: Complete an access review of members of a group or users' access to an ap
 description: Learn how to complete an access review for members of a group or users with access to an application in Azure Active Directory. 
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.component: compliance-reports
+ms.topic: conceptual
+ms.component: compliance
 ms.date: 05/02/2018
 ms.author: rolyon
+ms.reviewer: mwahl
 ---
 
 # Complete an access review of members of a group or users' access to an application in Azure AD
@@ -57,4 +58,4 @@ If you're no longer interested in the review, you can delete it. Select **Delete
 - [Manage guest access with Azure AD access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 - [Manage programs and controls for Azure AD access reviews](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md)
-- [Create an access review of users in an Azure AD administrative role](active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Create an access review of users in an Azure AD administrative role](privileged-identity-management/pim-how-to-start-security-review.md)

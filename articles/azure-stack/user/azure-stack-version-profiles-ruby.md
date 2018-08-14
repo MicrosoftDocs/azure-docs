@@ -197,7 +197,7 @@ end
 
 ## Samples using API profiles
 
-You can use the the following samples found in GitHub repositoreis as a reference creating solutions with Ruby and Azure Stack API profiles:
+You can use the following samples found in GitHub repositoreis as a reference creating solutions with Ruby and Azure Stack API profiles:
 
  - [Manage Azure resources and resource groups with Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)
  - [Manage virtual machines using Ruby](https://github.com/Azure-Samples/compute-ruby-manage-vm/tree/master/Hybrid)

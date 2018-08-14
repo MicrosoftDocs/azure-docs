@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
 
 ---
@@ -43,6 +43,9 @@ In this tutorial, you learn how to:
 5. Make sure to include an HTTP header named **Ocp-Apim-Trace** with the value set to **true**.
 
     ![API tracing header](media/api-management-howto-api-inspector/api-management-tracing-header.png)
+
+    > [!NOTE]
+    > If Ocp-Apim-Subscription-Key is not automatically populated, you can retrieve it by going to the Developer Portal and exposing the keys on the profile page.
 
 6. Click **"Send"** to make an API call. 
 7. Wait for the call to complete. 

@@ -3,7 +3,7 @@ title: Log in to a Linux VM with Azure Active Directory credentials | Microsoft 
 description: In this howto, you learn how to create and configure a Linux VM to use Azure Active Directory authentication for user logins
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor:
 
@@ -13,8 +13,8 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/16/2018
-ms.author: iainfou
+ms.date: 06/17/2018
+ms.author: cynthn
 ---
 
 # Log in to a Linux virtual machine in Azure using Azure Active Directory authentication (Preview)
@@ -41,9 +41,10 @@ The following Linux distributions are currently supported during the preview of 
 
 | Distribution | Version |
 | --- | --- |
-| CentOS | CentOS 6.9 and CentOS 7.4 |
-| RedHat Enterprise Linux | RHEL 7 | 
-| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, and Ubuntu Server 17.10 |
+| CentOS | CentOS 6.9, and CentOS 7.4 |
+| Debian | Debian 9 |
+| RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
+| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, Ubuntu Server 17.10, and Ubuntu Server 18.04 |
 
 The following Azure regions are currently supported during the preview of this feature:
 

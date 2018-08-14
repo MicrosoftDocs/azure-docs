@@ -7,7 +7,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
@@ -210,7 +210,7 @@ This page contains a form for local account sign-up based on an email address or
 </div>
 ```
 
-### Fragment inserted into the ""Social account sign-up page"
+### Fragment inserted into the "Social account sign-up page"
 
 This page may appear when signing up using an existing account from a social identity provider such as Facebook or Google+.  It is used when additional information must be collected from the end user using a sign-up form. This page is similar to the local account sign-up page (shown in the previous section) with the exception of the password entry fields.
 
@@ -311,7 +311,7 @@ On this page, users can verify their phone numbers (using text or voice) during 
 </div>
 ```
 
-### Fragment inserted into the ""Error page"
+### Fragment inserted into the "Error page"
 
 ```HTML
 <div id="api" class="error-page-content" data-name="GlobalException">

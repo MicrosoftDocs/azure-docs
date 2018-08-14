@@ -18,7 +18,7 @@ ms.author: kumud
 ---
 
 # Traffic Manager endpoints
-Microsoft Azure Traffic Manager allows you to control how network traffic is distributed to application deployments running in different datacenters. You configure each application deployment as an 'endpoint' in Traffic Manager. When Traffic Manager receives a DNS request, it chooses an available endpoint to return in the DNS response. Traffic manager bases the choice on the current endpoint status and the traffic-routing method. For more information, see [How Traffic Manager Works](traffic-manager-how-traffic-manager-works.md).
+Microsoft Azure Traffic Manager allows you to control how network traffic is distributed to application deployments running in different datacenters. You configure each application deployment as an 'endpoint' in Traffic Manager. When Traffic Manager receives a DNS request, it chooses an available endpoint to return in the DNS response. Traffic manager bases the choice on the current endpoint status and the traffic-routing method. For more information, see [How Traffic Manager Works](traffic-manager-how-it-works.md).
 
 There are three types of endpoint supported by Traffic Manager:
 * **Azure endpoints** are used for services hosted in Azure.
@@ -70,7 +70,7 @@ Disabling an endpoint in Traffic Manager can be useful to temporarily remove tra
 Endpoints can be enabled and disabled via the Traffic Manager portal, PowerShell, CLI or REST API, all of which are supported in both Resource Manager and the classic deployment model.
 
 > [!NOTE]
-> Disabling an Azure endpoint has nothing to do with its deployment state in Azure. An Azure service (such as a VM or Web App remains running and able to receive traffic even when disabled in Traffic Manager. Traffic can be addressed directly to the service instance rather than via the Traffic Manager profile DNS name. For more information, see [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md).
+> Disabling an Azure endpoint has nothing to do with its deployment state in Azure. An Azure service (such as a VM or Web App remains running and able to receive traffic even when disabled in Traffic Manager. Traffic can be addressed directly to the service instance rather than via the Traffic Manager profile DNS name. For more information, see [how Traffic Manager works](traffic-manager-how-it-works.md).
 
 The current eligibility of each endpoint to receive traffic depends on the following factors:
 
@@ -88,6 +88,6 @@ If all endpoints in a profile are disabled, or if the profile itself is disabled
 
 ## Next steps
 
-* Learn [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md).
+* Learn [how Traffic Manager works](traffic-manager-how-it-works.md).
 * Learn about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
 * Learn about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).

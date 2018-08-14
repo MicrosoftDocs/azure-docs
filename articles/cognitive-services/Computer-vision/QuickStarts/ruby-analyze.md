@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/26/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze an Image with Ruby
+# Quickstart: Analyze an image with Ruby
 
 In this quickstart, you analyze an image to extract visual features using Computer Vision.
 

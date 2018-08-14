@@ -38,7 +38,7 @@ Conceptual and procedural planning, deployment, and administration content are u
 ## Hybrid identity resources
 Monitoring the following resources often provides the latest news and updates on mobile device management solutions:
 
-* [Microsoft Enterprise Mobility blog](http://blogs.technet.com/b/enterprisemobility/)
+* [Microsoft Enterprise Mobility blog](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
 * [Microsoft In The Cloud blog](http://blogs.technet.com/b/in_the_cloud/)
 * [Microsoft Intune blog](http://blogs.technet.com/b/microsoftintune/)
 * [Microsoft System Center Configuration Manager blog](http://blogs.technet.com/b/configurationmgr/)

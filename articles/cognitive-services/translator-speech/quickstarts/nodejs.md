@@ -21,7 +21,7 @@ You need [Node.js 6](https://nodejs.org/en/download/) to run this code.
 
 You need to install the [Websocket package](https://www.npmjs.com/package/websocket) for Node.js.
 
-You need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16 bit, 16 kHz, mono format. You can obtain such a .wav file from the [Translator Text Speak API](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak).
+You need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16 bit, 16 kHz, mono format. You can obtain such a .wav file from the [Text to Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft Translator Speech API**. You need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -58,8 +58,8 @@ let params = '?api-version=1.0&from=en-US&to=it-IT&features=texttospeech&voice=i
 let uri = host + path + params;
 
 /* The input .wav file is in PCM 16bit, 16kHz, mono format.
-You can obtain such a .wav file using the Translator Text Speak API. See:
-http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak
+You can obtain such a .wav file using the Text to Speech API. See:
+https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech
 */
 let input_path = 'speak.wav';
 
@@ -104,7 +104,8 @@ function send(connection, filename) {
 	});
 
 /* Make sure the audio file is followed by silence.
-This lets the service know that the audio input is finished. */
+This lets the service know that the audio file is finished.
+At 32 bytes per millisecond, this is 100 seconds of silence. */
 	myReadableStreamBuffer.put(fs.readFileSync(filename));
 	myReadableStreamBuffer.put(new Buffer(3200000));
 	myReadableStreamBuffer.stop();
@@ -162,4 +163,4 @@ A successful result is the creation of a file named "speak2.wav". The file conta
 ## See also 
 
 [Translator Speech overview](../overview.md)
-[API Reference](http://docs.microsofttranslator.com/speech-translate.html)
+[API Reference](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

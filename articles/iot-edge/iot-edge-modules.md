@@ -10,7 +10,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Understand Azure IoT Edge modules - preview
+# Understand Azure IoT Edge modules
 
 Azure IoT Edge lets you deploy and manage business logic on the edge in the form of *modules*. Azure IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics) or your own solution-specific code. To understand how modules are developed, deployed, and maintained, it helps to think of four conceptual pieces that make up a module:
 
@@ -28,7 +28,11 @@ Each time a module image is deployed to a device and started by the IoT Edge run
 
 ![Module images in cloud - module instances on devices][1]
 
-In implementation, modules images exist as container images in a repository, and module instances are containers on devices. As use cases for Azure IoT Edge grow, new types of module images and instances will be created. For example, resource constrained devices cannot run containers so may require module images that exist as dynamic link libraries and instances that are executables. 
+In implementation, modules images exist as container images in a repository, and module instances are containers on devices. 
+
+<!--
+As use cases for Azure IoT Edge grow, new types of module images and instances will be created. For example, resource constrained devices cannot run containers so may require module images that exist as dynamic link libraries and instances that are executables. 
+-->
 
 ## Module identities
 
@@ -46,15 +50,26 @@ Each module instance also has a corresponding module twin that you can use to co
 A module twin is a JSON document that stores module information and configuration properties. This concept parallels the [device twin][lnk-device-twin] concept from IoT Hub. The structure of a module twin is exactly the same as a device twin. The APIs used to interact with both types of twins are also the same. The only difference between the two is the identity used to instantiate the client SDK. 
 
 ```csharp
-// Create a DeviceClient object. This DeviceClient will act on behalf of a 
+// Create a ModuleClient object. This ModuleClient will act on behalf of a 
 // module since it is created with a module’s connection string instead 
 // of a device connection string. 
-DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
 await client.OpenAsync(); 
  
-// Get the model twin 
+// Get the module twin 
 Twin twin = await client.GetTwinAsync(); 
 ```
+
+## Offline capabilities
+
+Azure IoT Edge supports offline operations on your IoT Edge devices. These capabilities are limited for now, and additional scenarios are being developed. 
+
+IoT Edge modules can be offline for extended periods as long as the following requirements are met: 
+
+* **Message time-to-live (TTL) has not expired**. The default value for message TTL is two hours, but can be changed higher or lower in the Store and forward configuration in the IoT Edge hub settings. 
+* **Modules don't need to reauthenticate with the IoT Edge hub when offline**. Modules can only authenticate with Edge hubs that have an active connection with an IoT hub. Modules need to re-authenticate if they are restarted for any reason. Modules can still send messages to the Edge hub after their SAS token has expired. When connectivity resumes, the Edge hub requests a new token from the module and validates it with the IoT hub. If successful, the Edge hub forwards the module messages it has stored, even the messages that were sent while the module's token was expired. 
+* **The module that sent the messages while offline is still functional when connectivity resumes**. Upon reconnecting to IoT Hub, the Edge hub needs to validate a new module token (if the previous one expired) before it can forward the module messages. If the module is not available to provide a new token, the Edge hub cannot act on the module's stored messages. 
+* **The Edge hub has disk space to store the messages**. By default, messages are stored in the Edge hub container's filesystem. There is a configuration option to specify a mounted volume to store the messages instead. In either case, there needs to be space available to store the messages for deferred delivery to IoT Hub.  
 
 ## Next steps
  - [Understand the Azure IoT Edge runtime and its architecture][lnk-runtime]

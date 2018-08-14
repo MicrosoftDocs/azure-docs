@@ -17,7 +17,7 @@ ms.author: anroth
 > The Video API Preview ended on October 30, 2017. To easily extract insights from 
 videos, try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/). You also can use it to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. To learn more, see the [Video Indexer Preview](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview) overview.
 
-This article provides information and a code sample to help you quickly get started by using the [Emotion API Recognize method](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) with C#. You can use it to recognize the emotions expressed by one or more people in an image. 
+This article provides information and a code sample to help you quickly get started by using the [Emotion API Recognize method](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) with C#. You can use it to recognize the emotions expressed by one or more people in an image. 
 
 ## Prerequisites
 * Get the Cognitive Services [Emotion API Windows SDK](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/).

@@ -152,7 +152,7 @@ For more information about troubleshooting failed health checks, see [Troublesho
 
 ## Next steps
 
-Learn [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md)
+Learn [how Traffic Manager works](traffic-manager-how-it-works.md)
 
 Learn more about the [traffic-routing methods](traffic-manager-routing-methods.md) supported by Traffic Manager
 

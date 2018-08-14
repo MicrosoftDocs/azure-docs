@@ -42,7 +42,7 @@ The **Application settings** blade has settings grouped under several categories
 For technical reasons, enabling Java for your app disables the .NET, PHP, and Python options.
 
 <a name="platform"></a>
-**Platform**. Selects whether your web app runs in a 32-bit or 64-bit environment. The 64-bit environment requires Basic or Standard mode. Free and Shared modes always run in a 32-bit environment.
+**Platform**. Selects whether your web app runs in a 32-bit or 64-bit environment. The 64-bit environment requires Basic or Standard tier. Free and Shared tier always run in a 32-bit environment.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -52,6 +52,13 @@ For technical reasons, enabling Java for your app disables the .NET, PHP, and Py
 **Always On**. By default, web apps are unloaded if they are idle for some period of time. This lets the system conserve resources. In Basic or Standard mode, you can enable **Always On** to keep the app loaded all the time. If your app runs continuous WebJobs or runs WebJobs triggered using a CRON expression, you should enable **Always On**, or the web jobs may not run reliably.
 
 **Managed Pipeline Version**. Sets the IIS [pipeline mode]. Leave this set to Integrated (the default) unless you have a legacy app that requires an older version of IIS.
+
+**HTTP Version**. Set to **2.0** to enable support for [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocol. 
+
+> [!NOTE]
+> Most modern browsers support HTTP/2 protocol over TLS only, while non-encrypted traffic continues to use HTTP/1.1. To ensure that client browsers connect to your app with HTTP/2, either [buy an App Service Certificate](web-sites-purchase-ssl-web-site.md) for your app's custom domain or [bind a third party certificate](app-service-web-tutorial-custom-ssl.md).
+
+**ARR Affinity**. In an app that's scaled out to multiple VM instances, ARR Affinity cookies guarantee that the client is routed to the same instance for the life of the session. To improve the performance of stateless applications, set this option to **Off**.   
 
 **Auto Swap**. If you enable Auto Swap for a deployment slot, App Service will automatically swap the web app into production when you push an update to that slot. For more information, see [Deploy to staging slots for web apps in Azure App Service](web-sites-staged-publishing.md).
 

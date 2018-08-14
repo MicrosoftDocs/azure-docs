@@ -6,13 +6,12 @@ documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.author: lizross
-
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 05/17/2018
 ms.custom: it-pro
 ---

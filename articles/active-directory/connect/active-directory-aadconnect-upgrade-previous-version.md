@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/12/2017
+ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -126,6 +126,38 @@ There may be situations where you do not want these overrides to take place imme
    > Remember to execute the required synchronization steps at your earliest convenience. You can either manually execute these steps using the Synchronization Service Manager or add the overrides back using the Set-ADSyncSchedulerConnectorOverride cmdlet.
 
 To add the overrides for both full import and full synchronization on an arbitrary connector, run the following cmdlet:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+
+## Troubleshooting
+The following section contains troubleshooting and information that you can use if you encounter an issue upgrading Azure AD Connect.
+
+### Azure Active Directory connector missing error during Azure AD Connect upgrade
+
+When you upgrade Azure AD Connect from a previous version, you might hit following error at the beginning of the upgrade 
+
+![Error](./media/active-directory-aadconnect-upgrade-previous-version/error1.png)
+
+This error happens because the Azure Active Directory connector with identifier, b891884f-051e-4a83-95af-2544101c9083, does not exist in the current Azure AD Connect configuration. To verify this is the case, open a PowerShell window, run Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
+
+```
+PS C:\> Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083
+Get-ADSyncConnector : Operation failed because the specified MA could not be found.
+At line:1 char:1
++ Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ReadError: (Microsoft.Ident...ConnectorCmdlet:GetADSyncConnectorCmdlet) [Get-ADSyncConne
+   ctor], ConnectorNotFoundException
+    + FullyQualifiedErrorId : Operation failed because the specified MA could not be found.,Microsoft.IdentityManageme
+   nt.PowerShell.Cmdlet.GetADSyncConnectorCmdlet
+
+```
+
+The PowerShell Cmdlet reports the error **the specified MA could not be found**.
+
+The reason that this occurs is because the current Azure AD Connect configuration is not supported for upgrade. 
+
+If you want to install a newer version of Azure AD Connect: close the Azure AD Connect wizard, uninstall the existing Azure AD Connect, and perform a clean install of the newer Azure AD Connect.
+
+
 
 ## Next steps
 Learn more about [integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

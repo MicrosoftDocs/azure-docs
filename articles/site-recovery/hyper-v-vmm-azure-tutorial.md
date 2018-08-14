@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -106,7 +106,7 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
 2. In **Create and associate policy**, specify a policy name, **ContosoReplicationPolicy**.
 3. Leave the default settings and click **OK**.
     - **Copy frequency** indicates that delta data (after initial replication) will replicate every five minutes.
-    - **Recovery point retention** indicates that the retention windows for each recovery point will be two two hours.
+    - **Recovery point retention** indicates that the retention windows for each recovery point will be two hours.
     - **App-consistent snapshot frequency** indicates that recovery points containing app-consistent snapshots will be created every hour.
     - **Initial replication start time**, indicates that initial replication will start immediately.
     - **Encrypt data stored on Azure** - the default **Off** setting indicates that at rest data in Azure isn't encrypted.

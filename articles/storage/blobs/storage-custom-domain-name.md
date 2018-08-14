@@ -1,31 +1,38 @@
 ---
-title: Configure a custom domain name for your Azure Blob storage endpoint | Microsoft Docs
-description: Use the Azure portal to map your own canonical name (CNAME) to the Blob storage endpoint in an Azure Storage account.
+title: Configure a custom domain name for your Azure Storage account | Microsoft Docs
+description: Use the Azure portal to map your own canonical name (CNAME) to the Blob or web endpoint in an Azure Storage account.
 services: storage
 author: tamram
-manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 06/26/2018
 ms.author: tamram
+ms.component: blobs
 ---
 
-# Configure a custom domain name for your Blob storage endpoint
+# Configure a custom domain name for your Azure Storage account
 
-You can configure a custom domain for accessing blob data in your Azure storage account. The default endpoint for Blob storage is `<storage-account-name>.blob.core.windows.net`. If you map a custom domain and subdomain like **www.contoso.com** to the blob endpoint for your storage account, your users can then access blob data in your storage account using that domain.
+You can configure a custom domain for accessing blob data in your Azure storage account. The default endpoint for Blob storage is `<storage-account-name>.blob.core.windows.net`. You can also use the web endpoint generated as a part of the [static websites feature (preview)](storage-blob-static-website.md). If you map a custom domain and subdomain like **www.contoso.com** to the blob or web endpoint for your storage account, your users can then access blob data in your storage account using that domain.
 
 > [!IMPORTANT]
 > Azure Storage does not yet natively support HTTPS with custom domains. You can currently [Use the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md).
 >
 
+> [!NOTE]  
+> Storage accounts currently support only one custom domain name per account. That means you cannot map a custom domain name to both the web and blob service endpoints.
+
 The following table shows a few sample URLs for blob data located in a storage account named **mystorageaccount**. The custom domain registered for the storage account is **www.contoso.com**:
 
 | Resource Type | Default URL | Custom domain URL |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | Storage account | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
 | Root container | http://mystorageaccount.blob.core.windows.net/myblob or http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob or http://www.contoso.com/$root/myblob |
+| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] or http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] or http://mystorageaccount.[zone].web.core.windows.net/$web or http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/$web or http://www.contoso.com/ or http://www.contoso.com/$web/[indexdoc] or  http://www.contoso.com/[indexdoc] |
+
+> [!NOTE]  
+> All examples for the Blob service endpoint below also apply to the web service endpoint.
 
 ## Direct vs. intermediary domain mapping
 
@@ -154,3 +161,4 @@ Use the [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azure
 ## Next steps
 * [Map a custom domain to an Azure Content Delivery Network (CDN) endpoint](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
+* [Static website hosting in Azure Blob Storage (Preview)](storage-blob-static-website.md)

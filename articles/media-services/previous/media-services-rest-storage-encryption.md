@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 06/17/2018
 ms.author: juliako
 
 ---
@@ -35,6 +35,18 @@ This article gives an overview of AMS storage encryption and shows you how to up
 If you want to deliver a storage encrypted asset, you must configure the asset’s delivery policy. Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy. For more information, see [Configuring Asset Delivery Policies](media-services-rest-configure-asset-delivery-policy.md).
 
 When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md). 
+
+### Storage side encryption
+
+|Encryption option|Description|Media Services v2|Media Services v3|
+|---|---|---|---|
+|Media Services Storage Encryption|AES-256 encryption, key managed by Media Services|Supported<sup>(1)</sup>|Not supported<sup>(2)</sup>|
+|[Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Server-side encryption offered by Azure Storage, key managed by Azure or by customer|Supported|Supported|
+|[Storage Client-Side Encryption](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Client-side encryption offered by Azure storage, key managed by customer in Key Vault|Not supported|Not supported|
+
+<sup>1</sup> While Media Services does support handling of content in the clear/without any form of encryption, doing so is not recommended.
+
+<sup>2</sup> In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your Assets were created with Media Services v2. Meaning v3 works with existing storage encrypted assets but will not allow creation of new ones.
 
 ## Connect to Media Services
 
@@ -95,12 +107,12 @@ The following are general steps for generating content keys that you associate w
 
     Request body property    | Description
     ---|---
-    Id | The ContentKey Id is generated using the following format, “nb:kid:UUID:<NEW GUID>”.
+    Id | The ContentKey ID is generated using the following format, “nb:kid:UUID:<NEW GUID>”.
     ContentKeyType | The content key type is an integer that defines the key. For storage encryption format, the value is 1.
     EncryptedContentKey | We create a new content key value that is a 256-bit (32 bytes) value. The key is encrypted using the storage encryption X.509 certificate that we retrieve from Microsoft Azure Media Services by executing an HTTP GET request for the GetProtectionKeyId and GetProtectionKey Methods. As an example, see the following .NET code: the  **EncryptSymmetricKeyData** method defined [here](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-    ProtectionKeyId | This is the protection key id for the storage encryption X.509 certificate that was used to encrypt our content key.
+    ProtectionKeyId | This is the protection key ID for the storage encryption X.509 certificate that was used to encrypt our content key.
     ProtectionKeyType | This is the encryption type for the protection key that was used to encrypt the content key. This value is StorageEncryption(1) for our example.
-    Checksum |The MD5 calculated checksum for the content key. It is computed by encrypting the content Id with the content key. The example code demonstrates how to calculate the checksum.
+    Checksum |The MD5 calculated checksum for the content key. It is computed by encrypting the content ID with the content key. The example code demonstrates how to calculate the checksum.
 
 
 ### Retrieve the ProtectionKeyId
@@ -173,7 +185,7 @@ After you have retrieved the X.509 certificate and used its public key to encryp
 
 One of the values that you must set when create the content key is the type. When using storage encryption, the value should be set to '1'. 
 
-The following example shows how to create a **ContentKey** with a **ContentKeyType** set for storage encryption ("1") and the **ProtectionKeyType** set to "0" to indicate that the protection key Id is the X.509 certificate thumbprint.  
+The following example shows how to create a **ContentKey** with a **ContentKeyType** set for storage encryption ("1") and the **ProtectionKeyType** set to "0" to indicate that the protection key ID is the X.509 certificate thumbprint.  
 
 Request
 

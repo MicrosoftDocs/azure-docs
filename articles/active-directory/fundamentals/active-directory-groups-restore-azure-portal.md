@@ -1,17 +1,17 @@
 ---
-title: Restore a deleted Office 365 group in Azure Active Directory | Microsoft Docs
+title: Restore a deleted Office 365 group in Azure AD | Microsoft Docs
 description: How to restore a deleted group, view restorable groups, and permamnently delete a group in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/28/2017
-ms.author: curtand 
+ms.author: lizross 
 ms.reviewer: krbain
 ms.custom: it-pro
 ---
@@ -76,4 +76,4 @@ These articles provide additional information on Azure Active Directory groups.
 * [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
 * [Manage members of a group](active-directory-groups-members-azure-portal.md)
 * [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
-* [Manage dynamic rules for users in a group](../active-directory-groups-dynamic-membership-azure-portal.md)
+* [Manage dynamic rules for users in a group](../users-groups-roles/groups-dynamic-membership.md)
