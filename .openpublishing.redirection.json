@@ -17852,6 +17852,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/reports-monitoring/sample-audit-api.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/reports-monitoring/sample-sign-in-api.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/active-directory/active-directory-reporting-api-getting-started-azure-portal.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/concept-reporting-api",
             "redirect_document_id": false
