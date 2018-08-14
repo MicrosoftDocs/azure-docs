@@ -171,12 +171,16 @@ While UDP with no encryption is the easiest to configure, it does not provide an
 
 To remove the syslog server configuration altogether and stop syslog forwarding:
 
-```powershell
-# Remove the syslog server configuration from the client
-Set-SyslogServer -Remove  
+**Remove the syslog server configuration from the client**
 
-# Remove the client certificate from the client
-Set-SyslogClient -RemoveCertificate 
+```PowerShell  
+Set-SyslogServer -Remove
+```
+
+**Remove the client certificate from the client**
+
+```PowerShell  
+Set-SyslogClient -RemoveCertificate
 ```
 
 ## Verifying the syslog setup
@@ -185,13 +189,13 @@ If you successfully connected the syslog client to your syslog server, you shoul
 
 **Verify the server configuration in the syslog client**
 
-```Powershell  
+```PowerShell  
 Get-SyslogServer
 ```
 
-*Verify the certificate setup in the syslog client**
+**Verify the certificate setup in the syslog client**
 
-```Powershell  
+```PowerShell  
 Get-SyslogClient
 ```
 
