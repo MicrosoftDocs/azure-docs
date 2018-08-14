@@ -209,7 +209,7 @@ To create a new update deployment, select **Schedule update deployment**. The **
 | --- | --- |
 | Name |Unique name to identify the update deployment. |
 |Operating System| Linux or Windows|
-| Machines to update |Select a Saved search or pick Machine from the drop-down and select individual machines |
+| Machines to update |Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.</br> To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Update classifications|Select all the update classifications that you need|
 |Updates to exclude|Enter the updates to exclude. For  Windows enter the KB without the 'KB' prefix. For Linux, enter the package name or use a wildcard.  |
 |Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
