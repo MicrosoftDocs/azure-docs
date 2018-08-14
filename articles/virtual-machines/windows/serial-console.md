@@ -593,10 +593,6 @@ Unable to type at SAC prompt if kernel debugging is enabled | RDP to VM and run 
 
 A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred) Send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com 
 
-**Q. I get an Error "Existing console has conflicting OS type "Windows" with the requested OS type of Linux?**
-
-A. This is a known issue to fix this, simply open [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) in bash mode and retry.
-
 **Q. I am not able to access the serial console, where can I file a support case?**
 
 A. This preview feature is covered via Azure Preview Terms. Support for this is best handled via channels mentioned above. 

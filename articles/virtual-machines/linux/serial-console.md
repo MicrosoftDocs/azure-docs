@@ -110,6 +110,8 @@ RHEL will drop you into single user mode automatically if it cannot boot normall
 #### GRUB access in RHEL
 RHEL comes with GRUB enabled out of the box. To enter GRUB, reboot your VM with `sudo reboot` and press any key. You will see the GRUB screen show up.
 
+> NOTE: Red Hat also provides documentation for booting into Rescue Mode, Emergency Mode, Debug Mode, and resetting the root password. [Click here to access it](https://aka.ms/rhel7grubterminal).
+
 #### Setting up root access for single user mode in RHEL
 Single-user mode in RHEL requires the root user to be enabled, which is disabled by default. If you have a need to enable single user mode, use the following instructions:
 
@@ -135,7 +137,9 @@ If you have set up GRUB and root access with the instructions above, then you ca
 1. Add the following to the end of the line: `systemd.unit=rescue.target`
     * This will boot you into single user mode. If you want to use emergency mode, add `systemd.unit=emergency.target` to the end of the line instead of `systemd.unit=rescue.target`
 1. Press Ctrl + X to exit and reboot with the applied settings
-1. You will be prompted for the administrator password before being able to enter single user mode - this is the same password you created in the instructions above
+1. You will be prompted for the administrator password before being able to enter single user mode - this is the same password you created in the instructions above    
+
+    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 #### Single user mode without root account enabled in RHEL
 If you did not go through the steps above to enable the root user, you can still reset your  root password. Use the following instructions:
@@ -188,7 +192,6 @@ CoreOS will drop you into single user mode automatically if it cannot boot norma
 1. From GRUB, press 'e' to edit your boot entry
 1. Look for the line that starts with `linux$`. There should be 2, encapsulated in different if/else clauses
 1. Append `coreos.autologin=ttyS0` to the end of the both `linux$` lines
-    * Technically, just the second `linux$` will suffice
 1. Press Ctrl + X to reboot with these settings and enter single user mode
 
 ### Access for SUSE SLES
@@ -200,11 +203,12 @@ GRUB access in SLES requires bootloader configuration via YaST. To do this, foll
 1. ssh into your SLES VM and run `sudo yast bootloader`. Use the `tab` key, `enter` key, and arrow keys to navigate through the menu. 
 1. Navigate to `Kernel Parameters`, and check `Use serial console`. 
 1. Add `serial --unit=0 --speed=9600 --parity=no` to the Console arguments
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.png)
+
 1. Press F10 to save your settings and exit
 1. To enter GRUB, reboot your VM and press any key during boot sequence to make GRUB stay on screen
     - The default timeout for GRUB is 1s. You can modify this by changing the `GRUB_TIMEOUT` variable in `/etc/default/grub`
 
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 
 #### Single user mode in SUSE SLES
 You will be automatically dropped into emergency shell if SLES cannot boot normally. To manually enter the emergency shell, use the following instructions:
@@ -213,7 +217,7 @@ You will be automatically dropped into emergency shell if SLES cannot boot norma
 1. Look for the kernel line it will start with `linux`
 1. Append `systemd.unit=emergency.target` to the end of the line
 1. Press Ctrl + X to reboot with these settings and enter emergency shell
-> You will be dropped into emergency shell with a read-only filesystem. If you want to make any edits to any files, you will need to remount the filesystem with read-write permissions. To do this, enter `mount -o remount,rw /` into the shell
+> NOTE: You will be dropped into emergency shell with a _read-only_ filesystem. If you want to make any edits to any files, you will need to remount the filesystem with read-write permissions. To do this, enter `mount -o remount,rw /` into the shell
 
 ### Access for Oracle Linux
 Much like Red Hat Enterprise Linux, single user mode in Oracle Linux requires GRUB and the root user to be enabled. 
@@ -350,10 +354,6 @@ Hitting enter after the connection banner does not show a log in prompt | [Hitti
 **Q. How can I send feedback?**
 
 A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred) Send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com
-
-**Q.I get an Error "Existing console has conflicting OS type "Windows" with the requested OS type of Linux?**
-
-A. This is a known issue to fix this, simply open [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) in bash mode and retry.
 
 **Q. I am not able to access the serial console, where can I file a support case?**
 
