@@ -3,6 +3,8 @@ title: "Team development for Azure Dev Spaces using .NET Core and Visual Studio 
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
+ms.technology: vs-azure
+ms.workload: azure-vs
 ms.component: azds-kubernetes
 author: "ghogen"
 ms.author: "ghogen"

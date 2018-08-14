@@ -70,11 +70,11 @@ This update includes the following improvements for Azure Stack.
 
 <!-- - | ####### | IS, ASDK |  **Azure Resource Manager includes the region name.** With this release, objects retrieved from the Azure Resource Manager will now include the region name attribute. If an existing PowerShell script directly passes the object to another cmdlet, the script may produce an error and fail. This is Azure Resource Manager compliant behavior, and requires the calling client to subtract the region attribute. For more information about the Azure Resource Manager see [Azure Resource Manager Documentation](https://docs.microsoft.com/azure/azure-resource-manager/). verify 8-10 mdb -->
 
-- <!-- TBD | IS, ASDK -->  **Move subscriptions between Delegated Providers.** You can now move subscriptions between new or existing Delegated Provider subscriptions that belong to the same Directory tenant. Subscriptions belonging to the Default Provider Subscription can also be moved to the Delegated Provider Subscriptions in the same Directory-tenant. For more information see [Delegate offers in Azure Stack](azure-stack-delegated-provider.md).
+- <!-- TBD | IS, ASDK -->  **Changes to Delegated Providers functionality.** Starting with 1807 the Delegated Providers model is simplified in order to better align with the Azure reseller model and Delegated Providers will not be able to create other Delegated Providers, essentially flattening the model and making the Delegated Provider feature available on a single level. To enable the transition to the new model and the management of the subscriptions, the user-subscriptions can now be moved between new or existing Delegated Provider subscriptions that belong to the same Directory tenant. User-subscriptions belonging to the Default Provider Subscription can also be moved to the Delegated Provider Subscriptions in the same Directory-tenant.  For more information see [Delegate offers in Azure Stack](azure-stack-delegated-provider.md).
 
 - <!-- 2536808 IS ASDK --> **Improved VM creation time** for VMs that are created with images you download from the Azure marketplace.
 
-- <!-- TBD | IS, ASDK -->  **Azure Stack Capacity Planner usability improvements**. The Azure Stack [Capacity Planner](http://aka.ms/azstackcapacityplanner) now offers a simplified experience for inputing S2D cache and S2D capacity when defining solution SKUs. The 1000 VM limit has been removed.
+- <!-- TBD | IS, ASDK -->  **Azure Stack Capacity Planner usability improvements**. The Azure Stack [Capacity Planner](http://aka.ms/azstackcapacityplanner) now offers a simplified experience for inputting S2D cache and S2D capacity when defining solution SKUs. The 1000 VM limit has been removed.
 
 
 ### Fixed issues
@@ -85,7 +85,7 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 448955 | IS ASDK --> You can now successfully query activity logs for systems that are deployed in a UTC+N time zone.    
 
-- <!-- 2319627 |  ASDK, IS --> Pre-check for backup configuration parameters (Path/Username/Password/Encryption Key) no longer sets incorrect settings to the backup configuration. (Previously, incorrect settings were set into the backup and backup would would then fail when tirggered.)
+- <!-- 2319627 |  ASDK, IS --> Pre-check for backup configuration parameters (Path/Username/Password/Encryption Key) no longer sets incorrect settings to the backup configuration. (Previously, incorrect settings were set into the backup and backup would then fail when triggered.)
 
 - <!-- 2215948 |  ASDK, IS --> The backup list now refreshes when you manually delete the backup from the external share.
 
@@ -151,9 +151,11 @@ This update contains fixes for the following Common Vulnerabilities and Exposure
 
 ### Known issues with the update process
 
-- <!-- 2468613 - IS --> During installation of this update, you might see alerts with the title *Error – Template for FaultType UserAccounts.New is missing.*  You can safely ignore these alerts. These alerts will close automatically after installation of this update completes.   
+- <!-- 2468613 - IS --> During installation of this update, you might see alerts with the title *Error – Template for FaultType UserAccounts.New is missing.*  You can safely ignore these alerts. These alerts will close automatically after installation of this update completes.
 
 - <!-- 2489559 - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
+
+- <!-- 2830461 - IS --> In certain circumstances when an update requires attention, the corresponding alert may not be generated. The accurate status will still be reflected in the portal and is not impacted.
 
 ### Post-update steps
 

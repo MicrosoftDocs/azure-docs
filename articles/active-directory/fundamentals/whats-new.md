@@ -791,7 +791,7 @@ Read more about this in our [blog post](https://cloudblogs.microsoft.com/enterpr
 
 For more information, see:
 
-- [Setup application-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Setup application-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 - [Configure managed browser policies](https://aka.ms/managedbrowser)  
 
@@ -1151,7 +1151,7 @@ The following applications will be added by the end of February:
 For more information, see:
 
 - [Approved client app requirement](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1450,7 +1450,7 @@ The following apps are on the list of [approved client apps](https://docs.micros
 For more information, see:
 
 - [Approved client app requirement](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1488,9 +1488,9 @@ For more information, see [on-premises integration](https://docs.microsoft.com/a
 **Service category:** Azure AD  
 **Product capability:** Identity security and protection
 
-You now can restrict access to Office 365 and other Azure AD-connected cloud apps to [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) that support Intune app protection policies by using [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). Intune app protection policies are used to configure and protect company data on these client applications.
+You now can restrict access to Office 365 and other Azure AD-connected cloud apps to [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) that support Intune app protection policies by using [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Intune app protection policies are used to configure and protect company data on these client applications.
 
-By combining [app-based](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) with [device-based](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) conditional access policies, you have the flexibility to protect data for personal and company devices.
+By combining [app-based](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) with [device-based](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) conditional access policies, you have the flexibility to protect data for personal and company devices.
 
 The following conditions and controls are now available for use with app-based conditional access:
 
@@ -1507,7 +1507,7 @@ The following conditions and controls are now available for use with app-based c
 
 - Require approved client app
 
-For more information, see [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
+For more information, see [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
  
 ---
 
@@ -1604,7 +1604,7 @@ The following apps were added to the list of [approved client apps](https://docs
 For more information, see:
 
 - [Approved client app requirement](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 
 ---
