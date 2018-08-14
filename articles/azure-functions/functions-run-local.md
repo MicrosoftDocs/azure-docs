@@ -311,6 +311,8 @@ The `host` command is only required in version 1.x.
 | **`--language-worker`** | Arguments to configure the language worker. Version 2.x only. |
 | **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. Version 1.x only. |
 
+For a C# class library project (.csproj), you must include the `--build` option to generate the library .dll.
+
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 
 ```bash
