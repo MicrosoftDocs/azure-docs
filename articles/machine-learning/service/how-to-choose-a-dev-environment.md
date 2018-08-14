@@ -25,7 +25,7 @@ __Local__ environments - a computer or virtual machine that you have full access
 
 __Managed__ environments are services hosted in the cloud. These environments are easy to get started with, as they require little setup or configuration. However, your ability to modify the environment or load new libraries is limited.
 
-__Notebook__ environments allow you to interactively experiment by modifying and running code sections. Notebooks also allow you to visualize the data you're working with. Azure Notebooks provides a managed cloud-based solution, while Jupyter Notebooks can be be installed locally or on virtual machines, such as the Data Science Virtual Machine available in Azure.
+__Notebook__ environments allow you to interactively experiment by modifying and running code sections. Notebooks also allow you to visualize the data you're working with. Azure Notebooks provides a managed cloud-based solution, while Jupyter Notebooks can be installed locally or on virtual machines, such as the Data Science Virtual Machine available in Azure.
 
 > [!NOTE]
 > Operationalizing a notebook, or integrating with source control and build automation tools, may require extracting the code from the notebook.
@@ -85,7 +85,7 @@ Both DSVM and DLVM comes with the Azure Machine Learning SDK, Jupyter Notebooks,
 * __Interactive experimentation__: Jupter Notebooks allow you to interactively modify and rerun code sections.
 * __Data visualization__: DSVM provides pre-installed versions of popular data visualization libraries, and you can install others as needed.
 * __IDEs and code editors__: DSVM provides Visual Studio Code, PyCharm Community Edition, Atom, Vim, Emacs, and other code editors.
-* __Machine Learning and Deep Learning tools__: Xgboost, TensorFlow, Keras, PyTorch and others are pre-installed.
+* __Machine Learning and Deep Learning tools__: Xgboost, TensorFlow, Keras, PyTorch, and others are pre-installed.
 * __A high degree of control over local compute resources__: You can install any library, kernel, or make other configuration changes you want to the DSVM environment.
 
 For more information, see the [What is the Data Science Virtual Machine](../data-science-virtual-machine/overview.md) document.
