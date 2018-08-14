@@ -468,3 +468,7 @@ For more information, see [Azure Instance Metadata service](https://docs.microso
 `$im.network.interface.ipv6.ipAddress`
 ### MAC Address (Instance Metadata)
 `$im.network.interface.macAddress`
+
+## Next steps
+* The serial console is also available for [Linux](../linux/serial-console.md) VMs.
+* Learn more about [boot diagnostics](boot-diagnostics.md).
