@@ -90,7 +90,7 @@ Now we're ready to create the custom function that will integrate Power BI and T
 The function receives the text to be processed as a parameter. It converts data to and from the required JavaScript Object Notation (JSON) and makes the HTTP request to the Key Phrases API endpoint. After parsing the response, the function returns a string containing a comma-separated list of the extracted key phrases.
 
 > [!NOTE]
-> Power BI Desktop custom functions are written in the [Power Query M formula language](https://msdn.microsoft.com/library/mt211003.aspx), or just "M" for short. M is a functional programming language based on [F#](http://www.tryfsharp.org/). You don't need to be a programmer to finish this tutorial, though; the required code is included below.
+> Power BI Desktop custom functions are written in the [Power Query M formula language](https://msdn.microsoft.com/library/mt211003.aspx), or just "M" for short. M is a functional programming language based on [F#](https://docs.microsoft.com/dotnet/fsharp/). You don't need to be a programmer to finish this tutorial, though; the required code is included below.
 
 You should still be in the Query Editor window. From the Home ribbon, click **New Source** (in the New Query group) and choose **Blank Query** from the drop-down menu. 
 
@@ -223,7 +223,7 @@ Here are two versions of a Language Detection function. The first returns the IS
     apikey      = "YOUR_API_KEY_HERE",
     endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
-    jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
+    jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
@@ -237,7 +237,7 @@ in  language
     apikey      = "YOUR_API_KEY_HERE",
     endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
-    jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
+    jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),

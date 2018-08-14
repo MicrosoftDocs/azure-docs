@@ -51,6 +51,7 @@
       items:
       - name: Use the HDInsight tools for VSCode
         href: ../hdinsight-for-vscode.md
+        maintainContext: true
       - name: Use the HDInsight tools for Visual Studio
         href: apache-hadoop-use-hive-visual-studio.md
       - name: Use the Hive View

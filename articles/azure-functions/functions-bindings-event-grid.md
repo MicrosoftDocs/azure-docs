@@ -437,12 +437,16 @@ The ngrok URL doesn't get special handling by Event Grid, so your function must 
 
 ### Create a subscription
 
-Create an Event Grid subscription of the type you want to test, and give it your ngrok endpoint, using the following pattern:
+Create an Event Grid subscription of the type you want to test, and give it your ngrok endpoint.
 
+Use this endpoint pattern for Functions 1.x:
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
-
+Use this endpoint pattern for Functions 2.x:
+```
+https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+``` 
 The `functionName` parameter must be the name specified in the `FunctionName` attribute.
 
 Here's an example using the Azure CLI:

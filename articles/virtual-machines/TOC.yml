@@ -1,5 +1,5 @@
 - name: Virtual Machines Documentation
-  href: index.md
+  href: index.yml
 - name: Linux Virtual Machines in Azure
   href: linux/overview.md
 - name: Windows Virtual Machines in Azure

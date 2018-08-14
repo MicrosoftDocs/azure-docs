@@ -458,7 +458,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-safetynet-tutorial.png)| [SafetyNet](safetynet-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)|[Salesforce - User Provisioning](salesforce-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-salesforce-sandbox-tutorial.png)| [Salesforce Sandbox](salesforce-sandbox-tutorial.md)|[Salesforce Sandbox - User Provisioning](salesforce-sandbox-provisioning-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-samanage-tutorial.png)| [Samanage](samanage-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-samanage-tutorial.png)| [Samanage](samanage-tutorial.md)|[Samanage - User Provisioning](samanage-provisioning-tutorial.md)
 | ![logo](./media/tutorial-list/active-directory-saas-saml-tutorial.png)| [SAML 1.1 Token enabled LOB App](saml-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-bamboo-tutorial.png)| [SAML SSO for Bamboo by resolution GmbH](bamboo-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-bitbucket-tutorial.png)| [SAML SSO for Bitbucket by resolution GmbH](bitbucket-tutorial.md)|
@@ -527,7 +527,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
 | ![logo](./media/tutorial-list/active-directory-saas-tyeexpress-tutorial.png)| [T&E Express](tyeexpress-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-tableauonline-tutorial.png)| [Tableau Online](tableauonline-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-tableauonline-tutorial.png)| [Tableau Online](tableauonline-tutorial.md)|[Tableau Online - User Provisioning](tableau-online-provisioning-tutorial.md)
 | ![logo](./media/tutorial-list/active-directory-saas-tableauserver-tutorial.png)| [Tableau Server](tableauserver-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-talentlms-tutorial.png)| [TalentLMS](talentlms-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-tangoanalytics-tutorial.png)| [Tango Analytics](tangoanalytics-tutorial.md)|

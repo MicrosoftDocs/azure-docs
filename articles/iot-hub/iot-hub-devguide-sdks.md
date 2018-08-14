@@ -61,6 +61,7 @@ Azure IoT Hub device SDK for iOS:
 
 ### OS platform and hardware compatibility
 
+Supported platforms for the SDKs can be found in this [document](iot-hub-device-sdk-platform-support.md).
 For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog][lnk-certified] or individual repository.
 
 ## Azure IoT service SDKs
@@ -112,6 +113,7 @@ Other reference topics in this IoT Hub developer guide include:
 * [Quotas and throttling][lnk-devguide-quotas]
 * [IoT Hub MQTT support][lnk-devguide-mqtt]
 * [IoT Hub REST API reference][lnk-rest-ref]
+* [Auzre IoT SDK platform support](iot-hub-device-sdk-platform-support.md)
 
 <!-- Links and images -->
 
