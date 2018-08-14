@@ -182,11 +182,12 @@ Unlike Azure, which supports multiple offers as both an initiator and a responde
 |Encryption & Hashing Algorithms (Authentication) | GCMAES256|
 |SA Lifetime (Time)  | 27,000 seconds<sup>See note 1</sup> |
 |SA Lifetime (Bytes) | 33,553,408<sup>See note 2</sup>     |
-|Perfect Forward Secrecy (PFS) |PFS2048 |
+|Perfect Forward Secrecy (PFS) |None<sup>See note 3</sup> |
 |Dead Peer Detection | Supported|  
 
 * *Note 1:*  Prior to version 1803, Azure Stack uses a value of 14,400 for the SA Lifetime (Time).
 * *Note 2:*  Prior to version 1803, Azure Stack uses a value of 819,200 for the SA Lifetime (Bytes).
+* *Note 3:*  Prior to version 1807, Azure Stack uses a value of PFS2048 for the Perfect Forward Secrecy (PFS).
 
 ## Next steps
 
