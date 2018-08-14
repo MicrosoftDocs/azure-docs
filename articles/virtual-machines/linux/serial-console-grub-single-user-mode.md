@@ -19,9 +19,12 @@ ms.author: alsin
 ---
 
 # Using Serial Console to access GRUB and Single User Mode
-Single user mode is a minimal environment with minimal functionality. It can be useful for investigating boot issues or network issues. Some distros will automatically drop you into single user mode or emergency mode if the VM is unable to boot. Others, however, require additional setup before they can drop you into single-user or emergency mode automatically.
+Single user mode is a minimal environment with minimal functionality. It can be useful for investigating boot issues or network issues as fewer services may run in the background, and, depending on the runlevel, a filesystem may not even be automatically mounted. This is useful to investigate situations such as a corrupt filesystem, a broken fstab, or network connectivity (incorrect iptables configuration).
+
+Some distros will automatically drop you into single user mode or emergency mode if the VM is unable to boot. Others, however, require additional setup before they can drop you into single-user or emergency mode automatically.
 
 You will want to ensure that GRUB is enabled on your VM in order to be able to access single user mode. Depending on your distro, there may be some setup work to ensure that GRUB is enabled. 
+
 
 ## Access for Red Hat Enterprise Linux (RHEL)
 RHEL will drop you into single user mode automatically if it cannot boot normally. However, if you have not set up root access for single user mode, you will not have a root password and will be unable to log in. There is a workaround (See 'Manually entering single user mode' below), but the suggestion is to set up root access initially.

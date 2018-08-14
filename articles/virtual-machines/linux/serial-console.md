@@ -79,12 +79,12 @@ The serial console functionality can be deactivated for specific VMs by disablin
 ## Common scenarios for accessing serial console 
 Scenario          | Actions in serial console                |  OS Applicability 
 :------------------|:-----------------------------------------|:------------------
-Broken FSTAB file | Enter key to continue and fix fstab file using a text editor. See [how to fix fstab issues](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) | Linux 
-Incorrect firewall rules | Access serial console and fix iptables or Windows firewall rules | Linux/Windows 
-Filesystem corruption/check | Access serial console and recover filesystem | Linux/Windows 
-SSH/RDP configuration issues | Access serial console and change settings | Linux/Windows 
-Network lock down system| Access serial console via portal to manage system | Linux/Windows 
-Interacting with bootloader | Access GRUB/BCD via the serial console | Linux/Windows 
+Broken FSTAB file | `Enter` key to continue and fix fstab file using a text editor. You may need to be in single user mode for this. See [how to fix fstab issues](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) and [Using Serial Console to access GRUB and Single User Mode](serial-console-grub-single-user-mode.md) to get started. | Linux 
+Incorrect firewall rules | Access serial console and fix iptables or Windows firewall rules. | Linux/Windows 
+Filesystem corruption/check | Access serial console and recover filesystem. | Linux/Windows 
+SSH/RDP configuration issues | Access serial console and change settings. | Linux/Windows 
+Network lock down system| Access serial console via portal to manage system. | Linux/Windows 
+Interacting with bootloader | Access GRUB/BCD via the serial console. Go to [Using Serial Console to access GRUB and Single User Mode](serial-console-grub-single-user-mode.md) to get started. | Linux/Windows 
 
 ## Accessing Serial Console for Linux
 In order for serial console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) have the serial console configured by default. Simply clicking the Serial Console section in the Azure portal will provide access to the console. 
