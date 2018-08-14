@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/14/2018
 ms.author: bryanla
 
 ---
@@ -434,7 +434,7 @@ If a certificate's policy is set to auto-renewal, then a notification is sent on
 -   *create*: allows create of a Key Vault certificate.  
 -   *import*: allows import of certificate material into a Key Vault Certificate.  
 -   *update*: allows update of a certificate.  
--   *manageconnects*: allows management of Key Vault certificate contacts  
+-   *managecontacts*: allows management of Key Vault certificate contacts  
 -   *getissuers*: allows get of a certificate's issuers  
 -   *listissuers*: allows list of certificate's issuers  
 -   *setissuers*: allows create or update of Key Vault certificate issuers  
