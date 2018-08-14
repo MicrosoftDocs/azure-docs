@@ -225,7 +225,7 @@ You can use the Azure portal to deploy your Python module to an IoT Edge device 
 
 6. Right-click the name of your IoT Edge device, and then select **Create Deployment for IoT Edge device**. 
 
-7. Browse to the solution folder that contains the **PythonModule**. Open the config folder, select the deployment.json file, and then choose **Select Edge Deployment Manifest**.
+7. Browse to the solution folder that contains the **PythonModule**. Open the config folder, select the deployment.json file, and then choose **Create Deployment for Single Device**.
 
 8. Refresh the **Azure IoT Hub Devices** section. You should see the new **PythonModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
 
