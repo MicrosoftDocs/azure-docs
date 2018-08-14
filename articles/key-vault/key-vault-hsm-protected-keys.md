@@ -82,7 +82,7 @@ Start an Azure PowerShell session and sign in to your Azure account by using the
 ```Powershell
    Add-AzureAccount
 ```
-In the pop-up browser window, enter your Azure account user name and password. Then, use the [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) command:
+In the pop-up browser window, enter your Azure account user name and password. Then, use the [Get-AzureSubscription](/powershell/module/servicemanagement/azure/get-azuresubscription?view=azuresmps-3.7.0) command:
 
 ```powershell
    Get-AzureSubscription

@@ -235,13 +235,14 @@
 ### Manage enterprise apps
 #### [Add an application](manage-apps/add-application-portal.md)
 #### [View tenant apps](manage-apps/view-applications-portal.md)
+#### [Configure single sign-on](manage-apps/configure-single-sign-on-portal.md)
 #### [Assign users](manage-apps/assign-user-or-group-access-portal.md)
 #### [Customize branding](manage-apps/change-name-or-logo-portal.md)
 #### [Disable user sign-ins](manage-apps/disable-user-sign-in-portal.md)
 #### [Remove users](manage-apps/remove-user-or-group-access-portal.md)
 
 #### [Manage user account provisioning](manage-apps/configure-automatic-user-provisioning-portal.md)
-#### [Manage single sign-on for enterprise apps](manage-apps/configure-single-sign-on-portal.md)
+
 #### [Advanced certificate signing for SAML apps](manage-apps/certificate-signing-options.md)
 #### [Hide an application from a user's experience](manage-apps/hide-application-from-user-portal.md)
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](manage-apps/configure-authentication-for-federated-users-portal.md)

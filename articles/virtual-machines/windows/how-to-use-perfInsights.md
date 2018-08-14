@@ -61,7 +61,7 @@ This scenario runs the [Diskspd](https://github.com/Microsoft/diskspd) benchmark
 > This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
 >
 
-### Slow VM Analysis
+### Performance Analysis
 
 This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace by using the counters that are specified in the RuleEngineConfig.json file. If the VM is identified as a server that is running SQL Server, a performance counter trace is run. It does so by using the counters that are found in the RuleEngineConfig.json file. This scenario also includes performance diagnostics data.
 
@@ -87,9 +87,9 @@ This scenario runs a special performance counter capture together with a network
 |              | Avg. Write Queue Length       |
 |              | Avg. Data Queue Length        |
 
-### Advanced Slow VM Analysis
+### Advanced Performance Analysis
 
-When you run an advanced slow VM analysis, you select traces to run in parallel. If you want, you can run them all (Performance Counter, Xperf, Network, and StorPort).  
+When you run an advanced performance analysis, you select traces to run in parallel. If you want, you can run them all (Performance Counter, Xperf, Network, and StorPort).  
 
 > [!Note]
 > This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
@@ -101,7 +101,7 @@ Information about Windows VM, disks or storage pools configuration, performance 
 
 |Data collected                              |  |  | Performance scenarios |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Quick Performance Analysis | Benchmarking | Slow VM Analysis | Azure Files Analysis | Advanced Slow VM Analysis |
+|                               | Quick Performance Analysis | Benchmarking | Performance Analysis | Azure Files Analysis | Advanced Performance Analysis |
 | Information from event logs       | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
 | System information                | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
 | Volume map                        | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
@@ -135,7 +135,7 @@ Runs a rule-based engine in the background to collect data and diagnose ongoing 
 - HighMemoryUsage rule: Detects high memory usage periods, and shows the top memory usage consumers during those periods.
 
 > [!NOTE] 
-> Currently, Windows versions that include the .NET Framework 3.5 or later versions are supported.
+> Currently, Windows versions that include the .NET Framework 4.5 or later versions are supported.
 
 ### Performance counter trace (**)
 
@@ -168,9 +168,9 @@ Diskspd I/O workload tests (OS Disk [write] and pool drives [read/write])
 
 #### Possible problems when you run the tool on production VMs
 
--  For the benchmarking scenario or the "Advanced Slow VM Analysis" scenario that is configured to use Xperf or Diskspd, the tool might adversely affect the performance of the VM. These scenarios should not be run in a live production environment.
+-  For the benchmarking scenario or the "Advanced Performance Analysis" scenario that is configured to use Xperf or Diskspd, the tool might adversely affect the performance of the VM. These scenarios should not be run in a live production environment.
 
--  For the benchmarking scenario or the "Advanced Slow VM Analysis" scenario that is configured to use Diskspd, ensure that no other background activity interferes with the I/O workload.
+-  For the benchmarking scenario or the "Advanced Performance Analysis" scenario that is configured to use Diskspd, ensure that no other background activity interferes with the I/O workload.
 
 -  By default, the tool uses the temporary storage drive to collect data. If tracing stays enabled for a longer time, the amount of data that is collected might be relevant. This can reduce the availability of space on the temporary disk, and can therefore affect any application that relies on this drive.
 
@@ -209,7 +209,7 @@ To run the PerfInsights tool, follow these steps:
     PerfInsights /run <ScenarioName> [AdditionalOptions]
     ```
 
-    You can use the below example to run slow VM scenario for 5 mins:
+    You can use the below example to run performance analysis scenario for 5 mins:
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
@@ -221,7 +221,7 @@ To run the PerfInsights tool, follow these steps:
     PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    You can use the below example to run slow VM scenario for 5 mins and upload the result zip file to the storage account:
+    You can use the below example to run performance analysis scenario for 5 mins and upload the result zip file to the storage account:
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>

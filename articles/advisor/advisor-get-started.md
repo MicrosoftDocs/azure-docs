@@ -4,8 +4,8 @@ description: Get started with Azure Advisor.
 services: advisor
 documentationcenter: NA
 author: manbeenkohli
-manager: carmonm
-editor: ''
+manager: 
+
 
 ms.assetid: 
 ms.service: advisor
