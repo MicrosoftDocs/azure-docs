@@ -54,7 +54,6 @@ Save and click the just created module identity. You can see the module identity
 
 ![Device details][12]
 
-<a id="D2C_csharp"></a>
 ## Update the module twin using .NET device SDK
 
 You've successfully created the module identity in your IoT Hub. Let's try to communicate to the cloud from your simulated device. Once a module identity is created, a module twin is implicitly created in IoT Hub. In this section, you will create a .NET console app on your simulated device that updates the module twin reported properties.
