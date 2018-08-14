@@ -63,6 +63,9 @@ Clicking the checkbox will force all objects to be marked, and clicking again wi
 
 Objects can be marked for both geometry and navigation.
 
+To unmark meshes or terrain for acoustics, select it and uncheck the "Acoustics Geometry" checkbox.
+![Bake Geometry](media/BakeObjectsTabGeometry.png)
+
 ### Guidelines for marking objects
 You should be sure to mark any static (non-moving) objects you want to participate in the acoustics of your scene as "Acoustics Geometry". The acoustics engine does not facilitate acoustics for non-static objects. 
 "Participate" in this case means you want sound to bounce off of or be absorbed by the object. 
