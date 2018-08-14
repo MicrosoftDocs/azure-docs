@@ -32,7 +32,7 @@ This article briefly describes and provides you with links to samples for the Az
 > [!NOTE]
 > If you are interested in V1 samples, see [Azure AD code samples (V1 endpoint)](sample-v1-code.md).
 
-To understand the basic scenario for each sample type, see [App types for the Azure Active Directory v2.0 endpoint](active-directory-v2-flows.md).
+To understand the basic scenario for each sample type, see [App types for the Azure Active Directory v2.0 endpoint](v2-app-types.md).
 
 You can also contribute to the samples on GitHub. To learn how, see [Microsoft Azure Active Directory samples and documentation](https://github.com/Azure-Samples?page=3&query=active-directory).
 

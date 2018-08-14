@@ -120,6 +120,8 @@
     href: infrastructure-automation.md
   - name: Security and policy
     href: security-policy.md
+  - name: States and lifecycle
+    href: states-lifecycle.md
   - name: Monitoring
     href: monitor.md
   - name: Backup and recovery
@@ -228,9 +230,9 @@
       href: metrics-vm-usage-rest.md
   - name: Manage costs
     items:
-    - name: Prepay for VMs - reserved instances
+    - name: Prepay for VMs - Azure reservations
       href: prepay-reserved-vm-instances.md
-    - name: What are reserved instances?
+    - name: What are Azure reservations?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: VM instance size flexibility
       href: reserved-vm-instance-size-flexibility.md

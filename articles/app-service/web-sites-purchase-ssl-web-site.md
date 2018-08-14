@@ -73,7 +73,7 @@ From the same **Certificate Configuration** page you used in Step 3, click **Ste
 
 Choose the preferred domain verification method. 
 
-There are four types of domain verification supported by App Service Certificates: App Service, Domain, Mail, and Manual Verification. These verification types are explained in more details in the [Advanced section](#advanced).
+There are four types of domain verification supported by App Service Certificates: App Service, Domain, and Manual Verification. These verification types are explained in more details in the [Advanced section](#advanced).
 
 > [!NOTE]
 > **App Service Verification** is the most convenient option when the domain you want to verify is already mapped to an App Service app in the same subscription. It takes advantage of the fact that the App Service app has already verified the domain ownership.
@@ -130,16 +130,7 @@ At this point, you should be able to visit your app using `HTTPS://` instead of 
 
 ### Verifying Domain Ownership
 
-There are two more types of domain verification supported by App service Certificates: Mail, and Manual Verification.
-
-#### Mail Verification
-
-Verification email has already been sent to the Email Address(es) associated with this custom domain.
-To complete the Email verification step, open the email and click the verification link.
-
-![insert image of email verification](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
-
-If you need to resend the verification email, click the **Resend Email** button.
+There are two other types of domain verification supported by App service Certificates: domain verification and manual verification.
 
 #### Domain Verification
 
@@ -194,11 +185,11 @@ Rekeying your certificate rolls the certificate with a new certificate issued fr
 
 ## Renew the certificate
 
-To turn on automatic renewal of your certificate at anytime, click **Auto Renew Settings** in the certificate management page. Select **On** and click **Save**. The certificate will renew 60 days before expiration if you have automatic renewal turned on.
+To turn on automatic renewal of your certificate at anytime, click **Auto Renew Settings** in the certificate management page. Select **On** and click **Save**. Certificates can start automatically renewing 90 days before expiration if you have automatic renewal turned on.
 
 ![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
-To manually renew the certificate instead, click **Manual Renew** instead.
+To manually renew the certificate instead, click **Manual Renew** instead. You can request to manually renew your certificate 60 days before expiration.
 
 > [!NOTE]
 > The renewed certificate is not automatically bound to your app, whether you renewed it manually or it renewed automatically. To bind it to your app, see [Renew certificates](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 

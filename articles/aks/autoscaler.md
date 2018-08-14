@@ -309,7 +309,7 @@ Then, fill in the image field under **containers** with the version of the clust
 Deploy cluster-autoscaler by running
 
 ```console
-kubectl create -f cluster-autoscaler-containerservice.yaml
+kubectl create -f aks-cluster-autoscaler.yaml
 ```
 
 To check if the cluster autoscaler is running, use the following command and check the list of pods. There should be a pod prefixed with "cluster-autoscaler" running. If you see this, your cluster autoscaler has been deployed.

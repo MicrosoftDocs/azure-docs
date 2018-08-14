@@ -3,7 +3,7 @@ title: Microsoft Azure Event Hubs quotas and limits | Microsoft Docs
 description: Limits and quotas for Azure Event Hubs
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
-ms.author: sethm
+ms.author: shvija
 
 ---
 # Event Hubs quotas

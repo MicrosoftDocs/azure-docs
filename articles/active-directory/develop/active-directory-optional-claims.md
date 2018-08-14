@@ -122,7 +122,7 @@ This OptionalClaims object causes the ID token returned to the client to include
 
 ## Configuring optional claims
 
-You can configure optional claims for your application by modifying the application manifest (See example below). For more information, see the [Understanding the Azure AD application manifest article](active-directory-application-manifest.md).
+You can configure optional claims for your application by modifying the application manifest (See example below). For more information, see the [Understanding the Azure AD application manifest article](reference-app-manifest.md).
 
 **Sample schema:**
 
