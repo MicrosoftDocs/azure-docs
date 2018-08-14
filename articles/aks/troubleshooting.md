@@ -39,14 +39,14 @@ There might be various reasons for the pod being stuck in that mode. You might w
     1. The pod itself using `kubectl describe pod <pod-name>`
     2. The logs using  `kubectl log <pod-name>`
 
-## I am trying to enable RBAC on an existing cluster. Can you tell me how i can do that?
+## I am trying to enable RBAC on an existing cluster. Can you tell me how I can do that?
 
 Unfortunately enabling RBAC on existing clusters is not supported at this time. You will need to explicitly create new clusters. If you use the CLI, RBAC is enabled by default whereas a toggle button to enable it is available in the AKS portal create workflow.
 
 ## I created a cluster using the Azure CLI with defaults or the Azure portal with RBAC enabled and numerous warnings in the kubernetes dashboard. The dashboard used to work before without any warnings. What should I do?
 
 The reason for getting warnings on the dashboard is that now it is enabled with RBAC'ed and access to it has been disabled by default. In general, 
-this is considered good practice since the default exposure of the dashboard to all users of the cluster can lead to security 
+this approach is considered good practice since the default exposure of the dashboard to all users of the cluster can lead to security 
 threats. If you still want to enable the dashboard, follow this [blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/)
 to enable it.
 
@@ -61,7 +61,7 @@ If you don’t see the kubernetes dashboard, then check if the kube-proxy pod is
 
 Make sure that the default NSG is not modified and port 22 is open for connection to the API server. Check if the tunnelfront pod is running in the kube-system namespace. If it is not, force delete it and it will restart.
 
-## I am trying to upgrade or scale and am getting "message": "Changing property 'imageReference' is not allowed." Error.  How do i fix this?
+## I am trying to upgrade or scale and am getting "message": "Changing property 'imageReference' is not allowed." Error.  How do I fix this issue?
 
 It is possible that you are getting this error because you have modified the tags in the agent nodes inside the AKS cluster. Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Modifying the resources under the MC_* in the AKS cluster breaks the SLO.
 
