@@ -15,7 +15,9 @@ ms.custom: mvc
 
 # Tutorial: Train a distributed model with Horovod
 
-In this tutorial, you train a distributed deep learning model by running it in parallel across multiple nodes in a Batch AI cluster. Batch AI is a managed service for training machine learning and AI models at scale on clusters of Azure GPUs. This tutorial introduces a common Batch AI workflow along with how to interact with Batch AI resources through the Azure CLI. Topics covered include:
+In this tutorial, you train a distributed deep learning model by running it in parallel across multiple nodes in a Batch AI cluster. Batch AI is a managed service for training machine learning and AI models at scale on clusters of Azure GPUs. 
+
+This tutorial introduces a common Batch AI workflow along with how to interact with Batch AI resources through the Azure CLI. Topics covered include:
 
 > [!div class="checklist"]
 > * Set up a Batch AI workspace, experiment, and cluster
@@ -76,8 +78,7 @@ The following `az batchai cluster create` command creates a 4-node cluster calle
 az batchai cluster create --resource-group batchai.horovod --workspace batchaidev --name nc6cluster --vm-priority dedicated  --vm-size Standard_NC6 --target 4 --use-auto-storage --generate-ssh-keys
 ```
 
-In this example, the `--use-auto-storage` parameter creates an associated storage account in a new or existing resource group named **batchaiautostorage**. It also creates an Azure file share and blob storage container in the account, and mounts these resources on each cluster node. 
-
+The `--use-auto-storage` parameter creates an associated storage account in a new or existing resource group named `batchaiautostorage`. It also creates an Azure file share and blob storage container in the account, and mounts these resources on each cluster node. 
 
 Run the `az batchai cluster show` command to view the cluster status. It usually takes a few minutes to fully provision the cluster.
 
@@ -85,7 +86,7 @@ Run the `az batchai cluster show` command to view the cluster status. It usually
 az batchai cluster show --name nc6cluster --workspace batchaidev --resource-group batchai.horovod --output table
 ```
 
-Early in cluster creation, the cluster is in the `resizing` state. Continue the following steps while the cluster state changes. The cluster is ready to run the training job when the state is `steady`and the nodes are `idle`.
+Early in cluster creation, the cluster is in the `resizing` state. Continue the following steps while the cluster state changes. The cluster is ready to run the training job when the state is `steady`and the nodes are `idle`. For example:
 
 ```
 Name        Resource Group    Workspace    VM Size       State      Idle    Running    Preparing    Leaving    Unusable
@@ -317,7 +318,7 @@ After completing the previous steps, create a training job. In Batch AI, you use
 }
 ```
 
-Note the following properties:
+Explanation of properties:
 
 | Property | Description |
 | --------- | --------- |
@@ -333,7 +334,7 @@ Using the configuration, create the job using the `az batchai job create` comman
 az batchai job create --cluster nc6cluster --name cifar_distributed --resource-group batchai.horovod --workspace batchaidev --experiment cifar --config-file job.json --storage-account-name <STORAGE ACCOUNT NAME>
 ```
 
-If the nodes are currently busy, the job may take a while before it actually starts running. Use the `az batchai job show` command to view the execution state of the job.
+If the nodes are currently busy, the job may take a while before to start running. Use the `az batchai job show` command to view the execution state of the job.
 
 ```azurecli-interactive
 az batchai job show --experiment cifar --name cifar_distributed --resource-group batchai.horovod --workspace batchaidev --query "executionState"
@@ -392,13 +393,13 @@ stdout.txt                                              file    2316480  2018-07
 
 ### Stream an output file
 
-Use the `az batchai job file stream` command to stream the contents of a files. The following example streams the main output log.
+Use the `az batchai job file stream` command to stream the contents of a file. The following example streams the main output log.
 
 ```azurecli-interactive
 az batchai job file stream --experiment cifar --file-name stdout.txt --job cifar_distributed --resource-group batchai.horovod --workspace batchaidev
 ```
 
-While the job runs, the command streams the progress through the training job, showing output similar to the following.
+While the job runs, the command streams the standard output of the training job, showing output similar to the following.
 
 ```
 ...
@@ -447,7 +448,7 @@ The script trains over 25 epochs, or passes through the training dataset. This p
 
 When the script completes, if everything went well, the validation accuracy should be about 70-75% and the trained model is saved to the file share at `cifar/saved_models/keras_cifar10_trained_model.h5`. 
 
-Typically you use a trained model as part of a larger workflow. For example, you might expose it as part of another application. To download the trained model locally, use the `az storage file download` command. Substitute the name of the auto-storage account for `<STORAGE ACCOUNT NAME>`.
+Model training is usually a part of a larger workflow. For example, you might expose the trained model in another application. To download the trained model locally, use the `az storage file download` command. Substitute the name of the auto-storage account for `<STORAGE ACCOUNT NAME>`.
 
 ```azurecli-interactive
 az storage file download --path cifar/saved_models/keras_cifar10_trained_model.h5 --share-name batchaishare --account-name <STORAGE ACCOUNT NAME> 
