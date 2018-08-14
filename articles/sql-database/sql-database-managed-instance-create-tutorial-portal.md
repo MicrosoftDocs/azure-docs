@@ -36,9 +36,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 > [!IMPORTANT]
 > For a list of regions in which Managed Instance is currently available, see [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
  
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
+Sign in to the [Azure portal](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
 
 ## Whitelist your subscription
 
@@ -157,7 +157,7 @@ The following steps show you how to create your Managed Instance after your prev
 2. Locate **Managed Instance** and then select **Azure SQL Database Managed Instance (preview)**.
 3. Click **Create**.
 
-   ![managed instance create](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![create managed instance](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
 4. Select your subscription and verify that the preview terms show **Accepted**.
 

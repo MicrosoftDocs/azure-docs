@@ -114,7 +114,7 @@ Additionally, you do not need to worry about setting up high availability as [hi
 
 To strengthen security, consider using some of the features that are available:
 - Azure Active Directory Authentication at the database level
-- Use [advanced security features](sql-database-security-overview.md) such as [Auditing](sql-database-managed-instance-auditing.md), [Threat Detection](sql-advanced-threat-protection.md), [Row-Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) and [Dynamic Data Masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ) to secure your your instance.
+- Use [advanced security features](sql-database-security-overview.md) such as [Auditing](sql-database-managed-instance-auditing.md), [Threat Detection](sql-advanced-threat-protection.md), [Row-Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), and [Dynamic Data Masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ) to secure your instance.
 
 ## Next steps
 
