@@ -12,7 +12,7 @@ ms.author: kegodin
 ---
 
 # Setup Azure Accounts for Acoustics
-Follow this guide for setting up Azure Batch and Storage accounts necessary for working with Microsoft Acoustics. For information about Microsoft Acoustics, see [Introduction to Microsoft Acoustics](What-Is-Acoustics.md). For information about how to incorporate Microsoft Acoustics into your Unity project, see [Getting Started](GettingStarted.md).  
+Follow this guide for setting up Azure Batch and Storage accounts necessary for working with Microsoft Acoustics. For information about Microsoft Acoustics, see [Introduction to Microsoft Acoustics](what-is-acoustics.md). For information about how to incorporate Microsoft Acoustics into your Unity project, see [Getting Started](gettingstarted.md).  
 
 
 ### **Step 1 -** Get an Azure Subscription
@@ -48,4 +48,4 @@ This is the last remaning step before you can start scheduling acoustics bakes o
   
   ![Storage Account Creds](Media/StorageKeysInfo.png)
 
-* Use these credentials to setup the Bake Tab as described in the [Bake UI walkthrough](BakeUIWalkthrough.md).
+* Use these credentials to setup the Bake Tab as described in the [Bake UI walkthrough](bakeuiwalkthrough.md).

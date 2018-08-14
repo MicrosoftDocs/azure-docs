@@ -11,10 +11,10 @@ ms.date: 08/03/2018
 ms.author: kegodin
 ---
 # Unity bake UI
-This document describes the process of submitting an acoustics bake using the Unity editor extension. For information about what Microsoft Acoustics is, check out the [Introduction to Microsoft Acoustics](What-Is-Acoustics.md).
+This document describes the process of submitting an acoustics bake using the Unity editor extension. For information about what Microsoft Acoustics is, check out the [Introduction to Microsoft Acoustics](what-is-acoustics.md).
 
 ## Importing the plugin
-Import the Acoustics plugin package to your project by following the instructions on the [Getting Started](GettingStarted.md) page. Then open the Acoustics UI by choosing Window > Acoustics from the Unity menu:
+Import the Acoustics plugin package to your project by following the instructions on the [Getting Started](gettingstarted.md) page. Then open the Acoustics UI by choosing Window > Acoustics from the Unity menu:
 
 ![Open Acoustics Window](media/WindowAcoustics.png)
 # Principles
@@ -24,7 +24,7 @@ The Acoustics tool window gathers the information the acoustics engine needs to 
 3. Assign acoustic materials properties to geometry
 4. Preview probe placement, and bake
 
-See [Getting Started](GettingStarted.md) for post-bake steps.
+See [Getting Started](gettingstarted.md) for post-bake steps.
 
 # Unity Navigation vs. Custom Navigation (or no navigation)
 A player navigation mesh is used to place probe points for simulation. Unity includes a navigation mesh workflow, or you can specify your own navigation mesh. Unity's navigation mesh documentation is [here](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html). If you use Unity's navigation mesh workflow, it will be picked up by the acoustics system. Or, you can mark your own meshes as navigation meshes in the Objects tab of the acoustics plugin.
@@ -186,7 +186,7 @@ when ready, will **not** be downloaded. In addition, **this is not the same as c
 Once you have started a bake, you can leave Unity (**don't forget to save first!**). Depending on the project, node type, and number of nodes, a cloud bake can take many hours. When you reload
 the project and open the Acoustics window the job status will be updated. If the job has completed then the output file will be downloaded.
 
-Once the cloud bake has completed and the data file downloaded, follow the instructions on the [Getting Started](GettingStarted.md) page to use the data at runtime.
+Once the cloud bake has completed and the data file downloaded, follow the instructions on the [Getting Started](gettingstarted.md) page to use the data at runtime.
 
 # Data Files
 There are four data files created by this plugin at various points. Only one of them is needed at runtime, therefore the other three are inside folders named "Editor" so they will not be compiled into your project.

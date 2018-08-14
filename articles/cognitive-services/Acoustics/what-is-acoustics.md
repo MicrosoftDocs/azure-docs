@@ -6,13 +6,13 @@ author: kegodin
 manager: noelc
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
-ms.date: 08/03/2018
+ms.topic: overview
+ms.date: 08/20/2018
 ms.author: kegodin
 ---
 
 # Introduction to acoustics
-A new way to design dynamic acoustics. Experience smooth wave effects, true occlusion, and portaling without drawing reverb zones, tedious markup, or costly ray tracing. Try out acoustics [here](GettingStarted.md).
+The Unity plugin developed as part of Project Acoustics provides occlusion, obstruction, reverberation, and spatialization. A new way to design dynamic acoustics. Experience smooth wave effects, true occlusion, and portaling without drawing reverb zones, tedious markup, or run-time ray tracing.
 
 ## Today's approach to acoustics
 Let's revisit today's common approach to acoustics. In the existing approach, you draw reverb volumes:
@@ -57,3 +57,6 @@ Once the bake has completed, a file is downloaded to your project, known as an A
 
 ### Runtime
 After bake completion, the simulation results are downloaded into your scene as a lookup table. This table is used at runtime to drive the acoustic parameters for each sound source.
+
+## How do I get started?
+Try out acoustics [here](GettingStarted.md).

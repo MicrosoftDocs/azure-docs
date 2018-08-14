@@ -12,7 +12,7 @@ ms.author: kegodin
 ---
 
 # Getting Started With Acoustics in Unity
-For more information about what Microsoft Acoustics is, check out the [Introduction to Microsoft Acoustics](What-Is-Acoustics.md).
+For more information about what Microsoft Acoustics is, check out the [Introduction to Microsoft Acoustics](what-is-acoustics.md).
 
 ## Supported platforms
 * Unity 2018+ for bakes, using .NET 4.x scripting runtime version
@@ -30,7 +30,7 @@ Import the UnityPackage to your project.
 Note that when importing this package it makes a settings change to Project Settings/Player: setting it to .NET 4.x. Unity requires a restart to pick up this settings change and will not tell you so please restart Unity after importing the package.
 
 ## Calculating the acoustics for your scene
-The first step in creating the runtime acoustics for your project is to [calculate the acoustic properties of each scene](BakeUIWalkthrough.md).
+The first step in creating the runtime acoustics for your project is to [calculate the acoustic properties of each scene](bakeuiwalkthrough.md).
 
 ### Enable the plugin
 The bake portion of the acoustics toolkit requires the .NET 4.x scripting runtime version. Package import will update your Unity player settings, then Unity will need to restart.
