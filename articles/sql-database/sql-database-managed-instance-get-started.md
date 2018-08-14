@@ -31,7 +31,7 @@ SQL Managed Instance is secure service that is placed in your own Azure Virtual 
 
 The subnet is dedicated to Managed Instances and you cannot create any other resources (for example Azure Virtual Machines) in that subnet. You might want to create two subnets in your Azure VNet so you can place Managed Instances in the subnet dedicated to Managed Instances, and other the resources in the default subnet.
 
-You can deploy Azure network environmnet prepared for Azure SQL Managed Instance by clicking on the following button:
+You can deploy Azure network environment prepared for Azure SQL Managed Instance by clicking on the following button:
 
 <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener"> <img src="http://azuredeploy.net/deploybutton.png"> </a>
 
@@ -39,7 +39,7 @@ This button will open a form where you can configure your network environment be
 
 ![create managed instance environment](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
 
-You might change the names of VNet and subnets and adjust IP ranges associated to your networking resources. Once you press "Purchase" button, this form will create and configure your environment. If you don't need two subnets you can delete the default one. 
+You might change the names of VNet and subnets and adjust IP ranges associated to your networking resources. Once you press "Purchase" button, this form will create and configure your environment. If you don't need two subnets, you can delete the default one later. 
 
  > [!Note]
  > If you change the names of VNet and subnets, make sure that you remember new names because they will be needed in the following sections. In the rest of the tutorial will be assumed that you have created VNet called **MyNewVNet**, **ManagedInstances** subnet for SQL Managed Instances and **Default** subnet for Virtual machines and other resources.
@@ -111,6 +111,6 @@ When you click on the "Purchase" button, Azure VM will be deployed in the networ
 ## Next steps
 
  - [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
- - [Migrate your databases from on-premises to Managed Instance](/sql-database-managed-instance-migrate.md).
+ - [Migrate your databases from on-premises to Managed Instance](sql-database-managed-instance-migrate.md).
 
 
