@@ -184,17 +184,17 @@ The following example is in POST format for readability:
 POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
     {  
       "search": "",
-      "filter": "geo.distance(geo_location, geography'POINT(-75.6107025146484 42.937084197998 )') le 4",
+      "filter": "geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4",
       "select": "job_id, business_title, work_location",
       "count": "true"
     }
 ```
-For more readable results, search results are trimmed to include a job id, job title, and the work location. The starting coordinates were obtained from a random document in the index (in this case, job_id 192296 for a work location at 9 Metrotech Center, Brooklyn N).
+For more readable results, search results are trimmed to include a job id, job title, and the work location. The starting coordinates were obtained from a random document in the index (in this case, for a work location on Staten island.
 
 You can also try this out in Postman using GET:
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=&$select=job_id, business_title, work_location&$filter=geo.distance(geo_location, geography'POINT(-75.6107025146484 42.937084197998 )') le 4
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=&$select=job_id, business_title, work_location&$filter=geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4
 ```
 
 ## Example 6: Search precision

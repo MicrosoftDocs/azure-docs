@@ -148,9 +148,18 @@ Under **New update deployment**, specify the following information:
 
 * **Maintenance window (minutes)**: Leave the default value. You can set the window of time that you want the update deployment to occur within. This setting helps ensure that changes are performed within your defined service windows.
 
+* **Reboot options**: This setting
+detemines how reboots should be handled. Available options are:
+  * Reboot if required (Default)
+  * Always reboot
+  * Never reboot
+  * Only reboot - will not install updates
+
+When you're finished configuring the schedule, select **Create**.
+
 ![Update Schedule Settings pane](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-When you're finished configuring the schedule, select **Create**. You're returned to the status dashboard. Select **Scheduled Update deployments** to show the deployment schedule you created.
+You're returned to the status dashboard. Select **Scheduled Update deployments** to show the deployment schedule you created.
 
 ## View results of an update deployment
 
