@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 08/13/2018
 ms.author: seguler
 
 ---
@@ -24,16 +24,15 @@ There are two versions of AzCopy that you can download. AzCopy on Windows offers
 
 ## Download and install AzCopy on Windows
 
-### Latest Preview version (v8.0.0)
-Download the [latest preview version of AzCopy on Windows](https://aka.ms/downloadazcopypr). This Preview version offers significant performance improvements and packages .NET Core in the installation.
+### Latest version (v8.1.0)
+Download the [latest version of AzCopy on Windows](https://aka.ms/downloadazcopy).
 
-#### AzCopy on Windows 8.0 Preview Release Notes
-- Table service is no longer supported in the latest version. If you use Table export feature, download the stable version.
+#### AzCopy on Windows 8.1.0 Release Notes
+- Table service is no longer supported in the latest version. If you use Table export feature, download AzCopy 7.3.0 version.
 - Built with .NET Core 2.1, and all .NET Core dependencies are now packaged in the installation.
-- Significant performance improvements for both upload and download scenarios
 
-### Latest Stable version (v7.1.0)
-Download the [latest stable version of AzCopy on Windows](https://aka.ms/downloadazcopy).
+### Azcopy with Table support (v7.3.0)
+Download the [AzCopy 7.3.0 with Table support](https://aka.ms/downloadazcopynet).
 
 ### Post-installation Step
 
