@@ -62,7 +62,6 @@ Make sure that the default NSG is not modified and port 22 is open for connectio
 
 ## I have modified the tags in the agent nodes inside the AKS cluster. I am trying to upgrade or scale and am getting "message": "Changing property 'imageReference' is not allowed." Error. What should I do?
 
-Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Refrain from modifying the resources under the MC_* as the AKS cluster is then no longer a part of the SLO.
-
+Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Modifying the resources under the MC_* in the AKS cluster breaks the SLO.
 
 
