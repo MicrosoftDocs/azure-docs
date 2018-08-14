@@ -12,40 +12,37 @@ ms.author: kegodin
 ---
 
 # Setup Azure Accounts for Acoustics
-Follow this guide for setting up Azure Batch and Storage accounts necessary for working with Microsoft Acoustics. For information about Microsoft Acoustics, see [Introduction to Microsoft Acoustics](AcousticsIntro.md). For information about how to incorporate Microsoft Acoustics into your Unity project, see [Getting Started](GettingStarted.md).  
+Follow this guide for setting up Azure Batch and Storage accounts necessary for working with acoustics. For information about the Unity plugin developed as part of Project Acoustics, see [What is acoustics](what-is-acoustics.md). For information about how to incorporate acoustics into your Unity project, see [Getting Started](gettingstarted.md).  
 
-
-### **Step 1 -** Get an Azure Subscription
+## Get an Azure Subscription
 An [Azure Subscription](https://azure.microsoft.com/en-us/free/) is required before setting up Batch and Storage accounts. For those signing up for the first time, Azure provides a few time limited free resources and $200 credit which you can use towards cloud bakes for Microsoft Acoustics.
 
-### **Step 2 -** Create Azure Batch and Storage Accounts
+## Create Azure Batch and Storage Accounts
 Next, please follow [these instructions]((https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal)) to setup your Azure Batch and associated Azure Storage accounts.
 
-* Pick default options for both Batch and Storage accounts
+Pick default options for both Batch and Storage accounts
   
   ![New Batch Account](media/NewBatchAccountCreate.png)
 
   ![New Storage Account](media/BatchStorageAccountCreate.png)
 
-* It takes a few minutes for Azure to deploy the accounts. Look for a completion notification in the upper right corner on the portal.
+It takes a few minutes for Azure to deploy the accounts. Look for a completion notification in the upper right corner on the portal.
   
   ![Accounts Deployed](media/BatchAccountsDeploynotification.png)
 
-* Your accounts should now be visible on your dashboard.
+Your accounts should now be visible on your dashboard.
   
   ![Portal Dashboard](media/AzurePortalDashboard.png)
 
-### **Step 3 -** Setup Microsoft Acoustics Bake UI with Azure Credentials
-This is the last remaning step before you can start scheduling acoustics bakes on the cloud. 
-
-* Click on the Batch account link on the dashboard.
-* Click on the "Keys" link on the Batch account page to access your credentials.
+## Setup acoustics bake UI with Azure credentials
+Click on the Batch account link on the dashboard, then click on the "Keys" link on the Batch account page to access your credentials.
   
   ![Batch Keys Link](media/BatchAccessKeys.png)
 
   ![Batch Account Creds](media/BatchKeysInfo.png)
-* Similarly click on the "Storage Account" link on the page to access your Azure Storage account credentials.
+
+Click on the "Storage Account" link on the page to access your Azure Storage account credentials.
   
   ![Storage Account Creds](media/StorageKeysInfo.png)
 
-* Use these credentials to setup the Bake Tab as described in the [Bake UI walkthrough](BakeUIWalkthrough.md).
+Enter these credentials in the Bake tab as described in the [bake UI walkthrough](bakeuiwalkthrough.md).
