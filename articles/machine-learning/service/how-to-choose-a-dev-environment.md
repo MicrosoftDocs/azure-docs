@@ -21,25 +21,30 @@ In this document, you'll learn about different choices for development environme
 * Do you need to publish and share results with others?
 * Do you need high degree of control over your local environment?
 
-__Notebook__ environments allow you to interactively experiment by modifying and running code sections. Notebooks also allow you to visualize the data you're working with. Operationalizing a notebook, or integrating with source control and build automation tools, may require extracting the code from the notebook.
-
-__Integrated Development Environments (IDE) and code editors__ such Visual Studio Code, Atom, and PyCharm, are more suited to creating production-ready solutions. IDEs provide development-oriented tools like debuggers, and have better integration with source control and build automation systems.
-
 __Local__ environments - a computer or virtual machine that you have full access to - provides the highest level of control. You can load any libraries or make any changes you need.
 
 __Managed__ environments are services hosted in the cloud. These environments are easy to get started with, as they require little setup or configuration. However, your ability to modify the environment or load new libraries is limited.
 
+__Notebook__ environments allow you to interactively experiment by modifying and running code sections. Notebooks also allow you to visualize the data you're working with. Azure Notebooks provides a managed cloud-based solution, while Jupyter Notebooks can be be installed locally or on virtual machines, such as the Data Science Virtual Machine available in Azure.
+
+> [!NOTE]
+> Operationalizing a notebook, or integrating with source control and build automation tools, may require extracting the code from the notebook.
+
+__Integrated Development Environments (IDE) and code editors__ such Visual Studio Code, Atom, and PyCharm, are more suited to creating production-ready solutions. IDEs provide development-oriented tools like debuggers, and have better integration with source control and build automation systems. Most IDEs are installed locally or in a VM.
+
 In this document, you'll learn about the following development environments:
 
-| Environment | Interactive<br/>experimentation | Data<br/>visualization | Collaboration<br/>(sharing) | Pre-configured | Control over<br/>environment | Development tools |
+| Environment | Interactive | Visualization | Sharing | Pre-configured | Customization | Development<br/>tools |
 | ----- |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 | Azure Notebooks | ✓ | ✓ | ✓ | ✓ | Low | 
-| Jupyter Notebooks<br/>(local or on a virtual machine) | ✓ | ✓ | &nbsp; | &nbsp; | High |
-| Data Science Virtual Machine<br/>(includes Jupyter Notebooks) | ✓ | ✓ | &nbsp; | ✓ | High |
-| Visual Studio Code</br>& other IDEs | &nbsp; | &nbsp; | &nbsp; | &nbsp; | High | ✓ |
+| Jupyter Notebooks | ✓ | ✓ | &nbsp; | &nbsp; | High |
+| IDEs | &nbsp; | &nbsp; | &nbsp; | &nbsp; | High | ✓ |
 
 > [!TIP]
 > If you're new to Azure Machine Learning, or want to get started quickly, we recommend Azure Notebooks. It's a free, cloud hosted notebook service with the Azure Machine Learning SDK already installed.
+
+> [!NOTE]
+> The Data Science Virtual Machine provides Jupyter Notebooks, Visual Studio Code, PyCharm, and a variety of other IDEs, tools, and utilities, along with a high degree of control for configuration. For more information, see the [What is the Data Science Virtual Machine](../data-science-virtual-machine/overview.md) document.
 
 ## Azure Notebooks
 
@@ -68,26 +73,31 @@ This environment is recommended when you need the following features:
 * __Data visualization__: There are many data visualization packages available for use with Jupyter Notebooks.
 * __A high degree of control over local compute resources__: You can install any library, kernel, or make any configuration changes you want to the local environment.
 
-## Jupyter Notebooks on Data Science Virtual Machine
+## Data Science/Deep Learning Virtual Machine
 
 The Data Science Virtual Machine (DSVM) is a VM image on Azure. It comes with many common data science and machine learning libraries pre-installed. When creating DSVM, you can choose the size of virtual machine, allowing you to choose the number of CPU cores and amount of memory. 
 
 The Deep Learning Virtual Machine (DLVM) is a GPU-enabled variant of DSVM, aimed at training deep neural network models.
 
-Both DSVM and DLVM comes with the Azure Machine Learning SDK and Jupyter Notebooks. This environment is recommended when you need the following features:
+Both DSVM and DLVM comes with the Azure Machine Learning SDK, Jupyter Notebooks, PyCharm, and a variety of other components used for machine learning. This environment is recommended when you need the following features:
 
-* __Little setup or configuration__: DSVM is pre-installed with Jupyter Notebooks and other popular libraries. Configuring the VM can be as simple as selecting the CPU cores, memory, and other basic characteristics of the VM.
+* __Little setup or configuration__: DSVM is pre-installed with Jupyter Notebooks and other popular software. Configuring the VM can be as simple as selecting the CPU cores, memory, and other basic characteristics of the VM.
 * __Interactive experimentation__: Jupter Notebooks allow you to interactively modify and rerun code sections.
 * __Data visualization__: DSVM provides pre-installed versions of popular data visualization libraries, and you can install others as needed.
+* __IDEs and code editors__: DSVM provides Visual Studio Code, PyCharm Community Edition, Atom, Vim, Emacs, and other code editors.
+* __Machine Learning and Deep Learning tools__: Xgboost, TensorFlow, Keras, PyTorch and others are pre-installed.
 * __A high degree of control over local compute resources__: You can install any library, kernel, or make other configuration changes you want to the DSVM environment.
+
+For more information, see the [What is the Data Science Virtual Machine](../data-science-virtual-machine/overview.md) document.
 
 ## Visual Studio Code
 
 Visual Studio Code is source code editor, which makes it easier to work on machine learning applications intended for production use. It is recommended when you need the following features:
  
-* __Visual Studio Code Tools for AI__: Tool for AI is an extension that makes it easier to work with Azure Machine Learning from within Visual Studio Code.
 * __Source control__: Source control/Version control systems allow you to keep track of changes to your code over time. They also make it easier to coordinate code contributions from multiple people. Visual Studio Code integrates with popular source control systems such as Git and Team Foundation Version Control.
 * __Integration with production systems__: Visual Studio Code provides integration with automated build and deployment systems that help speed up the process of deploying your model into production.
+
+Visual Studio Code also has an extension specifically for working with Artificial Intelligence. The [Visual Studio Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vs/) is an extension that makes it easier to work with Azure Machine Learning from within Visual Studio Code.
 
 ## Code editor of your choice
 
