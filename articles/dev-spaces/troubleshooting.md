@@ -134,6 +134,14 @@ Starting the VS Code debugger may sometimes result in this error. This is a know
 1. Close and reopen VS Code.
 2. Hit F5 again.
 
+## Debugging error 'Failed to find debugger extension for type:coreclr'
+Running the VS Code debugger reports the error: `Failed to find debugger extension for type:coreclr.`
+
+### Reason
+You do not have the VS Code extension for C# installed on your development machine which includes debugging support for .Net Core (CoreCLR).
+
+### Try:
+Install the [VS Code extension for C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
 ## Debugging error 'Configured debug type 'coreclr' is not supported'
 Running the VS Code debugger reports the error: `Configured debug type 'coreclr' is not supported.`
