@@ -4,10 +4,10 @@ title: 'Azure Terraform VS Code Extension | Microsoft Docs'
 description: In this article, learn how to install and use the Terraform extension in Visual Studio Code.
 keywords: terraform, devops, virtual machine, azure
 author: v-mavick
-manager: timlt
 ms.author: v-mavick
-ms.date: 07/30/2018
+ms.date: 08/14/2018
 ms.topic: article
+ms.prod: vs-code
 
 ---
 
