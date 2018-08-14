@@ -6,6 +6,8 @@ author: jasonwhowell
 editor: jasonwhowell
 
 ms.service: hdinsight
+ms.technology: vs-azure
+ms.workload: azure-vs
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018

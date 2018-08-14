@@ -23,7 +23,11 @@ You'll learn how to:
 > [!div class="checklist"]
 > * Set up your development environment
 > * Access and examine the data
+<<<<<<< HEAD
 > * Train a simple logistic regression locally using the popular scikit-learn maching learning library 
+=======
+> * Train a simple logistic regression locally using the popular scikit-learn machine learning library 
+>>>>>>> 5bfdb315570098e1c4591167acce62c7d153f178
 > * Train multiple models on a remote GPU cluster
 > * Review training details and register the best model
 
@@ -55,11 +59,10 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    conda install -y matplotlib scikit-learn
    ``` 
 
-1. The file [utils.py]() downloaded into your `docs-prj` folder.
+1. The file [utils.py](https://aka.ms/aml-file-utils-py) downloaded into your `docs-prj` folder.
 
 ## Get the sample notebook
-
-To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification) into the `docs-prj` folder created during the quickstart.
+To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-train-model) into the `docs-prj` folder created during the quickstart.
 
 To run the notebook, execute these commands in your activated conda environment:
 
@@ -257,6 +260,7 @@ With almost no effort, you have a 92% accuracy.
 
 ## Train on a remote cluster
 
+<<<<<<< HEAD
 Now you can expand on this simple model by building multiple versions of the model using different regularization rates.  
 
 For this task, submit the job to the Batch AI cluster you set up earlier so you can:
@@ -267,6 +271,31 @@ For this task, submit the job to the Batch AI cluster you set up earlier so you 
 ### Create a training script
 
 To submit the job to the cluster, you need to create a training script. Run the following code to create the training script called train.py in a place the workspace can find it.
+=======
+* Create a training script
+* Create an estimator
+* Submit job 
+
+### Create a training script
+
+You need a training script to submit the job to the cluster. Let's write one now.
+
+Notice how the script gets data and saves models:
+
+* The training script will read an argument to find the data folder.  When you submit the job, you'll point to the datastore for this argument:
+
+    ```Python
+    parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data folder mounting point')
+    ```
+    
+* The training script will save your model into a folder named `outputs`. The `outputs` folder is a special construct - anything written in this folder is automatically uploaded into your workspace. You'll access your model from here later in the tutorial.
+
+    ```Python
+    saver.save(sess, './outputs/model/mnist-tf.model')
+    ```
+
+
+>>>>>>> 5bfdb315570098e1c4591167acce62c7d153f178
 
 ```python
 %%writefile $proj.project_directory/train.py
@@ -566,8 +595,8 @@ In this Azure Machine Learning tutorial, you used Python to:
 > [!div class="checklist"]
 > * Set up your development environment
 > * Access and examine the data
-> * Train a simple logistic regression locally using the popular scikit-learn maching learning library 
-> * Traing multiple models on a remote GPU cluster
+> * Train a simple logistic regression locally using the popular scikit-learn machine learning library
+> * Train multiple models on a remote GPU cluster
 > * Review training details and register the best model
 
 You are ready to deploy this registered model using the instructions in the next part of the tutorial series:

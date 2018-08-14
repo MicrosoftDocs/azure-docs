@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 08/13/2018
 ms.author: shlo
 
 ---
@@ -38,10 +38,10 @@ When you use the UX **Authoring canvas** to author directly with the Data Factor
 Visual authoring with VSTS Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a VSTS Git account repository for source control, collaboration, versioning, and so on. A single VSTS Git account can have multiple repositories, but a VSTS Git repository can be associated with only one data factory. If you don't have a VSTS account or repository, follow [these instructions](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) to create your resources.
 
 > [!NOTE]
-> You can store script and data files in a VSTS GIT repository. However, you have to upload the files manually to Azure Storage. A Data Factory pipeline does not automatically upload script or data files stored in a VSTS GIT repository to Azure Storage.
+> You can store script and data files in a VSTS Git repository. However, you have to upload the files manually to Azure Storage. A Data Factory pipeline does not automatically upload script or data files stored in a VSTS Git repository to Azure Storage.
 
 ### Configure a VSTS Git repository with Azure Data Factory
-You can configure a VSTS GIT repository with a data factory through two methods.
+You can configure a VSTS Git repository with a data factory through two methods.
 
 #### <a name="method1"></a> Configuration method 1 (VSTS Git repo): Let's get started page
 
@@ -73,13 +73,17 @@ A configuration pane appears. For details about the configuration settings, see 
 
 ![Configure the code repository settings for UX authoring](media/author-visually/configure-repo-2.png)
 
+## Use a different Azure Active Directory tenant
+
+You can create a VSTS Git repo in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using.
+
 ## Switch to a different Git repo
 
 To switch to a different Git repo, locate the icon in the upper right corner of the Data Factory overview page, as shown in the following screenshot. If you can’t see the icon, clear your local browser cache. Select the icon to remove the association with the current repo.
 
 After you remove the association with the current repo, you can configure your Git settings to use a different repo. Then you can import existing Data Factory resources to the new repo.
 
-![Remove the association with the current Git repo.](media/author-visually/remove-repo.png)
+![Remove the association with the current Git repo](media/author-visually/remove-repo.png)
 
 ## Use version control
 Version control systems (also known as _source control_) let developers collaborate on code and track changes that are made to the code base. Source control is an essential tool for multi-developer projects.
@@ -88,7 +92,7 @@ Each VSTS Git repository that's associated with a data factory has a collaborati
 
 ![Change the code by syncing or publishing](media/author-visually/sync-publish.png)
 
-When you are ready with the feature development in your feature branch, you can click **Create pull request**. This action takes you to VSTS GIT where you can raise pull requests, do code reviews, and merge changes to your collaboration branch. (`master` is the default). You are only allowed to publish to the Data Factory service from your collaboration branch. 
+When you are ready with the feature development in your feature branch, you can click **Create pull request**. This action takes you to VSTS Git where you can raise pull requests, do code reviews, and merge changes to your collaboration branch. (`master` is the default). You are only allowed to publish to the Data Factory service from your collaboration branch. 
 
 ![Create a new pull request](media/author-visually/create-pull-request.png)
 
@@ -102,12 +106,21 @@ After you have merged changes to the collaboration branch (`master` is the defau
 
 ## Author with GitHub integration
 
-Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration,
-versioning. A single GitHub account can have multiple repositories, but a GitHub repository can be associated with only one data factory. If you don't have aGitHub account or repository, follow [these instructions](https://github.com/join) to create your resources. The GitHub integration with Data Factory supports both public GitHub as well as GitHub
-Enterprise.
+Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. A single GitHub account can have multiple repositories, but a GitHub repository can be associated with only one data factory. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources. The GitHub integration with Data Factory supports both public GitHub as well as GitHub Enterprise.
 
-> [!NOTE]
-> You can store script and data files in a GitHub repository. However, you have to upload the files manually to Azure  Storage. A Data Factory pipeline does not automatically upload script or data files stored in a GitHub repository to Azure Storage.
+To configure a GitHub repo, you have to have administrator permissions for the Azure subscription that you're using.
+
+For a nine-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Azure-Data-Factory-visual-tools-now-integrated-with-GitHub/player]
+
+### Limitations
+
+- You can store script and data files in a GitHub repository. However, you have to upload the files manually to Azure Storage. A Data Factory pipeline does not automatically upload script or data files stored in a GitHub repository to Azure Storage.
+
+- At this time, GitHub Enterprise is only supported in the Google Chrome browser. GitHub Enterprise doesn't work in the Microsoft Edge browser due to a known issue.
+
+- GitHub integration with the Data Factor visual authoring tools only works in the generally available version of Data Factory.
 
 ### Configure a public GitHub repository with Azure Data Factory
 

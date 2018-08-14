@@ -1,5 +1,5 @@
 ---
-title: Machine learning products and servcies from Microsoft - Azure | Microsoft Docs
+title: Machine learning products and services from Microsoft - Azure | Microsoft Docs
 description: Microsoft provides a variety of products and services to build, deploy, and manage your machine learning models. 
 services: machine-learning
 author: haining
