@@ -23,7 +23,7 @@
     - name: 3. Access a classroom lab
       href: classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md
     - name: 4. Track usage of a classroom lab
-      href: tutorial-track-usage.md            
+      href: classroom-labs/tutorial-track-usage.md            
 - name: Samples
   items:
   - name: DevTest Labs
