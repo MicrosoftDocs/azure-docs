@@ -27,18 +27,19 @@ __Managed__ environments are services hosted in the cloud. These environments ar
 
 __Notebook__ environments allow you to interactively experiment by modifying and running code sections. Notebooks also allow you to visualize the data you're working with. Azure Notebooks provides a managed cloud-based solution, while Jupyter Notebooks can be installed locally or on virtual machines, such as the Data Science Virtual Machine available in Azure.
 
-> [!NOTE]
-> Operationalizing a notebook, or integrating with source control and build automation tools, may require extracting the code from the notebook.
+Operationalizing a notebook, or integrating with source control and build automation tools, may require extracting the code from the notebook.
 
 __Integrated Development Environments (IDE) and code editors__ such Visual Studio Code, Atom, and PyCharm, are more suited to creating production-ready solutions. IDEs provide development-oriented tools like debuggers, and have better integration with source control and build automation systems. Most IDEs are installed locally or in a VM.
 
 In this document, you'll learn about the following development environments:
-
-| Environment | Interactive | Visualization | Sharing | Pre-configured | Customization | Development<br/>tools |
-| ----- |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-| Azure Notebooks | ✓ | ✓ | ✓ | ✓ | Low | 
-| Jupyter Notebooks | ✓ | ✓ | &nbsp; | &nbsp; | High |
-| IDEs | &nbsp; | &nbsp; | &nbsp; | &nbsp; | High | ✓ |
+| &nbsp; | Azure Notebooks | Jupyter Notebooks | IDEs and code editors |
+| --- |:---:|:---:|:---:|
+| Interactive | ✓ | ✓ | &nbsp; |
+| Visualization | ✓ | ✓ | &nbsp; |
+| Sharing | ✓ | &nbsp; | &nbsp; |
+| Pre-configured | ✓ | &nbsp; | &nbsp; |
+| Customization | Low | High | High |
+| Development tools | ✓ | &nbsp; | &nbsp; |
 
 > [!TIP]
 > If you're new to Azure Machine Learning, or want to get started quickly, we recommend Azure Notebooks. It's a free, cloud hosted notebook service with the Azure Machine Learning SDK already installed.
