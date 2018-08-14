@@ -62,9 +62,19 @@
     href: troubleshooting-general.md
 - name: Resources
   items:
+  - name: FAQ
+    href: resources-faq.md
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/migrate/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/azure-migrate/
+  - name: UserVoice
+    href: http://aka.ms/AzureMigrateUservoice
+  - name: Forum
+    href: http://aka.ms/AzureMigrateForum
+  - name: Blog
+    href: https://azure.microsoft.com/blog/tag/azure-migrate/
   - name: Azure Migrate
     href: https://azure.microsoft.com/migrate
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: FAQ
-    href: resources-faq.md

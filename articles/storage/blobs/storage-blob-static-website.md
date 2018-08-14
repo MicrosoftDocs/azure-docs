@@ -46,12 +46,38 @@ Upload your web assets to the "$web" container that was created as a part of sta
 
 Finally, navigate to your web endpoint to test your website.
 
+### Azure CLI
+Install the storage preview extension:
+
+```azurecli-interactive
+az extension add --name storage-preview
+```
+Enable the feature:
+
+```azurecli-interactive
+az storage blob service-properties update --account-name <account-name> --static-website --404-document <error-doc-name> --index-document <index-doc-name>
+```
+Query for the web endpoint URL:
+
+```azurecli-interactive
+az storage account show -n <account-name> -g <resource-group> --query "primaryEndpoints.web" --output tsv
+```
+
+Upload objects to the $web container:
+
+```azurecli-interactive
+az storage blob upload-batch -s deploy -d $web --account-name <account-name>
+```
+
 ## FAQ
 **Is static websites available for all storage account types?**  
 No, static website hosting is only available in GPv2 standard storage accounts.
 
 **Are Storage VNET and firewall rules supported on the new web endpoint?**  
 Yes, the new web endpoint obeys the VNET and firewall rules configured for the storage account.
+
+**Is the web endpoint case sensitive?**  
+Yes, the web endpoint is case sensitive just like the blob endpoint. 
 
 ## Next steps
 * [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
