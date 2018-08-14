@@ -58,9 +58,9 @@ If you plan to deploy multiple Managed Instances inside the subnet and need to o
 
 **Example**: You plan to have three General Purpose and two Business Critical Managed Instances. That means you need 5 + 3 * 2 + 2 * 4 = 19 IP addresses. As IP ranges are defined in power of 2, you need the IP range of 32 (2^5) IP addresses. Therefore, you need to reserve the subnet with subnet mask of /27. 
 
-## Create a new virtual network for Managed Instance using ARM deployment
+## Create a new virtual network for Managed Instance using Azure Resource Manager deployment
 
-The easiest way to create and configure virtual network is to use ARM deployment template.
+The easiest way to create and configure virtual network is to use Azure Resource Manager deployment template.
 
 1. Sign in to the Azure portal.
 
@@ -71,7 +71,7 @@ The easiest way to create and configure virtual network is to use ARM deployment
   This button will open a form that you can use to configure network environment where you can deploy Managed Instance.
 
   > [!Note]
-  > This ARM template will deploy virtual network with two subnets. One subnet called **ManagedInstances** is reserved for Managed Instances and has pre-configured route table, while the other subnet called **Default** is used for other resources that should access Managed Instance (for example, Azure Virtual Machines). You can remove **Default** subnet if you don't need it.
+  > This Azure Resource Manager template will deploy virtual network with two subnets. One subnet called **ManagedInstances** is reserved for Managed Instances and has pre-configured route table, while the other subnet called **Default** is used for other resources that should access Managed Instance (for example, Azure Virtual Machines). You can remove **Default** subnet if you don't need it.
 
 3. Configure network environment. On the following form you can configure parameters of your network environment:
 

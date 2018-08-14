@@ -64,7 +64,7 @@ The following table helps you understand how to select the optimal configuration
 
 Managed Instance is available in two service tiers:
 - **General Purpose**: Designed for applications with typical performance and IO latency requirements.
-- **Business Critical**: Designed for applications with IO latency requirements and minimal impact of underlying maintenance operations on the workload.
+- **Business Critical**: Designed for applications with low IO latency requirements and minimal impact of underlying maintenance operations on the workload.
 
 Both service tiers guarantee 99.99% availability and enable you to independently select storage size and compute capacity. 
 
