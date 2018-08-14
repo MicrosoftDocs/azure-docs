@@ -16,6 +16,7 @@ When you create or manager AKS clusters, you may occasionally encounter issues. 
 
 ## In general, where do I find information about debugging Kubernetes issues?
 
+[Here] (https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) is an official link to troubleshooting kubernetes clusters.
 [Here](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md) is a link to a troubleshooting guide published by a Microsoft engineer around troubleshooting pods, nodes, clusters, etc.
 
 ## I am getting a quota exceeded error during create or upgrade. What should I do? 
@@ -32,13 +33,13 @@ The max pods per node are set to 110 by default if you deploy an AKS cluster in 
 In Custom VNET option selected for networking during AKS creates, the Azure CNI is used for IPAM. The number of nodes in an AKS cluster can be anywhere between 1 and 100. Based upon 2) above the subnet size should be greater than product of the number of nodes and the max pod per node 
 Subnet size > no of nodes in the cluster * max pods per node
 
-## My pod is stuck in ‘crashbackloopoff’ mode. What should I do?
+## My pod is stuck in ‘CrashLoopBackOff’ mode. What should I do?
 
 There might be various reasons for the pod being stuck in that mode. You might want to look into the 
     1. The pod itself using `kubectl describe pod <pod-name>`
     2. The logs using  `kubectl log <pod-name>`
 
-## I created clusters before AKS rolled out RBAC. Can I enable RBAC on these existing AKS clusters?
+## I am trying to enable RBAC on an existing cluster. Can you tell me how i can do that?
 
 Unfortunately enabling RBAC on existing clusters is not supported at this time. You will need to explicitly create new clusters. If you use the CLI, RBAC is enabled by default whereas a toggle button to enable it is available in the AKS portal create workflow.
 
@@ -60,7 +61,7 @@ If you don’t see the kubernetes dashboard, then check if the kube-proxy pod is
 
 Make sure that the default NSG is not modified and port 22 is open for connection to the API server. Check if the tunnelfront pod is running in the kube-system namespace. If it is not, force delete it and it will restart.
 
-## I have modified the tags in the agent nodes inside the AKS cluster. I am trying to upgrade or scale and am getting "message": "Changing property 'imageReference' is not allowed." Error. What should I do?
+## I am trying to upgrade or scale and am getting "message": "Changing property 'imageReference' is not allowed." Error. I have modified the tags in the agent nodes inside the AKS cluster. How do i fix this?
 
 Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Modifying the resources under the MC_* in the AKS cluster breaks the SLO.
 
