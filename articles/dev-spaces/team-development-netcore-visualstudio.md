@@ -3,6 +3,8 @@ title: "Team development for Azure Dev Spaces using .NET Core and Visual Studio 
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
+ms.technology: vs-azure
+ms.workload: azure-vs
 ms.component: azds-kubernetes
 author: "ghogen"
 ms.author: "ghogen"
@@ -122,7 +124,7 @@ Do the following to create a new space:
 
     ![](media/get-started-netcore-visualstudio/Settings.png)
 
-6. In the **Add Space** dialog, type in a name for the space and click **OK**. You can use your name (for example, "scott") for the new space so that it is identifiable to your peers what space you're working in.
+6. In the **Add Space** dialog, set the parent space to **default**, and enter a name for your new space. You can use your name (for example, "scott") for the new space so that it is identifiable to your peers what space you're working in. Click **OK**.
 
     ![](media/get-started-netcore-visualstudio/AddSpace.png)
 

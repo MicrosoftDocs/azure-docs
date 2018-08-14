@@ -117,9 +117,10 @@ You can also implement your own complete file movement solution. Use this approa
 ## Next steps
 
 - Explore using the new features in the Batch service API to persist task data in [Persist task data to Azure Storage with the Batch service API](batch-task-output-files.md).
-- Learn about using the Batch File Conventions library for .NET in [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist ](batch-task-output-file-conventions.md).
+- Learn about using the Batch File Conventions library for .NET in [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET](batch-task-output-file-conventions.md).
 - See the [PersistOutputs][github_persistoutputs] sample project on GitHub, which demonstrates how to use both the Batch client library for .NET and the File Conventions library for .NET to persist task output to durable storage.
 
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [portal]: https://portal.azure.com
 [storage_explorer]: http://storageexplorer.com/
+[github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs 

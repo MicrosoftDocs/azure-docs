@@ -8,7 +8,8 @@ manager: femila
 editor: ''
 
 ms.service: azure-stack
-ms.workload: na
+ms.technology: vs-azure
+ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article

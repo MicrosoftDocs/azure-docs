@@ -3,7 +3,7 @@ title: Reverse DNS for Azure services | Microsoft Docs
 description: Learn how to configure reverse DNS lookups for services hosted in Azure
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: timlt
 
 ms.service: dns
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Configure reverse DNS for services hosted in Azure

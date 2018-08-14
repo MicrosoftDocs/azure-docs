@@ -62,7 +62,7 @@ The following connectivity parameters are published:
 
 Now that you have an overview of how to integrate SIM Data into Azure IoT Remote Monitoring, here are suggested next steps for solutions accelerators:
 
-* [Operate the Azure IoT Remote Monitoring solution](iot-accelerators-remote-monitoring-explore.md)
+* [Operate the Azure IoT Remote Monitoring solution](quickstart-remote-monitoring-deploy.md)
 * [Perform advanced monitoring](iot-accelerators-remote-monitoring-monitor.md)
 * [Manage your devices](iot-accelerators-remote-monitoring-manage.md)
 * [Troubleshoot device issues](iot-accelerators-remote-monitoring-maintain.md)

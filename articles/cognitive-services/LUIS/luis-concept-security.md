@@ -2,13 +2,13 @@
 title: Understand access to LUIS applications - Azure | Microsoft Docs
 description: Learn how to access LUIS authoring. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Authoring and endpoint user access
@@ -57,7 +57,7 @@ A user who is not an owner or collaborator, can only access a public app if give
 ## Microsoft user accounts
 Authors and collaborators can add keys to LUIS on the Publish page. The Microsoft user account that creates the LUIS key in the Azure portal needs to either the app owner or an app collaborator. 
 
-See [Azure Active Directory tenant user](luis-how-to-account-settings.md#azure-active-directory-tenant-user) to learn more about Active Directory user accounts. 
+See [Azure Active Directory tenant user](luis-how-to-collaborate.md#azure-active-directory-tenant-user) to learn more about Active Directory user accounts. 
 
 <!--
 ### Individual consent

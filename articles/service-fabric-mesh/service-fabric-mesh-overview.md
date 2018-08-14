@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Service Fabric Mesh | Microsoft Docs
 description: Learn about Azure Service Fabric Mesh. With Service Fabric Mesh, you can deploy and scale your application without worrying about the infrastructure needs of your application.
-services: Azure Service Fabric Mesh
+services: service-fabric-mesh
 keywords: 
 author: rwike77
 ms.author: ryanwi
@@ -26,7 +26,7 @@ Service Fabric Mesh supports any programming language or framework that can be r
 
 With Service Fabric Mesh you can:
 
-- "Lift and shift" existing applications into contianers to modernize and run your current applications at scale. 
+- "Lift and shift" existing applications into containers to modernize and run your current applications at scale. 
 - Build and deploy new microservices applications at scale in Azure.  Integrate with other Azure services or existing applications running in containers. Each microservice is part of a secure, network isolated application with resource governance policies defined for CPU cores, memory, disk space, and more.
 - Integrate with and extend existing applications without making changes to those applications. Use your own virtual network to connect existing application to the new application.  
 - Modernize your existing Cloud Services applications by migrating to Service Fabric Mesh.  

@@ -1,5 +1,5 @@
 ---
-title: Deploy a cloud-based IoT predictive maintenance solution on Azure | Microsoft Docs
+title: Try a cloud-based IoT predictive maintenance solution on Azure | Microsoft Docs
 description: In this quickstart, you deploy the Predictive Maintenance Azure IoT solution accelerator, and sign in to and use the solution dashboard.
 author: dominicbetts
 manager: timlt

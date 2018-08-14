@@ -15,7 +15,7 @@
 # SAP HANA on Azure Virtual Machines
 ## [Single instance SAP HANA installation](hana-get-started.md)
 ## [S/4 HANA or BW/4 HANA SAP CAL deployment guide](cal-s4h.md)
-## [SAP HANA on Azure operations guide](hana-vm-operations.md)
+## [SAP HANA infrastructure configurations and operations on Azure](hana-vm-operations.md)
 ## SAP HANA Availability in Azure Virtual Machines
 ### [SAP HANA on Azure Availability overview](sap-hana-availability-overview.md)
 ### [SAP HANA on Azure Availability within one Azure region](sap-hana-availability-one-region.md)
@@ -24,7 +24,8 @@
 ## [SAP HANA backup overview](sap-hana-backup-guide.md)
 ## [SAP HANA file level backup](sap-hana-backup-file-level.md)
 ## [SAP HANA storage snapshot backups](sap-hana-backup-storage-snapshots.md)
-# SAP NetWeaver on Azure Virtual Machines
+# SAP NetWeaver and Business One on Azure Virtual Machines
+## [SAP Business One on Azure Virtual Machines](business-one-azure.md)
 ## [SAP IDES on Windows/SQL Server SAP CAL deployment guide](cal-ides-erp6-erp7-sp3-sql.md)
 ## [SAP NetWeaver on Azure Linux VMs](suse-quickstart.md)
 ## [Plan and implement SAP NetWeaver on Azure](planning-guide.md)
@@ -62,6 +63,7 @@
 ##### [SAP HANA on Azure Availability within one Azure region](sap-hana-availability-one-region.md)
 ##### [SAP HANA on Azure Availability across Azure regions](sap-hana-availability-across-regions.md)
 ## [Azure Site Recovery for SAP Disaster Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)
+## [SAP LaMa connector for Azure](lama-installation.md)
 # AAD SAP Identity Integration and Single-Sign-On
 ## [Integration with SAP Cloud](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [AAD Integration with SAP Cloud Platform Identity Authentication](../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)

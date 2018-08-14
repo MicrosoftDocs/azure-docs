@@ -49,7 +49,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Cisco Spark from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Cisco Spark from the gallery
 To configure the integration of Cisco Spark into Azure AD, you need to add Cisco Spark from the gallery to your list of managed SaaS apps.
@@ -60,19 +60,19 @@ To configure the integration of Cisco Spark into Azure AD, you need to add Cisco
 
 	![Active Directory][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![Applications][3]
 
-4. In the search box, type **Cisco Spark**.
+1. In the search box, type **Cisco Spark**.
 
 	![Creating an Azure AD test user](./media/cisco-spark-tutorial/tutorial_ciscospark_search.png)
 
-5. In the results panel, select **Cisco Spark**, and then click **Add** button to add the application.
+1. In the results panel, select **Cisco Spark**, and then click **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/cisco-spark-tutorial/tutorial_ciscospark_addfromgallery.png)
 
@@ -86,10 +86,10 @@ In Cisco Spark, assign the value of the **user name** in Azure AD as the value o
 To configure and test Azure AD single sign-on with Cisco Spark, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Cisco Spark test user](#creating-a-cisco-spark-test-user)** - to have a counterpart of Britta Simon in Cisco Spark that is linked to the Azure AD representation of user.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Creating a Cisco Spark test user](#creating-a-cisco-spark-test-user)** - to have a counterpart of Britta Simon in Cisco Spark that is linked to the Azure AD representation of user.
+1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
@@ -101,11 +101,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_ciscospark_samlbase.png)
 
-3. On the **Cisco Spark Domain and URLs** section, perform the following steps:
+1. On the **Cisco Spark Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_ciscospark_url.png)
 
@@ -116,15 +116,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> This value is not real. Update this value with the actual Identifier. Contact [Cisco Spark Client support team](https://support.ciscospark.com/) to get this value. 
  
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_ciscospark_certificate.png) 
 
-5. Cisco Spark application expects the SAML assertions to contain specific attributes. Configure the following attributes  for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
+1. Cisco Spark application expects the SAML assertions to contain specific attributes. Configure the following attributes  for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
 	
 	![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_ciscospark_07.png) 
 
-6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+1. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 	
 	| Attribute Name  | Attribute Value |
 	| --------------- | -------------------- |    
@@ -142,25 +142,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Click **Ok**.
 
-7. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_general_400.png)
 
-8. Sign in to [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) with your full administrator credentials.
+1. Sign in to [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) with your full administrator credentials.
 
-9. Select **Settings** and under the **Authentication** section, click **Modify**.
+1. Select **Settings** and under the **Authentication** section, click **Modify**.
    
     ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_cisco_spark_10.png)
     
-10. Select **Integrate a 3rd-party identity provider. (Advanced)** and go to the next screen.
+1. Select **Integrate a 3rd-party identity provider. (Advanced)** and go to the next screen.
 
-11. On the **Import Idp Metadata** page, either drag and drop the Azure AD metadata file onto the page or use the file browser option to locate and upload the Azure AD metadata file. Then, select **Require certificate signed by a certificate authority in Metadata (more secure)** and click **Next**. 
+1. On the **Import Idp Metadata** page, either drag and drop the Azure AD metadata file onto the page or use the file browser option to locate and upload the Azure AD metadata file. Then, select **Require certificate signed by a certificate authority in Metadata (more secure)** and click **Next**. 
 	
 	![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_cisco_spark_11.png)
 
-12. Select **Test SSO Connection**, and when a new browser tab opens, authenticate with Azure AD by signing in.
+1. Select **Test SSO Connection**, and when a new browser tab opens, authenticate with Azure AD by signing in.
 
-13. Return to the **Cisco Cloud Collaboration Management** browser tab. If the test was successful, select **This test was successful. Enable Single Sign-On option** and click **Next**.
+1. Return to the **Cisco Cloud Collaboration Management** browser tab. If the test was successful, select **This test was successful. Enable Single Sign-On option** and click **Next**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -177,15 +177,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	![Creating an Azure AD test user](./media/cisco-spark-tutorial/create_aaduser_01.png) 
 
-2. To display the list of users, go to **Users and groups** and click **All users**.
+1. To display the list of users, go to **Users and groups** and click **All users**.
 	
 	![Creating an Azure AD test user](./media/cisco-spark-tutorial/create_aaduser_02.png) 
 
-3. To open the **User** dialog, click **Add** on the top of the dialog.
+1. To open the **User** dialog, click **Add** on the top of the dialog.
  
 	![Creating an Azure AD test user](./media/cisco-spark-tutorial/create_aaduser_03.png) 
 
-4. On the **User** dialog page, perform the following steps:
+1. On the **User** dialog page, perform the following steps:
  
 	![Creating an Azure AD test user](./media/cisco-spark-tutorial/create_aaduser_04.png) 
 
@@ -203,13 +203,13 @@ In this section, you create a user called Britta Simon in Cisco Spark. In this s
 
 1. Go to the [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) with your full administrator credentials.
 
-2. Click **Users** and then **Manage Users**.
+1. Click **Users** and then **Manage Users**.
    
     ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_cisco_spark_12.png) 
 
-3. In the **Manage User** window, select **Manually add or modify users** and click **Next**.
+1. In the **Manage User** window, select **Manually add or modify users** and click **Next**.
 
-4. Select **Names and Email address**. Then, fill out the textbox as follows:
+1. Select **Names and Email address**. Then, fill out the textbox as follows:
    
     ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_cisco_spark_13.png) 
 	
@@ -219,9 +219,9 @@ In this section, you create a user called Britta Simon in Cisco Spark. In this s
 	
 	c. In the **Email address** textbox, type **britta.simon@contoso.com**.
 
-5. Click the plus sign to add Britta Simon. Then, click **Next**.
+1. Click the plus sign to add Britta Simon. Then, click **Next**.
 
-6. In the **Add Services for Users** window, click **Save** and then **Finish**.
+1. In the **Add Services for Users** window, click **Save** and then **Finish**.
 
 ### Assigning the Azure AD test user
 
@@ -235,23 +235,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Cisco Spark**.
+1. In the applications list, select **Cisco Spark**.
 
 	![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_ciscospark_app.png) 
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![Assign User][202] 
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![Assign User][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Testing single sign-on
 
