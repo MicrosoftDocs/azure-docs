@@ -139,5 +139,8 @@ Select **Delete**, type **vnettestgroup** in the text box, and then select **Del
 
 ## Next steps
 
+This tutorial showed you how to create Virtual Machines in Azure Government. To see the latest information and insights on building cloud solution for the Azure Government Cloud, check out Azure Government blog.
+
 > [!div class="nextstepaction"]
-> Check out the [Deploy an Azure App Services app](documentation-government-howto-deploy-webandmobile.md) tutorial.
+> [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
+

@@ -50,9 +50,11 @@ When you start PowerShell, you have to tell Azure PowerShell to connect to Azure
 | [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
 | [Azure Active Directory (Classic deployment model)](https://msdn.microsoft.com/library/azure/jj151815.aspx) commands |`Connect-MsolService -AzureEnvironment UsGovernment` |
 
-## To print the current regions 
+![Connect to Azure Government](./media/connect-with-powershell/connect-with-powershell.png)
 
-To validate the available regions in Azure Government, run the following commands and print the current list:
+## Get current regions 
+
+To list the available regions in Azure Government, run the following commands and print the current list:
 
 ```powershell
 Get-AzureRMLocation
@@ -74,5 +76,7 @@ Get-AzureLocation # For classic deployment model
 
 ## Next steps
 
+This quickstart showed you how to use PowerShell to connect to Azure Government. Once you are connected to Azure Government, you may want to explore Azure services. Make sure you checkout the variations, described in [Compare Azure Government and global Azure](compare-azure-government-global-azure.md). To learn more about Azure services continue to the Azure documentation.
+
 > [!div class="nextstepaction"]
-> Check out the [Azure documentation](https://docs.microsoft.com/azure/).
+> [Azure documentation](https://docs.microsoft.com/azure/).
