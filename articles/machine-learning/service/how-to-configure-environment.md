@@ -33,7 +33,8 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 1. Open a command-prompt or shell.
 
 2. To create a conda environment, use the following commands:
-    ```bash
+1. 
+    ```shell
     # create a new conda environment with Python 3.6, numpy and cython
     conda create -n myenv Python=3.6 cython numpy
 
@@ -46,19 +47,19 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 
 3. To install Azure Machine Learning SDK with notebook extras, use the following command:
 
-     ```bash
+     ```shell
     pip install --upgrade azureml-sdk[notebooks]
     ```
 
 4. To install packages for your machine learning experimentation, use the following command and replace `<new package>` with the package you want to install:
 
-    ```bash
+    ```shell
     conda install <new package>
     ```
 
 5. To install a conda-aware Jupyter Notebook server and enable run history widgets, use the following commands:
 
-    ```bash
+    ```shell
     # install Jupyter 
     conda install nb_conda
 
@@ -71,7 +72,7 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 
 6. To launch Jupyter Notebook, use the following command:
 
-    ```bash
+    ```shell
     jupyter notebook
     ```
 
@@ -88,7 +89,7 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 
 2. To create a conda environment, use the following commands:
 
-    ```bash
+    ```shell
     # create a new conda environment with Python 3.6, numpy and cython
     conda create -n myenv Python=3.6 cython numpy
 
@@ -101,7 +102,7 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 
 2. To install the Azure Machine Learning SDK, use the following command:
  
-    ```bash
+    ```shell
     pip install --upgrade azureml-sdk
     ```
 
@@ -109,7 +110,7 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 
 5. To install packages for your machine learning experimentation, use the following command and replace `<new package>` with the package you want to install:
 
-    ```bash
+    ```shell
     conda install <new package>
     ```
 
@@ -128,6 +129,10 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 ## Code editor of your choice
 
 To use a custom code editor with Azure Machine Learning SDK, first create conda environment as described above. Then follow the instructions for each editor to use the conda environment. For example, the instructions for PyCharm are located at [https://www.jetbrains.com/help/pycharm/2018.2/conda-support-creating-conda-virtual-environment.html](https://www.jetbrains.com/help/pycharm/2018.2/conda-support-creating-conda-virtual-environment.html).
+
+## Azure Notebooks and Data Science Virtual Machine
+
+[!INCLUDE [aml-pre-installed](~/includes/aml-pre-installed.md)]
  
 ## Next steps
 
