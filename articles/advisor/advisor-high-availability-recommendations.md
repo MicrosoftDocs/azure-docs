@@ -44,10 +44,24 @@ Azure Premium Storage delivers high-performance, low-latency disk support for vi
 If your disks do not require high IOPS, you can limit costs by maintaining them in standard storage. Standard storage stores virtual machine disk data on hard disk drives (HDDs) instead of SSDs. You can choose to migrate your virtual machine disks to premium disks. Premium disks are supported on most virtual machine SKUs. However, in some cases, if you want to use premium disks, you might need to upgrade your virtual machine SKUs as well.
 
 ## Protect your virtual machine data from accidental deletion
+
 Setting up virtual machine backup ensures the availability of your business-critical data and offers protection against accidental deletion or corruption.  Advisor identifies virtual machines where backup is not enabled, and it recommends enabling backup. 
 
 ## Ensure you have access to Azure cloud experts when you need it
+
 When running a business-critical workload, it's important to have access to technical support when needed. Advisor identifies potential business-critical subscriptions that do not have technical support included in their support plan and recommends upgrading to an option that includes technical support.
+
+## Create Azure Service Health alerts to be notified when Azure issues affect you
+
+We recommend setting up Azure Service Health alerts to be notified when Azure service issues affect you. [Azure Service Health](https://azure.microsoft.com/features/service-health/) is a free service that provides personalized guidance and support when you are impacted by an Azure service issue. Advisor identifies subscriptions that do not have alerts configured and recommends creating one.
+
+## Configure Traffic Manager endpoints for resiliency
+
+Traffic Manager profiles with more than one endpoint experience higher availability if any given endpoint fails. Placing endpoints in different regions further improves service reliability. Advisor identifies Traffic Manger profiles where there is only one endpoint and recommends adding at least one more endpoint in another region.
+
+If all endpoints in a Traffic Manager profile that is configured for proximity routing are in the same region, users from other regions may experience connection delays. Adding or moving an endpoint to another region will improve overall performance and provide better availability if all endpoints in one region fail. Advisor identifies Traffic Manager profiles configured for proximity routing where all the endpoints are in the same region and recommends adding or moving an endpoint to another Azure region.
+
+If a Traffic Manager profile is configured for geographic routing, then traffic is routed to endpoints based on defined regions. If a region fails, there is no pre-defined failover. Having an endpoint where the Regional Grouping is configured to "All (World)" will avoid traffic being dropped and improve service availability. Advisor identifies Traffic Manager profiles configured for geographic routing where there is no endpoint configured to have the Regional Grouping as "All (World)" and recommends making that configuration change.
 
 ## How to access High Availability recommendations in Advisor
 

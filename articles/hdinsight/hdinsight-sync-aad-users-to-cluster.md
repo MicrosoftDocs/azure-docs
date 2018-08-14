@@ -1,18 +1,13 @@
 ---
-title: Synchronize Azure Active Directory users to a cluster - Azure HDInsight | Microsoft Docs
+title: Synchronize Azure Active Directory users to a cluster - Azure HDInsight 
 description: Synchronize authenticated users from Azure Active Directory to a cluster.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+editor: jasonwhowell
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
 

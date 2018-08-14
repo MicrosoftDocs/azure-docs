@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure Databricks: Common questions and help | Microsoft Docs'
 description: Get answers to common questions and troubleshooting information about Azure Databricks.
 services: azure-databricks
@@ -30,8 +30,8 @@ A new virtual network is created as part of Databricks provisioning. In this rel
 
 Follow these steps:
 1. In Azure Active Directory (Azure AD), provision a service principal, and record its key.
-2. Assign the necessary permissions to the service principal in Data Lake Store.
-3. To access a file in Data Lake Store, use the service principal credentials in Notebook.
+1. Assign the necessary permissions to the service principal in Data Lake Store.
+1. To access a file in Data Lake Store, use the service principal credentials in Notebook.
 
 For more information, see [Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html).
 
@@ -48,8 +48,8 @@ Here are a few problems you might encounter with Databricks.
 #### Solution
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. Select **Subscriptions**, the subscription you are using, and then **Resource providers**. 
-3. In the list of resource providers, against **Microsoft.Databricks**, select **Register**. You must have the contributor or owner role on the subscription to register the resource provider.
+1. Select **Subscriptions**, the subscription you are using, and then **Resource providers**. 
+1. In the list of resource providers, against **Microsoft.Databricks**, select **Register**. You must have the contributor or owner role on the subscription to register the resource provider.
 
 
 ### Issue: Your account {email} does not have the owner or contributor role on the Databricks workspace resource in the Azure portal
@@ -104,8 +104,8 @@ Azure error message: The subscription is not registered to use namespace 'Micros
 #### Solution
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. Select **Subscriptions**, the subscription you are using, and then **Resource providers**. 
-3. In the list of resource providers, against **Microsoft.Compute**, select **Register**. You must have the contributor or owner role on the subscription to register the resource provider.
+1. Select **Subscriptions**, the subscription you are using, and then **Resource providers**. 
+1. In the list of resource providers, against **Microsoft.Compute**, select **Register**. You must have the contributor or owner role on the subscription to register the resource provider.
 
 For more detailed instructions, see [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md).
 

@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 08/31/2018
 ms.author: marsma
 ---
 
@@ -123,6 +123,10 @@ To test the build job and observe Azure Container Instances as the build platfor
 4. After all build jobs have finished, the container instances are removed.
 
    ![Resource group with container instances removed](./media/container-instances-jenkins/jenkins-aci-none.png)
+
+## Troubleshooting the Jenkins plugin
+
+If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
 ## Next steps
 

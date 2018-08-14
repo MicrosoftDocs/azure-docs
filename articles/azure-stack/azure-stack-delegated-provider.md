@@ -1,4 +1,4 @@
----
+﻿---
 title: Delegating offers in Azure Stack | Microsoft Docs
 description: Learn how to put other people in charge of creating offers and signing up users for you.
 services: azure-stack
@@ -47,7 +47,7 @@ There are two basic steps to setting up delegation:
 
 1. *Create a delegated provider* by subscribing a user to an offer based on a plan that only has the subscriptions service. Users who subscribe to this offer can then extend offers and sign up users for the offers.
 
-2. *Delegate an offer to the delegated provider*. This offer is a template for what the delegated provider can offer. The delegated provider can now take the offer and offer it to other users.
+1. *Delegate an offer to the delegated provider*. This offer is a template for what the delegated provider can offer. The delegated provider can now take the offer and offer it to other users.
 
 The next graphic shows the steps for setting up delegation.
 
@@ -76,7 +76,7 @@ To use this walkthrough, you need two Azure AD accounts in addition to your Azur
 
 1. Sign in to the administrator portal as an Azure Stack operator.
 
-2. To create an offer that enables a user to become
+1. To create an offer that enables a user to become
    a delegated provider:
 
    a.  [Create a plan](azure-stack-create-plan.md).
@@ -100,9 +100,9 @@ The next step is to create the plan and offer that you're going to delegate, and
    > [!NOTE]
    > This offer doesn't have to be public, but you can make it public if you want to. However, in most cases you only want delegated providers to have access to the offer. After you delegate a private offer as described in the following steps, the delegated provider has access to it.
 
-2. Delegate the offer. Go to **DelegatedOffer**. Under **Settings**, select **Delegated Providers** > **Add**.
+1. Delegate the offer. Go to **DelegatedOffer**. Under **Settings**, select **Delegated Providers** > **Add**.
 
-3. Select the subscription for the delegated provider from the drop-down list and then select **Delegate**.
+1. Select the subscription for the delegated provider from the drop-down list and then select **Delegate**.
 
    ![Add a delegated provider](media/azure-stack-delegated-provider/image4.png)
 
@@ -114,16 +114,16 @@ Sign in to the user portal as the delegated provider and then create a new offer
 
     ![Create a new offer](media/azure-stack-delegated-provider/image5.png)
 
-2. Assign a name to the offer. This article uses **ResellerOffer** as an example. Select the delegated offer on which to base it, and then select **Create**.
+1. Assign a name to the offer. This article uses **ResellerOffer** as an example. Select the delegated offer on which to base it, and then select **Create**.
 
    ![Assign a name](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
    >It’s important to understand that unlike an Azure Stack operator, a delegated provider doesn’t construct an offer from base plans and add-on plans. Delegated providers can only choose offers that are delegated to them, they can't make changes to those offers.
 
-3. Make the offer public by selecting **Browse**, and then **Offers**. Select the offer, and then select **Change State**.
+1. Make the offer public by selecting **Browse**, and then **Offers**. Select the offer, and then select **Change State**.
 
-4. The delegated provider exposes these offers through their own portal URL. These offers are visible only through the delegated portal. To find and change this URL:
+1. The delegated provider exposes these offers through their own portal URL. These offers are visible only through the delegated portal. To find and change this URL:
 
     a.  Select **Browse** > **More services** > **Subscriptions**. Then select the delegated provider subscription. For example, **DPSubscription** > **Properties**.
 
@@ -140,7 +140,7 @@ Sign in to the user portal as the delegated provider and then create a new offer
    >[!NOTE]
    >The delegated offers are not visible unless you use the delegated portal.
 
-2. In the dashboard, select **Get a subscription**. You'll see that only the delegated offers that were created by the delegated provider are presented to the user.
+1. In the dashboard, select **Get a subscription**. You'll see that only the delegated offers that were created by the delegated provider are presented to the user.
 
    ![View and select offers](media/azure-stack-delegated-provider/image8.png)
 

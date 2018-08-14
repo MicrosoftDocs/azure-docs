@@ -15,7 +15,7 @@ ms.author: danlep
 
 Azure Batch Rendering offers cloud-scale rendering capabilities on a pay-per-use basis. Batch Rendering handles job scheduling and queueing, managing failures and retries, and auto-scaling for your render jobs. Batch Rendering supports rendering apps including [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview), and [V-Ray](https://www.chaosgroup.com/vray/maya). The Batch plug-in for Maya 2017 makes it easy to start a rendering job on Azure right from your desktop.
 
-With Maya and 3ds Max, you can run jobs using the [Batch Explorer](https://github.com/Azure/BatchExplorer) desktop application or the [Batch Templates CLI](batch-cli-templates.md). Using the Azure Batch CLI, you can run Batch jobs without writing code. Instead, you can use template files to create Batch pools, jobs, and tasks. For more information, see [Use Azure Batch CLI Templates and File Transfer](batch-cli-templates.md).
+With Maya and 3ds Max, you can run jobs using the [Batch Explorer](https://github.com/Azure/BatchExplorer) desktop application or the [Batch templates CLI](batch-cli-templates.md). Using the Azure Batch CLI, you can run Batch jobs without writing code. Instead, you can use template files to create Batch pools, jobs, and tasks. For more information, see [Use Azure Batch CLI templates and file transfer](batch-cli-templates.md).
 
 
 ## Supported applications
@@ -108,14 +108,14 @@ With Maya, you can use:
 
 - [Batch plug-in for Maya](https://docs.microsoft.com/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
 - [Batch Explorer](https://azure.github.io/BatchExplorer) desktop application
-- [Batch Templates CLI](batch-cli-templates.md)
+- [Batch templates CLI](batch-cli-templates.md)
 
 ### 3ds Max
 
 With 3ds Max, you can use:
 
 - [Batch Explorer](https://azure.github.io/BatchExplorer) desktop application (see [BatchExplorer-data](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/3dsmax) for guidance on using 3ds Max templates)
-- [Batch Templates CLI](batch-cli-templates.md)
+- [Batch templates CLI](batch-cli-templates.md)
 
 The 3ds Max Batch Labs templates allow you to render VRay and Arnold scenes using the Batch Rendering. There are two variations of the template for VRay and Arnold, one for standard scenes and one for more complex scenes that require a 3ds Max path file to assets and textures (.mxp file). For more information on the 3ds Max templates, see the [BatchExplorer-data](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/3dsmax) repo on GitHub.
 

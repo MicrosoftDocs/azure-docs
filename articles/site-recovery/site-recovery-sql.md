@@ -2,19 +2,10 @@
 title: Replicate applications with SQL Server and Azure Site Recovery | Microsoft Docs
 description: This article describes how to replicate SQL Server using Azure Site Recovery for SQL Server disaster capabilities.
 services: site-recovery
-documentationcenter: ''
-author: prateek9us
-manager: gauravd
-editor: ''
-
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: pratshar
+ms.topic: conceptual
+ms.date: 07/22/2018
+ms.author: raynew
 
 ---
 # Protect SQL Server using SQL Server disaster recovery and Azure Site Recovery
@@ -74,7 +65,7 @@ This table summarizes our recommendations for integrating SQL Server BCDR techno
 
 | **Version** | **Edition** | **Deployment** | **On-prem to on-prem** | **On-prem to Azure** |
 | --- | --- | --- | --- | --- |
-| SQL Server 2014 or 2012 |Enterprise |Failover cluster instance |Always On availability groups |Always On availability groups |
+| SQL Server 2016, 2014 or 2012 |Enterprise |Failover cluster instance |Always On availability groups |Always On availability groups |
 || Enterprise |Always On availability groups for high availability |Always On availability groups |Always On availability groups | |
 || Standard |Failover cluster instance (FCI) |Site Recovery replication with local mirror |Site Recovery replication with local mirror | |
 || Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication | |

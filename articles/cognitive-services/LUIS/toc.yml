@@ -219,7 +219,7 @@
       href: luis-how-to-manage-keys.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
-    - name: Collaborate with other authors
+    - name: Manage authors and collaborators
       href: luis-how-to-collaborate.md 
     - name: Manage authoring key
       href: luis-how-to-account-settings.md   

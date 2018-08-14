@@ -34,7 +34,7 @@ You should see the version of Azure CLI and other dependent libraries that are i
 
 1. Get the Azure Stack CA root certificate from [your Azure Stack operator](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) and trust it. To trust the Azure Stack CA root certificate, append it to the existing Python certificate.
 
-2. Find the certificate location on your machine. The location may vary depending on where you have installed Python. You will need to have [pip](https://pip.pypa.io) and the [certifi](https://pypi.org/project/certifi/) module installed. You can use the following Python command from the bash prompt:
+1. Find the certificate location on your machine. The location may vary depending on where you have installed Python. You will need to have [pip](https://pip.pypa.io) and the [certifi](https://pypi.org/project/certifi/) module installed. You can use the following Python command from the bash prompt:
 
   ```bash  
     python -c "import certifi; print(certifi.where())"
@@ -56,9 +56,9 @@ If you are running CLI from a machine **outside** the Azure Stack environment:
 
 1. You must set up [VPN connectivity to Azure Stack](azure-stack-connect-azure-stack.md).
 
-2. Copy the PEM certificate that you got from Azure Stack operator, and make a note of the location of the file (PATH_TO_PEM_FILE).
+1. Copy the PEM certificate that you got from Azure Stack operator, and make a note of the location of the file (PATH_TO_PEM_FILE).
 
-3. Run the following commands, depending ending on your development workstation's OS.
+1. Run the following commands, depending ending on your development workstation's OS.
 
 #### Linux
 
@@ -137,7 +137,7 @@ Use the following steps to connect to Azure Stack:
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-2. Set the active environment by using the following commands.
+1. Set the active environment by using the following commands.
 
    a. For the *cloud administrative* environment, use:
 
@@ -153,14 +153,14 @@ Use the following steps to connect to Azure Stack:
         -n AzureStackUser
       ```
 
-3. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
+1. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
 
    ```azurecli
    az cloud update \
      --profile 2017-03-09-profile
    ```
 
-4. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
+1. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Sign in as a *user*: You can either specify the username and password directly within the `az login` command or authenticate by using a browser. You have to do the latter if your account has multi-factor authentication enabled.
 

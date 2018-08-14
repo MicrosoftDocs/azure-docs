@@ -71,8 +71,8 @@ After the local deployment is finished, and Visual Studio is running your app, a
 **Debugging tips**
 
 * If you get the **No Service Fabric local cluster is running** error, make sure that the Service Local Custer Manager (SLCM) is running and right-click the SLCM icon in the task bar, then click **Start Local Cluster**. Once it has started, return to Visual Studio and press **F5**.
-* If you get a **404** error when the app starts, it probably means that your environment variables in **service.yaml** are incorrect. Make sure that `AppName`, `ApiHostPort` and `ServiceName` are set correctly per the instructions in [Set environment variables](#set-environment-variables).
-* If you get build errors in **service.yaml**, make sure that spaces, not tabs, are used to indent the lines.
+* If you get a **404** error when the app starts, it probably means that your environment variables in **service.yaml** are incorrect. Make sure that `ApiHostPort` and `ServiceName` are set correctly per the instructions in [Create environment variables](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
+* If you get build errors in **service.yaml**, make sure that spaces, not tabs, are used to indent the lines. Also, for now, you must build the app using the English locale.
 
 ### Debug in Visual Studio
 

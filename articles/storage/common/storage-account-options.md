@@ -3,14 +3,11 @@ title: Azure Storage account options | Microsoft Docs
 description: Understanding options for using Azure Storage.
 services: storage
 author: xyh1
-manager: jwillis
-
 ms.service: storage
-ms.workload: storage
 ms.topic: get-started-article
 ms.date: 07/14/2018
-ms.author: hux  
-
+ms.author: hux
+ms.component: common
 ---
 # Azure Storage account options
 
@@ -60,7 +57,7 @@ Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <stor
 
 #### Upgrade with Azure CLI
 
-To upgrade a GPv1 or Blob storage account to a GPv2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for information about installing the CLI. Then call the following command to upgrade the account, substituting the name of your resource group and storage account:
+To upgrade a GPv1 or Blob storage account to a GPv2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for information about installing the CLI. Then call the following command to upgrade the account, substituting the name of your resource group and storage account:
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2

@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: carlrab
 
 ---
@@ -85,7 +85,7 @@ Yes, you can independently select the level of compute your application needs an
 You can configure the backup retention for PITR between 7 and 35 days. The backups storage will be charged separately based on the actual storage consumption if it exceeds the storage amount equal to the maximum data size. In preview, by default the PITR retention period is set to 7 days. In many cases, the maximum data size is sufficient for storing 7 days of backups.
 
 ## Why do you allow selection of the hardware generation for compute?
-Our goal is to enable maximum flexibility so that you can choose a performance configuration that closely matches the needs of the application. The table above shows the differences between Gen4 and Gen5. In particular, Gen4 hardware offers substantially more memory per vCore. However, Gen5 hardware allows you to scale up compute resources much higher. We want to make these differences transparent so that you can achieve the optimal price/performance ratio for your application.
+Our goal is to enable maximum flexibility so that you can choose a performance configuration that closely matches the needs of the application. Gen4 hardware offers substantially more memory per vCore. However, Gen5 hardware allows you to scale up compute resources much higher. For more information, see [vCore purchase model](sql-database-service-tiers-vcore.md)
 
 ## Do I need to take my application offline to convert from a DTU-based database to a vCore-based service tier? 
 The new service tiers offer a simple online conversion method that is similar to the existing process of upgrading databases from Standard to Premium service tier and vice versa. This conversion can be initiated using the Azure portal, PowerShell, Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](sql-database-elastic-pool.md).

@@ -81,7 +81,7 @@ Create a Web app with [Azure App Service](https://azure.microsoft.com/services/a
     Enabling continuous deployment with the Azure portal is an easy experience. You can also build more complex release pipelines and use many other techniques with existing source control and continuous integration systems to deploy to Azure, such as leveraging automated build and release management systems.
 
 ## Develop and test an app
-Next, make some changes to the code base and rapidly deploy those changes. You will also set up up some performance testing for the Web app.
+Next, make some changes to the code base and rapidly deploy those changes. You will also set up some performance testing for the Web app.
 
 1. In the Azure portal choose App Services from the navigation pane, and locate your App Service.
    

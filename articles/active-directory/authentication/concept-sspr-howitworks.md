@@ -18,6 +18,11 @@ ms.reviewer: sahenry
 
 How does self-service password reset (SSPR) work? What does that option mean in the interface? Continue reading to find out more about Azure Active Directory (Azure AD) SSPR.
 
+|     |
+| --- |
+| Mobile app notification and Mobile app code as methods for Azure AD self-service password reset are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+|     |
+
 ## How does the password reset portal work?
 
 When a user goes to the password reset portal, a workflow is kicked off to determine:
@@ -42,6 +47,7 @@ Read through the following steps to learn about the logic behind the password re
        * If the authentication methods are not configured, then the user is advised to contact their administrator to reset their password.
      * If the policy requires two methods, then it ensures that the user has the appropriate data defined for at least two of the authentication methods enabled by the administrator policy.
        * If the authentication methods are not configured, then the user is advised to contact their administrator to reset their password.
+     * If an Azure administrator role is assigned to the user then the strong two-gate password policy is enforced. More information about this policy can be found in the section [Administrator reset policy differences](concept-sspr-policy.md#administrator-reset-policy-differences).
    * Checks to see if the user’s password is managed on-premises (federated, pass-through authentication, or password hash synchronized).
      * If writeback is deployed and the user’s password is managed on-premises, then the user is allowed to proceed to authenticate and reset their password.
      * If writeback is not deployed and the user’s password is managed on-premises, then the user is asked to contact their administrator to reset their password.
@@ -51,12 +57,17 @@ Read through the following steps to learn about the logic behind the password re
 
 If SSPR is enabled, you must select at least one of the following options for the authentication methods. Sometimes you hear these options referred to as "gates." We highly recommend that you **choose two or more authentication methods** so that your users have more flexibility in case they are unable to access one when they need it.
 
+* Mobile app notification (preview)
+* Mobile app code (preview)
 * Email
 * Mobile phone
 * Office phone
 * Security questions
 
 Users can only reset their password if they have data present in the authentication methods that the administrator has enabled.
+
+> [!WARNING]
+> Accounts assigned Azure Administrator roles will be required to use methods as defined in the section [Administrator reset policy differences](concept-sspr-policy.md#administrator-reset-policy-differences).
 
 ![Authentication][Authentication]
 
@@ -67,6 +78,19 @@ This option determines the minimum number of the available authentication method
 Users can choose to supply more authentication methods if the administrator enables that authentication method.
 
 If a user does not have the minimum required methods registered, they see an error page that directs them to request that an administrator reset their password.
+
+#### Mobile app and SSPR (Preview)
+
+When using a mobile app, like the Microsoft Authenticator app, as a method for password reset, you should be aware of the following:
+
+* When administrators require one method be used to reset a password, verification code is the only option available.
+* When administrators require two methods be used to reset a password, users are able to use **EITHER** notification **OR** verification code in addition to any other enabled methods.
+
+| Number of methods required to reset | One | Two |
+| :---: | :---: | :---: |
+| Mobile app features available | Code | Code or Notification |
+
+Users do not have the option to register their mobile app when registering for self-service password reset from [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup), or in the new security info registration preview at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 ### Change authentication methods
 

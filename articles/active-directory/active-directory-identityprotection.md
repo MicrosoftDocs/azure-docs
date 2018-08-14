@@ -92,7 +92,7 @@ For more details, see [Assigning administrator roles in Azure Active Directory](
 
 ### Vulnerabilities
 
-Azure Active Directory Identity Protection analyses your configuration and detects vulnerabilities that can have an impact on your user's identities. For more details, see [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md).
+Azure Active Directory Identity Protection analyses your configuration and detects vulnerabilities that can have an impact on your user's identities. For more details, see [Vulnerabilities detected by Azure Active Directory Identity Protection](identity-protection/vulnerabilities.md).
 
 ### Risk events
 
@@ -112,14 +112,14 @@ The dashboard gives you access to:
 
 It is typically your starting point for investigation, which is the process of reviewing the activities, logs, and other relevant information related to a risk event to decide whether remediation or mitigation steps are necessary,  and how the identity was compromised, and understand how the compromised identity was used.
 
-You can tie your investigation activities to the [notifications](active-directory-identityprotection-notifications.md) Azure Active Directory Protection sends per email.
+You can tie your investigation activities to the [notifications](identity-protection/notifications.md) Azure Active Directory Protection sends per email.
 
 The following sections provide you with more details and the steps that are related to an investigation.  
 
 
 ## Risky sign-ins
 
-Azure Active Directory detects [risk event types](active-directory-reporting-risk-events.md#risk-event-types) in real-time and offline. Each risk event that has been detected for a sign-in of a user contributes to a logical concept called risky sign-in. A risky sign-in is an indicator for a sign-in attempt that might not have been performed by the legitimate owner of a user account.
+Azure Active Directory detects [risk event types](reports-monitoring/concept-risk-events.md#risk-event-types) in real-time and offline. Each risk event that has been detected for a sign-in of a user contributes to a logical concept called risky sign-in. A risky sign-in is an indicator for a sign-in attempt that might not have been performed by the legitimate owner of a user account.
 
 
 ### Sign-in risk level
@@ -196,9 +196,9 @@ The **Risk Events** page in the Identity Protection console lists all events:
 
 For an overview of the related user experience, see:
 
-* [Risky sign-in recovery](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
-* [Risky sign-in blocked](active-directory-identityprotection-flows.md#risky-sign-in-blocked)  
-* [Sign-in experiences with Azure AD Identity Protection](active-directory-identityprotection-flows.md)  
+* [Risky sign-in recovery](identity-protection/flows.md#risky-sign-in-recovery)
+* [Risky sign-in blocked](identity-protection/flows.md#risky-sign-in-blocked)  
+* [Sign-in experiences with Azure AD Identity Protection](identity-protection/flows.md)  
 
 **To open the related configuration dialog**:
 
@@ -338,8 +338,8 @@ The recommended default for most organizations is to configure a rule for a **Me
 
 For an overview of the related user experience, see:
 
-* [Compromised account recovery flow](active-directory-identityprotection-flows.md#compromised-account-recovery).  
-* [Compromised account blocked flow](active-directory-identityprotection-flows.md#compromised-account-blocked).  
+* [Compromised account recovery flow](identity-protection/flows.md#compromised-account-recovery).  
+* [Compromised account blocked flow](identity-protection/flows.md#compromised-account-blocked).  
 
 **To open the related configuration dialog**:
 
@@ -385,8 +385,8 @@ Azure AD Identity Protection helps you manage the roll-out of multi-factor authe
 
 For an overview of the related user experience, see:
 
-* [Multi-factor authentication registration flow](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).  
-* [Sign-in experiences with Azure AD Identity Protection](active-directory-identityprotection-flows.md).  
+* [Multi-factor authentication registration flow](identity-protection/flows.md#multi-factor-authentication-registration).  
+* [Sign-in experiences with Azure AD Identity Protection](identity-protection/flows.md).  
 
 **To open the related configuration dialog**:
 
@@ -397,20 +397,20 @@ For an overview of the related user experience, see:
 ## Next steps
 * [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
-* [Enabling Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
+* [Enabling Azure Active Directory Identity Protection](identity-protection/enable.md)
 
-* [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
+* [Vulnerabilities detected by Azure Active Directory Identity Protection](identity-protection/vulnerabilities.md)
 
 * [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md)
 
-* [Azure Active Directory Identity Protection notifications](active-directory-identityprotection-notifications.md)
+* [Azure Active Directory Identity Protection notifications](identity-protection/notifications.md)
 
-* [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md)
+* [Azure Active Directory Identity Protection playbook](identity-protection/playbook.md)
 
-* [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md)
+* [Azure Active Directory Identity Protection glossary](identity-protection/glossary.md)
 
-* [Sign-in experiences with Azure AD Identity Protection](active-directory-identityprotection-flows.md)
+* [Sign-in experiences with Azure AD Identity Protection](identity-protection/flows.md)
 
-* [Azure Active Directory Identity Protection - How to unblock users](active-directory-identityprotection-unblock-howto.md)
+* [Azure Active Directory Identity Protection - How to unblock users](identity-protection/howto-unblock-user.md)
 
-* [Get started with Azure Active Directory Identity Protection and Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+* [Get started with Azure Active Directory Identity Protection and Microsoft Graph](identity-protection/graph-get-started.md)

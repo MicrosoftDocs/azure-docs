@@ -41,8 +41,8 @@ This tutorial covers the following tasks:
 ## Find your connection string information (host, port, username, and password)
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, click the **Azure Cosmos DB** entry.
-2. In the **Subscriptions** pane, select your account name.
-3. In the **Connection String** blade, click **Connection String**.
+1. In the **Subscriptions** pane, select your account name.
+1. In the **Connection String** blade, click **Connection String**.
 
    The right pane contains all the information that you need to successfully connect to your account.
 
@@ -98,7 +98,7 @@ Example:
         }
         ```
 
-2. Calculate the approximate RU charge for a single document write:
+1. Calculate the approximate RU charge for a single document write:
 
     a. Connect to your Azure Cosmos DB MongoDB database from the MongoDB Shell. You can find instructions in [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md).
     
@@ -121,7 +121,7 @@ Example:
         
     d. Take note of the request charge.
     
-3. Determine the latency from your machine to the Azure Cosmos DB cloud service:
+1. Determine the latency from your machine to the Azure Cosmos DB cloud service:
     
     a. Enable verbose logging from the MongoDB Shell by using this command: ```setVerboseShell(true)```
     
@@ -131,9 +131,9 @@ Example:
         Fetched 1 record(s) in 100(ms)
         ```
         
-4. Remove the inserted document before the migration to ensure that there are no duplicate documents. You can remove documents by using this command: ```db.coll.remove({})```
+1. Remove the inserted document before the migration to ensure that there are no duplicate documents. You can remove documents by using this command: ```db.coll.remove({})```
 
-5. Calculate the approximate *batchSize* and *numInsertionWorkers* values:
+1. Calculate the approximate *batchSize* and *numInsertionWorkers* values:
 
     * For *batchSize*, divide the total provisioned RUs by the RUs consumed from your single document write in step 3.
     
@@ -154,7 +154,7 @@ Example:
     
     *numInsertionWorkers = (10000 RUs x 0.1 s) / (24 x 10 RUs) = 4.1666*
 
-6. Run the final migration command:
+1. Run the final migration command:
 
    ```
    mongoimport.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24

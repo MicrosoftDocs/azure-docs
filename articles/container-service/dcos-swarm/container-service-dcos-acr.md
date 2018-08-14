@@ -30,7 +30,7 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 ## Deploy Azure Container Registry
 
-If needed, create an Azure Container registry with the [az acr create](/cli/azure/acr#az_acr_create) command. 
+If needed, create an Azure Container registry with the [az acr create](/cli/azure/acr#az-acr-create) command. 
 
 The following example creates a registry with a randomly generate name. The registry is also configured with an admin account using the `--admin-enabled` argument.
 

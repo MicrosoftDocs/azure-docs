@@ -1,6 +1,6 @@
 ---
-title: How to use a Windows VM Managed Service Identity (MSI) to access Azure Data Lake Store
-description: A tutorial that shows you how to use a Windows VM Managed Service Identity (MSI) to access Azure Data Lake Store.
+title: How to use a Windows VM Managed Service Identity to access Azure Data Lake Store
+description: A tutorial that shows you how to use a Windows VM Managed Service Identity to access Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
 author: daveba
@@ -17,14 +17,14 @@ ms.date: 11/20/2017
 ms.author: daveba
 ---
 
-# Tutorial: Use a Windows VM Managed Service Identity (MSI) to access Azure Data Lake Store
+# Tutorial: Use a Windows VM Managed Service Identity to access Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to use a Managed Service Identity (MSI) for a Windows virtual machine (VM) to access an Azure Data Lake Store. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. You learn how to:
+This tutorial shows you how to use a Managed Service Identity for a Windows virtual machine (VM) to access an Azure Data Lake Store. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. You learn how to:
 
 > [!div class="checklist"]
-> * Enable MSI on a Windows VM 
+> * Enable Managed Service Identity on a Windows VM 
 > * Grant your VM access to an Azure Data Lake Store
 > * Get an access token using the VM identity and use it to access an Azure Data Lake Store
 
@@ -40,7 +40,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a Windows virtual machine in a new resource group
 
-For this tutorial, we create a new Windows VM.  You can also enable MSI on an existing VM.
+For this tutorial, we create a new Windows VM.  You can also enable Managed Service Identity on an existing VM.
 
 1. Click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
@@ -51,17 +51,17 @@ For this tutorial, we create a new Windows VM.  You can also enable MSI on an ex
 
    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## Enable MSI on your VM 
+## Enable Managed Service Identity on your VM 
 
-A VM MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling MSI tells Azure to create a managed identity for your VM. Under the covers, enabling MSI does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM.
+A VM Managed Service Identity enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling Managed Service Identity tells Azure to create a managed identity for your VM. Under the covers, enabling Managed Service Identity does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM.
 
-1. Select the **Virtual Machine** that you want to enable MSI on.  
+1. Select the **Virtual Machine** that you want to enable Managed Service Identity on.  
 2. On the left navigation bar click **Configuration**. 
-3. You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No. 
+3. You see **Managed Service Identity**. To register and enable the Managed Service Identity, select **Yes**, if you wish to disable it, choose No. 
 4. Ensure you click **Save** to save the configuration.  
    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. If you wish to check and verify which extensions are on this VM, click **Extensions**. If MSI is enabled, then **ManagedIdentityExtensionforWindows** appears in the list.
+5. If you wish to check and verify which extensions are on this VM, click **Extensions**. If Managed Service Identity is enabled, then **ManagedIdentityExtensionforWindows** appears in the list.
 
    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
@@ -69,7 +69,7 @@ A VM MSI enables you to get access tokens from Azure AD without you needing to p
 
 Now you can grant your VM access to files and folders in an Azure Data Lake Store.  For this step, you can use an existing Data Lake Store or create a new one.  To create a new Data Lake Store using the Azure portal, follow this [Azure Data Lake Store quickstart](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). There are also quickstarts that use the Azure CLI and Azure PowerShell in the [Azure Data Lake Store documentation](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
-In your Data Lake Store, create a new folder and grant your VM MSI permission to read, write, and execute files in that folder:
+In your Data Lake Store, create a new folder and grant your VM Managed Service Identity permission to read, write, and execute files in that folder:
 
 1. In the Azure portal, click **Data Lake Store** in the left-hand navigation.
 2. Click the Data Lake Store you want to use for this tutorial.
@@ -83,21 +83,21 @@ In your Data Lake Store, create a new folder and grant your VM MSI permission to
 10. Similar to step 5, click **Add**, in the **Select** field enter the name of your VM, select it and click **Select**.
 11. Similar to step 6, click **Select Permissions**, select **Read**, **Write**, and **Execute**, add to **This folder**, and add as **An access permission entry and a default permission entry**.  Click **Ok**.  The permission should be added successfully.
 
-Your VM MSI can now perform all operations on files in the folder you created.  For more information on managing access to Data Lake Store, read this article on [Access Control in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+Your VM Managed Service Identity can now perform all operations on files in the folder you created.  For more information on managing access to Data Lake Store, read this article on [Access Control in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
-## Get an access token using the VM MSI and use it to call the Azure Data Lake Store filesystem
+## Get an access token using the VM Managed Service Identity and use it to call the Azure Data Lake Store filesystem
 
-Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained using MSI.  To authenticate to the Data Lake Store filesystem you send an access token issued by Azure AD to your Data Lake Store filesystem endpoint, in an Authorization header in the format "Bearer <ACCESS_TOKEN_VALUE>".  To learn more about Data Lake Store support for Azure AD authentication, read [Authentication with Data Lake Store using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained using Managed Service Identity.  To authenticate to the Data Lake Store filesystem you send an access token issued by Azure AD to your Data Lake Store filesystem endpoint, in an Authorization header in the format "Bearer <ACCESS_TOKEN_VALUE>".  To learn more about Data Lake Store support for Azure AD authentication, read [Authentication with Data Lake Store using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
 
 > [!NOTE]
 > The Data Lake Store filesystem client SDKs do not yet support Managed Service Identity.  This tutorial will be updated when support is added to the SDK.
 
-In this tutorial, you authenticate to the Data Lake Store filesystem REST API using PowerShell to make REST requests. To use the VM MSI for authentication, you need to make the requests from the VM.
+In this tutorial, you authenticate to the Data Lake Store filesystem REST API using PowerShell to make REST requests. To use the VM Managed Service Identity for authentication, you need to make the requests from the VM.
 
 1. In the portal, navigate to **Virtual Machines**, go to your Windows VM, and in the **Overview** click **Connect**.
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
 3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
-4. Using PowerShell’s `Invoke-WebRequest`, make a request to the local MSI endpoint to get an access token for Azure Data Lake Store.  The resource identifier for Data Lake Store is "https://datalake.azure.net/".  Data Lake does an exact match on the resource identifier and the trailing slash is important.
+4. Using PowerShell’s `Invoke-WebRequest`, make a request to the local Managed Service Identity endpoint to get an access token for Azure Data Lake Store.  The resource identifier for Data Lake Store is "https://datalake.azure.net/".  Data Lake does an exact match on the resource identifier and the trailing slash is important.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}
@@ -203,7 +203,7 @@ In this tutorial, you authenticate to the Data Lake Store filesystem REST API us
 
 Using other Data Lake Store filesystem APIs you can append to files, download files, and more.
 
-Congratulations!  You've authenticated to the Data Lake Store filesystem using a VM MSI.
+Congratulations!  You've authenticated to the Data Lake Store filesystem using a VM Managed Service Identity.
 
 ## Next steps
 

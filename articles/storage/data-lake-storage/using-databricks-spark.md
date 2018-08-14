@@ -4,11 +4,8 @@ description: Learn to run Spark queries on a Azure Databricks cluster to access 
 services: hdinsight,storage
 tags: azure-portal
 author: dineshm
-manager: twooley
-
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm

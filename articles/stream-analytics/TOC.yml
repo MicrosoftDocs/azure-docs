@@ -46,10 +46,14 @@
     href: stream-analytics-compatibility-level.md
   - name: Common query patterns
     href: stream-analytics-stream-analytics-query-patterns.md
+  - name: Parse JSON and AVRO data
+    href: stream-analytics-parsing-json.md
   - name: Event ordering considerations
     href: stream-analytics-out-of-order-and-late-events.md
   - name: Checkpoint and replay
     href: stream-analytics-concepts-checkpoint-replay.md
+  - name: Error policy
+    href: output-error-policy.md
 - name: How-to-guides
   items:
   - name: Manage
@@ -157,8 +161,6 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
     href: http://blogs.msdn.com/b/streamanalytics/
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
   - name: Feedback forum
     href: http://feedback.azure.com/forums/270577-azure-stream-analytics
   - name: Forum
@@ -172,7 +174,7 @@
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-stream-analytics
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics
+    href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
   - name: Customer case studies
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Whitepaper - Real-time event processing

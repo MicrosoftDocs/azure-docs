@@ -31,7 +31,7 @@ Click **Try Now** on the **Device Simulation** tile.
 
 ![Choose Device Simulation](./media/quickstart-device-simulation-deploy/devicesimulation.png)
 
-On the **Create Device Simulation solution** page, enter a unique **Solution name**. Make a note of your solution name, it's the name of the Azure resource group that that contains all the solution's resources.
+On the **Create Device Simulation solution** page, enter a unique **Solution name**. Make a note of your solution name, it's the name of the Azure resource group that contains all the solution's resources.
 
 Select the **Subscription** and **Region** you want to use to deploy the solution accelerator. Typically, you choose the region closest to you. You must be a [global administrator or user](iot-accelerators-permissions.md) in the subscription.
 

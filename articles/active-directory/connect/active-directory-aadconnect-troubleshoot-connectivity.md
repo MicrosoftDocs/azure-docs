@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 
@@ -48,7 +48,7 @@ Of these URLs, the following table is the absolute bare minimum to be able to co
 | \*.microsoftonline.com |HTTPS/443 |Used to configure your Azure AD directory and import/export data. |
 
 ## Errors in the wizard
-The installation wizard is using two different security contexts. On the page **Connect to Azure AD**, it is using the currently signed in user. On the page **Configure**, it is changing to the [account running the service for the sync engine](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). If there is an issue, it appears most likely already at the **Connect to Azure AD** page in the wizard since the proxy configuration is global.
+The installation wizard is using two different security contexts. On the page **Connect to Azure AD**, it is using the currently signed in user. On the page **Configure**, it is changing to the [account running the service for the sync engine](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). If there is an issue, it appears most likely already at the **Connect to Azure AD** page in the wizard since the proxy configuration is global.
 
 The following issues are the most common errors you encounter in the installation wizard.
 
@@ -159,28 +159,28 @@ Network or proxy configuration issues. The network cannot be reached. See [Troub
 ### User Password Expired
 Your credentials have expired. Change your password.
 
-### AuthorizationFailure
-Unknown issue.
+### Authorization Failure
+Failed to authorize user to perform action in Azure AD.
 
 ### Authentication Cancelled
 The multi-factor authentication (MFA) challenge was cancelled.
 
-### ConnectToMSOnline
+### Connect To MS Online Failed
 Authentication was successful, but Azure AD PowerShell has an authentication problem.
 
-### AzureRoleMissing
-Authentication was successful. You are not a global administrator.
+### Azure AD Global Admin Role Needed
+User was authenticated successfully. However user is not assigned global admin role. This is [how you can assign global admin role](../users-groups-roles/directory-assign-admin-roles.md) to the user. 
 
-### PrivilegedIdentityManagement
+### Privileged Identity Management Enabled
 Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. For more information, see [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
-### CompanyInfoUnavailable
+### Company Information Unavailable
 Authentication was successful. Could not retrieve company information from Azure AD.
 
-### RetrieveDomains
+### Domain Information Unavailable
 Authentication was successful. Could not retrieve domain information from Azure AD.
 
-### Unexpected exception
+### Unspecified Authentication Failure
 Shown as Unexpected error in the installation wizard. Can happen if you try to use a **Microsoft Account** rather than a **school or organization account**.
 
 ## Troubleshooting steps for previous releases.

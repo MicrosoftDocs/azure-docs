@@ -53,7 +53,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## Publish to a Service Fabric cluster
 
-Now that the application is ready, you can deploy it to a cluster directly from Visual Studio. A [Service Fabric cluster](/service-fabric/service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed.
+Now that the application is ready, you can deploy it to a cluster directly from Visual Studio. A [Service Fabric cluster](https://docs.microsoft.com/en-gb/azure/service-fabric/service-fabric-deploy-anywhere) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed.
 
 For this tutorial, you have two options for deployment of the Voting application to a Service Fabric cluster using Visual Studio:
 
@@ -61,7 +61,7 @@ For this tutorial, you have two options for deployment of the Voting application
 * Publish to an existing cluster in your subscription.  You can create Service Fabric clusters through the [Azure portal](https://portal.azure.com), using [PowerShel](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) or [Azure CLI](./scripts/cli-create-cluster.md) scripts, or from a [Azure Resource Manager template](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 > [!NOTE]
-> Many services use the reverse proxy to communicate with each other. Clusters created from Visual Studio and party clusters have reverse proxy enabled by default.  If using an existing cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy.md#setup-and-configuration).
+> Many services use the reverse proxy to communicate with each other. Clusters created from Visual Studio and party clusters have reverse proxy enabled by default.  If using an existing cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy-setup.md#).
 
 
 ### Find the VotingWeb service endpoint for your Azure subscription

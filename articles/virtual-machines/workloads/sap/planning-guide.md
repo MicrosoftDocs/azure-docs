@@ -843,9 +843,9 @@ the same functionality found in the Azure portal.
 
 For information about installation, configuration and how to use CLI commands to accomplish Azure tasks see
 
-* [Install the Azure CLI][xplat-cli]
+* [Install the Azure classic CLI][xplat-cli]
 * [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI][../../linux/create-ssh-secured-vm-from-template.md]
-* [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
+* [Use the Azure classic CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 Also read chapter [Azure CLI for Linux VMs][deployment-guide-4.5.2] in the [Deployment Guide][planning-guide] on how to use Azure CLI to deploy the Azure Monitoring Extension for SAP.
 
@@ -1023,7 +1023,7 @@ To upload an existing VM or VHD from the on-premises network in order to use it 
 * Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image] for Linux
 * Upload the VHD with Powershell or Azure CLI
 * (Optional) Create a Managed Disk Image from the VHD with Powershell, Azure CLI or the Azure portal
-* Deploy the VM with a JSON template referencing the image VHD as shown in [this example JSON template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json) or using the Managed Disk Image as shown in [this example JSON template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).
+* Deploy the VM with a JSON template referencing the image VHD as shown in [this example JSON template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json) or using the Managed Disk Image as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### Downloading VHDs or Managed Disks to on-premises
 Azure Infrastructure as a Service is not a one-way street of only being able to upload VHDs and SAP systems. You can move SAP systems from Azure back into the on-premises world as well.
@@ -1058,7 +1058,7 @@ During the time of the download the VHDs or Managed Disks can't be active. Even 
 
   For more details of the Save-AzureRmVhd cmdlet, please check here <https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvhd>.
 
-#### CLI 2.0
+#### Azure CLI
   * Downloading a Managed Disk  
   You first need to get access to the underlying blob of the Managed Disk. Then you can copy the underlying blob to a new storage account and download the blob from this storage account.
   ```
@@ -1096,7 +1096,7 @@ $config = New-AzureRmDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<s
 New-AzureRmDisk -ResourceGroupName <resource group name> -DiskName <disk name> -Disk $config
 ```
 
-##### CLI 2.0
+##### Azure CLI
 You can use Azure CLI to copy a VHD as shown in [this article][storage-azure-cli-copy-blobs]. To create a new Managed Disk, use *az disk create* as shown in the following example.
 
 ```
@@ -1138,7 +1138,7 @@ $disk = New-AzureRmDisk -DiskName <disk name> -Disk $diskConfig -ResourceGroupNa
 $vm = Add-AzureRmVMDataDisk -VM $vm -Caching <caching option> -Lun <lun, for example 0> -CreateOption attach -ManagedDiskId $disk.Id
 $vm | Update-AzureRmVM
 ```
-##### CLI 2.0
+##### Azure CLI
 ```
 
 # attach a vhd to a vm
@@ -1163,8 +1163,8 @@ You can also copy VHDs between subscriptions. For more information read [this ar
 
 The basic flow of the PS cmdlet logic looks like this:
 
-* Create a storage account context for the **source** storage account with *New-AzureStorageContext* - see <https://msdn.microsoft.com/library/dn806380.aspx>
-* Create a storage account context for the **target** storage account with *New-AzureStorageContext* - see <https://msdn.microsoft.com/library/dn806380.aspx>
+* Create a storage account context for the **source** storage account with *New-AzureStorageContext* - see <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
+* Create a storage account context for the **target** storage account with *New-AzureStorageContext* - see <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
 * Start the copy with
 
 ```powershell
@@ -1181,7 +1181,7 @@ Get-AzureStorageBlobCopyState -Blob <target blob name> -Container <target contai
 
 For examples see [this article][storage-powershell-guide-full-copy-vhd].
 
-##### CLI 2.0
+##### Azure CLI
 * Start the copy with
 
 ```

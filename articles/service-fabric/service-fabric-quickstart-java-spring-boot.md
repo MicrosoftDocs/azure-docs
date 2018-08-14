@@ -44,13 +44,13 @@ To complete this quickstart:
     
     b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 
-2. [Install Git](https://git-scm.com/)
-3. Install Yeoman
+1. [Install Git](https://git-scm.com/)
+1. Install Yeoman
 
     a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
 
     b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-4. Set up Java Environment
+1. Set up Java Environment
 
     a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
     
@@ -74,11 +74,11 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 ## Package the Spring Boot application 
 1. Inside the `gs-spring-boot` directory in your clone, run the `yo azuresfguest` command. 
 
-2. Enter the following details for each prompt.
+1. Enter the following details for each prompt.
 
     ![Yeoman Entries](./media/service-fabric-quickstart-java-spring-boot/yeomanspringboot.png)
 
-3. In the `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` folder, create a file called `entryPoint.sh`. Add the following to the `entryPoint.sh` file. 
+1. In the `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` folder, create a file called `entryPoint.sh`. Add the following to the `entryPoint.sh` file. 
 
     ```bash
     #!/bin/bash
@@ -87,7 +87,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     java -jar gs-spring-boot-0.1.0.jar
     ```
 
-4. Add the **Endpoints** resource in the `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml` file
+1. Add the **Endpoints** resource in the `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml` file
 
     ```xml 
         <Resources>
@@ -146,19 +146,19 @@ At this stage, you have created a Service Fabric application for the Spring Boot
     
     ![Local cluster healthy](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
-2. Navigate to the `gs-spring-boot/SpringServiceFabric` folder.
-3. Run the following command to connect to your local cluster.
+1. Navigate to the `gs-spring-boot/SpringServiceFabric` folder.
+1. Run the following command to connect to your local cluster.
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
     ```
-4. Run the `install.sh` script.
+1. Run the `install.sh` script.
 
     ```bash
     ./install.sh
     ```
 
-5. Open your favorite web browser and access the application by accessing **http://localhost:8080**.
+1. Open your favorite web browser and access the application by accessing **http://localhost:8080**.
 
     ![Application front-end Local](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
@@ -209,18 +209,18 @@ Use whatever method you are most comfortable with to import the certificate on y
 Now that the application and your cluster are ready, you can deploy it to the cluster directly from command line.
 
 1. Navigate to the `gs-spring-boot/SpringServiceFabric` folder.
-2. Run the following command to connect to your Azure cluster.
+1. Run the following command to connect to your Azure cluster.
 
     ```bash
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
     ```
-3. Run the `install.sh` script.
+1. Run the `install.sh` script.
 
     ```bash
     ./install.sh
     ```
 
-4. Open your web browser and access the application by accessing: **http://\<ConnectionIPOrUrl>:8080**.
+1. Open your web browser and access the application by accessing: **http://\<ConnectionIPOrUrl>:8080**.
 
     ![Application front-end Local](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
 
@@ -235,13 +235,13 @@ Service Fabric Explorer runs in all Service Fabric clusters and can be accessed 
 To scale the web front-end service, do the following:
 
 1. Open Service Fabric Explorer in your cluster - for example, `http://localhost:19080`.
-2. Click on the ellipsis (three dots) next to the **fabric:/SpringServiceFabric/SpringGettingStarted** node in the treeview and choose **Scale Service**.
+1. Click on the ellipsis (three dots) next to the **fabric:/SpringServiceFabric/SpringGettingStarted** node in the treeview and choose **Scale Service**.
 
     ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     You can now choose to scale the number of instances of the service.
 
-3. Change the number to **3** and click **Scale Service**.
+1. Change the number to **3** and click **Scale Service**.
 
     An alternative way to scale the service using command line is as follows.
 
@@ -253,7 +253,7 @@ To scale the web front-end service, do the following:
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
-4. Click on the **fabric:/SpringServiceFabric/SpringGettingStarted** node in the tree-view and expand the partition node (represented by a GUID).
+1. Click on the **fabric:/SpringServiceFabric/SpringGettingStarted** node in the tree-view and expand the partition node (represented by a GUID).
 
     ![Service Fabric Explorer Scale Service Complete](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
@@ -266,10 +266,10 @@ Through this simple management task, you've doubled the resources available for 
 To demonstrate service failover, a node restart is simulated by using Service Fabric Explorer. Ensure only one instance of your service is running.
 
 1. Open Service Fabric Explorer in your cluster - for example, `http://localhost:19080`.
-2. Click on the ellipsis (three dots) next to the node running the instance of your service and Restart the node.
+1. Click on the ellipsis (three dots) next to the node running the instance of your service and Restart the node.
 
     ![Service Fabric Explorer Restart Node](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
-3. The instance of your service is moved to a different node and your application has no downtime.
+1. The instance of your service is moved to a different node and your application has no downtime.
 
     ![Service Fabric Explorer Restart Node Succeed](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
 

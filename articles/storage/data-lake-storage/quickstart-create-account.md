@@ -3,8 +3,6 @@ title: Create an Azure Data Lake Storage Gen2 Preview storage account | Microsof
 description: Quickly learn to create a new storage account with access to Data Lake Storage Gen2 Preview using the Azure portal, Azure PowerShell, or the Azure CLI
 services: storage
 author: jamesbak
-manager: twooley
-
 ms.component: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
@@ -207,7 +205,7 @@ az storage account create \
     --location westus2 \
     --sku Standard_LRS \
     --kind StorageV2 \
-    --Enable-hierarchical-namespace true
+    --hierarchical-namespace true
 ```
 
 ### Clean up resources

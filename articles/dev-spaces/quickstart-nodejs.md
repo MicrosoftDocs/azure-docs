@@ -34,6 +34,10 @@ In this guide, you will learn how to:
 
 ## Set up Azure Dev Spaces
 
+The Azure CLI and the Azure Dev Spaces extension can be installed and run on Windows, Mac, or Linux machines. For Linux, the following distributions are supported: Ubuntu (18.04, 16.04, and 14.04), Debian 8 and 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2, and SLES 12.
+
+Follow these steps to set up Azure Dev Spaces:
+
 1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.38 or higher).
 1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. Download the [Azure Dev Spaces extension](https://aka.ms/get-azds-code) for VS Code. Click Install once on the extension's Marketplace page, and again in VS Code.

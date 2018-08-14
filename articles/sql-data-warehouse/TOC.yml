@@ -8,6 +8,10 @@
     href: cheat-sheet.md
 - name: Release Notes
   items:
+    - name: August 2018 
+      href: release-notes-august-2018.md
+    - name: July 2018 
+      href: release-notes-july-2018.md
     - name: June 2018 
       href: release-notes-june-2018.md
     - name: May 2018
@@ -109,8 +113,12 @@
       href: memory-and-concurrency-limits.md
     - name: Columnstore compression
       href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
-  - name: Monitor
-    href: sql-data-warehouse-manage-monitor.md
+  - name: Manageability & Monitoring
+    items:
+    - name: Monitor 
+      href: sql-data-warehouse-manage-monitor.md
+    - name: Recommendations 
+      href: sql-data-warehouse-concept-recommendations.md
   - name: Develop data warehouses
     items:
     - name: Overview

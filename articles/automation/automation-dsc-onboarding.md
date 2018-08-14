@@ -6,8 +6,8 @@ ms.service: automation
 ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
 ms.topic: conceptual
+ms.date: 07/20/2018
 manager: carmonm
 ---
 # Onboarding machines for management by Azure Automation DSC
@@ -18,9 +18,8 @@ Like [PowerShell Desired State Configuration](https://technet.microsoft.com/libr
 
 Azure Automation DSC can be used to manage a variety of machines:
 
-* Azure virtual machines (classic)
-* Azure virtual machines
-* Amazon Web Services (AWS) virtual machines
+* Azure virtual machines ( deployed both in classic and Azure Resource Manager deployment model )
+* Amazon Web Services (AWS) EC2 instances 
 * Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS
 * Physical/virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
 

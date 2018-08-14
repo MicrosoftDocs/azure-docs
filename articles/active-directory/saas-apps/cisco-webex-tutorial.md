@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Cisco Webex | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Cisco Webex.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Cisco Webex from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Add Cisco Webex from the gallery
 To configure the integration of Cisco Webex into Azure AD, you need to add Cisco Webex from the gallery to your list of managed SaaS apps.
@@ -61,17 +61,17 @@ To configure the integration of Cisco Webex into Azure AD, you need to add Cisco
 
 	![The Azure Active Directory button][1]
 
-2. Go to **Enterprise applications**. Then go to **All applications**.
+1. Go to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add a new application, select the **New application** button on the top of the dialog box.
+1. To add a new application, select the **New application** button on the top of the dialog box.
 
 	![The New application button][3]
 
-4. In the search box, type **Cisco Webex**. 
+1. In the search box, type **Cisco Webex**. 
 
-5. Select **Cisco Webex** from the results panel. Then select the **Add** button to add the application.
+1. Select **Cisco Webex** from the results panel. Then select the **Add** button to add the application.
 
 	![Cisco Webex in the results list](./media/cisco-webex-tutorial/tutorial_ciscowebex_addfromgallery.png)
 
@@ -86,10 +86,10 @@ In Cisco Webex, give the value **Username** the same value as **user name** in A
 To configure and test Azure AD single sign-on with Cisco Webex, complete the following building blocks:
 
 1. [Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on) to enable your users to use this feature.
-2. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with Britta Simon.
-3. [Create a Cisco Webex test user](#create-a-cisco-webex-test-user) to have a counterpart of Britta Simon in Cisco Webex that is linked to the Azure AD representation of user.
-4. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
-5. [Test single sign-on](#test-single-sign-on) to verify that the configuration works.
+1. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with Britta Simon.
+1. [Create a Cisco Webex test user](#create-a-cisco-webex-test-user) to have a counterpart of Britta Simon in Cisco Webex that is linked to the Azure AD representation of user.
+1. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
+1. [Test single sign-on](#test-single-sign-on) to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -101,11 +101,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. To enable single sign-on, in the **Single sign-on** dialog box, in the **Mode** drop-down list, select **SAML-based Sign-on**.
+1. To enable single sign-on, in the **Single sign-on** dialog box, in the **Mode** drop-down list, select **SAML-based Sign-on**.
  
 	![Single sign-on dialog box](./media/cisco-webex-tutorial/tutorial_ciscowebex_samlbase.png)
 
-3. In the **Cisco Webex Domain and URLs** section, take the following steps:
+1. In the **Cisco Webex Domain and URLs** section, take the following steps:
 
 	![Cisco Webex Domain and URLs single sign-on information](./media/cisco-webex-tutorial/tutorial_ciscowebex_url.png)
 
@@ -118,29 +118,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual reply URL and sign-on URL. Contact [Cisco Webex Client support team](https://www.webex.co.in/support/support-overview.html) to get these values. 
 
-5. On the **SAML Signing Certificate** section, select **Metadata XML**, and then save the metadata file on your computer.
+1. On the **SAML Signing Certificate** section, select **Metadata XML**, and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/cisco-webex-tutorial/tutorial_ciscowebex_certificate.png) 
 
-6. Select **Save**.
+1. Select **Save**.
 
 	![Configure the single sign-On Save button](./media/cisco-webex-tutorial/tutorial_general_400.png)
 	
-6. In the **Cisco Webex Configuration** section, select **Configure Cisco Webex** to open the **Configure sign-on** window. Copy the **Sign-Out URL**, **SAML Entity ID**, and **SAML Single Sign-On Service URL** from the **Quick Reference** section.
+1. In the **Cisco Webex Configuration** section, select **Configure Cisco Webex** to open the **Configure sign-on** window. Copy the **Sign-Out URL**, **SAML Entity ID**, and **SAML Single Sign-On Service URL** from the **Quick Reference** section.
 
 	![Configure Single Sign-On](./media/cisco-webex-tutorial/tutorial_ciscowebex_configure.png) 
 
-7. In a different web browser window, sign in to your Cisco Webex company site as an administrator.
+1. In a different web browser window, sign in to your Cisco Webex company site as an administrator.
 
-8. From the menu on the top, select **Site Administration**.
+1. From the menu on the top, select **Site Administration**.
 
 	![Site Administration](./media/cisco-webex-tutorial/ic777621.png "Site Administration")
 
-9. In the **Manage Site** section, select **SSO Configuration**.
+1. In the **Manage Site** section, select **SSO Configuration**.
    
 	![SSO Configuration](./media/cisco-webex-tutorial/ic777622.png "SSO Configuration")
 
-10. In the **Federated Web SSO Configuration** section, take the following steps:
+1. In the **Federated Web SSO Configuration** section, take the following steps:
    
 	![Federated SSO Configuration](./media/cisco-webex-tutorial/ic777623.png "Federated SSO Configuration")  
 
@@ -179,15 +179,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/cisco-webex-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then select **All users**.
+1. To display the list of users, go to **Users and groups**, and then select **All users**.
 
     ![The "Users and groups" and "All users" links](./media/cisco-webex-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, select **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, select **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/cisco-webex-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, take the following steps:
+1. In the **User** dialog box, take the following steps:
 
     ![The User dialog box](./media/cisco-webex-tutorial/create_aaduser_04.png)
 
@@ -207,11 +207,11 @@ To enable Azure AD users to sign in to Cisco Webex, they must be provisioned in 
 
 1. Sign in to your **Cisco Webex** tenant.
 
-2. Go to **Manage Users** > **Add User**.
+1. Go to **Manage Users** > **Add User**.
    
 	![Add users](./media/cisco-webex-tutorial/ic777625.png "Add users")
 
-3. In the **Add User** section, take the following steps:
+1. In the **Add User** section, take the following steps:
    
 	![Add user](./media/cisco-webex-tutorial/ic777626.png "Add user")   
 
@@ -244,27 +244,27 @@ In this section, you enable the user Britta Simon to use Azure single sign-on by
 
 1. In the Azure portal, open the applications view. Next, go to the directory view, and then to **Enterprise applications**.  
 
-2. Select **All applications**.
+1. Select **All applications**.
 
 	![Assign user][201] 
 
-3. In the applications list, select **Cisco Webex**.
+1. In the applications list, select **Cisco Webex**.
 
 	![The Cisco Webex link in the Applications list](./media/cisco-webex-tutorial/tutorial_ciscowebex_app.png)  
 
-3. In the menu on the left, select **Users and groups**.
+1. In the menu on the left, select **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Select the **Add** button. Then select **Users and groups** in the  **Add Assignment** dialog box.
+1. Select the **Add** button. Then select **Users and groups** in the  **Add Assignment** dialog box.
 
 	![The Add Assignment pane][203]
 
-5. In the **Users and groups** dialog box, select **Britta Simon** in the **Users** list.
+1. In the **Users and groups** dialog box, select **Britta Simon** in the **Users** list.
 
-6. In the **Users and groups** dialog box, click the **Select** button.
+1. In the **Users and groups** dialog box, click the **Select** button.
 
-7. Select the **Assign** button in the **Add Assignment** dialog box.
+1. Select the **Assign** button in the **Add Assignment** dialog box.
 	
 ### Test single sign-on
 

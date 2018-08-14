@@ -53,6 +53,7 @@
 ### [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
 ### [Developer Tools](documentation-government-services-devtools.md)
 ## [CSP for Azure Government](documentation-government-csp-application.md)
+### [Approved resellers](documentation-government-csp-list.md)
 ## Certifications
 ### [ITAR](documentation-government-overview-itar.md)
 ### [Justice and Public Safety](documentation-government-overview-jps.md)

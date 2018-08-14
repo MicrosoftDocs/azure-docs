@@ -17,6 +17,8 @@ ms.author: routlaw
 
 # Azure Functions Java developer guide
 
+[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
+
 ## Programming model 
 
 Your Azure function should be a stateless class method that processes input and produces output. Although you are allowed to write instance methods, your function must not depend on any instance fields of the class. All function methods must have a `public` access modifier.

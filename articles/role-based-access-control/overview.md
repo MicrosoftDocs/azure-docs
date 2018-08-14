@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/02/2018
+ms.date: 07/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -23,7 +23,7 @@ ms.reviewer: bagovind
 
 Access management for cloud resources is a critical function for any organization that is using the cloud. Role-based access control (RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
 
-RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) that provides fine-grained access management of resources in Azure. Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions at a particular scope.
+RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) that provides fine-grained access management of resources in Azure.
 
 ## What can I do with RBAC?
 
@@ -33,6 +33,14 @@ Here are some examples of what you can do with RBAC:
 - Allow a DBA group to manage SQL databases in a subscription
 - Allow a user to manage all resources in a resource group, such as virtual machines, websites, and subnets
 - Allow an application to access all resources in a resource group
+
+## Best practice for using RBAC
+
+Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions at a particular scope.
+
+When planning your access control strategy, it's a best practice to grant users the least privilege to get their work done. The following diagram shows a suggested pattern for using RBAC.
+
+![RBAC and least privilege](./media/overview/rbac-least-privilege.png)
 
 ## How RBAC works
 

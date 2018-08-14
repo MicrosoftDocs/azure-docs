@@ -2,14 +2,8 @@
 title: Azure Data Lake Storage Gen2 Preview Introduction
 description: Provides an overview of Azure Data Lake Storage Gen2 Preview
 services: storage
-documentationcenter: ''
 author: jamesbak
-manager: jahogg
-
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak

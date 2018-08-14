@@ -200,7 +200,7 @@ Read more about Virtual Kubelet at the [Virtual Kubelet Github projet][vk-github
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
 [aks-remove-connector]: /cli/azure/aks#az-aks-remove-connector
-[az-container-list]: /cli/azure/aks#az_aks_list
+[az-container-list]: /cli/azure/aks#az-aks-list
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
 
 <!-- LINKS - external -->

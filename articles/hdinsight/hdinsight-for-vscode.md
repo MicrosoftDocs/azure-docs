@@ -1,18 +1,13 @@
 ---
-title: Azure HDInsight Tools - Use Visual Studio Code for Hive, LLAP or pySpark | Microsoft Docs
+title: Azure HDInsight Tools - Use Visual Studio Code for Hive, LLAP or pySpark 
 description: Learn how to use the Azure HDInsight Tools for Visual Studio Code to create and submit queries and scripts.
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
-documentationcenter: ''
 author: jejiang
-manager: 
-editor: jgao
-tags: azure-portal
+editor: jasonwhowell jgao
 
-ms.assetid: 
 ms.service: HDInsight
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: jejiang
 ---

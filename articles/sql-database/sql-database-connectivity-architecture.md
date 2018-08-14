@@ -45,7 +45,8 @@ If you are connecting from outside Azure, your connections have a connection pol
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> When using service endpoints with Azure SQL Database your policy is **Redirect** by default. So to enable connectivity from inside your Vnet you must allow outbound to all Azure SQL Database IP addresses, not just the gateway IPs. This can be done with the help of NSG (Network Security Group) Service Tags, if you want to allow outbound only to gateway IPs please change your setting to **Proxy**.
+> When using service endpoints with Azure SQL Database your policy is **Proxy** by default. To enable connectivity from inside your Vnet, allow outbound connections to the Azure SQL Database Gateway IP addresses specified in the list below. 
+When using service endpoints we highly recommend changing your connection policy to **Redirect** to enable better performance. If you change your connection policy to **Redirect** it will not be sufficient to allow outbound on your NSG to Azure SQLDB gateway IPs listed below, you must allow outbound to all Azure SQLDB IPs. This can be accomplished with the help of NSG (Network Security Groups) Service Tags. For more information, see [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
 
 ## Azure SQL Database gateway IP addresses
 
