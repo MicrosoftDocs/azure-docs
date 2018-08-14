@@ -23,11 +23,7 @@ You'll learn how to:
 > [!div class="checklist"]
 > * Set up your development environment
 > * Access and examine the data
-<<<<<<< HEAD
 > * Train a simple logistic regression locally using the popular scikit-learn maching learning library 
-=======
-> * Train a simple logistic regression locally using the popular scikit-learn machine learning library 
->>>>>>> 5bfdb315570098e1c4591167acce62c7d153f178
 > * Train multiple models on a remote GPU cluster
 > * Review training details and register the best model
 
@@ -260,7 +256,6 @@ With almost no effort, you have a 92% accuracy.
 
 ## Train on a remote cluster
 
-<<<<<<< HEAD
 Now you can expand on this simple model by building multiple versions of the model using different regularization rates.  
 
 For this task, submit the job to the Batch AI cluster you set up earlier so you can:
@@ -271,31 +266,6 @@ For this task, submit the job to the Batch AI cluster you set up earlier so you 
 ### Create a training script
 
 To submit the job to the cluster, you need to create a training script. Run the following code to create the training script called train.py in a place the workspace can find it.
-=======
-* Create a training script
-* Create an estimator
-* Submit job 
-
-### Create a training script
-
-You need a training script to submit the job to the cluster. Let's write one now.
-
-Notice how the script gets data and saves models:
-
-* The training script will read an argument to find the data folder.  When you submit the job, you'll point to the datastore for this argument:
-
-    ```Python
-    parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data folder mounting point')
-    ```
-    
-* The training script will save your model into a folder named `outputs`. The `outputs` folder is a special construct - anything written in this folder is automatically uploaded into your workspace. You'll access your model from here later in the tutorial.
-
-    ```Python
-    saver.save(sess, './outputs/model/mnist-tf.model')
-    ```
-
-
->>>>>>> 5bfdb315570098e1c4591167acce62c7d153f178
 
 ```python
 %%writefile $proj.project_directory/train.py
