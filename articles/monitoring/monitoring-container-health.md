@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2018
+ms.date: 08/14/2018
 ms.author: magoedte
 ---
 
@@ -34,13 +34,15 @@ If you are interested in monitoring and managing your Docker and Windows contain
 Before you start, make sure that you have the following:
 
 - A new or existing AKS cluster.
-- A containerized OMS Agent for Linux version microsoft/oms:ciprod04202018 or later. The version number is represented by a date in the following format: *mmddyyyy*. The agent is installed automatically during the onboarding of container health. 
+- A containerized Log Analytics agent for Linux version microsoft/oms:ciprod04202018 or later. The version number is represented by a date in the following format: *mmddyyyy*. The agent is installed automatically during the onboarding of container health. 
 - A Log Analytics workspace. You can create it when you enable monitoring of your new AKS cluster or let the onboarding experience create a default workspace in the default resource group of the AKS cluster subscription. If you chose to create it yourself, you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
 - The Log Analytics contributor role, to enable container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
 
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+
 ## Components 
 
-Your ability to monitor performance relies on a containerized OMS Agent for Linux, which collects performance and event data from all nodes in the cluster. The agent is automatically deployed and registered with the specified Log Analytics workspace after you enable container monitoring. 
+Your ability to monitor performance relies on a containerized Log Analytics agent for Linux, which collects performance and event data from all nodes in the cluster. The agent is automatically deployed and registered with the specified Log Analytics workspace after you enable container monitoring. 
 
 >[!NOTE] 
 >If you have already deployed an AKS cluster, you enable monitoring by using either Azure CLI or a provided Azure Resource Manager template, as demonstrated later in this article. You cannot use `kubectl` to upgrade, delete, re-deploy, or deploy the agent. 
@@ -299,7 +301,7 @@ omsagent   1         1         1            1            3h
 
 ### Agent version earlier than 06072018
 
-To verify that the OMS agent version released before *06072018* is deployed properly, run the following command:  
+To verify that the Log Analytics agent version released before *06072018* is deployed properly, run the following command:  
 
 ```
 kubectl get ds omsagent --namespace=kube-system
