@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/15/2018
 ---
 
 # Migrate SQL Server to Azure SQL Database Managed Instance using DMS
@@ -168,7 +168,7 @@ After an instance of the service is created, locate it within the Azure portal, 
     |**User name** | Make sure that the Windows user has full control privilege on the network share that you provided above. The Azure Database Migration Service will impersonate the user credential to upload the backup files to Azure storage container for restore operation. If TDE-enabled databases are selected for migration, the above windows user must be the built-in administrator account and [User Account Control](https://docs.microsoft.com/en-us/windows/security/identity-protection/user-account-control/user-account-control-overview) must be disabled for Azure Database Migration Service to upload and delete the certificates files.) |
     |**Password** | Password for the user. |
     |**Storage account settings** | The SAS URI that provides the Azure Database Migration Service with access to your storage account container to which the service uploads the back-up files and that is used for migrating databases to Azure SQL Database Managed Instance. [Learn how to get the SAS URI for blob container](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
-    |**TRE Settings** | If you are migrating the source databases with Transparent Data Encryption (TDE) enabled, you need to have write privileges on the target Azure SQL DB Managed Instance.  Select the subscription in which the Azure SQL DB Managed Instance provisioned from the drop-down menu.  Select the target Azure SQL DB Managed Instance in the drop-down menu. |
+    |**TDE Settings** | If you are migrating the source databases with Transparent Data Encryption (TDE) enabled, you need to have write privileges on the target Azure SQL DB Managed Instance.  Select the subscription in which the Azure SQL DB Managed Instance provisioned from the drop-down menu.  Select the target Azure SQL DB Managed Instance in the drop-down menu. |
     
     ![Configure Migration Settings](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings3.png)
 
