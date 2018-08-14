@@ -61,8 +61,8 @@ If you don’t see the kubernetes dashboard, then check if the kube-proxy pod is
 
 Make sure that the default NSG is not modified and port 22 is open for connection to the API server. Check if the tunnelfront pod is running in the kube-system namespace. If it is not, force delete it and it will restart.
 
-## I am trying to upgrade or scale and am getting "message": "Changing property 'imageReference' is not allowed." Error. I have modified the tags in the agent nodes inside the AKS cluster. How do i fix this?
+## I am trying to upgrade or scale and am getting "message": "Changing property 'imageReference' is not allowed." Error.  How do i fix this?
 
-Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Modifying the resources under the MC_* in the AKS cluster breaks the SLO.
+It is possible that you are getting this error because you have modified the tags in the agent nodes inside the AKS cluster. Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Modifying the resources under the MC_* in the AKS cluster breaks the SLO.
 
 
