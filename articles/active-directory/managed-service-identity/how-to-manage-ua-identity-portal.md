@@ -1,6 +1,6 @@
 ---
-title: How to manage a user assigned Managed Service Identity (MSI) using the Azure portal
-description: Step by step instructions on how to create, list and delete a user assigned managed service Identity.
+title: How to manage a user assigned managed identity using the Azure portal
+description: Step by step instructions on how to create, list and delete a user assigned managed identity.
 services: active-directory
 documentationcenter: 
 author: daveba
@@ -17,7 +17,7 @@ ms.date: 04/16/2018
 ms.author: daveba
 ---
 
-# Create, list or delete a user assigned Managed Service Identity (MSI) using the Azure portal
+# Create, list or delete a user assigned identity using the Azure portal
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
