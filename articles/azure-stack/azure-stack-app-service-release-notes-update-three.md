@@ -22,8 +22,8 @@ ms.reviewer: brenduns
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-These release notes describe the improvements and fixes in Azure App Service on Azure Stack Update 3 and any known issues. Known issues are divided into issues directly related to the deployment, update process, and issues with the build     (post-installation).
-
+These release notes describe the improvements and fixes in Azure App Service on Azure Stack Update 3 and any known issues. Known issues are divided into issues directly related to the deployment, update process, and issues with the build (post-installation).
+    
 > [!IMPORTANT]
 > Apply the 1807 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.3.
 >
@@ -43,7 +43,7 @@ Azure App Service on Azure Stack Update 3 includes the following improvements an
 
 - Support for use of SQL Server Always On for Azure App Service Resource Provider databases.
 
-- Added new Environment parameter to the Create-AADIdentityApp helper script to assist targetting different AAD regions.
+- Added new Environment parameter to the Create-AADIdentityApp helper script to assist tar getting different AAD regions.
 
 - Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**. Consistent with Azure Stack Portal SDK version.
 
@@ -65,7 +65,7 @@ Azure App Service on Azure Stack Update 3 includes the following improvements an
 
 ### Post Update Steps (optional)
 
-For customers wishing to migrate to contained database for existing Azure App Service on Azure Stack deploments, execute these steps after the Azure App Service on Azure Stack 1.3 update has completed:
+For customers wishing to migrate to contained database for existing Azure App Service on Azure Stack deployments, execute these steps after the Azure App Service on Azure Stack 1.3 update has completed:
 
 > [!IMPORTANT] This procedure takes approximately 5-10 minutes.  This procedure involves killing the existing database login sessions.  Plan for downtime to migrate and validate Azure App Service on Azure Stack post migration
 >
