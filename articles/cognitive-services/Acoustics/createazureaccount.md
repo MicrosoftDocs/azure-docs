@@ -28,7 +28,7 @@ Pick default options for both Batch and Storage accounts
 
 It takes a few minutes for Azure to deploy the accounts. Look for a completion notification in the upper right corner on the portal.
   
-  ![Accounts Deployed](media/BatchAccountsDeploynotification.png)
+  ![Accounts Deployed](media/BatchAccountsDeployNotification.png)
 
 Your accounts should now be visible on your dashboard.
   
