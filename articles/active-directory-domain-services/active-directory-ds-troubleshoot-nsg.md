@@ -13,7 +13,7 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: ergreenl
 
@@ -32,8 +32,8 @@ Invalid NSG configurations are the most common cause of network errors for Azure
 1. Navigate to the [Network security groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) page in the Azure portal
 2. From the table, choose the NSG associated with the subnet in which your managed domain is enabled.
 3. Under **Settings** in the left-hand panel, click **Inbound security rules**
-4. Review the rules in place and identify which rules are blocking access to [these ports](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services).
-5. Edit the NSG to ensure compliance by either deleting the rule, adding a rule, or creating a new NSG entirely. Steps to [add a rule](#add-a-rule-to-a-network-security-group-using-the-azure-portal) or [create a new, compliant NSG](#create-a-nsg-for-azure-ad-domain-services-using-powershell) are below.
+4. Review the rules in place and identify which rules are blocking access to [these ports](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
+5. Edit the NSG to ensure compliance by either deleting the rule, adding a rule, or creating a new NSG entirely. Steps to [add a rule](#add-a-rule-to-a-network-security-group-using-the-azure-portal) or [create a new, compliant NSG](#create-a-nsg-for-azure-ad-domain-services-using-powershell) are below
 
 ## Sample NSG
 The following table depicts a sample NSG that would keep your managed domain secure while allowing Microsoft to monitor, manage, and update information.
@@ -46,7 +46,7 @@ The following table depicts a sample NSG that would keep your managed domain sec
 ## Add a rule to a Network Security Group using the Azure portal
 If you do not want to use PowerShell, you can manually add single rules to NSGs using the Azure portal. To create rules in your Network security group, complete the following steps:
 
-1. Navigate to the [Network security groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) page in the Azure portal
+1. Navigate to the [Network security groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) page in the Azure portal.
 2. From the table, choose the NSG associated with the subnet in which your managed domain is enabled.
 3. Under **Settings** in the left-hand panel, click either **Inbound security rules** or **Outbound security rules**.
 4. Create the rule by clicking **Add** and filling in the information. Click **OK**.

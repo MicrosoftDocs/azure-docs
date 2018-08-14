@@ -2,13 +2,13 @@
 title: Understanding intents in LUIS apps in Azure | Microsoft Docs
 description: Describes what intents are in Language Understanding Intelligent Service (LUIS) apps.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 # Intents in LUIS
 
@@ -95,5 +95,3 @@ If reducing the number of intents or dividing your intents into multiple apps do
 * Learn more about [entities](luis-concept-entity-types.md), which are important words relevant to intents
 * Learn how to [add and manage intents](luis-how-to-add-intents.md) in your LUIS app.
 * Review intent [best practices](luis-concept-best-practices.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

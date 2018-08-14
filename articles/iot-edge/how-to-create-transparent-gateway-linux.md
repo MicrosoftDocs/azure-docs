@@ -17,8 +17,8 @@ This article provides detailed instructions for using an IoT Edge device as a tr
 >[!NOTE]
 >Currently:
 > * If the gateway is disconnected from IoT Hub, downstream devices cannot authenticate with the gateway.
-> * IoT Edge devices cannot connect to IoT Edge gateways.
-> * Downstream devices can not use file upload.
+> * Edge-enabled devices can't connect to IoT Edge gateways. 
+> * Downstream devices can't use file upload.
 
 The hard part about creating a transparent gateway is securely connecting the gateway to downstream devices. Azure IoT Edge allows you to use PKI infrastructure to set up secure TLS connections between these devices. In this case, we’re allowing a downstream device to connect to an IoT Edge device acting as a transparent gateway.  To maintain reasonable security, the downstream device should confirm the identity of the Edge device because you only want your devices connecting to your gateways and not a potentially malicious gateway.
 
@@ -137,7 +137,11 @@ Installing this certificate in the OS certificate store will allow all applicati
  
     You should see a message saying, "Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done."
 
-* Windows - [This](https://msdn.microsoft.com/en-us/library/cc750534.aspx) article details how to do this on a Windows device using the certificate import wizzard. 
+* Windows - Here is an example of how to install a CA certificate on an Windows host.
+  * On the start menu type in "Manage computer certificates". This should bring up a utility called `certlm`.
+  * Navigate to Certificates Local Computer --> Trusted Root Certificates --> Certificates --> Right click --> All Tasks --> Import to launch the certificate import wizard.
+  * Follow the steps as directed and import certificate file $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
+  * When completed, you should see a "Successfully imported" message.
 
 ### Application level
 For .NET applications, you can add the following snippet to trust a certificate in PEM format. Initialize the variable `certPath` with `$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem`.
@@ -183,12 +187,13 @@ Refer to the [module composition article][lnk-module-composition] for more detai
 <!-- Links -->
 [lnk-install-linux-x64]: ./how-to-install-iot-edge-linux.md
 [lnk-install-linux-arm]: ./how-to-install-iot-edge-linux-arm.md
+[lnk-module-composition]: ./module-composition.md
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
 [lnk-edge-as-gateway]: ./iot-edge-as-gateway.md
 [lnk-module-dev]: module-development.md
-[lnk-iothub-getstarted]: ../iot-hub/iot-hub-csharp-csharp-getstarted.md
+[lnk-iothub-getstarted]: ../iot-hub/quickstart-send-telemetry-dotnet.md
 [lnk-iothub-x509]: ../iot-hub/iot-hub-x509ca-overview.md
 [lnk-iothub-secure-deployment]: ../iot-hub/iot-hub-security-deployment.md
 [lnk-iothub-tokens]: ../iot-hub/iot-hub-devguide-security.md#security-tokens

@@ -8,7 +8,8 @@ manager: cfowler
 editor: ''
 
 ms.service: functions
-ms.workload: na
+ms.technology: vs-azure
+ms.workload: azure-vs
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
@@ -127,7 +128,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
         }
     }
     ````
-    A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters to the **QueueTrigger** attribute.
+    A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters to the **QueueTrigger** attribute. For more information, see [Azure Queue storage bindings for Azure Functions](functions-bindings-storage-queue.md#trigger---c-example).
     
 You can use the above procedure to add more functions to your function app project. Each function in the project can have a different trigger, but a function must have exactly one trigger. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
@@ -193,7 +194,7 @@ You can also manage application settings in one of these other ways:
 
 * [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
-* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set). 
+* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
 
 ## Next steps
 

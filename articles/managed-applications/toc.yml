@@ -25,12 +25,16 @@
     href: sample-projects.md
 - name: How-to guides
   items:
-  - name: Define user interface
+  - name: Create portal interface
     href: create-uidefinition-overview.md
+  - name: Test portal interface
+    href: test-createuidefinition.md
   - name: Update managed resources
     href: update-managed-resources.md
   - name: Use portal to publish
     href: publish-portal.md
+  - name: Use secret from Key Vault
+    href: key-vault-access.md
 - name: Reference
   items:
   - name: Azure CLI

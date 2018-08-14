@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 08/07/2018
 ms.author: jeedes
 
 ---
@@ -97,21 +97,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
 	![Single sign-on dialog box](./media/ziflow-tutorial/tutorial_ziflow_samlbase.png)
 
 3. On the **Ziflow Domain and URLs** section, perform the following steps:
 
 	![Ziflow Domain and URLs single sign-on information](./media/ziflow-tutorial/tutorial_ziflow_url.png)
 
-    a. In the **Sign on URL** textbox, type a URL using the following pattern: `https://<subdomain>.ziflow.io/#/login-sso/<Unique ID>`
+    a. In the **Sign on URL** textbox, type a URL using the following pattern: `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
 
-    b. In the **Identifier** textbox, type a URL using the following pattern: `urn:auth0:ziflow-production:<Unique ID>`
+    b. In the **Identifier** textbox, type a URL using the following pattern: `urn:auth0:ziflow-production:<UniqueID>`
 
-	> [!NOTE] 
-	> The preceding values are not real. You will update the unique ID value in the Identifier and Sign on URL with  actual value, which is explained later in the tutorial. Contact [Ziflow support team](mailto:support@ziflow.com) for the subdomain value in the Sign-on URL.
-	
+	> [!NOTE]
+	> The preceding values are not real. You will update the unique ID value in the Identifier and Sign on URL with  actual value, which is explained later in the tutorial.
+
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/ziflow-tutorial/tutorial_ziflow_certificate.png) 
@@ -125,7 +125,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Ziflow Configuration](./media/ziflow-tutorial/tutorial_ziflow_configure.png) 
 
 7. In a different web browser window, login to Ziflow as a Security Administrator.
-
 
 8. Click on Avatar in the top right corner, and then click **Manage account**.
 
@@ -141,7 +140,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Select **Type** as **SAML2.0**.
 
-	b.In the **Sign In URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from the Azure portal.
+	b. In the **Sign In URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from the Azure portal.
 
     c. Upload the base-64 encoded certificate that you have downloaded from the Azure portal, into the **X509 Signing Certificate**.
 
@@ -249,7 +248,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Ziflow tile in the Access Panel, you should get automatically signed-on to your Ziflow application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

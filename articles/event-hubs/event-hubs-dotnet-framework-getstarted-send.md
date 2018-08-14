@@ -3,7 +3,7 @@ title: Send events to Azure Event Hubs using the .NET Framework | Microsoft Docs
 description: Get started sending events to Event Hubs using the .NET Framework
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -13,13 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
-ms.author: sethm
+ms.date: 07/03/2018
+ms.author: shvija
 
 ---
 # Send events to Azure Event Hubs using the .NET Framework
-
-## Introduction
 
 Event Hubs is a service that processes large amounts of event data (telemetry) from connected devices and applications. After you collect data into Event Hubs, you can store the data using a storage cluster or transform it using a real-time analytics provider. This large-scale event collection and processing capability is a key component of modern application architectures including the Internet of Things (IoT).
 
@@ -27,7 +25,7 @@ This tutorial shows how to use the [Azure portal](https://portal.azure.com) to c
 
 To complete this tutorial, you need the following prerequisites:
 
-* [Microsoft Visual Studio 2015 or higher](http://visualstudio.com). The screen shots in this tutorial use Visual Studio 2017.
+* [Microsoft Visual Studio 2017 or higher](http://visualstudio.com).
 * An active Azure account. If you don't have one, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/free/).
 
 ## Create an Event Hubs namespace and an event hub
@@ -56,8 +54,8 @@ In this section, you write a Windows console app that sends events to your event
 5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the event hub you created in the previous section, and the namespace-level connection string you saved previously.
    
   ```csharp
-  static string eventHubName = "{Event Hub name}";
-  static string connectionString = "{send connection string}";
+  static string eventHubName = "Your Event Hub name";
+  static string connectionString = "namespace connection string";
   ```
 6. Add the following method to the **Program** class:
    
@@ -99,6 +97,7 @@ In this section, you write a Windows console app that sends events to your event
 Congratulations! You have now sent messages to an event hub.
 
 ## Next steps
+
 Now that you've built a working application that creates an event hub and sends data, you can move on to the following scenarios:
 
 * [Receive events using the Event Processor Host](event-hubs-dotnet-framework-getstarted-receive-eph.md)

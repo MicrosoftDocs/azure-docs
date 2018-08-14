@@ -1,237 +1,245 @@
 ---
 title: Face API Java for Android tutorial | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
-description: Create a simple Android app that uses the Cognitive Services Face API to detect and frame human faces in an image.
+description: In this tutorial, you create a simple Android app that uses the Cognitive Services Face service to detect and frame faces in an image.
 services: cognitive-services
-author: SteveMSFT
-manager: corncar
+author: noellelacharite
+manager: nolachar
+
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
-ms.date: 03/01/2018
-ms.author: sbowles
+ms.topic: tutorial
+ms.date: 07/12/2018
+ms.author: nolachar
+#Customer intent: As a developer, I want to use the client library to make calling the Face service easier.
 ---
 
-# Getting Started with Face API in Java for Android Tutorial
+# Tutorial: Create an Android app to detect and frame faces in an image
 
-In this tutorial, you will learn to create and develop a simple Android application that invokes the Face API to detect human faces in an image. The application shows the result by framing the faces that it detects.
+In this tutorial, you create a simple Android application that uses the Face service Java class library to detect human faces in an image. The application shows a selected image with each detected face framed by a rectangle. The complete sample code is available on GitHub at [Detect and frame faces in an image on Android](https://github.com/Azure-Samples/cognitive-services-face-android-sample).
 
-![GettingStartedAndroid](../Images/android_getstarted2.1.PNG)
+![Android screenshot of a photo with faces framed by a red rectangle](../Images/android_getstarted2.1.PNG)
 
-## <a name="preparation"></a> Preparation
+This tutorial shows you how to:
 
-To use the tutorial, you will need the following prerequisites:
+> [!div class="checklist"]
+> - Create an Android application
+> - Install the Face service client library
+> - Use the client library to detect faces in an image
+> - Draw a frame around each detected face
 
-- Android Studio and SDK installed
-- Android device (optional for testing).
+## Prerequisites
 
-## <a name="step1"></a>Step 1: Subscribe for Face API and get your subscription key
+- You need a subscription key to run the sample. You can get free trial subscription keys from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- [Android Studio](https://developer.android.com/studio/) with minimum SDK 22 (required by the Face client library).
+- The [com.microsoft.projectoxford:face:1.4.3](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.microsoft.projectoxford%22) Face client library from Maven. It isn't necessary to download the package. Installation instructions are provided below.
 
-Before using any Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services portal. See [subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both primary and secondary key can be used in this tutorial.
+## Create the project
 
-## <a name="step2"></a>Step 2: Create the application framework
+Create your Android application project by following these steps:
 
-In this step you will create an Android application project to implement the basic UI for picking up and displaying an image. Simply follow the instructions below: 
+1. Open Android Studio. This tutorial uses Android Studio 3.1.
+1. Select **Start a new Android Studio project**.
+1. On the **Create Android Project** screen, modify the default fields, if necessary, then click **Next**.
+1. On the **Target Android Devices** screen, use the dropdown selector to choose **API 22** or higher, then click **Next**.
+1. Select **Empty Activity**, then click **Next**.
+1. Uncheck **Backwards Compatibility**, then click **Finish**.
 
-1. Open Android Studio.
-2. From the File menu, click **New Project...**
-3. Name the application **MyFirstApp**, and then click Next. 
+## Create the UI for selecting and displaying the image
 
-    ![GettingStartAndroidNewProject](../Images/AndroidNewProject.png)
+Open *activity_main.xml*; you should see the Layout Editor. Select the **Text** tab, then replace the contents with the following code.
 
-4. Choose target platform as required, and then click Next. 
+```xml
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-    ![GettingStartAndroidNewProject2](../Images/AndroidNewProject2.png)
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView1"
+        android:layout_above="@+id/button1"
+        android:contentDescription="Image with faces to analyze"/>
 
-5. Select **Basic Activity** and then click Next.
-6. Name the activity as follows, and then click Finish. 
-
-    ![GettingStartAndroidNewProject4](../Images/AndroidNewProject4.png)
-
-7. Open **activity_main.xml**, you should see the Layout Editor of this activity.
-8. View Text source file and then edit the activity layout as follows:
-
-    ```xml
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
-     
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/imageView1"
-            android:layout_above="@+id/button1" />
-    
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Browse"
-            android:id="@+id/button1"
-            android:layout_alignParentBottom="true" />
-    </RelativeLayout>
-    ```  
-
-9. Open **MainActivity.java** and insert the following import directives at the beginning of the file:
-
-	```java
-	import java.io.*; 
-	import android.app.*; 
-	import android.content.*; 
-	import android.net.*; 
-	import android.os.*; 
-	import android.view.*; 
-	import android.graphics.*; 
-	import android.widget.*; 
-	import android.provider.*;
-	```
-	  
-	Secondly, modify the class as follows:  
-	
-	```java
-	private final int PICK_IMAGE = 1;
-	private ProgressDialog detectionProgressDialog;
-		 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		   super.onCreate(savedInstanceState);
-		   setContentView(R.layout.activity_main);
-		   Button button1 = (Button)findViewById(R.id.button1);
-		   button1.setOnClickListener(new View.OnClickListener() {
-		        @Override
-		        public void onClick(View v) {
-				Intent gallIntent = new Intent(Intent.ACTION_GET_CONTENT);
-				gallIntent.setType("image/*");
-				startActivityForResult(Intent.createChooser(gallIntent, "Select Picture"), PICK_IMAGE);
-			}
-		});
-		 
-		detectionProgressDialog = new ProgressDialog(this);
-	}
-	
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
-			Uri uri = data.getData();
-			try {
-				Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-				ImageView imageView = (ImageView) findViewById(R.id.imageView1);
-				imageView.setImageBitmap(bitmap);
-		        } catch (IOException e) {
-				e.printStackTrace();
-		        }
-		}
-	}
-	```
-
-Now your app can browse for a photo from the gallery and display it in the window similar to the image below:
-
-![GettingStartAndroidUI](../Images/android_getstarted1.1.PNG)
-
-## <a name="step3"></a>Step 3: Configure the Face API client library
-
-The Face API is a cloud API which you can invoke using HTTPS requests. For a more convenient way of using the Face API in .NET platform applications, a client library is also provided to encapsulate the web requests. In this example, we use the client library to simplify our work. 
-
-Follow the instructions below to configure the client library: 
-
-1. Locate the top-level **build.gradle** file of your project from the Project panel shown in the example. Note that there are several other **build.gradle** files in your project tree, and you need to open the top-level **build.gradle** file at first.
-2. Add **mavenCentral()** to your projects' repositories. You can also use jcenter(), which is the default repository of Android Studio, since jcenter() is a superset of mavenCentral().  
-
-```
-	allprojects {
-		repositories {
-			...
-			mavenCentral()
-		}
-	}
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Browse for face image"
+        android:id="@+id/button1"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>
 ```
 
-3. Open the **build.gradle** file in your 'app' project.
-4. Add a dependency for our client library stored in the Maven Central Repository:
+Open *MainActivity.java*, then replace everything but the first `package` statement with the following code.
 
-```
-	dependencies {  
-		...  
-		implementation 'com.microsoft.projectoxford:face:1.4.3'  
-	}
-```
-
-5. Open **MainActivity.java** in your 'app' project and insert the following import directives: 
-	
-	```java
-	import com.microsoft.projectoxford.face.*;  
-	import com.microsoft.projectoxford.face.contract.*;  
-	```
-	
-   Then, insert the following code in the class:
-
-	```java
-	private FaceServiceClient faceServiceClient = new FaceServiceRestClient("your API endpoint", "<Subscription Key>");
-	```
-
-   Replace the first parameter above with the API endpoint that was assigned to your key in step 1. For example:
-   
-        https://eastus2.api.cognitive.microsoft.com/face/v1.0
-   
-   Replace the second parameter with the subscription key that you obtained in step 1.
-   
-6. Open the file **AndroidManifest.xml** in your 'app' project. Insert the following element as child of the **manifest** element:  
-
-	```xml
-	<uses-permission android:name="android.permission.INTERNET" />  
-	```
-
-7. Now you are ready to call the Face API from your application. 
-
-## <a name="step4"></a>Step 4: Upload images to detect faces
-
-The most straightforward way to detect faces is by calling the [Face – Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API by uploading the image file directly. When using the client library, this can be done by using the asynchronous method **DetectAsync** of the **FaceServiceClient** class. Each returned face contains a rectangle to indicate its location, combined with a series of optional face attributes. In this example, we only need to retrieve the face location. Here we need to insert a method into the **MainActivity** class for face detection: 
+The code sets an event handler on the `Button` that starts a new activity to allow the user to select a picture. Once selected, the picture is displayed in the `ImageView`.
 
 ```java
+import java.io.*;
+import android.app.*;
+import android.content.*;
+import android.net.*;
+import android.os.*;
+import android.view.*;
+import android.graphics.*;
+import android.widget.*;
+import android.provider.*;
 
-    // Detect faces by uploading face images
-    // Frame faces after detection
-    
-    private void detectAndFrame(final Bitmap imageBitmap)
-    {
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-        ByteArrayInputStream inputStream = 
+public class MainActivity extends Activity {
+    private final int PICK_IMAGE = 1;
+    private ProgressDialog detectionProgressDialog;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            Button button1 = (Button)findViewById(R.id.button1);
+            button1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(Intent.createChooser(
+                        intent, "Select Picture"), PICK_IMAGE);
+            }
+        });
+
+        detectionProgressDialog = new ProgressDialog(this);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK &&
+                data != null && data.getData() != null) {
+            Uri uri = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(
+                        getContentResolver(), uri);
+                ImageView imageView = (ImageView) findViewById(R.id.imageView1);
+                imageView.setImageBitmap(bitmap);
+
+                // Uncomment
+                //detectAndFrame(bitmap);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+        }
+    }
+}
+```
+
+Now your app can browse for a photo and display it in the window, similar to the image below.
+
+![Android screenshot of a photo with faces](../Images/android_getstarted1.1.PNG)
+
+## Configure the Face client library
+
+The Face API is a cloud API, which you can call using HTTPS requests. This tutorial uses the Face client library, which encapsulates these web requests, to simplify your work.
+
+In the **Project** pane, use the dropdown selector to select **Android**. Expand **Gradle Scripts**, then open *build.gradle (Module: app)*.
+
+Add a dependency for the Face client library, `com.microsoft.projectoxford:face:1.4.3`, as shown in the screenshot below, then click **Sync Now**.
+
+![Android Studio screenshot of App build.gradle file](../Images/face-tut-java-gradle.png)
+
+Open **MainActivity.java** and append the following import directives:
+
+```java
+import com.microsoft.projectoxford.face.*;
+import com.microsoft.projectoxford.face.contract.*;
+```
+
+## Add the Face client library code
+
+Insert the following code in the `MainActivity` class, above the `onCreate` method:
+
+```java
+private final String apiEndpoint = "<API endpoint>";
+private final String subscriptionKey = "<Subscription Key>";
+
+private final FaceServiceClient faceServiceClient =
+        new FaceServiceRestClient(apiEndpoint, subscriptionKey);
+```
+
+Replace `<API endpoint>` with the API endpoint that was assigned to your key. Free trial subscription keys are generated in the **westcentralus**
+region. So if you're using a free trial subscription key, the statement would be:
+
+```java
+apiEndpoint = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
+```
+
+Replace `<Subscription Key>` with your subscription key. For example:
+
+```java
+subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+```
+
+In the **Project** pane, expand **app**, then **manifests**, and open *AndroidManifest.xml*.
+
+Insert the following element as a direct child of the `manifest` element:
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+Build your project to check for errors. Now you're ready to call the Face service.
+
+## Upload an image to detect faces
+
+The most straightforward way to detect faces is to call the `FaceServiceClient.detect` method. This method wraps the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API method and returns an array of `Face`'s.
+
+Each returned `Face` includes a rectangle to indicate its location, combined with a series of optional face attributes. In this example, only the face locations are required.
+
+If an error occurs, an `AlertDialog` displays the underlying reason.
+
+Insert the following methods into the `MainActivity` class.
+
+```java
+// Detect faces by uploading a face image.
+// Frame faces after detection.
+private void detectAndFrame(final Bitmap imageBitmap) {
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+    ByteArrayInputStream inputStream =
             new ByteArrayInputStream(outputStream.toByteArray());
-        AsyncTask<InputStream, String, Face[]> detectTask =
+
+    AsyncTask<InputStream, String, Face[]> detectTask =
             new AsyncTask<InputStream, String, Face[]>() {
+                String exceptionMessage = "";
+
                 @Override
                 protected Face[] doInBackground(InputStream... params) {
                     try {
                         publishProgress("Detecting...");
                         Face[] result = faceServiceClient.detect(
-                                params[0], 
+                                params[0],
                                 true,         // returnFaceId
                                 false,        // returnFaceLandmarks
-                                null           // returnFaceAttributes: a string like "age, gender"
-				/* If you want value of FaceAttributes, try adding 4th argument like below.
-	                        new FaceServiceClient.FaceAttributeType[] {
-					FaceServiceClient.FaceAttributeType.Age,
-					FaceServiceClient.FaceAttributeType.Gender }
-				*/				
+                                null          // returnFaceAttributes:
+                                /* new FaceServiceClient.FaceAttributeType[] {
+                                    FaceServiceClient.FaceAttributeType.Age,
+                                    FaceServiceClient.FaceAttributeType.Gender }
+                                */
                         );
-                        if (result == null)
-                        {
-                            publishProgress("Detection Finished. Nothing detected");
+                        if (result == null){
+                            publishProgress(
+                                    "Detection Finished. Nothing detected");
                             return null;
                         }
-                        publishProgress(
-                                String.format("Detection Finished. %d face(s) detected",
-                                        result.length));
+                        publishProgress(String.format(
+                                "Detection Finished. %d face(s) detected",
+                                result.length));
                         return result;
                     } catch (Exception e) {
-                        publishProgress("Detection failed");
+                        exceptionMessage = String.format(
+                                "Detection failed: %s", e.getMessage());
                         return null;
                     }
                 }
+
                 @Override
                 protected void onPreExecute() {
                     //TODO: show progress dialog
@@ -245,92 +253,118 @@ The most straightforward way to detect faces is by calling the [Face – Detect]
                     //TODO: update face frames
                 }
             };
-        detectTask.execute(inputStream);
-    }
+
+    detectTask.execute(inputStream);
+}
+
+private void showError(String message) {
+    new AlertDialog.Builder(this)
+    .setTitle("Error")
+    .setMessage(message)
+    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+        }})
+    .create().show();
+}
 ```
 
-## <a name="step5"></a>Step 5: Mark faces in the image
+## Frame faces in the image
 
-In this last step, we combine all the above steps together and mark the detected faces with frames in the image. First, open **MainActivity.java** and insert a helper method to draw rectangles: 
-
-```java
-    private static Bitmap drawFaceRectanglesOnBitmap(Bitmap originalBitmap, Face[] faces) {
-        Bitmap bitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);
-        Canvas canvas = new Canvas(bitmap);
-        Paint paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(Color.RED);
-        int stokeWidth = 2;
-        paint.setStrokeWidth(stokeWidth);
-        if (faces != null) {
-            for (Face face : faces) {
-                FaceRectangle faceRectangle = face.faceRectangle;
-                canvas.drawRect(
-                        faceRectangle.left,
-                        faceRectangle.top,
-                        faceRectangle.left + faceRectangle.width,
-                        faceRectangle.top + faceRectangle.height,
-                        paint);
-            }
-        }
-        return bitmap;
-    }
-```
-
-Now finish the TODO parts in the **detectAndFrame** method in order to frame faces and report status.
+Insert the following helper method into the `MainActivity` class. This method draws a rectangle around each detected face.
 
 ```java
-    @Override
-    protected void onPreExecute() {
-        detectionProgressDialog.show();
-    }
-    @Override
-    protected void onProgressUpdate(String... progress) {
-        detectionProgressDialog.setMessage(progress[0]);
-    }
-    @Override
-    protected void onPostExecute(Face[] result) {
-        detectionProgressDialog.dismiss();
-        if (result == null) return;
-        ImageView imageView = (ImageView)findViewById(R.id.imageView1);
-        imageView.setImageBitmap(drawFaceRectanglesOnBitmap(imageBitmap, result));
-        imageBitmap.recycle();
-    }
-```
- 
-Finally, add a call to the **detectAndFrame** method from the **onActivityResult** method, as shown below. 
-
-```java
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            Uri uri = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                ImageView imageView = (ImageView) findViewById(R.id.imageView1);
-                imageView.setImageBitmap(bitmap);
-     
-                // This is the new addition.
-                // detectAndFrame(bitmap);
-     
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+private static Bitmap drawFaceRectanglesOnBitmap(
+        Bitmap originalBitmap, Face[] faces) {
+    Bitmap bitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);
+    Canvas canvas = new Canvas(bitmap);
+    Paint paint = new Paint();
+    paint.setAntiAlias(true);
+    paint.setStyle(Paint.Style.STROKE);
+    paint.setColor(Color.RED);
+    paint.setStrokeWidth(10);
+    if (faces != null) {
+        for (Face face : faces) {
+            FaceRectangle faceRectangle = face.faceRectangle;
+            canvas.drawRect(
+                    faceRectangle.left,
+                    faceRectangle.top,
+                    faceRectangle.left + faceRectangle.width,
+                    faceRectangle.top + faceRectangle.height,
+                    paint);
         }
     }
+    return bitmap;
+}
 ```
 
-Run this application and browse for an image containing a face. Please wait for a few seconds to allow the cloud API to respond. After that, you will get a result similar to the image below: 
+Complete the `AsyncTask` methods, indicated by the `TODO` comments, in the `detectAndFrame` method. On success, the selected image is displayed with framed faces in the `ImageView`.
+
+```java
+@Override
+protected void onPreExecute() {
+    detectionProgressDialog.show();
+}
+@Override
+protected void onProgressUpdate(String... progress) {
+    detectionProgressDialog.setMessage(progress[0]);
+}
+@Override
+protected void onPostExecute(Face[] result) {
+    detectionProgressDialog.dismiss();
+    if(!exceptionMessage.equals("")){
+        showError(exceptionMessage);
+    }
+    if (result == null) return;
+    ImageView imageView = findViewById(R.id.imageView1);
+    imageView.setImageBitmap(
+            drawFaceRectanglesOnBitmap(imageBitmap, result));
+    imageBitmap.recycle();
+}
+```
+
+Finally, in the `onActivityResult` method, uncomment the call to the `detectAndFrame` method, as shown below.
+
+```java
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+
+    if (requestCode == PICK_IMAGE && resultCode == RESULT_OK &&
+                data != null && data.getData() != null) {
+        Uri uri = data.getData();
+        try {
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(
+                    getContentResolver(), uri);
+            ImageView imageView = findViewById(R.id.imageView1);
+            imageView.setImageBitmap(bitmap);
+
+            // Uncomment
+            detectAndFrame(bitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+## Run the app
+
+Run the application and browse for an image with a face. Wait a few seconds to allow the Face service to respond. After that, you'll get a result similar to the image below:
 
 ![GettingStartAndroid](../Images/android_getstarted2.1.PNG)
 
-## <a name="summary"></a> Summary
+## Summary
 
-In this tutorial, you learned the basic process for using the Face API and created an application to display face marks in images. For more information on the Face API, refer to the How-To and [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236). 
+In this tutorial, you learned the basic process for using the Face service and created an application to display framed faces in an image.
 
-## <a name="related"></a> Related Tutorials
+## Next steps
 
-- [Getting Started with Face API in CSharp Tutorial](FaceAPIinCSharpTutorial.md)
-- [Getting Started with Face API in Python Tutorial](FaceAPIinPythonTutorial.md)
+Learn about detecting and using face landmarks.
+
+> [!div class="nextstepaction"]
+> [How to Detect Faces in an Image](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
+
+Explore the Face APIs used to detect faces and their attributes such as pose, gender, age, head pose, facial hair, and glasses.
+
+> [!div class="nextstepaction"]
+> [Face API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).

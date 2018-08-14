@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 08/08/2018
 ms.author: LADocs; padmavc
 
 ---
@@ -82,6 +82,14 @@ The Encode AS2 connector performs these tasks:
 * Signs outgoing messages (if configured)
 * Encrypts outgoing messages (if configured)
 * Compresses the message (if configured)
+* Transmit file name in MIME header (if configured)
+
+
+  > [!NOTE]
+  > If you use Azure Key Vault for certificate management, make sure that you configure the keys to permit the **Encrypt** operation.
+  > Otherwise, the AS2 Encode will fail.
+  >
+  > ![Keyvault decrypts](media/logic-apps-enterprise-integration-as2-encode/keyvault1.png)
 
 ## Try this sample
 

@@ -3,8 +3,8 @@ title: Allowed certificate authorities for enabling custom HTTPS on Azure CDN | 
 description: If you are using your own certificate to enable HTTPS on a custom domain, you must use an allowed certificate authority (CA) to create it.  
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: KumudD
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
-ms.author: v-deasim
+ms.date: 07/12/2018
+ms.author: kumud
 ms.custom: mvc
 
 ---
@@ -46,10 +46,14 @@ The following CAs are allowed when you create your own certificate:
 - DigiCert High Assurance EV Root CA
 - DigiCert SHA2 High Assurance Server CA
 - DigiCert SHA2 Secure Server CA
+- GeoTrust Global CA
+- GeoTrust Primary Certification Authority
+- GeoTrust Primary Certification Authority - G2
 - GlobalSign
 - GlobalSign Extended Validation CA - SHA256 - G2
 - GlobalSign Organization Validation CA - G2
 - GlobalSign Root CA
+- Go Daddy Root Certificate Authority - G2
 - Microsoft Authenticode(tm) Root Authority
 - Microsoft Exchange Services CA 2015
 - Microsoft Internal Corporate Root
@@ -75,6 +79,9 @@ The following CAs are allowed when you create your own certificate:
 - Symantec Class 3 EV SSL CA - G3
 - Symantec Class 3 Secure Server CA - G4
 - Symantec Enterprise Mobile Root for Microsoft
+- Thawte Primary Root CA
+- Thawte Primary Root CA - G2
+- Thawte Primary Root CA - G3
 - Thawte Timestamping CA
 - UTN-USERFirst-Object
 - VeriSign Class 3 Extended Validation SSL CA

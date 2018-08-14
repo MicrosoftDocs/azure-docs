@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -25,9 +25,9 @@ Azure virtual machines (VMs) can be created through the Azure portal. This metho
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the Azure portal at https://portal.azure.com.
+Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create virtual machine
 
@@ -39,13 +39,13 @@ Log in to the Azure portal at https://portal.azure.com.
 
     ![Enter basic information about your VM in the portal blade](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
 
-5. Choose to **Create new** resource group, then provide a name, such as *myResourceGroup*. Choose your desired **Location**, then select **OK**.
+5. Choose to **Create new** resource group, then provide a name, such as *myResourceGroup*. Choose your **Location**, then select **OK**.
 
-4. Select a size for the VM. You can filter by *Compute type* or *Disk type*, for example. A suggested VM size is *D2s_v3*.
+4. Select a size for the VM. You can filter by *Compute type* or *Disk type*, for example. A suggested VM size is *D2s_v3*. Click **Select** after you have chosen a size.
 
     ![Screenshot that shows VM sizes](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
 
-5. Under **Settings**, leave the defaults and select **OK**.
+5. On the **Settings** page, in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **RDP (3389)** from the drop-down. Leave the rest of the defaults and select **OK**.
 
 6. On the summary page, select **Create** to start the VM deployment.
 
@@ -63,9 +63,9 @@ Create a remote desktop connection to the virtual machine. These directions tell
 
 2. Open the downloaded RDP file and click **Connect** when prompted. 
 
-3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as *vmname*\*username*, enter password you created for the for the virtual machine, and then click **OK**.
+3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as *vmname*\\*username*, enter password you created for the virtual machine, and then click **OK**.
 
-4. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
+4. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to create the connection.
 
 ## Install web server
 
@@ -77,18 +77,10 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 When done, close the RDP connection to the VM.
 
-## Open port 80 for web traffic
-
-A Network Security Group (NSG) secures inbound and outbound traffic. When a VM is created from the Azure portal, an inbound rule is created on port 3389 for RDP connections. Because this VM hosts a web server, an NSG rule needs to be created for port 80.
-
-1. On the VM overview page, select **Networking**.
-2. The list of existing inbound and outbound rules are shown. Choose to **Add inbound port rule**.
-3. Select the **Basic** option across the top, then choose *HTTP* from the list of available services. Port 80, a priority, and name, are provided for you.
-4. To create the rule, select **Add**.
 
 ## View the IIS welcome page
 
-With IIS installed and port 80 now open on your VM from the Internet, use a web browser of your choice to view the default IIS welcome page. Use the public IP address of your VM obtained in a previous step. The following example shows the default IIS web site:
+In the portal, select the VM and in the overview of the VM, use the **Click to copy** button to the right of the IP address to copy it and paste it into a browser tab. The default IIS welcome page will open, and should look like this:
 
 ![IIS default site](./media/quick-create-powershell/default-iis-website.png)
 

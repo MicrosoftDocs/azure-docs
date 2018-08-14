@@ -46,8 +46,6 @@ sections:
     - html: Use a custom VM image with the <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-cli">Azure CLI 2.0</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-powershell">Azure Powershell</a>
     - html: Deploy apps to a scale set with the <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-cli">Azure CLI 2.0</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-powershell">Azure Powershell</a>
     - html: Autoscale a scale set with the <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-cli">Azure CLI 2.0</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell">Azure Powershell</a>
-    - html: <a href="https://docs.microsoft.com/learn/deploy-custom-vmss-app/index">Deploy apps to an Azure virtual machine scale set with a custom Packer image</a>
-
 - title: Samples
   items:
   - type: paragraph

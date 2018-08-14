@@ -467,8 +467,8 @@ Every document in Azure Cosmos DB must have a unique ID.
 We are using `PatientId` and adding a timestamp that is converted to a Unix timestamp value (double). 
 We truncate the value to remove the fractional value.
 
-You can view the source code of our error controller API 
-[from GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
+You can view the source code of our error controller API from
+[GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs).
 
 We call the API from a logic app by using the following syntax:
 

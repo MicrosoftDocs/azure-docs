@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 08/09/2018
 ms.author: danlep
 
 ---
@@ -37,9 +37,9 @@ Batch pools in the Virtual Machine configuration support all VM sizes ([Linux](.
 | Basic A-series | Basic_A0 (A0) |
 | A-series | Standard_A0 |
 | B-series | All |
-| Fsv2-series<sup>*</sup> | All |
+| M-series | All |
 
-<sup>*</sup>Sizes in this series are on the roadmap for future support.
+
 
 ### Pools in Cloud Service configuration
 

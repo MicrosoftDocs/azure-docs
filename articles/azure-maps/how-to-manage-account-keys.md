@@ -1,8 +1,8 @@
 ---
 title: How to manage your Azure Maps account and keys | Microsoft Docs 
 description: You can use the Azure portal to manage your Azure Maps account and manage your access keys.
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
@@ -46,4 +46,5 @@ You can delete an account from the Azure portal. Navigate to the account overvie
 
 ## Next steps
 
-Learn how to use the [Maps management API](https://docs.microsoft.com/rest/api/maps-management/accounts) to create, update, and delete Maps accounts. 
+* Learn how to use Azure Maps search APIs at [search for an address](./how-to-search-for-address.md).
+* Learn how to use Azure maps [JavaScript map control](./how-to-use-map-control.md).

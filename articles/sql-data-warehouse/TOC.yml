@@ -8,10 +8,16 @@
     href: cheat-sheet.md
 - name: Release Notes
   items:
-  - name: May 2018
-    href: release-notes-may-2018.md
-  - name: April 2018
-    href: release-notes-april-2018.md
+    - name: August 2018 
+      href: release-notes-august-2018.md
+    - name: July 2018 
+      href: release-notes-july-2018.md
+    - name: June 2018 
+      href: release-notes-june-2018.md
+    - name: May 2018
+      href: release-notes-may-2018.md
+    - name: April 2018
+      href: release-notes-april-2018.md
 - name: Quickstarts
   expanded: true
   items:
@@ -39,22 +45,6 @@
     href: load-data-wideworldimportersdw.md
 - name: Concepts
   items:
-  - name: Service features
-    items:
-    - name: MPP architecture
-      href: massively-parallel-processing-mpp-architecture.md
-    - name: Data warehouse units
-      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
-    - name: Scale-out, pause, resume
-      href: sql-data-warehouse-manage-compute-overview.md
-    - name: Backup and restore
-      href: backup-and-restore.md
-    - name: Capacity limits
-      href: sql-data-warehouse-service-capacity-limits.md
-    - name: Maintenance
-      href: service-maintenance.md
-    - name: FAQ
-      href: sql-data-warehouse-overview-faq.md
   - name: Security
     items:
     - name: Overview
@@ -77,39 +67,15 @@
       href: sql-data-warehouse-auditing-overview.md
     - name: Column-level security
       href: column-level-security.md
-  - name: Migrate to SQL Data Warehouse
-    items:
-    - name: Overview
-      href: sql-data-warehouse-overview-migrate.md
-    - name: Migrate schema
-      href: sql-data-warehouse-migrate-schema.md
-    - name: Migrate code
-      href: sql-data-warehouse-migrate-code.md
-    - name: Migrate data
-      href: sql-data-warehouse-migrate-data.md
-  - name: Load & move data
+  - name: Data loading
     items:
     - name: Overview
       href: design-elt-data-loading.md
     - name: Best practices
       href: guidance-for-loading-data.md
-  - name: Integrate
-    items:
-    - name: Overview
-      href: sql-data-warehouse-overview-integrate.md
-    - name: SQL Database elastic query
-      href: how-to-use-elastic-query-with-sql-data-warehouse.md
-  - name: Query performance
-    items:
-    - name: Resource classes & workload management
-      href: resource-classes-for-workload-management.md
-    - name: Memory & concurrency limits
-      href: memory-and-concurrency-limits.md
     - name: Columnstore compression
       href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
-  - name: Monitor
-    href: sql-data-warehouse-manage-monitor.md
-  - name: Develop data warehouses
+  - name: Development
     items:
     - name: Overview
       href: sql-data-warehouse-overview-develop.md
@@ -117,6 +83,14 @@
       href: sql-data-warehouse-overview-workload.md
     - name: Best practices
       href: sql-data-warehouse-best-practices.md
+    - name: MPP architecture
+      href: massively-parallel-processing-mpp-architecture.md
+    - name: Data warehouse units
+      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
+    - name: Capacity limits
+      href: sql-data-warehouse-service-capacity-limits.md
+    - name: FAQ
+      href: sql-data-warehouse-overview-faq.md
     - name: Tables
       items:
       - name: Overview
@@ -163,8 +137,32 @@
         href: sql-data-warehouse-develop-variable-assignment.md
       - name: Views
         href: sql-data-warehouse-develop-views.md
-  - name: Troubleshoot
-    href: sql-data-warehouse-troubleshoot.md
+  - name: Workload Management
+    items:
+    - name: Resource classes & workload management
+      href: resource-classes-for-workload-management.md
+    - name: Memory & concurrency limits
+      href: memory-and-concurrency-limits.md
+  - name: Manageability & Monitoring
+    items:
+    - name: Query Activity & Resource Utilization  
+      href: sql-data-warehouse-manage-monitor.md
+    - name: Data protection
+      href: backup-and-restore.md
+    - name: Scale-out, pause, resume
+      href: sql-data-warehouse-manage-compute-overview.md
+    - name: Maintenance schedule
+      href: service-maintenance.md
+    - name: Recommendations 
+      href: sql-data-warehouse-concept-recommendations.md
+    - name: Troubleshoot
+      href: sql-data-warehouse-troubleshoot.md
+  - name: Integration
+    items:
+    - name: Overview
+      href: sql-data-warehouse-overview-integrate.md
+    - name: SQL Database elastic query
+      href: how-to-use-elastic-query-with-sql-data-warehouse.md
 - name: How-to guides
   items:
   - name: Connect & query

@@ -2,30 +2,30 @@
 title: Provision throughput for Azure Cosmos DB | Microsoft Docs
 description: Learn  how to set provisioned throughput for your Azure Cosmos DB containsers, collections, graphs, and tables.
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
-ms.author: sngun
+ms.date: 07/03/2018
+ms.author: andrl
 
 ---
 
 # Set and get throughput for Azure Cosmos DB containers and database
 
-You can set throughput for an Azure Cosmos DB container or a set of containers by using Azure portal or by using the client SDKs. When you provision throughput for a set of containers, all those containers share the provisioned throughput. Provisioning throughput for individual containers will guarantee the reservation of throughput for that specific container. On the other hand, provisioning throughput for a database allows you to share the throughput among all the containers that belong to that database. Within an Azure Cosmos DB database, you can have a set of containers which share the throughput as well as containers, which have dedicated throughput. 
+You can set throughput for an Azure Cosmos DB container or a set of containers by using Azure portal or by using the client SDKs. 
 
-Based on the provisioned throughput, Azure Cosmos DB will allocate physical partitions to host your container(s) and splits/rebalances data across partitions as it grows.
+**Provision throughput for an individual container:** When you provision throughput for a set of containers, all those containers share the provisioned throughput. Provisioning throughput for individual containers will guarantee the reservation of throughput for that specific container. When assigning RU/sec at the individual container level, the containers can be created as *fixed* or *unlimited*. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create an unlimited container, you must specify a minimum throughput of 1,000 RU/s and a [partition key](partition-data.md). Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100 to millions of distinct values). By selecting a partition key with many distinct values, you ensure that your container/table/graph and requests can be scaled uniformly by Azure Cosmos DB. 
 
-When assigning RU/sec at the individual container level, the containers can be created as *fixed* or *unlimited*. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create an unlimited container, you must specify a minimum throughput of 1,000 RU/s and a [partition key](partition-data.md). Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100 to millions of distinct values). By selecting a partition key with many distinct values, you ensure that your container/table/graph and requests can be scaled uniformly by Azure Cosmos DB. 
+**Provision throughput for a set of containers or a database:** Provisioning throughput for a database allows you to share the throughput among all the containers that belong to that database. Within an Azure Cosmos DB database, you can have a set of containers which shares the throughput as well as containers, which have dedicated throughput. When assigning RU/sec across a set of containers, the containers belonging to this set are treated as *unlimited* containers and must specify a partition key.
 
-When assigning RU/sec across a set of containers, the containers belonging to this set are treated as *unlimited* containers and must specify a partition key.
+Based on the provisioned throughput, Azure Cosmos DB will allocate physical partitions to host your container(s) and splits/rebalances data across partitions as it grows. Container and database level throughput provisioning are separate offerings and switching between either of these require migrating data from source to destination. Which means you need to create a new database or a new collection and then migrate data by using [bulk executor library](bulk-executor-overview.md) or [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). The following image illustrates provisioning throughput at different levels:
 
 ![Provisioning request units for individual containers and set of containers](./media/request-units/provisioning_set_containers.png)
 
-This article walks you through the steps required to configure throughput at different levels for an Azure Cosmos DB account. 
+In the next sections, you will learn the steps required to configure throughput at different levels for an Azure Cosmos DB account. 
 
 ## Provision throughput by using Azure portal
 
@@ -85,7 +85,9 @@ This article walks you through the steps required to configure throughput at dif
 
 Below are some considerations that help you decide on a throughput reservation strategy.
 
-Consider provisioning throughput at database level (that is for set of containers) in the following cases:
+### Considerations when provisioning throughput at the database level
+
+Consider provisioning throughput at database level (that is for a set of containers) in the following cases:
 
 * If you have a dozen or more number of containers that could share throughput across some or all of them.  
 
@@ -94,6 +96,8 @@ Consider provisioning throughput at database level (that is for set of container
 * If you want to consider unplanned spikes in workloads by using pooled throughput at the database level.  
 
 * Instead of setting throughput on an individual container, you are interested in getting the aggregate throughput across a set of containers within the database.
+
+### Considerations when provisioning throughput at the container level
 
 Consider provisioning throughput at an individual container in the following cases:
 
@@ -132,6 +136,7 @@ The following table lists the throughput available for containers:
 
 ## Set throughput by using SQL API for .NET
 
+### Set throughput at the container level
 Here is a code snippet for creating a container with 3,000 request units per second for an individual container using the SQL API's .NET SDK:
 
 ```csharp
@@ -145,13 +150,15 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
+### Set throughput for a set of containers at the database level
+
 Here is a code snippet for provisioning 100,000 request units per second across a set of containers using the SQL API's .NET SDK:
 
 ```csharp
 // Provision 100,000 RU/sec at the database level. 
 // sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
 // dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
-Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
+Database database = await client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 });
 
 DocumentCollection sharedCollection1 = new DocumentCollection();
 sharedCollection1.Id = "sharedCollection1";
@@ -216,7 +223,16 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>Get throughput by using MongoDB API's GetLastRequestStatistics command
+## Get throughput by using MongoDB API portal metrics
+
+The simplest way to get a good estimate of request unit charges for your MongoDB API database is to use the [Azure portal](https://portal.azure.com) metrics. With the *Number of requests* and *Request Charge* charts, you can get an estimate of how many request units each operation is consuming and how many request units they consume relative to one another.
+
+![MongoDB API portal metrics][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceeding reserved throughput limits in the MongoDB API
+Applications that exceed the provisioned throughput for a container or a set of containers will be rate-limited until the consumption rate drops below the provisioned throughput rate. When a rate-limitation occurs, the backend will end the request with a `16500` error code - `Too Many Requests`. By default, the MongoDB API automatically retries up to 10 times before returning a `Too Many Requests` error code. If you are receiving many `Too Many Requests` error codes, you may want to consider either adding a retry logic in your application's error handling routines or [increase provisioned throughput for the container](set-throughput.md).
+
+## <a id="GetLastRequestStatistics"></a>Get request charge by using MongoDB API's GetLastRequestStatistics command
 
 The MongoDB API supports a custom command, *getLastRequestStatistics*, for retrieving the request charges for a given operation.
 
@@ -243,15 +259,6 @@ One method for estimating the amount of reserved throughput required by your app
 > If you have item types which will differ dramatically in terms of size and the number of indexed properties, then record the applicable operation request unit charge associated with each *type* of typical item.
 > 
 > 
-
-## Get throughput by using MongoDB API portal metrics
-
-The simplest way to get a good estimate of request unit charges for your MongoDB API database is to use the [Azure portal](https://portal.azure.com) metrics. With the *Number of requests* and *Request Charge* charts, you can get an estimate of how many request units each operation is consuming and how many request units they consume relative to one another.
-
-![MongoDB API portal metrics][1]
-
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceeding reserved throughput limits in the MongoDB API
-Applications that exceed the provisioned throughput for a container or a set of containers will be rate-limited until the consumption rate drops below the provisioned throughput rate. When a rate-limitation occurs, the backend will end the request with a `16500` error code - `Too Many Requests`. By default, the MongoDB API automatically retries up to 10 times before returning a `Too Many Requests` error code. If you are receiving many `Too Many Requests` error codes, you may want to consider either adding a retry logic in your application's error handling routines or [increase provisioned throughput for the container](set-throughput.md).
 
 ## Throughput FAQ
 

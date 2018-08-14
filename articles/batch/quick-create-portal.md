@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/19/2018
+ms.date: 07/03/2018
 ms.author: danlep
 ms.custom: mvc
 ---

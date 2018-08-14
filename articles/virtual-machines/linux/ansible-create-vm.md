@@ -3,7 +3,7 @@ title: Use Ansible to create a basic Linux VM in Azure | Microsoft Docs
 description: Learn how to use Ansible to create and manage a basic Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/30/2018
-ms.author: iainfou
+ms.author: cynthn
 ---
 
 # Create a basic virtual machine in Azure with Ansible

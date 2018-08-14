@@ -9,7 +9,7 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/22/2018
+ms.date: 08/01/2018
 ms.author: shvija
 #Customer intent: As a developer, I want to understand how Event Hubs can help me load and stream large volumes of data into Azure for real-time and batch business scenarios.
 
@@ -36,25 +36,13 @@ Data is valuable only when there is an easy way to process and get timely insigh
 
 Event Hubs represents the "front door" for an event pipeline, often called an *event ingestor* in solution architectures. An event ingestor is a component or service that sits between event publishers and event consumers to decouple the production of an event stream from the consumption of those events. Event Hubs provides a unified streaming platform with time retention buffer, decoupling the event producers from event consumers. 
 
-## Key features
-
-Event Hubs provides message stream handling capability but has characteristics that are different from traditional enterprise messaging. Event Hubs capabilities are built around high throughput and event processing scenarios. Event Hubs contains the following [key components](event-hubs-features.md):
-
-- **Event producers**: Any entity that sends data to an event hub. Event publishers can publish events using HTTPS or AMQP 1.0 or Apache Kafka 
-- **Partitions**: Each consumer only reads a specific subset, or partition, of the message stream.
-- **Consumer groups**: A view (state, position, or offset) of an entire event hub. Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets.
-- **Throughput units**: Pre-purchased units of capacity that control the throughput capacity of Event Hubs.
-- **Event receivers**: Any entity that reads event data from an event hub. All Event Hubs consumers connect via the AMQP 1.0 session, and events are delivered through the session as they become available.
-
-The following figure shows the Event Hubs stream processing architecture:
-
-![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
+The following sections describe key features of the Azure Event Hubs service: 
 
 ## Fully managed PaaS 
 
 Event Hubs is a managed service with little configuration or management overhead, so you focus on your business solutions. [Event Hubs for Apache Kafka ecosystems](event-hubs-for-kafka-ecosystem-overview.md) gives you the PaaS Kafka experience without having to manage, configure, or run your clusters.
 
-## Real-time and batching
+## Support for real-time and batch processing
 
 Ingest, buffer, store, and process your stream in real time to get actionable insights. Event Hubs uses a [partitioned consumer model](event-hubs-features.md#partitions), enabling multiple applications to process the stream concurrently and letting you control the velocity of processing.
 
@@ -64,7 +52,7 @@ Azure Event Hubs also integrates with [Azure Functions](/azure/azure-functions/)
 
 ## Scalable 
 
-With Event Hubs, you can start with data streams in megabytes, and grow to gigabytes or terabytes. [Auto-inflate](event-hubs-auto-inflate.md) feature is one of the many options available to scale the number of throughput units to meet your usage needs. 
+With Event Hubs, you can start with data streams in megabytes, and grow to gigabytes or terabytes. The [Auto-inflate](event-hubs-auto-inflate.md) feature is one of the many options available to scale the number of throughput units to meet your usage needs. 
 
 ## Rich ecosystem
 
@@ -72,11 +60,27 @@ With Event Hubs, you can start with data streams in megabytes, and grow to gigab
  
 With a broad ecosystem available in various [languages (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), you can easily start processing your streams from Event Hubs. All supported client languages provide low-level integration.
 
+## Key architecture components
+
+Event Hubs provides message stream handling capability but has characteristics that are different from traditional enterprise messaging. Event Hubs capabilities are built around high throughput and event processing scenarios. Event Hubs contains the following [key components](event-hubs-features.md):
+
+- **Event producers**: Any entity that sends data to an event hub. Event publishers can publish events using HTTPS or AMQP 1.0 or Apache Kafka (1.0 and above)
+- **Partitions**: Each consumer only reads a specific subset, or partition, of the message stream.
+- **Consumer groups**: A view (state, position, or offset) of an entire event hub. Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets.
+- **Throughput units**: Pre-purchased units of capacity that control the throughput capacity of Event Hubs.
+- **Event receivers**: Any entity that reads event data from an event hub. All Event Hubs consumers connect via the AMQP 1.0 session, and events are delivered through the session as they become available.
+
+The following figure shows the Event Hubs stream processing architecture:
+
+![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
+
+
 ## Next steps
 
 To get started using Event Hubs, see the following articles:
 
-* [Ingest into Event Hubs](event-hubs-quickstart-powershell.md)
+* [Ingest into Event Hubs](event-hubs-quickstart-portal.md)
 * [Event Hubs features overview](event-hubs-features.md)
+* [Frequently asked questions](event-hubs-faq.md)
 
 

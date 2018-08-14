@@ -22,7 +22,8 @@
 
 ## How to
 ### [Manage via Azure portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Install latest update](storsimple-virtual-array-install-update-1.md)
+#### [Install latest update](storsimple-virtual-array-install-update-11.md)
+##### [Install Update 1](storsimple-virtual-array-install-update-1.md)
 ##### [Install Update 0.6](storsimple-virtual-array-install-update-06.md)
 ##### Archive
 ###### [Install Update 0.5](storsimple-virtual-array-install-update-05.md)
@@ -47,7 +48,8 @@
 ### [Configure via local web UI](storsimple-ova-web-ui-admin.md)
 
 ## Release notes
-### [Update 1 - current](storsimple-virtual-array-update-1-release-notes.md)
+### [Update 1.1 - current](storsimple-virtual-array-update-11-release-notes.md)
+### [Update 1](storsimple-virtual-array-update-1-release-notes.md)
 ### [Update 0.6](storsimple-virtual-array-update-06-release-notes.md)
 ### Archive
 #### [Update 0.5](storsimple-virtual-array-update-05-release-notes.md)
@@ -178,7 +180,9 @@
 
 ### Migrate
 #### [Subscriptions and storage accounts](storsimple-8000-migrate-classic-azure-portal.md)
-#### [From 5000/7000 series devices](storsimple-8000-migrate-from-5000-7000.md)
+#### [From 5000/7000 series devices](storsimple-8000-migration-options.md)
+##### [To StorSimple 8000 series devices](storsimple-8000-migrate-from-5000-7000.md)
+##### [To Azure File Sync](storsimple-5000-7000-afs-migration.md)
 #### [From other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update

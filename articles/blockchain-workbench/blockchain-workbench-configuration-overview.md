@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/16/2018
+ms.date: 7/12/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -70,6 +70,7 @@ Supported data types.
 | address  | Blockchain address type, such as *contracts* or *users* |
 | bool     | Boolean data type |
 | contract | Address of type contract |
+| enum     | Enumerated set of named values. When using the enum type, you also specify a list of EnumValues. Each value is limited to 255 characters. Valid value characters include upper and lower case letters (A-Z, a-z) and numbers (0-9). |
 | int      | Integer data type |
 | money    | Money data type |
 | state    | Workflow state |
@@ -77,6 +78,64 @@ Supported data types.
 | user     | Address of type user |
 | time     | Time data type |
 |`[ Application Role Name ]`| Any name specified in application role. Limits users to be of that role type. |
+
+### Example configuration of type string
+
+``` json
+{
+  "Name": "description",
+  "Description": "Descriptive text",
+  "DisplayName": "Description",
+  "Type": {
+    "Name": "string"
+  }
+}
+```
+
+### Example configuration of type enum
+
+``` json
+{
+  "Name": "PropertyType",
+  "DisplayName": "Property Type",
+  "Description": "The type of the property",
+  "Type": {
+    "Name": "enum",
+    "EnumValues": ["House", "Townhouse", "Condo", "Land"]
+  }
+}
+```
+
+#### Using enumeration type in Solidity
+
+Once an enum is defined in configuration, you can use enumeration types in Solidity. For example, you can define an enum called PropertyTypeEnum.
+
+```
+enum PropertyTypeEnum {House, Townhouse, Condo, Land} PropertyTypeEnum public PropertyType; 
+```
+
+The list of strings need to match between the configuration and smart contract to be valid and consistent declarations in Blockchain Workbench.
+
+Assignment example:
+
+```
+PropertyType = PropertyTypeEnum.Townhouse;
+```
+
+Function parameter example: 
+
+``` 
+function AssetTransfer(string description, uint256 price, PropertyTypeEnum propertyType) public
+{
+    InstanceOwner = msg.sender;
+    AskingPrice = price;
+    Description = description;
+    PropertyType = propertyType;
+    State = StateType.Active;
+    ContractCreated();
+}
+
+```
 
 ## Constructor
 

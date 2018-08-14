@@ -30,7 +30,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a resource group
 
-You need to always create resources in a resource group. Create a resource group using [az group create](/cli/azure/group#az_group_create). 
+You need to always create resources in a resource group. Create a resource group using [az group create](/cli/azure/group#az-group-create). 
 
 The following example creates a resource group named *myResourceGroupAG* in the *eastus* location.
 
@@ -42,7 +42,7 @@ az group create --name myResourceGroupAG --location eastus
 
 You need to create a virtual network for the application gateway to be able to communicate with other resources. You can create a virtual network at the same time that you create the application gateway. Two subnets are created in this example: one for the application gateway, and the other for the virtual machines. 
 
-Create the virtual network and subnet using [az network vnet create](/cli/azure/vnet#az_vnet_create). Create the public IP address using [az network public-ip create](/cli/azure/public-ip#az_public_ip_create).
+Create the virtual network and subnet using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Create the public IP address using [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -114,7 +114,7 @@ runcmd:
   - nodejs index.js
 ```
 
-Create the network interfaces with [az network nic create](/cli/azure/network/nic#az_network_nic_create). Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
+Create the network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create). Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -136,7 +136,7 @@ done
 
 ## Create the application gateway
 
-Create an application gateway using [az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create). When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The private IP addresses of the network interfaces are added as servers in the backend pool of the application gateway.
+Create an application gateway using [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create). When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The private IP addresses of the network interfaces are added as servers in the backend pool of the application gateway.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
@@ -164,7 +164,7 @@ It may take up to 30 minutes for the application gateway to be created. After th
 
 ## Test the application gateway
 
-Installing NGINX is not required to create the application gateway, but you installed it in this quickstart to verify whether the application gateway was successfully created. To get the public IP address of the application gateway, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copy the public IP address, and then paste it into the address bar of your browser.
+Installing NGINX is not required to create the application gateway, but you installed it in this quickstart to verify whether the application gateway was successfully created. To get the public IP address of the application gateway, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copy the public IP address, and then paste it into the address bar of your browser.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -180,7 +180,7 @@ When you refresh the browser, you should see the name of the other VM appear.
 
 ## Clean up resources
 
-First explore the resources that were created with the application gateway, and then when no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, application gateway, and all related resources.
+First explore the resources that were created with the application gateway, and then when no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, application gateway, and all related resources.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG

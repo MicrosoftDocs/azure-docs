@@ -17,7 +17,7 @@ Server administrators must be a valid user or security group in the Azure Active
 > Security groups must have the `MailEnabled` property set to `True`.
 
 ## To add server administrators by using Azure portal
-1. In the the portal, for your server, click **Analysis Services Admins**.
+1. In the portal, for your server, click **Analysis Services Admins**.
 2. In **\<servername> - Analysis Services Admins**, click **Add**.
 3. In **Add Server Administrators**, select user accounts from your Azure AD or invite external users by email address.
 

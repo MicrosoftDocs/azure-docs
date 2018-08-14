@@ -31,6 +31,8 @@
         href: tutorial-python-module.md
       - name: Node.js
         href: tutorial-node-module.md
+      - name: C
+        href: tutorial-c-module.md
   - name: Store data locally with SQL
     href: tutorial-store-data-sql-server.md
 - name: Concepts
@@ -52,6 +54,9 @@
     href: iot-edge-as-gateway.md
   - name: Security
     href: security.md
+    items:
+    - name: IoT Edge security manager
+      href: iot-edge-security-manager.md
   - name: Platform support
     href: support.md
   - name: IoT Edge glossary
@@ -90,6 +95,8 @@
       href: how-to-develop-csharp-module.md
     - name: Node.js
       href: how-to-develop-node-module.md
+    - name: C
+      href: how-to-develop-c-module.md
     - name: Azure Functions
       href: how-to-develop-csharp-function.md
     - name: Develop multiple modules
@@ -150,12 +157,22 @@
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks 
 - name: Resources
   items:
+  - name: Azure IoT Samples for C# (.NET)
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+  - name: Azure IoT Samples for Node.js
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+  - name: Azure IoT Samples for Java
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+  - name: Azure IoT Samples for Python
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+  - name: Azure IoT Samples for iOS Platform
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure Certified for IoT device catalog
     href: https://catalog.azureiotsuite.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=internet-of-things
+    href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Azure IoT Edge for VS Code
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge
   - name: Azure IoT Toolkit for VS Code

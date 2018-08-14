@@ -62,7 +62,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 4. Update entryPoint.sh of the service you wish to debug, so that it starts the Java process with remote debug parameters. For this tutorial the stateless front end is used: *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. Port 8001 is set for debugging in this example.
 
     ```bash
-    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
     ```
 
 5. Update the Application Manifest by setting the instance count or the replica count for the service that is being debugged to one. This setting avoids conflicts for the port that is used for debugging. For example, for stateless services, set ``InstanceCount="1"`` and for stateful services set the target and min replica set sizes to 1 as follows: ``TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
@@ -112,7 +112,7 @@ The following steps walk through how to redirect the application logs from the d
     The following example shows a sample execution:
 
     ```bash
-    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar
     ```
 
 At this stage, you have learned how to debug and access your application logs while developing your Service Fabric Java applications.
