@@ -7,26 +7,25 @@ manager: jeconnoc
 
 ms.service: batch-ai
 ms.topic: tutorial
-ms.date: 08/07/2018
+ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
+#Customer intent: As a data scientist or AI researcher with a compute-intensive deep learning model and large amounts of training data, I want to distribute training across multiple GPUs in the cloud so that I train my model faster.
 ---
 
-# Tutorial: Train a distributed model with Horovod 
+# Tutorial: Train a distributed model with Horovod
 
-Batch AI is a managed service for training machine learning models at scale on clusters of Azure GPUs. This tutorial demonstrates how to train a distributed model by running it in parallel across multiple nodes in a Batch AI cluster. A common Batch AI workflow is introduced along with how to interact with Batch AI resources through the Azure CLI. Topics covered include:
+In this tutorial, you train a distributed deep learning model by running it in parallel across multiple nodes in a Batch AI cluster. Batch AI is a managed service for training machine learning and AI models at scale on clusters of Azure GPUs. A common Batch AI workflow is introduced along with how to interact with Batch AI resources through the Azure CLI. Topics covered include:
 
 > [!div class="checklist"]
 > * Set up a Batch AI workspace, experiment, and cluster
 > * Set up an Azure file share for input and output
-> * Parallelize a model using Horovod
+> * Parallelize a deep learning model using Horovod
 > * Submit a training job
 > * Monitor the job
 > * Retrieve the training results
 
-[Horovod](https://github.com/uber/horovod) is a distributed training framework for Tensorflow, Keras, and PyTorch, and is used for this tutorial. Horovod was chosen because it enables you to convert a training script designed to run on a single GPU to one that can run efficiently on a distributed system using just a few lines of code. 
-
-An example Keras object detection model is modified to run in parallel with Horovod. The model trains on the [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) of images. The training job runs on a cluster containing 24 cores and 4 GPUs, and takes approximately 60 minutes to complete.
+You modify a Keras object detection model to run in parallel with [Horovod](https://github.com/uber/horovod). The model trains on the [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) of images. The training job runs on a cluster containing 24 vCPUs and 4 GPUs, and takes approximately 60 minutes to complete.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 before you begin.
@@ -35,63 +34,59 @@ before you begin.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
-## Create a resource group
+## Why use Horovod?
 
-A resource group must be created in order to deploy resources in Batch AI. In this example, create a resource group named `batchai.horovod` in the `eastus` region. The available regions can be found [here](https://azure.microsoft.com/global-infrastructure/services/).
+Horovod is a distributed training framework for Tensorflow, Keras, and PyTorch, and is used for this tutorial. With Horovod, you can convert a training script designed to run on a single GPU to one that runs efficiently on a distributed system using just a few lines of code. 
 
-Use the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command to create the resource:
+Batch AI supports distributed training with several other popular open-source frameworks. Be sure to review the license terms of any framework that you use to train models in production.
+
+## Prepare the Batch AI environment
+
+### Create a resource group
+
+Use the `az group create` command to create a resource group named `batchai.horovod` in the `eastus` region. You use the resource group to deploy Batch AI resources.
 
 ```azurecli-interactive
 az group create --name batchai.horovod --location eastus 
 ```
 
-This resource group is used for the remainder of the tutorial to create the different Batch AI resources: workspace, experiment, cluster, and job. For an explanation of these resources, see [Overview of resources in Batch AI](resource-concepts.md).
+### Create a workspace
 
-## Create a workspace
-
-Create a single development workspace for this example using the [az batchai workspace create](/cli/azure/batchai/workspace?view=azure-cli-latest#az-batchai-workspace-create) command. The following command creates a workspace called `batchaidev` under your resource group.
+Create a Batch AI workspace using the `az batchai workspace create` command. A workspace in Batch AI is a top-level collection of other Batch AI resources. The following command creates a workspace called `batchaidev` under your resource group.
 
 ```azurecli-interactive
 az batchai workspace create --resource-group batchai.horovod --workspace batchaidev 
 ```
 
-## Create an experiment
+### Create an experiment
 
-For this tutorial, create a single experiment to run the distributed job. The following [az batchai experiment create](https://docs.microsoft.com/en-us/cli/azure/batchai/experiment?view=azure-cli-latest#az-batchai-experiment-create) command creates an experiment called `cifar` under the workspace and resource group.
+ The following `az batchai experiment create` command creates a Batch AI experiment called `cifar` under the workspace and resource group. An experiment groups one or more jobs that you query and manage together. 
 
 ```azurecli-interactive
 az batchai experiment create --resource-group batchai.horovod --workspace batchaidev --name cifar 
 ```
 
-The next few sections provide instructions to create all the resources needed to run the experiment.
-
 ## Provision a GPU cluster
 
-The next step is to provision a GPU cluster that can be used to run the experiment. Batch AI provides a flexible range of options for customizing clusters for specific needs. Additional documentation for the different options can be found [here](/cli/azure/batchai/cluster?view=azure-cli-latest). Here are some important options to consider both for functional and budgeting purposes when choosing configurations for the cluster:
+The next step is to provision a GPU cluster that can be used to run the experiment. Batch AI provides a flexible range of options for customizing clusters for specific needs.
 
-* **VM size** - Azure provides many options for [GPU-enabled VMs](../virtual-machines/linux/sizes-gpu.md) which can be used for Batch AI clusters. For this experiment, a `Standard_NC6` machine is used, which contains one NVIDIA Tesla K80 GPU. This VM size is chosen because the NC-series machines are optimized for compute-intensive algorithms that are ideal for deep learning jobs like this one.
-
-* **Priority** - Azure offers dedicated VMs in addition to a [low-priority VM](../batch/batch-low-pri-vms.md) option that allocates unutilized capacity of other VMs at significant cost savings in exchange for the possibility of VMs being pre-empted and interrupting your jobs. For this experiment, a `dedicated` option is selected.
-
-* **Target** - The number of nodes that should be allocated can be defined at the creation of a cluster or an [auto-scale](/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-auto-scale) option can be selected. For this experiment, the target cluster size is manually set to 4 nodes in order to demonstrate the distributed training performance.
-
-* **VM image** - The VMs in the cluster can be provisioned with a default Ubuntu Server image or with a preconfigured Azure image, such as a [Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md). For this experiment, a default Ubuntu Server image is used as it is designed to host container-based applications, such as Docker.
-
-* **Storage** - Batch AI provides many flexible storage options for data depending on the specific needs. Azure Batch AI clusters offer an auto-storage option that automatically creates a file share and storage container in a designated storage account. It mounts this storage to each node of the created cluster, allowing files and data to be stored in a central location that can be accessed by all VMs. This tutorial utilizes this auto-storage option. For those who do not wish to use auto-storage, see [other Azure storage options](use-azure-storage.md).
-
-The following [az batchai cluster create](/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-create) command creates a new cluster called `nc6cluster` with the above configurations under the workspace and resource group created earlier.
+The following `az batchai cluster create` command creates a 4-node cluster called `nc6cluster` under your workspace and resource group. By default, the VMs in the cluster run a default Ubuntu Server image designed to host container-based applications.
 
 ```azurecli-interactive
-az batchai cluster create --resource-group batchai.horovod --name nc6cluster --vm-priority dedicated --workspace batchaidev --vm-size Standard_NC6 --target 4 --use-auto-storage --generate-ssh-keys
+az batchai cluster create --resource-group batchai.horovod --workspace batchaidev --name nc6cluster --vm-priority dedicated  --vm-size Standard_NC6 --target 4 --use-auto-storage --generate-ssh-keys
 ```
-The `--use-auto-storage` option creates a storage account in a new or existing resource group named **batchaiautostorage**.
-It also creates an Azure file share and blob storage container with the names **batchaishare** and **batchaicontainer**, respectively. They are mounted on each cluster node at $AZ_BATCHAI_MOUNT_ROOT/autoafs and $AZ_BATCHAI_MOUNT_ROOT/autobfs. 
 
-The `--generate-ssh-keys` option generates private and public SSH keys if they don't already exist in the default key location. 
+Command parameters:
+|Parameter | Description |
+| -------- | -----------|
+| `--vm-priority` | Whether the nodes are reserved (`dedicated`) for your cluster.|
+| `--vm-size` | The VM size for the cluster nodes. This cluster uses the `Standard_NC6` size, which contains one NVIDIA Tesla K80 GPU. |
+| `--target` | The number of cluster nodes, in this case 4. |
+| `--use-auto-storage` | Create an associated storage account in a new or existing resource group named **batchaiautostorage**. It also creates an Azure file share and blob storage container in the account, and mounts these resources on each cluster node. |
+| `--generate-ssh-keys` | Generate an SSH key pair for connecting to the cluster nodes, if the keys don't already exist in the default location. |
 
-Documentation for further Batch AI cluster configurations can be found in the Azure CLI documentation link above. If other experiments have common compute requirements, the same cluster can be used for jobs across the whole workspace.
 
-The [az batchai cluster show](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-show) command can be used to confirm the successful creation of a cluster. It usually takes a few minutes for the cluster to be fully provisioned.
+Run the `az batchai cluster show` command to confirm the successful creation of a cluster. It usually takes a few minutes for the cluster to be fully provisioned.
 
 ```azurecli-interactive
 az batchai cluster show --name nc6cluster --workspace batchaidev --resource-group batchai.horovod --output table
