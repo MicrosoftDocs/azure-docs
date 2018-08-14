@@ -37,21 +37,6 @@ sections:
           image:
             src: media/index/i_get-started.svg
           title: Clusters and Nodes
-
-  - items:
-    - type: paragraph
-      text: Get Azure CycleCloud today and start making things go for stuff and things
-    - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 1
-        items:
-          - href: https://www.microsoft.com/en-us/download/details.aspx?id=57182
-            html: <p>Download Azure CycleCloud from the Microsoft Download Center</p>
-            image:
-              src: media/index/i_get-started.svg
-            title: Download Azure CycleCloud
   - title: Reference
     items:
     - type: list
