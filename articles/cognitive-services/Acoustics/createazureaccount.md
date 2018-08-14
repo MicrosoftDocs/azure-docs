@@ -18,7 +18,7 @@ Follow this guide for setting up Azure Batch and Storage accounts necessary for 
 An [Azure Subscription](https://azure.microsoft.com/en-us/free/) is required before setting up Batch and Storage accounts. If you're signing up for the first time, Azure provides a few time-limited free resources and $200 credit.
 
 ## Create Azure Batch and Storage Accounts
-Next, follow [these instructions]((https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal)) to set up your Azure Batch and associated Azure Storage accounts.
+Next, follow [these instructions](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal) to set up your Azure Batch and associated Azure Storage accounts.
 
 Pick default options for both Batch and Storage accounts
   
