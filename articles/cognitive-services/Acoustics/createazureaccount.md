@@ -22,27 +22,27 @@ Next, please follow [these instructions]((https://docs.microsoft.com/en-us/azure
 
 Pick default options for both Batch and Storage accounts
   
-  ![New Batch Account](Media/NewBatchAccountCreate.png)
+  ![New Batch Account](media/NewBatchAccountCreate.png)
 
-  ![New Storage Account](Media/BatchStorageAccountCreate.png)
+  ![New Storage Account](media/BatchStorageAccountCreate.png)
 
 It takes a few minutes for Azure to deploy the accounts. Look for a completion notification in the upper right corner on the portal.
   
-  ![Accounts Deployed](Media/BatchAccountsDeploynotification.png)
+  ![Accounts Deployed](media/BatchAccountsDeployNotification.png)
 
 Your accounts should now be visible on your dashboard.
   
-  ![Portal Dashboard](Media/AzurePortalDashboard.png)
+  ![Portal Dashboard](media/AzurePortalDashboard.png)
 
 ## Setup acoustics bake UI with Azure credentials
 Click on the Batch account link on the dashboard, then click on the "Keys" link on the Batch account page to access your credentials.
   
-  ![Batch Keys Link](Media/BatchAccessKeys.png)
+  ![Batch Keys Link](media/BatchAccessKeys.png)
 
-  ![Batch Account Creds](Media/BatchKeysInfo.png)
+  ![Batch Account Creds](media/BatchKeysInfo.png)
 
 Click on the "Storage Account" link on the page to access your Azure Storage account credentials.
   
-  ![Storage Account Creds](Media/StorageKeysInfo.png)
+  ![Storage Account Creds](media/StorageKeysInfo.png)
 
 Enter these credentials in the Bake tab as described in the [bake UI walkthrough](bakeuiwalkthrough.md).
