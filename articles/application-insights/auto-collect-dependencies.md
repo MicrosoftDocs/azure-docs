@@ -19,7 +19,7 @@ ms.author: nimolnar
 
 # Dependency auto-collection
 
-Below is the currently supported list of dependency calls that are automatically detected as dependencies without requiring any additional modification to your application's code. This consists of outgoing calls to communication libraries, storage clients, logging & metrics libraries, as well as incoming calls into application frameworks and servers. These dependencies are visualized in the Application Insights [Application map](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-app-map) and [Transaction diagnostics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-transaction-diagnostics) views. If your dependency isn't on the list below, you can still track it manually with a [track dependency call](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+Below is the currently supported list of dependency calls that are automatically detected as dependencies without requiring any additional modification to your application's code. This consists of outgoing calls to communication libraries, storage clients, logging & metrics libraries, as well as incoming calls into application frameworks and servers. These dependencies are visualized in the Application Insights [Application map](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) and [Transaction diagnostics](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) views. If your dependency isn't on the list below, you can still track it manually with a [track dependency call](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## .NET
 
@@ -66,7 +66,7 @@ Below is the currently supported list of dependency calls that are automatically
 
 > [!NOTE]
 > *Except reactive programing support.
-> <br>†Requires installation of [JVM Agent](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java).
+> <br>†Requires installation of [JVM Agent](https://docs.microsoft.com/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java).
 
 ## Node.js
 
@@ -88,7 +88,7 @@ Below is the currently supported list of dependency calls that are automatically
 
 | Communication libraries | Versions |
 | ------------------------|----------|
-| [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) | All |
+| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | All |
 
 ## Next steps
 
