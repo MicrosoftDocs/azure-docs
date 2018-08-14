@@ -22,6 +22,8 @@ For more info about geo-replication and failover for SQL Database, see [Overview
 
 ## Scenario 1 - Azure-SSIS IR is pointing to read-write listener endpoint
 
+### Conditions
+
 This section applies when the following conditions are true:
 
 - The Azure-SSIS IR is pointing to the read-write listener endpoint of the failover group.
@@ -30,9 +32,13 @@ This section applies when the following conditions are true:
 
 - The SQL Database server is *not* configured with the virtual network service endpoint rule.
 
+### Solution
+
 When failover occurs, it is transparent to the Azure-SSIS IR. The Azure-SSIS IR automatically connects to the new primary of the failover group.
 
 ## Scenario 2 - Azure-SSIS IR is pointing to primary server endpoint
+
+### Conditions
 
 This section applies when one of the following conditions is true:
 
@@ -46,9 +52,11 @@ This section applies when one of the following conditions is true:
 
 - The database server is a SQL Database Managed Instance configured with a virtual network.
 
+### Solution
+
 When failover occurs, you have to do the following things:
 
-1. stop the Azure-SSIS IR.
+1. Stop the Azure-SSIS IR.
 
 2. Reconfigure the IR to point to the new primary endpoint and to a virtual network in the new region.
 
@@ -70,7 +78,7 @@ Follow these steps to stop your Azure-SSIS IR, switch the IR to a new region, an
 
 1. Stop the IR in the original region.
 
-2. Call the following command in PowerShell to update the IR
+2. Call the following command in PowerShell to update the IR with the new settings.
 
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -Location "new region" `
