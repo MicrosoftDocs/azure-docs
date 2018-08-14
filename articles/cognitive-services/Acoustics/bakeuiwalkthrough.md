@@ -1,5 +1,5 @@
 ---
-title: Acoustics bake process | Microsoft Docs
+title: Acoustics Bake UI | Microsoft Docs
 description: Use advanced acoustics and spatialization in your Unity title
 services: cognitive-services
 author: kegodin
@@ -10,8 +10,8 @@ ms.topic: article
 ms.date: 08/03/2018
 ms.author: kegodin
 ---
-# Unity bake UI
-This document describes the process of submitting an acoustics bake using the Unity editor extension. For information about what Microsoft Acoustics is, check out the [Introduction to Microsoft Acoustics](what-is-acoustics.md).
+# Acoustics Bake UI for Unity
+This document describes the process of submitting an acoustics bake using the Unity editor extension. For more background on acoustics, see [What is Acoustics](what-is-acoustics.md).
 
 ## Import the plugin
 Import the Acoustics plugin package to your project. Then open the Acoustics UI by choosing Window > Acoustics from the Unity menu:
@@ -20,18 +20,18 @@ Import the Acoustics plugin package to your project. Then open the Acoustics UI 
 
 ## Principles
 The Acoustics tool window gathers the information the acoustics engine needs to calculate the acoustics for your scene. There are four pre-bake steps:
-1. Mark your player navigation mesh
+1. Create or mark your player navigation mesh
 2. Mark acoustics geometry
 3. Assign acoustic materials properties to geometry
 4. Preview probe placement, and bake
 
-See [design process](designprocess.md) for post-bake steps.
+After the bake is complete, see [Design Process](designprocess.md) for optional post-bake design steps.
 
-## Unity Navigation vs. Custom Navigation
-A player navigation mesh is used to place probe points for simulation. Unity includes a navigation mesh workflow, or you can specify your own navigation mesh. Unity's navigation mesh documentation is [here](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html). If you use Unity's navigation mesh workflow, it will be picked up by the acoustics system. Or, you can mark your own meshes as navigation meshes in the Objects tab of the acoustics plugin.
+## Create or mark a navigation mesh
+A navigation mesh is used to place probe points for simulation. You can use Unity's included [navigation mesh workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html)), or you can specify your own navigation mesh. Navigation meshes created with Unity's workflow will be picked up by the acoustics system. To use your own meshes, mark them from the Objects tab as described in the next step.
 
-## Objects Tab
-After specifying the navigation mesh, open the Objects tab. Use this tab to mark objects in your scene acoustics geometry.  "Marking" an object simply adds the AcousticsGeometry component to the object. You can also use the [standard component workflow](https://docs.unity3d.com/Manual/UsingComponents.html) to mark or unmark objects.
+## Objects tab
+Open the Objects tab of the Acoustics window. Use this tab to mark objects in your scene, which simply adds the AcousticsGeometry or AcousticsNavigation components to the object. You can also use the [standard component workflow](https://docs.unity3d.com/Manual/UsingComponents.html) to mark or unmark objects.
 
 If you have nothing selected in your scene, it will look like the following picture:
 ![Objects Tab No Selection](media/ObjectsTabNoSelectionDetail.png)
@@ -200,3 +200,5 @@ There are four data files created by this plugin at various points. Only one of 
 * **Assets/AcousticsData/[SceneName]\_Acoustics.ace.bytes**: This contains the results of the bake and is used by the runtime. The location and name of this file can be changed using the fields on the Probes Tab.
 * **Assets/AcousticsData/Editor/[SceneName]\_Acoustics.vox**: Contains the voxelized representation of the scene including material data. Computed using the "Calculate..." button on the Probes Tab. The location and name of this file can be changed using the fields on the Probes Tab.
 * **Assets/AcousticsData/Editor/[SceneName]\_Acoustics\_config.xml**: Contains probe point locations and other simulation parameters used for the bake. Computed using the "Calculate..." button on the Probes Tab. The location and name of this file can be changed using the fields on the Probes Tab.
+
+Take care not to delete the bake result (.ace.bytes file). This file is not recoverable except by re-baking the scene.
