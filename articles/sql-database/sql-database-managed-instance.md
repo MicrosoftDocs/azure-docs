@@ -107,7 +107,7 @@ The following list outlines the key characteristics of the General Purpose servi
 
 \* A virtual core represents the logical CPU offered with an option to choose between generations of hardware. Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors and Gen 5 Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. 
 
-For more information see [Standard/General Purpose availability and architecture](sql-database-high-availability.md#standard-general-purpose-availability) in Azure SQL Database.
+For more information see [Standard/General Purpose availability and architecture](sql-database-high-availability.md#standardgeneral-purpose-availability) in Azure SQL Database.
 
 ### Business Critical service tier
 
@@ -139,7 +139,7 @@ The following list outlines the key characteristics of the Business Critical ser
 | Portal support | Yes|
 |||
 
-For more information see [Premium/Business Critical availability and architecture](sql-database-high-availability.md#premium-business-critical) in Azure SQL Database.
+For more information see [Premium/Business Critical availability and architecture](sql-database-high-availability.md#premiumbusiness-critical) in Azure SQL Database.
 
 ## Advanced security and compliance 
 
