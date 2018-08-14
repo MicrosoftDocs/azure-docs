@@ -85,7 +85,7 @@ Metrics are a feature for certain Azure resources where you can view performance
 - **ApplicationRuleHit**
 - **NetworkRuleHit**
 
-These metrics have the follwing properties:
+These metrics have the following properties:
 
 - Resource ID
 - Status (allowed, blocked)

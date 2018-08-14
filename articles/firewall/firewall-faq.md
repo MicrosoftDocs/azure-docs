@@ -10,6 +10,6 @@ ms.date: 7/19/2018
 ms.author: victorh
 ---
 
-# Azure Firewall FAQ (Preview)
+# Azure Firewall FAQ
 
 [!INCLUDE [Azure Firewall FAQ](../../includes/firewall-faq-include.md)]
