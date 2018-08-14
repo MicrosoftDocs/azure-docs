@@ -1,0 +1,14 @@
+- name: Kusto Documentation
+- name: Overview
+  items:
+  - name: What is Kusto?
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Quickstart placeholder
+- name: Tutorials
+- name: Concepts
+- name: How-to guides
+- name: Samples
+- name: Reference
+- name: Resources
