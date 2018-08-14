@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 08/14/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -111,27 +111,18 @@ This update includes the following improvements for Azure Stack.
 <!-- ### Additional releases timed with this update    -->
 
 ### Common Vulnerabilities and Exposures
+Azure Stack uses Server Core installations of Windows Server 2016 to host key infrastructure. This release installs the following Windows Server 2016 updates on the infrastructure servers for Azure Stack: 
+- [CVE-2018-8206](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8206)
+- [CVE-2018-8222](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8222)
+- [CVE-2018-8282](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8282)
+- [CVE-2018-8304](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8304)
+- [CVE-2018-8307](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8307)
+- [CVE-2018-8308](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8308) 
+- [CVE-2018-8309](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8309)
+- [CVE-2018-8313](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8313)  
 
-This update contains fixes for the following Common Vulnerabilities and Exposures (CVEs).
+For more information about these vulnerabilities, click on the preceding links, or see Microsoft Knowledge Base articles [4338814](https://support.microsoft.com/help/4338814)  and [4345418](https://support.microsoft.com/help/4345418).
 
-| Date | Product | Product Family | Article | Download | Details |
-|------------|-------------------------------------------------|----------------|---------|----------------------|---------------|
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8206](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8206) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8206](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8206) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8222](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8222) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8222](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8222) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8282](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8282) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8282](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8282) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8304](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8304) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8304](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8304) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8307](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8307) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8307](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8307) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8308](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8308) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8308](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8308) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8309](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8309) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8309](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8309) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8313](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8313) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8313](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8313) |
 
 
 ## Before you begin
