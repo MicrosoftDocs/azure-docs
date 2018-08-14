@@ -144,6 +144,15 @@ In the **New update deployment** pane, specify the following information:
    ![Schedule Settings dialog box](./media/manage-update-multi/update-set-schedule.png)
 - **Maintenance window (minutes)**: Specify the period of time that you want the update deployment to occur. This setting helps ensure that changes are performed within your defined service windows.
 
+- **Reboot control** - This setting determines how reboots are handled for the update deployment.
+
+   |Option|Description|
+   |---|---|
+   |Reboot if required| **(Default)** If required, a reboot is intitated if the maintenance window allows.|
+   |Always reboot|A reboot is initiated regardless of whether one is required. |
+   |Never reboot|Regardless of if a reboot is reuired, reboots are surpressed.|
+   |Only reboot - will not install updates|This option ignores installing updates, and only initiates a reboot.|
+
 When you're finished configuring the schedule, select the **Create** button to return to the status dashboard. The **Scheduled** table shows the deployment schedule that you created.
 
 > [!WARNING]
