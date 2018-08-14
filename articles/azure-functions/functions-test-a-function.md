@@ -3,7 +3,7 @@ title: Testing Azure Functions | Microsoft Docs
 description: Test your Azure functions by using Postman, cURL, and Node.js.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: tdykstra
+ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
 

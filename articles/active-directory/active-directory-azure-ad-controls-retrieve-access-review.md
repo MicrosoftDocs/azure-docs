@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance-reports
+ms.component: compliance
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
@@ -50,6 +50,6 @@ By default, a deleted user will remain deleted in Azure AD for 30 days, during w
 - [Manage guest access with Azure AD access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 - [Manage programs and controls for Azure AD access reviews](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md)
-- [Create an access review of users in an Azure AD administrative role](active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Create an access review of users in an Azure AD administrative role](privileged-identity-management/pim-how-to-start-security-review.md)
 
 

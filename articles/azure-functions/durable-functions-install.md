@@ -142,14 +142,14 @@ Visual Studio Code provides a local development experience covering all major pl
 
 ## Azure portal
 
-If you prefer, you can use the Azure portal for Durable Functions development.
+If you prefer, you can use the [Azure portal](https://portal.azure.com) for Durable Functions development.
 
    > [!NOTE]
    > Durable Functions in JavaScript are not yet available in the portal.
 
 ### Create an orchestrator function
 
-1. Create a new function app at [functions.azure.com](https://functions.azure.com/signin).
+1. Create a new function app in the portal, as shown in the [Functions quickstart article](functions-create-first-azure-function.md#create-a-function-app).
 
 2. Configure the function app to [use the 2.0 runtime version](set-runtime-version.md).
 

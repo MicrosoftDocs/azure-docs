@@ -41,7 +41,7 @@ The following table illustrates how end-user and service-to-service authenticati
 <i>* Click the <b>✔\*</b> symbol. It's a link.</i><br>
 <i>** MFA stands for multi-factor authentication</i>
 
-See  [Authentication Scenarios for Azure Active Directory](../active-directory/develop/active-directory-authentication-scenarios.md) for more information on how to use Azure Active Directory for authentication.
+See  [Authentication Scenarios for Azure Active Directory](../active-directory/develop/authentication-scenarios.md) for more information on how to use Azure Active Directory for authentication.
 
 ## Next steps
 

@@ -34,8 +34,8 @@ App Service can back up the following information to an Azure storage account an
 
 The following database solutions are supported with backup feature: 
    - [SQL Database](https://azure.microsoft.com/services/sql-database/)
-   - [Azure Database for MySQL (Preview)](https://azure.microsoft.com/services/mysql)
-   - [Azure Database for PostgreSQL (Preview)](https://azure.microsoft.com/services/postgresql)
+   - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
+   - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
    - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 

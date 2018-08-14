@@ -48,7 +48,7 @@ helm install svc-cat/catalog --name catalog --namespace catalog --set controller
 If your cluster is not RBAC-enabled, run this command.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set apiserver.auth.enabled=false --set controllerManager.healthcheck.enabled=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set controllerManager.healthcheck.enabled=false
 ```
 
 After the Helm chart has been run, verify that `servicecatalog` appears in the output of the following command:

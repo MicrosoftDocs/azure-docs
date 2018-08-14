@@ -30,6 +30,12 @@
       href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fmonitoring%2ftoc.json
     - name: Collect logs across Azure subscriptions
       href: ../log-analytics/log-analytics-activity-logs-subscriptions.md?toc=%2fazure%2fmonitoring%2ftoc.json
+- name: Monitoring data
+  items:
+    - name: Data types and analysis tools
+      href: monitoring-data-collection.md
+    - name: Azure monitoring data sources
+      href: monitoring-data-sources.md 
 - name: Monitor resources
   items:
   - name: Applications

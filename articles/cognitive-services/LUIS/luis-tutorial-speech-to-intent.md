@@ -3,14 +3,14 @@ title: Use Speech C# SDK with LUIS - Azure | Microsoft Docs
 titleSuffix: Azure
 description: Use the Speech C# SDK sample to speak into microphone and get LUIS intent and entities predictions returned.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: v-geberr;
+ms.author: diberry;
 #Customer intent: Use speech service and get LUIS prediction information -- without calling LUIS directly.
 #dfb - verified this tutorial works on 6/26 using logitech wireless headset
 ---
@@ -26,7 +26,7 @@ For this article, you need a free [LUIS][LUIS] website account in order to impor
 In the Azure portal, [create](luis-how-to-azure-subscription.md#create-luis-endpoint-key) a **Language Understanding** (LUIS) key. 
 
 ## Import Human Resources LUIS app
-The intents, and utterances for this article are from the Human Resources LUIS app available from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github repository. Download the [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) file, save it with the *.json extension, and [import](create-new-app.md#import-new-app) it into LUIS. 
+The intents, and utterances for this article are from the Human Resources LUIS app available from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github repository. Download the [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) file, save it with the *.json extension, and [import](luis-how-to-start-new-app.md#import-new-app) it into LUIS. 
 
 This app has intents, entities, and utterances related to the Human Resources domain. Example utterances include:
 

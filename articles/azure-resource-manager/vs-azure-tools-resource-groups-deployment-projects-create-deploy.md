@@ -289,7 +289,6 @@ You aren't limited to only the resources that are available through the Visual S
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-  }
   ```
 
 2. Redeploy your resource group. Look at your dashboard on the Azure portal, and notice the shared dashboard has been added to your list of choices.
@@ -300,7 +299,7 @@ You aren't limited to only the resources that are available through the Visual S
 
    ![Custom Dashboard](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
-You can managed access to the dashboard by using RBAC groups. You can also customize the dashboard's appearance after it's deployed. However, if you redeploy the resource group, the dashboard is rest to its default state in your template. For more information about creating dashboards, see [Programmatically create Azure Dashboards](../azure-portal/azure-portal-dashboards-create-programmatically.md).
+You can managed access to the dashboard by using RBAC groups. You can also customize the dashboard's appearance after it's deployed. However, if you redeploy the resource group, the dashboard is reset to its default state in your template. For more information about creating dashboards, see [Programmatically create Azure Dashboards](../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
 ## Next steps
 * To learn more about templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).

@@ -1,5 +1,5 @@
 ---
-title: 'CENC with multi-DRM and access control: A reference design and implementation on Azure and Azure Media Services | Microsoft Docs'
+title: Design of a content protection system with access control using Azure Media Services | Microsoft Docs
 description: Learn about how to license the Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
@@ -7,19 +7,19 @@ author: willzhan
 manager: cfowler
 editor: ''
 
-ms.assetid: 7814739b-cea9-4b9b-8370-538702e5c615
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
 
 ---
-# CENC with multi-DRM and access control: A reference design and implementation on Azure and Azure Media Services
- 
-## Introduction
+# Design of a content protection system with access control using Azure Media Services
+
+## Overview
+
 Designing and building a digital rights management (DRM) subsystem for an over-the-top (OTT) or online streaming solution is a complex task. Operators/online video providers typically outsource this task to specialized DRM service providers. The goal of this document is to present a reference design and implementation of an end-to-end DRM subsystem in an OTT or online streaming solution.
 
 The targeted readers for this document are engineers who work in DRM subsystems of OTT or online streaming/multiscreen solutions or readers who are interested in DRM subsystems. The assumption is that readers are familiar with at least one of the DRM technologies on the market, such as PlayReady, Widevine, FairPlay, or Adobe Access.
@@ -37,7 +37,8 @@ Microsoft is an active promoter of DASH and CENC together with some major indust
 *  [Announcing Google Widevine license delivery services in Azure Media Services](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 * [Azure Media Services adds Google Widevine packaging for delivering a multi-DRM stream](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)  
 
-### Overview of this article
+### Goals of the article
+
 The goals of this article are to:
 
 * Provide a reference design of a DRM subsystem that uses CENC with multi-DRM.
@@ -58,7 +59,6 @@ The following table summarizes the native platform/native app and browsers suppo
 | **Windows 10 devices (Windows PC, Windows tablets, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>Universal Windows Platform |DASH (for HLS, PlayReady isn't supported)<br/><br/>DASH, Smooth Streaming (for HLS, PlayReady isn't supported) |
 | **Android devices (phone, tablet, TV)** |Widevine |Chrome/EME |DASH, HLS |
 | **iOS (iPhone, iPad), OS X clients and Apple TV** |FairPlay |Safari 8+/EME |HLS |
-
 
 Considering the current state of deployment for each DRM, a service typically wants to implement two or three DRMs to make sure you address all the types of endpoints in the best way.
 
@@ -211,8 +211,9 @@ Implementation includes the following steps:
     | **DRM** | **Browser** | **Result for entitled user** | **Result for unentitled user** |
     | --- | --- | --- | --- |
     | **PlayReady** |Microsoft Edge or Internet Explorer 11 on Windows 10 |Succeed |Fail |
-    | **Widevine** |Chrome on Windows 10 |Succeed |Fail |
-    | **FairPlay** |TBD | | |
+    | **Widevine** |Chrome, Firefox, Opera |Succeed |Fail |
+    | **FairPlay** |Safari on macOS      |Succeed |Fail |
+    | **AES-128** |Most modern browsers  |Succeed |Fail |
 
 For information on how to set up Azure AD for an ASP.NET MVC player app, see [Integrate an Azure Media Services OWIN MVC-based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
@@ -220,7 +221,7 @@ For more information, see [JWT token authentication in Azure Media Services and 
 
 For information on Azure AD:
 
-* You can find developer information in the [Azure Active Directory developer's guide](../../active-directory/active-directory-developers-guide.md).
+* You can find developer information in the [Azure Active Directory developer's guide](../../active-directory/develop/azure-ad-developers-guide.md).
 * You can find administrator information in [Administer your Azure AD tenant directory](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### Some issues in implementation
@@ -307,9 +308,9 @@ What if the key rollover happens after Azure AD generates a JWT but before the J
 Because a key can be rolled over at any moment, more than one valid public key is always available in the federation metadata document. Media Services license delivery can use any of the keys specified in the document. Because one key might be rolled soon, another might be its replacement, and so forth.
 
 ### Where is the access token?
-If you look at how a web app calls an API app under [Application identity with OAuth 2.0 client credentials grant](../../active-directory/develop/active-directory-authentication-scenarios.md#web-application-to-web-api), the authentication flow is as follows:
+If you look at how a web app calls an API app under [Application identity with OAuth 2.0 client credentials grant](../../active-directory/develop/authentication-scenarios.md#web-application-to-web-api), the authentication flow is as follows:
 
-* A user signs in to Azure AD in the web application. For more information, see [Web browser to web application](../../active-directory/develop/active-directory-authentication-scenarios.md#web-browser-to-web-application).
+* A user signs in to Azure AD in the web application. For more information, see [Web browser to web application](../../active-directory/develop/authentication-scenarios.md#web-browser-to-web-application).
 * The Azure AD authorization endpoint redirects the user agent back to the client application with an authorization code. The user agent returns the authorization code to the client application's redirect URI.
 * The web application needs to acquire an access token so that it can authenticate to the web API and retrieve the desired resource. It makes a request to the Azure AD token endpoint and provides the credential, client ID, and web API's application ID URI. It presents the authorization code to prove that the user consented.
 * Azure AD authenticates the application and returns a JWT access token that's used to call the web API.

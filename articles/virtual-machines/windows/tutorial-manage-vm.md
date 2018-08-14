@@ -3,7 +3,7 @@ title: Tutorial - Create and manage Windows VMs with Azure PowerShell | Microsof
 description: In this tutorial, you learn how to use Azure PowerShell to create and manage Windows VMs in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/23/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn about common maintenance tasks so that I can create and manage Windows VMs in Azure

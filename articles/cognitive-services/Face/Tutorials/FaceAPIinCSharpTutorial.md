@@ -16,11 +16,9 @@ ms.author: nolachar
 
 # Tutorial: Create a WPF app to detect and frame faces in an image
 
-In this tutorial, you create a Windows Presentation Framework (WPF) application that uses the Face service. The app detects faces in an image, draws a frame around each face, and displays a description of the face on the status bar.
+In this tutorial, you create a Windows Presentation Framework (WPF) application that uses the Face service through its .NET client library. The app detects faces in an image, draws a frame around each face, and displays a description of the face on the status bar. The complete sample code is available on GitHub at [Detect and frame faces in an image on Windows](https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample).
 
 ![Screenshot showing detected faces framed with rectangles](../Images/getting-started-cs-detected.png)
-
-The Face service is a cloud API that you call through HTTPS REST requests. For ease-of-use in .NET applications, a .NET client library encapsulates the Face API REST requests. In this example, you use the client library to simplify your work.
 
 This tutorial shows you how to:
 
@@ -34,37 +32,32 @@ This tutorial shows you how to:
 ## Prerequisites
 
 - You need a subscription key to run the sample. You can get free trial subscription keys from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
-- Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/).
-- The [Microsoft.Azure.CognitiveServices.Vision.Face 1.0.2-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/1.0.2-preview) client library NuGet package. It isn't necessary to download the package. Installation instructions are provided below.
+- Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/). For Visual Studio 2017, the .NET Desktop application development workload is required. This tutorial uses Visual Studio 2017 Community Edition.
+- The [Microsoft.Azure.CognitiveServices.Vision.Face 2.0.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.0.0-preview) client library NuGet package. It isn't necessary to download the package. Installation instructions are provided below.
 
 ## Create the Visual Studio solution
 
-In this step, you create a Windows WPF application project to create a basic application to select and display an image. Follow these instructions:
+Follow these steps to create a Windows WPF application project.
 
 1. Open Visual Studio and from the **File** menu, click **New**, then **Project**.
-1. Select WPF in the **New Project** dialog box.
-
-   - In Visual Studio 2017, expand **Installed** &gt; **Templates** &gt; **Visual C#** &gt; **Windows Classic Desktop** &gt; and select **WPF App (.NET Framework)**.
-
-   - In Visual Studio 2015, expand **Installed** &gt; **Templates** &gt; **Visual C#** &gt; **Windows** &gt; **Classic Desktop** &gt; and select **WPF Application**.
+   - In Visual Studio 2017, expand **Installed**, then **Other Languages**. Select **Visual C#**, then **WPF App (.NET Framework)**.
+   - In Visual Studio 2015, expand **Installed**, then **Templates**. Select **Visual C#**, then **WPF Application**.
 1. Name the application **FaceTutorial**, then click **OK**.
 
 ## Install the Face service client library
 
-Follow these instructions to install the client library:
+Follow these instructions to install the client library.
 
-1. From the **Tools** menu, select **NuGet Package Manager**, then **Manage NuGet Packages for Solution**.
-1. In the **NuGet Package Manager** window, check **Include prerelease** and select nuget.org as your **Package source**.
-1. Click the **Browse** tab, and in the **Search** box type "Microsoft.Azure.CognitiveServices.Vision.Face".
-1. Select **Microsoft.Azure.CognitiveServices.Vision.Face** when it displays, then click the checkbox next to your project name, and **Install**.
+1. From the **Tools** menu, select **NuGet Package Manager**, then **Package Manager Console**.
+1. In the **Package Manager Console**, paste the following, then press **Enter**.
 
-    ![Screenshot showing NuGet package manager for installing client library](../Images/install-cogserv-face.png)
+    `Install-Package Microsoft.Azure.CognitiveServices.Vision.Face -Version 2.0.0-preview`
 
 ## Add the initial code
 
 ### MainWindow.xaml
 
-Open *MainWindow.xaml* and replace the existing code with the following code to create the UI window. Note the event handlers, `FacePhoto_MouseMove` and `BrowseButton_Click`.
+Open *MainWindow.xaml* (tip: swap panes using the **up/down arrow icon**) and replace the contents with the following code. This xaml code is used to create the UI window. Note the event handlers, `FacePhoto_MouseMove` and `BrowseButton_Click`.
 
 ```xml
 <Window x:Class="FaceTutorial.MainWindow"
@@ -89,9 +82,9 @@ Open *MainWindow.xaml* and replace the existing code with the following code to 
 
 ### MainWindow.xaml.cs
 
-Expand *MainWindow.xaml*, then open *MainWindow.xaml.cs*, and replace the existing code with the following code.
+Expand *MainWindow.xaml*, then open *MainWindow.xaml.cs*, and replace the contents with the following code. Ignore the squiggly red underlines; they'll disappear after the first build.
 
-The first two lines import the client library namespaces. Next, the `FaceAPI` service is created, passing in the subscription key, while the Azure region is set in the `MainWindow` constructor. The two methods, `BrowseButton_Click` and `FacePhoto_MouseMove`, correspond to the event handlers declared in *MainWindow.xaml*.
+The first two lines import the client library namespaces. Next, the `FaceClient` is created, passing in the subscription key, while the Azure region is set in the `MainWindow` constructor. The two methods, `BrowseButton_Click` and `FacePhoto_MouseMove`, correspond to the event handlers declared in *MainWindow.xaml*.
 
 `BrowseButton_Click` creates an `OpenFileDialog`, which allows the user to select a jpg image. The image is read and displayed in the main window. The remaining code for `BrowseButton_Click` and the code for `FacePhoto_MouseMove` are inserted in subsequent steps.
 
@@ -114,11 +107,22 @@ namespace FaceTutorial
     public partial class MainWindow : Window
     {
         // Replace <SubscriptionKey> with your valid subscription key.
-        // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-        //private const string subscriptionKey = "<SubscriptionKey>";
-        private const string subscriptionKey = "48cac96d73074e378c2faaee43a8dff4";
+        // For example, subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+        private const string subscriptionKey = "<SubscriptionKey>";
 
-        IFaceAPI faceAPI = new FaceAPI(
+        // Replace or verify the region.
+        //
+        // You must use the same region as you used to obtain your subscription
+        // keys. For example, if you obtained your subscription keys from the
+        // westus region, replace "westcentralus" with "westus".
+        //
+        // NOTE: Free trial subscription keys are generated in the westcentralus
+        // region, so if you are using a free trial subscription key, you should
+        // not need to change this region.
+        private const string baseUri =
+            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
+
+        private readonly IFaceClient faceClient = new FaceClient(
             new ApiKeyServiceClientCredentials(subscriptionKey),
             new System.Net.Http.DelegatingHandler[] { });
 
@@ -130,16 +134,16 @@ namespace FaceTutorial
         {
             InitializeComponent();
 
-            // Replace or verify the region.
-            //
-            // You must use the same region as you used to obtain your subscription
-            // keys. For example, if you obtained your subscription keys from the
-            // westus region, replace "Westcentralus" with "Westus".
-            //
-            // NOTE: Free trial subscription keys are generated in the westcentralus
-            // region, so if you are using a free trial subscription key, you should
-            // not need to change this region.
-            faceAPI.AzureRegion = AzureRegions.Westcentralus;
+            if (Uri.IsWellFormedUriString(baseUri, UriKind.Absolute))
+            {
+                faceClient.BaseUri = new Uri(baseUri);
+            }
+            else
+            {
+                MessageBox.Show(baseUri,
+                    "Invalid URI", MessageBoxButton.OK, MessageBoxImage.Error);
+                Environment.Exit(0);
+            }
         }
 
         // Displays the image and calls UploadAndDetectFaces.
@@ -187,10 +191,11 @@ namespace FaceTutorial
     private const string subscriptionKey = "<SubscriptionKey>";
     ```
 
-- Find the following line in the `MainWindow` constructor in *MainWindow.xaml.cs*:
+- Find the following line in *MainWindow.xaml.cs* and replace or verify the Azure region associated with your subscription key:
 
     ```csharp
-    faceAPI.AzureRegion = AzureRegions.Westcentralus;
+    private const string baseUri =
+        "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
     ```
 
     Make sure the location is the same as where you obtained your subscription keys. If you obtained your subscription keys from the **westus** region, for example, replace `Westcentralus` with `Westus`.
@@ -205,7 +210,7 @@ Press **Start** on the menu to test your app. When the window opens, click **Bro
 
 ## Upload an image to detect faces
 
-The most straightforward way to detect faces is by calling the `FaceAPI.Face.DetectWithStreamAsync` method, which wraps the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API method for uploading the local image.
+The most straightforward way to detect faces is by calling the `FaceClient.Face.DetectWithStreamAsync` method, which wraps the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API method for uploading the local image.
 
 Insert the following method in the `MainWindow` class, below the `FacePhoto_MouseMove` method.
 
@@ -231,8 +236,9 @@ private async Task<IList<DetectedFace>> UploadAndDetectFaces(string imageFilePat
         {
             // The second argument specifies to return the faceId, while
             // the third argument specifies not to return face landmarks.
-            IList<DetectedFace> faceList = await faceAPI.Face.DetectWithStreamAsync(
-                imageFileStream, true, false, faceAttributes);
+            IList<DetectedFace> faceList =
+                await faceClient.Face.DetectWithStreamAsync(
+                    imageFileStream, true, false, faceAttributes);
             return faceList;
         }
     }

@@ -12,33 +12,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
 
 # Deploy the SQL Server resource provider on Azure Stack
-
 Use the Azure Stack SQL Server resource provider to expose SQL databases as an Azure Stack service. The SQL resource provider runs as a service on a Windows Server 2016 Server Core virtual machine (VM).
 
 ## Prerequisites
 
 There are several prerequisites that need to be in place before you can deploy the Azure Stack SQL resource provider. To meet these requirements, complete the following steps on a computer that can access the privileged endpoint VM:
 
-- If you haven't already done so, [register Azure Stack](.\azure-stack-registration.md) with Azure so you can download Azure marketplace items.
-- You must install the Azure and Azure Stack PowerShell modules on the system wher you  will run this installation. That system must be a Windows 10 or Windows Server 2016 image with the latest version of the .NET runtime. See [Install PowerShell for Azure Stack](.\azure-stack-powershell-install.md).
+- If you haven't already done so, [register Azure Stack](azure-stack-registration.md) with Azure so you can download Azure marketplace items.
+- You must install the Azure and Azure Stack PowerShell modules on the system where you  will run this installation. That system must be a Windows 10 or Windows Server 2016 image with the latest version of the .NET runtime. See [Install PowerShell for Azure Stack](.\azure-stack-powershell-install.md).
 - Add the required Windows Server core VM to the Azure Stack marketplace by downloading the **Windows Server 2016 Datacenter - Server Core** image. 
-
-  >[!NOTE]
-  >If you need to install an update, you can place a single MSU package in the local dependency path. If more than one MSU file is found, SQL resource provider installation will fail.
-
-- Download the SQL resource provider binary and then run the self-extractor to extract the contents to a temporary directory. The resource provider has a minimum corresponding Azure Stack build. Make sure you download the correct binary for the version of Azure Stack that you're running.
+- Download the SQL resource provider binary and then run the self-extractor to extract the contents to a temporary directory. The resource provider has a minimum corresponding Azure Stack build. Make sure you download the correct binary for the version of Azure Stack that you're running:
 
     |Azure Stack version|SQL RP version|
     |-----|-----|
     |Version 1804 (1.0.180513.1)|[SQL RP version 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
     |Version 1802 (1.0.180302.1)|[SQL RP version 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
-    |Version 1712 (1.0.180102.3, 1.0.180103.2 or 1.0.180106.1 (integrated systems))|[SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712)|
+    |     |     |
+
+- Ensure datacenter integration prerequisites are met:
+
+    |Prerequisite|Reference|
+    |-----|-----|
+    |Conditional DNS forwarding is set correctly.|[Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md)|
+    |Inbound ports for resource providers are open.|[Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |PKI certificate subject and SAN are set correctly.|[Azure Stack deployment mandatory PKI prerequisites](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack deployment PaaS certificate prerequisites](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### Certificates
@@ -49,7 +52,7 @@ _For integrated systems installations only_. You must provide the SQL PaaS PKI c
 
 After you've got all the prerequisites installed, run the **DeploySqlProvider.ps1** script to deploy the SQL resource provider. The DeploySqlProvider.ps1 script is extracted as part of the SQL resource provider binary that you downloaded for your version of Azure Stack.
 
-To deploy the SQL resource provider, open a **new** elevated PowerShell console window and change to the directory where you extracted the SQL resource provider binary files. We recommend using a new PowerShell window to avoid potential problems caused by PowerShell modules that are already loaded.
+To deploy the SQL resource provider, open a **new** elevated PowerShell window (not PowerShell ISE) and change to the directory where you extracted the SQL resource provider binary files. We recommend using a new PowerShell window to avoid potential problems caused by PowerShell modules that are already loaded.
 
 Run the DeploySqlProvider.ps1 script, which completes the following tasks:
 
@@ -58,8 +61,7 @@ Run the DeploySqlProvider.ps1 script, which completes the following tasks:
 - Publishes a gallery package for deploying hosting servers.
 - Deploys a VM using the Windows Server 2016 core image you downloaded, and then installs the SQL resource provider.
 - Registers a local DNS record that maps to your resource provider VM.
-- Registers your resource provider with the local Azure Resource Manager for the operator and user accounts.
-- Optionally, installs a single Windows Server update during the resource provider installation.
+- Registers your resource provider with the local Azure Resource Manager for the operator account.
 
 > [!NOTE]
 > When the SQL resource provider deployment starts, the **system.local.sqladapter** resource group is created. It may take up to 75 minutes to finish the required deployments to this resource group.
@@ -89,7 +91,7 @@ To eliminate any manual configuration when deploying the resource provider, you 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module  -Name AzureStack -RequiredVersion 1.3.0
+Install-Module  -Name AzureStack -RequiredVersion 1.4.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"

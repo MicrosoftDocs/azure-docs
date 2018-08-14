@@ -184,7 +184,7 @@ The following sections provide details about some of the common tasks that you m
 To change the logo of the company that's displayed on the **Sign-in** page, use the following Windows PowerShell cmdlet and syntax.
 
 > [!NOTE]
-> The recommended dimensions for the logo are 260 x 35 @ 96 dpi with a file size no greater than 10 KB.
+> The recommended dimensions for the logo are 260 x 35 \@ 96 dpi with a file size no greater than 10 KB.
 
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 

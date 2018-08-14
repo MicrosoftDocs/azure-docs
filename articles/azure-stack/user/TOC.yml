@@ -110,7 +110,8 @@
     - name: Set up development environment
       items:
       - name: Install Azure Stack PowerShell
-        href: https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install
+        href: ../azure-stack-powershell-install.md
+        maintainContext: true
       - name: Download Azure Stack tools
         href: azure-stack-powershell-download.md
       - name: Configure PowerShell - User

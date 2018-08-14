@@ -49,9 +49,6 @@ Make sure you have the credentials for an account with system admin privileges. 
 
    The SKU **Name** should reflect the properties of the SKU so users can deploy their databases to the appropriate SKU.
 
-   >[!IMPORTANT]
-   >Special characters, including spaces and periods, aren't supported in **Name** or **Tier** when you create a SKU for the MySQL resource provider.
-
 6. Select **OK** to create the SKU.
 > [!NOTE]
 > SKUs can take up to an hour to be visible in the portal. You can't create a database until the SKU is deployed and running.

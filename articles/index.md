@@ -250,7 +250,7 @@ featureFlags:
                                                             Ansible
                                                         </a>
                                                     </li>
-                                                    <li>
+													<li>
                                                         <a class="barLink" href="/azure/chef">
                                                             <img src="chef/media/Chef_Regular.svg" alt="">
                                                             Chef
@@ -278,6 +278,12 @@ featureFlags:
                                                         <a class="barLink" href="https://docs.microsoft.com/azure/devops">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
                                                             Learn DevOps with Azure
+                                                        </a>
+                                                    </li>
+													<li>
+                                                        <a class="barLink" href="/azure/devops-project/">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+                                                            Azure DevOps Project
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -690,6 +696,12 @@ featureFlags:
                                                 <p>Network Watcher</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/firewall/">
+                                                <img src="media/index/azure_firewall.svg" alt="" />
+                                                <p>Azure Firewall</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>AI + Machine Learning</h3>
                                     <ul>
@@ -802,7 +814,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsofttranslator.com/speech-translate.html">
+                                            <a href="/azure/cognitive-services/translator-speech/">
                                                 <img src="media/index/API_TranslatorSpeech.svg" alt="" />
                                                 <p>Translator Speech API</p>
                                             </a>
@@ -927,8 +939,6 @@ featureFlags:
                                                 <p>Bing Visual Search API</p>
                                             </a>
                                         </li>
-
-
                                         <li>
                                             <a href="/azure/cognitive-services/Bing-Autosuggest/">
                                                 <img src="media/index/API_Bing_AutoSuggest.svg" alt="" />
@@ -1042,6 +1052,12 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/databox/">
+                                                <img src="media/index/Service-icon.png" alt="" />
+                                                <p>Data Box</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows">
                                                 <img src="media/index/storage.svg" alt="" />
                                                 <p>Storage Explorer</p>
@@ -1051,6 +1067,12 @@ featureFlags:
                                             <a href="/azure/storage/blobs/storage-blob-storage-tiers">
                                                 <img src="media/index/storage.svg" alt="" />
                                                 <p>Archive Storage</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-netapp-files/">
+                                                <img src="media/index/NetAppStorage.svg" alt="" />
+                                                <p>Azure NetApp Files</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1185,7 +1207,13 @@ featureFlags:
                                                 <p>HockeyApp</p>
                                             </a>
                                         </li>
-                                    </ul>
+										<li>
+                                            <a href="/azure/devops-project">
+                                                <img src="media/index/logo_vs-team-services.svg" alt="" />
+                                                <p>Azure DevOps Project</p>
+                                            </a>
+                                        </li>
+									</ul>
                                     <h3>Developer Tools</h3>
                                     <ul>
                                         <li>
@@ -1247,8 +1275,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/iot-edge/">
-                                                <img src="media/index/iot-edge-alt.svg
-s" alt="" />
+                                                <img src="media/index/iot-edge-alt.svg" alt="" />
                                                 <p>IoT Edge</p>
                                             </a>
                                         </li>
@@ -1456,7 +1483,7 @@ s" alt="" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/information-protection/">
+                                            <a href="/azure/information-protection/">
                                                 <img src="https://docs.microsoft.com/media/common/i_information-protection.svg" alt="" />
                                                 <p>Azure Information Protection</p>
                                             </a>
@@ -1507,7 +1534,7 @@ s" alt="" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/information-protection/">
+                                            <a href="/azure/information-protection/">
                                                 <img src="https://docs.microsoft.com/media/common/i_information-protection.svg" alt="" />
                                                 <p>Azure Information Protection</p>
                                             </a>
@@ -1624,7 +1651,7 @@ s" alt="" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/ddd/">
+                                            <a href="/azure/app-service-mobile">
                                                 <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="" />
                                                 <p>Azure mobile app</p>
                                             </a>
@@ -2128,6 +2155,44 @@ s" alt="" />
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/firewall/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_firewall.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Firewall</h3>
+                                                    <p>Highly available and scalable cloud-based network security service</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-wan/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/WAN.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Virtual WAN</h3>
+                                                    <p>Build secure global scale branch connectivity</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -2183,7 +2248,7 @@ s" alt="" />
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen2</h3>
-                                                    <p>Massively scalable, secure data lake storage</p>
+                                                    <p>Massively scalable, secure Data Lake storage with Blob storage integration</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2336,6 +2401,25 @@ s" alt="" />
                                                 <div class="cardText">
                                                     <h3>Archive Storage</h3>
                                                     <p>Low cost, secure cloud storage for rarely accessed data</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-netapp-files/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/NetAppStorage.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure NetApp Files</h3>
+                                                    <p>Enterprise-grade network file services powered by NetApp</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3241,6 +3325,25 @@ s" alt="" />
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/azure-netapp-files/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="/azure/azure-netapp-files/media/index/netapp.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure NetApp Files</h3>
+                                                    <p>Enterprise-grade NFS file service powered by NetApp</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3537,7 +3640,6 @@ s" alt="" />
                                                                     <span>Answer Search</span>
                                                                 </a>
                                                             </li>
-
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview">
                                                                     <img src="media/index/API_Anomaly_Finder.svg" alt="" />
@@ -3550,8 +3652,6 @@ s" alt="" />
                                                                     <span>Conversation Learner</span>
                                                                 </a>
                                                             </li>
-
-
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -4089,7 +4189,7 @@ s" alt="" />
                                 </a>
                             </li>
                             <li>
-                                <a href="/information-protection/">
+                                <a href="/azure/information-protection/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4265,7 +4365,7 @@ s" alt="" />
                                 </a>
                             </li>
                             <li>
-                                <a href="/information-protection/">
+                                <a href="/azure/information-protection/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4491,6 +4591,25 @@ s" alt="" />
                                                 <div class="cardText">
                                                     <h3>HockeyApp</h3>
                                                     <p>Deploy mobile apps, collect feedback and crash reports, and monitor usage</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+							<li>
+                                <a href="/azure/devops-project">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_vs-team-services.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure DevOps Project</h3>
+                                                    <p>Quickly deploy any language on any platform to Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5798,7 +5917,7 @@ s" alt="" />
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
+                                                    <img src="media/index/database-migration.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">

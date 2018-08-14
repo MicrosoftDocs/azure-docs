@@ -37,14 +37,14 @@ JSON values in the definition can be literal or expressions that are evaluated a
 ```
 
 ## Expressions  
-Expressions can appear anywhere in a JSON string value and always result in another JSON value. If a JSON value is an expression, the body of the expression is extracted by removing the at-sign (\@). If a literal string is needed that starts with @, it must be escaped by using @@. The following examples show how expressions are evaluated.  
+Expressions can appear anywhere in a JSON string value and always result in another JSON value. If a JSON value is an expression, the body of the expression is extracted by removing the at-sign (\@). If a literal string is needed that starts with \@, it must be escaped by using \@\@. The following examples show how expressions are evaluated.  
   
 |JSON value|Result|  
 |----------------|------------|  
 |"parameters"|The characters 'parameters' are returned.|  
 |"parameters[1]"|The characters 'parameters[1]' are returned.|  
-|"\@@"|A 1 character string that contains '@' is returned.|  
-|" \@"|A 2 character string that contains ' @' is returned.|  
+|"\@\@"|A 1 character string that contains '\@' is returned.|  
+|" \@"|A 2 character string that contains ' \@' is returned.|  
   
  Expressions can also appear inside strings, using a feature called *string interpolation* where expressions are wrapped in `@{ ... }`. For example: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -58,7 +58,7 @@ Expressions can appear anywhere in a JSON string value and always result in anot
 |"\@{pipeline().parameters.myNumber}"| Returns `42` as a *string*.|  
 |"Answer is: @{pipeline().parameters.myNumber}"| Returns the string `Answer is: 42`.|  
 |"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Returns the string `Answer is: 42`|  
-|"Answer is: \@@{pipeline().parameters.myNumber}"| Returns the string `Answer is: @{pipeline().parameters.myNumber}`.|  
+|"Answer is: \@\@{pipeline().parameters.myNumber}"| Returns the string `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### Examples
 

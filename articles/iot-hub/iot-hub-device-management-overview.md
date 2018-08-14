@@ -96,12 +96,12 @@ To continue learning about the device management features in IoT Hub, see the [G
 [lnk-twins-devguide]: iot-hub-devguide-device-twins.md
 [lnk-get-started]: iot-hub-node-node-device-management-get-started.md
 [lnk-twins-getstarted]: iot-hub-node-node-twin-getstarted.md
-[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
-[lnk-hub-getstarted]: iot-hub-csharp-csharp-getstarted.md
+[lnk-twin-properties]: tutorial-device-twins.md
+[lnk-hub-getstarted]: quickstart-send-telemetry-dotnet.md
 [lnk-identity-registry]: iot-hub-devguide-identity-registry.md
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-query-language]: iot-hub-devguide-query-language.md
-[lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
+[lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md

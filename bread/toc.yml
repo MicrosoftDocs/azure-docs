@@ -6,6 +6,9 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/
     items:
+      - name: Authentication
+        tocHref: /azure/active-directory/authentication/
+        topicHref: /azure/active-directory/authentication/
       - name: Connect
         tocHref: /azure/active-directory/connect/
         topicHref: /azure/active-directory/connect/
@@ -21,6 +24,9 @@
       - name: Managed Service Identity
         tocHref: /azure/active-directory/managed-service-identity/
         topicHref: /azure/active-directory/managed-service-identity/
+      - name: User Help
+        tocHref: /azure/active-directory/user-help/
+        topicHref: /azure/active-directory/user-help/         
       - name: B2C
         tocHref: /azure/active-directory-b2c/
         topicHref: /azure/active-directory-b2c/
@@ -89,6 +95,9 @@
   - name: Azure China 21Vianet
     tocHref: /azure/china/
     topicHref: /azure/china/
+  - name: Azure NetApp Files
+    tocHref: /azure/azure-netapp-files/
+    topicHref: /azure/azure-netapp-files/
   - name: Azure portal
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
@@ -289,6 +298,9 @@
   - name: ExpressRoute
     tocHref: /azure/expressroute/
     topicHref: /azure/expressroute/
+  - name: Firewall
+    tocHref: /azure/firewall/
+    topicHref: /azure/firewall/
   - name: Guidance
     tocHref: /azure/guidance/
     topicHref: /azure/guidance/

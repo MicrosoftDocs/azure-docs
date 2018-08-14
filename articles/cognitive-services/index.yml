@@ -43,7 +43,7 @@ sections:
     rows:
     - title: Computer Vision - Analyze an image
       values:
-      - href: /azure/cognitive-services/Computer-vision/Quickstarts/CSharp-analyze
+      - href: /azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze
@@ -55,13 +55,13 @@ sections:
       - href: 
       - href:
       - href: /azure/cognitive-services/speech-service/get-started 
-    - title: LUIS - Use prebuilt home automation 
+    - title: LUIS - Query prediction endpoint 
       values:
+      - href: /azure/cognitive-services/luis/luis-get-started-cs-get-intent
+      - href: /azure/cognitive-services/luis/luis-get-started-java-get-intent
+      - href: /azure/cognitive-services/luis/luis-get-started-node-get-intent
+      - href: /azure/cognitive-services/luis/luis-get-started-python-get-intent
       - href: 
-      - href: 
-      - href: 
-      - href:
-      - href: /azure/cognitive-services/luis/luis-get-started-create-app
     - title: Text Analytics- Detect language, analyze sentiment
       values:
       - href: /azure/cognitive-services/Text-Analytics/quickstarts/csharp
@@ -91,6 +91,7 @@ sections:
   - type: list
     style: unordered
     items:
+    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">Detect and frame faces in an image</a>
     - html: <a href="/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page">Build a Custom Search webpage </a>
     - html: <a href="/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample">Use Language Understanding (LUIS) in a bot </a> 
     - html: <a href="/azure/cognitive-services/luis/luis-tutorial-batch-testing">Improve intent accuracy for home automation commands </a>

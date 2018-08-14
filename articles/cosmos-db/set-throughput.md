@@ -2,14 +2,14 @@
 title: Provision throughput for Azure Cosmos DB | Microsoft Docs
 description: Learn  how to set provisioned throughput for your Azure Cosmos DB containsers, collections, graphs, and tables.
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
-ms.author: sngun
+ms.author: andrl
 
 ---
 
@@ -150,7 +150,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-### Set throughput at the for a set of containers or at the database level
+### Set throughput for a set of containers at the database level
 
 Here is a code snippet for provisioning 100,000 request units per second across a set of containers using the SQL API's .NET SDK:
 
@@ -158,7 +158,7 @@ Here is a code snippet for provisioning 100,000 request units per second across 
 // Provision 100,000 RU/sec at the database level. 
 // sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
 // dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
-Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
+Database database = await client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 });
 
 DocumentCollection sharedCollection1 = new DocumentCollection();
 sharedCollection1.Id = "sharedCollection1";
@@ -223,7 +223,16 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>Get throughput by using MongoDB API's GetLastRequestStatistics command
+## Get throughput by using MongoDB API portal metrics
+
+The simplest way to get a good estimate of request unit charges for your MongoDB API database is to use the [Azure portal](https://portal.azure.com) metrics. With the *Number of requests* and *Request Charge* charts, you can get an estimate of how many request units each operation is consuming and how many request units they consume relative to one another.
+
+![MongoDB API portal metrics][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceeding reserved throughput limits in the MongoDB API
+Applications that exceed the provisioned throughput for a container or a set of containers will be rate-limited until the consumption rate drops below the provisioned throughput rate. When a rate-limitation occurs, the backend will end the request with a `16500` error code - `Too Many Requests`. By default, the MongoDB API automatically retries up to 10 times before returning a `Too Many Requests` error code. If you are receiving many `Too Many Requests` error codes, you may want to consider either adding a retry logic in your application's error handling routines or [increase provisioned throughput for the container](set-throughput.md).
+
+## <a id="GetLastRequestStatistics"></a>Get request charge by using MongoDB API's GetLastRequestStatistics command
 
 The MongoDB API supports a custom command, *getLastRequestStatistics*, for retrieving the request charges for a given operation.
 
@@ -250,15 +259,6 @@ One method for estimating the amount of reserved throughput required by your app
 > If you have item types which will differ dramatically in terms of size and the number of indexed properties, then record the applicable operation request unit charge associated with each *type* of typical item.
 > 
 > 
-
-## Get throughput by using MongoDB API portal metrics
-
-The simplest way to get a good estimate of request unit charges for your MongoDB API database is to use the [Azure portal](https://portal.azure.com) metrics. With the *Number of requests* and *Request Charge* charts, you can get an estimate of how many request units each operation is consuming and how many request units they consume relative to one another.
-
-![MongoDB API portal metrics][1]
-
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceeding reserved throughput limits in the MongoDB API
-Applications that exceed the provisioned throughput for a container or a set of containers will be rate-limited until the consumption rate drops below the provisioned throughput rate. When a rate-limitation occurs, the backend will end the request with a `16500` error code - `Too Many Requests`. By default, the MongoDB API automatically retries up to 10 times before returning a `Too Many Requests` error code. If you are receiving many `Too Many Requests` error codes, you may want to consider either adding a retry logic in your application's error handling routines or [increase provisioned throughput for the container](set-throughput.md).
 
 ## Throughput FAQ
 

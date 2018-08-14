@@ -1,5 +1,5 @@
 ---
-title: What is AppSource and and how does it work with Azure
+title: What is AppSource and how does it work with Azure
 description: Overview of AppSource, which enables Microsoft partners to make their technology and services discoverable to customers through a Microsoft-supported online storefront.
 services: Marketplace, AppSource, Compute, Storage, Networking, Security, SaaS
 documentationcenter:

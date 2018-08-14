@@ -7,13 +7,12 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 28F360AD-789A-488D-965F-FC6E6CCF3329
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 07/19/2018
 ms.author: mabrigg
 
 ---
@@ -58,12 +57,12 @@ The AzureStack-Tools repository contains PowerShell modules that support the fol
 
 | Functionality | Description | Who can use this module? |
 | --- | --- | --- |
-| [Cloud capabilities](azure-stack-validate-templates.md) | Use this module to get the cloud capabilities of a cloud. For example, you can get the cloud capabilities such as API version, Azure Resource Manager resources, VM extensions etc. for Azure Stack and Azure clouds using this module. | Cloud administrators and users. |
+| [Cloud capabilities](https://github.com/Azure/AzureStack-Tools/tree/master/CloudCapabilities) | Use this module to get the cloud capabilities of a cloud. For example, you can get the cloud capabilities such as API version, Azure Resource Manager resources, VM extensions etc. for Azure Stack and Azure clouds using this module. | Cloud administrators and users. |
 | [Resource Manager policy for Azure Stack](azure-stack-policy-module.md) | Use this module to configure an Azure subscription or an Azure resource group with the same versioning and service availability as Azure Stack. | Cloud administrators and users |
 | [Connecting to Azure Stack](azure-stack-connect-azure-stack.md) | Use this module to connect to an Azure Stack instance through PowerShell and to configure VPN connectivity to Azure Stack. | Cloud administrators and users |
 | [Template validator](azure-stack-validate-templates.md) | Use this module to verify if an existing or a new template can be deployed to Azure Stack. | Cloud administrators and users |
 
 ## Next steps
 
-* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)
-* [Connect to Azure Stack Development Kit over a VPN](azure-stack-connect-azure-stack.md)
+- [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)
+- [Connect to Azure Stack Development Kit over a VPN](azure-stack-connect-azure-stack.md)

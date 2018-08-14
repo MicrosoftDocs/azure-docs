@@ -79,6 +79,6 @@ To train staff members to use emergency access accounts, do the following:
 - [Sign up for Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md), if you haven’t signed up already.
 - [Require Azure Multi-Factor Authentication for individual users assigned as administrators](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
 - [Configure additional protections for global administrators in Office 365](https://support.office.com/article/Protect-your-Office-365-global-administrator-accounts-6b4ded77-ac8d-42ed-8606-c014fd947560), if you are using Office 365.
-- [Perform an access review of global administrators](../active-directory-privileged-identity-management-how-to-start-security-review.md) and [transition existing global administrators to more specific administrator roles](directory-assign-admin-roles.md).
+- [Perform an access review of global administrators](../privileged-identity-management/pim-how-to-start-security-review.md) and [transition existing global administrators to more specific administrator roles](directory-assign-admin-roles.md).
 
 

@@ -152,4 +152,4 @@ If you encounter problems, refer to [FAQs](https://microsoft.github.io/azure-iot
 Now that you have learned how to connect a DevKit device to your IoT solution accelerators and visualize the sensor data, here are the suggested next steps:
 
 * [IoT solution accelerators overview](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

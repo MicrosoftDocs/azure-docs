@@ -64,7 +64,7 @@ For details, refer to the [Azure Cosmos DB pricing details](https://azure.micros
 ### Is a free account available?
 Yes, you can sign up for a time-limited account at no charge, with no commitment. To sign up, visit [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) or read more in the [Try Azure Cosmos DB FAQ](#try-cosmos-db).
 
-If you are new to Azure, you can sign up for an [Azure free account](https://azure.microsoft.com/free/), which gives you 30 days and and a credit to try all the Azure services. If you have a Visual Studio subscription, you are also eligible for [free Azure credits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service. 
+If you are new to Azure, you can sign up for an [Azure free account](https://azure.microsoft.com/free/), which gives you 30 days and a credit to try all the Azure services. If you have a Visual Studio subscription, you are also eligible for [free Azure credits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service. 
 
 You can also use the [Azure Cosmos DB Emulator](local-emulator.md) to develop and test your application locally for free, without creating an Azure subscription. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
 
@@ -116,6 +116,9 @@ When you set a region, remember that Azure Cosmos DB respects sovereign and gove
 
 Container and database level throughput provisioning are separate offerings and switching between either of these require migrating data from source to destination. Which means you need to create a new database or a new collection and then migrate data by using [bulk executor library](bulk-executor-overview.md) or [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
+### How do I create fixed collection with partition key
+
+Currently you can create collection with a partition key throughput by using the [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) method of .Net SDK or by using the [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Creating a fixed collection by using Azure portal is not currenlty supported.  
 
 ## Develop against the SQL API
 
@@ -441,7 +444,7 @@ Azure Cosmos DB is an SLA-based system that provides latency, throughput, availa
 
 ## Develop against the Graph API
 ### How can I apply the functionality of Graph API to Azure Cosmos DB?
-You can use an extension library to apply the functionality of Graph API. This library is called Microsoft Azure Graphs, and it is available on NuGet. 
+You can use an extension library to apply the functionality of Graph API. This library is called Microsoft Azure Graphs, and it is available on [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
 
 ### It looks like you support the Gremlin graph traversal language. Do you plan to add more forms of query?
 Yes, we plan to add other mechanisms for query in the future. 

@@ -5,7 +5,7 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 07/03/2018
+ ms.date: 07/11/2018
  ms.author: tamram
  ms.custom: include file
 ---
@@ -18,11 +18,12 @@ Consider ZRS for scenarios that require strong consistency, strong durability, a
 For more information about availability zones, see [Availability Zones overview](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 ## Support coverage and regional availability
-ZRS currently supports standard [general-purpose v2 (GPv2)](../articles/storage/common/storage-account-options.md#general-purpose-v2) account types. ZRS is available for block blobs, non-disk page blobs, files, tables, and queues. Additionally, all of your [Storage Analytics](../articles/storage/common/storage-analytics.md) logs and [Storage Metrics](../articles/storage/common/storage-enable-and-view-metrics.md)
+ZRS currently supports standard [general-purpose v2 (GPv2)](../articles/storage/common/storage-account-options.md#general-purpose-v2-accounts) account types. ZRS is available for block blobs, non-disk page blobs, files, tables, and queues. Additionally, all of your [Storage Analytics](../articles/storage/common/storage-analytics.md) logs and [Storage Metrics](../articles/storage/common/storage-enable-and-view-metrics.md)
 
 ZRS is generally available in the following regions:
 
 - US East 2
+- US West 2
 - US Central
 - North Europe
 - West Europe
@@ -79,7 +80,7 @@ A support person will then be in contact with you. That person will be available
 >[!NOTE]
 > Once ZRS is [generally available](#support-coverage-and-regional-availability) in a region, you will no longer be able to create a ZRS Classic account from the portal in that same region. However, you can still create one through other means like Microsoft PowerShell and the Azure CLI, that is, until ZRS Classic is deprecated.
 
-ZRS Classic asynchronously replicates data across data centers within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. ZRS Classic is available only for **block blobs** in [general-purpose V1 (GPv1)](../articles/storage/common/storage-account-options.md#general-purpose-v1) storage accounts. A ZRS Classic account cannot be converted to or from LRS or GRS, and does not have metrics or logging capability.
+ZRS Classic asynchronously replicates data across data centers within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. ZRS Classic is available only for **block blobs** in [general-purpose V1 (GPv1)](../articles/storage/common/storage-account-options.md#general-purpose-v1-accounts) storage accounts. A ZRS Classic account cannot be converted to or from LRS or GRS, and does not have metrics or logging capability.
 
 ZRS Classic accounts cannot be converted to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also do not support metrics or logging.
 

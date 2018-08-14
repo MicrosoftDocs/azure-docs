@@ -1,14 +1,13 @@
 ---
 title: Authenticate with Azure AD from an Azure VM Managed Service Identity (Preview) | Microsoft Docs
-description: Authenticate with Azure AD from an Azure VM Managed Service Identity (Preview).  
+description: Authenticate with Azure AD from an Azure VM Managed Service Identity (Preview).
 services: storage
 author: tamram
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: tamram
+ms.component: common
 ---
 
 # Authenticate with Azure AD from an Azure Managed Service Identity (Preview)
@@ -28,7 +27,7 @@ This article shows how to authenticate to Azure Storage with MSI from an Azure V
 
 Before you can use MSI to authenticate to Azure Storage from your VM, you must first enable MSI on the VM. To learn how to enable MSI, see one of these articles:
 
-- [Azure Portal](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-service-identity/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager Template](../../active-directory/managed-service-identity/qs-configure-template-windows-vm.md)

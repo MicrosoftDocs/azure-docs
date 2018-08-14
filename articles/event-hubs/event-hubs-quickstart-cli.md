@@ -2,7 +2,7 @@
 title: Azure Quickstart - Process event streams using Azure CLI | Microsoft Docs
 description: In this quickstart, you learn how to process event streams using Azure CLI.
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
@@ -10,7 +10,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
+ms.author: shvija
 #Customer intent: How do I stream data and process telemetry from an event hub?
 
 ---
@@ -292,5 +292,5 @@ In this article, you created the Event Hubs namespace and other resources requir
 
 [create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
-[az group create]: /cli/azure/group#az_group_create
+[az group create]: /cli/azure/group#az-group-create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

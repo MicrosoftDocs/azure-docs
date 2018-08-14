@@ -274,7 +274,7 @@ In this section, you test your Azure AD single sign-on configuration by using th
 
 When you select the SAP Business Object Cloud tile in the access panel, you should be automatically signed in to your SAP Business Object Cloud application.
 
-For more information about the access panel, see [Introduction to the access panel](../active-directory-saas-access-panel-introduction.md).
+For more information about the access panel, see [Introduction to the access panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

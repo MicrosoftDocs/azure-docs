@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 06/06/2018
+ms.date: 07/17/2018
 ms.author: marsma
 ---
 # Container instance logging with Azure Log Analytics
@@ -38,9 +38,26 @@ To obtain the Log Analytics workspace ID and primary key:
 
 ## Create container group
 
-Now that you have the Log Analytics workspace ID and primary key, you're ready to create a logging-enabled container group. The following example creates a container group with a single [fluentd][fluentd] container. The Fluentd container produces several lines of output in its default configuration. Because this output is sent to your Log Analytics workspace, it works well for demonstrating the viewing and querying of logs.
+Now that you have the Log Analytics workspace ID and primary key, you're ready to create a logging-enabled container group.
 
-First, copy the following YAML, which defines a container group with a single container, into a new file. Replace `LOG_ANALYTICS_WORKSPACE_ID` and `LOG_ANALYTICS_WORKSPACE_KEY` with the values you obtained in the previous step, then save the file as **deploy-aci.yaml**.
+The following examples demonstrate two ways to create a container group with a single [fluentd][fluentd] container: Azure CLI, and Azure CLI with a YAML template. The Fluentd container produces several lines of output in its default configuration. Because this output is sent to your Log Analytics workspace, it works well for demonstrating the viewing and querying of logs.
+
+### Deploy with Azure CLI
+
+To deploy with the Azure CLI, specify the `--log-analytics-workspace` and `--log-analytics-workspace-key` parameters in the [az container create][az-container-create] command. Replace the two workspace values with the values you obtained in the previous step (and update the resource group name) before running the following command.
+
+```azurecli-interactive
+az container create \
+    --resource-group myResourceGroup \
+    --name mycontainergroup001 \
+    --image fluent/fluentd \
+    --log-analytics-workspace <WORKSPACE_ID> \
+    --log-analytics-workspace-key <WORKSPACE_KEY>
+```
+
+### Deploy with YAML
+
+Use this method if you prefer to deploy container groups with YAML. The following YAML defines a container group with a single container. Copy the YAML into a new file, then replace `LOG_ANALYTICS_WORKSPACE_ID` and `LOG_ANALYTICS_WORKSPACE_KEY` with the values you obtained in the previous step. Save the file as **deploy-aci.yaml**.
 
 ```yaml
 apiVersion: 2018-06-01
@@ -70,7 +87,7 @@ type: Microsoft.ContainerInstance/containerGroups
 Next, execute the following command to deploy the container group; replace `myResourceGroup` with a resource group in your subscription (or first create a resource group named "myResourceGroup"):
 
 ```azurecli-interactive
-az container create -g myResourceGroup -n mycontainergroup001 -f deploy-aci.yaml
+az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
 ```
 
 You should receive a response from Azure containing deployment details shortly after issuing the command.
@@ -130,3 +147,4 @@ For information about monitoring container instance CPU and memory resources, se
 [query_lang]: https://docs.loganalytics.io/
 
 <!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az-container-create

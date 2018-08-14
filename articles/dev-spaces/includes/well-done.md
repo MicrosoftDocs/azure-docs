@@ -5,13 +5,13 @@ ms.custom: "include file"
 services: azure-dev-spaces
 ms.service: "azure-dev-spaces"
 ms.component: "azds-kubernetes"
-author: "ghogen"
-ms.author: "ghogen"
+author: ghogen
+ms.author: ghogen
 ms.date: "05/11/2018"
 ms.topic: "include"
-manager: "douge"
+manager: douge
 ---
-## Well done!
+### Well done!
 You've completed the getting started guide! You learned how to:
 
 > [!div class="checklist"]

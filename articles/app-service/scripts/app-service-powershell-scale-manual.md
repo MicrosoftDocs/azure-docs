@@ -27,7 +27,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/scale-manual/scale-manual.ps1 "Scale a web app manually")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/scale-manual/scale-manual.ps1 "Scale a web app manually")]
 
 ## Clean up deployment 
 

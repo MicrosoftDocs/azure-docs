@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Flock | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Flock.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Flock from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Flock from the gallery
 To configure the integration of Flock into Azure AD, you need to add Flock from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of Flock into Azure AD, you need to add Flock from 
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **Flock**, select **Flock** from result panel then click **Add** button to add the application.
+1. In the search box, type **Flock**, select **Flock** from result panel then click **Add** button to add the application.
 
 	![Flock in the results list](./media/flock-tutorial/tutorial_flock_addfromgallery.png)
 
@@ -82,10 +82,10 @@ For single sign-on to work, Azure AD needs to know what the counterpart user in 
 To configure and test Azure AD single sign-on with Flock, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Flock test user](#create-a-flock-test-user)** - to have a counterpart of Britta Simon in Flock that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a Flock test user](#create-a-flock-test-user)** - to have a counterpart of Britta Simon in Flock that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -97,11 +97,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
 
 	![Single sign-on dialog box](./media/flock-tutorial/tutorial_flock_samlbase.png)
 
-3. On the **Flock Domain and URLs** section, perform the following steps:
+1. On the **Flock Domain and URLs** section, perform the following steps:
 
 	![Flock Domain and URLs single sign-on information](./media/flock-tutorial/tutorial_flock_url.png)
 
@@ -112,25 +112,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Flock Client support team](mailto:support@flock.com) to get these values.
 
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/flock-tutorial/tutorial_flock_certificate.png)
 
-5. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/flock-tutorial/tutorial_general_400.png)
 
-6. On the **Flock Configuration** section, click **Configure Flock** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **Flock Configuration** section, click **Configure Flock** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Flock Configuration](./media/flock-tutorial/tutorial_flock_configure.png) 
 
-7. In a different web browser window, log in to your Flock company site as an administrator.
+1. In a different web browser window, log in to your Flock company site as an administrator.
 
-8. Select **Authentication** tab from the left navigation panel and then select **SAML Authentication**.
+1. Select **Authentication** tab from the left navigation panel and then select **SAML Authentication**.
 
 	![Flock Configuration](./media/flock-tutorial/configure1.png)
 
-9. In the **SAML Authentication** section, perform the following steps:
+1. In the **SAML Authentication** section, perform the following steps:
 
 	![Flock Configuration](./media/flock-tutorial/configure2.png)
 
@@ -154,15 +154,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/flock-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/flock-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/flock-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/flock-tutorial/create_aaduser_04.png)
 
@@ -182,15 +182,15 @@ To enable Azure AD users to log in to Flock, they must be provisioned into Flock
 
 1. Log in to your Flock company site as an administrator.
 
-2. Click **Manage Team** from the left navigation panel.
+1. Click **Manage Team** from the left navigation panel.
 
     ![Add Employee](./media/flock-tutorial/user1.png)
 
-3. Click **Add Member** tab and then select **Team Members**.
+1. Click **Add Member** tab and then select **Team Members**.
 
 	![Add Employee](./media/flock-tutorial/user2.png)
 
-4. Enter the email address of the user like **Brittasimon@contoso.com** and then select **Add Users**.
+1. Enter the email address of the user like **Brittasimon@contoso.com** and then select **Add Users**.
 
 	![Add Employee](./media/flock-tutorial/user3.png)
 
@@ -206,30 +206,30 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201]
 
-2. In the applications list, select **Flock**.
+1. In the applications list, select **Flock**.
 
 	![The Flock link in the Applications list](./media/flock-tutorial/tutorial_flock_app.png)
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Flock tile in the Access Panel, you should get automatically signed-on to your Flock application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

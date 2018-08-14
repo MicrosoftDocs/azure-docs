@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Supermood | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Supermood.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Supermood from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Supermood from the gallery
 To configure the integration of Supermood into Azure AD, you need to add Supermood from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of Supermood into Azure AD, you need to add Supermo
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **Supermood**, select **Supermood** from result panel then click **Add** button to add the application.
+1. In the search box, type **Supermood**, select **Supermood** from result panel then click **Add** button to add the application.
 
 	![Supermood in the results list](./media/supermood-tutorial/tutorial_supermood_addfromgallery.png)
 
@@ -82,10 +82,10 @@ For single sign-on to work, Azure AD needs to know what the counterpart user in 
 To configure and test Azure AD single sign-on with Supermood, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Supermood test user](#create-a-supermood-test-user)** - to have a counterpart of Britta Simon in Supermood that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a Supermood test user](#create-a-supermood-test-user)** - to have a counterpart of Britta Simon in Supermood that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -97,11 +97,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/supermood-tutorial/tutorial_supermood_samlbase.png)
 
-3. On the **Supermood Domain and URLs** section, perform the following steps:
+1. On the **Supermood Domain and URLs** section, perform the following steps:
 
 	![Supermood Domain and URLs single sign-on information](./media/supermood-tutorial/tutorial_supermood_url.png)
 
@@ -111,11 +111,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. If you wish to configure the application in **SP** initiated mode, in the **Sign-on URL** textbox, type a URL: `https://supermood.co/app/#!/loginv2`
 
-4. Supermood application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
+1. Supermood application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
 	
 	![Configure Single Sign-On](./media/supermood-tutorial/tutorial_supermood_attribute.png)
 
-5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+1. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
     
 	| Attribute Name | Attribute Value |
 	| ---------------| --------------- |    
@@ -136,24 +136,24 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Click **Ok**
 
-6. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+1. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
 
 	![The Certificate download link](./media/supermood-tutorial/tutorial_supermood_certificate.png) 
 
-7. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/supermood-tutorial/tutorial_general_400.png)
 
-8. Go to your Supermood.co admin panel as Security Administrator.
+1. Go to your Supermood.co admin panel as Security Administrator.
 
-9. Click on **My account** (bottom left) and **Single Sign On (SSO)**.
+1. Click on **My account** (bottom left) and **Single Sign On (SSO)**.
 
 	![The Certificate single](./media/supermood-tutorial/tutorial_supermood_single.png)
-10. On **Your SAML 2.0 configurations**, Click **Add an SAML 2.0 configuration for an email domain**.
+1. On **Your SAML 2.0 configurations**, Click **Add an SAML 2.0 configuration for an email domain**.
 
 	![The Certificate add](./media/supermood-tutorial/tutorial_supermood_add.png)
 
-11. On **Add an SAML 2.0 configuration for an email domain**. section, perform the following steps:
+1. On **Add an SAML 2.0 configuration for an email domain**. section, perform the following steps:
 
 	![The Certificate saml](./media/supermood-tutorial/tutorial_supermood_saml.png)
 
@@ -175,15 +175,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/supermood-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/supermood-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/supermood-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/supermood-tutorial/create_aaduser_04.png)
 
@@ -215,30 +215,30 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Supermood**.
+1. In the applications list, select **Supermood**.
 
 	![The Supermood link in the Applications list](./media/supermood-tutorial/tutorial_supermood_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Supermood tile in the Access Panel, you should get automatically signed-on to your Supermood application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

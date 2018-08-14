@@ -31,6 +31,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 > [!NOTE]
 > For more information, see [Copy data to or from Azure Data Lake Store by using Azure Data Factory](connector-azure-data-lake-store.md).
+
 ## Prerequisites
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
@@ -105,7 +106,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
    3. Select **Next**.
    
    > [!IMPORTANT]
-   > In this walkthrough, you use a _managed service identity_ to authenticate your Data Lake Store. Be sure to grant the service principal the proper permissions in Azure Data Lake Store by following [these instructions](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > In this walkthrough, you use a _managed service identity_ to authenticate your Data Lake Store. Be sure to grant the MSI the proper permissions in Azure Data Lake Store by following [these instructions](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
    
    ![Specify Azure Data Lake Store account](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. In the **Choose the output file or folder** page, enter **copyfroms3** as the output folder name, and select **Next**: 

@@ -3,7 +3,7 @@ title: How to troubleshoot common issues during VHD creation | Microsoft Docs
 description: Answers to common troubleshooting questions and issues during VHD creation.
 services: Azure Marketplace
 documentationcenter: ''
-author: msmbaldwin
+author: HannibalSII
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 09/26/2016
-ms.author: mbaldwin
+ms.author: hascipio; v-divte
 
 ---
 # How to troubleshoot common issues encountered during VHD creation

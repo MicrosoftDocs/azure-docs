@@ -24,9 +24,7 @@ This article covers the following tasks:
 > [!div class="checklist"]
 > * Querying data with MongoDB
 
-You can get started by watching this video with Azure Cosmos DB Program Manager Andy Hoh about querying MongoDB:
-
->[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
+You can get started by using the examples in this document and watch the [Query Azure Cosmos DB with MongoDB shell](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/) video .
 
 ## Sample document
 

@@ -88,7 +88,7 @@ You need the execute the following steps one VM instance at a time. This allows 
 4. Repeat steps 1 through 3 as needed, but never scale down the number of instances in the primary node types less than what the reliability tier warrants. Refer to [the details on reliability tiers here](service-fabric-cluster-capacity.md).
 
 ## Behaviors you may observe in Service Fabric Explorer
-When you scale up a cluster the Service Fabric Explorer will reflect the number of nodes (virtual machine scale set instances) that are part of the cluster.  However, when you scale a cluster down you will see the removed node/VM instance displayed in an unhealthy state unless you call [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) with the appropriate node name.   
+When you scale up a cluster the Service Fabric Explorer will reflect the number of nodes (virtual machine scale set instances) that are part of the cluster.  However, when you scale a cluster down you will see the removed node/VM instance displayed in an unhealthy state unless you call [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) with the appropriate node name.   
 
 Here is the explanation for this behavior.
 
@@ -99,7 +99,7 @@ In order to make sure that a node is removed when a VM is removed, you have two 
 1) Choose a durability level of Gold or Silver for the node types in your cluster, which gives you the infrastructure integration. Which will then automatically remove the nodes from our system services (FM) state when you scale down.
 Refer to [the details on durability levels here](service-fabric-cluster-capacity.md)
 
-2) Once the VM instance has been scaled down, you need to call the [Remove-ServiceFabricNodeState cmdlet](https://msdn.microsoft.com/library/mt125993.aspx).
+2) Once the VM instance has been scaled down, you need to call the [Remove-ServiceFabricNodeState cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate).
 
 > [!NOTE]
 > Service Fabric clusters require a certain number of nodes to be up at all the time in order to maintain availability and preserve state - referred to as "maintaining quorum." So, it is typically unsafe to shut down all the machines in the cluster unless you have first performed a [full backup of your state](service-fabric-reliable-services-backup-restore.md).

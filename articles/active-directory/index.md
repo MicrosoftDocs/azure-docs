@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
-ms.author: carolz
+ms.author: mtillman
 experimental: true
 experiment_id: "50f26fb6-3aa0-42"
 ---
@@ -29,10 +29,11 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                     <div class="cardText">
                         <h3>Fundamentals</h3>
                         <p>
-                        <a href="/azure/active-directory/active-directory-whatis">What is Azure AD?</a><br/>
-                        <a href="/azure/active-directory/understand-azure-identity-solutions">Identity solutions</a><br/>
-                        <a href="/azure/active-directory/get-started-azure-ad">Get started</a><br/>
-                        <a href="/azure/active-directory/whats-new">What's new</a>
+                        <a href="/azure/active-directory/fundamentals/active-directory-whatis">What is Azure AD?</a><br/>
+                        <a href="/azure/active-directory/fundamentals/understand-azure-identity-solutions">Identity solutions</a><br/>
+                        <a href="/azure/active-directory/fundamentals/get-started-azure-ad">Get started</a><br/>
+                        <a href="/azure/active-directory/fundamentals/whats-new">What's new</a><br/>
+                        <a href="/azure/active-directory/fundamentals/active-directory-deployment-plans">Azure AD deployment plans</a>
                         </p>
                     </div>
                 </div>
@@ -79,8 +80,8 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                     <div class="cardText">
                         <h3>Authentication</h3>
                         <p>
-                        <a href="/azure/active-directory/active-directory-passwords-overview">Passwords</a><br/>
-                        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements">Multi-factor authentication</a><br/>
+                        <a href="/azure/active-directory/authentication/concept-sspr-howitworks">Passwords</a><br/>
+                        <a href="/azure/active-directory/authentication/concept-mfa-howitworks">Multi-factor authentication</a><br/>
                         <a href="/azure/active-directory/active-directory-azureadjoin-passport">Windows Hello</a><br/>
                         <a href="/azure/active-directory/active-directory-certificate-based-authentication-get-started">Certificate-based authentication</a>
                         </p>
@@ -98,7 +99,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                         <p>
                         <a href="/azure/active-directory/active-directory-identityprotection">Identity protection</a><br/>
                         <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Conditional access</a><br/>
-                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json">Privileged identity management</a>
+                        <a href="/azure/active-directory/privileged-identity-management/pim-configure">Privileged identity management</a>
                         </p>
                     </div>
                 </div>

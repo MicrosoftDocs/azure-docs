@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with RedBrick Health | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and RedBrick Health.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding RedBrick Health from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding RedBrick Health from the gallery
 To configure the integration of RedBrick Health into Azure AD, you need to add RedBrick Health from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of RedBrick Health into Azure AD, you need to add R
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **RedBrick Health**, select **RedBrick Health** from result panel then click **Add** button to add the application.
+1. In the search box, type **RedBrick Health**, select **RedBrick Health** from result panel then click **Add** button to add the application.
 
 	![RedBrick Health in the results list](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_addfromgallery.png)
 
@@ -84,10 +84,10 @@ In RedBrick Health, assign the value of the **user name** in Azure AD as the val
 To configure and test Azure AD single sign-on with RedBrick Health, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a RedBrick Health test user](#create-a-redbrick-health-test-user)** - to have a counterpart of Britta Simon in RedBrick Health that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a RedBrick Health test user](#create-a-redbrick-health-test-user)** - to have a counterpart of Britta Simon in RedBrick Health that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -99,11 +99,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_samlbase.png)
 
-3. On the **RedBrick Health Domain and URLs** section, perform the following steps:
+1. On the **RedBrick Health Domain and URLs** section, perform the following steps:
 
 	![RedBrick Health Domain and URLs single sign-on information](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
 
@@ -122,11 +122,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> Relay State value is not real. Update this value with the actual Relay State. Contact [RedBrick Health support team](https://home.redbrickhealth.com/contact/) to get this value.
 
-4. The RedBrick Health application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. These claims are customer specific and depends on your requirement. Following optional claims are example only which you can configure for your application. You can manage the values of these attributes from the **User Attributes** section on application integration page.
+1. The RedBrick Health application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. These claims are customer specific and depends on your requirement. Following optional claims are example only which you can configure for your application. You can manage the values of these attributes from the **User Attributes** section on application integration page.
 
 	![Configure Single Sign-On](./media/redbrickhealth-tutorial/attribute.png)
 
-5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+1. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
 	| Attribute Name | Attribute Value |
 	| ---------------| ----------------|
@@ -151,19 +151,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	e. Click **Ok**.
 
-6. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_certificate.png) 
 
-7. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/redbrickhealth-tutorial/tutorial_general_400.png)
 
-8. On the **RedBrick Health Configuration** section, click **Configure RedBrick Health** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section.**
+1. On the **RedBrick Health Configuration** section, click **Configure RedBrick Health** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section.**
 
 	![RedBrick Health Configuration](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_configure.png) 
 
-9. To configure single sign-on on **RedBrick Health** side, you need to send the downloaded **Certificate(Base64)** and **SAML Entity ID** to [RedBrick Health support team](https://home.redbrickhealth.com/contact/). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **RedBrick Health** side, you need to send the downloaded **Certificate(Base64)** and **SAML Entity ID** to [RedBrick Health support team](https://home.redbrickhealth.com/contact/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -180,15 +180,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/redbrickhealth-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/redbrickhealth-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/redbrickhealth-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/redbrickhealth-tutorial/create_aaduser_04.png)
 
@@ -216,30 +216,30 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **RedBrick Health**.
+1. In the applications list, select **RedBrick Health**.
 
 	![The RedBrick Health link in the Applications list](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the RedBrick Health tile in the Access Panel, you should get automatically signed-on to your RedBrick Health application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

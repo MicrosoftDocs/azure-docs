@@ -1,4 +1,4 @@
-﻿---
+---
 title: Service Fabric Azure Files Volume Driver (Preview) | Microsoft Docs
 description: Service Fabric supports using Azure Files to backup volumes from your container. This is currently in preview.
 services: service-fabric
@@ -25,17 +25,44 @@ The Azure Files volume plugin is a [Docker volume plugin](https://docs.docker.co
 >
 
 ## Prerequisites
-* The Windows version of the Azure Files volume plugin works on [Windows Server version 1709](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](https://docs.microsoft.com/en-us/windows/whats-new/whats-new-windows-10-version-1709) or later operating systems only. The Linux version of the Azure Files volume plugin works on all operating system versions supported by Service Fabric.
+* The Windows version of the Azure Files volume plugin works on [Windows Server version 1709](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) or later operating systems only. The Linux version of the Azure Files volume plugin works on all operating system versions supported by Service Fabric.
 
 * The Azure Files volume plugin only works on Service Fabric version 6.2 and newer.
 
-* Follow the instructions in the [Azure Files documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share) to create a file share for the Service Fabric container application to use as volume.
+* Follow the instructions in the [Azure Files documentation](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) to create a file share for the Service Fabric container application to use as volume.
 
-* You will need [Powershell with the Service Fabric module](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started) or [SFCTL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli) installed.
+* You will need [Powershell with the Service Fabric module](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) or [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) installed.
+
+* If you are using hyperv containers, the following snippets need to be added in the ClusterManifest (local cluster) or fabricSettings section in your ARM template (Azure cluster) or ClusterConfig.json (standalone cluster). You will need  the volume name and the port that the volume listens to on the cluster. 
+
+In the ClusterManifest, the following needs to be added in the Hosting section. In this example, the volume name is **sfazurefile** and the port it listens to on the cluster is **19300**.  
+
+``` xml 
+<Section Name="Hosting">
+  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19300" />
+</Section>
+```
+
+In the fabricSettings section in your ARM template (for Azure deployments) or ClusterConfig.json (for standalone deployments), the following snippet needs to be added. 
+
+```json
+"fabricSettings": [
+  {
+    "name": "Hosting",
+    "parameters": [
+      {
+          "name": "VolumePluginPorts",
+          "value": "sfazurefile:19300"
+      }
+    ]
+  }
+]
+```
+
 
 ## Deploy the Service Fabric Azure Files application
 
-The Service Fabric application that provides the volumes for your containers can be downloaded from the following [link](https://aka.ms/sfvolume). The application can be deployed to the cluster via [PowerShell](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-lifecycle-sfctl) or [FabricClient APIs](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+The Service Fabric application that provides the volumes for your containers can be downloaded from the following [link](https://aka.ms/sfvolume). The application can be deployed to the cluster via [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) or [FabricClient APIs](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
 
 1. Using the command line, change directory to the root directory of the application package downloaded.
 

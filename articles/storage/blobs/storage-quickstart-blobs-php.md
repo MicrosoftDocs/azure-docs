@@ -3,10 +3,9 @@ title: Azure Quickstart - Create a blob in object storage using PHP | Microsoft 
 description: Quickly learn to transfer objects to/from Azure Blob storage using PHP
 services: storage
 author: roygara
-manager: jeconnoc
+
 
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 04/09/2018
