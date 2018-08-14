@@ -14,9 +14,6 @@
       href: azure-stack-update-1805.md
     - name: 1804 update
       href: azure-stack-update-1804.md
-    - name: 1803 update
-      href: azure-stack-update-1803.md
-
 - name: Quickstarts
   expanded: true
   items:
