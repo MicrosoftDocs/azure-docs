@@ -10,25 +10,25 @@ ms.custom: bfmigrate
 
 # Introduction
 
-These articles provide guidance to migrate your workloads from Azure Germany to global Azure. Although Azure already provides tools to migrate resources at the [Azure Migration Center](https://azure.microsoft.com/migration/), some of these tools are designed only for migrations inside the same tenant or the same region.
+These articles provide guidance to migrate your workloads from Azure Germany to global Azure. Although Azure provides tools to migrate resources at the [Azure Migration Center](https://azure.microsoft.com/migration/), some of these tools are designed only for migrations inside the same tenant or the same region.
 
 The two regions in Germany are strictly separated from global Azure, including separate Azure Active Directory for each cloud. As a result, Azure tenants are always different between global Azure and Azure Germany. Some of the standard migration tools are based on moving resources inside the *same* tenant. When migrating between *different* tenants, below is a list of tools available.
 
 ## Migration Process
 
-Your journey to migrate workload from Azure Germany to global Azure will typically follow similar process used for migrating applications to Cloud.
+Your journey to migrate workload from Azure Germany to global Azure will typically follow similar processes used for migrating applications to the Cloud.
 
 ![Assess -> Plan -> Migrate -> Validate](/media/germany-migration-main/migration-steps.png)
 
 ### Assess
 
-- Understand your organization’s Azure Germany footprint by bringing together Azure Account owners, Subscription admins, Tenant admins, and Finance/Accounting teams. All of them together will provide complete picture of Azure usage for large organizations.
+- Understand your organizationAzure Germany footprint by bringing together Azure Account owners, Subscription admins, Tenant admins, and Finance/Accounting teams. Together, they'll provide a complete picture of Azure usage for large organizations.
 
 - Compile inventory of resources
-  - Each Subscription Admin and Tenant admin execute a series of scripts to list resource groups, and the resources within each of the groups, and their deployment settings
-  - Understand dependencies across applications within Azure, and with external systems
-  - Document number and size of Azure resources, and the amount of data that needs to be migrated
-  - Make sure application architecture documents are consistent with Azure resources list
+  - Each Subscription Admin and Tenant admin will execute a series of scripts to list resource groups, the resources within each of the groups, and their deployment settings
+  - Document dependencies across applications within Azure, and with external systems
+  - Document the count of each Azure resource, and the amount of data associated with each instance that needs to be migrated
+  - Ensure the application architecture documents are consistent with the Azure resources list
 
 At the end of this stage, you'll have
 
@@ -41,11 +41,10 @@ At the end of this stage, you'll have
 - Use the output of the dependency analysis from Assessment stage to define related components. Consider migrating them together in a '**migration package**'
 - [Optional] Take this migration opportunity to apply [Gartner 5-R criteria](https://www.gartner.com/newsroom/id/1684114), and optimize your workload
 - Determine Target environment in global Azure
-  - Obtain global Azure tenant (if your organization doesn't already have a presence), 
-  - create subscriptions, 
-  - determine to which global Azure location you prefer to migrate
-  - Work with your Azure representative and plan for upcoming migration
-  - Test migration path from Azure Germany to Azure global
+  - Identify the target global Azure tenant (if your organization doesn't already have a presence, create one) 
+  - create subscriptions
+  - choose which global Azure location you prefer to migrate
+  - Execute test migration scenarios that match your architecture from Azure Germany to Azure global
 - Determine appropriate timeline/schedule of migration, and User acceptance test plan, for each migration package
 
 ### Migrate
@@ -54,9 +53,9 @@ At the end of this stage, you'll have
 
 ### Validate
 
-- Perform User acceptance test
-- make sure applications are working as expected
-- Copy latest data to target environment if applicable
+- Perform User acceptance testing
+- Ensure applications are working as expected
+- Synchronize latest data to target environment if applicable
 - Cutover to new application instance in Azure global
 - confirm production environment is working as expected
 - Decommission resources in Azure Germany

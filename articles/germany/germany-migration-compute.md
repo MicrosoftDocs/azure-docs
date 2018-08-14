@@ -37,7 +37,7 @@ Install a Configuration/Process Server in your source environment to build the i
 - Create a storage account
 - Set up the Recovery Service Vault
 - Define Protection goal (**To Azure** -- **Not virtualized/other**)
-- Download Recovery Unified Setup installation file (**Prepare Infrastructure** > **Source**). When you opened the portal URL from within the ConfigurationServer, the file will be downloaded to the correct server. If not, upload the install file to the COnfigurationServer.
+- Download Recovery Unified Setup installation file (**Prepare Infrastructure** > **Source**). When you opened the portal URL from within the ConfigurationServer, the file will be downloaded to the correct server. If not, upload the install file to the ConfigurationServer.
 - Download the vault registration key (and upload to ConfigurationServer like above if necessary)
 - Run the Recovery Unified Setup installation on the ConfigurationServer
 - Set up the target environment (you should still be signed in to the target portal)
