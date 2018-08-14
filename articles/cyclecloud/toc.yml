@@ -86,8 +86,12 @@
     href: configuration.md
   - name: Install Azure CycleCloud CLI
     href: install-cyclecloud-cli.md
+  - name: Run CycleCloud in an Azure Container Instance
+    href: container-distribution.md
   - name: Start a Cluster
     href: start-cluster.md
+  - name: Connect to the Master Node
+    href: connect-to-master-node.md
   - name: Terminate a Cluster
     href: end-cluster.md
   - name: Work with Custom Images
