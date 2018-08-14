@@ -59,6 +59,14 @@ You can disable legacy authentication protocols for SharePoint access by using t
 
 	Set-SPOTenant -LegacyAuthProtocolsEnabled $false
 
+Once legacy authentication has been disabled for SharePoint Online, configure a conditional access policy by navigating to your Azure AD tenant, selecting **Conditional access** and **New policy**. In the **New** blade, expand the **Cloud apps**, choose the **Select apps** radio button, and search for **Office 365 SharePoint Online**
+...to share parity with the Exchange instructions below, insert a screen-shot comparible to the following to illustrate "Office 365 SharePoint Online" getting selected...
+(./media/active-directory-conditional-access-no-modern-authentication/04.png)
+
+...also, it would be useful to mention some of the functional options here (e.g. require MFA, limit to or exclude particular users or groups, or conditions for enabling this policy including which client or network location). Much of this has been well documented in the following blog post:
+**Azure AD Premium Conditional Access and Session Controls**
+https://blogs.technet.microsoft.com/cbernier/2017/09/11/azure-ad-premium-conditional-access-and-session-controls/
+
 ## Control access to Exchange Online
 
 When you set up conditional access policies for Exchange Online, you need to review the following:
