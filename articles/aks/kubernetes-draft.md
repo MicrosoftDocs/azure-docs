@@ -3,24 +3,22 @@ title: Use Draft with AKS and Azure Container Registry
 description: Use Draft with AKS and Azure Container Registry
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 08/15/2018
 ms.author: iainfou
-ms.custom: mvc
 ---
 
 # Use Draft with Azure Kubernetes Service (AKS)
 
 Draft is an open-source tool that helps contain and deploy those containers in a Kubernetes cluster, leaving you free to concentrate on the dev cycle -- the "inner loop" of concentrated development. Draft works as the code is being developed, but before committing to version control. With Draft, you can quickly redeploy an application to Kubernetes as code changes occur. For more information on Draft, see the [Draft documentation on Github][draft-documentation].
 
-This document details using Draft with a Kubernetes cluster on AKS.
+This article shows you how to use Draft with a Kubernetes cluster on AKS.
 
 ## Prerequisites
 
-The steps detailed in this document assume that you have created an AKS cluster and have established a kubectl connection with the cluster. If you need these items, see the [AKS quickstart][aks-quickstart].
+The steps detailed in this article assume that you have created an AKS cluster and have established a kubectl connection with the cluster. If you need these items, see the [AKS quickstart][aks-quickstart].
 
 You also need a private Docker registry in Azure Container Registry (ACR). For instructions on deploying an ACR instance, see the [Azure Container Registry Quickstart][acr-quickstart].
 
@@ -30,7 +28,7 @@ Finally, you must install [Docker](https://www.docker.com).
 
 ## Install Draft
 
-The Draft CLI is a client that runs on your development system and allows you to quicky deploy code into a Kubernetes cluster.
+The Draft CLI is a client that runs on your development system and allows you to deploy code into a Kubernetes cluster.
 
 > [!NOTE]
 > If you've installed Draft prior to version 0.12, you should first delete Draft from your cluster using `helm delete --purge draft` and then remove your local configuration by running `rm -rf ~/.draft`. If you are on MacOS, run `brew upgrade draft`.
@@ -50,11 +48,11 @@ draft init
 
 ## Configure Draft
 
-Draft builds the container images locally, and then either deploys them from the local registry (in the case of Minikube), or you must specify the image registry to use. This example uses the Azure Container Registry (ACR), so you must establish a trust relationship between your AKS cluster and the ACR registry and configure Draft to push the container to ACR.
+Draft builds the container images locally, and then either deploys them from the local registry (such as with Minikube), or you must specify the image registry to use. This example uses the Azure Container Registry (ACR), so you must establish a trust relationship between your AKS cluster and the ACR registry and configure Draft to push the container to ACR.
 
 ### Create trust between AKS cluster and ACR
 
-To establish trust between an AKS cluster and an ACR registry, you modify the Azure Active Directory Service Prinicipal used with AKS by adding the Contributor role to it with the scope of the ACR registry. To do so, run the following commands, replacing _&lt;aks-rg-name&gt;_ and _&lt;aks-cluster-name&gt;_ with the resource group and name of your AKS cluster, and _&lt;acr-rg-nam&gt;_ and _&lt;acr-registry-name&gt;_ with the resource group and registry name of your ACR registry with which you want to create trust.
+To establish trust between an AKS cluster and an ACR registry, you modify the Azure Active Directory Service Principal used with AKS by adding the Contributor role to it with the scope of the ACR registry. To do so, run the following commands, replacing _&lt;aks-rg-name&gt;_ and _&lt;aks-cluster-name&gt;_ with the resource group and name of your AKS cluster, and _&lt;acr-rg-nam&gt;_ and _&lt;acr-registry-name&gt;_ with the resource group and registry name of your ACR registry with which you want to create trust.
 
 ```console
 export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
@@ -101,7 +99,7 @@ Output:
 
 To run the application on a Kubernetes cluster, use the `draft up` command. This command builds the Dockerfile to create a container image, pushes the image to ACR, and finally installs the Helm chart to start the application in AKS.
 
-The first time this is run, pushing and pulling the container image may take some time; once the base layers are cached, the time taken is dramatically reduced.
+The first time this command is run, pushing and pulling the container image may take some time; once the base layers are cached, the time taken is dramatically reduced.
 
 ```console
 draft up
@@ -178,13 +176,13 @@ resources:
     memory: 128Mi
   ```
 
-Run `draft up` to re-run the application.
+Run `draft up` to rerun the application.
 
 ```console
 draft up
 ```
 
-It can take few minutes for the Service to return a public IP address. To monitor progress use the `kubectl get service` command with a watch.
+It can take few minutes for the Service to return a public IP address. To monitor progress, use the `kubectl get service` command with a watch.
 
 ```console
 kubectl get service -w
@@ -238,7 +236,7 @@ public class Hello {
 }
 ```
 
-Run the `draft up --auto-connect` command to redeploy the application just as soon as a pod is ready to respond.
+Run the `draft up --auto-connect` command to redeploy the application as soon as a pod is ready to respond.
 
 ```console
 draft up --auto-connect
