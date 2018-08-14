@@ -77,6 +77,8 @@ Each AKS deployment spans two resource groups. The first is created by you and c
 
 If you are creating resources that will be used with your AKS cluster, such as storage accounts or reserved public IP addresses, you should place them in the automatically generated resource group.
 
+Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results such as scaling and upgrading errors. Modifying the resources under the MC_* in the AKS cluster breaks the SLO.
+
 ## Does AKS offer a service level agreement?
 
 In a service level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service should the published service level not be met. Since AKS itself is free, there is no cost available to reimburse and thus no formal SLA. However, AKS seeks to maintain availability of at least 99.5% for the Kubernetes API server.
