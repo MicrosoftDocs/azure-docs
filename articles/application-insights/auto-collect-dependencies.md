@@ -66,7 +66,7 @@ Below is the currently supported list of dependency calls that are automatically
 
 > [!NOTE]
 > *Except reactive programing support.
-> †Requires installation of [JVM Agent](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java).
+> <br>†Requires installation of [JVM Agent](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java).
 
 ## Node.js
 
