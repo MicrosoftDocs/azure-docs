@@ -308,7 +308,7 @@ ms.custom: H1Hack27Feb2017
 
 
 ## Specifics to Oracle Database
-Oracle software is supported by Oracle to run on Microsoft Azure. For details on the general support of Windows Hyper-V and Azure, check: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle software is supported by Oracle to run on Microsoft Azure. For details on the general support of Windows Hyper-V and Azure, check: <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
 
 Following the general support, the specific scenario of SAP applications leveraging Oracle Databases is supported as well. Details are named in document. As a pr-read to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) as well as other guides in the [SAP workload on Azure documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
@@ -382,7 +382,7 @@ For Oracle deployments on Windows, it is highly recommended to use the Azure fun
 All other general areas like Azure Availability Sets or SAP monitoring apply as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) for deployments of VMs with the Oracle Database as well.
 
 ## Specifics to Oracle Database on Oracle Linux
-Oracle software is supported by Oracle to run on Microsoft Azure with Oracle Linux as guest OS. For details on the general support of Windows Hyper-V and Azure, check: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle software is supported by Oracle to run on Microsoft Azure with Oracle Linux as guest OS. For details on the general support of Windows Hyper-V and Azure, check: <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
 
 Following the general support, the specific scenario of SAP applications leveraging Oracle Databases is supported as well. Details are named in this part of the document.
 
