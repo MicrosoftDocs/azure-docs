@@ -34,7 +34,7 @@
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
-> We recently increased all default limits to their maximum limits. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits. If you have has these limits increased by support in the past and do not see updated limits as below, you can [open an online customer support request at no charge](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+> We recently increased all default limits to their maximum limits. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits. If you have had these limits increased by support in the past and do not see updated limits as below, you can [open an online customer support request at no charge](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 | Resource | Default limit | 
 | --- | --- |
