@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2018
+ms.date: 08/15/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -22,7 +22,7 @@ ms.reviewer: calebb
 
 # How To: Set up SharePoint Online and Exchange Online for Azure Active Directory conditional access 
 
-With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how users access your cloud apps. If you want to use conditional access to control access to SharePoint and Exchange online, you need to:
+With [Azure Active Directory (Azure AD) conditional access](overview.md), you can control how users access your cloud apps. If you want to use conditional access to control access to SharePoint and Exchange online, you need to:
 
 - Review whether your conditional access scenario is supported
 - Prevent client apps from bypassing the enforcement of your conditional access policies.   
@@ -75,11 +75,11 @@ While Exchange Active Sync supports modern authentication, there are some limita
 
 - You can only configure the device platforms condition  
 
-    ![Device platforms](./media/active-directory-conditional-access-no-modern-authentication/05.png)
+    ![Device platforms](./media/conditional-access-for-exo-and-spo/05.png)
 
 - Setting the multi-factor authentication requirement is not supported  
 
-    ![Conditional access](./media/active-directory-conditional-access-no-modern-authentication/01.png)
+    ![Conditional access](./media/conditional-access-for-exo-and-spo/01.png)
 
 To effectively protect access to Exchange Online from Exchange ActiveSync, you can:
 
@@ -87,11 +87,11 @@ To effectively protect access to Exchange Online from Exchange ActiveSync, you c
 
     a. Select just **Office 365 Exchange Online** as cloud app.  
 
-    ![Conditional access](./media/active-directory-conditional-access-no-modern-authentication/04.png)
+    ![Conditional access](./media/conditional-access-for-exo-and-spo/04.png)
 
     b. Select **Exchange Active Sync** as **client app**, and then select **Apply policy only to supported platforms**.  
 
-    ![Device platforms](./media/active-directory-conditional-access-no-modern-authentication/03.png)
+    ![Device platforms](./media/conditional-access-for-exo-and-spo/03.png)
 
 - Block Exchange ActiveSync by using Active Directory Federation Services (AD FS) rules.
 
@@ -179,7 +179,7 @@ By applying the following three rules:
 
 ## Next steps
 
-For more information, see [What is conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+For more information, see [What is conditional access in Azure Active Directory](overview.md).
 
 For instructions about configuring claim rules, see [Configure Claim Rules](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-claim-rules). 
 
