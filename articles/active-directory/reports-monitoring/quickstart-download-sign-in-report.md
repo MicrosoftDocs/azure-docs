@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Download a sign-in report | Microsoft Docs
+title: Quickstart Download a sign-in report | Microsoft Docs
 description: Learn how to download a sign-in report using the Azure portal 
 services: active-directory
 documentationcenter: ''
