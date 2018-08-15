@@ -1,0 +1,24 @@
+- name: Overview
+  items:
+  - name: What is Project Acoustics?
+    href: what-is-acoustics.md
+- name: Quickstarts
+  items:
+  - name: Get Started with Acoustics
+    href: gettingstarted.md
+- name: How-Tos
+  items:
+  - name: Create an Azure Batch Account
+    href: createazureaccount.md
+  - name: Bake Wave Acoustics
+    href: bakeuiwalkthrough.md
+  - name: Design Acoustics
+    href: designprocess.md
+- name: Resources
+  items:
+  - name: Acoustics Sample Scene
+    href: samplewalkthrough.md
+  - name: Frequently Asked Questions
+    href: faq.md
+  - name: Known Issues
+    href: knownissues.md
