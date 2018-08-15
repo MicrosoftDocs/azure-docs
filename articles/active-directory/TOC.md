@@ -414,7 +414,6 @@
 ##### [Location conditions](conditional-access/location-condition.md)
 ##### [Controls](conditional-access/controls.md)
 ##### [What if tool](conditional-access/what-if-tool.md)
-##### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
 #### How-to guides
 ##### [Best practices](conditional-access/best-practices.md)
 ##### [Require MFA for access attempts from untrusted networks](conditional-access/untrusted-networks.md)
