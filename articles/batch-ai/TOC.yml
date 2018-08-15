@@ -11,7 +11,7 @@
     href: quickstart-create-cluster-cli.md
   - name: Create cluster - Portal
     href: quickstart-create-cluster-portal.md
-  - name: Run training job - CLI
+  - name: Train an AI model - CLI
     href: quickstart-tensorflow-training-cli.md
 - name: Tutorials
   items:
@@ -29,12 +29,12 @@
     href: quota-limits.md
 - name: How-to guides
   items:
+  - name: Work with clusters
+    href: clusters.md
+  - name: Use Azure storage
+    href: use-azure-storage.md
   - name: Migrate to updated API
     href: migrate-to-new-api.md
-  - name: Store input/output files
-    href: use-azure-storage.md
-  - name: Working with clusters
-    href: clusters.md
 - name: Reference
   items:
   - name: Azure CLI
