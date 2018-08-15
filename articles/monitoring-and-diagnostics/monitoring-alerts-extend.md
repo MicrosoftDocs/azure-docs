@@ -10,7 +10,7 @@ ms.author: vinagara
 ms.component: alerts
 ---
 # Extend Log Analytics alerts to Azure Alerts
-Until recently, Azure Log Analytics included its own alert functionality, which could proactively notify you of conditions based on Log Analytics data. You managed alert rules in the [Microsoft Operations Management Suite portal](../operations-management-suite/operations-management-suite-overview.md). The new alerts experience has now integrated alerting across various services in Microsoft Azure. This is available as **Alerts** under Azure Monitor in the Azure portal, and supports alerting from activity logs, metrics, and logs from both Log Analytics and Azure Application Insights. 
+Until recently, Azure Log Analytics included its own alert functionality, which could proactively notify you of conditions based on Log Analytics data. You managed alert rules in the Microsoft Operations Management Suite portal. The new alerts experience has now integrated alerting across various services in Microsoft Azure. This is available as **Alerts** under Azure Monitor in the Azure portal, and supports alerting from activity logs, metrics, and logs from both Log Analytics and Azure Application Insights. 
 
 ## Benefits of extending your alerts
 There are several advantages of creating and managing alerts in the Azure portal, such as:

@@ -12,11 +12,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 06/21/2018
 ms.author: richrund
-
+ms.component: na
 ---
+
 # Azure networking monitoring solutions in Log Analytics
 
 Log Analytics offers the following solutions for monitoring your networks:
@@ -73,7 +74,8 @@ The following logs are supported for Application Gateways:
 * ApplicationGatewayPerformanceLog
 * ApplicationGatewayFirewallLog
 
-The following metrics are supported for Application Gateways:
+The following metrics are supported for Application Gateways:again
+
 
 * 5 minute throughput
 
@@ -136,6 +138,12 @@ On any of the log search pages, you can view results by time, detailed results, 
 ## Azure Network Security Group analytics solution in Log Analytics
 
 ![Azure Network Security Group Analytics symbol](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+
+> [!NOTE]
+> The Network Security Group analytics solution is moving to community support since its functionality has been replaced by [Traffic Analytics](../network-watcher/traffic-analytics.md).
+> - The solution is now available in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) and will soon no longer be available in the Azure Marketplace.
+> - For existing customers who already added the solution to their workspace, it will continue to function with no changes.
+> - Microsoft will continue to support sending NSG diagnostic logs to your workspace using Diagnostics Settings.
 
 The following logs are supported for network security groups:
 

@@ -39,10 +39,16 @@ Now, add the Service Catalog chart to the Helm repository:
 helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 ```
 
-Finally, install Service Catalog with the Helm chart. If your cluster is not RBAC-enabled, add the `--set rbacEnable=false` argument to this command.
+Finally, install Service Catalog with the Helm chart. If your cluster is RBAC-enabled, run this command.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog
+helm install svc-cat/catalog --name catalog --namespace catalog --set controllerManager.healthcheck.enabled=false
+```
+
+If your cluster is not RBAC-enabled, run this command.
+
+```azurecli-interactive
+helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set controllerManager.healthcheck.enabled=false
 ```
 
 After the Helm chart has been run, verify that `servicecatalog` appears in the output of the following command:
@@ -64,7 +70,7 @@ v1beta1.storage.k8s.io               10
 
 ## Install Open Service Broker for Azure
 
-The next step is to install [Open Service Broker for Azure][open-service-broker-azure], which includes the catalog for the Azure-managed services. Examples of available Azure services are Azure Database for PostgreSQL, Azure Redis Cache, Azure Database for MySQL, Azure Cosmos DB, Azure SQL Database, and others.
+The next step is to install [Open Service Broker for Azure][open-service-broker-azure], which includes the catalog for the Azure-managed services. Examples of available Azure services are Azure Database for PostgreSQL, Azure Database for MySQL, and Azure SQL Database.
 
 Start by adding the Open Service Broker for Azure Helm repository:
 

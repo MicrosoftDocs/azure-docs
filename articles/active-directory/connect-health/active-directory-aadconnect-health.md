@@ -3,7 +3,7 @@ title: Monitor your on-premises identity infrastructure in the cloud.
 description: This is the Azure AD Connect Health page that describes what it is and why you would use it.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 editor: curtand
 ms.assetid: 82798ea6-5cd3-4f30-93ae-d56536f8d8e3
@@ -43,7 +43,6 @@ The following video provides an overview of Azure AD Connect Health for AD FS.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Connect-Health--Monitor-you-identity-bridge/player]
 >
-
 >
 
 ## [Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
@@ -108,16 +107,16 @@ The Azure AD Connect Health portal shows views of alerts, performance monitoring
 > [!NOTE]
 > For licensing information, see the [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md) or the [Azure AD Pricing page](https://aka.ms/aadpricing).
     
-![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/portal4.png)
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/portalsidebar.png)
 
 * **Quick Start**: When you select this option, the **Quick Start** blade opens. You can download the Azure AD Connect Health Agent by selecting **Get Tools**. You can also access documentation and provide feedback.
+* **Azure Active Directory Connect (sync)**: This option shows your Azure AD Connect servers that Azure AD Connect Health is currently monitoring. **Sync errors** entry will show basic sync errors of your first onboarded sync service  by categories. When you select the **Sync services** entry, the blade that opens shows information about your Azure AD Connect servers. Read more about the capabilities at [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md).
 * **Active Directory Federation Services**: This option shows all the AD FS services that Azure AD Connect Health is currently monitoring. When you select an instance, the blade that opens shows information about that service instance. This information includes an overview, properties, alerts, monitoring, and usage analytics. Read more about the capabilities at [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md).
-* **Azure Active Directory Connect (sync)**: This option shows your Azure AD Connect servers that Azure AD Connect Health is currently monitoring. When you select the entry, the blade that opens shows information about your Azure AD Connect servers. Read more about the capabilities at [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md).
 * **Active Directory Domain Services**: This option shows all the AD DS forests that Azure AD Connect Health is currently monitoring. When you select a forest, the blade that opens shows information about that forest. This information includes an overview of essential information, the Domain Controllers dashboard, the Replication Status dashboard, alerts, and monitoring. Read more about the capabilities at [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md).
 * **Configure**: This section includes options to turn the following on or off:
 
-  - Auto-update to automatically update the Azure AD Connect Health agent to the latest version: You will be automatically updated to the latest versions of the Azure AD Connect Health Agent when they become available. This is enabled by default.
-  - Allow Microsoft access to your Azure AD directory’s health data for troubleshooting purposes only: If this is enabled, Microsoft can see the same data that you see. This information can help with troubleshooting and assistance with issues. This is disabled by default.
+  - **Settings** entry includes basic configurations of your agents. Auto upgrade setting enables automatically update the Azure AD Connect Health agent to the latest version: You will be automatically updated to the latest versions of the Azure AD Connect Health Agent when they become available. This is enabled by default. Allow Microsoft access to your Azure AD directory’s health data for troubleshooting purposes only: If this is enabled, Microsoft can see the same data that you see. This information can help with troubleshooting and assistance with issues. This is disabled by default.
+* **Role based access control (IAM)** is the section to manage the access to Connect Health data in role base. 
 
 ## Related links
 * [Azure AD Connect Health Agent installation](active-directory-aadconnect-health-agent-install.md)

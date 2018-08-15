@@ -18,6 +18,9 @@ No, BGP is supported on Route-Based VPN gateways only.
 ### Can I use private ASNs (Autonomous System Numbers)?
 Yes, you can use your own public ASNs or private ASNs for both your on-premises networks and Azure virtual networks.
 
+### Can I use 32-bit ASNs (Autonomous System Numbers)?
+No, the Azure VPN Gateways support 16-Bit ASNs today.
+
 ### Are there ASNs reserved by Azure?
 Yes, the following ASNs are reserved by Azure for both internal and external peerings:
 

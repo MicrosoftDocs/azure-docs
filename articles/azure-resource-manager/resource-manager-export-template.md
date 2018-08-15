@@ -7,13 +7,12 @@ author: tfitzmac
 manager: timlt
 editor: tysonn
 
-ms.assetid: 5f5ca940-eef8-4125-b6a0-f44ba04ab5ab
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 06/26/2018
 ms.author: tomfitz
 
 ---
@@ -23,7 +22,7 @@ In this article, you learn how to export a Resource Manager template from existi
 There are two ways to export a template:
 
 * You can export the **actual template used for deployment**. The exported template includes all the parameters and variables exactly as they appeared in the original template. This approach is helpful when you deployed resources through the portal, and want to see the template to create those resources. This template is readily usable. 
-* You can export a **generated template that represents the current state of the resource group**. The exported template is not based on any template that you used for deployment. Instead, it creates a template that is a "snapshot" or "backup" of the resource group. The exported template has many hard-coded values and probably not as many parameters as you would typically define. Use this option to redeploy resources to the same resource group. To use this template for another resource group, you may have to significantly modify it.
+* You can export a **generated template that represents the current state of the resource group**. The exported template isn't based on any template that you used for deployment. Instead, it creates a template that is a "snapshot" or "backup" of the resource group. The exported template has many hard-coded values and probably not as many parameters as you would typically define. Use this option to redeploy resources to the same resource group. To use this template for another resource group, you may have to significantly modify it.
 
 This article shows both approaches through the portal.
 
@@ -89,7 +88,7 @@ If you've manually changed your resources or added resources in multiple deploym
    
 3. You have a couple of options for continuing to work with this template. You can either download the template and work on it locally with a JSON editor. Or, you can save the template to your library and work on it through the portal.
    
-     If you are comfortable using a JSON editor like [VS Code](https://code.visualstudio.com/) or [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), you might prefer downloading the template locally and using that editor. To work locally, select **Download**.
+     If you're comfortable using a JSON editor like [VS Code](https://code.visualstudio.com/) or [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), you might prefer downloading the template locally and using that editor. To work locally, select **Download**.
    
       ![Download template](./media/resource-manager-export-template/download-template.png)
    
@@ -116,7 +115,7 @@ The exported template works fine if you want to create the same web app and SQL 
 2. Select the template.
    
      ![Edit template](./media/resource-manager-export-template/select-added-template.png)
-3. To be able to pass the values that you might want to specify during deployment, add the following two parameters to the **parameters** section in the template:
+3. To pass values that you might want to specify during deployment, add the following two parameters to the **parameters** section in the template:
 
    ```json
    "administratorLogin": {
@@ -147,7 +146,7 @@ The exported template works fine if you want to create the same web app and SQL 
    },
    ```
 
-6. Select **OK** when you are done editing the template.
+6. Select **OK** when you're done editing the template.
 7. Select **Save** to save the changes to the template.
    
      ![Save template](./media/resource-manager-export-template/save-template.png)
@@ -158,12 +157,11 @@ The exported template works fine if you want to create the same web app and SQL 
 
 
 ## Fix export issues
-Not all resource types support the export template function. To resolve this issue, manually add the missing resources back into your template. The error message includes the resource types that cannot be exported. Find that resource type in [Template reference](/azure/templates/). For example, to manually add a virtual network gateway, see [Microsoft.Network/virtualNetworkGateways template reference](/azure/templates/microsoft.network/virtualnetworkgateways).
+Not all resource types support the export template function. You only see export issues when exporting from a resource group rather than from your deployment history. If your last deployment accurately represents the current state of the resource group, you should export the template from the deployment history rather than from the resource group. Only export from a resource group when you have made changes to the resource group that aren't defined in a single template.
 
-> [!NOTE]
-> You only encounter export issues when exporting from a resource group rather than from your deployment history. If your last deployment accurately represents the current state of the resource group, you should export the template from the deployment history rather than from the resource group. Only export from a resource group when you have made changes to the resource group that are not defined in a single template.
-> 
-> 
+To resolve export issues, manually add the missing resources back into your template. The error message includes the resource types that can't be exported. Find that resource type in [Template reference](/azure/templates/). For example, to manually add a virtual network gateway, see [Microsoft.Network/virtualNetworkGateways template reference](/azure/templates/microsoft.network/virtualnetworkgateways). The template reference gives you the JSON to add the resource to your template.
+
+After getting the JSON format for the resource, you need to get the resource values. You can see the values for the resource by using the GET operation in the REST API for the resource type. For example, to get the values for your virtual network gateway, see [Virtual Network Gateways - Get](/rest/api/network-gateway/virtualnetworkgateways/get).
 
 ## Next steps
 

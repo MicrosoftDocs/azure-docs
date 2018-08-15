@@ -2,13 +2,13 @@
 title: Integrate LUIS with a bot using the Bot Builder SDK for Node.js in Azure | Microsoft Docs
 description: Build a bot integrated with a LUIS application using the Bot Framework.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Integrate LUIS with a bot using the Bot Builder SDK for Node.js
@@ -65,7 +65,7 @@ Install NPM packages with the following steps:
 
 3. In the top navigation bar, select the web app bot name `homeautomationluisbot`. 
 
-4. In the drop-down list, **Open Kudu Console**.
+4. In the drop-down list, select **Open Kudu Console**.
 
 5. A new browser window opens. In the console, enter the following command:
 
@@ -230,7 +230,7 @@ In the Azure Portal, select on **Test in Web Chat** to test the bot. Try type me
    ![Test HomeAutomation bot in Web Chat](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> If you find that your bot doesn't always recognize the correct intent or entities, improve your LUIS app's performance by giving it more example utterances to train it. You can retrain your LUIS app without any modification to your bot's code. See [Add example utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) and [train and test your LUIS app](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
+> If you find that your bot doesn't always recognize the correct intent or entities, improve your LUIS app's performance by giving it more example utterances to train it. You can retrain your LUIS app without any modification to your bot's code. See [Add example utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) and [train and test your LUIS app](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test).
 
 ## Learn more about Bot Framework
 Learn more about [Bot Framework](https://dev.botframework.com/) and the [3.x](https://github.com/Microsoft/BotBuilder) and [4.x](https://github.com/Microsoft/botbuilder-js) SDKs.

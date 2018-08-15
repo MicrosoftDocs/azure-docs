@@ -17,13 +17,10 @@ ms.author: douglasl
 ---
 # Transform data using Hadoop Pig activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-pig-activity.md)
-> * [Version 2 - Preview](transform-data-using-hadoop-pig.md)
+> * [Version 1](v1/data-factory-pig-activity.md)
+> * [Current version](transform-data-using-hadoop-pig.md)
 
 The HDInsight Pig activity in a Data Factory [pipeline](concepts-pipelines-activities.md) executes Pig queries on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Pig Activity in V1](v1/data-factory-pig-activity.md).
 
 If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the [Tutorial: transform data](tutorial-transform-data-spark-powershell.md) before reading this article. 
 

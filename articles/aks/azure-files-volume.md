@@ -2,13 +2,13 @@
 title: Use Azure File with AKS
 description: Use Azure Disks with AKS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 03/08/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -48,7 +48,7 @@ STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_G
 
 # Echo storage account name and key
 echo Storage account name: $AKS_PERS_STORAGE_ACCOUNT_NAME
-echo Storgae account key: $STORAGE_KEY
+echo Storage account key: $STORAGE_KEY
 ```
 
 ## Create Kubernetes Secret
@@ -107,7 +107,7 @@ Learn more about Kubernetes volumes using Azure Files.
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
 
 <!-- LINKS - internal -->
-[az-group-create]: /cli/azure/group#az_group_create
-[az-storage-create]: /cli/azure/storage/account#az_storage_account_create
-[az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
-[az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
+[az-group-create]: /cli/azure/group#az-group-create
+[az-storage-create]: /cli/azure/storage/account#az-storage-account-create
+[az-storage-key-list]: /cli/azure/storage/account/keys#az-storage-account-keys-list
+[az-storage-share-create]: /cli/azure/storage/share#az-storage-share-create

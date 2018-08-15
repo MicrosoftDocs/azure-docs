@@ -75,7 +75,10 @@ Stateful services have a similar pattern to stateless services, with a few chang
     - If the service is currently a Primary, the service's `StatefulServiceBase.RunAsync()` method is called.
 4. After all the replica listener's `OpenAsync()` calls finish and `RunAsync()` is called, `StatefulServiceBase.OnChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
-Similar to stateless services, there's no coordination between the order in which the listeners are created and opened and when **RunAsync** is called. If you need coordination, the solutions are much the same. There is one additional case for stateful service. Say that the calls that arrive at the communication listeners require information kept inside some [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Because the communication listeners could open before the reliable collections are readable or writeable, and before **RunAsync** could start, some additional coordination is necessary. The simplest and most common solution is for the communication listeners to return an error code that the client uses to know to retry the request.
+Similar to stateless services, there's no coordination between the order in which the listeners are created and opened and when **RunAsync** is called. If you need coordination, the solutions are much the same. There is one additional case for stateful service. Say that the calls that arrive at the communication listeners require information kept inside some [Reliable Collections](service-fabric-reliable-services-reliable-collections.md).
+
+   > [!NOTE]  
+   > Because the communication listeners could open before the reliable collections are readable or writeable, and before **RunAsync** could start, some additional coordination is necessary. The simplest and most common solution is for the communication listeners to return an error code that the client uses to know to retry the request.
 
 ## Stateful service shutdown
 Like stateless services, the lifecycle events during shutdown are the same as during startup, but reversed. When a stateful service is being shut down, the following events occur:

@@ -63,7 +63,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     If you choose a different name for your device, update the device name in the sample applications before you run them.
 
-1. Run the following command to get the _device connection string_ for the device you just registered:
+2. Run the following command to get the _device connection string_ for the device you just registered:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
@@ -87,17 +87,17 @@ The simulated device application connects to a device-specific endpoint on your 
 
 1. In a terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iot-hub\Quickstarts\simulated-device-2** folder.
 
-1. Open the **SimulatedDevice.cs** file in a text editor of your choice.
+2. Open the **SimulatedDevice.cs** file in a text editor of your choice.
 
-    Replace the value of the `connectionString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.cs** file.
+    Replace the value of the `s_connectionString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.cs** file.
 
-1. In the terminal window, run the following commands to install the required packages for simulated device application:
+3. In the terminal window, run the following commands to install the required packages for simulated device application:
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. In the terminal window, run the following command to build and run the simulated device application:
+4. In the terminal window, run the following command to build and run the simulated device application:
 
     ```cmd/sh
     dotnet run
@@ -113,17 +113,17 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
 1. In another terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iot-hub\Quickstarts\back-end-application** folder.
 
-1. Open the **BackEndApplication.cs** file in a text editor of your choice.
+2. Open the **BackEndApplication.cs** file in a text editor of your choice.
 
-    Replace the value of the `connectionString` variable with the service connection string you made a note of previously. Then save your changes to the **BackEndApplication.cs** file.
+    Replace the value of the `s_connectionString` variable with the service connection string you made a note of previously. Then save your changes to the **BackEndApplication.cs** file.
 
-1. In the terminal window, run the following commands to install the required libraries for the back-end application:
+3. In the terminal window, run the following commands to install the required libraries for the back-end application:
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. In the terminal window, run the following commands to build and run the back-end application:
+4. In the terminal window, run the following commands to build and run the back-end application:
 
     ```cmd/sh
     dotnet run

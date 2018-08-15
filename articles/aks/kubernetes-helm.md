@@ -1,32 +1,32 @@
 ---
 title: Deploy containers with Helm in Kubernetes on Azure
-description: Use the Helm packaging tool to deploy containers on a Kubernetes cluster in AKS
+description: Use the Helm packaging tool to deploy containers in an Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 06/13/2018
-ms.author: nepeters
+ms.date: 07/13/2018
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Use Helm with Azure Kubernetes Service (AKS)
+# Install applications with Helm in Azure Kubernetes Service (AKS)
 
 [Helm][helm] is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers such as *APT* and *Yum*, Helm is used to manage Kubernetes charts, which are packages of preconfigured Kubernetes resources.
 
-This document steps through configuring and using Helm in a Kubernetes cluster on AKS.
+This article shows you how to configure and use Helm in a Kubernetes cluster on AKS.
 
 ## Before you begin
 
-The steps detailed in this document assume that you have created an AKS cluster and have established a kubectl connection with the cluster. If you need these items see, the [AKS quickstart][aks-quickstart].
+The steps detailed in this document assume that you have created an AKS cluster and have established a `kubectl` connection with the cluster. If you need these items see, the [AKS quickstart][aks-quickstart].
 
 ## Install Helm CLI
 
 The Helm CLI is a client that runs on your development system and allows you to start, stop, and manage applications with Helm.
 
-If you're using Azure CloudShell, the Helm CLI is already installed. To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm][helm-install-options].
+If you use the Azure Cloud Shell, the Helm CLI is already installed. To install the Helm CLI on a Mac, use `brew`. For additional installation options see, [Installing Helm][helm-install-options].
 
 ```console
 brew install kubernetes-helm
@@ -35,23 +35,23 @@ brew install kubernetes-helm
 Output:
 
 ```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
+==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
 ######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
+==> Pouring kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
 ==> Caveats
 Bash completion has been installed to:
   /usr/local/etc/bash_completion.d
 ==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
+🍺  /usr/local/Cellar/kubernetes-helm/2.9.1: 50 files, 66.2MB
 ```
 
-## Create service account
+## Create a service account
 
-Before configuring Helm in an RBAC enabled cluster, you need a service account and role binding for the Tiller service. For more information on securing Helm / Tiller in an RBAC enabled cluster, see [Tiller, Namespaces, and RBAC][tiller-rbac]. Note, if your cluster is not RBAC enabled, skip this step.
+Before you can deploy Helm in an RBAC-enabled cluster, you need a service account and role binding for the Tiller service. For more information on securing Helm / Tiller in an RBAC enabled cluster, see [Tiller, Namespaces, and RBAC][tiller-rbac]. If your cluster is not RBAC enabled, skip this step.
 
-Create a file named `helm-rbac.yaml` and copy in the following YAML.
+Create a file named `helm-rbac.yaml` and copy in the following YAML:
 
-```
+```yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -72,61 +72,87 @@ subjects:
     namespace: kube-system
 ```
 
-Create the service account and role binding with the `kubectl create` command.
+Create the service account and role binding with the `kubectl create` command:
 
-```
+```console
 kubectl create -f helm-rbac.yaml
 ```
 
-When using an RBAC enabled cluster, you have options on the level of access Tiller has to the cluster. See [Helm: role-based access controls][helm-rbac] for more information on configuration options.
+## Secure Tiller and Helm
+
+The Helm client and Tiller service authenticate and communicate with each other using TLS/SSL. This authentication method helps to secure the Kubernetes cluster and what services can be deployed. To improve security, you can generate your own signed certificates. Each Helm user would receive their own client certificate, and Tiller would be initialized in the Kubernetes cluster with certificates applied. For more information, see [Using TLS/SSL between Helm and Tiller][helm-ssl].
+
+With an RBAC-enabled Kubernetes cluster, you can control the level of access Tiller has to the cluster. You can define the Kubernetes namespace that Tiller is deployed in, and restrict what namespaces Tiller can then deploy resources in. This approach lets you create Tiller instances in different namespaces and limit deployment boundaries, and scope the users of Helm client to certain namespaces. For more information, see [Helm role-based access controls][helm-rbac].
 
 ## Configure Helm
 
-Now install tiller using the [helm init][helm-init] command. If your cluster is not RBAC enabled, remove the `--service-account` argument and value.
+To deploy a basic Tiller into an AKS cluster, use the [helm init][helm-init] command. If your cluster is not RBAC enabled, remove the `--service-account` argument and value. If you configured TLS/SSL for Tiller and Helm, skip this basic initialization step and instead provide the required `--tiller-tls-` as shown in the next example.
 
-```
+```console
 helm init --service-account tiller
+```
+
+If you configured TLS/SSL between Helm and Tiller provide the `--tiller-tls-` parameters and names of your own certificates, as shown in the following example:
+
+```console
+helm init \
+    --tiller-tls \
+    --tiller-tls-cert tiller.cert.pem \
+    --tiller-tls-key tiller.key.pem \
+    --tiller-tls-verify \
+    --tls-ca-cert ca.cert.pem \
+    --service-account tiller
 ```
 
 ## Find Helm charts
 
-Helm charts are used to deploy applications into a Kubernetes cluster. To search for pre-created Helm charts, use the [helm search][helm-search] command.
+Helm charts are used to deploy applications into a Kubernetes cluster. To search for pre-created Helm charts, use the [helm search][helm-search] command:
 
-```azurecli-interactive
+```console
 helm search
 ```
 
-The output looks similar to the following, however with many more charts.
+The following condensed example output shows some of the Helm charts available for use:
 
 ```
-NAME                         	VERSION	DESCRIPTION
-stable/acs-engine-autoscaler 	2.0.0  	Scales worker nodes within agent pools
-stable/artifactory           	6.1.0  	Universal Repository Manager supporting all maj...
-stable/aws-cluster-autoscaler	0.3.1  	Scales worker nodes within autoscaling groups.
-stable/buildkite             	0.2.0  	Agent for Buildkite
-stable/centrifugo            	2.0.0  	Centrifugo is a real-time messaging server.
-stable/chaoskube             	0.5.0  	Chaoskube periodically kills random pods in you...
-stable/chronograf            	0.3.0  	Open-source web application written in Go and R...
-stable/cluster-autoscaler    	0.2.0  	Scales worker nodes within autoscaling groups.
-stable/cockroachdb           	0.5.0  	CockroachDB is a scalable, survivable, strongly...
-stable/concourse             	0.7.0  	Concourse is a simple and scalable CI system.
-stable/consul                	0.4.1  	Highly available and distributed service discov...
-stable/coredns               	0.5.0  	CoreDNS is a DNS server that chains middleware ...
-stable/coscale               	0.2.0  	CoScale Agent
-stable/dask-distributed      	2.0.0  	Distributed computation in Python
-stable/datadog               	0.8.0  	DataDog Agent
+$ helm search
+
+NAME                           CHART VERSION	APP VERSION  DESCRIPTION
+stable/acs-engine-autoscaler   2.2.0         	2.1.1        Scales worker nodes within agent pools
+stable/aerospike               0.1.7        	v3.14.1.2    A Helm chart for Aerospike in Kubernetes
+stable/anchore-engine          0.1.7        	0.1.10       Anchore container analysis and policy evaluatio...
+stable/apm-server              0.1.0        	6.2.4        The server receives data from the Elastic APM a...
+stable/ark                     1.0.1        	0.8.2        A Helm chart for ark
+stable/artifactory             7.2.1        	6.0.0        Universal Repository Manager supporting all maj...
+stable/artifactory-ha          0.2.1        	6.0.0        Universal Repository Manager supporting all maj...
+stable/auditbeat               0.1.0        	6.2.4        A lightweight shipper to audit the activities o...
+stable/aws-cluster-autoscaler  0.3.3        	             Scales worker nodes within autoscaling groups.
+stable/bitcoind                0.1.3        	0.15.1       Bitcoin is an innovative payment network and a ...
+stable/buildkite               0.2.3        	3            Agent for Buildkite
+stable/burrow                  0.4.4        	0.17.1       Burrow is a permissionable smart contract machine
+stable/centrifugo              2.0.1        	1.7.3        Centrifugo is a real-time messaging server.
+stable/cerebro                 0.1.0        	0.7.3        A Helm chart for Cerebro - a web admin tool tha...
+stable/cert-manager            v0.3.3       	v0.3.1       A Helm chart for cert-manager
+stable/chaoskube               0.7.0        	0.8.0        Chaoskube periodically kills random pods in you...
+stable/chartmuseum             1.5.0        	0.7.0        Helm Chart Repository with support for Amazon S...
+stable/chronograf              0.4.5        	1.3          Open-source web application written in Go and R...
+stable/cluster-autoscaler      0.6.4        	1.2.2        Scales worker nodes within autoscaling groups.
+stable/cockroachdb             1.1.1        	2.0.0        CockroachDB is a scalable, survivable, strongly...
+stable/concourse               1.10.1       	3.14.1       Concourse is a simple and scalable CI system.
+stable/consul                  3.2.0        	1.0.0        Highly available and distributed service discov...
+stable/coredns                 0.9.0        	1.0.6        CoreDNS is a DNS server that chains plugins and...
+stable/coscale                 0.2.1        	3.9.1        CoScale Agent
+stable/dask                    1.0.4        	0.17.4       Distributed computation in Python with task sch...
+stable/dask-distributed        2.0.2        	             DEPRECATED: Distributed computation in Python
+stable/datadog                 0.18.0       	6.3.0        DataDog Agent
 ...
 ```
 
-To update the list of charts, use the [helm repo update][helm-repo-update] command.
+To update the list of charts, use the [helm repo update][helm-repo-update] command. The following example shows a successful repo update:
 
-```azurecli-interactive
-helm repo update
-```
+```console
+$ helm repo update
 
-Output:
-
-```
 Hang tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
@@ -135,71 +161,73 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## Run Helm charts
 
-To deploy Wordpress using a Helm chart, use the [helm install][helm-install] command.
+To install charts with Helm, use the [helm install][helm-install] command and specify the name of the chart to install. To see this in action, let's install a basic Wordpress deployment using a Helm chart. If you configured TLS/SSL, add the `--tls` parameter to use your Helm client certificate.
 
-```azurecli-interactive
+```console
 helm install stable/wordpress
 ```
 
-The output looks similar to the following, but includes additional information such as instructions on how to use the Kubernetes deployment.
+The following condensed example output shows the deployment status of the Kubernetes resources created by the Helm chart:
 
 ```
-NAME:   bilging-ibex
-LAST DEPLOYED: Tue Jun  5 14:31:49 2018
+$ helm install stable/wordpress
+
+NAME:   wishful-mastiff
+LAST DEPLOYED: Thu Jul 12 15:53:56 2018
 NAMESPACE: default
 STATUS: DEPLOYED
 
 RESOURCES:
+==> v1beta1/Deployment
+NAME                       DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
+wishful-mastiff-wordpress  1        1        1           0          1s
+
+==> v1beta1/StatefulSet
+NAME                     DESIRED  CURRENT  AGE
+wishful-mastiff-mariadb  1        1        1s
+
 ==> v1/Pod(related)
-NAME                                     READY  STATUS   RESTARTS  AGE
-bilging-ibex-mariadb-7557b5474-dmdxn     0/1    Pending  0         1s
-bilging-ibex-wordpress-7494c545fb-tskhz  0/1    Pending  0         1s
+NAME                                        READY  STATUS   RESTARTS  AGE
+wishful-mastiff-wordpress-6f96f8fdf9-q84sz  0/1    Pending  0         1s
+wishful-mastiff-mariadb-0                   0/1    Pending  0         1s
 
 ==> v1/Secret
-NAME                    TYPE    DATA  AGE
-bilging-ibex-mariadb    Opaque  2     1s
-bilging-ibex-wordpress  Opaque  2     1s
+NAME                       TYPE    DATA  AGE
+wishful-mastiff-mariadb    Opaque  2     2s
+wishful-mastiff-wordpress  Opaque  2     2s
 
 ==> v1/ConfigMap
-NAME                        DATA  AGE
-bilging-ibex-mariadb        1     1s
-bilging-ibex-mariadb-tests  1     1s
+NAME                           DATA  AGE
+wishful-mastiff-mariadb        1     2s
+wishful-mastiff-mariadb-tests  1     2s
 
 ==> v1/PersistentVolumeClaim
-NAME                    STATUS   VOLUME   CAPACITY  ACCESS MODES  STORAGECLASS  AGE
-bilging-ibex-mariadb    Pending  default  1s
-bilging-ibex-wordpress  Pending  default  1s
+NAME                       STATUS   VOLUME   CAPACITY  ACCESS MODES  STORAGECLASS  AGE
+wishful-mastiff-wordpress  Pending  default  2s
 
 ==> v1/Service
-NAME                    TYPE          CLUSTER-IP    EXTERNAL-IP  PORT(S)                     AGE
-bilging-ibex-mariadb    ClusterIP     10.0.76.164   <none>       3306/TCP                    1s
-bilging-ibex-wordpress  LoadBalancer  10.0.215.250  <pending>    80:30934/TCP,443:31134/TCP  1s
-
-==> v1beta1/Deployment
-NAME                    DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
-bilging-ibex-mariadb    1        1        1           0          1s
-bilging-ibex-wordpress  1        1        1           0          1s
+NAME                       TYPE          CLUSTER-IP   EXTERNAL-IP  PORT(S)                     AGE
+wishful-mastiff-mariadb    ClusterIP     10.1.116.54  <none>       3306/TCP                    2s
+wishful-mastiff-wordpress  LoadBalancer  10.1.217.64  <pending>    80:31751/TCP,443:31264/TCP  2s
 ...
 ```
 
+It takes a minute or two for the *EXTERNAL-IP* address of the Wordpress service to be populated and allow you to access it with a web browser.
+
 ## List Helm releases
 
-To see a list of releases installed on your cluster, use the [helm list][helm-list] command.
+To see a list of releases installed on your cluster, use the [helm list][helm-list] command. The following example shows the Wordpress release deployed in the previous step. If you configured TLS/SSL, add the `--tls` parameter to use your Helm client certificate.
 
-```azurecli-interactive
-helm list
-```
+```console
+$ helm list
 
-Output:
-
-```
-NAME        	REVISION	UPDATED                 	STATUS  	CHART          	NAMESPACE
-bilging-ibex	1       	Tue Jun  5 14:31:49 2018	DEPLOYED	wordpress-1.0.9	default
+NAME             REVISION	 UPDATED                 	 STATUS  	 CHART          	NAMESPACE
+wishful-mastiff  1       	 Thu Jul 12 15:53:56 2018	 DEPLOYED	 wordpress-2.1.3  default
 ```
 
 ## Next steps
 
-For more information about managing Kubernetes charts, see the Helm documentation.
+For more information about managing Kubernetes application deployments with Helm, see the Helm documentation.
 
 > [!div class="nextstepaction"]
 > [Helm documentation][helm-documentation]
@@ -215,6 +243,7 @@ For more information about managing Kubernetes charts, see the Helm documentatio
 [helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
 [helm-search]: https://docs.helm.sh/helm/#helm-search
 [tiller-rbac]: https://docs.helm.sh/using_helm/#tiller-namespaces-and-rbac
+[helm-ssl]: https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

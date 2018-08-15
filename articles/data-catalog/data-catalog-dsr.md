@@ -1392,8 +1392,8 @@ If you want to see a specific data source supported, suggest it (or voice your s
     </tr>
     <tr>
       <td>Other (none of the above)</td>
-      <td>\*</td>
-      <td>\*</td>
+      <td>&#10033;</td>
+      <td>&#10033;</td>
       <td>
         
             Protocol: generic-asset

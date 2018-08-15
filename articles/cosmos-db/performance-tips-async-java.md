@@ -45,7 +45,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 3. **Tuning ConnectionPolicy**
 
-    Azure Cosmos DB requests are made over HTTPS/REST when using the Async Java SDK, and are subjected to the default max connection pool size (1000). This default value should be ideal for the majority of use cases. However, in case you have a very large collection with many partitions, you can set the max connection pool size to a larger number (say, 1500) using setMaxPoolSize.
+    Azure Cosmos DB requests are made over HTTPS/REST when using the Async Java SDK, and are subjected to the default max connection pool size (1000). This default value should be ideal for the majority of use cases. However, in case you have a large collection with many partitions, you can set the max connection pool size to a larger number (say, 1500) using setMaxPoolSize.
 
 4. **Tuning parallel queries for partitioned collections**
 
@@ -81,11 +81,11 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     You may also set the page size using the setMaxItemCount method.
     
-9. **Use Appropriate Scheduler (Avoid stealing Eventloop IO Netty threads)**
+9. **Use Appropriate Scheduler (Avoid stealing Event loop IO Netty threads)**
 
-    The Async Java SDK uses [netty](https://netty.io/) for non-blocking IO. The SDK uses a fixed number of IO netty eventloop threads (as many CPU cores your machine has) for executing IO operations. The Observable returned by API emits the result on one of the shared IO eventloop netty threads. So it is important to not block the shared IO eventloop netty threads. Doing CPU intensive work or blocking operation on the IO eventloop netty thread may cause deadlock or significantly reduce SDK throughput.
+    The Async Java SDK uses [netty](https://netty.io/) for non-blocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Observable returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
 
-    For example the following code executes a cpu intensive work on the eventloop IO netty thread:
+    For example the following code executes a cpu intensive work on the event loop IO netty thread:
 
     ```java
     Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
@@ -101,7 +101,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
       });
     ```
 
-    After result is received if you want to do CPU intensive work on the result you should avoid doing so on eventloop IO netty thread. You can instead provide your own Scheduler to provide your own thread for running your work.
+    After result is received if you want to do CPU intensive work on the result you should avoid doing so on event loop IO netty thread. You can instead provide your own Scheduler to provide your own thread for running your work.
 
     ```java
     import rx.schedulers;
@@ -126,7 +126,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 	For More Information, Please look at the [Github page](https://github.com/Azure/azure-cosmosdb-java) for Async Java SDK.
 
 10. **Disable netty's logging**
-    Netty library logging is chatty and needs to be turned off (suppressing log in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
+    Netty library logging is chatty and needs to be turned off (suppressing sign in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
 
     ```java
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
@@ -172,7 +172,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     </dependency>
     ```
 
-For other platforms (Red Hat, Windows, Mac, etc.,) refer to these instructions https://netty.io/wiki/forked-tomcat-native.html
+For other platforms (Red Hat, Windows, Mac, etc.) refer to these instructions https://netty.io/wiki/forked-tomcat-native.html
 
 ## Indexing Policy
  
@@ -211,7 +211,7 @@ For other platforms (Red Hat, Windows, Mac, etc.,) refer to these instructions h
     response.getRequestCharge();
     ```             
 
-    The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before throttling subsequent requests. For more information, see [Request units](request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
+    The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 2. **Handle rate limiting/request rate too large**
 

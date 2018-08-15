@@ -14,7 +14,7 @@ This article shows you sample command-line interface (CLI) commands to help you 
 
 ## Prerequisites
 
-If you haven't already installed the Azure CLI, follow the instructions for [Install the Azure CLI 2.0](/cli/azure/install-azure-cli). You can also use [Azure Cloud Shell](/azure/cloud-shell) to run the CLI as an interactive experience in your browser. See a full reference of all available available commands in the [Azure Monitor CLI reference](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest). 
+If you haven't already installed the Azure CLI, follow the instructions for [Install the Azure CLI 2.0](/cli/azure/install-azure-cli). You can also use [Azure Cloud Shell](/azure/cloud-shell) to run the CLI as an interactive experience in your browser. See a full reference of all available commands in the [Azure Monitor CLI reference](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
 ## Log in to Azure
 The first step is to login to your Azure account.

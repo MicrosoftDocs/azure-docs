@@ -1,11 +1,11 @@
 ﻿---
 title: Plan the scale of your Azure Time Series Insights environment | Microsoft Docs
-description: This article describes how to follow best practices when planning an Azure Time Series Insights environment, including storage capacity, data retention, ingress capacity, and monitoring. 
+description: This article describes how to follow best practices when planning an Azure Time Series Insights environment, including storage capacity, data retention, ingress capacity, monitoring, and business disaster recovery (BCDR). 
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
-ms.author: jasonh
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
@@ -89,8 +89,18 @@ A Reference Data Set is a collection of items that augment the events from your 
 
 Note, reference data is not joined retroactively. This means that only current and future ingress data is matched and joined to the reference date set, once it has been configured and uploaded.  If you plan to send lots of historical data to TSI and don't upload or create reference data in TSI first, then you may have to re-do your work (hint, not fun).  
 
-To learn more about how to create, upload, and manage your reference data in TSI, head to our *reference data* documentation [documentation] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
+To learn more about how to create, upload, and manage your reference data in TSI, head to our *reference data* documentation [documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
+## Business disaster recovery
+As an Azure service, Time Series Insights provides high availability (HA) using redundancies at the Azure region level, without any additional work required by the solution. The Microsoft Azure platform also includes features to help you build solutions with disaster recovery (DR) capabilities or cross-region availability. If you want to provide global, cross-region high availability for devices or users, take advantage of these Azure DR features. The article [Azure Business Continuity Technical Guidance](../resiliency/resiliency-technical-guidance.md) describes the built-in features in Azure for business continuity and DR. The [Disaster recovery and high availability for Azure applications][Disaster recovery and high availability for Azure applications] paper provides architecture guidance on strategies for Azure applications to achieve HA and DR.
+
+Time Series Insights does not have built-in business disaster recovery (BCDR).  However, customers that require BCDR can still implement a recovery strategy. Create a second Time Series Insights environment in a backup Azure region and send events to this secondary environment from the primary event source, leveraging a second dedicated consumer group and that event source's BCDR guidelines.  
+
+1.  Create environment in second region.  More on creating a Time Series Insights environment [here](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-get-started).
+2.  Create a second dedicated consumer group for your event source and connect that event source to the new environment.  Be sure to designate the second, dedicated consumer group.  You can learn more about this by following either [IoT Hub documentation](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) or [Event hub documentation](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access).
+3.  If your primary region were to go down during a disaster incident, switch over operations to the backup Time Series Insights environment.  
+
+To learn more about IoT Hub's BCDR policies, head [here](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr).  To learn more about Event hub's BCDR policies, head [here](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr).  
 
 ## Next steps
 - [How to add an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md)

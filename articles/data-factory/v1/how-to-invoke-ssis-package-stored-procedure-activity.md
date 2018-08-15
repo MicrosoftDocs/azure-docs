@@ -20,15 +20,15 @@ ms.author: jingwang
 This article describes how to invoke an SSIS package from an Azure Data Factory pipeline by using a stored procedure activity. 
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available. If you are using version 2 of the Data Factory service, which is in Public Preview, see [Invoke SSIS packages using stored procedure activity in version 2](../how-to-invoke-ssis-package-stored-procedure-activity.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Invoke SSIS packages using stored procedure activity in](../how-to-invoke-ssis-package-stored-procedure-activity.md).
 
 ## Prerequisites
 
 ### Azure SQL Database 
-The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Managed Instance (Preview).
+The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Database Managed Instance (Preview).
 
 ### Create an Azure-SSIS integration runtime
-Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](../tutorial-create-azure-ssis-runtime-portal.md). You must create a data factory of version 2 to create an Azure-SSIS integration runtime. 
+Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](../tutorial-create-azure-ssis-runtime-portal.md). You cannot use Data Factory version 1 to create an Azure-SSIS integration runtime. 
 
 ## Azure portal
 In this section you use the Azure portal to create a Data Factory pipeline with a stored procedure activity that invokes an SSIS package.

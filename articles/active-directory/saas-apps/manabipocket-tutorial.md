@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Manabi Pocket | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Manabi Pocket.
 services: active-directory
@@ -9,12 +9,11 @@ ms.reviewer: joflore
 
 ms.assetid: 8e521099-bf7d-43ab-a0e0-86aa1c9e577e
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: jeedes
 
 ---
@@ -50,7 +49,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Manabi Pocket from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Manabi Pocket from the gallery
 To configure the integration of Manabi Pocket into Azure AD, you need to add Manabi Pocket from the gallery to your list of managed SaaS apps.
@@ -61,15 +60,15 @@ To configure the integration of Manabi Pocket into Azure AD, you need to add Man
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **Manabi Pocket**, select **Manabi Pocket** from result panel then click **Add** button to add the application.
+1. In the search box, type **Manabi Pocket**, select **Manabi Pocket** from result panel then click **Add** button to add the application.
 
 	![Manabi Pocket in the results list](./media/manabipocket-tutorial/tutorial_manabipocket_addfromgallery.png)
 
@@ -82,10 +81,10 @@ For single sign-on to work, Azure AD needs to know what the counterpart user in 
 To configure and test Azure AD single sign-on with Manabi Pocket, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Manabi Pocket test user](#create-a-manabi-pocket-test-user)** - to have a counterpart of Britta Simon in Manabi Pocket that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a Manabi Pocket test user](#create-a-manabi-pocket-test-user)** - to have a counterpart of Britta Simon in Manabi Pocket that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -97,36 +96,30 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+
 	![Single sign-on dialog box](./media/manabipocket-tutorial/tutorial_manabipocket_samlbase.png)
 
-3. On the **Manabi Pocket Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+1. On the **Manabi Pocket Domain and URLs** section, perform the following steps:
 
 	![Manabi Pocket Domain and URLs single sign-on information](./media/manabipocket-tutorial/tutorial_manabipocket_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
-	
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/assertion_post`
+    a. In the **Sign-on URL** textbox, type the URL: `https://ed-cl.com/`
+
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Manabi Pocket Client support team](mailto:info-ed-cl@ntt.com) to get these values.
+	> The Identifier value is not real. Update this value with the actual Identifier . Contact [Manabi Pocket Client support team](mailto:info-ed-cl@ntt.com) to get this value.
 
-4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-	![Manabi Pocket Domain and URLs single sign-on information](./media/manabipocket-tutorial/tutorial_manabipocket_url1.png)
-
-    In the **Sign-on URL** textbox, type the URL: `https://ed-cl.com/`
-
-5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/manabipocket-tutorial/tutorial_manabipocket_certificate.png) 
 
-6. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/manabipocket-tutorial/tutorial_general_400.png)
 
-7. To configure single sign-on on **Manabi Pocket** side, you need to send the downloaded **Metadata XML** to [Manabi Pocket support team](mailto:info-ed-cl@ntt.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **Manabi Pocket** side, you need to send the downloaded **Metadata XML** to [Manabi Pocket support team](mailto:info-ed-cl@ntt.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -140,15 +133,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/manabipocket-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/manabipocket-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/manabipocket-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/manabipocket-tutorial/create_aaduser_04.png)
 
@@ -176,30 +169,30 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Manabi Pocket**.
+1. In the applications list, select **Manabi Pocket**.
 
 	![The Manabi Pocket link in the Applications list](./media/manabipocket-tutorial/tutorial_manabipocket_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
-	
+1. Click **Assign** button on **Add Assignment** dialog.
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Manabi Pocket tile in the Access Panel, you should get automatically signed-on to your Manabi Pocket application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
@@ -219,4 +212,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/manabipocket-tutorial/tutorial_general_201.png
 [202]: ./media/manabipocket-tutorial/tutorial_general_202.png
 [203]: ./media/manabipocket-tutorial/tutorial_general_203.png
-

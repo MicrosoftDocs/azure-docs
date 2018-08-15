@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 07/16/2018
 ms.author: juliako
 ---
 
@@ -73,22 +73,23 @@ This section configures the Postman.
     > [!Note]
     > Update access variables with values you got from the **Access the Media Services API** section above.
 
-7. Close the dialog.
-8. Select the **Azure Media Service v3 Environment** environment from the dropdown.
+7. Double-click on the selected file and enter values that you got by following the [accessing API](#access-the-media-services-api) steps.
+8. Close the dialog.
+9. Select the **Azure Media Service v3 Environment** environment from the dropdown.
 
     ![Choose env](./media/develop-with-postman/choose-env.png)
    
 ### Configure the collection
 
 1. Click **Import** to import the collection file.
-1. Browse to the `Media Services v3 (2018-03-30-preview).postman_collection.json` file that was downloaded when you cloned `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`
-3. Choose the **Media Services v3 (2018-03-30-preview).postman_collection.json** file.
+1. Browse to the `Media Services v3.postman_collection.json` file that was downloaded when you cloned `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`
+3. Choose the **Media Services v3.postman_collection.json** file.
 
     ![Import a file](./media/develop-with-postman/postman-import-collection.png)
 
 ## Send requests using Postman
 
-In this section we send requests that are relevant to encoding and creating URLs so you can stream your file. Specifically, the following requests are sent:
+In this section, we send requests that are relevant to encoding and creating URLs so you can stream your file. Specifically, the following requests are sent:
 
 1. Get Azure AD Token for Service Principal Authentication
 2. Create an output asset
@@ -124,11 +125,21 @@ The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the 
 2. Then, select "Create or update an Asset".
 3. Press **Send**.
 
-    The following **PUT** operation is sent.
+    * The following **PUT** operation is sent:
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
+        ```
+    * The operation has the following  body:
+
+        ```json
+        {
+        "properties": {
+            "description": "My Asset",
+            "alternateId" : "some GUID"
+         }
+        }
+        ```
 
 ### Create a transform
 
@@ -145,11 +156,30 @@ You can use a built-in EncoderNamedPreset or use custom presets.
 2. Then, select "Create Transform".
 3. Press **Send**.
 
-    The following **PUT** operation is sent.
+    * The following **PUT** operation is sent.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
+        ```
+    * The operation has the following body:
+
+        ```json
+        {
+            "properties": {
+                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "outputs": [
+                    {
+                    "onError": "StopProcessingJob",
+                "relativePriority": "Normal",
+                    "preset": {
+                        "@odata.type": "#Microsoft.Media.BuiltInStandardEncoderPreset",
+                        "presetName": "AdaptiveStreaming"
+                    }
+                    }
+                ]
+            }
+        }
+        ```
 
 ### Create a job
 
@@ -161,13 +191,34 @@ In this example, the job's input is based on an HTTPS URL ("https://nimbuscdn-ni
 2. Then, select "Create or Update Job".
 3. Press **Send**.
 
-    The following **PUT** operation is sent.
+    * The following **PUT** operation is sent.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
+        ```
+    * The operation has the following body:
 
-The job takes some time to complete and when it does you want to be notified. To see the progress of the job, we recommend to use Event Grid. It is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
+        ```json
+        {
+        "properties": {
+            "input": {
+            "@odata.type": "#Microsoft.Media.JobInputHttp",
+            "baseUri": "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
+            "files": [
+                    "Ignite-short.mp4"
+                ]
+            },
+            "outputs": [
+            {
+                "@odata.type": "#Microsoft.Media.JobOutputAsset",
+                "assetName": "testAsset1"
+            }
+            ]
+        }
+        }
+        ```
+
+The job takes some time to complete and when it does you want to be notified. To see the progress of the job, we recommend using Event Grid. It is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
@@ -185,14 +236,24 @@ When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/str
 Your Media Service account has a quota for the number of StreamingPolicy entries. You should not be creating a new StreamingPolicy for each StreamingLocator.
 
 1. In the left window of the Postman, select "Streaming Policies".
-2. Then, select "Create a Streaming Policy".
+2. Then, select "Create a Streaming Locator".
 3. Press **Send**.
 
-    The following **PUT** operation is sent.
+    * The following **PUT** operation is sent.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        ```
+    * The operation has the following body:
+
+        ```json
+        {
+            "properties":{
+            "assetName": "{{assetName}}",
+            "streamingPolicyName": "{{streamingPolicyName}}"
+            }
+        }
+        ```
 
 ### List paths and build streaming URLs
 
@@ -204,40 +265,40 @@ Now that the [StreamingLocator](https://docs.microsoft.com/rest/api/media/stream
 2. Then, select "List Paths".
 3. Press **Send**.
 
-    The following **POST** operation is sent.
+    * The following **POST** operation is sent.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
+        ```
+        
+    * The operation has no body:
+        
 4. Note one of the paths you want to use for streaming, you will use it in the next section. In this case, the following paths were returned:
     
     ```
-    {
-        "streamingPaths": [
-            {
-                "streamingProtocol": "Hls",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)"
-                ]
-            },
-            {
-                "streamingProtocol": "Dash",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=mpd-time-csf)"
-                ]
-            },
-            {
-                "streamingProtocol": "SmoothStreaming",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest"
-                ]
-            }
-        ],
-        "downloadPaths": []
-    }
+    "streamingPaths": [
+        {
+            "streamingProtocol": "Hls",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)"
+            ]
+        },
+        {
+            "streamingProtocol": "Dash",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=mpd-time-csf)"
+            ]
+        },
+        {
+            "streamingProtocol": "SmoothStreaming",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest"
+            ]
+        }
+    ]
     ```
 
 #### Build the streaming URLs
@@ -249,16 +310,27 @@ In this section, let's build an HLS streaming URL. URLs consist of the following
     > [!NOTE]
     > If a player is hosted on an https site, make sure to update the URL to "https".
 
-2. StreamingEndpoint's hostname. In this case, the name is "amsaccount-usw22.streaming.media.azure.net"
-3. A path that you got in the previous section.  
+2. StreamingEndpoint's hostname. In this case, the name is "amsaccount-usw22.streaming.media.azure.net".
+
+    To get the hostname you can use the following GET operation:
+    
+    ```
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    ```
+    
+3. A path that you got in the previous (List paths) section.  
 
 As a result, the following HLS URL was built
 
 ```
-https://amsaccount-usw22.streaming.media.azure.net/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)
+https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)
 ```
 
 ## Test the streaming URL
+
+
+> [!NOTE]
+> Make sure the streaming endpoint from which you want to stream is running.
 
 To test the stream, this article uses Azure Media Player. 
 

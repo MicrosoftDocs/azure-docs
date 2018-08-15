@@ -3,8 +3,8 @@ title: Exclude disks from protection using Azure Site Recovery | Microsoft Docs
 description: Describes why and how to exclude VM disks from replication for VMware to Azure.
 author: nsoneji
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
+ms.workload: storage-backup-recovery
+ms.date: 07/06/2018
 ms.author: nisoneji
 
 ---
@@ -45,7 +45,7 @@ Follow the [Enable replication](vmware-azure-enable-replication.md) workflow to 
 
 >[!NOTE]
 >
-> * You can exclude only disks that already have the Mobility service installed. You need to manually install the Mobility service, because the Mobility service is only installed by using the push mechanism after replication is enabled.
+> * You can only exclude disks on VMs that already have the Mobility service installed. You need to manually install the Mobility service, because the Mobility service is only installed using the push mechanism after replication is enabled.
 > * Only basic disks can be excluded from replication. You can't exclude operating system or dynamic disks.
 > * After you enable replication, you can't add or remove disks for replication. If you want to add or exclude a disk, you need to disable protection for the machine and then enable it again.
 > * If you exclude a disk that's needed for an application to operate, after failover to Azure, you’ll need to create the disk manually in Azure so that the replicated application can run. Alternatively, you can integrate Azure automation into a recovery plan to create the disk during failover of the machine.

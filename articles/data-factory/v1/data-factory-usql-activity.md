@@ -20,11 +20,11 @@ robots: noindex
 ---
 # Transform data by running U-SQL scripts on Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-usql-activity.md)
-> * [Version 2 - Preview](../transform-data-using-data-lake-analytics.md)
+> * [Version 1](data-factory-usql-activity.md)
+> * [Version 2 (current version)](../transform-data-using-data-lake-analytics.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [U-SQL Activity in V2](../transform-data-using-data-lake-analytics.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [U-SQL Activity in V2](../transform-data-using-data-lake-analytics.md).
 
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs a specific processing operation. This article describes the **Data Lake Analytics U-SQL Activity** that runs a **U-SQL** script on an **Azure Data Lake Analytics** compute linked service. 
 

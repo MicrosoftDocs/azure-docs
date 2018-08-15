@@ -34,6 +34,10 @@ ms.author: rnagpal
 
 ## Release notes
 
+### <a name="1.1.3"/>1.1.3
+* Fixed Nuget package dependencies on Microsoft.Azure.Storage.Common and Microsoft.Azure.DocumentDB.
+* Bug fixes on table serialization when JsonConvert.DefaultSettings is configured.
+
 ### <a name="1.1.1"/>1.1.1
 * Added validation for malformed ETAGs in Direct Mode.
 * Fixed LINQ query bug in Gateway Mode.
@@ -61,6 +65,7 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.1.3](#1.1.3) |July 17, 2018|--- |
 | [1.1.1](#1.1.1) |March 26, 2018|--- |
 | [1.1.0](#1.1.0) |February 21, 2018|--- |
 | [1.0.0](#1.0.0) |November 15, 2017|--- |

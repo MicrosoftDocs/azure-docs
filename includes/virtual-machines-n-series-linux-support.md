@@ -29,7 +29,7 @@ Microsoft redistributes NVIDIA GRID driver installers for NV-series VMs used as 
 
 | Distribution | Driver |
 | --- | -- |
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 or 7.4<br/><br/>CentOS-based 7.3 or 7.4 | NVIDIA GRID 6.0, driver branch R390|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 or 7.4<br/><br/>CentOS-based 7.3 or 7.4 | NVIDIA GRID 6.2, driver branch R390|
 
 
 

@@ -1,7 +1,7 @@
 ---
-title: How to use cards with a Conversation Learner application, part 2 - Microsoft Cognitive Services | Microsoft Docs
+title: How to use cards with a Conversation Learner model, part 2 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to use cards with a Conversation Learner application.
+description: Learn how to use cards with a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -17,6 +17,10 @@ This tutorial shows how to add a fillable form card to your bot. It will show ho
 
 Conversation Learner expects your card definition files to be located in a directory called "cards", which is present in the directory where the bot is started.
 
+## Video
+
+[![Tutorial 14 Preview](http://aka.ms/cl-tutorial-14-preview)](http://aka.ms/blis-tutorial-14)
+
 ## Requirements
 This tutorial requires that the general tutorial bot is running
 
@@ -28,7 +32,7 @@ Cards are UI elements that allow the user to select an option in the conversatio
 
 ### Open the demo
 
-In the App list of the web UI, click on Tutorial-14-Cards-2. 
+In the Model list of the web UI, click on Tutorial-14-Cards-2. 
 
 ### The Card
 

@@ -2,13 +2,13 @@
 title: Whitelist Egress Traffic from Azure Kubernetes Service (AKS) cluster
 description: Whitelist egress traffic from an Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/23/2018
-ms.author: nepeters
+ms.author: iainfou
 ---
 
 # Azure Kubernetes Service (AKS) egress

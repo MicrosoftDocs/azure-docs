@@ -39,7 +39,9 @@ Using containers provides an easy way to run Batch tasks without having to manag
 
 ### Limitations
 
-* Batch provides RDMA support only for containers running on Linux pools.
+* Batch provides RDMA support only for containers running on Linux pools
+
+* For Windows container workloads, it's recommended to choose a multicore VM size for your pool
 
 ## Supported virtual machine images
 
@@ -226,7 +228,13 @@ Use the `ContainerSettings` property of the task classes to configure container-
 
 If you run tasks on container images, the [cloud task](/dotnet/api/microsoft.azure.batch.cloudtask) and [job manager task](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) require container settings. However, the [start task](/dotnet/api/microsoft.azure.batch.starttask), [job preparation task](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), and [job release task](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) do not require container settings (that is, they can run within a container context or directly on the node).
 
-When you configure the container settings, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+The command line for an Azure Batch container task executes in a working directory in the container that is very similar to the environment Batch sets up for a regular (non-container) task:
+
+* All directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container
+* All task environment variables are mapped into the container
+* The application working directory is set the same as for a regular task, so you can use features such as application packages and resource files
+
+Because Batch changes the default working directory in your container, the task runs in a location different from the typical container entry point (for example, `c:\` by default on a Windows container, or `/` on Linux). Make sure that your task command line or container entry point specifies an absolute path, if it isn't already configured that way.
 
 The following Python snippet shows a basic command line running in an Ubuntu container pulled from Docker Hub. The container run options are additional arguments to the `docker create` command that the task runs. Here, the `--rm` option removes the container after the task finishes.
 
@@ -237,7 +245,7 @@ task_container_settings = batch.models.TaskContainerSettings(
     container_run_options='--rm')
 task = batch.models.TaskAddParameter(
     id=task_id,
-    command_line='echo hello',
+    command_line='/bin/echo hello',
     container_settings=task_container_settings
 )
 
@@ -248,7 +256,7 @@ The following C# example shows basic container settings for a cloud task:
 ```csharp
 // Simple container task command
 
-string cmdLine = "<my-command-line>";
+string cmdLine = "c:\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
     imageName: "tensorflow/tensorflow:latest-gpu",

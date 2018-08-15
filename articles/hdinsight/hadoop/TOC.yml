@@ -51,6 +51,7 @@
       items:
       - name: Use the HDInsight tools for VSCode
         href: ../hdinsight-for-vscode.md
+        maintainContext: true
       - name: Use the HDInsight tools for Visual Studio
         href: apache-hadoop-use-hive-visual-studio.md
       - name: Use the Hive View
@@ -133,7 +134,7 @@
   - name: Use HDInsight tools
     items:
       - name: Tools for Visual Studio
-        href: ../hdinsight-hadoop-visual-studio-tools-get-started.md
+        href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
         maintainContext: true
       - name: Tools for VSCode
         href: ../hdinsight-for-vscode.md
@@ -202,9 +203,6 @@
       maintainContext: true
     - name: Use Hue
       href: ../hdinsight-hadoop-hue-linux.md
-      maintainContext: true
-    - name: Use R
-      href: ../hdinsight-hadoop-r-scripts-linux.md
       maintainContext: true
     - name: Use Solr
       href: ../hdinsight-hadoop-solr-install-linux.md
@@ -512,6 +510,10 @@
   - name: Release notes
     href: ../hdinsight-release-notes.md
     maintainContext: true
+    items:
+    - name: Archived release notes
+      href: ../hdinsight-release-notes-archive.md
+      maintainContext: true
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Get help on the forum
