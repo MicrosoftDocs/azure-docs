@@ -343,7 +343,7 @@ You also need to copy the utility library that loads the dataset into the projec
 
 ```python
 import shutil
-shutil.copy('utils.py', proj.project_folder)
+shutil.copy('utils.py', proj.project_directory)
 ```
 
 
