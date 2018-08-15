@@ -3,7 +3,7 @@ title: Azure CDN POP locations by region | Microsoft Docs
 description: This article lists Azure CDN POP locations, sorted by region, for Azure CDN products.
 services: cdn
 documentationcenter: ''
-author: magattus
+author: mdgattuso
 manager: danielgi
 editor: ''
 
