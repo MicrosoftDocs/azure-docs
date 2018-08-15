@@ -24,7 +24,7 @@ ms.author: alleonar
 
 Azure Reporting APIs help you review and manage your Azure costs.
 
-In this article, you learn to retrieve the current bill associated with billing accounts, department, or enterprtise agreement (EA) enrollment accounts using the Azure REST APIs.
+In this article, you learn to retrieve the billing information associated with billing accounts, department, or enterprtise agreement (EA) enrollment accounts using the Azure REST APIs. 
 
 ## Individual account billing
 
@@ -100,7 +100,6 @@ The following headers are required:
 
 This example shows a synchronous call that returns details for the current billing cycle. For performance reasons, synchronous calls return information for the last month.  You can also call the [API asynchronously](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) to return data for 36 months.
 
-
 ### Response  
 
 Status code 200 (OK) is returned for a successful response, which contains a list of detailed usage information and costs for a given billing period and invoice ID for the department.
@@ -157,7 +156,6 @@ The following headers are required:
 
 This example shows a synchronous call that returns details for the current billing cycle. For performance reasons, synchronous calls return information for the last month.  You can also call the [API asynchronously](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) to return data for 36 months.
 
-
 ### Response  
 
 Status code 200 (OK) is returned for a successful response, which contains a list of detailed usage information and costs for a given billing period and invoice ID for the department.
@@ -186,7 +184,7 @@ The following example shows the output of the REST API for enterprise enrollment
     }
   ]
 }
-```  
+``` 
 
 This example is abbreviated; see [Get usage detail for an enrollment account](/rest/api/consumption/usagedetails/listbyenrollmentaccount) for a complete description of each response field and error handling.
 
