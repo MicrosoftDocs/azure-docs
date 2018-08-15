@@ -24,28 +24,28 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Prepare network environment
 
-SQL Managed Instance is secure service that is placed in your own Azure Virtual Network (VNet). In order to create a Managed Instance, you would need to prepare network environment for managed instance, which includes:
+SQL Managed Instance is a secure service that is placed in your own Azure Virtual Network (VNet). In order to create a Managed Instance, you would need to prepare the Azure network environment, which includes:
  - Azure VNet where your Managed Instance will be placed.
  - Subnet in your Azure VNet where Managed Instances will be placed.
  - User-defined route that will enable Managed Instance to communicate with the Azure services that control and manage the instance.
 
-The subnet is dedicated to Managed Instances and you cannot create any other resources (for example Azure Virtual Machines) in that subnet. You might want to create two subnets in your Azure VNet so you can place Managed Instances in the subnet dedicated to Managed Instances, and other the resources in the default subnet.
+The subnet is dedicated to Managed Instances and you cannot create any other resources (for example Azure Virtual Machines) in that subnet. In this quick-start will be creaed two subnets in your Azure VNet so you can place Managed Instances in the subnet dedicated to Managed Instances, and other the resources in the default subnet.
 
-1. Deploy Azure network environment prepared for Azure SQL Managed Instance by clicking on the following button:
+1. Deploy Azure network environment prepared for Azure SQL Database Managed Instance by clicking on the following button:
 
     <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener"> <img src="http://azuredeploy.net/deploybutton.png"> </a>
 
     This button will open a form in Azure portal where you can configure your network environment before you deploy it.
 
-2. Optionally change the names of VNet and subnets and adjust IP ranges associated to your networking resources, and then press "Purchase" button to create and configure your environment:
+2. Optionally, change the names of VNet and subnets and adjust IP ranges associated to your networking resources. Then press "Purchase" button to create and configure your environment:
 
     ![create managed instance environment](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
 
     > [!Note]
-    > This Azure Resource Manager depoment will crate two subnets in the VNet - one for Managed Instances and the other (default) for other resources such as client virtual machine that can be used to connect to Managed Instance. If you don't need two subnets, you can delete the default one later; however, in that case you would not be able to complete step 3 in this quick-start guide - [prepare client machine](#prepare-client-machine).
+    > This Azure Resource Manager depoment will create two subnets in the VNet - one for Managed Instances called **ManagedInstances**, and the other called **Default** for other resources such as client virtual machine that can be used to connect to Managed Instance. If you don't need two subnets, you can delete the default one later; however, in that case you would not be able to complete step 3 in this quick-start guide - [prepare client machine](#prepare-client-machine).
 
     > [!Note]
-    > If you change the names of VNet and subnets, make sure that you remember new names because they will be needed in the following sections. In the rest of the tutorial will be assumed that you have created VNet called **MyNewVNet**, **ManagedInstances** subnet for SQL Managed Instances and **Default** subnet for Virtual machines and other resources.
+    > If you change the names of VNet and subnets, make sure that you remember the new names because they will be needed in the following sections. In the rest of the tutorial will be assumed that you have created VNet called **MyNewVNet**, **ManagedInstances** subnet for SQL Managed Instances and **Default** subnet for Virtual machines and other resources.
 
 ## Create a Managed Instance
 
@@ -96,6 +96,9 @@ While deployment occurs, continue to the next procedure.
 ## Prepare client machine
 
 Since SQL Managed Instance is placed in your private Virtual Network, you need to create an Azure VM with some installed SQL client tool like SQL Server Management Studio or SQL Operations Studio to connect to the Managed Instance and execute queries.
+
+> [!Note]
+> Instead of client Azure Virtual machine, you can configure [Point-to-Site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) connection and connect to the Managed Instance from your local computer.
 
 The easiest way to create a client virtual machine with all nesseccary tools is to use the Azure Resource Manager templates.
 
