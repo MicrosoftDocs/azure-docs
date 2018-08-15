@@ -2433,7 +2433,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img alt="" src="media/index/Service-icon.png" data-linktype="relative-path">
+                                                        <img alt="" src="media/index/service-icon-small.png" data-linktype="relative-path">
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
