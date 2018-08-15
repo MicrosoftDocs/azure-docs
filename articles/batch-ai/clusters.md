@@ -211,4 +211,4 @@ az group delete --name <RESOURCE GROUP>
 
 ## Next steps
 
-For more examples of creating a Batch AI cluster, see the [Portal](quickstart-create-cluster.md) or [Azure CLI](quickstart-create-cluster-cli.md) quickstart, or the [Batch AI recipes](https://github.com/Azure/BatchAI/tree/master/recipes) on GitHub.
+For more examples of creating a Batch AI cluster, see the [Portal](quickstart-create-cluster-portal.md) or [Azure CLI](quickstart-create-cluster-cli.md) quickstart, or the [Batch AI recipes](https://github.com/Azure/BatchAI/tree/master/recipes) on GitHub.
