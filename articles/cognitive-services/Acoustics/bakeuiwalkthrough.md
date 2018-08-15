@@ -175,8 +175,8 @@ Therefore it is important to ensure that probe points exist anywhere the player 
 The only difference between the Coarse and Fine resolution settings is the frequency at which the simulation is performed. Fine uses a frequency twice as high as Coarse.
 While this may seem simple, it has a number of implications on the acoustic simulation:
 
-* The wavelength for Coarse is twice as big as Fine, and therefore the voxels are twice as big.
-* Because the simulation time is directly related to the voxel size, a Coarse bake is about 16 times faster than a Fine bake.
+* The wavelength for Coarse is twice as long as Fine, and therefore the voxels are twice as big.
+* The simulation time is directly related to the voxel size, making a Coarse bake about 16 times faster than a Fine bake.
 * Portals (e.g. doors or windows) smaller than the voxel size cannot be simulated. The Coarse setting may cause some of these smaller portals to not be simulated; therefore, they will not pass sound through at runtime. You can see if this is happening by viewing the voxels (_Example coming..._).
 * The lower simulation frequency results in less diffraction around corners and edges.
 * Sound sources cannot be located inside "filled" voxels, that is voxels that contain geometry - this results in no sound. It is more difficult to locate sound sources so they are not inside the larger voxels of Coarse than it is using the Fine setting.
