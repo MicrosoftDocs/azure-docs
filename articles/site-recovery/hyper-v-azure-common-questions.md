@@ -126,7 +126,7 @@ Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicate
 
 When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage account, Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work. 
 
-## What are the replicated VM requirements?
+### What are the replicated VM requirements?
 
 For replication, a Hyper-V VM must be running a supported operating system. In addition, the VM must meet the requirements for Azure VMs. [Learn more](hyper-v-azure-support-matrix.md#replicated-vms) in the support matrix.
 
