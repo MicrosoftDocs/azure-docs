@@ -19,7 +19,7 @@ ms.author: alsin
 ---
 
 
-# Using Serial Console for SysRq and NMI calls
+# Use Serial Console for SysRq and NMI calls
 
 ## System Request (SysRq)
 A SysRq is a sequence of keys understood by the Linux operation system kernel, which can trigger a set of pre-defined actions. These commands are often used when virtual machine troubleshooting or recovery can't be performed through traditional administration (for example, if the VM is hung). Using the SysRq feature of Azure Serial Console will mimic pressing of the SysRq key and characters entered on a physical keyboard.
@@ -36,7 +36,7 @@ Choosing "Send SysRq Command" will open a dialog, which will provide common SysR
 
 The SysRq command can't be used on virtual machines that are stopped or whose kernel is in a non-responsive state. (for example a kernel panic).
 
-### Enabling SysRq 
+### Enable SysRq 
 As described in the *SysRq Admin Guide* above, SysRq can be configured such that all, none, or only certain commands are available. You can enable all SysRq commands using the step below but it will not survive a reboot:
 ```
 echo "1" >/proc/sys/kernel/sysrq

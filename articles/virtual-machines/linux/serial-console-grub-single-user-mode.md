@@ -18,7 +18,7 @@ ms.date: 08/14/2018
 ms.author: alsin
 ---
 
-# Using Serial Console to access GRUB and Single User Mode
+# Use Serial Console to access GRUB and Single User Mode
 Single user mode is a minimal environment with minimal functionality. It can be useful for investigating boot issues or network issues as fewer services may run in the background, and, depending on the runlevel, a filesystem may not even be automatically mounted. This is useful to investigate situations such as a corrupt filesystem, a broken fstab, or network connectivity (incorrect iptables configuration).
 
 Some distros will automatically drop you into single user mode or emergency mode if the VM is unable to boot. Others, however, require additional setup before they can drop you into single-user or emergency mode automatically.
@@ -34,7 +34,7 @@ RHEL comes with GRUB enabled out of the box. To enter GRUB, reboot your VM with 
 
 > Note: Red Hat also provides documentation for booting into Rescue Mode, Emergency Mode, Debug Mode, and resetting the root password. [Click here to access it](https://aka.ms/rhel7grubterminal).
 
-### Setting up root access for single user mode in RHEL
+### Set up root access for single user mode in RHEL
 Single-user mode in RHEL requires the root user to be enabled, which is disabled by default. If you have a need to enable single user mode, use the following instructions:
 
 1. Log in to the Red Hat system via SSH
@@ -49,7 +49,7 @@ Now if the system boots into single user mode you can log in via root password.
 
 Alternatively for RHEL 7.4+ or 6.9+ you can enable single user mode in the GRUB prompts, see instructions [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/installation_guide/s1-rescuemode-booting-single)
 
-### Manually entering single user mode in RHEL
+### Manually enter single user mode in RHEL
 If you have set up GRUB and root access with the instructions above, then you can enter single user mode with the following instructions:
 
 1. Press 'Esc' while restarting the VM to enter GRUB
@@ -63,7 +63,7 @@ If you have set up GRUB and root access with the instructions above, then you ca
 
     ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
-### Single user mode without root account enabled in RHEL
+### Enter single user mode without root account enabled in RHEL
 If you did not go through the steps above to enable the root user, you can still reset your  root password. Use the following instructions:
 
 > Note: If you are using SELinux, please ensure you have taken the additional steps described in the Red Hat documentation [here](https://aka.ms/rhel7grubterminal) when resetting the root password.
