@@ -129,7 +129,7 @@
       items:
       - name: Profiler for Linux App services
         href: app-insights-profiler-aspnetcore-linux.md
-    - name: J2EE
+    - name: Java
       items:
       - name: Log traces
         href: app-insights-java-trace-logs.md
