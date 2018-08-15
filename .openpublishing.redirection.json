@@ -2881,6 +2881,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-invoke-runbook-from-omsla-alert.md",
+            "redirect_url": "/azure/automation/automation-create-alert-triggered-runbook",
+            "redirect_document_id": false
+        },
+        
+        {
             "source_path": "articles/automation/automation-migrate-account-subscription.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources",
             "redirect_document_id": false
@@ -27218,6 +27224,22 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-controls.md",
             "redirect_url": "/azure/active-directory/conditional-access/controls",
             "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-device-policies.md",
+            "redirect_url": "/azure/active-directory/conditional-access/overview",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-mam.md",
+            "redirect_url": "/azure/active-directory/conditional-access/app-based-conditional-access",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-no-modern-authentication.md",
+            "redirect_url": "/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo",
+            "redirect_document_id": true
         }
+
     ]
 }
