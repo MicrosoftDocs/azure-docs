@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/21/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -612,7 +612,7 @@ Can manage all aspects of the Intune product.
 | microsoft.intune/AllEntities/AllActions | Manage all aspects of Intune. |
 
 ### License Administrator
-Can assign licenses to users but not to groups.
+Can assign licenses to users.
 
 | microsoft.aad.directory/users/assignLicense        | &nbsp; |
 | microsoft.aad.directory/users/usageLocation/update | &nbsp; |
