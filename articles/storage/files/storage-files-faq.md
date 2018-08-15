@@ -3,13 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Find answers to frequently asked questions about Azure Files.
 services: storage
 author: RenaShahMSFT
-<<<<<<< HEAD
-
 ms.service: storage
-ms.workload: storage
-=======
-ms.service: storage
->>>>>>> f1f1f77352ac813258388c8143183c3609e4932e
 ms.date: 07/19/2018
 ms.author: renash
 ms.component: files
