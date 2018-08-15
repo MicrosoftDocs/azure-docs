@@ -2,13 +2,13 @@
 title: Known Issues With Acoustics Plugin | Microsoft Docs
 description: Known issues with Acoustics Plugin and Unity
 services: cognitive-services
-author: kylsto
+author: kylestorck
 manager: noelc
 ms.service: cognitive-services
 ms.component: acoustics
 ms.topic: article
 ms.date: 08/15/2018
-ms.author: kylsto
+ms.author: kylestorck
 ---
 # Known Issues
 

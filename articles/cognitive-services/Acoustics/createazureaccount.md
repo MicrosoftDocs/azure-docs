@@ -11,7 +11,7 @@ ms.date: 08/03/2018
 ms.author: kegodin
 ---
 
-# Setup Azure Accounts for Acoustics
+# Create an Azure Batch Account
 Follow this guide for setting up Azure Batch and Storage accounts necessary for working with acoustics. For information about the Unity plugin developed as part of Project Acoustics, see [What is acoustics](what-is-acoustics.md). For information about how to incorporate acoustics into your Unity project, see [Getting Started](gettingstarted.md).  
 
 ## Get an Azure Subscription
