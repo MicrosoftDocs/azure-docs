@@ -51,7 +51,7 @@ With the approach provided by Project Acoustics' Unity plugin, you provide a sta
 * Android (x86 and ARM64)
 
 ## Download
-If you're interested in evaluating the acoustics plugin and providing feedback to Microsoft, sign up [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) to download the plugin package.
+If you're interested in evaluating the acoustics plugin, register [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) to join the Designer Preview.
 
 ## Next steps
 * Learn more about the [design process](designprocess.md)
