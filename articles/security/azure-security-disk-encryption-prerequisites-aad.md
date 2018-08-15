@@ -16,7 +16,7 @@ ms.author: mstewart
 ---
 # Azure Disk Encryption prerequisites (deprecated)
 
-**Starting on the 17th of August 2018, you no longer need to use an Azure AD application when encrypting Iaas VMs. This functionality is deprecated and will be removed from Azure Disk encryption in the future. To view instructions for the current version, see [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md).**
+**Starting on the 17th of August 2018, you no longer need to use an Azure AD application when encrypting IaaS VMs. This functionality is deprecated and will be removed from Azure Disk encryption in the future. To view instructions for the current version, see [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md).**
 
  This article, Azure Disk Encryption Prerequisites, explains items that need to be in place before you can use Azure Disk Encryption. Along with general prerequisites, Azure Disk Encryption is integrated with [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) and it uses an Azure AD application to provide authentication in order to manage encryption keys in the key vault. You may also wish to use [Azure PowerShell](/powershell/azure/overview) or the [Azure CLI](/cli/azure/) to set up or configure Key Vault and the Azure AD application.
 
