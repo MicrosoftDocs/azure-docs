@@ -37,7 +37,7 @@ For single databases, the following tables show the resources available for a si
 
 ### Standard service tier
 | **Performance level** | **S0** | **S1** | **S2** | **S3** |
-| :--- |---:| ---:|---:|---:|---:|
+| :--- |---:| ---:|---:|---:|
 | Max DTUs | 10 | 20 | 50 | 100 |
 | Included storage (GB) | 250 | 250 | 250 | 250 |
 | Max storage choices (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
@@ -48,7 +48,7 @@ For single databases, the following tables show the resources available for a si
 
 ### Standard service tier (continued)
 | **Performance level** | **S4** | **S6** | **S7** | **S9** | **S12** |
-| :--- |---:| ---:|---:|---:|---:|---:|
+| :--- |---:| ---:|---:|---:|---:|
 | Max DTUs | 200 | 400 | 800 | 1600 | 3000 |
 | Included storage (GB) | 250 | 250 | 250 | 250 | 250 |
 | Max storage choices (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
