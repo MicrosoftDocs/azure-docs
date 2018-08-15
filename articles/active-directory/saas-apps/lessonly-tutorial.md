@@ -113,7 +113,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| |
 	|--|
 	| `https://<companyname>.lessonly.com/signin`|
-	| `https://<companyname>.lessonly.com/signin`|
 
 	>[!NOTE]
 	>When referencing a generic name that **companyname** needs to be replaced by an actual name.
@@ -122,14 +121,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| |
 	|--|
 	| `https://<companyname>.lessonly.com/auth/saml/metadata`|
-	| `https://<companyname>.lessonly.com/auth/saml/metadata`|
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Lessonly.com Client support team](mailto:dev@lessonly.com) to get these values. 
 
 1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![Configure Single Sign-On](./media/lessonly-tutorial/tutorial_lessonly.com_certificate.png)
+	![Configure Single Sign-On](./media/lessonly-tutorial/tutorial_lesson.ly_certificate.png)
 
 1. The Lessonly.com application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **SAML Token Attributes** configuration.The following screenshot shows an example for this.
 
