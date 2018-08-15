@@ -9,29 +9,29 @@
   - name: REST APIs
     expanded: true
     items:
-    - name: Quickstart: C#
+    - name: C#
       href: quickstarts/csharp.md
-    - name: Quickstart: Go
+    - name: Go
       href: quickstarts/go.md
-    - name: Quickstart: Java
+    - name: Java
       href: quickstarts/java.md
-    - name: Quickstart: Node.js
+    - name: Node.js
       href: quickstarts/nodejs.md
-    - name: Quickstart: PHP
+    - name: PHP
       href: quickstarts/php.md
-    - name: Quickstart: Python
+    - name: Python
       href: quickstarts/python.md
-    - name: Quickstart: Ruby
+    - name: Ruby
       href: quickstarts/ruby.md
   - name: SDKs
     items:
-    - name: Quickstart: C# SDK
+    - name: C# SDK
       href: web-search-sdk-quickstart.md
-    - name: Quickstart: Java SDK
+    - name: Java SDK
       href: web-sdk-java-quickstart.md
-    - name: Quickstart: Node.js SDK
+    - name: Node.js SDK
       href: web-search-sdk-node-quickstart.md
-    - name: Quickstart: Python SDK
+    - name: Python SDK
       href: web-sdk-python-quickstart.md
 - name: Tutorials
   items:

@@ -33,7 +33,7 @@ With the Bing Web Search API your application gets has access <TODO: Erik - Some
 
 ## Workflow
 
-The Bing Web Search API is easy to call from any programming language that can make HTTP requests and parse JSON responses. You can access the service using the [REST API](), or availble [SDKs]().  
+The Bing Web Search API is easy to call from any programming language that can make HTTP requests and parse JSON responses. You can access the service using the [REST API](), or available [SDKs]().  
 
 1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api).  
 2. Send a [request to the Bing Web Search API](quick-start.md).
