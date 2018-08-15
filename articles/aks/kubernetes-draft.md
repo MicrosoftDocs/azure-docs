@@ -18,11 +18,11 @@ This article shows you how to use Draft with a Kubernetes cluster on AKS.
 
 ## Prerequisites
 
-The steps detailed in this article assume that you have created an AKS cluster and have established a kubectl connection with the cluster. If you need these items, see the [AKS quickstart][aks-quickstart].
+The steps detailed in this article assume that you have created an AKS cluster and have established a `kubectl` connection with the cluster. If you need these items, see the [AKS quickstart][aks-quickstart].
 
-You also need a private Docker registry in Azure Container Registry (ACR). For instructions on deploying an ACR instance, see the [Azure Container Registry Quickstart][acr-quickstart].
+You need a private Docker registry in Azure Container Registry (ACR). For steps on how to create an ACR instance, see the [Azure Container Registry quickstart][acr-quickstart].
 
-Helm must also be installed in your AKS cluster. For more information on installing Helm, see [Use Helm with Azure Kubernetes Service (AKS)][aks-helm].
+Helm must also be installed in your AKS cluster. For more information on how to install and configure Helm, see [Use Helm with Azure Kubernetes Service (AKS)][aks-helm].
 
 Finally, you must install [Docker](https://www.docker.com).
 
@@ -31,7 +31,7 @@ Finally, you must install [Docker](https://www.docker.com).
 The Draft CLI is a client that runs on your development system and allows you to deploy code into a Kubernetes cluster. To install the Draft CLI on a Mac, use `brew`. For additional installation options, see the [Draft Install guide][draft-documentation].
 
 > [!NOTE]
-> If you've installed Draft prior to version 0.12, you should first delete Draft from your cluster using `helm delete --purge draft` and then remove your local configuration by running `rm -rf ~/.draft`. If you are on MacOS, run `brew upgrade draft`.
+> If you installed Draft prior to version 0.12, first delete Draft from your cluster using `helm delete --purge draft` and then remove your local configuration by running `rm -rf ~/.draft`. If you are on MacOS, then run `brew upgrade draft`.
 
 ```console
 brew tap azure/draft
@@ -46,7 +46,7 @@ draft init
 
 ## Configure Draft
 
-Draft builds the container images locally, and then either deploys them from the local registry (such as with Minikube), or uses an image registry that you specify. This article uses the Azure Container Registry (ACR), so you must establish a trust relationship between your AKS cluster and the ACR registry and configure Draft to push the container to ACR.
+Draft builds the container images locally, and then either deploys them from the local registry (such as with Minikube), or uses an image registry that you specify. This article uses Azure Container Registry (ACR), so you must establish a trust relationship between your AKS cluster and the ACR registry, then configure Draft to push your container images to ACR.
 
 ### Create trust between AKS cluster and ACR
 
@@ -85,7 +85,7 @@ As a trust was created between AKS and ACR, no passwords or secrets are required
 
 ## Run an application
 
-The [Draft repository][draft-repo] includes sample applications that can be used to demo Draft. Clone a copy of the repo:
+To see Draft in action, let's deploy a sample application from the [Draft repository][draft-repo]. First, clone the repo:
 
 ```console
 git clone https://github.com/Azure/draft
@@ -97,7 +97,7 @@ Change to the Java examples directory:
 cd draft/examples/example-java/
 ```
 
-Use the `draft create` command to start the process. This command creates the artifacts that are used to run the application in a Kubernetes cluster. These items include a Dockerfile, a Helm chart, and a `draft.toml` file, which is the Draft configuration file.
+Use the `draft create` command to start the process. This command creates the artifacts that are used to run the application in a Kubernetes cluster. These items include a Dockerfile, a Helm chart, and a *draft.toml* file, which is the Draft configuration file.
 
 ```
 $ draft create
@@ -106,11 +106,11 @@ $ draft create
 --> Ready to sail
 ```
 
-To run the application on a Kubernetes cluster, use the `draft up` command. This command builds the Dockerfile to create a container image, pushes the image to ACR, and finally installs the Helm chart to start the application in AKS.
+To run the sample application in your AKS cluster, use the `draft up` command. This command builds the Dockerfile to create a container image, pushes the image to ACR, and finally installs the Helm chart to start the application in AKS.
 
-The first time this command is run, pushing and pulling the container image may take some time; once the base layers are cached, the time taken is dramatically reduced.
+The first time this command is run, pushing and pulling the container image may take some time. Once the base layers are cached, the time taken to deploy the application is dramatically reduced.
 
-```console
+```
 $ draft up
 
 Draft Up Started: 'example-java': 01CMZAR1F4T1TJZ8SWJQ70HCNH
@@ -122,14 +122,14 @@ Inspect the logs with `draft logs 01CMZAR1F4T1TJZ8SWJQ70HCNH`
 
 If you encounter issues pushing the Docker image, ensure that you have successfully logged in to your ACR registry with [az acr login][az-acr-login], then try the `draft up` command again.
 
-## Test the application
+## Test the application locally
 
 To test the application, use the `draft connect` command. This command proxies a secure connection to the Kubernetes pod. When complete, the application can be accessed on the provided URL.
 
 > [!NOTE]
 > It may take a few minutes for the container image to be downloaded and the application to start. If you receive an error when accessing the application, retry the connection.
 
-```console
+```
 $ draft connect
 
 Connect to java:4567 on localhost:49804
@@ -149,11 +149,11 @@ Use `Control+C` to stop the proxy connection.
 > [!NOTE]
 > You can also use the `draft up --auto-connect` command to build and deploy your application then immediately connect to the first running container.
 
-## Expose application
+## Access the application on the internet
 
-When you test an application in Kubernetes, you may want to make the application available on the internet. To expose an application on the internet, you create a Kubernetes service with a type of [LoadBalancer][kubernetes-service-loadbalancer], or create an [ingress controller][kubernetes-ingress]. Let's create a *LoadBalancer* service.
+The previous step created a proxy connection to the application pod in your AKS cluster. As you develop and test your application, you may want to make the application available on the internet. To expose an application on the internet, you create a Kubernetes service with a type of [LoadBalancer][kubernetes-service-loadbalancer], or create an [ingress controller][kubernetes-ingress]. Let's create a *LoadBalancer* service.
 
-First, update the `values.yaml` Draft pack to specify that a service with a type *LoadBalancer* should be created:
+First, update the *values.yaml* Draft pack to specify that a service with a type *LoadBalancer* should be created:
 
 ```console
 vi charts/java/values.yaml
@@ -177,7 +177,7 @@ Save and close the file, then use `draft up` to rerun the application:
 draft up
 ```
 
-It can take few minutes for the service to return a public IP address. To monitor progress, use the `kubectl get service` command with a watch.
+It takes a few minutes for the service to return a public IP address. To monitor the progress, use the `kubectl get service` command with the *watch* parameter:
 
 ```console
 kubectl get service --watch
@@ -186,38 +186,36 @@ kubectl get service --watch
 Initially, the *EXTERNAL-IP* for the service appears as *pending*:
 
 ```
-example-java-java   10.0.141.72   <pending>     80:32150/TCP   14m
+NAME                TYPE          CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
+example-java-java   LoadBalancer  10.0.141.72   <pending>     80:32150/TCP   2m
 ```
 
 Once the EXTERNAL-IP address has changed from *pending* to an IP address, use `Control+C` to stop the `kubectl` watch process:
 
 ```
-example-java-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
+NAME                TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
+example-java-java   LoadBalancer   10.0.141.72   52.175.224.118  80:32150/TCP   7m
 ```
 
-To see the application, browse to the external IP address of your load balancer:
-
-```console
-curl 52.175.224.118
-```
-
-The sample Java application is accessible over the internet, as shown in the following example output:
+To see the application, browse to the external IP address of your load balancer with `curl`:
 
 ```
+$ curl 52.175.224.118
+
 Hello World, I'm Java
 ```
 
 ## Iterate on the application
 
-Now that Draft has been configured and the application is running in Kubernetes, you are set for code iteration. Each time you would like to test updated code, run the `draft up` command to update the running application.
+Now that Draft has been configured and the application is running in Kubernetes, you are set for code iteration. Each time you want to test updated code, run the `draft up` command to update the running application.
 
-In this example, update the Java sample application.
+In this example, update the Java sample application to change the display text. Open the *Hello.java* file:
 
 ```console
 vi src/main/java/helloworld/Hello.java
 ```
 
-Update the output text to display, "Hello World, I'm Java in AKS!":
+Update the output text to display, *Hello World, I'm Java in AKS!*:
 
 ```java
 package helloworld;
