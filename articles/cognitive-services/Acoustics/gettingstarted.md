@@ -60,21 +60,21 @@ On the **Probes** tab, click **Calculate**. This calculation may take a few minu
 
 ## Bake the scene
 In the **Bake** tab, enter your Azure credentials and click **Bake**. If you don't have an Azure Batch account, see [this walkthrough for our recommended account setup](CreateAzureAccount.md).
-When the bake is finished, the data file will automatically be downloaded to your the **Assets/AcousticsData** directory in your project.
+When the bake is finished, the data file will automatically be downloaded to the **Assets/AcousticsData** directory in your project.
 
-## Set up the spatializer plugin
-The spatializer plugin applies HRTF-based spatialization and acoustics DSP to audio in your scene. To enable the spatializer, go to **Edit > Project Settings > Audio**, and select **Project Acoustics** as the Spatializer Plugin for your project. Also, make sure the **DSP Buffer Size** is set to Best Performance, as this changes the buffer size used in Unity's audio engine. Only the 1024-sample buffer size is currently supported by the Project Acoustics spatializer.
+## Set up audio runtime DSP
+We embed the audio runtime DSP for acoustics in Unity's spatializer framework and integrate it with HRTF-based spatialization. To enable acoustics processing, switch to the **Microsoft Acoustics** spatializer by going to **Edit > Project Settings > Audio**, and select **Microsoft Acoustics** as the **Spatializer Plugin** for your project. Also, make sure the **DSP Buffer Size** is set to Best Performance.
 
 ![Project Settings](media/ProjectSettings.png)  
 
 ![Project Acoustics Spatializer](media/ChooseSpatializer.png)
 
-Open the Audio Mixer (**Window > Audio Mixer**). Make sure you have at least one Mixer, with one group. If you don't, Click the '+' button to the right of **Mixers**. Right-click the bottom of the channel strip in the effects section, and add the **Project Acoustics Mixer** effect. Note that only one Project Acoustics Mixer is supported at a time.
+Open the Audio Mixer (**Window > Audio Mixer**). Make sure you have at least one Mixer, with one group. If you don't, Click the '+' button to the right of **Mixers**. Right-click the bottom of the channel strip in the effects section, and add the **Microsoft Acoustics Mixer** effect. Note that only one Project Acoustics Mixer is supported at a time.
 
 ![Audio Mixer](media/AudioMixer.png)
 
 ## Set up the acoustics lookup table
-Drag and drop the **Project Acoustics** prefab from the project panel into your scene:
+Drag and drop the **Microsoft Acoustics** prefab from the project panel into your scene:
 
 ![Acoustics Prefab](media/AcousticsPrefab.png)
 
@@ -92,7 +92,7 @@ You can attach the script **AcousticsSourceCustomization** to a sound source in 
 
 ![Source Customization](media/SourceCustomization.png)
 
-There are also parameters on the **Project Acoustics Mixer**. For more information about post-bake design, see [design parameters](designprocess.md).
+There are also parameters on the **Microsoft Acoustics Mixer**. For more information about post-bake design, see [design parameters](designprocess.md).
 
 ## Next steps
 * Try the [sample scene](samplewalkthrough.md)

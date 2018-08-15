@@ -209,7 +209,7 @@ While a job is running the **Bake** button changes to **Cancel Job**. Use this b
 
 Once you've started a bake, you can close Unity. Depending on the project, node type, and number of nodes, a cloud bake can take several hours. The bake job status will be updated when you reload the project and open the Acoustics window. If the job has completed, the output file will be downloaded.
 
-The Azure credentials are stored securely on your local machine and associated with your Unity editor. They are used solely to establish a secure connection to Azure and are not transmitted across any network.
+The Azure credentials are stored securely on your local machine and associated with your Unity editor. They are used solely to establish a secure connection to Azure.
 
 ### Reviewing the bake results
 
