@@ -32,7 +32,7 @@ Operationalizing a notebook, or integrating with source control and build automa
 __Integrated Development Environments (IDE) and code editors__ such Visual Studio Code, Atom, and PyCharm, are more suited to creating production-ready solutions. IDEs provide development-oriented tools like debuggers, and have better integration with source control and build automation systems. Most IDEs are installed locally or in a VM.
 
 In this document, you'll learn about the following development environments:
-| &nbsp; | [Azure Notebooks](#azure-notebooks) | [Jupyter Notebooks](#jupyter-notebooks-on-your-own-computer) | [IDEs and code editors](#ides-and-code-editors) |
+| &nbsp; | [Azure Notebooks](#azure-notebooks) | [Jupyter Notebooks](#jupyter-notebook-on-your-own-computer) | [IDEs and code editors](#ides-and-code-editors) |
 | --- |:---:|:---:|:---:|
 | __Interactive__ | ✓ | ✓ | &nbsp; |
 | __Visualization__ | ✓ | ✓ | &nbsp; |
