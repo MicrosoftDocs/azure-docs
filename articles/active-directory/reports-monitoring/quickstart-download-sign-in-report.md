@@ -21,15 +21,27 @@ ms.reviewer: dhanyahk
 ---
 # Quickstart: Download a sign-in report
 
-In this quickstart, you learn how to download your sign-in data for the past 24 hours.
+In this quickstart, you learn how to download the sign-in data for your tenant for the past 24 hours.
 
 ## Prerequisites
 
-### Who can access the data?
-* Users in the Security Admin, Security Reader, Report Reader role
-* Global Admins
-* Any user (non-admins) can access their own sign-ins 
+You need:
 
-### What Azure AD license do you need to access sign-in activity?
-* Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report
+* An Azure Active Directory tenant, with a Premium license to view the sign-in activity report. 
+* A user, who is in the Security Administrator, Security Reader, Report Reader or Global Administrator role for the tenant. In addition, any user in the tenant can access their own sign-ins.
 
+## Quickstart: Download a sign-in report
+
+1. Navigate to the [Azure portal](https://portal.azure.com).
+2. Select **Switch Directory** from the account menu, to switch to the correct tenant.
+3. Select **Azure Active Directory** from the left navigation pane, and then select **Sign-ins**. 
+4. Choose **last 24 hours** in the **Date** filter drop-down and select **Apply** to view the sign-ins for the past 24 hours. 
+5. Select the **Download** button to download a CSV file containing the filtered records. 
+
+![Reporting](./media/quickstart-download-sign-in-report/download-sign-ins.png)
+
+## Next steps
+
+* [Sign-in activity reports in the Azure Active Directory portal](concept-sign-ins.md)
+* [Azure Active Directory reporting retention](reference-reports-data-retention.md)
+* [Azure Active Directory reporting latencies](reference-reports-latencies.md)
