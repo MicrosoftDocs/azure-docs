@@ -101,7 +101,7 @@ This tab is initially populated with absorption value guesses based on string ma
 You can reassign acoustic materials to each scene material. For example, if a room sounds too reverberant, change the acoustic material of the walls, floor, or ceiling to something of higher absorptivity. The acoustic material assignment applies to all objects that use that scene material.
 
 ## Probes Tab
-After assigning the materials, switch to the Probes Tab.
+After assigning the materials, switch to the **Probes** tab.
 
 ### Parts of the Probes tab
 
@@ -110,18 +110,18 @@ After assigning the materials, switch to the Probes Tab.
 1. The **Probes** tab button used to bring up this page
 2. A brief description of what you need to do using this page
 3. Use these to choose a coarse or fine simulation resolution. Coarse is faster, but has certain tradeoffs. See ["Coarse vs Fine Resolution"](#Coarse-vs-Fine-Resolution) below for details.
-4. Choose the location where the acoustics data files should be placed using this field. Click the button with "..." to use a folder picker. The default is Assets/AcousticsData.
-An "Editor" subfolder will also be created under this location. For more information about data files, see ["Data Files"](#Data-Files) below.
+4. Choose the location where the acoustics data files should be placed using this field. Click the button with "..." to use a folder picker. The default is **Assets/AcousticsData**.
+An **Editor** subfolder will also be created under this location. For more information about data files, see ["Data Files"](#Data-Files) below.
 5. The data files for this scene will be named using the prefix provided here. The default is "Acoustics_[Scene Name]".
-6. After the probes have been calculated, the controls above will be disabled. Click the "Clear" button to erase the calculations and enable the controls so that you can re-calculate using new settings.
-7. Click the "Calculate..." button to voxelize the scene and calculate the probe point locations. **This is done locally on your machine**, and must be done prior to doing a bake.
+6. After the probes have been calculated, the controls above will be disabled. Click the **Clear** button to erase the calculations and enable the controls so that you can re-calculate using new settings.
+7. Click the **Calculate...** button to voxelize the scene and calculate the probe point locations. This is done locally on your machine, and must be done prior to doing a bake.
 
-Probes can't be placed manually and must be placed through the automated process provided in the Probes tab.
+Probes can't be placed manually and must be placed through the automated process provided in the **Probes** tab.
 
 ### What does the "Calculate..." button calculate?
-The Calculate... button takes all the data you have provided so far (geometry, navigation, materials, and the Coarse/Fine setting) and goes through several steps:
+The **Calculate...** button takes all the data you have provided so far (geometry, navigation, materials, and the Coarse/Fine setting) and goes through several steps:
 1. It takes the geometry from the scene meshes and calculates a voxel volume. The voxel volume is a 3-dimensional volume that encloses your entire scene, and is made up of small cubic "voxels". 
-The size of the voxels is determined by the simulation frequency, which is set by the "Simulation Resolution" setting. Each voxel is marked as being either "open air" or containing scene geometry.
+The size of the voxels is determined by the simulation frequency, which is set by the **Simulation Resolution** setting. Each voxel is marked as being either "open air" or containing scene geometry.
 If a voxel contains geometry then the voxel is tagged with the absorption coefficient of the material assigned to that geometry.
 2. It then uses the navigation data to calculate acoustically interesting locations where the player might go. It tries to find a reasonably small set of these locations that includes smaller areas such as doorways and hallways,
 and then to rooms, to open spaces.
@@ -137,7 +137,7 @@ will typically be quickly visible in the preview so you can correct it.
 The scene name is used to connect the scene to files storing the probe point placement and voxelization. If the scene is renamed after probe points are calculated, the material assignment and placement data is lost and should be re-run.
 
 ## Debug display through Gizmos
-By default, both the Probes and Voxels gizmos are turned on. These will show you the voxels and probe point locations that were calculated. They can be enabled or disabled using the Gizmos menu:
+By default, both the **Probes** and **Voxels** gizmos are turned on. These will show you the voxels and probe point locations that were calculated. They can be enabled or disabled using the Gizmos menu:
 
 ![Gizmos Menu](media/GizmosMenu.png)
 
@@ -164,7 +164,7 @@ While this may seem simple, it has a number of implications on the acoustic simu
 * The wavelength for Coarse is twice as big as Fine, and therefore the voxels are twice as big
 * Because the simulation time is directly related to the voxel size, a Coarse bake is much faster than a Fine bake (approximately 16 times faster!)
 * Portals (e.g. doors or windows) smaller than the voxel size cannot be simulated. The Coarse setting may cause some of these smaller portals to not be simulated; therefore, they will not pass sound through at runtime.
-You can see if this is happening by viewing the voxels (_Example coming..._).
+You can see if this is happening by viewing the voxels.
 * The lower simulation frequency results in less diffraction around corners and edges.
 * Sound sources cannot be located inside voxels - this results in no sound. It is more difficult to locate sound sources so they are not inside the larger voxels of Coarse than it is using the Fine setting.
 * The larger voxels will intrude more into portals, as shown below. The first image was created using Coarse, while the second is the same doorway using Fine resolution. As indicated by the red markings, there is much less intrusion into
@@ -184,7 +184,7 @@ Once you're happy with the preview data, use the Bake tab to submit your bake to
 1. The Bake Tab button used to bring up this page.
 2. A brief description of what to do on this page.
 3. Fields to enter your Azure Credentials once your Azure account has been created. For more details, see [Create Azure Account](CreateAzureAccount.md).
-4. Node type to use for the calculation. The node type must be supported by your Azure datacenter location. If not sure, leave at "Standard_F8"
+4. Node type to use for the calculation. The node type must be supported by your Azure datacenter location. If not sure, leave at **Standard_F8**
 5. Number of nodes to use for this calculation. What number you enter here affects the time to complete the bake and is limited by your Azure Batch core allocation. 
 For the fastest possible bake time, set this equal to the number of probe points.
 6. Click the Bake button to submit the bake to the cloud.
