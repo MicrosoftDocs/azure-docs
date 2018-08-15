@@ -84,11 +84,15 @@ Before starting development with the Speech Devices SDK, gather the information 
  > [!NOTE]
  > If your company has policies regarding connecting devices to the wifi system, you need to obtain the Mac Address and contact your IT department about how to connect it to your wifi system. To find the Mac Address of the dev kit, click on the file folder icon on the desktop of the dev kit, then **Settings**, search for "Mac address", click on **Mac address** to get into **Advanced WLAN**, write down the Mac address found towards the bottom.
  
- > If you want to attach a speaker to the dev kit, you should choose a good quality 3.5mm speaker.
  
    ![Vysor file folder](media/speech-devices-sdk/qsg-10.png)
    
    ![Vysor Mac Address](media/speech-devices-sdk/qsg-11.png)
+   
+   
+ > If you want to attach a speaker to the dev kit, you can connect it to the Audio line out. You should also choose a good quality 3.5mm speaker.
+ 
+   ![Vysor Audio](media/speech-devices-sdk/qsg-14.png)
  
 ## Run a sample application
 
