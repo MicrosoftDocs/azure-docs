@@ -3,7 +3,7 @@ title: Azure Service Bus bindings for Azure Functions
 description: Understand how to use Azure Service Bus triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 # Azure Service Bus bindings for Azure Functions

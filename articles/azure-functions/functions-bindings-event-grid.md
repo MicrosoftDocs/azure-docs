@@ -3,7 +3,7 @@ title: Event Grid trigger for Azure Functions
 description: Understand how to handle Event Grid events in Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/08/2018
-ms.author: tdykstra
+ms.author: glenga
 ---
 
 # Event Grid trigger for Azure Functions
@@ -275,7 +275,7 @@ For more information about how to create subscriptions by using the Azure portal
 
 ### Azure CLI
 
-To create a subscription by using [the Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), use the [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) command.
+To create a subscription by using [the Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), use the [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) command.
 
 The command requires the endpoint URL that invokes the function. The following example shows the URL pattern:
 
@@ -336,7 +336,7 @@ To test an Event Grid trigger locally, you have to get Event Grid HTTP requests 
 4. [Generate a request](#generate-a-request) and copy the request body from the viewer app.
 5. [Manually post the request](#manually-post-the-request) to the localhost URL of your Event Grid trigger function.
 
-When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI command.
+When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI command.
 
 ### Create a viewer web app
 
@@ -403,7 +403,7 @@ Another way to test an Event Grid trigger locally is to automate the HTTP connec
 5. [Create an Event Grid subscription](#create-a-subscription) that sends events to the ngrok endpoint.
 6. [Trigger an event](#trigger-an-event).
 
-When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI command.
+When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI command.
 
 ### Create an ngrok endpoint
 
@@ -429,7 +429,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
                               0       0       0.00    0.00    0.00    0.00
 ```
 
-You'll use the https://{subdomain}.ngrok.io URL for your Event Grid subscription.
+You'll use the `https://{subdomain}.ngrok.io` URL for your Event Grid subscription.
 
 ### Run the Event Grid trigger function
 
@@ -437,12 +437,16 @@ The ngrok URL doesn't get special handling by Event Grid, so your function must 
 
 ### Create a subscription
 
-Create an Event Grid subscription of the type you want to test, and give it your ngrok endpoint, using the following pattern:
+Create an Event Grid subscription of the type you want to test, and give it your ngrok endpoint.
 
+Use this endpoint pattern for Functions 1.x:
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
-
+Use this endpoint pattern for Functions 2.x:
+```
+https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+``` 
 The `functionName` parameter must be the name specified in the `FunctionName` attribute.
 
 Here's an example using the Azure CLI:

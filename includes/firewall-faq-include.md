@@ -5,7 +5,7 @@
  author: vhorne
  ms.service: 
  ms.topic: include
- ms.date: 7/19/2018
+ ms.date: 8/13/2018
  ms.author: victorh
  ms.custom: include file
 ---
@@ -61,7 +61,7 @@ Azure Firewall is integrated with Azure Monitor for viewing and analyzing Firewa
 
 ### How does Azure Firewall work relative to existing like NVAs in the marketplace?
 
-Azure Firewall is a basic firewall service that can address certain customer scenarios. We expect customers to have a mix of 3rd party NVAs and Azure Firewall and are working with our partners on multiple better together opportunities. 
+Azure Firewall is a basic firewall service that can address certain customer scenarios. It is expected that you will have a mix of third-party NVAs and Azure Firewall. Working better together is a core priority.
  
 ### What is the difference between Application Gateway WAF and Azure Firewall?
 
@@ -69,14 +69,38 @@ The Web Application Firewall (WAF) is a feature of Application Gateway that prov
 
 ### What is the difference between Network Security Groups (NSG) and Azure Firewall?
 
-The Azure firewall service complements our existing Network Security Group functionality and together provide better defense-in-depth network security. NSGs provide distributed network layer traffic filtering to limit traffic to resources within virtual networks in each subscription.  Azure Firewall is a fully stateful, centralized network firewall as-a-service, providing network and application level protection across different subscriptions and virtual networks (VNets). 
+The Azure Firewall service complements Network Security Group functionality and together provides better defense-in-depth network security. NSGs provide distributed network layer traffic filtering to limit traffic to resources within virtual networks in each subscription.  Azure Firewall is a fully stateful, centralized network firewall as-a-service, providing network and application level protection across different subscriptions and virtual networks (VNets). 
 
 ### How do I set up Azure Firewall with my service endpoints?
 
 For secure access to PaaS services, we recommend Service Endpoints. Azure Firewall customers can choose to enable service endpoints in the Azure Firewall subnet and disable it on the connected spoke VNETs for benefitting from both features – service endpoint security and central logging for all traffic.
 
+### How can I stop and start Azure Firewall?
+
+You can use Azure PowerShell *deallocate* and *allocate* methods.
+
+For example:
+
+```azurepowershell
+# Stop an exisitng firewall
+
+$azfw = Get-AzureRmFirewall -Name "FW Name” -ResourceGroupName "RG Name"
+$azfw.Deallocate()
+Set-AzureRmFirewall -AzureFirewall $azfw
+```
+
+```azurepowershell
+#Start a firewall
+
+$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+$publicip = Get-AzureRmPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
+$azfw.Allocate($vnet,$publicip)
+Set-AzureRmFirewall -AzureFirewall $azfw
+```
+
 ### What are the known service limits?
 
 * Azure firewall has a soft limit of 1000 TB/firewall/month. 
 * Azure firewall that is running in a central VNET is subject to VNET peering limitations: max of 50 spoke VNETs.  
-* Azure Firewall cannot work with global peering, so customers should have at least one deployment of the Firewall per region.
+* Azure Firewall does not work with global peering, so you should have at least one firewall deployment per region.
+* Azure firewall supports 10k application rules and 10k network rules.

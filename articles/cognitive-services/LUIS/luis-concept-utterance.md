@@ -2,13 +2,13 @@
 title: Utterances in LUIS apps in Azure | Microsoft Docs
 description: Add utterances in Language Understanding Intelligent Service (LUIS) apps.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 # Utterances in LUIS
 
@@ -41,7 +41,7 @@ The core term here, "computer", is not varied. They could say desktop compute
 Each intent needs to have example utterances, at least 10 to 15. If you have an intent that does not have any example utterances, you will not be able to train LUIS. If you have an intent with one or very few example utterances, LUIS will not accurately predict the intent. 
 
 ## Add small groups of 10-15 utterances for each authoring iteration
-In each iteration of the model, do not add a large quantity of utterances. Add utterances in quantities of tens. [Train](luis-how-to-train.md), [publish](luis-how-to-publish-app.md), and [test](interactive-test.md) again.  
+In each iteration of the model, do not add a large quantity of utterances. Add utterances in quantities of tens. [Train](luis-how-to-train.md), [publish](luis-how-to-publish-app.md), and [test](luis-interactive-test.md) again.  
 
 LUIS builds effective models with utterances that are selected carefully. Adding too many utterances is not valuable because it introduces confusion.  
 

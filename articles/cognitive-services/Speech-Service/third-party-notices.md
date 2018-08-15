@@ -4,7 +4,6 @@ titleSuffix: "Microsoft Cognitive Services"
 description: Information about third party tools
 services: cognitive-services
 author: wolfma61
-manager: onano
 
 ms.service: cognitive-services
 ms.component: speech-service

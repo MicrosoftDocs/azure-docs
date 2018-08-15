@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 08/14/2018
 ms.author: kgremban
 ---
 # Install the Azure IoT Edge runtime on Linux (x64)
@@ -59,10 +59,15 @@ Update apt-get.
 sudo apt-get update
 ```
 
-Install the Moby engine and command-line interface (CLI). The CLI is useful for development but optional for production deployments.*
+Install the Moby engine. 
 
 ```bash
 sudo apt-get install moby-engine
+```
+
+Install the Moby command-line interface (CLI). The CLI is useful for development but optional for production deployments.
+
+```bash
 sudo apt-get install moby-cli
 ```
 
@@ -119,6 +124,9 @@ After entering the provisioning information in the configuration, restart the da
 sudo systemctl restart iotedge
 ```
 
+>[!TIP]
+>You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use **sudo** in front of the commands. 
+
 ## Verify successful installation
 
 If you used the **manual configuration** steps in the previous section, the IoT Edge runtime should be successfully provisioned and running on your device. If you used the **automatic configuration** steps, then you need to complete some additional steps so that the runtime can register your device with your IoT hub on your behalf. For next steps, see [Create and provision a simulated TPM Edge device on a Linux virtual machine](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
@@ -143,7 +151,7 @@ sudo iotedge list
 
 ## Next steps
 
-If you are having problems with the Edge runtime installing properly, checkout the [troubleshooting][lnk-trouble] page.
+If you are having problems with the Edge runtime installing properly, check out the [troubleshooting][lnk-trouble] page.
 
 <!-- Links -->
 [lnk-dcs]: how-to-register-device-portal.md

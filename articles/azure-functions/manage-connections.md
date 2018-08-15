@@ -3,7 +3,7 @@ title: How to manage connections in Azure Functions
 description: Learn how to avoid performance problems in Azure Functions by using static connection clients.
 services: functions
 documentationcenter: 
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 
 ms.date: 07/13/2018
-ms.author: tdykstra
+ms.author: glenga
 ---
 
 # How to manage connections in Azure Functions

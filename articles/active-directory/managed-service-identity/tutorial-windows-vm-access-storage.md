@@ -1,6 +1,6 @@
 ---
-title: Use a Windows VM MSI to access Azure Storage
-description: A tutorial that walks you through the process of using a Windows VM Managed Service Identity (MSI) to access Azure Storage.
+title: Use a Windows VM Managed Service Identity to access Azure Storage
+description: A tutorial that walks you through the process of using a Windows VM Managed Service Identity to access Azure Storage.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -21,11 +21,11 @@ ms.author: daveba
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, then use that identity to retrieve storage account access keys. You can use storage access keys as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we upload and download blobs using Azure Storage PowerShell. You will learn how to:
+This tutorial shows you how to enable Managed Service Identity for a Windows Virtual Machine, then use that identity to retrieve storage account access keys. You can use storage access keys as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we upload and download blobs using Azure Storage PowerShell. You will learn how to:
 
 
 > [!div class="checklist"]
-> * Enable MSI on a Windows Virtual Machine 
+> * Enable Managed Service Identity on a Windows Virtual Machine 
 > * Grant your VM access to storage account access keys in Resource Manager 
 > * Get an access token using your VM's identity, and use it to retrieve the storage access keys from Resource Manager 
 
@@ -41,7 +41,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a Windows virtual machine in a new resource group
 
-For this tutorial, we create a new Windows VM. You can also enable MSI on an existing VM.
+For this tutorial, we create a new Windows VM. You can also enable Managed Service Identity on an existing VM.
 
 1.	Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
 2.	Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
@@ -52,20 +52,20 @@ For this tutorial, we create a new Windows VM. You can also enable MSI on an exi
 
     ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## Enable MSI on your VM
+## Enable Managed Service Identity on your VM
 
-A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling MSI does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM.
+A Virtual Machine Managed Service Identity enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling Managed Service Identity does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM.
 
 1. Navigate to the resource group of your new virtual machine, and select the virtual machine you created in the previous step.
 2. Under the VM "Settings" on the left, click **Configuration**.
-3. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
+3. To register and enable the Managed Service Identity, select **Yes**, if you wish to disable it, choose No.
 4. Ensure you click **Save** to save the configuration.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## Create a storage account 
 
-If you don't already have one, you will now create a storage account. You can also skip this step and grant your VM MSI access to the keys of an existing storage account. 
+If you don't already have one, you will now create a storage account. You can also skip this step and grant your VM Managed Service Identity access to the keys of an existing storage account. 
 
 1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
 2. Click **Storage**, then **Storage Account**, and a new "Create storage account" panel will display.
@@ -87,9 +87,9 @@ Later we will upload and download a file to the new storage account. Because fil
 
     ![Create storage container](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## Grant your VM's MSI access to use storage account access keys 
+## Grant your VM's Managed Service Identity access to use storage account access keys 
 
-Azure Storage does not natively support Azure AD authentication.  However, you can use an MSI to retrieve storage account access keys from the Resource Manager, then use a key to access storage.  In this step, you grant your VM MSI access to the keys to your storage account.   
+Azure Storage does not natively support Azure AD authentication.  However, you can use an Managed Service Identity to retrieve storage account access keys from the Resource Manager, then use a key to access storage.  In this step, you grant your VM Managed Service Identity access to the keys to your storage account.   
 
 1. Navigate back to your newly created storage account.  
 2. Click the **Access control (IAM)** link in the left panel.  
@@ -110,7 +110,7 @@ You will need to use the Azure Resource Manager PowerShell cmdlets in this porti
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Windows virtual machine, then from the **Overview** page click **Connect** at the top. 
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
 3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open PowerShell in the remote session.
-4. Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.
+4. Using Powershell’s Invoke-WebRequest, make a request to the local Managed Service Identity endpoint to get an access token for Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

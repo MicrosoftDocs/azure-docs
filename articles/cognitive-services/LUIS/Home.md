@@ -2,13 +2,13 @@
 title: About Language Understanding (LUIS) in Azure | Microsoft Docs
 description: Learn how to use Language Understanding (LUIS) to bring the power of machine learning to your applications.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # What is Language Understanding (LUIS)?

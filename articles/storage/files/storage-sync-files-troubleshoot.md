@@ -2,18 +2,12 @@
 title: Troubleshoot Azure File Sync | Microsoft Docs
 description: Troubleshoot common issues with Azure File Sync.
 services: storage
-documentationcenter: ''
 author: jeffpatt24
-manager: aungoo
-
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: jeffpatt
+ms.component: files
 ---
 
 # Troubleshoot Azure File Sync
@@ -676,6 +670,12 @@ if ($fileShare -eq $null) {
 
     ![A screen shot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
+	If **Hybrid File Sync Service** does not appear in the list, perform the following steps:
+
+	- Click **Add**.
+	- In the **Role** field, select **Reader and Data Access**.
+	- In the **Select** field, type **Hybrid File Sync Service**, select the role and click **Save**.
+
 # [PowerShell](#tab/powershell)
 ```PowerShell    
 $foundSyncPrincipal = $false
@@ -744,22 +744,22 @@ The following sections indicate how to troubleshoot cloud tiering issues and det
 <a id="monitor-tiering-activity"></a>**How to monitor tiering activity on a server**  
 To monitor tiering activity on a server, use Event ID 9002, 9003, 9016 and 9029 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
 
-Event ID 9002 provides ghosting statistics for a server endpoint. For example, TotalGhostedFileCount, SpaceReclaimedMB, etc.
+- Event ID 9002 provides ghosting statistics for a server endpoint. For example, TotalGhostedFileCount, SpaceReclaimedMB, etc.
 
-Event ID 9003 provides error distribution for a server endpoint. For example, Total Error Count, ErrorCode, etc. Note, one event is logged per error code.
+- Event ID 9003 provides error distribution for a server endpoint. For example, Total Error Count, ErrorCode, etc. Note, one event is logged per error code.
 
-Event ID 9016 provides ghosting results for a volume. For example, Free space percent is, Number of files ghosted in session, Number of files failed to ghost, etc.
+- Event ID 9016 provides ghosting results for a volume. For example, Free space percent is, Number of files ghosted in session, Number of files failed to ghost, etc.
 
-Event ID 9029 provides ghosting session information. For example, Number of files attempted in the session, Number of files tiered in the session, Number of files already tiered, etc.
+- Event ID 9029 provides ghosting session information. For example, Number of files attempted in the session, Number of files tiered in the session, Number of files already tiered, etc.
 
 <a id="monitor-recall-activity"></a>**How to monitor recall activity on a server**  
 To monitor recall activity on a server, use Event ID 9005, 9006, 9007 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer). Note, these events are logged hourly.
 
-Event ID 9005 provides recall reliability for a sever endpoint. For example, Total unique files accessed, Total unique files with failed access, etc.
+- Event ID 9005 provides recall reliability for a sever endpoint. For example, Total unique files accessed, Total unique files with failed access, etc.
 
-Event ID 9006 provides recall error distribution for a server endpoint. For example, Total Failed Requests, ErrorCode, etc. Note, one event is logged per error code.
+- Event ID 9006 provides recall error distribution for a server endpoint. For example, Total Failed Requests, ErrorCode, etc. Note, one event is logged per error code.
 
-Event ID 9007 provides recall performance for a sever endpoint. For example, TotalRecallIOSize, TotalRecallTimeTaken, etc.
+- Event ID 9007 provides recall performance for a sever endpoint. For example, TotalRecallIOSize, TotalRecallTimeTaken, etc.
 
 <a id="files-fail-tiering"></a>**Troubleshoot files that fail to tier**  
 If files fail to tier to Azure Files:

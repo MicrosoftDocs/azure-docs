@@ -48,6 +48,12 @@
     items:
     - name: Architecture
       href: iot-accelerators-connected-factory-sample-walkthrough.md
+  - name: Device Simulation
+    items:
+    - name: Device model schema
+      href: iot-accelerators-device-simulation-device-schema.md
+    - name: Device model behavior
+      href: iot-accelerators-device-simulation-device-behavior.md
   - name: Permissions on azureiotsolutions.com
     href: iot-accelerators-permissions.md
 
@@ -87,6 +93,8 @@
       href: iot-accelerators-time-series-insights.md
     - name: Analyze telemetry with Data Lake
       href: iot-accelerators-integrate-data-lake.md
+    - name: Configure role-based access controls
+      href: iot-accelerators-remote-monitoring-rbac.md
 
   - name: Remote Monitoring (previous version)
     items:
@@ -168,19 +176,26 @@
 
 - name: Reference
   items:
-  - name: Developer Reference Guide
-    href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide
-  - name: Developer Troubleshooting Guide
-    href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide
-  - name: Security architecture
-    href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc
-  - name: Security best practices
-    href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc
-  - name: Secure your IoT deployment
-    href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc
-  - name: Security from the ground up
-    href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc
-
+  - name: Remote Monitoring
+    items:
+    - name: Developer Reference Guide
+      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide
+    - name: Developer Troubleshooting Guide
+      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide
+  - name: Device Simulation
+    items:
+    - name: Developer Reference Guide
+      href: https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide
+  - name: Security
+    items:
+    - name: Security architecture
+      href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc
+    - name: Security best practices
+      href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc
+    - name: Secure your IoT deployment
+      href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc
+    - name: Security from the ground up
+      href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc
 - name: Related
   items:
   - name: Solutions
@@ -216,6 +231,18 @@
 
 - name: Resources
   items:
+  - name: GitHub repositories
+    items:
+    - name: Remote Monitoring (.NET)
+      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet
+    - name: Remote Monitoring (Java)
+      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-java
+    - name: Connected Factory
+      href: https://github.com/Azure/azure-iot-connected-factory
+    - name: Predictive Maintenance
+      href: https://github.com/Azure/azure-iot-predictive-maintenance
+    - name: Device Simulation
+      href: https://github.com/Azure/device-simulation-dotnet
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: FAQ

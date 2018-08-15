@@ -6,7 +6,7 @@ documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
-
+services: machine-learning
 ms.assetid: 481cfa6a-7ea3-46ac-b0f9-2e3982c37153
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -28,5 +28,11 @@ This menu links to topics that describe how to set up the various data science e
 
 [!INCLUDE [data-science-environment-setup](../../../includes/cap-setup-environments.md)]
 
-The **Microsoft Data Science Virtual Machine (DSVM)** is also available as an Azure virtual machine (VM) image. This VM is pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The DSVM is available on both Windows and Linux. For further information, see [Introduction to the cloud-based Data Science Virtual Machine for Linux and Windows](../data-science-virtual-machine/overview.md).
+The **Microsoft Data Science Virtual Machine (DSVM)** is also available as an Azure virtual machine (VM) image. This VM is pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The DSVM is available on both Windows and Linux. For more information, see [Introduction to the cloud-based Data Science Virtual Machine for Linux and Windows](../data-science-virtual-machine/overview.md).
 
+Learn how to create:
+
+- [Windows DSVM](../data-science-virtual-machine/provision-vm.md)
+- [Ubuntu DSVM](../data-science-virtual-machine/dsvm-ubuntu-intro.md)
+- [CentOS DSVM](../data-science-virtual-machine/linux-dsvm-intro.md)
+- [Deep Learning VM](../data-science-virtual-machine/provision-deep-learning-dsvm.md)

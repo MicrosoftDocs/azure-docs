@@ -29,7 +29,7 @@ This feature is used by application developers to specify which claims they want
 > [!Note]
 > This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure AD subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure AD premium subscription.
 
-For the list of standard claims and how they are used in tokens, see the [basics of tokens issued by Azure AD](active-directory-token-and-claims.md). 
+For the list of standard claims and how they are used in tokens, see the [basics of tokens issued by Azure AD](v1-id-and-access-tokens.md). 
 
 One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-overview.md) is smaller token sizes to ensure optimal performance by clients.  As a result, several claims formerly included in the access and ID tokens are no longer present in v2.0 tokens and must be asked for specifically on a per-application basis.  
 
@@ -37,8 +37,8 @@ One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-ov
 
 | Account Type | V1.0 Endpoint                      | V2.0 Endpoint  |
 |--------------|------------------------------------|----------------|
-| MSA          | N/A - RPS Tickets are used instead | Support coming |
-| AAD          | Supported                          | Supported      |
+| Personal Microsoft account  | N/A - RPS Tickets are used instead | Support coming |
+| Azure AD account          | Supported                          | Supported      |
 
 ## Standard optional claims set
 The set of optional claims available by default for applications to use are listed below.  To add custom optional claims for your application, see [Directory Extensions](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions), below. 
@@ -122,7 +122,7 @@ This OptionalClaims object causes the ID token returned to the client to include
 
 ## Configuring optional claims
 
-You can configure optional claims for your application by modifying the application manifest (See example below). For more information, see the [Understanding the Azure AD application manifest article](active-directory-application-manifest.md).
+You can configure optional claims for your application by modifying the application manifest (See example below). For more information, see the [Understanding the Azure AD application manifest article](reference-app-manifest.md).
 
 **Sample schema:**
 
@@ -211,7 +211,7 @@ In the example below, you will modify an application’s manifest to add claims 
 3.	Select **Azure AD extension** from the left navigation panel and click on **App Registrations**.
 4.	Find the application you want to configure optional claims for in the list and click on it.
 5.	From the application page, click **Manifest** to open the inline manifest editor. 
-6.	You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), and auto-formats the manifest once saved. New elemets will be added to the `OptionalClaims` property.
+6.	You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), and auto-formats the manifest once saved. New elements will be added to the `OptionalClaims` property.
 
       ```json
       "optionalClaims": 
@@ -244,4 +244,4 @@ In the example below, you will modify an application’s manifest to add claims 
 
 
 ## Related content
-* Learn more about the [standard claims](active-directory-token-and-claims.md) provided by Azure AD. 
+* Learn more about the [standard claims](v1-id-and-access-tokens.md) provided by Azure AD. 

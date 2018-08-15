@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 08/10/2018
 ms.author: tomfitz
 ---
 # Using linked and nested templates when deploying Azure resources
@@ -43,6 +43,8 @@ To link to another template, add a **deployments** resource to your main templat
 ```
 
 The properties you provide for the deployment resource vary based on whether you are linking to an external template or nesting an inline template in the main template.
+
+For both linked and nested templates, you can only use [Incremental](deployment-modes.md) deployment mode.
 
 ### Nested template
 

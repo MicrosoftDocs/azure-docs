@@ -1,7 +1,7 @@
 ---
 title: "Azure App Service IP Restrictions | Microsoft Docs" 
 description: "How to use IP restrictions with Azure App Service" 
-author: btardif
+author: ccompy
 manager: stefsch
 editor: ''
 services: app-service\web
@@ -13,28 +13,66 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/23/2017
-ms.author: byvinyal
+ms.date: 7/30/2018
+ms.author: ccompy
 
 ---
 # Azure App Service Static IP Restrictions #
 
-IP Restrictions allow you to define a list of IP addresses that are allowed to access your app. The allow list can include individual IP addresses or a range of IP addresses defined by a subnet mask.
+IP Restrictions allow you to define a priority ordered allow/deny list of IP addresses that are allowed to access your app. The allow list can include IPv4 and IPv6 addresses. When there are one or more entries, there is then an implicit deny all that exists at the end of the list. 
 
-When a request to the app is generated from a client, the IP address is evaluated against the allow list. If the IP address is not in the list, the app replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
+The IP Restrictions capability works with all App Service hosted work loads, which include; web apps, api apps, linux apps, linux container apps, and Functions. 
 
-IP Restrictions are defined in the web.config that your app consumes at runtime (more exactly, restrictions are inserted in a set of allowed IP addresses in applicationHost.config file, so if you also add a set of allowed IP addresses in web.config file, they will take precedence). Under certain circumstances, some module might be executed before IP restrictions logic in the HTTP pipeline. When this happens, the request fails with a different HTTP error code.
+When a request is made to your app, the FROM IP address is evaluated against the IP Restrictions list. If the address is not allowed access based on the rules in the list, the service replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
 
-IP Restrictions are evaluated on the same App Service plan instances assigned to your app.
+The IP Restrictions capability is implemented in the App Service front-end roles, which are upstream of the worker hosts where your code runs. IP Restrictions are therefor effectively network ACLs.  
+
+![IP restrictions flow](media/app-service-ip-restrictions/ip-restrictions-flow.png)
+
+For a time, the IP Restrictions capability in the portal was a layer on top of the ipSecurity capability in IIS. The current IP Restrictions capability is different. You can still configure ipSecurity within your application web.config but the front-end based IP Restrictions rules will be applied before any traffic reaches IIS.
+
+## Adding and editing IP Restriction rules in the portal ##
 
 To add an IP restriction rule to your app, use the menu to open **Network**>**IP Restrictions** and click on **Configure IP Restrictions**
 
-![IP restrictions](media/app-service-ip-restrictions/ip-restrictions.png)  
+![App Service networking options](media/app-service-ip-restrictions/ip-restrictions.png)  
 
-From here, you can review the list of IP restriction rules defined for your app.
+From the IP Restrictions UI, you can review the list of IP restriction rules defined for your app.
 
-![list IP restrictions](media/app-service-ip-restrictions/browse-ip-restrictions.png)
+![list IP restrictions](media/app-service-ip-restrictions/ip-restrictions-browse.png)
 
-You can click on **[+] Add** to add a new IP restriction rule.
+If your rules were configured as in this image, then your app would only accept traffic from 131.107.159.0/24 and would be denied from any other IP address.
 
-![add IP restrictions](media/app-service-ip-restrictions/add-ip-restrictions.png)
+You can click on **[+] Add** to add a new IP restriction rule. Once you add a rule, it will become effective immediately. Rules are enforced in priority order starting from the lowest number and going up. There is an implicit deny all that is in effect once you add even a single rule. 
+
+![add an IP restriction rule](media/app-service-ip-restrictions/ip-restrictions-add.png)
+
+IP Address notation must be specified in CIDR notation for both IPv4 and IPv6 addresses. To specify an exact address, you can use something like 1.2.3.4/32 where the first four octets represent your IP address and /32 is the mask. The IPv4 CIDR notation for all addresses is 0.0.0.0/0. To learn more about CIDR notation, you can read [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).  
+
+You can click on any row to edit an existing IP restriction rule. Edits are effective immediately including changes in priority ordering.
+
+![edit an IP restriction rule](media/app-service-ip-restrictions/ip-restrictions-edit.png)
+
+To delete a rule, click the **...** on your rule and then click **remove**. 
+
+![delete IP restriction rule](media/app-service-ip-restrictions/ip-restrictions-delete.png)
+
+## Programmatic manipulation of IP restriction rules ##
+
+There currently is no CLI or PowerShell for the new IP Restrictions capability but the values can be set manually with a PUT operation on the app configuration in Resource Manager. As an example, you can use resources.azure.com and edit the ipSecurityRestrictions block to add the required JSON. 
+
+The location for this information in Resource Manager is:
+
+management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2018-02-01
+
+The JSON syntax for the earlier example is:
+
+    "ipSecurityRestrictions": [
+      {
+        "ipAddress": "131.107.159.0/24",
+        "action": "Allow",
+        "tag": "Default",
+        "priority": 100,
+        "name": "allowed access"
+      }
+    ],

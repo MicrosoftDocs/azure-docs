@@ -2,19 +2,12 @@
 title: Azure Storage compliance offerings | Microsoft Docs
 description: Summary of compliance offerings on Azure Storage
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: cbrooks
-editor: fhryo-msft
-
-ms.assetid:
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 06/27/2018
 ms.author: fryu
+ms.component: common
 ---
 
 # Azure Storage compliance offerings
