@@ -108,6 +108,12 @@ You would need to enter the name of virtual machine, administrator username, and
 
 When you click on the "Purchase" button, Azure VM will be deployed in the network that you prepared. You can connect to your VM using Remote Desktop connection and use SQL Server Management Studio or SQL Operation Studio installed on VM to connect to your Managed Instance.
 
+If you have opened SSMS, in the **Connect to Server** dialog box, enter the **host name** for your Managed Instance in the **Server name** box, select **SQL Server Authentication**, provide your login and password, and then click **Connect**.
+
+    ![ssms connect](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
+
+After you connect, you can view your system and user databases in the Databases node, and various objects in the Security, Server Objects, Replication, Management, SQL Server Agent, and XEvent Profiler nodes.
+
 ## Next steps
 
  - [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
