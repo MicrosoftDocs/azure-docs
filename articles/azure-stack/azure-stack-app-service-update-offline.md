@@ -40,7 +40,7 @@ By following the instructions in this article, you can upgrade the [App Service 
 
 To upgrade the App Service resource provider in an Azure Stack environment, you must complete these tasks:
 
-1. Download the [App Service Installer](https://aka.ms/appsvcupdate2installer)
+1. Download the [App Service Installer](https://aka.ms/appsvcupdate3installer)
 2. Create an offline upgrade package.
 3. Run the App Service installer (appservice.exe) and complete the upgrade.
 

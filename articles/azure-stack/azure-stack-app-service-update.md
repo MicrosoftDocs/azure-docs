@@ -52,7 +52,7 @@ During this process, the upgrade will:
 
 To upgrade your deployment of App Service on Azure Stack, follow these steps:
 
-1. Download the [App Service Installer](https://aka.ms/appsvcupdate2installer)
+1. Download the [App Service Installer](https://aka.ms/appsvcupdate3installer)
 
 2. Run appservice.exe as an administrator
 
