@@ -8,7 +8,7 @@ title: Throttling errors retries and backoff in Azure Compute  | Microsoft Docs
 description: Throttling errors retries and backoff in Azure Compute.
 services: virtual-machines-linux
 documentationcenter: ''
-author: shandilvarun
+author: shandilvarun, rajsqr, changov
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -19,7 +19,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
-ms.author: vashan
+ms.author: vashan, rajraj, changov
 ---
 
 
