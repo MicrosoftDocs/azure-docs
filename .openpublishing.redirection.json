@@ -27218,6 +27218,11 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-controls.md",
             "redirect_url": "/azure/active-directory/conditional-access/controls",
             "redirect_document_id": true
+        },
+				{
+            "source_path": "articles/active-directory/active-directory-conditional-access-device-policies.md",
+            "redirect_url": "/azure/active-directory/conditional-access/overview",
+            "redirect_document_id": false
         }
     ]
 }
