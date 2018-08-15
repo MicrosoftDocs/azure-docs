@@ -2,13 +2,13 @@
 title: Azure Cognitive Services Speech Scenarios
 description: Scenarios
 services: cognitive-services
-author: PanosPeriorellis
+author: v-jerkin
 
 ms.service: cognitive-services
 ms.technology: Speech to Text
 ms.topic: article
 ms.date: 07/02/2018
-ms.author: panosper
+ms.author: v-jerkin
 ---
 
 # Speech Scenarios
