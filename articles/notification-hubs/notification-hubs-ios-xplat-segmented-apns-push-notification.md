@@ -357,5 +357,5 @@ In this tutorial, you sent broadcast notifications to specific iOS devices that 
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
+[get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
 [Azure portal]: https://portal.azure.com

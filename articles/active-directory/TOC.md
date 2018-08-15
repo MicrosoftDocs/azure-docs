@@ -144,8 +144,6 @@
 
 ###	[Programmatic Access](reports-monitoring/concept-reporting-api.md)
 #### [Prerequisites](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
-#### [Audit samples](reports-monitoring/sample-audit-api.md)
-#### [Sign-in samples](reports-monitoring/sample-sign-in-api.md)
 #### [Using certificates](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [Manage passwords](authentication/concept-sspr-howitworks.md)
@@ -416,7 +414,6 @@
 ##### [Location conditions](conditional-access/location-condition.md)
 ##### [Controls](conditional-access/controls.md)
 ##### [What if tool](conditional-access/what-if-tool.md)
-##### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
 #### How-to guides
 ##### [Best practices](conditional-access/best-practices.md)
 ##### [Require MFA for access attempts from untrusted networks](conditional-access/untrusted-networks.md)
@@ -425,7 +422,7 @@
 ##### [Require terms of use for users and apps](active-directory-tou.md)
 ##### [Migrate classic policies](conditional-access/policy-migration.md)
 ##### [Set up VPN connectivity](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
-##### [Set up SharePoint and Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
+##### [Set up SharePoint and Exchange Online](conditional-access/conditional-access-for-exo-and-spo.md)
 ##### [Remediation](active-directory-conditional-access-device-remediation.md)
 #### [Reference](conditional-access/technical-reference.md)
 ##### [Technical reference](conditional-access/technical-reference.md)

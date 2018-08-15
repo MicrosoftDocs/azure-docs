@@ -4,13 +4,13 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: "ghogen"
-ms.author: "ghogen"
+author: ghogen
+ms.author: ghogen
 ms.date: "05/11/2018"
 ms.topic: "article"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "douge"
+manager: douge
 ---
 # Troubleshooting guide
 
@@ -72,9 +72,10 @@ azds list-uris
 
 If a URL is in the *Pending* state, that means that Dev Spaces is still waiting for DNS registration to complete. Sometimes, it takes a few minutes for this to happen. Dev Spaces also opens a localhost tunnel for each service, which you can use while waiting on DNS registration.
 
-If a URL remains in the *Pending* state for more than 5 minutes, it may indicate a problem with the nginx ingress controller that is responsible for acquiring the public endpoint. You can use the following command to delete the pod running the nginx controller. It will be recreated automatically.
+If a URL remains in the *Pending* state for more than 5 minutes, it may indicate a problem with the external DNS pod that creates the public endpoint and/or the nginx ingress controller pod that acquires the public endpoint. You can use the following commands to delete these pods. They will be recreated automatically.
 
 ```cmd
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
 kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-ingress
 ```
 
@@ -133,6 +134,14 @@ Starting the VS Code debugger may sometimes result in this error. This is a know
 1. Close and reopen VS Code.
 2. Hit F5 again.
 
+## Debugging error 'Failed to find debugger extension for type:coreclr'
+Running the VS Code debugger reports the error: `Failed to find debugger extension for type:coreclr.`
+
+### Reason
+You do not have the VS Code extension for C# installed on your development machine which includes debugging support for .Net Core (CoreCLR).
+
+### Try:
+Install the [VS Code extension for C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
 ## Debugging error 'Configured debug type 'coreclr' is not supported'
 Running the VS Code debugger reports the error: `Configured debug type 'coreclr' is not supported.`
