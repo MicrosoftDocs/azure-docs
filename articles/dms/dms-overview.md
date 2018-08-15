@@ -20,7 +20,7 @@ The Azure Database Migration Service integrates some of the functionality of our
 ## Regional availability
 The Azure Database Migration Service is currently available in the following regions:
 
-![GA regional availability](media/overview/DMS-by-region.png)
+![GA regional availability](media/overview/Service_availability_by_region.png)
 
 ## Next steps
 - [Create an instance of the Azure Database Migration Service by using the Azure portal](quickstart-create-data-migration-service-portal.md).
