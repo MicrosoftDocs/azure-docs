@@ -3,7 +3,7 @@ title: Improve performance by compressing files in Azure CDN | Microsoft Docs
 description: Learn how to improve file transfer speed and increase page-load performance by compressing your files in Azure CDN.
 services: cdn
 documentationcenter: ''
-author: magattus
+author: mdgattuso
 manager: danielgi
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/15/2018
 ms.author: magattus
 
 ---
