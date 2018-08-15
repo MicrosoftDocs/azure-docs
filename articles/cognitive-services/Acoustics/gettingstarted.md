@@ -96,5 +96,5 @@ There are also parameters on the **Microsoft Acoustics Mixer**. For more informa
 
 ## Next steps
 * Try the [sample scene](samplewalkthrough.md)
-* Learn about the full set of [bake features](bakeuiwalkthrouh.md)
+* Learn about the full set of [bake features](bakeuiwalkthrough.md)
 * Explore more detailed [design parameters](designprocess.md)
