@@ -1,10 +1,11 @@
+- name: Project Acoustics Documentation
 - name: Overview
   items:
   - name: What is Project Acoustics?
     href: what-is-acoustics.md
 - name: Quickstarts
   items:
-  - name: Get Started with Acoustics
+  - name: Integrate Project Acoustics
     href: gettingstarted.md
 - name: How-Tos
   items:

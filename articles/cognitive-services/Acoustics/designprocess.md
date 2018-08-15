@@ -42,10 +42,12 @@ To adjust parameters for all sources, click on the channel strip in the Audio Mi
 ![Mixer Customization](media/MixerParameters.png)  
 
 ### Tuning source parameters
-To adjust parameters for a single source, attach the AcousticsSourceCustomization script to the Audio Sources that need tuning. The script has three parameters 
+To adjust parameters for a single source, attach the AcousticsSourceCustomization script to the Audio Sources that need tuning. The script has three parameters:
 
 ![Source Customization](media/SourceCustomization.png)
 
 * **Reverb Power Adjust** - Adjusts the reverb power, in dB. Positive values make a sound more reverberant, while negative values make a sound more dry.
 * **Decay Time Scale** - Adjusts a multiplier for the decay time. For example, if the bake result specifies a decay time of 750 milliseconds, but this value is set to 1.5, the decay time applied to the source is 1,125 milliseconds.
 * **Enable Acoustics** - Controls whether acoustics is applied to this source. When unchecked, the source will be spatialized but without acoustics. The result is through-the-wall directionality, with no obstruction/occlusion effects, and no dynamic change in reverb. Reverb is still applied.
+
+Different sources may require different settings to achieve certain aesthetic or gameplay effects. Dialog is one possible example. The human ear is more attuned to reverberation in speech, while dialog often needs to be intelligible for gameplay. You can account for this without making the dialog non-diegetic by adjusting the reverb power downwards.
