@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 08/03/2018
 ms.author: glenga
 ---
 
@@ -568,8 +568,6 @@ HTTP triggers let you use keys for added security. A standard HTTP trigger can u
 > [!NOTE]
 > When running functions locally, authorization is disabled no matter the `authLevel` set in `function.json`. As soon as you publish to Azure Functions, the `authLevel` immediately takes effect.
 
-Keys are stored as part of your function app in Azure and are encrypted at rest. To view your keys, create new ones, or roll keys to new values, navigate to one of your functions in the portal and select "Manage." 
-
 There are two types of keys:
 
 - **Host keys**: These keys are shared by all functions within the function app. When used as an API key, these allow access to any function within the function app.
@@ -577,10 +575,22 @@ There are two types of keys:
 
 Each key is named for reference, and there is a default key (named "default") at the function and host level. Function keys take precedence over host keys. When two keys are defined with the same name, the function key is always used.
 
-The **master key** is a default host key named "_master" that is defined for each function app. This key cannot be revoked. It provides administrative access to the runtime APIs. Using `"authLevel": "admin"` in the binding JSON requires this key to be presented on the request; any other key results in authorization failure.
+Each function app also has a special **master key**. This is a host key named `_master`, which provides administrative access to the runtime APIs. This key cannot be revoked. When you require an authorization level of `admin`, requests must use the master key; any other key results in authorization failure.
 
-> [!IMPORTANT]  
-> Due to the elevated permissions granted by the master key, you should not share this key with third parties or distribute it in native client applications. Use caution when choosing the admin authorization level.
+> [!CAUTION]  
+> Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in native client applications. Use caution when choosing the admin authorization level.
+
+### Obtaining keys
+
+Keys are stored as part of your function app in Azure and are encrypted at rest. You can view your keys, create new ones, or update keys to new values in one of two ways:
+
+* In the [Azure portal](https://portal.azure.com), navigate to one of your functions and select **Manage**.
+
+    ![Manage function keys in the portal.](./media/functions-bindings-http-webhook/manage-function-keys.png)
+
+* Use the Functions [key management REST APIs](https://github.com/Azure/azure-functions-host/wiki/Key-management-API). For example, a GET request to the following endpoint of the `myfunctionapp` app returns all keys for a function named `HttpTriggerCSharp1`: `https://myfunctionapp.azurewebsites.net/admin/functions/HttpTriggerCSharp1/keys`
+
+    This request requires you to provide the host master key as a `code` query string value, or a valid token.
 
 ### API key authorization
 
@@ -594,7 +604,7 @@ You can allow anonymous requests, which do not require keys. You can also requir
 
 ### Keys and webhooks
 
-Webhook authorization is handled by the webhook receiver component, part of the HTTP trigger, and the mechanism varies based on the webhook type. Each mechanism does, however rely on a key. By default, the function key named "default" is used. To use a different key, configure the webhook provider to send the key name with the request in one of the following ways:
+Webhook authorization is handled by the webhook receiver component, part of the HTTP trigger, and the mechanism varies based on the webhook type. Each mechanism does rely on a key. By default, the function key named "default" is used. To use a different key, configure the webhook provider to send the key name with the request in one of the following ways:
 
 - **Query string**: The provider passes the key name in the `clientid` query string parameter, such as `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
 - **Request header**: The provider passes the key name in the `x-functions-clientid` header.
