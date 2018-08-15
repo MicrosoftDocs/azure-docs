@@ -1,6 +1,6 @@
 ---
-title: Train a CNTK model with Batch AI - Python | Microsoft Docs
-description: Train a Microsoft Cognitive Toolkit (CNTK) neural network with Batch AI using the Python SDK
+title: Train a CNTK model with Azure Batch AI - Python | Microsoft Docs
+description: Train a Microsoft Cognitive Toolkit (CNTK) neural network with Azure Batch AI using the Python SDK
 services: batch-ai
 documentationcenter: na
 author: lliimsft
