@@ -16,7 +16,7 @@ ms.custom: mvc
 ---
 # Work with Batch AI clusters 
 
-This article explains how to work with clusters in Azure Batch AI. It introduces the concept of clusters, the types of configurations that are possible, and examples. Most of the examples to create a cluster in this article use the Azure CLI. However, you can use other tools including the Azure portal and the Azure Batch AI SDKs to create a cluster.
+This article explains how to work with clusters in Azure Batch AI. It introduces the concept of clusters, the types of configurations that are possible, and examples. Most of the examples to create and manage a cluster in this article use the Azure CLI. However, you can use other tools including the Azure portal and the Azure Batch AI SDKs to work with clusters.
 
 A Batch AI cluster is one of several resources in the service. See the [overview of Batch AI resources](resource-concepts.md) to understand the scope of clusters in the service.
 
@@ -46,7 +46,7 @@ When planning a cluster, first determine your compute requirements. Batch AI off
 
 * **Storage** - Batch AI provides an auto-storage option, which you can choose when you create a cluster using the Azure CLI. This option automatically creates an Azure file Share and Blob container under a new storage account. These storage resources are mounted to each of the nodes in the cluster during execution time, allowing the files to be accessed from a local path. The storage account names, file share name, Blob container name, and mount paths all have default values, which can also be customized using additional parameters during cluster creation. 
 
-  If no storage options are defined, then you need to create the storage resources separately and define them when submitting jobs. This option is useful if your cluster is managed at the organization level, but your storage is managed at the user level. For more information on how to upload files to Azure storage and access them during execution time, see [Store Batch AI job input and output with Azure Storage](use-azure-storage.md).
+  If no storage options are defined, then you need to create the storage resources separately and define them when submitting jobs. This option is useful if your cluster is managed at the organization level, but your storage is managed at the user level. For more information on how to upload files to Azure Storage and access them during execution time, see [Store Batch AI job input and output with Azure Storage](use-azure-storage.md).
 
 * **User access** - Batch AI allows you to generate public and private SSH key files when creating a cluster, or supply your own SSH keys so that you can SSH into individual nodes. You can also define a user name (set as the current user by default) and password. These credentials can be used to access the nodes during execution in order to view various metrics or gain further insight to your jobs.
 
