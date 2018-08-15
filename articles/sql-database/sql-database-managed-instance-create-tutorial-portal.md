@@ -299,7 +299,7 @@ The following steps show you how to download and install SSMS, and then connect 
 8. When prompted, click **Install** to begin.
 9. When the installation completes, click **Close**.
 10. Open SSMS.
-11. In the **Connect to Server** dialog box, enter the **host name* for your Managed Instance in the **Server name** box, select **SQL Server Authentication**, provide your login and password, and then click **Connect**.
+11. In the **Connect to Server** dialog box, enter the **host name** for your Managed Instance in the **Server name** box, select **SQL Server Authentication**, provide your login and password, and then click **Connect**.
 
     ![ssms connect](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
 
