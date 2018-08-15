@@ -44,8 +44,8 @@ Adding the GUID is a single modification of the main template file:
  3. Add a new resource in the main template file. The resource only needs to be in the mainTemplate.json or azuredeploy.json, not in any nested or linked templates.
  4. Enter the GUID after the “pid-” as shown above.
 
-   It should look something like this example:
-   `pid-eb7927c8-dd66-43e1-b0cf-c346a422063`
+     It should look something like this example:
+     `pid-eb7927c8-dd66-43e1-b0cf-c346a422063`
 
  5. Check template for any errors
  6. Republish the template in the appropriate repositories
@@ -115,46 +115,27 @@ All registrations for template GUIDs will be done via the Azure Marketplace Clou
 
 3. On the upper right corner of the portal, click your account icon and then click **Publisher profile**
 
-
-
-    ![](media/marketplace-publishers-guide/guid-image-for-lu.png)
+ ![](media/marketplace-publishers-guide/guid-image-for-lu.png)
 
 4. On the Profile page, click **Add Tracking GUID.**
 
-
-
-
-    ![](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
+ ![](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
 
 5. In the expanded field, input your tracking GUID (just the GUID, without the “pid-” prefix) in the **Tracking GUID** field and input your offer name or description in the **Custom Description** field.
 
+ ![](media/marketplace-publishers-guide/guid-dev-center-login.png)
 
-
-
-    ![](media/marketplace-publishers-guide/guid-dev-center-login.png)
-
-
-
-    ![](media/marketplace-publishers-guide/guid-dev-center-example.png)
+ ![](media/marketplace-publishers-guide/guid-dev-center-example.png)
 
 6. To register more than one GUID, click **Add Tracking GUID** again. That will open another expanded filed. 
 
+ ![](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
 
-
-
-    ![](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
-
-
-
-    ![](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
+ ![](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
 
 7. Once you are done with the editing, click **Save** to save your changes. 
 
-
-
-
-    ![](media/marketplace-publishers-guide/guid-dev-center-save.png)
-
+ ![](media/marketplace-publishers-guide/guid-dev-center-save.png)
 
 
 ## Verification of GUID deployment 
@@ -233,16 +214,14 @@ For assistance, follow the below steps:
 
 For issues on accessing Azure Marketplace Cloud Partner Portal - select Problem type: **Marketplace Onboarding** and Category: **Access Problem** and then click **Start Request.**
 
- ![](https://github.com/yijenj/azure-docs-pr/blob/patch-22/articles/marketplace/media/marketplace-publishers-guide/lu-article-incident.png?raw=true)
+ ![](media/marketplace-publishers-guide/lu-article-incident.png)
  
-
  3. Complete the required fields on the next page and click **Continue.**
  4. Complete the free text fields on the next page. **Important**: Fill in Incident title with **“ISV Usage Tracking”** and describe your issue in detail in the large free text field after.  Complete the rest of the form and click **Submit**. 
  
-  ![](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png?token=Ak8ZDABhmfoyR1-Dihp_yUut0SPciBujks5bfbchwA%3D%3D)
+  ![](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
 
  
-
 ## FAQs
 
 **What is the benefit of adding the GUID to the template?**
