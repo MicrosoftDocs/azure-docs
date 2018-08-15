@@ -23,6 +23,7 @@ ms.author: wolfma
   Check out the [Java Run-Time Environment quickstart](quickstart-java-jre.md)
 * UWP apps built with the Speech SDK can now pass the Windows App Certification Kit (WACK).
   Check out our [UWP quickstart](quickstart-csharp-uwp.md).
+* Support for .Net Standard 2.0 on Linux.
 
 **Functional changes**
 
