@@ -66,7 +66,7 @@ Azure AD enables organizations (known as tenants) to manage user access to appli
 
 A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, you create two Azure AD applications to control access to the cluster, one web application and one native application.
 
-For clusters running on Azure, you also can secure access to management endpoints by using Azure Active Directory (Azure AD). To learn how to create the required Azure AD artifacts, how to populate them when you create the cluster, and how to connect to the clusters afterward, see [Set up a cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md).
+For clusters running on Azure, you also can secure access to management endpoints by using Azure Active Directory (Azure AD). To learn how to create the required Azure AD artifacts and how to populate them when you create the cluster, see [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
 
 ## Security recommendations
 For Azure clusters, for node-to-node security, we recommend that you use Azure AD security to authenticate clients and certificates.
