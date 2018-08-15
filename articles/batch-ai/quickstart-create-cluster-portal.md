@@ -1,6 +1,6 @@
 ---
 title: Azure Quickstart - Create Batch AI cluster - Portal | Microsoft Docs
-description: Quickly create a cluster for Batch AI training jobs using the Azure portal
+description: Quickstart - Create a Batch AI cluster for training machine learning and AI models - Azure portal
 services: batch-ai
 documentationcenter: na
 author: dlepow
@@ -14,15 +14,16 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/09/2018
+ms.date: 08/15/2018
 ms.author: danlep
+#Customer intent: As a data scientist or AI researcher, I want to quickly create a GPU cluster in Azure for training my AI or machine learning models.
 ---
 
 # Quickstart: Create a cluster for Batch AI training jobs using the Azure portal
 
-This quickstart shows how to use the Azure portal to create a cluster for Batch AI training jobs. The cluster initially has a single GPU node and an attached file server.
+This quickstart shows how to use the Azure portal to create a Batch AI cluster you can use for training AI and machine learning models. Batch AI is a managed service for data scientists and AI researchers to train AI and machine learning models at scale on clusters of Azure virtual machines.
 
-After completing this quickstart, you'll have a cluster you can scale up and use to train deep learning models. Submit training jobs to the cluster using Batch AI, [Azure Machine Learning](../machine-learning/service/overview-what-is-azure-ml.md) tools, or the [Visual Studio Tools for AI](https://github.com/Microsoft/vs-tools-for-ai).
+The cluster initially has a single GPU node and an attached file server. After completing this quickstart, you'll have a cluster you can scale up and use to train deep learning models. Submit training jobs to the cluster using Batch AI, [Azure Machine Learning](../machine-learning/service/overview-what-is-azure-ml.md) tools, or the [Visual Studio Tools for AI](https://github.com/Microsoft/vs-tools-for-ai).
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -58,7 +59,7 @@ When the **Deployment succeeded** message appears, go the resource you created a
 
 ## Create a file server
 
-A Batch AI file server is a single-node NFS, which can be automatically mounted on cluster nodes. It is one of several ways you can choose to provide storage for input data and output from your training jobs.
+A Batch AI file server is a single-node NFS, which can be automatically mounted on cluster nodes. It is one of several ways you can provide storage for input data and output from your training jobs.
 
 1. In the workspace, select **File server** > **Add batch ai file server**.
 
@@ -117,7 +118,7 @@ ssh myusername@137.135.82.15 -p 50000
 
 ### Resize the cluster
 
-When you use your cluster to run a training job, you might need more compute resources. For example, to increase the size to 2 nodes for a distributed training job, select **Scale** and set the **Target number of node** to 2. Save the configuration.
+When you use your cluster to train a model, you might need more compute resources. For example, to increase the size to 2 nodes for a distributed training job, select **Scale** and set the **Target number of node** to 2. Save the configuration.
 
 ![Scale cluster](./media/quickstart-create-cluster-portal/scale-cluster.png)
 
@@ -127,8 +128,13 @@ It takes a few minutes for the cluster to resize.
 
 If you want to continue with Batch AI tutorials and samples, use the Batch AI workspace, file server, and cluster created in this quickstart.
 
-You're charged for the Batch AI cluster and file server while the underlying virtual machines are running, even if no jobs are scheduled. If you want to maintain the cluster configuration when you have no jobs to run, resize the cluster to 0 nodes. Later, resize it to 1 or more nodes to run your jobs. When no longer needed, delete the Batch AI workspace containing the cluster and file server. To do so, select the Batch AI workspace and select **Delete**.
+You're charged for the Batch AI cluster and file server while the underlying virtual machines are running, even if no jobs are scheduled. If you want to maintain the cluster configuration when you have no jobs to run, resize the cluster to 0 nodes. Later, resize it to 1 or more nodes to run your jobs. 
+
+When no longer needed, delete the Batch AI workspace containing the cluster and file server. To do so, select the Batch AI workspace and select **Delete**.
 
 ## Next steps
 
-In this quickstart, you learned how to create a Batch AI cluster and an attached file server, using the Azure portal. To learn more about using a Batch AI cluster to train a deep learning model, see the [training recipes](https://github.com/Azure/BatchAI).
+In this quickstart, you learned how to create a Batch AI cluster and an attached file server, using the Azure portal. To learn about how to use a Batch AI cluster to train a model, continue to the quickstart for training a deep learning model.
+
+> [!div class="nextstepaction"]
+> [Train a deep learning model](./quickstart-tensorflow-training-cli.md)

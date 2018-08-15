@@ -21,9 +21,9 @@ ms.author: danlep
 
 # Quickstart: Train a deep learning model with Batch AI
 
-Batch AI is a managed service for data scientists and AI researchers to train AI and machine learning models at scale on clusters of Azure virtual machines. This quickstart shows how to train a sample deep learning model on a single GPU-enabled virtual machine managed by Batch AI. In this example, you use the Azure CLI to set up Batch AI to train an example [TensorFlow](https://www.tensorflow.org/) neural network on the [MNIST database](http://yann.lecun.com/exdb/mnist/) of handwritten digits.
+This quickstart shows how to train a sample deep learning model on a GPU-enabled virtual machine managed by Batch AI. Batch AI is a managed service for data scientists and AI researchers to train AI and machine learning models at scale on clusters of Azure virtual machines. 
 
-After completing this quickstart, you'll understand key concepts of using Batch AI to train an AI or machine learning model, and be ready to try training different models at larger scale.
+In this example, you use the Azure CLI to set up Batch AI to train an example [TensorFlow](https://www.tensorflow.org/) neural network on the [MNIST database](http://yann.lecun.com/exdb/mnist/) of handwritten digits. After completing this quickstart, you'll understand key concepts of using Batch AI to train an AI or machine learning model, and be ready to try training different models at larger scale.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -260,9 +260,20 @@ az storage file download \
 ```
 
 ## Clean up resources
+
 If you want to continue with Batch AI tutorials and samples, use the Batch AI workspace, cluster, and storage account created in this quickstart. 
 
-You're charged for the Batch AI cluster while the nodes are running. If you want to keep the cluster configuration when you have no jobs to run, resize the cluster to 0 nodes. Later, resize it to 1 or more nodes to run your jobs. When you no longer need a cluster, delete it with the `az batchai cluster delete` command:
+You're charged for the Batch AI cluster while the nodes are running. If you want to keep the cluster configuration when you have no jobs to run, resize the cluster to 0 nodes. 
+
+```azurecli-interactive
+az batchai cluster resize \
+    --name mycluster \
+    --workspace myworkspace \
+    --resource-group myResourceGroup
+    --target 0
+```
+
+Later, resize it to 1 or more nodes to run your jobs. When you no longer need a cluster, delete it with the `az batchai cluster delete` command:
 
 ```azurecli-interactive
 az batchai cluster delete \

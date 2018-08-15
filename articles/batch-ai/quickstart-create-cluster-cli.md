@@ -1,6 +1,6 @@
 ---
 title: Azure Quickstart - Create Batch AI cluster - Azure CLI | Microsoft Docs
-description: Quickly create a cluster for Batch AI training jobs using the Azure CLI
+description: Quickstart - Create a Batch AI cluster for training machine learning and AI models - Azure CLI
 services: batch-ai
 documentationcenter: na
 author: dlepow
@@ -14,15 +14,16 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: quickstart
-ms.date: 06/28/2018
+ms.date: 08/15/2018
 ms.author: danlep
+#Customer intent: As a data scientist or AI researcher, I want to quickly create a GPU cluster in Azure for training my AI or machine learning models.
 ---
 
-# Quickstart: Create a cluster for Batch AI training using the Azure CLI
+# Quickstart: Create a cluster for Batch AI training jobs using the Azure CLI
 
-This quickstart shows how to use the Azure CLI to create a cluster you can use for training AI and machine learning models. The cluster initially has a single GPU node.
+This quickstart shows how to use the Azure CLI to create a Batch AI cluster you can use for training AI and machine learning models. Batch AI is a managed service for data scientists and AI researchers to train AI and machine learning models at scale on clusters of Azure virtual machines.
 
-After completing this quickstart, you'll have a cluster you can scale up and use to train your models. Submit training jobs to the cluster using Batch AI, [Azure Machine Learning](../machine-learning/service/overview-what-is-azure-ml.md) tools, or the [Visual Studio Tools for AI](https://github.com/Microsoft/vs-tools-for-ai).
+The cluster initially has a single GPU node. After completing this quickstart, you'll have a cluster you can scale up and use to train your models. Submit training jobs to the cluster using Batch AI, [Azure Machine Learning](../machine-learning/service/overview-what-is-azure-ml.md) tools, or the [Visual Studio Tools for AI](https://github.com/Microsoft/vs-tools-for-ai).
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,9 +31,11 @@ After completing this quickstart, you'll have a cluster you can scale up and use
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
+This quickstart assumes you're running commands in a Bash shell, either in Cloud Shell or on your local computer.
+
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the `az group create` command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *eastus2* location. Be sure to choose a location such as East US 2 in which the Batch AI service is available.
 
@@ -44,7 +47,7 @@ az group create \
 
 ## Create a Batch AI cluster
 
-First, use the [az batchai workspace create](/cli/azure/batchai/workspace#az-batchai-workspace-create) command to create a Batch AI *workspace*. You need a workspace to organize your Batch AI clusters and other resources.
+First, use the `az batchai workspace create` command to create a Batch AI *workspace*. You need a workspace to organize your Batch AI clusters and other resources.
 
 ```azurecli-interactive
 az batchai workspace create \
@@ -52,7 +55,7 @@ az batchai workspace create \
     --resource-group myResourceGroup 
 ```
 
-To create a Batch AI cluster, use the [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) command. The following example creates a cluster with the following properties:
+To create a Batch AI cluster, use the `az batchai cluster create` command. The following example creates a cluster with the following properties:
 
 * Contains a single node in the NC6 VM size, which has one NVIDIA Tesla K80 GPU. 
 * Runs a default Ubuntu Server image designed to host container-based applications, which you can use for most training workloads. 
@@ -71,7 +74,7 @@ az batchai cluster create \
     --generate-ssh-keys
 ```
 
-The command output shows the cluster properties. It takes a few minutes to create and start the node. To see the status of the cluster, run the [az batchai cluster show](/cli/azure/batchai/cluster#az-batchai-cluster-show) command. 
+The command output shows the cluster properties. It takes a few minutes to create and start the node. To see the status of the cluster, run the `az batchai cluster show` command. 
 
 ```azurecli-interactive
 az batchai cluster show \
@@ -95,7 +98,7 @@ The cluster is ready to use when the state is `steady` and the single node is `I
 
 ### List cluster nodes 
 
-If you need to connect to the cluster nodes (in this case, a single node) to install applications or perform maintenance, get connection information by running the [az batchai cluster node list](/cli/azure/batchai/cluster/node#az_batchai_cluster_node_list) command:
+If you need to connect to the cluster nodes (in this case, a single node) to install applications or perform maintenance, get connection information by running the `az batchai cluster node list` command:
 
 
 ```azurecli-interactive
@@ -124,7 +127,8 @@ ssh myusername@40.68.254.143 -p 50000
 Exit the SSH session to continue.
 
 ### Show file share information
-Run the [az batchai cluster show](/cli/azure/batchai/cluster#az-batchai-cluster-show) command to query for storage settings including the Azure file share URL and account name. This information is useful when configuring the input and output files for a job.
+
+Run the `az batchai cluster show` command to query for storage settings including the Azure file share URL and account name. This information is useful when configuring the input and output files for a job.
 
 ```azurecli-interactive
 az batchai cluster show \
@@ -134,7 +138,7 @@ az batchai cluster show \
     --query "nodeSetup.mountVolumes.azureFileShares[0].{account:accountName, URL:azureFileUrl}"
 ```
 
-Output is similar to the following. Note the name of the share set up automatically in the account: `batchaishare`.
+Output is similar to the following. Note the name of the share (`batchaishare`) set up automatically in the account.
 
 ```
 {
@@ -154,12 +158,24 @@ az batchai cluster resize \
     --resource-group myResourceGroup
     --target 2
 ```
+
 It takes a few minutes for the cluster to resize.
 
 ## Clean up resources
+
 If you want to continue with Batch AI tutorials and samples, use the Batch AI workspace, cluster, and storage account created in this quickstart. 
 
-You're charged for the Batch AI cluster while the nodes are running, even if no jobs are scheduled. If you want to maintain the cluster configuration when you have no jobs to run, resize the cluster to 0 nodes. Later, resize it to 1 or more nodes to run your jobs. When you no longer need a cluster, delete it with the [az batchai cluster delete](/cli/azure/batchai/cluster#az_batchai_cluster_delete) command:
+You're charged for the Batch AI cluster while the nodes are running. If you want to keep the cluster configuration when you have no jobs to run, resize the cluster to 0 nodes. 
+
+```azurecli-interactive
+az batchai cluster resize \
+    --name mycluster \
+    --workspace myworkspace \
+    --resource-group myResourceGroup
+    --target 0
+```
+
+Later, resize it to 1 or more nodes to run your jobs. When you no longer need a cluster, delete it with the `az batchai cluster delete` command:
 
 ```azurecli-interactive
 az batchai cluster delete \
@@ -168,17 +184,21 @@ az batchai cluster delete \
     --resource-group myResourceGroup
 ```
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource groups for the Batch AI and storage resources. Delete the Batch AI resources as follows:
+When no longer needed, you can use the `az group delete` command to remove the resource groups for the Batch AI and storage resources. Delete the Batch AI resources as follows:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
-Delete the automatically generated storage resources as follows:
+Delete the Batch AI storage resources as follows:
 
 ```azurecli-interactive
 az group delete --name batchaiautostorage
 ```
 
 ## Next steps
-In this quickstart, you learned how to create a Batch AI cluster, using the Azure CLI. To learn more about using a Batch AI cluster to train a deep learning model, see the [training recipes](https://github.com/Azure/BatchAI).
+
+In this quickstart, you learned how to create a Batch AI cluster, using the Azure CLI. To learn about how to use a Batch AI cluster to train a model, continue to the quickstart for training a deep learning model.
+
+> [!div class="nextstepaction"]
+> [Train a deep learning model](./quickstart-tensorflow-training-cli.md)

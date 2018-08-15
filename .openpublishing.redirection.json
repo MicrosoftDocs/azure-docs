@@ -7,7 +7,7 @@
         },
         {
             "source_path": "articles/batch-ai/quickstart-python.md",
-            "redirect_url": "/azure/batch-ai/",
+            "redirect_url": "/azure/batch-ai/cntk-training-python.md",
             "redirect_document_id": true
         },
         {
