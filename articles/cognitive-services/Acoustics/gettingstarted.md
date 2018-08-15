@@ -1,5 +1,5 @@
 ---
-title: Integrating Project Acoustics Into Your Unity Project | Microsoft Docs
+title: Getting Started | Microsoft Docs
 description: Use advanced acoustics and spatialization in your Unity title
 services: cognitive-services
 author: kegodin
@@ -11,8 +11,8 @@ ms.date: 08/03/2018
 ms.author: kegodin
 ---
 
-# Integrating Project Acoustics Into Your Unity Project
-This quickstart guide will show you how to integrate the plugin in your Unity project, bake your scene, and apply the acoustics to sound sources. For this quickstart, you'll need to first create an [Azure batch account](createazureaccount.md). 
+# Getting Started with Project Acoustics
+This quickstart guide will show you how to integrate the plugin in your Unity project, bake your scene, and apply the acoustics to sound sources. For this quickstart, you'll need to first create an [Azure batch account](createazureaccount.md). This guide assumes some familiarity with Unity.
 
 ## Download the plugin
 Register [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) to join the Designer Preview.
@@ -88,8 +88,13 @@ Create an audio source. Click the checkbox at the bottom of the AudioSource's in
 ![Audio Source](media/AudioSource.png)
 
 ## Apply post-bake design
-You can attach the script **AcousticsSourceCustomization** to a sound source in your scene to enable additional source design parameters. There are also parameters on the **Project Acoustics Mixer**.
+You can attach the script **AcousticsSourceCustomization** to a sound source in your scene to enable additional source design parameters, by clicking **Add Component** and choosing **Scripts > Acoustics Source Customization**:
+
+![Source Customization](media/SourceCustomization.png)
+
+There are also parameters on the **Project Acoustics Mixer**. For more information about post-bake design, see [design parameters](designprocess.md).
 
 ## Next steps
 * Try the [sample scene](samplewalkthrough.md)
-* Explore more detailed [design parameters](designprocess.md).
+* Learn about the full set of [bake features](bakeuiwalkthrouh.md)
+* Explore more detailed [design parameters](designprocess.md)

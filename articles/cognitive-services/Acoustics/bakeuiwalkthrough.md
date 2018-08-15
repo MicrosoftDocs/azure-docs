@@ -1,5 +1,5 @@
 ---
-title: Acoustics Bake UI | Microsoft Docs
+title: Bake Acoustics | Microsoft Docs
 description: Use advanced acoustics and spatialization in your Unity title
 services: cognitive-services
 author: kegodin
@@ -10,9 +10,9 @@ ms.topic: article
 ms.date: 08/03/2018
 ms.author: kegodin
 ---
-# Acoustics Bake UI for Unity
+# Bake Acoustics
 
-This document describes the process of submitting an acoustics bake using the Unity editor extension. For more background on acoustics, see [What is Acoustics](what-is-acoustics.md).
+This document describes the process of submitting an acoustics bake using the Unity editor extension. For more background on acoustics, see [What is Acoustics](what-is-acoustics.md). For a quickstart guide, see [Getting Started](gettingstarted.md).
 
 ## Import the plugin
 
@@ -34,13 +34,15 @@ After the bake is complete, see [Design Process Overview for Acoustics](designpr
 
 ## Create or mark a navigation mesh
 
-A navigation mesh is used to place probe points for simulation. You can use Unity's  [navigation mesh workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html), or you can specify your own navigation mesh. Navigation meshes created with Unity's workflow will be picked up by the acoustics system. To use your own meshes, mark them from the Objects tab as described in the next step.
+A navigation mesh is used to place probe points for simulation. You can use Unity's  [navigation mesh workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html), or you can specify your own navigation mesh. Navigation meshes created with Unity's workflow will be picked up by the acoustics system. To use your own meshes, mark them from the **Objects** tab as described in the next step.
 
 ## Objects tab
 
-Open the **Objects** tab of the Acoustics window. Use this tab to mark objects in your scene, which simply adds the AcousticsGeometry or AcousticsNavigation components to the object. You can also use the [standard Unity component workflow](https://docs.unity3d.com/Manual/UsingComponents.html) to mark or un-mark objects.
+Open the **Objects** tab of the **Acoustics** window. Use this tab to mark objects in your scene, which simply adds the **AcousticsGeometry** or **AcousticsNavigation** components to the object. You can also use the [standard Unity component workflow](https://docs.unity3d.com/Manual/UsingComponents.html) to mark or un-mark objects.
 
-Select one or more objects in the scene window or hierarchy and then mark or un-mark them for Geometry or Navigation as described below. If nothing is selected, then you can mark or un-mark everything in the scene at once.
+Select one or more objects in the scene window or hierarchy and then mark or un-mark them for **AcousticsGeometry** or **AcousticsNavigation** as described below. If nothing is selected, then you can mark or un-mark everything in the scene at once.
+
+Only Mesh Renderers and Terrains can be marked. All other object types will be ignored. The checkboxes will mark or un-mark all of the affected objects.
 
 If you have nothing selected in your scene, it will look like the following picture:
 
@@ -54,7 +56,7 @@ If you have something selected in your scene or hierarchy window, it will look l
 
 The parts of the tab page are:
 
-1. The tab selection buttons (Objects tab selected). Use these buttons to walk through the various steps of doing an acoustics bake, from left to right.
+1. The tab selection buttons (**Objects** tab selected). Use these buttons to walk through the various steps of doing an acoustics bake, from left to right.
 2. A brief description of what you need to do using this page.
 3. Available filters for the hierarchy window. Use this to filter the hierarchy window to objects of the specified type so you can more easily mark them. If you have not yet marked anything for acoustics, selecting the last two options will show you nothing. However, they can be useful to find marked objects once you have done so.
 4. When no objects are selected, this section shows the status of all objects in the scene:
@@ -69,8 +71,6 @@ The parts of the tab page are:
 7. When objects are selected, this section shows the status of only the selected objects.
 8. Shows the total number of 'mark-able' selected objects. Checking or un-checking the checkboxes will mark or un-mark only the selected objects.
 
-Only Mesh Renderers and Terrains can be marked. All other object types will be ignored. The checkboxes will mark or un-mark all of the affected objects.
-
 If some objects are marked and some aren't, the appropriate checkbox will show a "mixed" value:
 
 ![Mixed Value Checkbox](media/MixedObjectSelectionDetail.png)
@@ -81,7 +81,7 @@ Objects can be marked for both geometry and navigation.
 
 ### Guidelines for marking objects
 
-Be sure to mark any objects as "Acoustics Geometry" if they should occlude, reflect, or absorb sound. Acoustics geometry can include things like ground, walls, roofs,  windows & window glass, rugs, and large furniture. It's okay to include smaller objects such as lamps, decorative items, light fixtures, as they don't appreciably increase the bake cost. It's important to not miss major elements such as the ground or a ceiling. Also, don't include things that shouldn't affect the acoustics, such as collision meshes.
+Be sure to mark any objects as **Acoustics Geometry** if they should occlude, reflect, or absorb sound. Acoustics geometry can include things like ground, walls, roofs,  windows & window glass, rugs, and large furniture. It's okay to include smaller objects such as lamps, decorative items, light fixtures, as they don't appreciably increase the bake cost. It's important to not miss major elements such as the ground or a ceiling. Also, don't include things that shouldn't affect the acoustics, such as collision meshes.
 
 An object's transform at the time of the probe calculation (via the **Probes** tab, below) is fixed in the bake results. Moving any of the marked objects in the scene will require re-doing the probe calculation and re-baking the scene.
 
@@ -95,10 +95,10 @@ Once your objects are marked, click the **Materials** button to go to the Materi
 
 1. The **Materials** tab button, used to bring up this page.
 2. A brief description of what you need to do using this page.
-3. When checked, only materials used by objects marked as "Acoustics Geometry" will be listed. Otherwise, all materials used in the scene will be listed.
-4. Use these options to change the order of the dropdown menu that is shown when you click a dropdown in the Acoustics column below (#6). "Name" sorts the acoustic materials by name. "Absorptivity" sorts them in order of absorptivity from low to high.
-5. The list of materials used in the scene, sorted alphabetically. If the "Show Marked Only" checkbox is checked (#3), only materials used by objects marked as "Acoustics Geometry" are shown. Clicking on a material here will select all objects in the scene that use that material.
-6. Shows the acoustic material that the scene material has been assigned to. Click a dropdown to reassign a scene material to a different acoustic material. You can change the sorting order of the menu shown when you click an item here using the "Sort Acoustics By:" options above (#4).
+3. When checked, only materials used by objects marked as **Acoustics Geometry** will be listed. Otherwise, all materials used in the scene will be listed.
+4. Use these options to change the order of the dropdown menu that is shown when you click a dropdown in the Acoustics column below (#6). **Name** sorts the acoustic materials by name. "Absorptivity" sorts them in order of absorptivity from low to high.
+5. The list of materials used in the scene, sorted alphabetically. If the **Show Marked Only** checkbox is checked (#3), only materials used by objects marked as **Acoustics Geometry** are shown. Clicking on a material here will select all objects in the scene that use that material.
+6. Shows the acoustic material that the scene material has been assigned to. Click a dropdown to reassign a scene material to a different acoustic material. You can change the sorting order of the menu shown when you click an item here using the **Sort Acoustics By:** options above (#4).
 7. Shows the acoustic absorption coefficient of the material selected in the previous column. A value of zero means perfectly reflective (no absorption), while a value of 1 means perfectly absorptive (no reflection). The absorption coefficient can't be changed unless the selected material is "Custom".
 8. For a material assigned to "Custom", the slider is no longer disabled and you can choose the absorption coefficient using the slider or by typing in a value.
 
@@ -170,7 +170,7 @@ Therefore it is important to ensure that probe points exist anywhere the player 
 
 ![Probes Preview](media/ProbesPreview.png)
 
-### <a name="Course-vs-Fine-Resolution"></a>Coarse vs Fine resolution
+### <a name="Coarse-vs-Fine-Resolution"></a>Coarse vs Fine resolution
 
 The only difference between the Coarse and Fine resolution settings is the frequency at which the simulation is performed. Fine uses a frequency twice as high as Coarse.
 While this may seem simple, it has a number of implications on the acoustic simulation:
@@ -188,7 +188,7 @@ While this may seem simple, it has a number of implications on the acoustic simu
 
 ## Bake tab
 
-Once you're happy with the preview data, use the Bake tab to submit your bake to the cloud.
+Once you're happy with the preview data, use the **Bake** tab to submit your bake to the cloud.
 
 ### Parts of the bake tab
 
@@ -197,15 +197,17 @@ Once you're happy with the preview data, use the Bake tab to submit your bake to
 1. The Bake Tab button used to bring up this page.
 2. A brief description of what to do on this page.
 3. Fields to enter your Azure Credentials once your Azure account has been created. For more details, see [Create Azure Account](CreateAzureAccount.md).
-4. Azure batch compute node type to use for the calculation. The node type must be supported by your Azure data center location. If not sure, leave at **Standard_F8**
-5. Number of nodes to use for this calculation. What number you enter here affects the time to complete the bake and is limited by your Azure Batch core allocation.  For the fastest possible bake time, set this equal to the number of probe points.
-6. Click the Bake button to submit the bake to the cloud. While a job is running, this shows "Cancel Job" instead.
+4. Azure batch compute node type to use for the calculation. The node type must be supported by your Azure data center location. If not sure, leave at **Standard_F8**.
+5. Number of nodes to use for this calculation. The number you enter here affects the time to complete the bake and is limited by your Azure Batch core allocation. For more information on core allocation constraints, see [Create Azure Account](createazureaccount.md).
+6. Click the Bake button to submit the bake to the cloud. While a job is running, this shows **Cancel Job** instead.
 7. This area shows the status of the bake. When completed, it should show **Downloaded**.
-8. If for some reason you need to force Unity to forget about a bake you submitted (e.g. you downloaded the results using another machine), click the button to forget about the job that was submitted. Note that this means the result file, when ready, will **not** be downloaded, and **this is not the same as canceling the job**. The job, if running, will continue to run in the cloud.
+8. If for some reason you need to force Unity to forget about a bake you submitted (e.g. you downloaded the results using another machine), click the **Clear State** button to forget about the job that was submitted. Note that this means the result file, when ready, will **not** be downloaded, and **this is not the same as canceling the job**. The job, if running, will continue to run in the cloud.
 
-While a job is running the "Bake" button changes to "Cancel Job". Use this button to cancel the job in progress. You will be asked to confirm before the job is canceled. Canceling a job cannot be undone, no results will be available, and you will still be charged for any Azure compute time used.
+You can always get complete information about active jobs, compute pools, and storage at the [Azure Portal](https://portal.azure.com).
 
-Once you've started a bake, you can leave Unity. Depending on the project, node type, and number of nodes, a cloud bake can take several hours. The bake job status will be updated when you reload the project and open the Acoustics window. If the job has completed, the output file will be downloaded.
+While a job is running the **Bake** button changes to **Cancel Job**. Use this button to cancel the job in progress. You will be asked to confirm before the job is canceled. Canceling a job cannot be undone, no results will be available, and you will still be charged for any Azure compute time used.
+
+Once you've started a bake, you can close Unity. Depending on the project, node type, and number of nodes, a cloud bake can take several hours. The bake job status will be updated when you reload the project and open the Acoustics window. If the job has completed, the output file will be downloaded.
 
 The Azure credentials are stored securely on your local machine and associated with your Unity editor. They are used solely to establish a secure connection to Azure and are not transmitted across any network.
 
