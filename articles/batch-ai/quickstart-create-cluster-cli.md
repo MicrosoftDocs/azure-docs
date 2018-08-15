@@ -155,7 +155,7 @@ When you use your cluster to run a training job, you might need more compute res
 az batchai cluster resize \
     --name mycluster \
     --workspace myworkspace \
-    --resource-group myResourceGroup
+    --resource-group myResourceGroup \
     --target 2
 ```
 
@@ -171,7 +171,7 @@ You're charged for the Batch AI cluster while the nodes are running. If you want
 az batchai cluster resize \
     --name mycluster \
     --workspace myworkspace \
-    --resource-group myResourceGroup
+    --resource-group myResourceGroup \
     --target 0
 ```
 
@@ -181,7 +181,7 @@ Later, resize it to 1 or more nodes to run your jobs. When you no longer need a 
 az batchai cluster delete \
     --name mycluster \
     --workspace myworkspace \
-    --resource-group myResourceGroup
+    --resource-group myResourceGroup \
 ```
 
 When no longer needed, you can use the `az group delete` command to remove the resource groups for the Batch AI and storage resources. Delete the Batch AI resources as follows:
