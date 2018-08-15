@@ -121,17 +121,15 @@
     href: https://azure.microsoft.com/services/key-vault/
   - name: Authentication, requests and responses
     href: authentication-requests-and-responses.md
-  - name: Customer Data 
-    href: key-vault-customer-data.md
   - name: Common parameters and headers
     href: common-parameters-and-headers.md
+  - name: Customer Data 
+    href: key-vault-customer-data.md
   - name: Release Notes
     href: key-vault-versions.md
   - name: Azure Key Vault Blog
     href: http://blogs.technet.com/b/kv/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
-  - name: Pricing Calculator
-    href: https://azure.microsoft.com/pricing/calculator/
   - name: Product Feedback
     href: https://feedback.azure.com/forums/906355-azure-key-vault

@@ -19,7 +19,7 @@ ms.reviewer: dhanyahk
 
 # What's new in Azure Active Directory?
 
-> Get notified about when to revisit this page for updates by subscribing to the [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+>Get notified about when to revisit this page for updates by adding this [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) to your ![RSS icon](./media/whats-new/feed-icon-16x16.png) feed reader.
 
 Azure AD receives improvements on an ongoing basis. To stay up-to-date with the most recent developments, this article provides you with information about:
 
@@ -34,6 +34,24 @@ This page is updated monthly, so revisit it regularly.
 ---
 
 ## July 2018
+
+### Changes to Azure Active Directory IP address ranges
+
+**Type:** Plan for change  
+**Service category:** Other  
+**Product capability:** Platform
+
+We're introducing larger IP ranges to Azure AD, which means if you've configured Azure AD IP address ranges for your firewalls, routers, or Network Security Groups, you'll need to update them. We're making this update so you won't have to change your firewall, router, or Network Security Groups IP range configurations again when Azure AD adds new endpoints. 
+
+Network traffic is moving to these new ranges over the next two months. To continue with uninterrupted service, you must add these updated values to your IP Addresses before September 10, 2018:
+
+- 20.190.128.0/18 
+
+- 40.126.0.0/18 
+
+We strongly recommend not removing the old IP Address ranges until all of your network traffic has moved to the new ranges. For updates about the move and to learn when you can remove the old ranges, see [Office 365 URLs and IP address ranges](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+
+---
 
 ### Improvements to Azure Active Directory email notifications
 
@@ -1444,7 +1462,7 @@ For more information, see [Conditional access in Azure AD](https://docs.microsof
 
 The following apps are on the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
-- [Microsoft Kaizala](https://microsoft.com/garage/profiles/kaizala/)
+- [Microsoft Kaizala](https://www.microsoft.com/en-us/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
 
 For more information, see:
