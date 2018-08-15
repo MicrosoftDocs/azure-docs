@@ -98,8 +98,7 @@ create your Azure function app, which must have the same Azure subscription
 as your logic app, and then create your Azure function.
 If you're new to creating Azure functions, learn how to 
 [create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md), 
-but note these requirements for creating functions that 
-you can call from logic apps:
+but note these requirements for creating functions that you can call from logic apps:
 
 * Make sure you select the **HTTP trigger** function 
 template for either **JavaScript** or **C#**.
