@@ -188,8 +188,14 @@ create that function app first. See
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
 open your logic app in the Logic App Designer. 
 
-2. Under the step where you want to create and add the function, 
-choose **New step** > **Add an action**. 
+2. To create and add your function, 
+follow the step that applies to your scenario:
+
+   * Under the last step in your logic app's workflow, choose **New step**.
+
+   * Between existing steps in your logic app's workflow, 
+   move your mouse over the arrow, choose the plus (+) sign, 
+   and then select **Add an action**.
 
 3. In the search box, enter "azure functions" as your filter.
 From the actions list, select this action: 
