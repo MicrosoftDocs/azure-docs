@@ -171,4 +171,4 @@ Cognitive Services - msdn.microsoft.com || https://msdn.microsoft.com/en-us/maga
 > [!div class="nextstepaction"]
 > [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
-[!INCLUDE [cognitive-services-bing-web-search-quickstart-see-also](../cognitive-services-bing-web-search-quickstart-see-also.md)]  
+[!INCLUDE [cognitive-services-bing-web-search-quickstart-see-also](../../../includes/cognitive-services-bing-web-search-quickstart-see-also.md)]

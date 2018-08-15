@@ -275,4 +275,4 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
 > [!div class="nextstepaction"]
 > [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
-[!INCLUDE [cognitive-services-bing-web-search-quickstart-see-also](../cognitive-services-bing-web-search-quickstart-see-also.md)]   
+[!INCLUDE [cognitive-services-bing-web-search-quickstart-see-also](../../../includes/cognitive-services-bing-web-search-quickstart-see-also.md)]  
