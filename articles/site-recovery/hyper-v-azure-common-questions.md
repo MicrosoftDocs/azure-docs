@@ -18,7 +18,7 @@ This article provides answers to common questions we see when replicating on-pre
 ## General
 
 ### How is Site Recovery priced?
-Review [Azure Site Recovery pricing](https://azure.microsoft.com/en-in/pricing/details/site-recovery/) details.
+Review [Azure Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/) details.
 
 ### How do I pay for Azure VMs?
 During replication, data is replicated to Azure storage, and you don't pay any VM changes. When you run a failover to Azure, Site Recovery automatically creates Azure IaaS virtual machines. After that you're billed for the compute resources that you consume in Azure.
