@@ -17,7 +17,7 @@ ms.author: bwren
 ms.component: na
 ---
 
-# Get started with the Analytics portal
+# Get started with the Azure Monitor Log explorer
 
 In this tutorial you will learn how to use the Analytics portal to write Azure Log Analytics queries. It will teach you how to:
 

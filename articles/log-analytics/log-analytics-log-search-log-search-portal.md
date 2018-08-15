@@ -17,7 +17,7 @@ ms.author: bwren
 ms.component: na
 ---
 
-# Create log searches in Azure Log Analytics using the Log Search portal
+# Create log searches in Azure Log Analytics using the Log search portal
 
 > [!NOTE]
 > This article describes the Log Search portal in Azure Log Analytics using the new query language.  You can learn more about the new language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to new log search](log-analytics-log-search-upgrade.md).  
