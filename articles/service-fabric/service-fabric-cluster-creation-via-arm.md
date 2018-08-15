@@ -73,7 +73,7 @@ Any number of additional certificates can be specified for Admin or user client 
 ## Prerequisites 
 The concept of creating secure clusters is the same, whether they are Linux or Windows clusters. This guide covers the use of Azure PowerShell or Azure CLI to create new clusters. The prerequisites are either:
 
--  [Azure PowerShell 4.1 and above][azure-powershell] or [Azure CLI 2.0 and above][azure-CLI].
+-  [Azure PowerShell 4.1 and above][azure-powershell] or [Azure CLI version 2.0 and above][azure-CLI].
 -  you can find details on the Service Fabric modules here - [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric)  and [az SF CLI module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
 
 

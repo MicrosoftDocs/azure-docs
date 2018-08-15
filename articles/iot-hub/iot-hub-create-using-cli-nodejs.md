@@ -1,6 +1,6 @@
 ---
-title: Create an IoT hub using Azure CLI (azure.js) | Microsoft Docs
-description: How to create an Azure IoT hub using the cross-platform Azure CLI (azure.js).
+title: Create an IoT hub using Azure classic CLI | Microsoft Docs
+description: How to create an Azure IoT hub using the cross-platform Azure classic CLI
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -10,30 +10,32 @@ ms.date: 04/01/2018
 ms.author: kgremban
 ---
 
-# Create an IoT hub using the Azure CLI
+# Create an IoT hub using the Azure classic CLI
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction
 
-You can use Azure CLI (azure.js) to create and manage Azure IoT hubs programmatically. This article shows you how to use the Azure CLI (azure.js) to create an IoT hub.
+[!INCLUDE [outdated-content](../../includes/contains-classic-cli-content.md)]
+
+You can use the Azure classic CLI to create and manage Azure IoT hubs programmatically. This article shows you how to use the Azure classic CLI to create an IoT hub.
 
 You can complete the task using one of the following CLI versions:
 
-* Azure CLI (azure.js) – the CLI for the classic and resource management deployment models as described in this article.
-* [Azure CLI 2.0 (az.py)](iot-hub-create-using-cli.md) - the next generation CLI for the resource management deployment model.
+* Azure classic CLI – the CLI for the classic and resource management deployment models as described in this article.
+* [Azure CLI](iot-hub-create-using-cli.md) - the next generation CLI for the resource management deployment model.
 
 To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* [Azure CLI 0.10.4][lnk-CLI-install] or later. If you already have the Azure CLI installed, you can validate the current version at the command prompt with the following command:
+* [Azure classic CLI 0.10.4][lnk-CLI-install] or later. If you already have the Azure classic CLI installed, you can validate the current version at the command prompt with the following command:
 
 ```azurecli
 azure --version
 ```
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). The Azure CLI must be in Azure Resource Manager mode:
+> Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). The classic CLI must be in Azure Resource Manager mode:
 >
 > ```azurecli
 > azure config mode arm
@@ -67,7 +69,7 @@ azure --version
    ```
 
 > [!TIP]
-> The article [Use the Azure CLI to manage Azure resources and resource groups][lnk-CLI-arm] provides more information about how to use the Azure CLI to manage Azure resources.
+> The article [Use the Azure classic CLI to manage Azure resources and resource groups][lnk-CLI-arm] provides more information about how to use the classic CLI to manage Azure resources.
 
 ## Create an IoT Hub
 
@@ -98,7 +100,7 @@ azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1
 ```
 
 > [!NOTE]
-> This Azure CLI command creates an S1 Standard IoT Hub for which you are billed. You can delete the IoT hub **exampleIoTHubName** using following command:
+> This classic CLI command creates an S1 Standard IoT Hub for which you are billed. You can delete the IoT hub **exampleIoTHubName** using following command:
 >
 > ```azurecli
 > azure iothub delete -g exampleResourceGroup -n exampleIoTHubName

@@ -114,7 +114,7 @@ Perform the following in the Azure portal to remove the custom domain setting:
 
 When the custom domain has been removed successfully, you will see a portal notification stating that your storage account was successfully updated.
 
-### Azure CLI 2.0
+### Azure CLI
 
 Use the [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) CLI command and specify an empty string (`""`) for the `--custom-domain` argument value to remove a custom domain registration.
 

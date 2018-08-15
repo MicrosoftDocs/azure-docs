@@ -66,7 +66,7 @@ There are several open source tools to help you manage your IoT hub.
 
 * A Windows application called [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 * A cross-platform Visual Studio Code extension called [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
-* A cross-platform Python CLI tool called [the IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* A cross-platform Python CLI called [the IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 This tutorial uses the graphical *device explorer* tool. You can use the *Azure IoT Toolkit extension for VS Code* if you develop in VS Code. You can also use the *the IoT extension for Azure CLI 2.0* tool if you prefer to use a CLI tool.
 

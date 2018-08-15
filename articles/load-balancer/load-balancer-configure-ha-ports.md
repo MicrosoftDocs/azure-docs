@@ -91,7 +91,7 @@ Use the following command to create the High Availability Ports load balancer ru
 lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
-### Configure a High Availability Ports load balancer rule with Azure CLI 2.0
+### Configure a High Availability Ports load balancer rule with Azure CLI
 
 In step 4 of [Create an internal load balancer set](load-balancer-get-started-ilb-arm-cli.md), use the following command to create the High Availability Ports load balancer rule:
 

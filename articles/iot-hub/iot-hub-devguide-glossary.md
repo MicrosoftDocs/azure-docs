@@ -22,11 +22,11 @@ Automatic Device Management in Azure IoT Hub automates many of the repetitive an
 ## Automatic device configuration
 Your solution back end can use [automatic device configurations](iot-hub-auto-device-config.md) to assign desired properties to a set of [device twins](#device-twin) and report status using system metrics and custom metrics. 
 
-## Azure CLI
-The [Azure CLI](../cli-install-nodejs.md) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure. This version of the CLI is implemented using Node.js.
+## Azure classic CLI
+The [Azure classic CLI](../cli-install-nodejs.md) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure. This version of the CLI should be used for classic deployments only.
 
-## Azure CLI 2.0
-The [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure. This preview version of the CLI is implemented using Python.
+## Azure CLI
+The [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure.
 
 
 ## Azure IoT device SDKs
@@ -180,8 +180,8 @@ You can use the [IoT Hub Resource REST API](https://docs.microsoft.com/rest/api/
 ## IoT solution accelerators
 Azure IoT solution accelerators package together multiple Azure services into solutions. These solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What are Azure IoT solution accelerators?](../iot-accelerators/about-iot-accelerators.md)
 
-## The IoT extension for Azure CLI 2.0
-[The IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) is a cross-platform, command-line tool. The tool enables you to manage your devices in the [identity registry](#identity-registry), send and receive messages and files from your devices, and monitor your IoT hub operations.
+## The IoT extension for Azure CLI 
+[The IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) is a cross-platform, command-line tool. The tool enables you to manage your devices in the [identity registry](#identity-registry), send and receive messages and files from your devices, and monitor your IoT hub operations.
 
 ## Job
 Your solution back end can use [jobs](iot-hub-devguide-jobs.md) to schedule and track activities on a set of devices registered with your IoT hub. Activities include updating device twin [desired properties](#desired-properties), updating device twin [tags](#tags), and invoking [direct methods](#direct-method). [IoT Hub](#iot-hub) also uses  to [import to and export](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) from the [identity registry](#identity-registry).

@@ -61,7 +61,7 @@ Sign in and join a [Linux cluster](http://aka.ms/tryservicefabric). Download the
 Service Fabric provides several tools that you can use to manage a cluster and its applications:
 
 - Service Fabric Explorer, a browser-based tool.
-- Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI 2.0.
+- Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI. 
 - PowerShell commands.
 
 In this quickstart, you use the Service Fabric CLI in Cloud Shell and Service Fabric Explorer. The following sections show you how to install the certificate needed to connect to your secure cluster with these tools.

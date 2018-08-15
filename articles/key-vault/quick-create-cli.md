@@ -33,7 +33,7 @@ To log in to the Azure using the CLI you can type:
 az login
 ```
 
-For more information on login options via the CLI take a look at [Log in with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+For more information on login options via the CLI take a look at [Log in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ## Create a resource group
 

@@ -56,7 +56,7 @@ To complete this tutorial, you need:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-You can also use the [IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) tool to add a device to your IoT hub.
+You can also use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) tool to add a device to your IoT hub.
 
 ## Create the service app
 

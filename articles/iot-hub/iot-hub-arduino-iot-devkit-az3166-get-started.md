@@ -126,17 +126,11 @@ The .zip file that you download contains all the necessary tools and packages fo
 The .zip file contains the following tools and packages. If you already have some components installed, the script will detect and skip them.
 
 * Node.js and Yarn: Runtime for the setup script and automated tasks.
-
-* [Azure CLI 2.0 MSI](https://docs.microsoft.com//cli/azure/install-azure-cli#windows): Cross-platform command-line experience for managing Azure resources. The MSI contains dependent Python and pip.
-
+* [Azure CLI MSI](https://docs.microsoft.com//cli/azure/install-azure-cli#windows): Cross-platform command-line experience for managing Azure resources. The MSI contains dependent Python and pip.
 * [Visual Studio Code](https://code.visualstudio.com/) (VS Code): Lightweight code editor for DevKit development.
-
 * [Visual Studio Code extension for Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): Extension that enables Arduino development in Visual Studio Code.
-
 * [Arduino IDE](https://www.arduino.cc/en/Main/Software): Tool that the extension for Arduino relies on.
-
 * DevKit Board Package: Tool chains, libraries, and projects for the DevKit.
-
 * ST-Link Utility: Essential tools and drivers.
 
 #### Run the installation script
@@ -184,17 +178,11 @@ The .zip file that you download contains all the necessary tools and packages fo
 The .zip file contains the following tools and packages. If you already have some components installed, the script will detect and skip them.
 
 * Node.js and Yarn: Runtime for the setup script and automated tasks.
-
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): Cross-platform command-line experience for managing Azure resources.
-
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): Cross-platform command-line experience for managing Azure resources.
 * [Visual Studio Code](https://code.visualstudio.com/) (VS Code): Lightweight code editor for DevKit development.
-
 * [Visual Studio Code extension for Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): Extension that enables Arduino development in Visual Studio Code.
-
 * [Arduino IDE](https://www.arduino.cc/en/Main/Software): Tool that the extension for Arduino relies on.
-
 * DevKit Board Package: Tool chains, libraries, and projects for the DevKit.
-
 * ST-Link Utility: Essential tools and drivers.
 
 #### Run the installation script
