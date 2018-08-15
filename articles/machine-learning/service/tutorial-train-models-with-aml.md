@@ -270,7 +270,7 @@ For this task, submit the job to the Batch AI cluster you set up earlier so you 
 To submit the job to the cluster, you need to create a training script. Run the following code to create the training script called `train.py` in a place the workspace can find it.
 
 ```python
-%%writefile $proj.project_folder/train.py
+%%writefile $proj.project_directory/train.py
 
 import argparse
 import os
@@ -282,14 +282,14 @@ from sklearn.externals import joblib
 from azureml.core import Run
 from utils import load_data
 
-# let user feed in 2 parameters, the location of the data files (from datastore), and the regularization rate of the logistic regression model
+# let user feed in 2 parameters, the locaion of the data files (from datastore), and the regularization rate of the logistic regression model
 parser = argparse.ArgumentParser()
-parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data directory mounting point')
+parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data folder mounting point')
 parser.add_argument('--regularization', type = float, dest = 'reg', default = 0.01, help = 'regularization rate')
 args = parser.parse_args()
 
 data_folder = os.path.join(args.data_folder, 'mnist')
-print('Data directory:', data_folder)
+print('Data folder:', data_folder)
 
 # load train and test set into numpy arrays
 # note we scale the pixel intensity values to 0-1 (by dividing it with 255.0) so the model can converge faster.
@@ -303,7 +303,7 @@ print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 run = Run.get_submitted_run()
 
 # train a logistic regression model with specified regularization rate
-print('Train a logistic regression model with regularization rate of', args.reg)
+print('Train a logistic regression model with regularizaion rate of', args.reg)
 clf = LogisticRegression(C = 1.0/args.reg, random_state = 42)
 clf.fit(X_train, y_train)
 
