@@ -57,7 +57,7 @@ The parts of the tab page are:
 1. The tab selection buttons (Objects tab selected). Use these buttons to walk through the various steps of doing an acoustics bake, from left to right.
 2. A brief description of what you need to do using this page.
 3. Available filters for the hierarchy window. Use this to filter the hierarchy window to objects of the specified type so you can more easily mark them. If you have not yet marked anything for acoustics, selecting the last two options will show you nothing. However, they can be useful to find marked objects once you have done so.
-4. When no objects are selected, the filter shows the status of the objects in the scene:
+4. When no objects are selected, this section shows the status of all objects in the scene:
     * Total - The total number of active, non-hidden objects in the scene.
     * Ignored - The number of objects that are not Mesh Renderers or Terrains.
     * Mesh - The number of Mesh Renderer objects in the scene
@@ -65,9 +65,9 @@ The parts of the tab page are:
     * Geometry - The number of Mesh or Terrain objects in the scene marked as "Acoustics Geometry"
     * Navigation - The number of Mesh or Terrain objects in the scene marked as "Acoustics Navigation". This number doesn't include Unity's NavMesh.
 5. Shows the total number of 'mark-able' objects in the scene, which is only Mesh Renderers and Terrains. Shows checkboxes you can use to mark (add the appropriate component to) those objects as geometry or navigation for acoustics
-6. When nothing is selected, this note reminds you to select objects for marking if needed. You can also check one or both checkboxes to mark all the objects without selecting anything.
-7. When objects are selected, this tab shows the status of only the selected objects.
-8. Shows the total number of 'mark-able' selected objects. Checking or un-checking the checkboxes will mark or un-mark all the selected objects.
+6. When nothing is selected, this note reminds you to select objects for marking if needed. You can also check one or both checkboxes to mark all the objects in the scene without selecting anything.
+7. When objects are selected, this section shows the status of only the selected objects.
+8. Shows the total number of 'mark-able' selected objects. Checking or un-checking the checkboxes will mark or un-mark only the selected objects.
 
 Only Mesh Renderers and Terrains can be marked. All other object types will be ignored. The checkboxes will mark or un-mark all of the affected objects.
 
@@ -79,13 +79,11 @@ Clicking the checkbox will force all objects to be marked, and clicking again wi
 
 Objects can be marked for both geometry and navigation.
 
-![Bake Geometry](media/BakeObjectsTabGeometry.png)
-
 ### Guidelines for marking objects
 
 Be sure to mark any objects as "Acoustics Geometry" if they should occlude, reflect, or absorb sound. Acoustics geometry can include things like ground, walls, roofs,  windows & window glass, rugs, and large furniture. It's okay to include smaller objects such as lamps, decorative items, light fixtures, as they don't appreciably increase the bake cost. It's important to not miss major elements such as the ground or a ceiling. Also, don't include things that shouldn't affect the acoustics, such as collision meshes.
 
-An object's transform at the time of the probe calculation (via the Probes tab, below) is fixed in the bake results. Moving any of the marked objects in the scene will require re-doing the probe calculation and re-baking the scene.
+An object's transform at the time of the probe calculation (via the **Probes** tab, below) is fixed in the bake results. Moving any of the marked objects in the scene will require re-doing the probe calculation and re-baking the scene.
 
 ## Materials Tab
 
@@ -172,7 +170,7 @@ Therefore it is important to ensure that probe points exist anywhere the player 
 
 ![Probes Preview](media/ProbesPreview.png)
 
-### Coarse vs fine resolution
+### <a name="Course-vs-Fine-Resolution"></a>Coarse vs Fine resolution
 
 The only difference between the Coarse and Fine resolution settings is the frequency at which the simulation is performed. Fine uses a frequency twice as high as Coarse.
 While this may seem simple, it has a number of implications on the acoustic simulation:
@@ -215,7 +213,7 @@ The Azure credentials are stored securely on your local machine and associated w
 
 After the bake completes, check that the voxels and probe points are in their expected locations by running the runtime plugin. More information is in [Design Process Overview for Acoustics](designprocess.md).
 
-## Data files
+## <a name="Data-Files"></a>Data Files
 
 There are four data files created by this plugin at various points. Only one of them is needed at runtime, therefore the other three are inside folders named "Editor" so they won't be compiled into your project.
 
