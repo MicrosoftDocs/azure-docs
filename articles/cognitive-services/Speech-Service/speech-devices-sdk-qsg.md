@@ -82,7 +82,7 @@ Before starting development with the Speech Devices SDK, gather the information 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
  
  > [!NOTE]
- > If your company has policies regarding connecting devices to the wifi system, you need to obtain the Mac Address and contact your IT department about how to connect it to your wifi system. To find the Mac Address of the dev kit, click on the file folder icon on the desktop of the dev kit, then **Settings**, search for "Mac address", click on **Mac address** to get into **Advanced WLAN**, write down the Mac address found towards the bottom.
+ > If your company has policies regarding connecting devices to the wifi system, you need to obtain the Mac Address and contact your IT department about how to connect it to your wifi system. To find the Mac Address of the dev kit, click on the file folder icon on the desktop of the dev kit, then **Settings**, search for "Mac address", click on **Mac address** to get into **Advanced WLAN**, write down the Mac address found towards the bottom. Also, some companies might have a time limit of how long a device can be connected to their wifi systems. You might need to extend the dev kit's registration with your wifi system, after a certain number of days.  
  
  
    ![Vysor file folder](media/speech-devices-sdk/qsg-10.png)
