@@ -80,7 +80,7 @@ For Python, you need to use the “config” attribute. You can only add to a Us
 >This has to be done for each client, there is no global static configuration (You may choose to do a client factory to be sure every client is doing it. 
 >[Additional reference information](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
 
-How to tag a deployment using the Azure PowerShell or the Azure CLI:
+**How to tag a deployment using the Azure PowerShell or the Azure CLI:**
 If you deploy resources via AzurePowerShell, you can append your GUID by using the following method:
 
 ```
