@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/29/2018
+ms.date: 08/15/2018
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL
 
@@ -19,7 +19,7 @@ To create a virtual network rule, there must first be a [virtual network][vm-vir
 ![Example of how a VNet Service Endpoint works](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
 > [!NOTE]
-> For Azure Database for PostgreSQL, this feature is available in public preview in all regions of Azure public cloud where Azure Database for PostgreSQL is deployed.
+> This feature is available in all regions of Azure public cloud where Azure Database for PostgreSQL is deployed for General Purpose and Memory Optimized servers.
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -63,7 +63,7 @@ However, the static IP approach can become difficult to manage, and it is costly
 
 If your **Microsoft.Sql** server was a node on a subnet in your virtual network, all nodes within the virtual network could communicate with your Azure Database for PostgreSQL server. In this case, your VMs could communicate with Azure Database for PostgreSQL without needing any virtual network rules or IP rules.
 
-However as of May 2018, the Azure Database for PostgreSQL service is not yet among the services that can be assigned directly to a subnet.
+However as of August 2018, the Azure Database for PostgreSQL service is not yet among the services that can be assigned directly to a subnet.
 
 <a name="anch-details-about-vnet-rules-38q" />
 
@@ -110,8 +110,6 @@ For Azure Database for PostgreSQL, the virtual network rules feature has the fol
 - Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][arm-deployment-model-568f] networks.
 
 - Turning ON virtual network service endpoints to Azure Database for PostgreSQL using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure SQL Data Warehouse.
-
-- At the time of public preview, there is no support for VNet move operations. To move a virtual network rule, drop and recreate it.
 
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
