@@ -121,3 +121,4 @@ Follow this link to learn more about AKS.
 [az aks show]: /cli/azure/aks#az-aks-show
 [az aks get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az aks upgrade]: /cli/azure/aks#az-aks-upgrade
+[azure-cli-install]: /cli/azure/install-azure-cli
