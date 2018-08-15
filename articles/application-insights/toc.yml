@@ -129,7 +129,7 @@
       items:
       - name: Profiler for Linux App services
         href: app-insights-profiler-aspnetcore-linux.md
-    - name: J2EE
+    - name: Java
       items:
       - name: Log traces
         href: app-insights-java-trace-logs.md
@@ -333,6 +333,8 @@
       href: application-insights-data-model-context.md
   - name: Telemetry correlation
     href: application-insights-correlation.md
+  - name: Correlate custom data sources
+    href: app-insights-custom-data-correlation.md
   - name: Code samples
     href: https://azure.microsoft.com/en-us/resources/samples/?service=application-insights
 - name: Resources
