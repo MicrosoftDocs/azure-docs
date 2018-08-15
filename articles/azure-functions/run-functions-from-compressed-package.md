@@ -58,10 +58,7 @@ The following shows a function app configured to run from a .zip file hosted in 
 
 ## Adding the WEBSITE_RUN_FROM_ZIP setting
 
-There are several ways that you can add the `WEBSITE_RUN_FROM_ZIP` function app setting to enable this functionality:
-
-+ [In the Azure portal.](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
-+ [With the Azure CLI.](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md]
 
 ## Next steps
 
