@@ -89,7 +89,7 @@ For customers wishing to migrate to contained database for existing Azure App Se
 
 1. Converting a Database to Partially Contained.  This step will incur downtime as all active sessions need to be killed
 
-    '''sql
+    ```sql
         /******** [appservice_metering] Migration Start********/
             USE [master];
 
@@ -169,15 +169,6 @@ Validate
 1. Check existing contained behavior
     ```sql
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
-    ```
-
-1. Migrate individual login to database contained user
-
-    ```sql
-        EXECUTE sp_migrate_user_to_contained
-            @username = @username,  
-            @rename = N'copy_login_name',  
-            @disablelogin = N'disable_login';
     ```
 
 ### Known issues for Cloud Admins operating Azure App Service on Azure Stack
