@@ -144,7 +144,7 @@ To deploy App Service in a disconnected environment, you must first create an of
     >    GO
     >    ***********************************************************
     > ```
-    > Refer to the [release notes for Azure App Service on Azure Stack 1.3](azures-stack-app-service-release-notes-update-three.md) for more details.
+    > Refer to the [release notes for Azure App Service on Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) for more details.
    
    ![App Service Installer][12]
 
