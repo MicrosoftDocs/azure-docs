@@ -314,7 +314,7 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
 1. To test the service, execute the returned service run command:
     
    ```azurecli
-   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d '{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}'
    ```
 
    The output is **"Iris-setosa"**, which is the predicted class. (Your result might be different.) 

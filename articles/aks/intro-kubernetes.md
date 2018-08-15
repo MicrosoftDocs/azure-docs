@@ -86,7 +86,7 @@ For more information, see [Azure Container Registry (ACR)][acr-docs].
 
 ## Storage volume support
 
-Azure Kubernetes Service (AKS) support mounting storage volumes for persistant data. AKS clusters are created with support for Azure Files and Azure Disks.
+Azure Kubernetes Service (AKS) support mounting storage volumes for persistent data. AKS clusters are created with support for Azure Files and Azure Disks.
 
 For more information, see [Azure Files][azure-files] and [Azure Disks][azure-disk].
 

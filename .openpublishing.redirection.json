@@ -2921,6 +2921,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-runbook-settings.md",
+            "redirect_url": "/azure/automation/automation-runbook-execution",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-invoke-runbook-from-omsla-alert.md",
             "redirect_url": "/azure/automation/automation-create-alert-triggered-runbook",
             "redirect_document_id": false
