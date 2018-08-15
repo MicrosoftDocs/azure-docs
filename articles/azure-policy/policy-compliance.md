@@ -4,7 +4,7 @@ description: Azure Policy evaluations and effects determine compliance. Learn ho
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -47,7 +47,8 @@ completes, updated compliance results are available in the portal and SDKs.
 for this scenario is the same as for a new assignment to a scope.
 - A resource is deployed to a scope with an assignment via Resource Manager, REST, Azure CLI, or
 Azure PowerShell. In this scenario, the effect event (append, audit, deny, deploy) and compliant
-status information becomes available in the portal and SDKs around 15 minutes later.
+status information for the individual resource becomes available in the portal and SDKs around 15
+minutes later. This event does not cause an evaluation of other resources.
 - Standard compliance evaluation cycle. Once every 24 hours, assignments are automatically
 re-evaluated. A large policy or initiative evaluated against a large scope of resources can take
 time, so there is no pre-defined expectation of when the evaluation cycle will complete. Once it
@@ -69,9 +70,6 @@ resulting compliance state:
 \* The Append, DeployIfNotExist, and AuditIfNotExist effects require the IF statement to be TRUE.
 The effects also require the existence condition to be FALSE to be non-compliant. When TRUE, the IF
 condition triggers evaluation of the existence condition for the related resources.
-
-To better understand how resources are flagged as non-compliant, let's use the policy assignment
-example created above.
 
 For example, assume that you have a resource group – ContsoRG, with some storage accounts
 (highlighted in red) that are exposed to public networks.
@@ -284,17 +282,16 @@ Your results resemble the following example:
 
 For more information about querying policy events, see the [Policy Events](/rest/api/policy-insights/policyevents) reference article.
 
-### Azure PowerShell (Preview)
+### Azure PowerShell
 
-The Azure PowerShell module for Policy is not yet final, but is currently available on the
-PowerShell Gallery as a [preview release](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights).
-If PowerShellGet is at least version 1.6.0 (required to support pre-release items), you can download
-the preview version using `Install-Module` (make sure you have the latest
-[Azure PowerShell](/powershell/azure/install-azurerm-ps) installed):
+The Azure PowerShell module for Policy is available on the PowerShell Gallery as
+[AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights). Using
+PowerShellGet, you can install the module using `Install-Module -Name AzureRM.PolicyInsights` (make sure you have the latest [Azure
+PowerShell](/powershell/azure/install-azurerm-ps) installed):
 
 ```powershell
-# Download preview from PowerShell Gallery via PowerShellGet
-Install-Module -Name AzureRM.PolicyInsights -AllowPrerelease
+# Install from PowerShell Gallery via PowerShellGet
+Install-Module -Name AzureRM.PolicyInsights
 
 # Import the downloaded module
 Import-Module AzureRM.PolicyInsights
@@ -303,7 +300,7 @@ Import-Module AzureRM.PolicyInsights
 Connect-AzureRmAccount
 ```
 
-The preview module has three cmdlets:
+The module has three cmdlets:
 
 - `Get-AzureRmPolicyStateSummary`
 - `Get-AzureRmPolicyState`
@@ -427,4 +424,4 @@ items, such as more than 10 in the last 24 hours.
 
 - Review the [Policy definition structure](policy-definition.md).
 - Review [Understanding policy effects](policy-effects.md).
-- Review what a management group is with [Organize your resources with Azure Management Groups](../azure-resource-manager/management-groups-overview.md)
+- Review what a management group is with [Organize your resources with Azure management groups](../azure-resource-manager/management-groups-overview.md)

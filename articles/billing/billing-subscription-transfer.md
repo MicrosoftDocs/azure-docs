@@ -15,7 +15,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 06/15/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ---
@@ -111,7 +111,7 @@ The Account Administrator is the person who signed up for or bought the Azure su
 
 ### Does everything transfer? Including resource groups, VMs, disks, and other running services?
 
-All your resources like VMs, disks, and websites transfer to the new owner. However, any [administrator roles](billing-add-change-azure-subscription-administrator.md) and [Role-based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) policies you've set up do not transfer across different directories. Also, [app registrations](../active-directory//develop/active-directory-integrating-applications.md) and other tenant-specific services don't transfer along.
+All your resources like VMs, disks, and websites transfer to the new owner. However, any [administrator roles](billing-add-change-azure-subscription-administrator.md) and [Role-based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) policies you've set up do not transfer across different directories. Also, [app registrations](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) and other tenant-specific services don't transfer along.
 
 ### <a id="no-button"></a> Why don't I see the "Transfer subscription" button?
 

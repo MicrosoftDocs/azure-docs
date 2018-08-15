@@ -36,7 +36,7 @@ This article covers how to configure the different filtering methods.
 ## Basics and important notes
 In Azure AD Connect sync, you can enable filtering at any time. If you start with a default configuration of directory synchronization and then configure filtering, the objects that are filtered out are no longer synchronized to Azure AD. Because of this change, any objects in Azure AD that were previously synchronized but were then filtered are deleted in Azure AD.
 
-Before you start making changes to filtering, make sure that you [disable the scheduled task](#disable-scheduled-task) so you don't accidentally export changes that you haven't yet verified to be correct.
+Before you start making changes to filtering, make sure that you [disable the scheduled task](#disable-the-scheduled-task) so you don't accidentally export changes that you haven't yet verified to be correct.
 
 Because filtering can remove many objects at the same time, you want to make sure that your new filters are correct before you start exporting any changes to Azure AD. After you've completed the configuration steps, we strongly recommend that you follow the [verification steps](#apply-and-verify-changes) before you export and make changes to Azure AD.
 

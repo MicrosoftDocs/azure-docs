@@ -24,7 +24,7 @@ This reference architecture, associated control implementation guides, and threa
 ## Architecture diagram and components
 This solution provides a reference architecture for a PaaS web application with an Azure SQL Database backend. The web application is hosted in an isolated Azure App Service Environment, which is a private, dedicated environment in an Azure datacenter. The environment load balances traffic for the web application across VMs managed by Azure. This architecture also includes network security groups, an Application Gateway, Azure DNS, and Load Balancer. Furthermore, Operations Management Suite provides real-time analytics of system health and security. **Azure recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture subnet.**
 
-![PaaS Web Application for FedRAMP reference architecture diagram](images/fedramp-paaswa-architecture.png?raw=true) "PaaS Web Application for FedRAMP reference architecture diagram"
+![PaaS Web Application for FedRAMP reference architecture diagram](images/fedramp-paaswa-architecture.png?raw=true "PaaS Web Application for FedRAMP reference architecture diagram")
 
 This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 

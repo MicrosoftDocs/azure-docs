@@ -3,7 +3,7 @@ title: Deploy an application to an Azure virtual machine scale set | Microsoft D
 description: Learn how to deploy applications to Linux and Windows virtual machine instances in a scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: iainfou
+ms.author: cynthn
 ---
 
 # Deploy your application on virtual machine scale sets
@@ -87,7 +87,7 @@ If the upgrade policy on your scale set is *manual*, update your VM instances wi
 
 
 ## Install an app to a Linux VM with cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io/latest/) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, there are no additional steps or required agents to apply your configuration.
+[Cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, there are no additional steps or required agents to apply your configuration.
 
 Cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install. Cloud-init automatically uses the native package management tool for the distro you select.
 

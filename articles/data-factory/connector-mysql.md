@@ -12,19 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 06/23/2018
 ms.author: jingwang
 
 ---
 # Copy data from MySQL using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-onprem-mysql-connector.md)
-> * [Version 2 - Preview](connector-mysql.md)
+> * [Version 1](v1/data-factory-onprem-mysql-connector.md)
+> * [Current version](connector-mysql.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a MySQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [MySQL connector in V1](v1/data-factory-onprem-mysql-connector.md).
 
 ## Supported capabilities
 
@@ -34,13 +31,9 @@ Specifically, this MySQL connector supports MySQL **version 5.1 and above**.
 
 ## Prerequisites
 
-To use this MySQL connector, you need to:
+If your MySQL database is not publicly accessible, you need to set up a Self-hosted Integration Runtime. To learn about Self-hosted integration runtimes, see [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article. The Integration Runtime provides a built-in MySQL driver starting from version 3.7, therefore you don't need to manually install any driver.
 
-- Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
-- Install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) version between 6.6.5 and 6.10.7 on the Integration Runtime machine. This 32 bit driver is compatible with 64 bit IR.
-
-> [!TIP]
-> If you hit error on "Authentication failed because the remote party has closed the transport stream.", consider to upgrade the MySQL Connector/Net to higher version.
+For Self-hosted IR version lower than 3.7, you need to install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) version between 6.6.5 and 6.10.7 on the Integration Runtime machine. This 32 bit driver is compatible with 64 bit IR.
 
 ## Getting started
 
@@ -55,14 +48,40 @@ The following properties are supported for MySQL linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **MySql** | Yes |
-| server | Name of the MySQL server. | Yes |
-| database | Name of the MySQL database. | Yes |
-| schema | Name of the schema in the database. | No |
-| username | Specify user name to connect to the MySQL database. | Yes |
-| password | Specify password for the user account you specified. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
+| connectionString | Specify information needed to connect to the Azure Database for MySQL instance. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
+
+A typical connection string is `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. More properties you can set per your case:
+
+| Property | Description | Options | Required |
+|:--- |:--- |:--- |:--- |:--- |
+| SSLMode | This option specifies whether the driver uses SSL encryption and verification when connecting to MySQL. E.g. `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
+| UseSystemTrustStore | This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. `UseSystemTrustStore=<0/1>;`| Enabled (1) / Disabled (0) **(Default)** | No |
 
 **Example:**
+
+```json
+{
+    "name": "MySQLLinkedService",
+    "properties": {
+        "type": "MySql",
+        "typeProperties": {
+            "connectionString": {
+                 "type": "SecureString",
+                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+If you were using MySQL linked service with the following payload, it is still supported as-is, while you are suggested to use the new one going forward.
+
+**Previous payload:**
 
 ```json
 {
@@ -167,13 +186,14 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 |:--- |:--- |
 | `bigint` |`Int64` |
 | `bigint unsigned` |`Decimal` |
-| `bit` |`Decimal` |
+| `bit(1)` |`Boolean` |
+| `bit(M), M>1`|`Byte[]`|
 | `blob` |`Byte[]` |
-| `bool` |`Boolean` |
+| `bool` |`Int16` |
 | `char` |`String` |
 | `date` |`Datetime` |
 | `datetime` |`Datetime` |
-| `decimal` |`Decimal` |
+| `decimal` |`Decimal, String` |
 | `double` |`Double` |
 | `double precision` |`Double` |
 | `enum` |`String` |

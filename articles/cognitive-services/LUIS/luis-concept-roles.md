@@ -2,14 +2,14 @@
 title: Understanding how roles are used in pattern-based entities - Azure| Microsoft Docs
 description: Learn how a role is used in an pattern-based entity to give a name to a contextual entity subtype.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
+author: diberry
+manager: cjgronlund
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
+ms.author: diberry
 ---
 # Entity roles in Patterns are contextual subtypes
 Roles are named, contextual subtypes of an entity used only in [patterns](luis-concept-patterns.md).

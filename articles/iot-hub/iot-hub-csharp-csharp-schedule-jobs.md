@@ -167,6 +167,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
 1. Add the following fields to the **Program** class. Replace the placeholders with the IoT Hub connection string for the hub that you created in the previous section and the name of your device.
 
     ```csharp
+    static JobClient jobClient;
     static string connString = "<yourIotHubConnectionString>";
     static string deviceId = "<yourDeviceId>";
     ```
@@ -286,10 +287,10 @@ To learn about deploying AI to edge devices with Azure IoT Edge, see [Getting st
 [img-schedulejobs]: media/iot-hub-csharp-csharp-schedule-jobs/schedulejobs.png
 
 [lnk-get-started-twin]: iot-hub-csharp-csharp-twin-getstarted.md
-[lnk-twin-props]: iot-hub-csharp-csharp-twin-how-to-configure.md
-[lnk-c2d-methods]: iot-hub-csharp-csharp-direct-methods.md
+[lnk-twin-props]: tutorial-device-twins.md
+[lnk-c2d-methods]: quickstart-control-device-dotnet.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
-[lnk-fwupdate]: iot-hub-csharp-csharp-firmware-update.md
+[lnk-fwupdate]: tutorial-firmware-update.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

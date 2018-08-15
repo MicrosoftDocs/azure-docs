@@ -8,7 +8,7 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 5/21/2018
+ms.date: 8/10/2018
 ms.author: victorh
 
 ---
@@ -90,6 +90,8 @@ For example, if Application Gateway is set to three instances and no private fro
 
 Yes, Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwarded-port headers into the request forwarded to the backend. The format for x-forwarded-for header is a comma-separated list of IP:Port. The valid values for x-forwarded-proto are http or https. X-forwarded-port specifies the port at which the request reached at the Application Gateway.
 
+Application Gateway also inserts X-Original-Host header which contains the original Host header with which the request arrived. This header is useful in scenarios like Azure Website integration, where the incoming host header is modified before traffic is routed to the backend.
+
 **Q. How long does it take to deploy an Application Gateway? Does my Application Gateway still work when being updated?**
 
 New Application Gateway deployments can take up to 20 minutes to provision. Changes to instance size/count are not disruptive, and the gateway remains active during this time.
@@ -112,11 +114,17 @@ No, but you can deploy other application gateways in the subnet.
 
 Network Security Groups are supported on the Application Gateway subnet with the following restrictions:
 
-* Exceptions must be put in for incoming traffic on ports 65503-65534 for backend health to work correctly.
+* Exceptions must be put in for incoming traffic on ports 65503-65534. This port-range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
 
 * Outbound internet connectivity can't be blocked.
 
 * Traffic from the AzureLoadBalancer tag must be allowed.
+
+**Q. Are user-defined routes supported on the application gateway subnet?**
+
+User-defined routes (UDRs) are supported on the application gateway subnet, as long as they do not alter the end-to-end request/response communication.
+
+For example, you can set up a UDR in the application gateway subnet to point to a firewall appliance for packet inspection, but you must ensure that the packet can reach its intended destination post inspection. Failure to do so might result in incorrect health probe or traffic routing behavior. This includes learned routes or default 0.0.0.0/0 routes propagated by ExpressRoute or VPN Gateways in the virtual network.
 
 **Q. What are the limits on Application Gateway? Can I increase these limits?**
 
@@ -156,13 +164,17 @@ This scenario can be done using NSGs on Application Gateway subnet. The followin
 
 * Allow incoming traffic from source IP/IP range.
 
-* Allow incoming requests from all sources to ports 65503-65534 for [backend health communication](application-gateway-diagnostics.md).
+* Allow incoming requests from all sources to ports 65503-65534 for [backend health communication](application-gateway-diagnostics.md). This port range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
 
 * Allow incoming Azure Load Balancer probes (AzureLoadBalancer tag) and inbound virtual network traffic (VirtualNetwork tag) on the [NSG](../virtual-network/security-overview.md).
 
 * Block all other incoming traffic with a Deny all rule.
 
 * Allow outbound traffic to the internet for all destinations.
+
+**Q. Can the same port be used for both public and private facing listeners?**
+
+No, this is not supported.
 
 ## Performance
 

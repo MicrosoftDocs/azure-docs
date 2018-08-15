@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/16/2018
+ms.date: 06/18/2018
 ms.author: bwren, vinagara
 
 ms.custom: H1Hack27Feb2017
@@ -43,16 +43,13 @@ The name of the workspace is in the name of each Log Analytics resource.  This i
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
 ## Log Analytics API version
-All Log Analytics resources defined in a Resource Manager template have a property **apiVersion** that defines the version of the API the resource should use.  This version is different for resources that use the [legacy and the upgraded query language](../log-analytics/log-analytics-log-search-upgrade.md).  
+All Log Analytics resources defined in a Resource Manager template have a property **apiVersion** that defines the version of the API the resource should use.   
 
- The following table specifies the Log Analytics API versions for saved searches in legacy and upgraded workspaces: 
+The following table lists the API version for the resource used in this example.
 
-| Workspace version | API version | Query |
+| Resource type | API version | Query |
 |:---|:---|:---|
-| v1 (legacy)   | 2015-11-01-preview | Legacy format.<br> Example: Type=Event EventLevelName = Error  |
-| v2 (upgraded) | 2015-11-01-preview | Legacy format.  Converted to upgraded format on install.<br> Example: Type=Event EventLevelName = Error<br>Converted to: Event &#124; where EventLevelName == "Error"  |
-| v2 (upgraded) | 2017-03-03-preview | Upgrade format. <br>Example: Event &#124; where EventLevelName == "Error"  |
-
+| savedSearches | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
 
 
 ## Saved Searches
@@ -89,7 +86,7 @@ Each property of a saved search is described in the following table.
 > You may need to use escape characters in the query if it includes characters that could be interpreted as JSON.  For example, if your query was **Type: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**, it should be written in the solution file as **Type: AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"**.
 
 ## Alerts
-[Log Analytics alerts](../log-analytics/log-analytics-alerts.md) are created by alert rules that run a saved search on a regular interval.  If the results of the query match specified criteria, an alert record is created and one or more actions are run.  
+[Azure Log alerts](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) are created by Azure Alert rules that run specified log queries at regular intervals.  If the results of the query match specified criteria, an alert record is created and one or more actions are run using [Action Groups](../monitoring-and-diagnostics/monitoring-action-groups.md).  
 
 > [!NOTE]
 > Beginning May 14, 2018, all alerts in a workspace will automatically begin to extend into Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
@@ -195,7 +192,7 @@ The properties for Alert action resources are described in the following tables.
 | Type | Yes | Type of the action.  This is **Alert** for alert actions. |
 | Name | Yes | Display name for the alert.  This is the name that's displayed in the console for the alert rule. |
 | Description | No | Optional description of the alert. |
-| Severity | Yes | Severity of the alert record from the following values:<br><br> **Critical**<br>**Warning**<br>**Informational**
+| Severity | Yes | Severity of the alert record from the following values:<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### Threshold
@@ -337,11 +334,12 @@ The sample uses [standard solution parameters]( monitoring-solutions-solution-fi
 	      "SolutionPublisher": "Contoso",
 	      "ProductName": "SampleSolution",
 	
-	      "LogAnalyticsApiVersion": "2015-03-20",
-	
+	      "LogAnalyticsApiVersion-Search": "2017-03-15-preview",
+              "LogAnalyticsApiVersion-Solution": "2015-11-01-preview",
+
 	      "MySearch": {
 	        "displayName": "Error records by hour",
-	        "query": "Type=MyRecord_CL | measure avg(Rating_d) by Instance_s interval 60minutes",
+	        "query": "MyRecord_CL | summarize AggregatedValue = avg(Rating_d) by Instance_s, bin(TimeGenerated, 60m)",
 	        "category": "Samples",
 	        "name": "Samples-Count of data"
 	      },
@@ -349,7 +347,7 @@ The sample uses [standard solution parameters]( monitoring-solutions-solution-fi
 	        "Name": "[toLower(concat('myalert-',uniqueString(resourceGroup().id, deployment().name)))]",
 	        "DisplayName": "My alert rule",
 	        "Description": "Sample alert.  Fires when 3 error records found over hour interval.",
-	        "Severity": "Critical",
+	        "Severity": "critical",
 	        "ThresholdOperator": "gt",
 	        "ThresholdValue": 3,
 	        "Schedule": {
@@ -377,7 +375,7 @@ The sample uses [standard solution parameters]( monitoring-solutions-solution-fi
 	        "location": "[parameters('workspaceRegionId')]",
 	        "tags": { },
 	        "type": "Microsoft.OperationsManagement/solutions",
-	        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+	        "apiVersion": "[variables('LogAnalyticsApiVersion-Solution')]",
 	        "dependsOn": [
 	          "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
 	          "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
@@ -405,7 +403,7 @@ The sample uses [standard solution parameters]( monitoring-solutions-solution-fi
 	      {
 	        "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name)]",
 	        "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
-	        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+	        "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
 	        "dependsOn": [ ],
 	        "tags": { },
 	        "properties": {
@@ -418,7 +416,7 @@ The sample uses [standard solution parameters]( monitoring-solutions-solution-fi
 	      {
 	        "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/', variables('MyAlert').Schedule.Name)]",
 	        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
-	        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+	        "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
 	        "dependsOn": [
 	          "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name)]"
 	        ],
@@ -432,7 +430,7 @@ The sample uses [standard solution parameters]( monitoring-solutions-solution-fi
 	      {
 	        "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/',  variables('MyAlert').Schedule.Name, '/',  variables('MyAlert').Name)]",
 	        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-	        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+	        "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
 	        "dependsOn": [
 	          "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/',  variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name)]"
 	        ],

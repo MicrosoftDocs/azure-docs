@@ -10,7 +10,7 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.devlang: java
 ms.topic: sample
-ms.date: 02/08/2018
+ms.date: 06/18/2018
 ms.author: sngun
 
 ---

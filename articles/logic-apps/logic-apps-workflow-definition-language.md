@@ -1,23 +1,21 @@
 ---
-title: Workflow Definition Language schema - Azure Logic Apps | Microsoft Docs
+# required metadata
+title: Schema reference for Workflow Definition Language - Azure Logic Apps | Microsoft Docs
 description: Write custom workflow definitions for Azure Logic Apps with the Workflow Definition Language
 services: logic-apps
-author: ecfan
-manager: jeconnoc
-editor: 
-documentationcenter: 
-
-ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: 
-ms.devlang: 
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: reference
 ms.date: 04/30/2018
-ms.author: estfan
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
 
-# Logic Apps workflow definitions with the Workflow Definition Language schema
+# Schema reference for Workflow Definition Language in Azure Logic Apps
 
 When you create a logic app workflow with 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
@@ -25,7 +23,7 @@ your workflow's underlying definition describes the actual
 logic that runs for your logic app. This description 
 follows a structure that's defined and validated 
 by the Workflow Definition Language schema, which uses 
-[JavaScript Object Notation (JSON)](https://www.json.org/) format. 
+[JavaScript Object Notation (JSON)](https://www.json.org/). 
   
 ## Workflow definition structure
 
@@ -131,7 +129,7 @@ review the logic app's run history and
 details in the Azure portal or use the 
 [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
 You can also pass output to external systems, for example, 
-PowerBI so that you can create dashboards. 
+Power BI so that you can create dashboards. 
 
 <a name="expressions"></a>
 
@@ -152,9 +150,9 @@ that can contain one or more [functions](#functions),
 [operators](#operators), variables, explicit values, 
 or constants. In your workflow definition, 
 you can use an expression anywhere in a JSON 
-string value by prefixing the expression with the at-sign (@). 
+string value by prefixing the expression with the at-sign (\@). 
 When evaluating an expression that represents a JSON value, 
-the expression body is extracted by removing the @ character, 
+the expression body is extracted by removing the \@ character, 
 and always results in another JSON value. 
 
 For example, for the previously defined `customerName` property, 
@@ -168,7 +166,7 @@ function in an expression and assign that value to the `accountName` property:
 ```
 
 *String interpolation* also lets you use multiple expressions inside 
-strings that are wrapped by the @ character and curly braces ({}). 
+strings that are wrapped by the \@ character and curly braces ({}). 
 Here is the syntax:
 
 ```json
@@ -182,8 +180,8 @@ similar to the `concat()` function, for example:
 "customerName": "First name: @{parameters('firstName')} Last name: @{parameters('lastName')}"
 ```
 
-If you have a literal string that starts with the @ character, 
-prefix the @ character with another @ character as an escape character: @@
+If you have a literal string that starts with the \@ character, 
+prefix the \@ character with another \@ character as an escape character: \@\@
 
 These examples show how expressions are evaluated:
 
@@ -191,8 +189,8 @@ These examples show how expressions are evaluated:
 |------------|--------| 
 | "Sophia Owen" | Return these characters: 'Sophia Owen' |
 | "array[1]" | Return these characters: 'array[1]' |
-| "@@" | Return these characters as a one-character string: '@' |   
-| " @" | Return these characters as a two-character string: ' @' |
+| "\@\@" | Return these characters as a one-character string: '\@' |   
+| " \@" | Return these characters as a two-character string: ' \@' |
 |||
 
 For these examples, suppose you define "myBirthMonth" 
@@ -207,13 +205,13 @@ These examples show how the following expressions are evaluated:
 
 | JSON expression | Result |
 |-----------------|--------| 
-| "@parameters('myBirthMonth')" | Return this string: "January" |  
-| "@{parameters('myBirthMonth')}" | Return this string: "January" |  
-| "@parameters('myAge')" | Return this number: 42 |  
-| "@{parameters('myAge')}" | Return this number as a string: "42" |  
-| "My age is @{parameters('myAge')}" | Return this string: "My age is 42" |  
-| "@concat('My age is ', string(parameters('myAge')))" | Return this string: "My age is 42" |  
-| "My age is @@{parameters('myAge')}" | Return this string, which includes the expression: "My age is @{parameters('myAge')}` | 
+| "\@parameters('myBirthMonth')" | Return this string: "January" |  
+| "\@{parameters('myBirthMonth')}" | Return this string: "January" |  
+| "\@parameters('myAge')" | Return this number: 42 |  
+| "\@{parameters('myAge')}" | Return this number as a string: "42" |  
+| "My age is \@{parameters('myAge')}" | Return this string: "My age is 42" |  
+| "\@concat('My age is ', string(parameters('myAge')))" | Return this string: "My age is 42" |  
+| "My age is \@\@{parameters('myAge')}" | Return this string, which includes the expression: "My age is \@{parameters('myAge')}` | 
 ||| 
 
 When you're working visually in the Logic Apps Designer, 
@@ -277,7 +275,7 @@ Or, continue learning about functions and their general purpose.
 Here are just a couple example tasks that you can perform with functions: 
 
 | Task | Function syntax | Result | 
-| ---- | --------------- | -------------- | 
+| ---- | --------------- | ------ | 
 | Return a string in lowercase format. | toLower('<*text*>') <p>For example: toLower('Hello') | "hello" | 
 | Return a globally unique identifier (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
 |||| 
@@ -295,10 +293,10 @@ Here are some other general ways that you can use functions in expressions:
 
 | Task | Function syntax in an expression | 
 | ---- | -------------------------------- | 
-| Perform work with an item by passing that item to a function. | "@<*functionName*>(<*item*>)" | 
-| 1. Get the *parameterName*'s value by using the nested `parameters()` function. </br>2. Perform work with the result by passing that value to *functionName*. | "@<*functionName*>(parameters('<*parameterName*>'))" | 
-| 1. Get the result from the nested inner function *functionName*. </br>2. Pass the result to the outer function *functionName2*. | "@<*functionName2*>(<*functionName*>(<*item*>))" | 
-| 1. Get the result from *functionName*. </br>2. Given that the result is an object with property *propertyName*, get that property's value. | "@<*functionName*>(<*item*>).<*propertyName*>" | 
+| Perform work with an item by passing that item to a function. | "\@<*functionName*>(<*item*>)" | 
+| 1. Get the *parameterName*'s value by using the nested `parameters()` function. </br>2. Perform work with the result by passing that value to *functionName*. | "\@<*functionName*>(parameters('<*parameterName*>'))" | 
+| 1. Get the result from the nested inner function *functionName*. </br>2. Pass the result to the outer function *functionName2*. | "\@<*functionName2*>(<*functionName*>(<*item*>))" | 
+| 1. Get the result from *functionName*. </br>2. Given that the result is an object with property *propertyName*, get that property's value. | "\@<*functionName*>(<*item*>).<*propertyName*>" | 
 ||| 
 
 For example, the `concat()` function can take two or more string values 

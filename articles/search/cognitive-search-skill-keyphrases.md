@@ -5,7 +5,6 @@ services: search
 manager: pablocas
 author: luiscabrer
 
-
 ms.service: search
 ms.devlang: NA
 ms.workload: search

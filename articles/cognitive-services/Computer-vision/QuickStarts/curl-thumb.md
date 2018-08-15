@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: nolachar
 ---
-# Quickstart: Generate a Thumbnail with cURL
+# Quickstart: Generate a thumbnail with cURL
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 

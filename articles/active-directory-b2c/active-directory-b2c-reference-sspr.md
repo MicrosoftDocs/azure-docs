@@ -7,7 +7,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: davidmu
 ms.component: B2C
@@ -31,7 +31,7 @@ By default, your directory doesn't have self-service password reset turned on. U
 To test, use the "Run now" feature on any sign-in policy that has local accounts as an identity provider. On the local account sign-in page (where you enter an email address and password, or a username and password), click **Can't access your account?** to verify the customer experience.
 
 > [!NOTE]
-> The self-service password reset pages can be customized by using the [company branding feature](../active-directory/customize-branding.md).
+> The self-service password reset pages can be customized by using the [company branding feature](../active-directory/fundamentals/customize-branding.md).
 > 
 > 
 

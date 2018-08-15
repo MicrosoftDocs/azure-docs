@@ -11,9 +11,9 @@ ms.topic: quickstart
 ms.date: 06/10/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze a Local Image with cURL
+# Quickstart: Analyze a local image with cURL
 
-In this quickstart, you analyze a local image to extract visual features using Computer Vision. To analyze a remote image, see [Analyze a Remote Image with cURL](curl-analyze.md).
+In this quickstart, you analyze a local image to extract visual features using Computer Vision. To analyze a remote image, see [Analyze a remote image with cURL](curl-analyze.md).
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ To use Computer Vision, you need a subscription key; see [Obtaining Subscription
 
 ## Analyze a local image
 
-This sample is similar to [Analyze a Remote Image with cURL](curl-analyze.md) except the image to analyze is read locally from disk. Three changes are required:
+This sample is similar to [Analyze a remote image with cURL](curl-analyze.md) except the image to analyze is read locally from disk. Three changes are required:
 
 - Change the Content-Type to `"Content-Type: application/octet-stream"`.
 - Change the `-d` switch to `--data-binary`.

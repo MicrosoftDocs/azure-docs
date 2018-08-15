@@ -3,17 +3,19 @@ title: How to configure user provisioning to an Azure AD Gallery application | M
 description: How you can quickly configure rich user account provisioning and deprovisioning to applications already listed in the Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
+ms.reviewer: asteen
 
 ---
 

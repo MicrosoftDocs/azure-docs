@@ -2,19 +2,12 @@
 title: Develop for Azure Files with C++ | Microsoft Docs
 description: Learn how to develop C++ applications and services that use Azure Files to store file data.
 services: storage
-documentationcenter: .net
 author: renashahmsft
-manager: aungoo
-editor: tamram
-
-ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
+ms.component: files
 ---
 
 # Develop for Azure Files with C++
@@ -33,7 +26,7 @@ In this tutorial, you'll learn how to perform basic operations on Azure Files. T
 * Create a shared access signature (SAS key) for a file that uses a shared access policy defined on the share.
 
 > [!Note]  
-> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure file share using the standard C++ I/O classes and functions. This article will describe how to write applications that use the Azure Storage C++ SDK, which uses the [File REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files.
+> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure file share using the standard C++ I/O classes and functions. This article will describe how to write applications that use the Azure Storage C++ SDK, which uses the [File REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) to talk to Azure Files.
 
 ## Create a C++ application
 To build the samples, you will need to install the Azure Storage Client Library 2.4.0 for C++. You should also have created an Azure storage account.

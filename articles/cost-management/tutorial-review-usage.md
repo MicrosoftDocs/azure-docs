@@ -37,7 +37,7 @@ You review all usage and costs in the Cloudyn portal. Open the Cloudyn portal fr
 
 ## Track usage and cost trends
 
-You track actual money spent for usage and costs with Over Time reports to identify trends. To start looking at trends, use the Actual Cost Over Time report. On the menu at the top of the portal, click **Costs** > **Cost Analysis** > **Actual Cost Over Time**. When you first open the report, no groups or filters are applied to it.
+You track actual money spent for usage and costs with Over Time reports to identify trends. To start looking at trends, use the Actual Cost Over Time report. On the top left of the portal, click **Costs** > **Cost Analysis** > **Actual Cost Over Time**. When you first open the report, no groups or filters are applied to it.
 
 Here is an example report:
 
@@ -85,7 +85,7 @@ You can alert stakeholders automatically for spending anomalies and overspending
 
 You create an alert for any spending using any Cost report. In this example, use the Actual Cost Over Time report to notify you when Azure VM spending nears your total budget. All the following steps are needed to create the alert. On the menu at the top of the portal, click **Costs** > **Cost Analysis** > **Actual Cost Over Time**. Set **Groups** to **Service** and set **Filter on the service** to **Azure/VM**. In the top right of the report, click **Actions** and then select **Schedule report**.
 
-Use the **Scheduling** tab to send yourself an email of the report using the frequency that you want. Be sure to select **Send via email**. Any tags, grouping, and filtering you used are included in the emailed report. Click the **Threshold** tab and select choose **Actual Cost vs. Threshold**. If you had a total budget of $500,000 and you wanted notification when costs near about half, create a **Red alert** at $250,000 and a **Yellow alert** at $240,000. Don't include commas in values that you enter. Then, choose the number of consecutive alerts. When you receive the total number of alerts that you specified, no additional alerts are sent. Save the scheduled report.
+In the Save or Schedule this report box, use the **Scheduling** tab to send yourself an email of the report using the frequency that you want. Be sure to select **Send via email**. Any tags, grouping, and filtering you used are included in the emailed report. Click the **Threshold** tab and select choose **Actual Cost vs. Threshold**. If you had a total budget of $500,000 and you wanted notification when costs near about half, create a **Red alert** at $250,000 and a **Yellow alert** at $240,000. Don't include commas in values that you enter. Then, choose the number of consecutive alerts. When you receive the total number of alerts that you specified, no additional alerts are sent. Save the scheduled report.
 
 ![example report](./media/tutorial-review-usage/schedule-alert01.png)
 

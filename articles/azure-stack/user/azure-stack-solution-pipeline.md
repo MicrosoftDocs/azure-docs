@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
@@ -82,7 +82,7 @@ This tutorial assumes that you have some basic knowledge of Azure and Azure Stac
 
 ### Developer tool requirements
 
-* Create a [VSTS workspace](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services). The sign-up process creates a project named **MyFirstProject**.
+* Create a [VSTS workspace](https://docs.microsoft.com/vsts/repos/tfvc/create-work-workspaces). The sign-up process creates a project named **MyFirstProject**.
 * [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Connect to your project and [clone it locally](https://www.visualstudio.com/docs/git/gitquickstart).
 
@@ -130,7 +130,7 @@ A Service Principal requires a key for authentication. Use the following steps t
 
     ![Key description and duration](media\azure-stack-solution-hybrid-pipeline\000_05.png)
 
-    After you save the key, the key **VALUE** is displayed. Copy this value because you can't get this value later. You provide the **key value** with the application ID to log in as the application. Store the key value where your application can retrieve it.
+    After you save the key, the key **VALUE** is displayed. Copy this value because you can't get this value later. You provide the **key value** with the application ID to sign in as the application. Store the key value where your application can retrieve it.
 
     ![Key VALUE](media\azure-stack-solution-hybrid-pipeline\000_06.png)
 

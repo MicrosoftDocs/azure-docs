@@ -114,7 +114,7 @@ Found memtest86+ image: /memtest86+.bin
 done
 ```
 
-For the Redhat distribution family, you only need the following command:   
+For the Red Hat distribution family, you only need the following command:   
 
 ```bash
 echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local

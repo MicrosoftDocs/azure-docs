@@ -34,7 +34,7 @@ This article assumes that you have a web app with application insights configure
 > Note: In case there is a problem reading the resource metrics and the current capacity is below the default capacity, then to ensure the availability of the resource, Autoscale will scale out to the default value. If the current capacity is already higher than default capacity, Autoscale will not scale in.
 - Click on 'Save'
 
-Congratulations. You now now succesfully created your scale setting to auto scale your web app based on a custom metric.
+Congratulations. You now succesfully created your scale setting to auto scale your web app based on a custom metric.
 
 > Note: The same steps are applicable to get started with a VMSS or cloud service role.
 

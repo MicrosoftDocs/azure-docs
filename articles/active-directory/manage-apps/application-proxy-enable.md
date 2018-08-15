@@ -11,8 +11,8 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/31/2018
+ms.topic: conceptual
+ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -27,7 +27,7 @@ If you're not yet aware of the security and productivity benefits Application Pr
 ## Application Proxy prerequisites
 Before you can enable and use Application Proxy services, you need to have:
 
-* A [Microsoft Azure AD basic or premium subscription](../active-directory-whatis.md) and an Azure AD directory for which you are a global administrator.
+* A [Microsoft Azure AD basic or premium subscription](../fundamentals/active-directory-whatis.md) and an Azure AD directory for which you are a global administrator.
 * A server running Windows Server 2012 R2 or 2016, on which you can install the Application Proxy Connector. The server needs to be able to connect to the Application Proxy services in the cloud, and the on-premises applications that you are publishing.
   * For single sign-on to your published applications using Kerberos Constrained Delegation, this machine should be domain-joined in the same AD domain as the applications that you are publishing. For information, see [KCD for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
@@ -61,7 +61,6 @@ To prepare your environment for Azure AD Application Proxy, you first need to en
 
 4. Your connector needs access to login.windows.net and login.microsoftonline.com for the registration process.
 
-5. Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) to verify that your connector can reach the Application Proxy service. At a minimum, make sure that the Central US region and the region closest to you have all green checkmarks. Beyond that, more green checkmarks means greater resiliency.
 
 ## Install and register a connector
 1. Sign in as an administrator in the [Azure portal](https://portal.azure.com/).

@@ -29,13 +29,18 @@ To complete this quickstart, you need:
 To call the Bing Custom Search endpoint, follow these steps:
 
 1. Create a folder for your code.
+
 2. From an administrator command prompt or terminal, navigate to the folder you just created.
+
 3. Install the **requests** python module:
+
     <pre>
     pip install pipenv
     pipenv install requests
     </pre>
+    
 7. Create the file BingCustomSearch.py and copy the following code to it.
+
 8. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID (see step 1).
 
     ``` Python

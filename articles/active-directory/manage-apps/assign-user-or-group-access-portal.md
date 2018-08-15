@@ -12,7 +12,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: barbkess
 ms.reviewer: luleon
@@ -116,7 +116,7 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
     ```
 
 ## Next steps
-* [See all of my groups](../active-directory-groups-view-azure-portal.md)
+* [See all of my groups](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Remove a user or group assignment from an enterprise app](remove-user-or-group-access-portal.md)
 * [Disable user sign-ins for an enterprise app](disable-user-sign-in-portal.md)
 * [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)

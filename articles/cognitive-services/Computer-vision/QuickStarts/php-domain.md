@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: nolachar
 ---
-# Quickstart: Use a Domain Model with PHP
+# Quickstart: Use a domain model with PHP
 
 In this quickstart, you use a domain model to identify landmarks or celebrities in an image using Computer Vision.
 

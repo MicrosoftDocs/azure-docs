@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: nolachar
 ---
-# Quickstart: Extract Printed Text (OCR) with JavaScript
+# Quickstart: Extract printed text (OCR) with JavaScript
 
 In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
 

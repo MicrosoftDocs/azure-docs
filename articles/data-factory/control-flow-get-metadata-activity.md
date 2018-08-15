@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 07/03/2018
 ms.author: shlo
 
 ---
 # Get metadata activity in Azure Data Factory
-GetMetadata activity can be used to retrieve **metadata** of any data in Azure Data Factory. This activity is supported only for data factories of version 2. It can be used in the following scenarios:
+GetMetadata activity can be used to retrieve **metadata** of any data in Azure Data Factory. This activity can be used in the following scenarios:
 
 - Validate the metadata information of any data
 - Trigger a pipeline when data is ready/ available
@@ -28,12 +28,9 @@ The following functionality is available in the control flow:
 - The output from GetMetadata Activity can be used in conditional expressions to perform validation.
 - A pipeline can be triggered when condition is satisfied via Do-Until looping
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory V1 documentation](v1/data-factory-introduction.md).
-
 ## Supported capabilities
 
-The GetMetadata Activity takes a dataset as a required input, and outputs metadata information available as activity output. Currently, the following connectors with corresponding retrievable meatadata are supported:
+The GetMetadata Activity takes a dataset as a required input, and outputs metadata information available as activity output. Currently, the following connectors with corresponding retrievable meatadata are supported, and the maximum supported metadata size is up to **1MB**.
 
 >[!NOTE]
 >If you run GetMetadata activity on a Self-hosted Integration Runtime, the latest capability is supported on version 3.6 or above. 
@@ -44,12 +41,16 @@ The GetMetadata Activity takes a dataset as a required input, and outputs metada
 
 | Connector/Metadata | itemName<br>(file/folder) | itemType<br>(file/folder) | size<br>(file) | created<br>(file/folder) | lastModified<br>(file/folder) |childItems<br>(folder) |contentMD5<br>(file) | structure<br/>(file) | columnCount<br>(file) | exists<br>(file/folder) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Azure Blob | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
+| Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| Azure Blob | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure File Storage | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | File System | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | FTP | √/√ | √/√ | √ | x/x	| √/√ | √ | x | √ | √ | √/√ |
+
+- For Amazon S3, the `lastModified` applies to bucket and key but not virtual folder; ; and the `exists` applies to bucket and key but not prefix or virtual folder.
+- For Azure Blob, the `lastModified` applies to container and blob but not virtual folder.
 
 **Relational database:**
 

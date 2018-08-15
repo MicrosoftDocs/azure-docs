@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
 
 ---
@@ -42,7 +42,7 @@ If you've deployed Azure Stack using Azure AD as the identity store, you can cre
 ### Create service principal
 In this section, you create an application (service principal) in Azure AD that represents your application.
 
-1. Log in to your Azure Account through the [Azure portal](https://portal.azure.com).
+1. Sign in to your Azure Account through the [Azure portal](https://portal.azure.com).
 2. Select **Azure Active Directory** > **App registrations** > **Add**   
 3. Provide a name and URL for the application. Select either **Web app / API** or **Native** for the type of application you want to create. After setting the values, select **Create**.
 
@@ -94,17 +94,45 @@ The following information is required as input for the automation parameters:
    > [!NOTE]
    > This example creates a self-signed certificate. When you run these commands in a production deployment, use Get-Certificate to retrieve the certificate object for the certificate you want to use.
 
-   ```
-   $creds = Get-Credential
+   ```PowerShell  
+    # Credential for accessing the ERCS PrivilegedEndpoint typically domain\cloudadmin
+    $creds = Get-Credential
 
-   $session = New-PSSession -ComputerName <IP Address of ECRS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+    # Creating a PSSession to the ERCS PrivilegedEndpoint
+    $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-   $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=testspn2" -KeySpec KeyExchange
+    # This produces a self signed cert for testing purposes.  It is prefered to use a managed certificate for this.
+    $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
 
-   Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name 'MyApp' -ClientCertificates $using:cert}
+    $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}
+    $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
+    $session|remove-pssession
 
-   $session|remove-pssession
+    # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
 
+    # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
+
+    # TenantID for the stamp. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    $TenantID = $AzureStackInfo.AADTenantID
+
+    # Register an AzureRM environment that targets your Azure Stack instance
+    Add-AzureRMEnvironment `
+    -Name "AzureStackUser" `
+    -ArmEndpoint $ArmEndpoint
+
+    # Set the GraphEndpointResourceId value
+    Set-AzureRmEnvironment `
+    -Name "AzureStackUser" `
+    -GraphAudience $GraphAudience `
+    -EnableAdfsAuthentication:$true
+
+    Add-AzureRmAccount -EnvironmentName "azurestackuser" `
+    -ServicePrincipal `
+    -CertificateThumbprint $ServicePrincipal.Thumbprint `
+    -ApplicationId $ServicePrincipal.ClientId `
+    -TenantId $TenantID
    ```
 
 2. After the automation finishes, it displays the required details to use the SPN. 
@@ -119,6 +147,7 @@ The following information is required as input for the automation parameters:
    PSComputerName        : azs-ercs01
    RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
    ```
+
 ### Assign a role
 Once the Service Principal is created, you must [assign it to a role](azure-stack-create-service-principals.md#assign-role-to-service-principal)
 
@@ -129,7 +158,7 @@ Once you've assigned a role, you can sign in to Azure Stack using the service pr
 Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId ` 
+ -ApplicationId $servicePrincipal.ClientId ` 
  -TenantId $directoryTenantId
 ```
 

@@ -11,13 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 06/14/2018 
+ms.date: 07/13/2018 
 ms.author: jeffgilb 
 ms.reviewer: jeffgo 
 --- 
 
 # Update the MySQL resource provider 
-A new SQL resource provider adapter might be released when Azure Stack builds are updated. While the existing adapter continues to work, we recommend updating to the latest build as soon as possible. Updates must be installed in order: you cannot skip versions
+
+*Applies to: Azure Stack integrated systems.*
+
+A new SQL resource provider adapter might be released when Azure Stack builds are updated. While the existing adapter continues to work, we recommend updating to the latest build as soon as possible. 
+
+>[!IMPORTANT]
+>You must install updates in the order they're released. You can't skip versions. Refer to the versions list in [Deploy the resource provider prerequisites](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 ## Update the MySQL resource provider adapter (integrated systems only)
 A new SQL resource provider adapter might be released when Azure Stack builds are updated. While the existing adapter continues to work, we recommend updating to the latest build as soon as possible.  
@@ -25,6 +31,9 @@ A new SQL resource provider adapter might be released when Azure Stack builds ar
 To update of the resource provider you use the **UpdateMySQLProvider.ps1** script. The process is similar to the process used to install a resource provider, as described in the [Deploy the resource provider](#deploy-the-resource-provider) section of this article. The script is included with the download of the resource provider. 
 
 The **UpdateMySQLProvider.ps1** script creates a new VM with the latest resource provider code and migrates the settings from the old VM to the new VM. The settings that migrate include database and hosting server information, and the necessary DNS record. 
+
+>[!NOTE]
+>We recommend that you download the latest Windows Server 2016 Core image from Marketplace Management. If you need to install an update, you can place a **single** MSU package in the local dependency path. The script will fail if there's more than one MSU file in this location.
 
 The script requires use of the same arguments that are described for the DeployMySqlProvider.ps1 script. Provide the certificate here as well.  
 

@@ -1,16 +1,13 @@
 ---
 title: Overview of Jenkins and Azure | Microsoft Docs
 description: Host the Jenkins build and deploy automation server in Azure and use Azure compute and storage resources to extend your continous integration and deployment (CI/CD) pipelines.
-services: jenkins
-author: rloutlaw
-manager: justhe
-ms.service: jenkins
-ms.devlang: NA
-ms.topic: article
-ms.workload: na
-ms.date: 08/22/2017
-ms.author: routlaw
-ms.custom: mvc
+ms.topic: overview
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/25/2018
 ---
 
 # Azure and Jenkins
@@ -46,4 +43,3 @@ Use Jenkins plugins to deploy your applications to Azure as part of your Jenkins
 
 - [Azure Web App on Linux](/azure/app-service/containers/app-service-linux-intro). See the [tutorial](java-deploy-webapp-tutorial.md) to get started.
 - [Azure Web App](/azure/app-service/app-service-web-overview). See the [how-to](deploy-Jenkins-app-service-plugin.md) to get started.
-

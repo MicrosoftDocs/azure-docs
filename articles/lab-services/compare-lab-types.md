@@ -21,8 +21,10 @@ You can create two types of labs, **managed labs** with Azure Lab Services, and 
 
 The following sections provide more details about these labs. 
 
-## Managed labs
-Managed labs offer different types of labs that fit for your specific need. Currently, Azure Lab Services supports only **classroom lab** as a managed lab. Managed labs enable you to get started right away, with minimal setup. The service itself handles all the management of the infrastructure for the lab, from spinning up the VMs to handling errors, and scaling the infrastructure. To create a managed lab, you need to create a lab account for your organization first. The lab account serves as the central account in which all labs in the organization are managed. 
+## Managed lab types
+Azure Lab Services allows you to create labs whose infrastructure is managed by Azure. This article refers to them as managed labs. Managed labs offer different types of labs that fit for your specific need. Currently, only type of managed lab that's supported is **classroom lab**. 
+
+Managed labs enable you to get started right away, with minimal setup. The service itself handles all the management of the infrastructure for the lab, from spinning up the VMs to handling errors, and scaling the infrastructure. To create a managed lab such as a classroom lab, you need to create a lab account for your organization first. The lab account serves as the central account in which all labs in the organization are managed. 
 
 When you create and use Azure resources in these managed labs, the service creates and manages resources in internal Microsoft subscriptions. They are not created in your own Azure subscription. The service keeps track of usage of these resources in internal Microsoft subscriptions. This usage is billed back to your Azure subscription that contains the lab account.   
 
@@ -47,11 +49,11 @@ Here are some of the **use cases for using DevTest Labs**:
 - Offer training sessions to your customers using a lab configured with the latest version of your product. Give each customer limited number of hours for using in the lab. 
 
 
-## Managed labs vs. DevTest Labs
+## Managed lab types vs. DevTest Labs
 The following table compares two types of labs that are supported by Azure Lab Services: 
 
 | Features | Managed labs | DevTest Labs |
-| -------- | ----------------  | ---------- |
+| -------- | ----------------- | ---------- |
 | Management of Azure infrastructure in the lab. | 	Automatically managed by the service | You manage on your own  |
 | Built-in resiliency to infrastructure issues | Automatically handled by the service | You manage on your own  |
 | Subscription management | Service handles allocation of resources within Microsoft subscriptions backing the service. Scaling is automatically handled by the service. | You manage on your own in your own Azure subscription. No auto-scaling of subscriptions. |

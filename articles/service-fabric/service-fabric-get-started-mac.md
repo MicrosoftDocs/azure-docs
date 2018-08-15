@@ -2,19 +2,19 @@
 title: Set up your development environment on Mac OS X to work with Azure Service Fabric| Microsoft Docs
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you'll be ready to build applications on Mac OS X.
 services: service-fabric
-documentationcenter: java
-author: sayantancs
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: ''
 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
-ms.devlang: java
+ms.devlang: linux
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
-ms.author: saysa
+ms.author: suhuruli
 
 ---
 # Set up your development environment on Mac OS X
@@ -125,6 +125,8 @@ To set up a local Docker container and have a Service Fabric cluster running on 
  The following are known limitations of the local cluster running in a container for Mac's: 
  
  * DNS service does not run and is not supported [Issue #132](https://github.com/Microsoft/service-fabric/issues/132)
+
+ * Container applications cannot be deployed to this local cluster currently
 
 ## Set up the Service Fabric CLI (sfctl) on your Mac
 

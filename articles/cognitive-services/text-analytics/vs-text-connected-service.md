@@ -22,7 +22,7 @@ This article and its companion articles provide details for using the Visual Stu
 - An Azure subscription. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 - Visual Studio 2017 version 15.7, with the Web Development workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
-[!INCLUDE [vs-install-cognitive-services-vsix](../includes/vs-install-cognitive-services-vsix.md)]
+[!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
 ## Add support to your project for the Text Analytics Service
 
@@ -187,7 +187,7 @@ This article and its companion articles provide details for using the Visual Stu
     }
     ```
 
-1. Add the View that shows the analyzed text, the language determined, and the score that represents the confidence level in the analysis.
+1. Add a View to show the analyzed text, the language determined, and the score that represents the confidence level in the analysis. To do this, right-click on the **Views** folder, choose **Add**, then **View**. In the dialog box that appears, provide a name _TextAnalyzeResult_, accept the defaults to add a new file called _TextAnalyzeResult.cshtml_ in the **Views** folder and copy the following contents into it:
     
     ```cshtml
     @using System

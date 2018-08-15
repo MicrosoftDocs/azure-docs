@@ -3,8 +3,8 @@ title: Oracle solutions on Microsoft Azure | Microsoft Docs
 description: Learn about supported configurations and limitations of Oracle solutions on Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
+author: romitgirdhar
 manager: jeconnoc
-author: rickstercdn
 tags: azure-resource-management
 
 ms.assetid: 5d71886b-463a-43ae-b61f-35c6fc9bae25
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/28/2017
-ms.author: rclaus
+ms.date: 08/02/2018
+ms.author: rogirdh
 
 ---
 # Oracle solutions and their deployment on Microsoft Azure

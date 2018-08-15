@@ -11,7 +11,7 @@ ms.date: 01/20/2017
 ms.author: kefre
 ---
 
-# How to Call Computer Vision API
+# How to call the Computer Vision API
 
 This guide demonstrates how to call Computer Vision API using REST. The samples are written both in C# using the Computer Vision API client library, and as HTTP POST/GET calls. We will focus on:
 

@@ -1,21 +1,20 @@
 ---
-title: Use Azure portal to get started with Data Lake Store | Microsoft Docs
-description: Use the Azure portal to create a Data Lake Store account and perform basic operations in the Data Lake Store
+title: Use Azure portal to get started with Data Lake Storage Gen1 | Microsoft Docs
+description: Use the Azure portal to create a Data Lake Store account and perform basic operations in the data lake store
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
 
-ms.assetid: fea324d0-ad1a-4150-81f0-8682ddb4591c
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 06/27/2018
 ms.author: nitinme
 
 ---
-# Get started with Azure Data Lake Store using the Azure portal
+# Get started with Azure Data Lake Storage Gen1 using the Azure portal
+
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -23,7 +22,9 @@ ms.author: nitinme
 >
 > 
 
-Learn how to use the Azure portal to create an Azure Data Lake Store account and perform basic operations such as create folders, upload, and download data files, delete your account, etc. For more information, see [Overview of Azure Data Lake Store](data-lake-store-overview.md).
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
+Learn how to use the Azure portal to create an Azure Data Lake Store account and perform basic operations such as create folders, upload, and download data files, delete your account, etc. For more information, see [Overview of Azure Data Lake Storage Gen1](data-lake-store-overview.md).
 
 ## Prerequisites
 Before you begin this tutorial, you must have the following items:

@@ -4,7 +4,7 @@ description: Use Azure Policy to enforce standards, meet regulatory compliance a
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/13/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
@@ -183,10 +183,8 @@ $definition = New-AzureRmPolicyDefinition -Name 'denyCoolTiering' -Description '
                 "equals": "BlobStorage"
             },
             {
-                "not": {
-                    "field": "Microsoft.Storage/storageAccounts/accessTier",
-                    "equals": "cool"
-                }
+                "field": "Microsoft.Storage/storageAccounts/accessTier",
+                "equals": "cool"
             }
         ]
     },
@@ -271,10 +269,8 @@ az policy definition create --name 'denyCoolTiering' --description 'Deny cool ac
                 "equals": "BlobStorage"
             },
             {
-                "not": {
-                    "field": "Microsoft.Storage/storageAccounts/accessTier",
-                    "equals": "cool"
-                }
+                "field": "Microsoft.Storage/storageAccounts/accessTier",
+                "equals": "cool"
             }
         ]
     },

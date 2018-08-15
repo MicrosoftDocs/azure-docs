@@ -2,11 +2,11 @@
 title: Service-to-service authentication to Azure Key Vault using .NET
 description: Use the Microsoft.Azure.Services.AppAuthentication library to authenticate to Azure Key Vault using .NET.
 keywords: azure key-vault authentication local credentials
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 services: key-vault
 
-ms.author: alleonar
+ms.author: bryanla
 ms.date: 11/15/2017
 ms.topic: article
 ms.prod:
@@ -186,7 +186,7 @@ To use a certificate to sign into Azure AD:
 
     ```
     RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
-          CertificateStoreLocation={LocalMachine or CurrentUser}.
+          CertificateStoreLocation={LocalMachine or CurrentUser}
     ```
  
     Replace _{AppId}_, _{TenantId}_, and _{Thumbprint}_ with values generated in Step 1.
@@ -202,7 +202,7 @@ To sign in using an Azure AD shared secret credential:
 2. Set an environment variable named **AzureServicesAuthConnectionString** to:
 
     ```
-    RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}. 
+    RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret} 
     ```
 
     Replace _{AppId}_, _{TenantId}_, and _{ClientSecret}_ with values generated in Step 1.

@@ -20,7 +20,7 @@ To do this, you have to convert the JSON to a string
 and then convert the string to a PowerShell object before passing its contents to the runbook.
 
 In this example, we'll create a PowerShell script that calls
-[Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx)
+[Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook)
 to start a PowerShell runbook, passing the contents of the JSON to the runbook.
 The PowerShell runbook starts an Azure VM, getting the parameters for the VM from the JSON that was passed in.
 
@@ -83,6 +83,10 @@ Run the following PowerShell commands:
    Connect-AzureRmAccount
    ```
     You are prompted to enter your Azure credentials.
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Add-AzureRmAccount**, or you can update your modules in your Automation Account.
+
 1. Get the contents of the JSON file and convert it to a string:
     ```powershell
     $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string

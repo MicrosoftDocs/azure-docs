@@ -3,19 +3,18 @@ title: 'Azure AD Connect: Hybrid Azure AD join post configuration tasks | Micros
 description: This document details post configuration tasks needed to complete the Hybrid Azure AD join
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
-manager: samueld
+author: billmath
+manager: mtillman
 editor: billmath
-
 ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 08/10/2018
 ms.component: hybrid
-ms.author: anandyadavmsft
+ms.author: billmath
 
 ---
 

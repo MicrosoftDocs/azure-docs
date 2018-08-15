@@ -60,7 +60,7 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 
 Now that you have added a trigger, follow these steps to add an action that will get the contents of the new or modified file found by the trigger.    
 
-1. Select **+ New step** to add the the action to get the contents of the file on the FTP server  
+1. Select **+ New step** to add the action to get the contents of the file on the FTP server  
 2. Select the **Add an action** link.  
    ![FTP action image 1](./media/connectors-create-api-ftp/ftp-action-1.png)  
 3. Enter *FTP* to search for all actions related to FTP.

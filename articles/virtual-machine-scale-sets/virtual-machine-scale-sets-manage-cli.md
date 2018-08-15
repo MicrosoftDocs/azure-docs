@@ -3,7 +3,7 @@ title: Manage Virtual Machine Scale Sets with the Azure CLI 2.0 | Microsoft Docs
 description: Common Azure CLI 2.0 commands to manage Virtual Machine Scale Sets, such as how to start and stop an instance, or change the scale set capacity.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # Manage a virtual machine scale set with the Azure CLI 2.0
@@ -88,7 +88,7 @@ If takes a few minutes to update the capacity of your scale set. If you decrease
 
 
 ## Stop and start VMs in a scale set
-To stop one or more VMs in a scale set, use [az vmss stop](/cli/azure/vmss/stop). The `--instance-ids` parameter allows you to specify one or more VMs to stop. If you do not specify an instance ID, all VMs in the scale set are stopped. To stop multiple VMs, separate each instance ID with a space.
+To stop one or more VMs in a scale set, use [az vmss stop](/cli/azure/vmss#az-vmss-stop). The `--instance-ids` parameter allows you to specify one or more VMs to stop. If you do not specify an instance ID, all VMs in the scale set are stopped. To stop multiple VMs, separate each instance ID with a space.
 
 The following example stops instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your own values as follows:
 

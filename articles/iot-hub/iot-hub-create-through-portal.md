@@ -169,5 +169,5 @@ To further explore the capabilities of IoT Hub, see:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-securing]: iot-hub-security-ground-up.md
+[lnk-securing]: /azure/iot-fundamentals/iot-security-ground-up
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md

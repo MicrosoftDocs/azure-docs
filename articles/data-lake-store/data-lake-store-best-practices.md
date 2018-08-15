@@ -1,20 +1,22 @@
 ---
-title: Best practices for using Azure Data Lake Store | Microsoft Docs
-description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Store 
+title: Best practices for using Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Storage Gen1 (previously known as Azure Data Lake Store) 
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
-editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/27/2018
 ms.author: sachins
 
 ---
-# Best practices for using Azure Data Lake Store
+# Best practices for using Azure Data Lake Storage Gen1
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 In this article, you learn about best practices and considerations for working with the Azure Data Lake Store. This article provides information around security, performance, resiliency, and monitoring for Data Lake Store. Before Data Lake Store, working with truly big data in services like Azure HDInsight was complex. You had to shard data across multiple Blob storage accounts so that petabyte storage and optimal performance at that scale could be achieved. With Data Lake Store, most of the hard limits for size and performance are removed. However, there are still some considerations that this article covers so that you can get the best performance with Data Lake Store. 
 
 ## Security considerations
@@ -110,7 +112,7 @@ Copy jobs can be triggered by Apache Oozie workflows using frequency or data tri
 
 ### Use Azure Data Factory to schedule copy jobs 
 
-Azure Data Factory can also be used to schedule copy jobs using a **Copy Activity**, and can even be set up on a frequency via the **Copy Wizard**. Keep in mind that Azure Data Factory has a limit of cloud data movement units (DMUs), and eventually caps the throughput/compute for large data workloads. Additionally, Azure Data Factory currently does not offer delta updates between Data Lake Store accounts, so folders like Hive tables would require a complete copy to replicate. Refer to the [Copy Activity tuning guide](../data-factory/v1/data-factory-copy-activity-performance.md) for more information on copying with Data Factory. 
+Azure Data Factory can also be used to schedule copy jobs using a **Copy Activity**, and can even be set up on a frequency via the **Copy Wizard**. Keep in mind that Azure Data Factory has a limit of cloud data movement units (DMUs), and eventually caps the throughput/compute for large data workloads. Additionally, Azure Data Factory currently does not offer delta updates between Data Lake Store accounts, so folders like Hive tables would require a complete copy to replicate. Refer to the [Copy Activity tuning guide](../data-factory/copy-activity-performance.md) for more information on copying with Data Factory. 
 
 ### AdlCopy
 
