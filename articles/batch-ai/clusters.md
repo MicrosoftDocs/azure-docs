@@ -84,7 +84,7 @@ az batchai cluster create \
     --use-auto-storage 
 ```
 
-The following example provisions a Standard_NC6 cluster that includes a Data Science Virtual Machine image, custom storage and mounting options, custom SSH credentials, a setup taskthat installs the *unzip* package, and a cluster configuration file for additional setup. This configuration is an example of a cluster that is more customized to your own needs.
+The following example provisions a Standard_NC6 cluster that includes a Data Science Virtual Machine image, custom storage and mounting options, custom SSH credentials, a setup task that installs the *unzip* package, and a cluster configuration file for additional setup. This configuration is an example of a cluster that is more customized to your own needs.
 
 ```azurecli-interactive
 az batchai cluster create \
@@ -182,7 +182,7 @@ After provisioning the cluster, you can then submit jobs to run on the nodes. Se
 
 ## Downscale cluster for later use
 
-Once you are finished running your jobs, you will want to downscale your cluster. It is recommended to always downscale clusters when they are not being used in order to save compute costs. Downscaling a cluster to 0 nodes allows you to stop your billing charges while not needing to re-provision the clusters in the future when you need to upscale again. If autoscaling was selected in cluster creation, the cluster should automatically downscale to the minimum target. If manual scaling was selected, downscale the cluster using the following command.
+Once you are finished running your jobs, you will want to downscale your cluster. It is recommended to always downscale clusters when they are not being used in order to save compute costs. Downscaling a cluster to 0 nodes allows you to stop your billing charges while not needing to reprovision the clusters in the future when you need to upscale again. If autoscaling was selected in cluster creation, the cluster should automatically downscale to the minimum target. If manual scaling was selected, downscale the cluster using the following command.
 
 ```azurecli-interactive
 az batchai cluster resize \
