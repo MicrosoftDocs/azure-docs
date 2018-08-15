@@ -400,34 +400,7 @@
 ### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Secure your identities
-### Conditional access
-#### [Overview](conditional-access/overview.md)
-#### Quickstarts
-##### [Require MFA for specific apps](conditional-access/app-based-mfa.md)
-##### [Require terms of use to be accepted](conditional-access/require-tou.md)
-##### [Block access when a session risk is detected](conditional-access/app-sign-in-risk.md)
-#### Tutorials
-##### [Migrate classic MFA policy](conditional-access/policy-migration-mfa.md)
-#### Concepts
-##### [Baseline Protection](conditional-access/baseline-protection.md)
-##### [Conditions](conditional-access/conditions.md)
-##### [Location conditions](conditional-access/location-condition.md)
-##### [Controls](conditional-access/controls.md)
-##### [What if tool](conditional-access/what-if-tool.md)
-#### How-to guides
-##### [Best practices](conditional-access/best-practices.md)
-##### [Require MFA for access attempts from untrusted networks](conditional-access/untrusted-networks.md)
-##### [Require managed devices](conditional-access/require-managed-devices.md)
-##### [Require approved client apps](conditional-access/app-based-conditional-access.md)
-##### [Require terms of use for users and apps](active-directory-tou.md)
-##### [Migrate classic policies](conditional-access/policy-migration.md)
-##### [Set up VPN connectivity](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
-##### [Set up SharePoint and Exchange Online](conditional-access/conditional-access-for-exo-and-spo.md)
-##### [Remediation](active-directory-conditional-access-device-remediation.md)
-#### [Reference](conditional-access/technical-reference.md)
-##### [Technical reference](conditional-access/technical-reference.md)
-#### [FAQs](conditional-access/faqs.md)
-
+### [Conditional access](coditional-access/index.md)
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
