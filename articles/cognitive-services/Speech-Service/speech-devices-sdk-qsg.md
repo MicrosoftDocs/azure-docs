@@ -39,9 +39,9 @@ Before starting development with the Speech Devices SDK, gather the information 
 
 ## Set up the development kit
 
-1. Plug in the development kit's power adapter. A green power indicator should light up under the top board.
+1. Power up the dev kit using a mini USB cable connected to a PC or a power adptor. A green power indicator should light up under the top board.
 
-1. Connect the development kit to a computer using a mini USB cable.
+1. Connect the development kit to a computer using a second mini USB cable.
 
     ![connecting the dev kit](media/speech-devices-sdk/qsg-1.jpg)
 
@@ -77,9 +77,16 @@ Before starting development with the Speech Devices SDK, gather the information 
 
 1.	Your device should be listed under "Choose a device". Click the **View** button next to it. 
  
-1.	Connect to your wireless network by clicking **Settings**, then **WLAN**.
+1.	Connect to your wireless network by clicking on the folder icon, then **Settings**, then **WLAN**.
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
+ 
+ > [!NOTE]
+ > If your company has policies regarding connecting devices to the wifi system, you need to obtain the Mac Address and contact your IT department about how to connect it to your wifi system. To find the Mac Address of the dev kit, click on the file folder icon on the desktop of the dev kit, then **Settings**, search for "Mac address", click on **Mac address** to get into **Advanced WLAN**, write down the Mac address found towards the bottom.
+ 
+   ![Vysor file folder](media/speech-devices-sdk/qsg-10.png)
+   
+   ![Vysor Mac Address](media/speech-devices-sdk/qsg-11.png)
  
 ## Run a sample application
 
@@ -174,7 +181,11 @@ To run the Roobo tests and validate your development kit setup, build and instal
 
 ## Troubleshooting
 
-If you get certificate failures when using the Speech service, make sure the device has the correct date and time.
+If you get certificate failures when using the Speech service, make sure the device has the correct date and time. Go to **Settings**, click on **Date & time** under System, and **Select time zone** to be your current time zone. Keep **Automatic date & time** ON. When you see the dev kit's time matches your PC's time, then you will know the dev kit is connected to the internet. 
+
+ ![Vysor file folder](media/speech-devices-sdk/qsg-12.png)
+ 
+ ![Vysor file folder](media/speech-devices-sdk/qsg-13.png)
 
 For more development information, see Roobo's [development guide](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 
