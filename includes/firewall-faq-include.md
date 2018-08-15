@@ -5,7 +5,7 @@
  author: vhorne
  ms.service: 
  ms.topic: include
- ms.date: 7/30/2018
+ ms.date: 8/13/2018
  ms.author: victorh
  ms.custom: include file
 ---
@@ -74,6 +74,29 @@ The Azure Firewall service complements Network Security Group functionality and 
 ### How do I set up Azure Firewall with my service endpoints?
 
 For secure access to PaaS services, we recommend Service Endpoints. Azure Firewall customers can choose to enable service endpoints in the Azure Firewall subnet and disable it on the connected spoke VNETs for benefitting from both features – service endpoint security and central logging for all traffic.
+
+### How can I stop and start Azure Firewall?
+
+You can use Azure PowerShell *deallocate* and *allocate* methods.
+
+For example:
+
+```azurepowershell
+# Stop an exisitng firewall
+
+$azfw = Get-AzureRmFirewall -Name "FW Name” -ResourceGroupName "RG Name"
+$azfw.Deallocate()
+Set-AzureRmFirewall -AzureFirewall $azfw
+```
+
+```azurepowershell
+#Start a firewall
+
+$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+$publicip = Get-AzureRmPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
+$azfw.Allocate($vnet,$publicip)
+Set-AzureRmFirewall -AzureFirewall $azfw
+```
 
 ### What are the known service limits?
 

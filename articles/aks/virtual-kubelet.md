@@ -34,31 +34,6 @@ To install the Virtual Kubelet, [Helm](https://docs.helm.sh/using_helm/#installi
 
 If your AKS cluster is RBAC-enabled, you must create a service account and role binding for use with Tiller. For more information, see [Helm Role-based access control][helm-rbac].
 
-A *ClusterRoleBinding* must also be created for the Virtual Kubelet. To create a binding, create a file named *rbac-virtualkubelet.yaml* and paste the following definition:
-
-```yaml
-apiVersion: rbac.authorization.k8s.io/v1beta1
-kind: ClusterRoleBinding
-metadata:
-  name: virtual-kubelet
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: cluster-admin
-subjects:
-- kind: ServiceAccount
-  name: default
-  namespace: default
-```
-
-Apply the binding with [kubectl apply][kubectl-apply] and specify your *rbac-virtualkubelet.yaml* file, as shown in the following example:
-
-```
-$ kubectl apply -f rbac-virtual-kubelet.yaml
-
-clusterrolebinding.rbac.authorization.k8s.io/virtual-kubelet created
-```
-
 You can now continue to installing the Virtual Kubelet into your AKS cluster.
 
 ## Installation
@@ -160,7 +135,7 @@ spec:
     spec:
       containers:
       - name: nanoserver-iis
-        image: nanoserver/iis
+        image: microsoft/iis:nanoserver
         ports:
         - containerPort: 80
       nodeSelector:

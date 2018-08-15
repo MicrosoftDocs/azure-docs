@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 08/14/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 
@@ -67,9 +67,8 @@ You can also perform scale unit node actions from here.
 
 When you view information about a scale unit node, you can also perform node actions such as:
 
-- power on and power off
-- drain and resume
-- repair
+- Drain and resume
+- Repair
 
 The operational state of the node determines which options are available.
 
@@ -151,4 +150,4 @@ To run the repair action through PowerShell:
 
 ## Next steps
 
-To learn more about the Azure Stack Fabric administrator module, see [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.3.0).
+To learn more about the Azure Stack Fabric administrator module, see [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.4.0).

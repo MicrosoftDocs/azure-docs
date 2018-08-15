@@ -146,7 +146,7 @@ Because antivirus works by scanning files for known malicious code, an antivirus
 The following solutions are known to support skipping offline files:
 
 - [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - Windows Defender automatically skips reading such files. We have tested Defender and identified one minor issue: when you add a server to an existing sync group, files smaller than 800 bytes are recalled (downloaded) on the new server. These files will remain on the new server and will not be tiered since they do not meet the tiering size requirement (>64kb).
+    - Windows Defender automatically skips reading files that have the offline attribute set. We have tested Defender and identified one minor issue: when you add a server to an existing sync group, files smaller than 800 bytes are recalled (downloaded) on the new server. These files will remain on the new server and will not be tiered since they do not meet the tiering size requirement (>64kb).
 - [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
     - SCEP works the same as Defender; see above
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
@@ -187,11 +187,13 @@ Azure File Sync is available only in the following regions:
 | Australia Southeast | Victoria |
 | Canada Central | Toronto |
 | Canada East | Quebec City |
+| Central India | Pune |
 | Central US | Iowa |
 | East Asia | Hong Kong |
 | East US | Virginia |
 | East US2 | Virginia |
 | North Europe | Ireland |
+| South India | Chennai |
 | Southeast Asia | Singapore |
 | UK South | London |
 | UK West | Cardiff |
@@ -211,11 +213,13 @@ To support the failover integration between geo-redundant storage and Azure File
 | Australia Southeast | Australia East     |
 | Canada Central      | Canada East        |
 | Canada East         | Canada Central     |
+| Central India       | South India        |
 | Central US          | East US 2          |
 | East Asia           | Southeast Asia     |
 | East US             | West US            |
 | East US 2           | Central US         |
 | North Europe        | West Europe        |
+| South India         | Central India      |
 | Southeast Asia      | East Asia          |
 | UK South            | UK West            |
 | UK West             | UK South           |
