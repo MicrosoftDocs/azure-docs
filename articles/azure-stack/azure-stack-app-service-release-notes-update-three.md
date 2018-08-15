@@ -31,7 +31,7 @@ These release notes describe the improvements and fixes in Azure App Service on 
 
 ## Build reference
 
-The App Service on Azure Stack Update 3 build number is **74.0.13698.10**
+The App Service on Azure Stack Update 3 build number is **74.0.13698.31**
 
 ### Prerequisites
 
