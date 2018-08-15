@@ -23,7 +23,7 @@ Standard SSDs support all service management operations offered by Managed Disks
 
 **Highly durable and available**: Standard SSDs are built on the same Azure Disks platform, which has consistently delivered high availability and durability for disks. Azure Disks are designed for 99.999 percent availability. Like all Managed Disks, Standard SSDs will also offer Local Redundant Storage (LRS). With LRS, the platform maintains multiple replicas of data for every disk and has consistently delivered enterprise-grade durability for IaaS disks, with an industry-leading ZERO percent Annualized Failure Rate.
 
-**Snapshots**: Like all Managed Disks, Standard SSDs also support creation of Snapshots. Snapshot type can be either Standard (HDD) or Premium (SSD). For cost saving, we recommend Snapshot type of Standard (HDD) for all Azure disk types. This is because when you create a managed disk from a snapshot, you're always able to choose a higher tier such as Standard SSD or Premium SSD. Refer to Managed Disks documentation for detailed instructions on creating and using Snapshots.
+**Snapshots**: Like all Managed Disks, Standard SSDs also support creation of Snapshots. Snapshot type can be either Standard (HDD) or Premium (SSD). For cost saving, we recommend Snapshot type of Standard (HDD) for all Azure disk types. This is because when you create a managed disk from a snapshot, you're always able to choose a higher tier such as Standard SSD or Premium SSD.
 
 ## Scalability and Performance Targets
 
@@ -40,13 +40,13 @@ The following table contains disk sizes, which are currently offered for Standar
 
 Standard SSDs are designed to provide single-digit millisecond latencies for most IO operations, and to deliver the IOPS and throughput up to the limits described in the above table. Actual IOPS and Throughput may vary sometimes depending on the traffic patterns. Standard SSDs will provide more consistent performance than the HDD disks with the lower latency.
 
-Premium SSDs on the other hand, perform better than Standard SSDs, with low latencies, high IOPS/throughput, and even better consistency with provisioned disk performance, and it is the recommended disk type for critical production workloads. If your workload requires high-performance, low-latency disk support, you should consider using Premium Storage. To know more benefits of Premium Storage, visit High-Performance Premium Storage and Azure VM Disks.
+Premium SSDs on the other hand, perform better than Standard SSDs, with low latencies, high IOPS/throughput, and even better consistency with provisioned disk performance. It is the recommended disk type for critical production workloads. If your workload requires high-performance, low-latency disk support, you should consider using Premium Storage.
 
 Like the Premium SSDs, Standard SSDs also use IO Unit size of 256 KB. If the data being transferred is less than 256 KB, it is considered 1 I/O unit. Larger I/O sizes are counted as multiple I/Os of size 256 KB. For example, a 1,100 KB I/O is counted as five I/O units.
 
 ## Pricing and Billing
 
-Refer to the Price details for the new Standard SSDs. When using Standard SSDs, the following billing considerations apply:
+When using Standard SSDs, the following billing considerations apply:
 
 - Managed Disk Size
 - Snapshots
