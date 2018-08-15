@@ -298,6 +298,8 @@
               href: validation-technical-profile.md
         - name: UserJourneys
           href: userjourneys.md
+        - name: RelyingParty
+          href: relyingparty.md
   - name: Reference
     items:
     - name: Code samples
