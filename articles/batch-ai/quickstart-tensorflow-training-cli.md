@@ -269,7 +269,7 @@ You're charged for the Batch AI cluster while the nodes are running. If you want
 az batchai cluster resize \
     --name mycluster \
     --workspace myworkspace \
-    --resource-group myResourceGroup
+    --resource-group myResourceGroup \
     --target 0
 ```
 
