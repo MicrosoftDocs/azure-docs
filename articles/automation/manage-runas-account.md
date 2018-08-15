@@ -1,6 +1,6 @@
 ---
-title: Create Azure Automation Run As accounts
-description: This article describes how to update your Automation account and create Run As accounts with PowerShell, or from the portal.
+title: Manage Azure Automation Run As accounts
+description: This article describes how to manage your Run As accounts with PowerShell, or from the portal.
 services: automation
 ms.service: automation
 ms.component: shared-capabilities
@@ -11,12 +11,13 @@ ms.topic: conceptual
 manager: carmonm
 ---
 
-# Update your Automation account authentication with Run As accounts 
+# Manage Azure Automation Run As accounts
+
 You can update your existing Automation account from the Azure portal or use PowerShell if:
 
 * You create an Automation account but do not create the Run As account.
 * You already use an Automation account to manage Resource Manager resources and you want to update the account to include the Run As account for runbook authentication.
-* You already use an Automation account to manage classic resources and you want to update it to use the Classic Run As account instead of creating a new account and migrating your runbooks and assets to it.   
+* You already use an Automation account to manage classic resources and you want to update it to use the Classic Run As account instead of creating a new account and migrating your runbooks and assets to it.
 
 The process creates the following items in your Automation account.
 
@@ -53,6 +54,7 @@ To update an Automation account, you must have the following specific privileges
 If you are not a member of the subscription’s Active Directory instance before you are added to the global administrator/co-administrator role of the subscription, you are added to Active Directory as a guest. In this situation, you receive a “You do not have permissions to create…” warning on the **Add Automation Account** blade. Users who were added to the global administrator/co-administrator role first can be removed from the subscription's Active Directory instance and readded to make them a full User in Active Directory. To verify this situation, from the **Azure Active Directory** pane in the Azure portal, select **Users and groups**, select **All users** and, after you select the specific user, select **Profile**. The value of the **User type** attribute under the users profile should not equal **Guest**.
 
 ## Create Run As account from the portal
+
 In this section, perform the following steps to update your Azure Automation account in the Azure portal. You create the Run As and Classic Run As accounts individually. If you don't need to manage classic resources, you can just create the Azure Run As account.  
 
 1. Sign in to the Azure portal with an account that is a member of the Subscription Admins role and co-administrator of the subscription.
@@ -63,6 +65,7 @@ In this section, perform the following steps to update your Azure Automation acc
 6. While Azure creates the Run As account, you can track the progress under **Notifications** from the menu. A banner is also displayed stating the account is being created. This process can take a few minutes to complete.  
 
 ## Create Run As account using PowerShell script
+
 This PowerShell script includes support for the following configurations:
 
 * Create a Run As account by using a self-signed certificate.
@@ -72,7 +75,6 @@ This PowerShell script includes support for the following configurations:
 
 >[!NOTE]
 > If you select either option for creating a Classic Run As account, after the script is executed, upload the public certificate (.cer file name extension) to the management store for the subscription that the Automation account was created in.
-> 
 
 1. Save the following script on your computer. In this example, save it with the filename *New-RunAsAccount.ps1*.
 
@@ -273,6 +275,31 @@ After the script has executed successfully, note the following:
 * If you created a Classic Run As account with an enterprise public certificate (.cer file), use this certificate. Follow the instructions for [uploading a management API certificate to the Azure portal](../azure-api-management-certs.md), and then validate the credential configuration with classic deployment resources by using the [sample code to authenticate with Azure Classic Deployment Resources](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * If you did *not* create a Classic Run As account, authenticate with Resource Manager resources and validate the credential configuration by using the [sample code for authenticating with Service Management resources](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
+## <a name="cert-renewal"></a>Self-signed certificate renewal
+
+At some point before your Automation account expires, you need to renew the certificate. If you believe that the Run As account has been compromised, you can delete and re-create it. This section discusses how to perform these operations.
+
+The self-signed certificate that you created for the Run As account expires one year from the date of creation. You can renew it at any time before it expires. When you renew it, the current valid certificate is retained to ensure that any runbooks that are queued up or actively running, and that authenticate with the Run As account, are not negatively affected. The certificate remains valid until its expiration date.
+
+> [!NOTE]
+> If you have configured your Automation Run As account to use a certificate issued by your enterprise certificate authority and you use this option, the enterprise certificate is replaced by a self-signed certificate.
+
+To renew the certificate, do the following:
+
+1. In the Azure portal, open the Automation account.
+
+2. Select **Run As Accounts** under **Account Settings**.
+
+    ![Automation account properties pane](media/automation-manage-account/automation-account-properties-pane.png)
+
+3. On the **Run As Accounts** properties page, select either the Run As account or the Classic Run As account that you want to renew the certificate for.
+
+4. On the **Properties** pane for the selected account, click **Renew certificate**.
+
+    ![Renew certificate for Run As account](media/automation-manage-account/automation-account-renew-runas-certificate.png)
+
+5. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
+
 ## Limiting Run As account permissions
 
 To control targeting of automation against resources in Azure Automation, the Run As account by default is granted contributor rights in the subscription. If you need to restrict what the RunAs service principal can do, you can remove the account from the contributor role to the subscription and add it as a contributor to the resource groups you want to specify.
@@ -283,6 +310,28 @@ In the Azure portal, select **Subscriptions** and choose the subscription of you
 
 To add the service principal to a resource group, select the resource group in the Azure portal and select **Access control (IAM)**. Select **Add**, this opens the **Add permissions** page. For **Role**, select **Contributor**. In the **Select** text box type in the name of the service principal for your Run As account, and select it from the list. Click **Save** to save the changes. Do this for the resources groups you want to give your Azure Automation Run As service principal access to.
 
+## Misconfiguration
+
+Some configuration items necessary for the Run As or Classic Run As account to function properly might have been deleted or created improperly during initial setup. The items include:
+
+* Certificate asset
+* Connection asset
+* Run As account has been removed from the contributor role
+* Service principal or application in Azure AD
+
+In the preceding and other instances of misconfiguration, the Automation account detects the changes and displays a status of *Incomplete* on the **Run As Accounts** properties pane for the account.
+
+![Incomplete Run As account configuration status](media/manage-runas-account/automation-account-runas-incomplete-config.png)
+
+When you select the Run As account, the account **Properties** pane displays the following error message:
+
+```
+The Run As account is incomplete. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connect asset - or the Thumbprint is not identical between Certificate and Connection. Please delete and then re-create the Run As Account.
+```
+
+You can quickly resolve these Run As account issues by deleting and re-creating the account.
+
 ## Next steps
+
 * For more information about Service Principals, see [Application Objects and Service Principal Objects](../active-directory/develop/app-objects-and-service-principals.md).
 * For more information about certificates and Azure services, see [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).

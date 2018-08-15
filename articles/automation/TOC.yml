@@ -65,8 +65,6 @@
         href: automation-config-aws-account.md
       - name: Create Automation Run As account
         href: automation-create-runas-account.md
-      - name: Validate Automation account config
-        href: automation-verify-runas-authentication.md
       - name: Manage role-based access control
         href: automation-role-based-access-control.md
       - name: Manage Automation account
