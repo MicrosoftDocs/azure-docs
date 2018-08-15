@@ -48,13 +48,5 @@ sections:
     items:
     - title: REST API
       html: <p><a href="/rest/api/iot-dps">REST API</a></p>
-    - title: Azure IoT SDK for C
-      html: <p><a href="https://github.com/Azure/azure-iot-sdk-c">C SDK</a></p>
-    - title: Azure IoT SDK for Python
-      html: <p><a href="https://github.com/Azure/azure-iot-sdk-python">Python SDK</a></p>
-    - title: Azure IoT SDK for Node.js
-      html: <p><a href="https://github.com/Azure/azure-iot-sdk-node">Node SDK</a></p>
-    - title: Azure IoT SDK for Java
-      html: <p><a href="https://github.com/Azure/azure-iot-sdk-java">Java SDK</a></p>
-    - title: Azure IoT SDK for .NET
-      html: <p><a href="https://github.com/Azure/azure-iot-sdk-csharp">C# SDK</a></p>
+    - title: Azure IoT SDK's
+      html: <p><a href="https://github.com/Azure/azure-iot-sdk-c">C SDK</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-python">Python SDK</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-node">Node SDK</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-java">Java SDK</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-csharp">C# SDK</a></p>
