@@ -58,24 +58,24 @@ Serial Console can be disabled for an entire subscription by through the [Disabl
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
-Alternatively, you may use the set of commands below in Cloud Shell to disable, enable, and view the disbled status of serial console for a subscription. 
+Alternatively, you may use the set of commands below in Cloud Shell (bash commands shown) to disable, enable, and view the disbled status of serial console for a subscription. 
 
 * To get the disabled status of a subscription:
     ```bash
-    $ export ACCESSTOKEN=($(az account get-access-token | jq .accessToken | tr -d '"')) 
-    $ export SUBSCRIPTION_ID=$(az account show | jq .id -r)
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
     $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
     ```
 * To disable serial console for a subscription:
     ```bash
-    $ export ACCESSTOKEN=($(az account get-access-token | jq .accessToken | tr -d '"')) 
-    $ export SUBSCRIPTION_ID=$(az account show | jq .id -r)
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
     $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
     ```
 * To enable serial console for a subscription:
     ```bash
-    $ export ACCESSTOKEN=($(az account get-access-token | jq .accessToken | tr -d '"')) 
-    $ export SUBSCRIPTION_ID=$(az account show | jq .id -r)
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
     $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
     ```
 
