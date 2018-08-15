@@ -2,7 +2,7 @@
 title: Monitor Azure Functions
 description: Learn how to use Azure Application Insights with Azure Functions for monitoring function execution.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
-ms.author: tdykstra
+ms.author: glenga
 ---
 
 # Monitor Azure Functions

@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/03/2018
+ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
@@ -38,7 +38,7 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 Start by opening the Log Search portal.   
 
 1. In the Azure portal, click **All services**. In the list of resources, type **Monitor**. As you begin typing, the list filters based on your input. Select **Monitor**.
-2. In the Monitor navigation menu, select **Log Analytics** and then select a workspace
+2. On the Monitor navigation menu, select **Log Analytics** and then select a workspace.
 
 ## Create a simple search
 The quickest way to retrieve some data to work with is a simple query that returns all records in table.  If you have any Windows or Linux clients connected to your workspace, then you'll have data in either the Event (Windows) or Syslog (Linux) table.

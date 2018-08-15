@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/19/2018
+ms.date: 07/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -301,6 +301,13 @@ Azure has native Azure Virtual Machine offers that are ever growing in size of C
 The uniqueness of Azure for SAP HANA is a unique offer that sets Azure apart from competition. In order to enable hosting more memory and CPU resource demanding SAP scenarios involving SAP HANA, Azure offers the usage of customer dedicated bare-metal hardware for the purpose of running SAP HANA deployments that require up to 20 TB (60 TB scale-out) of memory for S/4HANA or other SAP HANA workload. This unique Azure solution of SAP HANA on Azure (Large Instances) allows you to run SAP HANA on the dedicated bare-metal hardware with the SAP application layer or workload middle-ware layer hosted in native Azure Virtual Machines. This solution is documented in several documents in the section "SAP HANA on Azure (Large Instances)."   
 
 Hosting SAP workload scenarios in Azure also can create requirements of Identity integration and Single-Sign-On using Azure Activity Directory to different SAP components and SAP SaaS or PaaS offers. A list of such integration and Single-Sign-On scenarios with Azure Active Directory (AAD) and SAP entities is described and documented in the section "AAD SAP Identity Integration and Single-Sign-On."
+
+## Latest Changes
+
+Documentation around SAP HANA Scale-out on Azure VM M128s got added to:
+
+- [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
+- [SAP HANA availability within one Azure region](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
 
 
 ## SAP HANA on SAP HANA on Azure (Large Instances)

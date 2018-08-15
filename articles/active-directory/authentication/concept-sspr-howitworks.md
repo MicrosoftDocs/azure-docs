@@ -47,6 +47,7 @@ Read through the following steps to learn about the logic behind the password re
        * If the authentication methods are not configured, then the user is advised to contact their administrator to reset their password.
      * If the policy requires two methods, then it ensures that the user has the appropriate data defined for at least two of the authentication methods enabled by the administrator policy.
        * If the authentication methods are not configured, then the user is advised to contact their administrator to reset their password.
+     * If an Azure administrator role is assigned to the user then the strong two-gate password policy is enforced. More information about this policy can be found in the section [Administrator reset policy differences](concept-sspr-policy.md#administrator-reset-policy-differences).
    * Checks to see if the user’s password is managed on-premises (federated, pass-through authentication, or password hash synchronized).
      * If writeback is deployed and the user’s password is managed on-premises, then the user is allowed to proceed to authenticate and reset their password.
      * If writeback is not deployed and the user’s password is managed on-premises, then the user is asked to contact their administrator to reset their password.
@@ -64,6 +65,9 @@ If SSPR is enabled, you must select at least one of the following options for th
 * Security questions
 
 Users can only reset their password if they have data present in the authentication methods that the administrator has enabled.
+
+> [!WARNING]
+> Accounts assigned Azure Administrator roles will be required to use methods as defined in the section [Administrator reset policy differences](concept-sspr-policy.md#administrator-reset-policy-differences).
 
 ![Authentication][Authentication]
 
@@ -87,6 +91,9 @@ When using a mobile app, like the Microsoft Authenticator app, as a method for p
 | Mobile app features available | Code | Code or Notification |
 
 Users do not have the option to register their mobile app when registering for self-service password reset from [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup), or in the new security info registration preview at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+
+> [!WARNING]
+> You must enable the [Converged registration for self-service password reset and Azure Multi-Factor Authentication (Public preview)](concept-registration-mfa-sspr-converged.md) before users will be able to access the new experience at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 ### Change authentication methods
 

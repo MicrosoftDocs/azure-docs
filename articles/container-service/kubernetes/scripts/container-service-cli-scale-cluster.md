@@ -47,7 +47,7 @@ This script uses the following commands to create the deployment. Each item in t
 
 | Command | Notes |
 |---|---|
-| [az acs scale](/cli/azure/acs#az_acs_scale) | Scale an ACS cluster. |
+| [az acs scale](/cli/azure/acs#az-acs-scale) | Scale an ACS cluster. |
 
 ## Next steps
 

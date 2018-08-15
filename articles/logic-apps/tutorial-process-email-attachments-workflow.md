@@ -106,7 +106,7 @@ get your storage account's access key:
 
    To get your storage account's access key, you can also use 
    [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 
-   or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az_storage_account_keys_list). 
+   or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list). 
 
 3. Create a blob storage container for your email attachments.
    
@@ -128,7 +128,7 @@ get your storage account's access key:
 
    To create a storage container, you can also use 
    [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer), 
-   or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_create). 
+   or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create). 
 
 Next, connect Storage Explorer to your storage account.
 

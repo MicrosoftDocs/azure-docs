@@ -21,7 +21,9 @@
     - name: 2. Set up a classroom lab
       href: classroom-labs/tutorial-setup-classroom-lab.md 
     - name: 3. Access a classroom lab
-      href: classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md      
+      href: classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md
+    - name: 4. Track usage of a classroom lab
+      href: classroom-labs/tutorial-track-usage.md            
 - name: Samples
   items:
   - name: DevTest Labs
@@ -61,6 +63,8 @@
       href: devtest-lab-create-lab.md
     - name: Create a VM in the lab
       href: devtest-lab-create-first-vm.md
+    - name: Delete a lab or VM in a lab
+      href: devtest-lab-delete-lab-vm.md
     - name: Set policies for the lab
       href: devtest-lab-get-started-with-lab-policies.md 
     - name: Store secrets in Azure Key Vault

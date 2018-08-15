@@ -36,7 +36,7 @@ Batch AI provides resource management and job scheduling specialized for AI trai
 * Automatic or manual scaling of VM clusters using GPUs or CPUs 
 * Configuring SSH communication between VMs and for remote access 
 * Support for any Deep Learning or machine learning framework, with optimized configuration for popular toolkits such as [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) (CNTK), [TensorFlow](https://www.tensorflow.org/), and [Chainer](https://chainer.org/) 
-* Priority-based job queue to share clusters and take advantage of low-priority VMs and reserved instances  
+* Priority-based job queue to share clusters and take advantage of low-priority VMs and Azure reservations  
 * Flexible storage options including Azure Files and a managed NFS server 
 * Mounting remote file shares into the VM and optional container 
 * Providing job status and restarting in case of VM failures 

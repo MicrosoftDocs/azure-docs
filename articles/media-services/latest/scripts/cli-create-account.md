@@ -44,11 +44,11 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Creates a storage account. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Creates a storage account. |
 | [az ams account create](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest#az-ams-account-create) | Creates a Media Services account. |
 | [az ams account sp create](https://docs.microsoft.com/cli/azure/ams/account/sp?view=azure-cli-latest#az-ams-account-sp-create) | Creates a service principal with password and configures its access to an Azure Media Services account. 
-| [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
+| [az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |
 
 
 ## Next steps

@@ -3,13 +3,14 @@ title: Static website hosting in Azure Storage (Preview) | Microsoft Docs
 description: Azure Storage now offers static website hosting (Preview), providing a cost-effective, scalable solution for hosting modern web applications.  
 services: storage
 author: MichaelHauss
-manager: vamshik
 
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
+ms.component: blobs
 ---
+
 # Static website hosting in Azure Storage (Preview)
 Azure Storage now offers static website hosting (Preview), enabling you to deploy cost-effective and scalable modern web applications on Azure. On a static website, webpages contain static content and JavaScript or other client-side code. By contrast, dynamic websites depend on server-side code, and can be hosted using [Azure Web Apps](/app-service/app-service-web-overview.md).
 
@@ -45,12 +46,38 @@ Upload your web assets to the "$web" container that was created as a part of sta
 
 Finally, navigate to your web endpoint to test your website.
 
+### Azure CLI
+Install the storage preview extension:
+
+```azurecli-interactive
+az extension add --name storage-preview
+```
+Enable the feature:
+
+```azurecli-interactive
+az storage blob service-properties update --account-name <account-name> --static-website --404-document <error-doc-name> --index-document <index-doc-name>
+```
+Query for the web endpoint URL:
+
+```azurecli-interactive
+az storage account show -n <account-name> -g <resource-group> --query "primaryEndpoints.web" --output tsv
+```
+
+Upload objects to the $web container:
+
+```azurecli-interactive
+az storage blob upload-batch -s deploy -d $web --account-name <account-name>
+```
+
 ## FAQ
 **Is static websites available for all storage account types?**  
 No, static website hosting is only available in GPv2 standard storage accounts.
 
 **Are Storage VNET and firewall rules supported on the new web endpoint?**  
 Yes, the new web endpoint obeys the VNET and firewall rules configured for the storage account.
+
+**Is the web endpoint case sensitive?**  
+Yes, the web endpoint is case sensitive just like the blob endpoint. 
 
 ## Next steps
 * [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)

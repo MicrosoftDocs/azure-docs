@@ -8,7 +8,8 @@ manager: cfowler
 editor: ''
 
 ms.service: functions
-ms.workload: na
+ms.technology: vs-azure
+ms.workload: azure-vs
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
@@ -193,7 +194,7 @@ You can also manage application settings in one of these other ways:
 
 * [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
-* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set). 
+* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
 
 ## Next steps
 

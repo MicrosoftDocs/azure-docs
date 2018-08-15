@@ -64,13 +64,19 @@ On your AD FS server, open PowerShell. Check that the AutoCertificateRollover va
 >If you are using AD FS 2.0, first run Add-Pssnapin Microsoft.Adfs.Powershell.
 
 ### Step 2: Confirm that AD FS and Azure AD are in sync
-On your AD FS server, open the Azure AD PowerShell prompt, and connect to Azure AD.
+On your AD FS server, open the MSOnline PowerShell prompt, and connect to Azure AD.
 
 > [!NOTE]
-> You can download Azure AD PowerShell [here](https://technet.microsoft.com/library/jj151815.aspx).
->
+> MSOL-Cmdlets are part of the MSOnline PowerShell module.
+> You can download the MSOnline PowerShell Module directly from the PowerShell Gallery.
+> 
 >
 
+    Install-Module MSOnline
+
+Connect to Azure AD using the MSOnline PowerShell-Module.
+
+    Import-Module MSOnline
     Connect-MsolService
 
 Check the certificates configured in AD FS and Azure AD trust properties for the specified domain.

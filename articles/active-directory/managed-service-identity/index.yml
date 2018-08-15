@@ -17,6 +17,15 @@ metadata:
   ms.author: daveba
 abstract:
   description: Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication without having any credentials in your code.  Learn how to create and manage Managed Service Identities with our quickstarts and tutorials.
+  aside:
+    image:
+      alt: 
+      height: 112
+      src: media/index/video-thumb-landing-page.png
+      width: 200  
+    title: Introduction to Managed Service Identity
+    href: https://www.youtube.com/embed/bBi1bll2928
+    width: 200
 sections:
 - title: 5-Minute Quickstarts
   items:

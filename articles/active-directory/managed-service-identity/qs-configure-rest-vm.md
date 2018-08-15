@@ -50,7 +50,7 @@ In this section, you learn how to enable and disable system assigned identity on
 
 To create an Azure VM with system assigned identity enabled, you need create a VM and retrieve an access token to use CURL to call the Resource Manager endpoint with the system assigned identity type value.
 
-1. Create a [resource group](../../azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group/#az_group_create). You can skip this step if you already have resource group you would like to use instead:
+1. Create a [resource group](../../azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group/#az-group-create). You can skip this step if you already have resource group you would like to use instead:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus

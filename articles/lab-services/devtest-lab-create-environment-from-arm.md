@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create multi-VM environments and PaaS resources with Azure Resource Manager templates | Microsoft Docs
 description: Learn how to create multi-VM environments and PaaS resources in Azure DevTest Labs from an Azure Resource Manager template
 services: devtest-lab,virtual-machines,lab-services
@@ -132,7 +132,7 @@ After you have saved a Resource Manager template and customized it for your need
 - [Deploy resources with Resource Manager templates and Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) describes how to use Azure CLI with Resource Manager templates to deploy your resources to Azure.
 
 > [!NOTE]
-> Only a user with lab owner permissions can create VMs from a Resource Manager template by using Azure PowerShell. If you want to automate VM creation using a Resource Manager template and you only have user permissions, you can use the [**az lab vm create** command in the CLI](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
+> Only a user with lab owner permissions can create VMs from a Resource Manager template by using Azure PowerShell. If you want to automate VM creation using a Resource Manager template and you only have user permissions, you can use the [**az lab vm create** command in the CLI](https://docs.microsoft.com/cli/azure/lab/vm#az-lab-vm-create).
 
 ### General limitations 
 

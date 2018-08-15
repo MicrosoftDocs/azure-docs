@@ -3,17 +3,16 @@ title: Writing Expressions for Attribute Mappings in Azure Active Directory | Mi
 description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-
-ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
-ms.author: markvi
+ms.topic: conceptual
+ms.date: 07/30/2018
+ms.author: barbkess
 
 ---
 # Writing Expressions for Attribute Mappings in Azure Active Directory

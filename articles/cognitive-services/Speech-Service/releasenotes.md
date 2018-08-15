@@ -30,7 +30,7 @@ ms.author: wolfma
 **Functional changes**
 
 * `StartContinuousRecognitionAsync()` supports long running recognition
-* The recognition result contains more fields: offset from the audio begining and duration (both in ticks) of the recognized text, additional values representing recognition status, e.g., `InitialSilenceTimeout`, `InitialBabbleTimeout`.
+* The recognition result contains more fields: offset from the audio beginning and duration (both in ticks) of the recognized text, additional values representing recognition status, e.g., `InitialSilenceTimeout`, `InitialBabbleTimeout`.
 * Support AuthorizationToken for creating factory instances.
 
 **Breaking changes**

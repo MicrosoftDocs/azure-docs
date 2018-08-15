@@ -103,7 +103,7 @@ To edit the application properties
 
     - **Enabled for users to sign-in** determines whether users assigned to the application can sign in.
     - **User assignment required** determines whether users who are not assigned to the application can sign in.
-    - **Visible to user** determines whether users can see the application in the access panel. 
+    - **Visible to user** determines whether users assigned to an app can see it in the access panel and O365 launcher. 
 
 4. Use the following tables to help you choose the options that are best for your needs. 
 
@@ -135,7 +135,7 @@ To edit the application properties
        | no  | no  | yes | no  | no   |
        | no  | no  | no  | no  | no   |
 
-    *Can the user see the application in the access panel or the Office 365 app launcher?
+    *Can the user see the application in the access panel and the Office 365 app launcher?
 
 ## Use a custom logo
 

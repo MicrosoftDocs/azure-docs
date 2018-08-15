@@ -7,7 +7,7 @@ author: tomarcher
 manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
-ms.date: 07/25/2018
+ms.date: 07/31/2018
 ---
 
 # Deploy to Azure App Service by using the Jenkins plugin 
@@ -61,7 +61,7 @@ To deploy your project to Web Apps, you can upload your build artifacts (for exa
 Before you set up the job in Jenkins, you need an Azure App Service plan and a web app to run the Java app.
 
 
-1. Create an Azure App Service plan with the **FREE** pricing tier by using the `az appservice plan create` [Azure CLI command](/cli/azure/appservice/plan#az_appservice_plan_create). The App Service plan defines the physical resources that are used to host your apps. All applications that are assigned to an App Service plan share these resources. Shared resources help you to save on costs when hosting multiple apps.
+1. Create an Azure App Service plan with the **FREE** pricing tier by using the `az appservice plan create` [Azure CLI command](/cli/azure/appservice/plan#az-appservice-plan-create). The App Service plan defines the physical resources that are used to host your apps. All applications that are assigned to an App Service plan share these resources. Shared resources help you to save on costs when hosting multiple apps.
 2. Create a web app. You can use the [Azure portal](/azure/app-service-web/web-sites-configure) or the following `az` Azure CLI command:
     ```azurecli-interactive	
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
@@ -218,7 +218,7 @@ For the **Docker registry URL** value, supply the URL by using the format https:
 
 3. Go to http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Replace &lt;x> and &lt;y> with any numbers to get the sum of x + y.
     
-## Troubleshooting
+## Troubleshooting the Jenkins plugin
 
 If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
