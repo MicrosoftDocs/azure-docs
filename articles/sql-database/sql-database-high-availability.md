@@ -6,7 +6,7 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 08/10/2018
+ms.date: 08/15/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 ---
@@ -68,11 +68,6 @@ To use the Read Scale-Out feature with a particular database, you must explicitl
 After Read Scale-Out is enabled for a database, applications connecting to that database will be directed to either the read-write replica or to a read-only replica of that database according to the `ApplicationIntent` property configured in the application’s connection string. For information on the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
 
 If Read Scale-Out is disabled or you set the ReadScale property in an unsupported service tier, all connections are directed to the read-write replica, independent of the `ApplicationIntent` property.  
-
-> [!NOTE]
-> It is possible to activate Read Scale-out on a Standard or a General Purpose database, even though it will not result in routing the  read-only intended session to a separate replica. This is done to support existing applications that scale up and down between Standard/General Purpose and Premium/Business Critical tiers.  
-
-The Read Scale-Out feature supports session level consistency. If the read-only session reconnects after a connection error cause by replica unavailability, it can be redirected to a different replica. While unlikely, it can result in processing the data set that is stale. Likewise, if an application writes data using a read-write session and immediately reads it using the read-only session, it is possible that the new data is not immediately visible.
 
 ## Conclusion
 Azure SQL Database is deeply integrated with the Azure platform and is highly dependent on Service Fabric for failure detection and recovery, on Azure Storage Blobs for data protection and Availability Zones for higher fault tolerance. At the same time, Azure SQL database fully leverages the Always On Availability Group technology from SQL Server box product for replication and failover. The combination of these technologies enables the applications to fully realize the benefits of a mixed storage model and support the most demanding SLAs. 
