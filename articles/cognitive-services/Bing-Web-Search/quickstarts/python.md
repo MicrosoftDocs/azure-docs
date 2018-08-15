@@ -29,7 +29,7 @@ subscription_key = "YOUR_ACCESS_KEY"
 assert subscription_key
 ```
 
-Verify that the `search_url` endpoint is correct. If you encounter authorization errors, double-check this value against the Bing search endpoint in your Azure dashboard.
+Verify that the `search_url` endpoint is correct. If you run into any authorization errors, double-check this value against the Bing search endpoint in your Azure dashboard.
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
@@ -77,4 +77,4 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
 > [!div class="nextstepaction"]
 > [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
-[!INCLUDE [cognitive-services-bing-web-search-quickstart-see-also](../../includes/cognitive-services-bing-web-search-quickstart-see-also.md)]
+[!INCLUDE [cognitive-services-bing-web-search-quickstart-see-also](../cognitive-services-bing-web-search-quickstart-see-also.md)]  
