@@ -13,6 +13,8 @@ ms.custom: bfmigrate
 
 # Migration from Azure Germany storage resources to global Azure
 
+This article will provide you some help for the migration of Azure Storage resources from Azure Germany to global Azure.
+
 ## Blobs
 
 AzCopy is a free tool to help you copy blobs, files, and tables. AzCopy works from Azure to Azure, from on-premise to Azure and from Azure to on-premise. Use AzCopy for your migration to copy blobs directly between Azure Germany to global Azure.

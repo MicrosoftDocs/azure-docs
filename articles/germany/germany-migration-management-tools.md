@@ -13,6 +13,8 @@ ms.custom: bfmigrate
 
 # Migration of management tools resources from Azure Germany to global Azure
 
+This article will provide you some help for the migration of Azure Management Tool resources from Azure Germany to global Azure.
+
 ## Traffic Manager
 
 Traffic Manager profiles created in Azure Germany can't be migrated to global Azure. Since you also migrate all the Traffic Manager endpoints to the target environment, you need to update the Traffic Manager profile anyway.

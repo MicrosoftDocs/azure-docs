@@ -13,9 +13,9 @@ ms.custom: bfmigrate
 
 # Migration of integration resources from Azure Germany to global Azure
 
-## Service Bus
+This article will provide you some help for the migration of Azure Integration resources from Azure Germany to global Azure.
 
-### Metadata
+## Service Bus
 
 Service Bus services don't have data export or import capabilities. To migrate Service Bus from Azure Germany to global Azure, you can export the Service Bus resources [as a Resource Manager template](../azure-resource-manager/resource-manager-export-template-powershell.md). Then adopt the exported template for global Azure and recreate the resources.
 

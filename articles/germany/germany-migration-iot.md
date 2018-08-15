@@ -13,6 +13,8 @@ ms.custom: bfmigrate
 
 # Migration of Internet of Things (IoT) resources from Azure Germany to global Azure
 
+This article will provide you some help for the migration of Azure IoT resources from Azure Germany to global Azure.
+
 ## Azure Cosmos DB
 
 With the Azure Cosmos DB Data Migration tool, you can easily migrate data to Azure Cosmos DB. The Azure Cosmos DB Data Migration tool is an open-source solution that imports data to Azure Cosmos DB from different sources.

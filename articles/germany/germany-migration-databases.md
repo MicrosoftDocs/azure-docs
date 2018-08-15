@@ -13,6 +13,8 @@ ms.custom: bfmigrate
 
 # Migration of database resources from Azure Germany to global Azure
 
+This article will provide you some help for the migration of Azure Database resources from Azure Germany to global Azure.
+
 ## Azure SQL Database
 
 To migrate Azure SQL databases, you can use (for smaller workloads) the export function to create a BACPAC file. BaACPAC file is a compressed (zip'ed) file with metadata and data from the SQL Server database. Once created, you can copy it to the target environment (for example with AzCopy) and use the import function to rebuild the database. Be aware of the following considerations (see more in the links provided below):

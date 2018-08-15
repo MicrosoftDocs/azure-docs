@@ -13,6 +13,8 @@ ms.custom: bfmigrate
 
 # Migration of compute resources from Azure Germany to global Azure
 
+This article will provide you some help for the migration of Azure Compute resources from Azure Germany to global Azure.
+
 ## Compute IaaS
 
 Unfortunately, no direct migration from Azure Germany to global Azure is possible. But there's more than one way to "duplicate" your VMs.

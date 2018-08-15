@@ -13,6 +13,8 @@ ms.custom: bfmigrate
 
 # Migration of analytics resources from Azure Germany to global Azure
 
+This article will provide you some help for the migration of Azure Analytics resources from Azure Germany to global Azure.
+  
 ## Event Hubs
 
 YOu can't migrate Event Hubs from Azure Germany to global Azure directly, since Event Hub services don't provide data export or import capabilities. However, you can export the Event Hub resources [as a template](../azure-resource-manager/resource-manager-export-template-powershell.md). Then adopt the exported template for global Azure and recreate the resources.

@@ -13,6 +13,8 @@ ms.custom: bfmigrate
 
 # Migration of web resources from Azure Germany to global Azure
 
+This article will provide you some help for the migration of Azure Web resources from Azure Germany to global Azure.
+
 ## App Service - Web Apps
 
 The migration of App Services from Azure Germany to global Azure isn't supported at this time. The recommended approach is to export as Resource Manager template and redeploy after changing the location property to the new destination region.

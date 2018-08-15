@@ -13,6 +13,8 @@ ms.custom: bfmigrate
 
 # Migration of identity resources from Azure Germany to global Azure
 
+This article will provide you some help for the migration of Azure Identity resources from Azure Germany to global Azure.
+
 ## Azure Active Directory
 
 Azure Active Directory in Azure Germany is separated from the Azure AD in global Azure. There's currently no way to move users between Azure Germany and global Azure.

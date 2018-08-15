@@ -13,6 +13,8 @@ ms.custom: bfmigrate
 
 # Migration of media resources from Azure Germany to global Azure
 
+This article will provide you some help for the migration of Azure Media resources from Azure Germany to global Azure.
+
 ## Media Services
 
 In Media Services, you configure your own storage account and all media assets. Create a new Media Services account by following the documentation provided in the links below. Reload corresponding media artifacts and perform encoding and streaming as appropriate under the new Media Services account.

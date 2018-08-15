@@ -13,6 +13,8 @@ ms.custom: bfmigrate
 
 # Migration of security resources from Azure Germany to global Azure
 
+This article will provide you some help for the migration of Azure Security resources from Azure Germany to global Azure.
+
 ## Azure Active Directory
 
 This service is covered under [Migration of Identities](./germany-migration-identity.md#azure-active-directory).

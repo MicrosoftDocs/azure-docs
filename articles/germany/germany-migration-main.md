@@ -11,7 +11,7 @@ ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Introduction
+# Introduction to migration guidance for Azure Germany
 
 These articles provide guidance to migrate your workloads from Azure Germany to global Azure. Although Azure provides tools to migrate resources at the [Azure Migration Center](https://azure.microsoft.com/migration/), some of these tools are designed only for migrations inside the same tenant or the same region.
 
