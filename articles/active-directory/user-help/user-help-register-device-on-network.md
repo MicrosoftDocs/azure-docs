@@ -19,7 +19,7 @@ ms.reviewer: jairoc
 Register your personal device, typically a phone or tablet, on your organization's network. After your device is registered, it will be able to access your organization's restricted resources.
 
 >[!Note]
->This article uses a Windows device for demonstration purposes, but you can also register devices or phones running iOS, Android, or macOS.
+>This article uses a Windows device for demonstration purposes, but you can also register devices running iOS, Android, or macOS.
 
 ## What happens when you register your device
 While you're registering your device on your organization's network, the following actions will happen:
