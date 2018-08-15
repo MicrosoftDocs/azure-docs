@@ -127,6 +127,18 @@ To deploy App Service resource provider, follow these steps:
 
     > [!NOTE]
     > The installer tries to test connectivity to the SQL Server before proceeding. But, if you're deploying to an existing virtual network, this connectivity test might file. You're given a warning and a prompt to continue. If the SQL Server information is correct, continue the deployment.
+    >
+    > From Azure App Service on Azure Stack 1.3 onwards, the installer will check that the SQL Server has database containment enabled at the SQL Server level.  If it is not, you will be prompted with the following exception:
+    > ```sql
+    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
+    >    ***********************************************************
+    >    sp_configure 'contained database authentication', 1;  
+    >    GO  
+    >    RECONFIGURE;  
+    >    GO
+    >    ***********************************************************
+    > ```
+    > Refer to the [release notes for Azure App Service on Azure Stack 1.3](azures-stack-app-service-release-notes-update-three.md) for more details.
 
     ![App Service Installer][11]
 
