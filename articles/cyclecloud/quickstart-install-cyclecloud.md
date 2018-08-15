@@ -67,7 +67,7 @@ The output will display a series of information. You will need to save the `appi
 "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-### SSH KeyPair
+### SSH Keypair
 
 An SSH key is needed to log into the CycleCloud VM and clusters. Generate an SSH keypair:
 
@@ -119,7 +119,7 @@ To connect to the CycleCloud webserver, retrieve the Fully Qualified Domain Name
 az network public-ip show -g ${RESOURCE_GROUP?} -n cycle-ip --query dnsSettings.fqdn
 ```
 
-Browse to https://[fqdn]/. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser.
+Browse to [https://[fqdn]/](https://[fqdn]/). The installation uses a self-signed SSL certificate, which may show up with a warning in your browser.
 
 Create a Site Name for your installation. You can use any name here:
 
