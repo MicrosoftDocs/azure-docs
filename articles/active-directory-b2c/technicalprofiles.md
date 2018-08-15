@@ -205,6 +205,7 @@ The **OutputClaim** element contains the following attributes:
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Yes | The identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file. |
 | DefaultValue | No | A default value to use to create a claim if the claim indicated by ClaimTypeReferenceId does not exist so that the resulting claim can be used as an InputClaim by the technical profile. |
+|AlwaysUseDefaultValue |No |Force the use of the default value.  |
 | PartnerClaimType | No | The identifier of the claim type of the external partner that the specified policy claim type maps to. If the PartnerClaimType attribute is not specified, then the specified policy claim type is mapped to the partner claim type of the same name. Use this property when your claim type name is different from the other party. For example, the first claim name is 'givenName', while the partner uses a claim named 'first_name'. |
 
 ### OutputClaimsTransformations
