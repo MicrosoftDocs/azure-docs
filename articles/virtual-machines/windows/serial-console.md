@@ -44,8 +44,16 @@ serial console for virtual machines is only accessible via [Azure portal](https:
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-### Disable feature
-The serial console functionality can be deactivated for specific VMs by disabling that VM's boot diagnostics setting.
+## Disabling the serial console
+By default, all subscriptions have serial console access enabled for all VMs. You may disable serial console at either the subscription level or VM level.
+
+### Subscription-level disable
+Serial Console can be disabled for an entire subscription by through the [Disable Console REST API call](https://aka.ms/disableserialconsoleapi). Azure CLI commands will arrive at a later date, and until they are ready, you can use the "Try It" functionality available on the API Documentation page to disable Serial Console for a subscription. Enter your subscriptionId, "default" in the default field, and click Run. [Try it here](https://aka.ms/disableserialconsoleapi).
+
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
+
+### VM-level disable
+Serial console can be disabled for specific VMs by disabling that VM's boot diagnostics setting. Simply turn off boot diagnostics from the Azure portal and serial console will be disabled for the VM.
 
 ## Serial console security 
 
@@ -53,7 +61,7 @@ The serial console functionality can be deactivated for specific VMs by disablin
 Access to Serial console is limited to users who have [VM Contributors](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) or above access to the virtual machine. If your AAD tenant requires Multi-Factor Authentication then access to the serial console will also need MFA as its access is via [Azure portal](https://portal.azure.com).
 
 ### Channel security
-All data is sent back and forth is encrypted on the wire.
+All data that is sent back and forth is encrypted on the wire.
 
 ### Audit logs
 All access to the serial console is currently logged in the [boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) logs of the virtual machine. Access to these logs are owned and controlled by the Azure virtual machine administrator.  

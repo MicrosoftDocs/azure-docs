@@ -50,8 +50,16 @@ serial console for virtual machines is only accessible via [Azure portal](https:
 > [!NOTE] 
 > Serial console requires a local user with a password configured. At this time, VMs only configured with SSH public key will not have access to the serial console. To create a local user with password, follow [VM Access Extension](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) and create local user with password.
 
-### Disable feature
-The serial console functionality can be deactivated for specific VMs by disabling that VM's boot diagnostics setting.
+## Disabling the serial console
+By default, all subscriptions have serial console access enabled for all VMs. You may disable serial console at either the subscription level or VM level.
+
+### Subscription-level disable
+Serial Console can be disabled for an entire subscription by through the [Disable Console REST API call](https://aka.ms/disableserialconsoleapi). Azure CLI commands will arrive at a later date, and until they are ready, you can use the "Try It" functionality available on the API Documentation page to disable Serial Console for a subscription. Enter your subscriptionId, "default" in the default field, and click Run. [Try it here](https://aka.ms/disableserialconsoleapi).
+
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
+
+### VM-level disable
+Serial console can be disabled for specific VMs by disabling that VM's boot diagnostics setting. Simply turn off boot diagnostics from the Azure portal and serial console will be disabled for the VM.
 
 ## Serial console security 
 
