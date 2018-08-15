@@ -22,12 +22,12 @@ This should default to a relative path to make it easier to share projects betwe
 
 ## Runtime voxels are a different size than design-time voxels
 
-If you do a "Calculate" on the Probes tab and view the voxels, then do a bake and view voxels at runtime for the same scene, the voxels are very different sizes. The voxels shown pre-bake are the actual simulation voxels. The voxels shown at runtime are the "refined" voxels used for interpolation. This may cause an inconsistency where portals will appear open at runtime that aren't actually open.
+If you do a **Calculate** on the **Probes** tab and view the voxels, then do a bake and view voxels at runtime for the same scene, the voxels are very different sizes. The voxels shown pre-bake are the actual simulation voxels. The voxels shown at runtime are the "refined" voxels used for interpolation. This may cause an inconsistency where portals will appear open at runtime that aren't actually open.
 
 ## UWP builds not working
 
-There is an issue with the latest version of Unity where UWP builds are not succeeding. The run phase of the build will stall and you will get "Unity extensions are not yet initialized" errors. This is tracked by this Unity issue 1070491.
+On the latest versions of Unity (2018.2+), UWP builds are not succeeding. The run phase of the build will stall and you will get "Unity extensions are not yet initialized" errors. This is tracked by [this Unity issue](https://fogbugz.unity3d.com/default.asp?1070491_1rgf14bakv5u779d).
 
 ## Unity crashes when closing project
 
-On the latest versions of Unity (2018.2+), there is a known bug where Unity will crash when you close your project. This is tracked by this Unity issue https://issuetracker.unity3d.com/issues/crash-on-assetdatabase-getassetimporterversions-when-closing-a-specific-unity-project
+On the latest versions of Unity (2018.2+), there is a known bug where Unity will crash when you close your project. This is tracked by [this Unity issue](https://issuetracker.unity3d.com/issues/crash-on-assetdatabase-getassetimporterversions-when-closing-a-specific-unity-project).
