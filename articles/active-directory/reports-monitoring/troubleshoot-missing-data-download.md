@@ -18,6 +18,7 @@ ms.component: report-monitor
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
+
 ---
 
 # I can’t find any data in the Azure Active Directory activity logs I downloaded
@@ -32,7 +33,7 @@ I downloaded the activity logs (audit or sign-ins) and I don’t see all the rec
 
 ## Cause
 
-When you download activity logs in the Azure portal, we limit the scale to 5000 records, sorted by most recent first. 
+When you download activity logs in the Azure portal, we limit the scale to 120K records, sorted by most recent first. 
 
 ## Resolution
 
