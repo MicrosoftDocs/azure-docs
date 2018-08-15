@@ -2,14 +2,14 @@
 title: Tutorial creating a LUIS app to extract data - Azure | Microsoft Docs 
 description: In this tutorial, learn how to create a simple LUIS app using intents and a simple entity to extract machine-learned data. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
+author: diberry
+manager: cjgronlund 
 
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/29/2018
-ms.author: v-geberr
+ms.date: 08/02/2018
+ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 --- 
 
@@ -26,7 +26,7 @@ In this tutorial, create an app that demonstrates how to extract machine-learned
 > * Add phrase list to boost signal of job words
 > * Train, publish app, and requery endpoint
 
-For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Before you begin
 If you don't have the Human Resources app from the [composite entity](luis-tutorial-composite-entity.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json) Github repository.
@@ -67,8 +67,6 @@ This LUIS app has job names in several intents. By labeling these words in all t
 ## Create job simple entity
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
-
-    [ ![Screenshot of LUIS app with Build highlighted in top, right navigation bar](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
 
 2. On the **Intents** page, select **ApplyForJob** intent. 
 
@@ -125,33 +123,18 @@ This LUIS app has job names in several intents. By labeling these words in all t
     There are other example utterances but they do not contain job words.
 
 ## Train the LUIS app
-LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
 
-1. In the top right side of the LUIS website, select the **Train** button.
-
-    ![Select train button](./media/luis-quickstart-primary-and-secondary-data/train-button.png)
-
-2. Training is complete when you see the green status bar at the top of the website confirming success.
-
-    ![Training success notification](./media/luis-quickstart-primary-and-secondary-data/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## Publish the app to get the endpoint URL
-In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
 
-1. In the top right side of the LUIS website, select the **Publish** button. 
-
-2. Select the Production slot and the **Publish** button.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
-
-3. Publishing is complete when you see the green status bar at the top of the website confirming success.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## Query the endpoint with a different utterance
-On the **Publish** page, select the **endpoint** link at the bottom of the page. 
 
-[![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Screenshot of Publish page with endpoint highlighted")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `Here is my c.v. for the programmer job`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `ApplyForJob` utterances.
+2. Go to the end of the URL in the address and enter `Here is my c.v. for the programmer job`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `ApplyForJob` utterances.
 
 ```JSON
 {
@@ -374,7 +357,8 @@ Your chatbot now has enough information to determine the primary action of apply
 LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to use a third-party API to send the job information to a Human Resources representative. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. Select **My apps** in the top, left menu. Select the ellipsis (***...***) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
 

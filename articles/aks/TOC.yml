@@ -49,6 +49,8 @@
       href: aad-integration.md
     - name: Use Virtual Kubelet
       href: virtual-kubelet.md
+    - name: Use Cluster Autoscaler
+      href: autoscaler.md
     - name: Deploy AKS with Terraform
       href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
       maintainContext: true
@@ -87,6 +89,10 @@
     - name: Azure container health solution
       href: ../monitoring/monitoring-container-health.md
       maintainContext: true
+    - name: View the master component logs
+      href: view-master-logs.md
+    - name: View the kubelet logs
+      href: kubelet-logs.md
   - name: Develop and run applications
     items:
     - name: Run applications with Helm
@@ -98,17 +104,17 @@
       href: kubernetes-draft.md
     - name: Open Service Broker for Azure
       href: integrate-azure.md
-    - name: Using OpenFaaS with AKS
+    - name: Using OpenFaaS
       href: openfaas.md
-    - name: Run Spark jobs on AKS
+    - name: Run Spark jobs
       href: spark-job.md
-    - name: Using GPUs on AKS
+    - name: Using GPUs
       href: gpu-cluster.md
-  - name: DevOps on AKS
+  - name: DevOps
     items:
     - name: Jenkins continuous deployment
       href: jenkins-continuous-deployment.md
-    - name: Azure DevOps Project for AKS
+    - name: Azure DevOps Project
       href: ../devops-project/azure-devops-project-aks.md
       maintainContext: true
   - name: Kubernetes basics
@@ -119,8 +125,6 @@
     items:
     - name: SSH node access
       href: aks-ssh.md
-    - name: Get kubelet logs
-      href: kubelet-logs.md
 - name: Reference
   items:
   - name: Azure CLI

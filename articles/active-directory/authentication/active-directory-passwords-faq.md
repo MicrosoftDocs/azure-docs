@@ -5,8 +5,8 @@ description: Frequently asked questions about Azure AD self-service password res
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -112,7 +112,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  How can I educate my users about where to go to reset their passwords?**
 
-  > **A:** Try some of the suggestions in our [SSPR deployment](howto-sspr-deployment.md#email-based-rollout) article.
+  > **A:** Try some of the suggestions in our [SSPR deployment](howto-sspr-deployment.md#sample-communication) article.
   >
   >
 * **Q:  Can I use this page from a mobile device?**
@@ -167,7 +167,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  I configured my policy to require users to use security questions for reset, but the Azure administrators seem to be configured differently.**
 
-  > **A:** This is the expected behavior. Microsoft enforces a strong default two-gate password reset policy for any Azure administrator role. This prevents administrators from using security questions. You can find more information about this policy in the [Password policies and restrictions in Azure Active Directory](concept-sspr-policy.md#administrator-password-policy-differences) article.
+  > **A:** This is the expected behavior. Microsoft enforces a strong default two-gate password reset policy for any Azure administrator role. This prevents administrators from using security questions. You can find more information about this policy in the [Password policies and restrictions in Azure Active Directory](concept-sspr-policy.md) article.
   >
   >
 * **Q:  If a user has registered more than the maximum number of questions required to reset, how are the security questions selected during reset?**
@@ -271,7 +271,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Is password writeback secure?  How can I be sure I won’t get hacked?**
 
-  > **A:** Yes, password writeback is secure. To read more about the four layers of security implemented by the password writeback service, check out the [Password writeback security model](howto-sspr-writeback.md#password-writeback-security-model) section in the [Password writeback overview](howto-sspr-writeback.md) article.
+  > **A:** Yes, password writeback is secure. To read more about the multiple layers of security implemented by the password writeback service, check out the [Password writeback security](concept-sspr-writeback.md#password-writeback-security) section in the [Password writeback overview](howto-sspr-writeback.md) article.
   >
   >
 

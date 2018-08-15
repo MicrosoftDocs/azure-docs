@@ -1,10 +1,9 @@
 ---
-title: Try the Speech service for free | Microsoft Docs
+title: Try the Speech service for free
 description: Discover how you can try the Speech service at no cost.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service
@@ -126,10 +125,8 @@ To add a Speech service resource to your Azure account, follow these steps.
 
 ## Next steps
 
-Download an SDK and some sample code to experience the Speech service.
+Do one of our 10-minute quickstarts, or check out our SDK samples.
 
 > [!div class="nextstepaction"]
-> [Speech SDKs](speech-sdk.md)
-
-> [!div class="nextstepaction"]
-> [Sample code](samples.md)
+> [Quickstart: recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+> [Speech SDK Samples](speech-sdk.md#get-the-samples)

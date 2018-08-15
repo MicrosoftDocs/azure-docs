@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 07/18/2018
 ms.author: jingwang
 
 robots: noindex
@@ -286,15 +286,15 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
 | --- | --- |
 | Auto Number |String |
 | Checkbox |Boolean |
-| Currency |Double |
+| Currency |Decimal |
 | Date |DateTime |
 | Date/Time |DateTime |
 | Email |String |
 | Id |String |
 | Lookup Relationship |String |
 | Multi-Select Picklist |String |
-| Number |Double |
-| Percent |Double |
+| Number |Decimal |
+| Percent |Decimal |
 | Phone |String |
 | Picklist |String |
 | Text |String |

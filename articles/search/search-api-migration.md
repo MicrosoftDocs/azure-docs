@@ -25,7 +25,7 @@ Version 2017-11-11 is the latest generally available release of the Azure Search
 
 * [Synonyms](search-synonyms.md). The new synonyms feature allows you to define equivalent terms and expand the scope of the query.
 * [Support for efficiently indexing text blobs](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#IndexingPlainText). The new `text` parsing mode for Azure Blob indexers significantly improves indexing performance.
-* [Service Statistics API](https://aka.ms/azure-search-stats). View the current usage and limits of resources in Azure Search with this new API.
+* [Service Statistics API](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). View the current usage and limits of resources in Azure Search with this new API.
 
 <a name="UpgradeSteps"></a>
 

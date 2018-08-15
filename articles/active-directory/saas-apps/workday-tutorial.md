@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Workday | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Workday.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Workday from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Workday from the gallery
 To configure the integration of Workday into Azure AD, you need to add Workday from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of Workday into Azure AD, you need to add Workday f
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **Workday**, select **Workday** from result panel then click **Add** button to add the application.
+1. In the search box, type **Workday**, select **Workday** from result panel then click **Add** button to add the application.
 
 	![Workday in the results list](./media/workday-tutorial/tutorial_workday_addfromgallery.png)
 
@@ -84,10 +84,10 @@ In Workday, assign the value of the **user name** in Azure AD as the value of th
 To configure and test Azure AD single sign-on with Workday, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Workday test user](#create-a-workday-test-user)** - to have a counterpart of Britta Simon in Workday that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a Workday test user](#create-a-workday-test-user)** - to have a counterpart of Britta Simon in Workday that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -99,11 +99,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/workday-tutorial/tutorial_workday_samlbase.png)
 
-3. On the **Workday Domain and URLs** section, perform the following steps:
+1. On the **Workday Domain and URLs** section, perform the following steps:
 
 	![Workday Domain and URLs single sign-on information](./media/workday-tutorial/tutorial_workday_url.png)
 
@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     b. In the **Identifier** textbox, type a URL: `http://www.workday.com`
 
-4. Check **Show advanced URL settings** and perform the following step:
+1. Check **Show advanced URL settings** and perform the following step:
 
 	![Workday Domain and URLs single sign-on information](./media/workday-tutorial/tutorial_workday_url1.png)
 
@@ -121,25 +121,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> These values are not the real. Update these values with the actual Sign-on URL and Reply URL. Your reply URL must have a subdomain for example: www, wd2, wd3, wd3-impl, wd5, wd5-impl). 
     > Using something like "*http://www.myworkday.com*" works but "*http://myworkday.com*" does not. Contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get these values.  
 
-5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/workday-tutorial/tutorial_workday_certificate.png) 
 
-6. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/workday-tutorial/tutorial_general_400.png)
 	
-7. On the **Workday Configuration** section, click **Configure Workday** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **Workday Configuration** section, click **Configure Workday** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Workday Configuration](./media/workday-tutorial/tutorial_workday_configure.png) 
 
-8. In a different web browser window, log in to your Workday company site as an administrator.
+1. In a different web browser window, log in to your Workday company site as an administrator.
 
-9. In the **Search box** search with the name **Edit Tenant Setup – Security** on the top left side of the home page.
+1. In the **Search box** search with the name **Edit Tenant Setup – Security** on the top left side of the home page.
    
     ![Edit Tenant Security](./media/workday-tutorial/IC782925.png "Edit Tenant Security")
 
-10. In the **Redirection URLs** section, perform the following steps:
+1. In the **Redirection URLs** section, perform the following steps:
    
     ![Redirection URLs](./media/workday-tutorial/IC7829581.png "Redirection URLs")
    
@@ -156,7 +156,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     >-If the domain name of the Workday tenant URL starts with impl for example: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.  
     >-If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
 
-11. In the **SAML Setup** section, perform the following steps:
+1. In the **SAML Setup** section, perform the following steps:
    
     ![SAML Setup](./media/workday-tutorial/IC782926.png "SAML Setup")
    
@@ -164,7 +164,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     b.  Click **Add Row**.
 
-12. In the **SAML Identity Providers** section, perform the following steps:
+1. In the **SAML Identity Providers** section, perform the following steps:
    
     ![SAML Identity Providers](./media/workday-tutorial/IC7829271.png "SAML Identity Providers")
    
@@ -188,7 +188,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Create](./media/workday-tutorial/IC782929.png "Create")
 
-13. In the **View x509 Public Key** section, perform the following steps: 
+1. In the **View x509 Public Key** section, perform the following steps: 
    
     ![View x509 Public Key](./media/workday-tutorial/IC782930.png "View x509 Public Key") 
    
@@ -209,7 +209,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     f.  Click **OK**.
 
-14. Perform the following steps: 
+1. Perform the following steps: 
    
     ![SSO configuration](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO configuration")
    
@@ -237,15 +237,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/workday-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/workday-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/workday-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/workday-tutorial/create_aaduser_04.png)
 
@@ -273,23 +273,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Workday**.
+1. In the applications list, select **Workday**.
 
 	![The Workday link in the Applications list](./media/workday-tutorial/tutorial_workday_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 

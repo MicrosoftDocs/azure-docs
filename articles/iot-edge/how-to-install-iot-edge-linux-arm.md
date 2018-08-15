@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 08/14/2018
 ms.author: kgremban
 ---
 # Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)
@@ -22,7 +22,7 @@ This article lists the steps to install the Azure IoT Edge runtime on a Linux AR
 
 ## Install the container runtime
 
-Azure IoT Edge relies on a [OCI-compatible][lnk-oci] container runtime. For production scenarios, it is highly recommended you use the [Moby-based][lnk-moby] engine provided below. It is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are compatible with the Moby-based runtime.
+Azure IoT Edge relies on an [OCI-compatible][lnk-oci] container runtime. For production scenarios, it is highly recommended you use the [Moby-based][lnk-moby] engine provided below. It is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are compatible with the Moby-based runtime.
 
 Commands below install both the Moby-based engine and command-line interface (CLI). The CLI is useful for development but optional for production deployments.
 
@@ -97,11 +97,18 @@ The edge device can be configured manually using a [device connection string][ln
      registration_id: "{registration_id}"
    ```
 
+Save and close the file. 
+
+   `CTRL + X`, `Y`, `Enter`
+
 After entering the provisioning information in the configuration, restart the daemon:
 
 ```cmd/sh
 sudo systemctl restart iotedge
 ```
+
+>[!TIP]
+>You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use **sudo** in front of the commands. 
 
 ## Verify successful installation
 

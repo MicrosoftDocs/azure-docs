@@ -4,25 +4,48 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: "ghogen"
-ms.author: "ghogen"
+author: ghogen
+ms.author: ghogen
 ms.date: "05/11/2018"
 ms.topic: "article"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "douge"
+manager: douge
 ---
 # Troubleshooting guide
 
 This guide contains information about common problems you may have when using Azure Dev Spaces.
 
+## Error 'Failed to create Azure Dev Spaces controller'
+
+You might see this error when something goes wrong with the creation of the controller. If it's a transient error, deleting and recreating the controller will fix it.
+
+### Try:
+
+To delete the controller, use the Azure Dev Spaces CLI. It’s not possible to do it in Visual Studio or Cloud Shell. To install the AZDS CLI, first install the Azure CLI, and then run this command:
+
+```cmd
+az aks use-dev-spaces -g <resource group name> -n <cluster name>
+```
+
+And then run this command to delete the controller:
+
+```cmd
+azds remove -g <resource group name> -n <cluster name>
+```
+
+Recreating the controller can be done from the CLI or Visual Studio. Follow the instructions in the tutorials as if starting for the first time.
+
+
 ## Error 'Service cannot be started.'
 
 You might see this error when your service code fails to start. The cause is often in user code. To get more diagnostic information, make the following changes to your commands and settings:
 
+### Try:
+
 On the command line:
 
-1. When using _azds.exe_, use the --verbose command-line option, and use the --output command-line option to specify the output format.
+When using _azds.exe_, use the --verbose command-line option, and use the --output command-line option to specify the output format.
  
     ```cmd
     azds up --verbose --output json
@@ -34,6 +57,27 @@ In Visual Studio:
 2. Change the settings for **MSBuild project build output verbosity** to **Detailed** or **Diagnostic**.
 
     ![Screenshot of Tools Options dialog](media/common/VerbositySetting.PNG)
+    
+## DNS name resolution fails for a public URL associated with a Dev Spaces service
+
+When this happens, you might see a "Page cannot be displayed" or "This site cannot be reached" error in your web browser when attempting to connect to the public URL associated with a Dev Spaces service.
+
+### Try:
+
+You can use the following command to list out all URLs associated with your Dev Spaces services:
+
+```cmd
+azds list-uris
+```
+
+If a URL is in the *Pending* state, that means that Dev Spaces is still waiting for DNS registration to complete. Sometimes, it takes a few minutes for this to happen. Dev Spaces also opens a localhost tunnel for each service, which you can use while waiting on DNS registration.
+
+If a URL remains in the *Pending* state for more than 5 minutes, it may indicate a problem with the external DNS pod that creates the public endpoint and/or the nginx ingress controller pod that acquires the public endpoint. You can use the following commands to delete these pods. They will be recreated automatically.
+
+```cmd
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-ingress
+```
 
 ## Error 'Required tools and configurations are missing'
 
@@ -90,6 +134,14 @@ Starting the VS Code debugger may sometimes result in this error. This is a know
 1. Close and reopen VS Code.
 2. Hit F5 again.
 
+## Debugging error 'Failed to find debugger extension for type:coreclr'
+Running the VS Code debugger reports the error: `Failed to find debugger extension for type:coreclr.`
+
+### Reason
+You do not have the VS Code extension for C# installed on your development machine which includes debugging support for .Net Core (CoreCLR).
+
+### Try:
+Install the [VS Code extension for C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
 ## Debugging error 'Configured debug type 'coreclr' is not supported'
 Running the VS Code debugger reports the error: `Configured debug type 'coreclr' is not supported.`

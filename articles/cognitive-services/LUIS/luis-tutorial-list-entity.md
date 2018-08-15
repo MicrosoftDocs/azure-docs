@@ -2,14 +2,14 @@
 title: Label entities automatically with a list entity using Nodejs | Microsoft Docs
 description: Learn how to add a list entity to help LUIS label variations of a word or phrase.
 services: cognitive-services
-author: v-geberr
+author: diberry
 titleSuffix: Azure
-manager: kamran.iqbal
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Use a list entity to increase entity detection 

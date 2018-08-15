@@ -9,9 +9,9 @@
   items:
   - name: Collect - Azure VMs
     href: log-analytics-quick-collect-azurevm.md
-  - name: Collect - Linux computer
+  - name: Collect - Hybrid Linux computer
     href: log-analytics-quick-collect-linux-computer.md
-  - name: Collect - Windows computer
+  - name: Collect - Hybrid Windows computer
     href: log-analytics-quick-collect-windows-computer.md
 - name: Tutorials
   items:
@@ -55,8 +55,10 @@
          href: log-analytics-log-search-portals.md   
 - name: How-to guides
   items:
-  - name: Create Log Analytics workspace
-    href: log-analytics-quick-create-workspace.md
+  - name: Create workspace
+    items:
+     - name: Use Azure portal
+       href: log-analytics-quick-create-workspace.md  
   - name: Collect data
     items:
     - name: Connected sources
@@ -105,12 +107,22 @@
         href: log-analytics-custom-fields.md
       - name: Data collector API
         href: log-analytics-data-collector-api.md
+      - name: Data Collector API Pipeline example
+        href: log-analytics-create-pipeline-datacollector-api.md
   - name: Query data
     items:
     - name: Language documentation
-      href: https://docs.loganalytics.io
-    - name: Transition from legacy language
-      href: log-analytics-log-search-transition.md
+      items:
+      - name: Transition from legacy language
+        href: log-analytics-log-search-transition.md
+      - name: Get started with Analytics portal
+        href: query-language/get-started-analytics-portal.md
+      - name: Get started with queries
+        href: query-language/get-started-queries.md
+      - name: Search queries
+        href: query-language/search-queries.md
+      - name: Language reference
+        href: https://docs.loganalytics.io
     - name: Cross-resource searches
       href: log-analytics-cross-workspace-search.md
     - name: Take action from search results

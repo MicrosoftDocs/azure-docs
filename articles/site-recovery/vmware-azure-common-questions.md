@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 07/19/2018
 ms.topic: conceptual
 ms.author: raynew
 
@@ -67,7 +67,7 @@ Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicate
 
 ### Why can't I replicate over VPN?
 
-When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage account, Thus you can only replicate over the public internet with with ExpressRoute (public peering), and VPN doesn't work. 
+When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage account, Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work. 
 
 
 
@@ -90,8 +90,12 @@ Yes, you can exclude disks from replication.
 ### Can I replicate VMs with dynamic disks?
 Dynamic disks can be replicated. The operating system disk must be a basic disk.
 
-### Can I add a new VM to an existing replication group?
-Yes.
+### If I use replication groups for multi-VM consistency, can I add a new VM to an existing replication group?
+Yes, you can add new VMs to an existing replication group when you enable replication for them. You can't add a VM to an existing replication group after replication is initiated, and you can't create a replication group for existing VMs.
+
+### Can I modify VMs that are replicating by adding or resizing disks?
+
+For VMware replication to Azure you can modify disk size. If you want to add new disks you need to add the disk and reenable protection for the VM.
 
 ## Configuration server
 

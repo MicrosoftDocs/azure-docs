@@ -2,20 +2,16 @@
 title: Set up Azure Active Directory registered devices | Microsoft Docs
 description: Learn how to set up Azure Active Directory registered devices.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
-editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: lizross
 ms.reviewer: jairoc
 
 ---
@@ -28,7 +24,7 @@ If you want to enable the **Bring Your Own Device (BYOD)** scenario, you can acc
 
 ## Before you begin
 
-To register a Windows 10 device, the device registration service must be configured to enable you to register devices. Additionally, you must have fewer devices registered than the configured maximum. For more information, see [configure device settings](../device-management-azure-portal.md#configure-device-settings).
+To register a Windows 10 device, the device registration service must be configured to enable you to register devices. Additionally, you must have fewer devices registered than the configured maximum. For more information, see [configure device settings](../devices/device-management-azure-portal.md#configure-device-settings).
 
 ## What you should know
 

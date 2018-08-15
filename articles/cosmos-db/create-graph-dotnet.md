@@ -153,7 +153,7 @@ Now go back to the Azure portal to get your connection string information and co
  
    **.Net SDK URI** - This value is used when you connect to the graph account by using Microsoft.Azure.Graphs library. 
 
-   **Gremlin Endpoint** - This value is used when when you connect to the graph account by using Gremlin.Net library.
+   **Gremlin Endpoint** - This value is used when you connect to the graph account by using Gremlin.Net library.
 
     ![Copy the endpoint](./media/create-graph-dotnet/endpoint.png)
 

@@ -7,13 +7,14 @@ author: MarkusVi
 manager: mtillman
 editor: ''
 
+ms.component: devices
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
@@ -159,7 +160,7 @@ There are many different ways to communicate this URL to your users. For example
 ### Join a Windows 7 device by using Azure Active Directory device registration
 To register Windows 7 domain-joined devices, you need to deploy the [device registration software package](https://www.microsoft.com/download/details.aspx?id=53554).
 
-For instructions about how to use the package, see [Windows Installer packages for non-Windows 10 computers](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers).
+For instructions about how to use the package, see [Windows Installer packages for non-Windows 10 computers](devices/hybrid-azuread-join-control.md#control-windows-down-level-devices).
 
 ## Verify that registered devices are written back to Active Directory
 You can view and verify that your device objects have been written back to your Active Directory by using LDP.exe or ADSI Edit. Both are available with the Active Directory administrator tools.

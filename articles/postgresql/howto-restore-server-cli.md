@@ -79,6 +79,8 @@ The location and pricing tier values for the restored server remain the same as 
 
 After the restore process finishes, locate the new server and verify that the data is restored as expected.
 
+The new server created during a restore does not have the firewall rules that existed on the original server. Firewall rules need to be set up separately for this new server.
+
 ## Geo restore
 If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for PostgreSQL is available.  
 
@@ -116,6 +118,8 @@ The `az postgres server georestore` command requies the following parameters:
 >When creating a new server by a geo restore, it inherits the same storage size and pricing tier as the source server. These values cannot be changed during creation. After the new server is created, its storage size can be scaled up.
 
 After the restore process finishes, locate the new server and verify that the data is restored as expected.
+
+The new server created during a restore does not have the firewall rules that existed on the original server. Firewall rules need to be set up separately for this new server.
 
 ## Next steps
 - Learn more about the service's [backups](concepts-backup.md).

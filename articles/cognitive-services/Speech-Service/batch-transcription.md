@@ -1,9 +1,8 @@
 ---
-title: Azure Batch Transcription API | Azure Microsoft Docs
+title: Azure Batch Transcription API
 description: Samples
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 
 ms.service: cognitive-services
 ms.technology: Speech to Text

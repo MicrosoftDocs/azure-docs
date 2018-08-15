@@ -77,6 +77,7 @@ You call GenerateAnswer with an HTTP POST request. For sample code that shows ho
     - **answers** - A list of answers for the user query, sorted in decreasing order of ranking score.
         - **score**: A ranking score between 0 and 100.
         - **questions**: The questions provided by the user.
+        - **answer**: The answer to the question.
         - **source**: The name of the source from which the answer was extracted or saved in the knowledge base.
         - **metadata**: The metadata associated with the answer.
             - name: Metadata name. (string, max Length: 100, required)

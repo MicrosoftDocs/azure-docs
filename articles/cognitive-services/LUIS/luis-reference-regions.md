@@ -3,13 +3,13 @@ title: Language Understanding (LUIS) regions | Microsoft Docs
 titleSuffix: Azure
 description: This article contains lists of the LUIS regions for the LUIS website, Azure subscriptions, and world regions.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 # Regions and keys
 

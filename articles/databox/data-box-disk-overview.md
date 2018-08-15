@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 07/17/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ---
 
 # What is Azure Data Box Disk? (Preview)
 
-The Microsoft Azure Data Box Disk solution lets you send terabytes of on-premises data to Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you 1 to 5 solid-state disks (SSDs). These 4 TB or 8 TB encrypted disks are sent to your datacenter through a regional carrier. 
+The Microsoft Azure Data Box Disk solution lets you send terabytes of on-premises data to Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you 1 to 5 solid-state disks (SSDs). These 8 TB encrypted disks are sent to your datacenter through a regional carrier. 
 
 You can quickly configure, connect, and unlock the disks via the Data Box service in Azure portal. Copy your data to disks and ship the disks back to Azure. In the Azure datacenter, your data is automatically uploaded from drives to the cloud using a fast, private network upload link.
 
@@ -88,7 +88,7 @@ For more information, go to [Azure Data Box Disk security and data protection](d
 | Dimensions                                              | Disk - 2.5" SSD |            
 | Cables                                                  | 1 USB 3.1 cable per disk|
 | Storage capacity per order                              | 40 TB (usable ~ 35 TB)|
-| Disk storage capacity                                   | 4 TB (usable ~ 3.5 TB) <br> 8 TB (usable ~ 7 TB)|
+| Disk storage capacity                                   | 8 TB (usable ~ 7 TB)|
 | Data interface                                          | USB   |
 | Security                                                | Pre-encrypted using BitLocker and secure update <br> Passkey protected disks <br> Data encrypted at all times  |
 | Data transfer rate                                      | up to 430 MBps depending on the file size      |
