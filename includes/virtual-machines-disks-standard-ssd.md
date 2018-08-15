@@ -33,14 +33,14 @@ Standard SSD Disks support all service management operations offered by Managed 
 
 The following table contains disk sizes which are currently offered for Standard SSD.
 
-|Standard SSD Disk Type  |Disk Size  |IOPS per Disk  |Thoroughput per disk  |
+|Standard SSD Disk Type  |Disk Size  |IOPS per Disk  |Throughput per disk  |
 |---------|---------|---------|---------|
-|E10     |128GB         |Up to 500         |Up to 60MB per second         |
-|E15     |256GB         |Up to 500         |Up to 60MB per second         |
-|E20     |512GB         |Up to 500         |Up to 60MB per second         |
-|E30     |1024GB         |Up to 500         |Up to 60MB per second         |
-|E40     |2048GB         |Up to 500         |Up to 60MB per second         |
-|E50     |4095GB         |Up to 500         |Up to 60MB per second         |
+|E10     |128 GB         |Up to 500         |Up to 60 MB per second         |
+|E15     |256 GB         |Up to 500         |Up to 60 MB per second         |
+|E20     |512 GB         |Up to 500         |Up to 60 MB per second         |
+|E30     |102 4GB         |Up to 500         |Up to 60 MB per second         |
+|E40     |2048 GB         |Up to 500         |Up to 60 MB per second         |
+|E50     |4095 GB         |Up to 500         |Up to 60 MB per second         |
 
 Standard SSD disks are designed to provide single-digit millisecond latencies for most IO operations, and to deliver the IOPS and throughput up to the limits described in the above table. Actual IOPS and Throughput may vary sometimes depending on the traffic patterns. Standard SSD disks will provide more consistent performance than the HDD disks with the lower latency.
 
@@ -59,13 +59,13 @@ Refer to the Price details for the new Standard SSD Disks. When using Standard S
 
 **Managed Disk Size**: Managed disks are billed on the provisioned size. Azure maps the provisioned size (rounded up) to the nearest disk size offer. For details of the disk sizes offered, see the table in Scalability and Performance Targets section above. Each disk maps to a supported provisioned disk size and billed accordingly. For example, if you provisioned a 200 GB Standard SSD disk, it will map to the disk size offer of E15 (256GB). Billing for any provisioned disk is prorated hourly by using the monthly price for the Premium Storage offer. For example, if you provisioned an E10 disk and deleted it after 20 hours, you are billed for the E10 offering prorated to 20 hours. This is regardless of the amount of actual data written to the disk.
 
-**Snapshots**: Snapshots of Managed Disks are billed for the capacity used by the snapshots, at the target and at the source, if any. For additional information on snapshots, see [Managed Disk Snapshots](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
+**Snapshots**: Snapshots of Managed Disks are billed for the capacity used by the snapshots, at the target and at the source, if any. For more information on snapshots, see [Managed Disk Snapshots](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
 
 **Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
-**Transactions**: Similar to Standard HDD, transactions on Standard SSD Disks incur billing. Transactions include both read and write operations on the disk. I/O unit size used for accounting the transactions on Standard SSD is 256KB. Larger I/O sizes are counted as multiple I/Os of size 256 KB.
+**Transactions**: Similar to Standard HDD, transactions on Standard SSD Disks incur billing. Transactions include both read and write operations on the disk. I/O unit size used for accounting the transactions on Standard SSD is 256 KB. Larger I/O sizes are counted as multiple I/Os of size 256 KB.
 
-For additional details on pricing for Virtual Machines and Managed Disks, see:
+For more details on pricing for Virtual Machines and Managed Disks, see:
 
 - [Virtual Machines Pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/)
 - [Managed Disks Pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/)
