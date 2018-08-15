@@ -135,7 +135,7 @@
   - name: Get Azure CycleCloud
     href: https://www.microsoft.com/en-us/download/details.aspx?id=57182
   - name: CycleCloud Cluster Templates
-    href: https://github.com/CycleCloud
+    href: download-cluster-templates.md
   - name: CycleCloud Community
     href: https://github.com/CycleCloudCommunity
   - name: Azure Community Forums
