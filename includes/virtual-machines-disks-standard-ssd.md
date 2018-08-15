@@ -14,9 +14,6 @@
 
 Azure Standard Solid State Drives (SSD) Managed Disks are a cost-effective storage option optimized for workloads that need consistent performance at lower IOPS levels. Standard SSD offers a good entry level experience for those who wish to move to the cloud, especially if you experience issues with the variance of workloads running on your HDD solutions on premises. Standard SSD Disks deliver better availability, consistency, reliability and latency compared to HDD Disks, and are suitable for Web servers, low IOPS application servers, lightly used enterprise applications and Dev/Test workloads.
 
-For information on how to create a VM with Managed Disks, see one of the following articles.
-Create a VM using Resource Manager and PowerShell
-Create a Linux VM using the Azure CLI 2.0
 Sample Template for creating a VM with Standard SSD Disk 
 For converting your existing Standard HDD disks to Standard SSD, see the following article.
 Convert Azure managed disks storage from standard to premium, and vice versa
@@ -24,7 +21,7 @@ Convert Azure managed disks storage from standard to premium, and vice versa
 ## Standard SSD Features
 
 **Managed Disks**: Standard SSD Disks are only available as Managed Disks. Unmanaged Disks and Page Blobs are not supported on Standard SSD. While creating the Managed Disk, you specify the disk type as Standard SSD and indicate the size of disk you need, and Azure creates and manages the disk for you.
-Standard SSD Disks support all service management operations offered by Managed Disks. For example, you can create, copy or snapshot Standard SSD Managed Disks in the same way you do with Managed Disks. Refer to the Managed Disks documentation for detailed instructions on all disk operations.
+Standard SSD Disks support all service management operations offered by Managed Disks. For example, you can create, copy or snapshot Standard SSD Managed Disks in the same way you do with Managed Disks.
 
 **Virtual Machines**: Standard SSD disks can be used with all Azure VMs, including the VM types that do not support Premium Disks. For example, if you are using an A-series VM, or N-series VM, or DS-series, or any other Azure VM series, you can use Standard SSD Disks with that VM. With the introduction of Standard SSD, we are enabling a broad range of workloads that previously used HDD-based disks to transition to SSD-based disks, and experience the consistent performance, higher availability, better latency and an overall better experience that come with SSDs.
 
@@ -33,8 +30,6 @@ Standard SSD Disks support all service management operations offered by Managed 
 **Snapshots**: Like all Managed Disks, Standard SSD Disks also support creation of Snapshots. Snapshot type can be either Standard (HDD) or Premium (SSD). For cost saving, we recommend Snapshot type of Standard (HDD) for all Azure disk types. This is because when you create a managed disk from a snapshot, you are always able to choose a higher tier such as Standard SSD or Premium SSD. Refer to Managed Disks documentation for detailed instructions on creating and using Snapshots.
 
 ## Scalability and Performance Targets
-
-Refer to [Managed Disks Scalability and Performance Targets](disk-scalability-targets.md).
 
 The following table contains disk sizes which are currently offered for Standard SSD.
 
@@ -62,23 +57,22 @@ Refer to the Price details for the new Standard SSD Disks. When using Standard S
 - Outbound data transfers
 - Transactions
 
-Managed Disk Size: Managed disks are billed on the provisioned size. Azure maps the provisioned size (rounded up) to the nearest disk size offer. For details of the disk sizes offered, see the table in Scalability and Performance Targets section above. Each disk maps to a supported provisioned disk size and billed accordingly. For example, if you provisioned a 200 GB Standard SSD disk, it will map to the disk size offer of E15 (256GB). Billing for any provisioned disk is prorated hourly by using the monthly price for the Premium Storage offer. For example, if you provisioned an E10 disk and deleted it after 20 hours, you are billed for the E10 offering prorated to 20 hours. This is regardless of the amount of actual data written to the disk.
+**Managed Disk Size**: Managed disks are billed on the provisioned size. Azure maps the provisioned size (rounded up) to the nearest disk size offer. For details of the disk sizes offered, see the table in Scalability and Performance Targets section above. Each disk maps to a supported provisioned disk size and billed accordingly. For example, if you provisioned a 200 GB Standard SSD disk, it will map to the disk size offer of E15 (256GB). Billing for any provisioned disk is prorated hourly by using the monthly price for the Premium Storage offer. For example, if you provisioned an E10 disk and deleted it after 20 hours, you are billed for the E10 offering prorated to 20 hours. This is regardless of the amount of actual data written to the disk.
 
-**Snapshots**: Snapshots of Managed Disks are billed for the capacity used by the snapshots, at the target and at the source, if any. For additional information on snapshots, see Managed Disk Snapshots.
+**Snapshots**: Snapshots of Managed Disks are billed for the capacity used by the snapshots, at the target and at the source, if any. For additional information on snapshots, see [Managed Disk Snapshots](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
 
-**Outbound data transfers**: Outbound data transfers (data going out of Azure data centers) incur billing for bandwidth usage.
+**Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
 **Transactions**: Similar to Standard HDD, transactions on Standard SSD Disks incur billing. Transactions include both read and write operations on the disk. I/O unit size used for accounting the transactions on Standard SSD is 256KB. Larger I/O sizes are counted as multiple I/Os of size 256 KB.
 
 For additional details on pricing for Virtual Machines and Managed Disks, see:
 
-- Virtual Machines Pricing
-- Managed Disks Pricing
+- [Virtual Machines Pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/)
+- [Managed Disks Pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/)
 
-Getting Started
-You can create and manage Standard SSD disks in the same way as the regular Managed Disks. Refer to Managed Disks documentation for detailed instructions on all disk operations.
-Refer to this sample template for deploying a VM using Standard SSD disks. 
-Following are the parameters needed for creating Standard SSD Disks: 
-apiVersion for Microsoft.Compute/virtualMachines must be set as “2018-04-01” (or later) 
-Specify storageAccountType as “StandardSSD_LRS” for creating a Standard SSD Disk. 
-You can convert your existing Managed disks to Standard SSD. Refer to Convert Azure managed disks storage from standard to premium, and vice versa for the general guidelines for converting Managed Disks. Use the AccountType as “StandardSSD_LRS” to update the disk type to Standard SSD.
+## Next steps
+
+To learn more about creating standard SSD disks, refer to the sample that depicts how to create a VM with multiple standard SSDs.
+
+> [!div class="nextstepaction"]
+> [Create a VM with multiple standard SSDs](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/)
