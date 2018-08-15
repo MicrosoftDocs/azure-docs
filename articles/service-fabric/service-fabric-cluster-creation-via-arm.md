@@ -25,7 +25,7 @@ ms.author: aljo
 
 This step-by-step guide walks you through setting up a secure Azure Service Fabric cluster in Azure by using Azure Resource Manager. We acknowledge that the article is long. Nevertheless, unless you are already thoroughly familiar with the content, be sure to follow each step carefully.
 
-In Azure, Service Fabric uses x509 certificate to secure your cluster and its endpoints, authenticate clients, and encrypting data.  Azure Active Directory is also recommended to secure access to management endpoints. For more information on Service Fabric cluster security, see [Service Fabric cluster security scenarios][service-fabric-cluster-security].
+In Azure, Service Fabric uses x509 certificate to secure your cluster and its endpoints, authenticate clients, and encrypt data.  Azure Active Directory is also recommended to secure access to management endpoints. Certificate security must be configured when creating a cluster. For more information, read [Service Fabric cluster security scenarios][service-fabric-cluster-security].
 
 The guide covers the following procedures:
 
