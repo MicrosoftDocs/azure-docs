@@ -27,7 +27,7 @@ Performs an `And` of two boolean inputClaims and sets the outputClaim with resul
 | InputClaim | inputClaim2  | boolean | The second ClaimType to evaluate. |
 |OutputClaim | outputClaim | boolean | The ClaimTypes that will be produced after this claims transformation has been invoked (true or false). |
 
-The following claims transformation demonstrates how to `And` to boolean ClaimTypes, `isEmailNotExist`, and `isSocialAccount`. The output claim `presentEmailSelfAsserted` is set to 'true' if both input climas are `ture`. In an orchestration step, you can use a precondition to preset self asserted page, only if a social account email is empty.
+The following claims transformation demonstrates how to `And` two boolean ClaimTypes: `isEmailNotExist`, and `isSocialAccount`. The output claim `presentEmailSelfAsserted` is set to `true` if the value of both input claims are `true`. In an orchestration step, you can use a precondition to preset a self-asserted page, only if a social account email is empty.
 
 ```XML
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
@@ -118,7 +118,7 @@ Computes an `Or` of two boolean inputClaims and sets the outputClaim with result
 | InputClaim | inputClaim2 | boolean | The second ClaimType to evaluate. |
 | OutputClaim | outputClaim | boolean | The ClaimTypes that will be produced after this ClaimsTransformation has been invoked (true or false). |
 
-The following claims transformation demonstrates how to `Or` two boolean ClaimTypes. In the orchestration step, you can use a precondition to preset a self asserted page, if one of the cliams is ture.
+The following claims transformation demonstrates how to `Or` two boolean ClaimTypes. In the orchestration step, you can use a precondition to preset a self-asserted page, if the value of one of the claims is `true`.
 
 ```XML
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="OrClaims">

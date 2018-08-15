@@ -28,14 +28,14 @@ Each SAML identity provider has different steps to expose and set the service pr
 The following example shows a URL address to the SAML metadata of an Azure AD B2C technical profile:
 
 ```
-https://login.microsoftonline.com/te/{tenant}/{policy}/samlp/metadata?idptp={technical-profile} 
+https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Replace the following values:
 
-- **tenant** with your tenant name, such as your-tenant.onmicrosoft.com
-- **policy** with your policy name. Use the policy where you configure the SAML provider technical profile, or a policy that inherits from that policy.
-- **technical-profile** with your SAML identity provider technical profile name
+- **your-tenant** with your tenant name, such as your-tenant.onmicrosoft.com
+- **your-policy** with your policy name. Use the policy where you configure the SAML provider technical profile, or a policy that inherits from that policy.
+- **your-technical-profile** with your SAML identity provider technical profile name
 
 ## Digital signing certificates exchange
 
@@ -44,7 +44,7 @@ To build a trust between Azure AD B2C and your SAML identity provider, you need 
 The certificate is used in the following ways:
 
 - Azure AD B2C generates and signs a SAML request, using the Azure AD B2C private key of the certificate. The SAML request is sent to the identity provider, which validates the request using Azure AD B2C public key of the certificate. The Azure AD B2C public certificate is accessible through technical profile metadata. Alternatively, you can manually upload the .cer file to your SAML identity provider.
-- The identity provider signs the data sent to Azure AD B2C, using the identity provider's private key of the certificate. Azure AD B2C validates the data using the identity provider's public certificate. Each identity provider has different steps for setup, look at your identity providers’s documentation for guidance on how to do so. In Azure AD B2C, your policy needs access to the certificate public key using the identity provider's metadata.
+- The identity provider signs the data sent to Azure AD B2C using the identity provider's private key of the certificate. Azure AD B2C validates the data using the identity provider's public certificate. Each identity provider has different steps for setup, look at your identity providers’s documentation for guidance on how to do so. In Azure AD B2C, your policy needs access to the certificate public key using the identity provider's metadata.
 
 A self-signed certificate is acceptable for most scenarios. For production environments, it is recommended to use an X509 certificate that is issued by a certificate authority. Also, as described later in this document, for a non-production environment you can disable the SAML signing on both sides.
 
@@ -89,7 +89,7 @@ Consider the following policy requirements when creating an identity provider in
 - The technical profile needs to have a metadata item named `IdpInitiatedProfileEnabled` set to `true`.
 - The relying party policy needs to be a SAML relying party.
 - The relying party policy needs to have a metadata item named `IdpInitiatedProfileEnabled` set to `true`.
-- The unsolicited response needs to be sent to the `/{tenant}/{policy}/samlp/sso/assertionconsumer` endpoint. Any relay state included with the response is forwarded onto the relying party. Replace the following values: **tenant** with your tenant name. **policy** with your relying party policy name.
+- The unsolicited response needs to be sent to the `/your-tenant/your-policy/samlp/sso/assertionconsumer` endpoint. Any relay state included with the response is forwarded onto the relying party. Replace the following values: **your-tenant** with your tenant name. **your-policy** with your relying party policy name.
     
 ## Protocol
 
@@ -117,6 +117,7 @@ The **CryptographicKeys** element contains the following attributes:
 | SamlMessageSigning |Yes | The X509 certificate (RSA key set) to use to sign SAML messages. Azure AD B2C uses this key to sign the requests and send them to the identity provider. |
 | SamlAssertionDecryption |Yes | The X509 certificate (RSA key set) to use to decrypt SAML messages. This certificate should be provided by the identity provider. Azure AD B2C uses this certificate to decrypt the data sent by the identity provider. |
 | MetadataSigning |No | The X509 certificate (RSA key set) to use to sign SAML metadata. Azure AD B2C uses this key to sign the metadata.  |
+
 ## Examples
 
 - [Add ADFS as a SAML identity provider using custom policies](active-directory-b2c-custom-setup-adfs2016-idp.md)
