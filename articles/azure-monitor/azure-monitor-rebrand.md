@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/13/2018
+ms.date: 08/14/2018
 ms.author: bwren
 
 ---
@@ -42,9 +42,7 @@ Operations Management Suite (OMS) was a bundling of the following Azure manageme
 ## Operations Management Suite (OMS) portal
 The OMS portal was used to configure data sources, manage solutions, and analyze data stored in Log Analytics. All of this functionality has been moved to the Azure portal to provide a more consistent experience for monitoring and managing your Azure resources. The OMS portal can still be used but will be deprecated shortly. For details on this transition, see [OMS portal moving to Azure](../log-analytics/log-analytics-oms-portal-transition.md).
 
-## Alerts
- 
 
 ## Next steps
 
-- Get an overview of [Azure Monitor](overview.md).
+- Read an [overview of Azure Monitor](overview.md) that describes its different components and features.
