@@ -112,7 +112,7 @@ You can replicate any app or workload running a Hyper-V VM that complies with [r
 10. The log is sent to the customer's storage account. When a log is in transit to Azure, the changes in the primary disk are tracked in another log file, in the same folder.
 11. During both initial and delta replication, you can monitor the VM in the Azure portal.
 
-[Learn more](hyper-v-azure-architecture#replication-process.md) about the replication process.
+[Learn more](hyper-v-azure-architecture.md#replication-process) about the replication process.
 
 ### Can I replicate to Azure with a site-to-site VPN?
 
