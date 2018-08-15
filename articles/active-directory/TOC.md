@@ -400,7 +400,6 @@
 ### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Secure your identities
-### [Conditional access](coditional-access/index.md)
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
