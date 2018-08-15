@@ -51,7 +51,7 @@ The Data Science Virtual Machine for Linux also contains popular tools for data 
 * Machine learning tools
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool providing fast and accurate boosted tree implementation
-  * [Rattle](http://rattle.togaware.com/): A graphical tool that makes getting started with data analytics and machine learning in R easy
+  * [Rattle](https://togaware.com/rattle/): A graphical tool that makes getting started with data analytics and machine learning in R easy
   * [LightGBM](https://github.com/Microsoft/LightGBM): A fast, distributed, high-performance gradient boosting framework
 * Azure SDK in Java, Python, node.js, Ruby, PHP
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services
