@@ -4,13 +4,13 @@ description: Use the .zip file deployment facilities of the Kudu deployment serv
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 
 ms.service: functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: na 
 ms.date: 08/12/2018
@@ -32,8 +32,6 @@ To speed development, you may find it easier to deploy your function app project
 + Syncing function triggers in a [Consumption plan](functions-scale.md) function app.
 
 For more information, see the [.zip deployment reference](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
-
-You can also [run your function app directly from the mounted .zip file](#run-from-zip).
 
 ## Deployment .zip file requirements
 
@@ -89,40 +87,14 @@ When you're using Azure CLI on your local computer, `<zip_file_path>` is the pat
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]
 
-## <a name="run-from-zip"></a>Run directly from the package
-
-> [!NOTE]
-> The functionality to run from a zip file is currently in preview and is not available for Functions running on Linux.
+## Run functions from the deployment package
 
 You can also choose to run your functions directly from the .zip deployment file. This method skips the deployment step of copying files from the package to the `wwwroot` directory of your function app. Instead, the .zip file is mounted by the Functions runtime, and the contents of the `wwwroot` directory become read-only.  
 
-### Benefits of running from the zip file
-  
-There are several benefits to running from the zip file:
+> [!NOTE]
+> The ability to run your function app from the deployment package is in preview.
 
-+ Reduces the risk of file copy locking issues.
-+ Can be deployed to a production app (with restart).
-+ You can be certain of the files that are running in your app.
-+ Improves the performance of [Azure Resource Manager deployments](functions-infrastructure-as-code.md).
-+ May reduce the cold-start time of JavaScript functions.
-
-Because of these benefits, you should run from your zip file unless it is not feasible. For more information, see [this announcement](https://github.com/Azure/app-service-announcements/issues/84).
-
-### Enabling the run from zip functionality
-
-To enable your function app to run from a .zip file, you just add a `WEBSITE_RUN_FROM_ZIP` setting to your function app settings, which points to the URL of the .zip file package. The following example enables the function app to run from a file hosted in Azure Blob storage:
-
-    WEBSITE_RUN_FROM_ZIP=https://<myblobstorage>.blob.core.windows.net/content/MyFunctionApp1.zip?<sas-token>
-
-Protect the package from public access by using a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas). You can use the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload .zip files to your Blob storage account.
-
-You can also set `WEBSITE_RUN_FROM_ZIP` to `1` and copy your package to a `d:\home\data\SitePackages` folder in your function app. This copy operation can be done for you automatically when you deploy using the .zip deployment APIs.
-
-### Integration with .zip deployment
-
-The easiest way to deploy a .zip file to the `d:\home\data\SitePackages`folder is by setting the `WEBSITE_RUN_FROM_ZIP` app setting to `1`. With this setting, the .zip deployment APIs upload your package to the correct folder and the function app is run from the package contents after a restart.
-
-You can set function app settings [in the portal](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings) and by [using the Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+Zip deployment integrates with this feature, which you can enable by setting the function app setting `WEBSITE_RUN_FROM_ZIP` to a value of `1`. For more information, see [Run your functions from a compressed deployment package](run-functions-from-compressed-package.md).
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 
