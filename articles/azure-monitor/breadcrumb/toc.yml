@@ -1,0 +1,16 @@
+- name:      Azure
+  tocHref:   /azure/
+  topicHref: /azure/index
+  items:
+  - name:      Azure Monitor
+    tocHref:   /azure/azure-monitor/
+    topicHref: /azure/azure-monitor/
+  - name:      Azure Monitor
+    tocHref:   /azure/application-insights/
+    topicHref: /azure/azure-monitor/
+  - name:      Azure Monitor
+    tocHref:   /azure/log-analytics/
+    topicHref: /azure/azure-monitor/
+  - name:      Azure Monitor
+    tocHref:   /azure/monitoring-and-diagnostics/
+    topicHref: /azure/azure-monitor/
