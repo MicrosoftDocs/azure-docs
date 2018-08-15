@@ -25,15 +25,15 @@ Performs an `And` of two boolean inputClaims and sets the outputClaim with resul
 |-------| ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim1 | boolean | The first ClaimType to evaluate. |
 | InputClaim | inputClaim2  | boolean | The second ClaimType to evaluate. |
-|OutputClaim | outputClaim | boolean | The ClaimTypes that will be produced after this ClaimsTransformation has been invoked (true or false). |
+|OutputClaim | outputClaim | boolean | The ClaimTypes that will be produced after this claims transformation has been invoked (true or false). |
 
-In an orchestration step, you need to check two ClaimTypes. Preset an email self asserted only if the account is a social account and the email is empty. The following claims transformation demonstrates how to `And` to boolean ClaimTypes, `isEmailNotExist`, and `isSocialAccount`. 
+The following claims transformation demonstrates how to `And` to boolean ClaimTypes, `isEmailNotExist`, and `isSocialAccount`. The output claim `presentEmailSelfAsserted` is set to 'true' if both input climas are `ture`. In an orchestration step, you can use a precondition to preset self asserted page, only if a social account email is empty.
 
 ```XML
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isEmailNotExist" TransformationClaimType="inputClaim1" />
-    <InputClaim ClaimTypeReferenceId="isSocialAccoutn" TransformationClaimType="inputClaim2" />
+    <InputClaim ClaimTypeReferenceId="isSocialAccount" TransformationClaimType="inputClaim2" />
   </InputClaims>					
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="presentEmailSelfAsserted" TransformationClaimType="outputClaim" />
@@ -52,7 +52,7 @@ In an orchestration step, you need to check two ClaimTypes. Preset an email self
 
 ## AssertBooleanClaimIsEqualToValue
 
-Checks that string values of two claims are equal, and throws an exception if they are not.
+Checks that boolean values of two claims are equal, and throws an exception if they are not.
 
 | Item | TransformationClaimType  | Data Type  | Notes |
 | ---- | ------------------------ | ---------- | ----- |
@@ -106,7 +106,7 @@ Use this claim transformation to perform logical negation on a claim.
 - Input claims:
     - **inputClaim**: false
 - Output claims:
-    - *outputClaim**: true
+    - **outputClaim**: true
 
 ## OrClaims 
 
@@ -118,12 +118,12 @@ Computes an `Or` of two boolean inputClaims and sets the outputClaim with result
 | InputClaim | inputClaim2 | boolean | The second ClaimType to evaluate. |
 | OutputClaim | outputClaim | boolean | The ClaimTypes that will be produced after this ClaimsTransformation has been invoked (true or false). |
 
-The following claims transformation demonstrates how to `Or` two boolean ClaimTypes. In the orchestration step, you can use a precondition to preset the email self asserted only if a social account email is empty.
+The following claims transformation demonstrates how to `Or` two boolean ClaimTypes. In the orchestration step, you can use a precondition to preset a self asserted page, if one of the cliams is ture.
 
 ```XML
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="OrClaims">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedExists" TransformationClaimType="inputClaim1" />
+    <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedNotExists" TransformationClaimType="inputClaim1" />
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedGreaterThanNow" TransformationClaimType="inputClaim2" />
   </InputClaims>					
   <OutputClaims>
