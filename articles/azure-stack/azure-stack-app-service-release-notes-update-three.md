@@ -18,7 +18,7 @@ ms.author: anwestg
 ms.reviewer: brenduns
 
 ---
-# App Service on Azure Stack update 2 release notes
+# App Service on Azure Stack update 3 release notes
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
