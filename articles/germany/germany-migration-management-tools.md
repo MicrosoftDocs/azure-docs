@@ -1,14 +1,47 @@
 ---
-title: Migration from Azure Germany management resources to public Azure
-description: Provides help for migrating management resources
-author: gitralf
+title: Migration of managemtn tools resources from Azure Germany to global Azure
+description: This article provides help for migrating management tools resources from Azure Germany to global Azure
+services: germany
+cloud: Azure Germany
 ms.author: ralfwi 
-ms.date: 8/13/2018
+ms.service: germany
+ms.date: 8/15/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Management Tools
+# Migration of management tools resources from Azure Germany to global Azure
+
+## Traffic Manager
+
+Traffic Manager profiles created in Azure Germany can't be migrated to global Azure. Since you also migrate all the Traffic Manager endpoints to the target environment, you need to update the Traffic Manager profile anyway.
+
+Traffic Manager can help you with a smooth migration. With Traffic Manager still running in the old environment, you can already define additional endpoints in the target environment. Once Target Manager runs in the new environment, you can still define endpoints in the old environment that you didn't migrate so far. This is known as [the Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/). In short:
+
+- Create a new Traffic Manager in Azure global
+- Define the endpoints (still in Azure Germany)
+- Change your DNS CNAME to the new Traffic Manager
+- Turn off the old Traffic Manager
+- for each endpoint in Azure Germany:
+  - Migrate the endpoint to global Azure
+  - change the Traffic Manager profile to use the new endpoint
+
+### Next steps
+
+- Refresh your knowledge about Traffic Manager by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/traffic-manager/#step-by-step-tutorials).
+
+### References
+
+- [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md)
+- [Create a Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md)
+- [Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/)
+
+
+
+
+
+
+
 
 ## Backup
 
@@ -42,38 +75,6 @@ Azure Scheduler is being deprecated. Use Azure Logic apps instead to create sche
 ### Reference
 
 - [Azure Logic Apps overview](../logic-apps/logic-apps-overview.md)
-
-
-
-
-
-
-
-
-
-## Traffic Manager
-
-Traffic Manager profiles created in Azure Germany can't be migrated over to global Azure. Since you also migrate all the Traffic Manager endpoints to the target environment, you need to update the Traffic Manager profile anyway.
-
-Traffic Manager can help you with a smooth migration. With Traffic Manager still running in the old environment, you can already define additional endpoints in the target environment. Once Target Manager runs in the new environment, you can still define endpoints in the old environment that you didn't migrate so far. This is known as [the Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/). In short:
-
-- Create a new Traffic Manager in Azure public.
-- Define the endpoints still in Azure Germany.
-- Change your DNS CNAME to the new Traffic Manager.
-- Turn off the old Traffic Manager
-- Migrate endpoint by endpoint to the new environment and change the Traffic Manager profile accordingly.
-
-### Next steps
-
-- Refresh your knowledge about Traffic Manager by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/traffic-manager/#step-by-step-tutorials).
-
-### References
-
-- [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md)
-- [Create a Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md)
-- [Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/)
-
-
 
 
 

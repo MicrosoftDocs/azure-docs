@@ -1,9 +1,12 @@
 ---
 title: Migration from Azure Germany to global Azure
-description: Main intro to the rest of the articles.
+description: Main intro to migration from Azure Germany to global Azure
 author: gitralf
+services: germany
+cloud: Azure Germany
 ms.author: ralfwi 
-ms.date: 8/13/2018
+ms.service: germany
+ms.date: 8/15/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---

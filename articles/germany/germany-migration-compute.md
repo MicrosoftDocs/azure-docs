@@ -1,20 +1,23 @@
 ---
-title: Migration from Azure Germany compute resources to global Azure
+title: Migration of compute resources from Azure Germany to global Azure
 description: Provides help for migrating compute resources
-author: gitralf
+services: germany
+cloud: Azure Germany
 ms.author: ralfwi 
-ms.date: 8/13/2018
+ms.service: germany
+ms.date: 8/15/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Compute
+# Migration of compute resources from Azure Germany to global Azure
 
 ## Compute IaaS
 
 Unfortunately, no direct migration from Azure Germany to global Azure is possible. But there's more than one way to "duplicate" your VMs.
 
 ### Duplicate with Azure Site Recovery
+
 Azure Site Recovery can help you migrate your VMs from Azure Germany to global Azure. Since source and target are in different tenants, you can't use the normal Azure Disaster Recovery option available for VMs. The trick here is to set up a Site Recovery vault in the target environment (global Azure), and to proceed like moving a physical server into Azure. Choose a replication path from *not virtualized* to Azure global and - after the replication finished - do a failover.
 
 > [!NOTE]
@@ -54,7 +57,7 @@ When replication has succeeded the first time, you should test the scenario by d
 You can export the Resource Manager template used for the deployment to your local machine. Edit the template to change location and other parameters or variables, and then redeploy in Azure global. 
 
 > [!IMPORTANT]
-> Change Location, Key Vault secrets, certs, and other GUIDs to be consistent with new region.
+> Change Location, Key Vault secrets, certs, and other GUIDs to be consistent with the new region.
 
 Export the Resource Manager template in the portal by selecting the resource group. Click *deployments* and select the most recent deployment. Click *Template* in the left menu and download it.
 
@@ -64,14 +67,14 @@ You get a zip file with several files in it. The PowerShell, CLI, Ruby, or .NET 
 ### Next steps
 
 - Refresh your knowledge about Azure Site Recovery by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/site-recovery/#step-by-step-tutorials).
-- Make yourself familiar how to [export an ARM template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Make yourself familiar how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### Reference
 
 - [Physical to Azure using Site Recovery](../site-recovery/physical-azure-disaster-recovery.md)
 - [Export a Resource Manager template using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
-- [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
-- [Redeploy the application](../azure-resource-manager/resource-group-template-deploy.md)
+- [Overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
+- [Redeploy a template](../azure-resource-manager/resource-group-template-deploy.md)
 
 
 
@@ -103,11 +106,11 @@ New-AzureService -ServiceName <yourServiceName> -Label <MyTestService> -Location
 New-AzureDeployment -ServiceName <yourServiceName> -Slot <Production> -Package <YourCspkgFile.cspkg> -Configuration <YourConfigFile.cscfg>
 ```
 
-- Update the [CName or A record](../cloud-services/cloud-services-custom-domain-name-portal.md) to point traffic to the new Cloud Service.
+- Update the [CNAME or A record](../cloud-services/cloud-services-custom-domain-name-portal.md) to point traffic to the new Cloud Service.
 - [Delete your old Cloud Service](/powershell/module/azure/remove-azureservice?view=azuresmps-4.0.0) in Azure Germany after your traffic is pointing to the new Cloud Service.
 
 ```powershell
-    Remove-AzureService -ServiceName <yourOldServiceName>
+Remove-AzureService -ServiceName <yourOldServiceName>
 ```
 
 ### By REST API
@@ -118,7 +121,7 @@ New-AzureDeployment -ServiceName <yourServiceName> -Slot <Production> -Package <
 https://management.core.windows.net/<subscription-id>/services/hostedservices
 ```
 
-- Create a new deployment by using the [create deployment API](https://msdn.microsoft.com/en-us/library/azure/ee460813.aspx). If you need to find your `.cspkg` and `.cscfg`, you can call [Get-Package API](https://msdn.microsoft.com/library/azure/jj154121.aspx).
+- Create a new deployment by using the [create deployment API](https://msdn.microsoft.com/library/azure/ee460813.aspx). If you need to find your `.cspkg` and `.cscfg`, you can call the [Get-Package API](https://msdn.microsoft.com/library/azure/jj154121.aspx).
 
 ```http
 https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deploymentslots/production
@@ -204,19 +207,19 @@ Redeploy your deployment scripts, templates, or code in the new region, includin
 Migration of Functions between Azure Germany and global Azure isn't supported at this time. The recommended approach is to export Resource Manager template, change the location, and redeploy to target region.
 
 > [!IMPORTANT]
-> Change Location, Key Vault secrets, certs, and other GUIDs to be consistent with new region (location).
+> Change location, Key Vault secrets, certs, and other GUIDs to be consistent with the new region.
 
 ### Next steps
 
 - Refresh your knowledge about Functions by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/azure-functions/#step-by-step-tutorials).
-- Make yourself familiar how to [export an ARM template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Make yourself familiar how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### References
 
 - [Azure Functions Overview](../azure-functions/functions-overview.md)
 - [Export a Resource Manager template using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
-- [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
-- [Redeploy the application](../azure-resource-manager/resource-group-template-deploy.md)
+- [Overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
+- [Redeploy a template](../azure-resource-manager/resource-group-template-deploy.md)
 
 
 
@@ -233,20 +236,20 @@ Migration of Functions between Azure Germany and global Azure isn't supported at
 The recommended approach is to export the Resource Manager template, adopt it to the new environment, and redeploy it to target region. You should just export the base template and redeploy it in the new environment, as individual VMSS instances should all be the same.
 
 > [!IMPORTANT]
-> Change Location, Key Vault secrets, certs, and other GUIDs to be consistent with the new region.
+> Change location, Key Vault secrets, certs, and other GUIDs to be consistent with the new region.
 
 ### Next steps
 
 - Refresh your knowledge about Virtual Machine Scale Sets following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/virtual-machine-scale-sets/#step-by-step-tutorials).
-- Make yourself familiar how to [export an ARM template](../azure-resource-manager/resource-manager-export-template.md) 
+- Make yourself familiar how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md)
 - Read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### References
 
 - [Azure Virtual Machine Scale Set Overview](../virtual-machine-scale-sets/overview.md)
 - [Export a Resource Manager template using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
-- [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
-- [Redeploy the application](../azure-resource-manager/resource-group-template-deploy.md)
+- [Overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
+- [Redeploy a template](../azure-resource-manager/resource-group-template-deploy.md)
 
 
 
@@ -262,16 +265,16 @@ The recommended approach is to export the Resource Manager template, adopt it to
 The migration of App Services from Azure Germany to global Azure isn't supported at this time. The recommended approach is to export as Resource Manager template and redeploy after changing the location property to the new destination region.
 
 > [!IMPORTANT]
-> Change Location, Key Vault secrets, certs, and other GUIDs to be consistent with new region (location).
+> Change location, Key Vault secrets, certs, and other GUIDs to be consistent with the new region.
 
 ### Next steps
 
 - Refresh your knowledge about App Services by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/app-service/#step-by-step-tutorials).
-- Make yourself familiar how to [export an ARM template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Make yourself familiar how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### References
 
 - [App Service Overview](../app-service/app-service-web-overview.md)
 - [Export a Resource Manager template using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
-- [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
-- [Redeploy the application](../azure-resource-manager/resource-group-template-deploy.md)
+- [Overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
+- [Redeploy a template](../azure-resource-manager/resource-group-template-deploy.md)

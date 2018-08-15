@@ -1,14 +1,16 @@
 ---
-title: Migration from Azure Germany media resources to public Azure
-description: Provides help for migrating media resources
-author: gitralf
+title: Migration of media resources from Azure Germany to global Azure
+description: This article provides help for migrating media resources from Azure Germany to global Azure
+services: germany
+cloud: Azure Germany
 ms.author: ralfwi 
-ms.date: 8/13/2018
+ms.service: germany
+ms.date: 8/15/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Media
+# Migration of media resources from Azure Germany to global Azure
 
 ## Media Services
 

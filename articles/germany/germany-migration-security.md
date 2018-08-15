@@ -1,18 +1,20 @@
 ---
-title: Migration from Azure Germany security resources to public Azure
-description: Provides help for migrating security resources
-author: gitralf
+title: Migration of security resources from Azure Germany to global Azure
+description: This article provides help for migrating security resources from Azure Germany to global Azure
+services: germany
+cloud: Azure Germany
 ms.author: ralfwi 
-ms.date: 8/13/2018
+ms.service: germany
+ms.date: 8/15/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Security
+# Migration of security resources from Azure Germany to global Azure
 
 ## Azure Active Directory
 
-This service is covered under [Identity](./germany-migration-identity.md#azure-active-directory)
+This service is covered under [Migration of Identities](./germany-migration-identity.md#azure-active-directory).
 
 
 
@@ -33,7 +35,7 @@ Application secrets are certificates, storage account keys and other application
 - read the current secrets in Azure Germany and enter the value into the new vault.
 
 ```powershell
-Get-AzureKeyVaultSecret -vaultname mysecrets  -name Deploydefaultpw
+Get-AzureKeyVaultSecret -vaultname mysecrets -name Deploydefaultpw
 ```
 
 ### Next steps
@@ -61,7 +63,6 @@ Refresh your knowledge about Key Vault by following these [Step-by-step tutorial
 
 ## VPN Gateway
 
-
 Migration of Virtual Private Network (VPN) Gateways between Azure Germany and global Azure isn't supported at this time. The recommended approach is to create and configure a new VPN Gateway.
 
 Collect information about your current VPN gateway configuration by using the portal or by using PowerShell. There's a set of cmdlets starting with `Get-AzureRmVirtualNetworkGateway*`.
@@ -76,17 +77,8 @@ Don't forget to update your on-premise configuration and delete any existing rul
 
 - [Create Site-to-Site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) with VPN gateway
 - [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway?view=azurermps-6.5.0) PowerShell cmdlets
-- Blog: [Create Site-to-site connection](https://blogs.technet.microsoft.com/ralfwi/2017/02/02/connecting-clouds/) between Azure Germany and global Azure
+- Blog: [Create Site-to-Site connection](https://blogs.technet.microsoft.com/ralfwi/2017/02/02/connecting-clouds/) between Azure Germany and global Azure
  
-
-
-
-
-
-
-
-
-
 
 
 

@@ -1,21 +1,26 @@
 ---
-title: Migration from Azure Germany analytics resources to public Azure
-description: Provides help for migrating analytics resources
-author: gitralf
+title: Migration of analytics resources from Azure Germany to global Azure
+description: This article provides help for migrating analytics resources from Azure Germany to global Azure
+services: germany
+cloud: Azure Germany
 ms.author: ralfwi 
-ms.date: 8/13/2018
+ms.service: germany
+ms.date: 8/15/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Analytics
+# Migration of analytics resources from Azure Germany to global Azure
 
 ## Event Hubs
 
-Event Hubs services don't provide data export or import capabilities. However, you can export the Event Hub resources [as a template](../azure-resource-manager/resource-manager-export-template-powershell.md). Then adopt the exported template for global Azure and recreate the resources.
+YOu can't migrate Event Hubs from Azure Germany to global Azure directly, since Event Hub services don't provide data export or import capabilities. However, you can export the Event Hub resources [as a template](../azure-resource-manager/resource-manager-export-template-powershell.md). Then adopt the exported template for global Azure and recreate the resources.
 
 > [!NOTE]
 > This doesn't copy the data (for example messages), it's only recreating the metadata.
+
+> [!IMPORTANT]
+> Change location, Key Vault secrets, certs, and other GUIDs to be consistent with the new region.
 
 ### Metadata Event Hubs
 
@@ -28,7 +33,7 @@ Event Hubs services don't provide data export or import capabilities. However, y
 
 - Refresh your knowledge about Event Hubs by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/event-hubs/#step-by-step-tutorials).
 - check the migration steps for [ServiceBus](./germany-migration-integration.md#service-bus)
-- Make yourself familiar how to [export an ARM template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Make yourself familiar how to [export an Anzure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 
 ### References
@@ -46,11 +51,11 @@ Event Hubs services don't provide data export or import capabilities. However, y
 
 ## HDInsight
 
-HDInsight clusters can be migrated to a new region by following these steps:
+HDInsight clusters can be migrated from Azure Germany to global Azure by following these steps:
 
 - Stop HDI cluster
-- Migrate the data in storage to the new region using AzCopy or similar tool
-- Create new Compute resources in new region and attach the migrated WASB resources as the primary attached storage
+- Migrate the data in the storage to the new region using AzCopy or a similar tool
+- Create new Compute resources in Azure global and attach the migrated storage resources as the primary attached storage
 
 For more specialized, long running clusters (Kafka, Spark streaming, Storm, or HBase) it's recommended to orchestrate transition of workloads to the new region.
 
@@ -72,7 +77,7 @@ For more specialized, long running clusters (Kafka, Spark streaming, Storm, or H
 
 ## Stream Analytics
 
-Manually recreate the entire setup in a global Azure region of your choice using either the portal or PowerShell. The ingress and egress sources for any Stream Analytics job can be in any region.
+To migrate Stream Analytics services from Azure Germany to Azure global, manually recreate the entire setup in a global Azure region using either the portal or PowerShell. The ingress and egress sources for any Stream Analytics job can be in any region.
 
 ### Next Steps
 
@@ -92,8 +97,8 @@ Manually recreate the entire setup in a global Azure region of your choice using
 To migrate Azure SQL databases, you can use (for smaller workloads) the export function to create a BACPAC file. BaACPAC file is a compressed (zip'ed) file with metadata and data from the SQL Server database. Once created, you can copy it to the target environment (for example with AzCopy) and use the import function to rebuild the database. Be aware of the following considerations (see more in the links provided below):
 
 - For an export to be transactionally consistent, make sure either
-  - that no write activity is occurring during the export, or
-  - that you're exporting from a transactionally consistent copy of your Azure SQL database.
+  - no write activity is occurring during the export, or
+  - you're exporting from a transactionally consistent copy of your Azure SQL database.
 - For export to blob storage, the BACPAC file is limited to 200 GB. For a larger BACPAC file, export to local storage.
 - If the export operation from Azure SQL Database takes longer than 20 hours, it may be canceled. Look for hints how to increase performance in the links below.
 
@@ -123,7 +128,7 @@ To migrate Azure SQL databases, you can use (for smaller workloads) the export f
 
 ## Azure Analysis Service
 
-You can use backup/restore to migrate your models. There's [some pretty good documentation available](../analysis-services/analysis-services-backup.md).
+To migrate your models from Azure Germany to global Azure, you can use backup/restore as described [in this document](../analysis-services/analysis-services-backup.md).
 
 If you only want to migrate the model metadata and not the data, an alternative could be to [redeploy the model from SSDT](../analysis-services/analysis-services-deploy.md).
 

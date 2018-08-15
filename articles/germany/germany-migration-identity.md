@@ -1,14 +1,16 @@
 ---
-title: Migration from Azure Germany identity resources to public Azure
-description: Provides help for migrating identity resources
-author: gitralf
+title: Migration of identity resources from Azure Germany to global Azure
+description: This article provides help for migrating identity resources from Azure Germany to global Azure
+services: germany
+cloud: Azure Germany
 ms.author: ralfwi 
-ms.date: 8/13/2018
+ms.service: germany
+ms.date: 8/15/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Identity
+# Migration of identity resources from Azure Germany to global Azure
 
 ## Azure Active Directory
 
@@ -16,15 +18,21 @@ Azure Active Directory in Azure Germany is separated from the Azure AD in global
 
 Default tenant names are always different, since Azure appends the suffix automatically depending on the environment. For example, a user name for a member of the "contoso" tenant in global Azure is `user1@contoso.microsoftazure.com`, in Azure Germany it's `user1@contoso.microsoftazure.de`.
 
-When using custom domain names in Azure AD (like `contoso.com`), the domain name must first be registered in Azure. Custom domain names can only be defined in **one** of the environments at the same time (similar to domain names). The domain validation fails when the domain is already registered in *any* Azure Active Directory. That means, a user `user1@contoso.com` that exists in Azure Germany can't exist also in global Azure under the same name, since already the registration for `contoso.com` would fail.
+When using custom domain names in Azure AD (like `contoso.com`), the domain name must first be registered in Azure. Custom domain names can be defined **only in one** of the cloud environments at the same time. The domain validation fails when the domain is already registered in *any* Azure Active Directory. That means, a user `user1@contoso.com` that exists in Azure Germany can't exist also in global Azure under the same name at the same time. The registration for `contoso.com` would already fail.
 
-A "soft" migration, where some users are already in the new and some are still in the old environment, would require different names for the different environments.
+A "soft" migration, where some users are already in the new and some are still in the old environment, would require different sign-in names for the different cloud environments.
 
-It's beyond the scope of this document to cover each possible migration scenario, since this depends on how you provision users to Azure AD and what options you have using different user names or UserPrincipalNames. However, here are some hints how to inventory the users, groups etc. you have in your current environment.
+It's beyond the scope of this document to cover each possible migration scenario. A recommendation depends, for example, on how you do provisioning of users, what options you have using different user names or UserPrincipalNames, or other dependencies that have to be taken into consideration. However, here are some hints how to inventory users and groups from your current environment.
+
+For a list of all available cmdlets related to Azure AD, use:
+
+```powershell
+Get-Help Get-AzureAD*
+```
 
 ### Inventory of Users
 
-To get an overview of all the users and groups that exist in Azure Active Directory, you can use the following PowerShell command:
+To get an overview of all the users and groups that exist in your Azure Active Directory, you can use the following PowerShell command:
 
 ```powershell
 Get-AzureADUser -All $true
@@ -79,7 +87,7 @@ Get-AzureADGroup | ForEach-Object {$_.DisplayName; Get-AzureADGroupMember -Objec
 
 ### Inventory of Service Principals and Applications
 
-Although all your service principals and applications have to be created new, it's good practice to document the status. You can use the following cmdlets to get an extensive list of all the service principals
+Although all your service principals and applications have to be created new, it's good practice to document the status. You can use the following cmdlets to get an extensive list of all the service principals.
 
 ```powershell
 Get-AzureADServicePrincipal |Format-List *
@@ -106,19 +114,53 @@ Get-AzureADDirectoryRole | ForEach-Object {$_.DisplayName; Get-AzureADDirectoryR
 $_.ObjectId | Format-Table}
 ```
 
-For a list of all available cmdlets related to Azure AD, use:
 
-```powershell
-Get-Help Get-AzureAD*
-```
 
 ## Next Steps
 
 - Learn about [hybrid identity solutions](../active-directory/choose-hybrid-identity-solution.md)
-- Read [this blog](https://blogs.technet.microsoft.com/ralfwi/2017/01/24/using-adconnect-with-multiple-clouds/) about ways to synchronize in different cloud environments
+- Read [this blog](https://blogs.technet.microsoft.com/ralfwi/2017/01/24/using-adconnect-with-multiple-clouds/) about ways to synchronize into different cloud environments
 
 ## References
 
 - [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
 - [Custom Domain Names](../active-directory/fundamentals/add-custom-domain.md)
 - [Import data from CSV to Azure AD](/powershell/azure/active-directory/importing-data.md?view=azureadps-2.0)
+
+## ADConnect
+
+ADConnect is a tool that synchronizes your identity data between on-premise Active Directory and Azure Active Directory. The current version of ADConnect works for both cloud environments, Azure Germany and global Azure. ADConnect can only synchronize to one Azure AD at the same time. If you want to synchronize to Azure Germany and global Azure at the same time, consider these topics:
+
+- Use an additional server for a second instance of ADConnect. It's not supported to have multiple instances of ADConnect on the same server.
+- Define a new sign-in name for your users. The domain part (after the "@") of the sign-in name must be different in both environments.
+- Define a clear "source of truth" when you also synchronize backwards (from Azure AD to on-premise AD).
+
+For more information how to synchronize in different cloud environments with ADConnect, read [this blog](https://blogs.technet.microsoft.com/ralfwi/2017/01/24/using-adconnect-with-multiple-clouds/).
+
+If you're already using ADConnect for synchronization to and from Azure Germany, make sure you don't forget to migrate any manually created users. The following PowerShell cmdlet lists all users that are not synchronized by ADConnect:
+
+```powershell
+Get-AzureADUser -All $true |Where-Object {$_.DirSyncEnabled -ne "True"}
+```
+
+### Next Steps
+
+- Learn about [ADConnect](../active-directory/connect/active-directory-aadconnect-dirsync-deprecated.md)
+
+
+
+
+
+
+
+## Multi-Factor Authentication
+
+Since users have to be re-created in the new environment, the multi-factor authentication has to be redefined also. To get a list of user accounts that have multi-factor authentication enabled or enforced, follow these steps:
+
+- sign in to the Azure portal
+- select `Users` > `All Users` > `Multi-Factor Authentication`
+- after being redirected to the multi-factor authentication service page, set the appropriate filters to get a list of users.
+
+### Next Steps
+
+- Learn about [Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
