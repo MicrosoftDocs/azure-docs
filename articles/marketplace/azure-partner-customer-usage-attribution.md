@@ -212,14 +212,14 @@ For assistance, follow the below steps:
  1. Visit the support page located at [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)
  2.	For issues with usage association - select Problem type: **Marketplace Onboarding** and Category: **Other** and then click **Start Request.** 
 
-For issues on accessing Azure Marketplace Cloud Partner Portal - select Problem type: **Marketplace Onboarding** and Category: **Access Problem** and then click **Start Request.**
+    For issues on accessing Azure Marketplace Cloud Partner Portal - select Problem type: **Marketplace Onboarding** and Category: **Access Problem** and then click **Start Request.**
 
  ![](media/marketplace-publishers-guide/lu-article-incident.png)
  
  3. Complete the required fields on the next page and click **Continue.**
  4. Complete the free text fields on the next page. **Important**: Fill in Incident title with **“ISV Usage Tracking”** and describe your issue in detail in the large free text field after.  Complete the rest of the form and click **Submit**. 
  
-  ![](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
+ ![](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
 
  
 ## FAQs
