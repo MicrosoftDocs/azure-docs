@@ -57,13 +57,13 @@ You can then create your function either
 or [from inside your logic app](#create-function-designer) 
 in the Logic App Designer.
 
-  Both new and existing Azure function apps and functions 
+  Both existing and new Azure function apps and functions 
   have the same requirements for working with your logic apps:
 
   * Your function app must belong to the same Azure subscription as your logic app.
 
-  * Your function uses the **HTTP trigger** function 
-  template for either **JavaScript** or **C#**. 
+  * Your function either uses an HTTP trigger or uses the 
+  **HTTP trigger** function template for **JavaScript** or **C#**. 
 
     This template can accept content with the 
     `application/json` type from your logic app. 
@@ -71,22 +71,14 @@ in the Logic App Designer.
     the Logic App Designer shows custom functions created 
     from this template within your Azure subscription. 
 
-  * Your function template's **Mode** is **Standard**. 
-  To check this value, follow these steps:
-
-    1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
-    on the main Azure menu, select **Function Apps**. 
-
-    2. In the **Function Apps** list, select your function app, 
-    expand your function, and select **Integrate**. 
-
-    3. Check the **Mode** property value is set to **Standard**. 
-
-  * If your function has an 
-  [API definition](../azure-functions/functions-openapi-definition.md), 
-  formerly known as a [Swagger file](http://swagger.io/), the Logic Apps Designer 
-  offers a richer experience for work with function parameters. 
-  Before your logic app can find and access functions that have Swagger descriptions, 
+  * Your function doesn't use custom routes unless you've defined an 
+  [OpenAPI definition](../azure-functions/functions-openapi-definition.md), 
+  formerly known as a [Swagger file](http://swagger.io/). 
+  
+  * If you've defined an OpenAPI definition for your function, 
+  the Logic Apps Designer gives you a richer experience for 
+  working with function parameters. Before your logic app can 
+  find and access functions that have OpenAPI definitions, 
   [set up your function app by following these steps](#function-swagger).
 
 <a name="create-function-external"></a>
