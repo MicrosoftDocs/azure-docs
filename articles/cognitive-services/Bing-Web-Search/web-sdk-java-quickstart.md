@@ -1,5 +1,5 @@
 ---
-title: Web Search SDK Java quickstart | Microsoft Docs
+title: Quickstart: Use the Bing Web Search SDK for Java | Microsoft Docs
 description: Setup for Web Search SDK console application.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
@@ -11,15 +11,16 @@ ms.topic: article
 ms.date: 02/16/2018
 ms.author: v-gedod
 ---
-# Web Search SDK Java quickstart
+
+# Quickstart: Use the Bing Web Search SDK for Java
 
 The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
 
 The [source code for Java Bing Web Search SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) is available on Git Hub.
 
-## Application dependencies
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
-Install Bing Web Search SDK dependencies using Maven, Gradle, or another dependency management system. The Maven POM file requires:
+## Prerequisites 
+
+* Install Bing Web Search SDK dependencies using Maven, Gradle, or your favorite dependency management system. The Maven POM file requires:
 ```
   <dependencies>
   	<dependency>
@@ -29,7 +30,9 @@ Install Bing Web Search SDK dependencies using Maven, Gradle, or another depende
   	</dependency>
   </dependencies>
 ```
+
 ## Web Search client
+
 Add imports to the class implementation:
 ```
 import com.microsoft.azure.cognitiveservices.websearch.*;

@@ -11,7 +11,7 @@ ms.date: 9/18/2017
 ms.author: v-jerkin, erhopf
 ---
 
-# Quickstart: Use Node.js to access the Bing Web Search API  
+# Quickstart: Use Node.js to call the Bing Web Search API  
 
 Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response in less than 10 minutes.  
 
