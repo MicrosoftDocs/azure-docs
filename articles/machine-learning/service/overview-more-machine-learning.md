@@ -67,6 +67,7 @@ Microsoft provides a variety of products and services to build, deploy, and mana
 [Azure Machine Learning service](overview-what-is-azure-ml.md) is a fully managed cloud service that you can use to build, train, deploy, and manage machine learning models at cloud scale.
 It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages.
 Rich tools are also available, such as [Jupyter notebooks](http://jupyter.org) or the [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) that make it easy to interactively explore data, transform it, and then develop, test, and deploy models.
+Azure Machine Learning service includes features that automate model generation and tuning to help you create models with ease, efficiency, and accuracy.
 
 Use Azure Machine Learning service when you want to develop, deploy, and manage models using Python and CLI at cloud scale.
 
