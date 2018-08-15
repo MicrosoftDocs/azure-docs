@@ -9113,6 +9113,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-security.md",
             "redirect_url": "/azure/log-analytics/log-analytics-data-security",
             "redirect_document_id": false
@@ -9124,7 +9129,7 @@
         },
         {
             "source_path": "articles/log-analytics/log-analytics-configuration-assessment.md",
-            "redirect_url": "/azure/log-analytics/log-analytics-add-solutions",
+            "redirect_url": "/azure/monitoring/monitoring-solutions-inventory",
             "redirect_document_id": false
         },
         {
