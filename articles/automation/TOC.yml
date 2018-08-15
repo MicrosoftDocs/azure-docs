@@ -117,10 +117,10 @@
           href: automation-runbook-settings.md
         - name: Manage Azure Automation data
           href: automation-managing-data.md
-        - name: Call Azure Automation Runbook from Log Analytics alert
-          href: automation-invoke-runbook-from-omsla-alert.md
         - name: Pass a JSON object to an Azure Automation runbook
           href: automation-pass-json-string.md
+        - name: Start/stop VMs during off-hours
+          href: automation-solution-vm-management.md
     - name: Hybrid Runbook Worker
       items:
         - name: Hybrid Runbook Worker overview
@@ -173,16 +173,12 @@
           href: automation-create-alert-triggered-runbook.md 
         - name: Create Amazon Web Service VM
           href: automation-scenario-aws-deployment.md
-        - name: Start/stop VMs during off-hours
-          href: automation-solution-vm-management.md
         - name: Remove resource group
           href: automation-scenario-remove-resourcegroup.md
         - name: Source control integration with GitHub Enterprise
           href: automation-scenario-source-control-integration-with-github-ent.md
         - name: Source control integration with VSTS
           href: automation-scenario-source-control-integration-with-VSTS.md
-        - name: Call Azure Automation Runbook from Log Analytics alert
-          href: automation-invoke-runbook-from-omsla-alert.md
         - name: Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
           href: automation-deploy-template-runbook.md
         - name: Integrate Azure Automation with Event Grid and Microsoft Teams
@@ -197,8 +193,6 @@
       items:
         - name: Migrate from Orchestrator
           href: automation-orchestrator-migration.md
-        - name: Move Automation account
-          href: automation-migrate-account-subscription.md
     - name: Troubleshoot
       items:
         - name: Onboarding

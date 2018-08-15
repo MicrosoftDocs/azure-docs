@@ -86,7 +86,7 @@ For more information, see [Azure Container Registry (ACR)][acr-docs].
 
 ## Storage volume support
 
-Azure Kubernetes Service (AKS) support mounting storage volumes for persistant data. AKS clusters are created with support for Azure Files and Azure Disks.
+Azure Kubernetes Service (AKS) support mounting storage volumes for persistent data. AKS clusters are created with support for Azure Files and Azure Disks.
 
 For more information, see [Azure Files][azure-files] and [Azure Disks][azure-disk].
 
@@ -100,7 +100,7 @@ Azure Kubernetes Service (AKS) has been CNCF certified as Kubernetes conformant.
 
 ## Regulatory compliance
 
-Azure Kubernetes Service (AKS) is compliant with SOC and ISO/HIPAA/HITRUST.
+Azure Kubernetes Service (AKS) is compliant with SOC and ISO.
 
 ## Next steps
 
