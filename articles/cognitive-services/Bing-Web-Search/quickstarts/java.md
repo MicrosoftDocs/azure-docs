@@ -25,7 +25,7 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 To run this application, follow these steps.
 
-1. Download or install the [gson library](https://github.com/google/gson). You may also obtain it via Maven.
+1. Download or install the [gson library](https://github.com/google/gson). It is also available through Maven.
 2. Create a new Java project in your favorite IDE or editor.
 3. Copy this sample code into  `BingWebSearch.java`:  
     ```java
@@ -275,4 +275,4 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
 > [!div class="nextstepaction"]
 > [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
-[!INCLUDE [cognitive-services-bing-web-search-quickstart-see-also](../../includes/cognitive-services-bing-web-search-quickstart-see-also.md)]  
+[!INCLUDE [cognitive-services-bing-web-search-quickstart-see-also](../cognitive-services-bing-web-search-quickstart-see-also.md)]   
