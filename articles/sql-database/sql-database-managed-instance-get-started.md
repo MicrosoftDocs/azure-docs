@@ -27,7 +27,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 SQL Managed Instance is secure service that is placed in your own Azure Virtual Network (VNet). In order to create a Managed Instance, you would need to prepare network environment for managed instance, which includes:
  - Azure VNet where your Managed Instance will be placed.
  - Subnet in your Azure VNet where Managed Instances will be placed.
- - User-defined route that will enable Managed Instance to communicate with the Azure services that control and managed the instance.
+ - User-defined route that will enable Managed Instance to communicate with the Azure services that control and manage the instance.
 
 The subnet is dedicated to Managed Instances and you cannot create any other resources (for example Azure Virtual Machines) in that subnet. You might want to create two subnets in your Azure VNet so you can place Managed Instances in the subnet dedicated to Managed Instances, and other the resources in the default subnet.
 
@@ -88,7 +88,7 @@ The following steps show you how to create your Managed Instance after your prev
 While deployment occurs, continue to the next procedure.
 
 > [!IMPORTANT]
-> For the first instance in a subnet, deployment time is typically much longer than in case of the subsequent instances - sometimes more than 24 hours to complete. Do not cancel deployment operation because it lasts longer than you expected. This length of time to deploy your first instance is a temporary situation. Expect a significant reduction of deployment time shortly after the beginning of the public preview.
+> For the first instance in a subnet, deployment time is typically much longer than in case of the subsequent instances - sometimes more than 24 hours to complete. Do not cancel deployment operation because it lasts longer than you expected. This length of time to deploy your first instance is a temporary situation. Expect a significant reduction of deployment time shortly after the beginning of the public preview. Creating the second Managed Instance in the subnet will take a couple of minutes.
 
 ## Prepare client machine
 
