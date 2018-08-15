@@ -119,6 +119,8 @@
           href: automation-managing-data.md
         - name: Pass a JSON object to an Azure Automation runbook
           href: automation-pass-json-string.md
+        - name: Start/stop VMs during off-hours
+          href: automation-solution-vm-management.md
     - name: Hybrid Runbook Worker
       items:
         - name: Hybrid Runbook Worker overview
@@ -171,8 +173,6 @@
           href: automation-create-alert-triggered-runbook.md 
         - name: Create Amazon Web Service VM
           href: automation-scenario-aws-deployment.md
-        - name: Start/stop VMs during off-hours
-          href: automation-solution-vm-management.md
         - name: Remove resource group
           href: automation-scenario-remove-resourcegroup.md
         - name: Source control integration with GitHub Enterprise
