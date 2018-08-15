@@ -144,8 +144,6 @@
 
 ###	[Programmatic Access](reports-monitoring/concept-reporting-api.md)
 #### [Prerequisites](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
-#### [Audit samples](reports-monitoring/sample-audit-api.md)
-#### [Sign-in samples](reports-monitoring/sample-sign-in-api.md)
 #### [Using certificates](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [Manage passwords](authentication/concept-sspr-howitworks.md)
@@ -416,7 +414,6 @@
 ##### [Location conditions](conditional-access/location-condition.md)
 ##### [Controls](conditional-access/controls.md)
 ##### [What if tool](conditional-access/what-if-tool.md)
-##### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
 #### How-to guides
 ##### [Best practices](conditional-access/best-practices.md)
 ##### [Require MFA for access attempts from untrusted networks](conditional-access/untrusted-networks.md)
