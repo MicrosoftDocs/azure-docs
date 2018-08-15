@@ -14,7 +14,7 @@ ms.author: kegodin
 This document describes the process of submitting an acoustics bake using the Unity editor extension. For more background on acoustics, see [What is Acoustics](what-is-acoustics.md).
 
 ## Import the plugin
-Import the Acoustics plugin package to your project. Then open the Acoustics UI by choosing Window > Acoustics from the Unity menu:
+Import the Acoustics plugin package to your project. Then open the Acoustics UI by choosing **Window > Acoustics** from the Unity menu:
 
 ![Open Acoustics Window](media/WindowAcoustics.png)
 
@@ -31,12 +31,14 @@ After the bake is complete, see [Design Process](designprocess.md) for optional 
 A navigation mesh is used to place probe points for simulation. You can use Unity's included [navigation mesh workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html)), or you can specify your own navigation mesh. Navigation meshes created with Unity's workflow will be picked up by the acoustics system. To use your own meshes, mark them from the Objects tab as described in the next step.
 
 ## Objects tab
-Open the Objects tab of the Acoustics window. Use this tab to mark objects in your scene, which simply adds the AcousticsGeometry or AcousticsNavigation components to the object. You can also use the [standard component workflow](https://docs.unity3d.com/Manual/UsingComponents.html) to mark or unmark objects.
+Open the **Objects** tab of the Acoustics window. Use this tab to mark objects in your scene, which simply adds the AcousticsGeometry or AcousticsNavigation components to the object. You can also use the [standard component workflow](https://docs.unity3d.com/Manual/UsingComponents.html) to mark or unmark objects.
 
 If you have nothing selected in your scene, it will look like the following picture:
+
 ![Objects Tab No Selection](media/ObjectsTabNoSelectionDetail.png)
 
 If you have something selected in your scene or hierarchy window, it will look like the following picture:
+
 ![Objects Tab No Selection](media/ObjectsTabWithSelectionDetail.png)
 
 ### Objects tab parts
@@ -72,13 +74,13 @@ Be sure to mark any objects as "Acoustics Geometry" if they should occlude, refl
 The object's transform at the time of the bake is fixed in the bake results. Moving any of the marked objects in the scene will require rebaking the scene.
 
 ## Materials Tab
-Once your objects are marked, click the "Materials" button to go to the Materials Tab.
+Once your objects are marked, go to the **Materials** tab.
 
 ### Parts of the Materials tab
 
 ![Materials Tab Detail](media/MaterialsTabDetail.png)
 
-1. The Materials Tab button, used to bring up this page.
+1. The **Materials** tab button, used to bring up this page.
 2. A brief description of what you need to do using this page.
 3. When checked, only materials used by objects marked as "Acoustics Geometry" will be listed. Otherwise, all materials used in the scene will be listed.
 4. Use these options to change the order of the dropdown menu that is shown when you click a dropdown in the Acoustics column below (#6). "Name" sorts the acoustic materials by name,
@@ -105,7 +107,7 @@ After assigning the materials, switch to the Probes Tab.
 
 ![Probes Tab Detail](media/ProbesTabDetail.png)
 
-1. The Probes Tab button used to bring up this page
+1. The **Probes** tab button used to bring up this page
 2. A brief description of what you need to do using this page
 3. Use these to choose a coarse or fine simulation resolution. Coarse is faster, but has certain tradeoffs. See ["Coarse vs Fine Resolution"](#Coarse-vs-Fine-Resolution) below for details.
 4. Choose the location where the acoustics data files should be placed using this field. Click the button with "..." to use a folder picker. The default is Assets/AcousticsData.
@@ -170,6 +172,7 @@ the doorway using the Fine setting. The blue line is the doorway as defined by t
 plays out in a given situation depends completely on how the voxels line up with the geometry of the portal.
 
 ![Coarse Doorway](media/CoarseVoxelDoorway.png)
+
 ![Fine Doorway](media/FineVoxelDoorway.png)
 
 ## Bake tab
@@ -185,7 +188,7 @@ Once you're happy with the preview data, use the Bake tab to submit your bake to
 5. Number of nodes to use for this calculation. What number you enter here affects the time to complete the bake and is limited by your Azure Batch core allocation. 
 For the fastest possible bake time, set this equal to the number of probe points.
 6. Click the Bake button to submit the bake to the cloud.
-7. This area shows the status of the bake. When completed, it should show "Downloaded".
+7. This area shows the status of the bake. When completed, it should show **Downloaded**.
 8. If for some reason you need to force Unity to forget about a bake you submitted (e.g. you downloaded the results using another machine), click the button to forget about the job that was submitted. Note that this means the result file, 
 when ready, will **not** be downloaded, and **this is not the same as canceling the job**. The job, if running, will continue to run in the cloud. To cancel this job, you'll need to use the [Azure Portal](https://portal.azure.com).
 
@@ -198,9 +201,9 @@ After the bake completes, check that the voxels and probe points are in their ex
 ## Data files
 There are four data files created by this plugin at various points. Only one of them is needed at runtime, therefore the other three are inside folders named "Editor" so they won't be compiled into your project.
 * **Assets/Editor/[SceneName]\_AcousticsParameters.asset**: This file stores the data you enter in fields in the Acoustics UI. The location and name of this file can't be changed.
-* **Assets/AcousticsData/[SceneName]\_Acoustics.ace.bytes**: This file stores the bake results and is used by the runtime. The location and name of this file can be changed using the fields on the Probes Tab.
-* **Assets/AcousticsData/Editor/[SceneName]\_Acoustics.vox**: This file stores the voxelized acoustics geometry and the material properties. Computed using the "Calculate..." button on the Probes Tab. The location and name of this file can be changed using the fields on the Probes Tab.
-* **Assets/AcousticsData/Editor/[SceneName]\_Acoustics\_config.xml**: This file stores parameters computed using the "Calculate..." button on the Probes Tab. The location and name of this file can be changed using the fields on the Probes Tab.
+* **Assets/AcousticsData/[SceneName]\_Acoustics.ace.bytes**: This file stores the bake results and is used by the runtime. The location and name of this file can be changed using the fields on the **Probes** tab.
+* **Assets/AcousticsData/Editor/[SceneName]\_Acoustics.vox**: This file stores the voxelized acoustics geometry and the material properties. Computed using the "Calculate..." button on the **Probes** tab. The location and name of this file can be changed using the fields on the **Probes** tab.
+* **Assets/AcousticsData/Editor/[SceneName]\_Acoustics\_config.xml**: This file stores parameters computed using the "Calculate..." button on the Probes Tab. The location and name of this file can be changed using the fields on the **Probes** tab.
 
 Take care not to delete the bake result (.ace.bytes file). This file isn't recoverable except by rebaking the scene.
 

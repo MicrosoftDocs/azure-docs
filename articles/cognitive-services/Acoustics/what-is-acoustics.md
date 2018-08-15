@@ -21,6 +21,8 @@ Humans use audio-visual cues to understand the world around them. In virtual wor
 The system relies on an offline compute of the virtual world, which allows a more complex simulation than if the analysis was done at run-time. The offline compute produces a lookup table of acoustic parameters. A designer specifies rules applied to the parameters at run-time. Tweaking these rules can achieve hyper-realistic effects for high emotional intensity or hypo-realistic scenes for more background audio sounds.
 
 ## Design process comparison
+The Project Acoustics plugin supports a new design process for acoustics in Unity scenes. To explain this new design process, let's compare it to one of today's popular approaches to acoustics.
+
 ### Typical approach to acoustics today
 In a typical approach to acoustics today, you draw reverb volumes:
 
@@ -32,7 +34,7 @@ Then tweak parameters for each zone:
 
 Finally, add ray-tracing logic to get the right occlusion and obstruction filtering throughout the scene, and path-searching logic for portaling. This code can add a run-time cost. It also has problems with smoothness around corners and has edge cases in irregularly shaped scenes.
 
-### A alternative approach with physics-based design
+### An alternative approach with physics-based design
 With the approach provided by Project Acoustics' Unity plugin, you provide a static scene’s shape and materials. Because the scene is voxelized and the process doesn't use ray-tracing, you don't need to provide a simplified or watertight acoustics mesh. It also isn't necessary to mark up the scene with reverb volumes. The plugin uploads the scene to the cloud, where it uses physics based wave simulation. The result is integrated into your title as a lookup table, and can be modified for aesthetic or gameplay effects.
 
 ![Design View](media/GearsWithVoxels.jpg)
