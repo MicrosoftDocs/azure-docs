@@ -39,7 +39,7 @@ Refer to the [Before You Get Started documentation](azure-stack-app-service-befo
 
 Before you begin the upgrade of Azure App Service on Azure Stack to 1.3 please ensure all roles are Ready in the Azure App Service Administration in the Azure Stack Admin Portal
 
-
+![App Service role status](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
 ### New features and fixes
 
