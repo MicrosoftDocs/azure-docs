@@ -27234,6 +27234,12 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-mam.md",
             "redirect_url": "/azure/active-directory/conditional-access/app-based-conditional-access",
             "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-no-modern-authentication.md",
+            "redirect_url": "/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo",
+            "redirect_document_id": true
         }
+
     ]
 }

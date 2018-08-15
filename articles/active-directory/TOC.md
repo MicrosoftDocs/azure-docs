@@ -422,7 +422,7 @@
 ##### [Require terms of use for users and apps](active-directory-tou.md)
 ##### [Migrate classic policies](conditional-access/policy-migration.md)
 ##### [Set up VPN connectivity](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
-##### [Set up SharePoint and Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
+##### [Set up SharePoint and Exchange Online](conditional-access/conditional-access-for-exo-and-spo.md)
 ##### [Remediation](active-directory-conditional-access-device-remediation.md)
 #### [Reference](conditional-access/technical-reference.md)
 ##### [Technical reference](conditional-access/technical-reference.md)
