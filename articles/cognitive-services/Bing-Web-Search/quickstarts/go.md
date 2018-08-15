@@ -11,7 +11,7 @@ ms.author: rosh
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ---
 
-# Quickstart: Use Go to access the Bing Web Search API  
+# Quickstart: Use Go to call the Bing Web Search API  
 
 Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response in less than 10 minutes.  
 
