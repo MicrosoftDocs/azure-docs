@@ -69,24 +69,18 @@ in the Logic App Designer.
     `application/json` type from your logic app. 
     Also, when you add an Azure function to your logic app, 
     the Logic App Designer shows custom functions created 
-    from this template and with your Azure subscription. 
+    from this template within your Azure subscription. 
 
-  * For your function template, check these property values: 
-  
-    * The **Mode** property value is **Webhook**.
-    * The **Webhook type** property value is **Generic JSON**.
-    
-    To find these values, follow these steps:
+  * Your function template's **Mode** is **Standard**. 
+  To check this value, follow these steps:
 
-      1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
+    1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+    on the main Azure menu, select **Function Apps**. 
 
-      2. On the main Azure menu, select **Function Apps**. 
+    2. In the **Function Apps** list, select your function app, 
+    expand your function, and select **Integrate**. 
 
-      3. In the **Function Apps** list, select your function app, 
-      expand your function, and select **Integrate**. 
-
-      4. Check the **Mode** property value is **Webhook** and 
-      the **Webhook type** property value is **Generic JSON**. 
+    3. Check the **Mode** property value is set to **Standard**. 
 
   * If your function has an 
   [API definition](../azure-functions/functions-openapi-definition.md), 
@@ -101,32 +95,16 @@ in the Logic App Designer.
 
 In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
 create your Azure function app, which must have the same Azure subscription 
-as your logic app, and then create your Azure function. 
-If you're new to Azure Functions, learn how to 
+as your logic app, and then create your Azure function.
+If you're new to creating Azure functions, learn how to 
 [create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md), 
-but note these requirements for creating Azure functions 
-that you can add and call from logic apps:
+but note these requirements for creating functions that 
+you can call from logic apps:
 
-* Make sure you select the **HTTP trigger** 
-function template for either **JavaScript** or **C#**.
+* Make sure you select the **HTTP trigger** function 
+template for either **JavaScript** or **C#**.
 
   ![HTTP trigger - JavaScript or C#](./media/logic-apps-azure-functions/http-trigger-function.png)
-
-* After you create your Azure function, 
-check your function template's property values: 
-
-  1. In the **Function Apps** list, expand your function, 
-  and select **Integrate**. 
-
-  2. Under **Triggers**, select these property values: 
-
-     1. For the **Mode** property, select **Webhook**.
-
-     2. After the **Webhook type** property appears, select **Generic JSON**.
-
-     3. When you're done, choose **Save**.
-
-        ![Your function template's "Integrate" properties](./media/logic-apps-azure-functions/function-integrate-properties.png)
 
 <a name="function-swagger"></a>
 
@@ -137,21 +115,20 @@ in the Logic Apps Designer. To set up your function app so your logic
 app can find and use functions that have Swagger descriptions, 
 follow these steps:
 
-  * Make sure your function app is actively running.
+  1. Make sure your function app is actively running.
 
-  * In your function app, set up [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so all 
+  2. In your function app, set up [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so all 
   origins are permitted by following these steps:
 
-    1. Starting from the **Function Apps** list, 
-    select your function app > **Platform features** > **CORS**.
+     1. From the **Function Apps** list, 
+     select your function app > **Platform features** > **CORS**.
 
-       ![Select your function app > "Platform features" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
+        ![Select your function app > "Platform features" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
 
-    2. Under **CORS**, add the `*` wildcard character, 
-    but remove all the other origins in the list, 
-    and choose **Save**.
+     2. Under **CORS**, add the `*` wildcard character, 
+     but remove all the other origins in the list, and choose **Save**.
 
-       ![Set "CORS* to the wildcard character "*"](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
+        ![Set "CORS* to the wildcard character "*"](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
 
 ### Access property values inside HTTP requests
 
