@@ -21,11 +21,11 @@ Join your work-owned Windows 10 device to your organization's network so you can
 ## What happens when you join your device
 While you're joining your Windows 10 device to your organization's network, the following actions will happen:
 
-- Windows joins your device to your organization's network.
+- Windows registers your device to your organization's network so you can access your resources. After your device is registered, it will be able to access your resources. Windows then joins your device to the network, so you can use your organization's username and password to sign in to your device and access restricted resources.
 
-- You might be asked to set up two-step verification through either [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) or [security info](user-help-security-info-overview.md), depending on what your organization has set up.
+- Optionally, based on your organization's choices, you might be asked to set up two-step verification through either [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) or [security info](user-help-security-info-overview.md).
 
-- You'll be automatically enrolled in mobile device management, such as Microsoft Intune, if it's necessary. For more info about enrolling in Microsoft Intune, see [Enroll your device in Intune](https://docs.microsoft.com/en-us/intune-user-help/enroll-your-device-in-intune-all).
+- Optionally, based on your organization's choices, you might be automatically enrolled in mobile device management, such as Microsoft Intune. For more info about enrolling in Microsoft Intune, see [Enroll your device in Intune](https://docs.microsoft.com/en-us/intune-user-help/enroll-your-device-in-intune-all).
 
 - You'll go through the sign-in process, using automatic sign-in with your organizational account.
 

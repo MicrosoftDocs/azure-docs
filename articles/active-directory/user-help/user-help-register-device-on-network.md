@@ -1,6 +1,6 @@
 ---
 title: Register your personal device on your organization's network - Azure Active Directory | Microsoft Docs
-description: Learn how to register your personal device on your organization's network.
+description: Learn how to register your personal device on your organization's network so you can access your organization's protected resources.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -16,20 +16,23 @@ ms.reviewer: jairoc
 
 ---
 # Register your personal device on your organization's network
-Register your personal device, typically a phone or tablet, running Windows 10, iOS, Android, or macOS, on your organization's network.
+Register your personal device, typically a phone or tablet, on your organization's network. After your device is registered, it will be able to access your organization's restricted resources.
+
+>[!Note]
+>This article uses a Windows device for demonstration purposes, but you can also register devices or phones running iOS, Android, or macOS.
 
 ## What happens when you register your device
 While you're registering your device on your organization's network, the following actions will happen:
 
 - Windows registers your device on your organization's network.
 
-- You might be asked to set up two-step verification through either [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) or [security info](user-help-security-info-overview.md), depending on what your organization has set up.
+- Optionally, based on your organization's choices, you might be asked to set up two-step verification through either [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) or [security info](user-help-security-info-overview.md).
 
-- You'll be automatically enrolled in mobile device management, such as Microsoft Intune, if it's necessary. For more info about enrolling in Microsoft Intune, see [Enroll your device in Intune](https://docs.microsoft.com/en-us/intune-user-help/enroll-your-device-in-intune-all).
+- Optionally, based on your organization's choices, you might be automatically enrolled in mobile device management, such as Microsoft Intune. For more info about enrolling in Microsoft Intune, see [Enroll your device in Intune](https://docs.microsoft.com/en-us/intune-user-help/enroll-your-device-in-intune-all).
 
 - You'll go through the sign-in process, using the username and password for your personal Microsoft account.
 
-## To register your device
+## To register your Windows device
 
 Follow these steps to register your personal device on your network.
 
