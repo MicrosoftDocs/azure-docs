@@ -50,6 +50,9 @@ With the approach provided by Project Acoustics' Unity plugin, you provide a sta
 * Windows UWP (x86, AMD64, and ARM)
 * Android (x86 and ARM64)
 
+## Download
+If you're interested in evaluating the acoustics plugin and providing feedback to Microsoft, sign up [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) to download the plugin package.
+
 ## Next steps
 * Learn more about the [design process](designprocess.md)
 * Get started [integrating acoustics in your Unity title](gettingstarted.md)

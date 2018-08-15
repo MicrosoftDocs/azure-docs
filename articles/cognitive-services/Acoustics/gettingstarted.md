@@ -14,6 +14,9 @@ ms.author: kegodin
 # Integrating Project Acoustics Into Your Unity Project
 This quickstart guide will show you how to integrate the plugin in your Unity project, bake your scene, and apply the acoustics to sound sources. For this quickstart, you'll need to first create an [Azure batch account](createazureaccount.md). 
 
+## Download the plugin
+Register [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) to join the Designer Preview.
+
 ## Supported platforms for quickstart
 * [Unity 2018.2+](http://www.unity3d.com)
   * Requires setting your project to the **.NET 4.x Equivalent** scripting runtime version 
