@@ -154,11 +154,13 @@ Along with the locally generated root and repository keys, several others are ge
 
 If you lose access to your root key, you lose access to the signed tags in any repository whose tags were signed with that key. Azure Container Registry cannot restore access to image tags signed with a lost root key. To remove all trust data (signatures) for your registry, first disable, then re-enable content trust for the registry. **WARNING**: Disabling and re-enabling content trust in your registry **deletes all trust data for all signed tags in every repository in your registry**. Disabling content trust does not delete the images themselves.
 
+To disable content trust for your registry, first navigate to the registry in the Azure portal. Under **POLICIES**, select **Content Trust (Preview)** > **Disabled** > **Save**. You're warned of the loss of all signatures in the registry. Select **OK** to permanently delete all signatures in your registry.
+
 ![Disabling content trust for a registry in the Azure portal][content-trust-03-portal]
 
 ## Pull a trusted image
 
-To pull a trusted image, enable content trust and run the `docker pull` command as normal. When a consumer with content trust enabled pulls an image from your registry, only images with signed tags can be pulled. Here's an example of pulling a signed tag:
+To pull a trusted image, enable content trust and run the `docker pull` command as normal. Consumers with content trust enabled can pull only images with signed tags. Here's an example of pulling a signed tag:
 
 ```console
 $ docker pull myregistry.azurecr.io/myimage:signed
@@ -179,11 +181,11 @@ No valid trust data for unsigned
 
 ### Behind the scenes
 
-When you run `docker pull`, the Docker client uses the same library as in the [Notary CLI][docker-notary-cli] to request the tag-to-SHA256 digest mapping for the tag you're pulling. After validating the signatures on the trust data, the client instructs the Engine to do a "pull by digest". During the pull, the Engine uses the SHA-256 checksum as a content address to request and validate the image manifest from the Azure container registry.
+When you run `docker pull`, the Docker client uses the same library as in the [Notary CLI][docker-notary-cli] to request the tag-to-SHA256 digest mapping for the tag you're pulling. After validating the signatures on the trust data, the client instructs Docker Engine to do a "pull by digest". During the pull, the Engine uses the SHA-256 checksum as a content address to request and validate the image manifest from the Azure container registry.
 
 ## Next steps
 
-See the Docker documentation for valuable information about content trust. While several key points were touched on in this article, content trust is an extensive topic and is covered in-depth here:
+See the Docker documentation for valuable information about content trust. While several key points were touched on in this article, content trust is an extensive topic and is covered more in-depth in the Docker documentation.
 
 [Content trust in Docker][docker-content-trust]
 
