@@ -76,7 +76,6 @@ Yes, Site Recovery supports clustered Hyper-V hosts. Note that:
 - If you run the Deployment Planner tool for Hyper-V, the tool collects the profile data from the node which is running and where the VM is running. The tool can't collect any data from a node that's turned off, but it will track that node. After the node is up and running, the tool starts collecting the VM profile data from it (if the VM is part of the profile VM list and is running on the node).
 - If a VM on a Hyper-V host in a Site Recovery vault migrates to a different Hyper-V host in the same cluster, or to a standalone host, replication for the VM isn't impacted. The Hyper-V host must meet [prerequisites](hyper-v-azure-support-matrix.md#on-premises-servers), and be configured in a Site Recovery vault. 
 
-- 
 
 ### Can I protect VMs when Hyper-V is running on a client operating system?
 No, VMs must be located on a Hyper-V host server that's running on a supported Windows server machine. If you need to protect a client computer you could [replicate it as a physical machine](physical-azure-disaster-recovery.md) to Azure.
@@ -131,14 +130,14 @@ When you replicate to Azure, replication traffic reaches the public endpoints of
 
 For replication, a Hyper-V VM must be running a supported operating system. In addition, the VM must meet the requirements for Azure VMs. [Learn more](hyper-v-azure-support-matrix.md#replicated-vms) in the support matrix.
 
-## How often can I replicate to Azure?
+###How often can I replicate to Azure?
 
 Hyper-V VMs can be replicated every 30 seconds (except for premium storage), 5 minutes or 15 minutes.
 
-## Can I extend replication?
+###Can I extend replication?
 Extended or chained replication isn't supported. Request this feature in [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
 
-## Can I do an offline initial replication?
+### Can I do an offline initial replication?
 This isn't supported. Request this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### Can I exclude disks?
@@ -174,20 +173,6 @@ Site Recovery doesn't explicitly install anything on Hyper-V VMs enabled for rep
 ## Failover and failback
 
 
-
-After your on-premises infrastructure is up and running again, you can fail back. Failback occurs in three stages:
-
-Kick off a planned failover from Azure to the on-premises site:
-
-Minimize downtime: If you use this option Site Recovery synchronizes data before failover. It checks for changed data blocks and downloads them to the on-premises site, while the Azure VM keeps running, minimizing downtime. When you manually specify that the failover should complete, the Azure VM is shut down, any final delta changes are copied, and the failover starts.
-Full download: With this option data is synchronized during failover. This option downloads the entire disk. It's faster because no checksums are calculated, but there's more downtime. Use this option if you've been running the replica Azure VMs for some time, or if the on-premises VM was deleted.
-Create VM: You can select to fail back to the same VM or to an alternate VM. You can specify that Site Recovery should create the VM if it doesn't already exist.
-After initial synchronization finishes, you select to complete the failover. After it completes, you can log onto the on-premises VM to check everything's working as expected. In the Azure portal, you can see that the Azure VMs have been stopped.
-
-Then, you commit the failover to finish up, and start accessing the workload from the on-premises VM again.
-After workloads have failed back, you enable reverse replication, so that the on-premises VMs replicate to Azure again.
-
-
 ### How do I fail over to Azure?
 
 You can run a planned or unplanned failover from on-premises Hyper-V VMs to Azure.
@@ -195,7 +180,7 @@ You can run a planned or unplanned failover from on-premises Hyper-V VMs to Azur
     - You can run an unplanned failover if your primary site isn't accessible.
     - You can fail over a single machine, or create recovery plans, to orchestrate failover of multiple machines.
     - You run a failover. After the first stage of failover completes, you should be able to see the created replica VMs in Azure. You can assign a public IP address to the VM if required. You then commit the failover, to start accessing the workload from the replica Azure VM.
-
+   
 
 ### How do I access Azure VMs after failover?
 After failover, you can access Azure VMs over a secure Internet connection, over a site-to-site VPN, or over Azure ExpressRoute. You'll need to prepare a number of things in order to connect. [Learn more](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
