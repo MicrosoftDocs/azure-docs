@@ -1,6 +1,7 @@
 ---
 title: Migration of managemtn tools resources from Azure Germany to global Azure
 description: This article provides help for migrating management tools resources from Azure Germany to global Azure
+author: gitralf
 services: germany
 cloud: Azure Germany
 ms.author: ralfwi 

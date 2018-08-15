@@ -1,6 +1,7 @@
 ---
 title: Migration of database resources from Azure Germany to global Azure
 description: This article provides help for migrating database resources from Azure Germany to global Azure
+author: gitralf
 services: germany
 cloud: Azure Germany
 ms.author: ralfwi 

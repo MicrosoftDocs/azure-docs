@@ -1,6 +1,7 @@
 ---
 title: Migration of compute resources from Azure Germany to global Azure
 description: Provides help for migrating compute resources
+author: gitralf
 services: germany
 cloud: Azure Germany
 ms.author: ralfwi 

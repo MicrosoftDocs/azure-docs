@@ -1,6 +1,7 @@
 ---
 title: Migration of web resources from Azure Germany to global Azure
 description: This article provides help for migrating web resources from Azure Germany to global Azure
+author: gitralf
 services: germany
 cloud: Azure Germany
 ms.author: ralfwi 
