@@ -37,7 +37,7 @@ The App Service on Azure Stack Update 3 build number is **74.0.13698.10**
 
 Refer to the [Before You Get Started documentation](azure-stack-app-service-before-you-get-started.md) before beginning deployment.
 
-Before you begin the upgrade of Azure App Service on Azure Stack to 1.3 please ensure all roles are Ready in the Azure App Service Administration in the Azure Stack Admin Portal
+Before you begin the upgrade of Azure App Service on Azure Stack to 1.3, ensure all roles are Ready in the Azure App Service Administration in the Azure Stack Admin Portal
 
 ![App Service role status](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
