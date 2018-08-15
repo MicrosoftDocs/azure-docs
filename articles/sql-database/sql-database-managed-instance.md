@@ -243,7 +243,7 @@ The following table shows several properties, accessible through Transact SQL, t
 
 ## Next steps
 
-- To learn how to create your first Managed Instance, see [Quick-start guide](sql-database-managed-instance-get-started.md)
+- To learn how to create your first Managed Instance, see [Quick-start guide](sql-database-managed-instance-get-started.md).
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
 - For more information about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
 - For a tutorial that creates a Managed Instance and restores a database from a backup file, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
