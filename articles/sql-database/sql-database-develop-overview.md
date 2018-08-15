@@ -30,10 +30,10 @@ You can leverage open-source tools like [cheetah](https://github.com/wunderlist/
 ## Resource limitations
 Azure SQL Database manages the resources available to a database using two different mechanisms: Resources governance and enforcement of limits. For more information, see:
 
-- [DTU-based resource model limits - Single database](sql-database-dtu-resource-limits-elastic-pools.md)
-- [DTU-based resource model limits - Single database](sql-database-dtu-resource-limits-elastic-pools.md)
-- [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md)
-- [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)
+- [DTU-based resource model limits - Single Database](sql-database-dtu-resource-limits-single-databases.md)
+- [DTU-based resource model limits - Elastic Pools](sql-database-dtu-resource-limits-elastic-pools.md)
+- [vCore-based resource limits - Single Databases](sql-database-vcore-resource-limits-single-databases.md)
+- [vCore-based resource limits - Elastic Pools](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## Security
 Azure SQL Database provides resources for limiting access, protecting data, and monitoring activities on a SQL Database.
