@@ -1,5 +1,5 @@
 ---
-title: Getting started with acoustics | Microsoft Docs
+title: Integrating Project Acoustics Into Your Unity Project | Microsoft Docs
 description: Use advanced acoustics and spatialization in your Unity title
 services: cognitive-services
 author: kegodin
@@ -11,8 +11,8 @@ ms.date: 08/03/2018
 ms.author: kegodin
 ---
 
-# Getting Started With Acoustics in Unity
-This quickstart guide will show you how to integrate the plugin in your title, bake your scene, and apply the acoustics to sound sources. For this quickstart, you'll need to first create an [Azure batch account](createazureaccount.md). 
+# Integrating Project Acoustics Into Your Unity Project
+This quickstart guide will show you how to integrate the plugin in your Unity project, bake your scene, and apply the acoustics to sound sources. For this quickstart, you'll need to first create an [Azure batch account](createazureaccount.md). 
 
 ## Supported platforms for quickstart
 * Unity 2018+ for bakes, using .NET 4.x scripting runtime version
@@ -21,48 +21,54 @@ This quickstart guide will show you how to integrate the plugin in your title, b
 ## Import the plugin
 Import the acoustics UnityPackage to your project. 
 * In Unity, go to Assets > Import Package > Custom Package... 
+
 ![Import Package](media/ImportPackage.png)  
+
 * Choose MicrosoftAcoustics.unitypackage
 
 ## Enable the plugin
-The bake portion of the acoustics toolkit requires the .NET 4.x scripting runtime version. Package import will update your Unity player settings, then Unity will need to restart.
-![Player Settings](media/PlayerSettings.png) ![.NET 4.5](media/Net45.png)
+The bake portion of the acoustics toolkit requires the .NET 4.x scripting runtime version. Package import will update your Unity player settings. Restart Unity for this setting to take effect.
+![Player Settings](media/PlayerSettings.png)
+
+![.NET 4.5](media/Net45.png)
 
 ## Create a navigation mesh
-Use the standard [Unity workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html) to create a navigation mesh for your project.
+Use the standard [Unity workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html) to create a navigation mesh for your project. For information on how to use your own navigation meshes, see the [bake UI walk through](bakeuiwalkthrough.md).
 
 ## Mark static meshes for acoustics
-Bring up the acoustics window using Window > Acoustics in Unity.
+Bring up the acoustics window using Window > Acoustics in Unity. This window can be docked next to the Inspector.
+
 ![Open Acoustics Window](media/WindowAcoustics.png)
 
 In Unity's hierarchy window, de-select any selected items. In the acoustics Object tab click the "Acoustics Geometry" checkbox to mark all meshes and terrains in your scene as acoustics geometry.
 
-On the Materials tab, assign the acoustic materials to materials used in your scene. The 'Default' material has absorption equivalent to concrete.
+On the Materials tab, assign the acoustic materials to materials used in your scene. The 'Default' material has absorption equivalent to concrete. For more information on specifying your own materials properties, see the [design process page](designprocess.md).
 
 ![Materials Tab](media/MaterialsTab.png)
 
 ## Preview the probes
-On the Probes tab, click Calculate. When calculation is complete, you'll see floating spheres in the scene view, which denote the locations for acoustics simulation. If you get close enough to an object in the scene window, you can also see the voxelization of the scene that will be used during the bake. The green voxels should line up with the objects you marked as geometry. The probe points and voxel displays can be toggled in the Gizmos menu.
+On the Probes tab, click Calculate. This calculation may take a few minutes, depending on scene size. When calculation is complete, you'll see floating spheres in the scene view, which mark the locations for acoustics simulation, called "probe points". If you get close enough to an object in the scene window, you can also see the scene voxelization. The green voxels should line up with the objects you marked as geometry. The probe points and voxel displays can be toggled in the Gizmos menu in the top right of the scene view.
 
 ![GizmosPreview](media/BakePreviewWithGizmos.png)
 
 ## Bake the scene
 In the Bake tab, enter your Azure credentials and click Bake. If you don't have an Azure Batch account, see [this walkthrough for our recommended account setup](CreateAzureAccount.md).
-When the bake is finished, the data file will automatically be downloaded to your AcousticsData directory.
+When the bake is finished, the data file will automatically be downloaded to your the Assets/AcousticsData directory in your project.
 
 ## Set up the spatializer plugin
-In Unity, go to Edit > Project Settings > Audio, and select "Microsoft Acoustics" as the Spatializer Plugin for your project. Also make sure the DSP Buffer Size is set to Best Performance, as this changes the buffer size used in Unity's audio engine. Only the largest buffer size is currently supported.
+The spatializer plugin applies HRTF-based spatialization and acoustics DSP to audio in your scene. To enable the spatializer, go to Edit > Project Settings > Audio, and select "Project Acoustics" as the Spatializer Plugin for your project. Also, make sure the DSP Buffer Size is set to Best Performance, as this changes the buffer size used in Unity's audio engine. Only the 1024-sample buffer size is currently supported by the Project Acoustics spatializer.
 
 ![Project Settings](media/ProjectSettings.png)  
 
-![Microsoft Acoustics Spatializer](media/ChooseSpatializer.png)
+![Project Acoustics Spatializer](media/ChooseSpatializer.png)
 
-Open the Audio Mixer (Window > Audio Mixer). Make sure you have at least one Mixer, with one group. If you don't, Click the '+' button to the right of "Mixers". Right-click the bottom of the channel strip in the effects section, and add the "Microsoft Acoustics Mixer" effect. Note that only one Microsoft Acoustics Mixer is supported at a time.
+Open the Audio Mixer (Window > Audio Mixer). Make sure you have at least one Mixer, with one group. If you don't, Click the '+' button to the right of "Mixers". Right-click the bottom of the channel strip in the effects section, and add the "Project Acoustics Mixer" effect. Note that only one Project Acoustics Mixer is supported at a time.
 
 ![Audio Mixer](media/AudioMixer.png)
 
 ## Set up the acoustics lookup table
-Drag and drop the Microsoft Acoustics prefab from the project panel into your scene
+Drag and drop the Project Acoustics prefab from the project panel into your scene
+
 ![Acoustics Prefab](media/AcousticsPrefab.png)
 
 Click on the MicrosoftAcoustics Game Object and go to its inspector panel. Specify the location of your bake result (the .ACE file, in Assets/AcousticsData) by drag-and-dropping it into the Acoustics Manager script, or by clicking on the circle button next to the text box.
@@ -70,5 +76,13 @@ Click on the MicrosoftAcoustics Game Object and go to its inspector panel. Speci
 ![Acoustics Manager](media/AcousticsManager.png)  
 
 ## Apply acoustics to sound sources
-Create an audio source. Click the checkbox at the bottom of the AudioSource's inspector panel that says "Spatialize." Make sure the Spatial Blend is set to full 3D.  
+Create an audio source. Click the checkbox at the bottom of the AudioSource's inspector panel that says "Spatialize". Make sure the Spatial Blend is set to full 3D.  
+
 ![Audio Source](media/AudioSource.png)
+
+## Apply post-bake design
+You can attach the script "AcousticsSourceCustomization" to a sound source in your scene to enable additional source design parameters. There are also parameters on the "Project Acoustics Mixer".
+
+## Next steps
+* Try the [sample scene](samplewalkthrough.md)
+* Explore more detailed [design parameters](designprocess.md).
