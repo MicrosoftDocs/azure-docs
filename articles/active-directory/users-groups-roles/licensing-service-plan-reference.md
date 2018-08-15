@@ -30,7 +30,7 @@ When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Mic
 - **Service Plans Included**: A list of service plans in the product that correspond to the String ID and GUID
 
 >[!NOTE]
->This information is accurate as of October 11, 2017.
+>This information is accurate as of August 17, 2018.
 
 | Product Name | String ID | GUID | Service Plans Included |
 | --- | --- | --- |--- |
