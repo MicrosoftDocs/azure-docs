@@ -52,3 +52,6 @@ To use Microsoft Acoustics on Android, change your build target to Android. Some
 
 ## I get an error that 'could not find metadata file System.Security.dll'
 Ensure the Scripting Runtime Version in Player settings is set to '.NET 4.x Equivalent', and restart Unity.
+
+## I'm having authentication problems when connecting to Azure
+Double-check you've used the correct credentials for your Azure account, that your account supports the type of node requested in the bake, and that your system clock is accurate.

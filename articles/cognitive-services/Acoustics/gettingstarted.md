@@ -26,6 +26,8 @@ Import the acoustics UnityPackage to your project.
 
 * Choose MicrosoftAcoustics.unitypackage
 
+If you're importing the plugin into an existing project, your project may already have an 'mcs.rsp' file in the project root, which specifies options to the C# compiler. You'll need to merge the contents of that file with the mcs.rsp file that comes with the Project Acoustics plugin.
+
 ## Enable the plugin
 The bake portion of the acoustics toolkit requires the .NET 4.x scripting runtime version. Package import will update your Unity player settings. Restart Unity for this setting to take effect.
 ![Player Settings](media/PlayerSettings.png)
