@@ -37,7 +37,7 @@ Operations Management Suite (OMS) was a bundling of the following Azure manageme
 - Log Analytics
 - Site Recovery
 
-[New pricing has been introduced for these services](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), and the OMS bundling is no longer available for new customers. None of the services that were part of OMS have changed, and each still has a critical role in managing your Azure applications and resources. Your focus should be on the management tasks that you need to perform and the different Azure services that work together for each task.
+[New pricing has been introduced for these services](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), and the OMS bundling is no longer available for new customers. None of the services that were part of OMS have changed, except for the consolidation of Azure Monitor described above. Your focus should be on the management tasks that you need to perform and the different Azure services that work together for each task.
 
 ## Operations Management Suite (OMS) portal
 The OMS portal was used to configure data sources, manage solutions, and analyze data stored in Log Analytics. All of this functionality has been moved to the Azure portal to provide a more consistent experience for monitoring and managing your Azure resources. The OMS portal can still be used but will be deprecated shortly. For details on this transition, see [OMS portal moving to Azure](../log-analytics/log-analytics-oms-portal-transition.md).
