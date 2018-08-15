@@ -108,8 +108,6 @@ The easiest way to create a client virtual machine with all nesseccary tools is 
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-    This button will open a form in Azure portal where you can configure your Azure Virtual Machine that you will use to connect to your Managed Instance.
-
 2. On the form that will be opened, enter the name of virtual machine, administrator username, and password that you will use to connect to the VM.
 
     ![create client VM](./media/sql-database-managed-instance-get-started/create-client-sql-vm.png)
