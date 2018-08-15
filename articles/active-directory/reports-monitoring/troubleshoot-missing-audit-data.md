@@ -36,6 +36,7 @@ I performed some actions in the Azure portal and expected to see the audit logs 
 Actions don’t appear immediately in the activity logs. The table below enumerates our latency numbers for activity logs. 
 
 | Report | &nbsp; | Latency (P95) | Latency (P99) |
+|--------|--------|---------------|---------------|
 | Directory audit | &nbsp; | 2 mins | 5 mins |
 | Sign-in activity | &nbsp; | 2 mins | 5 mins | 
 
