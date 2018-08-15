@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight Tools - Use Visual Studio Code for Hive, LLAP or pySpark | Microsoft Docs
+title: Azure HDInsight Tools - Use Visual Studio Code for Hive, LLAP or PySpark | Microsoft Docs
 description: Learn how to use the Azure HDInsight Tools for Visual Studio Code to create and submit queries and scripts.
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
@@ -240,6 +240,16 @@ HDInsight Tools for VS Code also enable you to submit interactive PySpark querie
 >[!NOTE]
 >The clusters can maintain session information. The defined variable, function and corresponding values are kept in the session, so they can be referenced across multiple service calls for the same cluster. 
 
+### To disable environment check
+
+By default, HDInsight tools will check environment and install dependent packages when submit interactive PySpark queries. To disable environment check, set the **hdinsight.disablePysparkEnvironmentCheck** to **true** under **USER SETTINGS**.
+
+   ![Set the environment check](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check.png)
+
+
+>[!NOTE]
+>PySpark3 is not supported anymore in Livy 0.4 (which is HDI spark 2.2 cluster). Only "PySpark" is supported for Python. It is known issue that submit to spark 2.2 fail with Python3.
+
 ## Submit PySpark batch job
 
 1. Create a new work folder and a new script file with the .py extension if you don't already have them.
@@ -275,10 +285,6 @@ HDInsight Tools for VS Code also enable you to submit interactive PySpark querie
    ![Submit Python job result](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
 
 After you submit a Python job, submission logs appear in the **OUTPUT** window in VS Code. The **Spark UI URL** and **Yarn UI URL** are shown as well. You can open the URL in a web browser to track the job status.
-
->[!NOTE]
->PySpark3 is not supported anymore in Livy 0.4 (which is HDI spark 2.2 cluster). Only "PySpark" is supported for Python. It is known issue that submit to spark 2.2 fail with Python3.
-
 
 ## Livy configuration
 
