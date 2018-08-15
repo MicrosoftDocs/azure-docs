@@ -33,6 +33,8 @@ You'll learn how to select a model and deploy it in [part two of this tutorial](
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
+
 ## Prerequisites
 
 1. The following resources and assets must be available:
@@ -42,7 +44,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    - An Azure Machine Learning workspace.  
    - A `config.json` file, that contains Azure subscription information for the workspace. This file is located in a directory named `aml_config`.  
 
-   If these are not yet created or installed, follow the steps in the [Get started with Azure Machine Learning Services](quickstart-get-started.md) article.
+   If these are not yet created or installed, follow the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) article.
 
 1. The following package dependencies (matplotlib and scikit-learn) must also be installed in the conda environment in which you installed the Azure Machine Learning SDK.
 
@@ -106,7 +108,7 @@ print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 
 ### Create directory
 
-Once you have a workspace object, specify a name for the experiment and register the local directory that contains the scripts with the workspace.  This directory will be used to deliver the necessary code from your computer to the cloud later in this tutorial. The history of all runs will be recorded under the specified run history.
+Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace.  This directory is the one that will be used to deliver the necessary code from your computer to the cloud later in this tutorial. The history of all runs will be recorded under the specified run history.
 
 
 ```python
@@ -268,7 +270,7 @@ For this task, submit the job to the Batch AI cluster you set up earlier so you 
 To submit the job to the cluster, you need to create a training script. Run the following code to create the training script called `train.py` in a place the workspace can find it.
 
 ```python
-%%writefile $proj.project_directory/train.py
+%%writefile $proj.project_folder/train.py
 
 import argparse
 import os
@@ -282,19 +284,19 @@ from utils import load_data
 
 # let user feed in 2 parameters, the location of the data files (from datastore), and the regularization rate of the logistic regression model
 parser = argparse.ArgumentParser()
-parser.add_argument('--data-directory', type = str, dest = 'data_directory', help = 'data directory mounting point')
+parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data directory mounting point')
 parser.add_argument('--regularization', type = float, dest = 'reg', default = 0.01, help = 'regularization rate')
 args = parser.parse_args()
 
-data_directory = os.path.join(args.data_directory, 'mnist')
-print('Data directory:', data_directory)
+data_folder = os.path.join(args.data_folder, 'mnist')
+print('Data directory:', data_folder)
 
 # load train and test set into numpy arrays
 # note we scale the pixel intensity values to 0-1 (by dividing it with 255.0) so the model can converge faster.
-X_train = load_data(os.path.join(data_directory, 'train-images.gz'), False) / 255.0
-X_test = load_data(os.path.join(data_directory, 'test-images.gz'), False) / 255.0
-y_train = load_data(os.path.join(data_directory, 'train-labels.gz'), True).reshape(-1)
-y_test = load_data(os.path.join(data_directory, 'test-labels.gz'), True).reshape(-1)
+X_train = load_data(os.path.join(data_folder, 'train-images.gz'), False) / 255.0
+X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
+y_train = load_data(os.path.join(data_folder, 'train-labels.gz'), True).reshape(-1)
+y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 
 # get hold of the current run
@@ -326,7 +328,7 @@ Notice how the script gets data and saves models:
 + The training script reads an argument to find the directory containing the data.  When you submit the job later, you point to the datastore for this argument:
 
     ```Python
-    parser.add_argument('--data-directory', type = str, dest = 'data_directory', help = 'data directory mounting point')
+    parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data directory mounting point')
     ```
     
 + The training script saves your model into a directory named outputs. Anything written in this directory is automatically uploaded into your workspace. You'll access your model from this directory later in the tutorial.
@@ -341,7 +343,7 @@ You also need to copy the utility library that loads the dataset into the projec
 
 ```python
 import shutil
-shutil.copy('utils.py', proj.project_directory)
+shutil.copy('utils.py', proj.project_folder)
 ```
 
 
@@ -351,7 +353,7 @@ Create an estimator by running the following code to define:
 * The name of the estimator object, est
 * The compute target, such as the Batch AI cluster you created
 * The training script name, train.py
-* The `data-directory` parameter used by the training script to access the data
+* The `data-folder` parameter used by the training script to access the data
 * Any necessary Python packages that are needed for training
 
 
@@ -359,7 +361,7 @@ Create an estimator by running the following code to define:
 from azureml.train.estimator import Estimator
 
 script_params = {
-    '--data-directory': ds.as_mount(),
+    '--data-folder': ds.as_mount(),
     '--regularization': 0.01
 }
 
@@ -443,7 +445,7 @@ runs = []
 
 for reg in regs:
     script_params = {
-    '--data-directory': ds.as_mount(),
+    '--data-folder': ds.as_mount(),
     '--regularization': reg
     }
 
