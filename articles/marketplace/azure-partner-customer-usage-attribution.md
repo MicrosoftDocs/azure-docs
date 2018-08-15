@@ -105,13 +105,38 @@ In order for the GUID to be included in our tracking, it must be registered.
 
 All registrations for template GUIDs will be done via the Azure Marketplace Cloud Partner Portal  (CPP). 
 
-Apply to [Azure Marketplace](http://aka.ms/listonazuremarketplace) today and get access to the Cloud Partner portal.
+1. Apply to [Azure Marketplace](http://aka.ms/listonazuremarketplace) today and get access to the Cloud Partner portal.
 
-*	Partners will be required to [have a profile in CPP](https://docs.microsoft.com/azure/marketplace/become-publisher) and encouraged to list the offer in Azure Marketplace or AppSource 
-*	Partners will be able to register multiple GUIDs 
-*	Partners will also be able to register a GUID for the non-Marketplace solution templates/offers
+ *	Partners will be required to [have a profile in CPP](https://docs.microsoft.com/azure/marketplace/become-publisher) and encouraged to list the offer in Azure Marketplace or AppSource 
+ *	Partners will be able to register multiple GUIDs 
+ *	Partners will also be able to register a GUID for the non-Marketplace solution templates/offers
+ 
+2. Sign into [Cloud Partner Portal](https://cloudpartner.azure.com/)
+3. On the upper right corner of the portal, click your account icon and then click **Publisher profile**
 
-Once you have added the GUID to your template, or in the user agent, and registered the GUID in the CPP all deployments will be tracked. 
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-image-for-lu.png)
+
+4. On the Profile page, click **Add Tracking GUID.**
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/last-lu-images-i-hope/articles/marketplace/media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
+
+5. In the expanded field, input your tracking GUID (just the GUID, without the “pid-” prefix) in the **Tracking GUID** field and input your offer name or description in the **Custom Description** field.
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-login.png)
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example.png)
+
+6. To register more than one GUID, click **Add Tracking GUID** again. That will open another expanded filed. 
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example-add.png)
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example-description.png)
+
+7. Once you are done with the editing, click **Save** to save your changes. 
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-save.png)
+
+
 
 ## Verification of GUID deployment 
 
@@ -186,15 +211,18 @@ When deploying PARTNER software, Microsoft will be able identify the installatio
 For assistance, follow the below steps:
  1. Visit the support page located at [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)
  2.	For issues with usage association - select Problem type: **Marketplace Onboarding** and Category: **Other** and then click **Start Request.** 
->[!Note]
->For issues on accessing Azure Marketplace Cloud Partner Portal - select Problem type: **Marketplace Onboarding** and Category: **Access Problem** and then click **Start Request.**
- 3. Complete the required fields on the next page and click **Continue.**
- 4. Complete the free text fields on the next page.  
+
+For issues on accessing Azure Marketplace Cloud Partner Portal - select Problem type: **Marketplace Onboarding** and Category: **Access Problem** and then click **Start Request.**
+
+ ![](https://github.com/ellacroi/azure-docs-pr/blob/last-lu-images-i-hope/articles/marketplace/media/marketplace-publishers-guide/lu-article-incident.png)
  
 
+ 3. Complete the required fields on the next page and click **Continue.**
+ 4. Complete the free text fields on the next page. **Important**: Fill in Incident title with **“ISV Usage Tracking”** and describe your issue in detail in the large free text field after.  Complete the rest of the form and click **Submit**. 
  
->[!Important] 
->Fill in Incident title with **“ISV Usage Tracking”** and describe your issue in detail in the large free text field after.  Complete the rest of the form and click **Submit**.
+  ![](https://github.com/qianw211/azure-docs-pr/blob/MyImgAdded-2/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-help.png)
+
+ 
 
 ## FAQs
 
