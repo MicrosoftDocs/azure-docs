@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 08/15/2018
 ms.author: danlep
 ---
 
@@ -34,11 +34,11 @@ A workspace in Batch AI is a top-level collection of the rest of the Batch AI re
 
 ## Cluster
 
-A cluster in Batch AI contains the compute resources for running jobs. All nodes in a cluster have same VM size and OS image. Batch AI offers many options for creating clusters that are customized to different needs. Typically, you set up a different cluster for each category of processing power needed to complete a project. Scale the Batch AI clusters up and down based on demand and budget.
+A cluster in Batch AI contains the compute resources for running jobs. All nodes in a cluster have same VM size and OS image. Batch AI offers many options for creating clusters that are customized to different needs. Typically, you set up a different cluster for each category of processing power needed to complete a project. Scale the Batch AI clusters up and down based on demand and budget. For more information, see [Work with Batch AI clusters](clusters.md).
 
 ## File server
 
-Optionally create a file server in Batch AI to store data, training scripts, and output logs. A Batch AI file server is a managed single-node NFS, which can be automatically mounted on cluster nodes to provide an easy and centrally accessible storage location for jobs. For most cases, only one file server is needed in a workspace, and you can separate data for your training jobs into different directories. If NFS isn't appropriate for your workloads, Batch AI supports other storage options including Azure blob storage, Azure file shares, or custom storage such as a Gluster or Lustre file system.
+Optionally create a file server in Batch AI to store data, training scripts, and output logs. A Batch AI file server is a managed single-node NFS, which can be automatically mounted on cluster nodes to provide an easy and centrally accessible storage location for jobs. For most cases, only one file server is needed in a workspace, and you can separate data for your training jobs into different directories. If NFS isn't appropriate for your workloads, Batch AI supports other storage options including [Azure Storage](use-azure-storage.md) or custom solutions such as a Gluster or Lustre file system.
 
 ## Experiment
 

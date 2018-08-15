@@ -124,7 +124,7 @@ The following command shows the full information about a specific cluster in a t
 
 ```azurecli-interactive
 az batchai cluster show \
-    --name <CUSTER> \
+    --name <CLUSTER NAME> \
     --workspace <WORKSPACE> \
     --resource-group <RESOURCE GROUP> \
     --output table
@@ -134,7 +134,7 @@ If your cluster was provisioned using the auto storage option, you'll want to re
 
 ```azurecli-interactive
 az batchai cluster show \
-    --name <CUSTER> \
+    --name <CLUSTER NAME> \
     --workspace <WORKSPACE> \
     --resource-group <RESOURCE GROUP> \
     --query "nodeSetup.mountVolumes.azureFileShares[0].{storageAccountName:accountName}"
@@ -154,7 +154,7 @@ If you need to connect to the cluster nodes, the following command retrieves the
 
 ```azurecli-interactive
 az batchai cluster node list \
-    --name <CUSTER> \
+    --name <CLUSTER NAME> \
     --workspace <WORKSPACE> \
     --resource-group <RESOURCE GROUP> 
  ```

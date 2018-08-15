@@ -33,6 +33,8 @@
     href: clusters.md
   - name: Use Azure storage
     href: use-azure-storage.md
+  - name: Train a model using Python SDK
+    href: cntk-training-python.md
   - name: Migrate to updated API
     href: migrate-to-new-api.md
 - name: Reference
