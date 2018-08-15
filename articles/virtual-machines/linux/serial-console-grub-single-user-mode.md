@@ -154,6 +154,7 @@ Oracle Linux comes with GRUB enabled out of the box. To enter GRUB, reboot your 
 Follow the instructions for RHEL above to enable single user mode in Oracle Linux.
 
 ## Next steps
+* The main serial console Linux documentation page is located [here](serial-console.md).
 * Use Serial Console for [NMI and SysRq calls](serial-console-nmi-sysrq.md)
 * The Serial Console is also available for [Windows](../windows/serial-console.md) VMs
 * Learn more about [boot diagnostics](boot-diagnostics.md)
