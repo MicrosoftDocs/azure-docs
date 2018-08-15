@@ -5,32 +5,30 @@
  author: vhorne
  ms.service: 
  ms.topic: include
- ms.date: 8/13/2018
+ ms.date: 8/15/2018
  ms.author: victorh
  ms.custom: include file
 ---
 
 ### What is Azure Firewall?
 
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall is currently in public preview.
+Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.
 
-### What capabilities are supported in the Azure Firewall public preview release?  
+### What capabilities are supported in Azure Firewall?  
 
 * Stateful firewall as a Service
 * Built-in high availability with unrestricted cloud scalability
-* FQDN filtering 
+* FQDN filtering
+* FQDN tags
 * Network traffic filtering rules
 * Outbound SNAT support
+* Inbound DNAT support
 * Centrally create, enforce, and log application and network connectivity policies across Azure subscriptions and VNETs
 * Fully integrated with Azure Monitor for logging and analytics 
 
-### How can I join the Azure Firewall Public Preview?
-
-Azure Firewall is currently a managed public preview that you can join by  using the Register-AzureRmProviderFeature PowerShell command as explained in the Azure Firewall Public Preview Documentation.
-
 ### What is the pricing for Azure Firewall?
 
-Azure Firewall has a fixed cost + variable cost. The prices are below, and these are further discounted by 50% during public preview.
+Azure Firewall has a fixed cost + variable cost:
 
 * Fixed fee: $1.25/firewall/hour
 * Variable fee: $0.03/GB processed by the firewall (ingress or egress).
@@ -53,7 +51,7 @@ There are two types of rule collections:
 
 ### Does Azure Firewall support inbound traffic filtering?
 
-Azure Firewall public preview supports outbound filtering only. Inbound protection for non-HTTP/S protocols (ex: RDP, SSH, FTP) is tentatively planned for Azure Firewall GA.  
+Azure Firewall supports inbound and outbound filtering. Inbound protection is for non-HTTP/S protocols. For example RDP, SSH, and FTP protocols.
  
 ### What logging/analytics is supported by the Azure Firewall?
 
