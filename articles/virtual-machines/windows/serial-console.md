@@ -135,6 +135,7 @@ Hitting enter after the connection banner does not show a log in prompt | [Hitti
 Only health information is shown when connecting to a Windows VM| [Windows Health Signals](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md)
 Unable to type at SAC prompt if kernel debugging is enabled | RDP to VM and run `bcdedit /debug {current} off` from an elevated command prompt. If you can't RDP you can instead attach the OS disk to another Azure VM and modify it while attached as a data disk using `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, then swap the disk back.
 Pasting into PowerShell in SAC results in a third character if original content had a repeating character | A workaround is to remove the PSReadLine module. `Remove-Module PSReadLine` will remove the PSReadLine module from the current session.
+Some keyboard inputs produce strange SAC output (e.g. `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) escape sequences are not supported by the SAC prompt.
 
 
 ## Frequently asked questions 
