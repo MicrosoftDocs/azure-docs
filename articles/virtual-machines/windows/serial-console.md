@@ -48,7 +48,7 @@ serial console for virtual machines is only accessible via [Azure portal](https:
 By default, all subscriptions have serial console access enabled for all VMs. You may disable serial console at either the subscription level or VM level.
 
 ### Subscription-level disable
-Serial Console can be disabled for an entire subscription by through the [Disable Console REST API call](https://aka.ms/disableserialconsoleapi). Azure CLI commands will arrive at a later date, and until they are ready, you can use the "Try It" functionality available on the API Documentation page to disable Serial Console for a subscription. Enter your subscriptionId, "default" in the default field, and click Run. [Try it here](https://aka.ms/disableserialconsoleapi).
+Serial Console can be disabled for an entire subscription by through the [Disable Console REST API call](https://aka.ms/disableserialconsoleapi). You may use the "Try It" functionality available on the API Documentation page to disable and enable Serial Console for a subscription. Enter your `subscriptionId`, "default" in the `default` field, and click Run. Azure CLI commands are not yet available and will arrive at a later date. [Try the REST API call here](https://aka.ms/disableserialconsoleapi).
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
