@@ -1,18 +1,44 @@
 ---
-title: Cognitive Services Speech SDK Documentation
+title: Cognitive Services Speech SDK Documentation | Microsoft Docs
 description: Release notes - what has changed in the most recent releases
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wolfma61
+manager: onano
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 07/16/2018
 ms.author: wolfma
 ---
 
 # Release notes
+
+## Cognitive Services Speech SDK 0.6.0: 2018-August release
+
+**New features**
+
+* Experimental: Support Java on Windows (64-bit) and Linux (64-bit).
+  Check out the [Java Run-Time Environment quickstart](quickstart-java-jre.md)
+* UWP apps built with the Speech SDK can now pass the Windows App Certification Kit (WACK).
+  Check out our [UWP quickstart](quickstart-csharp-uwp.md).
+
+**Functional changes**
+
+* Exposing additional error detail information on connection errors.
+
+**Breaking changes**
+
+* On Java (Android), the `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` function no longer requires a path parameter. Is now automatically detected on all supported platforms.
+* The get-accessor of the property `EndpointUrl` in Java and C# was removed.
+
+**Bug fixes**
+
+* In Java, the audio synthesis result on the translation recognizer is now implemented.
+* Fixed a bug, that could cause inactive threads and an increased number of open and unused sockets.
+* Fixed a problem, where a long running recognition could terminate in the middle the transmission.
+* Fixed a race condition in recognizer shutdown.
 
 ## Cognitive Services Speech SDK 0.5.0: 2018-July release
 
@@ -37,22 +63,12 @@ ms.author: wolfma
 
 * Recognition events: NoMatch event type is merged into the Error event.
 * SpeechOutputFormat in C# is renamed to OutputFormat to keep aligned with C++.
-* The return type of some methods of the `AudioInputStream` interface slightly changed:
-   * In Java, the `read` method now returns `long` instead of `int`.
-   * In C#, the `Read` method now returns `uint` instead of `int`.
-   * In C++, the `Read` and `GetFormat` methods now return `size_t` instead of `int`.
-* C++: instances of audio input streams can now only be passed as a `shared_ptr`.
 
 **Bug fixes**
 
 * Fixed incorrect return values in result when `RecognizeAsync()` times out.
 * The dependency on media foundation libraries on Windows is removed. The SDK is now using Core Audio APIs.
 * Documentation fix: added a region page to describe what are the supported regions.
-
-**Known issues**
-
-* The Speech SDK for Android does not report speech synthesis results for translation.
-  This will be fixed in the next release.
 
 ## Cognitive Services Speech SDK 0.4.0: 2018-June release
 
