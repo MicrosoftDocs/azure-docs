@@ -115,27 +115,45 @@ All registrations for template GUIDs will be done via the Azure Marketplace Clou
 
 3. On the upper right corner of the portal, click your account icon and then click **Publisher profile**
 
-![](media/marketplace-publishers-guide/guid-image-for-lu.png)
+
+
+    ![](media/marketplace-publishers-guide/guid-image-for-lu.png)
 
 4. On the Profile page, click **Add Tracking GUID.**
 
-![](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
+
+
+
+    ![](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
 
 5. In the expanded field, input your tracking GUID (just the GUID, without the “pid-” prefix) in the **Tracking GUID** field and input your offer name or description in the **Custom Description** field.
 
-![](media/marketplace-publishers-guide/guid-dev-center-login.png)
 
-![](media/marketplace-publishers-guide/guid-dev-center-example.png)
+
+
+    ![](media/marketplace-publishers-guide/guid-dev-center-login.png)
+
+
+
+    ![](media/marketplace-publishers-guide/guid-dev-center-example.png)
 
 6. To register more than one GUID, click **Add Tracking GUID** again. That will open another expanded filed. 
 
-![](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
 
-![](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
+
+
+    ![](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
+
+
+
+    ![](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
 
 7. Once you are done with the editing, click **Save** to save your changes. 
 
-![](media/marketplace-publishers-guide/guid-dev-center-save.png)
+
+
+
+    ![](media/marketplace-publishers-guide/guid-dev-center-save.png)
 
 
 
