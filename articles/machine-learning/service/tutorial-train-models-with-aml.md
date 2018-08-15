@@ -260,10 +260,10 @@ With almost no effort, you have a 92% accuracy.
 
 Now you can expand on this simple model by building multiple versions of the model with different regularization rates.  
 
-For this task, submit the job to the Batch AI cluster you set up earlier so you can:
+For this task, submit the job to the Batch AI cluster you set up earlier.  To submit a job you will:
 * Create a training script
 * Create an estimator
-* Submit job 
+* Submit the job 
 
 ### Create a training script
 
@@ -282,7 +282,7 @@ from sklearn.externals import joblib
 from azureml.core import Run
 from utils import load_data
 
-# let user feed in 2 parameters, the locaion of the data files (from datastore), and the regularization rate of the logistic regression model
+# let user feed in 2 parameters, the location of the data files (from datastore), and the regularization rate of the logistic regression model
 parser = argparse.ArgumentParser()
 parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data folder mounting point')
 parser.add_argument('--regularization', type = float, dest = 'reg', default = 0.01, help = 'regularization rate')
@@ -350,7 +350,7 @@ shutil.copy('utils.py', proj.project_directory)
 ### Create an estimator
 
 Create an estimator by running the following code to define:
-* The name of the estimator object, est
+* The name of the estimator object, `est`
 * The compute target, such as the Batch AI cluster you created
 * The training script name, train.py
 * The `data-folder` parameter used by the training script to access the data
@@ -409,7 +409,11 @@ Each run goes through the following stages:
 > In total, the first run will take **approximately 10 minutes**. But for subsequent runs, as long as the script dependencies don't change, the same image will be reused and hence the container start up time is much faster.
 
 
-There are multiple ways to check the progress of a running job. In a Jupyter notebook, a widget is available to show you live updates every 10-15 seconds.
+There are multiple ways to check the progress of a running job. This tutorial will use a Jupyter widget as well as a `wait_for_completion` method. 
+
+### Jupyter widget
+
+In a Jupyter notebook, a widget is available.  Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
 
 
 ```python
@@ -421,17 +425,13 @@ Here is a still snapshot of the widget shown at the end of training:
 
 ![notebook widget](./media/tutorial-train-models-with-aml/widget.png)
 
-
 ### Get log results upon completion
 
-You can print the logging output after the run completes. 
+Model training and monitoring happen in the background. Wait until the model has completed training before running more code. Use `wait_for_completion` to show when the model training is complete. 
 
-* For a detailed log of the run, set `show_output = True`.
-
-* For a short summary of the run, set `show_output = False`.
 
 ```python
-run.wait_for_completion(show_output = False)
+run.wait_for_completion(show_output = False) # specify True for a verbose log
 ```
 
 ## Submit multiple training jobs
@@ -458,11 +458,11 @@ for reg in regs:
     runs.append(est.fit())
 ```
 
-    Kick off a job to train model with regularizaion rate of 0.02
-    Kick off a job to train model with regularizaion rate of 0.05
-    Kick off a job to train model with regularizaion rate of 0.1
-    Kick off a job to train model with regularizaion rate of 0.5
-    Kick off a job to train model with regularizaion rate of 1
+    Start a job to train model with regularizaion rate of 0.02
+    Start a job to train model with regularizaion rate of 0.05
+    Start a job to train model with regularizaion rate of 0.1
+    Start a job to train model with regularizaion rate of 0.5
+    Start a job to train model with regularizaion rate of 1
     
 
 Since the cluster was created when you submitted the first run, these new jobs start immediately. However, training itself still takes time.  Wait until they are all complete:
@@ -474,12 +474,12 @@ Since the cluster was created when you submitted the first run, these new jobs s
 ```python
 %%time
 for r in runs:
-    r.wait_for_completion(show_output=True) # or you can set to false
+    r.wait_for_completion(show_output=False) # or you can set to True
 ```
 
 ## Get results for each run
 
-Once the run is complete, loop through all the jobs to get results for each run
+Once the run is complete, loop through all the jobs to get results for each run.
 
 ```python
 from azureml.core import History
@@ -524,7 +524,7 @@ plt.show()
 
 By looking at this plot, you can see that:
 * Lower regularization rates lead to worse accuracy
-* The best model is the one with an accuracy rate of 0.92
+* The best model is the one with a regularization rate of 1.0
 
 Find the ID for the model with the highest accuracy value.  
 
