@@ -1,18 +1,18 @@
 ---
 title: Content trust in Azure Container Registry
-description: Learn how to pushed signed images to your Azure container registry.
+description: Learn how enable content trust for your Azure container registry, and push and pull signed images.
 services: container-registry
 author: mmacy
 manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 08/14/2018
+ms.date: 08/16/2018
 ms.author: marsma
 ---
 # Content trust in Azure Container Registry
 
-Important to any distributed system designed with security in mind is verifying both the *source* and the *integrity* of data entering the system. Consumers of the data need to be able to verify both the publisher (source) of the data, as well the ensure it's not been modified after it was published (integrity). Azure Container Registry supports both by implementing Docker's [content trust][docker-content-trust] model, and this article gets you started.
+Important to any distributed system designed with security in mind is verifying both the *source* and the *integrity* of data entering the system. Consumers of the data need to be able to verify both the publisher (source) of the data, as well as ensure it's not been modified after it was published (integrity). Azure Container Registry supports both by implementing Docker's [content trust][docker-content-trust] model, and this article gets you started.
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
@@ -27,7 +27,7 @@ Content trust works with the **tags** in a repository. Image repositories can co
 
 ### Signing keys
 
-Content trust is managed through the use of a set of cryptographic signing keys. These keys, discussed further in [Push a trusted image](#push-a-trusted-image), are associated with a specific repository in a registry. There are several types of signing keys that Docker clients and your registry use in managing trust for the tags in a repository. When you enable content trust and integrate it into your container publishing and consumption pipeline, you must manage these keys carefully. For more details, see [Manage keys for content trust][docker-manage-keys] in the Docker documentation.
+Content trust is managed through the use of a set of cryptographic signing keys. These keys, discussed further in [Push a trusted image](#push-a-trusted-image), are associated with a specific repository in a registry. There are several types of signing keys that Docker clients and your registry use in managing trust for the tags in a repository. When you enable content trust and integrate it into your container publishing and consumption pipeline, you must manage these keys carefully. For more information, see [Manage keys for content trust][docker-manage-keys] in the Docker documentation.
 
 > [!TIP]
 > This was a very high-level overview of Docker's content trust model. For an in-depth discussion of content trust, see [Content trust in Docker][docker-content-trust].
@@ -42,7 +42,7 @@ There are three steps required for using content trust in an Azure container reg
 
 ## Enable registry content trust
 
-Your first step is to enable content trust at the registry level. Once you enable content trust, clients (users or services) can push signed images to your registry. Enabling content trust on your registry does not restrict registry usage only to consumers with content trust enabled. Consumers without content trust enabled can continue to use your registry as normal. Consumers who've enabled content trust in their clients, however, will be able to see *only* signed images in your registry.
+Your first step is to enable content trust at the registry level. Once you enable content trust, clients (users or services) can push signed images to your registry. Enabling content trust on your registry does not restrict registry usage only to consumers with content trust enabled. Consumers without content trust enabled can continue to use your registry as normal. Consumers who have enabled content trust in their clients, however, will be able to see *only* signed images in your registry.
 
 To enable content trust for your registry, first navigate to the registry in the Azure portal. Under **POLICIES**, select **Content Trust (Preview)** > **Enabled** > **Save**.
 
@@ -101,15 +101,15 @@ For example, to grant yourself the role, you can run the following commands in a
 # Grant signing permissions to authenticated Azure CLI user
 REGISTRY=myregistry
 USER=$(az account show --query user.name --output tsv)
-REGISTRY_ID=$(az acr show --name myregistry.azurecr.ioISTRY --query id --output tsv)
+REGISTRY_ID=$(az acr show --name $REGISTRY --query id --output tsv)
 
-az role assignment create --scope myregistry.azurecr.ioISTRY_ID --role AcrImageSigner --assignee $USER
+az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee $USER
 ```
 
-You can also grant a [service principal](container-registry-auth-service-principal.md) the rights to push trusted images to your registry. This is useful for build systems and other unattended systems that need to push trusted images to your registry. The format is similar to granting a user permission, but specify a service principal ID for the `--assignee` value.
+You can also grant a [service principal](container-registry-auth-service-principal.md) the rights to push trusted images to your registry. Using a service principal is useful for build systems and other unattended systems that need to push trusted images to your registry. The format is similar to granting a user permission, but specify a service principal ID for the `--assignee` value.
 
 ```azurecli
-az role assignment create --scope myregistry.azurecr.ioISTRY_ID --role AcrImageSigner --assignee <service principal ID>
+az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee <service principal ID>
 ```
 
 The `<service principal ID>` can be the service principal's **appId**, **objectId**, or one of its **servicePrincipalNames**. For more information about working with service principals and Azure Container Registry, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md).
@@ -142,13 +142,19 @@ After your first `docker push` with content trust enabled, the Docker client use
 
 ### Key management
 
-As stated in the preceding `docker push` output, the root key is the most sensitive. Be sure to back up the root key and store it in a secure location. By default, the Docker client stores signing keys in the following directory:
+As stated in the preceding `docker push` output, the root key is the most sensitive. Be sure to back up your root key and store it in a secure location. By default, the Docker client stores signing keys in the following directory:
 
 ```sh
 ~/.docker/trust/private
 ```
 
 Along with the locally generated root and repository keys, several others are generated and stored by Azure Container Registry when you push a trusted image. For a detailed discussion of the various keys in Docker's content trust implementation, including additional management guidance, see [Manage keys for content trust][docker-manage-keys] in the Docker documentation.
+
+### Lost root key
+
+If you lose access to your root key, you lose access to the signed tags in any repository whose tags were signed with that key. Azure Container Registry cannot restore access to image tags signed with a lost root key. To remove all trust data (signatures) for your registry, first disable, then re-enable content trust for the registry. **WARNING**: Disabling and re-enabling content trust in your registry **deletes all trust data for all signed tags in every repository in your registry**. Disabling content trust does not delete the images themselves.
+
+![Disabling content trust for a registry in the Azure portal][content-trust-03-portal]
 
 ## Pull a trusted image
 
@@ -171,6 +177,10 @@ $ docker pull myregistry.azurecr.io/myimage:unsigned
 No valid trust data for unsigned
 ```
 
+### Behind the scenes
+
+When you run `docker pull`, the Docker client uses the same library as in the [Notary CLI][docker-notary-cli] to request the tag-to-SHA256 digest mapping for the tag you're pulling. After validating the signatures on the trust data, the client instructs the Engine to do a "pull by digest". During the pull, the Engine uses the SHA-256 checksum as a content address to request and validate the image manifest from the Azure container registry.
+
 ## Next steps
 
 See the Docker documentation for valuable information about content trust. While several key points were touched on in this article, content trust is an extensive topic and is covered in-depth here:
@@ -180,10 +190,12 @@ See the Docker documentation for valuable information about content trust. While
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png
 [content-trust-02-portal]: ./media/container-registry-content-trust/content-trust-02-portal.png
+[content-trust-03-portal]: ./media/container-registry-content-trust/content-trust-03-portal.png
 
 <!-- LINKS - external -->
 [docker-content-trust]: https://docs.docker.com/engine/security/trust/content_trust
 [docker-manage-keys]: https://docs.docker.com/engine/security/trust/trust_key_mng/
+[docker-notary-cli]: https://docs.docker.com/notary/getting_started/
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
