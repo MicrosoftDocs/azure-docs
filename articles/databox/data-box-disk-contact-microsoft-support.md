@@ -22,7 +22,7 @@ Perform the following steps to create a support request:
 
 1. Go to your Data Box or Data Box Disk order. Navigate to **SUPPORT + TROUBLESHOOTING** section and then click **New support request**.
      
-    ![Basics](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
+    ![New support request](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
    
 2. In **New support request**, select **Basics**. In **Basics**, do the following steps:
     
@@ -31,6 +31,8 @@ Perform the following steps to create a support request:
     3. Under **Service**, check **All Services**. From the dropdown list, select **Data Box - Preview**. 
     4. Specify your **Support plan**.
     5. Click **Next**.
+
+        ![Basics](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
 3. In **New support request**, select **Step 2 Problem**. In **Problem**, do the following steps:
     
@@ -48,12 +50,12 @@ Perform the following steps to create a support request:
 4. In **New support request**, click **Step 3 Contact information**. In **Contact information**, do the following steps:
 
     1. In the **Contact options**, provide your preferred contact method (phone or email) and the language. The response time is automatically selected based on your subscription plan.
-    2. In the Contact information, provide your name, email, optional contact, country. Select the **Save contact changes for future support requests** checkbox.
+    2. In the **Contact information**, provide your name, email, optional contact, country. Select **Save contact changes for future support requests**.
     3. Click **Create**.
    
         ![Contact information](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
-    Microsoft Support will use this information to reach out to you for further information, diagnosis, and resolution.
+    Microsoft Support uses this information to reach out to you for further information, diagnosis, and resolution.
 After you have submitted your request, a Support engineer will contact you as soon as possible to proceed with your request.
 
 ## Manage a support request
