@@ -110,6 +110,12 @@
       href: spark-job.md
     - name: Using GPUs
       href: gpu-cluster.md
+    - name: Using Istio
+      items:
+      - name: Install
+        href: istio-install.md
+      - name: Intelligent routing and canary releases
+        href: istio-scenario-routing.md
   - name: DevOps
     items:
     - name: Jenkins continuous deployment
