@@ -24,8 +24,7 @@ To renew the certificate, do the following:
 
 1. In the Azure portal, open the Automation account.
 
-2. On the **Automation Account** 
-3. , in the **Account properties** pane, under **Account Settings**, select **Run As Accounts**.
+2. Select **Run As Accounts** under **Account Settings**.
 
     ![Automation account properties pane](media/automation-manage-account/automation-account-properties-pane.png)
 3. On the **Run As Accounts** properties page, select either the Run As account or the Classic Run As account that you want to renew the certificate for.
