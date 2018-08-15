@@ -99,8 +99,11 @@ Once your objects are marked, click the **Materials** button to go to the Materi
 4. Use these options to change the order of the dropdown menu that is shown when you click a dropdown in the Acoustics column below (#6). **Name** sorts the acoustic materials by name. "Absorptivity" sorts them in order of absorptivity from low to high.
 5. The list of materials used in the scene, sorted alphabetically. If the **Show Marked Only** checkbox is checked (#3), only materials used by objects marked as **Acoustics Geometry** are shown. Clicking on a material here will select all objects in the scene that use that material.
 6. Shows the acoustic material that the scene material has been assigned to. Click a dropdown to reassign a scene material to a different acoustic material. You can change the sorting order of the menu shown when you click an item here using the **Sort Acoustics By:** options above (#4).
-7. Shows the acoustic absorption coefficient of the material selected in the previous column. A value of zero means perfectly reflective (no absorption), while a value of 1 means perfectly absorptive (no reflection). The absorption coefficient can't be changed unless the selected material is "Custom".
+7. Shows the acoustic absorption coefficient of the material selected in the previous column. A value of zero means perfectly reflective (no absorption), while a value of 1 means perfectly absorptive (no reflection). 
+The absorption coefficient can't be changed unless the selected material is "Custom".
 8. For a material assigned to "Custom", the slider is no longer disabled and you can choose the absorption coefficient using the slider or by typing in a value.
+
+The reverberation time of a given material in a room is inversely related to its absorption coefficient, with most materials having absorption values in the 0.01 to 0.20 range. Anything above that is a material that is pretty absorbent.
 
 ![Reverb Time Graph](media/ReverbTimeGraph.png)
 
@@ -196,12 +199,16 @@ Once you're happy with the preview data, use the **Bake** tab to submit your bak
 
 1. The Bake Tab button used to bring up this page.
 2. A brief description of what to do on this page.
-3. Fields to enter your Azure Credentials once your Azure account has been created. For more details, see [Create Azure Account](CreateAzureAccount.md).
+3. Fields to enter your Azure Credentials once your Azure account has been created. For more details, see [Create an Azure Batch Account](CreateAzureAccount.md).
 4. Azure batch compute node type to use for the calculation. The node type must be supported by your Azure data center location. If not sure, leave at **Standard_F8**.
-5. Number of nodes to use for this calculation. The number you enter here affects the time to complete the bake and is limited by your Azure Batch core allocation. For more information on core allocation constraints, see [Create Azure Account](createazureaccount.md).
-6. Click the Bake button to submit the bake to the cloud. While a job is running, this shows **Cancel Job** instead.
-7. This area shows the status of the bake. When completed, it should show **Downloaded**.
-8. If for some reason you need to force Unity to forget about a bake you submitted (e.g. you downloaded the results using another machine), click the **Clear State** button to forget about the job that was submitted. Note that this means the result file, when ready, will **not** be downloaded, and **this is not the same as canceling the job**. The job, if running, will continue to run in the cloud.
+5. Number of nodes to use for this calculation. The number you enter here affects the time to complete the bake and is limited by your Azure Batch core allocation. The default allocation only allows for two 8 core nodes or one 16 core node, but can be expanded. For more information on core allocation constraints, see [Create an Azure Batch Account](createazureaccount.md).
+6. The probe count for your scene as calculated on the **Probes** tab. The number of probes determines the number of simulations that need to be run in the cloud. You cannot specify more nodes than there are probes.
+7. The amount of elapsed time it is expected to take for your job to run in the cloud. This does not include node startup time. Once the job starts running, this is about how long it should be before you get back the results. Note that this is only an estimate.
+8. The total amount of computing time needed to run the simulations. This is the total amount of node compute time that will be used in Azure. See [Estimating bake cost](#Estimating-bake-cost) below for more information on using this value.
+9. This message tells you where the results of the bake will be saved once the job completes.
+10. (Advanced Use Only) If for some reason you need to force Unity to forget about a bake you submitted (e.g. you downloaded the results using another machine), click the **Clear State** button to forget about the job that was submitted. Note that this means the result file, when ready, will **not** be downloaded, and **this is not the same as canceling the job**. The job, if running, will continue to run in the cloud.
+11. Click the Bake button to submit the bake to the cloud. While a job is running, this shows **Cancel Job** instead.
+12. This area shows the status of the bake. When completed, it should show **Downloaded**.
 
 You can always get complete information about active jobs, compute pools, and storage at the [Azure Portal](https://portal.azure.com).
 
@@ -210,6 +217,10 @@ While a job is running the **Bake** button changes to **Cancel Job**. Use this b
 Once you've started a bake, you can close Unity. Depending on the project, node type, and number of nodes, a cloud bake can take several hours. The bake job status will be updated when you reload the project and open the Acoustics window. If the job has completed, the output file will be downloaded.
 
 The Azure credentials are stored securely on your local machine and associated with your Unity editor. They are used solely to establish a secure connection to Azure.
+
+### <a name="Estimating-bake-cost"></a> Estimating bake cost
+
+To estimate what a given bake will cost, take the value shown for **Estimated Compute Cost**, which is a duration, and multiply that by the hourly cost in your local currency of the **VM Node Type** you selected. The result will not include the node time needed to get the nodes up and running. For example, if you select **Standard_F8** for your node type which has a cost of $0.75/hr and the Estimated Compute Cost is 3 hours and 57 minutes, the estimated cost to run the job will be $0.75 * ~4 hours = ~$3.00. The actual cost will likely be a bit higher due to the extra time to get the nodes started. You can find the hourly node cost on the [Azure Batch Pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux) page (select "Compute optimized" or "High performance compute" for the category).
 
 ### Reviewing the bake results
 
