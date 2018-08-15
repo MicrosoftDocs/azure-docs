@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2018 
+ms.date: 08/15/2018 
 ms.author: alkohli
 
 ---
@@ -69,7 +69,7 @@ Perform the following steps to migrate the Windows file share configured on Stor
     - [Deploy the Storage Sync service](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
     - [Register Windows Server with Storage Sync service](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
     - [Create a sync group and a cloud endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal. Sync groups need to be made for each Windows file share that needs to be migrated from the host.
-    - [Create a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). Specify the path as the path of the StorSimple volume that contains your file share data. For example, if the StorSimple volume is drive `J`, and your data resides in `J:/<myafsshare>`, then add this path as a server endpoint. Leave the **Tiering** as **Disabled**.
+    - [Create a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). Specify the path as the path of the StorSimple volume that contains your file share data. For example, if the StorSimple volume is drive `J`, and your data resides in `J:/<myafsshare>`, then add this path as a server endpoint. Leave the **Tiering** as **Disabled**.
 2.	Wait until the file server sync is complete. For each server in a given sync group, make sure:
     - The timestamps for the Last Attempted Sync for both upload and download are recent.
     - The status is green for both upload and download.
