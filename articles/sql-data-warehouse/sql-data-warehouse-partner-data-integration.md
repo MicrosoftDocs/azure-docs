@@ -1,4 +1,4 @@
-﻿---
+---
 title: SQL Data Warehouse data integration partners | Microsoft Docs
 description: Lists of third-party partners with data integration solutions that support Azure SQL Data Warehouse.
 services: sql-data-warehouse
@@ -26,7 +26,7 @@ To create your data warehouse solution, choose from a wide variety of industry-l
 | ![Redgate][5] |**Redgate Data Platform Studio (Preview)**<br>Redgate’s Data Platform Studio provides a simple and reliable way to migrate on-premises SQL databases to Azure SQL Data Warehouse. It’s engineered to make smart decisions for a fully automated migration, and is free to use for one-off migrations. |[Website][redgate_website]<br>[Twitter][redgate_twitter]<br>[YouTube][redgate_youtube] |[![Redgate video](./media/sql-data-warehouse-partner-data-integration/redgate_video.jpg)](https://www.youtube.com/watch?v=IR9HNvnU46s) |
 | ![SnapLogic][6] |**SnapLogic**<br>The SnapLogic integration platform as a service (iPaaS) enables customers to quickly transfer data into and out of Microsoft Azure SQL Data Warehouse. SnapLogic offers the ability to integrate hundreds of applications, services, and IoT scenarios in one solution. Deliver fast, effective insights in the cloud, on-premises or in hybrid mode with SnapLogic! |[Marketplace][snaplogic_marketplace]<br>[Website][snaplogic_website]<br>[Datasheet][snaplogic_datasheet]<br>[Twitter][snaplogic_twitter]<br>[YouTube][snaplogic_youtube] |[![Snaplogic video](./media/sql-data-warehouse-partner-data-integration/snaplogic_video.jpg)](https://www.youtube.com/watch?v=YiJCwObOh5Y) |
 
-## Next Steps
+## Next steps
 To learn more about other partners, see [Business Intelligence partners][bi_partners] and [Data Management partners][dm_partners].
 
 <!--Image references-->
