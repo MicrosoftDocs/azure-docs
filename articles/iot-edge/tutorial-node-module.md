@@ -194,23 +194,21 @@ You can see the full container image address with tag in the `docker build` comm
 
 ## Deploy and run the solution
 
-You could use the Azure portal to deploy your Node.ms module to an IoT Edge device like you did in the quickstarts, but you can also deploy and monitor modules from within Visual Studio Code. The following sections use the Azure IoT Edge extension for VS Code that was listed in the prerequisites. Install that now if you did not already. 
+In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Azure IoT Toolkit extension for Visual Studio Code. You already have a deployment manifest prepared for your scenario, the **deployment.json** file. All you need to do now is select a device to receive the deployment.
 
-1. Open the VS Code command palette by selecting **View** > **Command Palette**.
+1. In the VS Code command palette, run **Azure IoT Hub: Select IoT Hub**. 
 
-2. Search for and run the command **Azure: Sign in**. Follow the instructions to sign in your Azure account. 
+2. Choose the subscription and IoT hub that contain the IoT Edge device that you want to configure. 
 
-3. In the command palette, search for and run the command **Azure IoT Hub: Select IoT Hub**. 
+3. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
 
-4. Select the subscription that contains your IoT hub, then select the IoT hub that you want to access.
+4. Right-click the name of your IoT Edge device, then select **Create Deployment for Single Device**. 
 
-5. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
+   ![Create deployment for single device](./media/tutorial-node-module/create-deployment.png)
 
-6. Right-click the name of your IoT Edge device, then select **Create Deployment for IoT Edge device**. 
+5. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file. 
 
-7. Navigate to the solution folder that contains NodeModule. Open the **config** folder and select the **deployment.json** file. Click **Select Edge Deployment Manifest**.
-
-8. Refresh the **Azure IoT Hub Devices** section. You should see the new **NodeModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
+6. Click the refresh button. You should see the new **NodeModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
 
 
 ## View generated data

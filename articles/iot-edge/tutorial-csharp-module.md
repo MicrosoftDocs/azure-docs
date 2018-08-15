@@ -283,18 +283,21 @@ You can see the full container image address with tag in the VS Code integrated 
 
 ## Deploy and run the solution
 
-1. Configure the Azure IoT Toolkit extension with the connection string for your IoT hub: 
+In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Azure IoT Toolkit extension for Visual Studio Code. You already have a deployment manifest prepared for your scenario, the **deployment.json** file. All you need to do now is select a device to receive the deployment.
 
-    1. Open the VS Code explorer by selecting **View** > **Explorer**.
+1. In the VS Code command palette, run **Azure IoT Hub: Select IoT Hub**. 
 
-    1. In the explorer, select **Azure IoT Hub Devices**, select the ellipsis (**...**), and then choose **Select IoT Hub**. Follow the instructions to sign in your Azure account and choose your IoT hub. 
+2. Choose the subscription and IoT hub that contain the IoT Edge device that you want to configure. 
 
-       > [!Note]
-       > You can also complete the set up by choosing **Set IoT Hub Connection String**. Enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window.
+3. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
 
-2. In the Azure IoT Hub Devices explorer, right-click your IoT Edge device, and then select **Create Deployment for IoT Edge device**. Select the deployment.json file in the config folder and then choose **Select Edge Deployment Manifest**.
+4. Right-click the name of your IoT Edge device, then select **Create Deployment for Single Device**. 
 
-3. Refresh the **Azure IoT Hub Devices** section. You should see the new **CSharpModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
+   ![Create deployment for single device](./media/tutorial-csharp-module/create-deployment.png)
+
+5. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file. 
+
+6. Click the refresh button. You should see the new **CSharpModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**.  
 
 ## View generated data
 
