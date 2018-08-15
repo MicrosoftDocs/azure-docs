@@ -32,22 +32,17 @@ Operationalizing a notebook, or integrating with source control and build automa
 __Integrated Development Environments (IDE) and code editors__ such Visual Studio Code, Atom, and PyCharm, are more suited to creating production-ready solutions. IDEs provide development-oriented tools like debuggers, and have better integration with source control and build automation systems. Most IDEs are installed locally or in a VM.
 
 In this document, you'll learn about the following development environments:
-| &nbsp; | Azure Notebooks | Jupyter Notebooks | IDEs and code editors |
+| &nbsp; | [Azure Notebooks](#azure-notebooks) | [Jupyter Notebooks](#jupyter-notebooks) | [IDEs and code editors](#ides-and-code-editors) |
 | --- |:---:|:---:|:---:|
-| Interactive | ✓ | ✓ | &nbsp; |
-| Visualization | ✓ | ✓ | &nbsp; |
-| Sharing | ✓ | &nbsp; | &nbsp; |
-| Pre-configured | ✓ | &nbsp; | &nbsp; |
-| Customization | Low | High | High |
-| Development tools | &nbsp; | &nbsp; | ✓ |
+| __Interactive__ | ✓ | ✓ | &nbsp; |
+| __Visualization__ | ✓ | ✓ | &nbsp; |
+| __Sharing__ | ✓ | &nbsp; | &nbsp; |
+| __Pre-configured__ | ✓ | &nbsp; | &nbsp; |
+| __Customization__ | Low | High | High |
+| __Development tools__ | &nbsp; | &nbsp; | ✓ |
 
 > [!TIP]
 > If you're new to Azure Machine Learning, or want to get started quickly, we recommend Azure Notebooks. It's a free, cloud hosted notebook service with the Azure Machine Learning SDK already installed.
-
-> [!NOTE]
-> The Data Science Virtual Machine provides Jupyter Notebooks, Visual Studio Code, PyCharm, and a variety of other IDEs, tools, and utilities, along with a high degree of control for configuration. For more information, see the [What is the Data Science Virtual Machine](../data-science-virtual-machine/overview.md) document.
-
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
 ## Azure Notebooks
 
@@ -76,11 +71,29 @@ This environment is recommended when you need the following features:
 * __Data visualization__: There are many data visualization packages available for use with Jupyter Notebooks.
 * __A high degree of control over local compute resources__: You can install any library, kernel, or make any configuration changes you want to the local environment.
 
+## IDEs and code editors
+
+Since the Azure Machine Learning SDK is a pip installable Python package, you can use it from the code editor of your choice. Just install the package and continue using the editor and tools that work best for you.
+
+IDEs and code editors are recommended when you need the following features:
+
+* __Source control__: Source control/version control systems allow you to keep track of changes to your code over time. They also make it easier to coordinate code contributions from multiple people.
+* __Integration with production systems__: IDEs and code editors can often be integrated with automated build and deployment systems.
+* __Development tools__: Many IDEs and code editors provide language or framework specific tools. For example, syntax highlighting, linting, and debugging.
+
+### Visual Studio Code
+
+Visual Studio Code is source code editor, which makes it easier to work on machine learning applications intended for production use. It is recommended when you need the following features:
+ 
+* __Source control__: Source control/Version control systems allow you to keep track of changes to your code over time. They also make it easier to coordinate code contributions from multiple people. Visual Studio Code integrates with popular source control systems such as Git and Team Foundation Version Control.
+* __Integration with production systems__: Visual Studio Code provides integration with automated build and deployment systems that help speed up the process of deploying your model into production.
+* __Development tools__: Visual Studio Code provides support for an ecosystem of extensions. Some of these extensions provide tools for working with Python. The [Visual Studio Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vs/) is an extension that makes it easier to work with Azure Machine Learning from within Visual Studio Code.
+
 ## Data Science Virtual Machine
 
-The Data Science Virtual Machine (DSVM) is a VM image on Azure. It comes with many common data science and machine learning libraries pre-installed. When creating DSVM, you can choose the size of virtual machine, allowing you to choose the number of CPU cores, GPU, and amount of memory. 
+The Data Science Virtual Machine (DSVM) is a VM image on Azure. It comes with the Azure Machine Learning SDK, Jupyter Notebooks, PyCharm, and a variety of other components used for machine learning. When creating DSVM, you can choose the size of virtual machine, allowing you to choose the number of CPU cores, GPU, and amount of memory. 
 
-The DSVM comes with the Azure Machine Learning SDK, Jupyter Notebooks, PyCharm, and a variety of other components used for machine learning. This environment is recommended when you need the following features:
+This environment is recommended when you need the following features:
 
 * __Little setup or configuration__: DSVM is pre-installed with Jupyter Notebooks and other popular software. Configuring the VM can be as simple as selecting the CPU cores, memory, and other basic characteristics of the VM.
 * __Interactive experimentation__: Jupter Notebooks allow you to interactively modify and rerun code sections.
@@ -90,17 +103,3 @@ The DSVM comes with the Azure Machine Learning SDK, Jupyter Notebooks, PyCharm, 
 * __A high degree of control over local compute resources__: You can install any library, kernel, or make other configuration changes you want to the DSVM environment.
 
 For more information, see the [What is the Data Science Virtual Machine](../data-science-virtual-machine/overview.md) document.
-
-## Visual Studio Code
-
-Visual Studio Code is source code editor, which makes it easier to work on machine learning applications intended for production use. It is recommended when you need the following features:
- 
-* __Source control__: Source control/Version control systems allow you to keep track of changes to your code over time. They also make it easier to coordinate code contributions from multiple people. Visual Studio Code integrates with popular source control systems such as Git and Team Foundation Version Control.
-* __Integration with production systems__: Visual Studio Code provides integration with automated build and deployment systems that help speed up the process of deploying your model into production.
-
-Visual Studio Code also has an extension specifically for working with Artificial Intelligence. The [Visual Studio Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vs/) is an extension that makes it easier to work with Azure Machine Learning from within Visual Studio Code.
-
-## Code editor of your choice
-
-Since the Azure Machine Learning SDK is a pip installable Python package, you can use it from the code editor of your choice. Just install the package and continue using the editor and tools that work best for you.
-

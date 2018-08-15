@@ -24,7 +24,7 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 
 [!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
-## Pre-requisites
+## Prerequisites
 
  * [Continuum Anaconda](https://anaconda.org/anaconda/continuum-docs) or [Miniconda](https://conda.io/miniconda.html) package manager installed
 
