@@ -104,6 +104,3 @@ Consider the following points for optimal performance:
 * If one table is always smaller than the other, use it as the left side of the join.
 
 
-## Next steps
-Continue with the [smart analytics tutorials]
-* [Identifying data patterns](./smart-analytics/autocluster.md)

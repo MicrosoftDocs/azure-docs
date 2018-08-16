@@ -363,6 +363,6 @@ Continue with the advanced tutorials:
 * [Aggregation functions](aggregations.md)
 * [Advanced aggregations](advanced-aggregations.md)
 * [Charts and diagrams](charts.md)
-* [Working with JSON and data structures](json-and-data-structures.md)
+* [Working with JSON and data structures](json-data-structures.md)
 * [Advanced query writing](advanced-query-writing.md)
 * [Joins - cross analysis](joins.md)

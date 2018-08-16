@@ -1,6 +1,6 @@
 ---
 title: Creating charts and diagrams from Azure Log Analytics queries | Microsoft Docs
-description: This article provides a tutorial for using the Analytics portal to write queries in Log Analytics.
+description: Describes various visualizations in Azure Log Analytics to display your data in different ways. 
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -22,7 +22,7 @@ ms.component: na
 > [!NOTE]
 > You should complete [Advanced aggregations in Log Analytics queries](advanced-aggregations.md) before completing this tutorial.
 
-This article describes various visualizations in Azure Log Analytics to display your data in different ways. You can also use [render](../../language-reference/query_language_renderoperator.md) operator to embed the visualization within the query itself.
+This article describes various visualizations in Azure Log Analytics to display your data in different ways. 
 
 ## Charting the results
 Start by reviewing how many computers there are per operating system, during the past hour:
@@ -89,6 +89,6 @@ You can switch between by selecting the dropdown with the column name.
 
 ## Next steps
 Continue with the advanced tutorials:
-* [Working with JSON and data structures](.json-and-data-structures.md)
+* [Working with JSON and data structures](.json-data-structures.md)
 * [Advanced query writing](advanced-query-writing.md)
 * [Joins - cross analysis](joins.md)
