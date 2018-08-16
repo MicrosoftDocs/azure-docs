@@ -172,11 +172,11 @@ No, Standard SSDs disks are only available as Managed Disks.
 **Do Standard SSD Disks support "single instance VM SLA"?**
 No, Standard SSDs do not have single instance VM SLA. Use Premium SSD disks for single instance VM SLA.
 
-## Migrate to Managed Disks 
+## Migrate to Managed Disks
 
 **What changes are required in a pre-existing Azure Backup service configuration prior/after migration to Managed Disks?**
 
-No changes are required. 
+No changes are required.
 
 **Will my VM backups created via Azure Backup service before the migration continue to work?**
 
@@ -184,15 +184,15 @@ Yes, backups work seamlessly.
 
 **What changes are required in a pre-existing Azure Disks Encryption configuration prior/after migration to Managed Disks?**
 
-No changes are required. 
+No changes are required.
 
 **Is automated migration of an existing virtual machine scale sets from unmanaged disks to Managed Disks supported?**
 
-No. You can create a new scale set with Managed Disks using the image from your old scale set with unmanaged disks. 
+No. You can create a new scale set with Managed Disks using the image from your old scale set with unmanaged disks.
 
 **Can I create a Managed Disk from a page blob snapshot taken before migrating to Managed Disks?**
 
-No. You can export a page blob snapshot as a page blob and then create a Managed Disk from the exported page blob. 
+No. You can export a page blob snapshot as a page blob and then create a Managed Disk from the exported page blob.
 
 **Can I fail over my on-premises machines protected by Azure Site Recovery to a VM with Managed Disks?**
 
@@ -206,7 +206,11 @@ Yes. Currently, Azure Site Recovery Azure to Azure protection for VMs with Manag
 
 Yes
 
-## Managed Disks and Storage Service Encryption 
+**When creating a disk from a blob, is there any continually existing relationship with that source blob?**
+
+No, when the new disk is created it is a full standalone copy of that blob at that time and there is no connection between the two. If you like, once you've created the disk, the source blob may be deleted without affecting the newly created disk in any way.
+
+## Managed Disks and Storage Service Encryption
 
 **Is Azure Storage Service Encryption enabled by default when I create a managed disk?**
 
