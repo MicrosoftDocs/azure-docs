@@ -75,7 +75,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 
 The Java SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries as well as required Android permissions for using it.
 It is hosted in a Maven repository at `https://csspeechstorage.blob.core.windows.net/maven/` as package `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`.
-The consume the package from your Android Studio project make the following changes:
+To consume the package from your Android Studio project make the following changes:
 
 * In the project-level `build.gradle` file, add the following into the `repository` section:
 
