@@ -17,27 +17,31 @@ ms.author: yashar
 ---
 # Understand how the SUSE Linux Enterprise software reservation discount is applied
 
-After you buy a SUSE Linux Enterprise Server software reservation, the reservation discount is automatically applied when you deploy a SUSE image and virtual machine (VM) that match the reservation. A SUSE Linux Enterprise Server software reservation covers the cost of running the SUSE software on an Azure VM.
+After you buy a SUSE Linux Enterprise Server software reservation, the reservation discount is automatically applied when you deploy a SUSE image and virtual machine (VM) that matches the reservation. A SUSE Linux Enterprise Server software reservation covers the cost of running the SUSE software on an Azure VM.
 
-To get the full benefit of the reservation discount, you need to understand your usage of SUSE software and the vCPUs of the VMs you deploy that run SUSE software. Use the following sections to help identify from your usage CSV file what reservation to buy.  
+To get the full benefit of the reservation discount, you need to understand your SUSE usage and vCPUs on the VMs where you run SUSE. Use the following sections to help identify from your usage CSV file what reservation to buy.  
 
 ## Understand reservation usage for SUSE
 
-The following tables show the software plans you can buy a reservation for, their associated usage meters, and the ratios for each. The ratio column that's listed in the following tables compares the relative footprint for each meter in that group. The ratio is based on the combination of the SUSE software and the VM vCPUs. Use the ratio value to calculate how many instances the reservation discount covers.
+The following tables show the software plans you can buy a reservation for, their associated usage meters, and the ratios for each. The ratio column that's listed in the following tables compares the relative footprint for each meter in that group. The ratio depends on the VM vCPUs. Use the ratio value to calculate how many instances of SUSE the reservation discount covers.
 
-For example, if you buy a reservation for SUSE Linux Enterprise Server for HPC Priority for a VM with 5 or more vCPU, the ratio for that reservation is 2.6. The reservation discount can apply to VMs with less than 5 vCPU that run that software.
+For example, if you buy a reservation for SUSE Linux Enterprise Server for HPC Priority for a VM with 3 or 4 vCPU, the ratio for that reservation is 2. The discount covers the SUSE software cost for:
 
-Within the software series group, the number of running SUSE instances that the reservation discount applies to depends on the 
+- 2 deployed VMs with 1 or 2 vCPUs,
+- 1 deployed VM with 3 or 4 vCPUs,
+- or 0.77 or about 77% of a VM with 5 or more vCPUs.
 
-or any of the group below and you will get benefit proportionately for the software in that group. For e.g. if you purchase 1 quantity pf SAP prioroty (3-4 vCPU), you can either deploy two (1-2 vCPU) VMs or one (3-4 vCPU) VM.  
+The ratio for 5 or more vCPU is 2.6. So a reservation for SUSE with a VM with 5 or more vCPU covers a only portion of the software cost, which is about 77%.
 
 ## SUSE Linux Enterprise Server for HPC Priority
 
-|Meter/VM Name |  MeterId | Ratio| example vm size within that?|
-| ------- | ------------------------| --- |
-|SLES for HPC (1-2 vCPU)|e275a668-ce79-44e2-a659-f43443265e98|1|
-|SLES for HPC (3-4 vCPU)|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2|
-|SLES for HPC (5+ vCPU)|4edcd5a5-8510-49a8-a9fc-c9721f501913|2.6|
+Name in Azure portal marketplace:
+
+|Meter/VM Name |  MeterId | Ratio| Example VM size|
+| ------- | ------------------------| --- |--- |
+|SLES for HPC (1-2 vCPU)|e275a668-ce79-44e2-a659-f43443265e98|1||
+|SLES for HPC (3-4 vCPU)|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2||
+|SLES for HPC (5+ vCPU)|4edcd5a5-8510-49a8-a9fc-c9721f501913|2.6||
 
 ### SUSE Linux Enterprise Server for HPC Standard
 
@@ -82,3 +86,20 @@ or any of the group below and you will get benefit proportionately for the softw
 |SLES (1-2 vCPU)|4b2fecfc-b110-4312-8f9d-807db1cb79ae|1|
 |SLES (3-4 vCPU)|0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|
 |SLES (5+ vCPU)|7b349b65-d906-42e5-833f-b2af38513468|2.30769|
+
+## Next steps
+
+To learn more about reservations, see the following articles:
+
+- [What are Azure reservations?](billing-save-compute-costs-reservations.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
+- [Manage Azure reservations](billing-manage-reserved-vm-instance.md)
+- [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
+- [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+- [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Windows software costs not included with reservations](billing-reserved-instance-windows-software-costs.md)
+
+## Need help? Contact support
+
+If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
