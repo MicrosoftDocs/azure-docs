@@ -9,7 +9,7 @@ manager: jeconnoc
 ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 08/16/2018
 ---
 
 # Perform advanced JSON transformations with Liquid templates in Azure Logic Apps
@@ -41,7 +41,7 @@ Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/prici
 
 1. For this example, create the sample Liquid template described in this step.
 If you want to use any filters in your Liquid template, make sure those filters start with uppercase. 
-Learn more about [Liqid filters](https://shopify.github.io/liquid/basics/introduction/#filters). 
+Learn more about [Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters). 
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -62,18 +62,17 @@ Learn more about [Liqid filters](https://shopify.github.io/liquid/basics/introdu
    }
    ```
 
-2. Sign in to the [Azure portal](https://portal.azure.com).
-
-3. On the main Azure menu, select **All resources**. 
+2. Sign in to the [Azure portal](https://portal.azure.com). 
+On the main Azure menu, select **All resources**. 
 In the search box, find and select your integration account.
 
    ![Select integration account](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
-4.  On the tiles page, select **Maps**.
+3.  Under **Components**, select **Maps**.
 
     ![Select maps](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
 
-5. Choose **Add** and provide these details for your map:
+4. Choose **Add** and provide these details for your map:
 
    | Property | Value | Description | 
    |----------|-------|-------------|
@@ -86,9 +85,11 @@ In the search box, find and select your integration account.
     
 ## Add the Liquid action for JSON transformation
 
-1. [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+1. In the Azure portal, follow these steps to 
+[create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Add the [Request trigger](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) 
+2. In the Logic App Designer, add the 
+[Request trigger](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) 
 to your logic app.
 
 3. Under the trigger, choose **New step**. 
@@ -112,6 +113,7 @@ which is "JsonToJsonTemplate" in this example.
    follow these steps:
 
    1. On your logic app menu, select **Workflow settings**.
+
    2. From the **Select an Integration account** list, 
    select your integration account, and choose **Save**.
 
