@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/15/2018
 ms.author: jeffgo
 
 ---
@@ -83,7 +83,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
-   This ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This configuration also turns off the new RHEL 7 naming conventions for NICs. 
+   This ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This configuration also turns off the new RHEL 7 naming conventions for NICs.
 
    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes. We recommend that you remove the following parameters:
 
@@ -125,7 +125,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    #NOTE: set this to whatever you need it to be.
     ```
 
 1. If you want to unregister the subscription, run the following command:
@@ -287,7 +287,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    #NOTE: set this to whatever you need it to be.
     ```
 
 1. Unregister the subscription (if necessary) by running the following command:
