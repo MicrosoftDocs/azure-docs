@@ -57,7 +57,7 @@ Azure CycleCloud requires a service principal with contributor access to your Az
 az ad sp create-for-rbac --name CycleCloudApp --years 1
 ```
 
-The output will display a series of information. You will need to save the `appiD`, `password`, and `tenant`:
+The output will display a series of information. You will need to save the `appId`, `password`, and `tenant`:
 
 ``` output
 "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
