@@ -18,10 +18,10 @@ ms.date: 08/07/2018
 ms.author: harijay
 ---
 
-# Virtual machine serial console (preview) 
+# Virtual Machine Serial Console (preview) 
 
 
-The virtual machine serial console on Azure provides access to a text-based console for Linux and Windows virtual machines. This serial connection is to COM1 serial port of the virtual machine and provides access to the virtual machine and are not related to virtual machine's network / operating system state. Access to the serial console for a virtual machine can be done only via Azure portal currently and allowed only for those users who have VM Contributor or above access to the virtual machine. 
+The Virtual Machine Serial Console on Azure provides access to a text-based console for Linux and Windows virtual machines. This serial connection is to COM1 serial port of the virtual machine and provides access to the virtual machine and are not related to virtual machine's network / operating system state. Access to the serial console for a virtual machine can be done only via Azure portal currently and allowed only for those users who have VM Contributor or above access to the virtual machine. 
 
 > [!Note] 
 > Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
@@ -36,7 +36,7 @@ The virtual machine serial console on Azure provides access to a text-based cons
 * For settings specific to Linux distro, see [Accessing the serial console for Linux](#accessing-serial-console-for-linux)
 
 
-## Open the serial console
+## Open the Serial Console
 Serial console for virtual machines is only accessible via [Azure portal](https://portal.azure.com). Below are the steps to access serial console for virtual machines via portal 
 
   1. Open the Azure portal
@@ -54,7 +54,7 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
 By default, all subscriptions have serial console access enabled for all VMs. You may disable serial console at either the subscription level or VM level.
 
 ### Subscription-level disable
-Serial Console can be disabled for an entire subscription by through the [Disable Console REST API call](https://aka.ms/disableserialconsoleapi). You may use the "Try It" functionality available on the API Documentation page to disable and enable Serial Console for a subscription. Enter your `subscriptionId`, "default" in the `default` field, and click Run. Azure CLI commands are not yet available and will arrive at a later date. [Try the REST API call here](https://aka.ms/disableserialconsoleapi).
+Serial console can be disabled for an entire subscription by through the [Disable Console REST API call](https://aka.ms/disableserialconsoleapi). You may use the "Try It" functionality available on the API Documentation page to disable and enable Serial Console for a subscription. Enter your `subscriptionId`, "default" in the `default` field, and click Run. Azure CLI commands are not yet available and will arrive at a later date. [Try the REST API call here](https://aka.ms/disableserialconsoleapi).
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
@@ -88,7 +88,7 @@ Alternatively, you may use the set of commands below in Cloud Shell (bash comman
 ### VM-level disable
 Serial console can be disabled for specific VMs by disabling that VM's boot diagnostics setting. Simply turn off boot diagnostics from the Azure portal and serial console will be disabled for the VM.
 
-## Serial console security 
+## Serial Console security 
 
 ### Access security 
 Access to Serial console is limited to users who have [VM Contributors](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) or above access to the virtual machine. If your AAD tenant requires Multi-Factor Authentication then access to the serial console will also need MFA as its access is via [Azure portal](https://portal.azure.com).

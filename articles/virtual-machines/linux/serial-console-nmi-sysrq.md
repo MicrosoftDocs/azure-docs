@@ -121,7 +121,7 @@ For more information on Linux kernel configurations, including `unknown_nmi_pani
 - [Collecting crash logs](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## Next steps
-* The main serial console Linux documentation page is located [here](serial-console.md).
+* The main Serial Console Linux documentation page is located [here](serial-console.md).
 * Use Serial Console to boot into [GRUB and enter single user mode](serial-console-grub-single-user-mode.md)
 * The Serial Console is also available for [Windows](../windows/serial-console.md) VMs
 * Learn more about [boot diagnostics](boot-diagnostics.md)
