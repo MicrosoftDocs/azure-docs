@@ -317,7 +317,8 @@ Here is the result of one random sample of test images:
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-1. **Delete ACI deployment**: If you would like to keep the resource group and workspace, you can delete just the ACI deployment with this delete API call:
+### Delete ACI deployment
+If you would like to keep the resource group and workspace, you can delete just the ACI deployment with this delete API call:
 
     ```python
     service.delete()
