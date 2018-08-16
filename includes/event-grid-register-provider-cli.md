@@ -21,7 +21,7 @@ az provider register --namespace Microsoft.EventGrid
 It may take a moment for the registration to finish. To check the status, run:
 
 ```azurecli-interactive
-az provider show -n Microsoft.EventGrid --query "registrationState"
+az provider show --namespace Microsoft.EventGrid --query "registrationState"
 ```
 
 When `registrationState` is `Registered`, you're ready to continue.
