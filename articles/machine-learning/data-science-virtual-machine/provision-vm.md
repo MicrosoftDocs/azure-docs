@@ -32,7 +32,7 @@ The Microsoft Data Science Virtual Machine is a Windows Azure virtual machine (V
   * Deep Learning Frameworks: A rich set of AI frameworks including [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet, Keras are included on the VM.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool providing fast and accurate boosted tree implementation.
-  * [Rattle](http://rattle.togaware.com/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy. It includes GUI-based data exploration and modeling with automatic R code generation.
+  * [Rattle](https://togaware.com/rattle/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy. It includes GUI-based data exploration and modeling with automatic R code generation.
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : A visual data mining and machine learning software in Java.
   * [Apache Drill](https://drill.apache.org/): A schema-free SQL Query Engine for Hadoop, NoSQL, and Cloud Storage.  Supports ODBC and JDBC interfaces to enable querying NoSQL and files from standard BI tools like PowerBI, Excel, Tableau.
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services
