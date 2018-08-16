@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/25/2018
+ms.date: 08/14/2018
 ms.author: danis
 
 ---
@@ -22,7 +22,7 @@ ms.author: danis
 
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
 
-The Custom Script Extension Version 1 downloads and runs scripts on Azure virtual machines. This extension is useful for post-deployment configuration, software installation, or any other configuration/management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide them to the extension runtime. 
+The Custom Script Extension Version 1 downloads and runs scripts on Azure virtual machines. This extension is useful for post-deployment configuration, software installation, or any other configuration/management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide them to the extension runtime.
 
 The Custom Script Extension integrates with Azure Resource Manager templates. You can also run it by using Azure CLI, PowerShell, the Azure portal, or the Azure Virtual Machines REST API.
 
@@ -34,7 +34,7 @@ There are two Linux Custom Script Extensions:
 
 * Version 2 - Microsoft.Azure.Extensions.CustomScript
 
-Please switch new and existing deployments to use the new version ([Microsoft.Azure.Extensions.CustomScript](\custom-script-linux.md)) instead. The new version is intended to be a drop-in replacement. Therefore, the migration is as easy as changing the name and version, you do not need to change your extension configuration.
+Please switch new and existing deployments to use the new version ([Microsoft.Azure.Extensions.CustomScript](custom-script-linux.md)) instead. The new version is intended to be a drop-in replacement. Therefore, the migration is as easy as changing the name and version, you do not need to change your extension configuration.
 
 ### Operating System
 
@@ -55,7 +55,7 @@ You can use the extension to use your Azure Blob storage credentials, to access 
 
 ### Internet Connectivity
 
-If you need to download a script externally such as GitHub or Azure Storage, then additional firewall/Network Security Group ports need to be opened. For example if your script is located in Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+If you need to download a script externally such as GitHub or Azure Storage, then additional firewall/Network Security Group ports need to be opened. For example if your script is located in Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](../../virtual-network/security-overview#service-tags).
 
 If your script is on a local server, then you may still need additional firewall/Network Security Group ports need to be opened.
 
@@ -67,10 +67,10 @@ If your script is on a local server, then you may still need additional firewall
 * There is 90 mins allowed for the script to run, anything longer will result in a failed provision of the extension.
 * Do not put reboots inside the script, this will cause issues with other extensions that are being installed, and post reboot, the extension will not continue after the restart. 
 * If you have a script that will cause a reboot, then install applications and run scripts etc. You should schedule the reboot using a Cron job, or using tools such as DSC, or Chef, Puppet extensions.
-* The extension will only run a script once, if you want to run a script on every boot, then you can use [cloud-init image](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init)  and use a [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) module. Alternatively, you can use the script to create a Systemd service unit.
+* The extension will only run a script once, if you want to run a script on every boot, then you can use [cloud-init image](../linux/using-cloud-init.md)  and use a [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) module. Alternatively, you can use the script to create a Systemd service unit.
 * If you want to schedule when a script will run, you should use the extension to create a Cron job.
 * When the script is running, you will only see a 'transitioning' extension status from the Azure portal or CLI. If you want more frequent status updates of a running script, you will need to create your own solution.
-* Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl*. 
+* Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl*.
 * Be aware of non default directory locations that your scripts or commands may rely on, have logic to handle this.
 
 ## Extension schema
