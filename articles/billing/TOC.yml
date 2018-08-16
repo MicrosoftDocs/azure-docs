@@ -25,15 +25,17 @@
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: Understand spending limit
     href: billing-spending-limit.md
+  - name: Analyze costs
+    href: billing-cost-analysis.md
   - name: Save with Azure reservations
     items:
     - name: What are Azure reservations?
       href: billing-save-compute-costs-reservations.md
-    - name: Buy a reservation 
+    - name: Buy a reservation
       items:
-      - name: Virtual machine  
+      - name: Virtual machine
         href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
-      - name: SQL Database 
+      - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
     - name: How discount is applied
       items:
@@ -51,15 +53,15 @@
       href: billing-manage-reserved-vm-instance.md
 - name: Manage account
   items:
-  - name: Free account 
+  - name: Free account
     items:
     - name: Create free services
       href: billing-create-free-services-included-free-account.md
-    - name: Avoid charges 
+    - name: Avoid charges
       href: billing-avoid-charges-free-account.md
-    - name: Check usage 
+    - name: Check usage
       href: billing-check-free-service-usage.md
-    - name: Upgrade subscription 
+    - name: Upgrade subscription
       href: billing-upgrade-azure-subscription.md
     - name: Understand meter mapping
       href: billing-understand-free-service-meter-mapping.md
@@ -77,8 +79,8 @@
     href: billing-use-existing-office-365-account-azure-subscription.md
   - name: Sign up for Office 365 with Azure account
     href: billing-use-existing-azure-account-for-office-365-subscription.md
-- name: Manage subscription 
-  items: 
+- name: Manage subscription
+  items:
   - name: Reactivate subscription
     href: billing-subscription-become-disable.md
   - name: Transfer ownership
@@ -92,9 +94,9 @@
   - name: Switch subscription offer
     href: billing-how-to-switch-azure-offer.md
   - name: Pay by invoice
-    href: billing-how-to-pay-by-invoice.md 
+    href: billing-how-to-pay-by-invoice.md
   - name: Create management groups
-    href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json  
+    href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json
   - name: Move Azure resources
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
   - name: Create Enterprise subscriptions
@@ -138,10 +140,10 @@
 - name: Reference
   items:
   - name: Billing Automation Scenarios
-    href: billing-cost-management-automation-scenarios.md  
+    href: billing-cost-management-automation-scenarios.md
     items:
       - name: Manage costs with Azure Budgets
-        href: billing-cost-management-budget-scenario.md  
+        href: billing-cost-management-budget-scenario.md
   - name: Azure Billing API overview
     href: billing-usage-rate-card-overview.md
     items:
@@ -163,5 +165,3 @@
     items:
       - name: Enterprise reporting REST API
         href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-
-
