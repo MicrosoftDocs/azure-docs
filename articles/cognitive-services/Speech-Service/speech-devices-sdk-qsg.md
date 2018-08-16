@@ -43,7 +43,7 @@ Before starting development with the Speech Devices SDK, gather the information 
 
 1. Connect the development kit to a computer using a second mini USB cable.
 
-    ![connecting the dev kit](media/speech-devices-sdk/qsg-1.jpg)
+    ![connecting the dev kit](media/speech-devices-sdk/qsg-1.png)
 
 1. Orient your development kit appropriately.
 
@@ -52,7 +52,7 @@ Before starting development with the Speech Devices SDK, gather the information 
     |Circular|Upright, with microphones facing the ceiling|
     |Linear|On its side, with microphones facing you (shown below)|
 
-    ![linear dev kit orientation](media/speech-devices-sdk/qsg-2.jpg)
+    ![linear dev kit orientation](media/speech-devices-sdk/qsg-2.png)
 
 1. Install the certificates and the wake word (keyword) table file, and set the permissions of the sound device. Type the following commands in a command window.
 
