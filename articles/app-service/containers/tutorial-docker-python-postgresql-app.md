@@ -152,7 +152,7 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
     "size": null,
     "tier": "Basic"
   },
-  "sslEnforcement": null,
+  "sslEnforcement": enabled,
   "storageMb": 2048,
   "tags": null,
   "type": "Microsoft.DBforPostgreSQL/servers",
