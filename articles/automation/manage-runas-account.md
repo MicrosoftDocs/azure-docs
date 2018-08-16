@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 08/16/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -20,8 +20,13 @@ When you create a Run As account, it creates a new service principal user in Azu
 There are two types of Run As Accounts:
 
 * **Azure Run As Account** - This account is used to manage Resource Manager deployment model resources.
+  * Creates an Azure AD application with a self-signed certificate, creates a service principal account for the application in Azure AD, and assigns the Contributor role for the account in your current subscription. You can change this setting to Owner or any other role. For more information, see [Role-based access control in Azure Automation](automation-role-based-access-control.md).
+  * Creates an Automation certificate asset named *AzureRunAsCertificate* in the specified Automation account. The certificate asset holds the certificate private key that's used by the Azure AD application.
+  * Creates an Automation connection asset named *AzureRunAsConnection* in the specified Automation account. The connection asset holds the applicationId, tenantId, subscriptionId, and certificate thumbprint.
 
 * **Azure Classic Run As Account** - This account is used to manage Classic deployment model resources.
+  * Creates an Automation certificate asset named *AzureClassicRunAsCertificate* in the specified Automation account. The certificate asset holds the certificate private key used by the management certificate.
+  * Creates an Automation connection asset named *AzureClassicRunAsConnection* in the specified Automation account. The connection asset holds the subscription name, subscriptionId, and certificate asset name.
 
 ## <a name="permissions"></a>Permissions to configure Run As accounts
 
@@ -29,12 +34,12 @@ To create or update an Run As account, you must have specific privileges and per
 
 |Task|Cmdlet  |Minimum Permissions  |
 |---|---------|---------|
-|Create Azure AD Application|New-AzureRmADApplication     | Application Developer Role        |
-|Add a credential to the application.|New-AzureRmADAppCredential     | Application administrator or GLOBAL ADMIN         |
-|Create and Get an Azure AD service principal|New-AzureRMADServicePrincipal</br>Get-AzureRmADServicePrincipal     | Application administrator or GLOBAL ADMIN        |
-|Assign or get the RBAC role for the specified principal|New-AzureRMRoleAssignment</br>Get-AzureRMRoleAssignment      | User Access Administrator or Owner        |
-|Create or remove an Automation certificate|New-AzureRmAutomationCertificate</br>Remove-AzureRmAutomationCertificate     | Contributor on Resource Group         |
-|Create or remove an Automation connection|New-AzureRmAutomationConnection</br>Remove-AzureRmAutomationConnection|Contributor on Resource Group |
+|Create Azure AD Application|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Application Developer Role        |
+|Add a credential to the application.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Application administrator or GLOBAL ADMIN         |
+|Create and Get an Azure AD service principal|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Application administrator or GLOBAL ADMIN        |
+|Assign or get the RBAC role for the specified principal|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | User Access Administrator or Owner        |
+|Create or remove an Automation certificate|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Contributor on Resource Group         |
+|Create or remove an Automation connection|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Contributor on Resource Group |
 
 * An AD user account with permissions equivalent to the Contributor role for Microsoft.Automation resources as outlined in article [Role-based access control in Azure Automation](automation-role-based-access-control.md#contributor).  
 * Non-admin users in your Azure AD tenant can [register AD applications](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) if the Azure AD tenant's **Users can register applications** option in **User settings** page is set to **Yes**. If the app registrations setting is set to **No**, the user performing this action must be a global administrator in Azure AD.
@@ -67,9 +72,9 @@ To get the values for *SubscriptionID*, *ResourceGroup*, and *AutomationAccountN
 
 1. In the Azure portal, click **All services**. In the list of resources, type **Automation**. As you begin typing, the list filters based on your input. Select **Automation Accounts**.
 1. On the Automation account page, select your Automation account, and then under **Account Settings** select **Properties**.  
-1. Note the values on the **Properties** page.
+1. Note the **Subscription ID**, **Name**, and **Resource Group** values on the **Properties** page.
 
-   ![The Automation account "Properties" page](media/automation-create-runas-account/automation-account-properties.png)
+   ![The Automation account "Properties" page](media/manage-runas-account/automation-account-properties.png)
 
 This PowerShell script includes support for the following configurations:
 
@@ -107,7 +112,7 @@ This PowerShell script includes support for the following configurations:
         [String] $SelfSignedCertPlainPassword,
 
         [Parameter(Mandatory = $false)]
-        [tring] $EnterpriseCertPathForRunAsAccount,
+        [string] $EnterpriseCertPathForRunAsAccount,
 
         [Parameter(Mandatory = $false)]
         [String] $EnterpriseCertPlainPasswordForRunAsAccount,
@@ -259,23 +264,35 @@ This PowerShell script includes support for the following configurations:
     ```
 
     > [!IMPORTANT]
-    > **Add-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Add-AzureRmAccount**, or you can update your modules in your Automation Account.
+    > **Add-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Add-AzureRmAccount**, or you can [update your modules](automation-update-azure-modules.md) in your Automation Account.
 
 1. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.
 1. From the elevated command-line shell, go to the folder that contains the script you created in step 1.  
 1. Execute the script by using the parameter values for the configuration you require.
 
     **Create a Run As account by using a self-signed certificate**  
-    `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false`
+
+    ```powershell
+    .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false
+    ```
 
     **Create a Run As account and a Classic Run As account by using a self-signed certificate**  
-    `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true`
+
+    ```powershell
+    .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true
+    ```
 
     **Create a Run As account and a Classic Run As account by using an enterprise certificate**  
-    `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication>  -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnterpriseCertPathForRunAsAccount <EnterpriseCertPfxPathForRunAsAccount> -EnterpriseCertPlainPasswordForRunAsAccount <StrongPassword> -EnterpriseCertPathForClassicRunAsAccount <EnterpriseCertPfxPathForClassicRunAsAccount> -EnterpriseCertPlainPasswordForClassicRunAsAccount <StrongPassword>`
 
-    **Create a Run As account and a Classic Run As account by using a self-signed certificate in the Azure Government cloud**  
-    `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true  -EnvironmentName AzureUSGovernment`
+    ```powershell
+    .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication>  -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnterpriseCertPathForRunAsAccount <EnterpriseCertPfxPathForRunAsAccount> -EnterpriseCertPlainPasswordForRunAsAccount <StrongPassword> -EnterpriseCertPathForClassicRunAsAccount <EnterpriseCertPfxPathForClassicRunAsAccount> -EnterpriseCertPlainPasswordForClassicRunAsAccount <StrongPassword>
+    ```
+
+    **Create a Run As account and a Classic Run As account by using a self-signed certificate in the Azure Government cloud**
+  
+    ```powershell
+    .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true  -EnvironmentName AzureUSGovernment
+    ```
 
     > [!NOTE]
     > After the script has executed, you will be prompted to authenticate with Azure. Sign in with an account that is a member of the subscription administrators role and co-administrator of the subscription.
@@ -285,27 +302,6 @@ After the script has executed successfully, note the following:
 * If you created a Classic Run As account with a self-signed public certificate (.cer file), the script creates and saves it to the temporary files folder on your computer under the user profile *%USERPROFILE%\AppData\Local\Temp*, which you used to execute the PowerShell session.
 
 * If you created a Classic Run As account with an enterprise public certificate (.cer file), use this certificate. Follow the instructions for [uploading a management API certificate to the Azure portal](../azure-api-management-certs.md).(automation-verify-runas-authentication.md#classic-run-as-authentication).
-
-## Update a Run As account
-
-You can update your existing Automation account from the Azure portal or use PowerShell if:
-
-* You create an Automation account but do not create the Run As account.
-* You already use an Automation account to manage Resource Manager resources and you want to update the account to include the Run As account for runbook authentication.
-* You already use an Automation account to manage classic resources and you want to update it to use the Classic Run As account instead of creating a new account and migrating your runbooks and assets to it.
-
-The process creates the following items in your Automation account.
-
-**For Run As accounts:**
-
-* Creates an Azure AD application with a self-signed certificate, creates a service principal account for the application in Azure AD, and assigns the Contributor role for the account in your current subscription. You can change this setting to Owner or any other role. For more information, see [Role-based access control in Azure Automation](automation-role-based-access-control.md).
-* Creates an Automation certificate asset named *AzureRunAsCertificate* in the specified Automation account. The certificate asset holds the certificate private key that's used by the Azure AD application.
-* Creates an Automation connection asset named *AzureRunAsConnection* in the specified Automation account. The connection asset holds the applicationId, tenantId, subscriptionId, and certificate thumbprint.
-
-**For Classic Run As accounts:**
-
-* Creates an Automation certificate asset named *AzureClassicRunAsCertificate* in the specified Automation account. The certificate asset holds the certificate private key used by the management certificate.
-* Creates an Automation connection asset named *AzureClassicRunAsConnection* in the specified Automation account. The connection asset holds the subscription name, subscriptionId, and certificate asset name.
 
 ## Delete a Run As or Classic Run As account
 
