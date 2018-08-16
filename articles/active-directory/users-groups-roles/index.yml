@@ -45,5 +45,5 @@ sections:
     className: cardsD
     items:
     - title: Reference links
-      html: <p><a href="https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0">Azure AD PowerShell cmdlets</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0">Azure AD PowerShell cmdlets</a></p>
 

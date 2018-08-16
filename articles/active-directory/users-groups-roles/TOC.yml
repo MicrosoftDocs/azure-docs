@@ -70,7 +70,7 @@
       href: ../fundamentals/customize-branding.md?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Manage groups    
     items: 
-    - name: Mmanage access with groups    
+    - name: Manage access with groups    
       href: ../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Manage groups in the Azure portal    
       href: ../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -157,4 +157,4 @@
   - name: Azure AD CLI    
     href: https://docs.microsoft.com/cli/azure/ad
   - name:  Azure AD PowerShell for Graph
-    href: https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0
+    href: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0
