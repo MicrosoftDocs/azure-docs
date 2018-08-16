@@ -1,5 +1,5 @@
 ---
-title: Deploy an image classification model in Azure Container Instance(ACI) with Azure Machine Learning service
+title: Deploy an image classification model in Azure Container Instance (ACI) with Azure Machine Learning service
 description: This tutorial shows how to use Azure Machine Learning service to deploy an image classification model with scikit-learn in a Python Jupyter notebook.  This tutorial is part two of a two-part series.
 services: machine-learning
 ms.service: machine-learning
@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 # As a professional data scientist, I can deploy the model previously trained in tutorial1.
 ---
 
-# Tutorial #2:  Deploy an image classification model in Azure Container Instance(ACI)
+# Tutorial #2:  Deploy an image classification model in Azure Container Instance (ACI)
 
 This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you built a machine learning model.  The model was registered and saved in your workspace on the cloud.  Now you're ready to retrieve this model and deploy it as a web service running in Azure Container Instance (ACI).
 
@@ -267,7 +267,7 @@ print(service.scoring_uri)
 ```
 
 
-## Test the deployed model¶ 
+## Test the deployed model
 
 Earlier you scored all the test data with the local version of the model.  Now you'll test the deployed model with a random sample of 30 images from the test data.  Send the data as a json array to the web service hosted in ACI. Here you use the `run` API in the SDK to invoke the service. You can also make raw HTTP calls using any HTTP tool such as curl.
 
@@ -317,8 +317,7 @@ Here is the result of one random sample of test images:
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-* **Delete ACI deployment**: If you would like to keep the resource group and workspace, you can delete just the ACI deployment with this delete API call:
-
+1. **Delete ACI deployment**: If you would like to keep the resource group and workspace, you can delete just the ACI deployment with this delete API call:
 
     ```python
     service.delete()
