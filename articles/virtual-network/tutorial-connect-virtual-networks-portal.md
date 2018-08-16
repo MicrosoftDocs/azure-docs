@@ -78,7 +78,7 @@ Log in to the Azure portal at https://portal.azure.com.
     |---|---|
     |Name|myVirtualNetwork1-myVirtualNetwork2|
     |Subscription| Select your subscription.|
-    |Virtual network|myVirtualNetwork2 - To select the *myVirtualNetwork2* virtual network, select **Virtual network**, then select **myVirtualNetwork2**.|
+    |Virtual network|myVirtualNetwork2 - To select the *myVirtualNetwork2* virtual network, select **Virtual network**, then select **myVirtualNetwork2**. You can select a virtual network in the same region or in a different region.|
 
     ![Peering settings](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 
