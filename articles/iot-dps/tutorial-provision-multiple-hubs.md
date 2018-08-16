@@ -71,7 +71,7 @@ In this tutorial, you learned how to:
 > * Use the Azure portal to provision a second device to a second IoT hub 
 > * Add an enrollment list entry to the second device
 > * Set the Device Provisioning Service allocation policy to **even distribution**
-> * Link the new IoT hub to Device Provisioning Service
+> * Link the new IoT hub to the Device Provisioning Service
 
 <!-- Advance to the next tutorial to learn how to 
  Replace this .md
