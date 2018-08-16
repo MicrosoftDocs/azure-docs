@@ -88,9 +88,9 @@ If you aren't a subscriber, you can [open an Azure account for free](https://azu
 
 - Follow the full-length [tutorial](tutorial-train-models-with-aml.md) to learn how to train and deploy models with Azure Machine Learning service
 
-- For a technical, in-depth look at the service, see [Azure Machine Learning service architecture and concepts](concept-azure-machine-learning-architecture.md)
-
 - For information about allowing Azure Machine Learning to auto-generate and auto-tune your model, see (***link TBD***).
+
+- For a technical, in-depth look at the service, see [Azure Machine Learning service architecture and concepts](concept-azure-machine-learning-architecture.md)
 
 <!-- 
 
