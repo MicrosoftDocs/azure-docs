@@ -1,12 +1,12 @@
 ---
-title: Quickstart: Use Go to call the Bing Web Search API
+title: "Quickstart: Use Go to call the Bing Web Search API"
 description: Quickly get started using Go language to query the Bing Web Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: Nhoya
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 8/16/2018
 ms.author: rosh
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ---
@@ -15,7 +15,7 @@ ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 
 Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response in less than 10 minutes.  
 
-[!INCLUDE [cognitive-services-bing-web-search-quickstart-signup](../../includes/cognitive-services-bing-web-search-quickstart-signup.md)]  
+[!INCLUDE [quickstart-signup](../includes/quickstart-signup.md)]  
 
 ## Prerequisites
 
@@ -171,4 +171,4 @@ Cognitive Services - msdn.microsoft.com || https://msdn.microsoft.com/en-us/maga
 > [!div class="nextstepaction"]
 > [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
-[!INCLUDE [cognitive-services-bing-web-search-quickstart-see-also](../../../includes/cognitive-services-bing-web-search-quickstart-see-also.md)]
+[!INCLUDE [quickstart-see-also](../includes/quickstart-see-also.md)]
