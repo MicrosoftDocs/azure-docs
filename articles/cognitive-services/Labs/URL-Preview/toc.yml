@@ -1,0 +1,29 @@
+- name: Project URL Preview Documentation
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Project URL Preview?
+    href: overview.md
+  - name: URL Preview endpoint
+    href: endpoint.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: C#
+    href: csharp.md
+  - name: Java
+    href: java-quickstart.md
+  - name: JavaScript
+    href: javascript.md
+  - name: Node
+    href: node-quickstart.md
+  - name: Python
+    href: python-quickstart.md
+- name: Reference
+  expanded: true 
+  items:
+  - name: Use and Display Requirements
+    href: use-display-requirements.md
+  - name: URL Preview reference
+    href: url-preview-reference.md
+    

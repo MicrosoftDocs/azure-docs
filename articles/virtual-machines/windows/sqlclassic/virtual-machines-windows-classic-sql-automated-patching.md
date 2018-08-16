@@ -80,7 +80,7 @@ Based on this example, the following table describes the practical effect on the
 | --- | --- |
 | **DayOfWeek** |Patches installed every Thursday. |
 | **MaintenanceWindowStartingHour** |Begin updates at 11:00am. |
-| **MaintenanceWindowsDuration** |Patches must be installed within 120 minutes. Based on the start time, they must complete by 1:00pm. |
+| **MaintenanceWindowDuration** |Patches must be installed within 120 minutes. Based on the start time, they must complete by 1:00pm. |
 | **PatchCategory** |The only possible setting for this parameter is “Important”. |
 
 It could take several minutes to install and configure the SQL Server IaaS Agent.

@@ -4,9 +4,8 @@ description: Use the Microsoft speech recognition service library to convert spo
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: zhouwang

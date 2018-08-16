@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 
 ms.service: iot-hub
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
@@ -155,7 +155,7 @@ Before you leave the Logic Apps Designer, copy the URL that your logic apps is l
 In this section, you configure your IoT Hub to publish events as they occur. 
 
 1. In the Azure portal, navigate to your IoT hub. 
-2. Select **Event Grid**.
+2. Select **Events**.
 
    ![Open the Event Grid details](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
 

@@ -1,20 +1,14 @@
 ---
 title: "Query an index (.NET API - Azure Search) | Microsoft Docs"
 description: Build a search query in Azure search and use search parameters to filter and sort search results.
-services: search
-manager: jhubbard
-documentationcenter: ''
 author: brjohnstmsft
-
-ms.assetid: 12c3efba-ea99-4187-9d2d-f63b5ec7040d
+manager: jlembicz
+ms.author: brjohnst
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 05/19/2017
-ms.author: brjohnst
-
 ---
 # Query your Azure Search index using the .NET SDK
 > [!div class="op_single_selector"]

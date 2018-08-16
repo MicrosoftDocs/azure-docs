@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
@@ -33,7 +33,7 @@ Linux-based Service Fabric clusters do not run natively on Windows. To run a loc
 
 
 ## Create a local container and setup Service Fabric
-To set up a local Docker container and have a service fabric cluster running on it, perform the following steps:
+To set up a local Docker container and have a service fabric cluster running on it, perform the following steps in PowerShell:
 
 1. Pull the image from Docker hub repository:
 

@@ -1,7 +1,7 @@
 - name: Azure for Containers
   href: index.yml
   items:
-    - name: Container Service (AKS)
+    - name: Kubernetes Service (AKS)
       href: https://docs.microsoft.com/azure/aks/
       expanded: true
       items:
@@ -71,12 +71,12 @@
         - name: Azure Container Service (az acs)
           href: https://docs.microsoft.com/cli/azure/acs
         - name: Azure Container Registry (az acr)
-          href: https://docs.microsoft.com/cli/azure/acr      
+          href: https://docs.microsoft.com/cli/azure/acr
         - name: Web App for Containers(az appservice)
           href: https://docs.microsoft.com/cli/azure/appservice
         - name: Azure App Service Web App (az webapp)
           href: https://docs.microsoft.com/cli/azure/webapp
         - name: Azure Service Fabric (az sf)
-          href: https://docs.microsoft.com/cli/azure/sf        
+          href: https://docs.microsoft.com/cli/azure/sf
         - name: Azure Virtual Machines (az vm)
           href: https://docs.microsoft.com/cli/azure/vm

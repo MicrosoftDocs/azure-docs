@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect to Azure Government from Visual Studio Team Services | Microsoft Docs
 description: Information on configuring continuous deployment to your applications hosted with a subscription in Azure Government by connecting from Visual Studio Team Services
 services: azure-government
@@ -69,7 +69,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 4. Navigate to the directory that has the edited script above. 
 5. Edit the following command with the name of your script and run:
     `./<name of script file you saved> `
-6. The "subscriptionName" parameter can be found by logging into your Azure Government subscription with `Login-AzureRmAccount -EnvironmentName AzureUSGovernment` and then running `Get-AzureSubscription`. 
+6. The "subscriptionName" parameter can be found by logging into your Azure Government subscription with `Connect-AzureRmAccount -EnvironmentName AzureUSGovernment` and then running `Get-AzureSubscription`. 
 7. When prompted for the "password" parameter, you can enter your desired password. 
 
     ![ps2](./media/documentation-government-vsts-img9.png)
@@ -131,7 +131,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 	
 6. Edit the name of the release definition, choose Save, and choose OK. The default environment is named Environment1, which you can edit by clicking directly on the name.
 	
-Now that your pipeline has been constructed, you can [deploy changes](https://docs.microsoft.com/en-us/vsts/build-release/) to your applications in Azure Government. 
+Now that your pipeline has been constructed, you can [deploy changes](https://docs.microsoft.com/vsts/build-release/) to your applications in Azure Government. 
 
 ## Q&A
 * Do I need a build agent?

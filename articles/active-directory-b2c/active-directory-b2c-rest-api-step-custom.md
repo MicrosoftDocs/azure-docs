@@ -1,20 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: REST API claims exchanges as an orchestration step | Microsoft Docs'
-description: A topic on Azure Active Directory B2C custom policies that integrate with an API
+title: REST API claims exchanges as an orchestration step in Azure Active Directory B2C | Microsoft Docs
+description: A topic on Azure Active Directory B2C custom policies that integrate with an API.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
+ms.component: B2C
 ---
 
 # Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 The Identity Experience Framework (IEF) that underlies Azure Active Directory B2C (Azure AD B2C) enables the identity developer to integrate an interaction with a RESTful API in a user journey.  
 

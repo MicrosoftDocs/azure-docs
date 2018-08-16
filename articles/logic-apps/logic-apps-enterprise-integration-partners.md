@@ -4,7 +4,7 @@ description: Learn how to add partners to your integration account with the Ente
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: divyaswarnkar
-manager: anneta
+manager: jeconnoc
 editor: 
 
 ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873

@@ -1,30 +1,29 @@
 ---
-title: CI/CD from Jenkins to Azure VMs with Team Services | Microsoft Docs
-description: Set up continuous integration (CI) and continuous deployment (CD) of a Node.js app by using Jenkins to Azure VMs from Release Management in Visual Studio Team Services or Microsoft Team Foundation Server
-author: ahomer
-manager: douge
-editor: tysonn
+title: Tutorial - CI/CD from Jenkins to Azure VMs with Team Services | Microsoft Docs
+description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app by using Jenkins to Azure VMs from Release Management in Visual Studio Team Services or Microsoft Team Foundation Server
+author: tomarcher
+manager: jpconnock
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: devops
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/19/2017
-ms.author: ahomer
-ms.custom: mvc
+ms.date: 07/31/2018
+ms.author: tarcher
+ms.custom: jenkins
+
+#Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use services like VSTS and Jenkins to build and deploy my applications automatically.
 ---
 
-# Deploy your app to Linux VMs by using Jenkins and Team Services
+# Tutorial: Deploy your app to Linux virtual machines in Azure with using Jenkins and Visual Studio Team Services
 
 Continuous integration (CI) and continuous deployment (CD) form a pipeline by which you can build, release, and deploy your code. Visual Studio Team Services provides a complete, fully featured set of CI/CD automation tools for deployment to Azure. Jenkins is a popular third-party CI/CD server-based tool that also provides CI/CD automation. You can use Team Services and Jenkins together to customize how you deliver your cloud app or service.
 
 In this tutorial, you use Jenkins to build a Node.js web app. You then use Team Services or Team Foundation Server to deploy it
-to a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) that contains Linux virtual machines (VMs).
-
-You will:
+to a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) that contains Linux virtual machines (VMs). You learn how to:
 
 > [!div class="checklist"]
 > * Get the sample app.
@@ -49,7 +48,7 @@ You will:
 
 *  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  Open inbound port 80 for your virtual machine. For more information, see [Create network security groups using the Azure portal](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+*  Open inbound port 80 for your virtual machine. For more information, see [Create network security groups using the Azure portal](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic).
 
 ## Get the sample app
 
@@ -169,6 +168,10 @@ To create the release definition in Team Services:
 6. Go to the source Git repository and modify the contents of the **h1** heading in the file app/views/index.jade with some changed text.
 7. Commit your change.
 8. After a few minutes, you will see a new release created on the **Releases** page of Team Services or Team Foundation Server. Open the release to see the deployment taking place. Congratulations!
+
+## Troubleshooting the Jenkins plugin
+
+If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Smart Detection - performance anomalies | Microsoft Docs
 description: Application Insights performs smart analysis of your app telemetry and warns you of potential problems. This feature needs no setup.
 services: application-insights
 documentationcenter: windows
-author: antonfrMSFT
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
@@ -11,8 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2017
+ms.reviewer: antonfr
 ms.author: mbullwin
 
 ---
@@ -84,8 +85,8 @@ Emails about Smart Detections performance anomalies are limited to one email per
   * No.  We don't commit to detecting every behavior that you might consider abnormal.
 
 
-* *If I don't do anything in reponse to a notification, will I get a reminder?*
-  * No, you get a message about each issue only once. If the issue persist it will be updated in the Smart Detection feed blade.
+* *If I don't do anything in response to a notification, will I get a reminder?*
+  * No, you get a message about each issue only once. If the issue persists it will be updated in the Smart Detection feed blade.
 * *I lost the email. Where can I find the notifications in the portal?*
   * In the Application Insights overview of your app, click the **Smart Detection** tile. There you'll be able to find all notifications up to 90 days back.
 
@@ -129,7 +130,7 @@ The response time degradation notification tells you:
 * Links to help you diagnose the problem.
   * Profiler traces to help you view where operation time is spent (the link is available if Profiler trace examples were collected for this operation during the detection period). 
   * Performance reports in Metric Explorer, where you can slice and dice time range/filters for this operation.
-  * Search for this calls to view specific calls properties.
+  * Search for this call to view specific call properties.
   * Failure reports - If count > 1 this mean that there were failures in this operation that might have contributed to performance degradation.
 
 ## Dependency Duration Degradation
@@ -149,7 +150,7 @@ Notice that it tells you:
 * Links to help you diagnose the problem
   * Performance reports in Metric Explorer for this dependency
   * Search for this dependency calls to view calls properties
-  * Failure reports - If count > 1 this mean that there were failed dependency calls during the detection period that might have contributed to duration degradation. 
+  * Failure reports - If count > 1 this means that there were failed dependency calls during the detection period that might have contributed to duration degradation. 
   * Open Analytics with queries that calculate this dependency duration and count  
 
 ## Smart Detection of slow performing patterns 

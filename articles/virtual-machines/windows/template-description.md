@@ -3,7 +3,7 @@ title: Virtual machines in an Azure Resource Manager template | Microsoft Azure
 description: Learn more about how the virtual machine resource is defined in an Azure Resource Manager template.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: davidmu
+ms.author: cynthn
 
 ---
 
@@ -277,7 +277,7 @@ To set this property, the network interface must exist. Therefore, you need a de
 Several profile elements are used when defining a virtual machine resource. Some are required and some are optional. For example, the hardwareProfile, osProfile, storageProfile, and networkProfile elements are required, but the diagnosticsProfile is optional. These profiles define settings such as:
    
 - [size](sizes.md)
-- [name](/architecture/best-practices/naming-conventions) and credentials
+- [name](/azure/architecture/best-practices/naming-conventions) and credentials
 - disk and [operating system settings](cli-ps-findimage.md)
 - [network interface](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - boot diagnostics

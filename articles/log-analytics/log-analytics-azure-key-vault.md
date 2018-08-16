@@ -12,11 +12,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-
+ms.component: na
 ---
+
 # Azure Key Vault Analytics solution in Log Analytics
 
 ![Key Vault symbol](./media/log-analytics-azure-keyvault/key-vault-analytics-symbol.png)

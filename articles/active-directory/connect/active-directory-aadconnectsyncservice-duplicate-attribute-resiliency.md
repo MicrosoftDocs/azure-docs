@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
-ms.author: markvi
+ms.component: hybrid
+ms.author: billmath
 
 ---
 # Identity synchronization and duplicate attribute resiliency

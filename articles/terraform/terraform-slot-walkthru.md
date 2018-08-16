@@ -1,6 +1,6 @@
 ---
-title: Terraform with Azure provider deployment slot
-description: Terraform with Azure provider deployment slot tutorial
+title: Terraform with Azure provider deployment slots
+description: Tutorial about using Terraform with Azure provider deployment slots
 keywords: terraform, devops, virtual machine, Azure, deployment slots
 author: tomarcher
 manager: jeconnoc
@@ -9,21 +9,23 @@ ms.date: 4/05/2018
 ms.topic: article
 ---
 
-# Using Terraform to provision infrastructure with Azure deployment slots
+# Use Terraform to provision infrastructure with Azure deployment slots
 
-[Azure deployment slots](/azure/app-service/web-sites-staged-publishing) allow you to swap between different versions of your app - such as production and staging - to minimize the impact of broken deployments. This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in a "production slot", while the second app is hosted in a "staging" slot. (The names "production" and "staging" are arbitrary and can be anything you want that represents your scenario.) Once your deployment slots have been configured, you can then use Terraform to swap between the two slots as needed.
+You can use [Azure deployment slots](/azure/app-service/web-sites-staged-publishing) to swap between different versions of your app. That ability helps you minimize the impact of broken deployments. 
+
+This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in a production slot. The second app is hosted in a staging slot. (The names "production" and "staging" are arbitrary and can be anything you want that represents your scenario.) After you configure your deployment slots, you can use Terraform to swap between the two slots as needed.
 
 ## Prerequisites
 
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-- **GitHub account** - A [GitHub](http://www.github.com) account is needed to fork and use the test GitHub repo.
+- **GitHub account**: You need a [GitHub](http://www.github.com) account to fork and use the test GitHub repo.
 
 ## Create and apply the Terraform plan
 
-1. Browse to the [Azure portal](http://portal.azure.com)
+1. Browse to the [Azure portal](http://portal.azure.com).
 
-1. Open [Azure Cloud Shell](/azure/cloud-shell/overview), and - if not done previously - select **Bash** as your environment.
+1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
     ![Cloud Shell prompt](./media/terraform-slot-walkthru/azure-portal-cloud-shell-button-min.png)
 
@@ -45,7 +47,7 @@ ms.topic: article
     mkdir swap
     ```
 
-1. Verify that both directories have been successfully created using the `ls` bash command.
+1. Use the `ls` bash command to verify that you successfully created both directories.
 
     ![Cloud shell after creating directories](./media/terraform-slot-walkthru/cloud-shell-after-creating-dirs.png)
 
@@ -55,18 +57,18 @@ ms.topic: article
     cd deploy
     ```
 
-1. Using the [vi editor](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), create a file named `deploy.tf`, which will contain the [Terraform configuration](https://www.terraform.io/docs/configuration/index.html).
+1. By using the [vi editor](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), create a file named `deploy.tf`. This file will contain the [Terraform configuration](https://www.terraform.io/docs/configuration/index.html).
 
     ```bash
     vi deploy.tf
     ```
 
-1. Enter insert mode by pressing the letter `i` key.
+1. Enter insert mode by selecting the I key.
 
 1. Paste the following code into the editor:
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     resource "azurerm_resource_group" "slotDemo" {
@@ -100,15 +102,15 @@ ms.topic: article
     }
     ```
 
-1. Press the **&lt;Esc>** key to exit insert mode.
+1. Select the Esc key to exit insert mode.
 
-1. Save the file and exit the vi editor by entering the following command, followed by pressing **&lt;Enter>**:
+1. Save the file and exit the vi editor by entering the following command:
 
     ```bash
     :wq
     ```
 
-1. Once the file has been created, you can verify its contents.
+1. Now that you've created the file, verify its contents.
 
     ```bash
     cat deploy.tf
@@ -126,7 +128,7 @@ ms.topic: article
     terraform plan
     ```
 
-1. Provision the resources defined in the `deploy.tf` configuration file. (Confirm the action by entering `yes` at the prompt.)
+1. Provision the resources that are defined in the `deploy.tf` configuration file. (Confirm the action by entering `yes` at the prompt.)
 
     ```bash
     terraform apply
@@ -134,15 +136,15 @@ ms.topic: article
 
 1. Close the Cloud Shell window.
 
-1. On the Azure portal main menu, select **Resource Groups**.
+1. On the main menu of the Azure portal, select **Resource groups**.
 
-    ![Azure portal Resource Groups](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
+    !["Resource groups" selection in the portal](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
 
-1. On the **Resource Groups** tab, select **slotDemoResourceGroup**.
+1. On the **Resource groups** tab, select **slotDemoResourceGroup**.
 
     ![Resource group created by Terraform](./media/terraform-slot-walkthru/resource-group.png)
 
-When finished, you see all the resources created by Terraform.
+You now see all the resources that Terraform has created.
 
 ![Resources created by Terraform](./media/terraform-slot-walkthru/resources.png)
 
@@ -152,7 +154,7 @@ Before you can test the creation and swapping in and out of the deployment slots
 
 1. Browse to the [awesome-terraform repo on GitHub](https://github.com/Azure/awesome-terraform).
 
-1. Fork the **awesome-terraform repo**.
+1. Fork the **awesome-terraform** repo.
 
     ![Fork the GitHub awesome-terraform repo](./media/terraform-slot-walkthru/fork-repo.png)
 
@@ -160,9 +162,9 @@ Before you can test the creation and swapping in and out of the deployment slots
 
 ## Deploy from GitHub to your deployment slots
 
-Once you fork the test project repo, configure the deployment slots via the following steps:
+After you fork the test project repo, configure the deployment slots via the following steps:
 
-1. On the Azure portal main menu, select **Resource Groups**.
+1. On the main menu of the Azure portal, select **Resource groups**.
 
 1. Select **slotDemoResourceGroup**.
 
@@ -178,9 +180,9 @@ Once you fork the test project repo, configure the deployment slots via the foll
 
 1. After Azure makes the connection and displays all the options, select **Authorization**.
 
-1. On the **Authorization** tab, select **Authorize**, and supply the credentials needed for Azure to access your GitHub account. 
+1. On the **Authorization** tab, select **Authorize**, and supply the credentials that Azure needs to access your GitHub account. 
 
-1. After Azure validates your GitHub credentials, a message displays indicating that the authorization process has completed. Select **OK** to close the **Authorization** tab.
+1. After Azure validates your GitHub credentials, a message appears and says that the authorization process has finished. Select **OK** to close the **Authorization** tab.
 
 1. Select **Choose your organization** and select your organization.
 
@@ -200,19 +202,19 @@ Once you fork the test project repo, configure the deployment slots via the foll
 
 At this point, you have deployed the production slot. To deploy the staging slot, perform all of the previous steps in this section with only the following modifications:
 
-- In step 3, **slotAppServiceSlotOne** resource.
+- In step 3, select the **slotAppServiceSlotOne** resource.
 
-- In step 13, select the "working" branch instead of the master branch.
+- In step 13, select the working branch instead of the master branch.
 
-    ![Choose Working Branch](./media/terraform-slot-walkthru/choose-branch-working.png)
+    ![Choose the working branch](./media/terraform-slot-walkthru/choose-branch-working.png)
 
 ## Test the app deployments
 
-In the previous sections, you set up two slots - **slotAppService** and **slotAppServiceSlotOne** - to deploy from different branches in GitHub. Let's preview the web apps to validate that they were successfully deployed.
+In the previous sections, you set up two slots--**slotAppService** and **slotAppServiceSlotOne**--to deploy from different branches in GitHub. Let's preview the web apps to validate that they were successfully deployed.
 
-Perform the following steps two times where in step 3 you select **slotAppService** the first time, and then select **slotAppServiceSlotOne** the second time:
+Perform the following steps two times. In step 3, you select **slotAppService** the first time, and then select **slotAppServiceSlotOne** the second time.
 
-1. On the Azure portal main menu, select **Resource Groups**.
+1. On the main menu of the Azure portal, select **Resource groups**.
 
 1. Select **slotDemoResourceGroup**.
 
@@ -235,11 +237,11 @@ For the **slotAppService** web app, you see a blue page with a page title of **S
 
 To test swapping the two deployment slots, perform the following steps:
  
-1. Switch to the browser tab running **slotAppService** (the app with the blue page). 
+1. Switch to the browser tab that's running **slotAppService** (the app with the blue page). 
 
-1. Return to the Azure portal in a separate tab.
+1. Return to the Azure portal on a separate tab.
 
-1. Open the Cloud Shell.
+1. Open Cloud Shell.
 
 1. Change directories to the **clouddrive/swap** directory.
 
@@ -247,18 +249,18 @@ To test swapping the two deployment slots, perform the following steps:
     cd clouddrive/swap
     ```
 
-1. Using the vi editor, create a file named `swap.tf`.
+1. By using the vi editor, create a file named `swap.tf`.
 
     ```bash
     vi swap.tf
     ```
 
-1. Enter insert mode by pressing the letter `i` key.
+1. Enter insert mode by selecting the I key.
 
 1. Paste the following code into the editor:
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     # Swap the production slot and the staging slot
@@ -269,9 +271,9 @@ To test swapping the two deployment slots, perform the following steps:
     }
     ```
 
-1. Press the **&lt;Esc>** key to exit insert mode.
+1. Select the Esc key to exit insert mode.
 
-1. Save the file and exit the vi editor by entering the following command, followed by pressing **&lt;Enter>**:
+1. Save the file and exit the vi editor by entering the following command:
 
     ```bash
     :wq
@@ -289,22 +291,22 @@ To test swapping the two deployment slots, perform the following steps:
     terraform plan
     ```
 
-1. Provision the resources defined in the `swap.tf` configuration file. (Confirm the action by entering `yes` at the prompt.)
+1. Provision the resources that are defined in the `swap.tf` configuration file. (Confirm the action by entering `yes` at the prompt.)
 
     ```bash
     terraform apply
     ```
 
-1. Once Terraform has finished swapping the slots, return to the browser that is rendering the **slotAppService** web app and refresh the page. 
+1. After Terraform has finished swapping the slots, return to the browser that is rendering the **slotAppService** web app and refresh the page. 
 
-The web app in your **slotAppServiceSlotOne** staging slot has been swapped with the production slot and now renders green. 
+The web app in your **slotAppServiceSlotOne** staging slot has been swapped with the production slot and is now rendered in green. 
 
 ![The deployment slots have been swapped](./media/terraform-slot-walkthru/slots-swapped.png)
 
-To return to the original production version of the app, reapply the Terraform plan created from the `swap.tf` configuration file.
+To return to the original production version of the app, reapply the Terraform plan that you created from the `swap.tf` configuration file.
 
 ```bash
 terraform apply
 ```
 
-Once swapped, you see the original configuration.
+After the app is swapped, you see the original configuration.

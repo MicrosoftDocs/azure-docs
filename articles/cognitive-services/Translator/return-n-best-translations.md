@@ -4,14 +4,16 @@ description: Return N-Best translations using the Microsoft Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
-
 ms.service: cognitive-services
-ms.technology: translator
+ms.component: translator-text
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: v-jansko
 ---
 # How to return N-Best translations
+
+> [!NOTE]
+> This method is deprecated. It is not available in V3.0 of the Translator Text API.
 
 The GetTranslations() and GetTranslationsArray() methods of the Microsoft Translator API include an optional Boolean flag "IncludeMultipleMTAlternatives".
 The method will return up to maxTranslations alternatives where the delta is supplied from the N-Best list of the translator engine.

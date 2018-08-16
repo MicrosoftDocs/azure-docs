@@ -1,20 +1,34 @@
 ---
-title: SSH into Azure Container Service (AKS) cluster nodes
-description: Create an SSH connection with an Azure Container Service (AKS) cluster nodes
+title: SSH into Azure Kubernetes Service (AKS) cluster nodes
+description: Create an SSH connection with an Azure Kubernetes Service (AKS) cluster nodes
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 04/06/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# SSH into Azure Container Service (AKS) cluster nodes
+# SSH into Azure Kubernetes Service (AKS) cluster nodes
 
-Occasionally, you may need to access an Azure Container Service (AKS) node for maintenance, log collection, or other troubleshooting operations. Azure Container Service (AKS) nodes are not exposed to the internet. Use the steps detailed in this document to create an SSH connection with an AKS node.
+Occasionally, you may need to access an Azure Kubernetes Service (AKS) node for maintenance, log collection, or other troubleshooting operations. AKS nodes are not exposed to the internet. Use the steps detailed in this document to create an SSH connection with an AKS node.
+
+## Reset SSH keys
+
+If you have deployed an AKS without SSH keys, or do not have access to the proper SSH keys, these can be reset using the Azure portal.
+
+Browse to your AKS cluster, select an AKS node (virtual machine), and select **Reset password** to reset the SSH public key.
+
+![AKS VM with reset password button](media/aks-ssh/reset-password.png)
+
+Select **Reset SSH public key**, enter the AKS cluster username, which is **azueruser** by default, and copy in an SSH public key. Select **Update** when complete.
+
+![AKS portal VM with reset password button](media/aks-ssh/reset-password-2.png)
+
+Once the SSH key has been reset, you can create an SSH connection using the corresponding private key.
 
 ## Get AKS node address
 
@@ -53,7 +67,7 @@ NAME                       READY     STATUS    RESTARTS   AGE
 aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
 ```
 
-Copy your SSH key to the pod, replace the pod name with the proper value.
+Copy the private SSH key to the pod, replace the pod name with the proper value.
 
 ```console
 kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa

@@ -1,21 +1,13 @@
 ---
 title: Understand Azure IoT Hub pricing | Microsoft Docs
 description: Developer guide - information about how metering and pricing works with IoT Hub including worked examples.
-services: iot-hub
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-
 ---
 
 # Azure IoT Hub pricing information
@@ -33,11 +25,11 @@ ms.author: dobett
 | Cloud-to-device messages | Successfully sent messages are charged in 4-KB chunks, for example a 6-KB message is charged 2 messages. |
 | File uploads | File transfer to Azure Storage is not metered by IoT Hub. File transfer initiation and completion messages are charged as messaged metered in 4-KB increments. For example, transferring a 10-MB file is charged two messages in addition to the Azure Storage cost. |
 | Direct methods | Successful method requests are charged in 4-KB chunks, responses with non-empty bodies are charged in 4-KB chunks as additional messages. Requests to disconnected devices are charged as messages in 4-KB chunks. For example, a method with a 6-KB body that results in a response with no body from the device, is charged as two messages. A method with a 6-KB body that results in a 1-KB response from the device is charged as two messages for the request plus another message for the response. |
-| Device twin reads | Device twin reads from the device and from the solution back end are charged as messages in 512-byte chunks. For example, reading a 6-KB device twin is charged as 12 messages. |
-| Device twin updates (tags and properties) | Device twin updates from the device and from the solution back end are charged as messages in 512-byte chunks. For example, reading a 6-KB device twin is charged as 12 messages. |
-| Device twin queries | Queries are charged as messages depending on the result size in 512-byte chunks. |
+| Device and module twin reads | Twin reads from the device or module and from the solution back end are charged as messages in 512-byte chunks. For example, reading a 6-KB twin is charged as 12 messages. |
+| Device and module twin updates (tags and properties) | Twin updates from the device or module and from the solution back end are charged as messages in 512-byte chunks. For example, reading a 6-KB twin is charged as 12 messages. |
+| Device and module twin queries | Queries are charged as messages depending on the result size in 512-byte chunks. |
 | Jobs operations <br/> (create, update, list, delete) | Not charged. |
-| Jobs per-device operations | Jobs operations (such as device twin updates, and methods) are charged as normal. For example, a job resulting in 1000 method calls with 1-KB requests and empty-body responses is charged 1000 messages. |
+| Jobs per-device operations | Jobs operations (such as twin updates, and methods) are charged as normal. For example, a job resulting in 1000 method calls with 1-KB requests and empty-body responses is charged 1000 messages. |
 
 > [!NOTE]
 > All sizes are computed considering the payload size in bytes (protocol framing is ignored). For messages, which have properties and body, the size is computed in a protocol-agnostic way. For more information, see [IoT Hub messaging developer's guide][lnk-message-size].

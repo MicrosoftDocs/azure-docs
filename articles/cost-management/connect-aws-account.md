@@ -5,10 +5,10 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/06/2018
-ms.topic: article
+ms.date: 06/07/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom:
 ---
 
@@ -29,7 +29,7 @@ The following sections walk you through creating a read-only IAM role to provide
 
 The first step is to get the unique connection passphrase from the Azure Cost Management portal. It is used in AWS as the **External ID**.
 
-1. Open the Cloudyn portal from the Azure portal or navigate to  [https://azure.cloudyn.com](https://azure.cloudyn.com) and log in.
+1. Open the Cloudyn portal from the Azure portal or navigate to  [https://azure.cloudyn.com](https://azure.cloudyn.com) and sign in.
 2. Click the cog symbol and then select **Cloud Accounts**.
 3. In Accounts Management, select the **AWS Accounts** tab and then click **Add new +**.
 4. In the **Add AWS Account** dialog, copy the **External ID** and save the value for AWS Role creation steps in the next section. The External ID is unique to your account. In the following image, the example External ID is _Contoso_ followed by a number. Your ID differs.  
@@ -50,7 +50,7 @@ The first step is to get the unique connection passphrase from the Azure Cost Ma
 
 ### Configure AWS IAM role access in Cost Management
 
-1. Open the Cloudyn portal from the Azure portal or navigate to  https://azure.cloudyn.com/ and log in.
+1. Open the Cloudyn portal from the Azure portal or navigate to  https://azure.cloudyn.com/ and sign in.
 2. Click the cog symbol and then select **Cloud Accounts**.
 3. In Accounts Management, select the **AWS Accounts** tab and then click **Add new +**.
 4. In **Account Name**, type a name for the account.
@@ -59,7 +59,7 @@ The first step is to get the unique connection passphrase from the Azure Cost Ma
     ![Add AWS Account box](./media/connect-aws-account/add-aws-account-box.png)
 
 
-Your AWS account appears in the list of accounts. The **Owner ID** listed matches your Role ARN value. Your **Account Status** should have a green check mark symbol.
+Your AWS account appears in the list of accounts. The **Owner ID** listed matches your Role ARN value. Your **Account Status** should have a green check mark symbol indicating that Cost Management can access your AWS account. Until you enable detailed AWS billing, your consolidation status appears as **Standalone**.
 
 ![AWS account status](./media/connect-aws-account/aws-account-status01.png)
 
@@ -87,7 +87,7 @@ The following sections walk you through creating a read-only user to provide acc
 
 ### Configure AWS IAM user-based access in Cost Management
 
-1. Open the Cloudyn portal from the Azure portal or navigate to https://azure.cloudyn.com/ and log in.
+1. Open the Cloudyn portal from the Azure portal or navigate to https://azure.cloudyn.com/ and sign in.
 2. Click the cog symbol and then select **Cloud Accounts**.
 3. In Accounts Management, select the **AWS Accounts** tab and then click **Add new +**.
 4. For **Account Name**, type an account name.
@@ -103,7 +103,7 @@ Cost Management starts collecting the data and populating reports. Next, [enable
 
 Use the following steps to get your AWS Role ARN. You use the Role ARN to grant read permissions to a billing bucket.
 
-1. Log in to the AWS console at https://console.aws.amazon.com and select **Services**.
+1. Sign in to the AWS console at https://console.aws.amazon.com and select **Services**.
 2. In the Service Search box type *IAM*, and select that option.
 3. Select **Roles** from the left-hand menu.
 4. In the list of Roles, select the role that you created for Cloudyn access.
@@ -113,7 +113,7 @@ Use the following steps to get your AWS Role ARN. You use the Role ARN to grant 
 
 You create an S3 bucket to store detailed billing information.
 
-1. Log in to the AWS console at https://console.aws.amazon.com and select **Services**.
+1. Sign in to the AWS console at https://console.aws.amazon.com and select **Services**.
 2. In the Service Search box type *S3*, and select **S3**.
 3. On the Amazon S3 page, click **Create bucket**.
 4. In the Create bucket wizard, choose a Bucket name and Region and then click **Next**.  
@@ -180,12 +180,11 @@ After you create and configure the S3 bucket, navigate to [Billing Preferences](
 3. Select all four report granularity options and then click **Save preferences**.  
     ![Enable reports](./media/connect-aws-account/enable-reports.png)
 
+Cost Management retrieves detailed billing information from your S3 bucket and populates reports after detailed billing is enabled. It can take up to 24 hours until detailed billing data appears in the Cloudyn console. When detailed billing data is available, your account consolidation status appears as **Consolidated**. Account status appears as **Completed**.
 
-Cost Management retrieves detailed billing information from your S3 bucket and populates reports after detailed billing is enabled. It can take up to 24 hours until detailed billing data appears in the Cloudyn console.
+![Account Consolidated Status](./media/connect-aws-account/consolidated-status.png)
 
 Some of the optimization reports may require a few days of data to get an adequate data sample size for accurate recommendations.
-
-
 
 ## Next steps
 

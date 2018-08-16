@@ -1,19 +1,20 @@
 ---
 title: Pricing & billing - Azure Logic Apps | Microsoft Docs
 description: Learn how pricing and billing works for Azure Logic Apps
-author: kevinlam1
-manager: anneta
-editor: ''
 services: logic-apps
-documentationcenter: ''
+author: kevinlam1
+manager: jeconnoc
+editor: 
+documentationcenter: 
+
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 11/11/2017
-ms.author: LADocs; klam
+ms.date: 05/11/2018
+ms.author: klam
 ---
 
 # Logic Apps pricing model
@@ -73,15 +74,23 @@ Disabled logic apps can't instantiate new instances, so they aren't charged whil
 > might take some time before they completely stop.
 
 Actions that run inside loops are counted per each cycle in the loop. 
-For example, a single action in a "for each" loop that processes a 10-item list is counted by multiplying the number of list items (10) by the number of actions in the loop (1) plus one for starting the loop. 
+For example, a single action in a "for each" loop that processes a 
+10-item list is counted by multiplying the number of list items (10) 
+by the number of actions in the loop (1) plus one for starting the loop. 
 So, for this example, the calculation is (10 * 1) + 1, which results in 11 action executions.
 
 ## Integration Account usage
 
-Consumption-based usage includes an [integration account](logic-apps-enterprise-integration-create-integration-account.md) where you can explore, 
-develop, and test the [B2B/EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) features of Logic Apps at no additional cost. 
-You can have one of these integration accounts per region and store up to 10 agreements and 25 maps. 
-You can have and upload unlimited partners, schemas, and certificates.
+Consumption-based usage includes an 
+[integration account](logic-apps-enterprise-integration-create-integration-account.md) 
+where you can explore, develop, and test the 
+[B2B/EDI](logic-apps-enterprise-integration-b2b.md) and 
+[XML processing](logic-apps-enterprise-integration-xml.md) 
+features in Logic Apps at no additional cost. You can have one 
+integration account per region and store up to specific 
+[numbers of artifacts](../logic-apps/logic-apps-limits-and-config.md), 
+such as EDI trading partners and agreements, maps, schemas, assemblies, 
+certificates, and batch configurations.
 
 Logic Apps also offers basic and standard integration accounts with supported Logic Apps SLA. 
 You can use basic integration accounts when you either want to use only message handling, 

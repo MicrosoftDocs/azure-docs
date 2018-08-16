@@ -8,7 +8,7 @@ ms.reviewer: 'CarlRabeler'
 ms.service: sql-database
 ms.custom: develop databases, mvc, devcenter
 ms.topic: tutorial
-ms.date: 03/15/2018
+ms.date: 06/07/2018
 ---
 # Design an Azure SQL database and connect with C&#x23; and ADO.NET
 
@@ -56,5 +56,5 @@ In this tutorial, you learned basic database tasks such as create a database and
 Advance to the next tutorial to learn about migrating your data.
 
 > [!div class="nextstepaction"]
->[Migrate your SQL Server database to Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
+> [Migrate your SQL Server database to Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
 

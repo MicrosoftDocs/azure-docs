@@ -1,5 +1,5 @@
 ## Additional resources
-* [The Azure AD developer's guide](../articles/active-directory/develop/active-directory-developers-guide.md)
+* [The Azure AD developer's guide](../articles/active-directory/develop/azure-ad-developers-guide.md)
 * [Azure AD samples on GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=active-directory)
 * [CloudIdentity.com](http://cloudidentity.com)
 
