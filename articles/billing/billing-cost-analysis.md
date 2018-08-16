@@ -47,7 +47,7 @@ The initial cost analysis view includes the following areas:
 
 The default view provides quick answers to common questions like:
 
-- How much I spent?
+- How much did I spend?
 - Will I stay within my budget?
 
 However, there are many cases where you need deeper analysis. Customization starts at the top of the page, with the date selection.
