@@ -81,7 +81,7 @@ The following limits apply only for networking resources managed through Azure R
 | Backend resources per Load Balancer, Standard * | 150 | 150 |
 | HA Ports, Standard | 1 per internal frontend | 1 per internal frontend |
 
-* Up to 150 resources, any combination of standalone virtual machines, availability sets, and virtual machine scale sets.
+** Up to 150 resources, any combination of standalone virtual machines, availability sets, and virtual machine scale sets.
 
 [Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
 
