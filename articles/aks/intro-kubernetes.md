@@ -62,7 +62,7 @@ For more information, see [Using GPUs on AKS][aks-gpu].
 
 ## Development tooling integration
 
-Kubernetes has a rich ecosystem of development and management tools such as Helm, Draft, and the Kubernetes extension for Visual Studio Code. These tools work seamlessly with Azure Kuberntees Service.
+Kubernetes has a rich ecosystem of development and management tools such as Helm, Draft, and the Kubernetes extension for Visual Studio Code. These tools work seamlessly with Azure Kubernetes Service.
 
 Additionally, Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams. With minimal configuration, you can run and debug containers directly in Azure Kubernetes Service (AKS).
 
@@ -86,7 +86,7 @@ For more information, see [Azure Container Registry (ACR)][acr-docs].
 
 ## Storage volume support
 
-Azure Kubernetes Service (AKS) support mounting storage volumes for persistant data. AKS clusters are created with support for Azure Files and Azure Disks.
+Azure Kubernetes Service (AKS) support mounting storage volumes for persistent data. AKS clusters are created with support for Azure Files and Azure Disks.
 
 For more information, see [Azure Files][azure-files] and [Azure Disks][azure-disk].
 
@@ -127,7 +127,7 @@ Learn more about deploying and managing AKS with the AKS quickstart.
 [aks-scale]: ./scale-cluster.md
 [aks-upgrade]: ./upgrade-cluster.md
 [azure-dev-spaces]: https://docs.microsoft.com/en-us/azure/dev-spaces/azure-dev-spaces
-[azure-devops]: https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks?view=vsts
+[azure-devops]: https://docs.microsoft.com/en-us/azure/devops-project/overview
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
 [container-health]: ../monitoring/monitoring-container-health.md
