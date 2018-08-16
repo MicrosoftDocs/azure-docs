@@ -2881,6 +2881,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-runbook-settings.md",
+            "redirect_url": "/azure/automation/automation-runbook-execution",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-invoke-runbook-from-omsla-alert.md",
             "redirect_url": "/azure/automation/automation-create-alert-triggered-runbook",
             "redirect_document_id": false
@@ -9113,6 +9118,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-security.md",
             "redirect_url": "/azure/log-analytics/log-analytics-data-security",
             "redirect_document_id": false
@@ -9124,7 +9134,7 @@
         },
         {
             "source_path": "articles/log-analytics/log-analytics-configuration-assessment.md",
-            "redirect_url": "/azure/log-analytics/log-analytics-add-solutions",
+            "redirect_url": "/azure/monitoring/monitoring-solutions-inventory",
             "redirect_document_id": false
         },
         {
@@ -26409,6 +26419,11 @@
         {
             "source_path": "articles/azure-stack/asdk/asdk-create-vm-template.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-create-vm-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-powershell-download.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-powershell-download",
             "redirect_document_id": false
         },
         {

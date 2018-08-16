@@ -35,7 +35,7 @@ The Linux Data Science Virtual Machine is a CentOS-based Azure virtual machine t
   * [Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool providing fast and accurate boosted tree implementation.
-  * [Rattle](http://rattle.togaware.com/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy, with GUI-based data exploration, and modeling with automatic R code generation.
+  * [Rattle](https://togaware.com/rattle/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy, with GUI-based data exploration, and modeling with automatic R code generation.
 * Azure SDK in Java, Python, node.js, Ruby, PHP
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services
 * Development tools and editors (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
