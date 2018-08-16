@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 04/13/2018
+ms.date: 08/16/2018
 ms.author: mtillman
 experimental: true
 experiment_id: "50f26fb6-3aa0-42"
@@ -98,7 +98,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                         <h3>Protection</h3>
                         <p>
                         <a href="/azure/active-directory/active-directory-identityprotection">Identity protection</a><br/>
-                        <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Conditional access</a><br/>
+                        <a href="/azure/active-directory/conditional-access/index">Conditional access</a><br/>
                         <a href="/azure/active-directory/privileged-identity-management/pim-configure">Privileged identity management</a>
                         </p>
                     </div>

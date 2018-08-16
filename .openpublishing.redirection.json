@@ -2881,6 +2881,23 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-runbook-settings.md",
+            "redirect_url": "/azure/automation/automation-runbook-execution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-invoke-runbook-from-omsla-alert.md",
+            "redirect_url": "/azure/automation/automation-create-alert-triggered-runbook",
+            "redirect_document_id": false
+        },
+        
+        {
+            "source_path": "articles/automation/automation-migrate-account-subscription.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources",
+            "redirect_document_id": false
+        },
+        
+        {
             "source_path": "articles/automation/automation-troubleshooting-automation-errors.md",
             "redirect_url": "/azure/automation/troubleshoot/runbooks",
             "redirect_document_id": false
@@ -9101,6 +9118,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-security.md",
             "redirect_url": "/azure/log-analytics/log-analytics-data-security",
             "redirect_document_id": false
@@ -9112,7 +9134,7 @@
         },
         {
             "source_path": "articles/log-analytics/log-analytics-configuration-assessment.md",
-            "redirect_url": "/azure/log-analytics/log-analytics-add-solutions",
+            "redirect_url": "/azure/monitoring/monitoring-solutions-inventory",
             "redirect_document_id": false
         },
         {
@@ -17852,6 +17874,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/reports-monitoring/sample-audit-api.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/reports-monitoring/sample-sign-in-api.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/active-directory/active-directory-reporting-api-getting-started-azure-portal.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/concept-reporting-api",
             "redirect_document_id": false
@@ -23272,97 +23304,97 @@
         {
             "source_path": "articles/active-directory/active-directory-understanding-resource-access.md",
             "redirect_url": "/azure/role-based-access-control/rbac-and-directory-admin-roles",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/conditional-access-azure-management.md",
             "redirect_url": "/azure/role-based-access-control/conditional-access-azure-management",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/manage-access-to-azure-resources.md",
             "redirect_url": "/azure/role-based-access-control/index",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/role-based-access-control/manage-access-to-azure-resources.md",
             "redirect_url": "/azure/role-based-access-control/index",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/pim-azure-resource.md",
             "redirect_url": "/azure/role-based-access-control/pim-azure-resource",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/role-based-access-control-resource-provider-operations.md",
             "redirect_url": "/azure/role-based-access-control/resource-provider-operations",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/role-based-access-control-tenant-admin-access.md",
             "redirect_url": "/azure/role-based-access-control/elevate-access-global-admin",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/role-based-access-control-what-is.md",
             "redirect_url": "/azure/role-based-access-control/overview",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/role-based-access-control-troubleshooting.md",
             "redirect_url": "/azure/role-based-access-control/troubleshooting",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/role-based-access-control-custom-roles.md",
             "redirect_url": "/azure/role-based-access-control/custom-roles",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md",
             "redirect_url": "/azure/role-based-access-control/role-assignments-external-users",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/role-based-access-control-manage-access-azure-cli.md",
             "redirect_url": "/azure/role-based-access-control/role-assignments-cli",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/role-based-access-control-manage-access-powershell.md",
             "redirect_url": "/azure/role-based-access-control/role-assignments-powershell",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/role-based-access-control-manage-access-rest.md",
             "redirect_url": "/azure/role-based-access-control/role-assignments-rest",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/role-based-access-control-manage-assignments.md",
-            "redirect_url": "/azure/role-based-access-control/role-assignments-users",
+            "redirect_url": "/azure/role-based-access-control/role-assignments-portal",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/role-based-access-control-configure.md",
             "redirect_url": "/azure/role-based-access-control/role-assignments-portal",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/role-based-access-built-in-roles.md",
             "redirect_url": "/azure/role-based-access-control/built-in-roles",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/role-based-access-control-access-change-history-report.md",
             "redirect_url": "/azure/role-based-access-control/change-history-report",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/role-based-access-control/role-assignments-users.md",
             "redirect_url": "/azure/role-based-access-control/role-assignments-portal",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/privileged-identity-management/active-directory-securing-privileged-access.md",
@@ -23377,72 +23409,72 @@
         {
             "source_path": "articles/active-directory/active-directory-privileged-identity-management-configure.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-privileged-identity-management-getting-started.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-getting-started",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-activate-role.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-activate-role",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-change-default-settings.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-change-default-settings",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-complete-review.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-complete-review",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-configure-security-alerts.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-configure-security-alerts",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-give-access-to-pim.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-give-access-to-pim",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-perform-security-review.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-require-mfa",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-start-security-review.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-use-audit-log",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-privileged-identity-management-roles.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-roles",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-privileged-identity-management-security-wizard.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-security-wizard",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
@@ -26390,6 +26422,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/user/azure-stack-powershell-download.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-powershell-download",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/application-proxy-teams.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-teams",
             "redirect_document_id": true
@@ -26960,6 +26997,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup.md",
+            "redirect_url": "azure/active-directory/user-help/user-help-register-device-on-network",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/user-help/device-management-azuread-joined-devices-setup.md",
+            "redirect_url": "azure/active-directory/user-help/user-help-join-device-on-network",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/hdinsight/kafka/apache-kafka-azure-functions.md",
             "redirect_url": "/azure/hdinsight/kafka/apache-kafka-introduction",
             "redirect_document_id": false
@@ -27202,6 +27249,27 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-controls.md",
             "redirect_url": "/azure/active-directory/conditional-access/controls",
             "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-device-policies.md",
+            "redirect_url": "/azure/active-directory/conditional-access/overview",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-mam.md",
+            "redirect_url": "/azure/active-directory/conditional-access/app-based-conditional-access",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-no-modern-authentication.md",
+            "redirect_url": "/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/cognitive-services/speech-service/speech-scenarios.md",
+            "redirect_url": "/azure/cognitive-services/speech-service/overview",
+            "redirect_document_id": true
         }
+
     ]
 }

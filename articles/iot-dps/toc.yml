@@ -129,8 +129,18 @@
     href: how-to-use-sdk-tools.md
 - name: Reference
   items:
-  - name: REST
+  - name: REST API
     href: /rest/api/iot-dps
+  - name: Azure IoT SDK for C
+    href: https://github.com/Azure/azure-iot-sdk-c
+  - name: Azure IoT SDK for Python
+    href: https://github.com/Azure/azure-iot-sdk-python
+  - name: Azure IoT SDK for Node.js
+    href: https://github.com/Azure/azure-iot-sdk-node
+  - name: Azure IoT SDK for Java
+    href: https://github.com/Azure/azure-iot-sdk-java
+  - name: Azure IoT SDK for .NET
+    href: https://github.com/Azure/azure-iot-sdk-csharp
 - name: Related
   items:
   - name: Solutions

@@ -43,7 +43,7 @@ The scenarios / operations outlined in this article are:
 |------------|-----------------|  
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|  
 
-The following examples require an object named "mydigicert" to already be available in your key vault with the issuer provider as DigiCert. For more information on working with issuers, see [Certificate issuers](/rest/api/keyvault/certificate-issuers.md).  
+The following examples require an object named "mydigicert" to already be available in your key vault with the issuer provider as DigiCert. The certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.  
 
 ### Request  
 
