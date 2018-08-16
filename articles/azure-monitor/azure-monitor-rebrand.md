@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2018
+ms.date: 08/15/2018
 ms.author: bwren
 
 ---
@@ -46,3 +46,4 @@ The OMS portal was used to configure data sources, manage solutions, and analyze
 ## Next steps
 
 - Read an [overview of Azure Monitor](overview.md) that describes its different components and features.
+- Learn about the [transition of the OMS portal](../log-analytics/log-analytics-oms-portal-transition.md).
