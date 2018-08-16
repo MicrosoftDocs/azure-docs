@@ -73,9 +73,10 @@ The template that is used is available on the [Azure Service Fabric template sam
 The commands below works for creating Windows and Linux clusters, you just need to specify the OS accordingly. The PowerShell/CLI commands also output the certificate in the specified CertificateOutputFolder; however, make sure certificate folder already created. The command takes in other parameters like VM SKU as well.
 
 > [!NOTE]
-> The below Powershell command only works with Azure Resource Manager PowerShell version > 6.1. To check the current version of Azure Resource Manager PowerShell version, run the following PowerShell command "Get-Module AzureRM". Follow this link to upgrade your Azure Resource Manager PowerShell version. https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0
+> The below PowerShell command only works with Azure Resource Manager PowerShell version > 6.1. To check the current version of Azure Resource Manager PowerShell version, run the following PowerShell command "Get-Module AzureRM". Follow this link to upgrade your Azure Resource Manager PowerShell version. https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0
 >
 >
+
 ```PowerShell
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
