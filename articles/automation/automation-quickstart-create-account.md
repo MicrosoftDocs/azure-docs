@@ -17,9 +17,9 @@ Azure Automation accounts can be created through Azure. This method provides a b
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to Azure at https://portal.azure.com
+Sign in to Azure at https://portal.azure.com
 
 ## Create Automation account
 
@@ -27,7 +27,7 @@ Log in to Azure at https://portal.azure.com
 
 1. Select **Monitoring + Management**, and then select **Automation**.
 
-1. Enter the account information. For **Create Azure Run As account**, choose **Yes** so that the artifacts to simplify authentication to Azure are enabled automatically. When complete, click **Create**, to start the Automation account deployment.
+1. Enter the account information. For **Create Azure Run As account**, choose **Yes** so that the artifacts to simplify authentication to Azure are enabled automatically. It is important to note, that when creating an Automation Account, the name cannot be changed after it is chosen. When complete, click **Create**, to start the Automation account deployment.
 
     ![Enter information about your Automation account in the page](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
