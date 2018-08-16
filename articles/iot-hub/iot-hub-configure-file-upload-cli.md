@@ -95,7 +95,9 @@ The configuration requires the following values:
 
 Use the following Azure CLI commands to configure the file upload settings on your IoT hub:
 
-In a bash shell use:
+<!--Robinsh this is out of date, add cloud powershell -->
+
+In a bash shell, use:
 
 ```azurecli
 az iot hub update --name {your iot hub name} \

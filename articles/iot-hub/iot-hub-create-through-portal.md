@@ -92,7 +92,7 @@ You can change the settings of an existing IoT hub after it is created from the 
 
 * Click **Create** to add this newly created policy to the existing list.
 
-![Screenshot showing adding a shared access policy](./media/iot-hub-create-through-portal/shared-access-policies.png)
+   ![Screenshot showing adding a shared access policy](./media/iot-hub-create-through-portal/shared-access-policies.png)
 
 ## Endpoints
 

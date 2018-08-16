@@ -22,7 +22,7 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 
 * **Storage container**: Use the Azure portal to select a blob container in an Azure Storage account in your current Azure subscription to associate with your IoT Hub. If necessary, you can create an Azure Storage account on the **Storage accounts** blade and blob container on the **Containers** blade. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files.
 
-![View storage containers for file upload in the portal](./media/iot-hub-configure-file-upload/file-upload-container-selection.png)
+   ![View storage containers for file upload in the portal](./media/iot-hub-configure-file-upload/file-upload-container-selection.png)
 
 * **Receive notifications for uploaded files**: Enable or disable file upload notifications via the toggle.
 
@@ -32,7 +32,7 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 
 * **File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification. Set to 10 by default but can be customized to other values using the slider.
 
-![Configure IoT Hub file upload in the portal](./media/iot-hub-configure-file-upload/file-upload-selected-container.png)
+   ![Configure IoT Hub file upload in the portal](./media/iot-hub-configure-file-upload/file-upload-selected-container.png)
 
 ## Next steps
 
