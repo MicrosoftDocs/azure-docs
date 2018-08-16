@@ -6,20 +6,20 @@
 - name: Quickstarts
   items:
   - name: Getting Started
-    href: gettingstarted.md
+    href: getting-started.md
 - name: How-Tos
   items:
   - name: Create an Azure Batch Account
-    href: createazureaccount.md
+    href: create-azure-account.md
   - name: Bake Acoustics
-    href: bakeuiwalkthrough.md
+    href: bake-ui-walkthrough.md
   - name: Design Acoustics
-    href: designprocess.md
+    href: design-process.md
 - name: Resources
   items:
   - name: Acoustics Sample Scene
-    href: samplewalkthrough.md
+    href: sample-walkthrough.md
   - name: Frequently Asked Questions
     href: faq.md
   - name: Known Issues
-    href: knownissues.md
+    href: known-issues.md

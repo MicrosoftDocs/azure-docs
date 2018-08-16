@@ -1,18 +1,18 @@
 ---
-title: Acoustics sample walkthru | Microsoft Docs
-description: Use advanced acoustics and spatialization in your Unity title
+title: Project Acoustics sample walkthrough - Cognitive Services
+description: This walkthrough describes the Unity sample scene for Project Acoustics, including deployment to desktop and VR.
 services: cognitive-services
 author: kegodin
 manager: noelc
 ms.service: cognitive-services
 ms.component: acoustics
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 08/17/2018
 ms.author: kegodin
 ---
 
-# Unity Sample Walkthrough
-This is a walkthrough of the Project Acoustics sample. For more information about what Project Acoustics is, check out the [Introduction to Project Acoustics](what-is-acoustics.md). For help in adding the Project Acoustics package to a pre-existing Unity project, use the [Getting Started guide](gettingstarted.md).
+# Unity sample walkthrough
+This is a walkthrough of the Project Acoustics sample. For more information about what Project Acoustics is, check out the [Introduction to Project Acoustics](what-is-acoustics.md). For help in adding the Project Acoustics package to a pre-existing Unity project, use the [Getting Started guide](getting-started.md).
 
 ## Requirements for running the sample project
 * Unity 2018.2+, using .NET 4.x scripting runtime version
@@ -41,3 +41,8 @@ Connect a VR headset to your PC. Go to **File > Build Settings**, and click **Bu
 To target Android and Oculus Go, choose Android from the **Build Settings** menu. Click **Switch Target**, then **Build and Run**. This will deploy the sample scene to your connected Android device. For for information about Unity development for Android, see [Unity documentation](https://docs.unity3d.com/Manual/android-GettingStarted.html).
 
 ![Target Android](media/TargetAndroid.png)  
+
+## Next steps
+* [Create an Azure account](create-azure-account.md) for your own bakes
+* Explore the [design process](design-process.md)
+

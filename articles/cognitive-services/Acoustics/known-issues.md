@@ -1,20 +1,21 @@
 ---
-title: Known Issues With Acoustics Plugin | Microsoft Docs
-description: Known issues with Acoustics Plugin and Unity
+title: Known issues with acoustics plugin - Cognitive Services
+description: You might encounter the following known issues when using the Designer Preview for Project Acoustics.
 services: cognitive-services
 author: kylestorck
 manager: noelc
 ms.service: cognitive-services
 ms.component: acoustics
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 08/17/2018
 ms.author: kylestorck
 ---
 # Known Issues
+You might encounter the following known issues when using the Designer Preview for Project Acoustics.
 
 ## Acoustic parameters are lost when you rename a scene
 
-If you rename a scene, all the acoustic parameters that belong to that scene will not automatically transfer to the new scene. They will still exist in the old asset file however. Look for the "SceneName_AcousticParameters.asset" file inside the "Editor" directory next to your scene file. Rename your file to reflect the new scene name.
+If you rename a scene, all the acoustic parameters that belong to that scene will not automatically transfer to the new scene. They will still exist in the old asset file however. Look for the **SceneName_AcousticParameters.asset** file inside the **Editor** directory next to your scene file. Rename your file to reflect the new scene name.
 
 ## The default path for the AcousticsData folder in Probes tab is an absolute path
 
@@ -37,8 +38,12 @@ To use Project Acoustics on Android, change your build target to Android. Some v
 
 ## I get an error that 'could not find metadata file System.Security.dll'
 
-Ensure the Scripting Runtime Version in Player settings is set to '.NET 4.x Equivalent', and restart Unity.
+Ensure the Scripting Runtime Version in Player settings is set to **.NET 4.x Equivalent**, and restart Unity.
 
 ## I'm having authentication problems when connecting to Azure
 
 Double-check you've used the correct credentials for your Azure account, that your account supports the type of node requested in the bake, and that your system clock is accurate.
+
+## Next steps
+* Get started [integrating acoustics in your Unity project](getting-started.md)
+

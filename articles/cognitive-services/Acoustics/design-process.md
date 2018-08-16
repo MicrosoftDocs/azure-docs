@@ -1,17 +1,17 @@
 ---
-title: Design Process Overview for Acoustics | Microsoft Docs
-description: Use advanced acoustics and spatialization in your Unity title
+title: Design process overview for acoustics - Cognitive Services
+description: This document describes how to express your design intent in all three phases of the Project Acoustics workflow.
 services: cognitive-services
 author: kegodin
 manager: noelc
 ms.service: cognitive-services
 ms.component: acoustics
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 08/17/2018
 ms.author: kegodin
 ---
 
-# Design Process Overview
+# Design process overview
 You can express your design intent in all three phases of the Project Acoustics workflow: pre-bake design, sound source placement, and post-bake design. The process requires less markup associated with placing reverb volumes while retaining designer control over how a scene sounds.
 
 ## Pre-bake design
@@ -23,7 +23,7 @@ The reverberation time of a given material in a room is inversely related to its
 
 ![Reverb Time Graph](media/ReverbTimeGraph.png)
 
-The [bake UI walk through](bakeuiwalkthrough.md) describes the pre-bake controls in detail.
+The [bake UI walk through](bake-ui-walkthrough.md) describes the pre-bake controls in detail.
 
 ## Sound source placement
 Viewing voxels and probe points at runtime can help debug issues with sound sources being stuck inside the voxelized geometry. To toggle the voxel grid and probe points display, click the corresponding checkbox in the Gizmos menu, in the upper right of the scene view. If the sound source is inside a wall voxel, move it into an air voxel.

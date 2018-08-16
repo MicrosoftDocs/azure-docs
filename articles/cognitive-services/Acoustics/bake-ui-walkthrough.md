@@ -1,18 +1,18 @@
 ---
-title: Bake Acoustics | Microsoft Docs
-description: Use advanced acoustics and spatialization in your Unity title
+title: Bake acoustics with Project Acoustics - Cognitive Services
+description: This document describes the process of submitting an acoustics bake using the Unity editor extension.
 services: cognitive-services
 author: kegodin
 manager: noelc
 ms.service: cognitive-services
 ms.component: acoustics
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 08/17/2018
 ms.author: kegodin
 ---
-# Bake Acoustics
+# Bake acoustics
 
-This document describes the process of submitting an acoustics bake using the Unity editor extension. For more background on acoustics, see [What is Acoustics](what-is-acoustics.md). For a quickstart guide, see [Getting Started](gettingstarted.md).
+This document describes the process of submitting an acoustics bake using the Unity editor extension. For more background on acoustics, see [What is Acoustics](what-is-acoustics.md). For a quickstart guide, see [Getting Started](getting-started.md).
 
 ## Import the plugin
 
@@ -30,7 +30,7 @@ The Acoustics tool window gathers the information the acoustics engine needs to 
 4. Preview probe placement
 5. Bake
 
-After the bake is complete, see [Design Process Overview for Acoustics](designprocess.md) for optional post-bake design steps.
+After the bake is complete, see [Design Process Overview for Acoustics](design-process.md) for optional post-bake design steps.
 
 ## Create or mark a navigation mesh
 
@@ -85,7 +85,7 @@ Be sure to mark any objects as **Acoustics Geometry** if they should occlude, re
 
 An object's transform at the time of the probe calculation (via the **Probes** tab, below) is fixed in the bake results. Moving any of the marked objects in the scene will require redoing the probe calculation and rebaking the scene.
 
-## Materials Tab
+## Materials tab
 
 Once your objects are marked, click the **Materials** button to go to the Materials Tab.
 
@@ -100,7 +100,7 @@ Once your objects are marked, click the **Materials** button to go to the Materi
 5. The list of materials used in the scene, sorted alphabetically. If the **Show Marked Only** checkbox is checked (#3), only materials used by objects marked as **Acoustics Geometry** are shown. Clicking on a material here will select all objects in the scene that use that material.
 6. Shows the acoustic material that the scene material has been assigned to. Click a dropdown to reassign a scene material to a different acoustic material. You can change the sorting order of the menu shown when you click an item here using the **Sort Acoustics By:** options above (#4).
 7. Shows the acoustic absorption coefficient of the material selected in the previous column. A value of zero means perfectly reflective (no absorption), while a value of 1 means perfectly absorptive (no reflection). The absorption coefficient can't be changed unless the selected material is "Custom".
-8. For a material assigned to "Custom", the slider is no longer disabled and you can choose the absorption coefficient using the slider or by typing in a value. For more information on material properties, see [Design Process Overview for Acoustics](designprocess.md).
+8. For a material assigned to "Custom", the slider is no longer disabled and you can choose the absorption coefficient using the slider or by typing in a value. For more information on material properties, see [Design Process Overview for Acoustics](design-process.md).
 
 ### Guidelines for assigning materials (or absorption values)
 
@@ -108,7 +108,7 @@ This tab tries to guess what the absorption of your materials is based on the na
 
 You can reassign acoustic materials to each scene material. For example, if a room sounds too reverberant, change the acoustic material of the walls, floor, or ceiling to something of higher absorptivity. The acoustic material assignment applies to all objects that use that scene material.
 
-## Probes Tab
+## Probes tab
 
 After assigning the materials, switch to the **Probes** tab.
 
@@ -219,7 +219,7 @@ To estimate what a given bake will cost, take the value shown for **Estimated Co
 
 After the bake completes, check that the voxels and probe points are in their expected locations by running the runtime plugin. More information is in [Design Process Overview for Acoustics](designprocess.md).
 
-## <a name="Data-Files"></a>Data Files
+## <a name="Data-Files"></a>Data files
 
 There are four data files created by this plugin at various points. Only one of them is needed at runtime, therefore the other three are inside folders named "Editor" so they won't be compiled into your project.
 
@@ -231,5 +231,5 @@ There are four data files created by this plugin at various points. Only one of 
 Take care not to delete the *.ace.bytes file downloaded from the bake. This file isn't recoverable except by rebaking the scene.
 
 ## Next steps
+* Apply bake results to sound sources in [Design Process Overview for Acoustics](design-process.md).
 
-* Apply bake results to sound sources in [Design Process Overview for Acoustics](designprocess.md).

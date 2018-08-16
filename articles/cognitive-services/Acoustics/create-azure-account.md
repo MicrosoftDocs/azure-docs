@@ -1,23 +1,23 @@
 ---
-title: Setup Azure accounts for Acoustics | Microsoft Docs
-description: Use advanced acoustics and spatialization in your Unity title
+title: Set up Azure accounts for acoustics - Cognitive Services
+description: Follow this guide for setting up Azure Batch and Storage accounts necessary for working with acoustics.
 services: cognitive-services
 author: ashtat
 manager: noelc
 ms.service: cognitive-services
 ms.component: acoustics
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 08/17/2018
 ms.author: kegodin
 ---
 
-# Create an Azure Batch Account
-Follow this guide for setting up Azure Batch and Storage accounts necessary for working with acoustics. For information about the Unity plugin developed as part of Project Acoustics, see [What is acoustics](what-is-acoustics.md). For information about how to incorporate acoustics into your Unity project, see [Getting Started](gettingstarted.md).  
+# Create an Azure Batch account
+Follow this guide for setting up Azure Batch and Storage accounts necessary for working with acoustics. For information about the Unity plugin developed as part of Project Acoustics, see [What is acoustics](what-is-acoustics.md). For information about how to incorporate acoustics into your Unity project, see [Getting Started](getting-started.md).  
 
-## Get an Azure Subscription
+## Get an Azure subscription
 An [Azure Subscription](https://azure.microsoft.com/en-us/free/) is required before setting up Batch and Storage accounts. If you're signing up for the first time, Azure provides a few time-limited free resources and $200 credit.
 
-## Create Azure Batch and Storage Accounts
+## Create Azure Batch and storage accounts
 Next, follow [these instructions](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal) to set up your Azure Batch and associated Azure Storage accounts.
 
 Pick default options for both Batch and Storage accounts:
@@ -55,3 +55,8 @@ to ensure you're picking the right location for your Batch account. At this mome
 Azure Batch accounts are provisioned on account creation with a limit of 20 compute cores. You may want to increase this limit for faster bake times, because you can parallelize your acoustics workload across many nodes, up to the number of probe points in your scene. You can request a quota increase by clicking on the **Quota** link on your Azure Batch portal page and then clicking on **Request Quota Increase**:
 
 ![Azure Quota Increase](media/azurequotas.png)
+
+## Next steps
+* Get started [integrating acoustics into your Unity project](getting-started.md)
+* Explore the [sample scene](sample-walkthrough.md)
+

@@ -1,16 +1,16 @@
 ---
-title: Frequently Asked Questions about Acoustics | Microsoft Docs
-description: Use advanced acoustics and spatialization in your Unity title
+title: Frequently Asked Questions about Acoustics - Cognitive Services
+description: This page provides answers to questions asked frequently about Project Acoustics, including download instructions and bake process.
 services: cognitive-services
 author: kegodin
 manager: noelc
 ms.service: cognitive-services
 ms.component: acoustics
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 08/17/2018
 ms.author: kegodin
 ---
-# Frequently Asked Questions
+# Frequently asked questions
 
 ## What is Project Acoustics?
 
@@ -63,3 +63,7 @@ Project Acoustics provides accurate and reliable acoustic parameters even for ul
 ## What exactly happens during "baking"?
 
 The system considers potential player locations to generate a set of uniformly spaced "probe" sample positions. A bake for a level consists of independent tasks for each probe: The system considers a cuboid "Simulation Region" centered at the probe and does a detailed wave simulation within that region at up to 25 cm resolution.
+
+## Next Steps
+* Explore the [sample scene](sample-walkthrough.md)
+

@@ -1,18 +1,18 @@
 ---
-title: Getting Started | Microsoft Docs
-description: Use advanced acoustics and spatialization in your Unity title
+title: Getting started with Project Acoustics - Cognitive Services
+description: This quickstart guide will show you how to integrate the plugin in your Unity project, bake your scene, and apply the acoustics to sound sources.
 services: cognitive-services
 author: kegodin
 manager: noelc
 ms.service: cognitive-services
 ms.component: acoustics
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 08/17/2018
 ms.author: kegodin
 ---
 
-# Getting Started with Project Acoustics
-This quickstart guide will show you how to integrate the plugin in your Unity project, bake your scene, and apply the acoustics to sound sources. For this quickstart, you'll need to first create an [Azure batch account](createazureaccount.md). This guide assumes some familiarity with Unity.
+# Getting started with Project Acoustics
+This quickstart guide will show you how to integrate the plugin in your Unity project, bake your scene, and apply the acoustics to sound sources. For this quickstart, you'll need to first create an [Azure batch account](create-azure-account.md). This guide assumes some familiarity with Unity.
 
 ## Download the plugin
 Register [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) to join the Designer Preview.
@@ -40,7 +40,7 @@ The bake portion of the acoustics toolkit requires the .NET 4.x scripting runtim
 ![.NET 4.5](media/Net45.png)
 
 ## Create a navigation mesh
-Use the standard [Unity workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html) to create a navigation mesh for your project. For information on how to use your own navigation meshes, see the [bake UI walk through](bakeuiwalkthrough.md).
+Use the standard [Unity workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html) to create a navigation mesh for your project. For information on how to use your own navigation meshes, see the [bake UI walk through](bake-ui-walkthrough.md).
 
 ## Mark static meshes for acoustics
 Bring up the acoustics window using **Window > Acoustics** in Unity. This window can be docked next to the Inspector.
@@ -49,7 +49,7 @@ Bring up the acoustics window using **Window > Acoustics** in Unity. This window
 
 In Unity's hierarchy window, de-select any selected items. In the acoustics **Object** tab click the "Acoustics Geometry" checkbox to mark all meshes and terrains in your scene as acoustics geometry.
 
-On the **Materials** tab, assign the acoustic materials to materials used in your scene. The **Default** material has absorption equivalent to concrete. For more information on specifying your own materials properties, see the [design process page](designprocess.md).
+On the **Materials** tab, assign the acoustic materials to materials used in your scene. The **Default** material has absorption equivalent to concrete. For more information on specifying your own materials properties, see the [design process page](design-process.md).
 
 ![Materials Tab](media/MaterialsTab.png)
 
@@ -59,7 +59,7 @@ On the **Probes** tab, click **Calculate**. This calculation may take a few minu
 ![GizmosPreview](media/BakePreviewWithGizmos.png)
 
 ## Bake the scene
-In the **Bake** tab, enter your Azure credentials and click **Bake**. If you don't have an Azure Batch account, see [this walkthrough for our recommended account setup](CreateAzureAccount.md).
+In the **Bake** tab, enter your Azure credentials and click **Bake**. If you don't have an Azure Batch account, see [this walkthrough for our recommended account setup](create-azure-account.md).
 When the bake is finished, the data file will automatically be downloaded to the **Assets/AcousticsData** directory in your project.
 
 ## Set up audio runtime DSP
@@ -95,6 +95,7 @@ You can attach the script **AcousticsSourceCustomization** to a sound source in 
 There are also parameters on the **Microsoft Acoustics Mixer**. For more information about post-bake design, see [design parameters](designprocess.md).
 
 ## Next steps
-* Try the [sample scene](samplewalkthrough.md)
-* Learn about the full set of [bake features](bakeuiwalkthrough.md)
-* Explore more detailed [design parameters](designprocess.md)
+* Try the [sample scene](sample-walkthrough.md)
+* Learn about the full set of [bake features](bake-ui-walkthrough.md)
+* Explore more detailed [design parameters](design-process.md)
+
