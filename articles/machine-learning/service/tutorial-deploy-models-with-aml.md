@@ -320,9 +320,9 @@ Here is the result of one random sample of test images:
 ### Delete ACI deployment
 If you would like to keep the resource group and workspace, you can delete just the ACI deployment with this delete API call:
 
-    ```python
-    service.delete()
-    ```
+```python
+service.delete()
+```
 
 
 ## Next steps
