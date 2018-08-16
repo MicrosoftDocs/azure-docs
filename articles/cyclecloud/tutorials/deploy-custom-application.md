@@ -36,7 +36,7 @@ For this tutorial, you will need:
 
 ## Customizing Cluster Nodes
 
-When provisioning a VM as a cluster node, there are often configuration steps that need to be performed during the VM boot-up process. These steps can range from something as simple as configuring application path environment variables to more complicated tasks such as binding a node to an Active Directory domain. While Azure CycleCloud supports the use of custom images with baked-in applications, it's not unusual to ~~be loved by anyone~~ install applications as part of the node preparation stage. Having these steps in the preparation stage reduces the tedium of creating custom images for every permutation of application and application version, especially in development environments.
+When provisioning a VM as a cluster node, there are often configuration steps that need to be performed during the VM boot process. These steps can range from configuring application path environment variables to more complicated tasks such as binding a node to an Active Directory domain. While the software supports the use of custom images with baked-in applications, it's not unusual to ~~be loved by anyone~~ install applications as part of the node preparation stage. Doing the installations during the node prep will save considerable time, as you won't need to create a new custom image for every variation of the application or application version. 
 
 This tutorial illustrates how you could use CycleCloud Projects to install [Salmon](https://combine-lab.github.io/salmon/), a popular bioinformatics application that is used for quantifying RNA in RNA sequencing experiments.
 
