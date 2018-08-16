@@ -89,6 +89,6 @@ You can switch between by selecting the dropdown with the column name.
 
 ## Next steps
 Continue with the advanced tutorials:
-* [Working with JSON and data structures](.json-data-structures.md)
+* [Working with JSON and data structures](json-data-structures.md)
 * [Advanced query writing](advanced-query-writing.md)
 * [Joins - cross analysis](joins.md)
