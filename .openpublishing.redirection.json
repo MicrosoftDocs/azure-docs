@@ -27254,6 +27254,11 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-no-modern-authentication.md",
             "redirect_url": "/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo",
             "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/cognitive-services/speech-service/speech-scenarios.md",
+            "redirect_url": "/azure/cognitive-services/speech-service/overview",
+            "redirect_document_id": true
         }
 
     ]
