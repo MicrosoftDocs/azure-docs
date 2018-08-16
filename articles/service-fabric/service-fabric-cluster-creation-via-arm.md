@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Service Fabric cluster from a template | Microsoft Docs
-description: This article describes how to set up a secure Service Fabric cluster in Azure by using Azure Resource Manager, Azure Key Vault, and Azure Active Directory (Azure AD) for client authentication.
+description: Learn how to set up a secure Service Fabric cluster in Azure by using Azure Resource Manager, Azure Key Vault, and Azure Active Directory (Azure AD) for client authentication.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/31/2018
+ms.date: 08/16/2018
 ms.author: aljo
 
 ---
@@ -25,7 +25,7 @@ ms.author: aljo
 
 An [Azure Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual machines into which your microservices are deployed and managed. This article describes how to set up a secure Azure Service Fabric cluster in Azure using Azure Resource Manager.
 
-In Azure, Service Fabric uses x509 certificate to secure your cluster and its endpoints, authenticate clients, and encrypt data.  Azure Active Directory is also recommended to secure access to management endpoints. Certificate security is configured when creating a cluster. For more information, read [Service Fabric cluster security scenarios][service-fabric-cluster-security].  Azure AD tenants and users must be created before creating the cluster.  For more information, read [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
+Cluster security is configured when the cluster is first setup and cannot be changed later. Before setting up a cluster, read [Service Fabric cluster security scenarios][service-fabric-cluster-security]. In Azure, Service Fabric uses x509 certificate to secure your cluster and its endpoints, authenticate clients, and encrypt data. Azure Active Directory is also recommended to secure access to management endpoints. Azure AD tenants and users must be created before creating the cluster.  For more information, read [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
 
 The guide covers the following procedures:
 
