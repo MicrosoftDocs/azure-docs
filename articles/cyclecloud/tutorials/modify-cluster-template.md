@@ -173,7 +173,7 @@ In this tutorial, you learned how to:
 * Modify cluster template to add storage to the cluster's NFS Server
 * Add a new cluster type in CycleCloud
 
-For more Azure CycleCloud tutorials, see our documentation site or view the available cluster templates on GitHub.
+To continue exploring the features of Azure CycleCloud, try the Deploy a Custom Application tutorial.
 
 > [!div class="nextstepaction"]
-> [More Azure CycleCloud](https://docs.microsoft.com/en-us/azure/cyclecloud/)
+> [Next Tutorial](~/tutorials/deploy-custom-application.md)
