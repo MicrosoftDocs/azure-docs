@@ -54,4 +54,4 @@ to ensure you're picking the right location for your Batch account. At this mome
 ## Upgrading your quota
 Azure Batch accounts are provisioned on account creation with a limit of 20 compute cores. You may want to increase this limit for faster bake times, because you can parallelize your acoustics workload across many nodes, up to the number of probe points in your scene. You can request a quota increase by clicking on the **Quota** link on your Azure Batch portal page and then clicking on **Request Quota Increase**:
 
-![Azure Quota Increase](azurequotas.png)
+![Azure Quota Increase](media/azurequotas.png)
