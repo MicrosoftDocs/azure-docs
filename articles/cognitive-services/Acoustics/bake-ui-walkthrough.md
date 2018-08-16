@@ -192,9 +192,9 @@ Once you're happy with the preview data, use the **Bake** tab to submit your bak
 
 1. The Bake Tab button used to bring up this page.
 2. A brief description of what to do on this page.
-3. Fields to enter your Azure Credentials once your Azure account has been created. For more information, see [Create an Azure Batch Account](CreateAzureAccount.md).
+3. Fields to enter your Azure Credentials once your Azure account has been created. For more information, see [Create an Azure Batch Account](create-azure-account.md).
 4. Azure batch compute node type to use for the calculation. The node type must be supported by your Azure data center location. If not sure, leave at **Standard_F8**.
-5. Number of nodes to use for this calculation. The number you enter here affects the time to complete the bake and is limited by your Azure Batch core allocation. The default allocation only allows for two 8 core nodes or one 16 core node, but can be expanded. For more information on core allocation constraints, see [Create an Azure Batch Account](createazureaccount.md).
+5. Number of nodes to use for this calculation. The number you enter here affects the time to complete the bake and is limited by your Azure Batch core allocation. The default allocation only allows for two 8 core nodes or one 16 core node, but can be expanded. For more information on core allocation constraints, see [Create an Azure Batch Account](create-azure-account.md).
 6. The probe count for your scene as calculated on the **Probes** tab. The number of probes determines the number of simulations that need to be run in the cloud. You cannot specify more nodes than there are probes.
 7. The amount of elapsed time it is expected to take for your job to run in the cloud. This does not include node startup time. Once the job starts running, this is about how long it should be before you get back the results. Note that this is only an estimate.
 8. The total amount of computing time needed to run the simulations. This is the total amount of node compute time that will be used in Azure. See [Estimating bake cost](#Estimating-bake-cost) below for more information on using this value.
@@ -217,7 +217,7 @@ To estimate what a given bake will cost, take the value shown for **Estimated Co
 
 ### Reviewing the bake results
 
-After the bake completes, check that the voxels and probe points are in their expected locations by running the runtime plugin. More information is in [Design Process Overview for Acoustics](designprocess.md).
+After the bake completes, check that the voxels and probe points are in their expected locations by running the runtime plugin. More information is in [Design Process Overview for Acoustics](design-process.md).
 
 ## <a name="Data-Files"></a>Data files
 

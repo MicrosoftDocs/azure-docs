@@ -92,7 +92,7 @@ You can attach the script **AcousticsSourceCustomization** to a sound source in 
 
 ![Source Customization](media/SourceCustomization.png)
 
-There are also parameters on the **Microsoft Acoustics Mixer**. For more information about post-bake design, see [design parameters](designprocess.md).
+There are also parameters on the **Microsoft Acoustics Mixer**. For more information about post-bake design, see [design parameters](design-process.md).
 
 ## Next steps
 * Try the [sample scene](sample-walkthrough.md)

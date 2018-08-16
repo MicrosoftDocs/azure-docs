@@ -45,7 +45,7 @@ Click on the **Storage Account** link on the page to access your Azure Storage a
   
   ![Storage Account Credentials](media/StorageKeysInfo.png)
 
-Enter these credentials in the Bake tab as described in the [bake UI walkthrough](bakeuiwalkthrough.md).
+Enter these credentials in the Bake tab as described in the [bake UI walkthrough](bake-ui-walkthrough.md).
 
 ## Node types and region support
 Project Acoustics requires F- and H-series compute optimized Azure VM nodes which may not be supported in all Azure regions. Please check [this table](https://azure.microsoft.com/en-us/global-infrastructure/services)
