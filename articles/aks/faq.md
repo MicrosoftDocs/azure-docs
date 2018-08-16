@@ -27,7 +27,7 @@ Azure automatically applies security patches to the nodes in your cluster on a n
 - By upgrading your AKS cluster. Cluster upgrades automatically [cordon and drain nodes](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), then bring them back up with the latest Ubuntu image. Update the OS image on your nodes by upgrading to a new patch version or a minor Kubernetes version using the `az aks upgrade` command.
 - Using [Kured](https://github.com/weaveworks/kured), an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) and monitors each node for the presence of a file indicating that a reboot is required. It then manages OS reboots across the cluster, following the same cordon and drain process described earlier.
 
-## Can i modify tags and other properties of the AKS resources in the MC_* resource group?
+## Can I modify tags and other properties of the AKS resources in the MC_* resource group?
  Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results such as scaling and upgrading errors. Modifying the resources under the MC_* in the AKS cluster breaks the SLO.
 
 ## Does AKS support node autoscaling?

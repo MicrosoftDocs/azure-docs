@@ -52,9 +52,7 @@ default  myResourceGroup  1.9.9            1.9.9              1.10.3, 1.10.5, 1.
 Use the [az aks upgrade][] command to upgrade the AKS cluster. The following example upgrades the cluster to Kubernetes version *1.10.6*.
 
 > [!NOTE]
-> Please note that you can upgrade one minor version at a time. For example, you can upgrade from 1.9.6 to 1.10.3 but cannot upgrade from 1.9.6 to 1.11.x directly. To upgrade from 1.9.6 to 1.11.x, upgrade from 1.9.6 to 1.10.3 first and then do another upgrade from 1.10.3 to 1.11.x
-
-
+> You can only upgrade one minor version at a time. For example, you can upgrade from *1.9.6* to *1.10.3*, but cannot upgrade from *1.9.6* to *1.11.x* directly. To upgrade from *1.9.6* to *1.11.x*, first upgrade from *1.9.6* to *1.10.3*, then perform another upgrade from *1.10.3* to *1.11.x*.
 
 ```azurecli
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.10.6
