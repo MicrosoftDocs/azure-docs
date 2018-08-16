@@ -64,7 +64,6 @@ You can run your scripts on:
 >[!IMPORTANT]
 > Windows VMs running Docker are **not** supported as remote compute targets.
 
-
 ## Execution environment
 The _execution environment_ defines the run time configuration and the dependencies needed to run the program in Workbench.
 
@@ -93,9 +92,6 @@ These environment variables can be accessed in your code. For example, this phyt
 ```
 print(os.environ.get("EXAMPLE_ENV_VAR1"))
 ```
-
-_**The following figure shows the high-level flow for initial experiment run.**_
-![](media/experimentation-service-configuration/experiment-execution-flow.png)
 
 ## Experiment execution scenarios
 In this section, we dive into execution scenarios and learn about how Azure Machine Learning runs experiments, specifically running an experiment locally, on a remote VM, and on an HDInsight Cluster. This section is a walkthrough starting from creating a compute target to executing your experiments.
@@ -132,8 +128,6 @@ Running your scripts on a Docker image gives you the following benefits:
 2. It allows you to quickly test code on runtimes and frameworks that are complex to install and configure, such as Apache Spark, without having to install them yourself.
 
 
-_**Overview of local Docker execution for a Python script:**_
-![](media/experimentation-service-configuration/local-docker-run.png)
 
 ## Remote Docker image
 In some cases, resources available on your local machine may not be enough to train the desired model. In this situation, Experimentation Service allows an easy way to run your Python or PySpark scripts on more powerful VMs using remote Docker execution. 
@@ -164,8 +158,7 @@ The Docker construction process for remote VMs is exactly the same as the proces
 >[!TIP]
 >If you prefer to avoid the latency introduced by building the Docker image for your first run, you can use the following command to prepare the compute target before executing your script. az ml experiment prepare -c remotedocker
 
-_**Overview of remote vm execution for a Python script:**_
-![](media/experimentation-service-configuration/remote-vm-run.png)
+
 
 ## Remote VM 
 Experimentation service also supports running a script on user's own Python environment inside a remote Ubuntu virtual machine. This allows you to manage your own environment for execution and still use Azure Machine Learning capabilities. 
@@ -238,9 +231,6 @@ You need SSH access to the HDInsight cluster in order to execute experiments in 
 
 >[!NOTE]
 >Supported configuration is HDInsight Spark clusters running Linux (Ubuntu with Python/PySpark 3.5.2 and Spark 2.1.11).
-
-_**Overview of HDInsight-based execution for a PySpark script**_
-![](media/experimentation-service-configuration/hdinsight-run.png)
 
 
 ## GPU
