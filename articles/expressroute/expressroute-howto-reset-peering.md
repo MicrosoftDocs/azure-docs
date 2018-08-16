@@ -1,6 +1,6 @@
 ---
 title: 'Reset Azure ExpressRoute peerings | Microsoft Docs'
-description: How to disable ane enable peeerings of an ExpressRoute circuit.
+description: How to disable and enable peeerings of an ExpressRoute circuit.
 services: expressroute
 author:  charwen
 
@@ -136,7 +136,7 @@ GatewayManagerEtag               :
   ```
 The peering should be in a state you set. 
 
-## Next Steps
-If you need help to troubleshoot an ExpressRoute problem, check out the following articles.
+## Next steps
+If you need help to troubleshoot an ExpressRoute problem, check out the following articles:
 * [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
 * [Troubleshooting network performance](expressroute-troubleshooting-network-performance.md)
