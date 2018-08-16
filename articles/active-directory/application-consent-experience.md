@@ -39,14 +39,14 @@ The consent prompt is designed to ensure users have enough information to determ
 
 | # | Definition |
 | ----- | ----- |
-| 1 | Is the user that the client application is requesting to access protected resources on behalf of. |
+| 1 | Is the identifier that represents the user which the client application is requesting to access protected resources on behalf of. |
 | 2 | Is the title of the consent prompt. The title is changes if the users are going through the user or admin consent flow. |
-| 3 | Is the app logo, it is provided by the application developer. The goal of this image is to help the user have a visual queue of whether or not this app is the app they intended to access. The ownership of this image isn't validated. |
+| 3 | Is the app logo, it is provided by the application developer. The goal of this image is to help the user have a visual queue of whether or not this app is the app they intended to access. Keep in mind that ownership of this image isn't validated. |
 | 4 | Is the app name, it is provided by the application owner. The goal of this value is to inform users which application is requesting access to their data. The ownership of this app name isn't validated. |
 | 5 | Is the publisher domain, it is provided by the application developer. The goal of this value is to provide users with a domain they maybe able to evaluate for trustworthiness. The ownership of this publisher domain is validated. |
-| 6 | Are the permissions being requested by the client application. As a user evaluating the types of permissions the client application is requesting is a good way to understand what data the client application will be authorized to access on your behalf. As an application developer it is best to request access to the permissions with the least privilege. |
+| 6 | Are the permissions being requested by the client application. Users should always evaluate the types of permissions being requested to understand what data the client application will be authorized to access on their behalf if they accept. As an application developer it is best to request access to the permissions with the least privilege. |
 | 7 | Is the description of the permission, it is provided by the service exposing the permissions. To see the permission descriptions, you must toggle the chevron next to the permission. |
-| 8 | Contains the links  to the terms of service and privacy statement of the application. The publisher is responsible for outlining the rules that user's must agree to in their terms of service. Additionally, the publisher is responsible for disclosing the way they use and share user data in their privacy statement. If the publisher doesn't provide links to these values for multi-tenant applications, there will be a bolded warning on the consent prompt. |
+| 8 | Contains the links  to the terms of service and privacy statement of the application. The publisher is responsible for outlining their rules in their terms of service. Additionally, the publisher is responsible for disclosing the way they use and share user data in their privacy statement. If the publisher doesn't provide links to these values for multi-tenant applications, there will be a bolded warning on the consent prompt. |
 | 9 | Is the link to where user's can review and remove any non-Microsoft applications that currently have access to their data. |
 
 ## Common consent scenarios
@@ -78,7 +78,6 @@ Below you can find the consent experiences that a user may see in the common con
 
 - Get a step-by-step overview of [how the Azure AD consent framework implements consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
 - For more depth, learn [how a multi-tenant application can use the consent framework](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
-- For more depth, learn [how consent is supported at the OAuth 2.0 protocol layer during the authorization code grant flow.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)
 
 ## Next steps
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
