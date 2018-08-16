@@ -57,17 +57,6 @@ You can run your scripts on:
 >[!IMPORTANT]
 > Windows VMs running Docker are **not** supported as remote compute targets.
 
-## Local machine
-
-This is a local machine.
-
-## The Data Science VM
-
-## Azure Batch AI Cluster
-
-## Azure Container Instance
-
-## Apache Spark for HDInsight
 
 ## Execution environment
 The _execution environment_ defines the run time configuration and the dependencies needed to run the program in Workbench.
