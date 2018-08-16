@@ -3,7 +3,6 @@ title: Integrate Azure Active Directory with Azure Kubernetes Service
 description: How to create Azure Active Directory-enabled Azure Kubernetes Service clusters.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
@@ -64,6 +63,10 @@ The first Azure AD application is used to get a users Azure AD group membership.
 7. Select **Done**, choose *Microsoft Graph* from the list of APIs, then select **Grant Permissions**. This step will fail if the current account is not a tenant admin.
 
   ![Set application graph permissions](media/aad-integration/grant-permissions.png)
+
+  When the permissions have been successfully granted, the following notification is displayed in the portal:
+
+  ![Notification of successful permissions granted](media/aad-integration/permissions-granted.png)
 
 8. Return to the application and take note of the **Application ID**. When deploying an Azure AD-enabled AKS cluster, this value is referred to as the `Server application ID`.
 
