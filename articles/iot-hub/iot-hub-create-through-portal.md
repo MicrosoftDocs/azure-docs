@@ -69,9 +69,9 @@ The location option provides a list of the regions where IoT Hub is available.
 
 ### Create the IoT hub
 
-When all previous steps are complete, you can create the IoT hub. Click **Create** to start the back-end process to create and deploy the IoT hub with the options you chose.
+When all previous steps are complete, you can create the IoT hub. Click **Create** to start the backend process to create and deploy the IoT hub with the options you chose.
 
-It can take a few minutes to create the IoT hub as it takes time for the back-end deployment to run on the appropriate location servers.
+It can take a few minutes to create the IoT hub as it takes time for the backend deployment to run on the appropriate location servers.
 
 ## Change the settings of the IoT hub
 <!--robinsh these screenshots are out of date -->
