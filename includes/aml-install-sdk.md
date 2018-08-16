@@ -11,12 +11,12 @@ ms.topic: "include"
 ms.date: 07/27/2018
 ---
 
-In a command-line window, create and activate the conda package manager environment with numpy and cython. This example uses Python 3.6.
+In a command-prompt or shell window, create and activate the conda package manager environment with numpy and cython. This example uses Python 3.6.
 
   + On Windows:
        ```sh 
        conda create -n myenv Python=3.6 cython numpy
-       activate myenv
+       conda activate myenv
        ```
 
   + On Linux or MacOS:
