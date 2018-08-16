@@ -123,6 +123,8 @@
       href: kubernetes-dashboard.md
   - name: Troubleshoot
     items:
+    - name: Common issues
+      href: troubleshooting.md
     - name: SSH node access
       href: aks-ssh.md
 - name: Reference
