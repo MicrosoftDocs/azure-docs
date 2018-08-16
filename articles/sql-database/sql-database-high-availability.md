@@ -6,7 +6,7 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 08/10/2018
+ms.date: 08/15/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 ---
@@ -22,7 +22,7 @@ Azure SQL Database is based on SQL Server Database Engine architecture that is a
 
 Azure upgrades and patches underlying operating system, drivers, and SQL Server Database Engine transparently with the minimal down-time for end users. Azure SQL Database runs on the latest stable version of SQL Server Database Engine and Windows OS, and most of the users would not notice that the upgrades are performed continuously.
 
-## Standard availability
+## Standard/General Purpose availability
 
 Standard availability refers to 99.99% SLA that is applied in Standard/Basic/General Purpose tiers. High availability in this architectural model is achieved by separation of compute and storage layers. The following figure shows four nodes in standard architectural model with the separated compute and storage layers.
 
@@ -35,7 +35,7 @@ In the standard availability model there are two layers:
 
 Whenever database engine or operating system is upgraded, some part of underlying infrastructure fails, or if some critical issue is detected in Sql Server process, Azure Service Fabric will move the stateless SQL Server process to another stateless compute node. There is a set of spare nodes that is waiting to run new compute service in case of failover in order to minimize failover time. Data in Azure Storage layer is not affected, and data/log files are attached to newly initialized SQL Server process. Expected failover time can be measured in seconds. This process guarantees 99.99% availability, but it might have some performance impacts on heavy workload that is running due to transition time and the fact the new SQL Server node starts with cold cache.
 
-## Premium availability
+## Premium/Business Critical availability
 
 Premium availability is enabled in Premium tier of Azure SQL Database and it is designed for intensive workloads that cannot tolerate any performance impact due to the ongoing maintenance operations.
 
@@ -44,6 +44,8 @@ In the premium model, Azure SQL database integrates compute and storage on the s
 ![Cluster of database engine nodes](media/sql-database-managed-instance/business-critical-service-tier.png)
 
 High availability is implemented using standard [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Every database is a cluster of database nodes with one primary database that is accessible for customer workload, and a three secondary processes containing copies of data. The primary node constantly pushes the changes to secondary nodes in order to ensure that the data is available on secondary replicas if the primary node crashes for any reason. Failover is handled by the SQL Server Database Engine – one secondary replica becomes the primary node and a new secondary replica is created to ensure enough nodes in the cluster. The workload is automatically redirected to the new primary node. Failover time is measured in milliseconds and the new primary instance is immediately ready to continue serving requests.
+
+In addition, Business Critical cluster provides built-in read-only node that can be used to run read-only queries (for example reports) that should not affect performance of your primary workload. 
 
 ## Zone redundant configuration (preview)
 
@@ -66,11 +68,6 @@ To use the Read Scale-Out feature with a particular database, you must explicitl
 After Read Scale-Out is enabled for a database, applications connecting to that database will be directed to either the read-write replica or to a read-only replica of that database according to the `ApplicationIntent` property configured in the application’s connection string. For information on the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
 
 If Read Scale-Out is disabled or you set the ReadScale property in an unsupported service tier, all connections are directed to the read-write replica, independent of the `ApplicationIntent` property.  
-
-> [!NOTE]
-> It is possible to activate Read Scale-out on a Standard or a General Purpose database, even though it will not result in routing the  read-only intended session to a separate replica. This is done to support existing applications that scale up and down between Standard/General Purpose and Premium/Business Critical tiers.  
-
-The Read Scale-Out feature supports session level consistency. If the read-only session reconnects after a connection error cause by replica unavailability, it can be redirected to a different replica. While unlikely, it can result in processing the data set that is stale. Likewise, if an application writes data using a read-write session and immediately reads it using the read-only session, it is possible that the new data is not immediately visible.
 
 ## Conclusion
 Azure SQL Database is deeply integrated with the Azure platform and is highly dependent on Service Fabric for failure detection and recovery, on Azure Storage Blobs for data protection and Availability Zones for higher fault tolerance. At the same time, Azure SQL database fully leverages the Always On Availability Group technology from SQL Server box product for replication and failover. The combination of these technologies enables the applications to fully realize the benefits of a mixed storage model and support the most demanding SLAs. 

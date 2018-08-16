@@ -81,7 +81,7 @@ You can use Azure PowerShell *deallocate* and *allocate* methods.
 
 For example:
 
-```Azurepowershell
+```azurepowershell
 # Stop an exisitng firewall
 
 $azfw = Get-AzureRmFirewall -Name "FW Name” -ResourceGroupName "RG Name"

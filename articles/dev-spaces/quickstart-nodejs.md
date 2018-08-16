@@ -1,16 +1,16 @@
 ---
 title: "Create a Kubernetes dev space in the cloud | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
-author: "ghogen"
+author: ghogen
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: "ghogen"
+ms.author: ghogen
 ms.date: "07/09/2018"
 ms.topic: "quickstart"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "douge"
+manager: douge
 ---
 # Quickstart: Create a Kubernetes dev space with Azure Dev Spaces (Node.js)
 
@@ -26,7 +26,7 @@ In this guide, you will learn how to:
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-- A [Kubernetes cluster](https://ms.portal.azure.com/#create/microsoft.aks) running Kubernetes 1.10.3, in the EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast region, with **Http Application Routing** enabled.
+- A [Kubernetes cluster](https://ms.portal.azure.com/#create/microsoft.aks) running Kubernetes 1.9.6 or later, in the EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast region, with **Http Application Routing** enabled.
 
   ![Be sure to enable Http Application Routing.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
