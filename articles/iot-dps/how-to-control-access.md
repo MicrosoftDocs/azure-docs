@@ -12,7 +12,7 @@ ms.author: wesmc
 
 # Control access to Azure IoT Hub Device Provisioning Service
 
-This article describes the options for securing your IoT device provisioning service. The provisioning service uses *permissions* to grant access to each endpoint. Permissions limit the access to a service instance based on functionality.
+This article describes the options for securing your IoT Device Provisioning service. The provisioning service uses *permissions* to grant access to each endpoint. Permissions limit the access to a service instance based on functionality.
 
 This article describes:
 
@@ -147,7 +147,7 @@ As an example, a service generated using a pre-created shared access policy call
 * policy name: `enrollmentread`,
 * any expiration time.
 
-![Create a shared access policy for your DPS instance in the portal][img-add-shared-access-policy]
+![Create a shared access policy for your Device Provisioning Service instance in the portal][img-add-shared-access-policy]
 
 ```nodejs
 var endpoint ="mydps.azure-devices-provisioning.net";

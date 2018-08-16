@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     * **Location:** Select the closest location to your devices.
     * **Pin to dashboard:** Select this option to have the instance pinned to your dashboard making it easier to find.
 
-    ![Enter basic information about your DPS instance in the portal blade](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
+    ![Enter basic information about your Device Provisioning Service instance in the portal blade](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
 4. Once the service is successfully deployed, its summary blade automatically opens.
 
@@ -56,7 +56,7 @@ In this section, you will add a configuration to the Device Provisioning service
     * **Iot hub:** Select the IoT hub to link with your new Device Provisioning Service instance.
     * **Access Policy:** Select **iothubowner** as the credentials for establishing the link with the IoT hub.  
 
-    ![Link the hub name to link to the DPS instance in the portal blade](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
+    ![Link the hub name to link to the Device Provisioning Service instance in the portal blade](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
 3. Now you should see the selected hub under the **Linked IoT hubs** blade. You might need to click **Refresh** to show **Linked IoT hubs**.
 

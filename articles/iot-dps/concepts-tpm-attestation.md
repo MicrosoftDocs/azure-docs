@@ -56,7 +56,7 @@ The device takes the nonce and uses the private portions of the EK and SRK to de
 
 The device can then sign a SAS token using the decrypted nonce and reestablish a connection to the Device Provisioning Service using the signed SAS token. With the Nonce challenge completed, the service allows the device to provision.
 
-![Device reestablishes connection to DPS to validate EK ownership](./media/concepts-tpm-attestation/step-three-validation.png)
+![Device reestablishes connection to Device Provisioning Service to validate EK ownership](./media/concepts-tpm-attestation/step-three-validation.png)
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 title: How to roll X.509 certificates in Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: How to roll X.509 certificates with your device provisioning service instance
+description: How to roll X.509 certificates with your Device Provisioning Service instance
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
@@ -172,7 +172,7 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 
 ## Reprovision the device
 
-Once the certificate is rolled on both the device, and the Device Provisioning Service, the device can reprovision itself by contacting the Device Provisioning Service. 
+Once the certificate is rolled on both the device and the Device Provisioning Service, the device can reprovision itself by contacting the Device Provisioning service. 
 
 One easy way of programming devices to reprovision is to program the device to contact the provisioning service to go through the provisioning flow if the device receives an “unauthorized” error from attempting to connect to the IoT hub.
 
