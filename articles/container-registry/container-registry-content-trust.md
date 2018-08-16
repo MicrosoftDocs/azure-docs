@@ -181,11 +181,11 @@ No valid trust data for unsigned
 
 ### Behind the scenes
 
-When you run `docker pull`, the Docker client uses the same library as in the [Notary CLI][docker-notary-cli] to request the tag-to-SHA256 digest mapping for the tag you're pulling. After validating the signatures on the trust data, the client instructs Docker Engine to do a "pull by digest". During the pull, the Engine uses the SHA-256 checksum as a content address to request and validate the image manifest from the Azure container registry.
+When you run `docker pull`, the Docker client uses the same library as in the [Notary CLI][docker-notary-cli] to request the tag-to-SHA-256 digest mapping for the tag you're pulling. After validating the signatures on the trust data, the client instructs Docker Engine to do a "pull by digest." During the pull, the Engine uses the SHA-256 checksum as a content address to request and validate the image manifest from the Azure container registry.
 
 ## Next steps
 
-See the Docker documentation for valuable information about content trust. While several key points were touched on in this article, content trust is an extensive topic and is covered more in-depth in the Docker documentation.
+See the Docker documentation for additional information about content trust. While several key points were touched on in this article, content trust is an extensive topic and is covered more in-depth in the Docker documentation.
 
 [Content trust in Docker][docker-content-trust]
 
