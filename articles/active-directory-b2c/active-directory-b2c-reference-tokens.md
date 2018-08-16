@@ -1,23 +1,21 @@
 ---
-title: 'Token reference - Azure AD B2C | Microsoft Docs'
+title: Token reference in Azure Active Directory B2C | Microsoft Docs
 description: The types of tokens issued in Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
-manager: krassk
-editor: parakhj
+author: davidmu1
+manager: mtillman
 
-ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
-ms.author: parakhj
-
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure AD B2C: Token reference
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Azure Active Directory B2C (Azure AD B2C) emits several types of security tokens as it processes each [authentication flow](active-directory-b2c-apps.md). This document describes the format, security characteristics, and contents of each type of token.
 
@@ -70,7 +68,7 @@ Note that the claims in ID tokens are not returned in any particular order. In a
 
 | Name | Claim | Example value | Description |
 | --- | --- | --- | --- |
-| Audience |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |An audience claim identifies the intended recipient of the token. For Azure AD B2C, the audience is your app's application ID, as assigned to your app in the app registration portal. Your app should validate this value and reject the token if it does not match. |
+| Audience |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |An audience claim identifies the intended recipient of the token. For Azure AD B2C, the audience is your app's application ID, as assigned to your app in the app registration portal. Your app should validate this value and reject the token if it does not match. Audience is synonymous with resource. |
 | Issuer |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |This claim identifies the security token service (STS) that constructs and returns the token. It also identifies the Azure AD directory in which the user was authenticated. Your app should validate the issuer claim to ensure that the token came from the Azure Active Directory v2.0 endpoint. |
 | Issued at |`iat` |`1438535543` |This claim is the time at which the token was issued, represented in epoch time. |
 | Expiration time |`exp` |`1438539443` |The expiration time claim is the time at which the token becomes invalid, represented in epoch time. Your app should use this claim to verify the validity of the token lifetime. |

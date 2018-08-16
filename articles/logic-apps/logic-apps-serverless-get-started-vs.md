@@ -4,13 +4,14 @@ description: Get started with your first serverless app with this guide on creat
 keywords: ''
 services: logic-apps
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: integration
+ms.technology: vs-azure
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -85,7 +86,7 @@ If using JavaScript, Python, F#, Bash, Batch, or PowerShell, follow the [steps i
 ## Next steps
 
 * [Learn how to build a serverless social dashboard](logic-apps-scenario-social-serverless.md)
-* [Manage a logic app from Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)
+* [Manage a logic app from Visual Studio Cloud Explorer](manage-logic-apps-with-visual-studio.md)
 * [Logic App workflow definition language](logic-apps-workflow-definition-language.md)
 
 <!-- Image references -->

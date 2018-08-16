@@ -1,21 +1,13 @@
 ---
 title: Deploy to Azure Analysis Services by using SSDT | Microsoft Docs
 description: Learn how to deploy a tabular model to an Azure Analysis Services server by using SSDT.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
-manager: erikre
-editor: ''
-tags: ''
-
-ms.assetid: 5f1f0ae7-11de-4923-a3da-888b13a3638c
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 08/01/2017
+manager: kfile
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Deploy a model from SSDT
@@ -33,15 +25,18 @@ To get started, you need:
 > 
 > 
 
-## To deploy a tabular model from SSDT
+## Get the server name
 
-1. Before you deploy, you need to get the server name. In **Azure portal** > server > **Overview** > **Server name**, copy the server name.
+In **Azure portal** > server > **Overview** > **Server name**, copy the server name.
    
-    ![Get server name in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. In SSDT > **Solution Explorer**, right-click the project > **Properties**. Then in **Deployment** > **Server** paste the server name.   
+![Get server name in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
+
+## To deploy from SSDT
+
+1. In SSDT > **Solution Explorer**, right-click the project > **Properties**. Then in **Deployment** > **Server** paste the server name.   
    
     ![Paste server name into deployment server property](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
-3. In **Solution Explorer**, right-click **Properties**, then click **Deploy**. You may be prompted to sign in to Azure.
+2. In **Solution Explorer**, right-click **Properties**, then click **Deploy**. You may be prompted to sign in to Azure.
    
     ![Deploy to server](./media/analysis-services-deploy/aas-deploy-deploy.png)
    

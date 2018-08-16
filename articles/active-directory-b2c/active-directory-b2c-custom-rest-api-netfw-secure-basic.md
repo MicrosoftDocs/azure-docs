@@ -1,28 +1,27 @@
-﻿---
-title: 'Azure Active Directory B2C: Secure your RESTful services by using HTTP basic authentication'
-description: Secure your custom REST API claims exchanges in your Azure AD B2C by using HTTP basic authentication
+---
+title: Secure your RESTful services by using HTTP basic authentication in Azure Active Directory B2C | Microsoft Docs
+description: Secure your custom REST API claims exchanges in your Azure AD B2C by using HTTP basic authentication.
 services: active-directory-b2c
-documentationcenter: ''
-author: yoelhor
-manager: joroja
-editor: 
+author: davidmu1
+manager: mtillman
 
-ms.assetid:
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
+ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: yoelh
+ms.author: davidmu
+ms.component: B2C
 ---
 
 # Secure your RESTful services by using HTTP basic authentication
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 In a [related Azure AD B2C article](active-directory-b2c-custom-rest-api-netfw.md), you create a RESTful service (web API) that integrates with Azure Active Directory B2C (Azure AD B2C) user journeys without authentication. 
 
 In this article, you add HTTP basic authentication to your RESTful service so that only verified users, including B2C, can access your API. With HTTP basic authentication, you set the user credentials (app ID and app secret) in your custom policy. 
 
-For more information, see [Basic authentication in ASP.NET web API](https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/basic-authentication).
+For more information, see [Basic authentication in ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
 ## Prerequisites
 Complete the steps in the [Integrate REST API claims exchanges in your Azure AD B2C user journey](active-directory-b2c-custom-rest-api-netfw.md) article.
@@ -73,7 +72,7 @@ Add the `ClientAuthMiddleware.cs` class under the *App_Start* folder. To do so:
 
 3. Open the *App_Start\ClientAuthMiddleware.cs* file, and replace the file content with following code:
 
-    ```C#
+    ```csharp
     
     using Microsoft.Owin;
     using System;
@@ -191,7 +190,7 @@ Add an OWIN startup class named `Startup.cs` to the API. To do so:
 
 2. Open the *Startup.cs* file, and replace the file content with following code:
 
-    ```C#
+    ```csharp
     using Microsoft.Owin;
     using Owin;
     

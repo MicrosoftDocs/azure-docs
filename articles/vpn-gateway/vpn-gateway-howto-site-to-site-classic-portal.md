@@ -1,10 +1,10 @@
 ---
 title: 'Connect your on-premises network to an Azure virtual network: Site-to-Site VPN (classic): Portal | Microsoft Docs'
-description: Steps to create an IPsec connection from your on-premises network to an Azure virtual network over the public Internet. These steps will help you create a cross-premises Site-to-Site VPN Gateway connection using the portal.
+description: Create an IPsec connection from your on-premises network to classic Azure virtual network over the public Internet.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/010/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
 
 ---
@@ -93,8 +93,6 @@ When you create a virtual network to use for a S2S connection, you need to make 
 9. After clicking 'Create', a tile appears on the dashboard that reflects the progress of your VNet. The tile changes as the VNet is being created.
 
   ![Creating virtual network tile](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Creating virtual network")
-
-Once your virtual network is created, you see **Created** listed under **Status** on the networks page in the Azure classic portal.
 
 ## <a name="additionaladdress"></a>2. Add additional address space
 

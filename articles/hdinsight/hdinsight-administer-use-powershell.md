@@ -1,28 +1,21 @@
 ---
-title: Manage Hadoop clusters in HDInsight with PowerShell - Azure | Microsoft Docs
+title: Manage Hadoop clusters in HDInsight with PowerShell - Azure 
 description: Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-tags: azure-portal
-author: mumian
-documentationcenter: ''
+editor: jasonwhowell
+author: jasonwhowell
 
-ms.assetid: bfdfa754-18e5-4ef9-b0d6-2dbdcebc0283
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/25/2017
-ms.author: jgao
+ms.topic: conceptual
+ms.date: 05/14/2018
+ms.author: jasonh
 
 ---
 # Manage Hadoop clusters in HDInsight by using Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell can be used to control and automate the deployment and management of your workloads in Azure. In this article, you learn how to manage Hadoop clusters in Azure HDInsight by using Azure PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
+Azure PowerShell can be used to control and automate the deployment and management of your workloads in Azure. In this article, you learn how to manage Hadoop clusters in Azure HDInsight by using Azure PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference](https://msdn.microsoft.com/library/azure/dn479228.aspx).
 
 **Prerequisites**
 
@@ -175,7 +168,7 @@ It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access). If
 The following PowerShell script demonstrates how to get the default storage account name and the related information:
 
 ```powershell
-#Login-AzureRmAccount
+#Connect-AzureRmAccount
 $clusterName = "<HDInsight Cluster Name>"
 
 $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
@@ -216,15 +209,15 @@ See [Run Hadoop MapReduce samples in Windows-based HDInsight](hdinsight-run-samp
 
 **To submit Hive jobs**
 
-See [Run Hive queries using PowerShell](hdinsight-hadoop-use-hive-powershell.md).
+See [Run Hive queries using PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 
 **To submit Pig jobs**
 
-See [Run Pig jobs using PowerShell](hdinsight-hadoop-use-pig-powershell.md).
+See [Run Pig jobs using PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
 
 **To submit Sqoop jobs**
 
-See [Use Sqoop with HDInsight](hdinsight-use-sqoop.md).
+See [Use Sqoop with HDInsight](hadoop/hdinsight-use-sqoop.md).
 
 **To submit Oozie jobs**
 
@@ -234,7 +227,7 @@ See [Use Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-
 See [Upload data to HDInsight][hdinsight-upload-data].
 
 ## See Also
-* [HDInsight cmdlet reference documentation][hdinsight-powershell-reference]
+* [HDInsight cmdlet reference documentation](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [Administer HDInsight by using the Azure portal][hdinsight-admin-portal]
 * [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
 * [Create HDInsight clusters][hdinsight-provision]
@@ -246,16 +239,16 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-provision-custom-options]: hdinsight-hadoop-provision-linux-clusters.md#configuration
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 

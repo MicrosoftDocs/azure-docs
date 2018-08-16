@@ -5,7 +5,7 @@ description: This article provides a set of best practices for Azure Service Fab
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 11/01/2017
 ms.author: tomsh
 
 ---
@@ -62,7 +62,7 @@ Your clusters must be secured to prevent unauthorized users from connecting, esp
 There are three [scenarios](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) for implementing cluster security by using various technologies:
 
 -	Node-to-node security: This scenario secures communication between the VMs and the computers in the cluster. This form of security ensures that only those computers that are authorized to join the cluster can host applications and services in the cluster.
-In this scenario, the clusters that run on Azure, or standalone clusters that run on Windows, can use either [certificate security](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) or [Windows security](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-windows-cluster-windows-security) for Windows Server machines.
+In this scenario, the clusters that run on Azure, or standalone clusters that run on Windows, can use either [certificate security](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) or [Windows security](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security) for Windows Server machines.
 -	Client-to-node security: This scenario secures communication between a Service Fabric client and the individual nodes in the cluster.
 -	Role-Based Access Control (RBAC): This scenario uses separate identities (certificates, Azure AD, and so on) for each administrator and user client role that accesses the cluster. You specify the role identities when you create the cluster.
 
@@ -125,7 +125,7 @@ Every actor is defined as an instance of an actor type, identical to the way a .
 Replicator configurations configure the replicator that is responsible for making the Actor State Provider state highly reliable.
 
 ## Configure SSL for Azure Service Fabric
-The server authentication process [authenticates](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) the cluster management endpoints to a management client. The management client then recognizes that it's talking to the real cluster. This certificate also provides an [SSL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm) for the HTTPS management API and for Service Fabric Explorer over HTTPS.
+The server authentication process [authenticates](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) the cluster management endpoints to a management client. The management client then recognizes that it's talking to the real cluster. This certificate also provides an [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) for the HTTPS management API and for Service Fabric Explorer over HTTPS.
 You must obtain a custom domain name for your cluster. When you request a certificate from a certificate authority, the certificate's subject name must match the custom domain name that you use for your cluster.
 
 To configure SSL for an application, you first need to obtain an SSL certificate that has been signed by a CA. The CA is a trusted third party that issues certificates for SSL security purposes. If you don't already have an SSL certificate, you need to obtain one from a company that sells SSL certificates.
@@ -175,7 +175,7 @@ There are two basic steps to set up a key vault:
 To learn more about how to set up a key vault, see [Get started with Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
 
 ## Assign users to roles
-After you've created the applications to represent your cluster, assign your users to the roles that are supported by Service Fabric: read-only and admin. You can assign these roles by using the Azure classic portal.
+After you've created the applications to represent your cluster, assign your users to the roles that are supported by Service Fabric: read-only and admin. You can assign these roles by using the Azure portal.
 
 >[!NOTE]
 > For more information about using roles in Service Fabric, see [Role-Based Access Control for Service Fabric clients](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles).

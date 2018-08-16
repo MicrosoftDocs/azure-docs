@@ -3,7 +3,7 @@ title: Reverse DNS for Azure services | Microsoft Docs
 description: Learn how to configure reverse DNS lookups for services hosted in Azure
 services: dns
 documentationcenter: na
-author: jtuliani
+author: vhorne
 manager: timlt
 
 ms.service: dns
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
+ms.author: victorh
 ---
 
 # Configure reverse DNS for services hosted in Azure
@@ -25,9 +25,8 @@ This scenario should not be confused with the ability to [host the reverse DNS l
 
 Before reading this article, you should be familiar with this [Overview of reverse DNS and support in Azure](dns-reverse-dns-overview.md).
 
-Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md).
-* In the Resource Manager deployment model, compute resources (such as virtual machines, virtual machine scale sets, or Service Fabric clusters) are exposed via a PublicIpAddress resource. Reverse DNS lookups are configured using the 'ReverseFqdn' property of the PublicIpAddress.
-* In the Classic deployment model, compute resources are exposed using Cloud Services. Reverse DNS lookups are configured using the 'ReverseDnsFqdn' property of the Cloud Service.
+In Azure DNS, compute resources (such as virtual machines, virtual machine scale sets, or Service Fabric clusters) are exposed via a PublicIpAddress resource. Reverse DNS lookups are configured using the 'ReverseFqdn' property of the PublicIpAddress.
+
 
 Reverse DNS is not currently supported for the Azure App Service.
 
@@ -243,7 +242,7 @@ No. Azure currently supports reverse DNS only for IPv4 PublicIpAddress resources
 
 ### Can I send emails to external domains from my Azure Compute services?
 
-No. [Azure Compute services do not support sending emails to external domains](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/)
+The technical ability to send email directly from an Azure deployment depends on the subscription type. Regardless of subscription type, Microsoft recommends using trusted mail relay services to send outgoing mail. For further details, see [Enhanced Azure Security for sending Emails – November 2017 Update](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/).
 
 ## Next steps
 

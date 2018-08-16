@@ -1,10 +1,10 @@
 ---
 title: Use the SharePoint Server Connector in your Logic Apps | Microsoft Docs
-description: Get started using the the SharePoint Server Connector  in your Logic apps
+description: Get started using the SharePoint Server Connector  in your Logic apps
 services: logic-apps
 documentationcenter: ''
-author: MandiOhlinger
-manager: anneta
+author: ecfan
+manager: jeconnoc
 editor: ''
 tags: connectors
 
@@ -15,24 +15,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
+ms.author: estfan; ladocs
 
 ---
 # Get started with the SharePoint connector
-The SharePoint Connector provides an way to work with Lists on SharePoint.
+The SharePoint Connector provides a way to work with Lists on SharePoint.
 
-Get started by creating a logic app; see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+Get started by creating a logic app; see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to SharePoint
-To use the SharePoint Connector , you first create a **connection** then provide the details for these properties: 
+To use the SharePoint Connector, you first create a **connection** then provide the details for these properties: 
 
 | Property | Required | Description |
 | --- | --- | --- |
 | Token |Yes |Provide SharePoint Credentials |
 
-To connect to **SharePoint**, enter your identity (username and password, smart card credentials, etc.) to SharePoint. Once you've been authenticated, you can proceed to use the SharePoint connector  in your logic app. 
+To connect to **SharePoint**, enter your identity (username and password, smart card credentials, and so on). Once you've authenticated, you can proceed to use the SharePoint connector in your logic app. 
 
-While on the designer of your logic app, follow these steps to sign into SharePoint to create the connection **connection** for use in your logic app:
+While on the designer of your logic app, use the following steps to sign in, and create the **connection** for use in your logic app:
 
 1. Enter SharePoint in the search box and wait for the search to return all entries with SharePoint in the name:   
    ![Configure SharePoint][1]  
@@ -41,10 +41,10 @@ While on the designer of your logic app, follow these steps to sign into SharePo
    ![Configure SharePoint][2]    
 4. Provide your SharePoint credentials to sign in to authenticate with SharePoint   
    ![Configure SharePoint][3]     
-5. After the authentication completes you'll be redirected to your logic app to complete it by configuring SharePoint's **When a file is created** dialog.          
+5. After authentication completes, you're redirected to your logic app to complete it by configuring SharePoint's **When a file is created** dialog.          
    ![Configure SharePoint][4]  
 6. You can then add other triggers and actions that you need to complete your logic app.   
-7. Save your work by selecting **Save** on the menu bar above.  
+7. Save your work by selecting **Save** on the menu (toward the top).
 
 ## Connector-specific details
 

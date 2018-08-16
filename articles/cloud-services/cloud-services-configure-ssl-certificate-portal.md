@@ -3,7 +3,7 @@ title: Configure SSL for a cloud service  | Microsoft Docs
 description: Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application. These examples use the Azure portal.
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -14,14 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
-ms.author: adegeo
+ms.author: jeconnoc
 
 ---
 # Configuring SSL for an application in Azure
-> [!div class="op_single_selector"]
-> * [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
-> * [Azure classic portal](cloud-services-configure-ssl-certificate.md)
->
 
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 

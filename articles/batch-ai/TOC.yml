@@ -1,4 +1,4 @@
-- name: Batch AI
+- name: Batch AI Documentation
   href: index.md
 - name: Overview
   items:
@@ -11,14 +11,24 @@
     href: quickstart-cli.md
   - name: Run training job - Python
     href: quickstart-python.md
+- name: How-to guides
+  items:
+  - name: Migrate to updated API
+    href: migrate-to-new-api.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/batchai
-  - name: REST
-    href: /rest/api/batchai
+  - name: .NET
+    href: /dotnet/api/overview/azure/batchai
+  - name: Java
+    href: /java/api/overview/azure/batchai
+  - name: Node.js
+    href: /javascript/api/overview/azure/batchai
   - name: Python
     href: /python/api/overview/azure/batchai
+  - name: REST
+    href: /rest/api/batchai
 - name: Resources
   items:
   - name: Training recipes

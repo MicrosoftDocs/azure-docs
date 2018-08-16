@@ -2,21 +2,15 @@
 title: Azure CLI samples for Blob storage | Microsoft Docs
 description: Azure CLI samples for working with Azure Blob Storage
 services: storage
-documentationcenter: na
-author: mmacy
-manager: timlt
-editor: tysonn
+author: tamram
 
-ms.assetid:
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: sample
 ms.date: 06/13/2017
-ms.author: marsma
+ms.author: tamram
 ---
+
 # Azure CLI samples for Azure Blob storage
 
 The following table includes links to Bash scripts built using the Azure CLI that create and manage Azure Storage.

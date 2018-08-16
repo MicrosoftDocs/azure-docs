@@ -4,7 +4,7 @@ description: This article explains to Office 365 users how to resolve issues wit
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 543b7dc1-ccc9-407f-85a1-a9944c0ba1be
 ms.service: active-directory
@@ -13,6 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---
@@ -63,13 +64,19 @@ On your AD FS server, open PowerShell. Check that the AutoCertificateRollover va
 >If you are using AD FS 2.0, first run Add-Pssnapin Microsoft.Adfs.Powershell.
 
 ### Step 2: Confirm that AD FS and Azure AD are in sync
-On your AD FS server, open the Azure AD PowerShell prompt, and connect to Azure AD.
+On your AD FS server, open the MSOnline PowerShell prompt, and connect to Azure AD.
 
 > [!NOTE]
-> You can download Azure AD PowerShell [here](https://technet.microsoft.com/library/jj151815.aspx).
->
+> MSOL-Cmdlets are part of the MSOnline PowerShell module.
+> You can download the MSOnline PowerShell Module directly from the PowerShell Gallery.
+> 
 >
 
+    Install-Module MSOnline
+
+Connect to Azure AD using the MSOnline PowerShell-Module.
+
+    Import-Module MSOnline
     Connect-MsolService
 
 Check the certificates configured in AD FS and Azure AD trust properties for the specified domain.
@@ -108,7 +115,6 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 where `(your_FS_name) `is replaced with the federation service host name your organization uses, such as fs.contoso.com.  If you are able to verify both of these settings successfully, you do not have to do anything else.  
 
 Example: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
-
 ## Renew the token signing certificate manually <a name="manualrenew"></a>
 You may choose to renew the token signing certificates manually. For example, the following scenarios might work better for manual renewal:
 
@@ -148,8 +154,8 @@ Update Office 365 with the new token signing certificates to be used for the tru
 1. Open the Microsoft Azure Active Directory Module for Windows PowerShell.
 2. Run $cred=Get-Credential. When this cmdlet prompts you for credentials, type your cloud service administrator account credentials.
 3. Run Connect-MsolService –Credential $cred. This cmdlet connects you to the cloud service. Creating a context that connects you to the cloud service is required before running any of the additional cmdlets installed by the tool.
-4. If you are running these commands on a computer that is not the AD FS primary federation server, run Set-MSOLAdfscontext -Computer <AD FS primary server>, where <AD FS primary server> is the internal FQDN name of the primary AD FS server. This cmdlet creates a context that connects you to AD FS.
-5. Run Update-MSOLFederatedDomain –DomainName <domain>. This cmdlet updates the settings from AD FS into the cloud service, and configures the trust relationship between the two.
+4. If you are running these commands on a computer that is not the AD FS primary federation server, run Set-MSOLAdfscontext -Computer &lt;AD FS primary server&gt;, where &lt;AD FS primary server&gt; is the internal FQDN name of the primary AD FS server. This cmdlet creates a context that connects you to AD FS.
+5. Run Update-MSOLFederatedDomain –DomainName &lt;domain&gt;. This cmdlet updates the settings from AD FS into the cloud service, and configures the trust relationship between the two.
 
 > [!NOTE]
 > If you need to support multiple top-level domains, such as contoso.com and fabrikam.com, you must use the **SupportMultipleDomain** switch with any cmdlets. For more information, see [Support for Multiple Top Level Domains](active-directory-aadconnect-multiple-domains.md).

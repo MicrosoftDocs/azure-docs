@@ -4,27 +4,27 @@ description: Learn how to copy data to/from Azure SQL Data Warehouse using Azure
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: d90fa9bd-4b79-458a-8d40-e896835cfd4a
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/04/2017
+ms.topic: conceptual
+ms.date: 01/10/2018
 ms.author: jingwang
 
 robots: noindex
 ---
 # Copy data to and from Azure SQL Data Warehouse using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-azure-sql-data-warehouse-connector.md)
-> * [Version 2 - Preview](../connector-azure-sql-data-warehouse.md)
+> * [Version 1](data-factory-azure-sql-data-warehouse-connector.md)
+> * [Version 2 (current version)](../connector-azure-sql-data-warehouse.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Azure SQL Data Warehouse connector in V2](../connector-azure-sql-data-warehouse.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Azure SQL Data Warehouse connector in V2](../connector-azure-sql-data-warehouse.md).
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data to/from Azure SQL Data Warehouse. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.  
 
@@ -193,7 +193,7 @@ SQL Data Warehouse PolyBase directly support Azure Blob and Azure Data Lake Stor
 If the requirements are not met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
 1. **Source linked service** is of type: **AzureStorage** or **AzureDataLakeStore with service principal authentication**.  
-2. The **input dataset** is of type: **AzureBlob** or **AzureDataLakeStore**, and the format type under `type` properties is **OrcFormat**, or **TextFormat** with the following configurations:
+2. The **input dataset** is of type: **AzureBlob** or **AzureDataLakeStore**, and the format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat** with the following configurations:
 
    1. `rowDelimiter` must be **\n**.
    2. `nullValue` is set to **empty string** (""), or `treatEmptyAsNull` is set to **true**.

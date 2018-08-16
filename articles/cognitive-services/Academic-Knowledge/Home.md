@@ -2,14 +2,13 @@
 title: Academic Knowledge API for Microsoft Academic Graph | Microsoft Docs
 description: Use the Academic Knowledge API to interpret user queries and retrieve rich information from the Academic Graph in Microsoft Cognitive Services.
 services: cognitive-services
-author: alch-msft
+author: mvorvoreanu
 manager: kuansanw
-
 ms.service: cognitive-services
-ms.technology: academic-knowledge
+ms.component: academic-knowledge
 ms.topic: article
 ms.date: 03/27/2017
-ms.author: alch
+ms.author: mivorvor
 ---
 
 # Academic Knowledge API
@@ -19,6 +18,8 @@ Welcome to the Academic Knowledge API. With this service, you will be able to in
 The MAG data is mined from the Bing web index as well as an in-house knowledge base from Bing. As a result of on-going Bing indexing, this API will contain fresh information from the Web following discovery and indexing by Bing. Based on this dataset, the Academic Knowledge APIs enables a knowledge-driven, interactive dialog that seamlessly combines reactive search with proactive suggestion experiences, rich research paper graph search results, and histogram distributions of the attribute values for a set of papers and related entities.
 
 For more information on the Microsoft Academic Graph, see [http://aka.ms/academicgraph](http://aka.ms/academicgraph).
+
+The Academic Knowledge API has moved from Cognitive Services Preview to Cognitive Services Labs. The new homepage for the project is: [https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge). Your existing API key will continue working until May 24th, 2018. After this date, please generate a new API key. Please note that paid preview will no longer be available once your existing key expires. Please contact our team if the free tier of the API is not sufficient for your purposes. 
 
 ## Features
 The Academic Knowledge API consists of four related REST endpoints:  

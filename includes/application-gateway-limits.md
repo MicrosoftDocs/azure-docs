@@ -8,11 +8,15 @@
 | HTTP Listeners |20 | |
 | HTTP load balancing rules |200 |# of HTTP Listeners * n, n=10 Default |
 | Backend HTTP settings |20 |1 per Backend Address Pool |
-| Instances per gateway |10 | |
+| Instances per gateway |10 | For more instances, open support ticket |
 | SSL certificates |20 |1 per HTTP Listeners |
 | Authentication certificates |5 | Maximum 10 |
 | Request time out min |1 second | |
 | Request time out max |24 hrs | |
 | Number of sites |20 |1 per HTTP Listeners |
 | URL Maps per listener |1 | |
+|Maximum URL length|8000|
+| Maximum file upload size Standard |2 GB | |
+| Maximum file upload size WAF |100 MB| |
+|WAF body size limit (without files)|128 KB|
 

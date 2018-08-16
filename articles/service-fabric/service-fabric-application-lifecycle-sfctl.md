@@ -1,16 +1,16 @@
 ---
-title: Manage Azure Service Fabric applications using Azure Service Fabric CLI
+title: Manage Azure Service Fabric applications using Azure Service Fabric CLI (sfctl)
 description: Learn how to deploy and remove applications from an Azure Service Fabric cluster by using Azure Service Fabric CLI
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 
 ms.service: service-fabric
-ms.topic: article
-ms.date: 08/22/2017
-ms.author: edwardsa
+ms.topic: conceptual
+ms.date: 07/31/2018
+ms.author: bikang
 ---
-# Manage an Azure Service Fabric application by using Azure Service Fabric CLI
+# Manage an Azure Service Fabric application by using Azure Service Fabric CLI (sfctl)
 
 Learn how to create and delete applications that are running in an Azure Service Fabric cluster.
 
@@ -135,7 +135,7 @@ After you delete the application, you can unprovision the application type if yo
 the application type, use the following command:
 
 ```azurecli
-sfctl application unprovision --application-type-name TestAppTye --application-type-version 1.0
+sfctl application unprovision --application-type-name TestAppType --application-type-version 1.0
 ```
 
 The type name and type version must match the name and version in the previously provisioned application manifest.

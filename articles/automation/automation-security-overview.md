@@ -1,21 +1,15 @@
 ---
-title: Intro to authentication in Azure Automation | Microsoft Docs
+title: Intro to authentication in Azure Automation
 description: This article provides an overview of Automation security and the different authentication methods available for Automation Accounts in Azure Automation.
-services: automation
-documentationcenter: ''
-author: eslesar
-manager: jwhit
-editor: tysonn
 keywords: automation security, secure automation; automation authentication
-
-ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
+services: automation
 ms.service: automation
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/01/2017
-ms.author: magoedte
+ms.component: process-automation
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
+ms.topic: conceptual
+manager: carmonm
 ROBOTS: NOINDEX
 ---
 # Introduction to authentication in Azure Automation  
@@ -27,10 +21,6 @@ This article will cover the various authentication scenarios supported by Azure 
 When you start Azure Automation for the first time, you must create at least one Automation account. Automation accounts allow you to isolate your Automation resources (runbooks, assets, configurations) from the resources contained in other Automation accounts. You can use Automation accounts to separate resources into separate logical environments. For example, you might use one account for development, another for production, and another for your on-premises environment.  An Azure Automation account is different from your Microsoft account or accounts created in your Azure subscription.
 
 The Automation resources for each Automation account are associated with a single Azure region, but Automation accounts can manage all the resources in your subscription. The main reason to create Automation accounts in different regions would be if you have policies that require data and resources to be isolated to a specific region.
-
-> [!NOTE]
-> Automation accounts, and the resources they contain that are created in the Azure portal, cannot be accessed in the Azure classic portal. If you want to manage these accounts or their resources with Windows PowerShell, you must use the Azure Resource Manager modules.
->
 
 All of the tasks that you perform against resources using Azure Resource Manager and the Azure cmdlets in Azure Automation must authenticate to Azure using Azure Active Directory organizational identity credential-based authentication.  Certificate-based  authentication was the original authentication method with Azure classic, but it was complicated to set up.  Authenticating to Azure with Azure AD user was introduced back in 2014 to not only simplify the process to configure an Authentication account, but also support the ability to non-interactively authenticate to Azure with a single user account that worked with both Azure Resource Manager and classic resources.   
 

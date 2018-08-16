@@ -1,21 +1,16 @@
 ---
-title: 'Azure Government Data + Analytics | Microsoft Docs'
+title: Azure Government Data + Analytics
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
-documentationcenter: ''
 author: jglixon
+ms.author: jglixon
 manager: zakramer
-
 ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: azure-government
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 07/25/2017
-ms.author: jglixon
-
+ms.date: 07/30/2018
 ---
 # Azure Government Data + Analytics
 This article outlines the data and analytics services, variations, and considerations for the Azure Government environment.
@@ -39,11 +34,10 @@ For secured virtual networks, you will want to allow Network Security Groups (NS
 
 | Region | Allowed IP addresses | Allowed port |
 | ---- | ---- | ---- | ---- |
-| USGov Virginia | 13.72.49.126</br>13.72.55.55 | 443 |
 | USGov Iowa | 13.72.184.124</br>13.72.190.110 | 443 |
+| USGov Virginia | 13.72.49.126</br>13.72.55.55 | 443 |
 
-
-For more information, see [HDInsight public documentation](../hdinsight/hdinsight-hadoop-introduction.md).
+For more information, see [HDInsight public documentation](../hdinsight/hadoop/apache-hadoop-introduction.md).
 
 ## Power BI
 Power BI US Government is generally available as part of the Office 365 US Government Community subscriptions. You can learn about [Power BI US Government here](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-govus-overview/).

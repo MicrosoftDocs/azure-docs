@@ -4,15 +4,16 @@ description: Deployment scenarios for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/21/2017
 ms.author: maheshu
 
@@ -83,4 +84,4 @@ For more information about this deployment scenario, see how to [integrate Azure
 ## Domain-joined HDInsight clusters (Preview)
 You can set up an Azure HDInsight cluster that is joined to an Azure AD Domain Services managed domain with Apache Ranger enabled. Create and apply Hive policies through Apache Ranger, and allow users (for example, data scientists) to connect to Hive using ODBC-based tools, for example Excel, Tableau etc. Microsoft is working on adding other workloads, such as HBase, Spark, and Storm, to Domain-joined HDInsight soon.
 
-For more information about this deployment scenario, see how to [configure domain-joined HDInsight clusters](../hdinsight/hdinsight-domain-joined-configure.md)
+For more information about this deployment scenario, see how to [configure domain-joined HDInsight clusters](../hdinsight/domain-joined/apache-domain-joined-configure.md)

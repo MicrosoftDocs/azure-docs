@@ -1,32 +1,27 @@
----
-title: 'Azure Active Directory B2C: Application registration | Microsoft Docs'
+﻿---
+title: Application registration in Azure Active Directory B2C | Microsoft Docs 
 description: How to register your application with Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
-manager: krassk
-editor: PatAltimore
+author: davidmu1
+manager: mtillman
 
-ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 6/13/2017
-ms.author: parakhj
-
-
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Register your application
 
-This Quickstart helps you register an application in a Microsoft Azure Active Directory (Azure AD) B2C tenant in a few minutes. When you're finished, your application is registered for use in the Azure B2C tenant.
+This Quickstart helps you register an application in a Microsoft Azure Active Directory (Azure AD) B2C tenant in a few minutes. When you're finished, your application is registered for use in the Azure AD B2C tenant.
 
 ## Prerequisites
 
 To build an application that accepts consumer sign-up and sign-in, you first need to register the application with an Azure Active Directory B2C tenant. Get your own tenant by using the steps outlined in [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md).
 
-Applications created from the Azure AD B2C blade in the Azure portal must be managed from the same location. If you edit the B2C applications using PowerShell or another portal, they become unsupported and do not work with Azure AD B2C. See details in the [faulted apps](#faulted-apps) section. 
+Applications created in the Azure portal must be managed from the same location. If you edit the Azure AD B2C applications using PowerShell or another portal, they become unsupported and do not work with Azure AD B2C. See details in the [faulted apps](#faulted-apps) section. 
 
 This article uses examples that will help you get started with our samples. You can learn more about these samples in the subsequent articles.
 
@@ -115,7 +110,7 @@ You can add the latter two because they are subdomains of the first reply URL, c
 
 There are two important considerations when choosing a redirect URI for mobile/native applications:
 
-* **Unique**: The scheme of the redirect URI should be unique for every application. In our example (com.onmicrosoft.contoso.appname://redirect/path), we use com.onmicrosoft.contoso.appname as the scheme. We recommend following this pattern. If two applications share the same scheme, the user sees a "choose app" dialog. If the user makes an incorrect choice, the login fails.
+* **Unique**: The scheme of the redirect URI should be unique for every application. In the example (com.onmicrosoft.contoso.appname://redirect/path), com.onmicrosoft.contoso.appname is the scheme. We recommend following this pattern. If two applications share the same scheme, the user sees a "choose app" dialog. If the user makes an incorrect choice, the login fails.
 * **Complete**: Redirect URI must have a scheme and a path. The path must contain at least one forward slash after the domain (for example, //contoso/ works and //contoso fails).
 
 Ensure there are no special characters like underscores in the redirect uri.
@@ -124,16 +119,16 @@ Ensure there are no special characters like underscores in the redirect uri.
 
 B2C applications should NOT be edited:
 
-* On other application management portals such as the [Azure classic portal](https://manage.windowsazure.com/) & the [Application Registration Portal](https://apps.dev.microsoft.com/).
+* On other application management portals such as the [Application Registration Portal](https://apps.dev.microsoft.com/).
 * Using Graph API or PowerShell
 
-If you edit the B2C application as described above and try to edit it again in the Azure AD B2C features blade on the Azure portal, it becomes a faulted app, and your application is no longer usable with Azure AD B2C. You have to delete the application and create it again.
+If you edit the Azure AD B2C application as described and try to edit it again in Azure AD B2C features on the Azure portal, it becomes a faulted app, and your application is no longer usable with Azure AD B2C. You need to delete the application and create it again.
 
 To delete the app, go to the [Application Registration Portal](https://apps.dev.microsoft.com/) and delete the application there. In order for the application to be visible, you need to be the owner of the application (and not just an admin of the tenant).
 
 ## Next steps
 
-Now that you have an application registered with Azure AD B2C, you can complete one of [our quick-start tutorials](active-directory-b2c-overview.md#get-started) to get up and running.
+Now that you have an application registered with Azure AD B2C, you can complete one of [the quickstart tutorials](active-directory-b2c-overview.md) to get up and running.
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET web app with sign-up, sign-in, and password reset](active-directory-b2c-devquickstarts-web-dotnet-susi.md)

@@ -3,8 +3,8 @@ title: Connector Version Release History | Microsoft Docs
 description: This topic lists all releases of the Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manager (MIM)
 services: active-directory
 documentationcenter: ''
-author: fimguy
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2017
-ms.author: fimguy
+ms.date: 03/22/2018
+ms.component: hybrid
+ms.author: billmath
 
 ---
 # Connector Version Release History
@@ -23,17 +24,67 @@ The Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manag
 > [!NOTE]
 > This topic is on FIM and MIM only. These Connectors are not supported for install on Azure AD Connect. Released Connectors are preinstalled on AADConnect when upgrading to specified Build.
 
+
 This topic list all versions of the Connectors that have been released.
 
 Related links:
 
 * [Download Latest Connectors](http://go.microsoft.com/fwlink/?LinkId=717495)
-* [Generic LDAP Connector](active-directory-aadconnectsync-connector-genericldap.md) reference documentation
-* [Generic SQL Connector](active-directory-aadconnectsync-connector-genericsql.md) reference documentation
-* [Web Services Connector](http://go.microsoft.com/fwlink/?LinkID=226245) reference documentation
-* [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) reference documentation
-* [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
+* [Generic LDAP Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) reference documentation
+* [Generic SQL Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) reference documentation
+* [Web Services Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) reference documentation
+* [PowerShell Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-powershell) reference documentation
+* [Lotus Domino Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-domino) reference documentation
 
+
+## 1.1.830.0
+
+### Fixed issues:
+* Resolved ConnectorsLog System.Diagnostics.EventLogInternal.InternalWriteEvent(Message: A device attached to the system is not functioning)
+* In this release of connectors you will need to update binding redirect from 3.3.0.0-4.1.3.0 to 4.1.4.0 in miiserver.exe.config
+* Generic Web Services:
+    * Resolved Valid JSON response could not be saved in configuration tool
+* Generic SQL:
+    * Export always generates only update query for the operation of deleting. Added to generate a delete query
+    * The SQL query which gets objects for the operation of Delta Import,  if ‘Delta Strategy’ is ‘Change Tracking’ was fixed. In this implementation known limitation:  Delta Import with ‘Change Tracking’ mode does not track changes in multi-valued attributes
+    * Added possibility to generate a delete query for case, when it is necessary to delete the last value of multivalued attribute and this row does not contain any other data except value which it is necessary to delete.
+    * System.ArgumentException handling when implemented OUTPUT parameters by SP 
+    * Incorrect query to make the operation of export into field which has varbinary(max) type
+    * Issue with parameterList variable was initialized twice (in the functions ExportAttributes and GetQueryForMultiValue)
+
+
+## 1.1.649.0 (AADConnect 1.1.649.0)
+
+### Fixed issues:
+
+* Lotus Notes:
+  * Filtering custom certifiers option
+  * Import of the class ImportOperations fixed the definition of what operations can be run in the 'Views' mode and which in the 'Search' mode.
+* Generic LDAP:
+  * OpenLDAP Directory uses DN as anchor rather than entryUUI. New option to GLDAP connector which allows to modify anchor
+* Generic SQL:
+  * Fixed export into field which has varbinary(max) type.
+  * When adding binary data from a data source to CSEntry object, The DataTypeConversion function failed on zero bytes. Fixed DataTypeConversion function of the CSEntryOperationBase class.
+
+
+
+
+### Enhancements:
+
+* Generic SQL:
+  * The ability to configure the mode for execute stored procedure with named
+    parameters or not named is added in a configuration window of the Generic
+    SQL management agent in the page 'Global Parameters'. In the page
+    'Global Parameters' there is check box with the label 'Use named parameters
+    to execute a stored procedure' which is responsible for mode for execute
+    stored procedure with named parameters or not.
+    * Currently, the ability to execute stored procedure with named parameters
+    works only for databases IBM DB2 and MSSQL. For databases Oracle and MySQL
+    this approach doesn’t work: 
+      * The SQL syntaxes of MySQL doesn’t support named parameters in stored
+        procedures.
+      * The ODBC driver for the Oracle doesn’t support named parameters for
+        named parameters in stored procedures)
 
 ## 1.1.604.0 (AADConnect 1.1.614.0)
 
@@ -53,6 +104,8 @@ Related links:
   * The Wsconfig tool did not convert correctly the Json array from "sample request" for the REST service method. This caused problems with serialization this Json array for the REST request.
   * Web Service Connector Configuration Tool does not support usage of space symbols in JSON attribute names 
     * A Substitution pattern can be added manually to the WSConfigTool.exe.config file, e.g. ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+> [!NOTE]
+> JSONSpaceNamePattern key is required as for export you will recieve the following error: Message: Empty name is not legal. 
 
 * Lotus Notes:
   * When the option **Allow custom certifiers for Organization/Organizational Units** is disabled then the connector fails during export (Update) After the export flow all attributes are exported to Domino but at the time of export a KeyNotFoundException is returned to Sync. 
@@ -71,7 +124,7 @@ Related links:
 
 * Generic SQL:
   * **Scenario: redesigned Implemented:** "*" feature
-  * **Solution description:** Changed approach for [multi-valued reference attributes handling](active-directory-aadconnectsync-connector-genericsql.md).
+  * **Solution description:** Changed approach for [multi-valued reference attributes handling](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
 
 
 ### Fixed issues:
@@ -151,7 +204,7 @@ LDAP MA. They showed only objects from RootDSE partition.
 Released: 2016 March
 
 **New Connector**  
-Initial release of the [Generic SQL Connector](active-directory-aadconnectsync-connector-genericsql.md).
+Initial release of the [Generic SQL Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
 
 **New features:**
 
@@ -203,6 +256,22 @@ Before March 2016, the Connectors were released as support topics.
 * [KB2932635](https://support.microsoft.com/kb/2932635) - 5.3.1003, 2014 February  
 * [KB2899874](https://support.microsoft.com/kb/2899874) - 5.3.0721, 2013 October
 * [KB2875551](https://support.microsoft.com/kb/2875551) - 5.3.0534, 2013 August
+
+## Troubleshooting 
+
+> [!NOTE]
+> When updating Microsoft Identity Manager or AADConnect with use of any of ECMA2 connectors. 
+
+You must refresh the connector definition upon upgrade to match or you will receive the following error in the application event log start to report warning ID 6947: "Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".
+
+To refresh the definition:
+* Open the Properties for the Connector instance
+* Click the Connection / Connect to tab
+  * Enter the password for the Connector account
+* Click each of the property tabs, in turn
+  * If this Connector type has a Partitions tab, with a Refresh button, click the Refresh button while on that tab
+* After all property tabs have been accessed, click the OK button to save the changes.
+
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.

@@ -1,3 +1,14 @@
+﻿---
+ title: include file
+ description: include file
+ services: expressroute
+ author: cherylmc
+ ms.service: expressroute
+ ms.topic: include
+ ms.date: 03/22/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
 The steps for this task use a VNet based on the values in the following configuration reference list. Additional settings and names are also outlined in this list. We don't use this list directly in any of the steps, although we do add variables based on the values in this list. You can copy the list to use as a reference, replacing the values with your own.
 
 **Configuration reference list**
@@ -20,7 +31,7 @@ The steps for this task use a VNet based on the values in the following configur
 1. Connect to your Azure Subscription.
 
   ```powershell 
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   Get-AzureRmSubscription 
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
   ```
@@ -47,7 +58,7 @@ The steps for this task use a VNet based on the values in the following configur
 5. Set the configuration.
 
   ```powershell
-  Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+  $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
 6. Store the gateway subnet as a variable.
 

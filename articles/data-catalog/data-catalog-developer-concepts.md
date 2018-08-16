@@ -11,10 +11,8 @@ tags: ''
 ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 08/03/2017
+ms.topic: conceptual
+ms.date: 01/18/2018
 ms.author: spelluru
 
 ---

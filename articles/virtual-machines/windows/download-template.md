@@ -4,7 +4,7 @@ description: Download the templatefor a VM to help with automating deployments i
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 11/17/2017
 ms.author: cynthn
 
 ---
@@ -23,11 +23,11 @@ When you create a VM in Azure using the portal or PowerShell, a Resource Manager
 
 ## Download the template using the portal
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. One the hub menu, select **Virtual Machines**.
+2. One the left menu, select **Virtual Machines**.
 3. Select the virtual machine from the list.
 4. Select **Automation script**.
-5. Select **Download** and save the .zip file to your local computer.
-6. Open the .zip file and extract the files to a folder. The .zip file will contain:
+5. Select **Download** from the menu at the top and save the .zip file to your local computer.
+6. Open the .zip file and extract the files to a folder. The .zip file contains:
    
    * deploy.ps1
    * deploy.sh 

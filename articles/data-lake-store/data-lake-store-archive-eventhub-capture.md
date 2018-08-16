@@ -9,10 +9,8 @@ editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 08/28/2017
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
 
 ---
@@ -37,11 +35,11 @@ In this section, you create a folder within the account where you want to captur
 
     ![Data Lake Store data explorer](./media/data-lake-store-archive-eventhub-capture/data-lake-store-open-data-explorer.png "Data Lake Store data explorer")
 
-2.  Click **New Folder** and then enter a name for folder where you want to capture the data.
+1.  Click **New Folder** and then enter a name for folder where you want to capture the data.
 
     ![Create a new folder in Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "Create a new folder in Data Lake Store")
 
-3. Assign permissions at the root of the Data Lake Store. 
+1. Assign permissions at the root of the Data Lake Store. 
 
     a. Click **Data Explorer**, select the root of the Data Lake Store account, and then click **Access**.
 
@@ -55,11 +53,14 @@ In this section, you create a folder within the account where you want to captur
 
     c. Under **Assign Permissions**, click **Select Permissions**. Set **Permissions** to **Execute**. Set **Add to** to **This folder and all children**. Set **Add as** to **An access permission entry and a default permission entry**.
 
+    > [!IMPORTANT]
+    > When creating a new folder heirarchy for capturing data received by Azure Event Hubs, this is an easy way to ensure access to the destination folder.  However, adding permissions to all children of a top level folder with many child files and folders may take a long time.  If your root folder contains a large number of files and folders, it may be faster to add **Execute** permissions for `Microsoft.EventHubs` individually to each folder in the path to your final destination folder. 
+
     ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
 
     Click **OK**.
 
-4. Assign permissions for the folder under Data Lake Store account where you want to capture data.
+1. Assign permissions for the folder under Data Lake Store account where you want to capture data.
 
     a. Click **Data Explorer**, select the folder in the Data Lake Store account, and then click **Access**.
 
@@ -81,11 +82,11 @@ In this section, you create a folder within the account where you want to captur
 
 In this section, you create an Event Hub within an Event Hubs namespace. You also configure the Event Hub to capture data to an Azure Data Lake Store account. This section assumes that you have already created an Event Hubs namespace.
 
-2. From the **Overview** pane of the Event Hubs namespace, click **+ Event Hub**.
+1. From the **Overview** pane of the Event Hubs namespace, click **+ Event Hub**.
 
     ![Create Event Hub](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Create Event Hub")
 
-3. Provide the following values to configure Event Hubs to capture data to Data Lake Store.
+1. Provide the following values to configure Event Hubs to capture data to Data Lake Store.
 
     ![Create Event Hub](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Create Event Hub")
 

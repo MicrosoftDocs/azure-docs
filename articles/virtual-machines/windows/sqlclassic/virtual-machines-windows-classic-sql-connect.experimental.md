@@ -4,7 +4,7 @@ description: Learn how to connect to SQL Server running on a Virtual Machine in 
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 
 ms.assetid: 416948af-454f-4cfe-8fd2-7cf971cbd3e9
@@ -45,7 +45,7 @@ The way a client connects to SQL Server running on a Virtual Machine differs dep
 > 
 
 ### Connect to SQL Server in the same cloud service
-Multiple virtual machines can be created in the same cloud service. To understand this virtual machines scenario, see [How to connect virtual machines with a virtual network or cloud service](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service). In this scenario, a client on one virtual machine attempts to connect to SQL Server running on another virtual machine in the same cloud service.
+Multiple virtual machines can be created in the same cloud service. To understand this virtual machines scenario, see [How to connect virtual machines with a virtual network or cloud service](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). In this scenario, a client on one virtual machine attempts to connect to SQL Server running on another virtual machine in the same cloud service.
 
 In this scenario, you can connect using the VM **Name** (also shown as **Computer Name** or **hostname** in the portal). This is the name you provided for the VM during creation. For example, if you named your SQL VM **mysqlvm**, a client VM in the same cloud service could use the following connection string to connect:
 

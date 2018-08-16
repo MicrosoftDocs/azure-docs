@@ -1,20 +1,14 @@
 ---
 title: "Query an index (.NET API - Azure Search) | Microsoft Docs"
 description: Build a search query in Azure search and use search parameters to filter and sort search results.
-services: search
-manager: jhubbard
-documentationcenter: ''
 author: brjohnstmsft
-
-ms.assetid: 12c3efba-ea99-4187-9d2d-f63b5ec7040d
+manager: jlembicz
+ms.author: brjohnst
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 05/19/2017
-ms.author: brjohnst
-
 ---
 # Query your Azure Search index using the .NET SDK
 > [!div class="op_single_selector"]
@@ -68,7 +62,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 Searching with the .NET SDK is as simple as calling the `Documents.Search` method on your `SearchIndexClient`. This method takes a few parameters, including the search text, along with a `SearchParameters` object that can be used to further refine the query.
 
 #### Types of Queries
-The two main [query types](search-query-overview.md#types-of-queries) you will use are `search` and `filter`. A `search` query searches for one or more terms in all *searchable* fields in your index. A `filter` query evaluates a boolean expression over all *filterable* fields in an index.
+The two main [query types](search-query-overview.md#types-of-queries) you will use are `search` and `filter`. A `search` query searches for one or more terms in all *searchable* fields in your index. A `filter` query evaluates a boolean expression over all *filterable* fields in an index. You can use searches and filters together or separately.
 
 Both searches and filters are performed using the `Documents.Search` method. A search query can be passed in the `searchText` parameter, while a filter expression can be passed in the `Filter` property of the `SearchParameters` class. To filter without searching, just pass `"*"` for the `searchText` parameter. To search without filtering, just leave the `Filter` property unset, or do not pass in a `SearchParameters` instance at all.
 

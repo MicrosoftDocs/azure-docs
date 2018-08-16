@@ -13,8 +13,8 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 06/26/2017
+ms.topic: article
+ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
 
@@ -50,7 +50,7 @@ To start troubleshooting, collect the activity logs to identify the error associ
 
 **Resolution**
 
-To resolve both these errors, use [Add-AzureRmVhd to upload the original VHD](https://msdn.microsoft.com/library/mt603554.aspx), available on-premises, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run sysprep first.
+To resolve both these errors, use [Add-AzureRmVhd to upload the original VHD](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd), available on-premises, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run sysprep first.
 
 **Capture Errors:**
 

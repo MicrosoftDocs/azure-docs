@@ -1,16 +1,13 @@
 ---
-title: Use Jenkins to deploy your web apps to Azure | Microsoft Docs
+title: Use Jenkins to deploy your web apps to Azure
 description: Set up continuous integration from GitHub to Azure App Service for your Java web apps using Jenkins and Docker.
-author: rloutlaw
-manager: douge
-ms.service: jenkins
-ms.search.scope:
-ms.devlang: java
-ms.topic: article
-ms.workload: web
-ms.date: 08/02/2017
-ms.author: routlaw
-ms.custom: Jenkins, devcenter
+ms.topic: tutorial
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
 ---
 
 # Set up continuous integration and deployment to Azure App Service with Jenkins
@@ -33,7 +30,7 @@ To complete this tutorial, you need:
 
 * [Jenkins](https://jenkins.io/) with JDK and Maven tools configured . If you don't have a Jenkins system, create one now in Azure from the [Jenkins solution template](/azure/jenkins/install-jenkins-solution-template).
 * A [GitHub](https://github.com) account.
-* [Azure CLI 2.0](/cli/azure/overview), either from your local command line or in the [Azure Cloud Shell](/azure/cloud-shell/overview)
+* [Azure CLI 2.0](/cli/azure), either from your local command line or in the [Azure Cloud Shell](/azure/cloud-shell/overview)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -82,7 +79,7 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
     ```azurecli-interactive
     az group create --name myResourceGroupJenkins --location westus
     az appservice plan create --is-linux --name myLinuxAppServicePlan --resource-group myResourceGroupJenkins 
-    az webapp create --name myJavaApp --resource-group myResourceGroupJenkins --plan myLinuxAppServicePlan
+    az webapp create --name myJavaApp --resource-group myResourceGroupJenkins --plan myLinuxAppServicePlan --runtime "java|1.8|Tomcat|8.5"
     ```
 
 2. Create an [Azure Container Registry](/azure/container-registry/container-registry-intro) to store the Docker images built by Jenkins. The container registry name used in this tutorial is `jenkinsregistry`, but you need to use a unique name for your own container registry. 
@@ -175,9 +172,12 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
     ```
 3. A new build starts in Jenkins, triggered by the new commit on the `master` branch of the repo. Once it completes, reload your app on Azure.     
       ![View your deployed app on Azure](media/jenkins-java-quickstart/hello_docker_world.png)
-  
+
+## Troubleshooting the Jenkins plugin
+
+If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
+
 ## Next steps
 
-- [Use Azure VMs as build agents](/azure/jenkins/jenkins-azure-vm-agents)
-- [Manage resources in jobs and pipelines with the Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline)
- 
+> [!div class="nextstepaction"]
+> [Use Azure VMs as build agents](/azure/jenkins/jenkins-azure-vm-agents)

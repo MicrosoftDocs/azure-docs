@@ -3,18 +3,17 @@ title: 'Reporting on Azure Active Directory automatic user account provisioning 
 description: 'Learn how to check the status of automatic user account provisioning jobs, and how to troubleshoot the provisioning of individual users.'
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: stevenpo
-
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
+author: barbkess
+manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
-ms.topic: article
-ms.date: 05/12/2017
-ms.author: asmalser-msft
+ms.topic: conceptual
+ms.date: 07/30/2018
+ms.author: barbkess
+ms.reviewer: asmalser
 ---
 
 # Tutorial: Reporting on automatic user account provisioning
@@ -26,9 +25,9 @@ This article describes how to check the status of provisioning jobs after they h
 
 ## Overview
 
-Provisioning connectors are primarily set up and configured using the [Azure management portal](https://portal.azure.com), by following the [provided documentation](active-directory-saas-tutorial-list.md) for the application where user account provisioning is desired. Once configured and running, provisioning jobs for an application can be reported on using one of two methods:
+Provisioning connectors are set up and configured using the [Azure portal](https://portal.azure.com), by following the [provided documentation](saas-apps/tutorial-list.md) for the supported application. Once configured and running, provisioning jobs can be reported on using one of two methods:
 
-* **Azure management portal** - This article primarily describes retrieving report information from the [Azure management portal](https://portal.azure.com), which provides both a provisioning summary report as well as detailed provisioning audit logs for a given application.
+* **Azure management portal** - This article primarily describes retrieving report information from the [Azure portal](https://portal.azure.com), which provides both a provisioning summary report as well as detailed provisioning audit logs for a given application.
 
 * **Audit API** - Azure Active Directory also provides an Audit API that enables programmatic retrieval of the detailed provisioning audit logs. See [Azure Active Directory audit API reference](active-directory-reporting-api-audit-reference.md) for documentation specific to using this API. While this article does not specifically cover how to use the API, it does detail the types of provisioning events that are recorded in the audit log.
 
@@ -50,28 +49,28 @@ To get provisioning report information for a given application, start by launchi
 From here, you can access both the Provisioning summary report, and the provisioning audit logs, both described below.
 
 
-### Provisioning summary report
+## Provisioning summary report
 
-The provisioning summary report is visible in the **Provisioning** tab for given application. It is located in the Synchronization Details section underneath **Settings**, and provides the following information:
+The provisioning summary report is visible in the **Provisioning** tab for given application. It is located in the **Synchronization Details** section underneath **Settings**, and provides the following information:
 
-* The total number of users and/groups that have been synchronized and are currently in scope for provisioning between the source system and the target system.
+* The total number of users and/groups that have been synchronized and are currently in scope for provisioning between the source system and the target system
 
-* The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after a full synchronization has completed.
+* The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after an [initial synchronization](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) has completed.
 
-* Whether or not an initial full synchronization has been completed.
+* Whether or not an [initial synchronization](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) has been completed
 
-* Whether or not the provisioning process has been placed in quarantine, and what the reason for the quarantine status is (e.g. failure to communicate with target system due to invalid admin credentials)
+* Whether or not the provisioning process has been placed in quarantine, and what the reason for the quarantine status is (for example, failure to communicate with target system due to invalid admin credentials)
 
 The provisioning summary report should be the first place admins look to check on the operational health of the provisioning job.
 
  ![Summary report](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
 
-### Provisioning audit logs
+## Provisioning audit logs
 All activities performed by the provisioning service are recorded in the Azure AD audit logs, which can be viewed in the **Audit logs** tab under the **Account Provisioning** category. Logged activity event types include:
 
 * **Import events** - An "import" event is recorded each time the Azure AD provisioning service retrieves information about an individual user or group from a source system or target system. During synchronization, users are retrieved from the source system first, with the results recorded as "import" events. The matching IDs of the retrieved users are then queried against the target system to check if they exist, with the results also recorded as "import" events. These events record all mapped user attributes and their values that were seen by the Azure AD provisioning service at the time of the event. 
 
-* **Synchronization rule events** - These events report on the results of the attribute mapping rules and any configured scoping filters, after user data has been imported and evaluated from the source and target systems. For example, if a user in a source system is deemed to be in scope for provisioning, and deemed to not exist in the target system, then this event records that the user will be provisioned in the target system. 
+* **Synchronization rule events** - These events report on the results of the attribute-mapping rules and any configured scoping filters, after user data has been imported and evaluated from the source and target systems. For example, if a user in a source system is deemed to be in scope for provisioning, and deemed to not exist in the target system, then this event records that the user will be provisioned in the target system. 
 
 * **Export events** - An "export" event is recorded each time the Azure AD provisioning service writes a user account or group object to a target system. These events record all user attributes and their values that were written by the Azure AD provisioning service at the time of the event. If there was an error while writing the user account or group object to the target system, it will be displayed here.
 
@@ -83,9 +82,9 @@ When looking at provisioning events for an individual user, the events normally 
 
 2. Import event: Target system is queried to check for the existence of the retrieved user.
 
-3. Synchronization rule event: User data from source and target systems are evaluated against the configured attribute mapping rules and scoping filters to determine what action, if any, should be performed.
+3. Synchronization rule event: User data from source and target systems are evaluated against the configured attribute-mapping rules and scoping filters to determine what action, if any, should be performed.
 
-4. Export event: If the synchronization rule event dictated that an action should be performed (e.g. Add, Update, Delete), then the results of the action are recorded in an Export event.
+4. Export event: If the synchronization rule event dictated that an action should be performed (Add, Update, Delete), then the results of the action are recorded in an Export event.
 
 ![Creating an Azure AD test user](./media/active-directory-saas-provisioning-reporting/audit_logs.PNG)
 
@@ -100,7 +99,7 @@ The most common use case for the provisioning audit logs is to check the provisi
 
 3. In the **Date Range** menu, select the date range you want to search,
 
-4. In the **Search** bar, enter the user ID of the user you wish to search for. The format of ID value should match whatever you selected as the primary matching ID in the attribute mapping configuration (e.g. userPrincipalName or employee ID number). The ID value required will be visible in the Target(s) column.
+4. In the **Search** bar, enter the user ID of the user you wish to search for. The format of ID value should match whatever you selected as the primary matching ID in the attribute-mapping configuration (for example, userPrincipalName or employee ID number). The ID value required will be visible in the Target(s) column.
 
 5. Press Enter to search. The most recent provisioning events will be returned first.
 
@@ -108,6 +107,9 @@ The most common use case for the provisioning audit logs is to check the provisi
 
 7. Click on individual events to view extended details, including all user properties that were retrieved, evaluated, or written as part of the event.
 
+For a demonstration on how to use the audit logs, see the video below. The audit logs are presented around the 5:30 mark:
+
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
 ### Tips for viewing the provisioning audit logs
 
@@ -129,5 +131,5 @@ For scenario-based guidance on how to troubleshoot automatic user provisioning, 
 
 ## Additional Resources
 
-* [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Managing user account provisioning for Enterprise Apps](manage-apps/configure-automatic-user-provisioning-portal.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

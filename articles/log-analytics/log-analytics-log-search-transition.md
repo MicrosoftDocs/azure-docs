@@ -9,22 +9,29 @@ editor: tysonn
 
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 11/28/2017
 ms.author: bwren
-
+ms.component: na
 ---
 
 # Transitioning to Azure Log Analytics new query language
 Log Analytics recently implemented a new query language.  This article provides assistance on transitioning to this language for Log Analytics if you're already familiar with the legacy language and still need some assistance.
+
+## Resources
+
 
 ## Language converter
 
 If you're familiar with the legacy Log Analytics query language, the easiest way to create the same query in the new language is to use the Language Converter that's installed in the Log Search portal when your workspace is converted.  Using the converter is as simple as typing in a legacy query in the top text box and then clicking **Convert**.  You can either click the search button to run the query or copy and paste it to use it somewhere else.
 
 ![Language converter](media/log-analytics-log-search-upgrade/language-converter.png)
+
+
+## Resources
+The [documentation site for the Log Analytics Query Language](https://docs.loganalytics.io) has all the resources you need to come up to speed on the new language.  This includes tutorials, examples, and a complete language reference.
 
 
 ## Cheat sheet
@@ -39,7 +46,7 @@ The following table provides a comparison between a variety of common queries to
 |                        | Type=Event &#124; top 100 | Event &#124; take 100 |
 | String comparison      | Type=Event Computer=srv01.contoso.com   | Event &#124; where Computer == "srv01.contoso.com" |
 |                        | Type=Event Computer=contains("contoso") | Event &#124; where Computer contains "contoso" (not case sensitive)<br>Event &#124; where Computer contains_cs "Contoso" (case sensitive) |
-|                        | Type=Event Computer=RegEx("@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
+|                        | Type=Event Computer=RegEx("\@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
 | Date comparison        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
 |                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &#124; where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
 | Boolean comparison     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| where IsGatewayInstalled == false |

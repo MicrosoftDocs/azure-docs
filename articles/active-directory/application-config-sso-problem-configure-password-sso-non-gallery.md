@@ -3,17 +3,18 @@ title: Problem configuring password single sign-on for a non-gallery application
 description: Understand the common problems people face when configuring Password Single Sign-on for custom non-gallery applications that are not listed in the Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
-author: ajamess
-manager: femila
+author: barbkess
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 
 ---
 
@@ -31,23 +32,23 @@ There are two ways you can capture sign-in fields for your custom applications:
 
 -   Manual sign-in field capture
 
-**Automatic sign-in field capture** works well with most HTML-enabled sign-in pages, if they use **well-known DIV IDs for the username and password input** field. The way this works is by scraping the HTML on the page to find DIV IDs that match certain criteria and by then saving that metadata for this application so we can replay passwords to it later.
+**Automatic sign-in field capture** works well with most HTML-enabled sign-in pages, if they use **well-known DIV IDs for the username and password input** field. The way this works is by scraping the HTML on the page to find DIV IDs that match certain criteria and by then saving that metadata for this application to replay passwords to it later.
 
-**Manual sign-in field capture** can be used in the case that the application **vendor does not label** the input fields used for sign in. Manual sign-in field capture can also be used in the case when the **vendor renders multiple fields** which cannot be auto-detected. Azure AD can store data for as many fields as are on the sign in page, so long as you tell us where those fields are on the page.
+**Manual sign-in field capture** can be used in the case that the application **vendor does not label** the input fields used for sign-in. Manual sign-in field capture can also be used in the case when the **vendor renders multiple fields** that cannot be auto-detected. Azure AD can store data for as many fields as are on the sign-in page, so long as you tell us where those fields are on the page.
 
-In general, **if automatic sign-in field capture does not work, we always suggest trying the manual option.**
+In general, **if automatic sign-in field capture does not work, try the manual option.**
 
 ### How to automatically capture sign-in fields for an application
 
 To configure **Password-based Single Sign-on** for an application using **automatic sign-in field capture**, follow the steps below:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
 5.  click **All Applications** to view a list of all your applications.
 
@@ -55,29 +56,29 @@ To configure **Password-based Single Sign-on** for an application using **automa
 
 6.  Select the application you want to configure single sign-on.
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
+7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
 
 8.  Select the mode **Password-based Sign-on.**
 
-9.  Enter the **Sign-on URL**. This is the URL where users enter their username and password to sign in to. **Ensure the sign in fields are visible at the URL you provide**.
+9.  Enter the **Sign-on URL**, the URL where users enter their username and password to sign in. **Ensure the sign-in fields are visible at the URL you provide**.
 
 10. Click the **Save** button.
 
-11. Once you do that, we’ll automatically scrape that URL for a username and password input box and allow you to use Azure AD to securely transmit passwords to that application using the access panel browser extension.
+11. Once you do that, that URL is automatically scraped for a username and password input box and allow you to use Azure AD to securely transmit passwords to that application using the access panel browser extension.
 
 ## How to manually capture sign-in fields for an application
 
-To manually capture sign in fields, you must first have the Access Panel Browser extension installed and **not be running in inPrivate, incognito, or private mode.** To install the browser extension, follow the steps in the [How to install the Access Panel Browser extension](#i-cannot-manually-detect-sign-in-fields-for-my-application) section.
+To manually capture sign-in fields, you must first have the Access Panel Browser extension installed and **not be running in inPrivate, incognito, or private mode.** To install the browser extension, follow the steps in the [How to install the Access Panel Browser extension](#i-cannot-manually-detect-sign-in-fields-for-my-application) section.
 
 To configure **Password-based Single Sign-on** for an application using **manual sign-in field capture**, follow the steps below:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
 5.  click **All Applications** to view a list of all your applications.
 
@@ -85,15 +86,15 @@ To configure **Password-based Single Sign-on** for an application using **manual
 
 6.  Select the application you want to configure single sign-on.
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
+7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
 
 8.  Select the mode **Password-based Sign-on.**
 
-9.  Enter the **Sign-on URL**. This is the URL where users enter their username and password to sign in to. **Ensure the sign in fields are visible at the URL you provide**.
+9.  Enter the **Sign-on URL**, the URL where users enter their username and password to sign in. **Ensure the sign-in fields are visible at the URL you provide**.
 
 10. Click the **Save** button.
 
-11. Once you do that, we’ll automatically scrape that URL for a username and password input box and allow you to use Azure AD to securely transmit passwords to that application using the access panel browser extension. In the case that this fails, you can **change the sign-in mode to use manual sign-in field capture** by continuing to step 12.
+11. Once you do that, that URL is automatically scraped for a username and password input box and allow you to use Azure AD to securely transmit passwords to that application using the access panel browser extension. In the case of failure, you can **change the sign-in mode to use manual sign-in field capture** by continuing to step 12.
 
 12. click **Configure &lt;appname&gt; Password Single Sign-on Settings**.
 
@@ -107,15 +108,15 @@ To configure **Password-based Single Sign-on** for an application using **manual
 
 ## I see a “We couldn’t find any sign-in fields at that URL” error
 
-You see this error when automatic detection of sign-in fields fails. To resolve this issue, try manual sign-in field detection by following the steps in the [How to manually capture sign-in fields for an application](#how-to-manually-capture-sign-in-fields-for-an-application) section.
+You see this error when automatic detection of sign-in fields fails. To resolve the issue, try manual sign-in field detection by following the steps in the [How to manually capture sign-in fields for an application](#how-to-manually-capture-sign-in-fields-for-an-application) section.
 
 ## I see an “Unable to save Single Sign-on configuration” error
 
-In certain rare cases, updating the single sign-on configuration can fail. TO resolve this try saving the single sign-on configuration again.
+In certain rare cases, updating the single sign-on configuration can fail. To resolve, try saving the single sign-on configuration again.
 
-If this continues to fail consistently, open a support case and provide the information gathered in the [How to see the details of a portal notification](#i-cannot-manually-detect-sign-in-fields-for-my-application) and [How to get help by sending notification details to a support engineer](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) sections.
+If it continues to fail consistently, open a support case and provide the information gathered in the [How to see the details of a portal notification](#i-cannot-manually-detect-sign-in-fields-for-my-application) and [How to get help by sending notification details to a support engineer](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) sections.
 
-## I cannot manually detect sign in fields for my application
+## I cannot manually detect sign-in fields for my application
 
 Some of the behaviors you might see when manual detection is not working include:
 
@@ -137,9 +138,9 @@ check the following if you encounter any of these issues:
 
 -   Try the manual capture process again, ensuring the red markers are over the correct fields.
 
--   If the manual capture process seems to hang, or the sign in page doesn’t do anything (case 3 above), try the manual capture process again. But, this time after completing the process, press the **F12** button to open your browser’s developer console. Once there, open the **console** and type **window.location=”&lt;enter the sign in url you specified when configuring the app&gt;”** and then press **Enter**. This force a page redirect which end the capture process and store the fields that have been captured.
+-   If the manual capture process seems to hang, or the sign-in page doesn’t do anything (case 3 above), try the manual capture process again. But, this time after completing the process, press the **F12** button to open your browser’s developer console. Once there, open the **console** and type **window.location=”&lt;enter the sign-in url you specified when configuring the app&gt;”** and then press **Enter**. This forces a page redirect that ends the capture process and stores the fields that have been captured.
 
-If none of these approaches work for you, we can help. Open a support case with the details of what you tried, as well as the information gathered in the [How to see the details of a portal notification](#i-cannot-manually-detect-sign-in-fields-for-my-application) and [How to get help by sending notification details to a support engineer](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) sections (if applicable).
+If none of these approaches work for you, support can help. Open a support case with the details of what you tried, as well as the information gathered in the [How to see the details of a portal notification](#i-cannot-manually-detect-sign-in-fields-for-my-application) and [How to get help by sending notification details to a support engineer](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) sections (if applicable).
 
 ## How to install the Access Panel Browser extension
 
@@ -169,7 +170,7 @@ You may also download the extension for Chrome and Firefox from the direct links
 
 You can see the details of any portal notification by following the steps below:
 
-1.  click the **Notifications** icon (the bell) in the upper right of the Azure Portal
+1.  click the **Notifications** icon (the bell) in the upper right of the Azure portal
 
 2.  Select any notification in an **Error** state (those with a red (!) next to them).
 
@@ -178,17 +179,17 @@ You can see the details of any portal notification by following the steps below:
   >
   >
 
-3.  This open the **Notification Details** blade.
+3.  The **Notification Details** pane opens.
 
-4.  Use this information yourself to understand more details about the problem.
+4.  Use the information yourself to understand more details about the problem.
 
-5.  If you still need help, you can also share this information with a support engineer or the product group to get help with your problem.
+5.  If you still need help, you can also share the information with a support engineer or the product group to get help with your problem.
 
 6.  Click the **copy** **icon** to the right of the **Copy error** textbox to copy all the notification details to share with a support or product group engineer.
 
 ## How to get help by sending notification details to a support engineer
 
-It is very important that you share **all the details listed below** with a support engineer if you need help, so that they can help you quickly. You can do this easily by **taking a screenshot,** or by clicking the **Copy error icon**, found to the right of the **Copy error** textbox.
+It is very important that you share **all the details listed below** with a support engineer if you need help, so that they can help you quickly. You can **take a screenshot,** or click the **Copy error icon**, found to the right of the **Copy error** textbox.
 
 ## Notification Details Explained
 
@@ -204,11 +205,11 @@ The below explains more what each of the notification items means, and gives exa
 
     -   Example – **Internal url entered is already being used by another application**
 
--   **Notification Id** – the unique id of the notification
+-   **Notification ID** – the unique id of the notification
 
     -   Example – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **Client Request Id** – the specific request id made by your browser
+-   **Client Request ID** – the specific request id made by your browser
 
     -   Example – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
@@ -216,7 +217,7 @@ The below explains more what each of the notification items means, and gives exa
 
     -   Example – **2017-03-23T19:50:43.7583681Z**
 
--   **Internal Transaction Id** – the internal ID we can use to look the error up in our systems
+-   **Internal Transaction ID** – the internal ID used to look the error up in our systems
 
     -   Example – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
@@ -224,11 +225,11 @@ The below explains more what each of the notification items means, and gives exa
 
     -   Example – **tperkins@f128.info**
 
--   **Tenant Id** – the unique ID of the tenant that the user who performed the operation was a member of
+-   **Tenant ID** – the unique ID of the tenant that the user who performed the operation was a member of
 
     -   Example – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **User object Id** – the unique ID of the user who performed the operation
+-   **User object ID** – the unique ID of the user who performed the operation
 
     -   Example – **17f84be4-51f8-483a-b533-383791227a99**
 
@@ -242,7 +243,7 @@ The below explains more what each of the notification items means, and gives exa
 
     -   Example *– **Failed**
 
--   **Object Id** – **(can be empty)** the object ID against which the operation was performed
+-   **Object ID** – **(can be empty)** the object ID against which the operation was performed
 
     -   Example – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
@@ -256,5 +257,5 @@ The below explains more what each of the notification items means, and gives exa
     ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## Next steps
-[Provide single sign-on to your apps with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Provide single sign-on to your apps with Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

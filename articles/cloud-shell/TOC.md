@@ -1,21 +1,26 @@
 # [Overview](overview.md)
 
 # Quickstart
-## [Quickstart for Bash](quickstart.md)
-## [Quickstart for PowerShell](quickstart-powershell.md)
+## [Bash - Quickstart](quickstart.md)
+## [PowerShell - Quickstart](quickstart-powershell.md)
 
-# Concepts
-## [Features & tools in Bash](features.md)
-## [Features & tools in PowerShell](features-powershell.md)
-## [Limitations](limitations.md)
-## [Troubleshooting](troubleshooting.md)
+# Features & tooling
+## [Features & tools](features.md)
 
 # How-to
-## [Persisting storage in Bash](persisting-shell-storage.md)
-## [Persisting storage in PowerShell](persisting-shell-storage-powershell.md)
-## [Using the window](using-the-shell-window.md)
+## [PowerShell Cloud Shell for Windows users](cloud-shell-windows-users.md)
+## [Persist files in storage](persisting-shell-storage.md)
+## [Use the window](using-the-shell-window.md)
+## [Use MSI in Cloud Shell](msi-authorization.md)
+## [Embed Cloud Shell](embed-cloud-shell.md)
 
-# [Pricing](pricing.md)
+# Examples
+## [Bash - Create resources with Terraform](example-terraform-bash.md)
+## [Bash - Run Ansible playbooks](../ansible/ansible-run-playbook-in-cloudshell.md)
+
+# [Use the Cloud Shell editor](using-cloud-shell-editor.md)
+
+# [Troubleshooting & limitations](troubleshooting.md)
 
 # Reference
 ## [Azure CLI](/cli/azure)

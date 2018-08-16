@@ -14,9 +14,9 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/12/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc
+ms.custom: mvc, cc996988-fb4f-47
 
 ---
 # Create a function triggered by a generic webhook
@@ -31,8 +31,6 @@ To complete this tutorial:
 
 + If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
-
 ## Create an Azure Function app
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
@@ -45,9 +43,13 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
 
-2. Select the **Generic WebHook - C#** template. Type a name for your C# function, then select **Create**.
+2. In the search field, type `generic` and then choose your desired language for the generic webhook trigger template. This topic uses a C# function.
 
-     ![Create a generic webhook triggered function in the Azure portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
+     ![Choose the generic webhook trigger template](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png)
+
+2. Type a **Name** for your function, then select **Create**. 
+
+     ![Create a generic webhook triggered function in the Azure portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger-2.png) 
 
 2. In your new function, click **</> Get function URL**, then copy and save the value. You use this value to configure the webhook. 
 
@@ -121,7 +123,7 @@ The webhook is now called when a resource group is created in your subscription.
         if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
             "Microsoft.Resources/subscriptions/resourcegroups"))
         {
-            log.Error("An error occured");
+            log.Error("An error occurred");
             return req.CreateResponse(HttpStatusCode.BadRequest, new
             {
                 error = "Unexpected message payload or wrong alert received."

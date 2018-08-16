@@ -1,18 +1,13 @@
 ---
 title: Modeling Multitenancy in Azure Search | Microsoft Docs
 description: Learn about common design patterns for multitenant SaaS applications while using Azure Search.
-services: search
-manager: jhubbard
+manager: jlembicz
 author: ashmaka
-documentationcenter: ''
-
-ms.assetid: 72e9696a-553b-47dc-9e05-a82db0ebf094
+services: search
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 10/26/2016
+ms.topic: conceptual
+ms.date: 07/30/2018
 ms.author: ashmaka
 
 ---
@@ -20,7 +15,7 @@ ms.author: ashmaka
 A multitenant application is one that provides the same services and capabilities to any number of tenants who cannot see or share the data of any other tenant. This document discusses tenant isolation strategies for multitenant applications built with Azure Search.
 
 ## Azure Search concepts
-As a search-as-a-service solution, Azure Search allows developers to add rich search experiences to applications without managing any infrastructure or becoming an expert in search. Data is uploaded to the service and then stored in the cloud. Using simple requests to the Azure Search API, the data can then be modified and searched. An overview of the service can be found in [this article](http://aka.ms/whatisazsearch). Before discussing design patterns, it is important to understand some concepts in Azure Search.
+As a search-as-a-service solution, Azure Search allows developers to add rich search experiences to applications without managing any infrastructure or becoming an expert in information retrieval. Data is uploaded to the service and then stored in the cloud. Using simple requests to the Azure Search API, the data can then be modified and searched. An overview of the service can be found in [this article](http://aka.ms/whatisazsearch). Before discussing design patterns, it is important to understand some concepts in Azure Search.
 
 ### Search services, indexes, fields, and documents
 When using Azure Search, one subscribes to a *search service*. As data is uploaded to Azure Search, it is stored in an *index* within the search service. There can be a number of indexes within a single service. To use the familiar concepts of databases, the search service can be likened to a database while the indexes within a service can be likened to tables within a database.
@@ -41,11 +36,9 @@ There are a few different [pricing tiers](https://azure.microsoft.com/pricing/de
 |  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
 | Maximum Replicas per Service |3 |12 |12 |12 |12 |
-| Maximum Partitions per Service |1 |12 |12 |12 |1 |
+| Maximum Partitions per Service |1 |12 |12 |12 |3 |
 | Maximum Search Units (Replicas*Partitions) per Service |3 |36 |36 |36 |36 (max 3 partitions) |
-| Maximum Documents per Service |1 million |180 million |720 million |1.4 billion |600 million |
 | Maximum Storage per Service |2 GB |300 GB |1.2 TB |2.4 TB |600 GB |
-| Maximum Documents per Partition |1 million |15 million |60 million |120 million |200 million |
 | Maximum Storage per Partition |2 GB |25 GB |100 GB |200 GB |200 GB |
 | Maximum Indexes per Service |5 |50 |200 |200 |3000 (max 1000 indexes/partition) |
 

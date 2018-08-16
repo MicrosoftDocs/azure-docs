@@ -3,18 +3,16 @@ title: Troubleshooting the Azure Access Panel Extension for IE | Microsoft Docs
 description: How to use group policy to deploy the Internet Explorer add-on for the My Apps portal.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: femila
-editor: ''
-
-ms.assetid: f56b3230-26fd-42ec-9e3d-2c12daf15479
+author: barbkess
+manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
-ms.author: markvi
+ms.date: 07/30/2018
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 
@@ -89,6 +87,6 @@ If you encounter issues uninstalling the extension, you can also remove it using
 
 ## Related Articles
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [Application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)
 

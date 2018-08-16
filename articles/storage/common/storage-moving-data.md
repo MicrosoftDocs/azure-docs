@@ -2,20 +2,12 @@
 title: Moving large amounts of data to/from cloud storage in Azure | Microsoft Docs
 description: An overview of the different methods for moving data to and from Azure Storage.
 services: storage
-documentationcenter: ''
 author: JarrettRenshaw
-manager: msmets
-editor: tysonn
-
-ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-
+ms.component: common
 ---
 # Moving data to and from Azure Storage
 If you want to move on-premises data to Azure Storage (or vice versa), there are a variety of ways to do this. The approach that works best for you will depend on your scenario. This article will provide a quick overview of different scenarios and appropriate offerings for each one.
@@ -38,9 +30,9 @@ Check out our list of [Azure Storage Explorers](../storage-explorers.md) to lear
 If you require or are more comfortable with a command-line utility (e.g. System Administrators), here are a few options for you to consider:
 
 ### AzCopy
-AzCopy is a Windows command-line utility designed for high-performance copying of data to and from Azure Storage. You can also copy data within a storage account, or between different storage accounts.
+AzCopy is a command-line utility designed for high-performance copying of data to and from Azure Storage. You can also copy data within a storage account, or between different storage accounts. AzCopy is available on [Windows](storage-use-azcopy.md) and on [Linux](storage-use-azcopy-linux.md).
 
-See [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) to learn more.
+See [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) or [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md) to learn more.
 
 ### Azure PowerShell
 Azure PowerShell is a module that provides cmdlets for managing services on Azure. It's a task-based command-line shell and scripting language designed especially for system administration.
@@ -73,4 +65,4 @@ When you have on-premises workloads and applications, you'll need a solution tha
 See [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) to learn more.
 ### Moving Data FAQ:
 ## Can I migrate VHDs from one region to another without copying?
-The only way to copy VHDs between region is to copy the data between storage accounts on each region. You can use AZCopy for this. See Transfer data with the AzCopy Command-Line Utility to learn more. For very large amounts of data, you can also Azure Import/Export. See [Azure Import/Export](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) to learn more.
+The only way to copy VHDs between region is to copy the data between storage accounts on each region. You can use AZCopy for this. See Transfer data with the AzCopy Command-Line Utility to learn more. For very large amounts of data, you can also Azure Import/Export. See [Azure Import/Export](https://docs.microsoft.com/azure/storage/storage-import-export-service) to learn more.

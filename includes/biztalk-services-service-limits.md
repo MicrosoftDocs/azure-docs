@@ -1,3 +1,15 @@
+---
+title: include file 
+description: include file 
+services: biztalk-services
+author: MandiOhlinger
+ms.service: biztalk-services
+ms.topic: include 
+ms.date: 11/09/2017
+ms.author: mandia
+ms.custom: include file
+---
+
 | RESOURCE | FREE (PREVIEW) | DEVELOPER | BASIC | STANDARD | PREMIUM |
 | --- | --- | --- | --- | --- | --- |
 | Scale out |N/A |N/A |Yes, in increments of 1 Basic Unit |Yes, in increments of 1 Standard Unit |Yes, in increments of 1 Premium Unit |

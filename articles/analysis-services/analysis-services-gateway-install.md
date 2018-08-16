@@ -1,21 +1,13 @@
 ---
 title: Install On-premises data gateway | Microsoft Docs
 description: Learn how to install and configure an On-premises data gateway.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
-manager: erikre
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 10/09/2017
+manager: kfile
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 08/13/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Install and configure an on-premises data gateway
@@ -41,6 +33,8 @@ An on-premises data gateway is required when one or more Azure Analysis Services
 * Install the gateway on a computer that remains on and does not go to sleep.
 * Do not install the gateway on a computer wirelessly connected to your network. Performance can be diminished.
 * Sign in to Azure with an account in Azure AD for the same [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) as the subscription you are registering the gateway in. Azure B2B (guest) accounts are not supported when installing and registering a gateway.
+* If data sources are on an Azure Virtual Network (VNet), you must configure the [AlwaysUseGateway](analysis-services-vnet-gateway.md) server property.
+* The (unified) gateway described here is not supported in Azure Government, Azure Germany, and Azure China sovereign regions. Use **Dedicated On-premises gateway for Azure Analysis Services**, installed from your server's **Quick Start** in the portal. 
 
 
 ## <a name="download"></a>Download
@@ -69,6 +63,9 @@ In order to create a gateway resource in Azure, you must register the local inst
     ![Register](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Type a name and recovery key for your gateway. By default, the gateway uses your subscription's default region. If you need to select a different region, select **Change Region**.
+
+    > [!IMPORTANT]
+    > Save your recovery key in a safe place. The recovery key is required in-order to takeover, migrate, or restore a gateway. 
 
    ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
@@ -116,4 +113,5 @@ That's it. If you need to open ports or do any troubleshooting, be sure to check
 
 ## Next steps
 * [Manage Analysis Services](analysis-services-manage.md)   
-* [Get data from Azure Analysis Services](analysis-services-connect.md)
+* [Get data from Azure Analysis Services](analysis-services-connect.md)   
+* [Use gateway for data sources on an Azure Virtual Network](analysis-services-vnet-gateway.md)

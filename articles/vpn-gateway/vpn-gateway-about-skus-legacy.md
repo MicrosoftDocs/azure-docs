@@ -1,10 +1,10 @@
 ---
-title: Legacy Azure virtual network gateway SKUs | Microsoft Docs
-description: Old virtual network gateway SKUs.
+title: Legacy Azure virtual network VPN gateway SKUs | Microsoft Docs
+description: How to work with the old virtual network gateway SKUs; Basic, Standard, and HighPerformance.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 03/20/2018
 ms.author: cherylmc
 
 ---
@@ -34,28 +34,27 @@ This article contains information about the legacy (old) virtual network gateway
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## <a name="resize"></a>Resize a gateway (change a gateway SKU)
+## <a name="resize"></a>Resize a gateway
 
-You can resize a gateway SKU within the same SKU family. For example, if you have a Standard SKU, you can resize to a HighPerformance SKU. You can't resize your VPN gateways between the old SKUs and the new SKU families. For example, you can't go from a Standard SKU to a VpnGw2 SKU. 
+You can resize your gateway to a gateway SKU within the same SKU family. For example, if you have a Standard SKU, you can resize to a HighPerformance SKU. However, you can't resize your VPN gateway between the old SKUs and the new SKU families. For example, you can't go from a Standard SKU to a VpnGw2 SKU, or a Basic SKU to VpnGw1.
 
-To resize a gateway SKU for the classic deployment model, use the following command:
+To resize a gateway for the classic deployment model, use the following command:
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
-To resize a gateway SKU for the Resource Manager deployment model, use the following command:
+To resize a gateway for the Resource Manager deployment model using PowerShell, use the following command:
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+You can also resize a gateway in the Azure portal.
 
-## <a name="migrate"></a>Migrate to the new gateway SKUs
+## <a name="change"></a>Change to the new gateway SKUs
 
-If you are working with the Resource Manager deployment model, you can migrate to the new gateway SKUS. If you are working with the classic deployment model, you can't migrate to the new SKUs and must instead continue to use the legacy SKUs.
-
-[!INCLUDE [Migrate SKU](../../includes/vpn-gateway-migrate-legacy-sku-include.md)]
+[!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## Next steps
 

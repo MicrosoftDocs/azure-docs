@@ -3,30 +3,24 @@ title: Transform data using Hadoop MapReduce activity in Azure Data Factory | Mi
 description: Learn how to process data by running Hadoop MapReduce programs on an Azure HDInsight cluster from an Azure data factory.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
-manager: jhubbard
-editor: spelluru
+author: douglaslMS
+manager: craigg
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/19/2017
-ms.author: shengc
+ms.topic: conceptual
+ms.date: 01/16/2018
+ms.author: douglasl
 
 ---
 # Transform data using Hadoop MapReduce activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-map-reduce.md)
-> * [Version 2 - Preview](transform-data-using-hadoop-map-reduce.md)
-
+> * [Version 1](v1/data-factory-map-reduce.md)
+> * [Current version](transform-data-using-hadoop-map-reduce.md)
 
 The HDInsight MapReduce activity in a Data Factory [pipeline](concepts-pipelines-activities.md) invokes MapReduce program on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [MapReduce Activity in V1](v1/data-factory-map-reduce.md).
-
 
 If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-spark-powershell.md) before reading this article. 
 
@@ -50,7 +44,6 @@ See [Pig](transform-data-using-hadoop-pig.md) and [Hive](transform-data-using-ha
             "type": "LinkedServiceReference"
         },
         "jarFilePath": "MyAzureStorage/jars/sample.jar",
-        "jarlibs": "MyAzureStorage/jars/jar1",
         "getDebugInfo": "Failure",
         "arguments": [
           "-SampleHadoopJobArgument1"
@@ -73,7 +66,7 @@ See [Pig](transform-data-using-hadoop-pig.md) and [Hive](transform-data-using-ha
 | className         | Name of the Class to be executed         | Yes      |
 | jarLinkedService  | Reference to an Azure Storage Linked Service used to store the Jar files. If you don't specify this Linked Service, the Azure Storage Linked Service defined in the HDInsight Linked Service is used. | No       |
 | jarFilePath       | Provide the path to the Jar files stored in the Azure Storage referred by jarLinkedService. The file name is case-sensitive. | Yes      |
-| jarlibs           | Provide the path to the Jar library files referenced by the job stored in the Azure Storage referred by jarLinkedService. The file name is case-sensitive. | No       |
+| jarlibs           | String array of the path to the Jar library files referenced by the job stored in the Azure Storage defined in jarLinkedService. The file name is case-sensitive. | No       |
 | getDebugInfo      | Specifies when the log files are copied to the Azure Storage used by HDInsight cluster (or) specified by jarLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No       |
 | arguments         | Specifies an array of arguments for a Hadoop job. The arguments are passed as command-line arguments to each task. | No       |
 | defines           | Specify parameters as key/value pairs for referencing within the Hive script. | No       |

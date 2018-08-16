@@ -1,23 +1,21 @@
 ---
-title: Add the OneDrive connector in your Logic Apps | Microsoft Docs
-description: Overview of the OneDrive connector with REST API parameters
-services: logic-apps
-documentationcenter: ''
-author: MandiOhlinger
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: 47a8582a-1b1a-4fc3-beb5-97c60c4306fe
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+# required metadata
+title: Connect to OneDrive - Azure Logic Apps | Microsoft Docs
+description: Upload and manage files with OneDrive REST APIs and Azure Logic Apps 
+author: ecfan
+manager: jeconnoc
+ms.author: estfan
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
+
 # Get started with the OneDrive connector
 Connect to OneDrive to manage your files, including upload, get, delete files, and more. 
 
@@ -27,9 +25,9 @@ With OneDrive, you:
 * Use triggers to start your workflow when a file is created or updated within your OneDrive.
 * Use actions to create a file, delete a file, and more. For example, when a new Office 365 email is received with an attachment (a trigger), create a new file in OneDrive (an action).
 
-This topic shows you how to use the OneDrive connector in a logic app, and also lists the triggers and actions.
+This article shows you how to use the OneDrive connector in a logic app, and also lists the triggers and actions.
 
-To learn more about Logic Apps, see [What are logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+To learn more about Logic Apps, see [What are logic apps](../logic-apps/logic-apps-overview.md) and [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Connect to OneDrive
 Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to OneDrive, you first need a OneDrive *connection*. To create a connection, enter the credentials you normally use to access the service you wish to connect to. So, with OneDrive, enter the credentials to your OneDrive account  to create the connection.
@@ -40,7 +38,7 @@ Before your logic app can access any service, you first create a *connection* to
 > 
 
 ## Use a trigger
-A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. In the logic app, type "onedrive" to get a list of the triggers:  
    
@@ -49,7 +47,7 @@ A trigger is an event that can be used to start the workflow defined in a logic 
    
     ![](./media/connectors-create-api-onedrive/sample-folder.png)
    
-    If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this topic lists the steps. 
+    If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this article lists the steps. 
    
    > [!NOTE]
    > In this example, the logic app runs when a file in the folder you choose is updated. To see the results of this trigger, add another action that sends you an email. For example, add the Office 365 Outlook *Send an email* action that emails you when a file is updated. 
@@ -60,7 +58,7 @@ A trigger is an event that can be used to start the workflow defined in a logic 
 4. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
 ## Use an action
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
    
@@ -73,7 +71,7 @@ An action is an operation carried out by the workflow defined in a logic app. [L
    
     ![](./media/connectors-create-api-onedrive/sample-action.png)
    
-    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this topic describes these properties. 
+    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this article describes these properties. 
    
    > [!NOTE]
    > In this example, we create a new file in a OneDrive folder. You can use output from another trigger to create the OneDrive file. For example, add the Office 365 Outlook *When a new email arrives* trigger. Then add the OneDrive *Create file* action that uses the Attachments and Content-Type fields within a ForEach to create the new file in OneDrive. 

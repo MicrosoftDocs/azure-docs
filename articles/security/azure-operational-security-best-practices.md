@@ -1,11 +1,11 @@
----
+﻿---
 
 title: Azure Operational Security best practices| Microsoft Docs
 description: This article provides a set of best practices for Azure Operational Security.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 11/21/2017
 ms.author: tomsh
 
 ---
@@ -155,7 +155,7 @@ Customers build an end-to-end network in Azure by orchestrating and composing va
 Monitor and diagnose networking issues without logging in to your virtual machines (VMs) using Network Watcher. Trigger [packet capture](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture) by setting alerts and gain access to real-time performance information at the packet level. When you see an issue, you can investigate in detail for better diagnoses.
 
 ### Gain insight into your network traffic using flow logs
-Build a deeper understanding of your network traffic pattern using [Network Security Group flow logs](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Information provided by flow logs helps you gather data for compliance, auditing and monitoring your network security profile.
+Build a deeper understanding of your network traffic pattern using [Network Security Group flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Information provided by flow logs helps you gather data for compliance, auditing and monitoring your network security profile.
 
 ### Diagnose VPN connectivity issues
 Network Watcher provides you the ability to [diagnose your most common VPN Gateway and Connections issues](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity). Allowing you not only to identify the issue but also to use the detailed logs created to help further investigate.
@@ -166,10 +166,10 @@ To learn more about how to configure Network watcher and how to enable it, pleas
 These are some of the List of Azure DevOps Practices in this Microsoft Cloud space, which makes enterprises and teams productive and efficient.
 
 -	**Infrastructure as Code (IaC):** Infrastructure as Code is a set of techniques and practices, which help IT Pros remove the burden associated with the day to day build and management of modular infrastructure. It allows IT Pros to build and maintain their modern server environment in a way that is like how software developers build and maintain application code. For Azure, we have [Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) allows you to provision your applications using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application during every stage of the application lifecycle.
--	**Continuous Integration and Deployment:** You can configure your Visual Studio Online team projects to [automatically build and deploy](https://www.visualstudio.com/docs/build/overview) to Azure web apps or cloud services. VSO automatically deploys the binaries after doing a build to Azure after every code check-in. The package build process described here is equivalent to the Package command in Visual Studio, and the publishing steps are equivalent to the Publish command in Visual Studio.
+-	**Continuous Integration and Deployment:** You can configure your Visual Studio Team Services (VSTS) team projects to [automatically build and deploy](https://www.visualstudio.com/docs/build/overview) to Azure web apps or cloud services. VSTS automatically deploys the binaries after doing a build to Azure after every code check-in. The package build process described here is equivalent to the Package command in Visual Studio, and the publishing steps are equivalent to the Publish command in Visual Studio.
 -	**Release Management:** Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) is a great solution for automating multi-stage deployment and managing the release process. Create managed continuous deployment pipelines to release quickly, easily, and often. With Release Management, we can much automate our release process, and we can have predefined approval workflows. Deploy on-premises and to the cloud, extend, and customize as required.
 -	**App Performance Monitoring:** Detect issues, solve problems, and continuously improve your applications. Quickly diagnose any problems in your live application. Understand what your users do with it. Configuration is easy matter of adding JS code and a webconfig entry, and you see results within minutes in the portal with all the details.[App insights](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) helps enterprises for faster detection of issues & remediation.
--	**Load Testing & Autoscale:** We can find performance problems in our app to improve deployment quality and to make sure our app is always up or available to cater to the business needs. Make sure your app can handle traffic for your next launch or marketing campaign. Start running cloud-based [load tests](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) in almost no time with Visual Studio Online.
+-	**Load Testing & Autoscale:** We can find performance problems in our app to improve deployment quality and to make sure our app is always up or available to cater to the business needs. Make sure your app can handle traffic for your next launch or marketing campaign. Start running cloud-based [load tests](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) in almost no time with VSTS.
 
 ## Next steps
 - Learn more about [Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security).

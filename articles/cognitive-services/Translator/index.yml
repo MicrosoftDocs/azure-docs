@@ -1,0 +1,80 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Translator Text API Documentation
+metadata:
+  title: Translator Text Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
+  description: Learn how to use Translator Text API to translate text in multiple languages.
+  services: cognitive-services
+  author: Jann-Skotdal
+  manager: Chris.Wendt
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/30/2017
+  ms.author: v-jansko
+abstract:
+  description: Microsoft Translator Text API is a cloud-based machine translation service. With this API you can translate text in near real-time from any app or service through a simple REST API call. The API uses the most modern neural machine translation technology, as well as offering statistical machine translation technology. For the list of supported languages, both for neural MT and statistical MT, please refer to <a href="languages.md">Supported languages</a>.
+sections:
+- title: 5-Minute Quickstarts
+  items: 
+  - type: paragraph
+    text: 'Get started using the Translator Text API:'
+  - type: table
+    style: dataMatrix
+    columns: 
+    - image: 
+        src: media/index/logo_csharp.svg
+      title: C#
+    - image: 
+        src: media/index/logo_java.svg
+      title: Java
+    - image: 
+        src: media/index/logo_nodejs.svg
+      title: Node.js
+    - image: 
+        src: media/index/logo_python.svg
+      title: Python
+    - image: 
+        src: media/index/logo_go.svg
+      title: Go
+    rows:
+    - title: Translate text from one language to another
+      values:
+      - href: quickstart-csharp-translate
+      - href: quickstart-java-translate
+      - href: quickstart-nodejs-translate
+      - href: quickstart-python-translate
+      - href: quickstart-go-translate
+    - title: Convert text from one script to another
+      values:
+      - href: quickstart-csharp-transliterate
+      - href: quickstart-java-transliterate
+      - href: quickstart-nodejs-transliterate
+      - href: quickstart-python-transliterate
+      - href: quickstart-go-transliterate
+    - title: Identify language of text
+      values:
+      - href: quickstart-csharp-detect
+      - href: quickstart-java-detect
+      - href: quickstart-nodejs-detect
+      - href: quickstart-python-detect
+      - href: quickstart-go-detect
+    - title: Get alternate translations and usage
+      values:
+      - href: quickstart-csharp-dictionary
+      - href: quickstart-java-dictionary
+      - href: quickstart-nodejs-dictionary
+      - href: quickstart-python-dictionary
+      - href: quickstart-go-dictionary
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: "Learn how to develop applications using the Translator Text API:"
+  - type: paragraph
+    text: <a href="tutorial-wpf-translation-csharp.md">Write a WPF application for Translator Text using C#</a>
+- title: Reference
+  items:
+  - type: paragraph
+    text: <p><a href="reference/v3-0-reference.md">API Reference</a></p>
+   

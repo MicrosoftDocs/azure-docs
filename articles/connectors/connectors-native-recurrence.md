@@ -4,7 +4,7 @@ description: Create and schedule regularly running tasks, actions, workflows, pr
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 
@@ -18,11 +18,11 @@ ms.date: 09/25/2017
 ms.author: LADocs; estfan
 ---
 
-# Schedule tasks and workflows that run regularly with logic apps
+# Create and schedule regularly running tasks with Azure Logic Apps
 
 To schedule tasks, actions, workloads, or processes that run regularly, 
 you can create a logic app workflow that starts with the 
-**Schedule - Recurrence** [trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). 
+**Schedule - Recurrence** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). 
 With this trigger, you can set a date and time for starting the recurrence 
 and a recurrence schedule for performing tasks, such as these examples and more:
 
@@ -54,12 +54,12 @@ you can [start with a free Azure account](https://azure.microsoft.com/free/).
 Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Basic knowledge about 
-[how to create logic apps](../logic-apps/logic-apps-create-a-logic-app.md) 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 ## Add a recurrence trigger to your logic app
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-Create a blank logic app, or learn [how to create a blank logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+Create a blank logic app, or learn [how to create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 2. After Logic Apps Designer appears, in the search box, 
 enter "recurrence" as your filter. Select the **Schedule - Recurrence** trigger. 
@@ -128,7 +128,7 @@ You can configure these properties for the recurrence trigger.
 
 ## JSON example
 
-Here is an example recurrence trigger definition:
+Here is an example [recurrence trigger definition](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger):
 
 ``` json
 {
@@ -181,7 +181,7 @@ Here is an example recurrence trigger definition:
 | Run at 8:30 AM every day (no start date and time) | 1 | Day | {none} | {unavailable} | 8 | 30 | This schedule runs at 8:30 AM every day, based on the specified schedule. | 
 | Run at 8:30 AM every day (with start date and time) | 1 | Day | *startDate*T08:30:00Z | {unavailable} | {none} | {none} | This schedule starts on the specified start date at 8:30 AM. | 
 | Run at 8:30 AM and 4:30 PM every day | 1 | Day | {none} | {unavailable} | 8, 16 | 30 | | 
-| Run at 8:30 AM and 4:45 every day | 1 | Day | {none} | {unavailable} | 8, 16 | 30, 45 | | 
+| Run at 8:30 AM, 8:45 AM, 4:30 PM, and 4:45 PM every day | 1 | Day | {none} | {unavailable} | 8, 16 | 30, 45 | | 
 | Run every Saturday at 5 PM (no start date and time) | 1 | Week | {none} | "Saturday" | 17 | 00 | This schedule runs every Saturday at 5:00 PM. | 
 | Run every Saturday at 5 PM (with start date and time) | 1 | Week | *startDate*T17:00:00Z | "Saturday" | {none} | {none} | This schedule doesn't start *any sooner* than the specified start date and time, in this case, September 9, 2017 at 5:00 PM. Future recurrences run every Saturday at 5:00 PM. | 
 | Run every Tuesday, Thursday at 5 PM | 1 | Week | {none} | "Tuesday", "Thursday" | 17 | {none} | This schedule runs every Tuesday and Thursday at 5:00 PM. | 

@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 07/06/2018
 ms.author: ponatara
 
 ---
@@ -74,7 +74,7 @@ Since XenApp 7.7 or later is supported in Azure, only deployments with these ver
 
 1. Protection and recovery of on-premises deployments using Server OS machines to deliver XenApp published apps and XenApp published desktops is supported.
 
-2. Protection and recovery of on-premises deployments using desktop OS machines to deliver Desktop VDI for client virtual desktops, including Windows 10, is not supported. This is because ASR does not support the recovery of machines with desktop OS’es.  Also, some client virtual desktop flavours (eg. Windows 7) are not yet supported for licensing in Azure. [Learn More](https://azure.microsoft.com/pricing/licensing-faq/) about licensing for client/server desktops in Azure.
+2. Protection and recovery of on-premises deployments using desktop OS machines to deliver Desktop VDI for client virtual desktops, including Windows 10, is not supported. This is because ASR does not support the recovery of machines with desktop OS’es.  Also, some client virtual desktop operating systems (eg. Windows 7) are not yet supported for licensing in Azure. [Learn More](https://azure.microsoft.com/pricing/licensing-faq/) about licensing for client/server desktops in Azure.
 
 3.  Azure Site Recovery cannot replicate and protect existing on-premises MCS or PVS clones.
 You need to recreate these clones using Azure RM provisioning from Delivery controller.
@@ -189,7 +189,7 @@ state. Shutdown the VM from Azure Portal.
 
 
    >[!NOTE]
-   >You can use scripts at [location](https://github.com/Azure/azure-quickstart-templates/blob/>master/asr-automation-recovery/scripts) to update the DNS with the new IPs of the failed over >virtual machines or to attach a load balancer on the failed over virtual machine, if needed.
+   >You can use scripts at [location](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery/scripts) to update the DNS with the new IPs of the failed over >virtual machines or to attach a load balancer on the failed over virtual machine, if needed.
 
 
 ## Doing a test failover

@@ -4,83 +4,88 @@ description: Here's a list of languages supported by Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
-Tms.service: cognitive-services
-ms.technology: content-moderator
+ms.service: cognitive-services
+ms.component: content-moderator
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 03/21/2018
 ms.author: sajagtap
 ---
 
-# Supported languages by feature
+# Text moderation - supported languages by feature
 
-| Auto-detected | Profanity   | OCR    |
-| -------------------- |-------------|--------|
-| Arabic (Romanized)   | Afrikaans   | Arabic
-| Balinese | Albanian | Chinese (Simplified)
-| Bengali | Amharic | Chinese (Traditional)
-| Buginese | Arabic | Czech
-| Buhid | Armenian | Danish
-| Carian | Assamese | Dutch
-| Chinese (Simplified) | Azerbaijani | English
-| Chinese (Traditional) | Bangla - Bangladesh | Finnish
-| Church (Slavic) | Bangla - India | French
-| Coptic | Basque | German
-| Dhivehi | Belarusian | Greek (modern)
-| Farsi | Bosnian - Cyrillic | Hungarian
-| Greek | Bosnian - Latin | Italian
-| Haitian (Creole) | Breton [non-GeoPol] | Japanese
-| Hebrew | Bulgarian | Korean
-| Hmong | Catalan | Norwegian
-| Kurdish (Arabic) | Central Kurdish | Polish
-| Kurdish (Latin) | Cherokee | Portuguese
-| Lepcha | Chinese (Simplified) | Romanian
-| Limbu | Chinese (Traditional) - Hong Kong SAR | Russian
-| Lu | Chinese (Traditional) - Taiwan | Serbian Cyrillic
-| Lycian | Croatian | Serbian Latin
-| Lydian | Czech | Slovak
-| Mycenaean (Greek) | Danish | Spanish
-| Nko | Dari | Swedish
-| Norwegian (Bokmal) | Dutch | Turkish
-| Norwegian (Nynorsk) | English 
-| Old (Persian) | Estonian 
-| Pashto | Filipino
-| Punjabi | Finnish
-| Rejang | French
-| Santali | Galician
-| Sasak | Georgian
-| Saurashtra | German
-| Serbian (Cyrillic) | Greek
-| Serbian (Latin) | Gujarati
-| Sinhala | Hausa
-| Slovenian | Hebrew
-| Sylheti | Hindi
-| Syriac | Hungarian
-| Tagbanwa | Icelandic
-| Tai (Nua) | Igbo
-| Tamashek | Indonesian
-| Ugaritic | Inuktitut
-| Uzbek (Cyrillic) | Irish
-| Uzbek (Latin) | isiXhosa
-| Vai | isiZulu
-| Yi | Italian
-| Zhuang, Chuang | Japanese
-| | Kannada
-| | Kazakh
-| | Khmer
-| | K'iche
-| | Kinyarwanda
-| | Kiswahili
-| | Konkani
-| | Korean
-| | Kyrgyz
-| | Lao
-| | Latvian
-| | Lithuanian
-| | Luxembourgish
-| | Macedonian
-| | Malay
-| | Malayalam
+> [!NOTE]
+> For the **language** parameter, assign `eng` or leave it empty to see the machine-assisted **classification** response (preview feature). **This feature supports English only**.
+>
+> For **profanity terms** detection, use the [ISO 639-3 code](http://www-01.sil.org/iso639-3/codes.asp) of the supported languages listed in this article, or leave it empty.
+
+
+| Language detection | Profanity   | OCR    | Auto-correction     |
+| -------------------- |-------------|--------|---------------------|
+| Arabic (Romanized)   | Afrikaans   | Arabic   | Arabic
+| Balinese | Albanian | Chinese (Simplified)    | Danish
+| Bengali | Amharic | Chinese (Traditional)     | Dutch
+| Buginese | Arabic | Czech                     | English
+| Buhid | Armenian | Danish                     | Finnish
+| Carian | Assamese | Dutch                     | French
+| Chinese (Simplified) | Azerbaijani | English  | Greek (modern)
+| Chinese (Traditional) | Bangla - Bangladesh | Finnish  | Italian
+| Church (Slavic) | Bangla - India | French     | Korean
+| Coptic | Basque | German                      | Norwegian
+| Czech |  Belarusian | Greek (modern)         | Polish
+| Dhivehi | Bosnian - Cyrillic | Hungarian      | Portuguese
+| Dutch | Bosnian - Latin | Italian             | Romanian
+| English | (Creole) | Breton [non-GeoPol] | Japanese  | Russian
+| Farsi | Bulgarian | Korean                        | Slovak
+| French | Catalan | Norwegian                        | Spanish
+| German | Central Kurdish | Polish        | Turkish
+| Greek | Cherokee | Portuguese
+| Haitian | Chinese (Simplified) | Romanian
+| Hebrew | Chinese (Traditional) - Hong Kong SAR | Russian
+| Hindi | Chinese (Traditional) - Taiwan | Serbian Cyrillic
+| Hmong | Croatian | Serbian Latin
+| Hungarian | Czech | Slovak
+| Italian | Danish | Spanish
+| Japanese | Dari | Swedish
+| Korean | Dutch | Turkish
+| Kurdish (Arabic) | English
+| Kurdish (Latin) | Estonian
+| Lepcha | Filipino
+| Limbu | Finnish
+| Lu | French
+| Lycian | Galician
+| Lydian | Georgian
+| Mycenaean (Greek) | German
+| Nko | Greek
+| Norwegian (Bokmal) | Gujarati
+| Norwegian (Nynorsk) |  Hausa
+| Old (Persian) | Hebrew
+| Pashto | Hindi
+| Polish | Hungarian
+| Portugese | Icelandic
+| Punjabi | Igbo
+| Rejang | Indonesian
+| Russian | Inuktitut
+| Santali | Irish
+| Sasak | isiXhosa
+| Saurashtra | isiZulu
+| Serbian (Cyrillic) | Italian
+| Serbian (Latin) | Japanese
+| Sinhala | Kannada
+| Slovenian | Kazakh
+| Spanish | Khmer
+| Swedish | K'iche
+| Sylheti | Kinyarwanda
+| Syriac | Kiswahili
+| Tagbanwa | Konkani
+| Tai (Nua) | Korean
+| Tamashek | Kyrgyz
+| Turkish | Lao
+| Ugaritic | Latvian
+| Uzbek (Cyrillic) | Lithuanian
+| Uzbek (Latin) | Luxembourgish
+| Vai | Macedonian
+| Yi | Malay
+| Zhuang, Chuang | Malayalam
 | | Maltese
 | | Maori
 | | Marathi
@@ -102,7 +107,7 @@ ms.author: sajagtap
 | | Russian
 | | Scottish Gaelic
 | | Serbian (Cyrillic)
-| | Serbian (Cyrillic, Bosnia and Herzegovina)
+| | Serbian (Cyrillic, Bosnia, and Herzegovina)
 | | Serbian (Latin)
 | | Sesotho
 | | Sesotho sa Leboa
@@ -130,4 +135,3 @@ ms.author: sajagtap
 | | Welsh
 | | Wolof
 | | Yoruba
-

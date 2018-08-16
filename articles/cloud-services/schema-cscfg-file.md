@@ -1,8 +1,8 @@
 ---
 title: "Azure Cloud Services Definition Schema (.cscfg File) | Microsoft Docs"
+services: cloud-services
 ms.custom: ""
 ms.date: "12/07/2016"
-ms.prod: "azure"
 ms.reviewer: ""
 ms.service: "cloud-services"
 ms.suite: ""
@@ -10,8 +10,8 @@ ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 3ddc7fea-3339-4fc0-bdf9-853c32b25f69
 caps.latest.revision: 35
-author: "thraka"
-ms.author: "adegeo"
+author: "jpconnock"
+ms.author: "jeconnoc"
 manager: "timlt"
 ---
 

@@ -19,7 +19,7 @@ ms.author: ralfwi
 
 # Azure Germany security and identity services
 ## Key Vault
-For details on the Azure Key Vault service and how to use it, see the [Key Vault global documentation](../key-vault/index.md).
+For details on the Azure Key Vault service and how to use it, see the [Key Vault global documentation](../key-vault/index.yml).
 
 Key Vault is generally available in Azure Germany. As in global Azure, there is no extension, so Key Vault is available through PowerShell and CLI only.
 

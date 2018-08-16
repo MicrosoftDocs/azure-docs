@@ -4,7 +4,7 @@ description: Monitor your web and worker roles effectively with Application Insi
 services: application-insights
 documentationcenter: ''
 keywords: "WAD2AI, Azure Diagnostics"
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 editor: alancameronwills
 
@@ -12,14 +12,14 @@ ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
 ms.devlang: na
 ms.tgt_pltfrm: ibiza
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: tbd
 ms.date: 05/05/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Application Insights for Azure Cloud Services
-[Microsoft Azure Cloud service apps](https://azure.microsoft.com/services/cloud-services/) can be monitored by [Application Insights][start] for availability, performance, failures, and usage by combining data from Application Insights' SDKs with [Azure Diagnotics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) data from your Cloud Services. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
+[Microsoft Azure Cloud service apps](https://azure.microsoft.com/services/cloud-services/) can be monitored by [Application Insights][start] for availability, performance, failures, and usage by combining data from Application Insights' SDKs with [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data from your Cloud Services. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
 ![Example](./media/app-insights-cloudservices/sample.png)
 
@@ -113,7 +113,7 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
 
     In a suitable startup function, set the instrumentation key from the configuration setting in the .cscfg file:
  
-    ```C#
+    ```csharp
    
      TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
     ```
@@ -139,7 +139,7 @@ Add more telemetry - see the sections below - and then publish your app to get l
 * See [Troubleshooting][qna].
 
 ## View Azure Diagnostic events
-Where to find the [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) information in Application Insights:
+Where to find the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) information in Application Insights:
 
 * Performance counters are displayed as custom metrics. 
 * Windows event logs are shown as traces and custom events.
@@ -222,7 +222,7 @@ To get an overall picture of your system, you can bring the key monitoring chart
 
 If your system uses other Azure services such as Stream Analytics, include their monitoring charts as well. 
 
-If you have a client mobile app, insert some code to send custom events on key user operations, and create a [HockeyApp bridge](app-insights-hockeyapp-bridge-app.md). Create queries in [Analytics](app-insights-analytics.md) to display the event counts, and pin them to the dashboard.
+If you have a client mobile app, use [App Center](app-insights-mobile-center-quickstart.md). Create queries in [Analytics](app-insights-analytics.md) to display the event counts, and pin them to the dashboard.
 
 ## Example
 [The example](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitors a service that has a web role and two worker roles.

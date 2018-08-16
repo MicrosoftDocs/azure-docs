@@ -1,10 +1,10 @@
 ---
-title: Create a CI/CD pipeline in Azure with Team Services | Microsoft Docs
-description: Learn how to create a Visual Studio Team Services pipeline for continuous integration and delivery that deploys a web app to IIS on a Windows VM
+title: Tutorial - Create a CI/CD pipeline in Azure with Team Services | Microsoft Docs
+description: In this tutorial, you learn how to create a Visual Studio Team Services pipeline for continuous integration and delivery that deploys a web app to IIS on a Windows VM in Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,11 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/12/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
+
+#Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use services like VSTS to build and deploy my applications automatically.
 ---
 
-# Create a continuous integration pipeline with Visual Studio Team Services and IIS
+# Tutorial: Create a continuous integration pipeline with Visual Studio Team Services and IIS
 To automate the build, test, and deployment phases of application development, you can use a continuous integration and deployment (CI/CD) pipeline. In this tutorial, you create a CI/CD pipeline using Visual Studio Team Services and a Windows virtual machine (VM) in Azure that runs IIS. You learn how to:
 
 > [!div class="checklist"]
@@ -30,7 +32,7 @@ To automate the build, test, and deployment phases of application development, y
 > * Create a release definition to publish new web deploy packages to IIS
 > * Test the CI/CD pipeline
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 
 ## Create project in Team Services
@@ -91,29 +93,30 @@ Watch as the build is scheduled on a hosted agent, then begins to build. The out
 ## Create virtual machine
 To provide a platform to run your ASP.NET web app, you need a Windows virtual machine that runs IIS. Team Services uses an agent to interact with the IIS instance as you commit code and builds are triggered.
 
-Create a Windows Server 2016 VM using [this script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json). It takes a few minutes for the script to run and create the VM. Once the VM has been created, open port 80 for web traffic with [Add-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermresourcegroup) as follows:
+Create a Windows Server 2016 VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a VM named *myVM* in the *East US* location. The resource group *myResourceGroupVSTS* and supporting network resources are also created. To allow web traffic, TCP port *80* is opened to the VM. When prompted, provide a username and password to be used as the login credentials for the VM:
 
 ```powershell
-Get-AzureRmNetworkSecurityGroup `
-  -ResourceGroupName $resourceGroup `
-  -Name "myNetworkSecurityGroup" | `
-Add-AzureRmNetworkSecurityRuleConfig `
-  -Name "myNetworkSecurityGroupRuleWeb" `
-  -Protocol "Tcp" `
-  -Direction "Inbound" `
-  -Priority "1001" `
-  -SourceAddressPrefix "*" `
-  -SourcePortRange "*" `
-  -DestinationAddressPrefix "*" `
-  -DestinationPortRange "80" `
-  -Access "Allow" | `
-Set-AzureRmNetworkSecurityGroup
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a virtual machine
+New-AzureRmVM `
+  -ResourceGroupName "myResourceGroupVSTS" `
+  -Name "myVM" `
+  -Location "East US" `
+  -ImageName "Win2016Datacenter" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -SecurityGroupName "myNetworkSecurityGroup" `
+  -PublicIpAddressName "myPublicIp" `
+  -Credential $cred `
+  -OpenPorts 80
 ```
 
 To connect to your VM, obtain the public IP address with [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) as follows:
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
 ```
 
 Create a remote desktop session to your VM:
@@ -227,7 +230,7 @@ In this tutorial, you created an ASP.NET web application in Team Services and co
 > * Create a release definition to publish new web deploy packages to IIS
 > * Test the CI/CD pipeline
 
-Advance to the next tutorial to learn how to secure a web server with SSL certificates.
+Advance to the next tutorial to learn how to install a SQL&#92;IIS&#92;.NET stack on a pair of Windows VMs.
 
 > [!div class="nextstepaction"]
-> [Secure web server with SSL](tutorial-secure-web-server.md)
+> [SQL&#92;IIS&#92;.NET stack](tutorial-iis-sql.md)

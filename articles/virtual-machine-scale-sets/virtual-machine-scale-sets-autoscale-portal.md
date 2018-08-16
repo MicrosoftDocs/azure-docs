@@ -1,9 +1,9 @@
-﻿---
+---
 title: Autoscale virtual machine scale sets in the Azure portal | Microsoft Docs
 description: How to create autoscale rules for virtual machine scale sets in the Azure portal
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,24 +14,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
-ms.author: iainfou
+ms.date: 05/29/2018
+ms.author: cynthn
 
 ---
 # Automatically scale a virtual machine scale set in the Azure portal
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app.
 
-This article shows you how to create autoscale rules in the Azure portal that monitor the performance of the VM instances in your scale set. These autoscale rules increase or decrease the number of VM instances in response to these performance metrics. You can also complete these steps with [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md) or the [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md).
+This article shows you how to create autoscale rules in the Azure portal that monitor the performance of the VM instances in your scale set. These autoscale rules increase or decrease the number of VM instances in response to these performance metrics. You can also complete these steps with [Azure PowerShell](tutorial-autoscale-powershell.md) or the [Azure CLI 2.0](tutorial-autoscale-cli.md).
 
 
 ## Prerequisites
-To create autoscale rules, you need an existing virtual machine scale set. You can create a scale set with the [Azure portal](virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell), or [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli).
+To create autoscale rules, you need an existing virtual machine scale set. You can create a scale set with the [Azure portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), or [Azure CLI 2.0](quick-create-cli.md).
 
 
 ## Create a rule to automatically scale out
 If your application demand increases, the load on the VM instances in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, such as CPU or disk, how long the application load must meet a given threshold, and how many VM instances to add to the scale set.
 
-1. Open the Azure portal and select **Resource groups** from the menu on the left-hand size of the dashboard.
+1. Open the Azure portal and select **Resource groups** from the menu on the left-hand side of the dashboard.
 2. Select the resource group that contains your scale set, then choose your scale set from the list of resources.
 3. Choose **Scaling** from the menu on the left-hand side of the scale set window. Select the button to **Enable autoscale**:
 
@@ -55,7 +55,7 @@ If your application demand increases, the load on the VM instances in your scale
     | *Instance count*       | The percentage of VM instances should be changed when the rule triggers.                                            | 20             |
     | *Cool down (minutes)*  | The amount of time to wait before the rule is applied again so that the autoscale actions have time to take effect. | 5 minutes      |
 
-    The following examples show a rule created in the Azure portal that matches these settings:    
+    The following examples show a rule created in the Azure portal that matches these settings:
 
     ![Create an autoscale rule to increase the number of VM instances](media/virtual-machine-scale-sets-autoscale-portal/rule-increase.png)
 
@@ -119,7 +119,7 @@ The previous examples automatically scaled a scale set in or out with basic host
 
     ![Create autoscale rules that scale on a schedule](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
 
-To see how your autoscale rules are applied, select **Run history** across the top of the **Scaling** window. The graph and events list shows when the autoscale rules trigger and the number of VM instances in your scale increases or decreases.
+To see how your autoscale rules are applied, select **Run history** across the top of the **Scaling** window. The graph and events list shows when the autoscale rules trigger and the number of VM instances in your scale set increases or decreases.
 
 
 ## Next steps

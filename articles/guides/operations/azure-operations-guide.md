@@ -1,21 +1,21 @@
 ---
 title: Getting started guide for Azure IT operators | Microsoft Docs
-description: Getting started guide for Azure IT operators 
-services: 
-documentationcenter: 
-author: neilpeterson
+description: Getting started guide for Azure IT operators
+services:
+documentationcenter:
+author: themichaelbender-ms
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid:
 ms.service: azure
-ms.devlang: 
-ms.topic: 
-ms.tgt_pltfrm: 
+ms.devlang:
+ms.topic:
+ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: nepeters
+ms.author: mibender
 ---
 
 # Introduction to cloud computing and Microsoft Azure
@@ -57,7 +57,7 @@ SaaS is software that is centrally hosted and managed. It’s usually based on a
 
 Microsoft Office 365 is a good example of a SaaS offering. Subscribers pay a monthly or annual subscription fee, and they get Microsoft Exchange, Microsoft OneDrive, and the rest of the Microsoft Office suite as a service. Subscribers always get the most recent version and the Exchange server is managed for you. Compared to installing and upgrading Office every year, this is less expensive and requires less effort.
 
-#### PaaS: Platform as a service 
+#### PaaS: Platform as a service
 
 With PaaS, you deploy your application into an environment that the cloud service vendor provides. The vendor does all of the infrastructure management so you can  focus on application development.
 
@@ -97,7 +97,7 @@ Services for storing and managing data:
 
 -   Azure SQL Database
 
--   Azure DocumentDB
+-   Azure Cosmos DB
 
 -   Microsoft Azure StorSimple
 
@@ -137,13 +137,11 @@ For detailed documentation on Azure services, see [Azure service documentation](
 
 ### Datacenters and regions
 
-
 Azure is a global cloud platform that is generally available in many regions around the world. When you provision a service, application, or VM in Azure, you are asked to select a region. The selected region represents a speciﬁc datacenter where your application runs. For more information, see [Azure regions](https://azure.microsoft.com/regions/).
 
 One of the beneﬁts of using Azure is that you can deploy your applications into various datacenters around the globe. The region you choose can aﬀect the performance of your application. It’s optimal to choose a region that is closer to most your customers, to reduce latency in network requests. You might also select a region to meet the legal requirements for distributing your app in certain countries.
 
 ### Azure portal
-
 
 The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at https://portal.azure.com. It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) and [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
@@ -161,7 +159,6 @@ An Azure Resource Manager template is a JavaScript Object Notation (JSON) file t
 
 ### Automation
 
-
 In addition to creating, managing, and deleting resources by using the Azure portal, you can automate these activities by using PowerShell or the Azure command-line interface (CLI).
 
 **Azure PowerShell**
@@ -175,9 +172,7 @@ The Azure command-line interface is a tool that you can use to create, manage, a
 **REST APIs**
 Azure is built on a set of REST APIs that support the Azure portal UI. Most of these REST APIs are also supported to let you programmatically provision and manage your Azure resources and apps from any Internet-enabled device. For more information, see the [Azure REST SDK Reference](https://docs.microsoft.com/rest/api/index).
 
-
 ## Azure subscriptions
-
 
 A subscription is a logical grouping of Azure services that is linked to an Azure account. A singe Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an account administrator, who has full control over the subscription, and a service administrator, who has control over all services in the subscription. In addition to administrators, individual accounts can be granted detailed control of Azure resources through RBAC.
 
@@ -197,10 +192,7 @@ If you exceed the credit amount, your service are disabled until the next month 
 
 **Enterprise agreements**: With an enterprise agreement, you commit to using a certain number of services in Azure over the next year, and you pay that amount ahead of time. The commitment that you make is consumed throughout the year. If you exceed the commitment amount, you can pay the overage in arrears. Depending on the amount of the commitment, you get a discount on the services in Azure.
 
-
-
 ### Grant administrative access to an Azure subscription
-
 
 Multiple account administrator roles are available and can be changed at any time. Two key roles are:
 
@@ -212,13 +204,11 @@ For more information, see [How to add or change Azure administrator roles](../..
 
 ### View billing information in the Azure portal
 
-
 An important component of using Azure is the ability to view billing information. The Azure portal provides detailed insight into Azure billing information.
 
 For more information, see [How to download your Azure billing invoice and daily usage data](../../billing/billing-download-azure-invoice-daily-usage-date.md).
 
 ### Get billing information from billing APIs
-
 
 In addition to viewing the billing in the portal, you can access the billing information by using a script or program through the Azure Billing REST APIs:
 
@@ -259,7 +249,6 @@ Resource Manager provides several benefits:
 -   You can clarify your organization’s billing by viewing costs for a group of resources that share the same tag.
 
 ### Tips for creating resource groups
-
 
 When you’re making decisions about your resource groups, consider these tips:
 
@@ -321,7 +310,7 @@ Here are a few example roles built into Azure:
 
 -   **Storage account contributor**: A user with this role can manage storage accounts but cannot manage access to the storage accounts.
 
-For more information, see [Use role assignments to manage access to your Azure subscription resources](../../active-directory/role-based-access-control-configure.md).
+For more information, see [Use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
 ## Azure Virtual Machines
 
@@ -344,7 +333,6 @@ You can deploy Azure virtual machines by using the Azure portal, by using automa
 Deploying a virtual machine by using the Azure portal requires only an active Azure subscription and access to a web browser. You can select many different operating system images with varying configurations. All storage and networking requirements are configured during the deployment. For more information, see “Create a virtual machine in the Azure portal” for [Windows](../../virtual-machines/windows/quick-create-portal.md) and [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
 In addition to deploying a virtual machine from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
-
 
 **PowerShell**
 
@@ -378,11 +366,11 @@ Azure storage accounts can be configured with different levels of redundancy:
 
 -   **Read-access geo-redundant storage** is geo-redundant storage plus the ability to read the data in the secondary region. This ability makes it suitable for partial disaster recovery. If there’s a problem with the primary region, you can change your application to have read-only access to the paired region.
 
-### Use cases 
+### Use cases
 
 Each storage type has a different use case.
 
-**Blob storage** 
+**Blob storage**
 
 The word *blob* is an acronym for *binary large object*. Blobs are unstructured files like those that you store on your computer. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage. Azure Blob storage also holds Azure Virtual Machines data disks.
 
@@ -442,7 +430,7 @@ Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template
 
 ### Access and security for Azure Storage
 
-Azure Storage is accessed in various ways, including though the Azure portal, during VM creation and operation, and from Storage client libraries. 
+Azure Storage is accessed in various ways, including though the Azure portal, during VM creation and operation, and from Storage client libraries.
 
 **Virtual machine disks**
 
@@ -483,31 +471,31 @@ You can connect an on-premises network to an Azure virtual network by using Expr
 
 Because the Azure virtual network is connected to your on-premises network, cross-premises virtual networks must use a unique portion of the address space that your organization uses. In the same way that different corporate locations are assigned a specific IP subnet, Azure becomes another location as you extend your network.
 
-###Deploying a virtual network
+### Deploying a virtual network
 
 There are several options for deploying a virtual network.
 
 **Portal**
 
-Deploying an Azure virtual network by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new virtual network into a new or existing resource group. When you’re creating a new virtual machine from the portal, you can select an existing virtual network or create a new one. For more information, see [Create a virtual network using the Azure portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Deploying an Azure virtual network by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new virtual network into a new or existing resource group. When you’re creating a new virtual machine from the portal, you can select an existing virtual network or create a new one. For more information, see [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
 
 In addition to deploying an Azure virtual network from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template, including any virtual network resources. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 **PowerShell**
 
-Deploying an Azure virtual network by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Create a virtual network by using PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+Deploying an Azure virtual network by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Create a virtual network by using PowerShell](../../virtual-network/quick-create-powershell.md).
 
 In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
 **Command-line interface (CLI)**
 
-As with the PowerShell module, the Azure command-line interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **network vnet create** command to create a virtual network. For more information, see [Create a virtual network by using the Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md).
+As with the PowerShell module, the Azure command-line interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **network vnet create** command to create a virtual network. For more information, see [Create a virtual network by using the Azure CLI](../../virtual-network/quick-create-cli.md).
 
 Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md).
 
 ### Access and security for virtual networks
 
-You can help secure Azure virtual networks by using a network security group. NSGs contain a list of access control list (ACL) rules that allow or deny network traffic to your VM instances in a virtual network. You can associate NSGs with either subnets or individual VM instances within that subnet. When you associate an NSG with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, you can further restrict traffic to an individual VM by associating an NSG directly with that VM. For more information, see [Filter network traffic with network security groups](../../virtual-network/virtual-networks-nsg.md).
+You can help secure Azure virtual networks by using a network security group. NSGs contain a list of access control list (ACL) rules that allow or deny network traffic to your VM instances in a virtual network. You can associate NSGs with either subnets or individual VM instances within that subnet. When you associate an NSG with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, you can further restrict traffic to an individual VM by associating an NSG directly with that VM. For more information, see [Filter network traffic with network security groups](../../virtual-network/security-overview.md).
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
-title: Active Directory Federation Services management and customization with Azure AD Connect | Microsoft Docs
+title: Azure AD Connect - AD FS management and customization | Microsoft Docs
 description: AD FS management with Azure AD Connect and customization of user AD FS sign-in experience with Azure AD Connect and PowerShell.
 keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, O365, federation, relying party
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
-
+ms.custom: seohack1
 ---
 # Manage and customize Active Directory Federation Services by using Azure AD Connect
 This article describes how to manage and customize Active Directory Federation Services (AD FS) by using Azure Active Directory (Azure AD) Connect. It also includes other common AD FS tasks that you might need to do for a complete configuration of an AD FS farm.
@@ -167,7 +168,7 @@ It's easy to add a domain to be federated with Azure AD by using Azure AD Connec
 
    ![Azure AD domain](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
-    After you choose the domain, the wizard provides you with appropriate information about further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that isn't yet verified in Azure AD, the wizard provides you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](../active-directory-add-domain.md) for more details.
+    After you choose the domain, the wizard provides you with appropriate information about further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that isn't yet verified in Azure AD, the wizard provides you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md) for more details.
 
 5. Click **Next**. The **Ready to configure** page shows the list of actions that Azure AD Connect will perform. Click **Install** to finish the configuration.
 
@@ -183,7 +184,7 @@ The following sections provide details about some of the common tasks that you m
 To change the logo of the company that's displayed on the **Sign-in** page, use the following Windows PowerShell cmdlet and syntax.
 
 > [!NOTE]
-> The recommended dimensions for the logo are 260 x 35 @ 96 dpi with a file size no greater than 10 KB.
+> The recommended dimensions for the logo are 260 x 35 \@ 96 dpi with a file size no greater than 10 KB.
 
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 
@@ -240,31 +241,8 @@ In this rule, you're simply checking the temporary flag **idflag**. You decide w
 > The sequence of these rules is important.
 
 ### SSO with a subdomain UPN
-You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](active-directory-aadconnect-federation-management.md#addfeddomain). You must modify the user principal name (UPN) claim so that the issuer ID corresponds to the root domain and not the subdomain, because the federated root domain also covers the child.
 
-By default, the claim rule for issuer ID is set as:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-![Default issuer ID claim](media/active-directory-aadconnect-federation-management/issuer_id_default.png)
-
-The default rule simply takes the UPN suffix and uses it in the issuer ID claim. For example, John is a user in sub.contoso.com, and contoso.com is federated with Azure AD. John enters john@sub.contoso.com as the username while signing in to Azure AD. The default issuer ID claim rule in AD FS handles it in the following manner:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-**Claim value:**  http://sub.contoso.com/adfs/services/trust/
-
-To have only the root domain in the issuer claim value, change the claim rule to match the following:
-
-    c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](active-directory-aadconnect-federation-management.md#addfeddomain). Azure AD Connect version 1.1.553.0 and latest creates the correct claim rule for issuerID automatically. If you cannot use Azure AD Connect version 1.1.553.0 or latest, it is recommended that [Azure AD RPT Claim Rules](https://aka.ms/aadrptclaimrules) tool is used to generate and set correct claim rules for the Azure AD relying party trust.
 
 ## Next steps
 Learn more about [user sign-in options](active-directory-aadconnect-user-signin.md).

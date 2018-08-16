@@ -3,18 +3,19 @@ title: Explore data in a SQL Server virtual machine on Azure | Microsoft Docs
 description: Explore data and generate features in a SQL Server virtual machine on Azure
 services: machine-learning
 documentationcenter: ''
-author: garyericson
+author: deguhath
 manager: jhubbard
 editor: ''
 
 ms.assetid: 3949fb2c-ffab-49fb-908d-27d5e42f743b
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: fashah;garye;bradsev
+ms.author: deguhath
 
 ---
 # <a name="heading"></a>Process Data in SQL Server Virtual Machine on Azure

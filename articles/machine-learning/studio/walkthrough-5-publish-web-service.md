@@ -3,18 +3,19 @@ title: 'Step 5: Deploy the Machine Learning web service | Microsoft Docs'
 description: 'Step 5 of the Develop a predictive solution walkthrough: Deploy a predictive experiment in Machine Learning Studio as a web service.'
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
 
 ---
 # Walkthrough Step 5: Deploy the Azure Machine Learning web service
@@ -188,26 +189,6 @@ The results of the test are displayed on the right-hand side of the page in the 
 
 ## Manage the web service
 
-### Manage a Classic web service in the Azure classic portal
-
-Once you've deployed your Classic web service, you can manage it from the [Azure classic portal](https://manage.windowsazure.com).
-
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com)
-2. In the Microsoft Azure services panel, click **MACHINE LEARNING**
-3. Click your workspace
-4. Click the **Web services** tab
-5. Click the web service we created
-6. Click the "default" endpoint
-
-From here, you can do things like monitor how the web service is doing and make performance tweaks by changing how many concurrent calls the service can handle.
-
-For more details, see:
-
-* [Creating Endpoints](create-endpoint.md)
-* [Scaling web service](scaling-webservice.md)
-
-### Manage a Classic or New web service in the Azure Machine Learning Web Services portal
-
 Once you've deployed your web service, whether Classic or New, you can manage it from the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/quickstart) portal.
 
 To monitor the performance of your web service:
@@ -237,4 +218,4 @@ To monitor the performance of your web service:
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/en-us/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/

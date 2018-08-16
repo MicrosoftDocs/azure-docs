@@ -1,3 +1,4 @@
+
 1. After the Azure virtual machine is created and running, click the Virtual Machines icon in the Azure portal to view your VMs.
 
 1. Click the ellipsis, **...**, for your new VM.

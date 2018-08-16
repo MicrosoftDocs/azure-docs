@@ -3,18 +3,19 @@ title: Deploy a Machine Learning web service | Microsoft Docs
 description: How to convert a training experiment to a predictive experiment, prepare it for deployment, then deploy it as an Azure Machine Learning web service.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: garye
 
 ---
 # Deploy an Azure Machine Learning web service
@@ -105,7 +106,7 @@ On the **CONFIGURATION** page, you can change the description, title, update the
 Once you've deployed the web service, you can:
 
 * **Access** it through the web service API.
-* **Manage** it through Azure Machine Learning web services portal or the Azure classic portal.
+* **Manage** it through Azure Machine Learning web services portal.
 * **Update** it if your model changes.
 
 #### Access your New web service
@@ -138,7 +139,7 @@ To test the Batch Execution Service, click **Test** preview link . On the Batch 
 
 ![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)
 
-On the **CONFIGURATION** page, you can change the display name of the service and give it a description. The name and description is displayed in the [Azure classic portal](http://manage.windowsazure.com/) where you manage your web services.
+On the **CONFIGURATION** page, you can change the display name of the service and give it a description. The name and description is displayed in the [Azure portal](https://portal.azure.com/) where you manage your web services.
 
 You can provide a description for your input data, output data, and web service parameters by entering a string for each column under **INPUT SCHEMA**, **OUTPUT SCHEMA**, and **Web SERVICE PARAMETER**. These descriptions are used in the sample code documentation provided for the web service.
 
@@ -182,8 +183,8 @@ One option for updating your web service is to retrain the model programmaticall
 [Create a training experiment]: #create-a-training-experiment
 [Convert it to a predictive experiment]: #convert-the-training-experiment-to-a-predictive-experiment
 [Deploy it as a web service]: #deploy-it-as-a-web-service
-[new]: #deploy-the-predictive-experiment-as-a-new-Web-service
-[classic]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[new]: #deploy-the-predictive-experiment-as-a-new-web-service
+[classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service

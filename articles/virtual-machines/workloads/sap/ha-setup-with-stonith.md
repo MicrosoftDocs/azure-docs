@@ -1,10 +1,10 @@
 ---
-title: High availability setup with STONITH for SAP HANA on Azure (Large Instances)| Microsoft Docs
+title: High availability set up with STONITH for SAP HANA on Azure (Large Instances)| Microsoft Docs
 description: Establish high availability for SAP HANA on Azure (Large Instances) in SUSE using the STONITH
 services: virtual-machines-linux
 documentationcenter:
 author: saghorpa
-manager: timlt
+manager: jeconnoc
 editor:
 
 ms.service: virtual-machines-linux
@@ -12,43 +12,44 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2017
+ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
 ---
-# High availability setup in SUSE using the STONITH
-This document provides the detailed step by step instructions to setup the High Availability on SUSE Operating system using the STONITH device.
+# High availability set up in SUSE using the STONITH
+This document provides the detailed step by step instructions to set up the High Availability on SUSE Operating system using the STONITH device.
 
-**Disclaimer:** *This guide is derived by testing the setup in the Microsoft HANA Large Instances environment which successfully works. As Microsoft Service Management team for HANA Large Instances does not support Operating system, you may need to contact SUSE for any further troubleshooting or clarification on the operating system layer. Microsoft service management team does setup STONITH device and will be fully supportive and can be involved for troubleshooting for STONITH device issues.*
+**Disclaimer:** *This guide is derived by testing the setup in the Microsoft HANA Large Instances environment, which successfully works. As Microsoft Service Management team for HANA Large Instances does not support Operating system, you may need to contact SUSE for any further troubleshooting or clarification on the operating system layer. Microsoft service management team does set up STONITH device and fully supports and can be involved for troubleshooting for STONITH device issues.*
 ## Overview
-To setup the High availability using SUSE clustering, the following pre-requisites must meet.
+To set up the High availability using SUSE clustering, the following pre-requisites must meet.
 ### Pre-requisites
 - HANA Large Instances are provisioned
 - Operating system is registered
 - HANA Large Instances servers are connected to SMT server to get patches/packages
 - Operating system have latest patches installed
-- NTP (time server) is setup
+- NTP (time server) is set up
 - Read and understand the latest version of SUSE documentation on HA setup
 
 ### Setup details
-- In this guide, we used the following setup.
-- Operating System: SUSE 12 SP1
-- HANA Large Instances: 2xS192 (4 sockets, 2 TB)
+This guide uses the following setup:
+- Operating System: SLES 12 SP1 for SAP
+- HANA Large Instances: 2xS192 (four sockets, 2 TB)
 - HANA Version: HANA 2.0 SP1
 - Server Names: sapprdhdb95 (node1) and sapprdhdb96 (node2)
 - STONITH Device: iSCSI based STONITH device
-- NTP setup on one of the HANA Large Instance node
+- NTP set up on one of the HANA Large Instance nodes
 
-When you setup HANA Large Instances with HSR, you can request Microsoft Service Management team to setup STONITH. If you are already an existing customer who have HANA Large Instances provisioned, and need STONITH device setup for your existing blades, you need to provide the following information to Microsoft Service Management team in the service request form (SRF). You can request SRF form thru the Technical Account Manager or your Microsoft Contact for HANA Large Instance onboarding. The new customers can request STONITH device at the time of provisioning. The inputs are available in the provisioning request form.
+When you set up HANA Large Instances with HSR, you can request Microsoft Service Management team to set up STONITH. If you are already an existing customer who has HANA Large Instances provisioned, and need STONITH device set up for your existing blades, you need to provide the following information to Microsoft Service Management team in the service request form (SRF). You can request SRF form through the Technical Account Manager or your Microsoft Contact for HANA Large Instance onboarding. The new customers can request STONITH device at the time of provisioning. The inputs are available in the provisioning request form.
 
-- Server Name and Server IP address (e.g., myhanaserver1, 10.35.0.1)
-- Location (e.g., US East)
-- Customer Name (e.g., Microsoft)
+- Server Name and Server IP address (for example, myhanaserver1, 10.35.0.1)
+- Location (for example, US East)
+- Customer Name (for example, Microsoft)
+- SID - HANA System Identifier (for example, H11)
 
-Once the STONITH device is configured, Microsoft Service Management team does provide you the SBD device name and IP address of the iSCSI storage which you can use to configure STONITH setup. 
+Once the STONITH device is configured, Microsoft Service Management team does provide you the SBD device name and IP address of the iSCSI storage, which you can use to configure STONITH setup. 
 
-To setup the end to end HA using STONITH, the following steps needs to be followed:
+To set up the end to end HA using STONITH, the following steps needs to be followed:
 
 1.	Identify the SBD device
 2.	Initialize the SBD device
@@ -62,14 +63,18 @@ To setup the end to end HA using STONITH, the following steps needs to be follow
 ## 1.	Identify the SBD device
 This section describes on how to determine the SBD device for your setup after Microsoft service management team has configured the STONITH. **This section only applies to the existing customer**. If you are a new customer, Microsoft service management team does provide SBD device name to you and you can skip this section.
 
-1.1	Modify */etc/iscsi/initiatorname.isci* to *iqn.1996-04.de.suse:01: <Tenant><Location><SID><NodeNumber>*.  
-Microsoft service management does provide this string. This needs to be done on **both** the nodes, however the node number is different on each node.
+1.1	Modify */etc/iscsi/initiatorname.isci* to 
+``` 
+iqn.1996-04.de.suse:01:<Tenant><Location><SID><NodeNumber> 
+```
+
+Microsoft service management does provide this string. Modify the file on **both** the nodes, however the node number is different on each node.
 
 ![initiatorname.png](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-1.2 Modify */etc/iscsi/iscsid.conf*: Set *node.session.timeo.replacement_timeout=5* and *node.startup = automatic*. This needs to be done on **both** the nodes.
+1.2 Modify */etc/iscsi/iscsid.conf*: Set *node.session.timeo.replacement_timeout=5* and *node.startup = automatic*. Modify the file on **both** the nodes.
 
-1.3	Execute the discovery command, it shows four sessions. This needs to be done on both the nodes.
+1.3	Execute the discovery command, it shows four sessions. Run it on both the nodes.
 
 ```
 iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
@@ -77,21 +82,21 @@ iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
 
 ![iSCSIadmDiscovery.png](media/HowToHLI/HASetupWithStonith/iSCSIadmDiscovery.png)
 
-1.4	Execute the command to log in to the iSCSI device, it shows four sessions. This needs to be done on **both** the nodes.
+1.4	Execute the command to log in to the iSCSI device, it shows four sessions. Run it on **both** the nodes.
 
 ```
 iscsiadm -m node -l
 ```
 ![iSCSIadmLogin.png](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
 
-1.5 Execute the rescan script: *rescan-scsi-bus.sh*.  This shows you the new disks created for you.  Run it on both the nodes. You should see a LUN number that is greater than zero (for example: 1, 2 etc.)
+1.5 Execute the rescan script: *rescan-scsi-bus.sh*.  This script shows you the new disks created for you.  Run it on both the nodes. You should see a LUN number that is greater than zero (for example: 1, 2 etc.)
 
 ```
 rescan-scsi-bus.sh
 ```
 ![rescanscsibus.png](media/HowToHLI/HASetupWithStonith/rescanscsibus.png)
 
-1.6	To get the device name run the command *fdisk –l*. Run it on both the nodes. Pick the device with the size of **178MiB**.
+1.6	To get the device name run the command *fdisk –l*. Run it on both the nodes. Pick the device with the size of **178 MiB**.
 
 ```
   fdisk –l
@@ -115,9 +120,9 @@ sbd -d <SBD Device Name> dump
 ```
 
 ## 3.	Configuring the Cluster
-This section describes the steps to setup the SUSE HA cluster.
+This section describes the steps to set up the SUSE HA cluster.
 ### 3.1	Package installation
-3.1.1	Please check that ha_sles and SAPHanaSR-doc patterns are installed. If not, please install them. This needs to be done on **both** the nodes.
+3.1.1	Please check that ha_sles and SAPHanaSR-doc patterns are installed. If it is not installed, install them. Install it on **both** the nodes.
 ```
 zypper in -t pattern ha_sles
 zypper in SAPHanaSR SAPHanaSR-doc
@@ -126,13 +131,13 @@ zypper in SAPHanaSR SAPHanaSR-doc
 ![zypperpatternSAPHANASR-doc.png](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
 
 ### 3.2	Setting up the cluster
-3.2.1	You can either use *ha-cluster-init* command, or use the yast2 wizard to setup the cluster. In this case, we used yast2 wizard. You perform this step **only on the Primary node**.
+3.2.1	You can either use *ha-cluster-init* command, or use the yast2 wizard to set up the cluster. In this case, the yast2 wizard is used. You perform this step **only on the Primary node**.
 
 Follow yast2> High Availability > Cluster 
 ![yast-control-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 ![yast-hawk-install.png](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
 
-Click **cancel** as we already have the halk2 package installed.
+Click **cancel** since the halk2 package is already installed.
 
 ![yast-hawk-continue.png](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
 
@@ -160,7 +165,7 @@ Click **Next**
 ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
 In the default option, Booting was off, change it to “on” so pacemaker is started on boot. You can make the choice based on your setup requirements.
-Click **Next** and the cluster configurtion is complete.
+Click **Next** and the cluster configuration is complete.
 
 ## 4.	Setting Up the Softdog Watchdog
 This section describes the configuration of the watchdog (softdog).
@@ -171,7 +176,7 @@ modprobe softdog
 ```
 ![modprobe-softdog.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog.png)
 
-4.2	Update the file */etc/sysconfig/sbd* on **both** the nodes as below
+4.2	Update the file */etc/sysconfig/sbd* on **both** the nodes as following:
 ```
 SBD_DEVICE="<SBD Device Name>"
 ```
@@ -183,7 +188,7 @@ modprobe softdog
 ```
 ![modprobe-softdog-command.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog-command.png)
 
-4.4	Check and ensure that softdog is running as below on **both** the nodes
+4.4	Check and ensure that softdog is running as following on **both** the nodes:
 ```
 lsmod | grep dog
 ```
@@ -213,7 +218,7 @@ sbd  -d <SBD Device Name> list
 ```
 ![sbd-list-message.png](media/HowToHLI/HASetupWithStonith/sbd-list-message.png)
 
-4.9	To adopt the sbd config, update the file */etc/sysconfig/sbd* as following. This needs to be done on **both** the nodes
+4.9	To adopt the sbd config, update the file */etc/sysconfig/sbd* as following. Update the file on **both** the nodes
 ```
 SBD_DEVICE=" <SBD Device Name>" 
 SBD_WATCHDOG="yes" 
@@ -258,7 +263,7 @@ You can also log in to hawk to check the cluster status *https://<node IP>:7630*
 
 ## 7. Configure Cluster Properties and Resources 
 This section describes the steps to configure the cluster resources.
-In this example, we did setup the following resource, the rest can be configured (if needed) by referencing the SUSE HA guide. You need to perform this config in **one of the nodes** only. Do on primary node.
+In this example, set up the following resource, the rest can be configured (if needed) by referencing the SUSE HA guide. Perform the config in **one of the nodes** only. Do on primary node.
 
 - Cluster bootstrap
 - STONITH Device
@@ -266,7 +271,7 @@ In this example, we did setup the following resource, the rest can be configured
 
 
 ### 7.1 Cluster bootstrap and more
-Add cluster bootstrap. Create the file and add the text as following.
+Add cluster bootstrap. Create the file and add the text as following:
 ```
 sapprdhdb95:~ # vi crm-bs.txt
 # enter the following to crm-bs.txt
@@ -366,7 +371,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.21,3260] successful.
 ```
 ### Scenario 2: yast2 does not show graphical view
-We used the yast2 graphical screen to setup the High Availability cluster in this document. If yast2 does not open with the graphical window as shown and throw Qt error, follow the steps below. If it opens with the graphical window, you can skip the steps.
+The yast2 graphical screen is used to set up the High Availability cluster in this document. If yast2 does not open with the graphical window as shown and throw Qt error, perform the steps as following. If it opens with the graphical window, you can skip the steps.
 
 **Error**
 
@@ -378,7 +383,7 @@ We used the yast2 graphical screen to setup the High Availability cluster in thi
 
 If the yast2 does not open with the graphical view, follow the steps following.
 
-Install the required packages. You must be logged in as user “root” and have SMT setup to download/install the packages.
+Install the required packages. You must be logged in as user “root” and have SMT set up to download/install the packages.
 
 To install the packages, use yast>Software>Software Management>Dependencies> option “Install recommended packages…”. The following screenshot illustrates the expected screens.
 >[!NOTE]
@@ -444,7 +449,7 @@ Click **Continue**
 
 ![yast2-performing-installation.png](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
 
-Click **Next** when hte installation is complete
+Click **Next** when the installation is complete
 
 ![yast2-installation-report.png](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
 
@@ -537,4 +542,6 @@ After the preceding fix, node2 should get added to the cluster
 You can find more information on SUSE HA setup in the following articles: 
 
 - [SAP HANA SR Performance Optimized Scenario](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )
-- [Storage based fencing](https://www.suse.com/documentation/sle-ha-2/book_sleha/data/sec_ha_storage_protect_fencing.html)
+- [Storage-based fencing](https://www.suse.com/documentation/sle_ha/book_sleha/data/sec_ha_storage_protect_fencing.html)
+- [Blog - Using Pacemaker Cluster for SAP HANA- Part 1](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/)
+- [Blog - Using Pacemaker Cluster for SAP HANA- Part 2](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/)
