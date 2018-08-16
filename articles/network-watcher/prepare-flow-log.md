@@ -27,11 +27,15 @@ The version of network security group flow logs will change from "Version": 1 to
 
 ### Version 1 flow tuple format
 
+```
 "1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,D"
+```
 
 ### Version 2 flow tuple format
 
+```
 "1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1,103,1,186"
+```
 
 ## When will this change take place?
 
@@ -55,7 +59,13 @@ The change in log format has been communicated in advance with all [Network Watc
 
 ## What is the new flow logging format?
 
-Flow logs version 2 contains flow tuples in the following format: "1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1,103,1,186". The following table explains the information in the previous version 2 example. Complete sample records can be found in [Version 2 sample event](#version2sampleevent).
+Flow logs version 2 contains flow tuples in the following format:
+
+```
+"1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1,103,1,186".
+```
+
+The table that follows provides property names and descriptions for the network security group version 2 flow tuple. Complete sample records can be found in [Version 2 sample event](#version2sampleevent).
 
 | Property name                        | Value           | Description                                                                                                                                                 |
 | ------------------------------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------|
