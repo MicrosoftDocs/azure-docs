@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -255,7 +255,7 @@ A subset of [Resource Manager template functions](../azure-resource-manager/reso
 This policy rule example uses the `resourceGroup` resource function to get the **name** property, combined with the `concat` array and object function to build a `like` condition that enforces the resource name to start with the resource group name.
 
 ```json
-{  
+{
     "if": {
         "not": {
             "field": "name",
@@ -277,7 +277,7 @@ This policy rule example uses the `resourceGroup` resource function to get the *
         "exists": "false"
     },
     "then": {
-        "effect":   "append",
+        "effect": "append",
         "details": [{
             "field": "tags.CostCenter",
             "value": "[resourceGroup().tags.CostCenter]"
