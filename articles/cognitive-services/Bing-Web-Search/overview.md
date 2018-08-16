@@ -22,7 +22,7 @@ Want to see how it works? Try our [Bing Web Search API demo](https://azure.micro
 
 ## Key features  
 
-With the Bing Web Search API your application gets has access <TODO: Erik - Some type of intro...>
+With the Bing Web Search API your application can:
 
 * Get instant answers from Bing Web Search with our REST API.
 * [Filter search results](filter-answers.md) by content type.
