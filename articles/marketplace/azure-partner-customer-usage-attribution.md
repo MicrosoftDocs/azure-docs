@@ -44,15 +44,15 @@ Adding the GUID is a single modification of the main template file:
  3. Add a new resource in the main template file. The resource only needs to be in the mainTemplate.json or azuredeploy.json, not in any nested or linked templates.
  4. Enter the GUID after the “pid-” as shown above.
 
-   It should look something like this example:
-   `pid-eb7927c8-dd66-43e1-b0cf-c346a422063`
+     It should look something like this example:
+     `pid-eb7927c8-dd66-43e1-b0cf-c346a422063`
 
  5. Check template for any errors
  6. Republish the template in the appropriate repositories
 
 ## Sample template code
 
-![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG?token=Ak8ZDB0JzsBdUGlKEIeHNJRS7b0BWn4Gks5bbMwwwA%3D%3D)
+![](media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG)
 
 
 ## Method 2: Azure Resource Manager APIs
@@ -64,7 +64,7 @@ If you are using an Azure Resource Manager template, you should tag your solutio
 **How to tag a deployment using the Azure Resource Manager APIs:**
 For this approach, when designing your API calls you will include a GUID in the user agent header in the request. The GUID should be added for each Offer or SKU.  The string will need to be formatted with the prefix pid- and then include the partner generated GUID.   
 
-![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG?token=Ak8ZDDiokRcj4PJj0aMkZmfF8BdOuOTzks5bbM35wA%3D%3D)
+![](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
 >[!Note] 
 >GUID format for insertion into the user agent: 
@@ -75,12 +75,12 @@ The format of the string is important. If the prefix “pid-” is not included,
 **Example using the Python SDK:**
 For Python, you need to use the “config” attribute. You can only add to a UserAgent. Here is an example:
 
-![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/python-for-lu.PNG?token=Ak8ZDK5Um4J6oY-7x25tuBpa168BEiYMks5bbMuUwA%3D%3D)
+![](media/marketplace-publishers-guide/python-for-lu.PNG)
 
 >This has to be done for each client, there is no global static configuration (You may choose to do a client factory to be sure every client is doing it. 
 >[Additional reference information](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
 
-How to tag a deployment using the Azure PowerShell or the Azure CLI:
+**How to tag a deployment using the Azure PowerShell or the Azure CLI:**
 If you deploy resources via AzurePowerShell, you can append your GUID by using the following method:
 
 ```
@@ -112,30 +112,30 @@ All registrations for template GUIDs will be done via the Azure Marketplace Clou
  *	Partners will also be able to register a GUID for the non-Marketplace solution templates/offers
  
 2. Sign into [Cloud Partner Portal](https://cloudpartner.azure.com/)
+
 3. On the upper right corner of the portal, click your account icon and then click **Publisher profile**
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-image-for-lu.png)
+ ![](media/marketplace-publishers-guide/guid-image-for-lu.png)
 
 4. On the Profile page, click **Add Tracking GUID.**
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/last-lu-images-i-hope/articles/marketplace/media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
+ ![](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
 
 5. In the expanded field, input your tracking GUID (just the GUID, without the “pid-” prefix) in the **Tracking GUID** field and input your offer name or description in the **Custom Description** field.
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-login.png)
+ ![](media/marketplace-publishers-guide/guid-dev-center-login.png)
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example.png)
+ ![](media/marketplace-publishers-guide/guid-dev-center-example.png)
 
 6. To register more than one GUID, click **Add Tracking GUID** again. That will open another expanded filed. 
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example-add.png)
+ ![](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example-description.png)
+ ![](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
 
 7. Once you are done with the editing, click **Save** to save your changes. 
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-save.png)
-
+ ![](media/marketplace-publishers-guide/guid-dev-center-save.png)
 
 
 ## Verification of GUID deployment 
@@ -212,18 +212,16 @@ For assistance, follow the below steps:
  1. Visit the support page located at [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)
  2.	For issues with usage association - select Problem type: **Marketplace Onboarding** and Category: **Other** and then click **Start Request.** 
 
-For issues on accessing Azure Marketplace Cloud Partner Portal - select Problem type: **Marketplace Onboarding** and Category: **Access Problem** and then click **Start Request.**
+    For issues on accessing Azure Marketplace Cloud Partner Portal - select Problem type: **Marketplace Onboarding** and Category: **Access Problem** and then click **Start Request.**
 
- ![](https://github.com/ellacroi/azure-docs-pr/blob/last-lu-images-i-hope/articles/marketplace/media/marketplace-publishers-guide/lu-article-incident.png)
+ ![](media/marketplace-publishers-guide/lu-article-incident.png)
  
-
  3. Complete the required fields on the next page and click **Continue.**
  4. Complete the free text fields on the next page. **Important**: Fill in Incident title with **“ISV Usage Tracking”** and describe your issue in detail in the large free text field after.  Complete the rest of the form and click **Submit**. 
  
-  ![](https://github.com/qianw211/azure-docs-pr/blob/MyImgAdded-2/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-help.png)
+ ![](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
 
  
-
 ## FAQs
 
 **What is the benefit of adding the GUID to the template?**
