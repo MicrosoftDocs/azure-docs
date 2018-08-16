@@ -25,10 +25,10 @@ To include the list of claims transformation functions that can be used in the u
 </ClaimsTransformation>
 ```
 
-| Attribute | Description |
-| --------- | ----------- |
-| **Id** | An identifier that is used to uniquely identify the claim transformation. The identifier is referenced from other XML elements in the policy XML file. |
-| **TransformationMethod** | The transform method to use in the claims transformation. Possible value: `AddItemToStringCollection`, `AddParameterToStringCollection`, `AssertStringClaimsAreEqual`, or `ChangeCase`. |
+| Attribute |Required | Description |
+| --------- |-------- | ----------- |
+| **Id** |Yes | An identifier that is used to uniquely identify the claim transformation. The identifier is referenced from other XML elements in the policy XML file. |
+| **TransformationMethod** |Yes | The transform method to use in the claims transformation. Possible value: `AddItemToStringCollection`, `AddParameterToStringCollection`, `AssertStringClaimsAreEqual`, or `ChangeCase`. |
 
 ## ClaimsTransformation
 
@@ -48,36 +48,101 @@ The ClaimsTransformation XML elements contain the following child XML elements:
 </ClaimsTransformation>
 ```
 
-| Element | Required | Description |
+
+| Element | Occurrences | Description |
 | ------- | -------- | ----------- |
-| **InputClaims** | No | A list of `InputClaim` elements that specify claim types that are taken as input to the claims transformation. Each of these elements contains a reference to a ClaimType already defined in the ClaimsSchema section in the policy XML file. |
-| **InputParameters** | No | A list of `InputParameter` elements that are provided as input to the claims transformation.  
-| **OutputClaims** | No | A list of `OutputClaim` elements that specify claim types that are produced after the ClaimsTransformation has been invoked. Each of these elements contains reference to a ClaimType already defined in the ClaimsSchema section. |
+| **InputClaims** | 0:1 | A list of `InputClaim` elements that specify claim types that are taken as input to the claims transformation. Each of these elements contains a reference to a ClaimType already defined in the ClaimsSchema section in the policy XML file. |
+| **InputParameters** | 0:1 | A list of `InputParameter` elements that are provided as input to the claims transformation.  
+| **OutputClaims** | 0:1 | A list of `OutputClaim` elements that specify claim types that are produced after the ClaimsTransformation has been invoked. Each of these elements contains reference to a ClaimType already defined in the ClaimsSchema section. |
 
+### InputClaims
 
-### InputClaim
+The **InputClaims** element contains the following element:
 
-| Attribute | Description |
-| --------- | ----------- |
-| **ClaimTypeReferenceId** | A reference to a ClaimType already defined in the ClaimsSchema section in the policy XML file. |
-| **TransformationClaimType** | An identifier to reference a transformation claim type. Each claim transformation has its own values. |
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| InputClaim | 1:n | An expected input claim type. |
 
-### InputParameter
+#### InputClaim
 
-| Attribute | Description |
-| --------- | ----------- |
-| **Id** | An identifier that is a reference to a parameter of the claims transformation method. Each claims transformation method has its own values. See the claims transformation table for a complete list of the available values. |
-| **DataType** | The type of data of the parameter, such as String, Boolean, Int, or DateTime as per the DataType enumeration in the custom policy XML schema. This type is used to perform arithmetic operations correctly. Each claim transformation method has its own values. See the claims transformation table for a complete list of the available values. |
-| **Value** | A value that is passed verbatim to the transformation. Some of the values are arbitrary, some of them you select from the claims transformation method. |
+The **InputClaim** element contains the following attributes:
 
-### OutputParameter
+| Attribute |Required | Description |
+| --------- | ----------- | ----------- |
+| **ClaimTypeReferenceId** |Yes | A reference to a ClaimType already defined in the ClaimsSchema section in the policy XML file. |
+| **TransformationClaimType** |Yes | An identifier to reference a transformation claim type. Each claim transformation has its own values. |
 
-| Attribute | Description |
-| --------- | ----------- |
-| **ClaimTypeReferenceId** | A reference to a ClaimType already defined in the ClaimsSchema section in the policy XML file.
-| **TransformationClaimType** | An identifier to reference a transformation claim type. Each claim transformation has its own values. See the claims transformation table for a complete list of the available values. |
+### InputParameters
+
+The **InputParameters** element contains the following element:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| InputParameter | 1:n | An expected input parameter. |
+
+#### InputParameter
+
+| Attribute | Required |Description |
+| --------- | ----------- |----------- |
+| **Id** | Yes | An identifier that is a reference to a parameter of the claims transformation method. Each claims transformation method has its own values. See the claims transformation table for a complete list of the available values. |
+| **DataType** | Yes | The type of data of the parameter, such as String, Boolean, Int, or DateTime as per the DataType enumeration in the custom policy XML schema. This type is used to perform arithmetic operations correctly. Each claim transformation method has its own values. See the claims transformation table for a complete list of the available values. |
+| **Value** | Yes | A value that is passed verbatim to the transformation. Some of the values are arbitrary, some of them you select from the claims transformation method. |
+
+### OutputClaims
+
+The **OutputClaims** element contains the following element:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| OutputClaim | 0:n | An expected output claim type. |
+
+#### OutputClaim 
+
+The **OutputClaim** element contains the following attributes:
+
+| Attribute |Required | Description |
+| --------- | ----------- |----------- |
+| **ClaimTypeReferenceId** | Yes | A reference to a ClaimType already defined in the ClaimsSchema section in the policy XML file.
+| **TransformationClaimType** | Yes | An identifier to reference a transformation claim type. Each claim transformation has its own values. See the claims transformation table for a complete list of the available values. |
  
 If input claim and the output claim are the same type (string, or boolean), you can use the same input claim as the output claim. In this case, the claims transformation changes the input claim with the output value.
+
+## Example
+For example, you may store the last version of your terms of services (TOS) user accepted. When you change the TOS, you can ask the user to access the TOS again.
+
+```XML
+<BuildingBlocks>
+  <ClaimsSchema>
+    <ClaimType Id="TOSVersionChanged">
+      <DisplayName>Indicates if the TOS version accepted by the end user is equal to the current version</DisplayName>
+      <DataType>boolean</DataType>
+    </ClaimType>
+    <ClaimType Id="TOSVersion">
+      <DisplayName>TOS version</DisplayName>
+      <DataType>string</DataType>
+    </ClaimType>
+    <ClaimType Id="LastTOSAcceptedVersion">
+      <DisplayName>TOS version accepted by the end user</DisplayName>
+      <DataType>string</DataType>
+    </ClaimType>
+  </ClaimsSchema>
+
+  <ClaimsTransformations>
+    <ClaimsTransformation Id="HasAgeGroupValueChanged" TransformationMethod="CompareClaims">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="TOSVersion" TransformationClaimType="inputClaim1" />
+        <InputClaim ClaimTypeReferenceId="LastTOSAcceptedVersion" TransformationClaimType="inputClaim2" />
+      </InputClaims>
+      <InputParameters>
+        <InputParameter Id="operator" DataType="string" Value="NOT EQUAL" />
+      </InputParameters>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="TOSVersionChanged" TransformationClaimType="outputClaim" />
+      </OutputClaims>
+    </ClaimsTransformation>
+  </ClaimsTransformations>
+</BuildingBlocks>
+```
 
 For examples of claims transformations, see the following reference pages:
 
