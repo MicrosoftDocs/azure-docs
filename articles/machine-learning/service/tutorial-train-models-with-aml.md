@@ -56,7 +56,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Get the sample notebook
 
-To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-train-model) into the same directory as `aml_config` and `utils.py`.  See [How to configure a development environment for Azure Machine Learning](how-to-configure-environment) for information on how to run a Jupyter notebook.
+To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-train-model) into the same directory as `aml_config` and `utils.py`.  See [How to configure a development environment for Azure Machine Learning](how-to-configure-environment.md) for information on how to run a Jupyter notebook.
 
 ## Set up your development environment
 
