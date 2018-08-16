@@ -29,12 +29,12 @@ Azure Disk Encryption GA supports Azure Resource Manager templates, Azure PowerS
 
 ## How much does Azure Disk Encryption cost?
 
-There is no charge for encrypting VM disks with Azure Disk Encryption but there are charges associated with the use of Azure Key Vault. For more information on Azure Key Vault costs, see the [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/) page.
+There's no charge for encrypting VM disks with Azure Disk Encryption but there are charges associated with the use of Azure Key Vault. For more information on Azure Key Vault costs, see the [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/) page.
 
 
 ## Which virtual machine tiers does Azure Disk Encryption support?
 
-Azure Disk Encryption is available on standard tier VMs including [A, D, DS, G, GS, and F](https://azure.microsoft.com/pricing/details/virtual-machines/) series IaaS VMs. It is also available for VMs with premium storage. It is not available on basic tier VMs.
+Azure Disk Encryption is available on standard tier VMs including [A, D, DS, G, GS, and F](https://azure.microsoft.com/pricing/details/virtual-machines/) series IaaS VMs. It's also available for VMs with premium storage. It isn't available on basic tier VMs.
 
 ## <a name="bkmk_LinuxOSSupport"></a> What Linux distributions does Azure Disk Encryption support?
 
@@ -61,13 +61,13 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 | CentOS | 6.5 | Data disk |
 | openSUSE | 13.2 | Data disk |
 | SLES | 12 SP1 | Data disk |
-| SLES | Priority:12-SP1 | Data disk |
+| SLES | Priority: 12-SP1 | Data disk |
 | SLES | HPC 12 | Data disk |
-| SLES | Priority:11-SP4 | Data disk |
+| SLES | Priority: 11-SP4 | Data disk |
 | SLES | 11 SP4 | Data disk |
 
 
-*__ADE is supported for RHEL for data disk. The current ADE implementation does work for OS disk but is not currently jointly supported. Both Microsoft and Red Hat are working on a jointly supported solution. In the interim, you can reference the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article.__
+*__ADE is supported for RHEL for data disk. The current ADE implementation does work for OS disk but isn't currently jointly supported. Both Microsoft and Red Hat are working on a jointly supported solution. In the interim, you can reference the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article.__
 
 ## How can I start using Azure Disk Encryption?
 
@@ -75,7 +75,7 @@ To get started, read the [Azure Disk Encryption overview](azure-security-disk-en
 
 ## Can I encrypt both boot and data volumes with Azure Disk Encryption?
 
-Yes, you can encrypt boot and data volumes for Windows and Linux IaaS VMs. For Windows VMs, you cannot encrypt the data without first encrypting the OS volume. For Linux VMs, it is possible to encrypt the data volume without having to encrypt the OS volume first. After you've encrypted the OS volume for Linux, disabling encryption on an OS volume for Linux IaaS VMs is not supported.
+Yes, you can encrypt boot and data volumes for Windows and Linux IaaS VMs. For Windows VMs, you can't encrypt the data without first encrypting the OS volume. For Linux VMs, it's possible to encrypt the data volume without having to encrypt the OS volume first. After you've encrypted the OS volume for Linux, disabling encryption on an OS volume for Linux IaaS VMs isn't supported.
 
 ## Does Azure Disk Encryption allow you to bring your own key (BYOK) capability?
 
@@ -117,11 +117,11 @@ Yes, you can perform an update or patch a Red Hat Linux VM. For more information
 
 The following workflow is recommended to have the best results on Linux:
 * Start from the unmodified stock gallery image corresponding to the desired OS distro and version
-* Back up any mounted drives that will be encrypted.  This permits recovery if there is a failure, for example if the VM is rebooted before encryption has completed.
+* Back up any mounted drives that will be encrypted.  This allows for recovery if there's a failure, for example if the VM is rebooted before encryption has completed.
 * Encrypt (can take multiple hours or even days depending on vm characteristics and size of any attached data disks)
 * Customize, and add software to the image as needed.
 
-If this workflow is not possible, relying on [Storage Service Encryption](../storage/common/storage-service-encryption.md) (SSE) at the platform storage account layer may be an alternative to full disk encryption using dm-crypt.
+If this workflow isn't possible, relying on [Storage Service Encryption](../storage/common/storage-service-encryption.md) (SSE) at the platform storage account layer may be an alternative to full disk encryption using dm-crypt.
 
 ## What is the disk "Bek Volume" or "/mnt/azure_bek_disk"?
 

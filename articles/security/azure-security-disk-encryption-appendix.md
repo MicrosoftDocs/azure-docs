@@ -20,7 +20,7 @@ ms.author: mstewart
 This article is an appendix to [Azure Disk Encryption for IaaS VMs](azure-security-disk-encryption-overview.md). Make sure you read the Azure Disk Encryption for IaaS VMs articles first to understand the context. This article describes how to prepare pre-encrypted VHDs and other tasks.
 
 ## Connect to your subscription
-Before you proceed, review the [Prerequisites](azure-security-disk-encryption-prerequisites.md) article. After you ensure that all prerequisites have been met, connect to your subscription by running the following cmdlets:
+Before you start, review the [Prerequisites](azure-security-disk-encryption-prerequisites.md) article. After all the prerequisites have been met, connect to your subscription by running the following cmdlets:
 
 ### <a name="bkmk_ConnectPSH"></a> Connect to your subscription with PowerShell
 
@@ -59,13 +59,13 @@ Before you proceed, review the [Prerequisites](azure-security-disk-encryption-pr
 
 ### <a name="bkmk_ConnectCLI"></a> Connect to your subscription with the Azure CLI
 
-1. Log in to Azure with [az login](/cli/azure/authenticate-azure-cli#interactive-log-in). 
+1. Sign in to Azure with [az login](/cli/azure/authenticate-azure-cli#interactive-log-in). 
      
      ```azurecli
      az login
      ```
 
-2. If you would like to select a tenant to log in under, use:
+2. If you would like to select a tenant to sign in under, use:
     
      ```azurecli
      az login --tenant <tenant>
@@ -133,15 +133,15 @@ Before you proceed, review the [Prerequisites](azure-security-disk-encryption-pr
     - This template creates a new encrypted  Windows VM with managed disks using the Windows Server 2012 gallery image.
 
 - [Deployment of RHEL 7.2 with full disk encryption with managed disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
-    - This template creates a fully-encrypted RHEL 7.2 VM in Azure using managed disks. It includes a 30 GB encrypted OS drive and a 200 GB RAID-0 array mounted at /mnt/raidencrypted. See the [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article for supported Linux server distributions. 
+    - This template creates a fully encrypted RHEL 7.2 VM in Azure using managed disks. It includes an encrypted 30-GB OS drive and an encrypted 200-GB array (RAID-0) mounted at /mnt/raidencrypted. See the [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article for supported Linux server distributions. 
 
 - [Deployment of RHEL 7.2 with full disk encryption with unmanaged disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel-unmanaged)
-    - This template creates a fully-encrypted RHEL 7.2 VM in Azure with a 30 GB encrypted OS drive and a 200 GB RAID-0 array mounted at /mnt/raidencrypted. See the [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article for supported Linux server distributions. 
+    - This template creates a fully encrypted RHEL 7.2 VM in Azure with an encrypted 30-GB OS drive and an encrypted 200-GB array (RAID-0) mounted at /mnt/raidencrypted. See the [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article for supported Linux server distributions. 
 
 - [Enable disk encryption on a pre-encrypted VHD for Windows or Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
 
 - [Create a new encrypted managed disk from a pre-encrypted VHD/storage blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
-    - Creates a new encrypted managed disk provided a pre-encrypted VHD and it's corresponding encryption settings
+    - Creates a new encrypted managed disk provided a pre-encrypted VHD and its corresponding encryption settings
 
 - [Enable disk encryption on a running Windows VM using an Azure AD client certificate thumbprint](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-aad-client-cert)
     
@@ -206,7 +206,7 @@ Use the [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) comm
  ```powershell
     Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName "OpenLogic" -Offer "CentOS" -Skus "7.2n" -Version "latest"
  ```
-2. Configure the VM according to your needs. If you are going to encrypt all the (OS + data) drives, the data drives need to be specified and mountable from /etc/fstab.
+2. Configure the VM according to your needs. If you're going to encrypt all the (OS + data) drives, the data drives need to be specified and mountable from /etc/fstab.
 
  > [!NOTE]
  > Use UUID=... to specify data drives in /etc/fstab instead of specifying the block device name (for example, /dev/sdb1). During encryption, the order of drives changes on the VM. If your VM relies on a specific order of block devices, it will fail to mount them after encryption.
@@ -220,7 +220,7 @@ Use the [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) comm
 
 5. Periodically monitor the progress of encryption by using the instructions in the [next section](#monitoring-os-encryption-progress).
 
-6. After Get-AzureRmVmDiskEncryptionStatus shows "VMRestartPending," restart your VM either by signing in to it or by using the portal, PowerShell, or CLI.
+6. After Get-AzureRmVmDiskEncryptionStatus shows "VMRestartPending", restart your VM either by signing in to it or by using the portal, PowerShell, or CLI.
     ```powershell
     C:\> Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
@@ -270,14 +270,14 @@ You can monitor OS encryption progress in three ways:
 
     /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
- We recommend that you do not sign in to the VM while OS encryption is in progress. Copy the logs only when the other two methods have failed.
+ We recommend that you do't sign-in to the VM while OS encryption is in progress. Copy the logs only when the other two methods have failed.
 
 ## <a name="bkmk_preLinux"></a> Prepare a pre-encrypted Linux VHD
 The preparation for pre-encrypted VHDs can vary depending on the distribution. Examples on preparing [Ubuntu 16](#bkmk_Ubuntu),
 [openSUSE 13.2](#bkmk_openSUSE), and [CentOS 7](#bkmk_CentOS) are available. 
 
 ### <a name="bkmk_Ubuntu"></a> Ubuntu 16
-Configure encryption during the distribution installation by doing the following:
+Configure encryption during the distribution installation by doing the following steps:
 
 1. Select **Configure encrypted volumes** when you partition the disks.
 
@@ -299,11 +299,11 @@ Configure encryption during the distribution installation by doing the following
 
  ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6. Prepare the VM for uploading into Azure using [these instructions](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Do not run the last step (deprovisioning the VM) yet.
+6. Prepare the VM for uploading into Azure using [these instructions](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Don't run the last step (deprovisioning the VM) yet.
 
 Configure encryption to work with Azure by doing the following steps:
 
-1. Create a file under /usr/local/sbin/azure_crypt_key.sh, with the content in the following script. Pay attention to the KeyFileName, because it is the passphrase file name used by Azure.
+1. Create a file under /usr/local/sbin/azure_crypt_key.sh, with the content in the following script. Pay attention to the KeyFileName, because it's the passphrase file name used by Azure.
 
     ```
     #!/bin/sh
@@ -345,7 +345,7 @@ Configure encryption to work with Azure by doing the following steps:
     xxx_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
     ```
 
-3. If you are editing *azure_crypt_key.sh* in Windows and you copied it to Linux, run `dos2unix /usr/local/sbin/azure_crypt_key.sh`.
+3. If you're editing *azure_crypt_key.sh* in Windows and you copied it to Linux, run `dos2unix /usr/local/sbin/azure_crypt_key.sh`.
 
 4. Add executable permissions to the script:
  ```
@@ -369,7 +369,7 @@ Configure encryption to work with Azure by doing the following steps:
 
 ### <a name="bkmk_openSUSE"></a>  openSUSE 13.2
 To configure encryption during the distribution installation, do the following steps:
-1. When you partition the disks, select **Encrypt Volume Group**, and then enter a password. This is the password that you will upload to your key vault.
+1. When you partition the disks, select **Encrypt Volume Group**, and then enter a password. This is the password that you'll upload to your key vault.
 
  ![openSUSE 13.2 Setup](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
@@ -377,7 +377,7 @@ To configure encryption during the distribution installation, do the following s
 
  ![openSUSE 13.2 Setup](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
-3. Prepare the VM for uploading to Azure by following the instructions in [Prepare a SLES or openSUSE virtual machine for Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Do not run the last step (deprovisioning the VM) yet.
+3. Prepare the VM for uploading to Azure by following the instructions in [Prepare a SLES or openSUSE virtual machine for Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Don't run the last step (deprovisioning the VM) yet.
 
 To configure encryption to work with Azure, do the following steps:
 1. Edit the /etc/dracut.conf, and add the following line:
@@ -453,7 +453,7 @@ To configure encryption during the distribution installation, do the following s
 
  ![CentOS 7 Setup](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
-5. Prepare the VM for uploading into Azure by using the "CentOS 7.0+" instructions in [Prepare a CentOS-based virtual machine for Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Do not run the last step (deprovisioning the VM) yet.
+5. Prepare the VM for uploading into Azure by using the "CentOS 7.0+" instructions in [Prepare a CentOS-based virtual machine for Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Don't run the last step (deprovisioning the VM) yet.
 
 6. Now you can deprovision the VM and upload your VHD into Azure.
 
@@ -489,7 +489,7 @@ to
 ```
     if [ 1 ]; then
 ```
-4. Edit /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh and append this after the “# Open LUKS device”:
+4. Edit /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh and append the following after the “# Open LUKS device”:
     ```
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -648,7 +648,7 @@ Use `$KeyEncryptionKey` and `$secretUrl` in the next step for [attaching the OS 
 ##  <a name="bkmk_SecretURL"></a> Specify a secret URL when you attach an OS disk
 
 ###  <a name="bkmk_URLnoKEK"></a>Without using a KEK
-While you are attaching the OS disk, you need to pass `$secretUrl`. The URL was generated in the "Disk-encryption secret not encrypted with a KEK" section.
+While you're attaching the OS disk, you need to pass `$secretUrl`. The URL was generated in the "Disk-encryption secret not encrypted with a KEK" section.
 ```powershell
     Set-AzureRmVMOSDisk `
             -VM $VirtualMachine `

@@ -54,11 +54,11 @@ The Azure Disk Encryption solution supports the following customer scenarios:
 * Update encryption settings of an existing encrypted premium and non-premium storage VM
 * Backup and restore of encrypted VMs
 
-The solution supports the following scenarios for IaaS VMs when they are enabled in Microsoft Azure:
+The solution supports the following scenarios for IaaS VMs when they're enabled in Microsoft Azure:
 
 * Integration with Azure Key Vault
 * Standard tier VMs: [A, D, DS, G, GS, F, and so forth series IaaS VMs](https://azure.microsoft.com/pricing/details/virtual-machines/)
-    * [Linux VMs](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) within these tiers must meet the minimum memory requirement of 7GB
+    * [Linux VMs](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) within these tiers must meet the minimum memory requirement of 7 GB
 * Enable encryption on Windows and Linux IaaS VMs, managed disk, and scale set VMs from the supported Azure Gallery images
 * Disable encryption on OS and data drives for Windows IaaS VMs, scale set VMs, and managed disk VMs
 * Disable encryption on data drives for Linux IaaS VMs, scale set VMs, and managed disk VMs
@@ -72,13 +72,13 @@ The solution supports the following scenarios for IaaS VMs when they are enabled
 * Backup and restore of encrypted VMs, for both no-KEK and KEK scenarios (KEK - Key Encryption Key)
 * All Azure Public and AzureGov regions are supported
 
-The solution does not support the following scenarios, features, and technology:
+The solution doesn't support the following scenarios, features, and technology:
 
 * Basic tier IaaS VMs
 * Disabling encryption on an OS drive for Linux IaaS VMs
 * Disabling encryption on a data drive if the OS drive is encrypted for Linux Iaas VMs
 * IaaS VMs that are created by using the classic VM creation method
-* Enable encryption on Linux IaaS VMs customer custom images is not supported.
+* Enabling encryption on Linux IaaS VMs customer custom images
 * Integration with your on-premises Key Management Service
 * Azure Files (shared file system), Network File System (NFS), dynamic volumes, and Windows VMs that are configured with software-based RAID systems
 
@@ -88,7 +88,7 @@ When you enable and deploy Azure Disk Encryption for Azure IaaS VMs, the followi
 * Encryption of the OS volume to protect the boot volume at rest in your storage
 * Encryption of data volumes to protect the data volumes at rest in your storage
 * Disabling encryption on the OS and data drives for Windows IaaS VMs
-* Disabling encryption on the data drives for Linux IaaS VMs (only if OS drive IS NOT encrypted)
+* Disabling encryption on the data drives for Linux IaaS VMs (only if OS drive isn't encrypted)
 * Safeguarding the encryption keys and secrets in your key vault subscription
 * Reporting the encryption status of the encrypted IaaS VM
 * Removal of disk-encryption configuration settings from the IaaS virtual machine
@@ -120,7 +120,7 @@ The Azure Disk Encryption solution is supported on IaaS VMs that are running Win
 
 3. Grant access to the Azure platform to read the encryption-key material (BitLocker encryption keys for Windows systems and Passphrase for Linux) from your key vault to enable encryption on the IaaS VM.
 
-4. Azure updates the VM service model with encryption and the key vault configuration, and sets up your encrypted VM.
+4. Azure updates the VM service model with encryption, the key vault configuration, and sets up your encrypted VM.
 
  ![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig1.png)
 
@@ -129,7 +129,7 @@ To disable disk encryption for IaaS VMs, complete the following high-level steps
 
 1. Choose to disable encryption (decryption) on a running IaaS VM in Azure and specify the decryption configuration. You can disable via the Azure Disk Encryption Resource Manager template, PowerShell cmdlets, or Azure CLI.
 
- This step disables encryption of the OS or the data volume or both on the running Windows IaaS VM. However, as mentioned in the previous section, disabling OS disk encryption for Linux is not supported. The decryption step is allowed only for data drives on Linux VMs as long as the OS disk is not encrypted.
+ This step disables encryption of the OS or the data volume or both on the running Windows IaaS VM. However, as mentioned in the previous section, disabling OS disk encryption for Linux isn't supported. The decryption step is allowed only for data drives on Linux VMs as long as the OS disk isn't encrypted.
 2. Azure updates the VM service model, and the IaaS VM is marked decrypted. The contents of the VM are no longer encrypted at rest.
 
 > [!NOTE]
@@ -140,7 +140,7 @@ Disabling data disk encryption for Linux is not supported if the OS drive is enc
 
 ## Encryption workflow (deprecated)
 
-Starting on the 17th of August 2018, you no longer need to use an Azure AD application when encrypting Iaas VMs. This method is deprecated and will be removed from Azure Disk encryption in the future. To enable disk encryption for Windows and Linux VMs, do the following steps:
+Starting on the August 17, 2018, you no longer need to use an Azure AD application when encrypting Iaas VMs. This method is deprecated and will be removed from Azure Disk encryption in the future. To enable disk encryption for Windows and Linux VMs, do the following steps:
 
 1. Choose an encryption scenario from among the preceding encryption scenarios.
 2. Opt in to enabling disk encryption via the Azure Disk Encryption Resource Manager template, PowerShell cmdlets, or CLI command, and specify the encryption configuration.
