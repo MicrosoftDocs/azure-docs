@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Recognize speech in Java in the Java Run-Time Environment using the Cognitive Services Speech SDK'
+title: 'Quickstart: Recognize speech in Java (Windows or Linux)'
 titleSuffix: "Microsoft Cognitive Services"
-description: Learn how to recognize speech in Java in the Java Run-Time Environment using the Cognitive Services Speech SDK
+description: Learn how to recognize speech in Java (Windows or Linux)
 services: cognitive-services
 author: fmegen
 
@@ -12,7 +12,7 @@ ms.date: 08/16/2018
 ms.author: fmegen
 ---
 
-# Quickstart: Recognize speech in Java in the Java Run-Time Environment
+# Quickstart: Recognize speech in Java (Windows or Linux)
 
 [!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
