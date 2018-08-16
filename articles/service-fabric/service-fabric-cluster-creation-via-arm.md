@@ -52,7 +52,7 @@ You can use a default cluster template or a template that you already have
 
 Use the following command to create cluster, if you want the system to generate a self-signed certificate and use it to secure your cluster. This command sets up a primary cluster certificate that is used for cluster security and to set up admin access to perform management operations using that certificate.
 
-### Sign in to Azure
+#### Sign in to Azure
 
 ```PowerShell
 Connect-AzureRmAccount
