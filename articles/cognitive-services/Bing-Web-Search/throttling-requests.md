@@ -1,5 +1,5 @@
 ---
-title: Throttling requests | Microsoft Docs
+title: Throttling requests to the Bing Web Search API
 titleSuffix: Microsoft Cognitive Services
 description: Bing Web Search SDK for applications that search the web.
 services: cognitive-services
@@ -13,10 +13,10 @@ ms.date: 8/13/2018
 ms.author: erhopf
 ---
 
-# Throttling requests
+# Throttling requests to the Bing Web Search API
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
-## Next steps  
-
 ## See also  
+
+* [Bing Web Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)

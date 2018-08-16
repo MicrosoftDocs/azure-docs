@@ -62,7 +62,7 @@
 - name: Concepts
   items:
   - name: Suggesting search terms
-    href: suggesting-and-using-search-terms.md
+    href: suggest-and-use-bing-search-terms.md
   - name: Search responses
     href: search-responses.md
   - name: Throttling requests

@@ -1,5 +1,5 @@
 ---
-title: Search responses | Microsoft Docs
+title: Bing Web Search responses | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
 description: Bing Web Search SDK for applications that search the web.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 8/13/2018
 ms.author: erhopf
 ---
 
-# Search responses  
+# Bing Web Search responses  
 
 When you send Bing a search request, it sends back a response that contains a [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) object in the body of the response. The object includes a field for each answer that Bing thought was relevant to the user's query term. The following shows an example of the response object if Bing returned all answers.
 
@@ -430,4 +430,8 @@ The following shows how Bing uses the spelling suggestion.
 
 ## Next steps  
 
+* Review [request throttling](throttling-request.md) documentation.  
+
 ## See also  
+
+* [Bing Web Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
