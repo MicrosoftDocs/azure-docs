@@ -9,7 +9,8 @@ editor: ''
 
 ms.assetid: 628da2ae-64cc-42e0-b8b7-a6a3724cb974
 ms.service: azure-stack
-ms.workload: na
+ms.technology: vs-azure
+ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article

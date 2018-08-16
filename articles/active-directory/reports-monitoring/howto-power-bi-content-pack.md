@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.component: compliance-reports
+ms.component: report-monitor
 ms.date: 12/06/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk

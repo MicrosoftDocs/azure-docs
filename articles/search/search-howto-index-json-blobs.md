@@ -31,7 +31,7 @@ Indexing JSON blobs is similar to the regular document extraction in a three-par
 ### Step 1: Create a data source
 
 The first step is to provide data source connection information used by the indexer. 
-The data source type, specified here as `azureblob`, determines which data extraction behaviors are invoked by the indexer. For JSON blob indexing, data source is definition is the same for both JSON documents and arrays. 
+The data source type, specified here as `azureblob`, determines which data extraction behaviors are invoked by the indexer. For JSON blob indexing, data source definition is the same for both JSON documents and arrays. 
 
     POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
@@ -72,7 +72,7 @@ By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage
     {
         "article" : {
             "text" : "A hopefully useful article explaining how to parse JSON blobs",
-            "datePublished" : "2016-04-13"
+            "datePublished" : "2016-04-13",
             "tags" : [ "search", "storage", "howto" ]    
         }
     }

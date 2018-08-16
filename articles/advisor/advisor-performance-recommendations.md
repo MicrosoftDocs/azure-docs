@@ -3,7 +3,7 @@ title: Azure Advisor Performance recommendations | Microsoft Docs
 description: Use Advisor to optimize the performance of your Azure deployments.
 services: advisor
 documentationcenter: NA
-author: KumudD
+author: manbeenkohli
 manager: carmonm
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumud
+ms.author: makohli
 ---
 
 # Advisor Performance recommendations

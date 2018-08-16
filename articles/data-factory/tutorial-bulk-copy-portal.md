@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Copy data in bulk using Azure Data Factory | Microsoft Docs'
 description: 'Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.'
 services: data-factory
@@ -260,7 +260,7 @@ The  **GetTableListAndTriggerCopyData** takes a list of tables as a parameter. F
     1. Click input box for the VALUE of DWTableName parameter -> select the **Add dynamic content** below, enter `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` expression as script, -> select **Finish**.
     1. Expand **Polybase Settings**, and select **Allow polybase**. 
     1. Clear the **Use Type default** option. 
-    1. Click the **Cleanup Script** input box -> select the **Add dynamic content** below -> enter the following expression as script -> select **Finish**. 
+    1. Click the **Pre-copy Script** input box -> select the **Add dynamic content** below -> enter the following expression as script -> select **Finish**. 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]

@@ -68,7 +68,7 @@ sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 
 ## Install DC/OS CLI
 
-Install the DC/OS cli using the [az acs dcos install-cli](/azure/acs/dcos#install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
+Install the DC/OS cli using the [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
 
 ```azurecli
 az acs dcos install-cli

@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/09/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -23,7 +23,7 @@ ms.reviewer: waltero
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!note]  
-> The Azure Container Services (ACS) Kubernetes on Azure Stack is in private preview. To request access to the Kubernetes Marketplace item needed to perform the instructions in this article, [submit a request to get access](https://aka.ms/azsk8).
+> The Azure Kubernetes Services (AKS) Kubernetes on Azure Stack is in private preview. To request access to the Kubernetes Marketplace item needed to perform the instructions in this article, [submit a request to get access](https://aka.ms/azsk8).
 
 You can offer a Kubernetes Cluster as a Marketplace item to your users. Your users can deploy Kubernetes in a single, coordinated operation.
 

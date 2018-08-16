@@ -35,7 +35,7 @@ The Speech service is made available in two ways. [The SDK](speech-sdk.md) abstr
 
 |<br>Method|Speech<br>to Text|Text to<br>Speech|Speech<br>Translation|<br>Description|
 |-|-|-|-|-|
-|[SDKs](speech-sdk.md)|Yes|No|Yes|Libraries for specific programming languages that simplify development.|
+|[SDKs](speech-sdk.md)|Yes|No|Yes|Libraries for specific programming languages, utilize Websocket-based procotol that simplify development.|
 |[REST](rest-apis.md)|Yes|Yes|No|A simple HTTP-based API that makes it easy to add speech to your application.|
 
 ## Next steps
