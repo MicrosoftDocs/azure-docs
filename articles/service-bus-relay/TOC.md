@@ -12,7 +12,6 @@
 ### [.NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 ### [Node Websockets](relay-hybrid-connections-node-get-started.md)
 ### [Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
-## [WCF Relay](relay-wcf-dotnet-get-started.md)
 ## [WCF Relay tutorial](service-bus-relay-tutorial.md)
 ## [WCF Relay REST tutorial](service-bus-relay-rest-tutorial.md)
 
@@ -22,6 +21,7 @@
 #### [Migrate from ACS to SAS](relay-migrate-acs-sas.md)
 ### [Hybrid Connections protocol](relay-hybrid-connections-protocol.md)
 ## Develop
+### [Use WCF Relay to expose WCF services to external clients](relay-wcf-dotnet-get-started.md)
 ### [Available APIs](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
