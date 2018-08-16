@@ -87,7 +87,7 @@ In this section, you will enable and disable the system assigned identity using 
             }
    ```
 
-4. When you're done, your template should look similar to the following:
+4. When you're done, the following sections should added to the resource section of your template  and should resemble the following:
 
    ```json
     "resources": [
@@ -101,7 +101,7 @@ In this section, you will enable and disable the system assigned identity using 
                 "type": "SystemAssigned",
             },
            "properties": {
-                //other virtual machine properties...
+                //other resource provider properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
                     "extensionProfile": {
@@ -132,15 +132,15 @@ If you have a virtual machine scale set that no longer needs a managed service i
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 
-2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. 
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. If you have a VM that only has system assigned identity, you can disable it by changing the identity type to `None`.
 
-   **API VERSION 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
 
    If your apiVersion is `2018-06-01` and your VM has both system and user assigned identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the userAssignedIdentities dictionary values.
 
-   **API VERSION 2017-12-01 and earlier**
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01 and earlier**
 
-   If your apiVersion is `2017-12-01` and your VM has both system and user assigned identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user assigned identities. 
+   If your apiVersion is `2017-12-01` and your virtual machine scale set has both system and user assigned identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user assigned identities. 
    
     
 
@@ -169,7 +169,7 @@ In this section, you assign a user assigned identity to a virtual machine scale 
 
 1. Under the `resources` element, add the following entry to assign a user assigned identity to your virtual machine scale set.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user assigned identity you created.
    
-   **API VERSION 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
 
    If your apiVersion is `2018-06-01`, your user assigned identities are stored in the `userAssignedIdentities` dictionary format and the `<USERASSIGNEDIDENTITYNAME>` value must be stored in a variable defined in the `variables` section of your template.
 
@@ -188,7 +188,7 @@ In this section, you assign a user assigned identity to a virtual machine scale 
    }
    ```   
 
-   **API VERSION 2017-12-01 and earlier**
+   **Microsoft.Compute/virtualMachineScaleSets API version 2017-12-01**
     
    If your `apiVersion` is `2017-12-01` or earlier, your user assigned identities are stored in the `identityIds` array and the `<USERASSIGNEDIDENTITYNAME>` value must be stored in a variable defined in the variables section of your template.
 
@@ -229,7 +229,7 @@ In this section, you assign a user assigned identity to a virtual machine scale 
 
 3. When you are done, your template should look similar to the following:
    
-   **API VERSION 2018-06-01**   
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**   
 
    ```json
    "resources": [
@@ -271,7 +271,7 @@ In this section, you assign a user assigned identity to a virtual machine scale 
     ]
    ```
 
-   **API VERSION 2017-12-01  and earlier**
+   **Microsoft.Compute/virtualMachines API version 2017-12-01 eand earlier**
 
    ```json
    "resources": [
@@ -318,13 +318,9 @@ If you have a virtual machine scale set that no longer needs a managed service i
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 
-2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. If you have a virtual machine scale set that only has user assigned identity, you can disable it by changing the the identity type to `None`.  
-   
-   **API VERSION 2018-06-01**
-   
-   If your virtual machine scale set has both system and user assigned identities and you would like to keep system assigned identity, remove `UserAssigned` from the identity type along with the entire `userAssignedIdentities` dictionary (including the `userAssignedIdentities` value) that contains the user assigned identities values.
-    
-   To remove a a single user assigned identity from a virtual machine scale set, remove it from the `userAssignedIdentities` dictionary.
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. If you have a virtual machine scale set that only has user assigned identity, you can disable it by changing the the identity type to `None`.
+
+   The following example shows you how remove all user assigned identities from a VM with no system assigned identities:
 
    ```json
    {
@@ -336,26 +332,19 @@ If you have a virtual machine scale set that no longer needs a managed service i
         }
    }
    ```
+   
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
+    
+   To remove a a single user assigned identity from a virtual machine scale set, remove it from the `userAssignedIdentities` dictionary.
 
-   **API VERSION 2017-12-01 and earlier**
+   If you have a system assigned identity, keep it in the in the `type` value under the `identity` value.
 
-   If your virtual machine scale set has both system and user assigned identities and you would like to keep system assigned identity, remove `UserAssigned` from the identity type along with the `identityIds` (including the `identityIDs value )array of user assigned identities.
+   **Microsoft.Compute/virtualMachineScaleSets API version 2017-12-01**
 
    To remove a single user assigned identity from a virtual machine scale set, remove it from the `identityIds` array.
-   
-   The following example shows you how to remove all user assigned identities from a virtual machine scale set with no system assigned identities:
-   
-   ```json
-   {
-       "name": "[variables('vmssName')]",
-       "apiVersion": "2017-12-01",
-       "location": "[parameters(Location')]",
-       "identity": {
-           "type": "None"
-        }
-   }
-   ```
 
+   If you have a system assigned identity, keep it in the in the `type` value under the `identity` value.
+   
 ## Next steps
 
 - For a broader perspective about Managed Service Identity, read the [Managed Service Identity overview](overview.md).

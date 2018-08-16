@@ -183,7 +183,7 @@ In this section, you learn how to add and remove user assigned identity on a vir
 
 2.  Create a user assigned identity using the instructions found here, [Create a user assigned managed identity](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
-3. To ensure you don't delete existing user or system assigned managed identities that are assigned to the virtual machine scale set, you need to list the identity types assigned to the virtual machine scale set by using the following CURL command. If you have managed identities assigned to the virtual machine scale set, they are listed under in the `identity` value.
+3. To ensure you don't delete existing user or system assigned managed identities that are assigned to the virtual machine scale set, you need to list the identity types assigned to the virtual machine scale set by using the following CURL command. If you have managed identities assigned to the virtual machine scale set, they are listed in the `identity` value.
  
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -205,17 +205,23 @@ In this section, you learn how to add and remove user assigned identity on a vir
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
-5. If you have user or system assigned identities assigned to your virtual machine scale set, you need to add the new user assigned identity to `identityIDs` array, while also retaining the user and system assigned identities that are currently assigned to the virtual machine scale set.
-
-   For example, if you have system assigned identity and user assigned identity `ID1` currently assigned to your virtual machine scale set and would like to add the user identity `ID2` to it, use the following CURL command. Replace `<ACCESS TOKEN>` with the value you received in the steps when you requested a Bearer access token and the `<SUBSCRIPTION ID>` value as appropriate for your environment.
-
+5. If you have an existing user assigned or system assigned identity assigned to your virtual machine scale set:
+   
    **API VERSION 2018-06-01**
+
+   Add the user assigned identity to the `userAssignedIdentities` dictionary value.
+
+   For example, if you have system assigned identity and the user assigned identity `ID1` currently assigned to your virtual machine scale and would like to add the user assigned identity `ID2` to it:
 
    ```bash
    curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
    **API VERSION 2017-12-01 and earlier**
+
+   Retain the user assigned identities you would like to keep in the `identityIds` array value while adding the new user assigned identity.
+
+   For example, if you have system assigned identity and the user assigned identity `ID1` currently assigned to your virtual machine scale set and would like to add the user identity `ID2` to it: 
 
    ```bash
    curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -237,15 +243,19 @@ In this section, you learn how to add and remove user assigned identity on a vir
    
    If you have managed identities assigned to the VM, they are listed in the response in the `identity` value. 
     
-   For example, if you have user assigned identities `ID1` and `ID2` assigned to your virtual machine scale set, and would only like to keep `ID1` assigned and retain the system assigned identity, you would use the same CURL command as assigning a user assigned managed identity to a virtual machine scale set only keeping the `ID1` value and keep the `SystemAssigned` value. This removes the `ID2` user assigned identity from the virtual machine scale while retaining the system assigned identity.
+   For example, if you have user assigned identities `ID1` and `ID2` assigned to your virtual machine scale set, and you only want to keep `ID1` assigned and retain the system assigned identity:
 
    **API VERSION 2018-06-01**
+
+   Add `null` to the user assigned identity you would like to remove:
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourcegroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
-   **API VERSION 2017-12-01 and earlier**   
+   **API VERSION 2017-12-01 and earlier**
+
+   Retain only the user assigned identity(s) you would like to keep in the `identityIds` array:   
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned","UserAssigned", "identityIds":["/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourcegroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
