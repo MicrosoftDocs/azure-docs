@@ -19,11 +19,11 @@ ms.author: wolfma
 
 **New features**
 
-* Experimental: Support Java 8 on Windows (64-bit) and Linux (64-bit).
-  Check out the [Java Run-Time Environment quickstart](quickstart-java-jre.md)
 * UWP apps built with the Speech SDK can now pass the Windows App Certification Kit (WACK).
   Check out our [UWP quickstart](quickstart-csharp-uwp.md).
-* Support for .NET Standard 2.0 on Linux.
+* Support for .NET Standard 2.0 on Linux (Ubuntu 16.04 x64).
+* Experimental: Support Java 8 on Windows (64-bit) and Linux (Ubuntu 16.04 x64).
+  Check out the [Java Run-Time Environment quickstart](quickstart-java-jre.md)
 
 **Functional changes**
 
@@ -31,7 +31,7 @@ ms.author: wolfma
 
 **Breaking changes**
 
-* On Java (Android), the `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` function no longer requires a path parameter. Is now automatically detected on all supported platforms.
+* On Java (Android), the `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` function no longer requires a path parameter. The path is now automatically detected on all supported platforms.
 * The get-accessor of the property `EndpointUrl` in Java and C# was removed.
 
 **Bug fixes**
