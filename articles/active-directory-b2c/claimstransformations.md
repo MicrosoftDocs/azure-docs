@@ -126,8 +126,8 @@ For example, you may store the last version of your terms of services (TOS) user
       <DataType>string</DataType>
     </ClaimType>
   </ClaimsSchema>
-	
-	<ClaimsTransformations>
+
+  <ClaimsTransformations>
     <ClaimsTransformation Id="HasAgeGroupValueChanged" TransformationMethod="CompareClaims">
       <InputClaims>
         <InputClaim ClaimTypeReferenceId="TOSVersion" TransformationClaimType="inputClaim1" />
@@ -140,8 +140,8 @@ For example, you may store the last version of your terms of services (TOS) user
         <OutputClaim ClaimTypeReferenceId="TOSVersionChanged" TransformationClaimType="outputClaim" />
       </OutputClaims>
     </ClaimsTransformation>
-	</ClaimsTransformations>
-	</BuildingBlocks>
+  </ClaimsTransformations>
+</BuildingBlocks>
 ```
 
 For examples of claims transformations, see the following reference pages:
