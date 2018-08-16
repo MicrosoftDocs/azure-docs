@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 08/03/2018
 ms.author: kegodin
 ---
-# Acoustics Frequently Asked Questions
+# Frequently Asked Questions
 
 ## What is Project Acoustics?
 
-The Unity plugin provided with Project Acoustics is an acoustics system that calculates sound wave behavior prior to runtime, akin to static lighting. The cloud does the heavy lifting of wave physics at design time, so runtime CPU cost is low.  
+The Project Acoustics Unity plugin is an acoustics system that calculates sound wave behavior prior to runtime, akin to static lighting. The cloud does the heavy lifting of wave physics at design time, so runtime CPU cost is low.  
 
 ## Where can I download the plugin?
 
@@ -24,9 +24,9 @@ If you're interested in evaluating the acoustics plugin, register [here](https:/
 
 No, cloud integration is used only during the precompute stage at design time.
  
-## What is the input and how does it work? 
+## What is simulation input? 
 
-The input is your 3D scene, virtual environment or game level. Project Acoustics performs thousands of 3D volumetric wave simulations that model the physics of sound closely, including smooth occlusion and scattering.
+The simulation input is your 3D scene, virtual environment or game level. Project Acoustics performs 3D volumetric wave simulations that model the physics of sound closely, including smooth occlusion and scattering.
  
 ## What is the runtime cost?
 
@@ -36,40 +36,30 @@ Acoustics takes about 0.01% of CPU per source per frame. RAM usage depends on sc
 
 No. The system will ingest detailed level geometry directly. It will be voxelized for internal processing.
  
-## What's in the data?
+## What's in the runtime lookup table?
 
-The ACE file is a table of possible acoustics between numerous possible source locations for thousands of possible player "probe" locations.
+The ACE file is a table of acoustic parameters between numerous source and listener location pairs.
  
 ## Can it handle moving sources?
 
-Yes, the spatializer plugin consults the lookup table on each frame with the updated source and listener locations. The spatializer's DSP smoothly updates the acoustic processing parameters on each frame.
+Yes, the **Microsoft Acoustics** Unity spatializer plugin consults the lookup table on each audio processing tick with the current source and listener locations. The spatializer's DSP smoothly updates the acoustic processing parameters on each tick.
  
 ## Can it handle dynamic geometry? Closing doors? Walls blown away?
 
-No. The acoustic parameters are precomputed based on the static state of a game level. We suggest leaving door geometry out of acoustics, and then apply additional occlusion based on state of destructible/movable game objects using established game logic approaches.
+No. The acoustic parameters are precomputed based on the static state of a game level. We suggest leaving door geometry out of acoustics, and then apply additional occlusion based on the state of destructible and movable game objects using established techniques.
  
 ## Does it handle materials?
 
-Yes. Materials are picked from the physical material names in your level driving absorptivity.
+Yes. Materials are picked from the physical material names in your level, driving absorptivity.
  
 ## What do the "probes" represent?
 
-These sample possible player locations. For each probe, there is volumetric 3D data that determines where possible source locations are calculated.
+Probes are a sampling of possible player locations. Each probe represents a separate wave simulation of the scene originating at the probe location. At runtime, acoustic parameters for the listener location are interpolated from nearby probe locations.
  
 ## Why spend so much compute in the cloud? What does it buy me?
 
-Project Acoustics provides accurate and reliable acoustic parameters even for ultra-complex virtual environments, taking every architectural aspect into account. It provides smooth occlusion/obstruction without all the manual work and dynamic reverb variation without drawing volumes. All while remaining light on CPU during runtime.. Smooth occlusion/obstruction without manual work. Dynamic reverb variation without drawing volumes. While still remaining light on CPU during runtime. 
+Project Acoustics provides accurate and reliable acoustic parameters even for ultra-complex virtual environments, taking every architectural aspect into account. It provides smooth occlusion/obstruction without all the manual work and dynamic reverb variation without drawing volumes. All while remaining light on CPU during runtime.
 
 ## What exactly happens during "baking"?
 
-The system considers potential player locations to generate a set of uniformly spaced “probe” sample positions. A job for a level consists of independent tasks for probe: The system considers a cylindrical “Simulation Region” centered at the probe and does a detailed wave simulation within that region at 25cm resolution. Each simulation takes about 15mins, for a region of radius 45 meter and 10-20 meters total height. Intuitively, only geometry in the simulation region around the player causes occlusion/reverb.
-
-To use Project Acoustics on Android, change your build target to Android. Some versions of Unity have a bug with deploying audio plugins -- make sure you are not using a version affected by [this bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).
-
-## I get an error that 'could not find metadata file System.Security.dll'
-
-Ensure the Scripting Runtime Version in Player settings is set to '.NET 4.x Equivalent', and restart Unity.
-
-## I'm having authentication problems when connecting to Azure
-
-Double-check you've used the correct credentials for your Azure account, that your account supports the type of node requested in the bake, and that your system clock is accurate.
+The system considers potential player locations to generate a set of uniformly spaced "probe" sample positions. A bake for a level consists of independent tasks for each probe: The system considers a cuboid "Simulation Region" centered at the probe and does a detailed wave simulation within that region at up to 25 cm resolution.

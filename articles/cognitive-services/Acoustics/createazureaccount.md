@@ -46,3 +46,12 @@ Click on the **Storage Account** link on the page to access your Azure Storage a
   ![Storage Account Credentials](media/StorageKeysInfo.png)
 
 Enter these credentials in the Bake tab as described in the [bake UI walkthrough](bakeuiwalkthrough.md).
+
+## Node types and region support
+Project Acoustics requires F- and H-series compute optimized Azure VM nodes which may not be supported in all Azure regions. Please check [this table](https://azure.microsoft.com/en-us/global-infrastructure/services)
+to ensure you're picking the right location for your Batch account. At this moment H series virtual machines are supported in East US, North Central US, South Central US, West US, West US 2, North Europe, West Europe and Japan West.
+
+## Upgrading your quota
+Azure Batch accounts are provisioned on account creation with a limit of 20 compute cores. You may want to increase this limit for faster bake times, because you can parallelize your acoustics workload across many nodes, up to the number of probe points in your scene. You can request a quota increase by clicking on the **Quota** link on your Azure Batch portal page and then clicking on **Request Quota Increase**:
+
+![Azure Quota Increase](azurequotas.png)

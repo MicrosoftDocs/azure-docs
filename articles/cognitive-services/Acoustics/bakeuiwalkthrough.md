@@ -101,13 +101,7 @@ Once your objects are marked, click the **Materials** button to go to the Materi
 6. Shows the acoustic material that the scene material has been assigned to. Click a dropdown to reassign a scene material to a different acoustic material. You can change the sorting order of the menu shown when you click an item here using the **Sort Acoustics By:** options above (#4).
 7. Shows the acoustic absorption coefficient of the material selected in the previous column. A value of zero means perfectly reflective (no absorption), while a value of 1 means perfectly absorptive (no reflection). 
 The absorption coefficient can't be changed unless the selected material is "Custom".
-8. For a material assigned to "Custom", the slider is no longer disabled and you can choose the absorption coefficient using the slider or by typing in a value.
-
-The reverberation time of a given material in a room is inversely related to its absorption coefficient, with most materials having absorption values in the 0.01 to 0.20 range. Anything above that is a material that is pretty absorbent.
-
-![Reverb Time Graph](media/ReverbTimeGraph.png)
-
-For some thoughts on choosing material properties, see [Design Process Overview for Acoustics](designprocess.md).
+8. For a material assigned to "Custom", the slider is no longer disabled and you can choose the absorption coefficient using the slider or by typing in a value. For more information on material properties, see [Design Process Overview for Acoustics](designprocess.md).
 
 ### Guidelines for assigning materials (or absorption values)
 

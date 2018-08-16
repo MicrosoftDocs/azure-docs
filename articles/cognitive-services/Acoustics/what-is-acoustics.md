@@ -12,7 +12,7 @@ ms.author: kegodin
 ---
 
 # What is Project Acoustics?
-The Unity plugin from Project Acoustics provides occlusion, reverberation, and spatialization for titles targeting VR and traditional screens. It provides a way to design game acoustics that layers designer intentions over a physics-based wave simulation.
+The Project Acoustics Unity plugin provides occlusion, reverberation, and spatialization for titles targeting VR and traditional screens. It provides a way to design game acoustics that layers designer intentions over a physics-based wave simulation.
 
 ## Why use acoustics in virtual environments?
 Humans use audio-visual cues to understand the world around them. In virtual worlds, combining spatial audio with acoustics increases user immersion. The acoustics tool described here analyzes virtual worlds to create a realistic acoustic simulation, and supports a post-simulation design process. The analysis includes both the geometry and the materials for each surface in the world. The simulation includes parameters such as arrival direction (portaling), reverb power, decay times, and occlusion and obstruction effects.
