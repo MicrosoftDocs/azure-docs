@@ -41,10 +41,7 @@
     - name: Configure an environment
       href: how-to-configure-environment.md
   - name: Set up training environments	
-    items:    
-    - name: VMs (Data Science/Deep Learning) 
-    - name: Azure Batch AI clusters
-    - name: Azure Container Instances
+    href: how-to-set-up-training-targets.md
   - name: Train and tune models
     items:    
     - name: Choose an ML algorithm	
