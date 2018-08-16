@@ -97,9 +97,9 @@ Run the following PowerShell script to install these modules on your development
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session. 
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force 
 
-# Install Module Version 1.4.0 if Azure Stack is running 1804 at a minimum 
-Install-Module -Name AzureStack -RequiredVersion 1.4.0 
-
+    # Install Module Version 1.4.0 if Azure Stack is running 1804 at a minimum 
+    Install-Module -Name AzureStack -RequiredVersion 1.4.0
+    ```
 
 - **Version 1.2.11** (before 1804)
 
