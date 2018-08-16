@@ -125,6 +125,10 @@ No. You can't update the computer name property. The new VM inherits it from the
 
 No.
 
+**When creating a disk from a blob, is there any continually existing relationship with that source blob?**
+
+No, when the new disk is created it is a full standalone copy of that blob at that time and there is no connection between the two. If you like, once you've created the disk, the source blob may be deleted without affecting the newly created disk in any way.
+
 ## Standard SSD disks (Preview)
 
 **What are Azure Standard SSD disks?**
@@ -205,10 +209,6 @@ Yes. Currently, Azure Site Recovery Azure to Azure protection for VMs with Manag
 **Can I migrate VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
 
 Yes
-
-**When creating a disk from a blob, is there any continually existing relationship with that source blob?**
-
-No, when the new disk is created it is a full standalone copy of that blob at that time and there is no connection between the two. If you like, once you've created the disk, the source blob may be deleted without affecting the newly created disk in any way.
 
 ## Managed Disks and Storage Service Encryption
 
