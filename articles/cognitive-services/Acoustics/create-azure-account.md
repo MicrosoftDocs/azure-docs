@@ -15,10 +15,10 @@ ms.author: kegodin
 Follow this guide for setting up Azure Batch and Storage accounts necessary for working with acoustics. For information about the Unity plugin developed as part of Project Acoustics, see [What is acoustics](what-is-acoustics.md). For information about how to incorporate acoustics into your Unity project, see [Getting Started](getting-started.md).  
 
 ## Get an Azure subscription
-An [Azure Subscription](https://azure.microsoft.com/en-us/free/) is required before setting up Batch and Storage accounts. If you're signing up for the first time, Azure provides a few time-limited free resources and $200 credit.
+An [Azure Subscription](https://azure.microsoft.com/free/) is required before setting up Batch and Storage accounts. If you're signing up for the first time, Azure provides a few time-limited free resources and $200 credit.
 
 ## Create Azure Batch and storage accounts
-Next, follow [these instructions](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal) to set up your Azure Batch and associated Azure Storage accounts.
+Next, follow [these instructions](https://docs.microsoft.com/azure/batch/batch-account-create-portal) to set up your Azure Batch and associated Azure Storage accounts.
 
 Pick default options for both Batch and Storage accounts:
   
@@ -48,7 +48,7 @@ Click on the **Storage Account** link on the page to access your Azure Storage a
 Enter these credentials in the Bake tab as described in the [bake UI walkthrough](bake-ui-walkthrough.md).
 
 ## Node types and region support
-Project Acoustics requires F- and H-series compute optimized Azure VM nodes which may not be supported in all Azure regions. Please check [this table](https://azure.microsoft.com/en-us/global-infrastructure/services)
+Project Acoustics requires F- and H-series compute optimized Azure VM nodes which may not be supported in all Azure regions. Please check [this table](https://azure.microsoft.com/global-infrastructure/services)
 to ensure you're picking the right location for your Batch account. At this moment H series virtual machines are supported in East US, North Central US, South Central US, West US, West US 2, North Europe, West Europe and Japan West.
 
 ## Upgrading your quota
