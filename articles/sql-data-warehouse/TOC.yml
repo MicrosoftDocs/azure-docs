@@ -39,10 +39,6 @@
       href: quickstart-scale-compute-powershell.md
     - name: T-SQL
       href: quickstart-scale-compute-tsql.md
-- name: Tutorials
-  items:
-  - name: 1 - Load WideWorldImporters
-    href: load-data-wideworldimportersdw.md
 - name: Concepts
   items:
   - name: Security
@@ -193,6 +189,8 @@
       href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
     - name: SSIS
       href: /sql/integration-services/load-data-to-sql-data-warehouse
+    - name: Load WideWorldImporters
+      href: load-data-wideworldimportersdw.md
   - name: Develop
     items:
     - name: Overview
