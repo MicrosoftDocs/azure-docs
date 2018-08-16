@@ -50,7 +50,8 @@ This tutorial illustrates how you could use CycleCloud Projects to install [Salm
 
 ## Installing Salmon using CycleCloud Projects
 
-> [!NOTE] The recommended process for installing Salmon is using [Bioconda](https://bioconda.github.io/), a Conda channel for packaging bioinformatics tools. Azure CycleCloud comes with an Anaconda project/cluster type that makes this process simple. However, for the purposes of this tutorial, we will set up and install Salmon from scratch.
+> [!NOTE]
+> The recommended process for installing Salmon is using [Bioconda](https://bioconda.github.io/), a Conda channel for packaging bioinformatics tools. Azure CycleCloud comes with an Anaconda project/cluster type that makes this process simple. However, for the purposes of this tutorial, we will set up and install Salmon from scratch.
 
 ### Set Up a New Project
 

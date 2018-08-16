@@ -18,6 +18,8 @@
   items:
   - name: Modify a Cluster Template
     href: ~/tutorials/modify-cluster-template.md
+  - name: Deploy a Custom Application
+    href: ~/tutorials/deploy-custom-application.md
 - name: Concepts
   items:
   - name: Clusters and Nodes
