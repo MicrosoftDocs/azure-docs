@@ -545,6 +545,8 @@
           href: service-fabric-cluster-creation-via-portal.md
         - name: Azure Resource Manager
           href: service-fabric-cluster-creation-via-arm.md
+        - name: Set up Azure Active Directory authentication
+          href: service-fabric-cluster-creation-setup-aad.md
         - name: Cluster using certificate common name
           href: service-fabric-create-cluster-using-cert-cn.md
       - name: Scale
