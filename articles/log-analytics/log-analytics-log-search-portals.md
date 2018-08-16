@@ -1,5 +1,5 @@
 ---
-title: Portals for creating and editing log queries in Azure Log Analytics | Microsoft Docs
+title: Viewing and analyzing data in Log Analytics | Microsoft Docs
 description: This article describes the portals that you can use in Azure Log Analytics to create and edit log searches.  
 services: log-analytics
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.author: magoedte; bwren
 ms.component: na
 ---
 
-# Viewing and analyzing Azure logs
-There are two options available in the Azure portal for analyzing log data collected by Azure Monitor and for creating queries for ad hoc analysis. The queries that you create using these tools can be used in other locations in the portal such as alerts and dashboards.
+# Viewing and analyzing data in Log Analytics
+There are two options available in the Azure portal for analyzing data stored in Log analytics and for creating queries for ad hoc analysis. The queries that you create using these portals can be used for other features such as alerts and dashboards.
 
-## Log explorer (preview)
-Log explorer is new experience for working with log data and creating queries. You can get an introduction to this portal and inspect its features at [Get started with the Azure Monitor Log explorer](query-language/get-started-analytics-portal.md).
+## Log Analytics page (preview)
+The Log Analytics page is new experience for working with log data and creating queries. You can get an introduction to this portal and inspect its features at [Get started with the Log Analytics page in the Azure portal](query-language/get-started-analytics-portal.md).
 
-Log explorer provides the following improvements over the [Log search](#log-search) experience.
+The Log Analytics page provides the following improvements over the [Log search](#log-search) experience.
 
 * Multiple tabs – create separate tabs to work with multiple queries.
 * Rich visualizations – variety of charting options.
@@ -36,7 +36,7 @@ Log explorer provides the following improvements over the [Log search](#log-sear
 * Column selection – sort and group columns in the query results.
 
 > [!NOTE]
-> Log explorer has the same functionality as the Advanced Analytics portal which is an external tool outside of the Azure portal. The Advanced Analytics portal is still available, but links and other references to it in the Azure portal are being replaced with Log explorer.
+> The Log Analytics page has the same functionality as the Advanced Analytics portal which is an external tool outside of the Azure portal. The Advanced Analytics portal is still available, but links and other references to it in the Azure portal are being replaced with Log explorer.
 
 ![Advanced Analytics portal](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
