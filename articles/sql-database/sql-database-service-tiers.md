@@ -6,7 +6,7 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 08/14/2018
 manager: craigg
 ms.author: carlrab
 
@@ -154,18 +154,6 @@ The pacing delay (in step 2c) is selected at random, but with a distribution tha
 The number of users is determined by the database size (in scale-factor units). There is one user for every five scale-factor units. Because of the pacing delay, one user can generate at most one transaction per second, on average.
 
 For example, a scale-factor of 500 (SF=500) database will have 100 users and can achieve a maximum rate of 100 TPS. To drive a higher TPS rate requires more users and a larger database.
-
-The table below shows the number of users actually sustained for each service tier and performance level.
-
-| Service Tier (Performance Level) | Users | Database Size |
-| --- | --- | --- |
-| Basic |5 |720 MB |
-| Standard (S0) |10 |1 GB |
-| Standard (S1) |20 |2.1 GB |
-| Standard (S2) |50 |7.1 GB |
-| Premium (P1) |100 |14 GB |
-| Premium (P2) |200 |28 GB |
-| Premium (P6) |800 |114 GB |
 
 ### Measurement duration
 A valid benchmark run requires a steady-state measurement duration of at least one hour.

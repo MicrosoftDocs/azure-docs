@@ -21,7 +21,8 @@ Azure Site Recovery Mobility Service is installed on VMware VMs and physical ser
 
 
 >[!IMPORTANT]
-> Beginning with version 9.7.0.0, on Windows VMs, the Mobility Service installer also installs the latest available [Azure VM agent](../virtual-machines/extensions/features-windows.md#azure-vm-agent). When a computer fails over to Azure, the computer meets the agent installation prerequisite for using any VM extension.
+> Beginning with version 9.7.0.0, **on Windows VMs**, the Mobility Service installer also installs the latest available [Azure VM agent](../virtual-machines/extensions/features-windows.md#azure-vm-agent). When a computer fails over to Azure, the computer meets the agent installation prerequisite for using any VM extension.
+> </br>On **Linux VMs**, WALinuxAgent has to be manually installed.
 
 ## Prerequisites
 Complete these prerequisite steps before you manually install Mobility Service on your server:

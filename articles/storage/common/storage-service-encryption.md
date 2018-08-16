@@ -3,12 +3,11 @@ title: Azure Storage Service Encryption for data at rest | Microsoft Docs
 description: Use the Azure Storage Service Encryption feature to encrypt Azure Managed Disks, Azure Blob storage, Azure Files, Azure Queue storage, and Azure Table storage on the service side when storing the data, and decrypt it when retrieving the data.
 services: storage
 author: lakasa
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
+ms.component: common
 ---
 
 # Azure Storage Service Encryption for data at rest

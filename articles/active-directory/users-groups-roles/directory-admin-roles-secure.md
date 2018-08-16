@@ -377,7 +377,7 @@ Determine if you need to [transfer ownership of an Azure subscription to another
 
 4. Get help from Microsoft by [opening an Azure support request](../../azure-supportability/how-to-create-azure-support-request.md).
 
-5. Look at the [Azure AD sign-in reports](../active-directory-reporting-azure-portal.md). There may be a lag between an event occurring and when it is included in the report.
+5. Look at the [Azure AD sign-in reports](../reports-monitoring/overview-reports.md). There may be a lag between an event occurring and when it is included in the report.
 
 6. For hybrid environments, if federated and your AD FS server isn’t available, you may need to temporarily switch from federated authentication to use password hash sync. This reverts the domain federation back to managed authentication until the AD FS server becomes available.
 

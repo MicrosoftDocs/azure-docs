@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/30/2018
-ms.author: sethm
+ms.author: shvija
 
 ---
 

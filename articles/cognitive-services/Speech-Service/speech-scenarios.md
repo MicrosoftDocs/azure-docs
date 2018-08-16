@@ -2,13 +2,13 @@
 title: Azure Cognitive Services Speech Scenarios
 description: Scenarios
 services: cognitive-services
-author: PanosPeriorellis
+author: v-jerkin
 
 ms.service: cognitive-services
 ms.technology: Speech to Text
 ms.topic: article
 ms.date: 07/02/2018
-ms.author: panosper
+ms.author: v-jerkin
 ---
 
 # Speech Scenarios
@@ -39,7 +39,7 @@ Call centers accumulate large quantities of audio. Hidden within those audio fil
 
 The best starting point is the [Batch transcription API](batch-transcription.md) along with related [Sample](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
-You will need to first obtain an [Azure Subscription key](https://azure.microsoft.com/try/cognitive-services/) and then you will need to consult the [documentation]([Batch transcription API](batch-transcription.md)).
+You will need to first obtain an [Azure Subscription key](https://azure.microsoft.com/try/cognitive-services/) and then you will need to consult the [Batch transcript API](batch-transcription.md) documentation.
 
 ### Transcribe Call center audio calls with baseline models
 

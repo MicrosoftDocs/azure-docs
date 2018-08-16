@@ -58,7 +58,7 @@ Now that you have an overview of the basics, read the sections below to understa
 
 ## Claims in Azure AD security tokens
 
-Security tokens (access and ID tokens) issued by Azure AD contain claims, or assertions of information about the subject that has been authenticated. These claims can be used by the application for various tasks. For example, applications can use claims to validate the token, identify the subject's directory tenant, display user information, determine the subject's authorization, and so on. The claims present in any given security token are dependent upon the type of token, the type of credential used to authenticate the user, and the application configuration. A brief description of each type of claim emitted by Azure AD is provided in the table below. For more information, refer to [Supported token and claim types](active-directory-token-and-claims.md).
+Security tokens (access and ID tokens) issued by Azure AD contain claims, or assertions of information about the subject that has been authenticated. These claims can be used by the application for various tasks. For example, applications can use claims to validate the token, identify the subject's directory tenant, display user information, determine the subject's authorization, and so on. The claims present in any given security token are dependent upon the type of token, the type of credential used to authenticate the user, and the application configuration. A brief description of each type of claim emitted by Azure AD is provided in the table below. For more information, refer to [Supported token and claim types](v1-id-and-access-tokens.md).
 
 | Claim | Description |
 | --- | --- |
@@ -109,7 +109,7 @@ Each scenario listed in this document includes a subsection that describes its p
 
 ## Application Types and Scenarios
 
-Each of the scenarios described here can be developed using various languages and platforms. They are all backed by complete code samples available in the [Code Samples guide](active-directory-code-samples.md), or directly from the corresponding [GitHub sample repositories](https://github.com/Azure-Samples?q=active-directory). In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently. For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API. The following diagram illustrates these scenarios and application types, and how different components can be added:
+Each of the scenarios described here can be developed using various languages and platforms. They are all backed by complete code samples available in the [Code Samples guide](sample-v1-code.md), or directly from the corresponding [GitHub sample repositories](https://github.com/Azure-Samples?q=active-directory). In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently. For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API. The following diagram illustrates these scenarios and application types, and how different components can be added:
 
 ![Application Types and scenarios](./media/authentication-scenarios/application_types_and_scenarios.png)
 
@@ -138,7 +138,7 @@ This section describes an application that authenticates a user in a web browser
 
 #### Code samples
 
-See the code samples for Web Browser to Web Application scenarios. And, check back frequently -- new samples are added frequently. [Web Application](active-directory-code-samples.md#web-applications).
+See the code samples for Web Browser to Web Application scenarios. And, check back frequently -- new samples are added frequently. [Web Application](sample-v1-code.md#web-applications).
 
 #### Registering
 
@@ -151,7 +151,7 @@ The user’s session expires when the lifetime of the token issued by Azure AD e
 
 ### Single Page Application (SPA)
 
-This section describes authentication for a Single Page Application, that uses Azure AD and the OAuth 2.0 implicit authorization grant to secure its web API back end. Single Page Applications are typically structured as a JavaScript presentation layer (front end) that runs in the browser and a Web API back end that runs on a server and implements the application’s business logic. To learn more about the implicit authorization grant, and help you decide whether it's right for your application scenario, see [Understanding the OAuth2 implicit grant flow in Azure Active Directory](active-directory-dev-understanding-oauth2-implicit-grant.md).
+This section describes authentication for a Single Page Application, that uses Azure AD and the OAuth 2.0 implicit authorization grant to secure its web API back end. Single Page Applications are typically structured as a JavaScript presentation layer (front end) that runs in the browser and a Web API back end that runs on a server and implements the application’s business logic. To learn more about the implicit authorization grant, and help you decide whether it's right for your application scenario, see [Understanding the OAuth2 implicit grant flow in Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
 In this scenario, when the user signs in, the JavaScript front end uses [Active Directory Authentication Library for JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) and the implicit authorization grant to obtain an ID token (id_token) from Azure AD. The token is cached and the client attaches it to the request as the bearer token when making calls to its Web API back end, which is secured using the OWIN middleware. 
 
@@ -172,7 +172,7 @@ In this scenario, when the user signs in, the JavaScript front end uses [Active 
 
 #### Code samples
 
-See the code samples for Single Page Application (SPA) scenarios. Be sure to check back frequently -- new samples are added frequently. [Single Page Application (SPA)](active-directory-code-samples.md#single-page-applications).
+See the code samples for Single Page Application (SPA) scenarios. Be sure to check back frequently -- new samples are added frequently. [Single Page Application (SPA)](sample-v1-code.md#single-page-applications).
 
 #### Registering
 
@@ -214,7 +214,7 @@ If you are using the AD Authentication Libraries, most of the protocol details d
 
 #### Code samples
 
-See the code samples for Native Application to Web API scenarios. And, check back frequently -- we add new samples frequently. [Native Application to Web API](active-directory-code-samples.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
+See the code samples for Native Application to Web API scenarios. And, check back frequently -- we add new samples frequently. [Native Application to Web API](sample-v1-code.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
 
 #### Registering
 
@@ -267,7 +267,7 @@ Both the application identity and delegated user identity types are discussed in
 
 #### Code samples
 
-See the code samples for Web Application to Web API scenarios. And, check back frequently -- new samples are added frequently. Web [Application to Web API](active-directory-code-samples.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
+See the code samples for Web Application to Web API scenarios. And, check back frequently -- new samples are added frequently. Web [Application to Web API](sample-v1-code.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
 
 #### Registering
 
@@ -309,7 +309,7 @@ The flow discussed below assumes that a user has been authenticated on another a
 
 #### Code samples
 
-See the code samples for Daemon or Server Application to Web API scenarios. And, check back frequently -- new samples are added frequently. [Server or Daemon Application to Web API](active-directory-code-samples.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+See the code samples for Daemon or Server Application to Web API scenarios. And, check back frequently -- new samples are added frequently. [Server or Daemon Application to Web API](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
 #### Registering
 
@@ -324,7 +324,7 @@ When the first application uses its authorization code to get a JWT access token
 
 [Azure Active Directory Developer's Guide](azure-ad-developers-guide.md)
 
-[Azure Active Directory Code Samples](active-directory-code-samples.md)
+[Azure Active Directory Code Samples](sample-v1-code.md)
 
 [Important Information About Signing Key Rollover in Azure AD](active-directory-signing-key-rollover.md)
 

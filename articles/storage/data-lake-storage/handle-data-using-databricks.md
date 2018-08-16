@@ -1,17 +1,14 @@
 ---
 title: Learn to perform extract, load, and transfer operations using Azure Databricks
-description: Learn to extract data from Azure Data Lake Storage Gen2 Preview into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse. 
+description: Learn to extract data from Azure Data Lake Storage Gen2 Preview into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse.
 services: azure-databricks
-author: jamesbak
-manager: jahogg
-
-ms.component: data-lake-storage-gen2
 ms.service: azure-databricks
+author: jamesbak
+ms.author: jamesbak
+ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: jamesbak
-
 ---
 # Tutorial: Extract, transform, and load data using Azure Databricks
 
