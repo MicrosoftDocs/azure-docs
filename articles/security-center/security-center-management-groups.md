@@ -117,6 +117,7 @@ Once a tenant administrator has elevated access, to gain visibility to all subsc
     ```azurepowershell
     Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
+
 #### Assign RBAC roles to users through the Azure portal: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
