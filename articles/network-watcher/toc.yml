@@ -95,6 +95,8 @@
     items:
     - name: Configure NSG flow logs
       items:
+      - name: Upcoming flow log format changes
+      - href: prepare-flow-log.md
       - name: Azure PowerShell
         href: network-watcher-nsg-flow-logging-powershell.md
       - name: Azure CLI
