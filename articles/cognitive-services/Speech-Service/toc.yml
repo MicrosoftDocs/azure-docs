@@ -2,6 +2,7 @@
 - name: Speech Service and SDK Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is the Speech service?
     href: overview.md
