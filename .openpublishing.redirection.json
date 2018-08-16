@@ -26422,6 +26422,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/user/azure-stack-powershell-download.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-powershell-download",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/application-proxy-teams.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-teams",
             "redirect_document_id": true
