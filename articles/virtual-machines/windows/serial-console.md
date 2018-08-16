@@ -35,7 +35,7 @@ The virtual machine serial console on Azure provides access to a text-based cons
 * The account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
 
 ## Open the serial console
-serial console for virtual machines is only accessible via [Azure portal](https://portal.azure.com). Below are the steps to access the serial console for virtual machines via portal 
+Serial console for virtual machines is only accessible via [Azure portal](https://portal.azure.com). Below are the steps to access the serial console for virtual machines via portal 
 
   1. Open the Azure portal
   2. In the left menu, select virtual machines.
@@ -44,7 +44,7 @@ serial console for virtual machines is only accessible via [Azure portal](https:
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-## Disabling the serial console
+## Disable Serial Console
 By default, all subscriptions have serial console access enabled for all VMs. You may disable serial console at either the subscription level or VM level.
 
 ### Subscription-level disable
@@ -54,22 +54,28 @@ Serial Console can be disabled for an entire subscription by through the [Disabl
 
 Alternatively, you may use the set of commands below in Cloud Shell (bash commands shown) to disable, enable, and view the disbled status of serial console for a subscription. 
 
-* To get the disabled status of a subscription:
-    ```bash
+* To get the disabled status of serial console for a subscription:
+    ```
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
+
     $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
     ```
 * To disable serial console for a subscription:
-    ```bash
+    ```
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
+
     $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
     ```
 * To enable serial console for a subscription:
-    ```bash
+    ```
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
+
     $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
     ```
 
@@ -97,7 +103,7 @@ If a user is connected to serial console and another user successfully requests 
 This means that the user who gets disconnected will not be logged out! The ability to enforce a logout upon disconnect (via SIGHUP or similar mechanism) is still in the roadmap. For Windows, there is an automatic timeout enabled in SAC, however for Linux you can configure terminal timeout setting. 
 
 
-## Accessing serial console for Windows 
+## Access Serial Console for Windows 
 Newer Windows Server images on Azure will have [Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but is not available on client versions (for example, Windows 10, Windows 8, or Windows 7). 
 To enable Serial console for Windows virtual machines created with using Feb2018 or lower images please use the following steps: 
 
@@ -177,6 +183,6 @@ A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback
 A. This preview feature is covered via Azure Preview Terms. Support for this is best handled via channels mentioned above. 
 
 ## Next steps
-* For an in-deth guide to CMD and PowerShell commands you can use in the Windows SAC, click [here](serial-console-cmd-ps-commands.md).
-* The serial console is also available for [Linux](../linux/serial-console.md) VMs.
+* For an in-depth guide to CMD and PowerShell commands you can use in the Windows SAC, click [here](serial-console-cmd-ps-commands.md).
+* The Serial Console is also available for [Linux](../linux/serial-console.md) VMs.
 * Learn more about [boot diagnostics](boot-diagnostics.md).

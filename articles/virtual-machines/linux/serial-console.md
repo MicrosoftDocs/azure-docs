@@ -37,7 +37,7 @@ The virtual machine serial console on Azure provides access to a text-based cons
 
 
 ## Open the serial console
-serial console for virtual machines is only accessible via [Azure portal](https://portal.azure.com). Below are the steps to access serial console for virtual machines via portal 
+Serial console for virtual machines is only accessible via [Azure portal](https://portal.azure.com). Below are the steps to access serial console for virtual machines via portal 
 
   1. Open the Azure portal
   2. In the left menu, select virtual machines.
@@ -50,7 +50,7 @@ serial console for virtual machines is only accessible via [Azure portal](https:
 > [!NOTE] 
 > Serial console requires a local user with a password configured. At this time, VMs only configured with SSH public key will not have access to the serial console. To create a local user with password, follow [VM Access Extension](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) and create local user with password.
 
-## Disabling the serial console
+## Disable Serial Console
 By default, all subscriptions have serial console access enabled for all VMs. You may disable serial console at either the subscription level or VM level.
 
 ### Subscription-level disable
@@ -60,22 +60,28 @@ Serial Console can be disabled for an entire subscription by through the [Disabl
 
 Alternatively, you may use the set of commands below in Cloud Shell (bash commands shown) to disable, enable, and view the disbled status of serial console for a subscription. 
 
-* To get the disabled status of a subscription:
-    ```bash
+* To get the disabled status of serial console for a subscription:
+    ```
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
+
     $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
     ```
 * To disable serial console for a subscription:
-    ```bash
+    ```
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
+
     $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
     ```
 * To enable serial console for a subscription:
-    ```bash
+    ```
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
+
     $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
     ```
 
@@ -115,7 +121,7 @@ SSH/RDP configuration issues | Access serial console and change settings. | Linu
 Network lock down system| Access serial console via portal to manage system. | Linux/Windows 
 Interacting with bootloader | Access GRUB/BCD via the serial console. Go to [Using Serial Console to access GRUB and Single User Mode](serial-console-grub-single-user-mode.md) to get started. | Linux/Windows 
 
-## Accessing Serial Console for Linux
+## Access Serial Console for Linux
 In order for serial console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) have the serial console configured by default. Simply clicking the Serial Console section in the Azure portal will provide access to the console. 
 
 Distro      | Serial Console access
