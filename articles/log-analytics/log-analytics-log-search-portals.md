@@ -18,10 +18,7 @@ ms.component: na
 ---
 
 # Viewing and analyzing Azure logs
-
-There are two options available in the Azure portal for analyzing log data and creating queries for ad hoc analysis. 
-
-You use log searches in a variety of places throughout Log Analytics to retrieve data from the workspace.  For actually creating and editing queries in addition to working interactively with returned data though, you have two options that are described below.  
+There are two options available in the Azure portal for analyzing log data collected by Azure Monitor and for creating queries for ad hoc analysis. The queries that you create using these tools can be used in other locations in the portal such as alerts and dashboards.
 
 ## Log explorer (preview)
 Log explorer is new experience for working with log data and creating queries. You can get an introduction to this portal and inspect its features at [Get started with the Azure Monitor Log explorer](query-language/get-started-analytics-portal.md).
