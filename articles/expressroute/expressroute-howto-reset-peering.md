@@ -134,9 +134,9 @@ GatewayManagerEtag               :
   $ckt.Peerings[0].State = "Disabled"
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
-The peering should be in a state you just set. 
+The peering should be in a state you set. 
 
 ## Next Steps
-If you need help to troubleshoot an ExpressRoute problem please check out the following articles.
+If you need help to troubleshoot an ExpressRoute problem, check out the following articles.
 * [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
 * [Troubleshooting network performance](expressroute-troubleshooting-network-performance.md)
