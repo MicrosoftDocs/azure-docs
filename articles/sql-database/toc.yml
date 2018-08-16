@@ -129,7 +129,7 @@
     - name: Sync network configuration
       href: sql-database-managed-instance-sync-network-configuration.md
     - name: Connectivity architecture
-      href: sql-database-connectivity-architecture-managed-instance.md
+      href: sql-database-managed-instance-connectivity-architecture.md
     - name: Connect applications
       href: sql-database-managed-instance-connect-app.md
     - name: T-SQL differences
