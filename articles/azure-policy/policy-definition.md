@@ -249,6 +249,11 @@ A subset of [Resource Manager template functions](../azure-resource-manager/reso
 - [parameters](../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
 - [concat](../azure-resource-manager/resource-group-template-functions-array.md#concat)
 - [resourceGroup](../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
+- [subscription](../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+
+Additionally, the `field` function is available to policy rules. This function is primarily for use
+with **AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that is
+being evaluated. An example of this can be seen on the [DeployIfNotExists example](policy-effects.md#deployifnotexists-example).
 
 #### Policy function examples
 
