@@ -35,10 +35,10 @@ The following are best practices for hardware manufacturers and integrators deal
 
 * **Implement [device twins](iot-hub-devguide-device-twins.md):** Device twins enable synchronizing desired configuration from the cloud and for reporting current configuration and device properties. The best way to implement device twins within embedded applications is through the [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks). Device twins are best suited for configuration because they:
 
-    1. Support bi-directional communication.
-    2. Allow for both connected and disconnected device states.
-    3. Follow the principle of eventual consistency.
-    4. Are fully queriable in the cloud.
+    * Support bi-directional communication.
+    * Allow for both connected and disconnected device states.
+    * Follow the principle of eventual consistency.
+    * Are fully queriable in the cloud.
 
 * **Structure the device twin for device management:** The device twin should be structured such that device management properties are logically grouped together into sections. Doing so will enable configuration changes to be isolated without impacting other sections of the twin. For example, create a section within desired properties for firmware, another section for software, and a third section for network settings. 
 
@@ -52,10 +52,10 @@ The following are best practices for IoT solution developers who are building sy
 
 * **Implement [device twins](iot-hub-devguide-device-twins.md):** Device twins enable synchronizing desired configuration from the cloud and for reporting current configuration and device properties. The best way to implement device twins within cloud solutions applications is through the [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks.) Device twins are best suited for configuration because they:
 
-    1. Support bi-directional communication.
-    2. Allow for both connected and disconnected device states. 
-    3. Follow the principle of eventual consistency.
-    4. Are fully queriable in the cloud.
+    * Support bi-directional communication.
+    * Allow for both connected and disconnected device states. 
+    * Follow the principle of eventual consistency.
+    * Are fully queriable in the cloud.
 
 * **Organize devices using device twin tags:** The solution should allow the operator to define quality rings or other sets of devices based on various deployment strategies such as canary. Device organization can be implemented within your solution using device twin tags and [queries](iot-hub-devguide-query-language.md). Device organization is necessary to allow for configuration roll outs safely and accurately.
 
@@ -79,7 +79,7 @@ The following are best practices for IoT solution operators who using an IoT sol
 
 ## Next steps
 
-* Learn about implementing device twins in [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
+* Learn about implementing device twins in [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md).
 
 * Walk through the steps to create, update, or delete an automatic device configuration in [Configure and monitor IoT devices at scale](iot-hub-auto-device-config.md).
 

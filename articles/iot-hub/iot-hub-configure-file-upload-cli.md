@@ -1,6 +1,6 @@
 ---
 title: Configure file upload to IoT Hub using Azure CLI | Microsoft Docs
-description: How to configure fileuploads to Azure IoT Hub using the cross-platform Azure CLI.
+description: How to configure file uploads to Azure IoT Hub using the cross-platform Azure CLI.
 author: dominicbetts
 ms.service: iot-hub
 services: iot-hub
@@ -19,7 +19,7 @@ To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 * An Azure IoT hub. If you don't have an IoT hub, you can use the [`az iot hub create` command](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) to create one or [Create an IoT hub using the portal](iot-hub-create-through-portal.md).
 
@@ -29,7 +29,7 @@ To complete this tutorial, you need the following:
 
 Sign in to your Azure account and select your subscription.
 
-1. At the command prompt, run the [login command](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest):
+1. At the command prompt, run the [login command](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest):
 
     ```azurecli
     az login
