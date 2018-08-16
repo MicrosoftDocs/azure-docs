@@ -27,7 +27,7 @@ Application Proxy supports native client apps by accepting Azure AD issued token
 
 ![Relationship between end users, Azure Active Directory, and published applications](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Use the Azure AD Authentication Library, which takes care of authentication and supports many client environments, to publish native applications. Application Proxy fits into the [Native Application to Web API scenario](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api). 
+Use the Azure AD Authentication Library, which takes care of authentication and supports many client environments, to publish native applications. Application Proxy fits into the [Native Application to Web API scenario](../develop/authentication-scenarios.md#native-application-to-web-api). 
 
 This article walks you through the four steps to publish a native application with Application Proxy and the Azure AD Authentication Library. 
 
@@ -45,7 +45,7 @@ Configure your native application as follows:
    ![Create a new app registration](./media/application-proxy-configure-native-client-application/create.png)
 5. Select **Create**.
 
-For more detailed information about creating a new app registration, see [Integrating applications with Azure Active Directory](./../develop/active-directory-integrating-applications.md).
+For more detailed information about creating a new app registration, see [Integrating applications with Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 
 ## Step 3: Grant access to other applications
@@ -93,6 +93,6 @@ Once the ADAL is edited with these parameters, your users should be able to auth
 
 ## Next steps
 
-For more information about the native application flow, see [Native application to web API](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
+For more information about the native application flow, see [Native application to web API](../develop/authentication-scenarios.md#native-application-to-web-api)
 
 Learn about setting up [Single sign-on for Application Proxy](application-proxy-single-sign-on.md)

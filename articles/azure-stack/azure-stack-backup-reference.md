@@ -3,7 +3,7 @@ title: Azure Stack Infrastructure Backup Service reference | Microsoft Docs
 description: This article contains reference material for the Azure Stack Infrastructure Backup Service.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
-ms.author: mabrigg
+ms.date: 07/17/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
 
 ---

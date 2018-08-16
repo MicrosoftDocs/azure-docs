@@ -160,7 +160,7 @@ There are many different ways to communicate this URL to your users. For example
 ### Join a Windows 7 device by using Azure Active Directory device registration
 To register Windows 7 domain-joined devices, you need to deploy the [device registration software package](https://www.microsoft.com/download/details.aspx?id=53554).
 
-For instructions about how to use the package, see [Windows Installer packages for non-Windows 10 computers](devices/hybrid-azuread-join-manual-steps.md#windows-installer-packages-for-non-windows-10-computers).
+For instructions about how to use the package, see [Windows Installer packages for non-Windows 10 computers](devices/hybrid-azuread-join-control.md#control-windows-down-level-devices).
 
 ## Verify that registered devices are written back to Active Directory
 You can view and verify that your device objects have been written back to your Active Directory by using LDP.exe or ADSI Edit. Both are available with the Active Directory administrator tools.

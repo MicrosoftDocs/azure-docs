@@ -1,4 +1,4 @@
----
+﻿---
 title: Copy data to and from Azure SQL Data Warehouse by using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from supported source stores to Azure SQL Data Warehouse or from SQL Data Warehouse to supported sink stores by using Data Factory.
 services: data-factory
@@ -101,21 +101,21 @@ To use service principal-based Azure AD application token authentication, follow
     - Application key
     - Tenant ID
 
-2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with MSI an admin role, skip steps 3 and 4. The administrator will have full access to the database.
+1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with MSI an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-3. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
+1. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code:
+1. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code:
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-5. **Configure an Azure SQL Data Warehouse linked service** in Azure Data Factory.
+1. **Configure an Azure SQL Data Warehouse linked service** in Azure Data Factory.
 
 
 #### Linked service example that uses service principal authentication
@@ -164,21 +164,21 @@ To use MSI-based Azure AD application token authentication, follow these steps:
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so.
+1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so.
 
-3. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Azure AD group. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL. 
+1. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Azure AD group. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL. 
     
     ```sql
     CREATE USER [your Azure AD group name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Grant the Azure AD group needed permissions** as you normally do for SQL users and others. For example, run the following code.
+1. **Grant the Azure AD group needed permissions** as you normally do for SQL users and others. For example, run the following code.
 
     ```sql
     EXEC sp_addrolemember [role name], [your Azure AD group name];
     ```
 
-5. **Configure an Azure SQL Data Warehouse linked service** in Azure Data Factory.
+1. **Configure an Azure SQL Data Warehouse linked service** in Azure Data Factory.
 
 #### Linked service example that uses MSI authentication
 
@@ -394,13 +394,13 @@ SQL Data Warehouse PolyBase directly supports Azure Blob and Azure Data Lake Sto
 If the requirements aren't met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
 1. The **Source linked service** type is **AzureStorage** or **AzureDataLakeStore** with service principal authentication.
-2. The **input dataset** type is **AzureBlob** or **AzureDataLakeStoreFile**. The format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat**, with the following configurations:
+1. The **input dataset** type is **AzureBlob** or **AzureDataLakeStoreFile**. The format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat**, with the following configurations:
 
    1. `rowDelimiter` must be **\n**.
-   2. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is not set to false.
-   3. `encodingName` is set to **utf-8**, which is the default value.
-   4. `escapeChar`, `quoteChar` and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
-   5. `compression` can be **no compression**, **GZip**, or **Deflate**.
+   1. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is not set to false.
+   1. `encodingName` is set to **utf-8**, which is the default value.
+   1. `escapeChar`, `quoteChar` and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
+   1. `compression` can be **no compression**, **GZip**, or **Deflate**.
 
 	```json
 	"typeProperties": {

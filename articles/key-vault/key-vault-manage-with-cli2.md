@@ -182,7 +182,7 @@ Applications that use a key vault must authenticate by using a token from Azure 
 
 The application must present both these values to Azure Active Directory, to get a token. How an application is configured to get a token will depend on the application. For the [Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343), the application owner sets these values in the app.config file.
 
-For detailed steps on registering an application with Azure Active Directory you should review the articles titled [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md), and [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli).
+For detailed steps on registering an application with Azure Active Directory you should review the articles titled [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md), [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md), and [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 To register an application in Azure Active Directory:
 

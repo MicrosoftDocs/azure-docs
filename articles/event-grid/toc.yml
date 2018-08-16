@@ -47,8 +47,34 @@
   items:
   - name: Azure CLI
     href: cli-samples.md
+    items:
+    - name: Create custom topic
+      href: scripts/event-grid-cli-create-custom-topic.md
+    - name: Subscribe to Azure subscription
+      href: scripts/event-grid-cli-azure-subscription.md
+    - name: Subscribe to Blob storage
+      href: scripts/event-grid-cli-blob.md
+    - name: Subscribe to custom topic
+      href: scripts/event-grid-cli-subscribe-custom-topic.md
+    - name: Subscribe to resource group
+      href: scripts/event-grid-cli-resource-group.md
+    - name: Subscribe and filter events for resource group
+      href: scripts/event-grid-cli-resource-group-filter.md
   - name: Azure PowerShell
     href: powershell-samples.md
+    items:
+    - name: Create custom topic
+      href: scripts/event-grid-powershell-create-custom-topic.md
+    - name: Subscribe to Azure subscription
+      href: scripts/event-grid-powershell-azure-subscription.md
+    - name: Subscribe to Blob storage
+      href: scripts/event-grid-powershell-blob.md
+    - name: Subscribe to custom topic
+      href: scripts/event-grid-powershell-subscribe-custom-topic.md
+    - name: Subscribe to resource group
+      href: scripts/event-grid-powershell-resource-group.md
+    - name: Subscribe and filter events for resource group
+      href: scripts/event-grid-powershell-resource-group-filter.md
   - name: Resource Manager templates
     href: template-samples.md
   - name: Code samples

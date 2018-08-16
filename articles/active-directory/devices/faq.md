@@ -33,7 +33,7 @@ ms.reviewer: jairoc
 
 **Remarks:**
 
-- The users that are included in your conditional access policy need a [supported version of Office for macOS](../active-directory-conditional-access-technical-reference.md#client-apps-condition) to access resources. 
+- The users that are included in your conditional access policy need a [supported version of Office for macOS](../conditional-access/technical-reference.md#client-apps-condition) to access resources. 
 
 - During the first access attempt, your users are prompted to enroll the device using the company portal.
 
@@ -144,7 +144,7 @@ Please evaluate the conditional access policy rules and ensure that the device i
 **Q: I see the device record under the USER info in the Azure portal and can see the state as registered on the device. Am I setup correctly for using conditional access?**
 
 **A:** The device join state, reflected by deviceID, must match with that on Azure AD and meet any evaluation criteria for conditional access. 
-For more information, see [Require managed devices for cloud app access with conditional access](../active-directory-conditional-access-policy-connected-applications.md).
+For more information, see [Require managed devices for cloud app access with conditional access](../conditional-access/require-managed-devices.md).
 
 ---
 

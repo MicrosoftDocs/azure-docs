@@ -61,7 +61,7 @@ To deploy your project to Web Apps, you can upload your build artifacts (for exa
 Before you set up the job in Jenkins, you need an Azure App Service plan and a web app to run the Java app.
 
 
-1. Create an Azure App Service plan with the **FREE** pricing tier by using the `az appservice plan create` [Azure CLI command](/cli/azure/appservice/plan#az_appservice_plan_create). The App Service plan defines the physical resources that are used to host your apps. All applications that are assigned to an App Service plan share these resources. Shared resources help you to save on costs when hosting multiple apps.
+1. Create an Azure App Service plan with the **FREE** pricing tier by using the `az appservice plan create` [Azure CLI command](/cli/azure/appservice/plan#az-appservice-plan-create). The App Service plan defines the physical resources that are used to host your apps. All applications that are assigned to an App Service plan share these resources. Shared resources help you to save on costs when hosting multiple apps.
 2. Create a web app. You can use the [Azure portal](/azure/app-service-web/web-sites-configure) or the following `az` Azure CLI command:
     ```azurecli-interactive	
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>

@@ -10,6 +10,7 @@ editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
+ms.technology: vs-azure
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
@@ -46,9 +47,8 @@ If you've installed Visual Studio already, add the workloads in Visual Studio by
 
 ## Download the sample
 
--[Download the sample project](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
--
--Extract (unzip) the  *dotnet-sqldb-tutorial-master.zip* file.
+- [Download the sample project](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+- Extract (unzip) the  *dotnet-sqldb-tutorial-master.zip* file.
 
 The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) create-read-update-delete (CRUD) app using [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
