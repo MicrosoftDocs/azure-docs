@@ -146,3 +146,4 @@ sections:
             <p><a class="barLink" href="/azure/cognitive-services/labs/answer-search/overview"><img src="../media/index/API_Answer_Search.svg" alt="" /><span>Project Answer Search</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview"><img src="../media/index/API_Anomaly_Finder.svg" alt="" /><span>Project Anomaly Finder</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/labs/conversation-learner/overview"><img src="../media/index/API_Conversation_Learner.svg" alt="" /><span>Project Conversation Learner</a></p>
+            <p><a class="barLink" href="/azure/cognitive-services/acoustics/What-Is-Acoustics.md"><img src="../media/index/API_Custom_Speech.svg" alt="" /><span>Project Acoustics</a></p>
