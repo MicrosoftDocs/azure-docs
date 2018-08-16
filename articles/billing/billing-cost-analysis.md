@@ -1,6 +1,6 @@
 ---
 title: Explore Azure costs with Cost analysis | Microsoft Docs
-description: This article help you use cost analysis to explore and analyze your Azure organizational costs.
+description: This article helps you use cost analysis to explore and analyze your Azure organizational costs.
 services: billing
 keywords:
 author: bandersmsft
