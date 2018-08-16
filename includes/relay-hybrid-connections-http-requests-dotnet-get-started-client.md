@@ -64,7 +64,7 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
         };
         request.Headers.Add("ServiceBusAuthorization", token);
         var response = await client.SendAsync(request);
-        Console.WriteLine(await response.Content.ReadAsStringAsync());
+        Console.WriteLine(await response.Content.ReadAsStringAsync());        Console.ReadLine();
     }
     ```
 4. Add the following line of code to the `Main` method in the `Program` class.
