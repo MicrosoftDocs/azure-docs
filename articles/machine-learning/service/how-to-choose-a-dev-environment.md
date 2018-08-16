@@ -14,82 +14,45 @@ ms.date: 8/6/2018
 
 # How to choose a development environment for Azure Machine Learning 
 
-In this document, you'll learn about different choices for development environment when building and deploying models with Azure Machine Learning. When choosing your environment, consider these factors:
+Learn about the development environments that you can use with the Azure Machine Learning service. While this document talks specifically about several popular development environments, all environments fall into two categories:
 
-* Do you need interactive experimentation and data exploration? 
-* Is your goal to integrate your machine learning code with larger solution?
-* Do you need to publish and share results with others?
-* Do you need high degree of control over your local environment?
+* __Jupyter Notebooks__ are great for interactive experimentation and data visualization. They are also a great way to share your findings, as the output of your experiment is stored in the notebook. You can share the notebook with someone and when they open it they see the output of your last run.
 
-__Notebook__ environments allow you to interactively experiment by modifying and running code sections. Notebooks also allow you to visualize the data you're working with. Operationalizing a notebook, or integrating with source control and build automation tools, may require extracting the code from the notebook.
+    The downside of notebooks is that they don't provide tools for code improvement or integrating with things like version control systems.
 
-__Integrated Development Environments (IDE) and code editors__ such Visual Studio Code, Atom, and PyCharm, are more suited to creating production-ready solutions. IDEs provide development-oriented tools like debuggers, and have better integration with source control and build automation systems.
+* __Integrated Development Environments (IDE)__ and __code editors__ are more suited for creating production code. They provide tools that help make your code better or make the process of coding easier. For example, syntax highlighting, linting, debugging, and profiling. They may also provide integration with version control systems and build systems.
 
-__Local__ environments - a computer or virtual machine that you have full access to - provides the highest level of control. You can load any libraries or make any changes you need.
+You can extract the code from a notebook and use it with your IDE or code editor, so you can combine both as part of your development process.
 
-__Managed__ environments are services hosted in the cloud. These environments are easy to get started with, as they require little setup or configuration. However, your ability to modify the environment or load new libraries is limited.
+## Jupyter Notebooks
 
-In this document, you'll learn about the following development environments:
+Jupyter Notebooks is part of the [Jupyter Project](https://jupyter.org/). They are focused on providing an interactive coding experience where you create documents that mix live code with narrative text and graphics. You can install Jupyter Notebooks on a variety of platforms.
 
-| Environment | Interactive<br/>experimentation | Data<br/>visualization | Collaboration<br/>(sharing) | Pre-configured | Control over<br/>environment | Development tools |
-| ----- |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-| Azure Notebooks | ✓ | ✓ | ✓ | ✓ | Low | 
-| Jupyter Notebooks<br/>(local or on a virtual machine) | ✓ | ✓ | &nbsp; | &nbsp; | High |
-| Data Science Virtual Machine<br/>(includes Jupyter Notebooks) | ✓ | ✓ | &nbsp; | ✓ | High |
-| Visual Studio Code</br>& other IDEs | &nbsp; | &nbsp; | &nbsp; | &nbsp; | High | ✓ |
-
-> [!TIP]
-> If you're new to Azure Machine Learning, or want to get started quickly, we recommend Azure Notebooks. It's a free, cloud hosted notebook service with the Azure Machine Learning SDK already installed.
+Having your own Jupyter Notebook installation allows you to install and configure the environment as needed. However you are responsible for maintaining the system.
 
 ## Azure Notebooks
 
-Azure Notebooks (preview) are a managed service in the Azure cloud. It is powered by Jupyter, and is compatible with Jupyter Notebooks.
+[Azure Notebooks](https://notebooks.azure.com) (preview) is a notebooks environment in the Azure cloud. It is based on Jupyter, and provides an environment that is pre-loaded with popular libraries. The Azure Machine Learning SDK is already installed in Azure Notebooks, so you can start experimenting with almost no setup.
 
-Use Azure Notebooks when you need the following features:
+Azure Notebooks also simplifies the process of sharing your notebooks. You can share a URL to your notebooks, make your library public, or share on social media from the Azure Notebooks interface.
 
-* __No setup or configuration__: The Azure Machine Learning SDK, along with other popular Python libraries, are already installed.
-* __Interactive experimentation__: Since Azure Notebooks are powered by Jupyter, you get the same interactive programming experience as Jupyter Notebooks.
-* __Data visualization__: Popular plotting libraries such as ggplot, matplotlib, bokeh, and seaborn are included with Azure Notebooks
-* __Share your notebooks__: Azure Notebooks allows to you share a link to your notebook library, or mark a library as public. Visitors can then download your notebooks for use on Jupyter Notebooks, or clone your library into their own Azure Notebooks account.
+The drawback of Azure Notebooks is that you do not have complete control over the environment, and may not be able to install custom software that you need. It is also a shared environment, so your notebooks may run slower than on a dedicated Jupyter Notebook installation.
 
-> [!TIP]
-> Azure Notebooks includes a library of examples to help you get started with Azure Machine Learning.
+## IDEs and code editors
 
-> [!NOTE]
-> Azure Notebooks provides a set of pre-configured set of Jupyter kernels. You cannot add a custom kernel. Also, your code executes in a containerized environment that shares compute resources with other users, so it may not be as fast as using a local Jupyter Notebook. 
+There are many IDEs and code editors that will work with Azure Machine Learning. The only software requirement is the Azure Machine Learning SDK, which can be installed using the `pip` utility.
 
-## Jupyter Notebook on your own computer
+We recommend [Visual Studio Code](https://code.visualstudio.com/), as it provides tools for working with both the Python language and Azure Machine Learning. It's available for Linux, macOS, and Windows platforms.
 
-The Azure Machine Learning SDK can be installed and used with Jupyter Notebooks on your computer or virtual machine. The SDK is a pip installable Python package that allows you to work with the Azure Machine Learning service.
+## Data Science Virtual Machine
 
-This environment is recommended when you need the following features:
+The Data Science Virtual Machine (DSVM) is a combination of the previous environments. It's a VM on the Azure Platform that has Jupyter Notebooks, Visual Studio Code, and the Azure Machine Learning SDK pre-installed. Creating the VM is more complex than Azure Notebooks, but less complex than setting up a machine from scratch. Since the required software is pre-installed in the VM image, you can begin experimenting with Azure Machine Learning quickly once the VM has been created.
 
-* __Interactive experimentation__: Jupter Notebooks allow you to interactively modify and rerun code sections.
-* __Data visualization__: There are many data visualization packages available for use with Jupyter Notebooks.
-* __A high degree of control over local compute resources__: You can install any library, kernel, or make any configuration changes you want to the local environment.
+The DSVM allows you to select compute resources you need, such as the CPU, GPU, and memory. It is also pre-installed with other editors such as PyCharm, as well as popular machine learning software such as TensorFlow, Keras, and PyTorch. If the software you need is not installed, you can install it yourself.
 
-## Jupyter Notebooks on Data Science Virtual Machine
+For more information on what is pre-installed, see the [What is the Data Science Virtual Machine](../data-science-virtual-machine/overview.md) document.
 
-The Data Science Virtual Machine (DSVM) is a VM image on Azure. It comes with many common data science and machine learning libraries pre-installed. When creating DSVM, you can choose the size of virtual machine, allowing you to choose the number of CPU cores and amount of memory. 
+## Next steps
 
-The Deep Learning Virtual Machine (DLVM) is a GPU-enabled variant of DSVM, aimed at training deep neural network models.
-
-Both DSVM and DLVM comes with the Azure Machine Learning SDK and Jupyter Notebooks. This environment is recommended when you need the following features:
-
-* __Little setup or configuration__: DSVM is pre-installed with Jupyter Notebooks and other popular libraries. Configuring the VM can be as simple as selecting the CPU cores, memory, and other basic characteristics of the VM.
-* __Interactive experimentation__: Jupter Notebooks allow you to interactively modify and rerun code sections.
-* __Data visualization__: DSVM provides pre-installed versions of popular data visualization libraries, and you can install others as needed.
-* __A high degree of control over local compute resources__: You can install any library, kernel, or make other configuration changes you want to the DSVM environment.
-
-## Visual Studio Code
-
-Visual Studio Code is source code editor, which makes it easier to work on machine learning applications intended for production use. It is recommended when you need the following features:
- 
-* __Visual Studio Code Tools for AI__: Tool for AI is an extension that makes it easier to work with Azure Machine Learning from within Visual Studio Code.
-* __Source control__: Source control/Version control systems allow you to keep track of changes to your code over time. They also make it easier to coordinate code contributions from multiple people. Visual Studio Code integrates with popular source control systems such as Git and Team Foundation Version Control.
-* __Integration with production systems__: Visual Studio Code provides integration with automated build and deployment systems that help speed up the process of deploying your model into production.
-
-## Code editor of your choice
-
-Since the Azure Machine Learning SDK is a pip installable Python package, you can use it from the code editor of your choice. Just install the package and continue using the editor and tools that work best for you.
+Now that you have learned about the development environments, learn [how to configure a development environment](how-to-configure-environment.md).
 
