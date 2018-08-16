@@ -5,7 +5,6 @@
 ## [FAQ](relay-faq.md)
 
 # Quickstarts
-## [Create a namespace](relay-create-namespace-portal.md)
 ## [Create a hybrid on-premises/cloud application](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Hybrid Connections
 ### [.NET Websockets](relay-hybrid-connections-dotnet-get-started.md)
@@ -21,6 +20,7 @@
 #### [Migrate from ACS to SAS](relay-migrate-acs-sas.md)
 ### [Hybrid Connections protocol](relay-hybrid-connections-protocol.md)
 ## Develop
+### [Create a namespace](relay-create-namespace-portal.md)
 ### [Use WCF Relay to expose WCF services to external clients](relay-wcf-dotnet-get-started.md)
 ### [Available APIs](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
