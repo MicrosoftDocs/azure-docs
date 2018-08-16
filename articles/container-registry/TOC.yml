@@ -13,6 +13,8 @@
     href: container-registry-get-started-portal.md
   - name: Container Registry - PowerShell
     href: container-registry-get-started-powershell.md
+  - name: Events with Event Grid - CLI
+    href: container-registry-event-grid-quickstart.md
 - name: Tutorials
   items:
   - name: Azure Container Instances
