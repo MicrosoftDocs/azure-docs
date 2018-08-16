@@ -64,6 +64,8 @@ You can run your scripts on:
 >[!IMPORTANT]
 > Windows VMs running Docker are **not** supported as remote compute targets.
 
+
+
 ## Execution environment
 The _execution environment_ defines the run time configuration and the dependencies needed to run the program in Workbench.
 
@@ -231,10 +233,6 @@ You need SSH access to the HDInsight cluster in order to execute experiments in 
 
 >[!NOTE]
 >Supported configuration is HDInsight Spark clusters running Linux (Ubuntu with Python/PySpark 3.5.2 and Spark 2.1.11).
-
-
-## GPU
-To run your scripts on GPU, you can follow the guidance in this article:[How to use GPU in Azure Machine Learning](how-to-use-gpu.md)
 
 ## Authentication and compute targets
 Azure Machine Learning Workbench allows you to create and use compute targets using SSH Key-based authentication in addition to the username/password-based scheme. You can use this capability when using remotedocker or cluster as your compute target. When you use this scheme, the Workbench creates a public/private key pair and reports back the public key. You append the public key to the ~/.ssh/authorized_keys files for your username. Azure Machine Learning Workbench then uses ssh key-based authentication for accessing and executing on this compute target. Since the private key for the compute target is saved in the key store for the workspace, other users of the workspace can use the compute target the same way by providing the username provided for creating the compute target.  
