@@ -24,7 +24,7 @@ We use Eclipse as an Integrated Development Environment (IDE).
 
 * A subscription key for the Speech service. See [Try the speech service for free](get-started.md).
 * A PC (Windows x64, Ubuntu 16.04 x64) capable to run Eclipse, with a working microphone.
-* 64-bit JRE/JDK for Java 8 or higher.
+* 64-bit JRE/JDK for Java 8.
 * Version 4.8 of [Eclipse](https://www.eclipse.org), 64-bit version.
 * On Ubuntu 16.04, run the following commands for the installation of required packages:
 
