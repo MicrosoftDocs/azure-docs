@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 08/16/2018
 ms.author: douglasl
 ---
 # Continuous integration and deployment in Azure Data Factory
@@ -40,6 +40,16 @@ This action takes you to the Azure portal, where you can import the exported tem
 ![](media/continuous-integration-deployment/continuous-integration-image4.png)
 
 Select **Load file** to select the exported Resource Manager template and provide all the configuration values (for example, linked services).
+
+**Connection strings**. You can find the info required to create connection strings in the individual articles about the respective connectors. For example, for Azure SQL Database, see [Copy data to or from Azure SQL Database by using Azure Data Factory](connector-azure-sql-database.md).
+
+To verify the correct connection string - for a linked service, for example - do the following things:
+
+1. Create the linked service in the Data Factory UI.
+
+2. Export the linked service as a Resource Manager template.
+
+3. Check the connection string in the exported template.
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
