@@ -14,7 +14,7 @@ ms.author: a-kiwels
 
 There are four parts to the Azure CycleCloud QuickStart:
 
-1. Setup and install CycleCloud on a Virtual Machine
+1. Install and setup CycleCloud on a Virtual Machine
 2. Configure and create a simple HPC cluster consisting of a job scheduler and an NFS file server, and create a usage alert to monitor cost
 3. Submit jobs to observe the cluster autoscale up and down automatically
 4. Clean up resources
@@ -89,7 +89,11 @@ On Linux, follow [these instructions on GitHub](https://help.github.com/articles
 
 Click the button below to deploy Azure CycleCloud into your subscription:
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FCycleCloudCommunity%2Fcyclecloud_arm%2Fdeploy-azure%2Fazuredeploy.json)
+<a target="_blank"
+   title="Deploy to Azure"
+   href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FCycleCloudCommunity%2Fcyclecloud_arm%2Fdeploy-azure%2Fazuredeploy.json">
+  <img src="https://azuredeploy.net/deploybutton.svg" alt=""/>
+</a>
 
 Enter the required information.
 
