@@ -114,8 +114,8 @@ We've created this content to help you set up and use security info, two-step ve
                     <div class="cardText">
                         <h3>Manage my devices help</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">Join my devices</a><br/>
-                        <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">Register my Windows 10 devices</a>
+                        <a href="/azure/active-directory/user-help/user-help-join-device-on-network">Join my devices</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-register-device-on-network">Register my Windows 10 devices</a>
                         </p>
                     </div>
                 </div>
