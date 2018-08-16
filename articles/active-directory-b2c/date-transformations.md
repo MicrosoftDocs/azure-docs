@@ -19,7 +19,7 @@ This article provides examples for using the date claims transformations of the 
 
 ## AssertDateTimeIsGreaterThan 
 
-Checks that one DateTime claim is greater than a second DateTime claim, and throws an exception.
+Checks that one date and time claim (string data type) is greater than a second date and time claim (string data type), and throws an exception.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -29,7 +29,7 @@ Checks that one DateTime claim is greater than a second DateTime claim, and thro
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Specifies whether this assertion should pass if the right operand is missing. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Specifies the number of milliseconds to allow between the two date times to consider the times equal (for example, to account for clock skew). |
 
-Compare the `refreshTokenIssuedOnDateTime` claim with `refreshTokensValidFromDateTime` claim. Throw an error if `refreshTokenIssuedOnDateTime` is greater than  `refreshTokensValidFromDateTime`
+Following example compares the `refreshTokenIssuedOnDateTime` claim with `refreshTokensValidFromDateTime` claim. Throw an error if `refreshTokenIssuedOnDateTime` is greater than  `refreshTokensValidFromDateTime`
 
 The `refreshTokenIssuedOnDateTime` is an internal parameter used to determine if the user should be permitted to reauthenticate silently using their existing refresh token. The `refreshTokensValidFromDateTime` internal parameter is used to determine if the user should be permitted to reauthenticate silently using their existing refresh token.
 
@@ -77,13 +77,20 @@ The follwing example demonstrates the conversion of the claim `dateOfBirth` (dat
   </ClaimsTransformation>
 ```
 
+### Example
+
+- Input claims:
+    - **inputClaim**: 2019-06-01
+- Output claims:
+    - **outputClaim**: 1559347200 (June 1, 2019 12:00:00 AM)
+
 ## GetCurrentDateTime
 
 Get the current UTC date and time and add the value to a ClaimType.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | currentDateTime | dateTime | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
+| OutputClaim | currentDateTime | dateTime | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
 
 ```XML
 <ClaimsTransformation Id="GetSystemDateTime" TransformationMethod="GetCurrentDateTime">
@@ -96,7 +103,7 @@ Get the current UTC date and time and add the value to a ClaimType.
 ### Example
 
 * Output claims:
-    * **currentDateTime**: 2018-01-01T00:00:00.100000Z
+    * **currentDateTime**: 1534418820 (August 16, 2018 11:27:00 AM)
 
 ## DateTimeComparison
 
@@ -108,7 +115,7 @@ Determine whether one dateTime is greater, lesser, or equal to another. The resu
 | InputClaim | secondDateTime | dateTime | The second dateTime to complete. Null value treats as current datetTime. |
 | InputParameter | operator | string | One of following values: same, later than, or earlier than. |
 | InputParameter | timeSpanInSeconds | int | Add the timespan to the first datetime. |
-| OutputClaim | result | dateTime | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
+| OutputClaim | result | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
 
 Use this claims transformation to determine if two ClaimTypes are  equal, greater, or lesser from each other. For example, you may store the last time a user accepted your terms of services (TOS). After 3 months, you can ask the user to access the TOS again.
 To run the claim transformation, you first need to get the current dateTime and also the last time user accepts the TOS.
