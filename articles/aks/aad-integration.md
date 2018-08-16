@@ -3,24 +3,19 @@ title: Integrate Azure Active Directory with Azure Kubernetes Service
 description: How to create Azure Active Directory-enabled Azure Kubernetes Service clusters.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 6/17/2018
+ms.date: 8/9/2018
 ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Integrate Azure Active Directory with AKS - Preview
+# Integrate Azure Active Directory with AKS
 
 Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory for user authentication. In this configuration, you can log into an Azure Kubernetes Service cluster using your Azure Active Directory authentication token. Additionally, cluster administrators are able to configure Kubernetes role-based access control based on a users identity or directory group membership.
 
 This document details creating all necessary prerequisites for AKS and Azure AD, deploying an Azure AD-enabled cluster, and creating a simple RBAC role in the AKS cluster. Note that existing non-RBAC enabled AKS clusters cannot currently be updated for RBAC use.
-
-> [!IMPORTANT]
-> Azure Kubernetes Service (AKS) RBAC and Azure AD integration is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
->
 
 ## Authentication details
 
@@ -68,6 +63,10 @@ The first Azure AD application is used to get a users Azure AD group membership.
 7. Select **Done**, choose *Microsoft Graph* from the list of APIs, then select **Grant Permissions**. This step will fail if the current account is not a tenant admin.
 
   ![Set application graph permissions](media/aad-integration/grant-permissions.png)
+
+  When the permissions have been successfully granted, the following notification is displayed in the portal:
+
+  ![Notification of successful permissions granted](media/aad-integration/permissions-granted.png)
 
 8. Return to the application and take note of the **Application ID**. When deploying an Azure AD-enabled AKS cluster, this value is referred to as the `Server application ID`.
 
@@ -212,4 +211,4 @@ Learn more about securing Kubernetes clusters with RBAC with the [Using RBAC Aut
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
-[open-id-connect]: ../active-directory/develop/active-directory-protocols-openid-connect-code.md
+[open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md

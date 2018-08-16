@@ -55,13 +55,13 @@ sections:
       - href: 
       - href:
       - href: /azure/cognitive-services/speech-service/get-started 
-    - title: LUIS - Use prebuilt home automation 
+    - title: LUIS - Query prediction endpoint 
       values:
+      - href: /azure/cognitive-services/luis/luis-get-started-cs-get-intent
+      - href: /azure/cognitive-services/luis/luis-get-started-java-get-intent
+      - href: /azure/cognitive-services/luis/luis-get-started-node-get-intent
+      - href: /azure/cognitive-services/luis/luis-get-started-python-get-intent
       - href: 
-      - href: 
-      - href: 
-      - href:
-      - href: /azure/cognitive-services/luis/luis-get-started-create-app
     - title: Text Analytics- Detect language, analyze sentiment
       values:
       - href: /azure/cognitive-services/Text-Analytics/quickstarts/csharp

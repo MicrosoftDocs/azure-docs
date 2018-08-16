@@ -27,8 +27,7 @@ You can create a new runbook in Azure Automation using one of the Azure portals 
 1. Click **Create** to create the runbook and open the editor.
 
 ### To create a new Azure Automation runbook with Windows PowerShell
-
-You can use the [New-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/New-AzureRmAutomationRunbook) cmdlet to create an empty [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks). The **Type** parameter should be included to specify one of the four runbook types.
+You can use the [New-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationrunbook) cmdlet to create an empty [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks). The **Type** parameter should also be included to specify one of the four runbook types.
 
 The following sample commands show how to create a new empty runbook.
 
@@ -67,8 +66,7 @@ You can use the following procedure to import a script file into Azure Automatio
 > 
 
 ### To import a runbook from a script file with Windows PowerShell
-
-You can use the [Import-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Import-AzureRmAutomationRunbook) cmdlet to import a script file as a draft PowerShell Workflow runbook. If the runbook already exists, the import fails unless you use the *-Force* parameter.
+You can use the [Import-AzureRMAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/import-azurermautomationrunbook) cmdlet to import a script file as a draft PowerShell Workflow runbook. If the runbook already exists, the import fails unless you use the *-Force* parameter. 
 
 The following sample commands show how to import a script file into a runbook.
 
@@ -94,8 +92,7 @@ When you create or import a new runbook, you must publish it before you can run 
 1. Click the **Publish** button and then **Yes** to the verification message.
 
 ## To publish a runbook using Windows PowerShell
-
-You can use the [Publish-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Publish-AzureRmAutomationRunbook) cmdlet to publish a runbook with Windows PowerShell. The following sample commands show how to publish a sample runbook.
+You can use the [Publish-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/publish-azurermautomationrunbook) cmdlet to publish a runbook with Windows PowerShell. The following sample commands show how to publish a sample runbook.
 
 ```azurepowershell-interactive
 $automationAccountName =  "AutomationAccount"

@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: protection
+ms.component: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -145,7 +145,7 @@ Consider migrating the policies you have not created in the Azure portal because
 - The Azure classic portal has been retired.   
 
 
-For more information, see [Migrate classic policies in the Azure portal](../active-directory-conditional-access-migration.md).
+For more information, see [Migrate classic policies in the Azure portal](policy-migration.md).
 
 
 ## Next steps
