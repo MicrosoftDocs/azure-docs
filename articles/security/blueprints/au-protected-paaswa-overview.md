@@ -1,20 +1,20 @@
 ---
-title: Azure Security and Compliance Blueprint - PaaS Web Application for Australia Protected
-description: Azure Security and Compliance Blueprint - PaaS Web Application for Australia Protected
+title: Azure Security and Compliance Blueprint - PaaS Web Application for Australia PROTECTED
+description: Azure Security and Compliance Blueprint - PaaS Web Application for Australia PROTECTED
 services: security
 author: meladie
 
 ms.assetid: 708aa129-b226-4e02-85c6-1f86e54564e4
 ms.service: security
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/16/2018
 ms.author: meladie
 ---
-# Azure Security and Compliance Blueprint - PaaS Web Application for Australia Protected
+# Azure Security and Compliance Blueprint - PaaS Web Application for Australia PROTECTED
 
 ## Overview
 
-This Azure Security and Compliance Blueprint provides guidance for the deployment of a platform as a service (PaaS) environment suitable for the collection, storage, and retrieval of AU-Protected government data that is compliant with the objectives of the Australian Government Information Security Manual (ISM) produced by the Australian Signals Directorate (ASD). This blueprint showcases a common reference architecture and helps demonstrate the proper handling of sensitive government data in a secure, compliant, multi-tier environment.
+This Azure Security and Compliance Blueprint provides guidance for the deployment of a platform as a service (PaaS) environment suitable for the collection, storage, and retrieval of AU-PROTECTED government data that is compliant with the objectives of the Australian Government Information Security Manual (ISM) produced by the Australian Signals Directorate (ASD). This blueprint showcases a common reference architecture and helps demonstrate the proper handling of sensitive government data in a secure, compliant, multi-tier environment.
 
 This reference architecture, implementation guide, and threat model provide a foundation for customers to undertake their own planning and system accreditation processes, helping customers deploy workloads to Azure in an ASD-compliant manner. Customers may choose to implement an Azure VPN Gateway or ExpressRoute to use federated services and to integrate on-premises resources with Azure resources. Customers must consider the security implications of using on-premises resources. Additional configuration is required to meet all the requirements, as they may vary based on the specifics of each customer's implementation.
 
@@ -33,7 +33,7 @@ The solution uses Azure Storage accounts, which customers can configure to use S
 
 For enhanced security, all Azure resources in this solution are managed as a resource group through Azure Resource Manager. Azure Active Directory role-based access control is used for controlling access to deployed resources and keys in Azure Key Vault. System health is monitored through Azure Security Center and Azure Monitor. Customers configure both monitoring services to capture logs and display system health in a single, easily navigable dashboard. Azure Application Gateway is configured as a firewall in prevention mode and disallows traffic that is not TLSv1.2 or above. The solution utilizes Azure Application Service Environment v2 to isolate the web tier in a non-multi-tenant environment.
 
-![PaaS Web Application for AU-Protected Reference Architecture](images/au-protected-paaswa-architecture.png?raw=true "PaaS Web Application for AU-PROTECTED Reference Architecture Diagram")
+![PaaS Web Application for AU-PROTECTED Reference Architecture](images/au-protected-paaswa-architecture.png?raw=true "PaaS Web Application for AU-PROTECTED Reference Architecture Diagram")
 
 This solution uses the following Azure services. Further details are in the [deployment architecture](#deployment-architecture) section.
 
@@ -216,24 +216,34 @@ Azure Network Watcher: [Azure Network Watcher]9https://docs.microsoft.com/en-us/
 
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/au-protected-paaswa-tm) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![PaaS Web Application for AU-Protected Threat Model](images/au-protected-paaswa-threat-model.png?raw=true "PaaS Web Application for AU-Protected threat model diagram")
+![PaaS Web Application for AU-PROTECTED Threat Model](images/au-protected-paaswa-threat-model.png?raw=true "PaaS Web Application for AU-PROTECTED threat model diagram")
 
 ## Compliance documentation
 This compliance documentation is produced by Microsoft based on platforms and services available from Microsoft. Due to the wide variety of customer deployments, this documentation provides a generalized approach for a solution only hosted in the Azure environment. Customers may identify and use alternative products and services based on their own operating environments and business outcomes. Customers choosing to use on-premises resources must address the security and operations for those on-premises resources. The documented solution can be customized by customers to address their specific on-premises and security requirements.
 
-The [Azure Security and Compliance Blueprint - AU-Protected Customer Responsibility Matrix](https://aka.ms/au-protected-crm) lists all security controls required by AU-Protected. This matrix details whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.
+The [Azure Security and Compliance Blueprint - AU-PROTECTED Customer Responsibility Matrix](https://aka.ms/au-protected-crm) lists all security controls required by AU-Prot. This matrix details whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.
 
-The [Azure Security and Compliance Blueprint - AU-Protected PaaS Web Application Implementation Matrix](https://aka.ms/au-protected-paaswa-cim) provides information on which AU-Protected controls are addressed by the PaaS web application architecture, including detailed descriptions of how the implementation meets the requirements of each covered control.
+The [Azure Security and Compliance Blueprint - AU-PROTECTED PaaS Web Application Implementation Matrix](https://aka.ms/au-protected-paaswa-cim) provides information on which AU-PROTECTED controls are addressed by the PaaS web application architecture, including detailed descriptions of how the implementation meets the requirements of each covered control.
 
 ## Guidance and recommendations
 ### VPN and ExpressRoute
-A secure VPN tunnel or [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) needs to be configured to securely establish a connection to the resources deployed as a part of this PaaS web application reference architecture. By appropriately setting up a VPN or ExpressRoute, customers can add a layer of protection for data in transit.
 
-By implementing a secure VPN tunnel with Azure, a virtual private connection between an on-premises network and an Azure Virtual Network can be created. This connection takes place over the Internet and allows customers to securely “tunnel” information inside an encrypted link between the customer's network and Azure. Site-to-site VPN is a secure, mature technology that has been deployed by enterprises of all sizes for decades. The [IPsec tunnel mode](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) is used in this option as an encryption mechanism.
+For classified information a secure IPSec VPN tunnel needs to be configured to securely establish a connection to the resources deployed as a part of this IaaS web application reference architecture. By appropriately setting up an IPSec VPN, customers can add a layer of protection for data in transit.
 
-Because traffic within the VPN tunnel does traverse the Internet with a site-to-site VPN, Microsoft offers another, even more secure connection option. Azure ExpressRoute is a dedicated WAN link between Azure and an on-premises location or an Exchange hosting provider and is considered a private network. As ExpressRoute connections do not go over the Internet, these connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet. Furthermore, because this is a direct connection of customer's telecommunication provider, the data does not travel over the Internet and therefore is not exposed to it.
+By implementing a secure IPSec VPN tunnel with Azure, a virtual private connection between an on-premises network and an Azure virtual network can be created. This connection can take place over the Internet and allows customers to securely "tunnel" information inside an encrypted link between the customer's network and Azure. Site-to-site VPN is a secure, mature technology that has been deployed by enterprises of all sizes for decades. 
 
-Best practices for implementing a secure hybrid network that extends an on-premises network to Azure are [available](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
+Because traffic within the VPN tunnel does traverse the Internet with a site-to-site VPN, Microsoft offers a private connection option. Azure ExpressRoute is a dedicated link between Azure and an on-premises location or an Exchange hosting provider and is considered a private network. As ExpressRoute connections do not go over the Internet, these connections offer more reliability, faster speeds and lower latencies than typical connections over the Internet. Furthermore, because this is a direct connection of customer's telecommunication provider, the data does not travel over the Internet and therefore is not exposed to it.
+
+Best practices for implementing a secure hybrid network that extends an on-premises network to Azure are [available](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid). 
+
+To help protect classified data, whether using the Internet or Azure ExpressRoute, customers must configure their IPSec VPN by applying the following settings:
+
+•	The customer VPN initiator must be configured for a SA lifetime of no greater than 14400 seconds.
+•	The customer VPN initiator must disable IKEv1 aggressive mode.
+•	The customer VPN initiator must configure Perfect Forward Secrecy.
+•	The customer VPN Initiator must configure the use of HMAC-SHA256 or greater.
+
+Configuration options for VPN devices and IPSec/ IKE parameters is [available](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices) for review.
 
 ### Azure Active Directory setup
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is essential to managing the deployment and provisioning access to personnel interacting with the environment. An existing Windows Server Active Directory can be integrated with Azure Active Directory in [four clicks](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express).
