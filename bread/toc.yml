@@ -6,6 +6,9 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/
     items:
+      - name: Conditional Access
+        tocHref: /azure/active-directory/conditional-access/
+        topicHref: /azure/active-directory/conditional-access/
       - name: Authentication
         tocHref: /azure/active-directory/authentication/
         topicHref: /azure/active-directory/authentication/
@@ -252,6 +255,9 @@
     - name: Personality Chat
       tocHref: /azure/cognitive-services/project-personality-chat/
       topicHref: /azure/cognitive-services/project-personality-chat/overview    
+    - name: Project Acoustics
+      tocHref: /azure/cognitive-services/acoustics/
+      topicHref: /azure/cognitive-services/acoustics/What-Is-Acoustics.md
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
