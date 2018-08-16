@@ -73,7 +73,7 @@ Read the following SAP Notes and papers first
 * [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
 * [SUSE SAP HA Best Practice Guides][suse-ha-guide]
-  The guides contains all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Please use this guides as a general baseline. They provide much more detailed information.
+  The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
 
 ## Overview
 
@@ -116,11 +116,11 @@ The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and th
 
 ## Setting up a highly available NFS server
 
-SAP NetWeaver requires a shared storage for the transport and profile directory. Read [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server][nfs-ha] on how to set up an NFS server for SAP NetWeaver.
+SAP NetWeaver requires shared storage for the transport and profile directory. Read [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server][nfs-ha] on how to set up an NFS server for SAP NetWeaver.
 
 ## Setting up (A)SCS
 
-You can either use a Azure Template from github to deploy all required Azure resources, including the virtual machines, availability set and load balancer or you can deploy the resources manually.
+You can either use an Azure Template from github to deploy all required Azure resources, including the virtual machines, availability set and load balancer or you can deploy the resources manually.
 
 ### Deploy Linux via Azure Template
 
@@ -159,12 +159,12 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
 1. Create a Virtual Network
 1. Create an Availability Set  
    Set max update domain
-1. Create Virtual Machine 1   
+1. Create Virtual Machine 1  
    Use at least SLES4SAP 12 SP1, in this example the SLES4SAP 12 SP1 image
    https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
    SLES For SAP Applications 12 SP1 is used  
    Select Availability Set created earlier  
-1. Create Virtual Machine 2   
+1. Create Virtual Machine 2  
    Use at least SLES4SAP 12 SP1, in this example the SLES4SAP 12 SP1 image
    https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
    SLES For SAP Applications 12 SP1 is used  
@@ -726,7 +726,7 @@ The following tests are a copy of the test cases in the best practices guides of
 
 1. Test HAGetFailoverConfig, HACheckConfig and HACheckFailoverConfig
 
-   Run the following commands as \<sapsid>adm on the node where the ASCS instance is currently running. If the commands fail with FAIL: Insufficient memory, it might be caused by dashes in your hostname. This is a known issue and will be fixed by SUSE in a the sap-suse-cluster-connector package.
+   Run the following commands as \<sapsid>adm on the node where the ASCS instance is currently running. If the commands fail with FAIL: Insufficient memory, it might be caused by dashes in your hostname. This is a known issue and will be fixed by SUSE in the sap-suse-cluster-connector package.
 
    <pre><code>nw1-cl-0:nw1adm 54> sapcontrol -nr <b>00</b> -function HAGetFailoverConfig
    
@@ -1006,7 +1006,7 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>nw1-cl-1:~ # pgrep ms.sapNW1 | xargs kill -9
    </code></pre>
 
-   If you only kill the message server once, it will be restarted by sapstart. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node. Run the following commands as root to cleanup the resource state of the ASCS and ERS instance after the test.
+   If you only kill the message server once, it will be restarted by sapstart. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
 
    <pre><code>nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
@@ -1049,7 +1049,7 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>nw1-cl-0:~ # pgrep en.sapNW1 | xargs kill -9
    </code></pre>
 
-   The ASCS instance should immediately fail over to the other node. The ERS instance should also fail over after the ASCS instance is started. Run the following commands as root to cleanup the resource state of the ASCS and ERS instance after the test.
+   The ASCS instance should immediately fail over to the other node. The ERS instance should also fail over after the ASCS instance is started. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
 
    <pre><code>nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
@@ -1092,7 +1092,7 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>nw1-cl-0:~ # pgrep er.sapNW1 | xargs kill -9
    </code></pre>
 
-   If you only run the command once, sapstart will restart the process. If you run it often enough, sapstart will not restart the process and the resource will be in a stopped state. Run the following commands as root to cleanup the resource state of the ERS instance after the test.
+   If you only run the command once, sapstart will restart the process. If you run it often enough, sapstart will not restart the process and the resource will be in a stopped state. Run the following commands as root to clean up the resource state of the ERS instance after the test.
 
    <pre><code>nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
    </code></pre>

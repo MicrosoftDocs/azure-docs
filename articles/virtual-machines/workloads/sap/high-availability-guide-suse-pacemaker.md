@@ -30,10 +30,9 @@ ms.author: sedusch
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
-
 There are two options to set up a Pacemaker cluster in Azure. You can either use a fencing agent, which takes care of restarting a failed node via the Azure APIs or you can use an SBD device.
 
-The SBD device requires at least one additional virtual machine that acts as an iSCSI target server and provides an SBD device. This iSCSI target servers can however be shared with other Pacemaker clusters. The advantage of using an SBD device is a faster failover time and, if you are using SBD devices on-premises, does not require any changes on how you operate the pacemaker cluster. You can use up to three SBD devices for a Pacemaker cluster to allow a SBD device to become unavailable for example during OS patching of the iSCSI target server. If you want to use more than one SBD device per Pacemaker, make sure to deploy multiple iSCSI target servers and connect one SBD from each iSCSI target server. We recommend to use either one SBD devices or three. Pacemaker will not be able to automatically fence a cluster node if you only configure two SBD devices and one of them is not available. If you want to be able to fence when one iSCSI target server is down, you have to use three SBD devices and therefore three iSCSI target servers.
+The SBD device requires at least one additional virtual machine that acts as an iSCSI target server and provides an SBD device. These iSCSI target servers can however be shared with other Pacemaker clusters. The advantage of using an SBD device is a faster failover time and, if you are using SBD devices on-premises, does not require any changes on how you operate the pacemaker cluster. You can use up to three SBD devices for a Pacemaker cluster to allow an SBD device to become unavailable, for example during OS patching of the iSCSI target server. If you want to use more than one SBD device per Pacemaker, make sure to deploy multiple iSCSI target servers and connect one SBD from each iSCSI target server. We recommend using either one SBD device or three. Pacemaker will not be able to automatically fence a cluster node if you only configure two SBD devices and one of them is not available. If you want to be able to fence when one iSCSI target server is down, you have to use three SBD devices and therefore three iSCSI target servers.
 
 If you do not want to invest in one additional virtual machine, you can also use the Azure Fence agent. The downside is that a failover can take between 10 to 15 minutes if a resource stop fails or the cluster nodes cannot communicate which each other anymore.
 
@@ -321,14 +320,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Configure operating system
 
-   In some cases, Pacemaker creates many processes and thereby exhausts the allowed number  of processes. In such a case, a hearbeat between the cluster nodes might fail and lead to failover of your resources. We recommend increasing the maximum allowed processes by setting the following parameter.
+   In some cases, Pacemaker creates many processes and thereby exhausts the allowed number  of processes. In such a case, a heartbeat between the cluster nodes might fail and lead to failover of your resources. We recommend increasing the maximum allowed processes by setting the following parameter.
 
    <pre><code># Edit the configuration file
    sudo vi /etc/systemd/system.conf
    
    # Change the DefaultTasksMax
    #DefaultTasksMax=512
-   to
    DefaultTasksMax=4096
    
    #and to activate this setting
@@ -388,7 +386,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 1. **[A]** Setup host name resolution
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
-   Replace the IP address and the hostname in the following commands. The benefit of using /etc/hosts is that your cluster become independent of DNS which could be a single point of failures too.
+   Replace the IP address and the hostname in the following commands. The benefit of using /etc/hosts is that your cluster becomes independent of DNS, which could be a single point of failures too.
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
@@ -435,7 +433,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Add the following bold content to the file if the values are not there or different. Make sure to change the token to 30000 to allow Memory preserving maintenance. See [this article for Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance] for more details.
+   Add the following bold content to the file if the values are not there or different. Make sure to change the token to 30000 to allow Memory preserving maintenance. For more information, see [this article for Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance].
 
    <pre><code>[...]
      <b>token:          30000

@@ -98,7 +98,7 @@ The NFS server uses a dedicated virtual hostname and virtual IP addresses for ev
 
 ## Set up a highly available NFS server
 
-You can either use a Azure Template from github to deploy all required Azure resources, including the virtual machines, availability set and load balancer or you can deploy the resources manually.
+You can either use an Azure Template from github to deploy all required Azure resources, including the virtual machines, availability set, and load balancer or you can deploy the resources manually.
 
 ### Deploy Linux via Azure Template
 
@@ -110,7 +110,7 @@ Follow these steps to deploy the template:
 1. Enter the following parameters
    1. Resource Prefix  
       Enter the prefix you want to use. The value is used as a prefix for the resources that are deployed.
-   2. SAP System Count
+   2. SAP System Count  
       Enter the number of SAP systems that will use this file server. This will deploy the required amount of frontend configurations, load balancing rules, probe ports, disks etc.
    3. Os Type  
       Select one of the Linux distributions. For this example, select SLES 12
@@ -127,11 +127,11 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
 1. Create a Virtual Network
 1. Create an Availability Set  
    Set max update domain
-1. Create Virtual Machine 1   
+1. Create Virtual Machine 1
    Use at least SLES4SAP 12 SP3, in this example the SLES4SAP 12 SP3 BYOS image
    SLES For SAP Applications 12 SP3 (BYOS) is used  
    Select Availability Set created earlier  
-1. Create Virtual Machine 2   
+1. Create Virtual Machine 2
    Use at least SLES4SAP 12 SP3, in this example the SLES4SAP 12 SP3 BYOS image  
    SLES For SAP Applications 12 SP3 (BYOS) is used  
    Select Availability Set created earlier  
@@ -142,7 +142,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. Open the load balancer, select frontend IP pool, and click Add
          1. Enter the name of the new frontend IP pool (for example **nw1-frontend**)
          1. Set the Assignment to Static and enter the IP address (for example **10.0.0.4**)
-         1. Click OK         
+         1. Click OK
       1. IP address 10.0.0.5 for NW2
          * Repeat the steps above for NW2
    1. Create the backend pools
@@ -171,7 +171,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. Keep protocol **TCP**, enter port **2049**
          1. Increase idle timeout to 30 minutes
          1. **Make sure to enable Floating IP**
-         1. Click OK    
+         1. Click OK
       1. 2049 UDP for NW1
          * Repeat the steps above for port 2049 and UDP for NW1
       1. 2049 TCP for NW2
@@ -424,7 +424,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Setup drbd split-brain detection
 
-   When using drbd to synchronize data from one host to another, a so called split brain can occur. A split brain is a scenario where both cluster nodes promoted the drbd device to be the primary and went out of sync. It might be very rare situation but you still want to handle and resolve a split brain as fast as possible. It is therefore important to be notified when a split brain happened.
+   When using drbd to synchronize data from one host to another, a so called split brain can occur. A split brain is a scenario where both cluster nodes promoted the drbd device to be the primary and went out of sync. It might be a rare situation but you still want to handle and resolve a split brain as fast as possible. It is therefore important to be notified when a split brain happened.
 
    Read [the official drbd documentation](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) on how to set up a split brain notification.
 

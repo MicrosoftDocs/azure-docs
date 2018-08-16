@@ -69,8 +69,8 @@ Read the following SAP Notes and papers first:
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide] (this article).
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide] guide.
 * [SUSE Linux Enterprise Server for SAP Applications 12 SP3 best practices guides][sles-for-sap-bp]
-  * Setting up a SAP HANA SR Performance Optimized Infrastructure (SLES for SAP Applications 12 SP1). The guide contains all of the required information to set up SAP HANA System Replication for on-premises development. Use this guide as a baseline.
-  * Setting up a SAP HANA SR Cost Optimized Infrastructure (SLES for SAP Applications 12 SP1)
+  * Setting up an SAP HANA SR Performance Optimized Infrastructure (SLES for SAP Applications 12 SP1). The guide contains all of the required information to set up SAP HANA System Replication for on-premises development. Use this guide as a baseline.
+  * Setting up an SAP HANA SR Cost Optimized Infrastructure (SLES for SAP Applications 12 SP1)
 
 ## Overview
 
@@ -446,84 +446,84 @@ The steps in this section use the following prefixes:
 
 First, create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes:
 
-   <pre><code>sudo crm configure property maintenance-mode=true
+<pre><code>sudo crm configure property maintenance-mode=true
 
-   # Replace the bold string with your instance number and HANA system ID
-   
-   sudo crm configure primitive rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
-     operations \$id="rsc_sap2_<b>HN1</b>_HDB<b>03</b>-operations" \
-     op monitor interval="10" timeout="600" \
-     op start interval="0" timeout="600" \
-     op stop interval="0" timeout="300" \
-     params SID="<b>HN1</b>" InstanceNumber="<b>03</b>"
-   
-   sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
-     meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
-   </code></pre>
+# Replace the bold string with your instance number and HANA system ID
+
+sudo crm configure primitive rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
+  operations \$id="rsc_sap2_<b>HN1</b>_HDB<b>03</b>-operations" \
+  op monitor interval="10" timeout="600" \
+  op start interval="0" timeout="600" \
+  op stop interval="0" timeout="300" \
+  params SID="<b>HN1</b>" InstanceNumber="<b>03</b>"
+
+sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
+  meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
+</code></pre>
 
 Next, create the HANA resources:
 
-   <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
-   
-   sudo crm configure primitive rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHana \
-     operations \$id="rsc_sap_<b>HN1</b>_HDB<b>03</b>-operations" \
-     op start interval="0" timeout="3600" \
-     op stop interval="0" timeout="3600" \
-     op promote interval="0" timeout="3600" \
-     op monitor interval="60" role="Master" timeout="700" \
-     op monitor interval="61" role="Slave" timeout="700" \
-     params SID="<b>HN1</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
-     DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
-   
-   sudo crm configure ms msl_SAPHana_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> \
-     meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
-     target-role="Started" interleave="true"
-   
-   sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \
-     meta target-role="Started" is-managed="true" \
-     operations \$id="rsc_ip_<b>HN1</b>_HDB<b>03</b>-operations" \
-     op monitor interval="10s" timeout="20s" \
-     params ip="<b>10.0.0.13</b>"
-   
-   sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> anything \
-     params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \
-     op monitor timeout=20s interval=10 depth=0
-   
-   sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
-   
-   sudo crm configure colocation col_saphana_ip_<b>HN1</b>_HDB<b>03</b> 4000: g_ip_<b>HN1</b>_HDB<b>03</b>:Started \
-     msl_SAPHana_<b>HN1</b>_HDB<b>03</b>:Master  
-   
-   sudo crm configure order ord_SAPHana_<b>HN1</b>_HDB<b>03</b> Optional: cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
-     msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
-   
-   # Clean up the HANA resources. The HANA resources might have failed because of a known issue.
-   sudo crm resource cleanup rsc_SAPHana_<b>HN1</b>_HDB<b>03</b>
+<pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 
-   sudo crm configure property maintenance-mode=false
-   sudo crm configure rsc_defaults resource-stickiness=1000
-   sudo crm configure rsc_defaults migration-threshold=5000
-   </code></pre>
+sudo crm configure primitive rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHana \
+  operations \$id="rsc_sap_<b>HN1</b>_HDB<b>03</b>-operations" \
+  op start interval="0" timeout="3600" \
+  op stop interval="0" timeout="3600" \
+  op promote interval="0" timeout="3600" \
+  op monitor interval="60" role="Master" timeout="700" \
+  op monitor interval="61" role="Slave" timeout="700" \
+  params SID="<b>HN1</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
+  DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
+
+sudo crm configure ms msl_SAPHana_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> \
+  meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
+  target-role="Started" interleave="true"
+
+sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \
+  meta target-role="Started" is-managed="true" \
+  operations \$id="rsc_ip_<b>HN1</b>_HDB<b>03</b>-operations" \
+  op monitor interval="10s" timeout="20s" \
+  params ip="<b>10.0.0.13</b>"
+
+sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> anything \
+  params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \
+  op monitor timeout=20s interval=10 depth=0
+
+sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
+
+sudo crm configure colocation col_saphana_ip_<b>HN1</b>_HDB<b>03</b> 4000: g_ip_<b>HN1</b>_HDB<b>03</b>:Started \
+  msl_SAPHana_<b>HN1</b>_HDB<b>03</b>:Master  
+
+sudo crm configure order ord_SAPHana_<b>HN1</b>_HDB<b>03</b> Optional: cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
+  msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
+
+# Clean up the HANA resources. The HANA resources might have failed because of a known issue.
+sudo crm resource cleanup rsc_SAPHana_<b>HN1</b>_HDB<b>03</b>
+
+sudo crm configure property maintenance-mode=false
+sudo crm configure rsc_defaults resource-stickiness=1000
+sudo crm configure rsc_defaults migration-threshold=5000
+</code></pre>
 
 Make sure that the cluster status is ok and that all of the resources are started. It's not important on which node the resources are running.
 
-   <pre><code>sudo crm_mon -r
-   
-   # Online: [ hn1-db-0 hn1-db-1 ]
-   #
-   # Full list of resources:
-   #
-   # stonith-sbd     (stonith:external/sbd): Started hn1-db-0
-   # rsc_st_azure    (stonith:fence_azure_arm):      Started hn1-db-1
-   # Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
-   #     Started: [ hn1-db-0 hn1-db-1 ]
-   # Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
-   #     Masters: [ hn1-db-0 ]
-   #     Slaves: [ hn1-db-1 ]
-   # Resource Group: g_ip_HN1_HDB03
-   #     rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-   #     rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
-   </code></pre>
+<pre><code>sudo crm_mon -r
+
+# Online: [ hn1-db-0 hn1-db-1 ]
+#
+# Full list of resources:
+#
+# stonith-sbd     (stonith:external/sbd): Started hn1-db-0
+# rsc_st_azure    (stonith:fence_azure_arm):      Started hn1-db-1
+# Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+#     Started: [ hn1-db-0 hn1-db-1 ]
+# Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+#     Masters: [ hn1-db-0 ]
+#     Slaves: [ hn1-db-1 ]
+# Resource Group: g_ip_HN1_HDB03
+#     rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
+#     rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+</code></pre>
 
 ## Test the cluster setup
 
@@ -531,7 +531,7 @@ This section describes how you can test your setup. Every test assumes that you 
 
 ### Test the migration
 
-Before you start the test, make sure that Pacemaker does not have any failed action (via crm_mon -r), there are no unexpected location contraints (for example leftovers of a migration test) and that HANA is sync state, for example with SAPHanaSR-showAttr:
+Before you start the test, make sure that Pacemaker does not have any failed action (via crm_mon -r), there are no unexpected location constraints (for example leftovers of a migration test) and that HANA is sync state, for example with SAPHanaSR-showAttr:
 
 <pre><code>hn1-db-0:~ # SAPHanaSR-showAttr
 
@@ -677,10 +677,10 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 Run all test cases that are listed in the SAP HANA SR Performance Optimized Scenario or SAP HANA SR Cost Optimized Scenario guide, depending on your use case. You can find the guides on the [SLES for SAP best practices page][sles-for-sap-bp].
 
-The following tests are a copy of the test descriptions of the SAP HANA SR Performance Optimized Scenario SUSE Linux Enterprise Server for SAP Applications 12 SP1 guide. For an up-to-date version, please always also read the guide itself. Always make sure that HANA is in sync before starting the test and also make sure that the Pacemaker configuration is correct.
+The following tests are a copy of the test descriptions of the SAP HANA SR Performance Optimized Scenario SUSE Linux Enterprise Server for SAP Applications 12 SP1 guide. For an up-to-date version, always also read the guide itself. Always make sure that HANA is in sync before starting the test and also make sure that the Pacemaker configuration is correct.
 
 In the following test descriptions we assume PREFER_SITE_TAKEOVER="true" and AUTOMATED_REGISTER="false".
-NOTE: The following tests are designed to be run in sequence and depend on the exit state of the preceeding tests.
+NOTE: The following tests are designed to be run in sequence and depend on the exit state of the preceding tests.
 
 1. TEST 1: STOP PRIMARY DATABASE ON NODE 1
 
