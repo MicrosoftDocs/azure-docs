@@ -25,9 +25,9 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 To run this application, follow these steps.
 
-1. Download or install the [gson library](https://github.com/google/gson). It is also available through Maven.
+1. Download or install the [gson library](https://github.com/google/gson). It's also available through Maven.
 2. Create a new Java project in your favorite IDE or editor.
-3. Copy this sample code into  `BingWebSearch.java`:  
+3. Copy this sample code into `BingWebSearch.java`:  
     ```java
     import java.net.*;
     import java.util.*;
