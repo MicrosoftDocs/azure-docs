@@ -103,7 +103,7 @@ This topic shows you how to request push notification registration with Azure No
     This sets the device token for the request.
    
    > [!NOTE]
-   > At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the [Get Started with Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/) tutorial, you must comment-out or remove that call.
+   > At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the [Get Started with Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial, you must comment-out or remove that call.
    > 
    > 
 8. In the PushToUserAppDelegate.m file, add the following handler method:
@@ -220,6 +220,6 @@ Now that the client app has been updated, return to the [Notify users with Notif
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 
-[Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[Get Started with Notification Hubs]: notification-hubs-ios-apple-push-notification-apns-get-started.md
