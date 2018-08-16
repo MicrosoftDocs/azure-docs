@@ -56,33 +56,20 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Get the sample notebook
 
-To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-train-model) into the same directory as `aml_config` and `utils.py`.
-
-To run the notebook, execute these commands in your activated conda environment:
-
-```
-#go to the directory containing the tutorial notebook
-cd <path to docs-prj directory>
-
-#install a conda-aware Jupyter Notebook server if necessary
-conda install nb_conda
-
-#start up the notebook server
-jupyter notebook
-```
+To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-train-model) into the same directory as `aml_config` and `utils.py`.  See [How to configure a development environment for Azure Machine Learning](how-to-configure-environment.md) for information on how to run a Jupyter notebook.
 
 ## Set up your development environment
 
-All the setup for your development work can be accomplished in Python. You will:
+All the setup for your development work can be accomplished in a Python notebook. You will:
 
-* Import Python modules
+* Import Python packages
 * Configure a workspace to enable communication between your local computer and remote resources
 * Create a directory to store training scripts
 * Create a remote compute target to use for training
 
-### Import modules
+### Import packages
 
-Import Python modules you'll need in this session. Also display the Azure Machine Learning SDK version.
+Import Python packages you'll need in this session. Also display the Azure Machine Learning SDK version.
 
 ```python
 %matplotlib inline
@@ -155,7 +142,7 @@ except ComputeTargetException:
      # For a more detailed view of current Batch AI cluster status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
-You now have the necessary modules and compute resources to train a model in the cloud. 
+You now have the necessary packages and compute resources to train a model in the cloud. 
 
 ## Explore data
 
