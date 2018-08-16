@@ -17,7 +17,7 @@ When using either Marketplace or custom images, additional attributes are needed
 
 * `InstallJetpack` specifies that jetpack should be installed as part of the VM boot process. This should always be `true` for Marketplace images.
 
-* Acceptable values for `jetpackplatform` are: `centos-6`,`centos-7`, `ubuntu-14`, `ubuntu-16`, and `windows`. This should match the operating system of the Marketplace Image.
+* Acceptable values for `jetpackplatform` are: `centos-6`,`centos-7`, `ubuntu-14.04`, `ubuntu-16.04`, and `windows`. This should match the operating system of the Marketplace Image.
 
 ## Use an Azure Marketplace Image in a CycleCloud Node
 
