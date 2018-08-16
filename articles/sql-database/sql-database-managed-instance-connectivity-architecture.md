@@ -3,13 +3,14 @@ title: Azure SQL Database Managed Instance Connectivity Architecture | Microsoft
 description: This article provides the Azure SQL Database Managed Instance communication overview and explains connectivity architecture as well as how the different components function to direct traffic to the Managed Instance.
 keywords: 
 services: sql-database
-author: CarlRabeler
+author: srdan-bozovic-msft
 manager: craigg
 ms.service: sql-database
 ms.subservice: managed instance
 ms.custom: 
 ms.date: 08/16/2018
-ms.author: CarlRabeler
+ms.author: srbozovi
+ms.reviewer: bonova, carlrab
 ms.topic: conceptual
 ---
 
