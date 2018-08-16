@@ -225,7 +225,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo zypper install sap-suse-cluster-connector
    </code></pre>
 
-   > [!NOTE] Do not use dashes in the hostnames of your cluster nodes. Otherwise your cluster will not work. This is a known limitation and SUSE is working on a fix. The fix will be released as a patch of the sap-suse-cloud-connector package.
+   > [!NOTE]
+   > Do not use dashes in the hostnames of your cluster nodes. Otherwise your cluster will not work. This is a known limitation and SUSE is working on a fix. The fix will be released as a patch of the sap-suse-cloud-connector package.
 
    Make sure that you installed the new version of the SAP SUSE cluster connector. The old one was called sap_suse_cluster_connector and the new one is called **sap-suse-cluster-connector**.
 
