@@ -391,7 +391,7 @@ The cluster authentication certificate must be configured in both the Service Fa
 
 ### Add Azure AD configuration to use Azure AD for client access
 
-You add the Azure AD configuration to a cluster Resource Manager template by referencing the key vault that contains the certificate keys. Add those Azure AD parameters and values in a Resource Manager template parameters file (azuredeploy.parameters.json).
+You add the Azure AD configuration to a cluster Resource Manager template by referencing the key vault that contains the certificate keys. Add those Azure AD parameters and values in a Resource Manager template parameters file (azuredeploy.parameters.json). Azure AD tenants and users must be created before creating the cluster.  For more information, read [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
 
 ```json
 {
