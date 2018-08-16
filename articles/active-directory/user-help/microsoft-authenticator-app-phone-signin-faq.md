@@ -66,7 +66,7 @@ New accounts are automatically turned on, so you can immediately start using pho
 
 ### To use phone sign-in to sign in to your personal account
 
-1.	Go to your personal Microsoft account sign-in page, and then instead of typing your password, select the **Use an app instead** link.
+1.	Go to your personal Microsoft account sign-in page, and then instead of typing your password, select the **Use the Microsoft Authenticator app instead** link.
 
     Microsoft sends a notification to your phone. 
 

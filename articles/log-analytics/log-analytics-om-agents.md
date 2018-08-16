@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect Operations Manager to Log Analytics | Microsoft Docs
 description: To maintain your existing investment in System Center Operations Manager and use extended capabilities with Log Analytics, you can integrate Operations Manager with your workspace.
 services: log-analytics
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: na
 ---
@@ -50,7 +50,6 @@ Before starting, review the following requirements.
 >* For System Center 2016 - Operations Manager, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57172)  
 >* For System Center Operations Manager 2012 R2, download the management pack from [here](https://www.microsoft.com/en-us/download/details.aspx?id=57171)  
 
-
 ### Network
 The information below list the proxy and firewall configuration information required for the Operations Manager agent, management servers, and Operations console to communicate with Log Analytics.  Traffic from each component is outbound from your network to the Log Analytics service.     
 
@@ -77,6 +76,9 @@ The information below list the proxy and firewall configuration information requ
 |portal.loganalytics.io| 80 and 443||
 |api.loganalytics.io| 80 and 443||
 |docs.loganalytics.io| 80 and 443||  
+
+### TLS 1.2 protocol
+To insure the security of data in transit to Log Analytics, we strongly encourage you to configure the agent and management group to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 
 
 ## Connecting Operations Manager to Log Analytics
 Perform the following series of steps to configure your Operations Manager management group to connect to one of your Log Analytics workspaces.

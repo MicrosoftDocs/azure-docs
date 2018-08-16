@@ -3,13 +3,11 @@ title: Use the Azure storage emulator for development and testing | Microsoft Do
 description: The Azure storage emulator provides a free local development environment for developing and testing your Azure Storage applications. Learn how requests are authorized, how to connect to the emulator from your application, and how to use the command-line tool.
 services: storage
 author: tamram
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 08/10/2018
 ms.author: tamram
-
+ms.component: common
 ---
 # Use the Azure storage emulator for development and testing
 
@@ -201,6 +199,12 @@ The following differences apply to Table storage in the emulator:
 There are no differences specific to Queue storage in the emulator.
 
 ## Storage emulator release notes
+
+### Version 5.7
+Fixed a bug that would cause a crash if logging was enabled.
+
+### Version 5.6
+* The storage emulator now supports version 2018-03-28 of the storage services on Blob, Queue, and Table service endpoints.
 
 ### Version 5.5
 * The storage emulator now supports version 2017-11-09 of the storage services on Blob, Queue, and Table service endpoints.

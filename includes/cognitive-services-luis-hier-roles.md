@@ -12,12 +12,14 @@ ms.date: 08/02/2018
 ms.author: diberry
 --- 
 
-**Question**: Should you use an hierarchical entity or a pattern including simple entity with roles? 
+**Question**: Should you use a hierarchical entity or a pattern with a simple entity with roles? 
 
-**Answer**: That depends. Roles work with patterns and hierarchical entities work in intents. Roles with patterns accomplish the same method but with fewer examples but must in the format of a pattern. If the utterances don’t have a clear pattern, you need to use hierarchical entities. 
+**Answer**: That depends. Patterns and example utterances are comparable in that they represent a user's utterance, and are specific to an intent.  
+
+If the utterances don’t have a clear pattern, use hierarchical entities. 
 
 |Hierarchical entities|Simple entity with roles|
 |--|--|
 |must have example utterances with child entities labeled in intents|must have example utterances, **roles can't be labeled in intents**|
 |can use in patterns|**must** use in patterns|
-|may need **more** example utterances in intent|may need **less** example utterances in intent|
+|may need **more** example utterances in intent|may need **fewer example utterances in intent|

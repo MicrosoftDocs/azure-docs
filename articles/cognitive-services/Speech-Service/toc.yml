@@ -19,28 +19,24 @@
   - name: Try the Speech service for free
     href: get-started.md
     displayName: get started, subscription key
-  - name: 'C#'
+  - name: Recognize speech
     items:
-    - name: 'Recognize speech in C# (.NET on Windows)'
+    - name: 'Using C# (.NET on Windows)'
       href: quickstart-csharp-dotnet-windows.md
       displayName: recognize speech, speech recognition, speech to text, stt
-    - name: 'Recognize speech in C# (.NET Core on Windows)'
+    - name: 'Using C# (.NET Core on Windows)'
       href: quickstart-csharp-dotnetcore-windows.md
       displayName: recognize speech, speech recognition, speech to text, stt
-    - name: 'Recognize speech in a UWP app'
+    - name: 'Using C# (Universal Windows Platform)'
       href: quickstart-csharp-uwp.md
       displayName: 'recognize speech, speech recognition, speech to text, stt, C#'
-  - name: C++
-    items:
-    - name: Recognize speech in C++ for Windows
+    - name: 'Using C++ (Windows)'
       href: quickstart-cpp-windows.md
       displayName: recognize speech, speech recognition, speech to text, stt
-    - name: Recognize speech in C++ for Linux
+    - name: 'Using C++ (Linux)'
       href: quickstart-cpp-linux.md
       displayName: recognize speech, speech recognition, speech to text, stt
-  - name: Java
-    items:
-    - name: Recognize speech in Java for Android
+    - name: 'Using Java (Android)'
       href: quickstart-java-android.md
       displayName: recognize speech, speech recognition, speech to text, stt
   - name: Get started with Speech Devices SDK
@@ -86,8 +82,6 @@
   - name: Get the Speech Devices SDK
     href: get-speech-devices-sdk.md
     displayName: roobo, speech devices sdk, download
-- name: Customization
-  items:
   - name: Customize acoustic models
     href: how-to-customize-acoustic-models.md
   - name: Customize language models
@@ -118,6 +112,10 @@
     displayName: translate speech, speech translation, translator, s2s, speech to speech
 - name: Reference
   items:
+  - name: Powershell
+    href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: Supported languages
     href: supported-languages.md
   - name: Regions
@@ -161,6 +159,12 @@
       href: third-party-notices.md
   - name: Speech Devices SDK
     items:
+    - name: Download 
+      href: 'get-speech-devices-sdk.md#download-the-speech-devices-sdk'
+    - name: Samples
+      href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK 
+    - name: Release notes
+      href: devices-sdk-release-notes.md
     - name: License
       href: speech-devices-sdk-license.md
       displayName: roobo, speech devices sdk

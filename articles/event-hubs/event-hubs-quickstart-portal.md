@@ -3,14 +3,14 @@ title: Azure Quickstart - Process event streams using the Azure portal | Microso
 description: In this quickstart, you learn how to process event streams using Azure portal.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
+ms.author: shvija
 #Customer intent: How do I stream data and process telemetry from an event hub? 
 
 ---

@@ -29,10 +29,11 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                     <div class="cardText">
                         <h3>Fundamentals</h3>
                         <p>
-                        <a href="/azure/active-directory/active-directory-whatis">What is Azure AD?</a><br/>
-                        <a href="/azure/active-directory/understand-azure-identity-solutions">Identity solutions</a><br/>
-                        <a href="/azure/active-directory/get-started-azure-ad">Get started</a><br/>
-                        <a href="/azure/active-directory/whats-new">What's new</a>
+                        <a href="/azure/active-directory/fundamentals/active-directory-whatis">What is Azure AD?</a><br/>
+                        <a href="/azure/active-directory/fundamentals/understand-azure-identity-solutions">Identity solutions</a><br/>
+                        <a href="/azure/active-directory/fundamentals/get-started-azure-ad">Get started</a><br/>
+                        <a href="/azure/active-directory/fundamentals/whats-new">What's new</a><br/>
+                        <a href="/azure/active-directory/fundamentals/active-directory-deployment-plans">Azure AD deployment plans</a>
                         </p>
                     </div>
                 </div>

@@ -58,11 +58,6 @@ sections:
       image: 
         src: media/index/get-started.svg
         href: /azure/key-vault/key-vault-use-from-web-application
-    - title:  Set up Azure Key Vault with end-to-end key rotation and auditing
-      href: /azure/key-vault/key-vault-key-rotation-log-monitoring
-      image: 
-        src: media/index/tutorial.svg
-        href: /azure/key-vault/key-vault-key-rotation-log-monitoring
 - title: Reference
   items:
   - type: list

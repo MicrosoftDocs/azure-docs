@@ -3,14 +3,14 @@ title: Managed Service Identity with Azure Event Hubs preview | Microsoft Docs
 description: Use Managed Service Identities with Azure Event Hubs
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
-ms.author: sethm
+ms.author: shvija
 
 ---
 
