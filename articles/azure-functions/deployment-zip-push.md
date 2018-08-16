@@ -24,7 +24,7 @@ This article describes how to deploy your function app project files to Azure fr
 
 Azure Functions has the full range of continuous deployment and integration options that are provided by Azure App Service. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
 
-To speed development, you may find it easier to deploy your function app project files directly from a compressed .zip file. The .zip deployment API takes the contents of a compressed .zip file and expands the contents into the `wwwroot` folder of your function app. This .zip file deployment uses the same Kudu service that powers continuous integration-based deployments, including:
+To speed development, you may find it easier to deploy your function app project files directly from a .zip file. The .zip deployment API takes the contents of a .zip file and extracts the contents into the `wwwroot` folder of your function app. This .zip file deployment uses the same Kudu service that powers continuous integration-based deployments, including:
 
 + Deletion of files that were left over from earlier deployments.
 + Deployment customization, including running deployment scripts.
@@ -94,7 +94,7 @@ You can also choose to run your functions directly from the .zip deployment file
 > [!NOTE]
 > The ability to run your function app from the deployment package is in preview.
 
-Zip deployment integrates with this feature, which you can enable by setting the function app setting `WEBSITE_RUN_FROM_ZIP` to a value of `1`. For more information, see [Run your functions from a compressed deployment package](run-functions-from-compressed-package.md).
+Zip deployment integrates with this feature, which you can enable by setting the function app setting `WEBSITE_RUN_FROM_ZIP` to a value of `1`. For more information, see [Run your functions from a compressed deployment package](run-functions-from-deployment-package.md).
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 

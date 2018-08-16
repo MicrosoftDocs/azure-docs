@@ -17,14 +17,14 @@ ms.author: glenga
 
 ---
 
-# Run your functions from a compressed deployment package
+# Run your Azure Functions from a deployment package
 
 > [!NOTE]
 > The functionality described in this article is currently in preview; it is not available for Functions on Linux.
 
-By default, your function app files in Azure are deployed to the `d:\home\site\wwwroot` directory of your function app. These files are used when your functions run. 
+By default, your function project files are deployed to the `d:\home\site\wwwroot` directory of your function app in Azure. These files are used to run your functions.
 
-You can also choose to run your functions directly from a compressed deployment (.zip) file. This article describes the benefits of running your functions from a .zip file, and how to enable it in your function app.
+You can also choose to run your functions directly from a .zip deployment file. This article describes the benefits of running your functions from a .zip package file, and how to enable it in your function app.
 
 ## Benefits of running from the zip file
   
@@ -50,7 +50,7 @@ To enable your function app to run from a .zip file, you just add a `WEBSITE_RUN
 
 The following shows a function app configured to run from a .zip file hosted in Azure Blob storage:
 
-![WEBSITE_RUN_FROM_ZIP app setting](./media/run-functions-from-compressed-package/website-run-from-zip-app-setting.png)
+![WEBSITE_RUN_FROM_ZIP app setting](./media/run-functions-from-deployment-package/run-from-zip-app-setting-portal.png)
 
 ## Integration with .zip deployment
 
