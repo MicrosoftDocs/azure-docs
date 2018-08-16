@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3><a href="/azure/active-directory/users-groups-roles/index.yml">Enterprise users</a></h3>
+                        <h3><a href="/azure/active-directory/users-groups-roles/index">Enterprise users</a></h3>
                         <p>
                         <a href="/azure/active-directory/add-users-azure-active-directory">Users</a><br/>
                         <a href="/azure/active-directory/active-directory-manage-groups">Groups</a><br/>
