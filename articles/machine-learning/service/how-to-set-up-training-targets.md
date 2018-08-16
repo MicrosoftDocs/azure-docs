@@ -13,13 +13,6 @@ ms.date: 09/24/2018
 ---
 # Set up compute targets for model training
 
-
-Unless things have changed drastically, I think we can do one document. Looking at some examples (some experimental) from the github repo, the general pattern is:
-
- 
-So, I’m currently assuming that we can do one doc that tells you the big differentiators between the environments, the generic workflow of training, and then goes into specifics around the each training environment and provides details of configuration. It would be nice to have an example of each that we can link out to as “for more information”. But that can come later.
-
-
 Azure Machine Learning service enables data scientists to execute their experiments in a number of different compute targets. In this article, you'll learn about the compute targets available for training your experiments and how to set them up for your experiments.
 
 A compute target is the compute resource used to execute your training script or host your web service deployment. They can be created and managed by using Azure Machine Learning Python SDK or CLI. You can also attach existing compute targets to your workspace in Azure portal. You can start with local runs on your machine, but then follow an easy path for scaling up and out to other environments such as remote Data Science VMs with GPU or Batch AI clusters.
@@ -64,7 +57,17 @@ You can run your scripts on:
 >[!IMPORTANT]
 > Windows VMs running Docker are **not** supported as remote compute targets.
 
+## Local machine
 
+This is a local machine.
+
+## The Data Science VM
+
+## Azure Batch AI Cluster
+
+## Azure Container Instance
+
+## Apache Spark for HDInsight
 
 ## Execution environment
 The _execution environment_ defines the run time configuration and the dependencies needed to run the program in Workbench.
