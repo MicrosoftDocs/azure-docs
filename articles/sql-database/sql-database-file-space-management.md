@@ -2,17 +2,16 @@
 title: Azure SQL Database file space management| Microsoft Docs
 description: This page describes how to manage file space with Azure SQL Database, and provides code samples for how to determine if you need to shrink a database as well as how to perform a database shrink operation.
 services: sql-database
-author: CarlRabeler
+author: oslake
 manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
+ms.date: 08/15/2018
+ms.author: moslake
 
 ---
 # Manage file space in Azure SQL Database
-
 This article describes different types of storage space in Azure SQL Database, and steps that can be taken when the file space allocated for databases and elastic pools needs to be explicitly managed.
 
 ## Overview
@@ -28,7 +27,7 @@ There are workload patterns where the allocation of underlying data files for da
 The SQL DB service does not automatically shrink data files to reclaim unused allocated space due to the potential impact to database performance.  However, customers may shrink data files via self-service at a time of their choosing by following the steps described in [Reclaim unused allocated space](#reclaim-unused-allocated-space). 
 
 > [!NOTE]
-> Unlike data files, the SQL Database service automatically shrinks log files since that operation does not impact database performance.
+> Unlike data files, the SQL Database service automatically shrinks log files since that operation does not impact database performance. 
 
 ## Understanding types of storage space for a database
 
@@ -36,15 +35,15 @@ Understanding the following storage space quantities are important for managing 
 
 |Database quantity|Definition|Comments|
 |---|---|---|
-|**Data space used**|Amount of space used to store database data in 8 KB pages.|Generally, space used increases (decreases) on inserts (deletes). In some cases, the space used does not change on inserts or deletes depending on the amount and pattern of data involved in the operation and any fragmentation. For example, deleting one row from every data page does not necessarily decrease the space used.|
-|**Data space allocated**|Amount of formatted file space made available for storing database data.|The allocated space allocated grows automatically, but never decreases after deletes. This behavior ensures that future inserts are faster since space does not need to be reformatted.|
-|**Data space allocated but unused**|Amount of unused data file space allocated for the database.|This quantity is the difference between the amount of space allocated and space used, and represents the maximum amount of free space that can be reclaimed by shrinking database files.|
-|**Data max size**|Maximum amount of space that can be used by the database for storing data.|The amount of data space allocated cannot grow beyond the data max size.|
+|**Data space used**|The amount of space used to store database data in 8 KB pages.|Generally, space used increases (decreases) on inserts (deletes). In some cases, the space used does not change on inserts or deletes depending on the amount and pattern of data involved in the operation and any fragmentation. For example, deleting one row from every data page does not necessarily decrease the space used.|
+|**Data space allocated**|The amount of formatted file space made available for storing database data.|The amount of space allocated grows automatically, but never decreases after deletes. This behavior ensures that future inserts are faster since space does not need to be reformatted.|
+|**Data space allocated but unused**|The difference between the amount of data space allocated and data space used.|This quantity represents the maximum amount of free space that can be reclaimed by shrinking database data files.|
+|**Data max size**|The maximum amount of space that can be used for storing database data.|The amount of data space allocated cannot grow beyond the data max size.|
 ||||
 
-The following diagram illustrates the relationship between the different types of storage space.
+The following diagram illustrates the relationship between the different types of storage space for a database.
 
-![storage space types and relationships](./media/sql-database-file-space-management/storage-types.png)
+![storage space types and relationships](./media/sql-database-file-space-management/storage-types.png) 
 
 ## Query a database for storage space information
 
@@ -84,16 +83,16 @@ Modify the following query to return the database data max size.  Units of the q
 SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 ```
 
-## Understanding the types of storage space for an elastic pool
+## Understanding types of storage space for an elastic pool
 
 Understanding the following storage space quantities are important for managing the file space of an elastic pool.
 
 |Elastic pool quantity|Definition|Comments|
 |---|---|---|
 |**Data space used**|The summation of data space used by all databases in the elastic pool.||
-|**Data space allocated**|The summation of data space allocated by all databases in the pool.||
-|**Data space allocated but unused**|The difference between the amount of space allocated and space used by the elastic pool.|This quantity represents the maximum amount of space allocated for the pool that can be reclaimed by shrinking database files.|
-|**Data max size**|The maximum amount of data space that can be used by the elastic pool for all of its databases.|The space allocated for the pool should not exceed the elastic pool max size.  If this occurs, then space allocated that is unused can be reclaimed by shrinking database files.|
+|**Data space allocated**|The summation of data space allocated by all databases in the elastic pool.||
+|**Data space allocated but unused**|The difference between the amount of data space allocated and data space used by all databases in the elastic pool.|This quantity represents the maximum amount of space allocated for the elastic pool that can be reclaimed by shrinking database data files.|
+|**Data max size**|The maximum amount of data space that can be used by the elastic pool for all of its databases.|The space allocated for the elastic pool should not exceed the elastic pool max size.  If this occurs, then space allocated that is unused can be reclaimed by shrinking database data files.|
 ||||
 
 ## Query an elastic pool for storage space information
@@ -114,9 +113,11 @@ ORDER BY end_time DESC
 
 ### Elastic pool data space allocated and unused allocated space
 
-Modify the following PowerShell script to return a table listing the total space allocated and unused space allocated for each database in an elastic pool. The table orders databases from those with the greatest amount of space allocated unused to the least amount of space allocated unused.  Units of the query result are in MB.  
+Modify the following PowerShell script to return a table listing the space allocated and unused allocated space for each database in an elastic pool. The table orders databases from those with the greatest amount of unused allocated space to the least amount of unused allocated space.  Units of the query result are in MB.  
 
-The query results for determining the space allocated for each database in the pool can be added together to the determine the elastic pool space allocated. The elastic pool space allocated should not exceed the elastic pool max size.  
+The query results for determining the space allocated for each database in the pool can be added together to determine the total space allocated for the elastic pool. The elastic pool space allocated should not exceed the elastic pool max size.  
+
+The PowerShell script requires SQL Server PowerShell module – see [Download PowerShell module](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module?view=sql-server-2017) to install.
 
 ```powershell
 # Resource group name
@@ -139,7 +140,7 @@ $databaseStorageMetrics = @()
 
 # For each database in the elastic pool,
 # get its space allocated in MB and space allocated unused in MB.
-# Requires SQL Server PowerShell module – see here to install.  
+  
 foreach ($database in $databasesInPool)
 {
     $sqlCommand = "SELECT DB_NAME() as DatabaseName, `

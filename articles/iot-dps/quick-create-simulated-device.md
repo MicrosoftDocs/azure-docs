@@ -143,7 +143,7 @@ In this section, you will configure sample code to use the [Advanced Message Que
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning service and copy the **_ID Scope_** value.
 
-    ![Extract DPS endpoint information from the portal](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
+    ![Extract Device Provisioning Service endpoint information from the portal](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
 2. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 

@@ -162,7 +162,7 @@ For production workloads:
 - Standard A1 SKU is not supported for production workloads for performance reasons.
 
 > [!WARNING]
->Chaning the primary node VM SKU size on a running cluster, is a scaling operation, and documented in [Virtual Machine Scale Set scale out](virtual-machine-scale-set-scale-node-type-scale-out.md) documentation.
+> Changing the primary node VM SKU size on a running cluster, is a scaling operation, and documented in [Virtual Machine Scale Set scale out](virtual-machine-scale-set-scale-node-type-scale-out.md) documentation.
 
 ## Non-primary node type - capacity guidance for stateful workloads
 

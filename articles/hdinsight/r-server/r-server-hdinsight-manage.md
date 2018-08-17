@@ -1,19 +1,14 @@
 ---
-title: Manage ML Services cluster on HDInsight - Azure | Microsoft Docs
+title: Manage ML Services cluster on HDInsight - Azure 
 description: Learn how to manage an ML Services cluster in Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: cgronlun
-editor: cgronlun
-
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: jasonh
-
 ---
 # Manage ML Services cluster on Azure HDInsight
 

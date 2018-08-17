@@ -6,7 +6,7 @@ author: MichaelHauss
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/26/18
+ms.date: 08/17/18
 ms.author: mihauss
 ms.component: blobs
 ---
@@ -28,14 +28,14 @@ When uploading content to your website, use the blob storage endpoint. To upload
 
 
 ## Custom domain names
-You can use a custom domain to host your web content. To do so, follow the guidance in [Configure a custom domain name for your Azure Storage account](storage-custom-domain-name.md). To access your website hosted at a custom domain name over HTTPS, see [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md).
+You can use a custom domain to host your web content. To do so, follow the guidance in [Configure a custom domain name for your Azure Storage account](storage-custom-domain-name.md). To access your website hosted at a custom domain name over HTTPS, see [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md). Point your CDN to the web endpoint as opposed to the blob endpoint and remember that CDN configuration doesn't happen instantaneously, so you may need to wait a few minutes before your content is visible.
 
 ## Pricing and billing
 Static website hosting is provided at no additional cost. For more details on prices for Azure Blob Storage, check out the [Azure Blob Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Quickstart
 ### Azure portal
-To start hosting your web application on Azure Storage, you can configure the feature using the Azure Portal and click on "Static website (preview)" under "Settings" in the left navigation bar. Click "Enabled" and enter the name of the index document and (optionally) the custom error document path.
+If you haven't already, [create a GPv2 storage account](../common/storage-quickstart-create-account.md) To start hosting your web application, you can configure the feature using the Azure Portal and click on "Static website (preview)" under "Settings" in the left navigation bar. Click "Enabled" and enter the name of the index document and (optionally) the custom error document path.
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
@@ -46,12 +46,38 @@ Upload your web assets to the "$web" container that was created as a part of sta
 
 Finally, navigate to your web endpoint to test your website.
 
+### Azure CLI
+Install the storage preview extension:
+
+```azurecli-interactive
+az extension add --name storage-preview
+```
+Enable the feature:
+
+```azurecli-interactive
+az storage blob service-properties update --account-name <account-name> --static-website --404-document <error-doc-name> --index-document <index-doc-name>
+```
+Query for the web endpoint URL:
+
+```azurecli-interactive
+az storage account show -n <account-name> -g <resource-group> --query "primaryEndpoints.web" --output tsv
+```
+
+Upload objects to the $web container:
+
+```azurecli-interactive
+az storage blob upload-batch -s deploy -d $web --account-name <account-name>
+```
+
 ## FAQ
 **Is static websites available for all storage account types?**  
 No, static website hosting is only available in GPv2 standard storage accounts.
 
 **Are Storage VNET and firewall rules supported on the new web endpoint?**  
 Yes, the new web endpoint obeys the VNET and firewall rules configured for the storage account.
+
+**Is the web endpoint case sensitive?**  
+Yes, the web endpoint is case sensitive just like the blob endpoint. 
 
 ## Next steps
 * [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
