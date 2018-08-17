@@ -37,7 +37,7 @@ The SSP is available for the FedRAMP Moderate and High baselines, and the DISA C
 
 ## General Data Protection Regulation (GDPR) Data Subject Requests (DSRs) on Azure Government
 
-Azure tenant administrators can use the [User Privacy blade]((https://portal.azure.us/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)) in the Azure portal to export and/or delete personal data generated during a customer's use of Azure Government services. For more information about Data Subject Requests, see [Data Subject Requests for the GDPR](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure).
+Azure tenant administrators can use the [User Privacy blade]((https://portal.azure.us/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) in the Azure portal to export and/or delete personal data generated during a customer's use of Azure Government services. For more information about Data Subject Requests, see [Data Subject Requests for the GDPR](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure).
 
 ## Next steps
 
