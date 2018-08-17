@@ -201,6 +201,8 @@ The containerized service needs an endpoint for communication. Add an `Endpoint`
   </Endpoints>
 </Resources>
 ```
+> [!NOTE]
+> Additional Endpoints for a service can be added by declaring additional EndPoint elements with applicable property values. Each Port can only declare one protocol value.
 
 By defining an endpoint, Service Fabric publishes the endpoint to the Naming service. Other services running in the cluster can resolve this container. You can also perform container-to-container communication using the [reverse proxy](service-fabric-reverseproxy.md). Communication is performed by providing the reverse proxy HTTP listening port and the name of the services that you want to communicate with as environment variables.
 
@@ -244,6 +246,8 @@ Configure a host port used to communicate  with the container. The port binding 
     ...
 </ServiceManifestImport>
 ```
+> [!NOTE]
+> Additional PortBindings for a service can be added by declaring additional PortBinding elements with applicable property values.
 
 ## Configure container registry authentication
 Configure container registry authentication by adding `RepositoryCredentials` to `ContainerHostPolicies` of the ApplicationManifest.xml file. Add the account and password for the myregistry.azurecr.io container registry, which allows the service to download the container image from the repository.

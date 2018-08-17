@@ -4,6 +4,7 @@ description: This article describes how to use the Vertex Execution View to exam
 services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.technology: vs-azure
+ms.custom: vs-azure
 ms.workload: azure-vs
 author: mumian
 ms.author: jgao
