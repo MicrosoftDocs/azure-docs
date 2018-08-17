@@ -83,6 +83,10 @@ Azure Disk Encryption for virtual machines helps you address organizational secu
 
 Disk Encryption for VMs works for Linux and Windows operating systems. It also uses Key Vault to help you safeguard, manage, and audit use of your disk encryption keys. All the data in your VM disks is encrypted at rest by using industry-standard encryption technology in your Azure storage accounts. The Disk Encryption solution for Windows is based on [Microsoft BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx), and the Linux solution is based on [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
+Learn more
+
+* [Azure Disk Encryption for Windows and Linux IaaS Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+
 ## Azure Storage Firewalls and Virtual networks
 
 Azure storage allows you to enable firewall rules for your storage accounts. Once enabled they will block incoming requests for data, including requests from other Azure services. You can configure exceptions to allow traffic. Firewall rules may be enabled on existing storage accounts or during creation time.
@@ -90,10 +94,6 @@ Azure storage allows you to enable firewall rules for your storage accounts. Onc
 You should use this functionality  to secure your storage accounts to a specific set of allowed networks.
 
 For more information on Azure storage firewalls and virtual networks review the article [Configure Azure Storage Firewalls and Virtual Networks](../storage/common/storage-network-security.md)
-
-Learn more
-
-* [Azure Disk Encryption for Windows and Linux IaaS Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
 ## Azure Key Vault
 
