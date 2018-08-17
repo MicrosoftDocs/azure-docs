@@ -37,7 +37,7 @@ When you start PowerShell, you have to tell Azure PowerShell to connect to Azure
 | --- | --- |
 | [Azure](/powershell/module/azurerm.profile/Connect-AzureRmAccount) commands |`Connect-AzureRmAccount -EnvironmentName AzureUSGovernment` |
 | [Azure Active Directory](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
-| [Azure (Classic deployment model)](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
+| [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
 | [Azure Active Directory (Classic deployment model)](https://msdn.microsoft.com/library/azure/jj151815.aspx) commands |`Connect-MsolService -AzureEnvironment UsGovernment` |
 You may also use the `Environment` switch when connecting to a storage account using `New-AzureStorageContext` and specify `AzureUSGovernment`.
 

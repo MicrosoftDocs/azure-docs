@@ -3,7 +3,7 @@ title: Get started with the Azure WebJobs SDK
 description: Introduction to the WebJobs SDK for event-driven background processing. Learn how to access data in Azure services and third-party services.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: 
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
-ms.author: tdykstra
+ms.author: glenga
 ---
 
 # Get started with the Azure WebJobs SDK for event-driven background processing

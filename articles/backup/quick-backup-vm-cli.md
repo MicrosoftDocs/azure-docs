@@ -8,8 +8,8 @@ tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 2/14/2018
-ms.author: iainfou
+ms.date: 8/3/2018
+ms.author: markgal
 ms.custom: mvc
 ---
 

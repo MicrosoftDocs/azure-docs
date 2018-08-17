@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/03/2018
+ms.date: 08/07/2018
 ms.author: cephalin
 ---
 
@@ -237,7 +237,7 @@ From the management page of the AD application, copy the **Application ID** to a
 
 Follow the same steps for the front-end app, but skip the last step. You don't need the **Application ID** for the front-end app. Keep the **Azure Active Directory Settings** page open.
 
-If you like, navigate to `http://<front_end_app_name>.azurewebsites.net`. It should now direct you to a sign-in page. After you sign in, you still can't access the data from the back-end app, because you still need to do three things:
+If you like, navigate to `http://<front_end_app_name>.azurewebsites.net`. It should now direct you to a secured sign-in page. After you sign in, you still can't access the data from the back-end app, because you still need to do three things:
 
 - Grant the front end access to the back end
 - Configure App Service to return a usable token
@@ -318,7 +318,7 @@ git commit -m "add authorization header for server code"
 git push frontend master
 ```
 
-Sign in to `http://<front_end_app_name>.azurewebsites.net` again. At the user data usage agreement page, click **Accept**.
+Sign in to `https://<front_end_app_name>.azurewebsites.net` again. At the user data usage agreement page, click **Accept**.
 
 You should now be able to create, read, update, and delete data from the back-end app as before. The only difference now is that both apps are now secured by App Service authentication and authorization, including the service-to-service calls.
 
@@ -348,7 +348,7 @@ This step is not related to authentication and authorization. However, you need 
 
 In the local repository, open _wwwroot/index.html_.
 
-In Line 51, set the `apiEndpoint` variable to the URL of your back-end app (`http://<back_end_app_name>.azurewebsites.net`). Replace _\<back\_end\_app\_name>_ with your app name in App Service.
+In Line 51, set the `apiEndpoint` variable to the URL of your back-end app (`https://<back_end_app_name>.azurewebsites.net`). Replace _\<back\_end\_app\_name>_ with your app name in App Service.
 
 In the local repository, open _wwwroot/app/scripts/todoListSvc.js_ and see that `apiEndpoint` is prepended to all the API calls. Your Angular.js app is now calling the back-end APIs. 
 
@@ -402,7 +402,7 @@ git commit -m "add authorization header for Angular"
 git push frontend master
 ```
 
-Navigate to `http://<front_end_app_name>.azurewebsites.net` again. You should now be able to create, read, update, and delete data from the back-end app, directly in the Angular.js app.
+Navigate to `https://<front_end_app_name>.azurewebsites.net` again. You should now be able to create, read, update, and delete data from the back-end app, directly in the Angular.js app.
 
 Congratulations! Your client code is now accessing the back-end data on behalf of the authenticated user.
 

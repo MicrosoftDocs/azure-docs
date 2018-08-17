@@ -64,6 +64,8 @@
     href: https://azure.microsoft.com/en-us/resources/samples/?service=functions
   - name: Azure CLI
     href: functions-cli-samples.md
+  - name: Azure Functions Recipes
+    href: https://docs.microsoft.com/sandbox/functions-recipes/    
 - name: Concepts
   items:
   - name: Compare 1.x and 2.x
@@ -174,6 +176,8 @@
       href: functions-how-to-use-azure-function-app-settings.md
     - name: Set the runtime version 
       href: set-runtime-version.md
+    - name: Disable a function 
+      href: disable-function.md
   - name: Monitor
     href: functions-monitoring.md
   - name: Integrate

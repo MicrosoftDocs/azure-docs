@@ -6,7 +6,7 @@ author: eross-msft
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: lizross
-ms.date: 07/05/2017
+ms.date: 08/07/2018
 ms.topic: overview
 ms.prod:
 ms.service: active-directory
@@ -32,12 +32,12 @@ Microsoft not only provides an identity that takes you everywhere, but also a se
 [!INCLUDE [identity](../../../includes/azure-ad-licenses.md)]
 
 ## Connect on-premises Active Directory with Azure AD and Office 365
-Organizations that have made large investments in on-premises Active Directory can extend those investments to the cloud by integrating their on-premises directories with Azure AD into [hybrid identity management](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview). Doing so makes your users more productive by providing a common identity for accessing resources regardless of location. Users and organizations can then use single sign-on (SSO) to access both on-premises resources and cloud services such as Office 365.
+Organizations that have made large investments in on-premises Active Directory can extend those investments to the cloud by integrating their on-premises directories with Azure AD into [hybrid identity management](https://aka.ms/aadframework). Doing so makes your users more productive by providing a common identity for accessing resources regardless of location. Users and organizations can then use single sign-on (SSO) to access both on-premises resources and cloud services such as Office 365.
 
 [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) is the only tool you need to get the integration done. Azure AD Connect provides capabilities to support your identity synchronization needs and replaces older versions of identity integration tools such as DirSync and Azure AD Sync. With Azure AD Connect, identity management and synchronization between on-premises and Azure AD is enabled through:
 
 - Synchronization - This component is responsible for creating users, groups, and other objects. It is also responsible for making sure identity information for your on-premises users and groups is matching the cloud. Password write-back can also be enabled to keep on-premises directories in sync when a user updates their password in Azure AD.
-- AD FS - Federation is an optional capability provided by Azure AD Connect that can be used to configure a hybrid environment using an on-premises AD FS infrastructure. Federation can be used by organizations to address complex deployments, such as smart card or third-party MFA.
+- Authentication - When the Azure AD is your new control plane, authentication is the foundation of cloud access. Choosing the correct authentication method is a key decision in setting up an Azure AD hybrid identity solution. Review [this guide](https://aka.ms/auth-options) to choose between cloud authentication (Password Hash Synchronization / Pass-through Authentication) or federated authentication (AD FS) for your organization.
 - Health Monitoring - [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health) can provide robust monitoring and provide a central location in the Azure portal to view this activity.
 
 ## Increase productivity and reduce helpdesk costs with self-service and single sign-on experiences

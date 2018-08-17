@@ -72,12 +72,13 @@ You should consider [pre-populating some authentication data for your users](how
 
 ## Disable self-service password reset
 
-If your organization decides to disable self-service password reset it is a simple process. Open your Azure AD tenant and go to **Password Reset** > **Properties**, and then select **None** under **Self Service Password Reset Enabled**. Users will still maintain their
+If your organization decides to disable self-service password reset it is a simple process. Open your Azure AD tenant and go to **Password Reset** > **Properties**, and then select **None** under **Self Service Password Reset Enabled**. Users will still maintain their registered authentication methods for future use.
 
 ## Next steps
 
 * [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md)
+* [Enable converged registration for Azure Multi-Factor Authentication and Azure AD self-service password reset](concept-registration-mfa-sspr-converged.md)
 * [Do you have a licensing question?](concept-sspr-licensing.md)
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What are the policy options with SSPR?](concept-sspr-policy.md)

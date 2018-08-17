@@ -230,6 +230,12 @@ On the **Overview** page, choose **Delete resource group**.
 
    ![Confirm deletion](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
 
+> [!NOTE]
+> When you delete a logic app, no new runs are instantiated. 
+> All in-progress and pending runs are canceled. 
+> If you have thousands of runs, cancellation might 
+> take significant time to complete.
+
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).

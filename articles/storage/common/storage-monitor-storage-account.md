@@ -2,20 +2,12 @@
 title: How to monitor an Azure Storage account | Microsoft Docs
 description: Learn how to monitor a storage account in Azure by using the Azure portal.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-
-ms.assetid: b83cba7b-4627-4ba7-b5d0-f1039fe30e78
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
-
+ms.component: common
 ---
 # Monitor a storage account in the Azure portal
 

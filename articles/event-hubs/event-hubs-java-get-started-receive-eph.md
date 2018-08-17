@@ -2,14 +2,14 @@
 title: Receive events from Azure Event Hubs using Java | Microsoft Docs
 description: Get started receiving from Event Hubs using Java
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 ms.date: 06/12/2018
-ms.author: sethm
+ms.author: shvija
 
 ---
 

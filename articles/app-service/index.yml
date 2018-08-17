@@ -57,6 +57,10 @@ sections:
         src: https://docs.microsoft.com/azure/app-service/media/index/logo_html5.svg
       text: HTML
       href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_docker.svg
+      text: Custom Windows container (Preview)
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-windows-container
   - type: paragraph
     text: 'Learn how to deploy your code:'
   - type: list

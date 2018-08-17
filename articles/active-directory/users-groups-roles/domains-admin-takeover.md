@@ -100,7 +100,7 @@ External admin takeover is not supported for any service that has service plans 
 
 #### More information about RMS for individuals
 
-For [RMS for individuals](/information-protection/understand-explore/rms-for-individuals), when the unmanaged tenant is in the same region as the tenant that you own, the automatically created [Azure Information Protection tenant key](/information-protection/plan-design/plan-implement-tenant-key) and [default protection templates](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates) are additionally moved over with the domain name. 
+For [RMS for individuals](/azure/information-protection/rms-for-individuals), when the unmanaged tenant is in the same region as the tenant that you own, the automatically created [Azure Information Protection tenant key](/azure/information-protection/plan-implement-tenant-key) and [default protection templates](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) are additionally moved over with the domain name. 
 
 The key and templates are not moved over when the unmanaged tenant is in a different region. For example, the unmanaged tenant is in Europe and the tenant you own is in North American. 
 
