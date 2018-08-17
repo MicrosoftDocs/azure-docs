@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/13/2018
+ms.date: 08/16/2018
 ms.author: sedusch
 
 ---
