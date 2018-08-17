@@ -8,7 +8,7 @@ ms.workload: azure-vs
 author: maxluk
 ms.author: maxluk
 editor: jasonwhowell
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, vs-azure
 ms.topic: conceptual
 ms.date: 06/27/2018
 ---
