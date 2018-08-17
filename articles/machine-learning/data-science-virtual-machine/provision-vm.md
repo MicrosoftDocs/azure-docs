@@ -1,25 +1,25 @@
----
+﻿---
 title: Provision the Windows Data Science Virtual Machine on Azure | Microsoft Docs
 description: Configure and create a Data Science Virtual Machine on Azure for analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.author: bradsev
+ms.author: gokuma
 
 ---
 # Provision the Windows Data Science Virtual Machine on Azure
 The Microsoft Data Science Virtual Machine is a Windows Azure virtual machine (VM) image pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The tools included are:
 
-* [Azure Machine Learning](../preview/index.yml) Workbench
+* [Azure Machine Learning](../service/index.yml) Workbench
 * [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
 * Anaconda Python distribution
 * Jupyter notebook (with R, Python, PySpark kernels)
@@ -32,7 +32,7 @@ The Microsoft Data Science Virtual Machine is a Windows Azure virtual machine (V
   * Deep Learning Frameworks: A rich set of AI frameworks including [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet, Keras are included on the VM.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool providing fast and accurate boosted tree implementation.
-  * [Rattle](http://rattle.togaware.com/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy. It includes GUI-based data exploration and modeling with automatic R code generation.
+  * [Rattle](https://togaware.com/rattle/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy. It includes GUI-based data exploration and modeling with automatic R code generation.
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : A visual data mining and machine learning software in Java.
   * [Apache Drill](https://drill.apache.org/): A schema-free SQL Query Engine for Hadoop, NoSQL, and Cloud Storage.  Supports ODBC and JDBC interfaces to enable querying NoSQL and files from standard BI tools like PowerBI, Excel, Tableau.
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services
@@ -41,8 +41,8 @@ The Microsoft Data Science Virtual Machine is a Windows Azure virtual machine (V
 Doing data science involves iterating on a sequence of tasks:
 
 1. Finding, loading, and pre-processing data
-2. Building and testing models
-3. Deploying the models for consumption in intelligent applications
+1. Building and testing models
+1. Deploying the models for consumption in intelligent applications
 
 Data scientists use a variety of tools to complete these tasks. It can be quite time consuming to find the appropriate versions of the software, and then download and install them. The Microsoft Data Science Virtual Machine can ease this burden by providing a ready-to-use image that can be provisioned on Azure with all several popular tools pre-installed and configured. 
 
@@ -63,23 +63,23 @@ Before you can create a Microsoft Data Science Virtual Machine, you must have th
 To create an instance of the Microsoft Data Science Virtual Machine, follow these steps:
 
 1. Navigate to the virtual machine listing on [Azure portal](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
-2. Select the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
-3. The wizard used to create the Microsoft Data Science Virtual Machine requires **inputs** for each of the **four steps** enumerated on the right of this figure. Here are the inputs needed to configure each of these steps:
+1. Select the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
+1. The wizard used to create the Microsoft Data Science Virtual Machine requires **inputs** for each of the **four steps** enumerated on the right of this figure. Here are the inputs needed to configure each of these steps:
    
    1. **Basics**
       
       1. **Name**: Name of your data science server you are creating.
-      2. **VM Disk Type**: Choose between SSD or HDD. For NC_v1 GPU instance (NVidia Tesla K80 based), choose **HDD** as the disk type. 
-      3. **User Name**: Admin account login id.
-      4. **Password**: Admin account password.
-      5. **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed.
-      6. **Resource Group**: You can create a new one or use an existing group.
-      7. **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access.
-   2. **Size**: Select one of the server types that meets your functional requirement and cost constraints. You can get more choices of VM sizes by selecting “View All”.
-   3. **Settings**:
+      1. **VM Disk Type**: Choose between SSD or HDD. For NC_v1 GPU instance (NVidia Tesla K80 based), choose **HDD** as the disk type. 
+      1. **User Name**: Admin account login id.
+      1. **Password**: Admin account password.
+      1. **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed.
+      1. **Resource Group**: You can create a new one or use an existing group.
+      1. **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access.
+   1. **Size**: Select one of the server types that meets your functional requirement and cost constraints. You can get more choices of VM sizes by selecting “View All”.
+   1. **Settings**:
       
       1. **Use Managed Disks**: Choose Managed if you want Azure to manage the disks for the VM.  Otherwise you need to specify a new or existing storage account. 
-      2. **Other parameters**: Usually you just use the default values. If you want to consider using non-default values, hover over the informational link for help on the specific fields.
+      1. **Other parameters**: Usually you just use the default values. If you want to consider using non-default values, hover over the informational link for help on the specific fields.
     a. **Summary**: Verify that all information you entered is correct and click **Create**. **NOTE**: The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
 
 > [!NOTE]
@@ -108,7 +108,7 @@ For development using Python, Anaconda Python distribution 2.7 and 3.6 has been 
 > 
 > 
 
-Anaconda Python 3.6 is installed under C:\Anaconda and Anaconda Python 2.7 is installed under c:\Anaconda\envs\python2. See [PTVS documentation](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) for detailed steps. 
+Anaconda Python 3.6 is installed under C:\Anaconda and Anaconda Python 2.7 is installed under c:\Anaconda\envs\python2. See [PTVS documentation](/visualstudio/python/installing-python-interpreters.md) for detailed steps. 
 
 ### Jupyter Notebook
 Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. A Jupyter notebook server has been pre-configured with Python 2.7, Python 3.x, PySpark, Julia and R kernels. There is a desktop icon named "Jupyter Notebook" to start the Jupyter server and launch the browser to access the Notebook server. 
@@ -189,7 +189,7 @@ The [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloa
 Here are some next steps to continue your learning and exploration. 
 
 * Explore the various data science tools on the data science VM by clicking the start menu and checking out the tools listed on the menu.
-* Learn about Azure Machine Learning Services and Workbench by visiting the product [quickstart and tutorials page](../preview/index.yml). 
+* Learn about Azure Machine Learning Services and Workbench by visiting the product [quickstart and tutorials page](../service/index.yml). 
 * Navigate to **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** for samples using the RevoScaleR library in R that supports data analytics at enterprise scale.  
 * Read the article: [10 things you can do on the Data science Virtual Machine](http://aka.ms/dsvmtenthings)
 * Learn how to build end to end analytical solutions systematically using the [Team Data Science Process](../team-data-science-process/index.yml).

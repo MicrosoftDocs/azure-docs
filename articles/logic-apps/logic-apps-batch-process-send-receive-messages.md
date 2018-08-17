@@ -3,7 +3,7 @@ title: Batch process messages as a group or collection - Azure Logic Apps | Micr
 description: Send and receive messages for batch processing in logic apps
 keywords: batch, batch process
 author: jonfancey
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''

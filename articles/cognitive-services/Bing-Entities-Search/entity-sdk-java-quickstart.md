@@ -6,7 +6,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-entity-search
+ms.component: bing-entity-search
 ms.topic: article
 ms.date: 02/19/2018
 ms.author: v-gedod
@@ -14,6 +14,8 @@ ms.author: v-gedod
 # Bing Entity Search SDK Java quickstart
 
 The Bing Entity Search SDK provides the REST API functionality for entity queries and parsing results. 
+
+The [source code for Java Bing Entity Search SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch) is available on Git Hub. 
 
 ## Application dependencies
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**. 

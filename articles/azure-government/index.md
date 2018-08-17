@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Government Documentation - Tutorials, API Reference | Microsoft Docs
 description: 
 services: Azure-government
@@ -38,7 +38,7 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?tag=azure-government">
+        <a href="https://azure.microsoft.com/resources/videos/index/?tag=azure-government">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

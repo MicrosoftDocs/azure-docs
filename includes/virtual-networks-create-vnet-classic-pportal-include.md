@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: virtual-network
+ author: genlin
+ ms.service: virtual-network
+ ms.topic: include
+ ms.date: 04/13/2018
+ ms.author: genli
+ ms.custom: include file
+
+---
+
 ## How to create a classic VNet in the Azure portal
 To create a classic VNet based on the preceding scenario, follow these steps.
 

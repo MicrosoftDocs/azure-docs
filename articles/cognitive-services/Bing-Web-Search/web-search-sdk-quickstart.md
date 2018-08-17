@@ -6,7 +6,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: v-gedod
@@ -15,6 +15,8 @@ ms.author: v-gedod
 # Web Search SDK C# quickstart
 
 The Bing Web Search SDK contains the functionality of the REST API for web requests and parsing results.
+
+The [source code for C# Bing Web Search SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/BingSearchv7/BingWebSearch/WebSearchSamples.cs) is available on Git Hub.
 
 ## Application dependencies
 

@@ -3,7 +3,7 @@ title: Canary release with Vamp on Azure DC/OS cluster
 description: How to use Vamp to canary release services and apply smart traffic filtering on an Azure Container Service DC/OS cluster 
 services: container-service
 author: gggina
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
@@ -289,5 +289,5 @@ We also touched on some powerful features of Vamp:  merging a new service varian
 
 * Build Vamp automation scripts in Node.js and run them as [Vamp workflows](http://vamp.io/documentation/tutorials/create-a-workflow/).
 
-* See additional [VAMP tutorials](http://vamp.io/documentation/tutorials/overview/).
+* See additional [VAMP tutorials](http://vamp.io/documentation/tutorials/).
 

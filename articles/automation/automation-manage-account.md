@@ -1,19 +1,20 @@
 ---
 title: Manage Azure Automation account
-description: This article describes how to manage the configuration of your Automation account such as certificate renewal, deletion, and misconfiguration.  
+description: This article describes how to manage the configuration of your Automation account such as certificate renewal, deletion, and misconfiguration.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 
 # Manage Azure Automation account
 At some point before your Automation account expires, you need to renew the certificate. If you believe that the Run As account has been compromised, you can delete and re-create it. This section discusses how to perform these operations.
 
-## Self-signed certificate renewal
+## <a name="cert-renewal"></a>Self-signed certificate renewal
 The self-signed certificate that you created for the Run As account expires one year from the date of creation. You can renew it at any time before it expires. When you renew it, the current valid certificate is retained to ensure that any runbooks that are queued up or actively running, and that authenticate with the Run As account, are not negatively affected. The certificate remains valid until its expiration date.
 
 > [!NOTE]
@@ -71,6 +72,6 @@ When you select the Run As account, the account **Properties** pane displays the
 You can quickly resolve these Run As account issues by deleting and re-creating the account.
 
 ## Next steps
-* For more information about Service Principals, refer to [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md).
+* For more information about Service Principals, refer to [Application Objects and Service Principal Objects](../active-directory/develop/app-objects-and-service-principals.md).
 * For more information about Role-based Access Control in Azure Automation, refer to [Role-based access control in Azure Automation](automation-role-based-access-control.md).
 * For more information about certificates and Azure services, refer to [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).

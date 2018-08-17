@@ -4,7 +4,7 @@ description: Validate XML documents with schemas for Azure Logic Apps and Enterp
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: anneta
+manager: jeconnoc
 editor: cgronlun
 
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b

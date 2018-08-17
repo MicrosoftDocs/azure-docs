@@ -3,7 +3,7 @@ title: Import an OpenAPI specification using the Azure portal | Microsoft Docs
 description: Learn how to import an OpenAPI specification with API Management.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -21,7 +21,7 @@ ms.author: apimpm
 This article shows how to import an "OpenAPI specification" back-end API residing at http://conferenceapi.azurewebsites.net?format=json. This back-end API is provided by Microsoft and hosted on Azure. The article also shows how to test the APIM API.
 
 > [!IMPORTANT]
-> See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.
+> See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.
 
 In this article, you learn how to:
 

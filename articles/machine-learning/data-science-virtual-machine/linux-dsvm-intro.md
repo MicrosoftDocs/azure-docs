@@ -3,18 +3,19 @@ title: Provision a Linux CentOS Data Science Virtual Machine on Azure | Microsof
 description: Configure and create a Linux Data Science Virtual Machine on Azure to do analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
+
 
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
+ms.author: gokuma
 
 ---
 # Provision a Linux CentOS Data Science Virtual Machine on Azure
@@ -34,7 +35,7 @@ The Linux Data Science Virtual Machine is a CentOS-based Azure virtual machine t
   * [Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool providing fast and accurate boosted tree implementation.
-  * [Rattle](http://rattle.togaware.com/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy, with GUI-based data exploration, and modeling with automatic R code generation.
+  * [Rattle](https://togaware.com/rattle/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy, with GUI-based data exploration, and modeling with automatic R code generation.
 * Azure SDK in Java, Python, node.js, Ruby, PHP
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services
 * Development tools and editors (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
@@ -43,8 +44,8 @@ The Linux Data Science Virtual Machine is a CentOS-based Azure virtual machine t
 Doing data science involves iterating on a sequence of tasks:
 
 1. Finding, loading, and pre-processing data
-2. Building and testing models
-3. Deploying the models for consumption in intelligent applications
+1. Building and testing models
+1. Deploying the models for consumption in intelligent applications
 
 Data scientists use various tools to complete these tasks. It can be quite time consuming to find the appropriate versions of the software, and then to download, compile, and install these versions.
 
@@ -65,8 +66,8 @@ Before you can create a Linux Data Science Virtual Machine, you must have the fo
 Here are the steps to create an instance of the Linux Data Science Virtual Machine:
 
 1. Navigate to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
-2. Click **Create** (at the bottom) to bring up the wizard.![configure-data-science-vm](./media/linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
-3. The following sections provide the inputs for each of the steps in the wizard (enumerated on the right of the preceding figure) used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
+1. Click **Create** (at the bottom) to bring up the wizard.![configure-data-science-vm](./media/linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
+1. The following sections provide the inputs for each of the steps in the wizard (enumerated on the right of the preceding figure) used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
    
    a. **Basics**:
    
@@ -109,7 +110,7 @@ After the VM is created, you can sign in to it by using SSH. Use the account cre
 The Linux VM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, do the following on your client:
 
 1. Download and install the X2Go client for your client platform from [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. Run the X2Go client, and select **New Session**. It opens a configuration window with multiple tabs. Enter the following configuration parameters:
+1. Run the X2Go client, and select **New Session**. It opens a configuration window with multiple tabs. Enter the following configuration parameters:
    * **Session tab**:
      * **Host**: The host name or IP address of your Linux Data Science VM.
      * **Login**: User name on the Linux VM.
@@ -353,16 +354,16 @@ Now a graphical interface opens up with a set of tabs. Here are the quick start 
 > 
 
 1. Click **Execute**.
-2. A dialog pops up, asking you if you like to use the example weather data set. Click **Yes** to load the example.
-3. Click the **Model** tab.
-4. Click **Execute** to build a decision tree.
-5. Click **Draw** to display the decision tree.
-6. Click the **Forest** radio button, and click **Execute** to build a random forest.
-7. Click the **Evaluate** tab.
-8. Click the **Risk** radio button, and click **Execute** to display two Risk (Cumulative) performance plots.
-9. Click the **Log** tab to show the generate R code for the preceding operations.
+1. A dialog pops up, asking you if you like to use the example weather data set. Click **Yes** to load the example.
+1. Click the **Model** tab.
+1. Click **Execute** to build a decision tree.
+1. Click **Draw** to display the decision tree.
+1. Click the **Forest** radio button, and click **Execute** to build a random forest.
+1. Click the **Evaluate** tab.
+1. Click the **Risk** radio button, and click **Execute** to display two Risk (Cumulative) performance plots.
+1. Click the **Log** tab to show the generate R code for the preceding operations.
    (Due to a bug in the current release of Rattle, you need to insert a *#* character in front of *Export this log ...* in the text of the log.)
-10. Click the **Export** button to save the R script file named *weather_script.R* to the home folder.
+1. Click the **Export** button to save the R script file named *weather_script.R* to the home folder.
 
 You can exit Rattle and R. Now you can modify the generated R script, or use it as it is to run it anytime to repeat everything that was done within the Rattle UI. Especially for beginners in R, this is an easy way to quickly do analysis and machine learning in a simple graphical interface, while automatically generating code in R to modify and/or learn.
 

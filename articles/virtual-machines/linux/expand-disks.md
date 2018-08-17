@@ -18,7 +18,7 @@ ms.author: rogarana
 ---
 
 # How to expand virtual hard disks on a Linux VM with the Azure CLI
-The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux virtual machine (VM) in Azure. You can [add data disks](add-disk.md) to provide for additional storage space, but you may also wish to expand an existing data disk. This article details how to expand managed disks for a Linux VM with the Azure CLI 2.0. You can also expand the unmanaged OS disk with the [Azure CLI 1.0](expand-disks-nodejs.md).
+The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux virtual machine (VM) in Azure. You can [add data disks](add-disk.md) to provide for additional storage space, but you may also wish to expand an existing data disk. This article details how to expand managed disks for a Linux VM with the Azure CLI 2.0. 
 
 > [!WARNING]
 > Always make sure that you back up your data before you perform disk resize operations. For more information, see [Back up Linux VMs in Azure](tutorial-backup-vms.md).
@@ -39,7 +39,7 @@ In the following samples, replace example parameter names with your own values. 
     > [!NOTE]
     > The VM must be deallocated to expand the virtual hard disk. `az vm stop` does not release the compute resources. To release compute resources, use `az vm deallocate`.
 
-2. View a list of managed disks in a resource group with [az disk list](/cli/azure/disk#az_disk_list). The following example displays a list of managed disks in the resource group named *myResourceGroup*:
+1. View a list of managed disks in a resource group with [az disk list](/cli/azure/disk#az_disk_list). The following example displays a list of managed disks in the resource group named *myResourceGroup*:
 
     ```azurecli
     az disk list \
@@ -60,7 +60,7 @@ In the following samples, replace example parameter names with your own values. 
     > [!NOTE]
     > When you expand a managed disk, the updated size is mapped to the nearest managed disk size. For a table of the available managed disk sizes and tiers, see [Azure Managed Disks Overview - Pricing and Billing](../windows/managed-disks-overview.md#pricing-and-billing).
 
-3. Start your VM with [az vm start](/cli/azure/vm#az_vm_start). The following example starts the VM named *myVM* in the resource group named *myResourceGroup*:
+1. Start your VM with [az vm start](/cli/azure/vm#az_vm_start). The following example starts the VM named *myVM* in the resource group named *myResourceGroup*:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -76,7 +76,7 @@ To use the expanded disk, you need to expand the underlying partition and filesy
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-2. To use the expanded disk, you need to expand the underlying partition and filesystem.
+1. To use the expanded disk, you need to expand the underlying partition and filesystem.
 
     a. If already mounted, unmount the disk:
 
@@ -117,25 +117,25 @@ To use the expanded disk, you need to expand the underlying partition and filesy
 
     d. To exit, enter `quit`
 
-3. With the partition resized, verify the partition consistency with `e2fsck`:
+1. With the partition resized, verify the partition consistency with `e2fsck`:
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-4. Now resize the filesystem with `resize2fs`:
+1. Now resize the filesystem with `resize2fs`:
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-5. Mount the partition to the desired location, such as `/datadrive`:
+1. Mount the partition to the desired location, such as `/datadrive`:
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-6. To verify the OS disk has been resized, use `df -h`. The following example output shows the data drive, */dev/sdc1*, is now 200 GB:
+1. To verify the OS disk has been resized, use `df -h`. The following example output shows the data drive, */dev/sdc1*, is now 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

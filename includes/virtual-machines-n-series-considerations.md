@@ -5,14 +5,14 @@
  author: dlepow
  ms.service: virtual-machines-linux
  ms.topic: include
- ms.date: 03/19/2018
+ ms.date: 06/19/2018
  ms.author: danlep
  ms.custom: include file
 ---
 
 ## Deployment considerations
 
-* For availability of N-series VMs, see [Products available by region](https://azure.microsoft.com/en-us/regions/services/).
+* For availability of N-series VMs, see [Products available by region](https://azure.microsoft.com/regions/services/).
 
 * N-series VMs can only be deployed in the Resource Manager deployment model.
 

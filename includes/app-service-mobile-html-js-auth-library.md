@@ -4,11 +4,11 @@ provider. Then in your Azure App Service, you need to configure the application 
 For more information, see the tutorial [Add authentication to your app](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
 
 Once you have registered your identity provider, call the `.login()` method with the name of your provider. For
-example, to login with Facebook use the following code:
+example, to sign in with Facebook use the following code:
 
 ```
 client.login("facebook").done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -20,8 +20,8 @@ The valid values for the provider are 'aad', 'facebook', 'google', 'microsoftacc
 > Google Authentication does not currently work via Server Flow.  To authenticate with Google, you must
 > use a [client-flow method](#client-auth).
 
-In this case, Azure App Service manages the OAuth 2.0 authentication flow.  It displays the login page of the selected
-provider and generates an App Service authentication token after successful login with the identity provider. The login
+In this case, Azure App Service manages the OAuth 2.0 authentication flow.  It displays the sign-in page of the selected
+provider and generates an App Service authentication token after successful sign-in with the identity provider. The login
 function, when complete, returns a JSON object that exposes both the user ID and App Service authentication token
 in the userId and authenticationToken fields, respectively. This token can be cached and reused until it expires.
 
@@ -40,7 +40,7 @@ client.login(
      "facebook",
      {"access_token": token})
 .done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -58,7 +58,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
             "microsoftaccount",
             {"authenticationToken": result.session.authentication_token})
       .done(function(results){
-            alert("You are now logged in as: " + results.userId);
+            alert("You are now signed in as: " + results.userId);
       },
       function(error){
             alert("Error: " + err);

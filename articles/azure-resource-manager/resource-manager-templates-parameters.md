@@ -9,17 +9,17 @@ editor: tysonn
 
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2018
+ms.date: 05/18/2018
 ms.author: tomfitz
 
 ---
 # Parameters section of Azure Resource Manager templates
 In the parameters section of the template, you specify which values you can input when deploying the resources. These parameter values enable you to customize the deployment by providing values that are tailored for a particular environment (such as dev, test, and production). You do not have to provide parameters in your template, but without parameters your template would always deploy the same resources with the same names, locations, and properties.
 
-You are limited to 255 parameters in a template. You can reduce the number of parameters by using objects that contain multiple properties, as show in this article.
+You are limited to 255 parameters in a template. You can reduce the number of parameters by using objects that contain multiple properties, as shown in this article.
 
 ## Define and use a parameter
 
@@ -82,13 +82,13 @@ The preceding example showed only some of the properties you can use in the para
 | Element name | Required | Description |
 |:--- |:--- |:--- |
 | parameterName |Yes |Name of the parameter. Must be a valid JavaScript identifier. |
-| type |Yes |Type of the parameter value. The allowed types and values are **string**, **secureString**, **int**, **bool**, **object**, **secureObject**, and **array**. |
+| type |Yes |Type of the parameter value. The allowed types and values are **string**, **securestring**, **int**, **bool**, **object**, **secureObject**, and **array**. |
 | defaultValue |No |Default value for the parameter, if no value is provided for the parameter. |
 | allowedValues |No |Array of allowed values for the parameter to make sure that the right value is provided. |
 | minValue |No |The minimum value for int type parameters, this value is inclusive. |
 | maxValue |No |The maximum value for int type parameters, this value is inclusive. |
-| minLength |No |The minimum length for string, secureString, and array type parameters, this value is inclusive. |
-| maxLength |No |The maximum length for string, secureString, and array type parameters, this value is inclusive. |
+| minLength |No |The minimum length for string, securestring, and array type parameters, this value is inclusive. |
+| maxLength |No |The maximum length for string, securestring, and array type parameters, this value is inclusive. |
 | description |No |Description of the parameter that is displayed to users through the portal. |
 
 ## Template functions with parameters
@@ -222,7 +222,7 @@ The following information can be helpful when you work with parameters:
    }
    ```
 
-* Use **SecureString** for all passwords and secrets. If you pass sensitive data in a JSON object, use the **secureObject** type. Template parameters with secureString or secureObject types cannot be read after resource deployment. 
+* Use **securestring** for all passwords and secrets. If you pass sensitive data in a JSON object, use the **secureObject** type. Template parameters with securestring or secureObject types cannot be read after resource deployment. 
    
    ```json
    "parameters": {

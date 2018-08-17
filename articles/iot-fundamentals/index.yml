@@ -1,0 +1,104 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure IoT Fundamentals
+
+metadata:
+  title: Azure IoT Fundamentals
+  description: Azure IoT is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of Internet of Things assets. 
+  author: BryanLa
+  manager: timlt
+  ms.service: iot-fundamentals
+  services: iot-fundamentals
+  ms.topic: landing-page
+  ms.date: 05/18/2018
+  ms.author: bryanla
+
+abstract:
+  description: Welcome to Microsoft Azure and the Internet of Things (IoT). Azure IoT is a comprehensive collection of services and solutions designed to help you create end-to-end IoT applications on Azure. From fully hosted and managed Software as a Service (SaaS) solutions to distinct and specialized Platform as a Service (PaaS) offerings, as well as technologies to build the intelligent edge, Azure IoT delivers a rich set of options and tools that are adapted to your industry needs and your company skills and resources.
+
+sections:
+
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: Learn about Azure IoT quickly and easily by exploring these articles.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-central/quick-deploy-iot-central">Learn how to create a new Azure IoT Central application.</a>
+    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy">Learn how to deploy the Remote Monitoring solution accelerator.</a>    
+    - html: <a href="/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started">Learn how to create an IoT hub and connect your first simulated device to Azure (Node.js).</a>
+    - html: <a href="/azure/iot-edge/quickstart-linux">Deploy your first IoT Edge module and process data on a simulated device on Windows, Linux or a Mac.</a>
+    - html: <a href="/azure/azure-maps/quick-demo-map-app">Launch a map search app using Azure Maps.</a>
+    - html: <a href="/azure/time-series-insights/time-series-quickstart">Explore Time Series Insights.</a>
+
+- title: Technologies and solutions
+  items:
+  - type: paragraph
+    text: Get started fast with solution accelerators and SaaS offerings.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-suite">IoT solution accelerators</a>
+    - html: <a href="/azure/iot-central">IoT Central</a>
+  - type: paragraph
+    text: Build on Platform as a Service (PaaS) offerings.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-hub">IoT Hub</a>
+    - html: <a href="/azure/iot-dps">IoT Hub Device Provisioning Services</a>
+    - html: <a href="/azure/azure-maps">Azure Maps</a>
+    - html: <a href="/azure/time-series-insights">Azure Time Series Insights</a>
+    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">IoT Service SDKs</a>
+  - type: paragraph
+    text: Build solutions with IoT devices and edge computing.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-edge">IoT Edge</a>
+    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks">IoT Device SDKs</a>
+
+- title: Samples
+  items:
+  - type: paragraph
+    text: Find samples for common devices and languages.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0">All samples</a> 
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=C">C samples</a> 
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=dotnet">.NET samples</a> 
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=python">Python samples</a> 
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=nodejs">Node.js samples</a> 
+
+- title: Videos
+  items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player
+      html: <p>Contoso HVAC’s Digital transformation through Internet of Things solutions</p>
+      image: 
+        src: media/index/i_video.png
+      title: Introduction
+    - href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-88-Codeless-IoT-Solution/player
+      html: <p>Codeless IoT Solution with Azure IoT Central</p>
+      image: 
+        src: media/index/i_video.png
+      title: Demonstration
+
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure/iot">Azure CLI</a></p><p><a href="https://github.com/Azure/azure-iot-cli-extension">Azure IoT CLI Extension</a></p>
+    - title: Languages
+      html: <p><a href="/azure/iot-hub/iot-hub-devguide-sdks">Azure IoT SDKs for .Net,C,Java,Node.js, Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/iothub">IoT Hub</a></p><p><a href="/rest/api/iot-dps">IoT Hub Device Provisioning Service</a></p><p><a href="/rest/api/maps-management/">Maps management</a></p><p><a href="/rest/api/maps/">Maps functional</a></p><p><a href="/rest/api/time-series-insights-management/">Time Series Insights management</a></p><p><a href="/rest/api/time-series-insights/">Time Series Insights</a></p>

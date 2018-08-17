@@ -1,8 +1,20 @@
+---
+ title: include file
+ description: include file
+ services: iot-suite
+ author: dominicbetts
+ ms.service: iot-suite
+ ms.topic: include
+ ms.date: 04/24/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 ## Specify the behavior of the IoT device
 
 The IoT Hub serializer client library uses a model to specify the format of the messages the device exchanges with IoT Hub.
 
-1. Add the following variable declarations after the `#include` statements. Replace the placeholder values `[Device Id]` and `[Device connection string]` with the values you noted for the physical device you added to the remote monitoring solution:
+1. Add the following variable declarations after the `#include` statements. Replace the placeholder values `[Device Id]` and `[Device connection string]` with the values you noted for the physical device you added to the Remote Monitoring solution:
 
     ```c
     static const char* deviceId = "[Device Id]";
@@ -78,7 +90,7 @@ The IoT Hub serializer client library uses a model to specify the format of the 
 
 Now add code that implements the behavior defined in the model.
 
-1. Add the following callback handler that runs when the device has sent new reported property values to the preconfigured solution:
+1. Add the following callback handler that runs when the device has sent new reported property values to the solution accelerator:
 
     ```c
     /* Callback after sending reported properties */
@@ -124,7 +136,8 @@ Now add code that implements the behavior defined in the model.
       }
       ThreadAPI_Sleep(5000);
 
-      chiller->Firmware = _strdup(chiller->new_firmware_version);
+    #pragma warning(suppress : 4996)
+      chiller->Firmware = strdup(chiller->new_firmware_version);
       chiller->FirmwareUpdateStatus = "waiting";
       /* Send reported properties to IoT Hub */
       if (IoTHubDeviceTwin_SendReportedStateChiller(chiller, deviceTwinCallback, NULL) != IOTHUB_CLIENT_OK)
@@ -171,8 +184,10 @@ Now add code that implements the behavior defined in the model.
       }
       else
       {
-        chiller->new_firmware_version = _strdup(Firmware);
-        chiller->new_firmware_URI = _strdup(FirmwareUri);
+    #pragma warning(suppress : 4996)
+        chiller->new_firmware_version = strdup(Firmware);
+    #pragma warning(suppress : 4996)
+        chiller->new_firmware_URI = strdup(FirmwareUri);
         THREAD_HANDLE thread_apply;
         THREADAPI_RESULT t_result = ThreadAPI_Create(&thread_apply, do_firmware_update, chiller);
         if (t_result == THREADAPI_OK)
@@ -221,7 +236,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-1. Add the following function that sends a message with properties to the preconfigured solution:
+1. Add the following function that sends a message with properties to the solution accelerator:
 
     ```c
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size, char* schema)
@@ -260,7 +275,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-1. Add the following function to connect your device to the preconfigured solution in the cloud, and exchange data. This function performs the following steps:
+1. Add the following function to connect your device to the solution accelerator in the cloud, and exchange data. This function performs the following steps:
 
     - Initializes the platform.
     - Registers the Contoso namespace with the serialization library.
@@ -396,7 +411,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-    For reference, here is a sample **Telemetry** message sent to the preconfigured solution:
+    For reference, here is a sample **Telemetry** message sent to the solution accelerator:
 
     ```
     Device: [myCDevice],

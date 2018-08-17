@@ -6,8 +6,8 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -27,7 +27,7 @@ A restored database incurs an extra storage cost under the following conditions:
 - Restore of P11–P15 to S4-S12 or P1–P6 if the database max size is greater than 500 GB.
 - Restore of P1–P6 to S4-S12 if the database max size is greater than 250 GB.
 
-The extra cost is because the max size of the restored database is greater than the amount of storage included for the performance level, and any extra storage provisioned above the included amount is charged extra.  For pricing details of extra storage, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).  If the actual amount of space used is less than the amount of storage included, then this extra cost can be avoided by reducing the database max size to the included amount. For more information about database storage sizes and changing the database maximum size, see [single database DTU-based resource limits](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels) and [single database vCore-based resource limits](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
+The extra cost is because the max size of the restored database is greater than the amount of storage included for the performance level, and any extra storage provisioned above the included amount is charged extra.  For pricing details of extra storage, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).  If the actual amount of space used is less than the amount of storage included, then this extra cost can be avoided by reducing the database max size to the included amount.  
 
 > [!NOTE]
 > [Automated database backups](sql-database-automated-backups.md) are used when you create a [database copy](sql-database-copy.md). 
@@ -46,7 +46,7 @@ The recovery time to restore a database using automated database backups is impa
   
   For a very large and/or active database, the restore may take several hours. If there is prolonged outage in a region, it is possible that there are large numbers of geo-restore requests being processed by other regions. When there are many requests, the recovery time may increase for databases in that region. Most database restores complete within 12 hours.
 
-For a single subscription, there’re some limitations on number of concurrent restore requests (including point in time restore, geo restore and restore from long term retention backup) being submitted and proceeded:
+For a single subscription, there are some limitations on number of concurrent restore requests (including point in time restore, geo restore and restore from long-term retention backup) being submitted and proceeded:
 |  | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |
 |Single database (per subscription)|10|60|
@@ -93,7 +93,7 @@ You can restore a deleted database to the deletion time for a deleted database o
 
 ### Azure portal
 
-To recover a deleted database during its [retention period](sql-database-service-tiers.md) using the Azure portal, open the page for your server and in the Operations area, click **Deleted databases**.
+To recover a deleted database during its [DTU-based model retention period](sql-database-service-tiers-dtu.md) or [vCore-based model retention period](sql-database-service-tiers-vcore.md) using the Azure portal, open the page for your server and in the Operations area, click **Deleted databases**.
 
 ![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
@@ -119,7 +119,7 @@ Point-in-time restore on a geo-secondary is not currently supported. Point-in-ti
 
 ### Azure portal
 
-To geo-restore a database during its [retention period](sql-database-service-tiers.md) using the Azure portal, open the SQL Databases page and then click **Add**. In the **Select source** text box, select **Backup**. Specify the backup from which to perform the recovery in the region and on the server of your choice. 
+To geo-restore a database during its [DTU-based model retention period](sql-database-service-tiers-dtu.md) or [vCore-based model retention period](sql-database-service-tiers-vcore.md) using the Azure portal, open the SQL Databases page and then click **Add**. In the **Select source** text box, select **Backup**. Specify the backup from which to perform the recovery in the region and on the server of your choice. 
 
 ## Programmatically performing recovery using automated backups
 As previously discussed, in addition to the Azure portal, database recovery can be performed programmatically using Azure PowerShell or the REST API. The following tables describe the set of commands available.

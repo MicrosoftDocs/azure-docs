@@ -1,23 +1,14 @@
 ---
-title: Configure Hive policies in Domain-joined HDInsight - Azure | Microsoft Docs
-description: Learn ....
+title: Configure Hive policies in Domain-joined HDInsight - Azure
+description: Learn how to configure Apache Ranger policies for Hive in a domain-joined Azure HDInsight service.
 services: hdinsight
-documentationcenter: ''
-author: saurinsh
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/25/2016
-ms.author: saurinsh
-
+ms.topic: conceptual
+ms.date: 04/17/2018
 ---
 # Configure Hive policies in Domain-joined HDInsight
 Learn how to configure Apache Ranger policies for Hive. In this article, you create two Ranger policies to restrict access to the hivesampletable. The hivesampletable comes with HDInsight clusters. After you have configured the policies, you use Excel and ODBC driver to connect to Hive tables in HDInsight.

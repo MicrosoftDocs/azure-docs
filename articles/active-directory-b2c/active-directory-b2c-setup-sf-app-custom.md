@@ -1,19 +1,18 @@
----
-title: 'Azure Active Directory B2C: Adding a Salesforce SAML provider by using custom policies | Microsoft Docs'
+﻿---
+title: Adding a Salesforce SAML provider by using custom policies in Azure Active Directory B2C | Microsoft Docs
 description: Learn about how to create and manage Azure Active Directory B2C custom policies.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 06/11/2017
+ms.topic: conceptual
+ms.date: 08/15/2018
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Sign in by using Salesforce accounts via SAML
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -147,7 +146,7 @@ You need to define Salesforce as a claims provider so users can sign in by using
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="username"/>
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="externalIdp"/>
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication"/>
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAMLIdp" />
           </OutputClaims>
           <OutputClaimsTransformations>

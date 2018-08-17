@@ -12,7 +12,7 @@ ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
 ms.devlang: na
 ms.tgt_pltfrm: ibiza
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
@@ -222,7 +222,7 @@ To get an overall picture of your system, you can bring the key monitoring chart
 
 If your system uses other Azure services such as Stream Analytics, include their monitoring charts as well. 
 
-If you have a client mobile app, insert some code to send custom events on key user operations, and create a [HockeyApp bridge](app-insights-hockeyapp-bridge-app.md). Create queries in [Analytics](app-insights-analytics.md) to display the event counts, and pin them to the dashboard.
+If you have a client mobile app, use [App Center](app-insights-mobile-center-quickstart.md). Create queries in [Analytics](app-insights-analytics.md) to display the event counts, and pin them to the dashboard.
 
 ## Example
 [The example](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitors a service that has a web role and two worker roles.

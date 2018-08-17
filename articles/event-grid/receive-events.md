@@ -6,8 +6,8 @@ author: banisadr
 manager: darosa
 
 ms.service: event-grid
-ms.topic: article
-ms.date: 02/16/2018
+ms.topic: conceptual
+ms.date: 04/26/2018
 ms.author: babanisa
 ---
 
@@ -20,52 +20,42 @@ This article describes how to [validate an HTTP endpoint](security-authenticatio
 
 ## Prerequisites
 
-* You will need a function app with a [HTTP triggered function](../azure-functions/functions-create-generic-webhook-triggered-function.md)
+* You will need a function app with an [HTTP triggered function](../azure-functions/functions-create-generic-webhook-triggered-function.md)
 
 ## Add dependencies
 
-If you are developing in .Net, [add a dependency](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) to your function for the `Microsoft.Azure.EventGrid` [Nuget package](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). SDKs for other languages are available via the [Publish SDKs](./sdk-overview.md#publish-sdks) reference. These packages contain the models for native event types such as `EventGridEvent`, `StorageBlobCreatedEventData`, and `EventHubCaptureFileCreatedEventData`.
+If you are developing in .NET, [add a dependency](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) to your function for the `Microsoft.Azure.EventGrid` [Nuget package](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). SDKs for other languages are available via the [Publish SDKs](./sdk-overview.md#data-plane-sdks) reference. These packages contain the models for native event types such as `EventGridEvent`, `StorageBlobCreatedEventData`, and `EventHubCaptureFileCreatedEventData`.
 
-To do this, click on the "View Files" link in your Azure Function (right most pane in the Azure functions portal), and create a file called project.json. Add the following contents to the `project.json` file and save it:
+Click on the "View Files" link in your Azure Function (right most pane in the Azure functions portal), and create a file called project.json. Add the following contents to the `project.json` file and save it:
 
  ```json
 {
   "frameworks": {
     "net46":{
       "dependencies": {
-        "Microsoft.Azure.EventGrid": "1.1.0-preview"
+        "Microsoft.Azure.EventGrid": "1.3.0"
       }
     }
    }
 }
-
 ```
 
-![Added Nuget package](./media/receive-events/add-dependencies.png)
+![Added NuGet package](./media/receive-events/add-dependencies.png)
 
 ## Endpoint validation
 
-The first thing we want to do is handle `Microsoft.EventGrid.SubscriptionValidationEvent` events. Every time a new Event Subscription is created, Event Grid sends a validation event to the endpoint with a `validationCode` in the data payload. The endpoint is required to echo this back in the response body to [prove the endpoint is valid and owned by you](security-authentication.md#webhook-event-delivery). If you are using an [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md) rather than a WebHook triggered Function, endpoint validation is handled for you.
+The first thing you want to do is handle `Microsoft.EventGrid.SubscriptionValidationEvent` events. Every time someone subscribes to an event, Event Grid sends a validation event to the endpoint with a `validationCode` in the data payload. The endpoint is required to echo this back in the response body to [prove the endpoint is valid and owned by you](security-authentication.md#webhook-event-delivery). If you are using an [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md) rather than a WebHook triggered Function, endpoint validation is handled for you. If you use a third-party API service (like [Zapier](https://zapier.com) or [IFTTT](https://ifttt.com/)), you might not be able to programmatically echo the validation code. For those services, you can manually validate the subscription by using a validation URL that is sent in the subscription validation event. Copy that URL in the `validationUrl` property and send a GET request either through a REST client or your web browser.
 
-Use the following code to handle subscription validation:
+Manual validation is in preview. To use it, you must install the [Event Grid extension](/cli/azure/azure-cli-extensions-list) for [Azure CLI](/cli/azure/install-azure-cli). You can install it with `az extension add --name eventgrid`. If you are using the REST API, ensure you are using `api-version=2018-05-01-preview`.
+
+To programmatically echo the validation code, use the following code (you can also find related samples at https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridConsumer):
 
 ```csharp
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Microsoft.Azure.EventGrid.Models;
-
-class SubscriptionValidationEventData
-{
-    public string ValidationCode { get; set; }
-}
-
-class SubscriptionValidationResponseData
-{
-    public string ValidationResponse { get; set; }
-}
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
@@ -87,7 +77,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
             var eventData = dataObject.ToObject<SubscriptionValidationEventData>();
             log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}");
             // Do any additional validation (as required) and then return back the below response
-            var responseData = new SubscriptionValidationResponseData();
+            var responseData = new SubscriptionValidationResponse();
             responseData.ValidationResponse = eventData.ValidationCode;
             return req.CreateResponse(HttpStatusCode.OK, responseData);
         }
@@ -99,7 +89,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -119,7 +108,6 @@ module.exports = function (context, req) {
     }
     context.done();
 };
-
 ```
 
 ### Test validation response
@@ -127,7 +115,6 @@ module.exports = function (context, req) {
 Test the validation response function by pasting the sample event into the test field for the function:
 
 ```json
-
 [{
   "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -140,7 +127,6 @@ Test the validation response function by pasting the sample event into the test 
   "metadataVersion": "1",
   "dataVersion": "1"
 }]
-
 ```
 
 When you click Run, the Output should be 200 OK and `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` in the body:
@@ -149,25 +135,14 @@ When you click Run, the Output should be 200 OK and `{"ValidationResponse":"512d
 
 ## Handle Blob storage events
 
-We can now extend the function to handle `Microsoft.Storage.BlobCreated`:
+Now, let's extend the function to handle `Microsoft.Storage.BlobCreated`:
 
 ```cs
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Microsoft.Azure.EventGrid.Models;
-
-class SubscriptionValidationEventData
-{
-    public string ValidationCode { get; set; }
-}
-
-class SubscriptionValidationResponseData
-{
-    public string ValidationResponse { get; set; }
-}
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
@@ -190,7 +165,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
             log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}");
 
             // Do any additional validation (as required) and then return back the below response
-            var responseData = new SubscriptionValidationResponseData();
+            var responseData = new SubscriptionValidationResponse();
             responseData.ValidationResponse = eventData.ValidationCode;
             return req.CreateResponse(HttpStatusCode.OK, responseData);
         }
@@ -208,7 +183,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -242,7 +216,6 @@ module.exports = function (context, req) {
 Test the new functionality of the function by putting a [Blob storage event](./event-schema-blob-storage.md#example-event) into the test field and running:
 
 ```json
-
 [{
   "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount",
   "subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt",
@@ -266,38 +239,26 @@ Test the new functionality of the function by putting a [Blob storage event](./e
   "dataVersion": "",
   "metadataVersion": "1"
 }]
-
 ```
 
 You should see the blob URL output in the function log:
 
 ![Output log](./media/receive-events/blob-event-response.png)
 
-You can also test this out live by creating a Blob storage account or General Purpose V2 (GPv2) Storage account, [adding and event subscription](../storage/blobs/storage-blob-event-quickstart.md), and setting the endpoint to the function URL:
+You can also test by creating a Blob storage account or General Purpose V2 (GPv2) Storage account, [adding and event subscription](../storage/blobs/storage-blob-event-quickstart.md), and setting the endpoint to the function URL:
 
-![function URL](./media/receive-events/function-url.png)
+![Function URL](./media/receive-events/function-url.png)
 
 ## Handle Custom events
 
-Finally, lets extend the function once more so that it can also handle custom events. We add a check for our own event `Contoso.Items.ItemReceived`. Your final code should look like this:
+Finally, lets extend the function once more so that it can also handle custom events. Add a check for your event `Contoso.Items.ItemReceived`. Your final code should look like:
 
 ```cs
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Microsoft.Azure.EventGrid.Models;
-
-class SubscriptionValidationEventData
-{
-    public string ValidationCode { get; set; }
-}
-
-class SubscriptionValidationResponseData
-{
-    public string ValidationResponse { get; set; }
-}
 
 class ContosoItemReceivedEventData
 {
@@ -327,7 +288,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
             var eventData = dataObject.ToObject<SubscriptionValidationEventData>();
             log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}");
             // Do any additional validation (as required) and then return back the below response
-            var responseData = new SubscriptionValidationResponseData();
+            var responseData = new SubscriptionValidationResponse();
             responseData.ValidationResponse = eventData.ValidationCode;
             return req.CreateResponse(HttpStatusCode.OK, responseData);
         }
@@ -351,7 +312,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 var t = require('tcomb');
 
@@ -398,7 +358,6 @@ module.exports = function (context, req) {
 Finally, test that your extented function can now handle your custom event type:
 
 ```json
-
 [{
     "subject": "Contoso/foo/bar/items",
     "eventType": "Microsoft.EventGrid.CustomEventType",
@@ -412,7 +371,6 @@ Finally, test that your extented function can now handle your custom event type:
     "dataVersion": "",
     "metadataVersion": "1"
 }]
-
 ```
 
 You can also test this functionality live by [sending a custom event with CURL from the Portal](./custom-event-quickstart-portal.md) or by [posting to a custom topic](./post-to-custom-topic.md)  using any service or application that can POST to an endpoint such as [Postman](https://www.getpostman.com/). Create a custom topic and an event subscription with the endpoint set as the Function URL.

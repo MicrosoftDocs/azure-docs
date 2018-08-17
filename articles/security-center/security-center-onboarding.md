@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 07/10/2018
 ms.author: terrylan
 
 ---
@@ -38,7 +38,7 @@ You can upgrade an entire Azure subscription to the Standard tier, which is inhe
 
 ## Upgrade an Azure subscription
 To upgrade all subscriptions to Standard:
-1. Under the Security Center main menu, select **Onboarding**.
+1. Under the Security Center main menu, select **Onboarding to advanced security**.
 2. Under **Onboarding to advanced security**, Security Center lists subscriptions eligible for onboarding. You can upgrade all of the listed subscriptions by selecting **Apply Standard plan**.
 
   ![Upgrade all subscriptions][1]
@@ -97,7 +97,7 @@ We’ll walk through both methods:
 
    ![Add a new workspace][4]
 
-2. Under **Security and Audit**, select **OMS workspace** to create a new workspace.
+2. Under **Security and Audit**, select **OMS Workspace** to create a new workspace.
 3. Under **OMS Workspace**, enter the information for your workspace.
 4. Under **OMS Workspace**, select **OK**.  After you select OK, you will get a link for downloading a Windows or Linux agent and keys for your workspace ID to use in configuring the agent.
 5. Under **Security and Audit**, select **OK**.
@@ -110,8 +110,8 @@ You can add a computer by following the workflow from **Onboarding**, as shown a
 
    ![Overview][5]
 
-2. Select the **Compute** tile.
-3. Under **Compute**, select **Add computers**.
+2. Select **Compute & apps**.
+3. Under **Compute & apps**, select **Add computers**.
 
    ![Compute blade][6]
 

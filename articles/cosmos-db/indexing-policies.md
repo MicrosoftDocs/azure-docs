@@ -3,16 +3,12 @@ title: Azure Cosmos DB indexing policies | Microsoft Docs
 description: Understand how indexing works in Azure Cosmos DB. Learn how to configure and change the indexing policy for automatic indexing and greater performance.
 keywords: how indexing works, automatic indexing, indexing database
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
 
-ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
 
@@ -76,9 +72,9 @@ Azure Cosmos DB supports three indexing modes that you can configure via the ind
 
 Consistent indexing supports consistent queries at the cost of a possible reduction in write throughput. This reduction is a function of the unique paths that need to be indexed and the “consistency level.” Consistent indexing mode is designed for “write quickly, query immediately” workloads.
 
-**Lazy**:  The index is updated asynchronously when an Azure Cosmos DB collection is quiescent, that is, when the collection’s throughput capacity is not fully utilized to serve user requests. The Lazy indexing mode might be suitable for "ingest now, query later" workloads that require document ingestion. Note that you might get inconsistent results because data is ingested and indexed slowly. This means that your COUNT queries or specific query results might not be consistent or repeatable at any given time. 
+**Lazy**:  The index is updated asynchronously when an Azure Cosmos DB collection is quiescent, that is, when the collection’s throughput capacity is not fully utilized to serve user requests.  Note that you might get inconsistent results because data is ingested and indexed slowly. This means that your COUNT queries or specific query results might not be consistent or repeatable at  given time. 
 
-The index is generally in catch-up mode with ingested data. With Lazy indexing, time to live (TTL) changes result in the index being dropped and re-created. This makes the COUNT and query results inconsistent for a period of time. Because of this, most Azure Cosmos DB accounts should use the Consistent indexing mode.
+The index is generally in catch-up mode with ingested data. With Lazy indexing, time to live (TTL) changes result in the index being dropped and re-created. This makes the COUNT and query results inconsistent for a period of time. Most Azure Cosmos DB accounts should use the Consistent indexing mode.
 
 **None**: A collection that has a None index mode has no index associated with it. This is commonly used if Azure Cosmos DB is used as a key-value storage, and documents are accessed only by their ID property. 
 
@@ -144,6 +140,7 @@ Here are the common patterns for specifying index paths:
 
 The following example configures a specific path with Range index and a custom precision value of 20 bytes:
 
+```
     var collection = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 
     collection.IndexingPolicy.IncludedPaths.Add(
@@ -164,7 +161,74 @@ The following example configures a specific path with Range index and a custom p
         });
 
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
+```
 
+When a path is added for indexing, both numbers and strings within those paths are indexed. So even though you define indexing for strings only, Azure Cosmos DB adds default definition for numbers as well. In other words, Azure Cosmos DB has the ability for path exclusion from indexing policy, but not type exclusion from a specific path. Following is an example, note that only one index is specified for both paths (Path =  "/*" and Path =  "/\"attr1\"/?") but the Number datatype is also added to the result.
+
+```
+var indices = new[]{
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 }// <- note: only 1 index specified
+                    },
+                    Path =  "/*"
+                },
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 } // <- note: only 1 index specified
+                    },
+                    Path =  "/\"attr1\"/?"
+                }
+            };...
+
+            foreach (var index in indices)
+            {
+                documentCollection.IndexingPolicy.IncludedPaths.Add(index);
+            }
+```
+
+Result of index creation:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        },
+        {
+            "path": "/\"attr\"/?",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        }
+    ],
+}
+```
 
 ### Index data types, kinds, and precisions
 You have multiple options when you configure the indexing policy for a path. You can specify one or more indexing definitions for every path:
@@ -227,11 +291,11 @@ The following example shows how to increase the precision for Range indexes in a
 
 Similarly, you can completely exclude paths from indexing. The next example shows how to exclude an entire section of the documents (a *subtree*) from indexing by using the \* wildcard operator.
 
-    var collection = new DocumentCollection { Id = "excludedPathCollection" };
-    collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
+    var excluded = new DocumentCollection { Id = "excludedPathCollection" };
+    excluded.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+    excluded.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
 
-    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
 
 
 
@@ -256,9 +320,9 @@ In Azure Cosmos DB, you can make changes to the indexing policy of a collection 
 
 ![How indexing works – Azure Cosmos DB online index transformations](./media/indexing-policies/index-transformations.png)
 
-Index transformations are made online. This means that the documents indexed per the old policy are efficiently transformed per the new policy *without affecting the write availability or the provisioned throughput* of the collection. The consistency of read and write operations made by using the REST API, SDKs, or from within stored procedures and triggers is not affected during index transformation. There's no performance degradation or downtime to your apps when you make an indexing policy change.
+Index transformations are made online. This means that the documents indexed per the old policy are efficiently transformed per the new policy *without affecting the write availability or the provisioned throughput* of the collection. The consistency of read and write operations made by using the REST API, SDKs, or from within stored procedures and triggers is not affected during index transformation. 
 
-However, during the time that index transformation is progress, queries are eventually consistent regardless of the indexing mode configuration (Consistent or Lazy). This also applies to queries from all interfaces: REST API, SDKs, and from within stored procedures and triggers. Just like with Lazy indexing, index transformation is performed asynchronously in the background on the replicas by using the spare resources that are available for a specific replica. 
+Changing indexing policy is an asynchronous process and the time to complete the operation depends on the number of documents, provisioned RUs, and size of documents. While re-indexing is in progress, your query may not return all matching results if the query uses the index that is being modified and queries will not return any errors/failures. While re-indexing is in progress, queries are eventually consistent regardless of the indexing mode configuration(Consistent or Lazy). After the index transformation is complete, you will continue to see consistent results. This also applies to queries from all interfaces: REST API, SDKs, and from within stored procedures and triggers. Just like with Lazy indexing, index transformation is performed asynchronously in the background on the replicas by using the spare resources that are available for a specific replica. 
 
 Index transformations are also made in place. Azure Cosmos DB doesn't maintain two copies of the index and swap out the old index with the new one. This means that no additional disk space is required or consumed in your collections while index transformations occur.
 
@@ -307,7 +371,7 @@ You can drop the index for a collection by moving to the None indexing mode. Thi
 **Drop the index for a collection**
 
     // Switch to Lazy indexing mode.
-    Console.WriteLine("Dropping index by changing to to the None IndexingMode.");
+    Console.WriteLine("Dropping index by changing to the None IndexingMode.");
 
     collection.IndexingPolicy.IndexingMode = IndexingMode.None;
 

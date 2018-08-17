@@ -2,20 +2,12 @@
 title: Create an Import Job for Azure Import/Export | Microsoft Docs
 description: Learn how to create an import for the Microsoft Azure Import/Export service.
 author: muralikk
-manager: syadav
-editor: syadav
 services: storage
-documentationcenter: ''
-
-ms.assetid: 8b886e83-6148-4149-9d0f-5d48ec822475
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-
+ms.component: common
 ---
 # Creating an import job for the Azure Import/Export service
 
@@ -100,6 +92,8 @@ You must ship your drives to the address that you obtained from the previous ste
 
 ## Updating the import job with your shipping information
 After you have your tracking number, call the [Update Job Properties](/api/storageimportexport/jobs#Jobs_Update) operation to update the shipping carrier name, the tracking number for the job, and the carrier account number for return shipping. You can optionally specify the number of drives and the shipping date as well.
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## Next steps
 

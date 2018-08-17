@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/03/2018
+ms.date: 08/07/2018
 ms.author: cephalin
 ---
 
@@ -237,7 +237,7 @@ From the management page of the AD application, copy the **Application ID** to a
 
 Follow the same steps for the front-end app, but skip the last step. You don't need the **Application ID** for the front-end app. Keep the **Azure Active Directory Settings** page open.
 
-If you like, navigate to `http://<front_end_app_name>.azurewebsites.net`. It should now direct you to a sign-in page. After you sign in, you still can't access the data from the back-end app, because you still need to do three things:
+If you like, navigate to `http://<front_end_app_name>.azurewebsites.net`. It should now direct you to a secured sign-in page. After you sign in, you still can't access the data from the back-end app, because you still need to do three things:
 
 - Grant the front end access to the back end
 - Configure App Service to return a usable token
@@ -270,7 +270,7 @@ Sign in to [Azure Resource Explorer](https://resources.azure.com). At the top of
 
 ![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/resources-enable-write.png)
 
-In the left browser, click **subscriptions** > **_&lt;your\_subscription>_** > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** > **_&lt;back\_end\_app\_name>_** > **config** > **authsettings**.
+In the left browser, click **subscriptions** > **_&lt;your\_subscription>_** > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** > **_\<front\_end\_app\_name>_** > **config** > **authsettings**.
 
 In the **authsettings** view, click **Edit**. Set `additionalLoginParams` to the following JSON string, using the Application ID you copied. 
 
@@ -284,11 +284,13 @@ Save your settings by clicking **PUT**.
 
 Your apps are now configured. The front end is now ready to access the back end with a proper access token.
 
+For information on how to configure this for other providers, see [Refresh access tokens](app-service-authentication-how-to.md#refresh-access-tokens).
+
 ## Call API securely from server code
 
 In this step, you enable your previously modified server code to make authenticated calls to the back-end API.
 
-Your front-end app now has the required permission and also adds the back end's Application ID to the login parameters. Therefore, it can obtain an access token for authentication with the back-end app. App Service supplies this token to your server code by injecting a `X-MS-TOKEN-AAD-ACCESS-TOKEN` header to each authenticated request.
+Your front-end app now has the required permission and also adds the back end's Application ID to the login parameters. Therefore, it can obtain an access token for authentication with the back-end app. App Service supplies this token to your server code by injecting a `X-MS-TOKEN-AAD-ACCESS-TOKEN` header to each authenticated request (see [Retrieve tokens in app code](app-service-authentication-how-to.md#retrieve-tokens-in-app-code)).
 
 > [!NOTE]
 > These headers are injected for all supported languages. You access them using the standard pattern for each respective language.
@@ -316,7 +318,7 @@ git commit -m "add authorization header for server code"
 git push frontend master
 ```
 
-Sign in to `http://<front_end_app_name>.azurewebsites.net` again. At the user data usage agreement page, click **Accept**.
+Sign in to `https://<front_end_app_name>.azurewebsites.net` again. At the user data usage agreement page, click **Accept**.
 
 You should now be able to create, read, update, and delete data from the back-end app as before. The only difference now is that both apps are now secured by App Service authentication and authorization, including the service-to-service calls.
 
@@ -326,7 +328,7 @@ Congratulations! Your server code is now accessing the back-end data on behalf o
 
 In this step, you point the front-end Angular.js app to the back-end API. This way, you learn how to retrieve the access token and make API calls to the back-end app with it.
 
-While the server code has access to request headers, client code can access `GET /.auth/me` to get the same access tokens.
+While the server code has access to request headers, client code can access `GET /.auth/me` to get the same access tokens (see [Retrieve tokens in app code](app-service-authentication-how-to.md#retrieve-tokens-in-app-code)).
 
 > [!TIP]
 > This section uses the standard HTTP methods to demonstrate the secure HTTP calls. However, you can use [Active Directory Authentication Library (ADAL) for JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js) to help simplify the Angular.js application pattern.
@@ -334,7 +336,7 @@ While the server code has access to request headers, client code can access `GET
 
 ### Configure CORS
 
-In the Cloud Shell, enable CORS to your client's URL by using the [`az resource update`](/cli/azure/resource#az_resource_update) command. Replace the _\<back\_end\_app\_name>_ and _\<front\_end\_app\_name>_ placeholders.
+In the Cloud Shell, enable CORS to your client's URL by using the [`az resource update`](/cli/azure/resource#az-resource-update) command. Replace the _\<back\_end\_app\_name>_ and _\<front\_end\_app\_name>_ placeholders.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.azurewebsites.net']" --api-version 2015-06-01
@@ -346,7 +348,7 @@ This step is not related to authentication and authorization. However, you need 
 
 In the local repository, open _wwwroot/index.html_.
 
-In Line 51, set the `apiEndpoint` variable to the URL of your back-end app (`http://<back_end_app_name>.azurewebsites.net`). Replace _\<back\_end\_app\_name>_ with your app name in App Service.
+In Line 51, set the `apiEndpoint` variable to the URL of your back-end app (`https://<back_end_app_name>.azurewebsites.net`). Replace _\<back\_end\_app\_name>_ with your app name in App Service.
 
 In the local repository, open _wwwroot/app/scripts/todoListSvc.js_ and see that `apiEndpoint` is prepended to all the API calls. Your Angular.js app is now calling the back-end APIs. 
 
@@ -400,9 +402,13 @@ git commit -m "add authorization header for Angular"
 git push frontend master
 ```
 
-Navigate to `http://<front_end_app_name>.azurewebsites.net` again. You should now be able to create, read, update, and delete data from the back-end app, directly in the Angular.js app.
+Navigate to `https://<front_end_app_name>.azurewebsites.net` again. You should now be able to create, read, update, and delete data from the back-end app, directly in the Angular.js app.
 
 Congratulations! Your client code is now accessing the back-end data on behalf of the authenticated user.
+
+## When access tokens expire
+
+Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh access tokens](app-service-authentication-how-to.md#refresh-access-tokens).
 
 ## Clean up resources
 
