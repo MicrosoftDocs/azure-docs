@@ -157,7 +157,7 @@ Every time that a user clicks on a document, that's a signal that must be logged
 
 *JavaScript*
 
-    appInsights.TrackEvent("Click", {
+    appInsights.trackEvent("Click", {
     	SearchServiceName: <service name>,
     	SearchId: <search id>,
     	ClickedDocId: <clicked document id>,

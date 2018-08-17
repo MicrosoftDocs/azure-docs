@@ -9,7 +9,7 @@ editor: ''
 ms.service: service-fabric
 
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: NA
 
 ms.workload: NA

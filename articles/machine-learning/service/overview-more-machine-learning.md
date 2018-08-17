@@ -9,7 +9,7 @@ ms.reviewer: garyericson, mldocs
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/11/2018
 ---
 
@@ -31,7 +31,7 @@ In addition to [Azure Machine Learning](overview-what-is-azure-ml.md), there are
 Use Microsoft Machine Learning Services when you need to train or deploy models on-premises, or inside of Microsoft SQL Server. Models built with Machine Learning Services can be deployed using Azure Machine Learning Model Management. 
 
 ## Microsoft Machine Learning Server 
-[Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone) is an enterprise server for hosting and managing parallel and distributed workloads of R and Python processes. Microsoft Machine Learning Server runs on Linux, Windows, Hadoop, and Apache Spark. It is also available on [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/). It provides an execution engine for solutions built using [Microsoft Machine Learning packages](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package), and extends open-source R and Python with support for the following scenarios:
+[Microsoft Machine Learning Server](https://docs.microsoft.com/en-us/machine-learning-server/what-is-machine-learning-server) is an enterprise server for hosting and managing parallel and distributed workloads of R and Python processes. Microsoft Machine Learning Server runs on Linux, Windows, Hadoop, and Apache Spark. It is also available on [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/). It provides an execution engine for solutions built using [Microsoft Machine Learning packages](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package), and extends open-source R and Python with support for the following scenarios:
 
 - High-performance analytics
 - Statistical analysis
@@ -73,7 +73,7 @@ The [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-tool
 Use the Cognitive Toolkit when you want to build a model using deep learning.  The Cognitive Toolkit can be used in any of the preceding services.
 
 ## Azure Cognitive Services
-[Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai) is a set of about 30 APIs that enable you build apps that use natural methods of communication. These APIs allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. Easily add intelligent features to your apps, such as: 
+[Azure Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai) is a set of about 30 APIs that enable you build apps that use natural methods of communication. These APIs allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. Easily add intelligent features to your apps, such as: 
 
 - Emotion and sentiment detection
 - Vision and speech recognition

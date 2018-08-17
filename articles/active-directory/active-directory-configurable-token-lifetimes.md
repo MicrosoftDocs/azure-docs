@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
@@ -23,7 +23,7 @@ ms.reviewer: anchitn
 You can specify the lifetime of a token issued by Azure Active Directory (Azure AD). You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization.
 
 > [!IMPORTANT]
-> This method of controlling token lifetimes will be deprecated.  While it will remain available until the replacement feature is ready, once it is deprecated token lifetime policies created using this method will cease to function. 
+> After hearing from customers during the preview, we're planning to replace this functionality with a new feature in Azure Active Directory Conditional Access.  Once the new feature is complete, this functionality will eventually be deprecated after a notification period.  If you use the Configurable Token Lifetime policy, be prepared to switch to the new Conditional Access feature once it's available. 
 >
 >
 
@@ -45,7 +45,7 @@ You can set token lifetime policies for refresh tokens, access tokens, session t
 Clients use access tokens to access a protected resource. An access token can be used only for a specific combination of user, client, and resource. Access tokens cannot be revoked and are valid until their expiry. A malicious actor that has obtained an access token can use it for extent of its lifetime. Adjusting the lifetime of an access token is a trade-off between improving system performance and increasing the amount of time that the client retains access after the user’s account is disabled. Improved system performance is achieved by reducing the number of times a client needs to acquire a fresh access token.  The default is 1 hour - after 1 hour, the client must use the refresh token to (usually silently) acquire a new refresh token and access token. 
 
 ### Refresh tokens
-When a client acquires an access token to access a protected resource, the client also receives a refresh token. The refresh token is used to obtain new access/refresh token pairs when the current access token expires. A refresh token is bound to a combination of user and client. A refresh token can be [revoked at any time](develop/active-directory-token-and-claims.md#token-revocation), and the token's validity is checked every time the token is used.  
+When a client acquires an access token to access a protected resource, the client also receives a refresh token. The refresh token is used to obtain new access/refresh token pairs when the current access token expires. A refresh token is bound to a combination of user and client. A refresh token can be [revoked at any time](develop/v1-id-and-access-tokens.md#token-revocation), and the token's validity is checked every time the token is used.  
 
 It's important to make a distinction between confidential clients and public clients, as this impacts how long refresh tokens can be used. For more information about different types of clients, see [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
@@ -103,9 +103,11 @@ You can create and then assign a token lifetime policy to a specific application
 * If no policy is explicitly assigned to the service principal or to the organization, the policy assigned to the application is enforced.
 * If no policy has been assigned to the service principal, the organization, or the application object, the default values is enforced. (See the table in [Configurable token lifetime properties](#configurable-token-lifetime-properties).)
 
-For more information about the relationship between application objects and service principal objects, see [Application and service principal objects in Azure Active Directory](active-directory-application-objects.md).
+For more information about the relationship between application objects and service principal objects, see [Application and service principal objects in Azure Active Directory](develop/app-objects-and-service-principals.md).
 
 A token’s validity is evaluated at the time the token is used. The policy with the highest priority on the application that is being accessed takes effect.
+
+All timespans used here are formatted according to the C# [TimeSpan](https://msdn.microsoft.com/library/system.timespan) object - D.HH:MM:SS.  So 80 days and 30 minutes would be `80.00:30:00`.  The leading D can be dropped if zero, so 90 minutes would be `00:90:00`.  
 
 > [!NOTE]
 > Here's an example scenario.
@@ -198,7 +200,7 @@ In the examples, you can learn how to:
 * Manage an advanced policy
 
 ### Prerequisites
-In the following examples, you create, update, link, and delete policies for apps, service principals, and your overall organization. If you are new to Azure AD, we recommend that you learn about [how to get an Azure AD tenant](active-directory-howto-tenant.md) before you proceed with these examples.  
+In the following examples, you create, update, link, and delete policies for apps, service principals, and your overall organization. If you are new to Azure AD, we recommend that you learn about [how to get an Azure AD tenant](develop/quickstart-create-new-tenant.md) before you proceed with these examples.  
 
 To get started, do the following steps:
 
@@ -275,7 +277,7 @@ In this example, you create a policy that requires users to authenticate more fr
 
 2.  Assign the policy to your service principal. You also need to get the **ObjectId** of your service principal. 
 
-    1.  To see all your organization's service principals, you can query either the [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) or the [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Also, you can test this in the [Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/), and the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) by using your Azure AD account.
+    1.  To see all your organization's service principals, you can query either the [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) or the [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Also, you can test this in the [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/), and the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) by using your Azure AD account.
 
     2.  When you have the **ObjectId** of your service principal, run the following command:
 
@@ -331,7 +333,7 @@ In this example, you create a few policies, to learn how the priority system wor
 
     Now, you have a policy that applies to the entire organization. You might want to preserve this 30-day policy for a specific service principal, but change the organization default policy to the upper limit of "until-revoked."
 
-    1.  To see all your organization's service principals, you can query either the [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) or the [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Also, you can test this in the [Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/), and the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) by using your Azure AD account.
+    1.  To see all your organization's service principals, you can query either the [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) or the [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Also, you can test this in the [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/), and the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) by using your Azure AD account.
 
     2.  When you have the **ObjectId** of your service principal, run the following command:
 

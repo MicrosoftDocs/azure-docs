@@ -15,7 +15,7 @@ ms.author: v-jansko
 # Microsoft Translator Speech API
 The Microsoft Translator Speech API can be used to add end-to-end, real-time, speech translations to applications, tools, or any solution requiring multi-language speech translation regardless of the target OS or development languages. The API can be used for both speech to speech and speech to text translation.
 
-Microsoft Translator Text API is an Azure service, part of the [Microsoft Cognitive Services API collection](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=cognitive) of machine learning and AI algorithms in the cloud, readily consumable in your development projects.
+Microsoft Translator Text API is an Azure service, part of the [Microsoft Cognitive Services API collection](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive) of machine learning and AI algorithms in the cloud, readily consumable in your development projects.
 
 With the Microsoft Translator Speech API, client applications stream speech audio to the service and receive back a stream of text- and audio-based results, which include the recognized text in the source language and its translation in the target language. Text results are produced by applying Automatic Speech Recognition (ASR) powered by deep neural networks to the incoming audio stream. Raw ASR output is further improved by a new technique called TrueText to more closely reflect user intent. For example, TrueText removes disfluencies (the hmms and coughs), repeated words, and restores proper punctuation and capitalization. The ability to mask or exclude profanities is also included. The recognition and translation engines are specifically trained to handle conversational speech. 
 
@@ -59,6 +59,6 @@ Learn more about [how NMT works](https://www.microsoft.com/en-us/translator/mt.a
 > [Start coding](quickstarts/csharp.md)
 
 ## See also
-- [Cognitive Services Documentation page](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=cognitive)
+- [Cognitive Services Documentation page](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)
 - [Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)
 - [Solution and pricing information](https://www.microsoft.com/en-us/translator/home.aspx) 

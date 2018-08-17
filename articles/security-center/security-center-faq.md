@@ -3,7 +3,7 @@ title: Azure Security Center frequently asked questions (FAQ) | Microsoft Docs
 description: This FAQ answers questions about Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
-ms.author: terrylan
+ms.date: 07/26/2018
+ms.author: rkarlin
 
 ---
 # Azure Security Center frequently asked questions (FAQ)
@@ -48,20 +48,26 @@ Security Center assesses the configuration of your resources to identify securit
 See [Permissions in Azure Security Center](security-center-permissions.md) to learn more about roles and allowed actions in Security Center.
 
 ## Data collection
-Security Center collects data from your virtual machines to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, data collection is enabled on all virtual machines in your subscription. You can also enable data collection in the Security Center policy.
+Security Center collects data from your Azure virtual machines (VMs) and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.
 
 ### How do I disable data collection?
-If you are using the Azure Security Center Free tier, you can disable data collection from virtual machines at any time. Data collection is required for subscriptions on the Standard tier. You can disable data collection for a subscription in the Security policy. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**.)  When you select a subscription, a new blade opens and provides you the option to turn off **Data collection**.
+Automatic provisioning is off by default. You can disable automatic provisioning from resources at any time by turning off this setting in the security policy. Automatic provisioning is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities and endpoint protection.
+
+To disable data collection, [Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Select policy**. Select the subscription that you wish to disable automatic provisioning. When you select a subscription **Security policy - Data collection** opens. Under **Auto provisioning**, select **Off**.
 
 ### How do I enable data collection?
-You can enable data collection for your Azure subscription in the Security policy. To enable data collection. [Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**. Set **Data collection** to **On**.
+You can enable data collection for your Azure subscription in the Security policy. To enable data collection. [Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Security policy**. Select the subscription that you wish to enable automatic provisioning. When you select a subscription **Security policy - Data collection** opens. Under **Auto provisioning**, select **On**.
 
 ### What happens when data collection is enabled?
-When data collection is enabled, the Microsoft Monitoring Agent is automatically provisioned on all existing and any new supported virtual machines that are deployed in the subscription.
+When automatic provisioning is enabled, Security Center provisions the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended but manual agent installation is also available. [Learn how to install the Microsoft Monitoring Agent extension](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
 
 The agent enables the process creation event 4688 and the *CommandLine* field inside event 4688. New processes created on the VM are recorded by EventLog and monitored by Security Center’s detection services. For information on the details recorded for each new process see [description fields in 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). The agent also collects the 4688 events created on the VM and stores them in search.
 
+The agent also enables data collection for [Adaptive Application Controls](security-center-adaptive-application.md), Security Center configures a local AppLocker policy in Audit mode to allow all applications. This will cause AppLocker to generate events which are then collected and leveraged by Security Center. It is important to note that this policy will not be configured on any machines on which there is already a configured AppLocker policy. 
+
 When Security Center detects suspicious activity on the VM, the customer is notified by email if [security contact information](security-center-provide-security-contact-details.md) has been provided. An alert is also visible in Security Center’s security alerts dashboard.
+
+
 
 ### Does the Monitoring Agent impact the performance of my servers?
 The agent consumes a nominal amount of system resources and should have little impact on the performance. For more information on performance impact and the agent and extension, see the [planning and operations guide](security-center-planning-and-operations-guide.md#data-collection-and-storage).
@@ -83,8 +89,8 @@ To learn how to configure a security policy, see [Setting security policies in A
 ### What is a security recommendation?
 Azure Security Center analyzes the security state of your Azure resources. When potential security vulnerabilities are identified, recommendations are created. The recommendations guide you through the process of configuring the needed control. Examples are:
 
-* Provisioning of antimalware to help identify and remove malicious software
-* Configuring [Network Security Groups](../virtual-network/virtual-networks-nsg.md) and rules to control traffic to virtual machines
+* Provisioning of anti-malware to help identify and remove malicious software
+* [Network security groups](../virtual-network/security-overview.md) and rules to control traffic to virtual machines
 * Provisioning of a web application firewall to help defend against attacks targeting your web applications
 * Deploying missing system updates
 * Addressing OS configurations that do not match the recommended baselines

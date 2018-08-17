@@ -3,9 +3,9 @@ title: Install On-premises data gateway | Microsoft Docs
 description: Learn how to install and configure an On-premises data gateway.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 08/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -33,6 +33,7 @@ An on-premises data gateway is required when one or more Azure Analysis Services
 * Install the gateway on a computer that remains on and does not go to sleep.
 * Do not install the gateway on a computer wirelessly connected to your network. Performance can be diminished.
 * Sign in to Azure with an account in Azure AD for the same [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) as the subscription you are registering the gateway in. Azure B2B (guest) accounts are not supported when installing and registering a gateway.
+* If data sources are on an Azure Virtual Network (VNet), you must configure the [AlwaysUseGateway](analysis-services-vnet-gateway.md) server property.
 * The (unified) gateway described here is not supported in Azure Government, Azure Germany, and Azure China sovereign regions. Use **Dedicated On-premises gateway for Azure Analysis Services**, installed from your server's **Quick Start** in the portal. 
 
 
@@ -112,4 +113,5 @@ That's it. If you need to open ports or do any troubleshooting, be sure to check
 
 ## Next steps
 * [Manage Analysis Services](analysis-services-manage.md)   
-* [Get data from Azure Analysis Services](analysis-services-connect.md)
+* [Get data from Azure Analysis Services](analysis-services-connect.md)   
+* [Use gateway for data sources on an Azure Virtual Network](analysis-services-vnet-gateway.md)

@@ -3,7 +3,7 @@ title: Azure API Management page controls | Microsoft Docs
 description: Learn about the page controls available for use in developer portal templates in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 

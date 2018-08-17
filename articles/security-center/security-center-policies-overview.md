@@ -3,7 +3,7 @@ title: Introduction to Azure Security Center security policies | Microsoft Docs
 description: Learn about Azure Security Center security policies and key capabilities.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: TerryLanfear
 manager: MBaldwin
 editor: ''
 
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
-ms.author: yurid
+ms.date: 06/13/2018
+ms.author: terrylan
 
 ---
 # Security policies overview
 This article provides an overview of security policies in Security Center.
 
 ## What are security policies?
-A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Azure Security Center, you can define policies for your Azure subscriptions and tailor them to your type of workload or the sensitivity of your data. For example, applications that use regulated data, such as personally identifiable information, might require a higher level of security than other workloads. 
+A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Azure Security Center, you can define policies for your Azure subscriptions and tailor them to your type of workload or the sensitivity of your data. For example, applications that use regulated data, such as personally identifiable information, might require a higher level of security than other workloads.
 
 Security Center policies contain the following components:
 
 - **Data collection**: Determines agent provisioning and [data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) settings.
-- **Security policy**: Determines which controls Security Center monitors and recommends. You can edit the [security policy](https://docs.microsoft.com/azure/security-center/security-center-policies) in Security Center. You can also use [Azure Policy](security-center-azure-policy.md) (in limited preview) to create new definitions, define additional policies, and assign policies across management groups.
+- **Security policy**: Determines which controls Security Center monitors and recommends. You can edit the [security policy](https://docs.microsoft.com/azure/security-center/security-center-policies) in Security Center. You can also use [Azure Policy](security-center-azure-policy.md) to create new definitions, define additional policies, and assign policies across management groups.
 - **Email notifications**: Determines security contacts, and [e-mail notification](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) settings.
-- **Pricing tier**: Defines free or standard [pricing selection](https://docs.microsoft.com/azure/security-center/security-center-pricing). The tier you choose determines which Security Center features are available for resources in scope. You can specify a tier for subscriptions, resource groups, and workspaces. 
+- **Pricing tier**: Defines free or standard [pricing selection](https://docs.microsoft.com/azure/security-center/security-center-pricing). The tier you choose determines which Security Center features are available for resources in scope. You can specify a tier for subscriptions, resource groups, and workspaces.
 
 
 ## Who can edit security policies?
@@ -49,5 +49,3 @@ In this article, you learned about security policies in Azure Security Center. T
 - [Azure Security Center data security](security-center-data-security.md): Learn how Security Center manages and safeguards data.
 * [Azure Security Center FAQ](security-center-faq.md): Get answers to frequently asked questions about using the service.
 * [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/): Get the latest Azure security news and information.
-
-

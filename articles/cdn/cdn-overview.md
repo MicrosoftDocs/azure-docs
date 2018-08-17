@@ -4,7 +4,7 @@ description: Learn what Azure Content Delivery Network (CDN) is and how to use i
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/06/2018
-ms.author: rli
+ms.date: 05/09/2018
+ms.author: v-deasim
 ms.custom: mvc
 
 ---
@@ -47,7 +47,7 @@ For a list of current CDN node locations, see [Azure CDN POP locations](cdn-pop-
 6. If the TTL for the file hasn't expired, the POP edge server returns the file directly from the cache. This process results in a faster, more responsive user experience.
 
 ## Requirements
-To use Azure CDN, you must own at lease one Azure subscription. You also need to create at least one CDN profile, which is a collection of CDN endpoints. Every CDN endpoint represents a specific configuration of content deliver behavior and access. To organize your CDN endpoints by internet domain, web application, or some other criteria, you can use multiple profiles. Because [Azure CDN pricing](https://azure.microsoft.com/pricing/details/cdn/) is applied at the CDN profile level, you must create multiple CDN profiles if you want to use a mix of pricing tiers.
+To use Azure CDN, you must own at least one Azure subscription. You also need to create at least one CDN profile, which is a collection of CDN endpoints. Every CDN endpoint represents a specific configuration of content deliver behavior and access. To organize your CDN endpoints by internet domain, web application, or some other criteria, you can use multiple profiles. Because [Azure CDN pricing](https://azure.microsoft.com/pricing/details/cdn/) is applied at the CDN profile level, you must create multiple CDN profiles if you want to use a mix of pricing tiers. For information about the Azure CDN billing structure, see [Understanding Azure CDN billing](cdn-billing.md).
 
 ### Limitations
 Each Azure subscription has default limits for the following resources:
@@ -67,11 +67,12 @@ Azure CDN offers the following key features:
 - [File compression](cdn-improve-performance.md)
 - [Geo-filtering](cdn-restrict-access-by-country.md)
 
-For a complete list of features that each Azure CDN product supports, see [Azure CDN product features](cdn-features.md).
+For a complete list of features that each Azure CDN product supports, see [Compare Azure CDN product features](cdn-features.md).
 
 ## Next steps
 - To get started with CDN, see [Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
 - Manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
 - Learn how to automate Azure CDN with [.NET](cdn-app-dev-net.md) or [Node.js](cdn-app-dev-node.md).
 - To see Azure CDN in action, watch the [Azure CDN videos](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest).
+- For information about the latest Azure CDN features, see [Azure CDN blog](https://azure.microsoft.com/blog/tag/azure-cdn/).
 

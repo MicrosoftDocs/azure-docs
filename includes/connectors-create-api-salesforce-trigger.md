@@ -1,7 +1,7 @@
 In this walk-through, you will learn how to use the **Salesforce - When an object is created** trigger to initiate a logic app workflow when a new lead is created in your Salesforce.
 
 > [!NOTE]
-> You will get prompted to sign into your Salesforce account if you have not already created a *connection* to Salesforce.  
+> You will get prompted to sign in to your Salesforce account if you have not already created a *connection* to Salesforce.  
 > 
 > 
 

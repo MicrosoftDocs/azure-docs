@@ -12,6 +12,9 @@ ms.author: v-jansko
 ---
 # How to return N-Best translations
 
+> [!NOTE]
+> This method is deprecated. It is not available in V3.0 of the Translator Text API.
+
 The GetTranslations() and GetTranslationsArray() methods of the Microsoft Translator API include an optional Boolean flag "IncludeMultipleMTAlternatives".
 The method will return up to maxTranslations alternatives where the delta is supplied from the N-Best list of the translator engine.
 

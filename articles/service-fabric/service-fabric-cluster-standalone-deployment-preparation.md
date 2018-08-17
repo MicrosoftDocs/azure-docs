@@ -9,11 +9,11 @@ editor: ''
 
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/12/2017
-ms.author: dekapur;maburlik;aljo
+ms.author: dekapur
 
 ---
 

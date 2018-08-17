@@ -3,7 +3,7 @@ title: Tutorial - Create and use disks for scale sets with Azure PowerShell | Mi
 description: Learn how to use Azure PowerShell to create and use Managed Disks with virtual machine scale sets, including how to add, prepare, list, and detach disks.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
 
 ---
@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.6.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. 
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 6.0.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. 
 
 
 ## Default Azure disks
@@ -93,7 +93,7 @@ You can create and attach disks when you create a scale set, or with an existing
 ### Attach disks at scale set creation
 Create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). When prompted, provide a username and password for the VM instances. To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985.
 
-Two disks are created with the `-DataDiskSizeGb` parameter. The first disk is *64* GB in size, and the second disk is *128* GB:
+Two disks are created with the `-DataDiskSizeGb` parameter. The first disk is *64* GB in size, and the second disk is *128* GB. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -104,8 +104,8 @@ New-AzureRmVmss `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
   -LoadBalancerName "myLoadBalancer" `
-  -UpgradePolicy "Automatic" `
-  -DataDiskSizeGb 64,128
+  -UpgradePolicyMode "Automatic" `
+  -DataDiskSizeInGb 64,128
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VM instances.

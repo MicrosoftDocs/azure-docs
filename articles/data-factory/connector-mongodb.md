@@ -11,21 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/13/2018
+ms.topic: conceptual
+ms.date: 06/05/2018
 ms.author: jingwang
 
 ---
 # Copy data from MongoDB using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-on-premises-mongodb-connector.md)
-> * [Version 2 - Preview](connector-mongodb.md)
+> * [Version 1](v1/data-factory-on-premises-mongodb-connector.md)
+> * [Current version](connector-mongodb.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a MongoDB database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [MongoDB connector in V1](v1/data-factory-on-premises-mongodb-connector.md).
-
 
 ## Supported capabilities
 
@@ -164,7 +160,7 @@ To copy data from MongoDB, set the source type in the copy activity to **MongoDb
 ```
 
 > [!TIP]
-> When specify the SQL query, pay attention to the DateTime format. For example: `SELECT * FROM Account WHERE LastModifiedDate >= {{ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')}'}} AND LastModifiedDate < {{ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}'}}`
+> When specify the SQL query, pay attention to the DateTime format. For example: `SELECT * FROM Account WHERE LastModifiedDate >= '2018-06-01' AND LastModifiedDate < '2018-06-02'` or to use parameter `SELECT * FROM Account WHERE LastModifiedDate >= '@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}' AND LastModifiedDate < '@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'`
 
 ## Schema by Data Factory
 

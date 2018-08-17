@@ -1,19 +1,13 @@
 ---
 title: How to use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub  | Microsoft Docs
 description: How to use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub.
-services: iot-dps
-keywords: 
 author: liydu
 ms.author: liydu
 ms.date: 04/04/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-
+services: iot-dps
+manager: jeffya
 ---
 
 # Use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub
@@ -53,7 +47,7 @@ To connect the DevKit to the device provisioning service instance that you creat
 
 5. Open **DevKitDPS.ino**. Find and replace `[Global Device Endpoint]` and `[ID Scope]` with the values you just noted down.
   ![DPS Endpoint](./media/how-to-connect-mxchip-iot-devkit/endpoint.png)
-  You can leave the **registrationId** blank. The application generates one for you based on the MAC address and firmware version. If you want to customize the Registration ID, you must use only alphanumeric, lowercase, and hyphen combinations with a maximum of 128 characters. For more information, see [Manage device enrollments with Azure portal](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-enrollments).
+  You can leave the **registrationId** blank. The application generates one for you based on the MAC address and firmware version. If you want to customize the Registration ID, you must use only alphanumeric, lowercase, and hyphen combinations with a maximum of 128 characters. For more information, see [Manage device enrollments with Azure portal](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
 
 6. Use Quick Open in VS Code (Windows: `Ctrl+P`, macOS: `Cmd+P`) and type *task device-upload* to build and upload the code to the DevKit.
 
@@ -69,7 +63,7 @@ A typical unique device secret is a 64-character string, as seen in the followin
 19e25a259d0c2be03a02d416c05c48ccd0cc7d1743458aae1cb488b074993eae
 ```
 
-Each of two characters is used as the Hex value in the security calculation. The preceding sample UDS is resolved to: `0x19`, `0xe2`, `0x5a`, `0x25`, `0x9d`, `0x0c`, `0x2b`, `0xe0`, `0x3a`, `0x02`, `0xd4`, `0x16`, `0xc0`, `0x5c`, `0x48`, `0xcc`, `0xd0`, `0xcc`, `0x7d`, `0x17`, `0x43`, `0x45`, `0x8a`, `0xae`, `0x1c`, `0xb4`, `0x88`, `0xb0`, `0x74`, `0x99`, `0x3e`, `0xae`.
+The string is broken up into characters pairs that are used in the security calculation. The preceding sample UDS is resolved to: `0x19`, `0xe2`, `0x5a`, `0x25`, `0x9d`, `0x0c`, `0x2b`, `0xe0`, `0x3a`, `0x02`, `0xd4`, `0x16`, `0xc0`, `0x5c`, `0x48`, `0xcc`, `0xd0`, `0xcc`, `0x7d`, `0x17`, `0x43`, `0x45`, `0x8a`, `0xae`, `0x1c`, `0xb4`, `0x88`, `0xb0`, `0x74`, `0x99`, `0x3e`, `0xae`.
 
 To save a unique device secret on the DevKit:
 
@@ -93,7 +87,7 @@ To save a unique device secret on the DevKit:
 
 ### Windows
 
-1. Open File Explorer and go to the folder that contains the device provisioning service sample code that you cloned earlier. In the **.build** folder, find and copy **DPS.ino.bin** and **DPS.ino.map** into the folder that contains the code.
+1. Open File Explorer and go to the folder that contains the device provisioning service sample code that you cloned earlier. In the **.build** folder, find and copy **DPS.ino.bin** and **DPS.ino.map**.
   ![Generated files](./media/how-to-connect-mxchip-iot-devkit/generated-files.png)
   > [!NOTE]
   > If you changed the `built.path` configuration for Arduino to another folder, you need to find those files in the folder you configured.
@@ -119,6 +113,17 @@ To save a unique device secret on the DevKit:
    - leave the rest as default and click **Save**
 
    ![Upload certificate](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
+
+  > [!NOTE]
+  > If you have an error with this message:
+  >
+  > `{"message":"BadRequest:{\r\n \"errorCode\": 400004,\r\n \"trackingId\": \"1b82d826-ccb4-4e54-91d3-0b25daee8974\",\r\n \"message\": \"The certificate is not a valid base64 string value\",\r\n \"timestampUtc\": \"2018-05-09T13:52:42.7122256Z\"\r\n}"}`
+  >
+  > Open the certificate file **.pem** as text (open with Notepad or any text editor), and delete the lines:
+  >
+  > `"-----BEGIN CERTIFICATE-----"` and `"-----END CERTIFICATE-----"`.
+  >
+
 
 ## Start the DevKit
 

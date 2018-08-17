@@ -1,101 +1,198 @@
 ---
-title: About Language Understanding (LUIS) in Azure | Microsoft Docs
-description: Learn how to use Language Understanding (LUIS) to bring the power of machine learning to your applications.
+title: What is Language Understanding (LUIS) - Azure Cognitive Services | Microsoft Docs
+description: Language Understanding (LUIS) is a cloud-based API service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. A client application for LUIS is any conversational application that communicates with a user in natural language to complete a task. Examples of client applications include social media apps, chat bots, and speech-enabled desktop applications.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 03/29/2017
-ms.author: v-geberr
+ms.topic: overview
+ms.date: 08/15/2017
+ms.author: diberry
+#Customer intent: As a developer incorporating LUIS into my client application, I want to understand what natural language processing (LUIS) is, so that I can determine if it will meet my Cognitive Language needs.
 ---
 
-# About Language Understanding (LUIS)
+# What is Language Understanding (LUIS)?
 
-Language Understanding (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it. A client application that converses with the user can pass user input to a LUIS app and receive relevant, detailed information back.
+Language Understanding (LUIS) is a cloud-based API service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. 
 
-Several Microsoft technologies work with LUIS:
+A client application for LUIS is any conversational application that communicates with a user in natural language to complete a task. Examples of client applications include social media apps, chat bots, and speech-enabled desktop applications.  
 
-* [Bot Framework][bot-framework] allows a chat bot to talk with a user via text input.
-* [Bing Speech API][speech] converts spoken language requests into text. Once converted to text, LUIS processes the requests.
+![Conceptual image of 3 client applications working with Cognitive Services Language Understanding (LUIS)](./media/luis-overview/luis-entry-point.png "Conceptual image of 3 client applications working with Cognitive Services Language Understanding (LUIS)")
 
-## What is a LUIS app?
+## Use LUIS in a chat bot
 
-A LUIS app is a domain-specific language model designed by you and tailored to your needs. You can start with a prebuilt domain model, build your own, or blend pieces of a prebuilt domain with your own custom information.
+<a name="Accessing-LUIS"></a>
 
-A model starts with a list of general user intentions such as "Book Flight" or "Contact Help Desk." Once the intentions are identified, you supply example phrases called utterances for the intents. Then you label the utterances with any specific details you want LUIS to pull out of the utterance.
+Once the LUIS app is published, a client application sends utterances (text) to the LUIS natural language processing endpoint [API][endpoint-apis] and receives the results as JSON responses. A common client application for LUIS is a chat bot.
 
-[Prebuilt domain models][prebuilt-domains] include all these pieces for you and are a great way to start using LUIS quickly.
 
-After the model is designed, trained, and published, it is ready to receive and process utterances. The LUIS app receives the utterance as an HTTP request and responds with extracted user intentions. Your client application sends the utterance and receives LUIS's evaluation as a JSON object. Your client app can then take appropriate action.
+![Conceptual imagery of LUIS working with Chat bot to predict user text with natural language understanding (NLP)](./media/luis-overview/luis-overview-process-2.png "Conceptual imagery of LUIS working with Chat bot to predict user text with natural language understanding (NLP")
 
-![LUIS recognizes user intent](./media/luis-overview/luis-overview-process.png)
+|Step|Action|
+|:--|:--|
+|1|The client application sends the user _utterance_ (text in their own words), "I want to call my HR rep." to the LUIS endpoint as an HTTP request.|
+|2|LUIS applies the learned model to the natural language text to provide intelligent understanding about the user input. LUIS returns a JSON-formatted response, with a top intent, "HRContact". The minimum JSON endpoint response contains the query utterance, and the top scoring intent. It can also extract data such as the Contact Type entity.|
+|3|The client application uses the JSON response to make decisions about how to fulfill the user's requests. These decisions can include some decision tree in the bot framework code and calls to other services. |
 
-## Key LUIS concepts
+The LUIS app provides intelligence so the client application can make smart choices. LUIS doesn't provide those choices. 
 
-* **Intents** An [intent][add-intents] represents actions the user wants to perform. The intent is a purpose or goal expressed in a user's input, such as booking a flight, paying a bill, or finding a news article. You define and name intents that correspond to these actions. A travel app may define an intent named "BookFlight." 
-* **Utterances** An [utterance][add-example-utterances] is text input from the user that your app needs to understand. It may be a sentence, like "Book a ticket to Paris", or a fragment of a sentence, like "Booking" or "Paris flight." Utterances aren't always well-formed, and there can be many utterance variations for a particular intent. 
-* **Entities** An [entity][add-entities] represents detailed information that is relevant in the utterance. For example, in the utterance "Book a ticket to Paris", "Paris" is a location. By recognizing and labeling the entities that are mentioned in the user’s utterance, LUIS helps you choose the specific action to take to answer a user's request. 
+<!--
 
-|Intent|Sample User Utterance|Entities|
+### Example of JSON endpoint response
+
+The minimum JSON endpoint response contains the query utterance, and the top scoring intent. It can also extract data such as the following **Contact Type** entity. 
+
+```JSON
+{
+  "query": "I want to call my HR rep.",
+  "topScoringIntent": {
+    "intent": "HRContact",
+    "score": 0.921233
+  },
+  "entities": [
+    {
+      "entity": "call",
+      "type": "Contact Type",
+      "startIndex": 10,
+      "endIndex": 13,
+      "score": 0.7615982
+    }
+  ]
+}
+```
+-->
+
+<a name="Key-LUIS-concepts"></a>
+<a name="what-is-a-luis-model"></a>
+
+## Natural language processing
+
+A LUIS app contains a domain-specific natural language model. You can start the LUIS app with a prebuilt domain model, build your own model, or blend pieces of a prebuilt domain with your own custom information.
+
+* **Prebuilt model** LUIS has many prebuilt domain models including intents, utterances, and prebuilt entities. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. [Prebuilt domain models](luis-how-to-use-prebuilt-domains.md) include the entire design for you and are a great way to start using LUIS quickly.
+
+* **Custom Entities** LUIS gives you several ways to identify your own custom intents and entities including machine-learned entities, specific or literal entities, and a combination of machine-learned and literal.
+
+## Build the LUIS model
+Build the model with the [authoring](https://aka.ms/luis-authoring-apis) APIs or with the LUIS portal.
+
+The LUIS model begins with categories of user intentions called **[intents](luis-concept-intent.md)**. Each intent needs examples of user **[utterances](luis-concept-utterance.md)**. Each utterance can provide a variety of data that needs to be extracted with **[entities](luis-concept-entity-types.md)**. 
+
+|Example user utterance|Intent|Entities|
 |-----------|-----------|-----------|
-|BookFlight|"Book a flight to __Seattle__?"|Seattle|
-|StoreHoursAndLocation|"When does your store __open__?"|open|
-|ScheduleMeeting|"Schedule a meeting at __1pm__ with __Bob__ in Distribution"|1pm, Bob|
+|"Book a flight to __Seattle__?"|BookFlight|Seattle|
+|"When does your store __open__?"|StoreHoursAndLocation|open|
+|"Schedule a meeting at __1pm__ with __Bob__ in Distribution"|ScheduleMeeting|1pm, Bob|
 
-## Accessing LUIS
+<!--
+## What is a natural language model?
 
-LUIS has two ways to build a model: the [Authoring REST-based APIs][authoring-apis] and the [LUIS][LUIS] website. Both methods give you and your collaborators control of your LUIS model definition. You can use either the [LUIS][LUIS] website or the Authoring APIs or a combination of both to build your model. This management includes models, versions, collaborators, external APIs, testing, and training. 
+A model begins with a list of general user intentions, called _intents_, such as "Book Flight" or "Contact Help Desk." You provide user's example text, called _example utterances_ for the intents. Then mark significant words or phrases in the utterance, called _entities_.
 
-Once your model is built and published, you pass the utterance to LUIS and receive the JSON object results with the [Endpoint REST-based APIs][endpoint-apis].
 
-> [!NOTE]
-> * The Authoring APIs and the [LUIS](luis-reference-regions.md) website use the authoring key found in your LUIS account page.
-> * The Endpoint APIs use the LUIS subscription key found in the [Azure portal][azure-portal].
+A model includes:
 
-## Author your LUIS model 
-Begin your LUIS model with the intents your client app can resolve. Intents are just names such as "BookFlight" or "OrderPizza." 
+* **[intents](#intents)**: categories of user intentions (overall intended action or result)
+* **[entities](#entities)**: specific types of data in utterances such as number, email, or name contained in text
+* **[example utterances](#example-utterances)**: example text a user might enter in the client application
 
-After an intent is identified, you need [sample utterances][add-example-utterances] that you want LUIS to map to your intent such as "Buy a ticket to Seattle tomorrow." Then, [label][label-suggested-utterances] the parts of the utterance that are relevant to your app domain as entities and set a type such as date or location.
+### Intents 
 
-Generally, an **intent** is used to trigger an action and an **entity** is used as a parameter to execute an action.
+An [intent](luis-how-to-add-intents.md), short for _intention_, is a purpose or goal expressed in a user's utterance, such as booking a flight, paying a bill, or finding a news article. You create an intent for each action. A LUIS travel app may define an intent named "BookFlight." Each prediction query includes the top scored intent. 
 
-For example, a "BookFlight" intent could trigger an API call to an external service for booking a plane ticket, which requires entities like the travel destination, date, and airline. See [Plan your app](Plan-your-app.md) for examples and guidance on how to choose intents and entities to reflect the functions and relationships in an app.
+The client application can use the top scoring intent to trigger an action. For example, when "BookFlight" intent is returned from LUIS, a client application could trigger an API call to an external service for booking a plane ticket.
 
-### Identify Entities  
-[Entity][luis-concept-entity-types] identification determines how successfully the end user gets the correct answer. LUIS provides several ways to identify and categorize entities.
+### Entities
 
-* **Prebuilt Entities** LUIS has many prebuilt domain models including intents, utterances, and [prebuilt entities][prebuilt-entities]. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. The prebuilt entities save you time.
+An [entity](luis-how-to-add-entities.md) represents detailed information found within the utterance that is relevant to the user's request. For example, in the utterance "Book a ticket to Paris",  a single ticket is requested, and "Paris" is a location. Two entities are found "a ticket" indicating a single ticket and "Paris" indicating the destination. 
 
-* **Custom Entities** LUIS gives you several ways to identify your own custom [entities][entity-concept] including simple entities, composite entities, list entities, regular expression entities, and hierarchical entities.
+After LUIS returns the entities found in the user’s utterance, the client application can use the list of entities as parameters to trigger an action. For example, booking a flight requires entities like the travel destination, date, and airline.
+-->
+<!--
+### Example utterances
 
-* **Phrases** LUIS provides [phrase lists](luis-concept-feature.md), which also help identify entities. 
+An example [utterance](luis-how-to-add-example-utterances.md) is text input from the user that the client application needs to understand. It may be a sentence, like "Book a ticket to Paris", or a fragment of a sentence, like "Booking" or "Paris flight." Utterances aren't always well-formed, and there can be many utterance variations for a particular intent. Add 10 to 20 example utterances to each intent and mark entities in every utterance.
 
-## Improve performance
-Once your application is [published][publish-app] and real user utterances are entered, LUIS uses [active learning][label-suggested-utterances] to improve identification. In the active learning process, LUIS provides real utterances that it is relatively unsure of for you to review. You can label them according to intent and entities, retrain, and republish.
+|Example user utterance|Intent|Entities|
+|-----------|-----------|-----------|
+|"Book a flight to __Seattle__?"|BookFlight|Seattle|
+|"When does your store __open__?"|StoreHoursAndLocation|open|
+|"Schedule a meeting at __1pm__ with __Bob__ in Distribution"|ScheduleMeeting|1pm, Bob|
+-->
+## Query prediction endpoint
 
-This iterative process has tremendous advantages. LUIS knows what it is unsure of, and your help leads to the maximum improvement in system performance. LUIS learns quicker, and takes the minimum amount of your time and effort. LUIS is an active machine learning at its best. 
+After the model is built and published to the endpoint, the client application sends utterances to the published prediction [endpoint](https://aka.ms/luis-endpoint-apis) API. The API applies the model to the text for analysis. The API responds with the prediction results in a JSON format.  
+
+The minimum JSON endpoint response contains the query utterance, and the top scoring intent. It can also extract data such as the following **Contact Type** entity. 
+
+```JSON
+{
+  "query": "I want to call my HR rep.",
+  "topScoringIntent": {
+    "intent": "HRContact",
+    "score": 0.921233
+  },
+  "entities": [
+    {
+      "entity": "call",
+      "type": "Contact Type",
+      "startIndex": 10,
+      "endIndex": 13,
+      "score": 0.7615982
+    }
+  ]
+}
+```
+
+## Improve model prediction
+
+After a LUIS model is published and receives real user utterances, LUIS provides several methods to improve prediction accuracy: [active learning](#active-learning) of endpoint utterances, [phrase lists](#phrase-lists) for domain word inclusion, and [patterns](#patterns) to reduce the number of utterances needed.
+<!--
+### Active learning
+
+In the [active learning](luis-how-to-review-endoint-utt.md) process, LUIS allows you to adapt the LUIS app to real-world utterances by selecting utterances it received at the endpoint for your review. You can accept or correct the endpoint prediction, retrain, and republish. LUIS learns quickly with this iterative process, taking the minimum amount of your time and effort. 
+
+### Phrase lists 
+
+LUIS provides [phrases lists](luis-concept-feature.md) so you can indicate important words or phrases of the model. LUIS uses these lists to add additional significance to those words and phrases that would otherwise not be found in the model.
+
+### Patterns 
+
+Patterns allow you to simplify an intent's utterance collection into common [templates](luis-concept-patterns.md) of word choice and word order. This allows LUIS to learn quicker by needing fewer example utterances for the intents. Patterns are a hybrid system of regular expressions and machine-learned expressions. 
+-->
+<a name="using-luis"></a>
+<!--
+## Authoring and accessing models
+Author LUIS from the [authoring](https://aka.ms/luis-authoring-apis) APIs or from the LUIS portal. Query the published prediction endpoint of the model from the [endpoint](https://aka.ms/luis-endpoint-apis) APIs.
+-->
+
+## Integrating with LUIS
+LUIS, as a REST API, can be used with any product, service, or framework that makes an HTTP request. The following list contains the top Microsoft products and services used with LUIS.
+
+Microsoft client applications for LUIS include:
+* [Web app bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0) quickly creates a LUIS-enabled chat bot to talk with a user via text input. Uses [Bot Framework][bot-framework] version [3.x](https://github.com/Microsoft/BotBuilder) or [4.x](https://github.com/Microsoft/botbuilder-dotnet) for a complete bot experience.
+* [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) - learn more with this [Mixed reality course](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) with LUIS. 
+
+Microsoft tools to use LUIS with a bot:
+* [Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) allows several LUIS and QnA Maker apps to be used from a parent app using dispatcher model.
+* [Conversation learner](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) allows you to build bot conversations quicker with LUIS.
+* [Project personality chat](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview) to handle bot small talk.
+
+Other Cognitive Services used with LUIS:
+* [QnA Maker][qnamaker] allows several types of text to combine into a question and answer knowledge base.
+* [Bing Spell Check API](../bing-spell-check/proof-text.md) provides text correction before prediction. 
+* [Speech service](../Speech-Service/overview.md) converts spoken language requests into text. 
+
+
 
 ## Next steps
-Create a [new LUIS app](LUIS-get-started-create-app.md).
+
+Author a new LUIS app with a [prebuilt](luis-get-started-create-app.md) or [custom](luis-quickstart-intents-only.md) domain. [Query the prediction endpoint](luis-get-started-cs-get-intent.md) of a public IoT app.
 
 <!-- Reference-style links -->
-[create-app]:luis-get-started-create-app.md
-[azure-portal]:https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account
-[publish-app]:PublishApp.md#test-your-published-endpoint-in-a-browser
-[luis-concept-entity-types]:luis-concept-entity-types.md
-[add-example-utterances]: add-example-utterances.md
-[prebuilt-entities]: pre-builtentities.md
-[prebuilt-domains]: luis-how-to-use-prebuilt-domains.md
-[label-suggested-utterances]: label-suggested-utterances.md
-[intro-video]:https://aka.ms/LUIS-Intro-Video
-[bot-framework]:https://docs.microsoft.com/bot-framework/
-[speech]:../Speech/index.md
-[flow]:https://docs.microsoft.com/connectors/luis/
-[entity-concept]:luis-concept-entity-types.md
-[add-intents]:Add-intents.md
-[add-entities]:Add-entities.md
-[authoring-apis]:https://aka.ms/luis-authoring-api
-[endpoint-apis]:https://aka.ms/luis-endpoint-apis
-[LUIS]:luis-reference-regions.md
+[bot-framework]: https://docs.microsoft.com/bot-framework/
+[flow]: https://docs.microsoft.com/connectors/luis/
+[authoring-apis]: https://aka.ms/luis-authoring-api
+[endpoint-apis]: https://aka.ms/luis-endpoint-apis
+[qnamaker]: https://qnamaker.ai/

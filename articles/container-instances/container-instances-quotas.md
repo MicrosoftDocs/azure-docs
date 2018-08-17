@@ -3,7 +3,7 @@ title: Azure Container Instances quotas and region availability
 description: The default quotas and region availability of the Azure Container Instances service.
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: overview
@@ -26,6 +26,7 @@ Azure Container Instances is available in the following regions with the specifi
 | -------- | -- | :---: | :-----------: |
 | West US, East US, West Europe, North Europe | Linux | 4 | 14 |
 | West US 2, Southeast Asia | Linux | 2 | 7 |
+| Australia East, East US 2, Central US | Linux | 1 | 1.5 |
 | West US, East US, West Europe, North Europe | Windows | 4 | 14 |
 | West US 2, Southeast Asia | Windows | 2 | 3.5 |
 

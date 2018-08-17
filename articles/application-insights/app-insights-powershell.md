@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
 
@@ -49,7 +49,6 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                 "allowedValues": [
                     "web",
                     "java",
-                    "HockeyAppBridge",
                     "other"
                 ],
                 "metadata": {

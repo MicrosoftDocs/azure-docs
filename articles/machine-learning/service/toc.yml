@@ -4,17 +4,17 @@
   expanded: true
   items:
   - name: About Azure Machine Learning
-    href: ../desktop-workbench/overview-what-is-azure-ml.md
+    href: overview-what-is-azure-ml.md
   - name: Model Management overview
     href: ../desktop-workbench/model-management-overview.md
   - name: Other ML products
-    href: ../desktop-workbench/overview-more-machine-learning.md    
+    href: overview-more-machine-learning.md    
   - name: What's new
     href: ../desktop-workbench/azure-machine-learning-release-notes.md    
 - name: Quickstarts
   items:
   - name: Install and start
-    href: ../desktop-workbench/quickstart-installation.md
+    href: quickstart-installation.md
 - name: Tutorials
   items:
   - name: '1: Prepare data'
@@ -29,6 +29,8 @@
   items: 
   - name: Key concepts
     href: ../desktop-workbench/overview-general-concepts.md
+  - name: FPGA accelerations
+    href: concept-accelerate-with-fpgas.md    
 - name: How-to guides
   items:  
   - name: Top CLI tasks
@@ -92,8 +94,10 @@
       href: ../desktop-workbench/how-to-read-write-files.md
     - name: Use MMLSpark library
       href: ../desktop-workbench/how-to-use-mmlspark.md
-  - name: Operationalize models
+  - name: Deploy and consume models
     items:
+    - name: Deploy models to FPGAs
+      href: how-to-deploy-fpga-web-service.md
     - name: Set up Model Management
       href: ../desktop-workbench/deployment-setup-configuration.md
     - name: Scale clusters and services
@@ -142,6 +146,33 @@
       href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
 - name: Reference
   items:  
+  - name: Python packages
+    href: reference-python-package-overview.md
+    items:    
+    - name: Computer vision
+      items:
+      - name: Package overview and install
+        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
+      - name: Build and deploy image classification models
+        href: how-to-build-deploy-image-classification-models.md
+      - name: Build and deploy object detection models
+        href: how-to-build-deploy-object-detection-models.md        
+      - name: Model accuracy
+        href: how-to-improve-accuracy-for-computer-vision-models.md
+    - name: Forecasting
+      items:
+      - name: Overview and install
+        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview
+      - name: Build and deploy forecast models
+        href: how-to-build-deploy-forecast-models.md
+    - name: FPGA acceleration
+      href: reference-fpga-package-overview.md
+    - name: Text analytics
+      items:
+      - name: Overview and install
+        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
+      - name: Build and deploy text classification models
+        href: how-to-build-deploy-text-classification-models.md    
   - name: Data preparation
     items:
     - name: Python extensions for data preparation
@@ -168,8 +199,6 @@
       href: ../desktop-workbench/data-prep-appendix10-sample-custom-column-transforms-python.md  
     - name: Data preparation execution API
       href: ../desktop-workbench/data-prep-python-execution-api.md
-    - name: Data preparation operationalization
-      href: ../desktop-workbench/data-prep-operationalization.md
   - name: Experimentation    
     items:
     - name: Experimentation Service configuration
@@ -191,13 +220,15 @@
   - name: Frequently asked questions
     href: ../desktop-workbench/frequently-asked-questions.md
   - name: Issues and troubleshooting
-    href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
+    href: known-issues-and-troubleshooting-guide.md
+  - name: Export or delete account data
+    href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
   - name: Support and training
-    href: ../desktop-workbench/support-for-aml-services.md
+    href: support-for-aml-services.md
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
-    href: ../desktop-workbench/aml-pricing.md
+    href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Team Data Science Process

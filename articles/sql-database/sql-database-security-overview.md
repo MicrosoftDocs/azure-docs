@@ -7,8 +7,8 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
-ms.date: 03/12/2018
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: giladm
 
 ---
@@ -24,7 +24,7 @@ For a complete overview of security features available on all flavors of SQL, se
 SQL Database secures your data by providing encryption for data in motion with [Transport Layer Security](https://support.microsoft.com/kb/3135244), for data at rest with [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), and for data in use with [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
->All connections to Azure SQL Database require encryption (SSL/TLS) at all times while data is "in transit" to and from the database. In your application's connection string, you must specify parameters to encrypt the connection and *not* to trust the server certificate (this is done for you if you copy your connection string out of the Azure portal), otherwise the connection does not verify the identity of the server and is susceptible to "man-in-the-middle" attacks. For the ADO.NET driver, for instance, these connection string parameters are **Encrypt=True** and **TrustServerCertificate=False**. 
+>All connections to Azure SQL Database require encryption (SSL/TLS) at all times while data is "in transit" to and from the database. In your application's connection string, you must specify parameters to encrypt the connection and *not* to trust the server certificate (this is done for you if you copy your connection string out of the Azure portal), otherwise the connection does not verify the identity of the server and is susceptible to "man-in-the-middle" attacks. For the ADO.NET driver, for instance, these connection string parameters are **Encrypt=True** and **TrustServerCertificate=False**. For information about TLS and connectivity, see [TLS considerations](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 For other ways to encrypt your data, consider:
 
@@ -74,7 +74,7 @@ SQL Database Auditing tracks database activities and helps you to maintain regul
 Threat Detection complements auditing, by providing an additional layer of security intelligence built into the Azure SQL Database service that detects unusual and potentially harmful attempts to access or exploit databases. You are alerted about suspicious activities, potential vulnerabilities and SQL injection attacks, as well as anomalous database access patterns. Threat Detection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/) and provide details of suspicious activity and recommend action on how to investigate and mitigate the threat. Threat Detection costs $15/server/month. It is free for the first 60 days. For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection.md).
  
 ## Compliance
-In addition to the above features and functionality that can help your application meet various security requirements, Azure SQL Database also participates in regular audits and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://azure.microsoft.com/support/trust-center/services/).
+In addition to the above features and functionality that can help your application meet various security requirements, Azure SQL Database also participates in regular audits and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings).
 
 
 ## Security management

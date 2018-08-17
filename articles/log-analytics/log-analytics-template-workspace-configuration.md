@@ -3,8 +3,8 @@ title: Use Azure Resource Manager templates to Create and Configure a Log Analyt
 description: You can use Azure Resource Manager templates to create and configure Log Analytics workspaces.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
-manager: jochan
+author: mgoedtel
+manager: carmonm
 editor: ''
 
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
@@ -12,11 +12,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
-ms.topic: article
-ms.date: 04/16/2018
-ms.author: richrund
-
+ms.topic: conceptual
+ms.date: 06/11/2018
+ms.author: magoedte
+ms.component: na
 ---
+
 # Manage Log Analytics using Azure Resource Manager templates
 You can use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces. Examples of the tasks you can perform with templates include:
 
@@ -32,6 +33,16 @@ You can use [Azure Resource Manager templates](../azure-resource-manager/resourc
 * Configure log analytics to index data collected using Azure diagnostics
 
 This article provides template samples that illustrate some of the configuration that you can perform with templates.
+
+## API versions
+The following table lists the API version for the resources used in this example.
+
+| Resource | Resource type | API version |
+|:---|:---|:---|:---|
+| Workspace   | workspaces    | 2017-03-15-preview |
+| Search      | savedSearches | 2017-03-15-preview |
+| Data source | datasources   | 2015-11-01-preview |
+| Solution    | solutions     | 2015-11-01-preview |
 
 ## Create a Log Analytics workspace
 The following example creates a workspace using a template from  your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment.  
@@ -227,7 +238,7 @@ The following template sample illustrates how to:
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
+            "Query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },
@@ -503,10 +514,9 @@ The Azure quickstart template gallery includes several templates for Log Analyti
 * [Deploy a virtual machine running Linux with the Log Analytics VM extension](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Monitor Azure Site Recovery using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Monitor Azure Web Apps using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Monitor SQL Azure using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-* [Deploy a Service Fabric cluster and monitor it with an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-* [Deploy a Service Fabric cluster and create a Log Analytics workspace to monitor it](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
+* [Add an existing storage account to OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## Next steps
-* [Deploy agents into Azure VMs using Resource Manager templates](log-analytics-azure-vm-extension.md)
+* [Deploy Windows agent to Azure VMs using Resource Manager template](../virtual-machines/windows/extensions-oms.md).
+* [Deploy Linux agent to Azure VMs using Resource Manager template](../virtual-machines/linux/extensions-oms.md).
 

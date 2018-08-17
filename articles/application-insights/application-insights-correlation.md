@@ -3,15 +3,16 @@ title: Azure Application Insights Telemetry Correlation | Microsoft Docs
 description: Application Insights telemetry correlation
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2018
+ms.reviewer: sergkanz
 ms.author: mbullwin
 
 ---

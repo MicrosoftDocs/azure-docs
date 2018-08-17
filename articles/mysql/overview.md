@@ -6,24 +6,23 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 06/02/2018
 ms.custom: mvc
 ---
-
 
 # What is Azure Database for MySQL?
 Azure Database for MySQL is a relational database service in the Microsoft cloud based on the [MySQL Community Edition](https://www.mysql.com/products/community/) database engine. Azure Database for MySQL delivers:
 
 - Built-in high availability with no additional cost.
 - Predictable performance, using inclusive pay-as-you-go pricing.
-- Scale on the fly within seconds.
+- Scale as needed within seconds.
 - Secured to protect sensitive data at-rest and in-motion.
 - Automatic backups and point-in-time-restore for up to 35 days.
 - Enterprise-grade security and compliance.
 
-These capabilities require almost no administration and all are provided at no additional cost. They allow you to focus on rapid app development and accelerating your time to market rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open source tools and platform of your choice to deliver with the speed and efficiency your business demands, all without having to learn new skills.
+These capabilities require almost no administration and all are provided at no additional cost. They allow you to focus on rapid app development and accelerating your time to market rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open-source tools and platform of your choice to deliver with the speed and efficiency your business demands, all without having to learn new skills.
 
 ![Azure Database for MySQL conceptual diagram](media/overview/1-azure-db-for-mysql-conceptual-diagram.png)
 
@@ -48,7 +47,15 @@ Azure database services have a tradition of data security that Azure Database fo
 
 The Azure Database for MySQL service uses storage encryption for data at-rest. Data, including backups, are encrypted on disk (with the exception of temporary files that are created by the engine while running queries). The service uses AES 256-bit cipher that is included in Azure storage encryption, and the keys are system managed. Storage encryption is always on and cannot be disabled.
 
-By default, the Azure Database for MySQL service is configured to require [SSL connection security](./concepts-ssl-connection-security.md) for data in-motion across the network. Enforcing SSL connections between your database server and your client applications helps to protect against "man in the middle" attacks by encrypting the data stream between the server and your application.  Optionally, you can disable requiring SSL for connecting to your database service if your client application does not support SSL connectivity.
+By default, the Azure Database for MySQL service is configured to require [SSL connection security](./concepts-ssl-connection-security.md) for data in-motion across the network. Enforcing SSL connections between your database server and your client applications helps to protect against "man in the middle" attacks by encrypting the data stream between the server and your application. Optionally, you can disable requiring SSL for connecting to your database service if your client application does not support SSL connectivity.
+
+## Contacts
+For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Note that this is not a technical support alias.
+
+In addition, consider the following points of contact as appropriate:
+- To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## Next steps
 Now that you've read an introduction to Azure Database for MySQL and answered the question "What is Azure Database for MySQL?," you're ready to:

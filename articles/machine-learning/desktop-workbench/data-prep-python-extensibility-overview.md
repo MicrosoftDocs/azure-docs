@@ -4,14 +4,13 @@ description: This document provides an overview and some detailed examples of ho
 services: machine-learning
 author: euangMS
 ms.author: euang
-manager: lanceo
-ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 05/09/2018
 ---
 
 # Data Preparations Python extensions
@@ -20,14 +19,10 @@ As a way of filling in functionality gaps between built-in features, Azure Machi
 ## Custom code steps 
 Data Preparations has the following custom steps where users can write code:
 
-* File Reader*
-* Writer*
 * Add Column
 * Advanced Filter
 * Transform Dataflow
 * Transform Partition
-
-*These steps are not currently supported in a Spark execution.
 
 ## Code block types 
 For each of these steps, we support two code block types. First, we support a bare Python Expression that is executed as is. Second, we support a Python Module where we call a particular function with a known signature in the code you supply.
@@ -154,74 +149,6 @@ Examples
     row.ColumnA + row.ColumnB  
     row["ColumnA"] + row["ColumnB"]
 ```
-
-## File Reader 
-### Purpose 
-The File Reader extension point lets you fully control the process of reading a file into a data flow. The system calls your code and passes in the list of files that you should process. Your code needs to create and return a Pandas dataframe. 
-
->[!NOTE]
->This extension point doesn't work in Spark. 
-
-
-### How to use 
-You access this extension point from the **Open Data Source** wizard. Choose **File** on the first page, and then choose your file location. On the **Choose File Parameters** page, in the **File Type** drop-down list, choose **Custom File (Script)**. 
-
-Your code is given a Pandas dataframe named "df" that contains information about the files you need to read. If you chose to open a directory that contains multiple files, the dataframe contains more than one row.  
-
-This dataframe has the following columns:
-
-- Path: The file to be read.
-- PathHint: Tells you where the file is located. Values: Local, AzureBlobStorage, and AzureDataLakeStorage.
-- AuthenticationType: The type of authentication used to access the file. Values: None, SasToken, and OAuthToken.
-- AuthenticationValue: Contains None or the token to be used.
-
-### Syntax 
-Expression 
-
-```python
-    paths = df['Path'].tolist()  
-    df = pd.read_csv(paths[0])
-```
-
-
-Module  
-```python
-PathHint = Local  
-def read(df):  
-    paths = df['Path'].tolist()  
-    filedf = pd.read_csv(paths[0])  
-    return filedf  
-```
- 
-
-## Writer 
-### Purpose 
-The Writer extension point lets you fully control the process of writing data from a data flow. The system calls your code and passes in a dataframe. Your code can use the dataframe to write data however you want. 
-
->[!NOTE]
->The Writer extension point doesn't work in Spark.
-
-
-### How to use 
-You can add this extension point by using the Write Dataflow (Script) block. It's available on the top-level **Transformations** menu.
-
-### Syntax 
-Expression
-
-```python
-    df.to_csv('c:\\temp\\output.csv')
-```
-
-Module
-
-```python
-def write(df):  
-    df.to_csv('c:\\temp\\output.csv')  
-    return df
-```
- 
- 
-This custom write block can exist in the middle of a list of steps. If you use a Module, your write function must return the dataframe that's the input to the step that follows. 
 
 ## Add Column 
 ### Purpose

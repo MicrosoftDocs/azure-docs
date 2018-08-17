@@ -8,6 +8,7 @@ metadata:
   author: garyericson
   manager: jhubbard
   ms.service: machine-learning
+  ms.component: core
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -63,6 +64,8 @@ sections:
     style: cards
     className: cardsD
     items:
+    - title: Packages
+      html: <p><a href="reference-python-package-overview#amlpcv">Computer vision</a></p><p><a href="reference-python-package-overview#amlpf">Forecasting</a></p><p><a href="reference-python-package-overview#amlrealtimeai">FPGA acceleration</a></p><p><a href="reference-python-package-overview#amlpta">Text analytics</a></p>
     - title: Languages
       html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
     - title: REST

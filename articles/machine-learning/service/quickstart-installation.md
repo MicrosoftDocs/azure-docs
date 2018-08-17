@@ -1,12 +1,13 @@
----
+﻿---
 title: Installation Quickstart for Azure Machine Learning services | Microsoft Docs
 description: In this Quickstart, you can learn how to create Azure Machine Learning resources, and how to install and get started with Azure Machine Learning Workbench.
 services: machine-learning
 author: hning86
-ms.author: chhavib
+ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
@@ -60,7 +61,7 @@ Use the Azure portal to provision your Azure Machine Learning accounts:
    Resource group | _Your resource group_ | Use an existing resource group in your subscription, or enter a name to create a new resource group for this experimentation account. 
    Location | _The region closest to your users_ | Choose the location closest to your users and the data resources.
    Number of seats | 2 | Enter the number of seats. Learn how [seating impacts pricing](https://azure.microsoft.com/pricing/details/machine-learning/).<br/><br/>For this Quickstart, you only need two seats. Seats can be added or removed as needed in the Azure portal.
-   Storage account | _Unique name_ | Select **Create new** and provide a name to create an [Azure storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal). The name should be 3 to 24 characters, and should include only alphanumeric characters. Alternatively, select **Use existing** and select your existing storage account from the drop-down list. The storage account is required and is used to hold project artifacts and run history data. 
+   Storage account | _Unique name_ | Select **Create new** and provide a name to create an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal). The name should be 3 to 24 characters, and should include only alphanumeric characters. Alternatively, select **Use existing** and select your existing storage account from the drop-down list. The storage account is required and is used to hold project artifacts and run history data. 
    Workspace for Experimentation account | IrisGarden<br/>(name used in tutorials) | Provide a name for a workspace for this account. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character. This workspace contains the tools you need to create, manage, and publish experiments.
    Assign owner for the workspace | _Your account_ | Select your own account as the workspace owner.
    Create Model Management account | **check** |Create a Model Management account now so that this resource is available when you want to deploy and manage your models as real-time web services. <br/><br/>While optional, we recommend creating the Model Management account at the same time as the Experimentation account.
@@ -141,7 +142,7 @@ Here, we are creating a new Workbench project using a template that includes the
    Project name | myIris |Enter a unique name that identifies your account. You can use your own name, or a departmental or project name that best identifies the experiment. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character. 
    Project directory | c:\Temp\ | Specify the directory in which the project is created.
    Project description | _leave blank_ | Optional field useful for describing the projects.
-   Visualstudio.com GIT Repository URL |_leave blank_ | Optional field. A project can optionally be associated with a Git repository on Visual Studio Team Services for source control and collaboration. [Learn how to set that up.](/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Visualstudio.com GIT Repository URL |_leave blank_ | Optional field. A project can optionally be associated with a Git repository on Visual Studio Team Services for source control and collaboration. [Learn how to set that up.](../desktop-workbench/using-git-ml-project.md#step-3-set-up-a-machine-learning-project-and-git-repo). 
    Selected workspace | IrisGarden (if it exists) | Choose a workspace that you have created for your Experimentation account in the Azure portal. <br/>If you followed the Quickstart, you should have a workspace by the name IrisGarden. If not, select the one you created when you created your Experimentation account or any other you want to use.
    Project template | Classifying Iris | Templates contain scripts and data you can use to explore the product. This template contains the scripts and data you need for this quickstart and other tutorials in this documentation site. 
 

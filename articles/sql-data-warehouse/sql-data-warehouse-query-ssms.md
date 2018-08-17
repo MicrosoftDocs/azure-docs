@@ -80,7 +80,7 @@ To configure your environment for Azure Active Directory authentication, see [Au
 
 <!--Other-->
 [Azure portal]: https://portal.azure.com
-[Install SSMS]: https://msdn.microsoft.com/en-US/library/hh213248.aspx
+[Install SSMS]: https://msdn.microsoft.com/library/hh213248.aspx
 
 
 <!--Image references-->

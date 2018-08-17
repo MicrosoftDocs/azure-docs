@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
+ms.date: 05/04/2018
 ms.author: jroth
 ---
 # How to provision a Windows SQL Server virtual machine in the Azure portal
@@ -109,7 +109,7 @@ On the **Size** step, choose a virtual machine size in the **Choose a size** win
 
 ![SQL VM Size Options](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
-For production workloads, see the recommended machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md). If you need a machine size that is not listed, click the **View all** button.
+For production workloads, see the recommended machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
 > [!NOTE]
 > For more information about virtual machine sizes, [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -125,7 +125,14 @@ On the **Settings** window, configure Azure storage, networking, and monitoring 
    > [!NOTE]
    > Microsoft recommends Managed Disks for SQL Server. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For more information, see [Azure Managed Disks Overview][../managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use managed disks for VMs in availability set](../manage-availability.md).
 
-* Under **Network**, you can accept the automatically populated values. You can also click on each feature to manually configure the **Virtual network**, **Subnet**, **Public IP address**, and **Network Security Group**. For the purposes of this walkthrough, keep the default values.
+* Under **Network**, select any inbound ports that in the **Select public inbound ports** list. For example, if you want to remote desktop into the VM, select the **RDP (3389)** port.
+
+   ![Inbound ports](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
+
+   > [!NOTE]
+   > You can select the **MS SQL (1433)** port to access SQL Server remotely. However, this is not necessary here, because the **SQL Server settings** step provides this option as well. If you do select port 1433 at this step, it will be opened irregardless of your selections in the **SQL Server settings** step.
+
+   You can make other changes to network settings, or keep the default values.
 
 * Azure enables **Monitoring** by default with the same storage account designated for the VM. You can change these settings here.
 

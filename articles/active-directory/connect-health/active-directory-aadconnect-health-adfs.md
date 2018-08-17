@@ -3,7 +3,7 @@ title: Using Azure AD Connect Health with AD FS | Microsoft Docs
 description: This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2017
+ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ---
@@ -111,7 +111,7 @@ The report provides the following information:
 >
 >
 
-## Risky IP Report 
+## Risky IP Report (Public Preview)
 AD FS customers may expose password authentication endpoints to the internet to provide authentication services for end users to access SaaS applications such as Office 365. In this case, it is possible for a bad actor to attempt logins against your AD FS system to guess an end user’s password and get access to application resources. AD FS provides the extranet account lockout functionality to prevent these types of attacks since AD FS in Windows Server 2012 R2. If you are on a lower version, we strongly recommend that you upgrade your AD FS system to Windows Server 2016. <br />
 Additionally, it is possible for a single IP address to attempt multiple logins against multiple users. In these cases, the number of attempts per user may be under the threshold for account lockout protection in AD FS. Azure AD Connect Health now provides the “Risky IP report” that detects this condition and notifies administrators when this occurs. The following are the key benefits for this report: 
 - Detection of IP addresses that exceed a threshold of failed password-based logins
@@ -148,10 +148,12 @@ For example, the below report item indicates from the 6pm to 7pm hour window on 
 > - This alert report does not show Exchange IP addresses or private IP addresses. They are still included in the export list. 
 >
 
-
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report4c.png)
 
-### Download Risky IP report
+### Load Balancer IP addresses in the list
+Load balancer aggregate failed sign-in activities and hit the alert threshold. If you are seeing load balancer IP addresses, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server. Please configure your load balancer correctly to pass forward client IP address. 
+
+### Download Risky IP report 
 Using the **Download** functionality, the whole risky IP address list in the past 30 days can be exported from the Connect Health Portal
 The export result will include all the failed AD FS sign-in activities in each detection time window, so you can customize the filtering after the export. 
 Besides the highlighted aggregations in the portal, the export result also shows more details about failed sign-in activities per IP address:
@@ -195,12 +197,14 @@ If you are seeing load balancer IP addresses, it is highly likely that your exte
 
 3. What do I do to block the IP address?  <br />
 You should add identified malicious IP address to the firewall or block in Exchange.   <br />
-For AD FS 2016 + 1803.C+ QFE, you can block the IP address directly at AD FS. 
 
 4. Why am I not seeing any items in this report? <br />
    - Failed sign-in activities are not exceeding the threshold settings. 
    - Ensure no “Health service is not up to date” alert active in your AD FS server list.  Read more about [how to troubleshoot this alert](active-directory-aadconnect-health-data-freshness.md).
    - Audits is not enabled in AD FS farms.
+ 
+5. Why am I seeing no access to the report?  <br />
+Global Admin or [Security Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) permission is required. Please contact your global admin to get access.
 
 
 ## Related links

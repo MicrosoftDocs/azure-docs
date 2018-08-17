@@ -1,20 +1,13 @@
 ---
-title: Overview of metrics in Microsoft Azure | Microsoft Docs
+title: Overview of metrics in Microsoft Azure
 description: Overview of metrics and their use in Microsoft Azure
 author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/19/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/05/2018
 ms.author: ancav
+ms.component: metrics
 ---
 
 # Overview of metrics in Microsoft Azure
@@ -22,15 +15,6 @@ This article describes what metrics are in Microsoft Azure, their benefits, and 
 
 ## What are metrics?
 Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
-
-## What can you do with metrics?
-Metrics are a valuable source of telemetry and enable you to do the following tasks:
-
-* **Track the performance** of your resource (such as a VM, website, or logic app) by plotting its metrics on a portal chart and pinning that chart to a dashboard.
-* **Get notified of an issue** that impacts the performance of your resource when a metric crosses a certain threshold.
-* **Configure automated actions**, such as autoscaling a resource or firing a runbook when a metric crosses a certain threshold.
-* **Perform advanced analytics** or reporting on performance or usage trends of your resource.
-* **Archive** the performance or health history of your resource **for compliance or auditing** purposes.
 
 ## What are the characteristics of metrics?
 Metrics have the following characteristics:
@@ -40,19 +24,17 @@ Metrics have the following characteristics:
 * You can access **93 days of history** for each metric. You can quickly look at the recent and monthly trends in the performance or health of your resource.
 * Some metrics can have name-value pair attributes called **dimensions**. These enable you to further segment and explore a metric in a more meaningful way.
 
-You can also:
+## What can you do with metrics?
+Metrics enable you to do the following tasks:
 
-* Configure a metric **alert rule that sends a notification or takes automated action** when the metric crosses the threshold that you have set. Autoscale is a special automated action that enables you to scale out your resource to meet incoming requests or loads on your website or computing resources. You can configure an Autoscale setting rule to scale in or out based on a metric crossing a threshold.
 
-* **Route** all metrics Application Insights or Log Analytics to enable instant analytics, search, and custom alerting on metrics data from your resources. You can also stream metrics to an Event Hub, enabling you to then route them to Azure Stream Analytics or to custom apps for near-real time analysis. You set up Event Hub streaming using diagnostic settings.
-
-* **Archive metrics to storage** for longer retention or use them for offline reporting. You can route your metrics to Azure Blob storage when you configure diagnostic settings for your resource.
-
-* Easily discover, access, and **view all metrics** via the Azure portal when you select a resource and plot the metrics on a chart.
-
-* **Consume** the metrics via the new Azure Monitor REST APIs.
-
-* **Query** metrics by using the PowerShell cmdlets or the Cross-Platform REST API.
+- Configure a metric **alert rule that sends a notification or takes automated action** when the metric crosses the threshold that you have set. Actions are controlled through [action groups](monitoring-action-groups.md). Example actions include email, phone, and SMS notifications, calling a webhook, starting a runbook, and more. **Autoscale** is a special automated action that enables you to scale your a resource up and down to handle load yet keep costs lower when not under load. You can configure an autoscale setting rule to scale in or out based on a metric crossing a threshold.
+- **Route** all metrics to *Application Insights* or *Log Analytics* to enable instant analytics, search, and custom alerting on metrics data from your resources. You can also stream metrics to an *Event Hub*, enabling you to then route them to Azure Stream Analytics or to custom apps for near-real time analysis. You set up Event Hub streaming using diagnostic settings.
+- **Archive** the performance or health history of your resource for compliance, auditing, or offline reporting purposes.  You can route your metrics to Azure Blob storage when you configure diagnostic settings for your resource.
+- Use the **Azure portal** to discover, access, and view all metrics when you select a resource and plot the metrics on a chart. You can track the performance of your resource (such as a VM, website, or logic app) by pinning that chart to your dashboard.  
+- **Perform advanced analytics** or reporting on performance or usage trends of your resource.
+- **Query** metrics by using the PowerShell cmdlets or the Cross-Platform REST API.
+- **Consume** the metrics via the new Azure Monitor REST APIs.
 
   ![Routing of Metrics in Azure Monitor](./media/monitoring-overview-metrics/Metrics_Overview_v4.png)
 

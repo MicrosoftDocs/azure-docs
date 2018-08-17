@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect Health and General Data Protection Regulation | Microsoft Docs'
-description: This document describes how to obtain GDPR compliancy with Azure AD Connect.
+title: 'Azure AD Connect Health and User Privacy | Microsoft Docs'
+description: This document describes user privacy with Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -11,22 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 04/26/2018
 ms.author: billmath
 ---
 
-# GDPR compliance and Azure AD Connect Health 
+# User privacy and Azure AD Connect Health 
 
-[General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is a European Union (EU) data protection and privacy law. The GDPR imposes new rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the EU, or that collect and analyze data tied to EU residents. 
-
-Microsoft products and services are available today to help you meet the GDPR requirements. Read more about Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
-
-Azure AD Connect Health monitors your on-premises identity infrastructure and synchronization service. It also provides you insights and surfaces alerts. Microsoft is committed to GDPR-compliance across cloud services when enforcement begins May 2018 and to provide GDPR-related assurances in its contractual commitments. 
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
-> This article outlines GDPR compliance in Azure AD Connect Health. For information on GDPR compliance in Azure AD Connect, see [GDPR compliance and Azure AD Connect](../../active-directory/connect/active-directory-aadconnect-gdpr.md).
+>This article deals with Azure AD Connect Health and user privacy.  For information on Azure AD Connect and user privacy see the article [here](../../active-directory/connect/active-directory-aadconnect-gdpr.md).
 
-## GDPR classification
+## User privacy classification
 Azure AD Connect Health falls into the **data processor** category of GDPR classification. As a data processor pipeline, the service provides data processing services to key partners and end consumers. Azure AD Connect Health does not generate user data and has no independent control over what personal data is collected and how it is used. Data retrieval, aggregation, analysis, and reporting in Azure AD Connect Health are based on existing on-premises data. 
 
 ## Data retention policy
@@ -51,18 +47,50 @@ If you stop data collection and monitoring for an individual monitored server or
 - If you have not uninstalled the Health Agent before performing this step, you may see error events on the server(s) related to the Health Agent.
 - All data belonging to the instance of the monitored service is deleted as per the Microsoft Azure Data Retention Policy.
 
-### Disable data collection and monitoring for a monitored server
-See [how to remove a server from Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
-
 ### Disable data collection and monitoring for an instance of a monitored service
 See [how to remove a service instance from Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service).
 
+### Disable data collection and monitoring for a monitored server
+See [how to remove a server from Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
+
+### Disable data collection and monitoring for all monitored services in Azure AD Connect Health
+Azure AD Connect Health also provides the option to stop data collection of **all** registered services in the tenant. We recommend careful consideration and full acknowledgement of all global admins before taking the action. Once the process begins, Connect Health service will stop receiving, processing, and reporting any data of all your services. Existing data in Connect Health service will be retained for no more than 30 days.
+If you want to stop data collection of specific server, please follow steps at deletion of specific servers. To stop tenant-wise data collection, follow the following steps to stop data collection and delete all services of the tenant.
+
+1.	Click on **General Settings** under configuration in the main blade. 
+2.	Click on **Stop Data Collection** button on the top of the blade. The other options of tenant configuration settings will be disabled once the process starts.  
+ 
+ ![Stop data collection](./media/active-directory-aadconnect-health-gdpr/gdpr4.png)
+  
+3.	Ensure the list of onboarded services which are affected by stopping data collections. 
+4.	Enter the exact tenant name to enable the **Delete** action button
+5.	Click on **Delete** to trigger the deletion of all services. Connect Health will stop receiving, processing, reporting any data sent from your onboarded services. The entire process of can take up to 24 hours. Notice that this step is not reversible. 
+6.	After the process is completed, you will not see any registered services in Connect Health any more. 
+
+ ![After data collection stopped](./media/active-directory-aadconnect-health-gdpr/gdpr5.png)
 
 ## Re-enable data collection and monitoring in Azure AD Connect Health
 To re-enable monitoring in Azure AD Connect Health for a previously deleted monitored service, you must uninstall and [reinstall the health agent](active-directory-aadconnect-health-agent-install.md) on all the servers.
 
+### Re-enable data collection and monitoring for all monitored services
+
+Tenant-wise data collection can be resumed in Azure AD Connect Health. We recommend careful consideration and full acknowledgement of all global admins before taking the action.
+
+>[!IMPORTANT]
+> The following steps will be available after 24 hours of disable action.
+> After enabling of data collection, the presented insight and monitoring data in Connect Health will not show any legacy data collected before. 
+
+1.	Click on **General Settings** under configuration in the main blade. 
+2.	Click on **Enable Data Collection** button on the top of the blade. 
+ 
+ ![Enable data collection](./media/active-directory-aadconnect-health-gdpr/gdpr6.png)
+ 
+3.	Enter the exact tenant name to activate the **Enable** button.
+4.	Click on **Enable** button to grant permission of data collection in Connect Health service. The change will be applied shortly. 
+5.	Follow the [installation process](active-directory-aadconnect-health-agent-install.md) to reinstall the agent in the servers to be monitored and the services will be present in the portal.  
+
 
 ## Next steps
 * [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
-* [Azure AD Connect and GDPR](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
-* [Azure AD Connect Health operations](active-directory-aadconnect-health-operations.md)
+* [Azure AD Connect and User Privacy](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
+

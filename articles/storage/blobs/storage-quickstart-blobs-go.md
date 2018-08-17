@@ -3,7 +3,7 @@ title: Azure Quickstart - Create a blob in object storage using Go | Microsoft D
 description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Go to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage  
 author: seguler
-manager: jeconnoc 
+ 
 
 ms.custom: mvc
 ms.service: storage
@@ -149,7 +149,7 @@ file, err := os.Open(fileName)
 handleErrors(err)
 
 // You can use the low-level PutBlob API to upload files. Low-level APIs are simple wrappers for the Azure Storage REST APIs.
-// Note that PutBlob can upload up to 256MB data in one shot. Details: https://docs.microsoft.com/en-us/rest/api/storageservices/put-blob
+// Note that PutBlob can upload up to 256MB data in one shot. Details: https://docs.microsoft.com/rest/api/storageservices/put-blob
 // Following is commented out intentionally because we will instead use UploadFileToBlockBlob API to upload the blob
 // _, err = blobURL.PutBlob(ctx, file, azblob.BlobHTTPHeaders{}, azblob.Metadata{}, azblob.BlobAccessConditions{})
 // handleErrors(err)

@@ -21,12 +21,11 @@ If you already know the translation you want to apply to a word or a phrase, you
 
 **Example: en-de:**
 
-Source input: Instant dictionary: word <mstrans:dictionary translation=”wordomatic”>word or phrase</mstrans:dictionary> is a dictionary entry.
+Source input: The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.
 
-Target output: Sofortige Wörterbuch: Wort "wordomatic" ist einen Wörterbucheintrag.
-
+Target output: Das Wort "wordomatic" ist ein Wörterbucheintrag.
 
 This feature works the same way with and without HTML mode. 
 
-The feature should be used sparingly. The appropriate and far better way of customizing translation is by using the Microsoft Translator Hub. The Hub makes full use of context and statistical probabilities. If you have or can afford to create training data that shows your work or phrase in context, you get much better results. You can find more information about the hub at [http://hub.microsofttranslator.com](http://hub.microsofttranslator.com).
+The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you have or can create training data that shows your work or phrase in context, you get much better results. You can find more information about Custom Translator at [http://aka.ms/CustomTranslator](http://aka.ms/CustomTranslator).
 

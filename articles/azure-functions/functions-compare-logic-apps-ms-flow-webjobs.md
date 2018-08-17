@@ -3,7 +3,7 @@ title: Compare Flow, Logic Apps, Functions, and WebJobs - Azure
 description: "Compare Microsoft cloud services that are optimized for integration tasks:  Flow, Logic Apps, Functions, and WebJobs."
 services: functions,app-service\logic
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 tags: ''
 keywords: microsoft flow, flow, logic apps, azure functions, functions, azure webjobs, webjobs, event processing, dynamic compute, serverless architecture
@@ -13,7 +13,7 @@ ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/09/2018
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: mvc
 ---
 
@@ -45,7 +45,7 @@ The following table helps you determine whether Flow or Logic Apps is best for a
 | Design Tool |In-browser and mobile app, UI only |In-browser and [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Code view](../logic-apps/logic-apps-author-definitions.md) available |
 | Application Lifecycle Management (ALM) |Design and test in non-production environments, promote to production when ready. |DevOps: source control, testing, support, automation, and manageability in [Azure Resource Management](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
 | Admin Experience |Manage Flow Environments and Data Loss Prevention (DLP) policies, track licensing [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Manage Resource Groups, Connections, Access Management, and Logging [https://portal.azure.com](https://portal.azure.com) |
-| Security |Office 365 Security and Compliance audit logs, Data Loss Prevention (DLP), [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data, etc. |Security assurance of Azure: [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), and more. |
+| Security |Office 365 Security and Compliance audit logs, Data Loss Prevention (DLP), [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data, etc. |Security assurance of Azure: [Azure Security](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), and more. |
 
 ## Compare Azure Functions and Azure Logic Apps
 
@@ -61,7 +61,7 @@ You can mix and match services when you build an orchestration, calling function
 | Connectivity | [About a dozen built-in binding types](functions-triggers-bindings.md#supported-bindings), write code for custom bindings | [Large collection of connectors](../connectors/apis-list.md), [Enterprise Integration Pack for B2B scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md), [build custom connectors](../logic-apps/custom-connector-overview.md) |
 | Actions | Each activity is an Azure function; write code for activity functions |[Large collection of ready-made actions](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | Monitoring | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Operations Management Suite](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
-| Management | [REST API](durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/en-us/rest/api/logic/), [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
+| Management | [REST API](durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | Execution context | Can run [locally](functions-runtime-overview.md) or in the cloud. | Runs only in the cloud.|
 
 <a name="function"></a>

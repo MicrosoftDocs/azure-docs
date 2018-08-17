@@ -3,7 +3,7 @@ title: Azure Container Service tutorial - Monitor Kubernetes
 description: Azure Container Service tutorial - Monitor Kubernetes with Log Analytics
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial

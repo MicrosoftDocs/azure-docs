@@ -1,11 +1,11 @@
-﻿---
+---
 
 title: Isolation in the Azure Public Cloud | Microsoft Docs
 description: Learn about cloud-based computing services that include a wide selection of compute instances & services that can scale up and down automatically to meet the needs of your application or enterprise.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 
 ms.assetid: 
@@ -119,10 +119,24 @@ Business services with audited certifications such as ISO/IEC 27001 are regularl
 
 If you delete any data, Microsoft Azure deletes the data, including any cached or backup copies. For in-scope services, that deletion will occur within 90 days after the end of the retention period. (In-scope services are defined in the Data Processing Terms section of our [Online Services Terms](http://aka.ms/Online-Services-Terms).)
 
-If a disk drive used for storage suffers a hardware failure, it is securely [erased or destroyed](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) before Microsoft returns it to the manufacturer for replacement or repair. The data on the drive is overwritten to ensure that the data cannot be recovered by any means.
+If a disk drive used for storage suffers a hardware failure, it is securely [erased or destroyed](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) before Microsoft returns it to the manufacturer for replacement or repair. The data on the drive is overwritten to ensure that the data cannot be recovered by any means.
 
 ## Compute Isolation
 Microsoft Azure provides various cloud-based computing services that include a wide selection of compute instances & services that can scale up and down automatically to meet the needs of your application or enterprise. These compute instance and service offer isolation at multiple levels to secure data without sacrificing the flexibility in configuration that customers demand.
+
+### Isolated Virtual Machine Sizes
+Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer.  These virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers for workloads involving elements like compliance and regulatory requirements.  Customers can also choose to further subdivide the resources of these Isolated virtual machines by using [Azure support for nested virtual machines](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).
+
+Utilizing an isolated size guarantees that your virtual machine will be the only one running on that specific server instance.  The current Isolated virtual machine offerings include:
+* Standard_E64is_v3
+* Standard_E64i_v3
+* Standard_M128ms
+* Standard_GS5
+* Standard_G5
+* Standard_DS15_v2
+* Standard_D15_v2
+
+You can learn more about each Isolated size available [here](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory).
 
 ### Hyper-V & Root OS Isolation Between Root VM & Guest VMs
 Azure’s compute platform is based on machine virtualization—meaning that all customer code executes in a Hyper-V virtual machine. On each Azure node (or network endpoint), there is a Hypervisor that runs directly over the hardware and divides a node into a variable number of Guest Virtual Machines (VMs).
@@ -209,7 +223,7 @@ You can establish firewalls and define an IP address range for your trusted clie
 IP storage data can be protected from unauthorized users via a networking mechanism that is used to allocate a dedicated or dedicated tunnel of traffic to IP storage.
 
 ### Encryption
-Azure offers following types of Encryption to protect data:
+Azure offers the following types of Encryption to protect data:
 -	Encryption in transit
 
 -	Encryption at rest

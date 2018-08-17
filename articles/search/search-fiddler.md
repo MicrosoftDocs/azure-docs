@@ -218,7 +218,7 @@ This query searches on the term "motel" and returns a count of the documents in 
 
 ### Tips for running our sample queries in Fiddler
 
-The following example query is from the [Search Index operation (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) article. Many of the example queries in this article include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler.
+The following example query is from the [Search Index operation (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) article. Many of the example queries in this article include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler.
 
 **Before spaces are replaced (in lastRenovationDate desc):**
 

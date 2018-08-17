@@ -1,20 +1,15 @@
 ---
-title: Use empty edge nodes on Hadoop clusters in HDInsight - Azure | Microsoft Docs
+title: Use empty edge nodes on Hadoop clusters in HDInsight - Azure 
 description: How to add an empty edge node to an HDInsight cluster that can be used as a client, and then test/host your HDInsight applications.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-author: mumian
-tags: azure-portal
-documentationcenter: ''
+editor: jasonwhowell
+author: jasonwhowell
 
-ms.assetid: cdc7d1b4-15d7-4d4d-a13f-c7d3a694b4fb
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
-ms.author: jgao
+ms.date: 04/23/2018
+ms.author: jasonh
 
 ---
 # Use empty edge nodes on Hadoop clusters in HDInsight
@@ -70,12 +65,11 @@ After you have created an edge node, you can connect to the edge node using SSH,
 > Same as the clusters, edge nodes are also patch managed.  For more information, see [OS patching for HDInsight](./hdinsight-os-patching.md).
 
 ## Add an edge node to an existing cluster
-In this section, you use a Resource Manager template to add an edge node to an existing HDInsight cluster.  The Resource Manager template can be found in [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). The Resource Manager template calls a script action located at https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  It is to demonstrate calling script action from a Resource Manager template.
+In this section, you use a Resource Manager template to add an edge node to an existing HDInsight cluster.  The Resource Manager template can be found in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). The Resource Manager template calls a script action located at https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  It is to demonstrate calling script action from a Resource Manager template.
 
 **To add an empty edge node to an existing cluster**
 
-1. Create an HDInsight cluster if you don't have one yet.  See [Hadoop tutorial: Get started using Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
-2. Click the following image to sign in to Azure and open the Azure Resource Manager template in the Azure portal. 
+1. Click the following image to sign in to Azure and open the Azure Resource Manager template in the Azure portal. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
 3. Configure the following properties:
@@ -95,7 +89,7 @@ In this section, you use a Resource Manager template to add an edge node to an e
 ## Add an edge node when creating a cluster
 In this section, you use a Resource Manager template to create HDInsight cluster with an edge node.  The Resource Manager template can be found in the [Azure QuickStart Templates gallery](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). The Resource Manager template calls a script action located at https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  It is to demonstrate calling script action from a Resource Manager template.
 
-**To add an empty edge node to an existing cluster**
+**To create an HDInsight cluster with an edge node**
 
 1. Create an HDInsight cluster if you don't have one yet.  See [Get started using Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Click the following image to sign in to Azure and open the Azure Resource Manager template in the Azure portal. 
@@ -118,7 +112,7 @@ In this section, you use a Resource Manager template to create HDInsight cluster
 
 ## Add multiple edge nodes
 
-You can add mulitple edge nodes to an HDInsight cluster.  The multiple edge nodes configuration can only be done using Azure Resource Manager Templates.  See the template sample at the beginning of this article.  You need to update the **targetInstanceCount** to reflect the number of edge nodes you want to create.
+You can add multiple edge nodes to an HDInsight cluster.  The multiple edge nodes configuration can only be done using Azure Resource Manager Templates.  See the template sample at the beginning of this article.  You need to update the **targetInstanceCount** to reflect the number of edge nodes you want to create.
 
 ## Access an edge node
 The edge node ssh endpoint is &lt;EdgeNodeName>.&lt;ClusterName>-ssh.azurehdinsight.net:22.  For example, new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
@@ -129,7 +123,7 @@ The edge node appears as an application on the Azure portal.  The portal gives y
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Open the HDInsight cluster with an edge node.
-3. Click **Applications** from the cluster blade. You shall see the edge node.  The default name is **new-edgenode**.
+3. Click **Applications**. You shall see the edge node.  The default name is **new-edgenode**.
 4. Click the edge node. You shall see the SSH endpoint.
 
 **To use Hive on the edge node**
@@ -150,7 +144,7 @@ You can delete an edge node from the Azure portal.
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Open the HDInsight cluster with an edge node.
-3. Click **Applications** from the cluster blade. You shall see a list of edge nodes.  
+3. Click **Applications**. You shall see a list of edge nodes.  
 4. Right-click the edge node you want to delete, and then click **Delete**.
 5. Click **Yes** to confirm.
 

@@ -3,9 +3,9 @@ title: Azure Analysis Services scale-out| Microsoft Docs
 description: Replicate Azure Analysis Services servers with scale-out
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/16/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -29,6 +29,22 @@ When processing operations are completed, a synchronization must be performed be
 
 > [!NOTE]
 > Scale-out does not increase the amount of available memory for your server. To increase memory, you need to upgrade your plan.
+
+## Region limits
+
+The number of query replicas you can configure are limited by the region your server is in. The following limits apply:
+
+|Region  |Max number of replicas  |
+|---------|---------|
+|East US 2    |    7     |
+|West Central US     |    7     |
+|West Europe     |    7     |
+|West US     |     7    |
+|Central US     |     3    |
+|Southeast Asia    |     3    |
+|All other regions  |   1    |
+
+
 
 ## Monitor QPU usage
 

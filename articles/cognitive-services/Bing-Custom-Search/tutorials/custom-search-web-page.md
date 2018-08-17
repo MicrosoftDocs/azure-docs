@@ -26,14 +26,14 @@ The tasks covered are:
 > - Integrate custom search into a web page
 
 ## Prerequisites
-- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
 - If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## Create a custom search instance
 To create a Bing Custom Search instance:
 
 1.  Open an internet browser.
-2.  Navigate to custom search [portal](https://customsearch.ai).
+2.  Navigate to the custom search [portal](https://customsearch.ai).
 3.  Sign in to the portal using a Microsoft account (MSA). If you don’t have an MSA, click **Create a Microsoft account**. If it’s your first time using the portal, it will ask for permissions to access your data. Click **Yes**.
 4.  After signing in, click **New custom search**. In the **Create a new custom search instance** window, enter a name that’s meaningful and describes the type of content the search returns. You can change the name at any time.
  
@@ -44,7 +44,7 @@ To create a Bing Custom Search instance:
     ![Screen shot of URL definition page](../media/newCustomSrch1-a.png)
 
 ## Add active entries
-To include results from specific sites or URLs add them to the **Active** tab.
+To include results from specific sites or URLs, add them to the **Active** tab.
 
 1.	In the **Definition Editor**, click the **Active** tab and enter the URL of one or more sites you want to include in your search.
 
@@ -91,9 +91,7 @@ Custom Search provides a hosted UI to render the JSON response of your custom se
 
     ![Screen shot of the Hosted UI additional configurations step](./media/custom-search-hosted-ui-subscription-key.png)
 
-6. Click **Save**.
- 
-    ![Screen shot of the Hosted UI save button](./media/custom-search-hosted-ui-save.png)
+[!INCLUDE[publish or revert](../includes/publish-revert.md)]
 
 <a name="consuminghostedui"></a>
 ## Consuming Hosted UI

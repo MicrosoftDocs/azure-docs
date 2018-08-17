@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: cost-management
+ author: bandersmsft
+ ms.service: cost-management
+ ms.topic: include
+ ms.date: 04/26/2018
+ ms.author: banders
+ manager: dougeby
+ ms.custom: include file
+---
+
 ## View cost data
 
 Azure Cost Management by Cloudyn provides you access to all of your cloud resource data. From the dashboard reports you can find both standard and custom reports in a tabbed view. The following are examples of a popular dashboard and a report that show you cost data right away.

@@ -1,25 +1,13 @@
-﻿---
-title: Azure Monitoring REST API walkthrough | Microsoft Docs
+---
+title: Azure Monitoring REST API walkthrough
 description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions and metric values.
 author: mcollier
-manager:
-editor:
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 565e6a88-3131-4a48-8b82-3effc9a3d5c6
-ms.service: monitoring-and-diagnostics
-ms.workload:
-ms.tgt_pltfrm:
-ms.devlang:
-ms.search.region:
-ms.search.scope:
-ms.search.validFrom:
-ms.dyn365.ops.version:
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
-
+ms.component: ""
 ---
 # Azure Monitoring REST API walkthrough
 This article shows you how to perform authentication so your code can use the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -237,7 +225,7 @@ Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filte
 
 **Method**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
+**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
 
 For example, to retrieve the list of dimension values that were emitted for the 'API Name dimension' for the 'Transactions' metric, where the GeoType dimension = 'Primary'  during the specified time range, the request would be as follows:
 
@@ -308,7 +296,7 @@ Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filte
 
 **Method**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
+**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
 
 For example, to retrieve the top 3 APIs, in descending value, by the number of 'Transactions' during a 5 min range, where the GeotType was 'Primary', the request would be as follows:
 

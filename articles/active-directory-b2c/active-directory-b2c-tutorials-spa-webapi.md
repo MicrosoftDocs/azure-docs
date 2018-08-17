@@ -3,12 +3,14 @@ title: Tutorial - Grant access to an ASP.NET Core web API from a single-page app
 description: Tutorial on how to use Active Directory B2C to protect an .NET Core web api and call it from a single page app.
 services: active-directory-b2c
 author: davidmu1
+manager: mtillman
 
 ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
+ms.service: active-directory
+ms.component: B2C
 ---
 
 # Tutorial: Grant access to an ASP.NET Core web API from a single-page app using Azure Active Directory B2C
@@ -34,7 +36,7 @@ In this tutorial, you learn how to:
 
 ## Register web API
 
-Web API resources need to be registered in your tenant before they can accept and respond to [protected resource requests](../active-directory/develop/active-directory-dev-glossary.md#resource-server) by [client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application) that present an [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) from Azure Active Directory. Registration establishes the [application and service principal object](../active-directory/develop/active-directory-dev-glossary.md#application-object) in your tenant. 
+Web API resources need to be registered in your tenant before they can accept and respond to [protected resource requests](../active-directory/develop/developer-glossary.md#resource-server) by [client applications](../active-directory/develop/developer-glossary.md#client-application) that present an [access token](../active-directory/develop/developer-glossary.md#access-token) from Azure Active Directory. Registration establishes the [application and service principal object](../active-directory/develop/developer-glossary.md#application-object) in your tenant. 
 
 Log in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 
@@ -54,7 +56,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
     | **Include web app / web API** | Yes | Select **Yes** for a web API. |
     | **Allow implicit flow** | Yes | Select **Yes** since the API uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
     | **Reply URL** | `http://localhost:44332` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your API requests. In this tutorial, the sample web API runs locally (localhost) and listens on port 5000. |
-    | **App ID URI** | HelloCoreAPI | The URI uniquely identifies the API in the tenant. This allows you to register multiple APIs per tenant. [Scopes](../active-directory/develop/active-directory-dev-glossary.md#scopes) govern access to the protected API resource and are defined per App ID URI. |
+    | **App ID URI** | HelloCoreAPI | The URI uniquely identifies the API in the tenant. This allows you to register multiple APIs per tenant. [Scopes](../active-directory/develop/developer-glossary.md#scopes) govern access to the protected API resource and are defined per App ID URI. |
     | **Native client** | No | Since this is a web API and not a native client, select No. |
     
 3. Click **Create** to register your API.
@@ -69,7 +71,7 @@ Registering your web API with Azure AD B2C defines a trust relationship. Since t
 
 ## Define and configure scopes
 
-[Scopes](../active-directory/develop/active-directory-dev-glossary.md#scopes) provide a way to govern access to protected resources. Scopes are used by the web API to implement scope-based access control. For example, some users could have both read and write access, whereas other users might have read-only permissions. In this tutorial, you define read permissions for the web API.
+[Scopes](../active-directory/develop/developer-glossary.md#scopes) provide a way to govern access to protected resources. Scopes are used by the web API to implement scope-based access control. For example, some users could have both read and write access, whereas other users might have read-only permissions. In this tutorial, you define read permissions for the web API.
 
 ### Define scopes for the web API
 
@@ -105,7 +107,7 @@ To call a protected web API from an app, you need to grant your app permissions 
 
 5. Click **OK**.
 
-Your **My sample single page app** is registered to call the protected **Hello Core API**. A user [authenticates](../active-directory/develop/active-directory-dev-glossary.md#authentication) with Azure AD B2C to use the WPF deskop app app. The desktop app obtains an [authorization grant](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) from Azure AD B2C to access the protected web API.
+Your **My sample single page app** is registered to call the protected **Hello Core API**. A user [authenticates](../active-directory/develop/developer-glossary.md#authentication) with Azure AD B2C to use the WPF deskop app app. The desktop app obtains an [authorization grant](../active-directory/develop/developer-glossary.md#authorization-grant) from Azure AD B2C to access the protected web API.
 
 ## Update code
 
@@ -135,7 +137,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 #### Enable CORS
 
-To allow your single page app to call the ASP.NET Core web API, you need to enable [CORS](https://docs.microsoft.com/en-us/aspnet/core/security/cors).
+To allow your single page app to call the ASP.NET Core web API, you need to enable [CORS](https://docs.microsoft.com/aspnet/core/security/cors).
 
 1. In **Startup.cs**, add CORS to the `ConfigureServices()` method.
 
@@ -152,13 +154,15 @@ To allow your single page app to call the ASP.NET Core web API, you need to enab
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
+3. Open the **launchSettings.json** file under **Properties**, locate the *applicationURL* setting, and record the value for use in the next section.
+
 ### Configure the single page app
 
 The single page app uses Azure AD B2C for user sign-up, sign-in, and calls the protected ASP.NET Core web API. You need to update the single page app call the .NET Core web api.
 To change the app settings:
 
 1. Open the `index.html` file in the Node.js single page app sample.
-2. Configure the sample with the Azure AD B2C tenant registration information. Change the **b2cScopes** and **webApi** values in following lines of code:
+2. Configure the sample with the Azure AD B2C tenant registration information. In the following code, add your tenant name to **b2cScopes** and change the **webApi** value to the *applicationURL* value that you previously recorded:
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
@@ -166,7 +170,7 @@ To change the app settings:
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:58553/api/values',
+        webApi: 'http://localhost:64791/api/values',
     };
     ```
 

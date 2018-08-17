@@ -3,7 +3,7 @@ title: Azure Quickstart - Create a blob in object storage using Node.js | Micros
 description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Node.js to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: craigshoemaker
-manager: jeconnoc
+
 
 ms.custom: mvc
 ms.service: storage
@@ -140,7 +140,7 @@ const upload = () => {
 ```
 In context of the sample application, the file named *example.txt* is uploaded to a blob named *example* inside a container named *test-container*. Other approaches available to upload content into blobs include working with [text](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) and [streams](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream).
 
-To verify the file is uploaded to your blob storage, you can use the [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) to view the data in your account.
+To verify the file is uploaded to your blob storage, you can use the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to view the data in your account.
 
 ### List the blobs in a container
 
@@ -281,7 +281,7 @@ See these additional resources for Node.js development with Blob storage:
 
 ### Client library reference and samples
 
-- See the [Node.js API reference](https://docs.microsoft.com/en-us/javascript/api/overview/azure/storage) for more information about the Node.js client library.
+- See the [Node.js API reference](https://docs.microsoft.com/javascript/api/overview/azure/storage) for more information about the Node.js client library.
 - Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=nodejs&term=blob) written using the Node.js client library.
 
 ## Next steps

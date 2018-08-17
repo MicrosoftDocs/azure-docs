@@ -1,4 +1,4 @@
----
+﻿---
 title: SQL Data Warehouse data management partners | Microsoft Docs
 description: Lists of third-party data management partners with solutions that support SQL Data Warehouse.
 services: sql-data-warehouse
@@ -59,19 +59,19 @@ To learn more about other partners, see [Business Intelligence partners][bi_part
 <!--[sql_sentry_datasheet]:-->
 
 <!--Marketplace Links -->
-[coffing_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/nexus/nexus-chameleon-9/ 
+[coffing_marketplace]:https://azure.microsoft.com/marketplace/partners/nexus/nexus-chameleon-9/ 
 <!--[inbrein_marketplace]:-->
-[infolibrarian_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/infolibrarian/infolibrarian-metadata-management-server/
-[redpoint_it_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/redpoint-global/redpoint-interaction/
-[redpoint_dm_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/redpoint-global/redpoint-rpdm/ 
-[sql_sentry_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/sqlsentry/sqlsentryplatform/
+[infolibrarian_marketplace]:https://azure.microsoft.com/marketplace/partners/infolibrarian/infolibrarian-metadata-management-server/
+[redpoint_it_marketplace]:https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-interaction/
+[redpoint_dm_marketplace]:https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-rpdm/ 
+[sql_sentry_marketplace]:https://azure.microsoft.com/marketplace/partners/sqlsentry/sqlsentryplatform/
 
 <!--Press links-->
 [coffing_press]:http://www.coffingdw.com/press-release-nexus-tuned-for-azure-sql-data-warehouse/
 <!--[inbrein_press]:-->
 <!--[infolibrarian_press]:-->
 [redpoint_press]:http://www.redpoint.net/press/redpoint-global-announces-support-for-microsoft-azure-sql-data-warehouse-microsoft-azure-data-lake-service/
-[sql_sentry_press]:https://www.sentryone.com/Company/News-Article/20160713-sql-sentry-performance-advisor-for-azure-sql-dw/
+[sql_sentry_press]:https://www.sentryone.com/sentryone-v-11.2-offers-new-insights-and-powerful-automation
 
 
 <!--YouTube links-->

@@ -3,11 +3,11 @@ title: Upgrading to the Azure Search .NET SDK version 5 | Microsoft Docs
 description: Upgrading to the Azure Search .NET SDK version 5
 author: brjohnstmsft
 manager: jlembicz
-
+services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/01/2018
 ms.author: brjohnst
 
 ---
@@ -54,7 +54,7 @@ The most substantial breaking change in version 5 is that the `Microsoft.Azure.S
  - `Microsoft.Azure.Search`: This is a meta-package that includes all the other Azure Search packages as dependencies. If you're upgrading from an earlier version of the SDK, simply upgrading this package and re-building should be enough to start using the new version.
  - `Microsoft.Azure.Search.Data`: Use this package if you're developing a .NET application using Azure Search, and you only need to query or update documents in your indexes. If you also need to create or update indexes, synonym maps, or other service-level resources, use the `Microsoft.Azure.Search` package instead.
  - `Microsoft.Azure.Search.Service`: Use this package if you're developing automation in .NET to manage Azure Search indexes, synonym maps, indexers, data sources, or other service-level resources. If you only need to query or update documents in your indexes, use the `Microsoft.Azure.Search.Data` package instead. If you need all the functionality of Azure Search, use the `Microsoft.Azure.Search` package instead.
-- `Microsoft.Azure.Search.Common`: Common types needed by the Azure Search .NET libraries. You should not need to use this package directly in your application; It is only meant to be used as a dependency.
+ - `Microsoft.Azure.Search.Common`: Common types needed by the Azure Search .NET libraries. You should not need to use this package directly in your application; It is only meant to be used as a dependency.
  
 This change is technically breaking since many types were moved between assemblies. This is why rebuilding your application is necessary in order to upgrade to version 5 of the SDK.
 
