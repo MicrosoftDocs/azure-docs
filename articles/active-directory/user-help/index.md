@@ -84,7 +84,6 @@ We've created this content to help you set up and use security info, two-step ve
                         <h3>Microsoft Authenticator app help</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">Get started</a><br/>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq">Phone sign-in FAQ</a><br/>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">Backup and recover account credentials</a>
                         </p>
                     </div>
