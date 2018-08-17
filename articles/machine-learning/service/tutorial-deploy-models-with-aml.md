@@ -77,7 +77,7 @@ import os
 os.stat('./sklearn_mnist_model.pkl')
 ```
 
-## Test locally
+## Test model locally
 
 Before deploying, make sure your model is working locally by:
 * Loading test data
@@ -159,8 +159,7 @@ plt.show()
 
 ![confusion matrix](./media/tutorial-deploy-models-with-aml/confusion.png)
 
-
-## Deploy in ACI
+## Deploy as web service
 
 Once you've tested the model and are satisfied with the results, you can deploy the model as a web service hosted in ACI. 
 
@@ -178,7 +177,6 @@ You must include two required functions into the scoring script:
 * The `init()` function, which typically loads the model into a global object. This function is executed only once when the Docker container is started. 
 
 * The `run(input_data)` function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization, but other formats are supported.
-
 
 ```python
 %%writefile score.py
@@ -235,7 +233,7 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
                                                description = 'Predict MNIST with sklearn')
 ```
 
-### Deploy
+### Deploy in ACI
 
 Once your environment is set up, you can deploy. The following code goes through these steps:
 
@@ -243,14 +241,10 @@ Once your environment is set up, you can deploy. The following code goes through
    * The scoring file (`score.py`)
    * The environment file (`myenv.yml`)
    * The model file
-
 1. Register that image under the workspace. 
-
 1. Send the image to the ACI container.
-
 1. Start up a container in ACI using the image.
-
-1. Get the web service HTTP endpoint, which accepts REST client calls
+1. Get the web service HTTP endpoint.
 
 > [!IMPORTANT]
 > It takes **about 7-8 minutes** to run this code.
@@ -273,25 +267,23 @@ service = Webservice.deploy_from_model(workspace = ws,
 service.wait_for_deployment(show_output = True)
 ```
 
-Get the scoring web service's HTTP endpoint. This endpoint can be shared with anyone who wants to test the web service or integrate it into an application. 
+Get the scoring web service's HTTP endpoint, which accepts REST client calls. This endpoint can be shared with anyone who wants to test the web service or integrate it into an application. 
 
 ```python
 print(service.scoring_uri)
 ```
 
 
-## Test the deployed model
+## Test deployed service
 
 Earlier you scored all the test data with the local version of the model. Now, you can test the deployed model with a random sample of 30 images from the test data.  
 
 The following code goes through these steps:
 1. Send the data as a JSON array to the web service hosted in ACI. 
 
-1. Use the `run` API in the SDK to invoke the service. You can also make raw HTTP calls using any HTTP tool such as curl.
+1. Use the SDK's `run` API to invoke the service. You can also make raw calls using any HTTP tool such as curl.
 
-1. Print the returned predictions and plot them along with the input images. 
-
-1. Use red font color and inverse image (white on black) to highlight the misclassified samples. 
+1. Print the returned predictions and plot them along with the input images. Red font and inverse image (white on black) is used to highlight the misclassified samples. 
 
 > [!NOTE]
 > Since the model accuracy is high, you might have to run the following code a few times before you can see a misclassified sample.
