@@ -10,14 +10,14 @@ manager: jeconnoc
 ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.suite: integration
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 08/17/2018
 ---
 
 # Secure B2B messages with certificates
 
-When you need to keep B2B communication confidential,  
+When you need to keep B2B communication confidential, 
 you can secure B2B communication for your enterprise integration apps, 
-specifically logic apps by adding certificates to your integration account. 
+specifically logic apps, by adding certificates to your integration account. 
 Certificates are digital documents that check the identities for 
 the participants in electronic communications and help you 
 secure communication in these ways:
@@ -43,41 +43,33 @@ After you define the properties in the
 [agreements](logic-apps-enterprise-integration-agreements.md) that you create, 
 the certificate is available to help you secure your B2B messages.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+On the main Azure menu, select **All resources**. 
+In the search box, enter your integration account name, 
+and then select the integration account you want.
 
-2. On the main Azure menu, select **All services**. 
-In the search box, enter "integration", 
-and then select **Integration accounts**.
+   ![Find and select your integration account](media/logic-apps-enterprise-integration-certificates/select-integration-account.png)  
 
-   ![Find your integration account](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
+2. Under **Components**, choose the **Certificates** tile.
 
-3. Under **Integration Accounts**, select the integration 
-account where you want to add the certificate.
+   ![Choose "Certificates"](media/logic-apps-enterprise-integration-certificates/add-certificates.png)
 
-   ![Select the integration account to which you want to add the certificate](media/logic-apps-enterprise-integration-certificates/overview-3.png)  
+3. Under **Certificates**, choose **Add**. Under **Add Certificate**, 
+provide these details for your certificate. When you're done, choose **OK**.
 
-4. Under **Components**, choose the **Certificates** tile.  
+   | Property | Value | Description | 
+   |----------|-------|-------------|
+   | **Name** | <*certificate-name*> | Your certificate's name, which is "publicCert" in this example | 
+   | **Certificate Type** | Public | Your certificate's type |
+   | **Certificate** | <*certificate-file-name*> | To find and select the certificate file you want to upload, choose the folder icon next to the **Certificate** box. |
+   ||||
 
-   ![Choose "Certificates"](media/logic-apps-enterprise-integration-certificates/certificate-1.png)
+   ![Choose "Add", provide certificate details](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
 
-5. Under **Certificates**, choose **Add**.
+   After Azure validates your selection, 
+   Azure uploads your certificate.
 
-   ![Choose "Add"](media/logic-apps-enterprise-integration-certificates/certificate-2.png)
-
-6. Under **Add Certificate**, provide these details for your certificate.
-   
-   1. Provide a name for your certificate. For the certificate type, 
-   select **Public**.
-
-   2. On the right side of the **Certificate** box, choose the folder icon. 
-   Find and select the certificate file that you want to upload. 
-   When you're done, choose **OK**.
-
-      ![Upload public certificate](media/logic-apps-enterprise-integration-certificates/certificate-3.png)
-
-   Azure uploads your certificate after validating your selection.
-
-   ![See the new certificate](media/logic-apps-enterprise-integration-certificates/certificate-4.png) 
+   ![Azure displays new certificate](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
 
 ## Upload a private certificate
 
@@ -107,40 +99,35 @@ for example:
    `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
-3. Sign in to the [Azure portal](https://portal.azure.com).
+3. Sign in to the [Azure portal](https://portal.azure.com). 
+On the main Azure menu, select **All resources**. 
+In the search box, enter your integration account name, 
+and then select the integration account you want.
 
-4. On the main Azure menu, select **All services**. 
-In the search box, enter "integration", 
-and then select **Integration accounts**.
+   ![Find your integration account](media/logic-apps-enterprise-integration-certificates/select-integration-account.png) 
 
-   ![Find your integration account](media/logic-apps-enterprise-integration-certificates/overview-1.png) 
+4. Under **Components**, choose the **Certificates** tile.  
 
-5. Under **Integration Accounts**, select the integration 
-account where you want to add the certificate.
+   ![Choose the Certificates tile](media/logic-apps-enterprise-integration-certificates/add-certificates.png)
 
-6. Under **Components**, choose the **Certificates** tile.  
+5. Under **Certificates**, choose **Add**. Under **Add Certificate**, 
+provide these details for your certificate. When you're done, choose **OK**.
 
-   ![Choose the Certificates tile](media/logic-apps-enterprise-integration-certificates/certificate-1.png)
+   | Property | Value | Description | 
+   |----------|-------|-------------|
+   | **Name** | <*certificate-name*> | Your certificate's name, which is "privateCert" in this example | 
+   | **Certificate Type** | Private | Your certificate's type |
+   | **Certificate** | <*certificate-file-name*> | To find and select the certificate file you want to upload, choose the folder icon next to the **Certificate** box. | 
+   | **Resource Group** | <*integration-account-resource-group*> | Your integration account's resource group, which is "MyResourceGroup" in this example | 
+   | **Key Vault** | <*key-vault-name*> | Your Azure key vault's name |
+   | **Key name** | <*key-name*> | Your key's name |
+   ||||
 
-7. Under **Certificates**, choose **Add**.   
+   ![Choose "Add", provide certificate details](media/logic-apps-enterprise-integration-certificates/private-certificate-details.png)
 
-   ![Choose the Add button](media/logic-apps-enterprise-integration-certificates/certificate-2.png)
+   After Azure validates your selection, Azure uploads your certificate.
 
-8. Under **Add Certificate**, provide these details for your certificate.
-   
-   1. Provide a name for your certificate. For the certificate type, 
-   select **Private**.
-
-   2. On the right side of the **Certificate** box, choose the folder icon. 
-   Find and select the certificate file that you want to upload. 
-   Also, select the **Resource Group**, **Key Vault**, and **Key Name**. 
-   When you're done, choose **OK**.
-
-      ![Add certificate](media/logic-apps-enterprise-integration-certificates/privatecertificate-1.png)
-
-   Azure uploads your certificate after validating your selection.
-
-   ![See the new certificate](media/logic-apps-enterprise-integration-certificates/privatecertificate-2.png)
+   ![Azure displays new certificate](media/logic-apps-enterprise-integration-certificates/new-private-certificate.png) 
 
 ## Next steps
 
