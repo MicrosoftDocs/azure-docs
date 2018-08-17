@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 08/17/2018
 ms.author: brenduns
 ms.reviewer: misainat
 
@@ -67,7 +67,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- TBD | ASDK, IS --> Various improvements were made to the update process to make it more reliable. In addition, fixes have been made to underlying infrastructure, which improves node drain, thereby minimizing potential downtime for workloads during the update.
 
--	<!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions.  Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a tenant subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
+-	<!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions.  Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a user subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
 
 - <!-- 2448955 | IS ASDK --> You can now successfully query activity logs for systems that are deployed in a UTC+N time zone.    
 
@@ -88,6 +88,8 @@ This build includes the following improvements and fixes for Azure Stack.
 -	<!-- 2055809- IS ASDK --> We fixed an issue that prevented you from deleting VMs from the compute blade when the VM failed to be created.  
 
 - <!--  2643962 IS ASDK -->  The alert for *Low memory capacity* no longer appears incorrectly.
+
+- <!--  TBD ASDK --> The virtual machine that hosts the privilege endpoint (PEP) has been increased to 4GB. In the ASDK, this virtual machine is named AzS-ERCS01.
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
@@ -131,6 +133,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2368581 - IS. ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
 
+- <!-- TBD - IS. ASDK --> When running the Test-AzureStack cmdlet on the privilege endpoint (PEP), will generate a WARN message for the ERCS VM. You can continue to use the ASDK. 
 
 #### Compute
 - <!-- 2494144 - IS, ASDK --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
@@ -227,6 +230,8 @@ This build includes the following improvements and fixes for Azure Stack.
 ### Fixed issues
 - We fixed the issue that blocked [opening a new support request from the dropdown](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the admin portal. This option now works as intended.
 
+- <!--  TBD ASDK --> The virtual machine that hosts the privilege endpoint (PEP) has been increased to 4GB. In the ASDK, this virtual machine is named AzS-ERCS01.
+
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
 
@@ -291,6 +296,8 @@ This build includes the following improvements and fixes for Azure Stack.
   Alert #3 does not automatically close. If you close this alert Azure Stack will create the same alert within 15 minutes.  
 
 - <!-- 2368581 - IS. ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
+
+- <!-- TBD - IS. ASDK --> When running the Test-AzureStack cmdlet on the privilege endpoint (PEP), will generate a WARN message for the ERCS VM. You can continue to use the ASDK. 
 
 
 #### Compute
