@@ -48,7 +48,7 @@ A. If you have 40 - 100 TB of data that you want to transfer to Azure, you would
 A. Data Box is available at a nominal charge for 10 days. When you select the product model while creating an order in the Azure portal, the charges for the device are displayed. Shipping is also free, however, the charges for Azure storage apply. For more information, go to [Azure Data Box pricing](https://azure.microsoft.com/pricing/details/storage/databox/). 
 
 ### Q. What is the maximum amount of data I can transfer with Data Box in one instance?
-A. Data Box has a raw capacity of 100 TB and usuable capacity of 80 TB. You can transfer upto 80 TB of data with Data Box. To transfer more data, you need to order more devices.
+A. Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can transfer upto 80 TB of data with Data Box. To transfer more data, you need to order more devices.
 
 ### Q. How can I check if Data Box is available in my region? 
 A.  Data Box is available in US and all the countries in European Union during the preview phase.  
@@ -70,14 +70,14 @@ A. If you were not able to create a Data Box order, there is a problem with eith
 
 Check your subscription. Data Box is only available for Enterprise Agreement (EA), Cloud solution provider (CSP), or Pay-as-you-go subscription offers. If your subscription does not fall in any of the above types, contact Microsoft Support to upgrade your subscription.
 
-If you have supported offer type for the subscription, check your subcription access level. You need to be a contributor or owner in your subscription to create an order.
+If you have supported offer type for the subscription, check your subscription access level. You need to be a contributor or owner in your subscription to create an order.
 
 ### Q. I ordered a couple of Data Box devices. I am not able to create any additional orders. Why would this be?
 A. We allow for a maximum of 3 active orders per subscription per commerce boundary (combination of country and the region selected). If you need to order device, [contact Microsoft Support](data-box-contact-microsoft-support.md) to increase the limit for your subscription.
 
 ### Q. Data Box model not available
 A. "Data Box service is not available for the combination of country and region customer has selected. We do not service cross commerce boundary customers
-Cover the regions avaiable - in the presentation"
+Cover the regions available - in the presentation"
 
 ### Q. When will I receive Data Box
 A. "Either use ACIS  or lens 
