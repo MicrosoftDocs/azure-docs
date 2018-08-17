@@ -23,9 +23,10 @@ using X12 as an example, by creating a "batch sender"
 logic app and a "batch receiver" logic app. 
 
 Batching X12 messages works like batching other messages; 
-you use a batch trigger that collects messages into a batch and a batch action 
-that sends messages to a batch. Also, X12 batching includes an X12 encoding step 
-before the messages go to the trading partner or other destination. 
+you use a batch trigger that collects messages into a batch 
+and a batch action that sends messages to a batch. Also, 
+X12 batching includes an X12 encoding step before the 
+messages go to the trading partner or other destination. 
 To learn more about the batch trigger and action, see 
 [Batch process messages](../logic-apps/logic-apps-batch-process-send-receive-messages.md).
 
@@ -38,9 +39,9 @@ and processing those messages. In this scenario,
 the batch receiver also encodes the messages in the batch 
 by using the specified X12 agreement or partner identities.
 
-  Make sure you first create your batch receiver so that 
-  you can later select your batch destination when you 
-  create your batch sender.
+  Make sure you first create the batch receiver so 
+  you can later select the batch destination when 
+  you create the batch sender.
 
 * [Create a "batch sender" logic app](#sender), 
 which send the messages to the previously created batch receiver. 

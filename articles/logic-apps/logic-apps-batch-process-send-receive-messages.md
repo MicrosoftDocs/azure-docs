@@ -26,9 +26,9 @@ which accepts and collects messages into a batch
 until your specified criteria is met for releasing 
 and processing those messages.
 
-  Make sure you first create your batch receiver so that 
-  you can later select your batch destination when you 
-  create your batch sender.
+  Make sure you first create the batch receiver so 
+  you can later select the batch destination when 
+  you create the batch sender.
 
 * One or more ["batch sender"](#batch-sender) logic apps, 
 which send the messages to the previously created batch receiver. 
