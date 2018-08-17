@@ -11,8 +11,8 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
-ms.date: 05/17/2017
+ms.topic: conceptual
+ms.date: 06/08/2018
 ms.author: mbullwin
 
 ---
@@ -637,6 +637,8 @@ finally
 {
     timer.Stop();
     telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+     // The call above has been made obsolete in the latest SDK. The updated call follows this format:
+     // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
 }
 ```
 

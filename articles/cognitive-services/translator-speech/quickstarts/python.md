@@ -7,7 +7,7 @@ author: v-jaswel
 ms.service: cognitive-services
 ms.component: translator-speech
 ms.topic: article
-ms.date: 3/5/2018
+ms.date: 07/17/2018
 ms.author: v-jaswel
 ---
 # Quickstart for Microsoft Translator Speech API with Python 
@@ -126,4 +126,4 @@ A successful result is the creation of a file named "speak2.wav". The file conta
 ## See also 
 
 [Translator Speech overview](../overview.md)
-[API Reference](http://docs.microsofttranslator.com/speech-translate.html)
+[API Reference](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

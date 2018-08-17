@@ -1,21 +1,13 @@
-﻿---
-title: Migrate Azure Alerts on Management Events to Activity Log Alerts | Microsoft Docs
+---
+title: Migrate Azure alerts on management events to Activity Log alerts
 description: Alerts on management events will be removed on October 1. Prepare by migrating exisiting alerts.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
-
+ms.component: alerts
 ---
 # Migrate Azure alerts on management events to Activity Log alerts
 

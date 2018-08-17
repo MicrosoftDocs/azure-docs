@@ -1,17 +1,14 @@
 ---
 title: About unmanaged (page blobs) and managed disks storage for Microsoft Azure Windows VMs | Microsoft Docs
 description: Learn about the basics of unmanaged (page blobs) and managed disks storage for Windows virtual machines in Azure.
-services: virtual-machines
+services: "virtual-machines-windows,storage"
 author: roygara
-manager: jeconnoc
-
-ms.service: virtual-machines
-ms.workload: storage
+ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-
+ms.component: disks
 ---
 # About disks storage for Azure Windows VMs
 Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. All Azure virtual machines have at least two disks – a Windows operating system disk and a temporary disk. The operating system disk is created from an image, and both the operating system disk and the image are virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs. 
@@ -28,7 +25,7 @@ Let's take a look at how the disks are used by the VMs.
 Every virtual machine has one attached operating system disk. It's registered as a SATA drive and labeled as the C: drive by default. This disk has a maximum capacity of 2048 gigabytes (GB). 
 
 ### Temporary disk
-Each VM contains a temporary disk. The temporary disk provides short-term storage for applications and processes and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) or when you [redeploy a VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). During a standard reboot of the VM, the data on the temporary drive should persist.
+Each VM contains a temporary disk. The temporary disk provides short-term storage for applications and processes and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) or when you [redeploy a VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). During a successful standard reboot of the VM, the data on the temporary drive will persist. 
 
 The temporary disk is labeled as the D: drive by default and it used for storing pagefile.sys. To remap this disk to a different drive letter, see [Change the drive letter of the Windows temporary disk](change-drive-letter.md). The size of the temporary disk varies, based on the size of the virtual machine. For more information, see [Sizes for Windows virtual machines](sizes.md).
 

@@ -6,14 +6,13 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: sujayt
 
 ---
 # About networking in Azure to Azure replication
 
->[!NOTE]
-> Site Recovery replication for Azure virtual machines is currently in preview.
+
 
 This article provides networking guidance when you're replicating and recovering Azure VMs from one region to another, using [Azure Site Recovery](site-recovery-overview.md).
 

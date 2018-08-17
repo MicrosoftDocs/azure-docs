@@ -7,7 +7,7 @@ ms.author: jasonh
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 03/28/2017
 ---
 # Get started with Azure Stream Analytics to process data from IoT devices

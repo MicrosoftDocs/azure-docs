@@ -1,6 +1,6 @@
-﻿---
-title: How to configure MSI on an Azure VM by using a template
-description: Step-by-step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using an Azure Resource Manager template.
+---
+title: How to configure  Managed Service Identity on an Azure VM by using a template
+description: Step-by-step instructions for configuring a Managed Service Identity on an Azure VM, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -10,7 +10,7 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
@@ -29,6 +29,10 @@ In this article, you learn how to perform the following Managed Service Identity
 
 - If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md). **Be sure to review the [difference between a system assigned and user assigned identity](overview.md#how-does-it-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
+- To perform the management operations in this article, your account needs the following role assignments:
+    - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to create a VM and enable and remove system and/or user assigned managed identity from an Azure VM.
+    - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create a user assigned identity.
+    - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to assign and remove a user assigned identity from and to a VM.
 
 ## Azure Resource Manager templates
 
@@ -39,33 +43,25 @@ As with the Azure portal and scripting, [Azure Resource Manager](../../azure-res
    - Using a local [JSON editor (such as VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), and then uploading and deploying by using PowerShell or CLI.
    - Using the Visual Studio [Azure Resource Group project](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) to both create and deploy a template.  
 
-Regardless of the option you choose, template syntax is the same during initial deployment and redeployment. Enabling a system or user assigned identity on a new or existing VM is done in the same manner. Also, by default, Azure Resource Manager does an [incremental update](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) to deployments.
+Regardless of the option you choose, template syntax is the same during initial deployment and redeployment. Enabling a system or user assigned identity on a new or existing VM is done in the same manner. Also, by default, Azure Resource Manager does an [incremental update](../../azure-resource-manager/deployment-modes.md) to deployments.
 
 ## System assigned identity
 
 In this section, you will enable and disable a system assigned identity using an Azure Resource Manager template.
 
-### Enable system assigned identity during creation of an Azure VM, or on an existing VM
+### Enable system assigned identity during creation of an Azure VM or on an existing VM
 
-1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM. Also ensure that your account belongs to a role that gives you write permissions on the VM (for example, the role of “Virtual Machine Contributor”).
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
 
-2. After loading the template into an editor, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. Yours might look slightly different from the following screenshot, depending on the editor you're using and whether you are editing a template for a new deployment or existing one.
-
-   >[!NOTE] 
-   > This example assumes variables such as `vmName`, `storageAccountName`, and `nicName` have been defined in the template.
-   >
-
-   ![Screenshot of template - locate VM](../media/msi-qs-configure-template-windows-vm/template-file-before.png) 
-
-3. To enable system assigned identity, add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property. Use the following syntax:
+2. To enable system assigned identity, load the template into an editor, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section and add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property. Use the following syntax:
 
    ```JSON
    "identity": { 
-       "type": "systemAssigned"
+       "type": "SystemAssigned"
    },
    ```
 
-4. (Optional) Add the VM MSI extension as a `resources` element. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  Use the following syntax:
+3. (Optional) Add the VM Managed Service Identity extension as a `resources` element. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  Use the following syntax:
 
    >[!NOTE] 
    > The following example assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) is being deployed. You can also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements.
@@ -75,7 +71,7 @@ In this section, you will enable and disable a system assigned identity using an
    { 
        "type": "Microsoft.Compute/virtualMachines/extensions",
        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-       "apiVersion": "2016-03-30",
+       "apiVersion": "2018-06-01",
        "location": "[resourceGroup().location]",
        "dependsOn": [
            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
@@ -93,20 +89,113 @@ In this section, you will enable and disable a system assigned identity using an
    }
    ```
 
-5. When you're done, your template should look similar to the following:
+4. When you're done, the following sections should added to the `resource` section of your template and it should resemble the following:
 
-   ![Screenshot of template after update](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
+   ```JSON
+   "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2018-06-01",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[variables('vmName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "SystemAssigned",
+                },
+            },
+            {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "apiVersion": "2018-06-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.ManagedIdentity",
+                "type": "ManagedIdentityExtensionForWindows",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "port": 50342
+                }
+            }
+        }
+    ]
+   ```
+
+### Assign a role the VM's system assigned identity
+
+After you have enabled system assigned identity on your VM, you may want to grant it a role such as **Reader** access to the resource group in which it was created.
+
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
+ 
+2. Load the template into an [editor](#azure-resource-manager-templates) and add the following information to give your VM **Reader** access to the resource group in which it was created.  Your template structure may vary depending on the editor and the deployment model you choose.
+   
+   Under the `parameters` section add the following:
+
+    ```JSON
+    "builtInRoleType": {
+          "type": "string",
+          "defaultValue": "Reader"
+        },
+        "rbacGuid": {
+          "type": "string"
+        }
+    ```
+
+    Under the `variables` section add the following:
+
+    ```JSON
+    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
+    ```
+
+    Under the `resources` section add the following:
+
+    ```JSON
+    {
+        "apiVersion": "2017-09-01",
+         "type": "Microsoft.Authorization/roleAssignments",
+         "name": "[parameters('rbacGuid')]",
+         "properties": {
+                "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+                "principalId": "[reference(variables('vmResourceId'), '2017-12-01', 'Full').identity.principalId]",
+                "scope": "[resourceGroup().id]"
+          },
+          "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+            ]
+    }
+    ```
 
 ### Disable a system assigned identity from an Azure VM
 
-> [!NOTE]
-> Disabling Managed Service Identity from a Virtual Machine is currently not supported. In the meantime, you can switch between using System Assigned and User Assigned Identities.
-
 If you have a VM that no longer needs a managed service identity:
 
-1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM. Also ensure that your account belongs to a role that gives you write permissions on the VM (for example, the role of “Virtual Machine Contributor”).
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
 
-2. Change the identity type to `UserAssigned`.
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. If you have a VM that only has system assigned identity, you can disable it by changing the identity type to `None`.  
+   
+   **Microsoft.Compute/virtualMachines API version 2018-06-01**
+
+   If your VM has both system and user assigned identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `userAssignedIdentities` dictionary values.
+
+   **Microsoft.Compute/virtualMachines API version 2018-06-01 and earlier**
+   
+   If your `apiVersion` is `2017-12-01` and your VM has both system and user assigned identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user assigned identities.  
+   
+The following example shows you how remove a system assigned identity from a VM with no user assigned identities:
+
+```JSON
+{
+    "apiVersion": "2018-06-01",
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[parameters('vmName')]",
+    "location": "[resourceGroup().location]",
+    "identity": { 
+        "type": "None"
+}
+```
 
 ## User assigned identity
 
@@ -118,26 +207,52 @@ In this section, you assign a user assigned identity to an Azure VM using Azure 
  ### Assign a user assigned identity to an Azure VM
 
 1. Under the `resources` element, add the following entry to assign a user assigned identity to your VM.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user assigned identity you created.
-    ```json
-    {
-        "apiVersion": "2017-12-01",
-        "type": "Microsoft.Compute/virtualMachines",
-        "name": "[variables('vmName')]",
-        "location": "[resourceGroup().location]",
-        "identity": {
-            "type": "userAssigned",
-            "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITYNAME>)']"
-            ]
-        },
-    ```
+
+   **Microsoft.Compute/virtualMachines API version 2018-06-01**
+
+   If your `apiVersion` is `2018-06-01`, your user assigned identities are stored in the `userAssignedIdentities` dictionary format and the `<USERASSIGNEDIDENTITYNAME>` value must be stored in a variable defined in the `variables` section of your template.
+
+   ```json
+   {
+       "apiVersion": "2018-06-01",
+       "type": "Microsoft.Compute/virtualMachines",
+       "name": "[variables('vmName')]",
+       "location": "[resourceGroup().location]",
+       "identity": {
+           "type": "userAssigned",
+           "userAssignedIdentities": {
+               "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+           }
+        }
+   }
+   ```
+   
+   **Microsoft.Compute/virtualMachines API version 2017-12-01 and earlier**
     
+   If your `apiVersion` is `2017-12-01`, your user assigned identities are stored in the `identityIds` array and the `<USERASSIGNEDIDENTITYNAME>` value must be stored in a variable defined in the `variables` section of your template.
+    
+   ```json
+   {
+       "apiVersion": "2017-12-01",
+       "type": "Microsoft.Compute/virtualMachines",
+       "name": "[variables('vmName')]",
+       "location": "[resourceGroup().location]",
+       "identity": {
+           "type": "userAssigned",
+           "identityIds": [
+               "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
+           ]
+       }
+   }
+   ```
+       
+
 2. (Optional) Next, under the `resources` element, add the following entry to assign the managed identity extension to your VM. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well. Use the following syntax:
     ```json
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",
         "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-        "apiVersion": "2015-05-01-preview",
+        "apiVersion": "2018-06-01",
         "location": "[resourceGroup().location]",
         "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
@@ -154,12 +269,118 @@ In this section, you assign a user assigned identity to an Azure VM using Azure 
     }
     ```
     
-3.  When you are done, your template should look similar to the following:
+3. When you're done, the following sections should added to the `resource` section of your template and it should resemble the following:
+   
+   **Microsoft.Compute/virtualMachines API version 2018-06-01**    
 
-      ![Screenshot of user assigned identity](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
+   ```JSON
+   "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2018-06-01",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[variables('vmName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "userAssigned",
+                "userAssignedIdentities": {
+                   "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "apiVersion": "2018-06-01-preview",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.ManagedIdentity",
+                "type": "ManagedIdentityExtensionForWindows",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "port": 50342
+            }
+        }
+       }
+    ]
+   ```
+   **Microsoft.Compute/virtualMachines API version 2017-12-01 and earlier**
+   
+   ```JSON
+   "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2017-12-01",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[variables('vmName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "userAssigned",
+                "identityIds": [
+                   "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "apiVersion": "2015-05-01-preview",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.ManagedIdentity",
+                "type": "ManagedIdentityExtensionForWindows",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "port": 50342
+            }
+        }
+       }
+    ]
+   ```
+    
 
+### Remove user assigned identity from an Azure VM
 
+If you have a VM that no longer needs a managed service identity:
+
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
+
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. If you have a VM that only has user assigned identity, you can disable it by changing the the identity type to `None`.
+ 
+   The following example shows you how remove all user assigned identities from a VM with no system assigned identities:
+   
+   ```json
+    {
+      "apiVersion": "2018-06-01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('vmName')]",
+      "location": "[resourceGroup().location]",
+      "identity": { 
+          "type": "None"
+    }
+   ```
+   
+   **Microsoft.Compute/virtualMachines API version 2018-06-01 and earlier**
+    
+   To remove a single user assigned identity from a VM, remove it from the `useraAssignedIdentities` dictionary.
+
+   If you have a system assigned identity, keep it in the in the `type` value under the `identity` value.
+ 
+   **Microsoft.Compute/virtualMachines API version 2017-12-01**
+
+   To remove a a single user assigned identity from a VM, remove it from the `identityIds` array.
+
+   If you have a system assigned identity, keep it in the in the `type` value under the `identity` value.
+   
 ## Related content
 
-- For a broader perspective about MSI, read the [Managed Service Identity overview](overview.md).
+- For a broader perspective about Managed Service Identity, read the [Managed Service Identity overview](overview.md).
 

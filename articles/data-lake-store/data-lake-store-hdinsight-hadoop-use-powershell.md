@@ -10,7 +10,7 @@ ms.assetid: 164ada5a-222e-4be2-bd32-e51dbe993bc0
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/30/2018
+ms.date: 05/29/2018
 ms.author: nitinme
 
 ---

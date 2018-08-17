@@ -10,9 +10,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2018
-ms.author: mbullwin; pharring
+ms.reviewer: pharring
+ms.author: mbullwin
 
 ---
 # Debug snapshots on exceptions in .NET apps
@@ -30,7 +31,7 @@ The following environments are supported:
 * Azure Cloud Service running OS family 4 or later.
 * Azure Service Fabric services running on Windows Server 2012 R2 or later.
 * Azure Virtual Machines running Windows Server 2012 R2 or later.
-* On-premise virtual or physical machines running Windows Server 2012 R2 or later.
+* On-premises virtual or physical machines running Windows Server 2012 R2 or later.
 
 > [!NOTE]
 > Client applications (for example, WPF, Windows Forms or UWP) are not supported.

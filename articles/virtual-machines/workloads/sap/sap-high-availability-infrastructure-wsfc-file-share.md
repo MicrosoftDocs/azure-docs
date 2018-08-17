@@ -4,7 +4,7 @@ description: Azure infrastructure preparation for SAP high availability using a 
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''

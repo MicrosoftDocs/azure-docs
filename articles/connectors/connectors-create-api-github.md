@@ -1,21 +1,19 @@
 ---
-title: Connect to GitHub with Azure Logic Apps | Microsoft Docs
-description: Automate workflows for GitHub with Azure Logic Apps
-services: logic-apps
-documentationcenter: 
+# required metadata
+title: Connect to GitHub - Azure Logic Apps | Microsoft Docs
+description: Monitor GitHub events with GitHub REST APIs and Azure Logic Apps
 author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: 8f873e6c-f4c0-4c2e-a5bd-2e953efe5e2b
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: jeconnoc
+ms.author: estfan
 ms.date: 03/02/2018
-ms.author: estfan; ladocs
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
 
 # Connect to GitHub

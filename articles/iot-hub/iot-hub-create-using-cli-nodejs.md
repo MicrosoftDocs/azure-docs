@@ -1,22 +1,15 @@
 ---
 title: Create an IoT hub using Azure CLI (azure.js) | Microsoft Docs
 description: How to create an Azure IoT hub using the cross-platform Azure CLI (azure.js).
-services: iot-hub
-documentationcenter: .net
 author: kgremban
 manager: timlt
-editor: ''
-
-ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-
 ---
+
 # Create an IoT hub using the Azure CLI
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]

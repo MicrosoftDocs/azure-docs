@@ -104,8 +104,8 @@ You can also explore some of the other features and capabilities of the IoT Suit
 * [Connected factory preconfigured solution overview](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
 * [IoT security from the ground up][lnk-security-groundup]
 
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-security-groundup]: securing-iot-ground-up.md
+[lnk-predictive-overview]:../iot-accelerators/iot-accelerators-predictive-overview.md
+[lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
 [link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits

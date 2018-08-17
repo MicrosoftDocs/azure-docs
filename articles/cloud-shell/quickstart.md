@@ -91,7 +91,7 @@ exit
 
 2. Delete your resource group and any resources within it.
 ```azurecli-interactive
-Run `az group delete -n MyRG`
+az group delete -n MyRG
 ```
 
 ## Next steps

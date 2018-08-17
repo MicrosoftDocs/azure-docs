@@ -4,7 +4,7 @@ description: Create and deploy logic app workflows with Azure Resource Manager t
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536

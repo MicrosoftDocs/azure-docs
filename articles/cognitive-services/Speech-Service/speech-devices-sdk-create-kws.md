@@ -1,10 +1,9 @@
 ---
-title: Creating a custom wake word | Microsoft Docs
+title: Creating a custom wake word
 description: Creating a custom wake word for the Speech Devices SDK.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.technology: speech
@@ -65,7 +64,7 @@ Before you can use a custom wake word with your device, you must create it using
 
     ![receiving .zip file](media/speech-devices-sdk/wake-word-6.png)
 
-8. Save the `.zip` file to your computer. You need this file to deploy the custom wake word to the development kit later, following the instructions in the Developer Quick Starter Guide, is included with your welcome e-mail.
+8. Save the `.zip` file to your computer. You need this file to deploy the custom wake word to the development kit, following the instructions in [Get started with the Speech Devices SDK](speech-devices-sdk-qsg.md).
 
 9. You may now **Sign out.**
 
@@ -75,5 +74,4 @@ To get started, get a [free Azure account](https://azure.microsoft.com/free/) an
 
 > [!div class="nextstepaction"]
 > [Sign up for the Speech Devices SDK](get-speech-devices-sdk.md)
-
 

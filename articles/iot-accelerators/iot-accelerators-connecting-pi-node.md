@@ -1,28 +1,20 @@
 ---
 title: Provision Raspberry Pi to Remote Monitoring in Node.js - Azure | Microsoft Docs
 description: Describes how to connect a Raspberry Pi device to the Remote Monitoring solution accelerator using an application written in Node.js.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-
 ---
-# Connect your Raspberry Pi device to the remote monitoring solution accelerator (Node.js)
+
+# Connect your Raspberry Pi device to the Remote Monitoring solution accelerator (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-This tutorial shows you how to connect a physical device to the remote monitoring solution accelerator. In this tutorial, you use Node.js, which is a good option for environments with minimal resource constraints.
+This tutorial shows you how to connect a physical device to the Remote Monitoring solution accelerator. In this tutorial, you use Node.js, which is a good option for environments with minimal resource constraints.
 
 ### Required hardware
 
@@ -66,7 +58,7 @@ If you haven't done so already, install Node.js version 4.0.0 or later on your R
 
     ```sh
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
-    sudo apt-get install nodejs -y
+    sudo apt-get install nodejs npm
     ```
 
 1. Use the following command to verify you have installed Node.js v6.11.4 successfully:
@@ -90,8 +82,7 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
 1. To download and install the packages you need to complete the sample app, run the following commands:
 
     ```sh
-    npm init
-    npm install async azure-iot-device azure-iot-device-mqtt --save
+    npm install async azure-iot-device azure-iot-device-mqtt
     ```
 
 1. In the `remotemonitoring` folder, create a file called **remote_monitoring.js**. Open this file in a text editor. On the Raspberry Pi, you can use the `nano` or `vi` text editors.
@@ -106,7 +97,7 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
     var async = require('async');
     ```
 
-1. Add the following variable declarations after the `require` statements. Replace the placeholder value `{device connection string}` with value you noted for the device you provisioned in the remote monitoring solution:
+1. Add the following variable declarations after the `require` statements. Replace the placeholder value `{device connection string}` with value you noted for the device you provisioned in the Remote Monitoring solution:
 
     ```nodejs
     var connectionString = '{device connection string}';

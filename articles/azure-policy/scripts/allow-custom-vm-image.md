@@ -73,4 +73,4 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-Additional Azure Policy template samples can be found in the Azure Policy documentation
+- Review more examples at [Azure Policy samples](../json-samples.md).

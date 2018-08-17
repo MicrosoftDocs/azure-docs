@@ -13,13 +13,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 08/10/2018
 ms.author: tomfitz
 
 ---
 # Use tags to organize your Azure resources
 
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
+
+To apply tags to resources, the user must have write access to that resource type. To apply tags to all resource types, use the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role. To apply tags to only one resource type, use the contributor role for that resource. For example, to apply tags to virtual machines, use the [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
@@ -132,6 +134,10 @@ if ($group.Tags -ne $null) {
                 }
             }
             Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+        }
+        else
+        {
+            Set-AzureRmResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
         }
     }
 }
@@ -268,4 +274,4 @@ When you download the usage CSV for services that support tags with billing, the
 * For an introduction to using Azure PowerShell when you're deploying resources, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
 * For an introduction to using the Azure CLI when you're deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).  
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).

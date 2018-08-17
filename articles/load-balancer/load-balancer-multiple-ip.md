@@ -168,7 +168,7 @@ Configure a health probe for your load balancer:
 
 For each website (contoso.com and fabrikam.com), configure the load balancing rules:
     
-1. <a name="step6-1"></a>Under **Settings**, select ** Load balancing rules**. In the next pane, near the top, select **Add**. 
+1. <a name="step6-1"></a>Under **Settings**, select **Load balancing rules**. In the next pane, near the top, select **Add**. 
 
 2. For **Name**, type a name for the load balancing rule (for example, **HTTPc** for contoso.com, or **HTTPf** for fabrikam.com).
 

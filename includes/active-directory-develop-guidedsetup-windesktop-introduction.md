@@ -16,6 +16,7 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file 
+
 ---
 
 # Call the Microsoft Graph API from a Windows Desktop app

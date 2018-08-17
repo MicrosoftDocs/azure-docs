@@ -1,23 +1,15 @@
 ---
 title: Understand Azure IoT Hub module twins | Microsoft Docs
 description: Developer guide - use module twins to synchronize state and configuration data between IoT Hub and your devices
-services: iot-hub
-documentationcenter: .net
 author: chrissie926
-manager: timlt
-editor: ''
-
-ms.assetid: 8a3da072-a5bf-46e5-8de4-24cdbb2a03fa
+manager: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.custom: H1Hack27Feb2017
-
 ---
+
 # Understand and use module twins in IoT Hub
 
 This article assumes you've read [understand and use device twins in IoT Hub][lnk-devguide-device-twins] first. In IoT Hub, under each device identity, you can create up to 20 module identities. Each module identity implicitly generates a module twin. Very similar to device twins, module twins are JSON documents that store module state information including metadata, configurations, and conditions. Azure IoT Hub maintains a module twin for each module that you connect to IoT Hub. 
@@ -322,7 +314,7 @@ Versions are also useful when an observing agent (such as the module app observi
 ## Next steps
 To try out some of the concepts described in this article, see the following IoT Hub tutorials:
 
-* [Get started with IoT Hub module identity and module twin using .NET backup and .NET device][lnk-module-twin-tutorial]
+* [Get started with IoT Hub module identity and module twin using .NET back end and .NET device][lnk-module-twin-tutorial]
 
 <!-- links and images -->
 

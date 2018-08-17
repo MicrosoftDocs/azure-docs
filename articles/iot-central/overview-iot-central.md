@@ -1,22 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: What is Azure IoT Central | Microsoft Docs
 description: Azure IoT Central is a end-to-end SaaS solution you can use to build and manage your custom IoT solution. This article provides an overview of the features of Azure IoT Central.
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
 ms.topic: overview
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-ms.prod: microsoft-iot-central
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
 manager: timlt
 ---
 
@@ -114,7 +105,7 @@ Administrators can manage access to your application with [user roles and permis
 
 Now that you have an overview of Azure IoT Central, here are suggested next steps:
 
-- Understand the differences between [Azure IoT Central and Azure IoT Suite](overview-iot-options.md).
+- Understand the differences between [Azure IoT Central and Azure IoT solution accelerators](overview-iot-options.md).
 - Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
 - Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
 - Follow a sequence of tutorials that show you how to:

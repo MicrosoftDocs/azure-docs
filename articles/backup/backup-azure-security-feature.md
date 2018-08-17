@@ -1,21 +1,13 @@
 ---
-title: Security features to help protect hybrid backups that use Azure Backup | Microsoft Docs
+title: Security features to help protect hybrid backups that use Azure Backup
 description: Learn how to use security features in Azure Backup to make backups more secure
 services: backup
-documentationcenter: ''
-author: JPallavi
+author: trinadhk
 manager: vijayts
-editor: ''
-
-ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/08/2017
-ms.author: pajosh
-
+ms.author: trinadhk
 ---
 # Security features to help protect hybrid backups that use Azure Backup
 Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect hybrid backups. This article covers how to enable and use these features, by using an Azure Recovery Services agent and Azure Backup Server. These features include:

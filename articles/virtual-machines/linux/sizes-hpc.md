@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/15/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
 
 ---
@@ -72,7 +72,7 @@ Additional system configuration is needed to run MPI jobs on clustered VMs. For 
 - [Memory optimized](sizes-memory.md)
 - [Storage optimized](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
-
+- [Previous generations](sizes-previous-gen.md)
 
 ## Next steps
 

@@ -39,7 +39,7 @@ There is a limit to how many route tables you can create per Azure location and 
 
 1. In the top-left corner of the portal, select **+ Create a resource**.
 2. Select **Networking**, then select **Route table**.
-3. Enter a **Name** for the route table, select your **Subscription**, create a new **Resource group**, or select an existing resource group, select a **Location**, then select **Create**. The **Disable BGP route propagation** option prevents on-premises routes from being propagated via BGP to the network interfaces in any subnet that the route table is associated to. If your virtual network is not connected to an Azure network gateway (VPN or ExpressRoute), leave the option *Disabled*.
+3. Enter a **Name** for the route table, select your **Subscription**, create a new **Resource group**, or select an existing resource group, select a **Location**, then select **Create**. If you plan to associate the route table to a subnet in a virtual network that is connected to your on-premises network through a VPN gateway, and you disable **BGP route propagation**, your on-premises routes are not propagated to the network interfaces in the subnet.
 
 **Commands**
 
@@ -90,6 +90,8 @@ A subnet can have zero or one route table associated to it. A route table can be
 3. Select **Subnets** under **SETTINGS**.
 4. Select the subnet you want to associate the route table to.
 5. Select **Route table**, select the route table you want to associate to the subnet, then select **Save**.
+
+If your virtual network is connected to an Azure VPN gateway, do not associate a route table to the [gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) that includes a route with a destination of 0.0.0.0/0. Doing so can prevent the gateway from functioning properly. For more information about using 0.0.0.0/0 in a route, see [Virtual network traffic routing](virtual-networks-udr-overview.md#default-route).
 
 **Commands**
 
@@ -207,7 +209,7 @@ The effective routes for each network interface attached to a virtual machine ar
 **Commands**
 
 - Azure CLI: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
-- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/remove-azurermrouteconfig) 
+- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
 ## Validate routing between two endpoints
 

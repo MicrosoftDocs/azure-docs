@@ -2,11 +2,11 @@
 title: Azure SQL Database Managed Instance Custom DNS | Microsoft Docs
 description: This topic describes configuration options for a custom DNS with an Azure SQL Database Managed Instance.
 services: sql-database
-author: srdjan-bozovic
+author: srdan-bozovic-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab

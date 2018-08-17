@@ -50,6 +50,10 @@ The following example shows how to change the default value of FabricTransport O
 
 You can use a [config package](service-fabric-application-and-service-manifests.md) to modify the default configuration.
 
+> [!IMPORTANT]
+> On Linux nodes, certificates must be PEM-formatted. To learn more about locating and configuring certificates for Linux, see [Configure certificates on Linux](./service-fabric-configure-certificates-linux.md). 
+> 
+
 ### Configure FabricTransport settings for the actor service
 
 Add a TransportSettings section in the settings.xml file.

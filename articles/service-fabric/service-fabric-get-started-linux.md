@@ -11,7 +11,7 @@ ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
@@ -77,7 +77,8 @@ To install the SDK and associated runtime package via the apt-get command-line t
 3. Add the `dotnet` repo to your sources list.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+    sudo dpkg -i packages-microsoft-prod.deb
     ```
 
 4. Add the new Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring.

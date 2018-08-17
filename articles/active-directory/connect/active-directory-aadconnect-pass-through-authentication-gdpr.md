@@ -4,7 +4,7 @@ description: This article deals with Azure Active Directory (Azure AD) Pass-thro
 services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, GDPR, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,7 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 07/23/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ---
@@ -24,13 +25,13 @@ ms.custom: seohack1
 
 ## Overview
 
-Azure AD Pass-through Authentication creates the following log types, which can contain EUII:
+Azure AD Pass-through Authentication creates the following log type, which can contain Personal Data:
 
 - Azure AD Connect trace log files.
 - Authentication Agent trace log files.
 - Windows Event log files.
 
-User privacy for Pass-through Authentication can be reached in two ways:
+Improve user privacy for Pass-through Authentication in two ways:
 
 1.	Upon request, extract data for a person and remove data from that person from the installations.
 2.	Ensure no data is retained beyond 48 hours.
@@ -69,7 +70,7 @@ To view logs related to the Pass-through Authentication Agent, open the **Event 
 You should regularly check the contents of **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\** and delete the contents of this folder every 48 hours. 
 
 >[!IMPORTANT]
->If the Authentication Agent service is running, you'll not be able to delete the current log file in the folder. Stop the service before trying again. To avoid user sign-in failures, you should have already configured Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+>If the Authentication Agent service is running, you'll not be able to delete the current log file in the folder. Stop the service before trying again. To avoid user sign-in failures, you should have already configured Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 You can either review and delete these files using Windows Explorer or you can use the following script to perform the necessary actions:
 

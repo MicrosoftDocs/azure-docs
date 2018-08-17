@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -22,7 +22,7 @@ This tutorial shows you how to set up disaster recovery to a secondary Azure reg
 > * Set up outbound access for VMs
 > * Enable replication for a VM
 
-Azure to Azure replication is currently in preview.
+
 ## Prerequisites
 
 To complete this tutorial:
@@ -112,7 +112,7 @@ Azure Site Recovery provides three built-in roles to control Site Recovery manag
   for disaster recovery administrators who can enable and manage disaster recovery for applications
   or entire organizations.
 
-- **Site Recovery Operator** - This role has permissions to execute and manager Failover and
+- **Site Recovery Operator** - This role has permissions to execute and manage Failover and
   Failback operations. A user with this role can't enable or disable replication, create or delete
   vaults, register new infrastructure, or assign access rights to other users. This role is best
   suited for a disaster recovery operator who can fail over virtual machines or applications when

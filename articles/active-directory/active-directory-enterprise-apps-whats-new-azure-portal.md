@@ -32,7 +32,7 @@ Following are some of the enhancements for Azure AD in the [Azure portal](https:
 
 ## Improvements to the Azure Active Directory Application Gallery
 
-Add your favorite applications whether they are from the [application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), custom applications you’re extending to the cloud, or new applications you’re developing.  You can get started with this new experience by clicking **Add** under **Enterprise Applications** or **All applications**.
+Add your favorite applications whether they are from the [application gallery](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), custom applications you’re extending to the cloud, or new applications you’re developing.  You can get started with this new experience by clicking **Add** under **Enterprise Applications** or **All applications**.
  
   ![Adding an application](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 

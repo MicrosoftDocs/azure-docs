@@ -1,17 +1,13 @@
 ---
 title: Visualize Remote Monitoring data using Power BI - Azure | Microsoft Docs 
 description: This tutorial uses Power BI Desktop and Cosmos DB to integerate data from a Remote Monitoring solution into a customized visualization. This way users can build their own custom dashboards and share them out to users not on the solution. 
-services: iot-suite
-suite: iot-suite
 author: asdonald
 manager: hegate
 ms.author: asdonald
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ---
 
 # Visualize Remote Monitoring data using Power BI
@@ -93,15 +89,15 @@ Once the stream has been connected, you are ready to create your personalized da
 
 ## Publishing the dashboard and refreshing the data
 
-After you have successfully created your dashboards, we recommend that you [publish your Power BI dashboards](https://docs.microsoft.com/en-us/power-bi/desktop-upload-desktop-files) to share with others.
+After you have successfully created your dashboards, we recommend that you [publish your Power BI dashboards](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files) to share with others.
 
-You'll also want to [refresh the data](https://docs.microsoft.com/en-us/power-bi/refresh-data) on the published dashboard to make sure that you have the latest data set.
+You'll also want to [refresh the data](https://docs.microsoft.com/power-bi/refresh-data) on the published dashboard to make sure that you have the latest data set.
 
 ## Next steps
 
 In this article, you learned about how to visualize remote monitoring data using Power BI
 
-For more information about customizing the remote monitoring solution, see:
+For more information about customizing the Remote Monitoring solution, see:
 
 * [Customizing the Remote Monitoring Solution UI](iot-accelerators-remote-monitoring-customize.md)
 * [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)

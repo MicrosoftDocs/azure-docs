@@ -11,20 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/26/2018
+ms.topic: conceptual
+ms.date: 07/18/2018
 ms.author: jingwang
 
 ---
 # Copy data from and to Salesforce by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Generally available](v1/data-factory-salesforce-connector.md)
-> * [Version 2 - Preview](connector-salesforce.md)
+> * [Version 1](v1/data-factory-salesforce-connector.md)
+> * [Current version](connector-salesforce.md)
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of Data Factory, which is generally available, see [Salesforce connector in version 1](v1/data-factory-salesforce-connector.md).
 
 ## Supported capabilities
 
@@ -301,15 +298,15 @@ When you copy data from Salesforce, the following mappings are used from Salesfo
 |:--- |:--- |
 | Auto Number |String |
 | Checkbox |Boolean |
-| Currency |Double |
+| Currency |Decimal |
 | Date |DateTime |
 | Date/Time |DateTime |
 | Email |String |
 | Id |String |
 | Lookup Relationship |String |
 | Multi-Select Picklist |String |
-| Number |Double |
-| Percent |Double |
+| Number |Decimal |
+| Percent |Decimal |
 | Phone |String |
 | Picklist |String |
 | Text |String |

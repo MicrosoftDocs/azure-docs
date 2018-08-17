@@ -28,6 +28,9 @@ What you learn how to:
 > * Configure application code to authenticate with SQL Database using Azure Active Directory authentication
 > * Grant minimal privileges to the service identity in SQL Database
 
+> [!NOTE]
+> Azure Active Directory authentication is _different_ from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) in on-premises Active Directory (AD DS). AD DS and Azure Active Directory use completely different authentication protocols. For more information, see [The difference between Windows Server AD DS and Azure AD](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
@@ -40,7 +43,7 @@ This article continues where you left off in [Tutorial: Build an ASP.NET app in 
 
 ## Enable managed service identity
 
-To enable a service identity for your Azure app, use the [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az_webapp_identity_assign) command in the Cloud Shell. In the following command, replace *\<app name>*.
+To enable a service identity for your Azure app, use the [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) command in the Cloud Shell. In the following command, replace *\<app name>*.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -60,12 +63,12 @@ Here's an example of the output after the identity is created in Azure Active Di
 You'll use the value of `principalId` in the next step. If you want to see the details of the new identity in Azure Active Directory, run the following optional command with the value of `principalId`:
 
 ```azurecli-interactive
-az ad sp show --id <principalid>`
+az ad sp show --id <principalid>
 ```
 
 ## Grant database access to identity
 
-Next, you grant database access to your app's service identity, using the [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az_sql_server_ad-admin_create) command in the Cloud Shell. In the following command, replace *\<server_name>* and <principalid_from_last_step>. Type an administrator name for *\<admin_user>*.
+Next, you grant database access to your app's service identity, using the [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) command in the Cloud Shell. In the following command, replace *\<server_name>* and <principalid_from_last_step>. Type an administrator name for *\<admin_user>*.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
@@ -75,7 +78,7 @@ The managed service identity now has access to your Azure SQL Database server.
 
 ## Modify connection string
 
-Modify the connection you set previously for your app, using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the Cloud Shell. In the following command, replace *\<app name>* with the name of your app, and replace *\<server_name>* and *\<db_name>* with the ones for your SQL Database.
+Modify the connection you set previously for your app, using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. In the following command, replace *\<app name>* with the name of your app, and replace *\<server_name>* and *\<db_name>* with the ones for your SQL Database.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='Server=tcp:<server_name>.database.windows.net,1433;Database=<db_name>;' --connection-string-type SQLAzure
@@ -152,7 +155,7 @@ In the Cloud Shell, add the managed service identity for your app into a new Azu
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
 msiobjectid=$(az webapp identity show --resource-group <group_name> --name <app_name> --query principalId --output tsv)
-az ad group member add --group $groupid --member-id $msiid
+az ad group member add --group $groupid --member-id $msiobjectid
 az ad group member list -g $groupid
 ```
 

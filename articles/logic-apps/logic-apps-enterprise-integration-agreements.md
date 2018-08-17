@@ -4,7 +4,7 @@ description: Create agreements so partners can communicate in B2B scenarios for 
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: anneta
+manager: jeconnoc
 editor: cgronlun
 
 ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d

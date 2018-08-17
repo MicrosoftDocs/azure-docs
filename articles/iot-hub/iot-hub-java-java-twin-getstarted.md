@@ -1,21 +1,16 @@
 ---
 title: Get started with Azure IoT Hub device twins (Java) | Microsoft Docs
 description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT device SDK for Java to implement the device app and the Azure IoT service SDK for Java to implement a service app that adds the tags and runs the IoT Hub query.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-
 ---
+
 # Get started with device twins (Java)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -23,7 +18,7 @@ ms.author: dobett
 In this tutorial, you create two Java console apps:
 
 * **add-tags-query**, a Java back-end app that adds tags and queries device twins.
-* **simulated-device**, a Java device app that that connects to your IoT hub and reports its connectivity condition using a reported property.
+* **simulated-device**, a Java device app that connects to your IoT hub and reports its connectivity condition using a reported property.
 
 > [!NOTE]
 > The article [Azure IoT SDKs](iot-hub-devguide-sdks.md) provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.
@@ -350,8 +345,8 @@ In this tutorial, you configured a new IoT hub in the Azure portal, and then cre
 
 Use the following resources to learn how to:
 
-* Send telemetry from devices with the [Get started with IoT Hub](iot-hub-java-java-getstarted.md) tutorial.
-* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](iot-hub-java-java-direct-methods.md) tutorial.
+* Send telemetry from devices with the [Get started with IoT Hub](quickstart-send-telemetry-java.md) tutorial.
+* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](quickstart-control-device-java.md) tutorial.
 
 <!-- Images. -->
 [7]: ./media/iot-hub-java-java-twin-getstarted/invoke-method.png

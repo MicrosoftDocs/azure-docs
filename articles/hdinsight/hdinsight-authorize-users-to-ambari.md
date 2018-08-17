@@ -1,18 +1,13 @@
 ---
-title: Authorize users for Ambari Views - Azure HDInsight | Microsoft Docs
+title: Authorize users for Ambari Views - Azure HDInsight 
 description: 'How to manage Ambari user and group permissions for domain-joined HDInsight clusters.'
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
+editor: jasonwhowell
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
 ---

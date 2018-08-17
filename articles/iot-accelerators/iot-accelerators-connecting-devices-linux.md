@@ -1,28 +1,20 @@
 ---
 title: Provision Linux devices to Remote Monitoring in C - Azure | Microsoft Docs
 description: Describes how to connect a device to the Remote Monitoring solution accelerator using an application written in C running on Linux.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 0c7c8039-0bbf-4bb5-9e79-ed8cff433629
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
-
 ---
-# Connect your device to the remote monitoring solution accelerator (Linux)
+
+# Connect your device to the Remote Monitoring solution accelerator (Linux)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-This tutorial shows you how to connect a physical device to the remote monitoring solution accelerator.
+This tutorial shows you how to connect a physical device to the Remote Monitoring solution accelerator.
 
 ## Create a C client project on Linux
 

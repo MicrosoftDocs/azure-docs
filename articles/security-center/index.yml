@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/05/18
+  ms.date: 07/26/18
   ms.author: cmcclister
 abstract:
   description: Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. Learn how to get started with Security Center, apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks with our quickstarts and tutorials.
@@ -66,5 +66,5 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: REST
-      html: <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">REST API Reference</a></p>
+    - html: <a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">REST API Reference</a>
+    - html: <a href="https://azure.microsoft.com/updates/?product=security-center">Service updates</a>

@@ -105,7 +105,7 @@ Use the following steps to install the VM Agent in offline mode.
 
 If you created the VM by using the Resource Manager deployment deployment model, you're done.
 
-### Use the ProvisionGuestAgent property for VMs created with Azure Resource Manager
+### Use the ProvisionGuestAgent property for classic VMs
 
 If you created the VM by using the classic model, use the Azure PowerShell module to update the **ProvisionGuestAgent** property. The property informs Azure that the VM has the VM Agent installed.
 

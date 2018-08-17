@@ -25,38 +25,39 @@ Start with the call to the Ranking API. Create the file `<request.json>`, which 
 
 ```json
 {"decisions":
-     [{ "actionSets":[{"id":"<actionSetId>"}] }]}
+     [{ "actionSets":[{"id":{"id":"<actionSetId>"}}] }]}
 ```
 
 Many action sets can be specified as follows:
 
 ```json
 {"decisions":
-    [{ "actionSets":[{"id":"<actionSetId1>"},
-                     {"id":"<actionSetId2>"}] }]
+    [{ "actionSets":[{"id":{"id":"<actionSetId1>"}},
+                     {"id":{"id":"<actionSetId2>"}}] }]}
 ```
 
 This JSON file is then sent as part of the ranking request:
 
-```javascript
-curl -d @<request.json> -X POST https://ds.microsoft.com/api/v2/<appId>/rank
+```shell
+curl -d @<request.json> -X POST https://ds.microsoft.com/api/v2/<appId>/rank --header "Content-Type: application/json"
 ```
 
 Here, `<appId>` is the name of your application registered on the portal. You should receive an ordered set of content items, which you can render in your application. A sample return looks like:
 
 ```json
-[{  "ranking":[{"id":"actionId1"}, {"id":"actionId2"}, {"id":"actionId3"}],
+[{ "ranking":[{"id":"actionId3"}, {"id":"actionId1"}, {"id":"actionId2"}],
    "eventId":"<opaque event string>",
    "appId":"<your app id>",
-   "actionSets":[{"id":"<A1>","lastRefresh":"2017-04-29T22:34:25.3401438Z"},
-                 {"id":"<A2>","lastRefresh":"2017-04-30T22:34:25.3401438Z"}]}]
+   "rewardAction":"actionId3",
+   "actionSets":[{"id":"<actionSetId1>","lastRefresh":"2017-04-29T22:34:25.3401438Z"},
+                 {"id":"<actionSetId2>","lastRefresh":"2017-04-30T22:34:25.3401438Z"}]}]
 ```
 
 The first part of the return has a list of ordered actions, specified by their action IDs. For an article, the action ID is a URL. The overall request also has a unique `<eventId>`, created by the system.
 
-Later, you can specify if you observed a click on the first content item from this event, which is `<actionId1>`. You can then report a reward on this `<eventId>` to Custom Decision Service via the Reward API, with another request such as:
+Later, you can specify if you observed a click on the first content item from this event, which is `<actionId3>`. You can then report a reward on this `<eventId>` to Custom Decision Service via the Reward API, with another request such as:
 
-```javascript
+```shell
 curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST
 ```
 

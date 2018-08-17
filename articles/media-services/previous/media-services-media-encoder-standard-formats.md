@@ -51,8 +51,8 @@ or
 
 Support for explicit/user-supplied channel mapping will be provided in the near future.
 
-## Input Video Codecs
-| Input Video Codecs | Supported |
+## Input video codecs
+| Input video codecs | Supported |
 | --- | --- | --- | --- |
 | AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra |8 bit 4:2:0 and 4:2:2 |
 | Avid DNxHD (in MXF) |Yes |
@@ -72,6 +72,7 @@ Support for explicit/user-supplied channel mapping will be provided in the near 
 | Apple ProRes Proxy |Yes |
 | Apple ProRes 4444 |Yes |
 | Apple ProRes 4444 XQ |Yes |
+| HEVC/H.265| Main Profile|
 
 ## Input Audio Codecs
 | Input Audio Codecs | Supported |

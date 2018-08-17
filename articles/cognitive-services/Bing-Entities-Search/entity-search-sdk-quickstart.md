@@ -16,8 +16,7 @@ ms.author: v-gedod
 
 The Bing Entity Search API contains the functionality of the REST API for entity search and parsing the results.
 
-> [!NOTE] 
-> Some SDKs are now in GA and changes to documentation are pending.  
+The [source code for C# Bing Entity Search SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch) is available on Git Hub.
 
 ## Application dependencies
 

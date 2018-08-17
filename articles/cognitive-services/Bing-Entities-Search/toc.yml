@@ -4,7 +4,7 @@
   items:
     - name: What is Bing Entity Search?
       href: search-the-web.md
-- name: Quickstarts
+- name: REST API Quickstarts
   expanded: true
   items:
   - name: C#
@@ -19,6 +19,18 @@
     href: quickstarts/python.md
   - name: Ruby
     href: quickstarts/ruby.md
+- name: SDK Quickstarts
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Entity Search C# quickstart
+    href: entity-search-sdk-quickstart.md
+  - name: Entity Search Node.js quickstart
+    href: entity-search-sdk-node-quickstart.md  
+  - name: Entity Search Python quickstart
+    href: entity-sdk-python-quickstart.md 
+  - name: Entity Search Java quickstart
+    href: entity-sdk-java-quickstart.md
 - name: Tutorials
   items:
   - name: Single-page web app
@@ -39,18 +51,6 @@
   items:
   - name: Bing Entity Search API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference
-  - name: Bing Search SDK
-    items:
-    - name: SDK samples overview 
-      href: sdk.md
-    - name: Entity Search C# quickstart
-      href: entity-search-sdk-quickstart.md
-    - name: Entity Search Node.js quickstart (preview)
-      href: entity-search-sdk-node-quickstart.md  
-    - name: Entity Search Python quickstart (preview)
-      href: entity-sdk-python-quickstart.md 
-    - name: Entity Search Java quickstart (preview)
-      href: entity-sdk-java-quickstart.md
 - name: Resources
   items:
   - name: Pricing

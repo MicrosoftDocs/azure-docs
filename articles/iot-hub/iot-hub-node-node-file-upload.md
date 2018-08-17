@@ -1,22 +1,16 @@
 ---
 title: Upload files from devices to Azure IoT Hub with Node | Microsoft Docs
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Node.js. Uploaded files are stored in an Azure storage blob container.
-services: iot-hub
-documentationcenter: nodejs
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.date: 06/28/2017
-ms.author: v-masebo;dobett
-
+ms.author: dobett
 ---
+
 # Upload files from your device to the cloud with IoT Hub
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
@@ -26,7 +20,7 @@ This tutorial builds on the code in the [Send Cloud-to-Device messages with IoT 
 - Securely provide a device with an Azure blob URI for uploading a file.
 - Use the IoT Hub file upload notifications to trigger processing the file in your app back end.
 
-The [Get started with IoT Hub](iot-hub-node-node-getstarted.md) tutorial demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
+The [Get started with IoT Hub](quickstart-send-telemetry-node.md) tutorial demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
 
 * Large files that contain images
 * Videos

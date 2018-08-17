@@ -12,7 +12,7 @@ ms.devlang: xml
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/17/2018
+ms.date: 06/06/2018
 ms.author: ryanwi
 ---
 
@@ -31,7 +31,7 @@ ms.author: ryanwi
 <xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AccountCredentialsGroup">
         <xs:attribute name="AccountName" type="xs:string" use="optional">
             <xs:annotation>
-                <xs:documentation>User name or Service Account Name (i.e., MyMachine\JohnDoe or John.Doe@department.contoso.com).</xs:documentation>
+                <xs:documentation>User name or Service Account Name (for example, MyMachine\JohnDoe or John.Doe@department.contoso.com).</xs:documentation>
             </xs:annotation>
         </xs:attribute>
         <xs:attribute name="Password" type="xs:string" use="optional">
@@ -45,7 +45,7 @@ ms.author: ryanwi
 ### Attribute details
 
 #### AccountName
-User name or Service Account Name (i.e., MyMachine\JohnDoe or John.Doe@department.contoso.com).
+User name or Service Account Name (for example, MyMachine\JohnDoe or John.Doe@department.contoso.com).
 |Attribute|Value|
 |---|---|
 |name|AccountName|
@@ -55,7 +55,7 @@ User name or Service Account Name (i.e., MyMachine\JohnDoe or John.Doe@departmen
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AccountName" type="xs:string" use="optional">
             <xs:annotation>
-                <xs:documentation>User name or Service Account Name (i.e., MyMachine\JohnDoe or John.Doe@department.contoso.com).</xs:documentation>
+                <xs:documentation>User name or Service Account Name (for example, MyMachine\JohnDoe or John.Doe@department.contoso.com).</xs:documentation>
             </xs:annotation>
         </xs:attribute>
         
@@ -99,7 +99,7 @@ Attribute group for application instance.
     </xs:attribute>
     <xs:attribute name="ApplicationId" type="xs:string" use="required">
       <xs:annotation>
-        <xs:documentation>Id of this application.</xs:documentation>
+        <xs:documentation>ID of this application.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -125,7 +125,7 @@ Fully qualified name of the application.
 ```
 
 #### ApplicationId
-Id of this application.
+ID of this application.
 |Attribute|Value|
 |---|---|
 |name|ApplicationId|
@@ -135,7 +135,7 @@ Id of this application.
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationId" type="xs:string" use="required">
       <xs:annotation>
-        <xs:documentation>Id of this application.</xs:documentation>
+        <xs:documentation>ID of this application.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   
@@ -167,7 +167,7 @@ Attribute group for application manifest.
     </xs:attribute>
     <xs:attribute name="ApplicationTypeVersion" use="required">
       <xs:annotation>
-        <xs:documentation>The version of this application type, an un-structured string.</xs:documentation>
+        <xs:documentation>The version of this application type, an unstructured string.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -177,7 +177,7 @@ Attribute group for application manifest.
     </xs:attribute>
     <xs:attribute name="ManifestId" use="optional" default="" type="xs:string">
       <xs:annotation>
-        <xs:documentation>The identifier of this application manifest, an un-structured string.</xs:documentation>
+        <xs:documentation>The identifier of this application manifest, an unstructured string.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:anyAttribute processContents="skip"/> <!-- Allow unknown attributes to be used. -->
@@ -208,7 +208,7 @@ The type identifier for this application.
 ```
 
 #### ApplicationTypeVersion
-The version of this application type, an un-structured string.
+The version of this application type, an unstructured string.
 |Attribute|Value|
 |---|---|
 |name|ApplicationTypeVersion|
@@ -217,7 +217,7 @@ The version of this application type, an un-structured string.
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationTypeVersion" use="required">
       <xs:annotation>
-        <xs:documentation>The version of this application type, an un-structured string.</xs:documentation>
+        <xs:documentation>The version of this application type, an unstructured string.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -229,7 +229,7 @@ The version of this application type, an un-structured string.
 ```
 
 #### ManifestId
-The identifier of this application manifest, an un-structured string.
+The identifier of this application manifest, an unstructured string.
 |Attribute|Value|
 |---|---|
 |name|ManifestId|
@@ -240,7 +240,7 @@ The identifier of this application manifest, an un-structured string.
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ManifestId" use="optional" default="" type="xs:string">
       <xs:annotation>
-        <xs:documentation>The identifier of this application manifest, an un-structured string.</xs:documentation>
+        <xs:documentation>The identifier of this application manifest, an unstructured string.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     
@@ -311,10 +311,8 @@ ID of the rollout in which changes were made to the overrides element.
 <xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConnectionString">
                 <xs:attribute name="ConnectionString" type="xs:string" use="required">
                         <xs:annotation>
-                                <xs:documentation>
-          Connection string to the Azure storage account. Format:
-          DefaultEndpointsProtocol=https;AccountName=[];AccountKey=[]
-        </xs:documentation>
+                                <xs:documentation>Connection string to the Azure storage account. Format:
+          DefaultEndpointsProtocol=https;AccountName=[];AccountKey=[]</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -323,10 +321,8 @@ ID of the rollout in which changes were made to the overrides element.
 ### Attribute details
 
 #### ConnectionString
-
-          Connection string to the Azure storage account. Format:
+Connection string to the Azure storage account. Format:
           DefaultEndpointsProtocol=https;AccountName=[];AccountKey=[]
-        
 |Attribute|Value|
 |---|---|
 |name|ConnectionString|
@@ -336,10 +332,8 @@ ID of the rollout in which changes were made to the overrides element.
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConnectionString" type="xs:string" use="required">
                         <xs:annotation>
-                                <xs:documentation>
-          Connection string to the Azure storage account. Format:
-          DefaultEndpointsProtocol=https;AccountName=[];AccountKey=[]
-        </xs:documentation>
+                                <xs:documentation>Connection string to the Azure storage account. Format:
+          DefaultEndpointsProtocol=https;AccountName=[];AccountKey=[]</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   
@@ -568,10 +562,7 @@ The new value of the setting.
 <xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Path">
                 <xs:attribute name="Path" type="xs:string" use="required">
                         <xs:annotation>
-                                <xs:documentation>
-          Path to the file share. Format:
-          file:[]
-        </xs:documentation>
+                                <xs:documentation>Path to the file share. Format: file:[]</xs:documentation>
                         </xs:annotation>
                 </xs:attribute>
         </xs:attributeGroup>
@@ -580,10 +571,7 @@ The new value of the setting.
 ### Attribute details
 
 #### Path
-
-          Path to the file share. Format:
-          file:[]
-        
+Path to the file share. Format: file:[]
 |Attribute|Value|
 |---|---|
 |name|Path|
@@ -593,10 +581,7 @@ The new value of the setting.
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Path" type="xs:string" use="required">
                         <xs:annotation>
-                                <xs:documentation>
-          Path to the file share. Format:
-          file:[]
-        </xs:documentation>
+                                <xs:documentation>Path to the file share. Format: file:[]</xs:documentation>
                         </xs:annotation>
                 </xs:attribute>
         
@@ -654,7 +639,7 @@ Identifies a service manifest.
     </xs:annotation>
     <xs:attribute name="ServiceManifestName" use="required">
       <xs:annotation>
-        <xs:documentation>The name of the service manifest being referenced. The name must match the Name declared in the ServiceManifest element of the service manifest.</xs:documentation>
+        <xs:documentation>The name of the service manifest. The name must match the Name declared in the ServiceManifest element of the service manifest.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -664,7 +649,7 @@ Identifies a service manifest.
     </xs:attribute>
     <xs:attribute name="ServiceManifestVersion" use="required">
       <xs:annotation>
-        <xs:documentation>The version of the service manifest being referenced. The version must match the version declared in the service manifest.</xs:documentation>
+        <xs:documentation>The version of the service manifest. The version must match the version declared in the service manifest.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -678,7 +663,7 @@ Identifies a service manifest.
 ### Attribute details
 
 #### ServiceManifestName
-The name of the service manifest being referenced. The name must match the Name declared in the ServiceManifest element of the service manifest.
+The name of the service manifest. The name must match the Name declared in the ServiceManifest element of the service manifest.
 |Attribute|Value|
 |---|---|
 |name|ServiceManifestName|
@@ -687,7 +672,7 @@ The name of the service manifest being referenced. The name must match the Name 
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifestName" use="required">
       <xs:annotation>
-        <xs:documentation>The name of the service manifest being referenced. The name must match the Name declared in the ServiceManifest element of the service manifest.</xs:documentation>
+        <xs:documentation>The name of the service manifest. The name must match the Name declared in the ServiceManifest element of the service manifest.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -699,7 +684,7 @@ The name of the service manifest being referenced. The name must match the Name 
 ```
 
 #### ServiceManifestVersion
-The version of the service manifest being referenced. The version must match the version declared in the service manifest.
+The version of the service manifest. The version must match the version declared in the service manifest.
 |Attribute|Value|
 |---|---|
 |name|ServiceManifestVersion|
@@ -708,7 +693,7 @@ The version of the service manifest being referenced. The version must match the
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifestVersion" use="required">
       <xs:annotation>
-        <xs:documentation>The version of the service manifest being referenced. The version must match the version declared in the service manifest.</xs:documentation>
+        <xs:documentation>The version of the service manifest. The version must match the version declared in the service manifest.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">

@@ -3,17 +3,17 @@ title: Wildcard applications in the Azure Active Directory application proxy | M
 description: Learn how to use Wildcard applications in the Azure Active Directory application proxy.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 
-ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
-ms.author: markvi
+ms.date: 05/21/2018
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
 

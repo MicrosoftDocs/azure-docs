@@ -1,20 +1,13 @@
 ---
-title: Configure OS patching schedule for Linux-based HDInsight clusters - Azure | Microsoft Docs
+title: Configure OS patching schedule for Linux-based HDInsight clusters - Azure
 description: Learn how to configure OS patching schedule for Linux-based HDInsight clusters.
 services: hdinsight
-documentationcenter: ''
-author: bprakash
-manager: asadk
-editor: bprakash
-
-ms.assetid: 
+author: omidm1
+ms.author: omidm
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2017
-ms.author: bhanupr
-
 ---
 
 # OS patching for HDInsight 
@@ -62,7 +55,7 @@ When using this script requires the following information:
 
 ## Next steps
 
-For specific steps on using the script action, see the following sections in the [Customize Linuz-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md):
+For specific steps on using the script action, see the following sections in the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md):
 
 * [Use a script action during cluster creation](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
 * [Apply a script action to a running cluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)

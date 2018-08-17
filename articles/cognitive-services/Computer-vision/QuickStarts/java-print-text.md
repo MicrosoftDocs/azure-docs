@@ -12,13 +12,15 @@ ms.topic: quickstart
 ms.date: 05/15/2018
 ms.author: nolachar
 ---
-# Quickstart: Extract Printed Text (OCR) with Java
+# Quickstart: Extract printed text (OCR) with Java
 
-In this quickstart, you extract printed text from an image using Computer Vision.
+In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
+
+## Prerequisites
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## OCR (optical character recognition) request
+## OCR request
 
 With the [OCR method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
@@ -37,8 +39,8 @@ To run the sample, do the following steps:
 
 ```java
 // This sample uses the following libraries:
-//  - Apache HTTP client(org.apache.httpcomponents:httpclient:4.5.5)
-//  - Apache HTTP core(org.apache.httpcomponents:httpccore:4.4.9)
+//  - Apache HTTP client (org.apache.httpcomponents:httpclient:4.5.5)
+//  - Apache HTTP core (org.apache.httpcomponents:httpccore:4.4.9)
 //  - JSON library (org.json:json:20180130).
 
 import java.net.URI;
@@ -81,7 +83,7 @@ public class Main {
             URIBuilder uriBuilder = new URIBuilder(uriBase);
 
             uriBuilder.setParameter("language", "unk");
-            uriBuilder.setParameter("detectOrientation ", "true");
+            uriBuilder.setParameter("detectOrientation", "true");
 
             // Request parameters.
             URI uri = uriBuilder.build();

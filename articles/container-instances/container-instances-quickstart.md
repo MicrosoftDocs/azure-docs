@@ -22,7 +22,7 @@ If you don't have an Azure subscription, create a [free account][azure-account] 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli-install].
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Create a resource group
 
@@ -120,7 +120,7 @@ When you're done with the container, remove it using the [az container delete][a
 az container delete --resource-group myResourceGroup --name mycontainer
 ```
 
-To verify that the container has been deleted, execute the [az container list](/cli/azure/container#az_container_list) command:
+To verify that the container has been deleted, execute the [az container list](/cli/azure/container#az-container-list) command:
 
 ```azurecli-interactive
 az container list --resource-group myResourceGroup --output table
@@ -146,13 +146,13 @@ To try out options for running containers in an orchestration system on Azure, s
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az_container_attach
-[az-container-create]: /cli/azure/container#az_container_create
-[az-container-delete]: /cli/azure/container#az_container_delete
-[az-container-list]: /cli/azure/container#az_container_list
-[az-container-logs]: /cli/azure/container#az_container_logs
-[az-container-show]: /cli/azure/container#az_container_show
-[az-group-create]: /cli/azure/group#az_group_create
+[az-container-attach]: /cli/azure/container#az-container-attach
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-delete]: /cli/azure/container#az-container-delete
+[az-container-list]: /cli/azure/container#az-container-list
+[az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-show]: /cli/azure/container#az-container-show
+[az-group-create]: /cli/azure/group#az-group-create
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
 [service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

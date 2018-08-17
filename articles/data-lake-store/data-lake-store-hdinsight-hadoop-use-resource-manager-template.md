@@ -11,7 +11,7 @@ ms.assetid: 8ef8152f-2121-461e-956c-51c55144919d
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/28/2017
+ms.date: 05/29/2018
 ms.author: nitinme
 
 ---

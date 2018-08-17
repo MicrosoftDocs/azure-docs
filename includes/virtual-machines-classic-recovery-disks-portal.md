@@ -56,7 +56,7 @@ Once any errors are resolved, unmount and detach the existing virtual hard disk 
 
 To create a VM from your original virtual hard disk, use [Azure portal](https://portal.azure.com).
 
-1. Sign into [Azure portal](https://portal.azure.com).
+1. Sign in to [Azure portal](https://portal.azure.com).
 2. At the top left of the portal, select **Create a resource** > **Compute** > **Virtual Machine** > **From Gallery**.
 3. In the **Choose an Image** section, select **My disks**, and then select the original virtual hard disk. Check the location information. This is the region where the VM must be deployed. Select the next button.
 4. In the **Virtual machine configuration** section, type the VM name and select a size for the VM.

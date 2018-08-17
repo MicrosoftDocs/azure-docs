@@ -1,22 +1,13 @@
 ---
-title: 'Upgrade Backup vault to Recovery Services vault of Azure Backup | Microsoft Docs'
+title: Upgrade Backup vault to Recovery Services vault of Azure Backup'
 description: Upgrade Backup vault to Recovery Services vault to get new features like backup of Resource manager VMs, enhanced security, VMware VM backup and System State backup for Windows Servers
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: ''
-keyword: backup vault; upgrade vault; recovery services vault
-
-ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/10/2017
-ms.author: trinadhk, sogup
-
+ms.author: trinadhk
 ---
 # Backup vault upgraded to Recovery Services vault
 This article provides an overview of what Recovery Services vault provides, frequently asked questions about upgrading existing Backup vault to Recovery Services vault, and post-upgrade steps. A Recovery Services vault is the Azure Resource Manager equivalent of a Backup vault that houses your backup data. The data is typically copies of data, or configuration information for virtual machines (VMs), workloads, servers, or workstations, whether on-premises or in Azure.

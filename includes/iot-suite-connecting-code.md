@@ -14,7 +14,7 @@
 
 The IoT Hub serializer client library uses a model to specify the format of the messages the device exchanges with IoT Hub.
 
-1. Add the following variable declarations after the `#include` statements. Replace the placeholder values `[Device Id]` and `[Device connection string]` with the values you noted for the physical device you added to the remote monitoring solution:
+1. Add the following variable declarations after the `#include` statements. Replace the placeholder values `[Device Id]` and `[Device connection string]` with the values you noted for the physical device you added to the Remote Monitoring solution:
 
     ```c
     static const char* deviceId = "[Device Id]";

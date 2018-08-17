@@ -99,7 +99,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
 The following scripts:
 
 - Requires the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- Works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Install the Azure CLI on Windows](/cli/azure/install-azure-cli-windows). 
 
 Instead of installing the CLI and its dependencies, you can use the Azure Cloud Shell. The Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Select the **Try it** button in the script that follows, which invokes a Cloud Shell that you can log in to your Azure account with. 
 

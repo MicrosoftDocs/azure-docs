@@ -1,23 +1,14 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Take a tour of the Azure IoT Central UI | Microsoft Docs
 description: As a builder, become familiar with the key areas of the Azure IoT Central UI that you use to create an IoT solution.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
-ms.date: 4/13/2018
+ms.date: 04/13/2018
 ms.topic: overview
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-ms.prod: microsoft-iot-central
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
-manager: timlt
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
 ---
 
 # Take a tour of the Azure IoT Central UI

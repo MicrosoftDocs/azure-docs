@@ -3,7 +3,7 @@ title: Just in time virtual machine access in Azure Security Center | Microsoft 
 description: This document demonstrates how just in time VM access in Azure Security Center helps you control access to your Azure virtual machines.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2018
-ms.author: terrylan
+ms.date: 08/05/2018
+ms.author: rkarlin
 
 ---
 # Manage virtual machine access using just in time
@@ -38,7 +38,7 @@ One way to reduce exposure to a brute force attack is to limit the amount of tim
 
 When just in time is enabled, Security Center locks down inbound traffic to your Azure VMs by creating an NSG rule. You select the ports on the VM to which inbound traffic will be locked down. These ports are controlled by the just in time solution.
 
-When a user requests access to a VM, Security Center checks that the user has [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) permissions that provide write access for the VM. If they have write permissions, the request is approved and Security Center automatically configures the Network Security Groups (NSGs) to allow inbound traffic to the selected ports for the amount of time you specified. After the time has expired, Security Center restores the NSGs to their previous states.
+When a user requests access to a VM, Security Center checks that the user has [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) permissions that provide write access for the VM. If they have write permissions, the request is approved and Security Center automatically configures the Network Security Groups (NSGs) to allow inbound traffic to the selected ports for the amount of time you specified. After the time has expired, Security Center restores the NSGs to their previous states. Those connections that are already established are not being interrupted, however.
 
 > [!NOTE]
 > Security Center just in time VM access currently supports only VMs deployed through Azure Resource Manager. To learn more about the classic and Resource Manager deployment models see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -164,10 +164,9 @@ You can download the log information by selecting **Click here to download all t
 
 Modify the filters and select **Apply** to create a search and log.
 
-## Using just in time VM access via PowerShell
+## Using just in time VM access via REST APIs
 
-In order to use the just in time solution via PowerShell, make sure you have the [latest](/powershell/azure/install-azurerm-ps) Azure PowerShell version.
-Once you do, you need to install the [latest](https://aka.ms/asc-psgallery) Azure Security Center from the PowerShell gallery.
+The just in time VM access feature can be used via the Azure Security Center API. You can get information about configured VMs, add new ones, request access to a VM, and more, via this API. See [Jit Network Access Policies](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies), to learn more about the just in time REST API.
 
 ### Configuring a just in time policy for a VM
 

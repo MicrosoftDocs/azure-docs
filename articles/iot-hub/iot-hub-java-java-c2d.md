@@ -1,22 +1,16 @@
 ---
 title: Cloud-to-device messages with Azure IoT Hub (Java) | Microsoft Docs
 description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for Java. You modify a simulated device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 7f785ea8-e7c2-40c5-87ef-96525e9b9e1e
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-
 ---
+
 # Send cloud-to-device messages with IoT Hub (Java)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
@@ -42,7 +36,7 @@ At the end of this tutorial, you run two Java console apps:
 
 To complete this tutorial, you need the following:
 
-* A complete working version of the [Get started with IoT Hub](iot-hub-java-java-getstarted.md) or [Process IoT Hub device-to-cloud messages](iot-hub-java-java-process-d2c.md) tutorial.
+* A complete working version of the [Get started with IoT Hub](quickstart-send-telemetry-java.md) or [Process IoT Hub device-to-cloud messages](tutorial-routing.md) tutorial.
 * The latest [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
@@ -204,7 +198,7 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [img-send-command]:  media/iot-hub-java-java-c2d/sendc2d.png
 <!-- Links -->
 
-[Get started with IoT Hub]: iot-hub-java-java-getstarted.md
+[Get started with IoT Hub]: quickstart-send-telemetry-java.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [IoT Hub developer guide]: iot-hub-devguide.md
 [Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot

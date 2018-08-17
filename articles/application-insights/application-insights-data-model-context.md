@@ -10,9 +10,10 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: sergkanz; mbullwin
+ms.reviewer: sergkanz
+ms.author: mbullwin
 
 ---
 # Telemetry context: Application Insights data model

@@ -7,12 +7,12 @@ author: barbkess
 manager: mtillman
 
 ms.service: active-directory
-ms.component: barbkess
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/23/2017
+ms.topic: conceptual
+ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -57,7 +57,7 @@ For information about setting up password-based sign-on, see [Password vaulting 
 
 If you already have a single sign-on solution set up for your on-premises identities, choose **Linked sign-on**. This option enables Azure Active Directory to leverage existing SSO solutions, but still gives your users remote access to the application. 
 
-For information about linked sign-on (formally known as existing single sign-on), see [What is application access and single sign-on with Azure Active Directory?](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+For information about linked sign-on (formally known as existing single sign-on), see [What is application access and single sign-on with Azure Active Directory?](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## Integrated Windows Authentication
 

@@ -5,13 +5,13 @@ description: This is the Azure Multi-Factor authentication page that describes h
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 05/29/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
+ms.reviewer: michmcla
 
 ---
 
@@ -78,7 +78,7 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 ### Configure Azure Multi-Factor Authentication Trusted IPs with Federated Users
 Now that the claims are in place, we can configure trusted IPs.
 
-1. Sign in to the [Azure portal](https://portal.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Azure Active Directory** > **Conditional access** > **Named locations**.
 3. From the **Conditional access - Named locations** blade, select **Configure MFA trusted IPs**
 

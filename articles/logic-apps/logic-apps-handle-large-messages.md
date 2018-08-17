@@ -4,7 +4,7 @@ description: Learn how to handle large message sizes with chunking in logic apps
 services: logic-apps
 documentationcenter:
 author: shae-hurst
-manager: cfowler
+manager: jeconnoc
 editor:
 
 ms.assetid:

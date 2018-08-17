@@ -1,0 +1,40 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: IoT Solution Accelerators Documentation
+metadata:
+  title: IoT solution accelerators documentation
+  meta.description: Learn how to use the IoT solution accelerators. These articles show you how to use the solution accelerators to kick-start your implementation of common IoT scenarios such as remote monitoring, industrial IoT, predictive maintenance, and device simulation.
+  services: iot-accelerators
+  author: dominicbetts
+  manager: timlt
+  ms.service: iot-accelerators
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/24/2018
+  ms.author: dobett
+abstract:
+  description: Learn how to use the IoT solution accelerators. These articles show you how to use the solution accelerators to kick-start your implementation of common IoT scenarios such as remote monitoring, industrial IoT, predictive maintenance, and device simulation.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Get started with the IoT solution accelerators:'
+  - type: list
+    style: unordered
+    items: 
+    - html: <a href="/azure/iot-accelerators/quickstart-remote-monitoring-deploy">Try a cloud-based remote monitoring solution</a>
+    - html: <a href="/azure/iot-accelerators/quickstart-predictive-maintenance-deploy">Try a cloud-based predictive maintenance solution</a>
+    - html: <a href="/azure/iot-accelerators/quickstart-connected-factory-deploy">Try a cloud-based connected factory solution</a>
+    - html: <a href="/azure/iot-accelerators/quickstart-device-simulation-deploy">Try a cloud-based device simulation solution</a>
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn about the IoT solution accelerators and the key scenarios they implement:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">Monitor your IoT devices</a>
+    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">Detect issues with devices connected to your monitoring solution</a>
+    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage">Configure and manage devices connected to your monitoring solution</a>
+    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-maintain">Use alerts and fix device issues</a>

@@ -55,7 +55,7 @@ Below is an example result. It's a `list` of detected faces. Each item in the li
 
 ## Draw rectangles around the faces
 
-Using the json coordinates that you received from the previous command, you can draw rectangles on the image to visually represent each face. At the top of the file, add the following:
+Using the json coordinates that you received from the previous command, you can draw rectangles on the image to visually represent each face. You will need to `pip install Pillow` to use the `PIL` imaging module.  At the top of the file, add the following:
 
 ```python
 import requests
@@ -90,7 +90,7 @@ img.show()
 
 ## <a name='further'></a> Further Exploration
 
-To help you further explore the Face API, this tutorial provides a GUI sample. To run it, first install [wxPython](https://wxpython.org/) then run the commands below.
+To help you further explore the Face API, this tutorial provides a GUI sample. To run it, first install [wxPython](https://wxpython.org/pages/downloads/) then run the commands below.
 
 ```bash
 git clone https://github.com/Microsoft/Cognitive-Face-Python.git

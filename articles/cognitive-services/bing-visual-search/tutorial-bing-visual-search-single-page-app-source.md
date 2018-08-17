@@ -1,7 +1,7 @@
 ---
-title: Bing Image Search single-page Web app (source code) | Microsoft Docs
+title: Bing Visual Search single-page Web app (source code) | Microsoft Docs
 titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Source code for tutorial showing how to use the Bing Image Search API in a single-page Web application.
+description: Source code for tutorial showing how to use the Bing Visual Search API in a single-page Web application.
 services: cognitive-services
 author: v-jerkin
 manager: ehansen
@@ -107,7 +107,7 @@ try {
 function getSubscriptionKey() {
     var key = retrieveValue(API_KEY_COOKIE);
     while (key.length !== 32) {
-        key = prompt("Enter Bing Search API subscription key:", "").trim();
+        key = prompt("Enter Bing Image Search API subscription key:", "").trim();
     }
     // always set the cookie in order to update the expiration date
     storeValue(API_KEY_COOKIE, key);
@@ -125,7 +125,7 @@ function escape(text) {
         replace(/'/g, "&apos;").replace(/"/g, "&quot;");
 }
 
-// get the host portion of a URL, strpping out search result formatting and www too
+// get the host portion of a URL, stripping out search result formatting and www too
 function getHost(url) {
     return url.replace(/<\/?b>/g, "").replace(/^https?:\/\//, "").split("/")[0].replace(/^www\./, "");
 }
@@ -264,7 +264,7 @@ function handleBingResponse() {
         // 401 is unauthorized; force re-prompt for API key for next request
         if (this.status === 401) invalidateSubscriptionKey();
 
-        // some error responses don't have a top-level errors object, so gin one up
+        // some error responses don't have a top-level errors object
         var errors = jsobj.errors || [jsobj];
         var errmsg = [];
 

@@ -4,7 +4,7 @@ description: This article deals with Azure Active Directory (Azure AD) Seamless 
 services: active-directory
 keywords: what is Azure AD Connect, GDPR, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,7 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
 ---
 
@@ -23,11 +24,11 @@ ms.author: billmath
 ## Overview
 
 
-Azure AD Seamless SSO creates the following log type, which can contain EUII:
+Azure AD Seamless SSO creates the following log type, which can contain Personal Data: 
 
 - Azure AD Connect trace log files.
 
-User privacy compliance for Seamless SSO can be reached in two ways:
+Improve user privacy for Seamless SSO in two ways:
 
 1.	Upon request, extract data for a person and remove data from that person from the installations.
 2.	Ensure no data is retained beyond 48 hours.

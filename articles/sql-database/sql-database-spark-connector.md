@@ -6,7 +6,7 @@ author: allenwux
 manager: craigg
 ms.service: sql-database
 ms.custom: 
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: xiwu
 

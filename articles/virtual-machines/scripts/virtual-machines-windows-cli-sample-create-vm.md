@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Create a Windows Server VM
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags:
 

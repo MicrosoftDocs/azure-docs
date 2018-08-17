@@ -3,9 +3,9 @@ title: Diganostic logging for Azure Analysis Services | Microsoft Docs
 description: Learn about setting up diagnostic logging for Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -52,7 +52,6 @@ Selecting **Engine** logs all [xEvents](https://docs.microsoft.com/sql/analysis-
 
 |Operation name  |Occurs when  |
 |---------|---------|
-|CreateGateway     |   User configures a gateway on server      |
 |ResumeServer     |    Resume a server     |
 |SuspendServer    |   Pause a server      |
 |DeleteServer     |    Delete a server     |
