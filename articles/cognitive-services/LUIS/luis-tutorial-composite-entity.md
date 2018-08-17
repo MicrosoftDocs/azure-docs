@@ -286,7 +286,7 @@ The extracted data from the endpoint should contain this information and return 
   This utterance returns a composite entities array. Each entity is given a type and value. To find more precision for each child entity, use the combination of type and value from the composite array item to find the corresponding item in the entities array.  
 
 ## What has this LUIS app accomplished?
-This app identified a natural language query intention and returned the extracted data as a composite group. 
+This app identified a natural language intention and returned the extracted data as a composite group. 
 
 Your chat bot now has enough information to determine the primary action and the related details found in the utterance. 
 

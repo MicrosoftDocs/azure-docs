@@ -1,22 +1,30 @@
 ---
-title: 1. Create an app to learn what an intent is - Azure Cognitive Services| Microsoft Docs
-description: In this tutorial, create a Human Resources (HR) app that predicts a user's intention based on the utterance (text). The two intentions for the app determine if a user wants job information and to apply for a job.  A third intent, **None**, is the fallback intent for all utterances that do not relate to the app. When you're finished, you have a LUIS endpoint running in the cloud.
+title: 1. Create an app to learn what an intent is - Azure Cognitive Services | Microsoft Docs
+description: In this tutorial, create a custom Human Resources (HR) app that predicts a user's intention based on the utterance (text). When you're finished, you have a LUIS endpoint running in the cloud. This app is the simplest type of LUIS app because it doesn't extract various data elements from the utterance text such as email addresses or dates. It only determines the user's overall intention of the utterance.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/13/2018
+ms.date: 08/17/2018
 ms.author: diberry
-#Customer intent: As a new user, I want to create a Human Resources app, so that I receive predictions for user utterances in that domain. 
+#Customer intent: As a new user, I want to create a Human Resources app, so that I can analyze user text in that subject domain.
 ---
 
-# Tutorial: 1. Build app with custom domain
+# Tutorial: 1. Build custom LUIS app
 
-In this tutorial, create a Human Resources (HR) app that predicts a user's intention based on the utterance (text). When you're finished, you have a LUIS endpoint running in the cloud.
+<!-- clean up -->
+
+In this tutorial, you create a custom Human Resources (HR) app that predicts a user's intention based on the utterance (text). When you're finished, you have a LUIS endpoint running in the cloud.
 
 This app is the simplest type of LUIS app because it doesn't extract various data elements from the utterance text such as email addresses or dates. It only determines the user's overall intention of the utterance.
+
+By creating an intent, you are creating a category of information that you want to identify. Giving the category a name allows the client application to find an appropriate answer in the JSON response. 
+
+LUIS is done with this request. The client application, such as a chat bot, can take the **topScoringIntent** in the JSON response and either find information (not stored in LUIS) to answer the question or end the conversation. These are programmatic options for the client application. LUIS doesn't do that work. LUIS only determines what is the user's intention.
+
+LUIS doesn't provide answers to user utterances, it only identifies what type of information is being asked for in natural language. 
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -25,19 +33,21 @@ This app is the simplest type of LUIS app because it doesn't extract various dat
 > * Add example utterances
 > * Train app
 > * Publish app
-> * Query endpoint of app to see LUIS JSON response
+> * Query endpoint of app to see LUIS JSON responses
 
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-<!--## Prerequisites-->
 
-## Purpose of the app
+
+## Scenario
 
 The purpose of the app is to determine the intention of conversational, natural language text. These intentions are categorized into **Intents**. This app has a few intents. The first intent, **`GetJobInformation`**, identifies when a user wants information about jobs available inside a company. The second intent, **`None`**, is used for any utterances from the user that are outside the _domain_ (scope) of this app. Later, a third intent, **`ApplyForJob`**, is added for any utterances about applying for a job. This third intent is different from `GetJobInformation` because the job information should already be known when someone applies for the job. However, depending on the word choice, determining which intent may be tricky as they both are about a job.
 
+Use [https://www.luis.ai](https://www.luis.ai) as the LUIS portal with applications in the en-us culture, and use the free starter key as the publishing key. 
+
 ## Create a new app
 
-1. Log in to the LUIS website. Make sure to log in to the region where you need the LUIS endpoints published.
+1. Log in to the LUIS website. 
 
 2. On the LUIS website, select **Create new app**.  
 
@@ -51,17 +61,13 @@ The purpose of the app is to determine the intention of conversational, natural 
 
     [![](media/luis-quickstart-intents-only/list-of-intents-1.png "Screenshot of Language Understanding (LUIS) Intents list")](media/luis-quickstart-intents-only/list-of-intents-1.png#lightbox)
 
-## Create GetJobInformation intention
+## Create GetJobInformation intent
 
 1. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent is predicted any time a user wants information about open jobs in the company.
 
     ![](media/luis-quickstart-intents-only/create-intent.png "Screenshot of Language Understanding (LUIS) New intent dialog")
 
-    By creating an intent, you are creating a category of information that you want to identify. Giving the category a name allows the client application to find an appropriate answer in the JSON response. 
-
-    LUIS doesn't provide answers to user utterances, it only identifies what type of information is being asked for in natural language. 
-
-2. By providing _example utterances_, you are training LUIS what kinds of utterances should be predicted for this intent. Add seven example utterances to this intent that you expect a user to ask, such as:
+2. By providing _example utterances_, you are training LUIS what kinds of utterances should be predicted for this intent. Add several example utterances to this intent that you expect a user to ask, such as:
 
     | Example utterances|
     |--|
@@ -79,7 +85,7 @@ The purpose of the app is to determine the intention of conversational, natural 
 
 
 ## Add example utterances to None intent 
-The client application needs to know if an utterance is outside the domain (scope) of the application. If LUIS returns the **None** intent for an utterance, your client application can ask if the user wants to end the conversation. The client application can also give more directions for continuing the conversation if the user doesn't want to end it. 
+The client application needs to know if an utterance is outside the subject domain of the application. If LUIS returns the **None** intent for an utterance, your client application can ask if the user wants to end the conversation. The client application can also give more directions for continuing the conversation if the user doesn't want to end it. 
 
 These non-domain example utterances are grouped into the **None** intent. Do not leave it empty. 
 
@@ -129,9 +135,11 @@ These non-domain example utterances are grouped into the **None** intent. Do not
     }
     ```
 
+    The results include **all the intents** in the app, currently 2. The entities array is empty because this app currently does not have any entities. 
+
     The JSON result identifies the top scoring intent as **`topScoringIntent`** property. All scores are between 1 and 0, with the better score being close to 1. 
 
-## Create ApplyForJob intention
+## Create ApplyForJob intent
 Return to the LUIS website and create a new intent to determine if the user utterance is about applying for a job.
 
 1. Select **Build** from the top, right menu to return to app building.
@@ -156,7 +164,13 @@ Return to the LUIS website and create a new intent to determine if the user utte
 
     The labeled intent is outlined in red because LUIS is currently uncertain the intent is correct. Training the app tells LUIS the utterances are on the correct intent. 
 
-    Train and publish again. 
+## Train and publish the app
+
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+
+## Publish app to endpoint
+
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## Query endpoint for ApplyForJob intent
 
@@ -189,17 +203,19 @@ Return to the LUIS website and create a new intent to determine if the user utte
     }
     ```
 
-## What has this LUIS app accomplished?
-This app, with just a few intents, identified a conversational, natural language query from a user. The query is for the same intent, ApplyForJob, but worded differently than any of the example utterances. 
+    The results include the new intent **ApplyForJob** as well as the existing intents. 
 
-## Where is this LUIS data used? 
-LUIS is done with this request. The client application, such as a chat bot, can take the **topScoringIntent** in the JSON response and either find information (not stored in LUIS) to answer the question or end the conversation. These are programmatic options for the client application. LUIS doesn't do that work. LUIS only determines what is the user's intention. 
+## What has this LUIS app accomplished?
+
+This app, with just a few intents, identified a conversational, natural language query from a user. The query is for the same intent, ApplyForJob, but worded differently than any of the example utterances.  
 
 ## Clean up resources
 
 [!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
+
+This tutorial created the Human Resources (HR) app, created 2 intents, added example utterances to each intent, added example utterances to the None intent, trained, published, and tested at the endpoint. These are the basic steps of building a LUIS model. 
 
 > [!div class="nextstepaction"]
 > [Add prebuilt intents and entities to this app](luis-tutorial-prebuilt-intents-entities.md)
