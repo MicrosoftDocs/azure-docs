@@ -63,7 +63,7 @@ On the VM that you plan to upload to Azure, run all commands in the following st
 1. Remove any static persistent route on the routing table:
    
    * To view the route table, run `route print` at the command prompt.
-   * Check the **Persistence Routes** sections. If there is a persistent route, use [route delete](https://technet.microsoft.com/library/cc739598.apx) to remove it.
+   * Check the **Persistence Routes** sections. If there is a persistent route, use the **route delete** command to remove it.
 2. Remove the WinHTTP proxy:
    
     ```PowerShell
