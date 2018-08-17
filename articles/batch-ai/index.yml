@@ -41,7 +41,7 @@ sections:
     - image: 
         src: https://docs.microsoft.com/media/common/i_cligeneric.svg
       text: Azure CLI
-      href: quickstart-tensorflow-training.md
+      href: quickstart-tensorflow-training-cli.md
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
