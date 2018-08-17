@@ -3,11 +3,10 @@ title: Content trust in Azure Container Registry
 description: Learn how enable content trust for your Azure container registry, and push and pull signed images.
 services: container-registry
 author: mmacy
-manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 08/20/2018
 ms.author: marsma
 ---
 # Content trust in Azure Container Registry
@@ -27,18 +26,10 @@ Content trust works with the **tags** in a repository. Image repositories can co
 
 ### Signing keys
 
-Content trust is managed through the use of a set of cryptographic signing keys. These keys, discussed further in [Push a trusted image](#push-a-trusted-image), are associated with a specific repository in a registry. There are several types of signing keys that Docker clients and your registry use in managing trust for the tags in a repository. When you enable content trust and integrate it into your container publishing and consumption pipeline, you must manage these keys carefully. For more information, see [Manage keys for content trust][docker-manage-keys] in the Docker documentation.
+Content trust is managed through the use of a set of cryptographic signing keys. These keys are associated with a specific repository in a registry. There are several types of signing keys that Docker clients and your registry use in managing trust for the tags in a repository. When you enable content trust and integrate it into your container publishing and consumption pipeline, you must manage these keys carefully. For more information, see [Key management](#key-management) later in this article and [Manage keys for content trust][docker-manage-keys] in the Docker documentation.
 
 > [!TIP]
 > This was a very high-level overview of Docker's content trust model. For an in-depth discussion of content trust, see [Content trust in Docker][docker-content-trust].
-
-## Enable content trust
-
-There are three steps required for using content trust in an Azure container registry:
-
-1. Enable content trust on the registry
-1. Enable content trust on clients
-1. Grant users or service principals permission to push signed images
 
 ## Enable registry content trust
 
@@ -140,24 +131,6 @@ Successfully signed myregistry.azurecr.io/myimage:v1
 
 After your first `docker push` with content trust enabled, the Docker client uses the same root key for subsequent pushes. On each subsequent push to the same repository, you're asked only for the repository key. Each time you push a trusted image to a new repository, you're asked to supply a passphrase for a new repository key.
 
-### Key management
-
-As stated in the preceding `docker push` output, the root key is the most sensitive. Be sure to back up your root key and store it in a secure location. By default, the Docker client stores signing keys in the following directory:
-
-```sh
-~/.docker/trust/private
-```
-
-Along with the locally generated root and repository keys, several others are generated and stored by Azure Container Registry when you push a trusted image. For a detailed discussion of the various keys in Docker's content trust implementation, including additional management guidance, see [Manage keys for content trust][docker-manage-keys] in the Docker documentation.
-
-### Lost root key
-
-If you lose access to your root key, you lose access to the signed tags in any repository whose tags were signed with that key. Azure Container Registry cannot restore access to image tags signed with a lost root key. To remove all trust data (signatures) for your registry, first disable, then re-enable content trust for the registry. **WARNING**: Disabling and re-enabling content trust in your registry **deletes all trust data for all signed tags in every repository in your registry**. Disabling content trust does not delete the images themselves.
-
-To disable content trust for your registry, first navigate to the registry in the Azure portal. Under **POLICIES**, select **Content Trust (Preview)** > **Disabled** > **Save**. You're warned of the loss of all signatures in the registry. Select **OK** to permanently delete all signatures in your registry.
-
-![Disabling content trust for a registry in the Azure portal][content-trust-03-portal]
-
 ## Pull a trusted image
 
 To pull a trusted image, enable content trust and run the `docker pull` command as normal. Consumers with content trust enabled can pull only images with signed tags. Here's an example of pulling a signed tag:
@@ -182,6 +155,33 @@ No valid trust data for unsigned
 ### Behind the scenes
 
 When you run `docker pull`, the Docker client uses the same library as in the [Notary CLI][docker-notary-cli] to request the tag-to-SHA-256 digest mapping for the tag you're pulling. After validating the signatures on the trust data, the client instructs Docker Engine to do a "pull by digest." During the pull, the Engine uses the SHA-256 checksum as a content address to request and validate the image manifest from the Azure container registry.
+
+## Key management
+
+As stated in `docker push` output whenever you push to a new repository, the root key is the most sensitive. Be sure to back up your root key and store it in a secure location. By default, the Docker client stores signing keys in the following directory:
+
+```sh
+~/.docker/trust/private
+```
+
+Back up your root and repository keys by compressing them in an archive and securely storing it offline (such as on a USB storage device). For example, in Bash:
+
+```bash
+umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
+```
+
+Along with the locally generated root and repository keys, several others are generated and stored by Azure Container Registry when you push a trusted image. For a detailed discussion of the various keys in Docker's content trust implementation, including additional management guidance, see [Manage keys for content trust][docker-manage-keys] in the Docker documentation.
+
+### Lost root key
+
+If you lose access to your root key, you lose access to the signed tags in any repository whose tags were signed with that key. Azure Container Registry cannot restore access to image tags signed with a lost root key. To remove all trust data (signatures) for your registry, first disable, then re-enable content trust for the registry.
+
+> [WARNING]
+> Disabling and re-enabling content trust in your registry **deletes all trust data for all signed tags in every repository in your registry**. Disabling content trust does not delete the images themselves.
+
+To disable content trust for your registry, first navigate to the registry in the Azure portal. Under **POLICIES**, select **Content Trust (Preview)** > **Disabled** > **Save**. You're warned of the loss of all signatures in the registry. Select **OK** to permanently delete all signatures in your registry.
+
+![Disabling content trust for a registry in the Azure portal][content-trust-03-portal]
 
 ## Next steps
 
