@@ -134,7 +134,7 @@ Back in the _local terminal window_, add an Azure remote to your local Git repos
 git remote add vsts <url>
 ```
 
-Push to the Azure remote to deploy your app with the following command. When prompted by Git Credential Manager, sign in with your visualstudio.com user. For additional authentication methods, see [VSTS authenticaiton overview](/vsts/git/auth-overview?view=vsts).
+Push to the Azure remote to deploy your app with the following command. When prompted by Git Credential Manager, sign in with your visualstudio.com user. For additional authentication methods, see [VSTS authentication overview](/vsts/git/auth-overview?view=vsts).
 
 ```bash
 git push vsts master

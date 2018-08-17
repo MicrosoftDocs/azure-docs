@@ -24,8 +24,11 @@ See the Azure Kubernetes Service [Regions and availability][aks-regions] documen
 Azure automatically applies security patches to the nodes in your cluster on a nightly schedule. However, you are responsible for ensuring that nodes are rebooted as required. You have several options for performing node reboots:
 
 - Manually, through the Azure portal or the Azure CLI.
-- By upgrading your AKS cluster. Cluster upgrades automatically [cordon and drain nodes](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), then bring them back up with the latest Ubuntu image. Update the OS image on your nodes without changing Kubernetes versions by specifying the current cluster version in `az aks upgrade`.
+- By upgrading your AKS cluster. Cluster upgrades automatically [cordon and drain nodes](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), then bring them back up with the latest Ubuntu image. Update the OS image on your nodes by upgrading to a new patch version or a minor Kubernetes version using the `az aks upgrade` command.
 - Using [Kured](https://github.com/weaveworks/kured), an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) and monitors each node for the presence of a file indicating that a reboot is required. It then manages OS reboots across the cluster, following the same cordon and drain process described earlier.
+
+## Can I modify tags and other properties of the AKS resources in the MC_* resource group?
+ Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results such as scaling and upgrading errors. Modifying the resources under the MC_* in the AKS cluster breaks the SLO.
 
 ## Does AKS support node autoscaling?
 
@@ -73,6 +76,8 @@ To run Windows Server containers, you need to run Windows Server-based nodes. Wi
 Each AKS deployment spans two resource groups. The first is created by you and contains only the Kubernetes service resource. The AKS resource provider automatically creates the second one during deployment with a name like *MC_myResourceGroup_myAKSCluster_eastus*. The second resource group contains all of the infrastructure resources associated with the cluster, such as VMs, networking, and storage. It is created to simplify resource cleanup.
 
 If you are creating resources that will be used with your AKS cluster, such as storage accounts or reserved public IP addresses, you should place them in the automatically generated resource group.
+
+Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results such as scaling and upgrading errors. Modifying the resources under the MC_* in the AKS cluster breaks the SLO.
 
 ## Does AKS offer a service level agreement?
 
