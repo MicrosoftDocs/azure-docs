@@ -1,4 +1,23 @@
-# How to create an edge machine learning solution
+---
+title: Create an edge machine learning solution with Azure and Azure Stack | Microsoft Docs
+description: Learn how to create an edge machine learning solution with Azure and Azure Stack.
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: tutorial
+ms.date: 09/24/2018
+ms.author: mabrigg
+ms.reviewer: Anjay.Ajodha
+---
+
+# Create an edge machine learning solution with Azure and Azure Stack
 
 ## When to use this solution
 
