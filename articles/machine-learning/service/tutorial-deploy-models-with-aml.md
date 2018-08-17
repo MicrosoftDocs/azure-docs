@@ -15,7 +15,9 @@ ms.date: 09/24/2018
 
 # Tutorial #2:  Deploy an image classification model in Azure Container Instance (ACI)
 
-This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you built a machine learning model.  The model was registered and saved in your workspace on the cloud.  Now you're ready to retrieve this model and deploy it as a web service running in Azure Container Instance (ACI).
+This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered the best one in your workspace on the cloud.  
+
+Now, you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/en-us/azure/container-instances/) (ACI). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself. ACI is not ideal for production deployments, but it is great for testing and understanding the workflow. For scalable production deployments, consider using AKS.
 
 In this part of the tutorial, you use Azure Machine Learning service (Preview) to:
 
@@ -32,11 +34,17 @@ In this part of the tutorial, you use Azure Machine Learning service (Preview) t
 
 * Place this Jupyter notebook into the same directory as `aml_config` and `utils.py` from the training tutorial.
 
+## Get the sample notebook
+
+To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-deploy) into the same directory as `aml_config` and `utils.py`.  See [Configure a development environment for Azure Machine Learning](how-to-configure-environment.md) for information on how to run a Jupyter notebook.
+
 
 ## Set up a testing environment
 
-Import the Python packages needed in this solution.
 
+### Import packages
+
+Import the Python packages needed for this tutorial. 
 
 ```python
 %matplotlib inline
@@ -51,10 +59,9 @@ from azureml.core import Workspace, Project, Run
 print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```
 
-
 ### Retrieve the model
 
-The best model was registered in the workspace in the previous tutorial. Load the workspace and download the model  to your local directory.
+You registered the best model in the workspace in the previous tutorial. Now, load this workspace and download the model to your local directory.
 
 
 ```python
@@ -71,10 +78,10 @@ os.stat('./sklearn_mnist_model.pkl')
 
 ## Test the model locally
 
-Before deploying, make sure your model is working locally. In this section you will:
-* Load test data
-* Predict test data
-* Examine the confusion matrix
+Before deploying, make sure your model is working locally by:
+* Loading test data
+* Predicting test data
+* Examining the confusion matrix
 
 ### Load test data
 
@@ -104,7 +111,7 @@ y_hat = clf.predict(X_test)
 
 ###  Examine the confusion matrix
 
-A confusion matrix shows how many samples in the test set are classified correctly.  In addition, it shows the mis-classified value for the incorrect predictions. 
+Generate a confusion matrix to see how many samples from the test set are classified correctly. Notice the mis-classified value for the incorrect predictions. 
 
 ```python
 from sklearn.metrics import confusion_matrix
@@ -154,21 +161,22 @@ plt.show()
 
 ## Deploy the model in ACI
 
-Now you're ready to deploy the model as a web service running in ACI. Azure Machine Learning creates this web service by constructing a Docker image with the scoring logic and model baked in. To build the correct environment for ACI, you need to provide:
+Once you've tested the model and are satisfied with the results, you can deploy the model as a web service hosted in ACI. 
 
+To build the correct environment for ACI, provide the following:
 * A scoring script to show how to use the model
 * An environment file to show what packages need to be installed
 * A configuration file to build the ACI
-* The model
+* The model you trained before
 
 ### Create scoring script
 
-First, create a scoring script that will be used by the web service call.
+Create the scoring script, called score.py, used by the web service call to show how to use the model.
 
-> [!NOTE]
->The scoring script must have two required functions, `init()` and `run(input_data)`. 
->    * The `init()` function will typically load the model into a global object. This function is executed only once when the Docker container is started. 
->    * The `run(input_data)` function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON as the serialization and de-serialization format but you are not limited to that.
+You must include two required functions into the scoring script:
+* The `init()` function, which typically loads the model into a global object. This function is executed only once when the Docker container is started. 
+
+* The `run(input_data)` function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization, but other formats are supported.
 
 
 ```python
@@ -198,8 +206,7 @@ def run(raw_data):
 
 ### Create environment file
 
-Next, create an environment file to have the packages required by your script installed in the Docker image. For this model, you need `scikit-learn` and `azureml-sdk`.
-
+Next, create an environment file, called myenv.yml, that specifies all of the script's package dependencies. This file is used to ensure that all of those dependencies are installed in the Docker image. This model needs `scikit-learn` and `azureml-sdk`.
 
 ```python
 %%writefile myenv.yml
@@ -214,11 +221,9 @@ dependencies:
     - azureml-core
 ```
 
-
 ### Create configuration file
 
-Create a deployment configuration and specify the number of CPUs and gigabyte of RAM needed for your ACI container.
-
+Next, create a deployment configuration file and specify the number of CPUs and gigabyte of RAM needed for your ACI container.
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -231,16 +236,23 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 
 ### Deploy to ACI
 
-Now you're ready to deploy.  The deployment process consists of the following steps:
+Once your environment is set up, you can deploy. The following code goes through these steps:
 
-* **Build image**: Build a Docker image using the scoring file (`score.py`), the environment file (`myenv.yml`), and the model file. 
-* **Register image**: Register the image under the workspace. 
-* **Send to ACI**: Send the image to the ACI infrastructure
-* **Start up container**: Start up a container in ACI using the image
-* **Expose endpoint**: Expose an HTTP endpoint to accept REST client calls.
+1. Build an image using:
+   * The scoring file (`score.py`)
+   * The environment file (`myenv.yml`)
+   * The model file
+
+1. Register that image under the workspace. 
+
+1. Send the image to the ACI container.
+
+1. Start up a container in ACI using the image.
+
+1. Get the web service HTTP endpoint, which accepts REST client calls
 
 > [!IMPORTANT]
-> This script will run for **about 7-8 minutes**. 
+> It takes **about 7-8 minutes** to run this code.
 
 ```python
 %%time
@@ -260,7 +272,7 @@ service = Webservice.deploy_from_model(workspace = ws,
 service.wait_for_deployment(show_output = True)
 ```
 
-Display the scoring web service endpoint:
+Get the scoring web service's HTTP endpoint. This endpoint can be shared with anyone who wants to test the web service or integrate it into an application. 
 
 ```python
 print(service.scoring_uri)
@@ -269,12 +281,19 @@ print(service.scoring_uri)
 
 ## Test the deployed model
 
-Earlier you scored all the test data with the local version of the model.  Now you'll test the deployed model with a random sample of 30 images from the test data.  Send the data as a json array to the web service hosted in ACI. Here you use the `run` API in the SDK to invoke the service. You can also make raw HTTP calls using any HTTP tool such as curl.
+Earlier you scored all the test data with the local version of the model. Now, you can test the deployed model with a random sample of 30 images from the test data.  
 
-Print the returned predictions and plot them along with the input images. Use red font color and inverse image (white on black) to highlight the misclassified samples. 
+The following code goes through these steps:
+1. Send the data as a JSON array to the web service hosted in ACI. 
+
+1. Use the `run` API in the SDK to invoke the service. You can also make raw HTTP calls using any HTTP tool such as curl.
+
+1. Print the returned predictions and plot them along with the input images. 
+
+1. Use red font color and inverse image (white on black) to highlight the misclassified samples. 
 
 > [!NOTE]
-> Since the model accuracy is high, you might have to run the below cell a few times before you can see a misclassified sample.
+> Since the model accuracy is high, you might have to run the following code a few times before you can see a misclassified sample.
 
 ```python
 import json
@@ -315,14 +334,13 @@ Here is the result of one random sample of test images:
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
-
-### Delete ACI deployment
-If you would like to keep the resource group and workspace, you can delete just the ACI deployment with this delete API call:
+To keep the resource group and workspace for other tutorials and exploration, you can delete only the ACI deployment using this API call:
 
 ```python
 service.delete()
 ```
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 
 ## Next steps
@@ -336,6 +354,6 @@ In this Azure Machine Learning tutorial, you used Python to:
 > * Deploy the model to ACI
 > * Test the deployed model
 
-Now that you have a deployed model, find out how an application can [consume a deployed model web service](how-to-consume-web-services.md).
+Now that you have a deployed model, find out how an application can [consume a deployed web service](how-to-consume-web-services.md).
  
-You can also try out the [Automatic algorithm selection]() tutorial to see how Azure Machine Learning can automatically propose the best algorithm for your model and build that model for you.
+You can also try out the [Automatic algorithm selection]() tutorial to see how Azure Machine Learning can auto-select and tune the best algorithm for your model and build that model for you.
