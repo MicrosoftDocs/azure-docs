@@ -5,12 +5,12 @@
   items:
   - name: What is Azure Machine Learning?
     href: overview-what-is-azure-ml.md
-  - name: Choose a machine learning solution
-    href: overview-more-machine-learning.md    
   - name: What happened to Workbench?
     href: overview-what-happened-to-workbench.md
   - name: How to migrate
     href: how-to-migrate.md             
+  - name: Choose an ML solution
+    href: overview-more-machine-learning.md    
 - name: Quickstarts
   items:
   - name: Get started - Portal
@@ -19,11 +19,11 @@
     href: quickstart-get-started-with-cli.md   
 - name: Tutorials
   items:
-  - name: 'Train models: Part 1'
+  - name: '1. Train models'
     href: tutorial-train-models-with-aml.md
-  - name: 'Deploy models: Part 2'
+  - name: '2. Deploy models'
     href: tutorial-deploy-models-with-aml.md
-  - name: Automatic algorithm selection
+  - name: Auto-select and tune algorithms
 - name: Concepts   
   items: 
   - name: Architecture and terms
