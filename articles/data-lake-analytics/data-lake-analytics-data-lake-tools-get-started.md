@@ -4,6 +4,7 @@ description: Learn how to install Data Lake Tools for Visual Studio, and how to 
 services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.technology: vs-azure
+ms.custom: vs-azure
 ms.workload: azure-vs
 author: saveenr
 ms.author: saveenr

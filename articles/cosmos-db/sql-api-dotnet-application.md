@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
-ms.custom: devcenter
+ms.custom: devcenter, vs-azure
 
 
 ---
