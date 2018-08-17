@@ -24,7 +24,9 @@
     - name: Ruby
       href: quickstarts/ruby.md
   - name: SDKs
-    items:
+    items: 
+    - name: Samples overview
+      href: sdk.md 
     - name: C#
       href: web-search-sdk-quickstart.md
     - name: Java
