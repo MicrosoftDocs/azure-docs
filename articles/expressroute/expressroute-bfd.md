@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 
-ms.author: 
+ms.date: 8/17/2018
+ms.author: rambala
 
 ---
 # Configure BFD over ExpressRoute
