@@ -17,13 +17,10 @@ Ansible allows you to automate the deployment and configuration of resources in 
 
 ## Prerequisites
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- **Configure Ansible** - [Create Azure credentials and configure Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible and the Azure Python SDK modules** 
-  - [Cloud Shell](./ansible-run-playbook-in-cloudshell.md) from your browser
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
 - **Azure service principal** - When [creating the service principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal), note the following values: **appId**, **displayName**, **password**, and **tenant**.
+- **Configure Azure Cloud Shell** - If you are new to Azure Cloud Shell, the article, [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart), illustrates how to start and configure Cloud Shell. 
+or 
+- **Install and Configure Ansible** - Install Ansible on one of the following Linux platforms: [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts), or [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2). Then [Create Azure credentials and configure Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
 
 > [!Note]
 > Ansible 2.6 is required to run the following the sample playbooks in this tutorial. 
@@ -155,7 +152,7 @@ The following output shows that the AKS cluster has been successfully created:
   ```
 ## Delete a managed AKS cluster
 
-If you want to delete existing AKS cluster, the following sample Ansible playbook shows you how to delete it:
+The following sample Ansible playbook section illustrates how to delete an AKS cluster:
 
   ```yaml
   - name: Delete a managed Azure Container Services (AKS) cluster
@@ -193,4 +190,4 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
   
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Tutorial: Scale application in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-scale)
+> [Tutorial: Scale application in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)
