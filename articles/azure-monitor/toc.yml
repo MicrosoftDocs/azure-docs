@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Monitor?
     href: overview.md
+  - name: Branding changes
+    href: azure-monitor-rebrand.md
 - name: Quickstarts
   expanded: true
   items:
