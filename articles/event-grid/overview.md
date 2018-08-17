@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: overview
-ms.date: 06/01/2018
+ms.date: 08/17/2018
 ms.author: babanisa
 ---
 
@@ -27,9 +27,10 @@ Please note: this image shows how Event Grid connects sources and handlers, and 
 
 ## Event sources
 
-For full details on the capabilities of each source as well as related articles, see [event sources](./event-sources.md). Currently, the following Azure services support sending events to Event Grid:
+For full details on the capabilities of each source as well as related articles, see [event sources](event-sources.md). Currently, the following Azure services support sending events to Event Grid:
 
 * Azure Subscriptions (management operations)
+* Container Registry
 * Custom Topics
 * Event Hubs
 * IoT Hub
@@ -41,7 +42,7 @@ For full details on the capabilities of each source as well as related articles,
 
 ## Event handlers
 
-For full details on the capabilities of each handler as well as related articles, see [event handlers](./event-handlers.md)Currently, the following Azure services support handling events from Event Grid: 
+For full details on the capabilities of each handler as well as related articles, see [event handlers](event-handlers.md). Currently, the following Azure services support handling events from Event Grid: 
 
 * Azure Automation
 * Azure Functions
