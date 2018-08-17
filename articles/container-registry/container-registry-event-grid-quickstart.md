@@ -18,17 +18,19 @@ ms.author: marsma
 
 Azure Event Grid is a fully managed event routing service that provides uniform event consumption using a publish-subscribe model. In this quickstart, you use the Azure CLI to create a container registry, subscribe to registry events, then deploy a sample web application to receive the events. Finally, you trigger container image `push` and `delete` events and view the event payload in the sample application.
 
-After you complete the steps in this article, you can view events sent from your container registry to Event Grid in the sample web app:
+After you complete the steps in this article, events sent from your container registry to Event Grid appear in the sample web app:
 
 ![Web browser rendering the sample web application with three received events][sample-app-01]
 
-The Azure CLI commands in this article are formatted for the Bash shell. If you're using a different shell like PowerShell or Command Prompt, you may need to adjust line continuation characters or variable assignment lines accordingly. This article uses environment variables to minimize the amount of command editing required.
-
 If you don't have an Azure subscription, create a [free account][azure-account] before you begin.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+The Azure CLI commands in this article are formatted for the **Bash** shell. If you're using a different shell like PowerShell or Command Prompt, you may need to adjust line continuation characters or variable assignment lines accordingly. This article uses variables to minimize the amount of command editing required.
 
 ## Create a resource group
 
-An Azure resource group is a logical container in which you deploy and manage your Azure resources. The following [az group create][az-group-create] command creates a resource group named *myResourceGroup* in the *eastus* region. If you want to use a different name for your resource group, modify the `RESOURCE_GROUP_NAME` value.
+An Azure resource group is a logical container in which you deploy and manage your Azure resources. The following [az group create][az-group-create] command creates a resource group named *myResourceGroup* in the *eastus* region. If you want to use a different name for your resource group, set `RESOURCE_GROUP_NAME` to a different value.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -38,7 +40,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a container registry
 
-Next, deploy a container registry into the resource group with the following commands. Before you run the [az acr create][az-acr-create] command, change `<acrName>` to a name for your registry that's unique within Azure. The name is restricted to 5-50 alphanumeric characters.
+Next, deploy a container registry into the resource group with the following commands. Before you run the [az acr create][az-acr-create] command, set `ACR_NAME` to a name for your registry. The name must be unique within Azure, and is restricted to 5-50 alphanumeric characters.
 
 ```azurecli-interactive
 ACR_NAME=<acrName>
@@ -74,8 +76,8 @@ Once the registry has been created, the Azure CLI returns output similar to the 
 
 In this section, you use a Resource Manager template located in a GitHub repository to deploy a pre-built sample web application to Azure App Service. Later, you subscribe to your registry's Event Grid events and specify this app as the endpoint to which the events are sent.
 
-To deploy the sample app, update `<your-site-name>` with a unique name for your web app, and execute the following commands. The site name must be unique within Azure because it forms part of the fully qualified domain name (FQDN) of the web app. In a later section, you navigate to the app's FQDN in a web browser to view your registry's events.
-
+To deploy the sample app, set `SITE_NAME` to a unique name for your web app, and execute the following commands. The site name must be unique within Azure because it forms part of the fully qualified domain name (FQDN) of the web app. In a later section, you navigate to the app's FQDN in a web browser to view your registry's events.
+`
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
 
@@ -97,7 +99,7 @@ You should see the sample app rendered with no event messages displayed:
 
 ## Subscribe to registry events
 
-In Event Grid, you subscribe to a **topic** to tell it which events you want to track, and where to send them. The following [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] command subscribes to the container registry you created, and specifies your web app's URL as the endpoint to which it should send events. The environment variables you populated in earlier sections are reused here, so no edits are required.
+In Event Grid, you subscribe to a *topic* to tell it which events you want to track, and where to send them. The following [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] command subscribes to the container registry you created, and specifies your web app's URL as the endpoint to which it should send events. The environment variables you populated in earlier sections are reused here, so no edits are required.
 
 ```azurecli-interactive
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
@@ -107,6 +109,34 @@ az eventgrid event-subscription create \
     --name event-sub-acr \
     --resource-id $ACR_REGISTRY_ID \
     --endpoint $APP_ENDPOINT
+```
+
+When the subscription is completed, you should output similar to the following:
+
+```console
+
+{
+  "destination": {
+    "endpointBaseUrl": "https://eventgridviewer.azurewebsites.net/api/updates",
+    "endpointType": "WebHook",
+    "endpointUrl": null
+  },
+  "filter": {
+    "includedEventTypes": [
+      "All"
+    ],
+    "isSubjectCaseSensitive": null,
+    "subjectBeginsWith": "",
+    "subjectEndsWith": ""
+  },
+  "id": "/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myregistry/providers/Microsoft.EventGrid/eventSubscriptions/event-sub-acr",
+  "labels": null,
+  "name": "event-sub-acr",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "topic": "/subscriptions/<Subscription ID>/resourceGroups/myresourcegroup/providers/microsoft.containerregistry/registries/myregistry",
+  "type": "Microsoft.EventGrid/eventSubscriptions"
+}
 ```
 
 ## Trigger registry events
@@ -171,13 +201,13 @@ Are you sure you want to continue? (y/n): y
 
 ## View registry events
 
-You've now pushed an image to your registry and then deleted it. Navigate to your Event Grid Viewer web app, and you should see several events. One is the subscription event generated by executing the command in the [Subscribe to registry events](#subscribe-to-registry-events) section. There should also be both an `ImageDeleted` event and an `ImagePushed` event.
+You've now pushed an image to your registry and then deleted it. Navigate to your Event Grid Viewer web app, and you should see both `ImageDeleted` and `ImagePushed` events. You might also see a subscription validation event generated by executing the command in the [Subscribe to registry events](#subscribe-to-registry-events) section.
 
 The following screenshot shows the sample app with the three events, and the `ImageDeleted` event is expanded to show its details.
 
 ![Web browser showing the sample app with ImagePushed and ImageDeleted events][sample-app-03]
 
-Congratulations! You've deployed a container registry, built an image with ACR Build, deleted it, and have consumed your registry's events from Event Grid with a sample application.
+Congratulations! If you see the `ImagePushed` and `ImageDeleted` events, your registry is sending events to Event Grid, and Event Grid is forwarding those events to your web app endpoint.
 
 ## Clean up resources
 
@@ -189,13 +219,18 @@ Once you're done with the resources you created in this quickstart, you can dele
 az group delete $RESOURCE_GROUP_NAME
 ```
 
-## Next steps
+## Event Grid event schema
 
-### Event Grid event schema
-
-You can find the event message schema referenced in the Event Grid documentation:
+You can find the Azure Container Registry event message schema reference in the Event Grid documentation:
 
 [Azure Event Grid event schema for Container Registry](../event-grid/event-schema-container-registry.md)
+
+## Next steps
+
+In this quickstart, you deployed a container registry, built an image with ACR Build, deleted it, and have consumed your registry's events from Event Grid with a sample application. Next, move on to the ACR Build tutorial to learn more about building container images in the cloud, including automated builds on base image update:
+
+> [!div class="nextstepaction"]
+> [Build container images in the cloud with ACR Build](container-registry-tutorial-quick-build.md)
 
 <!-- IMAGES -->
 [sample-app-01]: ./media/container-registry-event-grid-quickstart/sample-app-01.png
