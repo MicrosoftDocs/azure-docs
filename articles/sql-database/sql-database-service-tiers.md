@@ -6,22 +6,18 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 08/17/2018
 manager: craigg
 ms.author: carlrab
 
 ---
 # Azure SQL Database purchasing models and resources 
 
-Logical servers in [Azure SQL Database](sql-database-technical-overview.md) offers two purchasing models for compute, storage, and IO resources: a DTU-based purchasing model and a vCore-based purchasing model. 
-
-> [!NOTE]
-> [Managed Instances](sql-database-managed-instance.md) in Azure SQL Database only offer the vCore-based purchasing model.
+Azure SQL Database enables you to easily purchase fully managed PaaS database engine that fits your performance and cost needs. Depending on the deployment model of Azure SQL Database, you can select purchasing model that fits your needs: 
+ - [Logical servers](sql-database-logical-servers.md) in [Azure SQL Database](sql-database-technical-overview.md) offers two purchasing models for compute, storage, and IO resources: a DTU-based purchasing model and a [vCore-based purchasing model](sql-database-service-tiers-vcore.md). 
+ - [Managed Instances](sql-database-managed-instance.md) in Azure SQL Database only offer the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
 The following table and chart compare and contrast these two purchasing models.
-
-> [!IMPORTANT]
-> For vCore-based purchasing model, see [vCore-based purchasing model](sql-database-service-tiers-vcore.md)
 
 |**Purchasing model**|**Description**|**Best for**|
 |---|---|---|
@@ -154,18 +150,6 @@ The pacing delay (in step 2c) is selected at random, but with a distribution tha
 The number of users is determined by the database size (in scale-factor units). There is one user for every five scale-factor units. Because of the pacing delay, one user can generate at most one transaction per second, on average.
 
 For example, a scale-factor of 500 (SF=500) database will have 100 users and can achieve a maximum rate of 100 TPS. To drive a higher TPS rate requires more users and a larger database.
-
-The table below shows the number of users actually sustained for each service tier and performance level.
-
-| Service Tier (Performance Level) | Users | Database Size |
-| --- | --- | --- |
-| Basic |5 |720 MB |
-| Standard (S0) |10 |1 GB |
-| Standard (S1) |20 |2.1 GB |
-| Standard (S2) |50 |7.1 GB |
-| Premium (P1) |100 |14 GB |
-| Premium (P2) |200 |28 GB |
-| Premium (P6) |800 |114 GB |
 
 ### Measurement duration
 A valid benchmark run requires a steady-state measurement duration of at least one hour.

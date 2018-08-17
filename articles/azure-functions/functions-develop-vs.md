@@ -8,7 +8,9 @@ manager: cfowler
 editor: ''
 
 ms.service: functions
-ms.workload: na
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article

@@ -67,11 +67,11 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- TBD | ASDK, IS --> Various improvements were made to the update process to make it more reliable. In addition, fixes have been made to underlying infrastructure, which improves node drain, thereby minimizing potential downtime for workloads during the update.
 
--	<!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions.  Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a tenant subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
+-	<!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions.  Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a user subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
 
 - <!-- 2448955 | IS ASDK --> You can now successfully query activity logs for systems that are deployed in a UTC+N time zone.    
 
-- <!-- 2319627 |  ASDK, IS --> Pre-check for backup configuration parameters (Path/Username/Password/Encryption Key) no longer sets incorrect settings to the backup configuration. (Previously, incorrect settings were set into the backup and backup would would then fail when tirggered.)
+- <!-- 2319627 |  ASDK, IS --> Pre-check for backup configuration parameters (Path/Username/Password/Encryption Key) no longer sets incorrect settings to the backup configuration. (Previously, incorrect settings were set into the backup and backup would then fail when triggered.)
 
 - <!-- 2215948 |  ASDK, IS --> The backup list now refreshes when you manually delete the backup from the external share.
 
@@ -110,7 +110,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- TBD -  IS ASDK --> You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
 
-- <!--  TBD | ASDK -->  The default time zone for your Azure Stack deployment will now get set to UTC. You can select a time zone when installing Azure Stack, however it will automatically revert to UTC as the default during installion.
+- <!--  TBD | ASDK -->  The default time zone for your Azure Stack deployment will now get set to UTC. You can select a time zone when installing Azure Stack, however it will automatically revert to UTC as the default during installation.
 
 #### Health and monitoring
 - <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
