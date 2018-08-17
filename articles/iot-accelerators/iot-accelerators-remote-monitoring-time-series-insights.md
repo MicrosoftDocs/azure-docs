@@ -43,7 +43,7 @@ Azure Time Series Insights is a fully managed analytics, storage, and visualizat
 
 1. Select **Create a resource** > **Internet of Things** > **Time Series Insights**.
 
-    ![New Time Series Insights](./media/iot-accelerators-time-series-insights/new-time-series-insights.png)
+    ![New Time Series Insights](./media/iot-accelerators-remote-monitoring-time-series-insights/new-time-series-insights.png)
 
 1. To create your Time Series Insights environment, use the values in the following table:
 
@@ -57,7 +57,7 @@ Azure Time Series Insights is a fully managed analytics, storage, and visualizat
     | Capacity | **1** |
     | Pin to dashboard | **Yes** |
 
-    ![Create Time Series Insights](./media/iot-accelerators-time-series-insights/new-time-series-insights-create.png)
+    ![Create Time Series Insights](./media/iot-accelerators-remote-monitoring-time-series-insights/new-time-series-insights-create.png)
 
 1. Click **Create**. It can take a moment for the environment to be created.
 
@@ -69,11 +69,11 @@ Create a new Event Source to connect to your IoT hub. Make sure that you use the
 
 1. On the left, select **Event Sources**.
 
-    ![View Event Sources](./media/iot-accelerators-time-series-insights/time-series-insights-event-sources.png)
+    ![View Event Sources](./media/iot-accelerators-remote-monitoring-time-series-insights/time-series-insights-event-sources.png)
 
 1. Click **Add**.
 
-    ![Add Event Source](./media/iot-accelerators-time-series-insights/time-series-insights-event-sources-add.png)
+    ![Add Event Source](./media/iot-accelerators-remote-monitoring-time-series-insights/time-series-insights-event-sources-add.png)
 
 1. To configure your IoT hub as a new event source, use the values in the following table:
 
@@ -89,7 +89,7 @@ Create a new Event Source to connect to your IoT hub. Make sure that you use the
     | Iot hub consumer group | **timeseriesinsights** |
     | Event serialization format | **JSON**     | Timestamp property name | Leave blank |
 
-    ![Create Event Source](./media/iot-accelerators-time-series-insights/time-series-insights-event-source-create.png)
+    ![Create Event Source](./media/iot-accelerators-remote-monitoring-time-series-insights/time-series-insights-event-source-create.png)
 
 1. Click **Create**.
 
@@ -104,39 +104,39 @@ The Time Series Insights explorer is a web app that helps you create visualizati
 
 1. Click **Go To Environment**, which will open the Time Series Insights explorer web app.
 
-    ![Time Series Insights Explorer](./media/iot-accelerators-time-series-insights/time-series-insights-environment.png)
+    ![Time Series Insights Explorer](./media/iot-accelerators-remote-monitoring-time-series-insights/time-series-insights-environment.png)
 
 1. In the time selection panel, select **Last 12 Hours** from the quick times menu and click **Search**.
 
-    ![Time Series Insights Explorer Search](./media/iot-accelerators-time-series-insights/time-series-insights-search-time.png)
+    ![Time Series Insights Explorer Search](./media/iot-accelerators-remote-monitoring-time-series-insights/time-series-insights-search-time.png)
 
 1. In the terms panel on the left, select a Measure value of **temperature** and a Split By value of **iothub-connection-device-id**.
 
-    ![Time Series Insights Explorer Query](./media/iot-accelerators-time-series-insights/time-series-insights-query1.png)
+    ![Time Series Insights Explorer Query](./media/iot-accelerators-remote-monitoring-time-series-insights/time-series-insights-query1.png)
 
 1. Right-click on the chart and select **Explore events**.
 
-    ![Time Series Insights Explorer Events](./media/iot-accelerators-time-series-insights/time-series-insights-explore-events.png)
+    ![Time Series Insights Explorer Events](./media/iot-accelerators-remote-monitoring-time-series-insights/time-series-insights-explore-events.png)
 
 1. The events are rendered in the grid in tabular format.
 
-    ![Time Series Insights Explorer Table](./media/iot-accelerators-time-series-insights/time-series-insights-table.png)
+    ![Time Series Insights Explorer Table](./media/iot-accelerators-remote-monitoring-time-series-insights/time-series-insights-table.png)
 
 1. Click the perspective view button.
 
-    ![Time Series Insights Explorer Perspective](./media/iot-accelerators-time-series-insights/time-series-insights-explorer-perspective.png)
+    ![Time Series Insights Explorer Perspective](./media/iot-accelerators-remote-monitoring-time-series-insights/time-series-insights-explorer-perspective.png)
 
 1. Click **Add** to create a new query in the perspective.
 
-    ![Time Series Insights Explorer Add Query](./media/iot-accelerators-time-series-insights/time-series-insights-new-query.png)
+    ![Time Series Insights Explorer Add Query](./media/iot-accelerators-remote-monitoring-time-series-insights/time-series-insights-new-query.png)
 
 1. Select a quick time of **Last 12 Hours**, a Measure of **Humidity** and a Split By of **iothub-connection-device-id**.
 
-    ![Time Series Insights Explorer Query](./media/iot-accelerators-time-series-insights/time-series-insights-query2.png)
+    ![Time Series Insights Explorer Query](./media/iot-accelerators-remote-monitoring-time-series-insights/time-series-insights-query2.png)
 
 1. Click the perspective view button to view your dashboard of device metrics.
 
-    ![Time Series Insights Explorer Dashboard](./media/iot-accelerators-time-series-insights/time-series-insights-dashboard.png)
+    ![Time Series Insights Explorer Dashboard](./media/iot-accelerators-remote-monitoring-time-series-insights/time-series-insights-dashboard.png)
 
 ## Next Steps
 
