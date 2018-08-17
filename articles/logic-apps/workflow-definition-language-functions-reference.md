@@ -137,15 +137,15 @@ and sometimes, dictionaries, you can use these collection functions.
 
 <a name="comparison-functions"></a>
 
-## Comparison functions
+## Logical comparison functions
 
 To work with conditions, compare values and expression results, 
-or evaluate various kinds of logic, you can use these comparison functions. 
+or evaluate various kinds of logic, you can use these logical comparison functions. 
 For the full reference about each function, see the 
 [alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
 
-| Comparison function | Task | 
-| ------------------- | ---- | 
+| Logical comparison function | Task | 
+| --------------------------- | ---- | 
 | [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Check whether all expressions are true. | 
 | [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Check whether both values are equivalent. | 
 | [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Check whether the first value is greater than the second value. | 
@@ -308,7 +308,7 @@ For the full reference about each function, see the
 
 <a name="manipulation-functions"></a>
 
-## JSON and XML functions
+## Manipulation functions: JSON & XML
 
 To work with JSON objects and XML nodes, you can use these manipulation functions. 
 For the full reference about each function, see the 
