@@ -17,11 +17,14 @@ ms.date: 06/22/2017
 ms.author: aljo
 
 ---
+# Read before you scale
+Scaling compute resources to source your application work load requires intentional planning, will nearly always take longer than an hour to complete for a production environment, and does require you to understand your workload and business context; in fact if you have never done this activity before, it's recommended you start by reading and understanding [Service Fabric cluster capacity planning considerations](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity), before continuing the remainder of this document. This recommendation is to avoid unintended LiveSite issues, and it's also recommended you successfully test the operations you decide to perform against a non-production environment. At any time you can [report production issues or request paid support for Azure](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure). For engineers allocated to perform these operations that possess appropriate context, this article will describe scaling operations, but you must decide and understand which operations are appropriate for your use case; such as what resources to scale (CPU, Storage, Memory), what direction to scale (Vertically or Horizontally), and what operations to perform (Resource Template deployment, Portal, PowerShell/CLI).
+
 # Scale a Service Fabric cluster in or out using auto-scale rules or manually
 Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is set up as a separate virtual machine scale set. Each node type can then be scaled in or out independently, have different sets of ports open, and can have different capacity metrics. Read more about it in the [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document. Since the Service Fabric node types in your cluster are made of virtual machine scale sets at the backend, you need to set up auto-scale rules for each node type/Virtual Machine scale set.
 
 > [!NOTE]
-> Your subscription must have enough cores to add the new VMs that make up this cluster. There is no model validation currently, so you get a deployment time failure, if any of the quota limits are hit.
+> Your subscription must have enough cores to add the new VMs that make up this cluster. There is no model validation currently, so you get a deployment time failure, if any of the quota limits are hit. Also a single node type can not simply exceed 100 nodes per VMSS. You may need to add VMSS's to achieve the targeted scale, and auto-scaling can not automagically add VMSS's. Adding VMSS's in-place to a live cluster is a challenging task, and commonly this results in users provisioning new clusters with the appropriate node types provisioned at creation time; [plan cluster capacity](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity) accordingly. 
 > 
 > 
 
