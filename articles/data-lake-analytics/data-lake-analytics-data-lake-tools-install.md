@@ -4,6 +4,7 @@ description: This article describes how to install Azure Data Lake Tools for Vis
 services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.technology: vs-azure
+ms.custom: vs-azure
 ms.workload: azure-vs
 author: saveenr
 ms.author: saveenr

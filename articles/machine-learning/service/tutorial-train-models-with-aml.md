@@ -16,7 +16,7 @@ ms.date: 09/24/2018
 
 # Tutorial #1: Train an image classification model with Azure Machine Learning
 
-In this tutorial, you will train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview).  This tutorial is **part one of a two-part tutorial series**.  
+In this tutorial, you train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview).  This tutorial is **part one of a two-part tutorial series**.  
 
 You'll learn how to:
 
@@ -42,7 +42,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    - A package manager, such as [Continuum Anaconda](https://anaconda.org/anaconda/continuum-docs) or [Miniconda](https://conda.io/miniconda.html), installed
    - The Azure Machine Learning SDK for Python installed
    - An Azure Machine Learning workspace.  
-   - A `config.json` file, that contains Azure subscription information for the workspace. This file is located in a directory named `aml_config`.  
+   - A `config.json` file, that specifies Azure subscription information for the workspace. This file is located in a directory named `aml_config`.  
 
    If these are not yet created or installed, follow the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) article.
 
@@ -54,18 +54,17 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 1. The file [utils.py](https://aka.ms/aml-file-utils-py) downloaded into the same directory as `aml_config`.
 
-## Get the sample notebook
-
-To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-train) into the same directory as `aml_config` and `utils.py`. See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
+> [!TIP]
+> (Optional) To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-train) into the same directory as `aml_config` and `utils.py`. See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
 
 ## Set up your development environment
 
-All the setup for your development work can be accomplished in a Python notebook. You will:
+All the setup for your development work can be accomplished in a Python notebook.  Setup includes:
 
-* Import Python packages
-* Configure a workspace to enable communication between your local computer and remote resources
-* Create a directory to store training scripts
-* Create a remote compute target to use for training
+* Importing Python packages
+* Configuring a workspace to enable communication between your local computer and remote resources
+* Creating a directory to store training scripts
+* Creating a remote compute target to use for training
 
 ### Import packages
 
@@ -86,7 +85,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### Load workspace
 
-Create a workspace object from the existing workspace. When the workspace was created, you saved a file into `aml_config\config.json`. `Workspace.from_config()` will read this file and load the workspace into an object named `ws`.  You'll use `ws` throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. When the workspace was created, you saved a file into `aml_config\config.json`. `Workspace.from_config()` reads this file and load the workspace into an object named `ws`.  You'll use `ws` throughout the rest of the code in this tutorial.
 
 ```python
 ws = Workspace.from_config()
@@ -95,7 +94,7 @@ print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 
 ### Create directory
 
-Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace.  This directory is the one that will be used to deliver the necessary code from your computer to the cloud later in this tutorial. The history of all runs will be recorded under the specified run history.
+Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace.  This directory is the one that is used to deliver the necessary code from your computer to the cloud later in this tutorial. The history of all runs is recorded under the specified run history.
 
 
 ```python
@@ -108,10 +107,10 @@ proj.get_details()
 
 ### Create remote compute target
 
-Azure Batch AI Cluster is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you will create an Azure Batch AI cluster as your training environment. This code will create a cluster for you if it does not already exist in your workspace. 
+Azure Batch AI Cluster is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you create an Azure Batch AI cluster as your training environment. This code creates a cluster for you if it does not already exist in your workspace. 
 
 > [!IMPORTANT]
-> **Creation of the cluster will take approximately 5 minutes.** If the cluster is already in the workspace this code uses it and skips the creation process.
+> **Creation of the cluster takes approximately 5 minutes.** If the cluster is already in the workspace this code uses it and skips the creation process.
 
 
 ```python
@@ -119,34 +118,35 @@ from azureml.core.compute import ComputeTarget, BatchAiCompute
 from azureml.core.compute_target import ComputeTargetException
 
 # choose a name for your cluster
-batchai_cluster_name = "gpucluster2"
+batchai_cluster_name = "traincluster"
 
 try:
     compute_target = ComputeTarget(workspace = ws, name = batchai_cluster_name)
     print('found compute target. just use it.')
 except ComputeTargetException:
     print('creating a new compute target...')
-    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_NC6", # NC6 is GPU-enabled
+    compute_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2", 
                                                                 #vm_priority = 'lowpriority', # optional
                                                                 autoscale_enabled = True,
-                                                                cluster_min_nodes = 1, 
+                                                                cluster_min_nodes = 0, 
                                                                 cluster_max_nodes = 4)
 
     # create the cluster
-    compute_target = ComputeTarget.create(ws, batchai_cluster_name, provisioning_config)
+    compute_target = ComputeTarget.create(ws, batchai_cluster_name, compute_config)
     
     # can poll for a minimum number of nodes and for a specific timeout. 
-    # if no min node count is provided it will use the scale settings for the cluster
+    # if no min node count is provided it uses the scale settings for the cluster
     compute_target.wait_for_provisioning(show_output = True, min_node_count = None, timeout_in_minutes = 20)
     
-     # For a more detailed view of current Batch AI cluster status, use the 'status' property    
+    # Use the 'status' property to get a detailed status for the current cluster. 
     print(compute_target.status.serialize())
 ```
+
 You now have the necessary packages and compute resources to train a model in the cloud. 
 
 ## Explore data
 
-Before you train a model, you need to understand the data that you are using to train it.  You also need to copy the data into the cloud so it can be accessed by your cloud training environment.  In this section you will:
+Before you train a model, you need to understand the data that you are using to train it.  You also need to copy the data into the cloud so it can be accessed by your cloud training environment.  In this section you learn how to:
 
 * Download the MNIST dataset
 * Display some sample images
@@ -154,7 +154,7 @@ Before you train a model, you need to understand the data that you are using to 
 
 ### Download the MNIST dataset
 
-Download the MNIST dataset and save them in a `data` directory locally.  Both training and testing images and labels are downloaded.  
+Download the MNIST dataset and save them in a `data` directory locally.  Images and labels for both training and testing are downloaded.  
 
 
 ```python
@@ -176,6 +176,7 @@ Load the compressed files into `numpy` arrays. Then use `matplotlib` to plot 30 
 
 
 ```python
+# make sure utils.py is in the same directory as this code
 from utils import load_data
 
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the model converge faster.
@@ -247,14 +248,14 @@ With almost no effort, you have a 92% accuracy.
 
 Now you can expand on this simple model by building multiple versions of the model with different regularization rates.  
 
-For this task, submit the job to the Batch AI cluster you set up earlier.  To submit a job you will:
+For this task, submit the job to the Batch AI cluster you set up earlier.  To submit a job you:
 * Create a training script
 * Create an estimator
 * Submit the job 
 
 ### Create a training script
 
-To submit the job to the cluster, you need to create a training script. Run the following code to create the training script called `train.py` in a place the workspace can find it.
+To submit the job to the cluster, you need to create a training script. Run the following code to create the training script called `train.py` in a place the workspace can find it. This training adds a regularization rate to the training algorithm, so produces a slightly different model than the local version.
 
 ```python
 %%writefile $proj.project_directory/train.py
@@ -310,6 +311,7 @@ os.makedirs('outputs', exist_ok = True)
 joblib.dump(value = clf, filename = 'outputs/sklearn_mnist_model.pkl')
 ```
 
+
 Notice how the script gets data and saves models:
 
 + The training script reads an argument to find the directory containing the data.  When you submit the job later, you point to the datastore for this argument:
@@ -323,7 +325,6 @@ Notice how the script gets data and saves models:
     ```Python
     joblib.dump(value = clf, filename = 'outputs/sklearn_mnist_model.pkl')
     ```
-
 
 You also need to copy the utility library that loads the dataset into the project directory.
 
@@ -349,7 +350,7 @@ from azureml.train.estimator import Estimator
 
 script_params = {
     '--data-folder': ds.as_mount(),
-    '--regularization': 0.01
+    '--regularization': 0.8
 }
 
 est = Estimator(project = proj,
@@ -372,8 +373,6 @@ run = est.fit()
 print(run.get_details().status)
 ```
 
-    Running
-
 Since the call is asynchronous, it returns a **running** state as soon as the job is started.
 
 Now, we need to wait for the training to complete.
@@ -393,10 +392,10 @@ Each run goes through the following stages:
 - **Post-Processing**: The ./outputs directory of the run is copied over to the run history in your workspace so you can access these results.
 
 > [!IMPORTANT]
-> In total, the first run will take **approximately 10 minutes**. But for subsequent runs, as long as the script dependencies don't change, the same image will be reused and hence the container start up time is much faster.
+> In total, the first run takes **approximately 10 minutes**. But for subsequent runs, as long as the script dependencies don't change, the same image is reused and hence the container start up time is much faster.
 
 
-There are multiple ways to check the progress of a running job. This tutorial will use a Jupyter widget as well as a `wait_for_completion` method. 
+There are multiple ways to check the progress of a running job. This tutorial uses a Jupyter widget as well as a `wait_for_completion` method. 
 
 ### Jupyter widget
 
@@ -421,125 +420,26 @@ Model training and monitoring happen in the background. Wait until the model has
 run.wait_for_completion(show_output = False) # specify True for a verbose log
 ```
 
-## Submit multiple training jobs
+### Display run results
 
-You can introduce a regularization rate to prevent the overfitting of the model to the training sample. You can start several experiments using different values for each run.
+You now have a model trained on a the BatchAI cluster.  You can retrieve metrics about the model:
 
 ```python
-# try a few different regularization rates
-regs = [0.02, 0.05, 0.1, 0.5, 1]
-runs = []
-
-for reg in regs:
-    script_params = {
-    '--data-folder': ds.as_mount(),
-    '--regularization': reg
-    }
-
-    est = Estimator(project = proj,
-                script_params = script_params,
-                compute_target = compute_target,
-                entry_script = 'train.py',
-                conda_packages = ['scikit-learn'])
-    print("Start a job to train model with regularizaion rate of", reg)
-    runs.append(est.fit())
+print(run.get_metrics())
 ```
 
-    Start a job to train model with regularizaion rate of 0.02
-    Start a job to train model with regularizaion rate of 0.05
-    Start a job to train model with regularizaion rate of 0.1
-    Start a job to train model with regularizaion rate of 0.5
-    Start a job to train model with regularizaion rate of 1
+    0.9204
+
     
 
-Since the cluster was created when you submitted the first run, these new jobs start immediately. However, training itself still takes time.  Wait until they are all complete:
+## Register model
 
-> [!IMPORTANT]
-> Training takes approximately 10-15 minutes to complete.
-
-
-```python
-%%time
-for r in runs:
-    r.wait_for_completion(show_output=False) # or you can set to True
-```
-
-## Get results for each run
-
-Once the run is complete, loop through all the jobs to get results for each run.
+The last step in the training script wrote the file `outputs/sklearn_mnist_model.pkl`.  Since all content in the `outputs` directory is automatically uploaded to your workspace, the model file is now also available in your workspace. 
+Registering the model in the workspace allows you (or other collaborators) later to query, examine, and deploy this model.
 
 ```python
-from azureml.core import History
-history = History(ws, history_name)
-metrics = {}
-
-for r in history.get_runs():
-    run_status = r.get_details().status
-    
-    print(r.id, run_status)
-    if run_status == 'Completed':
-        m = r.get_metrics()
-        if 'regularization rate' in m.keys():
-            metrics[r.id] = (m['regularization rate'], m['accuracy'])
-            print(m)
-```
-
-## Evaluate and register a model
-
-For each model trained with different regularization rates, you can inspect how well it performed. The model performance can help you choose the best model for you.
-
-### Plot accuracy over regularization rate
-
-Compare accuracy across the models. Retrieve the logged metrics. Then, use `matplotlib` to examine accuracy and regularization rates.
-
-
-```python
-acc_reg = np.array([(metrics[k][0], metrics[k][1]) for k in metrics.keys()])
-sorted_acc_reg = acc_reg[acc_reg[:,0].argsort()]
-
-plt.plot(sorted_acc_reg[:,0], sorted_acc_reg[:,1], 'r--')
-plt.plot(sorted_acc_reg[:,0], sorted_acc_reg[:,1], 'bo')
-
-plt.xlabel('regularization rate', fontsize = 14)
-plt.ylabel('accuracy', fontsize = 14)
-plt.title('Accuracy over Regularization Rates', fontsize = 16)
-
-plt.show()
-```
-
-![accuracy plot](./media/tutorial-train-models-with-aml/accuracy.png)
-
-By looking at this plot, you can see that:
-* Lower regularization rates lead to worse accuracy
-* The best model is the one with a regularization rate of 1.0
-
-Find the ID for the model with the highest accuracy value.  
-
-
-```python
-# find the run with the highest accuracy value.
-best_run_id = max(metrics, key = lambda k: metrics[k][1])
-print(best_run_id)
-```
-
-### Register the best model 
-
-With the run ID, you can reconstruct the run history record in an object best_run, and access all its properties and functions, including the `register_model` function. 
-
-Note the model_path specifies the path to the directory in the run history record where all model files are stored.
-
-```python
-# load the best run
-best_run = Run(workspace = ws, history_name = history_name, run_id = best_run_id)
-print('Best run metrics:', best_run.get_metrics())
-print('\n'.join(best_run.get_file_names()))
-```
-
-You can then register the model in the Model Registry of the workspace, so you (or other collaborators) later can query, examine, and deploy this model.
-
-```python
-# register model from the best run
-model = best_run.register_model(model_name = 'sklearn_mnist', model_path = 'outputs/sklearn_mnist_model.pkl')
+# register model 
+model = run.register_model(model_name = 'sklearn_mnist', model_path = 'outputs/sklearn_mnist_model.pkl')
 print(model.name, model.id, model.version, sep = '\t')
 ```
 

@@ -34,9 +34,8 @@ ACI is not ideal for production deployments, but it is great for testing and und
 
 Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning](https://aka.ms/aml-notebook-train-model) notebook.  
 
-## Get the sample notebook
-
-To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-deploy) into the same directory as `aml_config` and `utils.py`.  See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
+> [!TIP]
+> (Optional) To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-deploy) into the same directory as `aml_config` and `utils.py`.  See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
 
 
 ## Set up the environment
@@ -62,7 +61,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### Retrieve the model
 
-You registered the best model in the workspace in the previous tutorial. Now, load this workspace and download the model to your local directory.
+You registered a model in your workspace in the previous tutorial. Now, load this workspace and download the model to your local directory.
 
 
 ```python
@@ -122,17 +121,17 @@ print(conf_mx)
 print('Overall accuracy:', np.average(y_hat == y_test))
 ```
 
-    [[ 960    0    1    2    0    5    6    3    1    2]
+    [[ 960    0    1    2    1    5    6    3    1    1]
      [   0 1112    3    1    0    1    5    1   12    0]
-     [   8    8  920   20    9    5   10   11   37    4]
-     [   4    0   17  919    2   22    4   12   21    9]
-     [   1    2    5    3  914    0   10    2    7   38]
-     [  10    2    0   42   10  769   17    7   28    7]
+     [   9    8  920   20   10    4   10   11   37    3]
+     [   4    0   17  921    2   21    4   12   20    9]
+     [   1    2    5    3  915    0   10    2    6   38]
+     [  10    2    0   41   10  770   17    7   28    7]
      [   9    3    7    2    6   20  907    1    3    0]
      [   2    7   22    5    8    1    1  950    5   27]
-     [  10   14    5   21   14   27    7   11  853   12]
-     [   8    8    2   13   31   14    0   24   12  897]]
-    Overall accuracy: 0.9201
+     [  10   15    5   21   15   27    7   11  851   12]
+     [   7    8    2   13   32   13    0   24   12  898]]
+    Overall accuracy: 0.9204
     
 
 Use `matplotlib` to display the confusion matrix as a graph. In this graph, the X axis represents the actual values, and the Y axis represents the predicted values. The color in each grid represents the error rate. The lighter the color, the higher the error rate is. For example, many 5's are mis-classified as 3's. Hence you see a bright grid at (5,3).
@@ -254,6 +253,7 @@ Once your environment is set up, you can deploy. The following code goes through
 from azureml.core.webservice import Webservice
 from azureml.core.image import ContainerImage
 
+# configure the image
 image_config = ContainerImage.image_configuration(execution_script = "score.py", 
                                                   runtime = "python", 
                                                   conda_file = "myenv.yml")
