@@ -18,7 +18,7 @@ For more information on Kubernetes persistent volumes, including static creation
 
 ## Create storage account
 
-When dynamically creating an Azure file share as a Kubernetes volume, any storage account can be used as long as it is in the AKS **node** resource group. This is the one with the `MC_` prefix that was created by the provisioning of the resources for the AKS cluster. Get the resource group name with the [az aks show][az-aks-show] command.
+When dynamically creating an Azure file share as a Kubernetes volume, any storage account can be used as long as it is in the AKS **node** resource group. This group is the one with the *MC_* prefix that was created by the provisioning of the resources for the AKS cluster. Get the resource group name with the [az aks show][az-aks-show] command.
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -28,7 +28,7 @@ MC_myResourceGroup_myAKSCluster_eastus
 
 Use the [az storage account create][az-storage-account-create] command to create the storage account.
 
-Update `--resource-group` with the name of the resource group gathered in the last step, and `--name` to a name of your choice. The storage account name must be unique.
+Update `--resource-group` with the name of the resource group gathered in the last step, and `--name` to a name of your choice. Provide your own unique storage account name:
 
 ```azurecli
 az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --sku Standard_LRS
@@ -39,9 +39,9 @@ az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastu
 
 ## Create storage class
 
-A storage class is used to define how an Azure file share is created. A storage account can be specified in the class. If a storage account is not specified, a *skuName* and *location* must be specified, and all storage accounts in the associated resource group are evaluated for a match. For more information on Kubernetes storage classes for Azure files, see [Kubernetes Storage Classes][kubernetes-storage-classes].
+A storage class is used to define how an Azure file share is created. A storage account can be specified in the class. If a storage account is not specified, a *skuName* and *location* must be specified, and all storage accounts in the associated resource group are evaluated for a match. For more information on Kubernetes storage classes for Azure Files, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-Create a file named `azure-file-sc.yaml` and copy in the following example manifest. Update the *storageAccount* value with the name of your storage account created in the previous step. For more information on *mountOptions*, see the [Mount options][mount-options].
+Create a file named `azure-file-sc.yaml` and copy in the following example manifest. Update the *storageAccount* value with the name of your storage account created in the previous step. For more information on *mountOptions*, see the [Mount options][mount-options] section.
 
 ```yaml
 kind: StorageClass
@@ -65,16 +65,44 @@ Create the storage class with the [kubectl apply][kubectl-apply] command:
 kubectl apply -f azure-file-sc.yaml
 ```
 
+## Create cluster role and binding
+
+AKS clusters use Kubernetes role-based access control (RBAC) to limit actions that can be performed. *Roles* define the permissions to grant, and *bindings* apply them to desired users. These assignments can be made on a given namespace, or across the entire cluster. To allow the Azure platform to create the required storage resources, create a *clusterrole* and *clusterrolebinding*. Create a file named `azure-pvc-roles.yaml` and copy in the following YAML:
+
+```yaml
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: system:azure-cloud-provider
+rules:
+- apiGroups: ['']
+  resources: ['secrets']
+  verbs:     ['get','create']
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: system:azure-cloud-provider
+roleRef:
+  kind: ClusterRole
+  apiGroup: rbac.authorization.k8s.io
+  name: system:azure-cloud-provider
+subjects:
+- kind: ServiceAccount
+  name: persistent-volume-binder
+  namespace: kube-system
+```
+
+Assign the permissions with the [kubectl apply][kubectl-apply] command:
+
+```console
+kubectl apply -f azure-pvc-roles.yaml
+```
+
 ## Create persistent volume claim
 
 A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure file share. The following YAML can be used to create a persistent volume claim *5GB* in size with *ReadWriteMany* access. For more information on access modes, see the [Kubernetes persistent volume][access-modes] documentation.
-
-First, create a *clusterrole* and *clusterrolebinding* that grants permissions for the file shares to be created:
-
-```console
-kubectl create clusterrole system:azure-cloud-provider --verb=get,create --resource=secrets
-kubectl create clusterrolebinding system:azure-cloud-provider --clusterrole=system:azure-cloud-provider --serviceaccount=kube-system:persistent-volume-binder
-```
 
 Now create a file named `azure-file-pvc.yaml` and copy in the following YAML. Make sure that the *storageClassName* matches the storage class created in the last step:
 
