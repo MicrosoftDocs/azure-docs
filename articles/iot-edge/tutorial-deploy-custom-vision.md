@@ -82,6 +82,7 @@ Once your image is built, you can export it as an IoT Edge
 4. Create your project with the following values:
 
    | Field | Value |
+   | ----- | ----- |
    | Name | Provide a name for your project, like **EdgeTreeClassifier**. |
    | Decription | Optional project description. |
    | Resource Group | Accept the default **Limited trial**. |
@@ -103,7 +104,7 @@ Creating an image classifier requires a set of training images, as well as test 
 
 2. Return to your Custom Vision project and select **Add images**. 
 
-3. Browse to the git repo that you cloned locally, and navigate to the first image folder, **Cognitive-CustomVision-Windows/Samples/Images/Hemlock**. Select all ten images in the folder and select **Open**. 
+3. Browse to the git repo that you cloned locally, and navigate to the first image folder, **Cognitive-CustomVision-Windows / Samples / Images / Hemlock**. Select all ten images in the folder and select **Open**. 
 
 4. Add the tag **hemlock** to this group of images and press **enter** to apply the tag. 
 
@@ -115,7 +116,7 @@ Creating an image classifier requires a set of training images, as well as test 
 
 7. Select **Add images** again.
 
-8. Browse to the second image folder, **Cognitive-CustomVision-Windows/Samples/Images/Japanese Cherry**. Select all ten images in the folder and select **Open**. 
+8. Browse to the second image folder, **Cognitive-CustomVision-Windows / Samples / Images / Japanese Cherry**. Select all ten images in the folder and select **Open**. 
 
 9. Add the tag **japanese cherry** and press **enter** to apply the tag. 
 
@@ -196,6 +197,38 @@ The Python module template in Visual Studio code contains some sample code that 
    }
    ```
 
+## Create a simulated camera module
+
+In a real Custom Vision deployment, you would have a camera providing live images or video streams. For this scenario, you simulate the camera by building a module that sends a test image to the image classifier. 
+
+In this section, you add a new module to the same CustomVisionSolution and provide code to create the simulated camera. 
+
+1. In the same Visual Studio Code window, use the command palette to run **Azure IoT Edge: Add IoT Edge Module**. In the command palette, provide the following information for your new module: 
+
+   | Prompt | Value | 
+   | ------ | ----- |
+   | Select deployment template file | Select the deployment.template.json file in the CustomVisionSolution workspace. |
+   | Select module template | Select **Python Module** |
+   | Provide a module name | Call your module **SimulatedCamera** |
+   | Provide Docker image repository for the module | Replace **localhost:5000** with the login server value that you copied from your Azure Container Registry. The final string looks like **\<registryname\>.azurecr.io/simulatedcamera**. |
+
+   The VS COde window loads your new module in the solution workspace, and updates the deployment.template.json file. Now you should see two module folders: Classifier and SimulatedCamera. 
+
+2. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Build your IoT Edge solution
@@ -250,77 +283,10 @@ On your IoT Edge device, run the following command to see the status of the modu
    sudo iotedge list
    ```
 
-## Create the SQL database
 
-When you apply the deployment manifest to your device, you get three modules running. The tempSensor module generates simulated environment data. The sqlFunction module takes the data and formats it for a database. 
 
-This section guides you through setting up the SQL database to store the temperature data. 
 
-1. In a command-line too, connect to your database. 
-   * Windows container:
-   
-      ```cmd
-      docker exec -it sql cmd
-      ```
-    
-   * Linux container: 
 
-      ```bash
-      docker exec -it sql bash
-      ```
-
-2. Open the SQL command tool.
-   * Windows container:
-
-      ```cmd
-      sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
-      ```
-
-   * Linux container: 
-
-      ```bash
-      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
-      ```
-
-3. Create your database: 
-
-   * Windows container
-      ```sql
-      CREATE DATABASE MeasurementsDB
-      ON
-      (NAME = MeasurementsDB, FILENAME = 'C:\mssql\measurementsdb.mdf')
-      GO
-      ```
-
-   * Linux container
-      ```sql
-      CREATE DATABASE MeasurementsDB
-      ON
-      (NAME = MeasurementsDB, FILENAME = '/var/opt/mssql/measurementsdb.mdf')
-      GO
-      ```
-
-4. Define your table.
-
-   ```sql
-   CREATE TABLE MeasurementsDB.dbo.TemperatureMeasurements (measurementTime DATETIME2, location NVARCHAR(50), temperature FLOAT)
-   GO
-   ```
-
-You can customize your SQL Server docker file to automatically set up your SQL Server to be deployed on multiple IoT Edge devices. For more information, see the [Microsoft SQL Server container demo project](https://github.com/twright-msft/mssql-node-docker-demo-app). 
-
-## View the local data
-
-Once your table is created, the sqlFunction module starts storing data in a local SQL Server 2017 database on your IoT Edge device. 
-
-From inside the SQL command tool, run the following command to view your formatted table data: 
-
-   ```sql
-   SELECT * FROM MeasurementsDB.dbo.TemperatureMeasurements
-   GO
-   ```
-
-   ![View local data](./media/tutorial-store-data-sql-server/view-data.png)
 
 
 
