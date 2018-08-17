@@ -112,3 +112,21 @@ The information that's presented here is described in the following table:
 |Category |Represented as *Availability* or *Performance*. |
 |Type | The category of health criteria, which is represented as *Unit*, *Dependency*, *Aggregate*. |
 
+The **See more** option in this grid opens a page listing health criteria running on this VM. The list view would look like below. The user can curate the list further by choosing the appropriate filters. The filters available here are health criteria type (unit is chosen by default) and category (availability and performance).  
+
+## Health diagnostics
+Health diagnostics view gives the user the ability to view all the components of the VM, associated health criteria, state changes and other significant issues encountered by monitoring objects related to the VM. 
+
+You can launch Health diagnostics in the following ways.
+
+1. From the VM insights home page, by clicking on the icon for Critical, Warning, or Unknown health state and drill-down to the page that lists all the VMs matching that category.  Clicking on the value in the **Health State** column will open Health Diagnostics scoped to that particular VM.     
+
+    <Show image> 
+
+    This will open a page listing all the VMs in that category, for example all VMs in a critical state.  
+
+2. Under VM distribution, Click on the VM count in any one of the columns (VM Count/Critical/Warning/Healthy/Unknown).  
+ 
+This is will open the list view of VMs in that category  
+2. 
+ 
