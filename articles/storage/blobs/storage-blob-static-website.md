@@ -6,7 +6,7 @@ author: MichaelHauss
 
 ms.service: storage
 ms.topic: article
-ms.date: 08/09/18
+ms.date: 08/17/18
 ms.author: mihauss
 ms.component: blobs
 ---
@@ -35,7 +35,7 @@ Static website hosting is provided at no additional cost. For more details on pr
 
 ## Quickstart
 ### Azure portal
-To start hosting your web application on Azure Storage, you can configure the feature using the Azure Portal and click on "Static website (preview)" under "Settings" in the left navigation bar. Click "Enabled" and enter the name of the index document and (optionally) the custom error document path.
+If you haven't already, [create a GPv2 storage account](../common/storage-quickstart-create-account.md) To start hosting your web application, you can configure the feature using the Azure Portal and click on "Static website (preview)" under "Settings" in the left navigation bar. Click "Enabled" and enter the name of the index document and (optionally) the custom error document path.
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
