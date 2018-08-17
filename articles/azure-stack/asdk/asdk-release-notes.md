@@ -67,7 +67,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- TBD | ASDK, IS --> Various improvements were made to the update process to make it more reliable. In addition, fixes have been made to underlying infrastructure, which improves node drain, thereby minimizing potential downtime for workloads during the update.
 
--	<!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions.  Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a tenant subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
+-	<!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions.  Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a user subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
 
 - <!-- 2448955 | IS ASDK --> You can now successfully query activity logs for systems that are deployed in a UTC+N time zone.    
 
