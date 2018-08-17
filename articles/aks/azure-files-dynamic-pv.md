@@ -16,7 +16,7 @@ A persistent volume is a piece of storage that has been created for use in a Kub
 
 For more information on Kubernetes persistent volumes, including static creation, see [Kubernetes persistent volumes][kubernetes-volumes].
 
-## Create storage account
+## Create a storage account
 
 When dynamically creating an Azure file share as a Kubernetes volume, any storage account can be used as long as it is in the AKS **node** resource group. This group is the one with the *MC_* prefix that was created by the provisioning of the resources for the AKS cluster. Get the resource group name with the [az aks show][az-aks-show] command.
 
@@ -37,7 +37,7 @@ az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastu
 > [!NOTE]
 > Azure Files currently only work with Standard storage. If you use Premium storage, the volume fails to provision.
 
-## Create storage class
+## Create a storage class
 
 A storage class is used to define how an Azure file share is created. A storage account can be specified in the class. If a storage account is not specified, a *skuName* and *location* must be specified, and all storage accounts in the associated resource group are evaluated for a match. For more information on Kubernetes storage classes for Azure Files, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
@@ -65,9 +65,11 @@ Create the storage class with the [kubectl apply][kubectl-apply] command:
 kubectl apply -f azure-file-sc.yaml
 ```
 
-## Create cluster role and binding
+## Create a cluster role and binding
 
-AKS clusters use Kubernetes role-based access control (RBAC) to limit actions that can be performed. *Roles* define the permissions to grant, and *bindings* apply them to desired users. These assignments can be made on a given namespace, or across the entire cluster. To allow the Azure platform to create the required storage resources, create a *clusterrole* and *clusterrolebinding*. Create a file named `azure-pvc-roles.yaml` and copy in the following YAML:
+AKS clusters use Kubernetes role-based access control (RBAC) to limit actions that can be performed. *Roles* define the permissions to grant, and *bindings* apply them to desired users. These assignments can be applied to a given namespace, or across the entire cluster. For more information, see [Using RBAC authorization][kubernetes-rbac].
+
+To allow the Azure platform to create the required storage resources, create a *clusterrole* and *clusterrolebinding*. Create a file named `azure-pvc-roles.yaml` and copy in the following YAML:
 
 ```yaml
 ---
@@ -100,7 +102,7 @@ Assign the permissions with the [kubectl apply][kubectl-apply] command:
 kubectl apply -f azure-pvc-roles.yaml
 ```
 
-## Create persistent volume claim
+## Create a persistent volume claim
 
 A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure file share. The following YAML can be used to create a persistent volume claim *5GB* in size with *ReadWriteMany* access. For more information on access modes, see the [Kubernetes persistent volume][access-modes] documentation.
 
@@ -135,7 +137,7 @@ NAME        STATUS    VOLUME                                     CAPACITY   ACCE
 azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX            azurefile      5m
 ```
 
-## Using the persistent volume
+## Use the persistent volume
 
 The following YAML creates a pod that uses the persistent volume claim *azurefile* to mount the Azure file share at the */mnt/azure* path.
 
@@ -260,6 +262,7 @@ Learn more about Kubernetes persistent volumes using Azure Files.
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-file
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 [pv-static]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#static
+[kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az-group-create
