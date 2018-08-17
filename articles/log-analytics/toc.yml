@@ -127,7 +127,7 @@
           href: query-language/search-queries.md
       - name: Lessons
         items:
-        -name: String operations
+        - name: String operations
           href: string-operations.md
         - name: Date and time operations
           href: datetime-operations.md
