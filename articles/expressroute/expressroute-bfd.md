@@ -18,7 +18,7 @@ ms.author:
 
 ---
 # Configure BFD over ExpressRoute
-ExpressRoute supports Bidirectional Forwarding Detection (BFD) over private peering. By enabling BFD over ExpressRoute, you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit (PE). You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices if you went with managed Layer 3 connection service. This document walks you through the need for BFD, and how to enable BFD over ExpressRoute.
+ExpressRoute supports Bidirectional Forwarding Detection (BFD) over private peering. By enabling BFD over ExpressRoute, you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit (PE). You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices (if you went with managed Layer 3 connection service). This document walks you through the need for BFD, and how to enable BFD over ExpressRoute.
 
 ## Need for BFD
 The following diagram shows the benefit of enabling BFD over ExpressRoute circuit:
@@ -34,7 +34,7 @@ In this scenario, BFD can help. BFD provides low-overhead link failure detection
 
 
 ## Enabling BFD
-BFD is configured by default, as of *TBD-date*, under all the newly created ExpressRoute private peering interfaces on the MSEEs. Therefore, to enable BFD, you need to just configure BFD on your PEs. Configuring BFD is two-step process: you need configure the BFD on the interface and then link it to the BGP session.
+BFD is configured by default under all the newly created ExpressRoute private peering interfaces on the MSEEs. Therefore, to enable BFD, you need to just configure BFD on your PEs. Configuring BFD is two-step process: you need configure the BFD on the interface and then link it to the BGP session.
 
 An example PE (using Cisco IOS XE) configuration is shown below. 
 
@@ -55,7 +55,7 @@ An example PE (using Cisco IOS XE) configuration is shown below.
   	    neighbor 192.168.15.18 soft-reconfiguration inbound
  	  exit-address-family
 
->[!NOTE]To enable BFD under an already existing private peering; you need to 1) delete the connection object(s) that connect VNet Gateway(s) to your ExpressRoute circuit, 2) delete the private peering in your ExpressRoute circuit, 3) recreate the private peering, and 4) reconnect VNet Gateway(s) to the ExpressRoute circuit.
+>[!NOTE]To enable BFD under an already existing private peering; you need to reset the peering. See [Reset ExpressRoute peerings][ResetPeering]
 >
 
 ## BFD Timer Negotiation
@@ -77,6 +77,7 @@ For more information or help, check out the following links:
 <!--Link References-->
 [CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
+[ResetPeering]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-reset-peering
 
 
 
