@@ -109,7 +109,7 @@ String functions work only on strings.
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Return an array that has all the characters from a string and separates each character with the specific delimiter character. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Check whether a string starts with a specific substring. | 
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Return characters from a string, starting from the specified position. | 
-| [toLower](../logic-apps/workflow-definition-language-functions-reference.mdoLower) | Return a string in lowercase format. | 
+| [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Return a string in lowercase format. | 
 | [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Return a string in uppercase format. | 
 | [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Remove leading and trailing whitespace from a string, and return the updated string. | 
 ||| 
@@ -324,10 +324,9 @@ For the full reference about each function, see the
 ||| 
 
 <a name="alphabetical-list"></a>
-
 <a name="action"></a>
 
-## action
+### action
 
 Return the *current* action's output at runtime, 
 or values from other JSON name-and-value pairs, 
