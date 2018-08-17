@@ -17,7 +17,7 @@ ms.date: 09/24/2018
 
 This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered the best one in your workspace on the cloud.  
 
-Now, you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/en-us/azure/container-instances/) (ACI). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself. ACI is not ideal for production deployments, but it is great for testing and understanding the workflow. For scalable production deployments, consider using AKS.
+Now, you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself. ACI is not ideal for production deployments, but it is great for testing and understanding the workflow. For scalable production deployments, consider using AKS.
 
 In this part of the tutorial, you use Azure Machine Learning service (Preview) to:
 
