@@ -9,7 +9,7 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 08/16/2018
 ms.author: shvija
 
 ---
