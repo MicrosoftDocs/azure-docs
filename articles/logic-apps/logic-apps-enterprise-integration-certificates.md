@@ -128,7 +128,7 @@ account where you want to add the certificate.
 
 8. Under **Add Certificate**, provide these details for your certificate.
    
-   1. Provide a name for your . For the certificate type, 
+   1. Provide a name for your certificate. For the certificate type, 
    select **Private**.
 
    2. On the right side of the **Certificate** box, choose the folder icon. 
