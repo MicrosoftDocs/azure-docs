@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, vs-azure
 ---
 # Create an ASP.NET Core web app in Azure
 
