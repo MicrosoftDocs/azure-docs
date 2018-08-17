@@ -22,7 +22,7 @@ monikerRange: 'vsts'
 
 # Create a CI/CD pipeline for your existing code with the Azure DevOps Project
 
-The Azure DevOps project presents a simplified experience where you can bring your existing code and Git repository, or choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
+The Azure DevOps Project presents a simplified experience where you can bring your existing code and Git repository, or choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
 
 You will:
 

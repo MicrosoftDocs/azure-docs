@@ -41,15 +41,7 @@ This action takes you to the Azure portal, where you can import the exported tem
 
 Select **Load file** to select the exported Resource Manager template and provide all the configuration values (for example, linked services).
 
-**Connection strings**. You can find the info required to create connection strings in the individual articles about the respective connectors. For example, for Azure SQL Database, see [Copy data to or from Azure SQL Database by using Azure Data Factory](connector-azure-sql-database.md).
-
-To verify the correct connection string - for a linked service, for example - do the following things:
-
-1. Create the linked service in the Data Factory UI.
-
-2. Export the linked service as a Resource Manager template.
-
-3. Check the connection string in the exported template.
+**Connection strings**. You can find the info required to create connection strings in the individual articles about the respective connectors. For example, for Azure SQL Database, see [Copy data to or from Azure SQL Database by using Azure Data Factory](connector-azure-sql-database.md). To verify the correct connection string - for a linked service, for example - you can also open code view for the resource in the Data Factory UI. In this view, however, the password or account key portion of the connection string is removed.
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
