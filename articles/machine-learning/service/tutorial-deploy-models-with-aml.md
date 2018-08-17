@@ -17,7 +17,7 @@ ms.date: 09/24/2018
 
 This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered the best one in your workspace on the cloud.  
 
-Now, you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/en-us/azure/container-instances/) (ACI). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself. ACI is not ideal for production deployments, but it is great for testing and understanding the workflow. For scalable production deployments, consider using AKS.
+Now, you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself. 
 
 In this part of the tutorial, you use Azure Machine Learning service (Preview) to:
 
@@ -28,19 +28,20 @@ In this part of the tutorial, you use Azure Machine Learning service (Preview) t
 > * Deploy the model to ACI
 > * Test the deployed model
 
+ACI is not ideal for production deployments, but it is great for testing and understanding the workflow. For scalable production deployments, consider using AKS.
+
 ## Prerequisites
 
-* Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning](https://aka.ms/aml-notebook-train-model) notebook.  
-
-* Place this Jupyter notebook into the same directory as `aml_config` and `utils.py` from the training tutorial.
+Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning](https://aka.ms/aml-notebook-train-model) notebook.  
 
 ## Get the sample notebook
 
-To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-deploy) into the same directory as `aml_config` and `utils.py`.  See [Configure a development environment for Azure Machine Learning](how-to-configure-environment.md) for information on how to run a Jupyter notebook.
+To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-deploy) into the same directory as `aml_config` and `utils.py`.  See [Configure a development environment](how-to-configure-environment.md) to learn how to run a notebook.
 
 
-## Set up a testing environment
+## Set up the environment
 
+Start by setting up a testing environment.
 
 ### Import packages
 
@@ -76,7 +77,7 @@ import os
 os.stat('./sklearn_mnist_model.pkl')
 ```
 
-## Test the model locally
+## Test locally
 
 Before deploying, make sure your model is working locally by:
 * Loading test data
@@ -159,7 +160,7 @@ plt.show()
 ![confusion matrix](./media/tutorial-deploy-models-with-aml/confusion.png)
 
 
-## Deploy the model in ACI
+## Deploy in ACI
 
 Once you've tested the model and are satisfied with the results, you can deploy the model as a web service hosted in ACI. 
 
@@ -234,7 +235,7 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
                                                description = 'Predict MNIST with sklearn')
 ```
 
-### Deploy to ACI
+### Deploy
 
 Once your environment is set up, you can deploy. The following code goes through these steps:
 
