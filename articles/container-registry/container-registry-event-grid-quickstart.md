@@ -35,7 +35,7 @@ An Azure resource group is a logical container in which you deploy and manage yo
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
 
-az group create --name myResourceGroup --location eastus
+az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
 
 ## Create a container registry
@@ -77,7 +77,7 @@ Once the registry has been created, the Azure CLI returns output similar to the 
 In this section, you use a Resource Manager template located in a GitHub repository to deploy a pre-built sample web application to Azure App Service. Later, you subscribe to your registry's Event Grid events and specify this app as the endpoint to which the events are sent.
 
 To deploy the sample app, set `SITE_NAME` to a unique name for your web app, and execute the following commands. The site name must be unique within Azure because it forms part of the fully qualified domain name (FQDN) of the web app. In a later section, you navigate to the app's FQDN in a web browser to view your registry's events.
-`
+
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
 
@@ -216,7 +216,7 @@ Once you're done with the resources you created in this quickstart, you can dele
 **WARNING**:This operation is irreversible, so be sure you no longer need any of the resources in the group before running the command.
 
 ```azurecli-interactive
-az group delete $RESOURCE_GROUP_NAME
+az group delete --name $RESOURCE_GROUP_NAME
 ```
 
 ## Event Grid event schema
