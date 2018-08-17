@@ -22,13 +22,13 @@ After you complete the steps in this article, you can view events sent from your
 
 ![Web browser rendering the sample web application with three received events][sample-app-01]
 
-The Azure CLI commands in this article are formatted for the Bash shell. If you're using a different shell like PowerShell or Command Prompt, you may need to adjust line continuation characters or variable assignment lines accordingly. This article uses environment variables to minimize the amount of editing you need to do in commands in later sections.
+The Azure CLI commands in this article are formatted for the Bash shell. If you're using a different shell like PowerShell or Command Prompt, you may need to adjust line continuation characters or variable assignment lines accordingly. This article uses environment variables to minimize the amount of command editing required.
 
 If you don't have an Azure subscription, create a [free account][azure-account] before you begin.
 
 ## Create a resource group
 
-An Azure resource group is a logical container in which you deploy and manage your Azure resources. Create a resource group with the following commands. The following [az group create][az-group-create] command creates a resource group named *myResourceGroup* in the *eastus* region. If you want to use a different name for your resource group, modify the `RESOURCE_GROUP_NAME` value.
+An Azure resource group is a logical container in which you deploy and manage your Azure resources. The following [az group create][az-group-create] command creates a resource group named *myResourceGroup* in the *eastus* region. If you want to use a different name for your resource group, modify the `RESOURCE_GROUP_NAME` value.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -38,7 +38,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a container registry
 
-Next, deploy a container registry into the resource group you created with the following commands. Before you run the [az acr create][az-acr-create] command, change `<acrName>` to a registry name unique within Azure, and containing 5-50 alphanumeric characters.
+Next, deploy a container registry into the resource group with the following commands. Before you run the [az acr create][az-acr-create] command, change `<acrName>` to a name for your registry that's unique within Azure. The name is restricted to 5-50 alphanumeric characters.
 
 ```azurecli-interactive
 ACR_NAME=<acrName>
@@ -52,7 +52,7 @@ Once the registry has been created, the Azure CLI returns output similar to the 
 {
   "adminUserEnabled": false,
   "creationDate": "2018-08-16T20:02:46.569509+00:00",
-  "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myregistry",
+  "id": "/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myregistry",
   "location": "eastus",
   "loginServer": "myregistry.azurecr.io",
   "name": "myregistry",
@@ -70,8 +70,6 @@ Once the registry has been created, the Azure CLI returns output similar to the 
 
 ```
 
-In the remainder of this quickstart, `<acrName>` is a placeholder for the container registry name you specified in this section. Where you see this value in a command, replace it with your registry's name.
-
 ## Create an event endpoint
 
 In this section, you use a Resource Manager template located in a GitHub repository to deploy a pre-built sample web application to Azure App Service. Later, you subscribe to your registry's Event Grid events and specify this app as the endpoint to which the events are sent.
@@ -87,7 +85,7 @@ az group deployment create \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
 ```
 
-Once the deployment has succeeded (it might take a few minutes), navigate to your web app to make sure it's running. In your favorite web browser, navigate to:
+Once the deployment has succeeded (it might take a few minutes), open a browser and navigate to your web app to make sure it's running:
 
 `http://<your-site-name>.azurewebsites.net`
 
@@ -99,7 +97,7 @@ You should see the sample app rendered with no event messages displayed:
 
 ## Subscribe to registry events
 
-In Event Grid, you subscribe to a **topic** to tell it which events you want to track, and where to send them. The following [az eventgrid event-subscription create][az-eventgrid event-subscription-create] command subscribes to the container registry you created, and specifies your web app's URL as the endpoint to which it should send events. The environment variables you populated in earlier sections are reused here to minimize editing of the commands.
+In Event Grid, you subscribe to a **topic** to tell it which events you want to track, and where to send them. The following [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] command subscribes to the container registry you created, and specifies your web app's URL as the endpoint to which it should send events. The environment variables you populated in earlier sections are reused here, so no edits are required.
 
 ```azurecli-interactive
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
@@ -117,7 +115,7 @@ Now that the sample app is up and running and you've subscribed to your registry
 
 ### Build and push image
 
-Execute the following Azure CLI command to build a container image from the contents of a GitHub repository. By default, ACR Build automatically pushes a successfully built image to your registry, which generates an `ImagePushed` event.
+Execute the following Azure CLI command to build a container image from the contents of a GitHub repository. By default, ACR Build automatically pushes a successfully built image to your registry, which generates the `ImagePushed` event.
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
@@ -157,13 +155,13 @@ $ az acr repository show-tags --name $ACR_NAME --repository myimage
 
 ### Delete the image
 
-Now, generate an `ImageDeleted` event by deleting the image with the [az acr repository delete][az-acr-repository-delete] command.
+Now, generate an `ImageDeleted` event by deleting the image with the [az acr repository delete][az-acr-repository-delete] command:
 
 ```azurecli-interactive
 az acr repository delete --name $ACR_NAME --image myimage:v1
 ```
 
-You should see output similar to the following, asking for confirmation to delete the manifest and its images:
+You should see output similar to the following, asking for confirmation to delete the manifest and associated images:
 
 ```console
 $ az acr repository delete --name $ACR_NAME --image myimage:v1
@@ -173,7 +171,7 @@ Are you sure you want to continue? (y/n): y
 
 ## View registry events
 
-You've now push an image to your registry and then deleted it. Navigate to your Event Grid Viewer web app, and you should see several events. One is the subscription event generated by executing the command in the [Subscribe to registry events](#subscribe-to-registry-events) section. There should also be both an `ImageDeleted` event and an `ImagePushed` event.
+You've now pushed an image to your registry and then deleted it. Navigate to your Event Grid Viewer web app, and you should see several events. One is the subscription event generated by executing the command in the [Subscribe to registry events](#subscribe-to-registry-events) section. There should also be both an `ImageDeleted` event and an `ImagePushed` event.
 
 The following screenshot shows the sample app with the three events, and the `ImageDeleted` event is expanded to show its details.
 
@@ -185,7 +183,7 @@ Congratulations! You've deployed a container registry, built an image with ACR B
 
 Once you're done with the resources you created in this quickstart, you can delete them all with the following Azure CLI command. When you delete a resource group, all of the resources it contains are permanently deleted.
 
-**WARNING**:This operation is irreversible, so be sure you no longer need any of these resources before running the command.
+**WARNING**:This operation is irreversible, so be sure you no longer need any of the resources in the group before running the command.
 
 ```azurecli-interactive
 az group delete $RESOURCE_GROUP_NAME
@@ -193,7 +191,11 @@ az group delete $RESOURCE_GROUP_NAME
 
 ## Next steps
 
-For more information about image storage in Azure Container Registry see [Container image storage in Azure Container Registry](container-registry-storage.md).
+### Event Grid event schema
+
+You can find the event message schema referenced in the Event Grid documentation:
+
+[Azure Event Grid event schema for Container Registry](../event-grid/event-schema-container-registry.md)
 
 <!-- IMAGES -->
 [sample-app-01]: ./media/container-registry-event-grid-quickstart/sample-app-01.png

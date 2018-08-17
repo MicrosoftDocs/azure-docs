@@ -5,14 +5,14 @@
  author: tfitzmac
  ms.service: event-grid
  ms.topic: include
- ms.date: 07/05/2018
+ ms.date: 08/17/2018
  ms.author: tomfitz
  ms.custom: include file
 ---
 
 ## Enable Event Grid resource provider
 
-If you haven't previously used Event Grid in your Azure subscription, you may need to register the Event Grid resource provider. Run the following command:
+If you haven't previously used Event Grid in your Azure subscription, you may need to register the Event Grid resource provider. Run the following command to registry the provider:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.EventGrid
