@@ -235,7 +235,7 @@
         href: active-directory-b2c-language-customization-custom.md
       - name: Trust Framework definition
         href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
-      - name: Identity Framework Experience schema
+      - name: Identity Experience Framework  schema
         items:
         - name: TrustFrameworkPolicy
           href: trustframeworkpolicy.md

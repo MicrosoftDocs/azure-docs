@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Date claims transformations
 
-This article provides examples for using the date claims transformations of the Identity Framework Experience schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
+This article provides examples for using the date claims transformations of the Identity Experience Framework  schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
 
 ## AssertDateTimeIsGreaterThan 
 
