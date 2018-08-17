@@ -33,10 +33,10 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addo
 ```
 
 > [!NOTE]
-> You can enable HTTP routing on an existing AKS cluster using the [az aks enable-addons][az-aks-enable-addons] command. Add the `--enable-addons` parameter and specify *http_application_routing* as shown in the following example:
+> You can enable HTTP routing on an existing AKS cluster using the [az aks enable-addons][az-aks-enable-addons] command. Add the `--addons` parameter and specify *http_application_routing* as shown in the following example:
 >
 > ```azurecli
-> az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
+> az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
 > ```
 
 After the cluster is deployed, use the [az aks show][az-aks-show] command to retrieve the DNS zone name. This name is needed to deploy applications to the AKS cluster.
