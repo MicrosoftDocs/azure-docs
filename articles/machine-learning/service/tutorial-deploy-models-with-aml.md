@@ -36,7 +36,7 @@ Complete the model training in the [Tutorial #1: Train an image classification m
 
 ## Get the sample notebook
 
-To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-deploy) into the same directory as `aml_config` and `utils.py`.  See [Configure a development environment](how-to-configure-environment.md) to learn how to run a notebook.
+To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-deploy) into the same directory as `aml_config` and `utils.py`.  See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
 
 
 ## Set up the environment
