@@ -58,7 +58,7 @@ Condition defines the criteria that is monitored by the rule.
 
 1. Next, choose **Aggregation**, **Operator**, and provide a **Threshold** value.
     - Aggregation is optional. Without aggregation, the rule triggers for each telemetry data point that meets the condition. For example, if the rule is configured to trigger when temperature is above 80 then the rule will trigger almost instantly when the device reports temperature > 80.
-    - If an aggregate function like Average, Min, Max, Count is chosen then, the user must provide an **Aggregate time window** over which the condition needs to be evaluated. For example, if you set the period as "5 minutes" and your rule looks for Average temperature above 80, the rule triggers when the average temperature is above 80 for at least 5 minutes. The rule evaluation frequency is the same as the **Aggregate time window**, which means the rule is evaluated once every 5 minutes in this example.
+    - If an aggregate function like Average, Min, Max, Count is chosen then, the user must provide an **Aggregate time window** over which the condition needs to be evaluated. For example, if you set the period as "5 minutes" and your rule looks for Average temperature above 80, the rule triggers when the average temperature is above 80 for at least 5 minutes. The rule evaluation frequency is the same as the **Aggregate time window**, which means, in this example, the rule is evaluated once every 5 minutes.
 
     >[!NOTE]
     >More than one telemetry measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each conditon gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
