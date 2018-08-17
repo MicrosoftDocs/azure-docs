@@ -22,7 +22,7 @@ If you need a multi-language LUIS client application such as a chatbot, you have
 LUIS understands utterances in the following languages:
 
 
-| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase suggestions | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (Sentiment and Key word extraction)| 
+| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase suggestions | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment and<br>Key word extraction)| 
 |--|--|:--:|:--:|:--:|:--:|
 | American English |`en-US` | ✔ | ✔  |✔|✔|
 | Canadian French |`fr-CA` |-|   -   |-|✔|
