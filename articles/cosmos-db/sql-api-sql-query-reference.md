@@ -2440,7 +2440,7 @@ JOIN n IN food.nutrients
  ``` 
  
 ####  <a name="bk_trim"></a> TRIM  
- Returns a string expression after it removes leading blanks.  
+ Returns a string expression after it removes leading and trailing blanks.  
   
  **Syntax**  
   
