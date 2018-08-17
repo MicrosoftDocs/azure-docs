@@ -28,7 +28,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Example script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/batch-ai/create-cluster-dedicated.sh "Create Batch AI cluster - dedicated nodes")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch-ai/create-cluster/create-cluster-dedicated.sh "Create Batch AI cluster - dedicated nodes")]
 
 ## Clean up deployment
 
