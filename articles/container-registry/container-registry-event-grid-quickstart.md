@@ -213,7 +213,7 @@ Congratulations! If you see the `ImagePushed` and `ImageDeleted` events, your re
 
 Once you're done with the resources you created in this quickstart, you can delete them all with the following Azure CLI command. When you delete a resource group, all of the resources it contains are permanently deleted.
 
-**WARNING**: This operation is irreversible, so be sure you no longer need any of the resources in the group before running the command.
+**WARNING**: This operation is irreversible. Be sure you no longer need any of the resources in the group before running the command.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME
