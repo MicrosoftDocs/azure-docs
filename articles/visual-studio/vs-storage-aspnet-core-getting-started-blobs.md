@@ -9,6 +9,7 @@ editor: ''
 ms.service: storage
 ms.workload: web
 ms.technology: vs-azure
+ms.custom: vs-azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article

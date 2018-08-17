@@ -9,6 +9,7 @@ editor: ''
 
 ms.service: azure-stack
 ms.technology: vs-azure
+ms.custom: vs-azure
 ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
