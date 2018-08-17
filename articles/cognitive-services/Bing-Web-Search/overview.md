@@ -16,13 +16,13 @@ ms.author: scottwhi, erhopf
 
 The Bing Web Search API is a RESTful service that allows your application use Bing's web search capabilities. Requests can be configured to return search results that include web pages, images, videos, news, entities, related search queries, spelling corrections, unit conversions, translations, and calculations. Results are provided as JSON and based on search relevance and your subscriptions to Bing Search APIs.
 
-This API should be used when an application needs access to all content that's relevant to a user's query. If you're building an application that requires only a specific type of content, consider using the [Bing Image Search API](../Bing-Image-Search/overview.md), [Bing Video Search API](../Bing-Video-Search/search-the-web.md), or [Bing News Search API](../Bing-News-Search/search-the-web.md). See [Cognitive Services APIs](https://docs.microsoft.com/en-us/azure/cognitive-services#cognitive-services-apis) for a complete list of Bing Search APIs.
+This API is optimal for applications that need access to all content that is relevant to a user's search query. If you're building an application that requires only a specific type of content, consider using the [Bing Image Search API](../Bing-Image-Search/overview.md), [Bing Video Search API](../Bing-Video-Search/search-the-web.md), or [Bing News Search API](../Bing-News-Search/search-the-web.md). See [Cognitive Services APIs](https://docs.microsoft.com/en-us/azure/cognitive-services#cognitive-services-apis) for a complete list of Bing Search APIs.
 
 Want to see how it works? Try our [Bing Web Search API demo](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/).
 
 ## Key features  
 
-With the Bing Web Search API your application can:
+With the Bing Web Search API, your application can:
 
 * Get instant answers from Bing Web Search.
 * [Filter search results](filter-answers.md) by content type.
