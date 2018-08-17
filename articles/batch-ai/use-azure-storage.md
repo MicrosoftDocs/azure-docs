@@ -31,7 +31,7 @@ Before you can use Azure Storage, you must [create an Azure Storage account](../
 To create a Blob container and to upload your dataset to an Azure Blob container, choose one of the following methods:
 - [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) for uploading with a web-based GUI. To upload a small number of files, Azure portal provides the simplest operation.
 - [Azure Storage CLI](../storage/blobs/storage-quickstart-blobs-cli.md) for uploading via the command line (supports directory upload). To upload directories of files, use  `az storage blob upload-batch`.
-- [other techniques]()(../storage/common/storage-moving-data.md), including using application SDKs.
+- [other techniques](../storage/common/storage-moving-data.md), including using application SDKs.
 
 Similarly, to create an Azure File share, choose one of the following methods:
 - [Azure portal](../storage/files/storage-how-to-use-files-portal.md)
