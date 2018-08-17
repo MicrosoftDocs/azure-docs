@@ -34,9 +34,8 @@ ACI is not ideal for production deployments, but it is great for testing and und
 
 Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning](https://aka.ms/aml-notebook-train-model) notebook.  
 
-## Get the sample notebook
-
-To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-deploy) into the same directory as `aml_config` and `utils.py`.  See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
+> [!TIP]
+> (Optional) To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-deploy) into the same directory as `aml_config` and `utils.py`.  See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
 
 
 ## Set up the environment

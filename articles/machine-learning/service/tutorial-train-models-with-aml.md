@@ -16,7 +16,7 @@ ms.date: 09/24/2018
 
 # Tutorial #1: Train an image classification model with Azure Machine Learning
 
-In this tutorial, you will train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview).  This tutorial is **part one of a two-part tutorial series**.  
+In this tutorial, you train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview).  This tutorial is **part one of a two-part tutorial series**.  
 
 You'll learn how to:
 
@@ -54,18 +54,17 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 1. The file [utils.py](https://aka.ms/aml-file-utils-py) downloaded into the same directory as `aml_config`.
 
-## Get the sample notebook
-
-To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-train) into the same directory as `aml_config` and `utils.py`. See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
+> [!TIP]
+> (Optional) To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-train) into the same directory as `aml_config` and `utils.py`. See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
 
 ## Set up your development environment
 
-All the setup for your development work can be accomplished in a Python notebook. You will:
+All the setup for your development work can be accomplished in a Python notebook.  Setup includes:
 
-* Import Python packages
-* Configure a workspace to enable communication between your local computer and remote resources
-* Create a directory to store training scripts
-* Create a remote compute target to use for training
+* Importing Python packages
+* Configuring a workspace to enable communication between your local computer and remote resources
+* Creating a directory to store training scripts
+* Creating a remote compute target to use for training
 
 ### Import packages
 
@@ -86,7 +85,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### Load workspace
 
-Create a workspace object from the existing workspace. When the workspace was created, you saved a file into `aml_config\config.json`. `Workspace.from_config()` will read this file and load the workspace into an object named `ws`.  You'll use `ws` throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. When the workspace was created, you saved a file into `aml_config\config.json`. `Workspace.from_config()` reads this file and load the workspace into an object named `ws`.  You'll use `ws` throughout the rest of the code in this tutorial.
 
 ```python
 ws = Workspace.from_config()
@@ -95,7 +94,7 @@ print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 
 ### Create directory
 
-Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace.  This directory is the one that will be used to deliver the necessary code from your computer to the cloud later in this tutorial. The history of all runs will be recorded under the specified run history.
+Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace.  This directory is the one that is used to deliver the necessary code from your computer to the cloud later in this tutorial. The history of all runs is recorded under the specified run history.
 
 
 ```python
@@ -108,10 +107,10 @@ proj.get_details()
 
 ### Create remote compute target
 
-Azure Batch AI Cluster is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you will create an Azure Batch AI cluster as your training environment. This code will create a cluster for you if it does not already exist in your workspace. 
+Azure Batch AI Cluster is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you create an Azure Batch AI cluster as your training environment. This code creates a cluster for you if it does not already exist in your workspace. 
 
 > [!IMPORTANT]
-> **Creation of the cluster will take approximately 5 minutes.** If the cluster is already in the workspace this code uses it and skips the creation process.
+> **Creation of the cluster takes approximately 5 minutes.** If the cluster is already in the workspace this code uses it and skips the creation process.
 
 
 ```python
@@ -136,10 +135,10 @@ except ComputeTargetException:
     compute_target = ComputeTarget.create(ws, batchai_cluster_name, compute_config)
     
     # can poll for a minimum number of nodes and for a specific timeout. 
-    # if no min node count is provided it will use the scale settings for the cluster
+    # if no min node count is provided it uses the scale settings for the cluster
     compute_target.wait_for_provisioning(show_output = True, min_node_count = None, timeout_in_minutes = 20)
     
-     # For a more detailed view of current Batch AI cluster status, use the 'status' property    
+    # Use the 'status' property to get a detailed status for the current cluster. 
     print(compute_target.status.serialize())
 ```
 
@@ -147,7 +146,7 @@ You now have the necessary packages and compute resources to train a model in th
 
 ## Explore data
 
-Before you train a model, you need to understand the data that you are using to train it.  You also need to copy the data into the cloud so it can be accessed by your cloud training environment.  In this section you will:
+Before you train a model, you need to understand the data that you are using to train it.  You also need to copy the data into the cloud so it can be accessed by your cloud training environment.  In this section you learn how to:
 
 * Download the MNIST dataset
 * Display some sample images
@@ -249,7 +248,7 @@ With almost no effort, you have a 92% accuracy.
 
 Now you can expand on this simple model by building multiple versions of the model with different regularization rates.  
 
-For this task, submit the job to the Batch AI cluster you set up earlier.  To submit a job you will:
+For this task, submit the job to the Batch AI cluster you set up earlier.  To submit a job you:
 * Create a training script
 * Create an estimator
 * Submit the job 
@@ -393,10 +392,10 @@ Each run goes through the following stages:
 - **Post-Processing**: The ./outputs directory of the run is copied over to the run history in your workspace so you can access these results.
 
 > [!IMPORTANT]
-> In total, the first run will take **approximately 10 minutes**. But for subsequent runs, as long as the script dependencies don't change, the same image will be reused and hence the container start up time is much faster.
+> In total, the first run takes **approximately 10 minutes**. But for subsequent runs, as long as the script dependencies don't change, the same image is reused and hence the container start up time is much faster.
 
 
-There are multiple ways to check the progress of a running job. This tutorial will use a Jupyter widget as well as a `wait_for_completion` method. 
+There are multiple ways to check the progress of a running job. This tutorial uses a Jupyter widget as well as a `wait_for_completion` method. 
 
 ### Jupyter widget
 
