@@ -1,7 +1,6 @@
-
 ---
-title: Azure Serial Console for GRUB and Single User Mode | Microsoft Docs
-description: Using Serial Console for grub in Azure virtual machines.
+title: Azure Serial Console for SysRq and NMI calls | Microsoft Docs
+description: Using Serial Console for for SysRq and NMI calls in Azure virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
 author: alsin
