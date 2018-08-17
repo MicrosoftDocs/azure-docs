@@ -117,7 +117,7 @@ Yes.  For more information, see [Create a cluster with attached data disks](../v
 | FileStoreService.exe |
  
 ### How can my application authenticate to KeyVault to get secrets?
-The following are means for your application to obtain creditials for authenticating to KeyVault:
+The following are means for your application to obtain credentials for authenticating to KeyVault:
 
 A. During your applications build/packing job, you can pull a certificate into your SF app's data package, and use this to authenticate to KeyVault.
 B. For virtual machine scale set MSI enabled hosts, you can develop a simple PowerShell SetupEntryPoint for your SF app to get [an access token from the MSI endpoint](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/how-to-use-vm-token), and then [retrieve your secrets from KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)
