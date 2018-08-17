@@ -61,7 +61,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### Retrieve the model
 
-You registered the best model in the workspace in the previous tutorial. Now, load this workspace and download the model to your local directory.
+You registered a model in your workspace in the previous tutorial. Now, load this workspace and download the model to your local directory.
 
 
 ```python
