@@ -18,7 +18,7 @@ ms.author: mstewart
 
 #  Enable Azure Disk Encryption for Windows IaaS VMs (deprecated)
 
-**Starting on August 17, 2018, you no longer need to use an Azure AD application when encrypting IaaS VMs. This functionality is deprecated and will be removed from Azure Disk encryption in the future. To view instructions for the current version, see [Azure Disk Encryption for Windows VMS](azure-security-disk-encryption-windows.md).**
+**Starting on August 17, 2018, you no longer need to use an Azure AD application when encrypting IaaS VMs. This functionality is deprecated and will be removed from Azure Disk encryption in the future. VMs that were already encrypted with Azure AD application parameters are still supported and should continue to be maintained with that AAD syntax. New VMs should be encrypted without the Azure AD application parameters. To view instructions for the current version, see [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md).** 
 
 You can enable many disk-encryption scenarios, and the steps may vary according to the scenario. The following sections cover the scenarios in greater detail for Windows IaaS VMs. Before you can use disk encryption, the [Azure Disk Encryption prerequisites](../security/azure-security-disk-encryption-prerequisites-aad.md) need to be completed. 
 
