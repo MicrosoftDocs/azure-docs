@@ -114,6 +114,33 @@ public static async Task Run(
     };
 }
 ```
+## Querying instances with parameters
+
+You can use the `GetStatusAsync` method to query the statuses of all orchestration instances that match the parameters. The method returns objects with the same properties as the `GetStatusAsync` method with parameters, except it doesn't return history. You can use `createTimeFrom`, `createdTimeTo`, `runtimeStatus`. The `createdTimeTo` is optional.
+
+```csharp
+[FunctionName("QueryStatus")]
+public static async Task Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
+    [OrchestrationClient] DurableOrchestrationClient client,
+    TraceWriter log)
+{
+
+    IEnumerable<OrchestrationRuntimeStatus> runtimeStatus = new List<OrchestrationRuntimeStatus> {
+        OrchestrationRuntimeStatus.Completed,
+        OrchestrationRuntimeStatus.Running
+    };
+    IList<DurableOrchestrationStatus> instances = await starter.GetStatusAsync(
+        new DateTime(2018, 3, 10, 10, 1, 0),
+        new DateTime(2018, 3, 10, 10, 23, 59),
+        runtimeStatus
+    ); // You can pass CancellationToken as a parameter.
+    foreach (var instance in instances)
+    {
+        log.Info(JsonConvert.SerializeObject(instance));
+    };
+}
+```
 
 ## Terminating instances
 
