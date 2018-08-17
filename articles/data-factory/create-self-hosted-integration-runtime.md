@@ -27,13 +27,13 @@ A self-hosted integration runtime is capable of running copy activities between 
 This document introduces how you can create and configure Self-hosted IR.
 
 ## High-level steps to install self-hosted IR
-1.	Create a Self-hosted integration runtime. Here is a PowerShell example:
+1. Create a Self-hosted integration runtime. Here is a PowerShell example:
 
 	```powershell
 	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
 	```
-	.	Download and install self-hosted integration runtime (on local machine).
-	.	Retrieve authentication key and register self-hosted integration runtime with the key. Here is a PowerShell example:
+   - Download and install self-hosted integration runtime (on local machine).
+   - Retrieve authentication key and register self-hosted integration runtime with the key. Here is a PowerShell example:
 
 	```powershell
 	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
@@ -48,9 +48,9 @@ Here is a high-level data flow for the summary of steps for copy with self-hoste
 
 1. Data developer creates a self-hosted integration runtime within an Azure data factory using a PowerShell cmdlet. Currently, the Azure portal does not support this feature.
 2. Data developer creates a linked service for an on-premises data store by specifying the self-hosted integration runtime instance that it should use to connect to data stores. As part of setting up the linked service, data developer uses the ‘Credential Manager’ application (currently, not supported) for setting authentication types and credentials. The Credential manager application dialog communicates with the data store to test connection and the self-hosted integration runtime to save credentials.
-	.	Self-hosted integration runtime node encrypts the credential using Windows Data Protection Application Programming Interface (DPAPI) and saves it locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts it using DPAPI and stores it locally. Credential synchronization is transparent to the data developer and is handled by self-hosted IR.    
-	.	Data Factory service communicates with the self-hosted integration runtime for scheduling & management of jobs via **control channel** that uses a shared Azure service bus queue. When an activity job needs to be run, Data Factory queues the request along with any credential information (in case credentials are not already stored on the self-hosted integration runtime). Self-hosted integration runtime kicks off the job after polling the queue.
-	.	Self-hosted integration runtime copies data from an on-premises store to a cloud storage, or vice versa depending on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services such as Azure Blob Storage over a secure (HTTPS) channel.
+   - Self-hosted integration runtime node encrypts the credential using Windows Data Protection Application Programming Interface (DPAPI) and saves it locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts it using DPAPI and stores it locally. Credential synchronization is transparent to the data developer and is handled by self-hosted IR.    
+   - Data Factory service communicates with the self-hosted integration runtime for scheduling & management of jobs via **control channel** that uses a shared Azure service bus queue. When an activity job needs to be run, Data Factory queues the request along with any credential information (in case credentials are not already stored on the self-hosted integration runtime). Self-hosted integration runtime kicks off the job after polling the queue.
+   - Self-hosted integration runtime copies data from an on-premises store to a cloud storage, or vice versa depending on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services such as Azure Blob Storage over a secure (HTTPS) channel.
 
 ## Considerations for using self-hosted IR
 
@@ -234,10 +234,10 @@ The integration runtime Host Service restarts automatically after you save the u
 
 After self-hosted integration runtime has been successfully registered, if you want to view or update proxy settings, use Integration Runtime Configuration Manager.
 
-1.	Launch **Microsoft Integration Runtime Configuration Manager**.
-	.	Switch to the **Settings** tab.
-	.	Click **Change** link in **HTTP Proxy** section to launch the **Set HTTP Proxy** dialog.
-	.	After you click the **Next** button, you see a warning dialog asking for your permission to save the proxy setting and restart the Integration Runtime Host Service.
+1. Launch **Microsoft Integration Runtime Configuration Manager**.
+   - Switch to the **Settings** tab.
+   - Click **Change** link in **HTTP Proxy** section to launch the **Set HTTP Proxy** dialog.
+   - After you click the **Next** button, you see a warning dialog asking for your permission to save the proxy setting and restart the Integration Runtime Host Service.
 
 You can view and update HTTP proxy by using Configuration Manager tool.
 
@@ -283,8 +283,8 @@ In addition to these points, you also need to make sure Microsoft Azure is in yo
 ### Possible symptoms for firewall and proxy server-related issues
 If you encounter errors similar to the following ones, it is likely due to improper configuration of the firewall or proxy server, which blocks self-hosted integration runtime from connecting to Data Factory to authenticate itself. Refer to previous section to ensure your firewall and proxy server are properly configured.
 
-1.	When you try to register the self-hosted integration runtime, you receive the following error: "Failed to register this Integration Runtime node! Confirm that the Authentication key is valid and the Integration Service Host Service is running on this machine. "
-	.	When you open Integration Runtime Configuration Manager, you see status as “**Disconnected**” or “**Connecting**”. When viewing Windows event logs, under “Event Viewer” > “Application and Services Logs” > “Microsoft Integration Runtime”, you see error messages such as the following error:
+1. When you try to register the self-hosted integration runtime, you receive the following error: "Failed to register this Integration Runtime node! Confirm that the Authentication key is valid and the Integration Service Host Service is running on this machine. "
+   - When you open Integration Runtime Configuration Manager, you see status as “**Disconnected**” or “**Connecting**”. When viewing Windows event logs, under “Event Viewer” > “Application and Services Logs” > “Microsoft Integration Runtime”, you see error messages such as the following error:
 
 	```
 	Unable to connect to the remote server
