@@ -23,7 +23,7 @@ ms.author: daveba
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you will learn how to enable and disable system and user assigned identity for an Azure Virtual Machine (VM), using the Azure portal. 
+In this article, you learn how to enable and disable system and user assigned identity for an Azure Virtual Machine (VM), using the Azure portal. 
 
 ## Prerequisites
 
@@ -42,7 +42,8 @@ Currently, the Azure portal does not support enabling system assigned identity d
 
 - [Create a Windows virtual machine with the Azure portal](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Create a Linux virtual machine with the Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
-### Enable system assigned identity on an existing Azure VM
+
+### Enable system assigned identity on an existing VM
 
 To enable the system assigned identity on a VM that was originally provisioned without it:
 
@@ -54,7 +55,7 @@ To enable the system assigned identity on a VM that was originally provisioned w
 
    ![Configuration page screenshot](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
-### Remove system assigned identity from an Azure VM
+### Remove system assigned identity from a VM
 
 If you have a Virtual Machine that no longer needs the system assigned identity:
 
@@ -68,16 +69,16 @@ If you have a Virtual Machine that no longer needs the system assigned identity:
 
 ## User assigned identity
 
- In this section, you will learn how to add and remove a user assigned identity from an Azure VM using the Azure portal.
+ In this section, you learn how to add and remove a user assigned identity from a VM using the Azure portal.
 
-### Assign a user assigned identity during the creation of an Azure VM
+### Assign a user assigned identity during the creation of a VM
 
 Currently, the Azure portal does not support assigning a user assigned identity during the creation of a VM. Instead, refer to one of the following VM creation Quickstart articles to first create a VM, and then proceed to the next section for details on assigning a user assigned identity to the VM:
 
 - [Create a Windows virtual machine with the Azure portal](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Create a Linux virtual machine with the Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
 
-### Assign a user assigned identity to an existing Azure VM
+### Assign a user assigned identity to an existing VM
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM.
 2. Navigate to the desired VM and click **Identity**, **User assigned** and then **\+Add**.

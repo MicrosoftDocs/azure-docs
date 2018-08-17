@@ -23,7 +23,7 @@ ms.author: daveba
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you will learn how to enable and disable system and user assigned identity for a virtual machine scale set using the Azure portal.
+In this article, you learn how to enable and disable system and user assigned identity for a virtual machine scale set using the Azure portal.
 
 ## Prerequisites
 
@@ -54,9 +54,9 @@ To enable the system assigned identity on a virtual machine scale set that was o
 
    [![Configuration page screenshot](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
-## Remove system assigned identity from a virtual machine scale set
+### Remove system assigned identity from a virtual machine scale set
 
-If you have a virtual machine scale set that no longer needs a Managed Service Identity:
+If you have a virtual machine scale set that no longer needs a system assigned identity:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the virtual machine scale set. Also make sure your account belongs to a role that gives you write permissions on the virtual machine scale set.
 
@@ -68,7 +68,7 @@ If you have a virtual machine scale set that no longer needs a Managed Service I
 
 ## User assigned identity
 
-In this section, you will learn how to add and remove a user assigned identity from a virtual machine scale set using the Azure portal.
+In this section, you learn how to add and remove a user assigned identity from a virtual machine scale set using the Azure portal.
 
 ### Assign a user assigned identity during the creation of a virtual machine scale set
 
