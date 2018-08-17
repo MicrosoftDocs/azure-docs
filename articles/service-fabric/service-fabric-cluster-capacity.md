@@ -162,8 +162,7 @@ For production workloads:
 - Standard A1 SKU is not supported for production workloads for performance reasons.
 
 > [!WARNING]
-> Choose the primary node type VM SKU carefully, taking into account your capacity future needs. [Changing the Primary node VM SKU size](virtual-machine-scale-set-scale-node-type-scale-out.md) on a running cluster is supported, but is a data-destructive in-place infrastructure operation. It is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues.  Another option for moving your primary node type to a new VM SKU (smaller or larger) is to create a new cluster with the right capacity, deploy your applications to it and then restore the application state (if applicable) from the [latest service backups](service-fabric-reliable-services-backup-restore.md) you have taken from the old cluster. You do not need to restore any system service state, they are recreated when you deploy applications to your new cluster. If you are only running stateless applications on your cluster, deploy your applications to the new cluster (there is no data to restore).
->  
+> Changing the primary node VM SKU size on a running cluster, is a scaling operation, and documented in [Virtual Machine Scale Set scale out](virtual-machine-scale-set-scale-node-type-scale-out.md) documentation.
 
 ## Non-primary node type - capacity guidance for stateful workloads
 

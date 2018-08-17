@@ -191,8 +191,8 @@ Here, we configure Express to use the OpenID Connect authentication protocol. Pa
     ```JavaScript
     // configure Express (section 2)
 
-        var app = express();
-        app.configure(function() {
+      var app = express();
+      app.configure(function() {
       app.set('views', __dirname + '/views');
       app.set('view engine', 'ejs');
       app.use(express.logger());
