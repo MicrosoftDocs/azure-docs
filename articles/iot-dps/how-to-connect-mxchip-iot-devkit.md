@@ -109,10 +109,11 @@ Now you need to generate an X.609 certificate.
 2. Select **Add**.
 
 3. On the "Add enrollment" panel:
-   - select **X.509** under **Mechanism**
-   - click "Select a file" under **Primary Certificate .pem or .cer file**
-   - on the File Open dialog, navigate to and upload the **.pem** certificate you just generated
-   - leave the rest as default and click **Save**
+
+   - Select **X.509** under **Mechanism**.
+   - Click "Select a file" under **Primary Certificate .pem or .cer file**.
+   - On the File Open dialog, navigate to and upload the **.pem** certificate you just generated.
+   - Leave the rest as default and click **Save**.
 
    ![Upload certificate](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
 
@@ -125,7 +126,6 @@ Now you need to generate an X.609 certificate.
   >
   > `"-----BEGIN CERTIFICATE-----"` and `"-----END CERTIFICATE-----"`.
   >
-
 
 ## Start the DevKit
 
