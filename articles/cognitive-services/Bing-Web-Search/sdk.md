@@ -17,7 +17,7 @@ ms.author: v-gedod, erhopf
 
 The Bing Web Search SDK samples include scenarios that:
 
-1. Query a single word and prints the name and URL of the first web page, image, news article, and video included in the response.
+1. Query a single word and print the name and URL of the first web page, image, news article, and video included in the response.
 2. Query on a phrase, verify the number of results, and print out the name and URL of first result.
 3. Query on search term with response filters set to `news` and print the details of news results.
 4. Query on a search term with `answerCount` and `promote` parameters, then print details of results.
