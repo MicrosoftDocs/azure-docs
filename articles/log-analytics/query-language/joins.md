@@ -1,6 +1,6 @@
 ---
 title: Joins in Azure Log Analytics queries | Microsoft Docs
-description: This article provides a tutorial for using the Analytics portal to write queries in Log Analytics.
+description: This article includes a lesson on using joins in the Log Analytics query language.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
 ---
@@ -21,7 +21,7 @@ ms.component: na
 # Joins in Log Analytics queries
 
 > [!NOTE]
-> If you haven't completed the [Advanced query writing](./advanced-query-writing.md) tutorial yet, it is recommended that you do so.
+> You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
 
 Joins allow you to analyze data from multiple tables, in the same query. They merge the rows of two data sets by matching values of specified columns.
 
@@ -40,13 +40,10 @@ SecurityEvent
 | top 10 by Duration desc
 ```
 
-In this example, the first dataset filters for all sign-in events. This is joined with a second dataset that filters for all sign-out events. The projected columns are Computer, Account, TargetLogonId, and TimeGenerated.
-The datasets are correlated by a shared column, "TargetLogonId". The output is a single record per correlation, which 
+In this example, the first dataset filters for all sign-in events. This is joined with a second dataset that filters for all sign-out events. The projected columns are _Computer_, _Account_, _TargetLogonId_, and _TimeGenerated_. The datasets are correlated by a shared column, _TargetLogonId_. The output is a single record per correlation, which 
 has both the sign-in and sign-out time.
 
-If both datasets have columns with the same names, the columns of the right-side dataset would be appended with an 
-index number, so the results would show for example "TargetLogonId" (values from the left-side table) and 
-"TargetLogonId1" (values from the right-side table).  In this case, the second "TargetLogonId1" column was removed by using the `project-away` operator.
+If both datasets have columns with the same names, the columns of the right-side dataset would be given an index number, so in this example the results would show _TargetLogonId_ with values from the left-side table and _TargetLogonId1_  with values from the right-side table. In this case, the second _TargetLogonId1_ column was removed by using the `project-away` operator.
 
 > [!NOTE]
 > To improve performance, keep only the relevant columns of the joined data-sets, using the `project` operator.
@@ -104,3 +101,12 @@ Consider the following points for optimal performance:
 * If one table is always smaller than the other, use it as the left side of the join.
 
 
+## Next steps
+See other lessons for using the Log Analytics query language:
+
+- [String operations](string-operations.md)
+- [Aggregation functions](aggregations.md)
+- [Advanced aggregations](advanced-aggregations.md)
+- [JSON and data structures](json-data-structures.md)
+- [Advanced query writing](advanced-query-writing.md)
+- [Charts](charts.md)

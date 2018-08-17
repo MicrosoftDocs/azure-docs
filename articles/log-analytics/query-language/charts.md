@@ -20,9 +20,9 @@ ms.component: na
 # Creating charts and diagrams from Log Analytics queries
 
 > [!NOTE]
-> You should complete [Advanced aggregations in Log Analytics queries](advanced-aggregations.md) before completing this tutorial.
+> You should complete [Advanced aggregations in Log Analytics queries](advanced-aggregations.md) before completing this lesson.
 
-This article describes various visualizations in Azure Log Analytics to display your data in different ways. 
+This article describes various visualizations in Azure Log Analytics to display your data in different ways.
 
 ## Charting the results
 Start by reviewing how many computers there are per operating system, during the past hour:
@@ -88,7 +88,12 @@ You can switch between by selecting the dropdown with the column name.
 ![Bar chart AccountType](media/charts/charts-and-diagrams-multiDimension2.png)
 
 ## Next steps
-Continue with the advanced tutorials:
-* [Working with JSON and data structures](json-data-structures.md)
-* [Advanced query writing](advanced-query-writing.md)
-* [Joins - cross analysis](joins.md)
+See other lessons for using the Log Analytics query language:
+
+- [String operations](string-operations.md)
+- [Date and time operations](datetime-operations.md)
+- [Aggregation functions](aggregations.md)
+- [Advanced aggregations](advanced-aggregations.md)
+- [JSON and data structures](json-data-structures.md)
+- [Advanced query writing](advanced-query-writing.md)
+- [Joins](joins.md)

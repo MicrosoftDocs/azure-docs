@@ -20,7 +20,7 @@ ms.component: na
 # Advanced aggregations in Log Analytics queries
 
 > [!NOTE]
-> You should complete [Aggregations in Log Analytics queries](./aggregations.md) before completing this tutorial.
+> You should complete [Aggregations in Log Analytics queries](./aggregations.md) before completing this lesson.
 
 This article describes some of the more advanced aggregation options available to Log Analytics queries.
 
@@ -172,8 +172,13 @@ WindowsFirewall
 ```
 
 ## Next steps
-Continue with our advanced tutorials:
-* [Charts and diagrams](charts.md)
-* [Working with JSON and data structures](json-data-structures.md)
-* [Advanced query writing](advanced-query-writing.md)
-* [Joins - cross analysis](joins.md)
+
+See other lessons for using the Log Analytics query language:
+
+- [String operations](string-operations.md)
+- [Date and time operations](datetime-operations.md)
+- [Aggregation functions](aggregations.md)
+- [Advanced aggregations](advanced-aggregations.md)
+- [JSON and data structures](json-data-structures.md)
+- [Joins](joins.md)
+- [Charts](charts.md)

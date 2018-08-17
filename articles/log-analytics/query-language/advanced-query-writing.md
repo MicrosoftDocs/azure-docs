@@ -21,7 +21,7 @@ ms.component: na
 # Writing advanced queries in Log Analytics
 
 > [!NOTE]
-> You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this tutorial.
+> You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
 
 ## Reusing code with let
 Use `let` to assign results to a variable, and refer to it later in the query:
@@ -148,5 +148,12 @@ SecurityEvent
 ```
 
 ## Next steps
-Continue with our advanced tutorials:
-* [Joins - cross analysis](./joins.md)
+See other lessons for using the Log Analytics query language:
+
+- [String operations](string-operations.md)
+- [Date and time operations](datetime-operations.md)
+- [Aggregation functions](aggregations.md)
+- [Advanced aggregations](advanced-aggregations.md)
+- [JSON and data structures](json-data-structures.md)
+- [Joins](joins.md)
+- [Charts](charts.md)

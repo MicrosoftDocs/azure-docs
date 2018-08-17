@@ -21,7 +21,7 @@ ms.component: na
 # Aggregations in Log Analytics queries
 
 > [!NOTE]
-> You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this tutorial.
+> You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
 
 This article describes aggregation functions in Log Analytics queries that offer useful ways to analyze your data. These functions all work with the `summarize` operator that produces a  table with aggregated results of the input table.
 
@@ -143,10 +143,12 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-## Next steps
-Continue with our advanced tutorials:
-* [Advanced aggregations](advanced-aggregations.md)
-* [Charts and diagrams](charts.md)
-* [Working with JSON and data structures](json-data-structures.md)
-* [Advanced query writing](advanced-query-writing.md)
-* [Joins - cross analysis](joins.md)
+See other lessons for using the Log Analytics query language:
+
+- [String operations](string-operations.md)
+- [Date and time operations](datetime-operations.md)
+- [Advanced aggregations](advanced-aggregations.md)
+- [JSON and data structures](json-data-structures.md)
+- [Advanced query writing](advanced-query-writing.md)
+- [Joins](joins.md)
+- [Charts](charts.md)

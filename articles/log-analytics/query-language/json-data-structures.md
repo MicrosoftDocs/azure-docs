@@ -21,7 +21,7 @@ ms.component: na
 # Working with JSON and data Structures in Log Analytics queries
 
 > [!NOTE]
-> You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this tutorial.
+> You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
 
 
 Nested objects are objects that contain other objects in an array or a map of key-value pairs. These objects are represented as JSON strings. This article describes how JSON is used to retrieve data and analyze nested objects.
@@ -72,7 +72,7 @@ print hosts_object
 
 
 ### arraylength
-Use `arraylength` to count the number of elements in an array.:
+Use `arraylength` to count the number of elements in an array:
 
 ```OQL
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
@@ -92,7 +92,7 @@ print hosts_object
 ![mvexpand](media/json-data-structures/mvexpand.png)
 
 ### buildschema
-Use `buildschema` to find the minimum schema that admits all values of an object:
+Use `buildschema` to get the schema that admits all values of an object:
 
 ```OQL
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
@@ -114,7 +114,7 @@ The output is a schema in JSON format:
     }
 }
 ```
-This output describes the names of the object fields and their matching data types. For example, there is a field named _rate_ with a type of _int_. _indexer_ is used to mark where you should use a numeric index.
+This output describes the names of the object fields and their matching data types. 
 
 Nested objects may have different schemas such as in the following example:
 
@@ -128,6 +128,12 @@ print hosts_object
 ![Build schema](media/json-data-structures/buildschema.png)
 
 ## Next steps
-Continue with the advanced tutorials:
-* [Advanced query writing](advanced-query-writing.md)
-* [Joins - cross analysis](joins.md)
+See other lessons for using the Log Analytics query language:
+
+- [String operations](string-operations.md)
+- [Date and time operations](datetime-operations.md)
+- [Aggregation functions](aggregations.md)
+- [Advanced aggregations](advanced-aggregations.md)
+- [Advanced query writing](advanced-query-writing.md)
+- [Joins](joins.md)
+- [Charts](charts.md)

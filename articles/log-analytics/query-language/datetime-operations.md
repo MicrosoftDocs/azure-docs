@@ -20,7 +20,7 @@ ms.component: na
 # Working with date time values in Log Analytics queries
 
 > [!NOTE]
-> You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this tutorial.
+> You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
 
 This article describes how to work with date and time data in Log Analytics queries.
 
@@ -76,7 +76,7 @@ Heartbeat
 | extend timeFromStart = TimeGenerated - startDatetime
 ```
 
-# Converting time units
+## Converting time units
 It can be useful to express a datetime or timespan in a time unit other than the default one. For example, suppose you're reviewing error events from the last 30 minutes, and need a calculated column that shows how long ago the event happened:
 
 ```OQL
@@ -156,11 +156,12 @@ Event
 | Get a date relative to value  | [endofday](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofday()) [endofweek](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofweek()) [endofmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofmonth()) [endofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofyear()) [startofday](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofday()) [startofweek](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofweek()) [startofmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofmonth()) [startofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofyear()) |
 
 ## Next steps
-Continue with our advanced tutorials:
-* [String operations](./string-operations.md)
-* [Aggregation functions](aggregations.md)
-* [Advanced aggregations](advanced-aggregations.md)
-* [Charts and diagrams](charts.md)
-* [Working with JSON and data structures](json-data-structures.md)
-* [Advanced query writing](advanced-query-writing.md)
-* [Joins - cross analysis](joins.md)
+See other lessons for using the Log Analytics query language:
+
+- [String operations](string-operations.md)
+- [Aggregation functions](aggregations.md)
+- [Advanced aggregations](advanced-aggregations.md)
+- [JSON and data structures](json-data-structures.md)
+- [Advanced query writing](advanced-query-writing.md)
+- [Joins](joins.md)
+- [Charts](charts.md)
