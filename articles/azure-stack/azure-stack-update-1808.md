@@ -36,6 +36,7 @@ The Azure Stack 1808 update build number is **1.1808.x.xx**.
 
 This update includes the following improvements for Azure Stack.
 
+- <!--  2682594   | IS  -->  Beginning with version 1808, all Azure Stack environments use the Coordinated Universal Time (UTC) time zone format.  All log data and related information now displays in UTC format. If you update from a previous version that was not installed using UTC, your environment is updated to use UTC. 
 
 
 
