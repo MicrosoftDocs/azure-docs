@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 08/17/2018
 ms.author: crdun
 ---
 # Create a Windows app
@@ -49,19 +49,21 @@ You have now provisioned an Azure Mobile App backend that can be used by your mo
 
 ## Download and run the client project
 
-Once you have configured your Mobile App backend, you can either create a new client app or modify an existing app to connect to Azure. In this section, you download a UWP app template project that is customized to connect to your Mobile App backend.
+Once you have configured your Mobile App backend, you can either create a new client app or modify an existing app to connect to Azure. In this section, you download a UWP sample app project that is customized to connect to your Mobile App backend.
 
 1. Back in the **Quick start** blade for your Mobile App backend, click **Create a new app** > **Download**, then extract the compressed project files to your local computer.
 
     ![Download Windows quickstart project](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-app-windows-quickstart.png)
 
-2. (Optional) Add the UWP app project to the same solution as the server project. This makes it easier to debug and test both the app and the backend in the same Visual Studio solution, if you choose to do so. To add a UWP app project to the solution, you must be using Visual Studio 2017.
-3. With the UWP app as the startup project, press the F5 key to deploy and run the app.
-4. In the app, type meaningful text, such as *Complete the tutorial*, in the **Insert a TodoItem** text box, and then click **Save**.
+2. Open the UWP project and press the F5 key to deploy and run the app.
+3. In the app, type meaningful text, such as *Complete the tutorial*, in the **Insert a TodoItem** text box, and then click **Save**.
 
     ![Windows quickstart complete desktop](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
     This sends a POST request to the new mobile app backend that's hosted in Azure.
+
+> [!TIP]
+> You can add the UWP app project to the same solution as the server project if you are using the .NET backend. This makes it easier to debug and test both the app and the backend in the same Visual Studio solution. To add a UWP app project to the backend solution, you must be using Visual Studio 2017.
 
 ## Next steps
 
