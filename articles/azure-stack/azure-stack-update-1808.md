@@ -53,7 +53,6 @@ This update includes the following improvements for Azure Stack.
 
 Azure Stack uses Server Core installations of Windows Server 2016 to host key infrastructure. This release installs the following Windows Server 2016 updates on the infrastructure servers for Azure Stack:  
 
-- [ADV180018]( https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018)
 - [CVE-2018-0952](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-0952)
 - [CVE-2018-8200](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8200)
 - [CVE-2018-8204](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8204)
