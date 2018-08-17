@@ -142,7 +142,7 @@ and sometimes, dictionaries, you can use these collection functions.
 To work with conditions, compare values and expression results, 
 or evaluate various kinds of logic, you can use these logical comparison functions. 
 For the full reference about each function, see the 
-[alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
+[alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 | Logical comparison function | Task | 
 | --------------------------- | ---- | 
@@ -166,7 +166,7 @@ For example, you can change a value from a Boolean to an integer.
 To learn how Logic Apps handles content types during 
 conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md). 
 For the full reference about each function, see the 
-[alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
+[alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 | Conversion function | Task | 
 | ------------------- | ---- | 
@@ -200,7 +200,7 @@ For the full reference about each function, see the
 
 To work with integers and floats, you can use these math functions. 
 For the full reference about each function, see the 
-[alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
+[alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 | Math function | Task | 
 | ------------- | ---- | 
@@ -221,7 +221,7 @@ For the full reference about each function, see the
 
 To work with dates and times, you can use these date and time functions.
 For the full reference about each function, see the 
-[alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
+[alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 | Date or time function | Task | 
 | --------------------- | ---- | 
@@ -260,7 +260,7 @@ These workflow functions can help you:
 For example, you can reference the outputs from 
 one action and use that data in a later action. 
 For the full reference about each function, see the 
-[alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
+[alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 | Workflow function | Task | 
 | ----------------- | ---- | 
@@ -294,7 +294,7 @@ To work with uniform resource identifiers (URIs)
 and get various property values for these URIs, 
 you can use these URI parsing functions. 
 For the full reference about each function, see the 
-[alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
+[alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 | URI parsing function | Task | 
 | -------------------- | ---- | 
@@ -312,7 +312,7 @@ For the full reference about each function, see the
 
 To work with JSON objects and XML nodes, you can use these manipulation functions. 
 For the full reference about each function, see the 
-[alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
+[alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 | Manipulation function | Task | 
 | --------------------- | ---- | 
