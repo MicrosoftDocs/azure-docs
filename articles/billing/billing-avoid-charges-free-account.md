@@ -1,5 +1,5 @@
 ---
-title: Avoid charges for your Azure free account - Azure | Microsoft Docs
+title: Avoid charges for your Azure free account | Microsoft Docs
 description: Understand why you see charges for your Azure free account. Learn ways to avoid these charges.
 services: ''
 documentationcenter: ''

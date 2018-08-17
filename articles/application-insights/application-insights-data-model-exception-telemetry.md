@@ -10,9 +10,10 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
-ms.author: mbullwin; sergkanz
+ms.reviewer: sergkanz
+ms.author: mbullwin
 
 ---
 # Exception telemetry: Application Insights data model

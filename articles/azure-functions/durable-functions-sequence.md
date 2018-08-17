@@ -66,7 +66,7 @@ Here is the source code:
 
 All JavaScript orchestration functions must include the `durable-functions` module. This is a JavaScript library that translates the orchestration function's actions into Durable's execution protocol for out-of-proc languages. There are three significant differences between an orchestration function and other JavaScript functions:
 
-1. The function is a [generator function.](https://docs.microsoft.com/en-us/scripting/javascript/advanced/iterators-and-generators-javascript)
+1. The function is a [generator function.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
 2. The function is wrapped in a call to the `durable-functions` module (here `df`).
 3. The function ends by calling `return`, not `context.done`.
 

@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Create a Ruby App in App Service on Linux
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App on Linux.
+[Azure App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic [Ruby on Rails](https://rubyonrails.org/) application that can then be deployed to Azure as a Web App on Linux.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -41,7 +41,7 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 ## Run the application locally
 
-Run the rails server in order for the application to work. Change to the *hello-world* directory, and the `rails server` command starts the server.
+The rails server needs to be running in order for the application to work. Change to the `hello-world` directory, and use the `rails server` command to start the server.
 
 ```bash
 cd hello-world\bin
@@ -101,7 +101,7 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Once the deployment has completed, restart your web app for the deployment to take effect by using the [`az webapp restart`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart) command, as shown here:
+Once the deployment has completed, restart your web app for the deployment to take effect by using the [`az webapp restart`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-restart) command, as shown here:
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup
@@ -124,4 +124,4 @@ http://<app name>.azurewebsites.net
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Ruby on Rails with MySQL](tutorial-ruby-mysql-app.md)
+> [Ruby on Rails with MySQL](tutorial-ruby-postgres-app.md)

@@ -37,7 +37,7 @@ After analyzing the incoming data, you specify an output for the transformed dat
 * Send data to Power BI dashboard for real-time visualization.
 * Archive data to other Azure storage services.
 
-The following image illustrates the Stream Analytics pipeline, Your Stream Analytics job can use all or a selected set if inputs and outputs. This image shows how data is sent to Stream Analytics, analyzed, and sent for other actions like storage, or presentation:
+The following image illustrates the Stream Analytics pipeline, Your Stream Analytics job can use all or a selected set of inputs and outputs. This image shows how data is sent to Stream Analytics, analyzed, and sent for other actions like storage, or presentation:
 
 ![Stream Analytics pipeline](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
 

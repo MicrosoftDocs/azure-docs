@@ -4,13 +4,14 @@ description: Get started with your first serverless app with this guide on creat
 keywords: ''
 services: logic-apps
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: integration
+ms.technology: vs-azure
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article

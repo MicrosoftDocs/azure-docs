@@ -10,7 +10,7 @@
 | North Central US    | 3                       |
 | South Central US    | 3                       |
 | West Central US     | 2                       |
-| Canada Central      | 2                       |
+| Canada Central      | 3                      |
 | Canada East         | 2                       |
 |                     |                         |
 | North Europe        | 3                       |

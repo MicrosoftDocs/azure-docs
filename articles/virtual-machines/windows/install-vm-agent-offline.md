@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 05/18/2018
 ms.author: genli
 
 ---
@@ -103,12 +103,11 @@ Use the following steps to install the VM Agent in offline mode.
 
 13.  Access the VM. Notice that the RdAgent is running and the logs are being generated.
 
-If you created the VM by using the classic deployment model, you're done.
+If you created the VM by using the Resource Manager deployment deployment model, you're done.
 
+### Use the ProvisionGuestAgent property for classic VMs
 
-### Use the ProvisionGuestAgent property for VMs created with Azure Resource Manager
-
-If you created the VM by using the Resource Manager deployment model, use the Azure PowerShell module to update the **ProvisionGuestAgent** property. The property informs Azure that the VM has the VM Agent installed.
+If you created the VM by using the classic model, use the Azure PowerShell module to update the **ProvisionGuestAgent** property. The property informs Azure that the VM has the VM Agent installed.
 
 To set the **ProvisionGuestAgent** property, run the following commands in Azure PowerShell:
 
@@ -127,5 +126,5 @@ Then run the `Get-AzureVM` command. Notice that the **GuestAgentStatus** propert
 
 ## Next steps
 
-- [Azure Virtual Machine Agent overview](agent-user-guide.md)
+- [Azure Virtual Machine Agent overview](../extensions/agent-windows.md)
 - [Virtual machine extensions and features for Windows](extensions-features.md)

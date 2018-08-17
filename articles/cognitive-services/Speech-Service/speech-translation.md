@@ -1,10 +1,9 @@
 ---
-title: About Speech Translation | Microsoft Docs
+title: About Speech Translation
 description: An overview of the capabilities of Speech Translation
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service
@@ -13,7 +12,7 @@ ms.date: 04/28/2018
 ms.author: v-jerkin
 ---
 
-# About Speech Translation API
+# About the Speech Translation API
 
 The Microsoft Speech API lets you add end-to-end, real-time, multi-language translation  of speech to your applications, tools, and devices. The same API can be used for both speech-to-speech and speech-to-text translation.
 
@@ -39,4 +38,4 @@ The differences between models are internal to the translation engine. End users
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-windows.md)
+* [See how to translate speech in C#](how-to-translate-speech-csharp.md)

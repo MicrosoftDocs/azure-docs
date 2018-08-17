@@ -114,7 +114,7 @@ Defines information about a the Web page in preview.
 |----------|-----------|----------|
 |name|The page title, not necessarily the HTML title|String|
 |url|The URL that was actually crawled (request may have followed redirects)|String|  
-|description|Brief description of the the page and content|String|  
+|description|Brief description of the page and content|String|  
 |isFamilyFriendly|Most accurate for items in the web index; realtime fetches do this detection based solely on the URL and not the page content|boolean|
 |primaryImageOfPage/contentUrl|The URL to a representative image to include in the preview|String| 
 

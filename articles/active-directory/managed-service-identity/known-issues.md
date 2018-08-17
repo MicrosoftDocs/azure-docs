@@ -10,7 +10,7 @@ ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
 ms.component: msi
 ms.devlang: 
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/12/2017
@@ -55,7 +55,7 @@ All Linux distributions supported by Azure IaaS can be used with MSI via the IMD
 Note: The MSI VM Extension only supports the following Linux distributions:
 - CoreOS Stable
 - CentOS 7.1
-- RedHat 7.2
+- Red Hat 7.2
 - Ubuntu 15.04
 - Ubuntu 16.04
 
@@ -80,11 +80,11 @@ Where:
 
 When Managed Service Identity is enabled on a VM, the following error is shown when attempting to use the “Automation script” feature for the VM, or its resource group:
 
-![MSI automation script export error](../media/msi-known-issues/automation-script-export-error.png)
+![MSI automation script export error](../managed-service-identity/media/msi-known-issues/automation-script-export-error.png)
 
 The Managed Service Identity VM extension does not currently support the ability to export its schema to a resource group template. As a result, the generated template does not show configuration parameters to enable Managed Service Identity on the resource. These sections can be added manually by following the examples in [Configure a VM Managed Service Identity by using a template](qs-configure-template-windows-vm.md).
 
-When the schema export functionality becomes available for the MSI VM extension, it will be listed in [Exporting Resource Groups that contain VM extensions](../../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions).
+When the schema export functionality becomes available for the MSI VM extension, it will be listed in [Exporting Resource Groups that contain VM extensions](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ### Configuration blade does not appear in the Azure portal
 
@@ -123,7 +123,8 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 - Provisioning of the VM extension to a VM might fail due to DNS lookup failures. Restart the VM, and try again. 
 - Adding a 'non-existent' user assigned identity will cause the VM to fail. 
 - Creating a user assigned identity with special characters (i.e. underscore) in the name, is not supported.
-- User assigned identity names are restricted to 24 characters for end to end scenario. User Assigned identities with names longer than 24 characters will fail to be assigned.  
+- User assigned identity names are restricted to 24 characters for end to end scenario. User Assigned identities with names longer than 24 characters will fail to be assigned.
+- If using the managed identity virtual machine extension, the supported limit is 32 user assigned managed identities. Without the managed identity virtual machine extension, the supported limit is 512.  
 - When adding a second user assigned identity, the clientID might not be available to requests tokens for the VM extension. As a mitigation, restart the MSI VM extension with the following two bash commands:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

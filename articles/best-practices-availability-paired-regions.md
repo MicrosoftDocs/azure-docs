@@ -1,13 +1,10 @@
 ---
 title: 'Business continuity and disaster recovery (BCDR): Azure Paired Regions | Microsoft Docs'
 description: Learn about Azure regional pairing, to ensure that applications are resilient during data center failures.
-services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
 ms.service: multiple
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: raynew
 ---
 
@@ -27,7 +24,8 @@ Figure 1 – Azure regional pairs
 |:--- |:--- |:--- |
 | Asia |East Asia |Southeast Asia |
 | Australia |Australia East |Australia Southeast |
-| Brazil |Brazil South (2) |South Central US |
+| Australia |Australia Central |Australia Central 2 |
+| Brazil |Brazil South 2 |South Central US |
 | Canada |Canada Central |Canada East |
 | China |China North |China East|
 | Europe |North Europe |West Europe |

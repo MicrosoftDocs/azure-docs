@@ -16,7 +16,14 @@ ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: brenduns
 ms.reviewer: scottnap
+ROBOTS: NOINDEX
+
+
 ---
+
+
+
+
 # Create a site-to-site VPN connection between two virtual networks in different Azure Stack Development Kit environments
 ## Overview
 This article shows you how to create a site-to-site VPN connection between two virtual networks in two separate Azure Stack Development Kit environments. While you configure the connections, you learn how VPN gateways in Azure Stack work.

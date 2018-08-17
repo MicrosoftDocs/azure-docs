@@ -10,9 +10,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2018
-ms.author: mbullwin; pharring
+ms.reviewer: pharring
+ms.author: mbullwin
 
 ---
 # Debug snapshots on exceptions in .NET apps
@@ -30,7 +31,7 @@ The following environments are supported:
 * Azure Cloud Service running OS family 4 or later.
 * Azure Service Fabric services running on Windows Server 2012 R2 or later.
 * Azure Virtual Machines running Windows Server 2012 R2 or later.
-* On-premise virtual or physical machines running Windows Server 2012 R2 or later.
+* On-premises virtual or physical machines running Windows Server 2012 R2 or later.
 
 > [!NOTE]
 > Client applications (for example, WPF, Windows Forms or UWP) are not supported.
@@ -60,7 +61,7 @@ The following environments are supported:
         <!-- How often we reconnect to the stamp. The default value is 15 minutes.-->
         <ReconnectInterval>00:15:00</ReconnectInterval>
         <!-- How often to reset problem counters. -->
-        <ProblemCounterResetInterval>24:00:00</ProblemCounterResetInterval>
+        <ProblemCounterResetInterval>1.00:00:00</ProblemCounterResetInterval>
         <!-- The maximum number of snapshots allowed in ten minutes.The default value is 1. -->
         <SnapshotsPerTenMinutesLimit>1</SnapshotsPerTenMinutesLimit>
         <!-- The maximum number of snapshots allowed per day. -->
@@ -148,7 +149,7 @@ The following environments are supported:
        "MaximumSnapshotsRequired": 3,
        "MaximumCollectionPlanSize": 50,
        "ReconnectInterval": "00:15:00",
-       "ProblemCounterResetInterval":"24:00:00",
+       "ProblemCounterResetInterval":"1.00:00:00",
        "SnapshotsPerTenMinutesLimit": 1,
        "SnapshotsPerDayLimit": 30,
        "SnapshotInLowPriorityThread": true,

@@ -3,17 +3,14 @@ title: SQL queries for Azure Cosmos DB | Microsoft Docs
 description: Learn about SQL syntax, database concepts, and SQL queries for Azure Cosmos DB. SQL can used as a JSON query language in Azure Cosmos DB.
 keywords: sql syntax,sql query, sql queries, json query language, database concepts and sql queries, aggregate functions
 services: cosmos-db
-documentationcenter: ''
 author: LalithaMV
 manager: kfile
 editor: monicar
 
-ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: laviswa
 
@@ -566,7 +563,7 @@ For other comparison operators such as >, >=, !=, < and <=, the following rules 
 
 If the result of the scalar expression in the filter is Undefined, the corresponding document would not be included in the result, since Undefined doesn't logically equate to "true".
 
-### BETWEEN keyword
+## BETWEEN keyword
 You can also use the BETWEEN keyword to express queries against ranges of values like in ANSI SQL. BETWEEN can be used against strings or numbers.
 
 For example, this query returns all family documents in which the first child's grade is between 1-5 (both inclusive). 
@@ -605,7 +602,7 @@ Logical operators operate on Boolean values. The logical truth tables for these 
 | False |True |
 | Undefined |Undefined |
 
-### IN keyword
+## IN keyword
 The IN keyword can be used to check whether a specified value matches any value in a list. For example, this query returns all family documents where the id is one of "WakefieldFamily" or "AndersenFamily". 
 
     SELECT *
@@ -618,7 +615,7 @@ This example returns all documents where the state is any of the specified value
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### Ternary (?) and Coalesce (??) operators
+## Ternary (?) and Coalesce (??) operators
 The Ternary and Coalesce operators can be used to build conditional expressions, similar to popular programming languages like C# and JavaScript. 
 
 The Ternary (?) operator can be very handy when constructing new JSON properties on the fly. For example, now you can write queries to classify the class levels into a human readable form like Beginner/Intermediate/Advanced as shown below.
@@ -638,7 +635,7 @@ The Coalesce (??) operator can be used to efficiently check for the presence of 
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-### <a id="EscapingReservedKeywords"></a>Quoted property accessor
+## <a id="EscapingReservedKeywords"></a>Quoted property accessor
 You can also access properties using the quoted property operator `[]`. For example, `SELECT c.grade` and `SELECT c["grade"]` are equivalent. This syntax is useful when you need to escape a property that contains spaces, special characters, or happens to share the same name as a SQL keyword or reserved word.
 
     SELECT f["lastName"]
@@ -726,7 +723,7 @@ Let's look at the role of `$1` here. The `SELECT` clause needs to create a JSON 
     }]
 
 
-### Aliasing
+## Aliasing
 Now let's extend the example above with explicit aliasing of values. AS is the keyword used for aliasing. It's optional as shown while projecting the second value as `NameInfo`. 
 
 In case a query has two properties with the same name, aliasing must be used to rename one or both of the properties so that they are disambiguated in the projected result.
@@ -752,7 +749,7 @@ In case a query has two properties with the same name, aliasing must be used to 
     }]
 
 
-### Scalar expressions
+## Scalar expressions
 In addition to property references, the SELECT clause also supports scalar expressions like constants, arithmetic expressions, logical expressions, etc. For example, here's a simple "Hello World" query.
 
 **Query**
@@ -798,7 +795,7 @@ In the following example, the result of the scalar expression is a Boolean.
     ]
 
 
-### Object and array creation
+## Object and array creation
 Another key feature of the SQL API is array/object creation. In the previous example, note that we created a new JSON object. Similarly, one can also construct arrays as shown in the following examples:
 
 **Query**
@@ -823,7 +820,7 @@ Another key feature of the SQL API is array/object creation. In the previous exa
       }
     ]
 
-### <a id="ValueKeyword"></a>VALUE keyword
+## <a id="ValueKeyword"></a>VALUE keyword
 The **VALUE** keyword provides a way to return JSON value. For example, the query shown below returns the scalar `"Hello World"` instead of `{$1: "Hello World"}`.
 
 **Query**
@@ -874,7 +871,7 @@ The following example extends this to show how to return JSON primitive values (
     ]
 
 
-### * Operator
+## * Operator
 The special operator (*) is supported to project the document as-is. When used, it must be the only projected field. While a query like `SELECT * FROM Families f` is valid, `SELECT VALUE * FROM Families f ` and  `SELECT *, f.id FROM Families f ` are not valid.
 
 **Query**
@@ -903,7 +900,7 @@ The special operator (*) is supported to project the document as-is. When used, 
         "isRegistered": true
     }]
 
-### <a id="TopKeyword"></a>TOP Operator
+## <a id="TopKeyword"></a>TOP Operator
 The TOP keyword can be used to limit the number of values from a query. When TOP is used in conjunction with the ORDER BY clause, the result set is limited to the first N number of ordered values; otherwise, it returns the first N number of results in an undefined order. As a best practice, in a SELECT statement, always use an ORDER BY clause with the TOP clause. This is the only way to predictably indicate which rows are affected by TOP. 
 
 **Query**
@@ -933,7 +930,7 @@ The TOP keyword can be used to limit the number of values from a query. When TOP
 
 TOP can be used with a constant value (as shown above) or with a variable value using parameterized queries. For more details, please see parameterized queries below.
 
-### <a id="Aggregates"></a>Aggregate Functions
+## <a id="Aggregates"></a>Aggregate Functions
 You can also perform aggregations in the `SELECT` clause. Aggregate functions perform a calculation on a set of values and return a single value. For example, the following query returns the count of family documents within the collection.
 
 **Query**
@@ -1406,7 +1403,7 @@ other possibly infinite variations like "021", "21.0", "0021", "00021", etc. wil
 This is in contrast to the JavaScript where the string values are implicitly casted to numbers (based on operator, ex: ==). This choice is crucial for efficient index matching in the SQL API. 
 
 ## Parameterized SQL queries
-Cosmos DB supports queries with parameters expressed with the familiar @ notation. Parameterized SQL provides robust handling and escaping of user input, preventing accidental exposure of data through SQL injection. 
+Cosmos DB supports queries with parameters expressed with the familiar \@ notation. Parameterized SQL provides robust handling and escaping of user input, preventing accidental exposure of data through SQL injection. 
 
 For example, you can write a query that takes last name and address state as parameters, and then execute it for various values of last name and address state based on user input.
 

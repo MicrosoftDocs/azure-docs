@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/24/2018
 ms.author: brenduns
 
 ---
@@ -114,7 +114,25 @@ This section contains post-installation known issues with build **180106.1**.
 
 #### Health and monitoring
 
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Alert #1:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
+
+  Alert #2:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
+
+  Both alerts can be safely ignored. They will close automatically over time.  
+
 - If you reboot an infrastructure role instance, you may receive a message indicating that the reboot failed. However, the reboot actually succeeded.
+
+
 
 #### Marketplace
 - Some marketplace items are being removed in this release due to compatibility concerns. These will be re-enabled after further validation.

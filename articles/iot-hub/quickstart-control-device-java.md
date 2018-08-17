@@ -1,20 +1,15 @@
 ---
 title: Control a device from Azure IoT Hub quickstart (Java) | Microsoft Docs
 description: In this quickstart, you run two sample Java applications. One application is a back-end application that can remotely control devices connected to your hub. The other application simulates a device connected to your hub that can be controlled remotely.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
-
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
-ms.date: 04/30/2018
+ms.date: 06/22/2018
 ms.author: dobett
-
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
 
@@ -71,10 +66,12 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyJavaDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyJavaDevice
     ```
 
-1. Run the following command to get the _device connection string_ for the device you just registered:
+    If you choose a different name for your device, update the device name in the sample applications before you run them.
+
+2. Run the following command to get the _device connection string_ for the device you just registered:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
@@ -96,19 +93,19 @@ Make a note of the service connection string, which looks like `Hostname=...=`. 
 
 The simulated device application connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgement back to your hub after it executes the direct method.
 
-1. In a terminal window, navigate to the root folder of the sample Java project. Then navigate to the **Quickstarts\simulated-device-2** folder.
+1. In a terminal window, navigate to the root folder of the sample Java project. Then navigate to the **iot-hub\Quickstarts\simulated-device-2** folder.
 
-1. Open the **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** file in a text editor of your choice.
+2. Open the **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** file in a text editor of your choice.
 
     Replace the value of the `connString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.java** file.
 
-1. In the terminal window, run the following commands to install the required libraries and build the simulated device application:
+3. In the terminal window, run the following commands to install the required libraries and build the simulated device application:
 
     ```cmd/sh
     mvn clean package
     ```
 
-1. In the terminal window, run the following commands to run the simulated device application:
+4. In the terminal window, run the following commands to run the simulated device application:
 
     ```cmd/sh
     java -jar target/simulated-device-2-1.0.0-with-deps.jar
@@ -122,19 +119,19 @@ The simulated device application connects to a device-specific endpoint on your 
 
 The back-end application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgements. An IoT Hub back-end application typically runs in the cloud.
 
-1. In another terminal window, navigate to the root folder of the sample Java project. Then navigate to the **Quickstarts\back-end-application** folder.
+1. In another terminal window, navigate to the root folder of the sample Java project. Then navigate to the **iot-hub\Quickstarts\back-end-application** folder.
 
-1. Open the **src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java** file in a text editor of your choice.
+2. Open the **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** file in a text editor of your choice.
 
     Replace the value of the `iotHubConnectionString` variable with the service connection string you made a note of previously. Then save your changes to the **BackEndApplication.java** file.
 
-1. In the terminal window, run the following commands to install the required libraries and build the back-end application:
+3. In the terminal window, run the following commands to install the required libraries and build the back-end application:
 
     ```cmd/sh
     mvn clean package
     ```
 
-1. In the terminal window, run the following commands to run the back-end application:
+4. In the terminal window, run the following commands to run the back-end application:
 
     ```cmd/sh
     java -jar target/back-end-application-1.0.0-with-deps.jar
@@ -150,9 +147,7 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
 ## Clean up resources
 
-If you plan to move on to the tutorials, leave the resource group and IoT hub and reuse them later.
-
-If you don't need the IoT hub any longer, delete it and the resource group in the portal. To do so, select the resource group that contains your IoT hub and click **Delete**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## Next steps
 
@@ -161,4 +156,4 @@ In this quickstart, you've called a direct method on a device from a back-end ap
 To learn how to route device-to-cloud messages to different destinations in the cloud, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Route telemetry to different endpoints for processing](iot-hub-java-java-process-d2c.md)
+> [Tutorial: Route telemetry to different endpoints for processing](tutorial-routing.md)

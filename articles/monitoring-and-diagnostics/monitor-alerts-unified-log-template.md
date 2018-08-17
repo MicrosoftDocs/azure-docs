@@ -1,21 +1,13 @@
 ---
-title: Create a log alert with a Resource Manager template | Microsoft Docs
-description:  Learn how to create log alert by using an Azure Resource Manager template and API.
+title: Create a log alert with a Resource Manager template
+description: Learn how to create log alert by using an Azure Resource Manager template and API.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-
+ms.component: alerts
 ---
 
 # Create a log alert with a Resource Manager template
@@ -30,7 +22,7 @@ Log alert for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-view
 ### Using Azure Resource Manager Template
 Log alerts for Log Analytics are created by alert rules that run a saved search on a regular interval. If the results of the query match specified criteria, an alert record is created and one or more actions are run. 
 
-Resource template for [Log analytics saved search](../log-analytics/log-analytics-log-searches.md) and [Log analytics alerts](../log-analytics/log-analytics-alerts.md) are available in Log Analytics section of documentation. Learn more about, [Adding Log Analytics saved searches and alerts](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); which includes illustrative samples as well as schema details.
+Resource template for Log analytics saved search and Log analytics alertsare available in Log Analytics section of documentation. To learn more see, [Adding Log Analytics saved searches and alerts](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); which includes illustrative samples as well as schema details.
 
 ### Using Resource Template via API/Powershell
 The Log Analytics Alert REST API is RESTful and can be accessed via the Azure Resource Manager REST API. The API can thus be accessed from a PowerShell command line and will output search results to you in JSON format, allowing you to use the results in many different ways programmatically.
@@ -48,7 +40,9 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
 ```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",    
+    "contentVersion": "1.0.0.0", 
+    "parameters": {      
+    },   
     "variables": {
     "alertLocation": "southcentralus",
     "alertName": "samplelogalert",
@@ -56,60 +50,61 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
     "alertDesription": "Sample log search alert",
     "alertStatus": "true",
     "alertSource":{
-       "Query":"requests",
-       "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
-       "Type":"ResultCount"
-        },
-    "alertSchedule":{
-        "Frequency": 15,
-        "Time": 60
-        },
-    "alertActions":{
-        "SeverityLevel": "4",
-        },
-     "alertTrigger":{
-       "Operator":"GreaterThan",
-       "Threshold":"1"
-        },
-      "actionGrp":{
-       "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
-      "Subject": "Customized Email Header",
-      "Webhook": "{}"           
-        }
+        "Query":"requests",
+        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+        "Type":"ResultCount"
+         },
+     "alertSchedule":{
+         "Frequency": 15,
+         "Time": 60
+         },
+     "alertActions":{
+         "SeverityLevel": "4"
+         },
+      "alertTrigger":{
+        "Operator":"GreaterThan",
+        "Threshold":"1"
+         },
+       "actionGrp":{
+        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
+        "Subject": "Customized Email Header",
+        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"           
+         }
   },
   "resources":[ {
-     "name":"[variables('alertName')]",
-     "type":"Microsoft.Insights/scheduledQueryRules",
-     "apiVersion": "2018-04-16",
-     "location": "[variables('alertLocation')]",
-     "tags":{"hidden-link:[variables('alertTargetResource')]": "Resource"},
-     "properties":{
-        "description": "[variables('alertDescription')]",
-        "enabled": "[variables('alertStatus')]",
-        "source": {
-            "query": "[variables('alertSource').Query]",
-            "dataSourceId": "[variables('alertSource').SourceId]",
-            "queryType":"[variables('alertSource').Type]"
-        },
-       "schedule":{
-            "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
-            "timeWindowInMinutes": "[variables('alertSchedule').Time]"    
-        },
-       "action":{
-            "severity":"[variables('alertActions').SeverityLevel]",
-            "aznsAction":{
-                "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
-                "emailSubject":"[variables('actionGrp').Subject]",
-                "customWebhookPayload":"[variables('actionGrp').Webhook]"
-            },
-        "trigger":{
-                "thresholdOperator":"[variables('alertTrigger').Operator]",
-                "threshold":"[variables('alertTrigger').Threshold]"
-            }
-        }
-      }
-    }
-  ]
+    "name":"[variables('alertName')]",
+    "type":"Microsoft.Insights/scheduledQueryRules",
+    "apiVersion": "2018-04-16",
+    "location": "[variables('alertLocation')]",
+    "tags":{"[variables('alertTag')]": "Resource"},
+    "properties":{
+       "description": "[variables('alertDesription')]",
+       "enabled": "[variables('alertStatus')]",
+       "source": {
+           "query": "[variables('alertSource').Query]",
+           "dataSourceId": "[variables('alertSource').SourceId]",
+           "queryType":"[variables('alertSource').Type]"
+       },
+      "schedule":{
+           "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
+           "timeWindowInMinutes": "[variables('alertSchedule').Time]"    
+       },
+      "action":{
+           "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+           "severity":"[variables('alertActions').SeverityLevel]",
+           "aznsAction":{
+               "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
+               "emailSubject":"[variables('actionGrp').Subject]",
+               "customWebhookPayload":"[variables('actionGrp').Webhook]"
+           },
+       "trigger":{
+               "thresholdOperator":"[variables('alertTrigger').Operator]",
+               "threshold":"[variables('alertTrigger').Threshold]"
+           }
+       }
+     }
+   }
+ ]
 }
 ```
 > [!IMPORTANT]

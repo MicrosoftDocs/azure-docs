@@ -11,11 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: bwren
-
+ms.component: na
 ---
+
 # Create log searches in Azure Log Analytics using the Log Search portal
 
 > [!NOTE]

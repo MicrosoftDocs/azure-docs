@@ -117,7 +117,7 @@ Both activity function and orchestrator function concurrency limits can be confi
 In the previous example, a maximum of 10 orchestrator functions and 10 activity functions can run on a single VM concurrently. If not specified, the number of concurrent activity and orchestrator function executions is capped at 10X the number of cores on the VM.
 
 > [!NOTE]
-> These settings are useful to help manage memory and CPU usage on a single VM. However, when scaled out across multiple VMs, each VM will have its own set set of limits. These settings cannot be used to control concurrency at a global level.
+> These settings are useful to help manage memory and CPU usage on a single VM. However, when scaled out across multiple VMs, each VM will have its own set of limits. These settings cannot be used to control concurrency at a global level.
 
 ## Orchestrator function replay
 As mentioned previously, orchestrator functions are replayed using the contents of the **History** table. By default, the orchestrator function code is replayed every time a batch of messages are dequeued from a control queue.
@@ -157,7 +157,7 @@ When planning to use Durable Functions for a production application, it is impor
 > [!TIP]
 > Unlike fan-out, fan-in operations are limited to a single VM. If your application uses the fan-out, fan-in pattern and you are concerned about fan-in performance, consider sub-dividing the activity function fan-out across multiple [sub-orchestrations](durable-functions-sub-orchestrations.md).
 
-The following table shows the expected *maximum* throughput numbers for the previously described scenarios. "Instance" refers to a single instance of an orchestrator function running on a single small ([A1](../virtual-machines/windows/sizes-general.md#a-series)) VM in Azure App Service. In all cases, it is assumed that [extended sessions](#orchestrator-function-replay) are enabled. Actual results may vary depending on the CPU or I/O work performed by the function code.
+The following table shows the expected *maximum* throughput numbers for the previously described scenarios. "Instance" refers to a single instance of an orchestrator function running on a single small ([A1](../virtual-machines/windows/sizes-previous-gen.md#a-series)) VM in Azure App Service. In all cases, it is assumed that [extended sessions](#orchestrator-function-replay) are enabled. Actual results may vary depending on the CPU or I/O work performed by the function code.
 
 | Scenario | Maximum throughput |
 |-|-|

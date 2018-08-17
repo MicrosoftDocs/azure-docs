@@ -24,21 +24,23 @@ To complete this quickstart, you need:
 
 - A [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard. 
 
-  >[!NOTE]  
-  >Existing Bing Custom Search customers who have a preview key provisioned on or before October 15, 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure.  
-
 ## Run the code
 
 To call the Bing Custom Search endpoint, follow these steps:
 
 1. Create a folder for your code.
+
 2. From an administrator command prompt or terminal, navigate to the folder you just created.
+
 3. Install the **requests** python module:
+
     <pre>
     pip install pipenv
     pipenv install requests
     </pre>
+    
 7. Create the file BingCustomSearch.py and copy the following code to it.
+
 8. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID (see step 1).
 
     ``` Python

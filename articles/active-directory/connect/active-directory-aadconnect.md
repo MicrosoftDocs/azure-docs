@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
+ms.component: hybrid
 ms.author: billmath
 
 ---
@@ -27,8 +28,9 @@ Azure AD Connect will integrate your on-premises directories with Azure Active D
 
 > 
 > - Synchronizing users to Azure AD is a **free feature** and doesn’t require customers to have any paid subscription.
->- Synchronized users are **not automatically granted** *any* license. Admins still have total control on the license assignment. 
+> - Synchronized users are **not automatically granted** *any* license. Admins still have total control on the license assignment. 
 > - Microsoft’s recommendation is for IT admins to synchronize all their users. This not only unblocks the users to access any Azure AD integrated resource but also gives a much broader view for IT admins to see what applications are being accessed by their users. 
+> - Microsoft strongly recommends not to synchronize users with admin roles in AAD.
 
 ![What is Azure AD Connect](media/active-directory-aadconnect/arch.png)
 
@@ -142,7 +144,7 @@ Azure AD Connect provides several features that simplify federating with Azure A
 
 ADFS can be configured to support [multiple domains](active-directory-aadconnect-multiple-domains.md). For example you might have multiple top domains you need to use for federation.
 
-if your ADFS server has not been configured to automatically update certificates from Azure AD or if you use a non-ADFS solution, then you will be notified when you have to [update certificates](active-directory-aadconnect-o365-certs.md).
+If your ADFS server has not been configured to automatically update certificates from Azure AD or if you use a non-ADFS solution, then you will be notified when you have to [update certificates](active-directory-aadconnect-o365-certs.md).
 
 ### Next steps to configure federation features
 |Topic |Link|  

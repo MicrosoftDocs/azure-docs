@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: 9ab42272-c30c-4b7e-8e66-d64eafef22d0
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

@@ -20,9 +20,9 @@ QnA Maker supports question/answer extraction in any language page, but the effe
 |Languages supported| Locale|
 |-----|----|
 |English|en-*|
-|French|en-*|
-|Italian|fr-*|
-|German|it-*|
+|French|fr-*|
+|Italian|it-*|
+|German|de-*|
 |Spanish|es-*|
 
 ## Query matching and relevance

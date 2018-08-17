@@ -116,7 +116,7 @@ A successful response is a JSON array with one result for each string in the inp
 
     * `confidence`: A value between 0.0 and 1.0 which represents the "confidence" (or perhaps more accurately, "probability in the training data") of that translation pair. The sum of confidence scores for one source word may or may not sum to 1.0. 
 
-    * `prefixWord`: A string giving the the word to display as a prefix of the translation. Currently, this is the gendered determiner of nouns, in languages that have gendered determiners. For example, the prefix of the Spanish word "mosca" is "la", since "mosca" is a feminine noun in Spanish. This is only dependent on the translation, and not on the source. If there is no prefix, it will be the empty string.
+    * `prefixWord`: A string giving the word to display as a prefix of the translation. Currently, this is the gendered determiner of nouns, in languages that have gendered determiners. For example, the prefix of the Spanish word "mosca" is "la", since "mosca" is a feminine noun in Spanish. This is only dependent on the translation, and not on the source. If there is no prefix, it will be the empty string.
     
     * `backTranslations`: A list of "back translations" of the target. For example, source words that the target can translate to. The list is guaranteed to contain the source word that was requested (e.g., if the source word being looked up is "fly", then it is guaranteed that "fly" will be in the `backTranslations` list). However, it is not guaranteed to be in the first position, and often will not be. Each element of the `backTranslations` list is an object described by the following properties:
 
@@ -138,7 +138,7 @@ This example shows how to lookup alternative translations in Spanish of the Engl
 # [curl](#tab/curl)
 
 ```
-curl -X POST "https://dev.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
 ```
 
 ---
@@ -189,7 +189,7 @@ This example shows what happens when the term being looked up does not exist for
 # [curl](#tab/curl)
 
 ```
-curl -X POST "https://dev.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"
 ```
 
 ---

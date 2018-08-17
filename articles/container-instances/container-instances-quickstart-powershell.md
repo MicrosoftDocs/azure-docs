@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
 ---
@@ -18,7 +18,7 @@ Azure Container Instances makes it easy to create and manage Docker containers i
 
 ![App deployed using Azure Container Instances viewed in browser][qs-powershell-01]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -78,9 +78,9 @@ Once the container **ProvisioningState** moves to `Succeeded`, navigate to its `
 
 ![IIS deployed using Azure Container Instances viewed in browser][qs-powershell-01]
 
-## Delete the container
+## Clean up resources
 
-When you are done with the container, you can remove it using the [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup] cmdlet:
+When you're done with the container, remove it with the [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup] cmdlet:
 
  ```azurepowershell-interactive
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -88,7 +88,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## Next steps
 
-In this quickstart, you started a pre-built Windows container in Azure Container Instances. If you'd like to try building a container yourself and deploying it to Azure Container Instances using the Azure Container Registry, continue to the Azure Container Instances tutorial.
+In this quickstart, you created an Azure container instance from an image in the public Docker Hub registry. If you'd like to build a container image yourself and deploy it to Azure Container Instances from a private Azure container registry, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial](./container-instances-tutorial-prepare-app.md)

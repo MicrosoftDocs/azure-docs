@@ -11,7 +11,7 @@ editor: tysonn
 ms.assetid: 
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 04/23/2018

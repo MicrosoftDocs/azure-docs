@@ -8,6 +8,7 @@ metadata:
   author: garyericson
   manager: jhubbard
   ms.service: machine-learning
+  ms.component: core
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page

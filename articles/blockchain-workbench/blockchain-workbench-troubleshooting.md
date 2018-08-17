@@ -45,8 +45,9 @@ The script accepts the following parameters:
 |---------|---------|----|
 | SubscriptionID | SubscriptionID to create or locate all resources. | Yes |
 | ResourceGroupName | Name of the Azure Resource Group where Blockchain Workbench has been deployed. | Yes |
-| OutputDirectory | Path to create the output .ZIP file. If not specified, defaults to the current directory. | No
-| OmsSubscriptionId | The subscription id where OMS is deployed. Only pass this parameter if the OMS for the blockchain network is deployed outside of Blockchain Workbench's resource group.| No |
+| OutputDirectory | Path to create the output .ZIP file. If not specified, defaults to the current directory. | No |
+| LookbackHours | Number of hours to use when pulling telemetry. Default value is 24 hours. Maximum value is 90 hours | No |
+| OmsSubscriptionId | The subscription ID where OMS is deployed. Only pass this parameter if the OMS for the blockchain network is deployed outside of Blockchain Workbench's resource group.| No |
 | OmsResourceGroup |The resource group where OMS is deployed. Only pass this parameter if the OMS for the blockchain network is deployed outside of Blockchain Workbench's resource group.| No |
 | OmsWorkspaceName | The OMS workspace name. Only pass this parameter if the OMS for the blockchain network is deployed outside of Blockchain Workbench's resource group | No |
 
@@ -54,16 +55,20 @@ The script accepts the following parameters:
 
 The output ZIP file contains the following folder structure:
 
-| Folder \ File | Description  |
+| Folder or File | Description  |
 |---------|---------|
 | \Summary.txt | Summary of the system |
-| \metrics\blockchain | Metrics about the blockchain |
-| \metrics\workbench | Metrics about the workbench |
-| \details\blockchain | Detailed logs about the blockchain |
-| \details\workbench | Detailed logs about the workbench |
+| \Metrics\blockchain | Metrics about the blockchain |
+| \Metrics\Workbench | Metrics about the workbench |
+| \Details\Blockchain | Detailed logs about the blockchain |
+| \Details\Workbench | Detailed logs about the workbench |
 
 The summary file gives you a snapshot of the overall state of the application and health of the application. The summary provides recommended actions, highlights top errors, and metadata about running services.
 
+The **Metrics** folder contains metrics of various system components over time. For example, the output file `\Details\Workbench\apiMetrics.txt` contains a summary of different response codes, and response times throughout the collection period. 
+The **Details** folder contains detailed logs for troubleshooting specific issues with Workbench or the underlying blockchain network. For example, `\Details\Workbench\Exceptions.csv` contains a list of the most recent exceptions that have occurred in the system, which is useful for troubleshooting errors with smart contracts or interactions with the blockchain. 
+
 ## Next steps
 
-* [Azure Blockchain Workbench architecture](blockchain-workbench-architecture.md)
+> [!div class="nextstepaction"]
+> [Azure Blockchain Workbench architecture](blockchain-workbench-architecture.md)

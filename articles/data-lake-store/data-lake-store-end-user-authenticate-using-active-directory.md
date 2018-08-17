@@ -9,10 +9,8 @@ editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
 
 ---
@@ -80,7 +78,7 @@ While following the instructions in the link, make sure you select **Native** fo
 
 ## Step 2: Get application ID and redirect URI
 
-See [Get the application ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) to retrieve the application ID (also called the client ID in the Azure classic portal) of the Azure AD native application.
+See [Get the application ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) to retrieve the application ID.
 
 To retrieve the redirect URI, do the following steps.
 

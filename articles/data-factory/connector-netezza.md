@@ -1,5 +1,5 @@
 ---
-title: Copy data from Netezza using Azure Data Factory (Beta) | Microsoft Docs
+title: Copy data from Netezza using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from Netezza to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -11,20 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2018
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: jingwang
 
 ---
-# Copy data from Netezza using Azure Data Factory (Beta)
+# Copy data from Netezza using Azure Data Factory 
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Netezza. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> This connector is currently in Beta. You can try it out and give us feedback. Do not use it in production environments.
 
 ## Supported capabilities
 
@@ -53,7 +47,7 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
 | Property | Description | Required |
 |:--- |:--- |:--- |:--- |
 | SecurityLevel | The level of security (SSL/TLS) that the driver uses for the connection to the data store. E.g. `SecurityLevel=preferredSecured`. Supported values are:<br/>- Only Unsecured (**onlyUnSecured**): The driver does not use SSL.<br/>- **Preferred Unsecured (preferredUnSecured) (default)**: If the server provides a choice, the driver does not use SSL. <br/>- **Preferred Secured (preferredSecured)**: If the server provides a choice, the driver uses SSL. <br/>- **Only Secured (onlySecured)**: The driver does not connect unless an SSL connection is available | No |
-| CaCertFile | The full path to the SSL certificate that is used by the server. E.g. `UseSystemTrustStore=<cert path>;`| Yes, if SSL is enabled |
+| CaCertFile | The full path to the SSL certificate that is used by the server. E.g. `CaCertFile=<cert path>;`| Yes, if SSL is enabled |
 
 **Example:**
 

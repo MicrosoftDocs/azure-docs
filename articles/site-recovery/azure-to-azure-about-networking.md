@@ -6,14 +6,13 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/06/2018
 ms.author: sujayt
 
 ---
 # About networking in Azure to Azure replication
 
->[!NOTE]
-> Site Recovery replication for Azure virtual machines is currently in preview.
+
 
 This article provides networking guidance when you're replicating and recovering Azure VMs from one region to another, using [Azure Site Recovery](site-recovery-overview.md).
 
@@ -27,7 +26,7 @@ The following diagram depicts a typical Azure environment, for applications runn
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-If you're using Azure ExpressRoute or a VPN connection from your on-premises network to Azure, the environment looks as follows:
+If you're using Azure ExpressRoute or a VPN connection from your on-premises network to Azure, the environment is as follows:
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 

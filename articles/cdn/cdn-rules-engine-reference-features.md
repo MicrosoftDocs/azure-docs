@@ -4,7 +4,7 @@ description: Reference documentation for Azure CDN rules engine features.
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
 
 ---
@@ -494,8 +494,8 @@ The format for specifying request and response headers is defined as follows:
 
 Header Type|Format|Examples
 -|-|-
-Request Header|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
-Response Header|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
+Request Header|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
+Response Header|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Key information:
 
@@ -1240,27 +1240,27 @@ It is highly recommended to use an absolute URL. The use of a relative URL may 
 **Sample Scenario**
 
 This example, demonstrates how to redirect an edge CNAME URL that resolves to this base CDN URL:
-http://marketing.azureedge.net/brochures
+http:\//marketing.azureedge.net/brochures
 
 Qualifying requests will be redirected to this base edge CNAME URL:
-http://cdn.mydomain.com/resources
+http:\//cdn.mydomain.com/resources
 
 This URL redirection may be achieved through the following configuration:
-![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+![URL redirect](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **Key points:**
 
 - The URL Redirect feature defines the request URLs that will be redirected. As a result, additional match conditions are not required. Although the match condition was defined as "Always," only requests that point to the "brochures" folder on the "marketing" customer origin will be redirected. 
 - All matching requests will be redirected to the edge CNAME URL defined in the Destination option. 
 	- Sample scenario #1: 
-		- Sample request (CDN URL): http://marketing.azureedge.net/brochures/widgets.pdf 
-		- Request URL (after redirect): http://cdn.mydomain.com/resources/widgets.pdf  
+		- Sample request (CDN URL): http:\//marketing.azureedge.net/brochures/widgets.pdf 
+		- Request URL (after redirect): http:\//cdn.mydomain.com/resources/widgets.pdf  
 	- Sample scenario #2: 
-		- Sample request (Edge CNAME URL): http://marketing.mydomain.com/brochures/widgets.pdf 
-		- Request URL (after redirect): http://cdn.mydomain.com/resources/widgets.pdf  Sample scenario
+		- Sample request (Edge CNAME URL): http:\//marketing.mydomain.com/brochures/widgets.pdf 
+		- Request URL (after redirect): http:\//cdn.mydomain.com/resources/widgets.pdf  Sample scenario
 	- Sample scenario #3: 
-		- Sample request (Edge CNAME URL): http://brochures.mydomain.com/campaignA/final/productC.ppt 
-		- Request URL (after redirect): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+		- Sample request (Edge CNAME URL): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
+		- Request URL (after redirect): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - The Request Scheme (%{scheme}) variable is leveraged in the Destination option, which ensures that the request's scheme remains unchanged after redirection.
 - The URL segments that were captured from the request are appended to the new URL via "$1."
 
@@ -1285,20 +1285,20 @@ Option|Description
 **Sample Scenario 1**
 
 This example demonstrates how to redirect an edge CNAME URL that resolves to this base CDN URL:
-http://marketing.azureedge.net/brochures/
+http:\//marketing.azureedge.net/brochures/
 
 Qualifying requests will be redirected to this base edge CNAME URL:
-http://MyOrigin.azureedge.net/resources/
+http:\//MyOrigin.azureedge.net/resources/
 
 This URL redirection may be achieved through the following configuration:
-![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+![URL redirect](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
 **Sample Scenario 2**
 
 This example demonstrates how to redirect an edge CNAME URL from UPPERCASE to lowercase using regular expressions.
 
 This URL redirection may be achieved through the following configuration:
-![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+![URL redirect](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 
 **Key points:**

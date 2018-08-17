@@ -133,7 +133,7 @@ The code does the following:
                 var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
                 Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                // It is recommended to validate AccestFiles before upload. 
+                // It is recommended to validate AssetFiles before upload. 
                 Console.WriteLine("Start uploading of {0}", assetFile.Name);
                 uploadTasks.Add(assetFile.UploadAsync(filePath, blobTransferClient, locator, CancellationToken.None));
             }
@@ -196,7 +196,7 @@ The following example demonstrates adding two new IngestManifestAssets that asso
     IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
 ```
 
-You can use any high-speed client application capable of uploading the asset files to the blob storage container URI provided by the **IIngestManifest.BlobStorageUriForUpload** property of the IngestManifest. One notable high-speed upload service is [Aspera On Demand for Azure Application](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6). You can also write code to upload the assets files as shown in the following code example.
+You can use any high-speed client application capable of uploading the asset files to the blob storage container URI provided by the **IIngestManifest.BlobStorageUriForUpload** property of the IngestManifest. The following code shows how to use .NET SDK to upload the assets files.
 
 ```csharp
     static void UploadBlobFile(string destBlobURI, string filename)

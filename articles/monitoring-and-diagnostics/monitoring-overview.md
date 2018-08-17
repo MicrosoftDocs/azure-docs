@@ -1,21 +1,13 @@
-﻿---
-title: Monitoring Azure applications and resources | Microsoft Docs
+---
+title: Monitoring Azure applications and resources
 description: Overview of Microsoft services and functionalities that contribute to a complete monitoring strategy for your Azure services and applications.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: overview
 ms.date: 03/05/2018
 ms.author: robb,bwren
-
+ms.component: ""
 ---
 
 # Monitoring Azure applications and resources
@@ -115,9 +107,9 @@ There are several tools that work together to monitor various aspects of your ne
 
 [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) provides scenario-based monitoring and diagnostics for different network scenarios in Azure. It stores data in Azure metrics and diagnostics for further analysis. It works with the following solutions for monitoring various aspects of your network.
 
-[Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) is a cloud-based network monitoring solution that monitors connectivity across public clouds, datacenters, and on-premises environments.
+[Network Performance Monitor (NPM)](../log-analytics/log-analytics-network-performance-monitor.md) is a cloud-based network monitoring solution that monitors connectivity across public clouds, datacenters, and on-premises environments.
 
-[ExpressRoute Monitor](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) is an  NPM capability that monitors the end-to-end connectivity and performance over Azure ExpressRoute circuits.
+[ExpressRoute Monitor](../expressroute/how-to-npm.md) is an  NPM capability that monitors the end-to-end connectivity and performance over Azure ExpressRoute circuits.
 
 [DNS Analytics](../log-analytics/log-analytics-dns.md) is a solution that provides security, performance, and operations-related insights, based on your DNS servers.
 

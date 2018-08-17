@@ -1,15 +1,11 @@
 ---
 title: Introduction to Azure Cosmos DB | Microsoft Docs
-description: Learn about Azure Cosmos DB. This globally-distributed multi-model database is built for low latency, elastic scalability, and high availability.
+description: Learn about Azure Cosmos DB. This globally-distributed multi-model database is built for low latency, elastic scalability, high availability, and offers native support for NoSQL data.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/08/2018
@@ -68,7 +64,7 @@ As a globally distributed, multi-model database service, Azure Cosmos DB makes i
     * Azure Cosmos DB’s database engine is fully schema-agnostic – it automatically indexes all the data it ingests without requiring any schema or indexes and serves blazing fast queries. 
 
 * **Low cost of ownership**
-    * Five to ten times [more cost effective](https://aka.ms/cosmos-db-tco-paper) than a non-managed solution or an on-prem NoSQL solution.
+    * Five to ten times more cost effective than a non-managed solution or an on-prem NoSQL solution.
     * Three times cheaper than AWS DynamoDB or Google Spanner.
 
 ## Capability comparison

@@ -22,7 +22,7 @@ ms.author: juliako
 > [!NOTE]
 > The latest version of Azure Media Services is in Preview and may be referred to as v3. To start using v3 APIs, you should create a new Media Services account, as described in this quickstart. 
 
-This quickstart shows you how easy it is to start streaming videos on a wide variety of browsers and devices using Azure Media Services. 
+This quickstart shows you how easy it is to start streaming videos on a wide variety of browsers and devices using Azure Media Services. The sample in this topic encodes content that you make accessible via a HTTPS URL. 
 
 By the end of the quickstart you will be able to stream a video.  
 
@@ -41,6 +41,18 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
+
+The sample is located in the [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) folder.
+
+The sample performs the following actions:
+
+1. Creates a Transform (first, checks if the specified Transform exists). 
+2. Creates an output Asset that is used as the encoding Job's output.
+3. Creates the Job's input that is based on an HTTPS URL.
+4. Submits the encoding Job using the input and output that was created earlier.
+5. Checks the Job's status.
+6. Creates a StreamingLocator.
+7. Builds streaming URLs.
 
 For explanations about what each function in the sample does, examine the code and look at the comments in [this source file](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 

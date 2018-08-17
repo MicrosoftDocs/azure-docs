@@ -31,7 +31,7 @@ Endpoints can be another virtual machine (VM), a fully qualified domain name (FQ
 
 If an endpoint becomes unreachable, connection troubleshoot informs you of the reason. Potential reasons are a DNS name resolution problem, the CPU, memory, or firewall within the operating system of a VM, or the hop type of a custom route, or security rule for the VM or subnet of the outbound connection. Learn more about [security rules](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) and [route hop types](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) in Azure.
 
-Connection monitor also provides the minimum, average, and maximum latency observed over time. After learning the latency for a connection, you may find that you're able to decrease the latency by moving your Azure resources to different Azure regions. Learn more about determining [relative latencies between Azure regions and internet service providers](#determine-relative-latencies-between-azure- regions-and-internet-service-providers) and how to monitor communication between a VM and an endpoint with [connection monitor](connection-monitor.md). If you'd rather test a connection at a point in time, rather than monitor the connection over time, like you do with connection monitor, use the [connection troubleshoot](#connection-troubleshoot) capability.
+Connection monitor also provides the minimum, average, and maximum latency observed over time. After learning the latency for a connection, you may find that you're able to decrease the latency by moving your Azure resources to different Azure regions. Learn more about determining [relative latencies between Azure regions and internet service providers](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) and how to monitor communication between a VM and an endpoint with [connection monitor](connection-monitor.md). If you'd rather test a connection at a point in time, rather than monitor the connection over time, like you do with connection monitor, use the [connection troubleshoot](#connection-troubleshoot) capability.
 
 ### View resources in a virtual network and their relationships
 
@@ -39,17 +39,17 @@ As resources are added to a virtual network, it can become difficult to understa
 
 ![Topology view](./media/network-watcher-monitoring-overview/topology.png)
 
-You can download an editable version of the picture in svg format. Learn more about [topology view](network-watcher-topology-overview.md).
+You can download an editable version of the picture in svg format. Learn more about [topology view](view-network-topology.md).
 
 ## Diagnostics
 
 ### Diagnose network traffic filtering problems to or from a VM
 
-When you deploy a VM, Azure applies several default security rules to the VM that allow or deny traffic to or from the VM. You might override Azure's default rules, or create additional rules. At some point, a VM may become unable to communicate with other resources, because of a security rule. The *IP flow verify* capability enables you to specify a source and destination IPv4 address, port, protocol (TCP or UDP), and traffic direction (inbound or outbound). IP flow verify then tests the communication and informs you if the connection succeeds or fails. If the connection fails, IP flow verify tells you which security rule allowed or denied the communication, so that you can resolve the problem. Learn more about [IP flow verify](network-watcher-ip-flow-verify-overview.md).
+When you deploy a VM, Azure applies several default security rules to the VM that allow or deny traffic to or from the VM. You might override Azure's default rules, or create additional rules. At some point, a VM may become unable to communicate with other resources, because of a security rule. The *IP flow verify* capability enables you to specify a source and destination IPv4 address, port, protocol (TCP or UDP), and traffic direction (inbound or outbound). IP flow verify then tests the communication and informs you if the connection succeeds or fails. If the connection fails, IP flow verify tells you which security rule allowed or denied the communication, so that you can resolve the problem. Learn more about IP flow verify by completing the [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md) tutorial.
 
 ### Diagnose network routing problems from a VM
 
-When you create a virtual network, Azure creates several default outbound routes for network traffic. The outbound traffic from all resources, such as VMs, deployed in a virtual network, are routed based on Azure's default routes. You might override Azure's default routes, or create additional routes. You may find that a VM can no longer communicate with other resources because of a specific route. The *next hop* capability enables you to specify a source and destination IPv4 address. Next hop then tests the communication and informs you what type of next hop is used to route the traffic. You can then remove, change, or add a route, to resolve a routing problem. Learn more about the [next hop](network-watcher-next-hop-overview.md?) capability.
+When you create a virtual network, Azure creates several default outbound routes for network traffic. The outbound traffic from all resources, such as VMs, deployed in a virtual network, are routed based on Azure's default routes. You might override Azure's default routes, or create additional routes. You may find that a VM can no longer communicate with other resources because of a specific route. The *next hop* capability enables you to specify a source and destination IPv4 address. Next hop then tests the communication and informs you what type of next hop is used to route the traffic. You can then remove, change, or add a route, to resolve a routing problem. Learn more about the [next hop](diagnose-vm-network-routing-problem.md) capability.
 
 ### <a name="connection-troubleshoot"></a>Diagnose outbound connections from a VM
 
@@ -61,7 +61,7 @@ Advanced filtering options and fine-tuned controls, such as the ability to set t
 
 ### Diagnose problems with an Azure Virtual network gateway and connections
 
-Virtual network gateways provide connectivity between on-premises resources and Azure virtual networks. Monitoring gateways and their connections are critical to ensuring communication is not broken. The *VPN diagnostics* capability provides the ability to diagnose gateways and connections. VPN diagnostics diagnoses the health of the gateway, or gateway connection, and informs you whether a gateway and gateway connections, are available. If the gateway or connection is not available, VPN diagnostics tells you why, so you can resolve the problem. Learn more about [VPN diagnostics](network-watcher-troubleshoot-overview.md).
+Virtual network gateways provide connectivity between on-premises resources and Azure virtual networks. Monitoring gateways and their connections are critical to ensuring communication is not broken. The *VPN diagnostics* capability provides the ability to diagnose gateways and connections. VPN diagnostics diagnoses the health of the gateway, or gateway connection, and informs you whether a gateway and gateway connections, are available. If the gateway or connection is not available, VPN diagnostics tells you why, so you can resolve the problem. Learn more about VPN diagnostics by completing the [Diagnose a communication problem between networks](diagnose-communication-problem-between-networks.md) tutorial.
 
 ### Determine relative latencies between Azure regions and internet service providers
 
@@ -83,11 +83,13 @@ The information is helpful when planning future resource deployments.
 
 ### Analyze traffic to or from a network security group
 
-Network security groups (NSG) allow or deny inbound or outbound traffic to a network interface in a VM. The *NSG flow log* capability allows you to log the source and destination IP address, port, protocol, and whether traffic was allowed or denied by an NSG. You can analyze logs using a variety of tools, such as PowerBI and the *traffic analytics* capability. Traffic analytics provides rich visualizations of data written to NSG flow logs. The following picture shows some of the information and visualizations that traffic analytics presents from NSG flow log data:
+Network security groups (NSG) allow or deny inbound or outbound traffic to a network interface in a VM. The *NSG flow log* capability allows you to log the source and destination IP address, port, protocol, and whether traffic was allowed or denied by an NSG. If you currently use tools to analyze flow logs, review the [changes](prepare-flow-log.md) coming soon to the flow log format. The changes will require you to change your analysis tooling.
+
+You can analyze logs using a variety of tools, such as PowerBI and the *traffic analytics* capability. Traffic analytics provides rich visualizations of data written to NSG flow logs. The following picture shows some of the information and visualizations that traffic analytics presents from NSG flow log data:
 
 ![Traffic analytics](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
-Learn more about [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) and [traffic analytics](traffic-analytics.md).
+Learn more about NSG flow logs by completing the [Log network traffic to and from a virtual machine](network-watcher-nsg-flow-logging-portal.md) tutorial and how to implement [traffic analytics](traffic-analytics.md).
 
 ### View diagnostic logs for network resources
 

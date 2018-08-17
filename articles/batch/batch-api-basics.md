@@ -79,7 +79,7 @@ Batch supports the following Azure Storage [account options](../storage/common/s
 
 * General-purpose v2 (GPv2) accounts 
 * General-purpose v1 (GPv1) accounts
-* Blob storage accounts
+* Blob storage accounts (currently supported for pools in the Virtual Machine configuration)
 
 You can associate a storage account with your Batch account when you create the Batch account, or later. Consider your cost and performance requirements when choosing a storage account. For example, the GPv2 and blob storage account options support greater [capacity and scalability limits](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) compared with GPv1. (Contact Azure Support to request an increase in a storage limit.) These account options can improve the performance of Batch solutions that contain a large number of parallel tasks that read from or write to the storage account.
 
@@ -170,7 +170,7 @@ For pricing information for both low-priority and dedicated compute nodes, see [
 
 ### Size of the compute nodes
 
-When you create an Azure Batch pool, you can choose from among almost all the VM families and sizes available in Azure. Azure offers a range of VM sizes for different workloads, including specialized specialized [HPC](../virtual-machines/linux/sizes-hpc.md) or [GPU-enabled](../virtual-machines/linux/sizes-gpu.md) VM sizes. 
+When you create an Azure Batch pool, you can choose from among almost all the VM families and sizes available in Azure. Azure offers a range of VM sizes for different workloads, including specialized [HPC](../virtual-machines/linux/sizes-hpc.md) or [GPU-enabled](../virtual-machines/linux/sizes-gpu.md) VM sizes. 
 
 For more information, see [Choose a VM size for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md).
 
@@ -500,10 +500,9 @@ In situations where some of your tasks are failing, your Batch client applicatio
 
 ## Next steps
 * Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
-* Walk through a sample Batch application step-by-step in [Get started with the Azure Batch Library for .NET](batch-dotnet-get-started.md). There is also a [Python version](batch-python-tutorial.md) of the tutorial that runs a workload on Linux compute nodes.
-* Download and install [BatchLabs][batch_labs] for use while you develop your Batch solutions. Use BatchLabs to help create, debug, and monitor Azure Batch applications. 
-* Learn how to [create pools of Linux compute nodes](batch-linux-nodes.md).
-* Visit the [Azure Batch forum][batch_forum] on MSDN. The forum is a good place to ask questions, whether you are just learning or are an expert in using Batch.
+* Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](quick-run-dotnet.md) or [Python](quick-run-python.md). These quickstarts guide you through a sample application that uses the Batch service to execute a workload on multiple compute nodes, and includes using Azure Storage for workload file staging and retrieval.
+* Download and install [Batch Explorer][batch_labs] for use while you develop your Batch solutions. Use Batch Explorer to help create, debug, and monitor Azure Batch applications. 
+* See community resources including [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), the [Batch Community repo](https://github.com/Azure/Batch), and the [Azure Batch forum][batch_forum] on MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
@@ -513,7 +512,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -537,7 +536,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 [net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
 [vnet]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_netconf
 
-[py_add_user]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.operations.html#azure.batch.operations.ComputeNodeOperations.add_user
+[py_add_user]: https://docs.microsoft.com/en-us/python/azure/?view=azure-python
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx

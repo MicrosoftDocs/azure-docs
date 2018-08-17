@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/11/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
 ---
@@ -35,7 +35,7 @@ Azure Stack supports the Windows guest operating systems listed in the following
 | Windows Server 2008 SP2 | 64-bit |  Bring your own image |
 | Windows 10 *(see note 1)* | 64-bit, Pro, and Enterprise | Bring your own image |
 
-***Note 1:*** *To deploy Windows 10 client operating systems on Azure Stack, you must have [Windows per User Licensing](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) or purchase through a Qualified Multitenant Hoster ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).*
+***Note 1:*** *To deploy Windows 10 client operating systems on Azure Stack, you must have [Windows per User Licensing](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) or purchase through a Qualified Multitenant Hoster ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
 
 Marketplace images are available for Pay-as-you-use or BYOL (EA/SPLA) licensing. Use of both on a single Azure Stack instance isn't supported. During deployment, Azure Stack injects a suitable version of the guest agent into the image.
 
@@ -66,3 +66,5 @@ Linux distributions listed as available in the Marketplace include the necessary
 | Ubuntu 18.04-LTS | 64-bit | Canonical | Yes |
 
 Other Linux distributions may be supported in the future.
+
+For Red Hat Enterprise Linux support information , please refer to [Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531).

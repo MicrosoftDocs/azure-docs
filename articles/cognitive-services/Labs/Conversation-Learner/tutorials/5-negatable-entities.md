@@ -1,7 +1,7 @@
 ---
-title: How to use negatable entities with a Conversation Learner application - Microsoft Cognitive Services | Microsoft Docs
+title: How to use negatable entities with a Conversation Learner model - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to use negatable entities with a Conversation Learner application.
+description: Learn how to use negatable entities with a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -12,9 +12,13 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ---
 
-# How to use negatable entities with a Conversation Learner application
+# How to use negatable entities with a Conversation Learner model
 
 This tutorial demonstrates the "negatable" property of entities.
+
+## Video
+
+[![Tutorial 5 Preview](http://aka.ms/cl-tutorial-05-preview)](http://aka.ms/blis-tutorial-05)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running
@@ -32,9 +36,9 @@ Concretely, if the "negatable" property of an entity is set:
 
 ## Steps
 
-### Create the application
+### Create the model
 
-1. In the Web UI, click New App
+1. In the Web UI, click New Model
 2. In Name, enter NegatableEntity. Then click Create.
 
 ### Create an entity
@@ -42,7 +46,7 @@ Concretely, if the "negatable" property of an entity is set:
 1. Click Entities, then New Entity.
 2. In Entity Name, enter name.
 3. Check Negatable.
-	- This indicates the user will be able to provide a value for the entity, or say something is *not* the value of the entity. In the latter case, this will result in deleting a matching value of the entity.
+	- This property indicates the user will be able to provide a value for the entity, or say something is *not* the value of the entity. In the latter case, this will result in deleting a matching value of the entity.
 3. Click Create.
 
 ![](../media/tutorial5_entities.PNG)
@@ -69,19 +73,19 @@ Now you have two actions.
 1. Click Train Dialogs, then New Train Dialog.
 2. Type 'hello'.
 3. Click Score Actions, and Select 'I don't know your name'
-	- Notice that is getting a 100% score because it is the only valid action.
+	- The score is 100% because it is the only valid action.
 2. Enter 'my name is david'
 3. Select 'david', and choose the label '+name'
-	- Notice there are two instances of 'name': '+name' and '-name'.  Plus means that we are providing that value. Minus means we are telling the system that something is not the value.
+	- There are two instances of 'name': '+name' and '-name'.  (+) Plus adds or overwrites the value. (-) Minus removes the value.
 5. Click Score Actions
-	- Note name value is now in the bot's memory.
+	- The name value is now in the bot's memory.
 	- 'I know your name. It is $name' is the only available response. 
 6. Select 'I know your name. It is $name'.
 
 Let's try clearing the negatable entity:
 
 7. Enter 'my name is not david'.
-	- Notice 'not' is selected as name based on the previous pattern. That is incorrect.
+	- Notice 'not' is selected as name based on the previous pattern. This label is incorrect.
 2. Click on 'not', then the red x. 
 3. Click on 'david'.
 	- This is now a negative entity communicating that this is not the value of the name entity.

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 04/09/2018
 ms.author: juliako
 
 ---
@@ -55,7 +55,7 @@ To choose the token restricted policy, select the **TOKEN** button.
 
 The token restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the simple web token ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) and JSON Web Token (JWT) formats. For more information, see [JWT authentication](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
-Media Services doesn't provide STS. You can create a custom STS or use Azure Access Control Service to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. If the token is valid and the claims in the token match those configured for the content key, the Media Services key delivery service returns the encryption key to the client. For more information, see [Use Azure Access Control Service to issue tokens](http://mingfeiy.com/acs-with-key-services).
+Media Services doesn't provide STS. You can create a custom STS to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. If the token is valid and the claims in the token match those configured for the content key, the Media Services key delivery service returns the encryption key to the client.
 
 When you configure the token-restricted policy, you must specify the primary verification key, issuer, and audience parameters. The primary verification key contains the key that the token was signed with. The issuer is the STS that issues the token. The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 

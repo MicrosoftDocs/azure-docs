@@ -1,17 +1,13 @@
 ---
 title: Add a popup with Azure Maps | Microsoft Docs
 description: How to add a popup to Javascript map
-services: azure-maps
-keywords: 
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: 
 ms.custom: codepen
 ---
 
@@ -48,3 +44,7 @@ Learn more about the classes and methods used in this article:
     * [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#setpopupoptions)
     * [open](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#open)
     * [close](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#close)
+    
+For more code examples to add to your maps, see the following articles: 
+* [Add a shape](./map-add-shape.md)
+* [Add custom HTML](./map-add-custom-html.md)

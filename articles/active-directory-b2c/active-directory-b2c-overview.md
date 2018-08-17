@@ -2,17 +2,17 @@
 title: What is Azure Active Directory B2C? | Microsoft Docs
 description: Learn about how you can create and manage your application sign-in experience using Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: overview
 ms.date: 04/05/2018
 ms.author: davidmu
+ms.component: B2C
 ---
+
 # What is Azure Active Directory B2C?
 
 Azure Active Directory (Azure AD) B2C is an identity management service that enables you to customize and control how customers sign up, sign in, and manage their profiles when using your applications. This includes applications developed for iOS, Android, and .NET, among others. Azure AD B2C enables these actions while protecting your customer identities at the same time.

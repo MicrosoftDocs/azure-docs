@@ -1,6 +1,6 @@
 ---
-title: Create an application gateway with SSL termination - Azure portal | Microsoft Docs
-description: Learn how to create an application gateway and add a certificate for SSL termination using the Azure portal.
+title: Configure an application gateway with SSL termination - Azure portal | Microsoft Docs
+description: Learn how to configure an application gateway and add a certificate for SSL termination using the Azure portal.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -9,14 +9,13 @@ tags: azure-resource-manager
 
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 5/15/2018
 ms.author: victorh
 
 ---
-# Create an application gateway with SSL termination using the Azure portal
+# Configure an application gateway with SSL termination using the Azure portal
 
-You can use the Azure portal to create an [application gateway](overview.md) with a certificate for SSL termination that uses virtual machines for backend servers.
+You can use the Azure portal to configure an [application gateway](overview.md) with a certificate for SSL termination that uses virtual machines for backend servers.
 
 In this article, you learn how to:
 
