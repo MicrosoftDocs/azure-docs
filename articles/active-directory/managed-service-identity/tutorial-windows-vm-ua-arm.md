@@ -85,7 +85,7 @@ A user assigned identity is created as a standalone Azure resource. Using the [N
 New-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1
 ```
 
-The response contains details for the user assigned identity created, similar to the following example. Note the `Id` value for your user assigned identity, as it will be used in the next step:
+The response contains details for the user assigned identity created, similar to the following example. Note the `Id` and `ClientId` values for your user assigned identity, because they are used in subsequent steps:
 
 ```azurepowershell
 {
@@ -147,10 +147,10 @@ For the remainder of the tutorial, you will work from the VM we created earlier.
 
 4. Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session.
 
-5. Using PowerShell’s `Invoke-WebRequest`, make a request to the local Managed Service Identity endpoint to get an access token for Azure Resource Manager.
+5. Using PowerShell’s `Invoke-WebRequest`, make a request to the local Managed Service Identity endpoint to get an access token for Azure Resource Manager.  The `client_id` value is the value returned when you [created the user assigned managed identity](#create-a-user-assigned-identity).
 
     ```azurepowershell
-    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=73444643-8088-4d70-9532-c3a0fdc190fz&resource=https://management.azure.com' -Method GET -Headers @{Metadata="true"}
+    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=af825a31-b0e0-471f-baea-96de555632f9&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"}
     $content = $response.Content | ConvertFrom-Json
     $ArmToken = $content.access_token
     ```
@@ -165,7 +165,7 @@ Use the access token retrieved in the previous step to access Azure Resource Man
 The response contains the specific Resource Group information, similar to the following example:
 
 ```json
-{"id":"/subscriptions/<SUBSCRIPTIONID>/resourceGroups/TestRG","name":"myResourceGroupVM","location":"eastus","properties":{"provisioningState":"Succeeded"}}
+{"id":"/subscriptions/<SUBSCRIPTIONID>/resourceGroups/myResourceGroupVM","name":"myResourceGroupVM","location":"eastus","properties":{"provisioningState":"Succeeded"}}
 ```
 
 ## Next steps

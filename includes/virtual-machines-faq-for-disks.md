@@ -62,7 +62,7 @@ No. The VMs in an availability set must use either all managed disks or all unma
 
 **Is Managed Disks the default option in the Azure portal?**
 
-Yes. 
+Yes.
 
 **Can I create an empty managed disk?**
 
@@ -96,7 +96,6 @@ Customers can take a snapshot of their managed disks and then use the snapshot t
 
 Yes, both unmanaged and managed disks are supported. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
-
 **If I create a 128-GB disk and then increase the size to 130 GB, will I be charged for the next disk size (256 GB)?**
 
 Yes.
@@ -128,6 +127,10 @@ No.
 **When creating a disk from a blob, is there any continually existing relationship with that source blob?**
 
 No, when the new disk is created it is a full standalone copy of that blob at that time and there is no connection between the two. If you like, once you've created the disk, the source blob may be deleted without affecting the newly created disk in any way.
+
+**Can I rename a managed or unmanaged disk after it has been created?**
+
+For managed disks you cannot rename them. However, you may rename an unmanaged disk as long as it is not currently attached to a VHD or VM.
 
 ## Standard SSD disks (Preview)
 
