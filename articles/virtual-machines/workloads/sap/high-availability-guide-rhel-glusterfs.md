@@ -74,7 +74,7 @@ To achieve high availability, SAP NetWeaver requires shared storage. GlusterFS i
 
 ## Set up GlusterFS
 
-You can either use a Azure Template from github to deploy all required Azure resources, including the virtual machines, availability set and network interfaces or you can deploy the resources manually.
+You can either use an Azure Template from github to deploy all required Azure resources, including the virtual machines, availability set and network interfaces or you can deploy the resources manually.
 
 ### Deploy Linux via Azure Template
 
@@ -87,7 +87,7 @@ Follow these steps to deploy the template:
    1. Resource Prefix  
       Enter the prefix you want to use. The value is used as a prefix for the resources that are deployed.
    2. SAP System Count
-      Enter the number of SAP systems that will use this file server. This will deploy the required amount of disks etc.
+      Enter the number of SAP systems that will use this file server. This will deploy the required number of disks etc.
    3. Os Type  
       Select one of the Linux distributions. For this example, select RHEL 7
    4. Admin Username, Admin Password or SSH key  
