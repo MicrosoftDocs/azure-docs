@@ -48,29 +48,29 @@ No ingress rules have been created yet. If you browse to the public IP address, 
 
 ![Default NGINX backend](media/ingress/default-back-end.png)
 
-### Use an existing IP address
+### Use an existing static public IP address
 
-In the previous `helm install` step, the NGINX ingress controller is created with a new, dynamic public IP address assignment. A common configuration requirement is to provide your own static public IP address. This approach allows you to use existing DNS records and network configurations in a consistent manner. The following optional steps can be used instead of the previous `helm install` command where a dynamic public IP address is assigned for you.
+In the previous `helm install` step, the NGINX ingress controller was created with a new, dynamic public IP address assignment. A common configuration requirement is to provide an existing *static* public IP address. This approach allows you to use existing DNS records and network configurations in a consistent manner. The following optional steps can be used instead of the previous `helm install` command where a dynamic public IP address is assigned for you.
 
-First, get the resource group name of the AKS cluster with the [az aks show][az-aks-show] command:
+If you need to create a static public IP address, first get the resource group name of the AKS cluster with the [az aks show][az-aks-show] command:
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 ```
 
-Create a public IP address with the *static* allocation method using the [az network public-ip create][az-network-public-ip-create] command. The following example creates a public IP address named *myAKSPublicIP* in the AKS cluster resource group obtained in the previous step:
+Next, create a public IP address with the *static* allocation method using the [az network public-ip create][az-network-public-ip-create] command. The following example creates a public IP address named *myAKSPublicIP* in the AKS cluster resource group obtained in the previous step:
 
 ```azurecli
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
 ```
 
-Deploy the *nginx-ingress* chart with Helm. Add the `--set controller.service.loadBalancerIP` parameter, and specify your own public IP address created in the previous step:
+Now deploy the *nginx-ingress* chart with Helm. Add the `--set controller.service.loadBalancerIP` parameter, and specify your own public IP address created in the previous step:
 
 ```console
 helm install stable/nginx-ingress --namespace kube-system --set controller.service.loadBalancerIP="40.121.63.72"
 ```
 
-When the load balancer service is created for the NGINX ingress controller, your static IP address is then assigned, as shown in the following example output:
+When the Kubernetes load balancer service is created for the NGINX ingress controller, your static IP address is assigned, as shown in the following example output:
 
 ```
 $ kubectl get service -l app=nginx-ingress --namespace kube-system
@@ -80,7 +80,7 @@ dinky-panda-nginx-ingress-controller        LoadBalancer   10.0.232.56   40.121.
 dinky-panda-nginx-ingress-default-backend   ClusterIP      10.0.95.248   <none>         80/TCP                       3m
 ```
 
-Again, no ingress rules have been created yet, so the NGINX ingress controller's default 404 page is displayed if you browse to the public IP address.
+Again, no ingress rules have been created yet, so the NGINX ingress controller's default 404 page is displayed if you browse to the public IP address. Ingress rules are configured in the following steps.
 
 ## Configure a DNS name
 
