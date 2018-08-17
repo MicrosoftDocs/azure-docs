@@ -6,7 +6,7 @@ author: tfitzmac
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
 ---
 
@@ -26,6 +26,14 @@ Subscribe to Azure Subscriptions events to respond to changes in resources acros
 | [Azure CLI: subscribe to events for an Azure subscription](./scripts/event-grid-cli-azure-subscription.md) |Sample script that creates an Event Grid subscription to an Azure subscription and sends events to a WebHook. |
 | [PowerShell: subscribe to events for an Azure subscription](./scripts/event-grid-powershell-azure-subscription.md)| Sample script that creates an Event Grid subscription to an Azure subscription and sends events to a WebHook. |
 | [Event schema](event-schema-subscriptions.md) | Shows fields in Azure subscription events. |
+
+## Container Registry
+
+Subscribe to Container Registry events to respond to changes in images.
+
+|Title |Description  |
+|---------|---------|
+| [Event schema](event-schema-container-registry.md) | Shows fields in Container Registry events. |
 
 ## Custom topics
 
