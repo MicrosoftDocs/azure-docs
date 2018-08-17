@@ -18,11 +18,12 @@ ms.author: alkohli
 ---
 # Tutorial: Copy data to Azure Data Box 
 
-This tutorial describes how to copy data from your host computer using the local web UI and then prepare to ship Data Box.
+This tutorial describes how to connect to and copy data from your host computer using the local web UI, and then prepare to ship Data Box.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Connect to Data Box
 > * Copy data to Data Box
 > * Prepare to ship Data Box.
 
@@ -36,37 +37,30 @@ Before you begin, make sure that:
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to a high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds will be impacted. 
 
-## Copy data
+## Connect to Data Box
 
-Your Data Box creates three shares for each associated storage account. The three shares store data from block blobs, page blobs, and Azure Files. For each share on the device, you want to copy the data to, you need to get the corresponding share access credentials. 
+Your Data Box creates three shares for each associated storage account. The three shares store data from block blobs, page blobs, and Azure Files. 
 
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares.
 
 Consider the following example. 
 
 - Storage account: *Mystoracct*
-- Share for block blob: *Mystoracct_Block/my-container/blob*
-- Share for page blob: *Mystoracct_Page/my-container/blob*
+- Share for block blob: *Mystoracct_BlockBlob/my-container/blob*
+- Share for page blob: *Mystoracct_PageBlob/my-container/blob*
 - Share for file: *Mystoracct_AzFile/my-share*
 
-> [!IMPORTANT]
-> - Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
-> -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md). 
-> - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
+Depending on whether your Data Box is connected to a Windows Server host computer or to a Linux host or connected using Azure Object Store connector, the steps to connect and copy can be different.
 
-Depending on whether your Data Box is connected to a Windows Server host computer or to a Linux host, the steps to copy can be different.
+### Connect to an SMB share 
 
-### Using Windows Server host computer
+If you are using a Windows Server host computer, perform the following steps to connect to the Data Box.
 
-#### Connect to an SMB share
-
-Perform the following steps to connect and copy data from your computer to the Data Box.
-
-1. The first step is to authenticate and start a copy session. Go to **Connect and copy**. Click **Get credentials** to get the access credentials for the shares associated with your storage account. 
+1. The first step is to authenticate and start a session. Go to **Connect and copy**. Click **Get credentials** to get the access credentials for the shares associated with your storage account. 
 
     ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Click **OK**.<br>
+2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Click **OK**.
     
     ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
@@ -91,11 +85,39 @@ Perform the following steps to connect and copy data from your computer to the D
     
     ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5. You should now be able to see the shares as folders. Create a folder for the files that you intend to copy (in this case templates). In this preview release, the folders may show the gray cross, this is not an error condition. The folders are flagged by the application to track the status.
+5. You should now be able to see the shares as folders. Create a folder for the files that you intend to copy (in this case templates). Occassionally, the folders may show a gray cross. The cross does not denote an error condition. The folders are flagged by the application to track the status.
     
     ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
-#### Copy data to an SMB share
+### Connect to an NFS share 
+
+If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients.
+
+1. Supply the IP addresses of the allowed clients that can access the share.
+
+2. Ensure that the Linux host has a [supported version](data-box-system-requirements.md) of NFS client installed. Use the specific version for your Linux distribution. 
+
+3. Once the NFS client is installed, use the following command to mount the NFS share on your Data Box device:
+
+    `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
+
+The following example shows how to connect via NFS to a Data Box share. The Data Box device IP is `10.161.23.130`, the share `Mystoracct_Blob` is mounted on the ubuntuVM, mount point being `/home/databoxubuntuhost/databox`.
+
+    `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
+
+### Connect to ISV or modern applications
+
+Use Azure object connector to connect to ISV or modern applications.
+
+## Copy data to Data Box
+
+Once you are connected to the Data Box shares, the next step is to copy data. Prior to data copy, ensure that you review the following considerations:
+
+- Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
+-  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md). 
+- If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
+
+### Copy data to an SMB share
 
  After you have connected to the SMB share, initiate a data copy. You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command: 
     
@@ -189,40 +211,14 @@ Perform the following steps to connect and copy data from your computer to the D
     
     ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
-### Connect to and copy data from a Linux host computer
-
-To copy data from a Linux host computer, you will need to configure the device to allow access to the NFS client. Perform the following steps to configure Data Box to allow access to NFS clients.
-
-#### Connect to an NFS share
-
-1. Supply the IP addresses of the allowed clients that can access the share.
-
-2. Ensure that the Linux host has a [supported version](data-box-system-requirements.md) of NFS client installed. Use the specific version for your Linux distribution. 
-
-3. Once the NFS client is installed, use the following command to mount the NFS share on your Data Box device:
-
-    `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
-
-The following example shows how to connect via NFS to a Data Box share. The Data Box device IP is `10.161.23.130`, the share `Mystoracct_Blob` is mounted on the ubuntuVM, mount point being `/home/databoxubuntuhost/databox`.
-
-    `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
-
-#### Copy data to an NFS share
+### Copy data to an NFS share
 
 If you're using a Linux host computer, follow these guidelines:
 
 - Use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
 - Ensure that you have a multithreaded option with atleast 32 or 64 threads. 
 
-
-### Connect to and copy data using Azure Object connector
-
-If you are configuring your Data Box to copy data from other hosts that 
-
-#### Connect to ISV or modern applications
-
-
-#### Copy data from ISV or modern applications
+### Copy data from ISV or modern applications
 
 ## Prepare to ship
 
@@ -251,6 +247,7 @@ Final step is to prepare the device to ship. In this step, all the device shares
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
+> * Connect to Data Box
 > * Copy data to Data Box
 > * Prepare to ship Data Box
 
