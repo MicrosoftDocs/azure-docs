@@ -18,7 +18,7 @@ ms.technology: vs-azure
 ms.workload: azure-vs
 ms.date: 05/22/2018
 ms.author: glenga
-ms.custom: mvc, devcenter, 23113853-34f2-4f
+ms.custom: mvc, devcenter, , vs-azure, 23113853-34f2-4f
 
 ---
 # Create your first function using Visual Studio
