@@ -28,6 +28,16 @@ You can view this data in the context of single instance of the VM from the virt
 
 DevOps can effectively deliver predictable performance and availability of vital applications by identifying critical operating system events and performance bottlenecks, network issues, and understand if an issue is related to other dependencies.  
 
+
+Benefits of VM insights is:
+
+* List of benefits of this solution versus just pulling telemetry using Azure Monitor/Log Analytics
+
+
+What are the financial factors to consider before enabling this solution?
+What is the amount of data ingested per VM broken down by performance and health feature?
+
+
 Logical components of the operating system running on the VM, such as:
 
 * core operating system services and features
@@ -40,9 +50,9 @@ are measured based on a set of pre-configured health criteria and alerts when th
 
 ![VM Insights performance charts preview](./media/monitoring-vminsights-overview/example-performance-charts-01.png)
 
-These charts help you understand resource utilization over a period time while investigating resource utilization issues detected or when conducting proactive analysis.  
+These charts help you understand resource utilization over a period time while investigating resource utilization issues detected or during proactive analysis.  
 
-
+Need to provide overview of value 
 
 
 
