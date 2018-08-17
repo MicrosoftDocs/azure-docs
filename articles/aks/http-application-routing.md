@@ -32,14 +32,13 @@ The HTTP application routing add-on can be enabled with the Azure CLI when deplo
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
 
-> [!NOTE]
-> You can enable HTTP routing on an existing AKS cluster using the [az aks enable-addons][az-aks-enable-addons] command. Add the `--addons` parameter and specify *http_application_routing* as shown in the following example:
->
-> ```azurecli
-> az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
-> ```
+You can also enable HTTP routing on an existing AKS cluster using the [az aks enable-addons][az-aks-enable-addons] command. To enable HTTP routing on an existing cluster, add the `--addons` parameter and specify *http_application_routing* as shown in the following example:
 
-After the cluster is deployed, use the [az aks show][az-aks-show] command to retrieve the DNS zone name. This name is needed to deploy applications to the AKS cluster.
+```azurecli
+az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
+```
+
+After the cluster is deployed or updated, use the [az aks show][az-aks-show] command to retrieve the DNS zone name. This name is needed to deploy applications to the AKS cluster.
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
