@@ -36,7 +36,7 @@ To run this application, follow these steps.
     # *** Update or verify the following values. ***
     # **********************************************
 
-    # Replace the accessKey string value with your valid access key.
+    # Replace the accessKey string value with a valid subscription key.
     accessKey = "enter key here"
 
     # Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
@@ -59,6 +59,7 @@ To run this application, follow these steps.
 
     puts "Searching the Web for: " + term
 
+    # Create the request and get a JSON response.
     request = Net::HTTP::Get.new(uri)
     request['Ocp-Apim-Subscription-Key'] = accessKey
 
@@ -68,7 +69,7 @@ To run this application, follow these steps.
 
     puts "\nRelevant Headers:\n\n"
     response.each_header do |key, value|
-        # header names are coerced to lowercase
+        # Header names are lowee-cased.
         if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
             puts key + ": " + value
         end
@@ -77,7 +78,7 @@ To run this application, follow these steps.
     puts "\nJSON Response:\n\n"
     puts JSON::pretty_generate(JSON(response.body))
     ```
-3. Replace `accessKey` with an access key for your subscription.
+3. Replace `accessKey` with a valid subscription key.
 4. Run the program. For example: `ruby your_program.rb`.
 
 ## Sample response

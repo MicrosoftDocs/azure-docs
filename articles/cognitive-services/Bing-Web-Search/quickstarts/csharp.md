@@ -21,7 +21,7 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 The example program uses .NET Core classes only and runs on Windows using the .NET CLR or on Linux or macOS using [Mono](http://www.mono-project.com/).  
 
-* Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)   
+* Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 * Linux/macOS: [Mono](http://www.mono-project.com/)  
 
 ## Make a call to the Bing Web Search API  
@@ -29,7 +29,7 @@ The example program uses .NET Core classes only and runs on Windows using the .N
 To run this application, follow these steps.
 
 1. Create a new Console solution in Visual Studio.
-2. Copy this sample code into `Program.cs`:    
+2. Copy this sample code into `Program.cs`:
     ```csharp
     using System;
     using System.Text;
@@ -42,22 +42,24 @@ To run this application, follow these steps.
 
         class Program
         {
-            // **********************************************
-            // *** Update or verify the following values. ***
-            // **********************************************
+            /* **********************************************
+             * *** Update or verify the following values. ***
+             * **********************************************
+             */
 
-            // Replace the accessKey string value with your valid access key.
+            // Replace the accessKey string value with a valid subscription key.
             const string accessKey = "enter key here";
 
-            // Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-            // search APIs.  In the future, regional endpoints may be available.  If you
-            // encounter unexpected authorization errors, double-check this value against
-            // the endpoint for your Bing Web search instance in your Azure dashboard.
+            /* Verify the endpoint URI. At this writing, only one endpoint is used for Bing
+             * search APIs. In the future, regional endpoints may be available.  If you
+             * encounter unexpected authorization errors, double-check this value against
+             * the endpoint for your Bing Web search instance in your Azure dashboard.
+             */
             const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/search";
 
             const string searchTerm = "Microsoft Cognitive Services";
 
-            // Used to return search results including relevant headers
+            // Returns search results with headers.
             struct SearchResult
             {
                 public String jsonResult;
@@ -92,27 +94,27 @@ To run this application, follow these steps.
             }
 
             /// <summary>
-            /// Performs a Bing Web search and return the results as a SearchResult.
+            /// Performs a Bing Web search and returns data as a SearchResult.
             /// </summary>
             static SearchResult BingWebSearch(string searchQuery)
             {
-                // Construct the URI of the search request
+                // Construct the search request URI.
                 var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery);
 
-                // Perform the Web request and get the response
+                // Perform request and get a response.
                 WebRequest request = HttpWebRequest.Create(uriQuery);
                 request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
                 HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
                 string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
-                // Create result object for return
+                // Create a result object.
                 var searchResult = new SearchResult()
                 {
                     jsonResult = json,
                     relevantHeaders = new Dictionary<String, String>()
                 };
 
-                // Extract Bing HTTP headers
+                // Extract Bing HTTP headers.
                 foreach (String header in response.Headers)
                 {
                     if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
@@ -123,7 +125,7 @@ To run this application, follow these steps.
             }
 
             /// <summary>
-            /// Formats the given JSON string by adding line breaks and indents.
+            /// Formats the JSON string by adding line breaks and indents.
             /// </summary>
             /// <param name="json">The raw JSON string to format.</param>
             /// <returns>The formatted JSON string.</returns>
@@ -196,7 +198,7 @@ To run this application, follow these steps.
         }
     }
     ```
-3. Replace the `accessKey` value with an access key valid for your subscription.
+3. Replace the `accessKey` value with a valid subscription key.
 4. Run the program.
 
 ## Sample response

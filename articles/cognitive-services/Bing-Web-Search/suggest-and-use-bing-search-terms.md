@@ -1,5 +1,5 @@
 ---
-title: Suggest and use Bing Web Search terms | Microsoft Docs
+title: Use suggested Bing Web Search terms
 titleSuffix: Microsoft Cognitive Services
 description: Bing Web Search SDK for applications that search the web.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 8/13/2018
 ms.author: erhopf
 ---
 
-# Suggest and use Bing Web Search terms  
+# Use suggested Bing Web Search terms  
 
 If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 

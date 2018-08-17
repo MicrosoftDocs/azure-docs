@@ -41,7 +41,7 @@ To run this application, follow these steps.
      *     artifactId: gson
      *     version: 2.8.1
      *
-     * Once you have compiled or downloaded gson-2.8.1.jar, assuming you have placed it in the
+     * After you've compiled or downloaded gson-2.8.1.jar, assuming you have placed it in the
      * same folder as this file (BingWebSearch.java), you can compile and run this program at
      * the command line as follows.
      *
@@ -55,36 +55,38 @@ To run this application, follow these steps.
 
     public class BingWebSearch {
 
-    // ***********************************************
-    // *** Update or verify the following values. ***
-    // **********************************************
+    /* ***********************************************
+     * *** Update or verify the following values. ***
+     * ***********************************************
+     */
 
         // Replace the subscriptionKey string value with your valid subscription key.
         static String subscriptionKey = "enter key here";
 
-        // Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-        // search APIs.  In the future, regional endpoints may be available.  If you
-        // encounter unexpected authorization errors, double-check this value against
-        // the endpoint for your Bing Web search instance in your Azure dashboard.
+        /* Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
+         * search APIs.  In the future, regional endpoints may be available.  If you
+         * encounter unexpected authorization errors, double-check this value against
+         * the endpoint for your Bing Web search instance in your Azure dashboard.
+         */
         static String host = "https://api.cognitive.microsoft.com";
         static String path = "/bing/v7.0/search";
 
         static String searchTerm = "Microsoft Cognitive Services";
 
         public static SearchResults SearchWeb (String searchQuery) throws Exception {
-            // construct URL of search request (endpoint + query string)
+            // Construct search query URL (endpoint + query string).
             URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
             HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
             connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-            // receive JSON body
+            // Receive the JSON body.
             InputStream stream = connection.getInputStream();
             String response = new Scanner(stream).useDelimiter("\\A").next();
 
-            // construct result object for return
+            // Construct the result object.
             SearchResults results = new SearchResults(new HashMap<String, String>(), response);
 
-            // extract Bing-related HTTP headers
+            // Extract Bing-related HTTP headers.
             Map<String, List<String>> headers = connection.getHeaderFields();
             for (String header : headers.keySet()) {
                 if (header == null) continue;      // may have null key
@@ -97,7 +99,7 @@ To run this application, follow these steps.
             return results;
         }
 
-        // pretty-printer for JSON; uses GSON parser to parse and re-serialize
+        // Prettify the JSON. Uses gson to parse and re-serialize.
         public static String prettify(String json_text) {
             JsonParser parser = new JsonParser();
             JsonObject json = parser.parse(json_text).getAsJsonObject();
@@ -131,7 +133,7 @@ To run this application, follow these steps.
         }
     }
 
-    // Container class for search results encapsulates relevant headers and JSON data
+    // Container class for search results. Includes relevant headers and JSON data.
     class SearchResults{
         HashMap<String, String> relevantHeaders;
         String jsonResponse;
@@ -141,7 +143,7 @@ To run this application, follow these steps.
         }
     }
     ```
-4. Replace the `subscriptionKey` value with an access key valid for your subscription.
+4. Replace the `subscriptionKey` value with a valid subscription key.
 5. Run the program.
 
 ## Sample response

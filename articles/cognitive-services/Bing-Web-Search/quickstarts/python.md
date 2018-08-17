@@ -43,7 +43,6 @@ search_term = "Microsoft Cognitive Services"
 
 This block uses the `requests` library in Python to call the Bing Web Search API and return results as a JSON object. The API key is passed in the `headers` dictionary and the search term via the `params` dictionary. For a complete list of options available to filter search results, see [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) documentation.
 
-
 ```python
 import requests
 
@@ -55,7 +54,6 @@ search_results = response.json()
 ```
 
 The `search_results` object contains the search results along with metadata such as related queries and pages. This code block formats the top pages returned by the query.
-
 
 ```python
 from IPython.display import HTML

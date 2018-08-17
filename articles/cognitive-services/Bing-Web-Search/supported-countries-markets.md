@@ -1,5 +1,5 @@
 ---
-title: Countries/regions and languages for the Bing Web Search API 
+title: Countries, regions, and languages supported by the Bing Web Search API
 description: Find out which countries/regions and languages are supported by the Bing Web Search API.
 services: cognitive-services
 author: v-jerkin
@@ -11,7 +11,7 @@ ms.date: 8/16/2018
 ms.author: v-jerkin, erhopf
 ---
 
-# Countries/regions and languages for the Bing Web Search API
+# Countries, regions, and languages supported by the Bing Web Search API
 
 The Bing Web Search API supports over three dozen countries or regions, many with more than one language. Specifying a country or region with a query helps refine search results based on that country or regions interests. The results may include links to Bing, and these links may localize the Bing user experience according to the specified country/region or language.
 
