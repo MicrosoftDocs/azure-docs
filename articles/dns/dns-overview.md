@@ -6,7 +6,7 @@ manager: jeconnoc
 
 ms.service: dns
 ms.topic: overview
-ms.date: 6/7/2018
+ms.date: 9/24/2018
 ms.author: victorh
 #As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
 ---
@@ -49,6 +49,10 @@ Your domains and records can be managed using the Azure portal, Azure PowerShell
 Azure DNS also supports private DNS domains, which is now in public preview. This allows you to use your own custom domain names in your private virtual networks rather than the Azure-provided names available today.
 
 For more information, see [Using Azure DNS for private domains](private-dns-overview.md).
+
+## Custom records
+
+Azure DNS supports custom alias record sets. You can use an alias record set to refer to an Azure resource, such as an Azure public IP address or a Traffic Manager profile. If the IP address of the service changes, the alias record set does not need to change. The alias record set points to the service instance, and the service instance is associated with an IP address. For more information, see [conceptual alias record set article].
 
 
 ## Next steps
