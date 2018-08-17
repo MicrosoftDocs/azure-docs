@@ -15,20 +15,20 @@ ms.suite: integration
 # Send, receive, and batch process messages in Azure Logic Apps
 
 To group messages and process them together in a specific way, 
-you can create a batching solution that collects messages into a *batch* 
-until your specified criteria are met and then releases the batched 
-messages for processing. Batching reduces how often your logic app 
-processes messages. This article shows how to create a batching 
-solution by creating two logic apps in this specific order: 
+you can create a batching solution that collects messages into a 
+*batch* until your specified criteria are met and then releases 
+the batched messages for processing. Batching reduces how often 
+your logic app processes messages. This article shows how to 
+create a batching solution by creating two logic apps in this specific order: 
 
 * The ["batch receiver"](#batch-receiver) logic app, 
 which accepts and collects messages into a batch 
 until your specified criteria is met for releasing 
 and processing those messages.
 
-  You must first create your batch receiver so that 
-  when you later create your batch sender, you can 
-  select the receiver app as the batch destination.
+  Make sure you first create your batch receiver so that 
+  you can later select your batch destination when you 
+  create your batch sender.
 
 * One or more ["batch sender"](#batch-sender) logic apps, 
 which send the messages to the previously created batch receiver. 

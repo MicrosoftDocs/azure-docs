@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 manager: jeconnoc
 ms.topic: article
-ms.date: 08/13/18
+ms.date: 08/16/18
 ms.reviewer: estfan, LADocs
 ---
 
@@ -37,9 +37,9 @@ and processing those messages. In this scenario,
 the batch receiver also encodes the messages in the batch 
 by using the specified X12 agreement or partner identities.
 
-  You must first create your batch receiver so that 
-  when you later create your batch sender, you can 
-  select the receiver app as the batch destination.
+  Make sure you first create your batch receiver so that 
+  you can later select your batch destination when you 
+  create your batch sender.
 
 * [Create a "batch sender" logic app](#sender), 
 which send the messages to the previously created batch receiver. 
