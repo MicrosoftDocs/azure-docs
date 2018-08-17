@@ -128,21 +128,21 @@
       - name: Lessons
         items:
         - name: String operations
-          href: string-operations.md
+          href: query-language/string-operations.md
         - name: Date and time operations
-          href: datetime-operations.md
+          href: query-language/datetime-operations.md
         - name: Aggregation functions
-          href: aggregations.md
+          href: query-language/aggregations.md
         - name: Advanced aggregations
-          href: advanced-aggregations.md
+          href: query-language/advanced-aggregations.md
         - name: Joins
-          href: joins.md
+          href: query-language/joins.md
         - name: JSON and data structures
-          href: json-data-structures.md
+          href: query-language/json-data-structures.md
         - name: Advanced query writing
-          href: advanced-query-writing.md
+          href: query-language/advanced-query-writing.md
         - name: Charts and diagrams
-          href: charts.md
+          href: query-language/charts.md
     - name: Cross-resource searches
       href: log-analytics-cross-workspace-search.md
     - name: Take action from search results
