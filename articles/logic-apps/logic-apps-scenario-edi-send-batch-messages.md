@@ -11,15 +11,16 @@ ms.date: 08/16/18
 ms.reviewer: estfan, LADocs
 ---
 
-# Send X12 messages in batches to trading partners with Azure Logic Apps
+# Send EDI messages in batches to trading partners with Azure Logic Apps
 
 In business to business (B2B) scenarios, 
 partners often exchange messages in groups or batches. 
 By creating a batching solution with Logic Apps, 
 you can send messages to trading partners and 
 process those messages together in batches. 
-This article shows how you can batch process X12 messages by creating 
-a "batch sender" logic app and a "batch receiver" logic app. 
+This article shows how you can batch process EDI messages, 
+using X12 as an example, by creating a "batch sender" 
+logic app and a "batch receiver" logic app. 
 
 Batching X12 messages works like batching other messages; 
 you use a batch trigger that collects messages into a batch and a batch action 
