@@ -1,6 +1,6 @@
 ---
-title: Azure virtual machine serial console | Microsoft Docs
-description: Bi-Directional serial console for Azure virtual machines.
+title: Azure Virtual Machine Serial Console | Microsoft Docs
+description: Bi-Directional Serial Console for Azure virtual machines.
 services: virtual-machines-windows
 documentationcenter: ''
 author: harijay
