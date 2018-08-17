@@ -18,9 +18,11 @@ ms.author: rambala
 
 ---
 # Configure BFD over ExpressRoute
+
 ExpressRoute supports Bidirectional Forwarding Detection (BFD) over private peering. By enabling BFD over ExpressRoute, you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit (PE). You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices (if you went with managed Layer 3 connection service). This document walks you through the need for BFD, and how to enable BFD over ExpressRoute.
 
 ## Need for BFD
+
 The following diagram shows the benefit of enabling BFD over ExpressRoute circuit:
 [![1]][1]
 
@@ -34,6 +36,7 @@ In this scenario, BFD can help. BFD provides low-overhead link failure detection
 
 
 ## Enabling BFD
+
 BFD is configured by default under all the newly created ExpressRoute private peering interfaces on the MSEEs. Therefore, to enable BFD, you need to just configure BFD on your PEs. Configuring BFD is two-step process: you need configure the BFD on the interface and then link it to the BGP session.
 
 An example PE (using Cisco IOS XE) configuration is shown below. 
@@ -59,6 +62,7 @@ An example PE (using Cisco IOS XE) configuration is shown below.
 >
 
 ## BFD Timer Negotiation
+
 Between BFD peers, the slower of the two peers determine the transmission rate. MSEEs BFD transmission/receive intervals are set to 300 milliseconds. By configuring higher values, you can force these intervals to be longer; but, not shorter.
 
 >[!NOTE]
@@ -66,6 +70,7 @@ Between BFD peers, the slower of the two peers determine the transmission rate. 
 >
 
 ## Next Steps
+
 For more information or help, check out the following links:
 
 - [Create and modify an ExpressRoute circuit][CreateCircuit]
