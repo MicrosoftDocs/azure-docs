@@ -58,7 +58,7 @@ To download and learn more about the Microsoft Authenticator app, see [Get start
     Your security info is updated to use the Microsoft Authenticator app to verify your identity when using two-step verification or self-service password reset.
 
     >[!Note]
-    >If your organization allows it, you'll also get a code along with the Microsoft Authenticator app notification. If you want to make the code your default method, follow the instructions in [Manage your security info](security-info-setup-auth-app.md).
+    >If your organization allows it, you'll also get a verification code along with the Microsoft Authenticator app notification. If you want to make the code your default method, follow the instructions in [Manage your security info](security-info-setup-auth-app.md).
 
 ## Additional security info options
 
