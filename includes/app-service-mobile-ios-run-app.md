@@ -1,4 +1,4 @@
-1. On your Mac, visit the [Azure Portal]. Click **All Services** > **App Services** > the backend that you just created. In the mobile app settings, choose your preferred language:
+1. On your Mac, visit the [Azure portal]. Click **All Services** > **App Services** > the backend that you just created. In the mobile app settings, choose your preferred language:
 
     - Objective-C &ndash; **Quickstart** > **iOS (Objective-C)**
     - Swift &ndash; **Quickstart** > **iOS (Swift)**
@@ -11,4 +11,4 @@
 
    ![Quickstart app running on iOS](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
