@@ -25,13 +25,13 @@
       href: quickstarts/ruby.md
   - name: SDKs
     items:
-    - name: C# SDK
+    - name: C#
       href: web-search-sdk-quickstart.md
-    - name: Java SDK
+    - name: Java
       href: web-sdk-java-quickstart.md
-    - name: Node.js SDK
+    - name: Node.js
       href: web-search-sdk-node-quickstart.md
-    - name: Python SDK
+    - name: Python
       href: web-sdk-python-quickstart.md
 - name: Tutorials
   items:
