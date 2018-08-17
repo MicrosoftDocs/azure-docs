@@ -6,7 +6,7 @@ author: MichaelHauss
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/26/18
+ms.date: 08/09/18
 ms.author: mihauss
 ms.component: blobs
 ---
@@ -28,7 +28,7 @@ When uploading content to your website, use the blob storage endpoint. To upload
 
 
 ## Custom domain names
-You can use a custom domain to host your web content. To do so, follow the guidance in [Configure a custom domain name for your Azure Storage account](storage-custom-domain-name.md). To access your website hosted at a custom domain name over HTTPS, see [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md).
+You can use a custom domain to host your web content. To do so, follow the guidance in [Configure a custom domain name for your Azure Storage account](storage-custom-domain-name.md). To access your website hosted at a custom domain name over HTTPS, see [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md). Point your CDN to the web endpoint as opposed to the blob endpoint and remember that CDN configuration doesn't happen instantaneously, so you may need to wait a few minutes before your content is visible.
 
 ## Pricing and billing
 Static website hosting is provided at no additional cost. For more details on prices for Azure Blob Storage, check out the [Azure Blob Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/blobs/).
