@@ -65,7 +65,7 @@ When your function is first enabled, there is only 1 instance of the function. L
 
 Unique to Azure Functions' current scaling logic is the fact that N is greater than the number of partitions. This is done to ensure that there are always instances of EPH readily available to quickly get a lock on the partition(s) as they become available from other instances. Users are only charged for the resources used when the function instance executes, and are not charged for this over-provisioning.
 
-If all function executions succeed without errors, checkpoints are added to the associated storage account. When check-pointing succeeds, all 1000 messages should never be retrieved again.
+When all function execution completes (with or without errors), checkpoints are added to the associated storage account. When check-pointing succeeds, all 1000 messages are never retrieved again.
 
 ## Trigger - example
 
