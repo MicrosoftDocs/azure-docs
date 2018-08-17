@@ -1851,7 +1851,7 @@ SELECT
 |[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
 |[REPLICATE](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBSTRING](#bk_substring)|  
-|[ToString](#bk_tostring)|[UPPER](#bk_upper)|||  
+|[ToString](#bk_tostring)|[TRIM](#bk_trim)|[UPPER](#bk_upper)||| 
   
 ####  <a name="bk_concat"></a> CONCAT  
  Returns a string that is the result of concatenating two or more string values.  
@@ -2437,7 +2437,40 @@ JOIN n IN food.nutrients
 {"nutrientID":"307","nutritionVal":"912"},
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
- ```  
+ ``` 
+ 
+####  <a name="bk_trim"></a> TRIM  
+ Returns a string expression after it removes leading blanks.  
+  
+ **Syntax**  
+  
+```  
+TRIM(<str_expr>)  
+```  
+  
+ **Arguments**  
+  
+-   `str_expr`  
+  
+     Is any valid string expression.  
+  
+ **Return Types**  
+  
+ Returns a string expression.  
+  
+ **Examples**  
+  
+ The following example shows how to use TRIM inside a query.  
+  
+```  
+SELECT TRIM("   abc"), TRIM("   abc   "), TRIM("abc   "), TRIM("abc")   
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"$1": "abc", "$2": "abc", "$3": "abc", "$4": "abc"}]  
+``` 
 ####  <a name="bk_upper"></a> UPPER  
  Returns a string expression after converting lowercase character data to uppercase.  
   
