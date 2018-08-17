@@ -1,42 +1,46 @@
 ---
-title: Secure B2B messages with certificates in Azure Logic Apps | Microsoft Docs
-description: Add certificates to secure B2B messages with the Enterprise Integration Pack 
+title: Secure B2B messages with certificates - Azure Logic Apps | Microsoft Docs
+description: Add certificates to secure B2B messages in Azure Logic Apps with the Enterprise Integration Pack 
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: 
-
-ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, LADocs
+manager: jeconnoc
+ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
+ms.suite: integration
 ms.topic: article
-ms.date: 02/03/2016
-ms.author: LADocs; padmavc
+ms.date: 08/15/2018
 ---
 
 # Secure B2B messages with certificates
 
-Sometimes you need to keep B2B communication confidential. To help you secure B2B communication for your enterprise integration apps, specifically logic apps, 
-you can add certificates to your integration account. Certificates are digital 
-documents that verify the identity of the participants in electronic communications.
-Certificates help you secure communication in these ways:
+When you need to keep B2B communication confidential,  
+you can secure B2B communication for your enterprise integration apps, 
+specifically logic apps by adding certificates to your integration account. 
+Certificates are digital documents that check the identities for 
+the participants in electronic communications and help you 
+secure communication in these ways:
 
-* Encrypt message content
-* Digitally sign messages  
+* Encrypt message content.
+* Digitally sign messages. 
 
 You can use these certificates in your enterprise integration apps:
 
-* Public certificates, which must be purchased from a certification authority (CA).
-* Private certificates, which you can issue yourself. These certificates are sometimes referred to as self-signed certificates.
+* [Public certificates](https://en.wikipedia.org/wiki/Public_key_certificate), 
+which you must purchase from a public internet 
+[certificate authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority) 
+but don't require any keys. 
+
+* Private certificates or [*self-signed certificates*](https://en.wikipedia.org/wiki/Self-signed_certificate), 
+which you create and issue yourself but also require private keys. 
 
 ## Upload a public certificate
 
 To use a *public certificate* in logic apps that have B2B capabilities, 
 you must first upload the certificate to your integration account. 
-After you define the properties in the [agreements](logic-apps-enterprise-integration-agreements.md) that you create, 
+After you define the properties in the 
+[agreements](logic-apps-enterprise-integration-agreements.md) that you create, 
 the certificate is available to help you secure your B2B messages.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -52,7 +56,7 @@ account where you want to add the certificate.
 
    ![Select the integration account to which you want to add the certificate](media/logic-apps-enterprise-integration-certificates/overview-3.png)  
 
-4. Choose the **Certificates** tile.  
+4. Under **Components**, choose the **Certificates** tile.  
 
    ![Choose "Certificates"](media/logic-apps-enterprise-integration-certificates/certificate-1.png)
 
@@ -60,9 +64,9 @@ account where you want to add the certificate.
 
    ![Choose "Add"](media/logic-apps-enterprise-integration-certificates/certificate-2.png)
 
-6. Under **Add Certificate**, provide the details for your certificate.
+6. Under **Add Certificate**, provide these details for your certificate.
    
-   1. Enter your certificate **Name**. For the certificate type, 
+   1. Provide a name for your certificate. For the certificate type, 
    select **Public**.
 
    2. On the right side of the **Certificate** box, choose the folder icon. 
@@ -79,21 +83,26 @@ account where you want to add the certificate.
 
 To use a *private certificate* in logic apps that have B2B capabilities, 
 you must first upload the certificate to your integration account. 
-You also need to have a private key that you first add to [Azure Key Vault](../key-vault/key-vault-get-started.md). 
+You also need to have a private key that you first add to 
+[Azure Key Vault](../key-vault/key-vault-get-started.md). 
 
-After you define the properties in the [agreements](logic-apps-enterprise-integration-agreements.md) that you create, 
+After you define the properties in the 
+[agreements](logic-apps-enterprise-integration-agreements.md) that you create, 
 the certificate is available to help you secure your B2B messages.
 
 > [!NOTE]
 > For private certificates, make sure that you add a corresponding 
-> public certificate to appear in the [AS2 agreement](logic-apps-enterprise-integration-as2.md) Send and Receive settings 
+> public certificate that appears in the 
+> [AS2 agreement's](logic-apps-enterprise-integration-as2.md) **Send and Receive** settings 
 > for signing and encrypting messages.
 
 1. [Add your private key to Azure Key Vault](../key-vault/key-vault-get-started.md#add) 
 and provide a **Key Name**.
    
 2. Authorize Azure Logic Apps to perform operations on Azure Key Vault. 
-To grant access to the Logic Apps service principal, use the PowerShell command, [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), for example:
+To grant access to the Logic Apps service principal, use the PowerShell command, 
+[Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), 
+for example:
 
    `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
@@ -109,7 +118,7 @@ and then select **Integration accounts**.
 5. Under **Integration Accounts**, select the integration 
 account where you want to add the certificate.
 
-6. Choose the **Certificates** tile.  
+6. Under **Components**, choose the **Certificates** tile.  
 
    ![Choose the Certificates tile](media/logic-apps-enterprise-integration-certificates/certificate-1.png)
 
@@ -117,9 +126,9 @@ account where you want to add the certificate.
 
    ![Choose the Add button](media/logic-apps-enterprise-integration-certificates/certificate-2.png)
 
-8. Under **Add Certificate**, provide the details for your certificate.
+8. Under **Add Certificate**, provide these details for your certificate.
    
-   1. Enter your certificate **Name**. For the certificate type, 
+   1. Provide a name for your . For the certificate type, 
    select **Private**.
 
    2. On the right side of the **Certificate** box, choose the folder icon. 
