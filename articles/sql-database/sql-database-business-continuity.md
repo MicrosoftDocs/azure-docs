@@ -16,7 +16,7 @@ ms.reviewer: carlrab
 ---
 # Overview of business continuity with Azure SQL Database
 
-Azure SQL Database is an implementation of the lastest stable SQL Server Database Engine configured and optimized for Azure cloud environment that provides [high availability](sql-database-high-availability.md) and resiliency to errors that might affect your business process. In the most of the cases, Azure SQL Database will handle the disruptive events that might happen in the cloud environment and keep your business processes running. However, in some cases that cannot be controlled by Azure SQL Database, you would need to do recover your database.
+Azure SQL Database is an implementation of the latest stable SQL Server Database Engine configured and optimized for Azure cloud environment that provides [high availability](sql-database-high-availability.md) and resiliency to errors that might affect your business process. In the most of the cases, Azure SQL Database will handle the disruptive events that might happen in the cloud environment and keep your business processes running. However, in some cases that cannot be controlled by Azure SQL Database, you would need to do recover your database.
 
 This overview describes the capabilities that Azure SQL Database provides for business continuity and disaster recovery. Learn about options, recommendations, and tutorials for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. Learn what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
 
