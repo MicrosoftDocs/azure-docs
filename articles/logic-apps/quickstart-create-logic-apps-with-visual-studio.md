@@ -11,7 +11,7 @@ ms.author: estfan
 manager: jeconnoc
 ms.date: 07/31/2018
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, vs-azure
 
 # optional metadata
 ms.reviewer: klam, LADocs
