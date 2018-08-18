@@ -54,7 +54,7 @@ Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/prici
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 If you're using Visual Studio, make sure you've installed the necessary Visual Studio 
-Tools for Azure Logic Apps. To learn more, see [Quickstart: Create logic apps - Visual Studio](../logic-apps/quick-startstart-create-logic-apps-with-visual-studio.md).
+Tools for Azure Logic Apps. To learn more, see [Quickstart: Create logic apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 * An email account with any 
 [email provider supported by Azure Logic Apps](../connectors/apis-list.md)
