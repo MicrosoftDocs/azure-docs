@@ -22,9 +22,9 @@ ms.author: magoedte
 
 Azure Monitor VM insights monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including their different processes and interconnected dependencies on other resources and external processes. It includes three key features to deliver this in-depth insight:
 ​
-* Understand guest-level performance by collecting key performance counters, including memory, processor, network adapter, and per logical disk metrics.
+* Core performance metrics from processor, memory, disk, and network adapter of the guest VM operating system are collected and presented in pre-defined trending performance charts.
 * Dependency map showing the discovered interconnected components with that VM from multiple resource groups and subscriptions
-* Health state criteria for Azure VMs running Windows and Linux operating system
+* Logical components of Azure VMs running Windows and Linux operating system are measured based on a set of pre-configured health criteria and alerts when the evaluated condition is met
 
 Integration with Log Analytics delivers powerful aggregation, filtering, and ability to perform trend analysis of the data over time. 
 
@@ -35,16 +35,6 @@ You can view this data in the context of single instance of the VM from the virt
 [Virtual machine insights perspective from portal](./media/monitoring-vminsights-overview/access-solution-perspective-01.png)
 
 DevOps can effectively deliver predictable performance and availability of vital applications by identifying critical operating system events and performance bottlenecks, network issues, and understand if an issue is related to other dependencies.  
-
-Logical components of the operating system running on the VM, such as:
-
-* core operating system services and features
-* processor utilization
-* memory utilization
-* disk utilization, including logical disk perspective
-* network adapter utilization 
-
-are measured based on a set of pre-configured health criteria and alerts when the evaluated condition is met.  Core performance metrics from processor, memory, disk, and network adapter are collected and presented in pre-defined trending performance charts.  
 
 ![VM Insights performance charts preview](./media/monitoring-vminsights-overview/example-performance-charts-01.png)
 
