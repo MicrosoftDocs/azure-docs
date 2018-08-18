@@ -1,8 +1,6 @@
-# Migrate Captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Function
+# Store captured Event Hubs data in a SQL Data Warehouse using Event Grid and Azure Functions
 
-Event Hubs [Capture](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview) is the easiest way to automatically deliver streamed data in Event Hubs to an Azure Blob storage or Azure Data Lake store. You can subsequently process and deliver the data to any other storage destinations of your choice, such as SQL Data Warehouse or Cosmos DB. In this tutorial, we will demonstrate how you can pipe Captured data from your event hub into a SQL Database Warehouse by using an [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) triggered Azure Function.
-
-### What is covered in this tutorial:
+Event Hubs [Capture](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview) is the easiest way to automatically deliver streamed data in Event Hubs to an Azure Blob storage or Azure Data Lake store. You can subsequently process and deliver the data to any other storage destinations of your choice, such as SQL Data Warehouse or Cosmos DB. In this tutorial, we demonstrate how you can pipe Captured data from your event hub into a SQL Database Warehouse by using an [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) triggered Azure Function.
 
 ![Visual Studio](./media/store-captured-data-data-warehouse/EventGridIntegrationOverview.PNG)
 
@@ -12,33 +10,40 @@ Event Hubs [Capture](https://docs.microsoft.com/en-us/azure/event-hubs/event-hub
 
 There are no worker services involved in polling for these Avro files, which eliminates management overhead and significantly lower COGS, especially in a cloud-scale production environment!
 
-This sample solution contains files that do the following:
-1. *WindTurbineDataGenerator* – A simple publisher that sends wind turbine data to a Capture-enabled event hub
-1. *FunctionDWDumper* – An Azure Function that receives an Event Grid notification an Avro file is Captured to the Azure Storage blob. It receives the blob’s URI path, reads its contents and pushes this data to a SQL Data Warehouse.
+
+
+In this tutorial, you do the following actions: 
+
+> [!div class="checklist"]
+> * Deploy the infrastructure for this solution 
+> * Create a table in SQL Data Warehouse 
+> * Publish code to the Functions App
+> * Create an Event Grid subscription from the Functions app
+> * Stream sample data intoEvent Hub. 
+> * Verify captured data in SQL Data Warehouse
 
 # Prerequisites
-*	[Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/)
-*	While installing, ensure that you install the following workloads: .NET desktop development, Azure development, ASP.NET and web development, Node.js development, Python development
+
+- [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/)
+- While installing, ensure that you install the following workloads: .NET desktop development, Azure development, ASP.NET and web development, Node.js development, Python development
+- Download the [Git sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). The sample solution contains files that do the following projects:
+    - *WindTurbineDataGenerator* – A simple publisher that sends wind turbine data to a Capture-enabled event hub
+    - *FunctionDWDumper* – An Azure Function that receives an Event Grid notification an Avro file is Captured to the Azure Storage blob. It receives the blob’s URI path, reads its contents, and pushes this data to a SQL Data Warehouse.
+
 
 ![Visual Studio](./media/store-captured-data-data-warehouse/EventCaptureGridDemo1.png)
 
-# Detailed steps
-### Overview:
-1. Deploy the infrastructure for this solution 
-2. Create a table in SQL Data Warehouse 
-3. Publish code to the Functions App
-4. Create an Event Grid subscription from the Functions app, with your Event Hubs Namespace as the source and your Function endpoint as the destination. 
-5. Run WindTurbineDataGenerator.exe to generate data streams to the Event Hub. 
-6. Observe the Captured data that has been migrated to your SQL Data Warehouse table by the Azure Function
+## Deploy the infrastructure
+Deploy the infrastructure needed for this tutorial by using this [Azure Resource Manager template](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json). This template creates the following resources:
 
-## 1. Deploy the infrastructure
-Deploy the infrastructure needed for this tutorial by using this [Azure Resource Manager template](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json). This creates the following resources:
 -	Event Hub with Capture enabled
 -	Storage account for the files from Capture
 -	Azure app service plan for hosting the Functions app
 -	Function app for processing Captured event files (Function code to be added in Step 3)
 -	SQL Server for hosting the Data Warehouse
 -	SQL Data Warehouse for storing the migrated data (SQL table to be added in Step 2)
+
+
 To deploy the template using Azure CLI, use:
 
 ```azurecli-interactive
@@ -57,10 +62,10 @@ New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
 New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
 ```
 
-## 2. Create a table in SQL Data Warehouse 
+## Create a table in SQL Data Warehouse 
 Create a table in your Data Warehouse by running the *CreateDataWarehouseTable.sql* script using Visual Studio or the Query Editor in the portal. 
 
-## 3. Publish code to the Functions App
+## Publish code to the Functions App
 
 1. Open the project solution *EventHubsCaptureEventGridDemo.sln* in Visual Studio 2017 (15.3.2 or greater). 
 
@@ -83,7 +88,7 @@ Create a table in your Data Warehouse by running the *CreateDataWarehouseTable.s
 After publishing the function, you are ready to subscribe to the Capture event!
 
 
-## 4. Create an Event Grid subscription from the Functions app
+## Create an Event Grid subscription from the Functions app
  
 1. Go to the [Azure portal](https://portal.azure.com/). Select your resource group and function app.
 
@@ -101,7 +106,7 @@ After publishing the function, you are ready to subscribe to the Capture event!
 
    ![Create subscription](./media/store-captured-data-data-warehouse/set-subscription-values.png)
 
-## 5. Run WindTurbineDataGenerator.exe to generate data  
+## Generate sample data  
 You have now set up your Event Hub, SQL data warehouse, Azure Function App, and Event Grid subscription. Upon completing the simple configuration below, you can run WindTurbineDataGenerator.exe to generate data streams to the Event Hub. 
 
 1. In the portal, select your event hub namespace. Select **Connection Strings**.
@@ -127,8 +132,8 @@ You have now set up your Event Hub, SQL data warehouse, Azure Function App, and 
 
 6. Build the solution, then run the WindTurbineGenerator.exe application. 
 
-## 6. Observe the Captured data migrate to your SQL Data Warehouse table
-After a couple of minutes, query the table in your data warehouse. You will observe that data generated by the WindTurbineDataGenerator has been streamed to your Event Hub, Captured into an Azure Storage container, and then migrated into the SQL data table by Azure Function.  
+## Verify captured data in data warehouse
+After a couple of minutes, query the table in your data warehouse. You observe that data generated by the WindTurbineDataGenerator has been streamed to your Event Hub, Captured into an Azure Storage container, and then migrated into the SQL data table by Azure Function.  
 
 ## Next steps 
 You can use powerful data visualization tools with your data warehouse to achieve your Actionable insights.
@@ -137,7 +142,3 @@ This article shows how to use [Power BI with SQL Data Warehouse](https://docs.mi
 
 Now you are all set to plug in the UI you need to get valuable business insights for your management.
 
-# Conclusion
-We look forward to your feedback after you give this tutorial a try! We also love to see pull requests so if you would like to contribute to our community.
-
-Stay tuned for more samples from the Azure Messaging team, and till next time!
