@@ -16,13 +16,20 @@ ms.reviewer: carlrab
 ---
 # Overview of business continuity with Azure SQL Database
 
-Azure SQL Database is an implementation of the latest stable SQL Server Database Engine configured and optimized for Azure cloud environment that provides [high availability](sql-database-high-availability.md) and resiliency to errors that might affect your business process. In the most of the cases, Azure SQL Database will handle the disruptive events that might happen in the cloud environment and keep your business processes running. However, in some cases that cannot be controlled by Azure SQL Database, you would need to do recover your database.
+Azure SQL Database is an implementation of the latest stable SQL Server Database Engine configured and optimized for Azure cloud environment that provides [high availability](sql-database-high-availability.md) and resiliency to the errors that might affect your business process. In the most of the cases, Azure SQL Database will handle the disruptive events that might happen in the cloud environment and keep your business processes running. However, in some cases that cannot be controlled by Azure SQL Database, you would need to do recover your database.
 
 This overview describes the capabilities that Azure SQL Database provides for business continuity and disaster recovery. Learn about options, recommendations, and tutorials for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. Learn what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
 
 ## SQL Database features that you can use to provide business continuity
 
-SQL Database provides several business continuity features, including automated backups and optional database replication. Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your recovery time objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - this is your recovery point objective (RPO).
+SQL Database provides several business continuity features, including automated backups and optional database replication. First, you need to understand how SQL Database [high availability architecture](sql-database-high-availability.md) provides 99.99% availability and resiliency to some disruptive events that might affect your business process.
+Then, you can learn about the additional mechanisms that you can use to recover from the disruptive events that cannot be handled by SQL Database high availability architecture, such as:
+ - [Temporal tables](sql-database-temporal-tables.md) enable you to restore row versions from any point in time.
+ - [Built-in automated backups](sql-database-automated-backups.md) and [Point in Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) enables you to restore complete database to some point in time within the last 35 days.
+ - [Long-term backup retention](sql-database-long-term-retention.md) enables you too keep the backups up to 10 years.
+ - [Geo-replication](sql-database-geo-replication-overview.md) allows the application to perform quick disaster recovery in case of a data center scale outage.
+
+Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your recovery time objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - this is your recovery point objective (RPO).
 
 The following table compares the ERT and RPO for each service tier for the three most common scenarios.
 
