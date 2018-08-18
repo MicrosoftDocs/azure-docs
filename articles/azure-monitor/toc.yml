@@ -71,8 +71,6 @@
     items: 
     - name: Overview
       href: ../monitoring/monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
-    - name: Metrics
-      href: ../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
     - name: Logs
       href: ../log-analytics/log-analytics-overview.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
     - name: Activity log
@@ -97,9 +95,11 @@
       href: ../monitoring/monitoring-solutions-inventory.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
   - name: Analyze data
     items: 
-    - name: Log searches
+    - name: Metrics explorer
+      href: ../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
+    - name: Log queries
       href: ../log-analytics/log-analytics-log-search.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
-    - name: Log Search portals
+    - name: Log query portals
       href: ../log-analytics/log-analytics-log-search-portals.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
     - name: OMS portal transition
       items:
