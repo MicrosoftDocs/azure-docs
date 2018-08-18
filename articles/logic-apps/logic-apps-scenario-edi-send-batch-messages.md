@@ -216,7 +216,8 @@ Select this trigger: **When a HTTP request is received**
    1. Under the HTTP request action, choose **New step**.
 
    2. In the search box, enter "batch" as your filter. 
-   Select this action: **Choose a Logic Apps workflow with batch trigger**
+   Select the **Actions** list, and then select this action: 
+   **Choose a Logic Apps workflow with batch trigger - Send messages to batch**
 
       ![Select "Choose a Logic Apps workflow with batch trigger"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
 

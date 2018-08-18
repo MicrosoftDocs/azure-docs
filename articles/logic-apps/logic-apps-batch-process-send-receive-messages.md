@@ -52,7 +52,9 @@ To follow this example, you need these items:
 Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Basic knowledge about 
-[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+If you're using Visual Studio, make sure you've installed the necessary Visual Studio 
+Tools for Azure Logic Apps. To learn more, see [Quickstart: Create logic apps - Visual Studio](../logic-apps/quick-startstart-create-logic-apps-with-visual-studio.md).
 
 * An email account with any 
 [email provider supported by Azure Logic Apps](../connectors/apis-list.md)
@@ -71,7 +73,7 @@ specified criteria is met for releasing and processing those messages.
 While batch receivers don't need to know anything about batch senders, 
 the batch senders must know where to send messages. 
 
-1. In the [Azure portal](https://portal.azure.com), 
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio, 
 create a logic app with this name: "BatchReceiver" 
 
 2. In Logic Apps Designer, add the **Batch** trigger, 
@@ -155,6 +157,10 @@ Select this trigger: **Batch messages**
 
     ![Save your logic app](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
 
+8. If you're using Visual Studio, make sure you 
+[deploy your batch receiver logic app to Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). 
+Otherwise, you can't select the batch receiver when you create the batch sender.
+
 <a name="batch-sender"></a>
 
 ## Create batch sender
@@ -191,7 +197,8 @@ sender because they're not visible to each other.
 
    1. Under the recurrence trigger, choose **New step**.
 
-   2. In the search box, enter "batch" as your filter. Select this action: 
+   2. In the search box, enter "batch" as your filter. 
+   Select the **Actions** list, and then select this action: 
    **Choose a Logic Apps workflow with batch trigger - Send messages to batch**
 
       ![Select "Choose a Logic Apps workflow with batch trigger"](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
@@ -201,7 +208,11 @@ sender because they're not visible to each other.
       ![Select "batch receiver" logic app](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch-receiver.png)
 
       > [!NOTE]
-      > The list also shows any other logic apps that have batch triggers.
+      > The list also shows any other logic apps that have batch triggers. 
+      > 
+      > If you're using Visual Studio, and you don't see any batch receivers to select, 
+      > check that you deployed your batch receiver to Azure. If you haven't, 
+      > learn how to [deploy your batch receiver logic app to Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). 
 
    4. Select this action: **Batch_messages - <*your-batch-receiver*>**
 
