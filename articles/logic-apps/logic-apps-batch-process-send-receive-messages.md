@@ -19,7 +19,8 @@ you can create a batching solution that collects messages into a
 *batch* until your specified criteria are met and then releases 
 the batched messages for processing. Batching reduces how often 
 your logic app processes messages. This article shows how to 
-create a batching solution by creating two logic apps in this specific order: 
+create a batching solution by creating two logic apps in this 
+specific order and in the same Azure region: 
 
 * The ["batch receiver"](#batch-receiver) logic app, 
 which accepts and collects messages into a batch 
@@ -37,6 +38,10 @@ which send the messages to the previously created batch receiver.
    that *partitions* or divides the target batch into logical 
    subsets based on that key. That way, the receiver app can 
    collect all items with the same key and process them together.
+
+Make sure your batch receiver and batch sender share the same Azure region. 
+If they don't, you can't select the batch receiver when you create the batch 
+sender because they're not visible to each other.
 
 ## Prerequisites
 
@@ -154,18 +159,22 @@ Select this trigger: **Batch messages**
 
 ## Create batch sender
 
-Now create one or more logic apps that send messages 
-to the batch receiver logic app. In each batch sender, 
-you specify the batch receiver logic app and batch name, 
-message content, and any other settings. You can 
-optionally provide a unique partition key to divide 
-the batch into logical subsets for collecting messages with that key. 
+Now create one or more batch sender logic apps that send 
+messages to the batch receiver logic app. In each batch sender, 
+you specify the batch receiver and batch name, message content, 
+and any other settings. You can optionally provide a unique 
+partition key to divide the batch into logical subsets 
+for collecting messages with that key. 
 
-Make sure you previously [created your batch receiver logic app](#batch-receiver) 
-so that when you create your batch sender, you can select that 
-receiver app as the batch destination.
-While batch receivers don't need to know anything about batch senders, 
-the batch senders must know where to send messages. 
+* Make sure you've already [created your batch receiver](#batch-receiver) 
+so when you create your batch sender, you can select that 
+batch receiver as the destination batch. While batch receivers 
+don't need to know anything about batch senders, 
+batch senders must know where to send messages. 
+
+* Make sure your batch receiver and batch sender share the same Azure region. 
+If they don't, you can't select the batch receiver when you create the batch 
+sender because they're not visible to each other.
 
 1. Create another logic app with this name: "BatchSender"
 
