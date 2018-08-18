@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.custom: devcenter
+ms.custom: devcenter, vs-azure
 ---
 # Use .NET (C#) with Visual Studio to connect and query an Azure SQL database
 

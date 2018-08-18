@@ -49,6 +49,7 @@ See the language-specific example for an Event Grid trigger:
 * [C#](#c-example)
 * [C# script (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
+* [Java](#trigger---java-example)
 
 For an HTTP trigger example, see [How to use HTTP trigger](#use-an-http-trigger-as-an-event-grid-trigger) later in this article.
 
@@ -176,6 +177,36 @@ module.exports = function (context, eventGridEvent) {
     context.done();
 };
 ```
+
+### Trigger - Java example
+
+The following example shows a trigger binding in a *function.json* file and a [Java function](functions-reference-java.md) that uses the binding and prints out an event.
+
+```json
+{
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+Here's the Java code:
+
+```java
+@FunctionName("eventGridMonitor")
+  public void logEvent(
+     @EventGridTrigger(name = "event") String content,
+      final ExecutionContext context
+  ) { 
+      context.getLogger().info(content);
+    }
+```
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `EventGridTrigger` annotation on parameters whose value would come from EventGrid. Parameters with these annotations cause the function to run when an event arrives.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`. 
      
 ## Attributes
 
