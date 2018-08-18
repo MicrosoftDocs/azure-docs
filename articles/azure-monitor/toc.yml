@@ -609,10 +609,11 @@
       - name: Service Fabric Analytics
         href: ../log-analytics/log-analytics-service-fabric.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
       - name: Use monitoring solutions
+        items:
         - name: Overview
           href: ../monitoring/monitoring-solutions.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
         - name: Target solutions
-        href: ../monitoring/monitoring-solution-targeting.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
+          href: ../monitoring/monitoring-solution-targeting.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
   - name: Manage usage and cost
     items:
     - name: Usage and estimated costs
