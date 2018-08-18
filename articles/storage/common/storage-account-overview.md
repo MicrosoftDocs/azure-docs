@@ -39,7 +39,7 @@ The following table describes the three types of storage accounts and their capa
 
 <sup>3</sup>The archive tier is available at the individual blob level only, not at the storage account level. Only block blobs and append blobs can be archived. For more information, see [Azure Blob storage: Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 
-<sup>4</sup>Zone-redundant storage (ZRS) is available only for standard general-purpose v2 storage accounts. For more information about ZRS, see [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md). For more information about other replication options, see [Azure Storage replication](common/storage-redundancy.md).
+<sup>4</sup>Zone-redundant storage (ZRS) is available only for standard general-purpose v2 storage accounts. For more information about ZRS, see [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md). For more information about other replication options, see [Azure Storage replication](storage-redundancy.md).
 
 ### General-purpose v2
 
@@ -50,8 +50,6 @@ GPv2 storage accounts expose the **Access Tier** attribute at the account level,
 The access tier for the account is applied to blobs within the account, unless a blob has its access tier set explicitly. The **archive tier** can only be applied at the blob level.
 
 For block blobs in a GPv2 storage account, you can choose between hot and cool storage tiers at the account level, or hot, cool, and archive tiers at the blob level based on access patterns. Store frequently, infrequently, and rarely accessed data in the hot, cool, and archive storage tiers respectively to optimize costs. 
-
-For more information on migrating your older storage accounts to GPv2 accounts, see [Migrate to general-purpose v2 storage accounts](storage-account-migrate.md).
 
 ### General-purpose v1
 
@@ -92,7 +90,7 @@ For more information about access tiers, see [Azure Blob storage: Hot, cool, and
 General-purpose storage accounts have two performance tiers:
 
 * A standard storage performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks.
-* A premium storage performance tier for storing Azure virtual machine disks. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/virtual-machines/windows/premium-storage.md) for an in-depth overview of Premium storage.
+* A premium storage performance tier for storing Azure virtual machine disks. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md) for an in-depth overview of Premium storage.
 
 ## Storage account endpoints
 
@@ -138,7 +136,4 @@ All storage accounts use a pricing model for blob storage based on the tier of e
 ## Next steps
 
 * To learn how to create an Azure storage account, see [Create a storage account](storage-quickstart-create-account.md).
-
 * To manage or delete an existing storage account, see [Manage Azure storage accounts](storage-manage-account.md).
-
-* To migrate a GPv1 or Blob storage account to a GPv2 storage account, see [Migrate to general-purpose v2 storage accounts](storage-account-migrate.md).

@@ -4,9 +4,10 @@ description: Quickly learn to create a new storage account using the Azure porta
 services: storage
 author: tamram
 ms.custom: mvc
+
 ms.service: storage
 ms.topic: quickstart
-ms.date: 07/03/2018
+ms.date: 08/18/2018
 ms.author: tamram
 ms.component: common
 ---
@@ -136,7 +137,7 @@ az account list-locations \
 
 ## Create a general-purpose storage account
 
-A general-purpose storage account provides access to all of the Azure Storage services: blobs, files, queues, and tables. A general-purpose storage account can be created in either a standard or a premium tier. The examples in this article show how to create a general-purpose storage account in the standard tier (the default).
+A general-purpose storage account provides access to all of the Azure Storage services: blobs, files, queues, and tables. A general-purpose storage account can be created in either a standard or a premium tier. The examples in this article show how to create a general-purpose storage account in the standard tier, which is the default storage account type.
 
 Azure Storage offers two types of general-purpose storage accounts:
 
