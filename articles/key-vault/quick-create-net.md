@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Quickstart: Set and retrieve a secret from Azure Key Vault by using a .NET web app
 
-In this quickstart, you go over the necessary steps for getting an Azure web application to read information from Azure Key Vault by using managed service identities. You learn how to:
+In this quickstart, you follow the necessary steps for getting an Azure web application to read information from Azure Key Vault by using managed service identities. You learn how to:
 
 > [!div class="checklist"]
 > * Create a key vault.
@@ -44,13 +44,13 @@ Before we go any further, please read the [basic concepts](key-vault-whatis.md#b
   * See [What’s New in Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/).
 
 * All platforms:
-  * Git [download](https://git-scm.com/downloads).
+  * Git ([download](https://git-scm.com/downloads)).
   * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). You need Azure CLI version 2.0.4 or later. This is available for Windows, Mac, and Linux.
+  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later. This is available for Windows, Mac, and Linux.
 
 ## Log in to Azure
 
-To log in to the Azure by using the Azure CLI, enter:
+To log in to Azure by using the Azure CLI, enter:
 
 ```azurecli
 az login
@@ -58,10 +58,10 @@ az login
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 Select a resource group name and fill in the placeholder.
-The following example creates a resource group in the *East US* location.
+The following example creates a resource group in the East US location.
 
 ```azurecli
 # To list locations: az account list-locations --output table
@@ -74,9 +74,9 @@ The resource group that you just created is used throughout this article.
 
 Next you create a key vault in the resource group that you created in the previous step. Provide the following information:
 
-* Vault name: The key vault name must be a string of 3-24 characters in length and contain only (0-9, a-z, A-Z, and -).
+* Key vault name: The name must be a string of 3-24 characters and must contain only (0-9, a-z, A-Z, and -).
 * Resource group name.
-* The location: **East US**.
+* Location: **East US**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "East US"
@@ -86,7 +86,7 @@ At this point, your Azure account is the only one that's authorized to perform a
 
 ## Add a secret to the key vault
 
-We're adding a secret to help illustrate how this works. You might be storing a SQL connection string or any other information that you need to keep securely but make available to your application. In this tutorial, the password will be **AppSecret** and will store the value of **MySecret** in it.
+We're adding a secret to help illustrate how this works. You might be storing a SQL connection string or any other information that you need to keep securely but make available to your application.
 
 Type the following commands to create a secret in the key vault called **AppSecret**. This secret will store the value **MySecret**.
 
@@ -100,7 +100,7 @@ To view the value contained in the secret as plain text:
 az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
 ```
 
-This command shows the secret information, including the URI. After you complete these steps, you should have a URI to a secret in an key vault. Make note of this information. You'll need it in a later step.
+This command shows the secret information, including the URI. After you complete these steps, you should have a URI to a secret in a key vault. Make note of this information. You'll need it in a later step.
 
 ## Clone the repo
 
@@ -112,7 +112,7 @@ git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
 
 ## Open and edit the solution
 
-Edit the program.cs file to run the sample with your specific key vault name.
+Edit the program.cs file to run the sample with your specific key vault name:
 
 1. Browse to the folder key-vault-dotnet-core-quickstart.
 2. Open the key-vault-dotnet-core-quickstart.sln file in Visual Studio 2017.
@@ -126,12 +126,12 @@ From the main menu of Visual Studio 2017, select **Debug** > **Start** without d
 
 ## Publish the web application to Azure
 
-Publish this app to Azure to see it live as a web app, and to see that you fetch the secret value:
+Publish this app to Azure to see it live as a web app, and to see that you can fetch the secret value:
 
 1. In Visual Studio, select the **key-vault-dotnet-core-quickstart** project.
 2. Select **Publish** > **Start**.
 3. Create a new **App Service**, and then select **Publish**.
-4. Change the app name to be **keyvaultdotnetcorequickstart**.
+4. Change the app name to **keyvaultdotnetcorequickstart**.
 5. Select **Create**.
 
 >[!VIDEO https://sec.ch9.ms/ch9/e93d/a6ac417f-2e63-4125-a37a-8f34bf0fe93d/KeyVault_high.mp4]
