@@ -14,15 +14,25 @@ ms.author: tomfitz
 
 This article describes how to create Event Grid subscriptions through the portal.
 
-## Azure subscriptions
+## Create subscriptions
 
 To create an Event Grid subscription for your Azure subscription, use the following steps.
 
 1. Select **All services**.
 
-   ![Select All services](./media/subscribe-through-portal/select-all-services.png)
+   ![Select all services](./media/subscribe-through-portal/select-all-services.png)
 
-## Azure Functions subscriptions
+1. Search for **Event Grid Subscriptions** and select it from the available options.
+
+   ![Search](./media/subscribe-through-portal/search.png)
+
+1. Select **+ Event Subscription**.
+
+   ![Add subscription](./media/subscribe-through-portal/add-subscription.png)
+
+1. Select the type of subscription you want to create. For example, to subscribe to events for your Azure subscription, select **Azure Subscriptions** and the target subscription.
+
+   ![Select Azure subscription](./media/subscribe-through-portal/azure-subscription.png)
 
 ## Resource subscriptions
 
