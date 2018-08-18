@@ -26,7 +26,7 @@ SQL Database provides several business continuity features, including automated 
 Then, you can learn about the additional mechanisms that you can use to recover from the disruptive events that cannot be handled by SQL Database high availability architecture, such as:
  - [Temporal tables](sql-database-temporal-tables.md) enable you to restore row versions from any point in time.
  - [Built-in automated backups](sql-database-automated-backups.md) and [Point in Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) enables you to restore complete database to some point in time within the last 35 days.
- - [Long-term backup retention](sql-database-long-term-retention.md) enables you too keep the backups up to 10 years.
+ - [Long-term backup retention](sql-database-long-term-retention.md) enables you to keep the backups up to 10 years.
  - [Geo-replication](sql-database-geo-replication-overview.md) allows the application to perform quick disaster recovery in case of a data center scale outage.
 
 Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your recovery time objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - this is your recovery point objective (RPO).
