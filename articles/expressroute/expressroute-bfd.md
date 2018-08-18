@@ -58,7 +58,8 @@ An example PE (using Cisco IOS XE) configuration is shown below.
   	    neighbor 192.168.15.18 soft-reconfiguration inbound
  	  exit-address-family
 
->[!NOTE]To enable BFD under an already existing private peering; you need to reset the peering. See [Reset ExpressRoute peerings][ResetPeering]
+>[!NOTE]
+>To enable BFD under an already existing private peering; you need to reset the peering. See [Reset ExpressRoute peerings][ResetPeering]
 >
 
 ## BFD Timer Negotiation
