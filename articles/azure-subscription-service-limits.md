@@ -8,7 +8,7 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 08/16/2018
 ms.author: byvinyal
 
 ---
@@ -47,6 +47,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
+* [Azure Policy](#azure-policy-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
@@ -289,6 +290,9 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### Azure Maps limits
 [!INCLUDE [maps-limits](../includes/maps-limits.md)]
+
+### Azure Policy limits
+[!INCLUDE [policy-limits](../includes/azure-policy-limits.md)]
 
 ### StorSimple System limits
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

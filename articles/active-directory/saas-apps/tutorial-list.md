@@ -527,7 +527,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
 | ![logo](./media/tutorial-list/active-directory-saas-tyeexpress-tutorial.png)| [T&E Express](tyeexpress-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-tableauonline-tutorial.png)| [Tableau Online](tableauonline-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-tableauonline-tutorial.png)| [Tableau Online](tableauonline-tutorial.md)|[Tableau Online - User Provisioning](tableau-online-provisioning-tutorial.md)
 | ![logo](./media/tutorial-list/active-directory-saas-tableauserver-tutorial.png)| [Tableau Server](tableauserver-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-talentlms-tutorial.png)| [TalentLMS](talentlms-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-tangoanalytics-tutorial.png)| [Tango Analytics](tangoanalytics-tutorial.md)|
