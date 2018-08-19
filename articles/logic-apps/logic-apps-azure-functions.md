@@ -7,22 +7,22 @@ author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
 
 # Add and run custom code snippets in Azure Logic Apps with Azure Functions
 
-When you want to create and run only enough code 
-that performs a specific job in your logic apps, 
+When you want to run only enough code that 
+performs a specific job in your logic apps, 
 you can create your own functions with 
 [Azure Functions](../azure-functions/functions-overview.md). 
-This service helps you create and run Node.js or 
-C# code snippets so you don't have to create an 
-entire app or the infrastructure for running your code. 
-Azure Functions provides serverless computing in the 
-cloud and is useful for performing tasks, for example:
+This service helps you create Node.js, C#, and F# code 
+snippets so you don't have to build a complete 
+app or the infrastructure for running your code. 
+Azure Functions provides serverless computing in the cloud 
+and is useful for performing tasks such as these examples:
 
 * Extend your logic app's behavior with functions in Node.js or C#.
 * Perform calculations in your logic app workflow.
@@ -32,42 +32,28 @@ You can also [call logic apps from inside Azure functions](#call-logic-app).
 
 ## Prerequisites
 
-To follow this article, here are the items you need:
+To follow this article, you need these items:
 
 * If you don't have an Azure subscription yet, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
-* The logic app where you want to add the function
-
-  If you're new to logic apps, review 
-  [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
-  and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-* A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
-as the first step in your logic app 
-
-  Before you can add actions for running functions, 
-  your logic app must start with a trigger.
-
 * An Azure function app, which is a container for Azure functions, 
-and your Azure function. If you don't have a function app, you must 
+and your Azure function. If you don't have a function app, 
 [create your function app first](../azure-functions/functions-create-first-azure-function.md). 
-You can then create your function either 
-[separately outside your logic app](#create-function-external), 
-or [from inside your logic app](#create-function-designer) 
-in the Logic App Designer.
+You can then create your function either [separately outside your logic app](#create-function-external), 
+or [from inside your logic app](#create-function-designer) in the Logic App Designer.
 
-  Both existing and new Azure function apps and functions 
-  have the same requirements for working with your logic apps:
+  Both existing and new function apps and functions 
+  have the same requirements for working with logic apps:
 
-  * Your function app must belong to the same Azure subscription as your logic app.
+  * Your function app must have the same Azure subscription as your logic app.
 
-  * Your function either uses an HTTP trigger or uses the 
-  **HTTP trigger** function template for **JavaScript** or **C#**. 
+  * Your function uses an HTTP trigger, for example, 
+  the **HTTP trigger** function template for **JavaScript** or **C#**. 
 
-    This template can accept content with the 
+    The HTTP trigger template can accept content that has 
     `application/json` type from your logic app. 
-    Also, when you add an Azure function to your logic app, 
+    When you add an Azure function to your logic app, 
     the Logic App Designer shows custom functions created 
     from this template within your Azure subscription. 
 
@@ -80,6 +66,17 @@ in the Logic App Designer.
   working with function parameters. Before your logic app can 
   find and access functions that have OpenAPI definitions, 
   [set up your function app by following these steps](#function-swagger).
+
+* The logic app where you want to add the function, including a 
+[trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
+as the first step in your logic app 
+
+  Before you can add actions that can run functions, 
+  your logic app must start with a trigger.
+
+  If you're new to logic apps, review 
+  [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+  and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="create-function-external"></a>
 
