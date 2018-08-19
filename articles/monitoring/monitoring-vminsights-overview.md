@@ -28,7 +28,7 @@ Azure Monitor VM insights monitors your Azure virtual machines (VM) at scale by 
 
 Integration with Log Analytics delivers powerful aggregation, filtering, and ability to perform trend analysis of the data over time. 
 
-* List of benefits/value of this solution (each feature of it delivers value) versus just pulling telemetry using Azure Monitor/Log Analytics/Service Maps independently
+<State this is aiming to deliver comprehensive monitoring of your applications that can't be delivered similarly just by enabling Log Analytics and Azure Monitor alone.>
  
 You can view this data in the context of single instance of the VM from the virtual machine resource blade, and as an aggregated view of all VMs in your subscription from Azure Monitor. 
 
