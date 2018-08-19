@@ -83,7 +83,7 @@ The `Mask` element can contain the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Type | True | The type of the claim mask. This attribute takes one of the following values: <ul><li>**Simple** - A simple text mask that is applied to the leading portion of a string claim.</li><li> **Regex** - A regular expression that can be applied to the string claim as whole.  If the latter value is specified, an optional eponym attribute must also be defined with the regular expression to use.</li></ul> |
+| Type | Yes | The type of the claim mask. Possible values: **Simple** or **Regex**. The **Simple** value indicates that a simple text mask is applied to the leading portion of a string claim. The **Regex** value indicates that a regular expression is applied to the string claim as whole.  If the **Regex** value is specified, an optional attribute must also be defined with the regular expression to use. |
 | Regex | False | If `Type` is set to **Regex**, specify the regular expression to use.
 
 The follwing example configures a **PhoneNumber** claim with the **Simple** mask:

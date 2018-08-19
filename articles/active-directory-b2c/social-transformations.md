@@ -38,7 +38,7 @@ Creates a JSON representation of the user’s alternativeSecurityId property tha
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | key | string | The ClaimType that specifies the unique user identifier used by the social identity provider. |
 | InputClaim | identityProvider | string | The ClaimType that specifies the social account identity provider name, such as facebook.com.. |
-| OutputClaim | alternativeSecurityId | string | The ClaimType that is produced after this ClaimsTransformation has been invoked. Contains information about the identity of a social account user: <ul><li>**issuer**, The value of `identityProvider` calim</li><li> **issuerUserId**, The value of `key` claim in base64 format.</li></ul> |
+| OutputClaim | alternativeSecurityId | string | The ClaimType that is produced after the ClaimsTransformation has been invoked. Contains information about the identity of a social account user. The **issuer** is the value of the `identityProvider` claim. The **issuerUserId** is the value of the `key` claim in base64 format. |
 
 Use this claims transformation to generate a `alternativeSecurityId` ClaimType. It's used by all social identity provider technical profiles, such as `Facebook-OAUTH`. The following claims transformation receives the user social account ID and the identity provider name. The output of this technical profile is a JSON string format that can be used in Azure AD directory services.  
 
@@ -74,12 +74,12 @@ Adds an `AlternativeSecurityId` to an `alternativeSecurityIdCollection` claim.
 | InputClaim | collection | alternativeSecurityIdCollection | The ClaimTypes that are used by the claims transformation if available in the policy. If provided, the cliams transformation adds the `item` at the end of the collection. |
 | OutputClaim | collection | alternativeSecurityIdCollection | The ClaimTypes that are produced after this ClaimsTransformation has been invoked. The new collection, contaning both the items from input `collection` and `item`. |
 
-Following example links new social identity with an existing account. To link new soicla idenity:
-1. In the `AAD-UserWriteWithAnotherAlternativeSecurityId` technical profile, output the user's `alternativeSecurityIds` cliam. 
-1. Ask the user to sign-in with one of identity provider that is not associate with this user.
-1. Using `CreateAlternativeSecurityId` claims transformation, create new `alternativeSecurityId` claim type, name `AlternativeSecurityId2` 
-1. Call `AddItemToAlternativeSecurityIdCollection` claims transformation to add the `AlternativeSecurityId2` to the existing `AlternativeSecurityIds` claim. 
-1. Persist the `alternativeSecurityIds` to the user account
+The following example links a new social identity with an existing account. To link a new social identity: 
+1. In the `AAD-UserReadUsingAlternativeSecurityId` and `AAD-UserReadUsingObjectId` technical profiles, output the user's `alternativeSecurityIds` claim.
+1. Ask the user to sign-in with one of the identity providers that are not associated with this user. 
+1. Using the `CreateAlternativeSecurityId` claims transformation, create a new `alternativeSecurityId` claim type with a name of `AlternativeSecurityId2` 
+1. Call the `AddItemToAlternativeSecurityIdCollection` claims transformation to add the `AlternativeSecurityId2` claim to the existing `AlternativeSecurityIds` claim. 
+1. Persist the `alternativeSecurityIds` claim to the user account
 
 ```XML
 <ClaimsTransformation Id="AddAnotherAlternativeSecurityId" TransformationMethod="AddItemToAlternativeSecurityIdCollection">
@@ -166,3 +166,62 @@ Following claims transformation, reads the user `alternativeSecurityIds` claim a
     - **identityProvidersCollection**: ["facebook.com", 
     "google.com"
   ]
+
+
+## RemoveAlternativeSecurityIdByIdentityProvider
+
+Removes an `AlternativeSecurityId` from an `alternativeSecurityIdCollection` claim. 
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | identityProvider | string | The ClaimType that contains the identity provider name to be removed from the collection. |
+| InputClaim | collection | alternativeSecurityIdCollection | The ClaimTypes that are used by the claims transformation. The cliams transformation removes the `identityProvider` from the collection. |
+| OutputClaim | collection | alternativeSecurityIdCollection | The ClaimTypes that are produced after this ClaimsTransformation has been invoked. The new collection, after the `identityProvider` removed from the `collection`. |
+
+The following example unlinks one of the social identity with an existing account. To unlink a social identity: 
+1. In the `AAD-UserReadUsingAlternativeSecurityId` and `AAD-UserReadUsingObjectId` technical profiles, output the user's `alternativeSecurityIds` claim.
+1. Ask the user to select which social account to remove from the list identity providers that are associated with this user. 
+1. Call a claims transformation technical profile that calls the  `RemoveAlternativeSecurityIdByIdentityProvider` claims transformation, that removed the selected social identity, using identity provider name.
+1. Persist the `alternativeSecurityIds` claim to the user account
+
+```XML
+<ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider" TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">
+    <InputClaims>
+        <InputClaim ClaimTypeReferenceId="secondIdentityProvider" TransformationClaimType="identityProvider" />
+        <InputClaim ClaimTypeReferenceId="AlternativeSecurityIds" TransformationClaimType="collection" />
+    </InputClaims>
+    <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="AlternativeSecurityIds" TransformationClaimType="collection" />
+    </OutputClaims>
+</ClaimsTransformation>               
+</ClaimsTransformations>
+```
+
+### Example
+
+- Input claims:
+    - **identityProvider**: facebook.com
+
+    - **collection**: 
+        ```JSON
+        [
+          {
+            "issuer": "live.com",
+            "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"
+          },
+          {
+            "issuer": "facebook.com",
+            "issuerUserId": "MTIzNDU="
+          }
+        ]
+        ```
+- Output claims:
+    - **collection**: 
+        ```JSON
+        [
+          {
+            "issuer": "live.com",
+            "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"
+          }
+        ]
+        ```

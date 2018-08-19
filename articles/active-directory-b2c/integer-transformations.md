@@ -26,7 +26,7 @@ Converts a long data type into a string data type.
 | InputClaim | inputClaim | long | The ClaimType to convert to a string. |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
 
-In this example, `numericUserId` with long type is converted to `UserId` with type string.
+In this example, the `numericUserId` claim with a value type of long is converted to a `UserId` claim with a value type of string.
 
 ```XML
 <ClaimsTransformation Id="CreateUserId" TransformationMethod="ConvertNumberToStringClaim">
