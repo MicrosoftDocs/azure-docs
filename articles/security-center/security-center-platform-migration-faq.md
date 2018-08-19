@@ -22,44 +22,7 @@ In early June 2017, Azure Security Center began using the Microsoft Monitoring A
 
 ## Data collection, agents, and workspaces
 
-### How is data collected?
-Security Center uses the Microsoft Monitoring Agent to collect security data from your VMs. The security data includes information about:
 
-- security configurations - used to identify vulnerabilities
-- security events - used to detect threats
-
-Data collected by the agent is stored in either an existing Log Analytics workspace connected to the VM or a new workspace created by Security Center. When Security Center creates a new workspace, the geolocation of the VM is taken into account.
-
-> [!NOTE]
-> The Microsoft Monitoring Agent is the same agent used by the Log Analytics service and System Center Operations Manager (SCOM).
->
->
-
-When automatic provisioning (previously named Log Collection) is enabled or when your subscriptions are migrated, Security Center checks to see if the Microsoft Monitoring Agent is already installed as an Azure extension on each of your VMs. If the Microsoft Monitoring Agent is not installed, then by default Security Center will:
-
-- Install the Microsoft Monitoring Agent extension on the VM.
-
-   - If a workspace created by Security Center already exists in the same geolocation as the VM, the agent is connected to this workspace.
-   - If a workspace does not exist, Security Center creates a new resource group and default workspace in that geolocation, and connects the agent to that workspace. The naming convention for the workspace and resource group is:
-
-       Workspace: DefaultWorkspace-[subscription-ID]-[geo]
-
-       Resource Group: DefaultResouceGroup-[geo]
-
-- Enable a Security Center solution on the workspace per the VM’s associated pricing tier in Security Center. For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
-- For migrated subscriptions only, Security Center will also remove the previous Azure Monitoring Agent.
-
-> [!NOTE]
-> You can override the automatic installation of the Microsoft Monitoring Agent and use your own workspace.  See [how to stop the automatic agent installation and workspace creation](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation) and [how to use your existing workspace](#how-can-i-use-my-existing-log-analytics-workspace).
->
->
-
-The location of the workspace is based on the location of the VM. To learn more, see [Data Security](security-center-data-security.md). If a subscription contains VMs from multiple geolocations, then Security Center creates multiple workspaces. Multiple workspaces are created to maintain data privacy rules.
-
-> [!NOTE]
-> Prior to platform migration, Security Center collected security data from your VMs using the Azure Monitoring Agent, and data was stored in your storage account. After the platform migration, Security Center uses the Microsoft Monitoring Agent and workspace to collect and store the same data. The storage account can be removed after the migration.  Security Center also removes previously installed Azure Monitoring Agents after platform migration.
->
->
 
 ### Am I billed for Log Analytics on the workspaces created by Security Center?
 No. Workspaces created by Security Center, while configured for Log Analytics per node billing, do not incur Log Analytics charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
