@@ -234,7 +234,7 @@ If you need assistance, follow these steps.
 
 1. Complete the form, and then select **Submit**.
 
-## FAQs
+## FAQ
 
 **What's the benefit of adding the GUID to the template?**
 
