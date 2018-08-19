@@ -154,7 +154,7 @@ The offer must remain the same. To change your offer, see [Switch your Azure sub
 
 ### Can I transfer a subscription to a user account in another country?
 
-No, transferring a subscription to a user account in another country is not supported. The recipient's user account must be in the same country.
+When transferring ownership of subscriptions within an enrollment, No. Transferring a subscription (within an enrollment) to a user account in another country is not supported. The recipient's user account must be in the same country. 
 
 ### Can the recipient use a different payment method?
 
