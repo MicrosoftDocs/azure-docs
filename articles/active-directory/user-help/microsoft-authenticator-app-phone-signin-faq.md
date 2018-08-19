@@ -35,9 +35,9 @@ To sign in to your personal Microsoft account with your phone, follow these step
     >[!NOTE]
     >To protect your account, we require a PIN or biometric lock on your device. If you keep your phone unlocked, the app pops up a request asking you to set up a lock before enabling phone sign-in.
 
-    3. Most pages where you would normally enter your Microsoft account password have a link that says **Use an app instead**. Select this link to sign in with your phone.
+2. Most pages where you would normally enter your Microsoft account password have a link that says **Use an app instead**. Select this link to sign in with your phone.
  
-    4. Microsoft sends a notification to your phone. Approve the notification to sign in to your account.   
+3. Microsoft sends a notification to your phone. Approve the notification to sign in to your account.   
  
 ## FAQ
 
