@@ -23,7 +23,7 @@ For a walkthrough of the SQL query language, see [SQL queries for Azure Cosmos D
 We also invite you to visit the [Query Playground](http://www.documentdb.com/sql/demo) where you can try Azure Cosmos DB and run SQL queries against our dataset.  
   
 ## SELECT query  
-Retrieves JSON documents from the database. Supports expression evaluation, projections, filtering and joins.  The conventions used for describing the SELECT statements are tabulated in the Syntax conventions section.  
+Every query consists of a SELECT clause and optional FROM and WHERE clauses per ANSI-SQL standards. Typically, for each query, the source in the FROM clause is enumerated. Then the filter in the WHERE clause is applied on the source to retrieve a subset of JSON documents. Finally, the SELECT clause is used to project the requested JSON values in the select list. The conventions used for describing the SELECT statements are tabulated in the Syntax conventions section.  
   
 **Syntax**  
   
@@ -89,25 +89,25 @@ SELECT <select_specification>
   
  **Arguments**  
   
- `<select_specification>`  
+- `<select_specification>`  
   
- Properties or value to be selected for the result set.  
+  Properties or value to be selected for the result set.  
   
- `'*'`  
+- `'*'`  
   
-Specifies that the value should be retrieved without making any changes. Specifically if the processed value is an object, all properties will be retrieved.  
+  Specifies that the value should be retrieved without making any changes. Specifically if the processed value is an object, all properties will be retrieved.  
   
- `<object_property_list>`  
+- `<object_property_list>`  
   
-Specifies the list of properties to be retrieved. Each returned value will be an object with the properties specified.  
+  Specifies the list of properties to be retrieved. Each returned value will be an object with the properties specified.  
   
-`VALUE`  
+- `VALUE`  
   
-Specifies that the JSON value should be retrieved instead of the complete JSON object. This, unlike `<property_list>` does not wrap the projected value in an object.  
+  Specifies that the JSON value should be retrieved instead of the complete JSON object. This, unlike `<property_list>` does not wrap the projected value in an object.  
   
-`<scalar_expression>`  
+- `<scalar_expression>`  
   
-Expression representing the value to be computed. See [Scalar expressions](#bk_scalar_expressions) section for details.  
+  Expression representing the value to be computed. See [Scalar expressions](#bk_scalar_expressions) section for details.  
   
 **Remarks**  
   
@@ -133,7 +133,7 @@ Note that `SELECT <select_list>` and `SELECT *` are "syntactic sugar" and can be
 [SELECT clause](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM clause  
-Specifies the source or joined sources. The FROM clause is optional. If not specified, other clauses will still be executed as if FROM clause provided a single document.  
+Specifies the source or joined sources. The FROM clause is optional unless the source is filtered or projected later in the query. The purpose of this clause is to specify the data source upon which the query must operate. Commonly the whole collection is the source, but one can specify a subset of the collection instead. If this clause is not specified, other clauses will still be executed as if FROM clause provided a single document.  
   
 **Syntax**  
   
@@ -157,45 +157,45 @@ FROM <from_specification>
   
 **Arguments**  
   
-`<from_source>`  
+- `<from_source>`  
   
-Specifies a data source, with or without an alias. If alias is not specified, it will be inferred from the `<collection_expression>` using following rules:  
+  Specifies a data source, with or without an alias. If alias is not specified, it will be inferred from the `<collection_expression>` using following rules:  
   
--   If the expression is a collection_name, then collection_name will be used as an alias.  
+  -   If the expression is a collection_name, then collection_name will be used as an alias.  
   
--   If the expression is `<collection_expression>`, then property_name, then property_name will be used as an alias. If the expression is a collection_name, then collection_name will be used as an alias.  
+  -   If the expression is `<collection_expression>`, then property_name, then property_name will be used as an alias. If the expression is a collection_name, then collection_name will be used as an alias.  
   
-AS `input_alias`  
+- AS `input_alias`  
   
-Specifies that the `input_alias` is a set of values returned by the underlying collection expression.  
+  Specifies that the `input_alias` is a set of values returned by the underlying collection expression.  
  
-`input_alias` IN  
+- `input_alias` IN  
   
-Specifies that the `input_alias` should represent the set of values obtained by iterating over all array elements of each array returned by the underlying collection expression. Any value returned by underlying collection expression that is not an array is ignored.  
+  Specifies that the `input_alias` should represent the set of values obtained by iterating over all array elements of each array returned by the underlying collection expression. Any value returned by underlying collection expression that is not an array is ignored.  
   
-`<collection_expression>`  
+- `<collection_expression>`  
   
-Specifies the collection expression to be used to retrieve the documents.  
+  Specifies the collection expression to be used to retrieve the documents.  
   
-`ROOT`  
+- `ROOT`  
   
-Specifies that document should be retrieved from the default, currently connected collection.  
+  Specifies that document should be retrieved from the default, currently connected collection.  
   
-`collection_name`  
+- `collection_name`  
   
-Specifies that document should be retrieved from the provided collection. The name of the collection must match the name of the collection currently connected to.  
+  Specifies that document should be retrieved from the provided collection. The name of the collection must match the name of the collection currently connected to.  
   
-`input_alias`  
+- `input_alias`  
   
-Specifies that document should be retrieved from the other source defined by the provided alias.  
+  Specifies that document should be retrieved from the other source defined by the provided alias.  
   
-`<collection_expression> '.' property_`  
+- `<collection_expression> '.' property_`  
   
-Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified collection expression.  
+  Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified collection expression.  
   
-`<collection_expression> '[' "property_name" | array_index ']'`  
+- `<collection_expression> '[' "property_name" | array_index ']'`  
   
-Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified collection expression.  
+  Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified collection expression.  
   
 **Remarks**  
   
@@ -577,45 +577,45 @@ ORDER BY <sort_specification>
   
  **Arguments**  
   
-1.  `<undefined_constant>; undefined`  
+* `<undefined_constant>; undefined`  
   
-     Represents undefined value of type Undefined.  
+  Represents undefined value of type Undefined.  
   
-2.  `<null_constant>; null`  
+* `<null_constant>; null`  
   
-     Represents **null** value of type **Null**.  
+  Represents **null** value of type **Null**.  
   
-3.  `<boolean_constant>`  
+* `<boolean_constant>`  
   
-     Represents constant of type Boolean.  
+  Represents constant of type Boolean.  
   
-4.  `false`  
+* `false`  
   
-     Represents **false** value of type Boolean.  
+  Represents **false** value of type Boolean.  
   
-5.  `true`  
+* `true`  
   
-     Represents **true** value of type Boolean.  
+  Represents **true** value of type Boolean.  
   
-6.  `<number_constant>`  
+* `<number_constant>`  
   
-     Represents a constant.  
+  Represents a constant.  
   
-7.  `decimal_literal`  
+* `decimal_literal`  
   
-     Decimal literals are numbers represented using either decimal notation, or scientific notation.  
+  Decimal literals are numbers represented using either decimal notation, or scientific notation.  
   
-8.  `hexadecimal_literal`  
+* `hexadecimal_literal`  
   
-     Hexadecimal literals are numbers represented using prefix '0x' followed by one or more hexadecimal digits.  
+  Hexadecimal literals are numbers represented using prefix '0x' followed by one or more hexadecimal digits.  
   
-9. `<string_constant>`  
+* `<string_constant>`  
   
-     Represents a constant of type String.  
+  Represents a constant of type String.  
   
-10. `string _literal`  
+* `string _literal`  
   
-     String literals are Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes (apostrophe: ' ) or double quotes (quotation mark: ").  
+  String literals are Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes (apostrophe: ' ) or double quotes (quotation mark: ").  
   
  Following escape sequences are allowed:  
   
