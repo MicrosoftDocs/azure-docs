@@ -41,29 +41,20 @@ Many partner solutions are deployed on a customer’s subscription by using Reso
 To add a globally unique identifier (GUID), you make a single modification to the main template file:
 
 1. Create a GUID (for example, eb7927c8-dd66-43e1-b0cf-c346a422063).
-1. Open the Resource Manager template
+
+1. Open the Resource Manager template.
+
 1. Add a new resource in the main template file. The resource needs to be in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
+
 1. Enter the GUID value after the **pid-** prefix (for example, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+
 1. Check the template for any errors.
+
 1. Republish the template in the appropriate repositories.
 
 ### Sample template code
 
-```
-{ // Add this resource to the mainTemplate.json (don't add the entire file)
-      "apiVersion": "2018-02-01",
-      "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // Use your GUID here
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": []
-        }
-      }
-    } // Remove all comments from the file when you're done
-```
+![Sample template code](media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG)
 
 ## Use the Resource Manager APIs
 
@@ -75,8 +66,7 @@ If you're using a Resource Manager template, you should tag your solution by fol
 
 For this tracking approach, when you design your API calls, include a GUID in the user agent header in the request. Add the GUID for each Offer or SKU. Format the string with the **pid-** prefix and include the partner-generated GUID. Here's an example of the GUID format for insertion into the user agent: 
 
-`pid-eb7927c8-dd66-43e1-b0cf-c346a422063`
-// Enter your GUID after the "pid-" prefix
+![Example GUID format](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
 > [!Note]
 > The format of the string is important. If the **pid-** prefix isn't included, it's not possible to query the data. Different SDKs track differently. To implement this method, review the support and tracking approach for your preferred Azure SDK. 
@@ -85,13 +75,10 @@ For this tracking approach, when you design your API calls, include a GUID in th
 
 For Python, use the **config** attribute. You can only add the attribute to a UserAgent. Here's an example:
 
-```python
-client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
-        client.config.add_user_agent("pid-eb7927c8-dd66-43e1-b0cf-c346a422063")
-```
+![Add the attribute to a user agent](media/marketplace-publishers-guide/python-for-lu.PNG)
 
-> Add the attribute for each client. There's no global static configuration. (For example, you might tag a client factory to be sure every client is tracking.)
-> For more information, see this [client factory sample on GitHub](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79).
+> [!Note]
+> Add the attribute for each client. There's no global static configuration. You might tag a client factory to be sure every client is tracking. For more information, see this [client factory sample on GitHub](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79).
 
 #### Tag a deployment by using the Azure PowerShell
 
@@ -109,17 +96,45 @@ When you use the Azure CLI to append your GUID, set the **AZURE_HTTP_USER_AGENT*
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
 
-## Register GUIDs and Offers
+## Register GUIDs and offers
 
 To include a GUID in our tracking, the GUID must be registered.  
 
 All registrations for template GUIDs are done via the Azure Marketplace Cloud Partner Portal (CPP). 
 
-Apply to [Azure Marketplace](http://aka.ms/listonazuremarketplace) and get access to the CPP.
+After you add the GUID to your template or in the user agent, and register the GUID in the CPP, all deployments are tracked. 
 
-*	Partners are required to [have a profile in the CPP](https://docs.microsoft.com/azure/marketplace/become-publisher). You're encouraged to list the offer in Azure Marketplace or AppSource.
-*	Partners can register multiple GUIDs.
-*	Partners can register a GUID for non-Marketplace solution templates and offers.
+1. Apply to [Azure Marketplace](http://aka.ms/listonazuremarketplace) and get access to the CPP.
+
+   * Partners are required to [have a profile in CPP](https://docs.microsoft.com/azure/marketplace/become-publisher). You're encouraged to list the offer in Azure Marketplace or AppSource.
+   * Partners can register multiple GUIDs.
+   * Partners can register a GUID for the non-Marketplace solution templates and offers.
+ 
+1. Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/).
+
+1. In the upper-right corner, select your account icon, and then select **Publisher profile**.
+
+   ![Select Publisher profile](media/marketplace-publishers-guide/guid-image-for-lu.png)
+
+1. On the **Profile page**, select **Add Tracking GUID.**
+
+   ![Select Add Tracking GUID](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
+
+1. In the **Tracking GUID** box, enter your tracking GUID. Enter just the GUID without the **pid-** prefix. In the **Custom Description** box, enter your offer name or description.
+
+   ![Profile page](media/marketplace-publishers-guide/guid-dev-center-login.png)
+   
+   ![Enter the GUID and offer description](media/marketplace-publishers-guide/guid-dev-center-example.png)
+
+1. To register more than one GUID, select **Add Tracking GUID** again. Additional boxes appear on the page.
+
+   ![Select Add Tracking GUID again](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
+   
+   ![Enter another GUID and offer description](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
+
+1. Select **Save**.
+
+   ![Select Save](media/marketplace-publishers-guide/guid-dev-center-save.png)
 
 After you add the GUID to your template or in the user agent, and register the GUID in the CPP, all deployments are tracked. 
 
@@ -196,22 +211,30 @@ When you deploy \<PARTNER> software, Microsoft is able to identify the installat
 If you need assistance, follow these steps.
 
 1. Go to the [support page](https://go.microsoft.com/fwlink/?linkid=844975). 
+
 1. Under **Problem type**, select **Marketplace Onboarding**.
+
 1. Choose the **Category** for your issue:
 
    - For usage association issues, select **Other**.
    - For access issues with the Azure Marketplace CPP, select **Access Problem**.
+   
+    ![Choose the issue category](media/marketplace-publishers-guide/lu-article-incident.png)
 
 1. Select **Start Request**.
+
 1. On the next page, enter the required values. Select **Continue**.
+
 1. On the next page, enter the required values.
 
    > [!Important] 
-   > For **Incident title**, enter **ISV Usage Tracking**. Describe your issue in detail.
+   > In the **Incident title** box, enter **ISV Usage Tracking**. Describe your issue in detail.
+   
+    ![Enter ISV Usage Tracking for the incident title](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
 
 1. Complete the form, and then select **Submit**.
 
-## FAQ
+## FAQs
 
 **What's the benefit of adding the GUID to the template?**
 

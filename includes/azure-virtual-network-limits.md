@@ -5,7 +5,7 @@
  author: jimdial
  ms.service: networking
  ms.topic: include
- ms.date: 08/03/2018
+ ms.date: 08/16/2018
  ms.author: jdial
  ms.custom: include file
 
@@ -34,7 +34,7 @@
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
-> We recently increased all default limits to their maximum limits. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits. If you have has these limits increased by support in the past and do not see updated limits as below, you can [open an online customer support request at no charge](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+> We recently increased all default limits to their maximum limits. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits. If you have had these limits increased by support in the past and do not see updated limits as below, you can [open an online customer support request at no charge](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 | Resource | Default limit | 
 | --- | --- |
@@ -71,17 +71,17 @@ The following limits apply only for networking resources managed through Azure R
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
 | Load Balancers | 100 | 1000 |
-| Rules per resource, Basic | 150 | 250 |
-| Rules per resource, Standard | 1250 | 1500 |
+| Rules per resource, Basic | 250 | 250 |
+| Rules per resource, Standard | 1500 | 1500 |
 | Rules per IP configuration | 299 |299 |
 | Frontend IP configurations, Basic | 10 | 200 |
 | Frontend IP configurations, Standard | 10 | 600 |
 | Backend pool, Basic | 100, single Availability Set | 100, single Availability Set |
 | Backend pool, Standard | 1000, single VNet | 1000, single VNet |
-| Backend resources per Load Balancer, Standard &ast; | 50 | 150 |
+| Backend resources per Load Balancer, Standard * | 150 | 150 |
 | HA Ports, Standard | 1 per internal frontend | 1 per internal frontend |
 
-&ast; Up to 150 resources, any combination of standalone virtual machines, availability sets, and virtual machine scale sets.
+** Up to 150 resources, any combination of standalone virtual machines, availability sets, and virtual machine scale sets.
 
 [Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
 

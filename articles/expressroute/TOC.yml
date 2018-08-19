@@ -83,6 +83,8 @@
       href: how-to-routefilter-powershell.md
     - name: Azure CLI
       href: how-to-routefilter-cli.md
+  - name: Enable and disable peerings
+    href: expressroute-howto-reset-peering.md
   - name: Move from public peering to Microsoft peering
     href: how-to-move-peering.md
   - name: Move a circuit from classic to Resource Manager

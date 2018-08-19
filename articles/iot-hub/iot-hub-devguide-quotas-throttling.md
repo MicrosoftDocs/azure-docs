@@ -15,7 +15,7 @@ ms.author: dobett
 ## Quotas and throttling
 Each Azure subscription can have at most 50 IoT hubs, and at most 1 Free hub.
 
-Each IoT hub is provisioned with a certain number of units in a specific tier. For more information, see [Azure IoT Hub Pricing][lnk-pricing]. The tier and number of units determine the maximum daily quota of messages that you can send.
+Each IoT hub is provisioned with a certain number of units in a specific tier. The tier and number of units determine the maximum daily quota of messages that you can send. The message size used to calculate the daily quota is 0.5 KB for a free tier hub and 4KB for all other tiers. For more information, see [Azure IoT Hub Pricing][lnk-pricing].
 
 The tier also determines the throttling limits that IoT Hub enforces on all operations.
 
