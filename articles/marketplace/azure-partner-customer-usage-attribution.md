@@ -50,7 +50,7 @@ To add a globally unique identifier (GUID), you make a single modification to th
 
 1. Check the template for any errors.
 
-1. Republish the template in the appropriate repositories.     
+1. Republish the template in the appropriate repositories.
 
 ### Sample template code
 
@@ -183,7 +183,7 @@ foreach ($deployment in $deployments){
 
 A GUID is a unique reference number that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator. There are multiple [online GUID generators](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E) that you can use.
 
-Create a unique GUID for every Offer and distribution channel. If you deploy two solutions by using a template and each one is available in the Azure Marketplace and on GitHub, you need to create four GUIDS:
+Create a unique GUID for every offer and distribution channel. If you deploy two solutions by using a template and each one is available in the Azure Marketplace and on GitHub, you need to create four GUIDS:
 
 *	Offer A in Azure Marketplace 
 *	Offer A on GitHub
@@ -235,17 +235,6 @@ If you need assistance, follow these steps.
 1. Complete the form, and then select **Submit**.
 
 ## FAQ
-    For issues on accessing Azure Marketplace Cloud Partner Portal - select Problem type: **Marketplace Onboarding** and Category: **Access Problem** and then click **Start Request.**
-
- ![](media/marketplace-publishers-guide/lu-article-incident.png)
- 
- 3. Complete the required fields on the next page and click **Continue.**
- 4. Complete the free text fields on the next page. **Important**: Fill in Incident title with **“ISV Usage Tracking”** and describe your issue in detail in the large free text field after.  Complete the rest of the form and click **Submit**. 
- 
- ![](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
-
- 
-## FAQs
 
 **What's the benefit of adding the GUID to the template?**
 
