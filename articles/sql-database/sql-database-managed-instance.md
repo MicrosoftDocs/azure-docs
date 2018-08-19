@@ -194,8 +194,8 @@ Managed Instance targets user scenarios with mass database migration from on-pre
 
 ### Backup and restore  
 
-The migration approach leverages SQL backups to Azure blob storage. Backups stored in Azure storage blob can be directly restored into Managed Instance using the [T-SQL RESTORE command](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?). 
-  - For a tutorial showing how to restore the Wide World Importers - Standard database backup file, see [Restore a backup file to a Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md?view=azuresqldb-mi-current). This tutorial shows you have to upload a backup file to Azure blog storage and secure it using a Shared access signature (SAS) key.
+The migration approach leverages SQL backups to Azure blob storage. Backups stored in Azure storage blob can be directly restored into Managed Instance using the [T-SQL RESTORE command](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current). 
+  - For a tutorial showing how to restore the Wide World Importers - Standard database backup file, see [Restore a backup file to a Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md). This tutorial shows you have to upload a backup file to Azure blog storage and secure it using a Shared access signature (SAS) key.
   - For information about restore from URL, see [Native RESTORE from URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
   
 ### Data Migration Service
