@@ -1,5 +1,16 @@
 <!--author=alkohli last changed:01/14/2016-->
 
+---
+title: "include file"
+description: "include file"
+services: storage
+author: alkohli
+ms.service: storage
+ms.topic: "include"
+ms.date: 08/20/2018
+ms.author: alkohli
+ms.custom: "include file"
+---
 
 #### To create a new service
 1. Using your Microsoft account credentials, sign in to the Azure classic portal at this URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).

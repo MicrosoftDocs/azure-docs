@@ -1,5 +1,16 @@
 <!--author=alkohli last changed:02/10/2017-->
 
+---
+title: "include file"
+description: "include file"
+services: storage
+author: alkohli
+ms.service: storage
+ms.topic: "include"
+ms.date: 08/20/2018
+ms.author: alkohli
+ms.custom: "include file"
+---
 
 #### To create a new service
 
