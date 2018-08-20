@@ -22,7 +22,7 @@ ms.reviewer: jiahan
 # Azure Stack Managed Disks: Differences and considerations
 This article summarizes the known differences between Azure Stack Managed Disks and Managed Disks for Azure. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) article.
 
-Managed Disks simplifies disk management for IaaS VMs by managing the [storage accounts](azure-stack-manage-storage-accounts.md) associated with the VM disks.
+Managed Disks simplifies disk management for IaaS VMs by managing the [storage accounts](.\.\azure-stack-manage-storage-accounts) associated with the VM disks.
   
 
 ## Cheat sheet: Virtual machine differences
