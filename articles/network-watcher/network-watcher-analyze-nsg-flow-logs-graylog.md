@@ -73,8 +73,6 @@ Logstash is used to flatten the JSON formatted flow logs to a flow tuple level. 
 
 3. Add the following content to the file. Change the highlighted values to reflect your storage account details:
 
-   > [!WARNING]
-   > The following steps work with flow logs version 1. The format of NSG flow logs will be upgraded to version 2 soon. For details, see [Network security group flow log changes](prepare-flow-log.md). The following instructions will not work with version 2 of the log files, without modification.
 
    ```
     input {
