@@ -16,24 +16,38 @@ ms.reviewer: carlrab
 ---
 # Overview of business continuity with Azure SQL Database
 
+Azure SQL Database is an implementation of the latest stable SQL Server Database Engine configured and optimized for Azure cloud environment that provides [high availability](sql-database-high-availability.md) and resiliency to the errors that might affect your business process. In the most of the cases, Azure SQL Database will handle the disruptive events that might happen in the cloud environment and keep your business processes running. However, there are some disruptive events that cannot be handled by SQL Database such as:
+ - User accidentally deleted or updated a row in a table.
+ - Malicious attacker succeeded to delete data or drop a database.
+ - Earthquake caused a power outage and temporary disabled data-center.
+ 
+These cases cannot be controlled by Azure SQL Database, so you would need to do use the business continuity features in SQL Database that enables you to recover your data and keep your applications running.
+
 This overview describes the capabilities that Azure SQL Database provides for business continuity and disaster recovery. Learn about options, recommendations, and tutorials for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. Learn what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
 
 ## SQL Database features that you can use to provide business continuity
 
-SQL Database provides several business continuity features, including automated backups and optional database replication. Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your recovery time objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - this is your recovery point objective (RPO).
+SQL Database provides several business continuity features, including automated backups and optional database replication. First, you need to understand how SQL Database [high availability architecture](sql-database-high-availability.md) provides 99.99% availability and resiliency to some disruptive events that might affect your business process.
+Then, you can learn about the additional mechanisms that you can use to recover from the disruptive events that cannot be handled by SQL Database high availability architecture, such as:
+ - [Temporal tables](sql-database-temporal-tables.md) enable you to restore row versions from any point in time.
+ - [Built-in automated backups](sql-database-automated-backups.md) and [Point in Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) enables you to restore complete database to some point in time within the last 35 days.
+ - [Long-term backup retention](sql-database-long-term-retention.md) enables you to keep the backups up to 10 years.
+ - [Geo-replication](sql-database-geo-replication-overview.md) allows the application to perform quick disaster recovery in case of a data center scale outage.
+
+Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event. The time required for application to fully recover is known as recovery time objective (RTO). You also need to understand the maximum period of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event. The time period of updates that you might afford to lose is known as recovery point objective (RPO).
 
 The following table compares the ERT and RPO for each service tier for the three most common scenarios.
 
 | Capability | Basic | Standard | Premium  | General Purpose | Business Critical
 | --- | --- | --- | --- |--- |--- |
 | Point in Time Restore from backup |Any restore point within 7 days |Any restore point within 35 days |Any restore point within 35 days |Any restore point within configured period (up to 35 days)|Any restore point within configured period (up to 35 days)|
-| Geo-restore from geo-replicated backups |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h|ERT < 12h, RPO < 1h|
-| Restore from SQL long-term retention |ERT < 12h, RPO < 1 wk |ERT < 12h, RPO < 1 wk |ERT < 12h, RPO < 1 wk |ERT < 12h, RPO < 1 wk|ERT < 12h, RPO < 1 wk|
-| Active geo-replication |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s|ERT < 30s, RPO < 5s|
+| Geo-restore from geo-replicated backups |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h|ERT < 12 h, RPO < 1 h|
+| Restore from SQL long-term retention |ERT < 12 h, RPO < 1 wk |ERT < 12 h, RPO < 1 wk |ERT < 12 h, RPO < 1 wk |ERT < 12 h, RPO < 1 wk|ERT < 12 h, RPO < 1 wk|
+| Active geo-replication |ERT < 30s, RPO < 5s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s|ERT < 30 s, RPO < 5 s|
 
 ### Use point-in-time restore to recover a database
 
-SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every five - ten minutes to protect your business from data loss. If you're using the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), then these backups are stored in RA-GRS storage for 35 days for databases in the Standard and Premium service tiers and 7 days for databases in the Basic service tier. If the retention period for your service tier does not meet your business requirements, you can increase the retention period by [changing the service tier](sql-database-single-database-scale.md). If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the backups retention is configurable up to 35 days in the General purpose and Business critical tiers. The full and differential database backups are also replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage. For more information, see [automatic database backups](sql-database-automated-backups.md).
+SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every 5 - 10 minutes to protect your business from data loss. If you're using the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), then these backups are stored in RA-GRS storage for 35 days for databases in the Standard and Premium service tiers and 7 days for databases in the Basic service tier. If the retention period for your service tier does not meet your business requirements, you can increase the retention period by [changing the service tier](sql-database-single-database-scale.md). If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the backups retention is configurable up to 35 days in the General purpose and Business critical tiers. The full and differential database backups are also replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage. For more information, see [automatic database backups](sql-database-automated-backups.md).
 
 If the maximum supported point-in-time restore (PITR) retention period is not sufficient for your application, you can extend it by configuring a long-term retention (LTR) policy for the database(s). For more information, see [Automated Backups](sql-database-automated-backups.md) and [Long-term backup retention](sql-database-long-term-retention.md).
 
