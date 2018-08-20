@@ -32,6 +32,125 @@ Azure AD receives improvements on an ongoing basis. To stay up-to-date with the 
 This page is updated monthly, so revisit it regularly.
 
 ---
+## August 2018
+
+### Changes to Azure Active Directory IP address ranges
+
+**Type:** Plan for change  
+**Service category:** Other  
+**Product capability:** Platform
+
+We're introducing larger IP ranges to Azure AD, which means if you've configured Azure AD IP address ranges for your firewalls, routers, or Network Security Groups, you'll need to update them. We're making this update so you won't have to change your firewall, router, or Network Security Groups IP range configurations again when Azure AD adds new endpoints. 
+
+Network traffic is moving to these new ranges over the next two months. To continue with uninterrupted service, you must add these updated values to your IP Addresses before September 10, 2018:
+
+- 20.190.128.0/18 
+
+- 40.126.0.0/18 
+
+We strongly recommend not removing the old IP Address ranges until all of your network traffic has moved to the new ranges. For updates about the move and to learn when you can remove the old ranges, see [Office 365 URLs and IP address ranges](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+
+---
+
+### Change notice: Authorization codes will no longer be available for reuse 
+
+**Type:** Plan for change  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+ 
+Starting on October 10, 2018, Azure AD will stop accepting previously-used authentication codes for new apps. Any app created before October 10, 2018 will still be able to reuse authentication codes. This security change helps to bring Azure AD in line with the OAuth specification and will be enforced on both the v1 and v2 endpoints.
+
+If your app reuses authorization codes to get tokens for multiple resources, we recommend that you use the code to get a refresh token, and then use that refresh token to acquire additional tokens for other resources. Authorization codes can only be used once, but refresh tokens can be used multiple times across multiple resources. Any new app that attempts to reuse an authentication code during the OAuth code flow will get an invalid_grant error, revoking the previous refresh token that was acquired using that duplicate code.
+
+For more information about refresh tokens, see [Refreshing the access tokens](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-protocols-oauth-code#refreshing-the-access-tokens).
+ 
+---
+
+### Converged security info management for self-service password (SSPR) and Multi-Factor Authentication (MFA)
+
+**Type:** New feature  
+**Service category:** SSPR  
+**Product capability:** User Authentication
+ 
+This new feature helps people manage their security info (such as, phone number, mobile app, and so on) for SSPR and MFA in a single location and experience; as compared to previously, where it was done in two different locations.
+
+This converged experience also works for people using either SSPR or MFA. Additionally, if your organization doesn't enforce MFA or SSPR registration, people can still register any MFA or SSPR security info methods allowed by your organization from the My Apps portal.
+
+This is an opt-in public preview. Administrators can turn on the new experience (if desired) for a selected group or for all users in a tenant.
+
+---
+
+[480957](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=480957&triage=true&fullScreen=false&_a=edit)
+
+### Privileged Identity Management (PIM) for Azure resources supports Management Group resource types
+
+**Type:** New feature  
+**Service category:** Privileged Identity Management  
+**Product capability:** Privileged Identity Management
+ 
+Customers can now apply Just-In-Time activation and assignment settings to Management Group resource types, just like they already do for Subscriptions, Resource Groups, and Resources (such as VMs, App Services, and more). Resource administrators can now also discover the Management Groups they have owner or user access administrator assignments. Scoped activation is not available for Management Group assignments.
+ 
+---
+ 
+
+[486829](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=486829&triage=true&fullScreen=false&_a=edit)
+
+### Faster access to Azure AD after activating
+
+**Type:** New feature  
+**Service category:** Privileged Identity Management  
+**Product capability:** Privileged Identity Management
+ 
+
+Today, when customers activate a role in PIM, it can take ten or more minutes for the role permissions to take effect. With application access (preview), customers can access the Azure AD administration portal as soon as their activation request is complete. At the current moment, Application access (preview) only supports the Azure AD administration experience and Azure resources. Check back for additional partners soon!
+ 
+
+---
+ 
+
+[469475](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=469475&triage=true&fullScreen=false&_a=edit)
+
+### AAD Application Proxy HTTP Only cooking setting
+
+**Type:** New feature  
+**Service category:** App Proxy  
+**Product capability:** Access Control
+ 
+
+On your Application Proxy applications, you will now see a new setting called Use HTTP-Only Cookies. This allows you to set the HTTPOnly flag for the Application Proxy access and session cookies. When this is set, a HTTPOnly flag is included in the HTTP response header, and the cookie cannot be accessed through a client-side script. This added security measure prevents actions like copying or modifying the cookie. Although, Application Proxy has not used this flag in the past, the cookies have always been encrypted and transmitted in a SSL connection to protect against modification. Note that if your application is using ActiveX controls like in Remote Desktop this setting is not compatible and it is recommended to keep this setting at its default, off.
+ 
+
+---
+ 
+
+[272576](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=272576&triage=true&fullScreen=false&_a=edit)
+
+### Updated B2C policy management experience
+
+**Type:** Changed feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+ 
+
+We are updating the name for built-in policies to be user flows, and making the create and management experience for this much easier.  This new experience is ready for you to try today.  Just click on the banner at the top of your overview for your directory and you will be taken to the new experience.  Please give us feedback using the smile/frown buttons on the top of the portal.
+ 
+
+---
+ 
+
+[526816](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=526816&triage=true&fullScreen=false&_a=edit)
+
+### Azure AD Application Proxy now with native Tableau support
+
+**Type:** Changed feature  
+**Service category:** App Proxy  
+**Product capability:** Access Control
+ 
+
+Azure AD Application Proxy now natively supports Tableau. There are no longer any additional configuration steps required for using it with Application Proxy. We've done this by updating our pre-authentication protocol from OpenID Connect protocol to the OAuth 2.0 Code Grant protocol. The switch to the OAuth 2.0 Code Grant protocol also allows Application Proxy to better support more modern applications by only using HTTP redirects that are commonly supported in JavaScript and HTML tags.
+
+
+---
 
 ## July 2018
 
