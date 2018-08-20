@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Use Node.js to call the Bing Web Search API"
-description: Get information and code samples to help you quickly get started using the Bing Web Search API in Microsoft Cognitive Services on Azure.
+description: In this quickstart, you will learn how to make your first call to the Bing Web Search API using Node.js and receive a JSON response.
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: v-jerkin, erhopf
+ms.author: erhopf
+#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Node.js. 
 ---
 
 # Quickstart: Use Node.js to call the Bing Web Search API  
@@ -26,23 +26,25 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 To run this application, follow these steps.
 
 1. Create a new Node.js project in your favorite IDE or editor.  
-2. Copy this sample code into your project:   
+2. Copy this sample code into your project:
     ```javascript
     'use strict';
 
     let https = require('https');
 
-    // **********************************************
-    // *** Update or verify the following values. ***
-    // **********************************************
+    /* **********************************************
+     * *** Update or verify the following values. ***
+     * **********************************************
+     */
 
     // Replace the subscriptionKey string value with your valid subscription key.
     let subscriptionKey = 'enter key here';
 
-    // Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-    // search APIs.  In the future, regional endpoints may be available.  If you
-    // encounter unexpected authorization errors, double-check this host against
-    // the endpoint for your Bing Web search instance in your Azure dashboard.
+    /* Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
+     * search APIs.  In the future, regional endpoints may be available.  If you
+     * encounter unexpected authorization errors, double-check this host against
+     * the endpoint for your Bing Web search instance in your Azure dashboard.  
+     */
     let host = 'api.cognitive.microsoft.com';
     let path = '/bing/v7.0/search';
 
@@ -56,7 +58,7 @@ To run this application, follow these steps.
         response.on('end', function () {
             console.log('\nRelevant Headers:\n');
             for (var header in response.headers)
-                // header keys are lower-cased by Node.js
+                // Headers are lower-cased by Node.js.
                 if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
                      console.log(header + ": " + response.headers[header]);
             body = JSON.stringify(JSON.parse(body), null, '  ');
@@ -70,17 +72,18 @@ To run this application, follow these steps.
 
     let bing_web_search = function (search) {
       console.log('Searching the Web for: ' + term);
-      let request_params = {
-    		method : 'GET',
-    		hostname : host,
-    		path : path + '?q=' + encodeURIComponent(search),
-    		headers : {
-    			'Ocp-Apim-Subscription-Key' : subscriptionKey,
-    		}
-    	};
-
-    	let req = https.request(request_params, response_handler);
-    	req.end();
+        // Declare the method, hostname, path, and headers.
+        let request_params = {
+        method : 'GET',
+        hostname : host,
+        path : path + '?q=' + encodeURIComponent(search),
+        headers : {
+            'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+      };
+      // Request to the Bing Web Search API.
+      let req = https.request(request_params, response_handler);
+      req.end();
     }
 
     if (subscriptionKey.length === 32) {
@@ -90,8 +93,8 @@ To run this application, follow these steps.
         console.log('Please paste yours into the source code.');
     }
     ```
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.  
-4. Run the program. For example: `node your_program.js`.   
+3. Replace the `subscriptionKey` value with a valid subscription key.  
+4. Run the program. For example: `node your_program.js`.
 
 ## Sample response
 

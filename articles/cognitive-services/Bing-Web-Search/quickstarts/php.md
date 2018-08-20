@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Use PHP to call the Bing Web Search API"
-description: Get information and code samples to help you quickly get started using the Bing Web Search API in Microsoft Cognitive Services on Azure.
+description: In this quickstart, you will learn how to make your first call to the Bing Web Search API using PHP and receive a JSON response.
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: v-jerkin, erhopf
+ms.author: erhopf
+#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using PHP. 
 ---
 
 # Quickstart: Use PHP to call the Bing Web Search API  
@@ -31,38 +31,41 @@ To run this application, follow these steps.
     ```php
     <?php
 
-    // NOTE: Be sure to uncomment the following line in your php.ini file.
-    // ;extension=php_openssl.dll
+    /* IMPORTANT: Uncomment this line in your php.ini file.
+     * ;extension=php_openssl.dll
+     *
+     * **********************************************
+     * *** Update or verify the following values. ***
+     * **********************************************
+     */
 
-    // **********************************************
-    // *** Update or verify the following values. ***
-    // **********************************************
-
-    // Replace the accessKey string value with your valid access key.
+    // Replace the accessKey string value with a valid subscription key.
     $accessKey = 'enter key here';
 
-    // Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-    // search APIs.  In the future, regional endpoints may be available.  If you
-    // encounter unexpected authorization errors, double-check this value against
-    // the endpoint for your Bing Web search instance in your Azure dashboard.
+    /* Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
+     * search APIs.  In the future, regional endpoints may be available.  If you
+     * encounter unexpected authorization errors, double-check this value against
+     * the endpoint for your Bing Web search instance in your Azure dashboard.
+     */
     $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
 
     $term = 'Microsoft Cognitive Services';
 
     function BingWebSearch ($url, $key, $query) {
-        // Prepare HTTP request
-        // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-        // http://php.net/manual/en/function.stream-context-create.php
+        /* Prepare the HTTP request.
+         * NOTE: Use the key 'http' even if you are making an HTTPS request.
+         * See: http://php.net/manual/en/function.stream-context-create.php.
+         */
         $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
         $options = array ('http' => array (
                               'header' => $headers,
                                'method' => 'GET'));
 
-        // Perform the Web request and get the JSON response
+        // Perform the request and get a JSON response.
         $context = stream_context_create($options);
         $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
 
-        // Extract Bing HTTP headers
+        // Extract Bing HTTP headers.
         $headers = array();
         foreach ($http_response_header as $k => $v) {
             $h = explode(":", $v, 2);
@@ -96,7 +99,7 @@ To run this application, follow these steps.
     }
     ?>
     ```  
-4. Replace the `accessKey` value with an access key valid for your subscription.  
+4. Replace the `accessKey` value with a valid subscription key.  
 5. Run the program. For example: `php your_program.php`.  
 
 ## Sample response

@@ -1,13 +1,14 @@
 ---
 title: "Quickstart: Use Python to call the Bing Web Search API"
-description: Get information and code samples to help you quickly get started using the Bing Web Search API in Microsoft Cognitive Services on Azure.
+description: In this quickstart, you will learn how to make your first call to the Bing Web Search API using Python and receive a JSON response.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: v-jerkin, erhopf
+ms.author: erhopf
+#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Python. 
 ---
 
 # Quickstart: Use Python to call the Bing Web Search API  
@@ -43,7 +44,6 @@ search_term = "Microsoft Cognitive Services"
 
 This block uses the `requests` library in Python to call the Bing Web Search API and return results as a JSON object. The API key is passed in the `headers` dictionary and the search term via the `params` dictionary. For a complete list of options available to filter search results, see [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) documentation.
 
-
 ```python
 import requests
 
@@ -55,7 +55,6 @@ search_results = response.json()
 ```
 
 The `search_results` object contains the search results along with metadata such as related queries and pages. This code block formats the top pages returned by the query.
-
 
 ```python
 from IPython.display import HTML

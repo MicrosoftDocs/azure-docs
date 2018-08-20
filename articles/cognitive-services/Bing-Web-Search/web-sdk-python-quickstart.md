@@ -31,7 +31,7 @@ cd mytestenv
 python -m pip install azure-cognitiveservices-search-websearch
 ```
 ## Web Search client
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*.
+Get a [Cognitive Services subscription key](https://azure.microsoft.com/try/cognitive-services/) under *Search*.
 Add imports, and create an instance of the `CognitiveServicesCredentials`:
 ```
 from azure.cognitiveservices.search.websearch import WebSearchAPI

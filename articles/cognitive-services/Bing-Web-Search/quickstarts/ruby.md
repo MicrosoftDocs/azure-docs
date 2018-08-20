@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Use Ruby to call the Bing Web Search API"
-description: Get information and code samples to help you quickly get started using the Bing Web Search API in Microsoft Cognitive Services on Azure.
+description: In this quickstart, you will learn how to make your first call to the Bing Web Search API using Ruby and receive a JSON response.
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: v-jerkin, erhopf
+ms.author: erhopf
+#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Ruby. 
 ---
 
 # Quickstart: Use Ruby to call the Bing Web Search API  
@@ -36,7 +36,7 @@ To run this application, follow these steps.
     # *** Update or verify the following values. ***
     # **********************************************
 
-    # Replace the accessKey string value with your valid access key.
+    # Replace the accessKey string value with a valid subscription key.
     accessKey = "enter key here"
 
     # Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
@@ -59,6 +59,7 @@ To run this application, follow these steps.
 
     puts "Searching the Web for: " + term
 
+    # Create the request and get a JSON response.
     request = Net::HTTP::Get.new(uri)
     request['Ocp-Apim-Subscription-Key'] = accessKey
 
@@ -68,7 +69,7 @@ To run this application, follow these steps.
 
     puts "\nRelevant Headers:\n\n"
     response.each_header do |key, value|
-        # header names are coerced to lowercase
+        # Header names are lowee-cased.
         if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
             puts key + ": " + value
         end
@@ -77,7 +78,7 @@ To run this application, follow these steps.
     puts "\nJSON Response:\n\n"
     puts JSON::pretty_generate(JSON(response.body))
     ```
-3. Replace `accessKey` with an access key for your subscription.
+3. Replace `accessKey` with a valid subscription key.
 4. Run the program. For example: `ruby your_program.rb`.
 
 ## Sample response

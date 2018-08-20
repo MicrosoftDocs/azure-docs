@@ -1,11 +1,10 @@
 ---
-title: Bing Web Search responses | Microsoft Docs
+title: Bing Web Search API responses | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Bing Web Search SDK for applications that search the web.
+description: Learn about answer types and responses provided by the Bing Web Search API. 
 services: cognitive-services
 author: erhopf
 manager: cgronlun
-ms.assetid:
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
@@ -321,7 +320,7 @@ Mathematical expressions that contain variables (for example, 4x+6=18, where x i
 
 ## TimeZone answer
 
-If the user enters a time or date query, the response may contain a [TimeZone](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#timezone) answer. This answer supports implicit or explicit queries. An implicit query such as *What time is it?*, returns the local time of the user's location. An explicit query such as *What time is it in Seattle?*, returns the local time of Seattle, WA.
+If the user enters a time or date query, the response may contain a [TimeZone](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#timezone) answer. This answer supports implicit or explicit queries. An implicit query, such as *What time is it?*, returns the local time based on the user's location. An explicit query, such as *What time is it in Seattle?*, returns the local time for Seattle, WA.
 
 The `timeZone` answer provides the name of the location, the current UTC date and time at the specified location, and the UTC offset. If the boundary of the location is within multiple time zones, the answer contains the current UTC date and time of all time zones within the boundary. For example, because Florida State falls within two time zones, the answer contains the local date and time of both time zones.  
 
@@ -430,7 +429,7 @@ The following shows how Bing uses the spelling suggestion.
 
 ## Next steps  
 
-* Review [request throttling](throttling-request.md) documentation.  
+* Review [request throttling](throttling-requests.md) documentation.  
 
 ## See also  
 

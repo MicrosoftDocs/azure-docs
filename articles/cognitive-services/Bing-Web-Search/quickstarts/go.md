@@ -1,14 +1,15 @@
 ---
 title: "Quickstart: Use Go to call the Bing Web Search API"
-description: Quickly get started using Go language to query the Bing Web Search API in Microsoft Cognitive Services on Azure.
+description: In this quickstart, you will learn how to make your first call to the Bing Web Search API using Go and receive a JSON response.
 services: cognitive-services
-author: Nhoya
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: rosh
+ms.author: erhopf
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
+#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Go. 
 ---
 
 # Quickstart: Use Go to call the Bing Web Search API  
@@ -29,7 +30,7 @@ To run this application, follow these steps.
 
 1. Create a new Go project in your favorite IDE or editor.
 2. Copy this sample code into your project:  
-    ```
+    ```go
     package main
     import (
         "fmt"
@@ -39,8 +40,7 @@ To run this application, follow these steps.
         "encoding/json"
     )
 
-    // The is the struct for the answer returned
-    // by Bing.
+    // The is the struct for the data returned by Bing.
     type BingAnswer struct {
             Type         string `json:"_type"`
             QueryContext struct {
@@ -95,28 +95,27 @@ To run this application, follow these steps.
             } `json:"rankingResponse"`
     }
 
-    // Verify the endpoint URI.  
-    // Replace the token string with your access key.  
+    // Verify the endpoint URI and replace the token string with a valid subscription key.  
     func main() {
         const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/search"
         token := "YOUR-ACCESS-KEY"
         searchTerm := "Microsoft Cognitive Services"
 
-    	  // Declare a new GET request.
+        // Declare a new GET request.
         req, err := http.NewRequest("GET", endpoint, nil)
         if err != nil {
             panic(err)
         }
 
-    		// Add the payload to the request.  
+        // Add the payload to the request.  
         param := req.URL.Query()
         param.Add("q", searchTerm)
         req.URL.RawQuery = param.Encode()
 
-    		// Insert the request header.  
+        // Insert the request header.  
         req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
-    		// Create a new client.  
+        // Create a new client.  
         client := new(http.Client)
 
         // Send the request to Bing.  
@@ -139,22 +138,21 @@ To run this application, follow these steps.
              fmt.Println(err)
         }
 
-        // Iterate over search results and print
-        // result name and URL.   
+        // Iterate over search results and print the result name and URL.
         for _, result := range ans.WebPages.Value {
              fmt.Println(result.Name, "||", result.URL)
         }
 
     }
     ```
-3. Replace `accessKey` with an access key for your subscription.
+3. Replace `accessKey` with a valid subscription key.
 4. Run the program. For example: `go run your_program.go`.
 
 ## Sample response  
 
-Responses from the Bing Web Search API are returned as JSON. This sample response has been formatted using the `BingAnswer` struct and shows the `result.Name` and `result.URL`.
+Responses from the Bing Web Search API are returned as JSON. This sample response has been formatted using the `BingAnswer` struct and displays the `result.Name` and `result.URL`.
 
-```
+```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services
 Cognitive Services | Microsoft Azure || https://azure.microsoft.com/services/cognitive-services/
 Cognitive Service Try experience | Microsoft Azure || https://azure.microsoft.com/en-us/try/cognitive-services/

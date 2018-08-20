@@ -24,14 +24,16 @@
     - name: Ruby
       href: quickstarts/ruby.md
   - name: SDKs
-    items:
-    - name: C# SDK
+    items: 
+    - name: Samples overview
+      href: sdk.md 
+    - name: C#
       href: web-search-sdk-quickstart.md
-    - name: Java SDK
+    - name: Java
       href: web-sdk-java-quickstart.md
-    - name: Node.js SDK
+    - name: Node.js
       href: web-search-sdk-node-quickstart.md
-    - name: Python SDK
+    - name: Python
       href: web-sdk-python-quickstart.md
 - name: Tutorials
   items:
@@ -81,27 +83,27 @@
   items:
   - name: FAQ
     href: bing-web-search-resource-faq.md
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/555907-bing-web-search-api
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=bing+web+search
-  - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Get API key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api
-  - name: Try it!
-    href: https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/
   - name: Bing Web Search endpoint
     href: web-search-endpoints.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Use and display requirements
     href: UseAndDisplayRequirements.md
   - name: Supported countries and markets
     href: supported-countries-markets.md
   - name: Analytics for Bing Web Search API
     href: bing-web-stats.md
+  - name: Support 
+    items:
+    - name: User Voice Forum
+      href: https://cognitive.uservoice.com/forums/555907-bing-web-search-api
+    - name: Stack Overflow
+      href: https://stackoverflow.com/search?q=bing+web+search
+    - name: Knowledge Base
+      href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
