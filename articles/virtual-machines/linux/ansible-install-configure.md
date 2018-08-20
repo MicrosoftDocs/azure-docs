@@ -6,7 +6,7 @@ keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 08/15/2018
+ms.date: 08/20/2018
 ms.topic: quickstart
 ---
 
@@ -16,7 +16,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 
 There are two ways to install Ansible for use with Azure:
 
-- **Configure Azure Cloud Shell** - Ansible is installed in theh Azure Cloud Shell. For more information about starting and configuring the Cloud Shell, see the article, [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart).
+- **Configure Azure Cloud Shell** - Ansible is installed in the Azure Cloud Shell. For more information about starting and configuring the Cloud Shell, see the article, [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart).
 - **Install Ansible on a Linux virtual machine** - Learn how to [install Ansible on any of several supported Linux distros](#install-ansible-on-an-azure-linux-virtual-machine).
 
 ## Prerequisites
