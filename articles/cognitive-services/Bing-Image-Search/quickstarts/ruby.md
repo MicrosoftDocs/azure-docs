@@ -12,13 +12,13 @@ ms.author: v-jerkin
 ---
 # Quickstart: Send search queries using the REST API and Ruby
 
-The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
+Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. The simple application in this article sends a search query and displays the raw results.
 
-This article includes a simple console application that performs a Bing Image Search API query and displays the returned raw search results, which are in JSON format. While this application is written in Ruby, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+While this application is written in PHP, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON.
 
 ## Prerequisites
 
-You will need [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/) to run the example code.
+* [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -28,7 +28,7 @@ To run this application, follow these steps.
 
 1. Create a new Ruby project in your favorite IDE or editor.
 2. Add the provided code.
-3. Replace the `accessKey` value with an access key valid for your subscription.
+3. Replace `accessKey` with a valid subscription key.
 4. Run the program.
 
 ```ruby
@@ -84,7 +84,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## JSON response
 
-A sample response follows. To limit the length of the JSON, only a single result is shown, and other parts of the response have been truncated. 
+Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result.
 
 ```json
 {

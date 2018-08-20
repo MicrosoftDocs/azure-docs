@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Send search queries using the REST API for the Bing Image Search API using C#"
-description: In this quickstart, you send search queries to the Bing Search API to get a list of relevant images using C#. 
+description: Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -12,26 +12,25 @@ ms.author: aahi
 ---
 # Quickstart: Send search queries using the REST API and C#
 
-The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
+Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. The simple C# application in this article sends a search query and displays the raw results.
 
-This article includes a simple console application that performs a Bing Image Search API query and displays the returned raw search results, which are in JSON format. While this application is written in C#, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
-
-The example program uses .NET Core classes only and runs on Windows using the .NET CLR or on Linux or macOS using [Mono](http://www.mono-project.com/).
+While this application is written in C#, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON.
 
 ## Prerequisites
 
-You will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to get this code running on Windows. (The free Community Edition will work.)
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/). (The free Community Edition will work.)
+
+The application uses only .NET Core classes and runs on Windows using the .NET CLR, or on Linux and macOS using [Mono](http://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## Running the application
+## Making a call to the Bing Image Search API
 
 To run this application, follow these steps.
 
 1. Create a new Console solution in Visual Studio.
-2. Replace `Program.cs` with the provided code.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Run the program.
+2. replace `Program.cs` with the sample code below, and replace `accessKey` with a valid subscription key.  
+3. Run the program.
 
 ```csharp
 using System;
@@ -202,7 +201,7 @@ namespace BingSearchApisQuickstart
 
 ## JSON response
 
-A sample response follows. To limit the length of the JSON, only a single result is shown, and other parts of the response have been truncated. 
+Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result.
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Send search queries using the REST API for the Bing Image Search API and Java"
-description: In this quickstart, you send search queries to the Bing Search API to get a list of relevant images using Java.
+description: Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response.
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -12,13 +12,13 @@ ms.author: v-jerkin
 ---
 # Quickstart: Send search queries using the REST API and Java
 
-The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
+Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. The simple application in this article sends a search query and displays the raw results.
 
-This article includes a simple console application that performs a Bing Image Search API query and displays the returned raw search results, which are in JSON format. While this application is written in Java, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+While this application is written in Java, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON.
 
 ## Prerequisites
 
-You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
+* The [Java Development Kit(JDK) 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -26,10 +26,10 @@ You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloa
 
 To run this application, follow these steps.
 
-1. Download or install the [gson library](https://github.com/google/gson). You may also obtain it via Maven.
+1. Download or install the [gson library](https://github.com/google/gson). You can also obtain it through Maven.
 2. Create a new Java project in your favorite IDE or editor.
-3. Add the provided code in a file named `BingImageSearch.java`.
-4. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Copy the provided code into a file named `BingImageSearch.java`.
+4. Replace the `subscriptionKey` value with a subscription key.
 5. Run the program.
 
 ```java
@@ -148,7 +148,7 @@ class SearchResults{
 
 ## JSON response
 
-A sample response follows. To limit the length of the JSON, only a single result is shown, and other parts of the response have been truncated. 
+Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result.
 
 ```json
 {

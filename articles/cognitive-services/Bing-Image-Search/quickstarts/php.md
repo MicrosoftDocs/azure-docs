@@ -12,13 +12,13 @@ ms.author: v-jerkin
 ---
 # Quickstart: Send search queries using the REST API and PHP
 
-The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
+Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. The simple application in this article sends a search query and displays the raw results.
 
-This article includes a simple console application that performs a Bing Image Search API query and displays the returned raw search results, which are in JSON format. While this application is written in PHP, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+While this application is written in PHP, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON.
 
 ## Prerequisites
 
-You need [PHP 5.6.x](http://php.net/downloads.php) to run this code.
+* [PHP 5.6.x or later](http://php.net/downloads.php).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -26,10 +26,10 @@ You need [PHP 5.6.x](http://php.net/downloads.php) to run this code.
 
 To run this application, follow these steps.
 
-1. Make sure secure HTTP support is enabled in your `php.ini` as described in the code comment. On Windows, this file is in `C:\windows`.
+1. Make sure secure HTTP support is enabled in your `php.ini` file. On Windows, this file is usually located in `C:\windows`.
 2. Create a new PHP project in your favorite IDE or editor.
 3. Add the provided code.
-4. Replace the `accessKey` value with an access key valid for your subscription.
+4. Replace `accessKey` with a valid subscription key.
 5. Run the program.
 
 ```php

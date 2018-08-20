@@ -12,9 +12,9 @@ ms.author: v-jerkin
 
 # Quickstart: Send search queries using the REST API and Python
 
-The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
+Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. The application in this article sends a search query, and displayed the returned images.
 
-This walkthrough demonstrates a simple example of calling into the Bing Image Search API and post-processing the resulting JSON object. For more information, see [Bing Image Search documentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
+While this application is written in Python, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON.
 
 You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
 
