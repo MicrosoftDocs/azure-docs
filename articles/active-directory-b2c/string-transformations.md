@@ -27,7 +27,10 @@ Compare two claims, and throw an exception if they are not equal according to th
 | inputClaim | inputClaim2 | string | Second claim's type, which is to be compared. |
 | InputParameter | stringComparison | string | string comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
 
-You can use this claims transformation to make sure, two ClaimTypes have the same value. If not, an error message is thrown. The following example checks that the `strongAuthenticationEmailAddress` ClaimType is equal to `email` ClaimType. Otherwise an error message is thrown.
+You can use this claims transformation to make sure, two ClaimTypes have the same value. If not, an error message is thrown. The `AssertStringClaimsAreEqual` claims transformation is alwasy called from [validation technical profile](validation-technical-profile.md). The `UserMessageIfClaimsTransformationStringsAreNotEqual` metadata controls the error message that the technical profile presented to the user if the values aren't same.
+
+![AssertStringClaimsAreEqual execution](./media/claims-transformations/assert-execution.png)
+The following example checks that the `strongAuthenticationEmailAddress` ClaimType is equal to `email` ClaimType. Otherwise an error message is thrown.
 
 ```XML
 <ClaimsTransformation Id="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
@@ -40,6 +43,7 @@ You can use this claims transformation to make sure, two ClaimTypes have the sam
   </InputParameters>
 </ClaimsTransformation>
 ```
+
 ### Example
 
 - Input claims:
