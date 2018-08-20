@@ -16,6 +16,8 @@ ms.author: v-gedod, erhopf
 
 This quickstart uses the Bing Web Search SDK to instantiate a client and make calls to the Bing Web Search API. After completing this guide, your Java app will make four calls to the Bing Web Search API, illustrating how requests can be configured to return
 
+[!INCLUDE [quickstart-signup](includes/quickstart-signup.md)]
+
 Source code for the [Bing Web Search SDK for Java sample](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) is available on GitHub.
 
 ## Prerequisites
