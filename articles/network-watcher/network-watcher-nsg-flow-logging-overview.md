@@ -34,9 +34,6 @@ The same retention policies seen for other logs apply to flow logs. You can set 
 
 ## Log file
 
-> [!NOTE]
-> The format of NSG flow logs is changing soon. For details, see [Network security group flow log changes](prepare-flow-log.md).
-
 Flow logs include the following properties:
 
 * **time** - Time when the event was logged
