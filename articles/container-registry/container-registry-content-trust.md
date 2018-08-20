@@ -158,13 +158,13 @@ When you run `docker pull`, the Docker client uses the same library as in the [N
 
 ## Key management
 
-As stated in `docker push` output whenever you push to a new repository, the root key is the most sensitive. Be sure to back up your root key and store it in a secure location. By default, the Docker client stores signing keys in the following directory:
+As stated in the `docker push` output when you push your first trusted image, the root key is the most sensitive. Be sure to back up your root key and store it in a secure location. By default, the Docker client stores signing keys in the following directory:
 
 ```sh
 ~/.docker/trust/private
 ```
 
-Back up your root and repository keys by compressing them in an archive and securely storing it offline (such as on a USB storage device). For example, in Bash:
+Back up your root and repository keys by compressing them in an archive and storing it securely offline (such as on a USB storage device). For example, in Bash:
 
 ```bash
 umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
@@ -179,7 +179,7 @@ If you lose access to your root key, you lose access to the signed tags in any r
 > [!WARNING]
 > Disabling and re-enabling content trust in your registry **deletes all trust data for all signed tags in every repository in your registry**. This action is irreversible--Azure Container Registry cannot recover deleted trust data. Disabling content trust does not delete the images themselves.
 
-To disable content trust for your registry, first navigate to the registry in the Azure portal. Under **POLICIES**, select **Content Trust (Preview)** > **Disabled** > **Save**. You're warned of the loss of all signatures in the registry. Select **OK** to permanently delete all signatures in your registry.
+To disable content trust for your registry, navigate to the registry in the Azure portal. Under **POLICIES**, select **Content Trust (Preview)** > **Disabled** > **Save**. You're warned of the loss of all signatures in the registry. Select **OK** to permanently delete all signatures in your registry.
 
 ![Disabling content trust for a registry in the Azure portal][content-trust-03-portal]
 
