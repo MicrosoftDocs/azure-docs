@@ -601,13 +601,13 @@ The Service Fabric runtime allocates 20 minutes to download and extract containe
 
 ```json
 {
-"name": "Hosting",
+        "name": "Hosting",
         "parameters": [
           {
               "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
-]
+        ]
 }
 ```
 
@@ -630,7 +630,7 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
 
 ```json
 { 
-   "name": "Hosting", 
+        "name": "Hosting", 
         "parameters": [ 
           { 
             "name": "ContainerServiceArguments", 
