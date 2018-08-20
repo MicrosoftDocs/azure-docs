@@ -1,6 +1,6 @@
 ---
 title: Review Azure service resource usage with REST API | Microsoft Docs
-description: Learn how to use Azure REST APIs to review Azure service resource usage..
+description: Learn how to use Azure REST APIs to review Azure service resource usage.
 services: billing
 documentationcenter: na
 author: lleonard-msft
@@ -41,8 +41,8 @@ The following headers are required:
 
 |Request header|Description|  
 |--------------------|-----------------|  
-|*Content-Type:*|Required. Set to `application/json`.|  
-|*Authorization:*|Required. Set to a valid `Bearer` token
+|*Content-Type:*| Required. Set to `application/json`. |  
+|*Authorization:*| Required. Set to a valid `Bearer` token. |
 
 ### Response  
 
