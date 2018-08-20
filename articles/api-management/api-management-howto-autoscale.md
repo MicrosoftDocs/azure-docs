@@ -19,7 +19,7 @@ ms.author: apimpm
 
 Azure API Management service instance can scale automatically based on a set of rules. This behavior can be enabled and configured through Azure Monitor and is supported in **Standard** and **Premium** tiers of the Azure API Management service.
 
-The article walks through the process of configuring autoscale and suggests best practices for managing production deployments in that regard.
+The article walks through the process of configuring autoscale and suggests optimal configuration of autoscale rules.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ Certain limitations and consequences of scaling decisions need to be considered 
 + Autoscale can be enabled only for **Standard** and **Premium** tiers of Azure API Management service.
 + Pricing tiers also specify the maximum number of units for a service instance.
 + Scaling process will take at least 20 minutes. If the service instance is locked by another operation, the process will take longer.
-+ In case of multiregional deployments, only units in the **Primary location** can be scaled. Units in secondary locations cannot be scaled.
++ In case of multiregional deployments, only units in the **Primary location** can be scaled. Units in secondary locations can't be scaled.
 + Scaling will trigger a restart of the Azure API Management units, which can cause an intermittent performance degradation.
 
 ## Enable and configure autoscale for Azure API Management instance
@@ -54,7 +54,7 @@ Follow the steps below to configure autoscale behavior for an Azure API Manageme
 
 3. Specify location of your Azure API Management instance in the dropdown menus.
 4. Click on the Azure API Management instance.
-5. In the newly opened blade, click the **Enable autoscale** button.
+5. In the newly opened section, click the **Enable autoscale** button.
 
     ![Azure Monitor autoscale enable](media/api-management-howto-autoscale/03.png)
 
@@ -75,11 +75,11 @@ Follow the steps below to configure autoscale behavior for an Azure API Manageme
     | Time grain statistic  | Average           |                                                                                                                                                                                                                                                                                 |
     | Operator              | Greater than      |                                                                                                                                                                                                                                                                                 |
     | Threshold             | 80%               | The threshold for the averaged capacity metric.                                                                                                                                                                                                                                 |
-    | Duration (in minutes) | 30                | The timespan to average the capacity metric over is very specific to usage patterns. The longer the time period is, the smoother the reaction will be - intermittent spikes will have less effect on the scale-out decision. However, it will also delay the scale-out trigger. |
+    | Duration (in minutes) | 30                | The timespan to average the capacity metric over is specific to usage patterns. The longer the time period is, the smoother the reaction will be - intermittent spikes will have less effect on the scale-out decision. However, it will also delay the scale-out trigger. |
     | *Action*              |                   |                                                                                                                                                                                                                                                                                 |
     | Operation             | Increase count by |                                                                                                                                                                                                                                                                                 |
     | Instance count        | 1                 | Scale out the Azure API Management instance by 1 unit.                                                                                                                                                                                                                          |
-    | Cool down (minutes)   | 60                | It takes at least 20 minutes for the Azure API Management service to scale out. The cool down period of 60 minutes prevents from triggering multiple scale-outs in most cases.                                                                                                  |
+    | Cool down (minutes)   | 60                | It takes at least 20 minutes for the Azure API Management service to scale out. In most cases, the cool down period of 60 minutes prevents from triggering many scale-outs.                                                                                                  |
 
 8. Click **Add** to save the rule.
 
@@ -112,7 +112,7 @@ Follow the steps below to configure autoscale behavior for an Azure API Manageme
 
     ![Azure Monitor scale in rule](media/api-management-howto-autoscale/06.png)
 
-12. Specify the **maximum** number of Azure API Management units.
+12. Set the **maximum** number of Azure API Management units.
 
     > [!NOTE]
     > Azure API Management tiers enforce a limit of units an instance can scale out to.
