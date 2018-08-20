@@ -23,14 +23,14 @@ ms.author: aljo
 >
 >
 
-An [Azure Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual machines into which your microservices are deployed and managed. This article describes how to set up a secure Azure Service Fabric cluster in Azure using Azure Resource Manager. You can use a default cluster template or a custom template.  If you don't already have a custom template, you can [learn how to create one](service-fabric-cluster-creation-create-template.md).
+An [Azure Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual machines into which your microservices are deployed and managed.  A Service Fabric cluster running in Azure is an Azure resource and is deployed using the Azure Resource Manager. This article describes how to deploy a secure Service Fabric cluster in Azure using the Resource Manager. You can use a default cluster template or a custom template.  If you don't already have a custom template, you can [learn how to create one](service-fabric-cluster-creation-create-template.md).
 
 Cluster security is configured when the cluster is first setup and cannot be changed later. Before setting up a cluster, read [Service Fabric cluster security scenarios][service-fabric-cluster-security]. In Azure, Service Fabric uses x509 certificate to secure your cluster and its endpoints, authenticate clients, and encrypt data. Azure Active Directory is also recommended to secure access to management endpoints. Azure AD tenants and users must be created before creating the cluster.  For more information, read [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
 
 If you are creating a production cluster to run production workloads, we recommend you first read through the [production readiness checklist](service-fabric-production-readiness-checklist.md).
 
 ## Prerequisites 
-In this article, use the Service Fabric RM powershell or CLI modules to deploy a cluster:
+In this article, use the Service Fabric RM powershell or Azure CLI modules to deploy a cluster:
 
 * [Azure PowerShell 4.1 and above][azure-powershell]
 * [Azure CLI 2.0 and above][azure-CLI]
@@ -39,36 +39,41 @@ You can find the reference documentation for the Service Fabric modules here:
 * [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric)
 * [az SF CLI module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
 
-## Create a new cluster using a system generated self-signed certificate
-
-Use the following command to create cluster, if you want the system to generate a self-signed certificate and use it to secure your cluster. This command sets up a primary cluster certificate that is used for cluster security and to set up admin access to perform management operations using that certificate.
-
 ### Sign in to Azure
 
-```PowerShell
+Before running any of the commands in this article, first sign in to Azure.
+
+```powershell
 Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subscriptionId>
 ```
 
-```CLI
-azure login
+```azurecli
+az login
 az account set --subscription $subscriptionId
 ```
+
+## Create a new cluster using a system generated self-signed certificate
+
+Use the following commands to create a cluster secured with a system generated self-signed certificate. This command sets up a primary cluster certificate that is used for cluster security and to set up admin access to perform management operations using that certificate.  Self-signed certificates are useful for securing test clusters.  Production clusters should be secured with a certificate from a certificate authority (CA).
+
 ### Use the default cluster template that ships in the module
 
-Use the following command to create a cluster quickly, by specifying minimal parameters
+Use the following command to create a cluster quickly, by specifying minimal parameters, using the default template.
 
 The template that is used is available on the [Azure Service Fabric template samples : windows template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)
  and [Ubuntu template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
-The commands below works for creating Windows and Linux clusters, you just need to specify the OS accordingly. The PowerShell/CLI commands also output the certificate in the specified CertificateOutputFolder; however, make sure certificate folder already created. The command takes in other parameters like VM SKU as well.
+The following command can create either Windows or Linux clusters, you need to specify the OS accordingly. The PowerShell/CLI commands also output the certificate in the specified *CertificateOutputFolder*; however, make sure certificate folder already created. The command takes in other parameters such as VM SKU as well.
 
 > [!NOTE]
-> The below PowerShell command only works with Azure Resource Manager PowerShell version > 6.1. To check the current version of Azure Resource Manager PowerShell version, run the following PowerShell command "Get-Module AzureRM". Follow this link to upgrade your Azure Resource Manager PowerShell version. https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0
+> The following PowerShell command only works with Azure Resource Manager PowerShell version > 6.1. To check the current version of Azure Resource Manager PowerShell version, run the following PowerShell command "Get-Module AzureRM". Follow this link to upgrade your Azure Resource Manager PowerShell version. https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0
 >
 >
 
-```PowerShell
+Deploy the cluster using PowerShell:
+
+```powershell
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
 $vaultName="myvault"
@@ -83,7 +88,9 @@ $certOutputFolder="c:\certificates"
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser
 ```
 
-```CLI
+Deploy the cluster using Azure CLI:
+
+```azurecli
 declare resourceGroupLocation="westus"
 declare resourceGroupName="mylinux"
 declare vaultResourceGroupName="myvaultrg"
@@ -104,11 +111,11 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### Use your own custom template
 
-If you need to author a custom template to suit your needs, it is highly recommended that you start with one of the templates that are available on the [Azure Service Fabric template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Follow guidance and explanations to [customize your cluster template][customize-your-cluster-template] section below.
+If you need to author a custom template to suit your needs, it is highly recommended that you start with one of the templates that are available on the [Azure Service Fabric template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Learn how to [customize your cluster template][customize-your-cluster-template].
 
-If you already have a custom template, then make sure to double check that all the three certificate related parameters in the template and the parameter file are named as follows and values are null as follows.
+If you already have a custom template, double-check that all the three certificate related parameters in the template and the parameter file are named as follows and values are null as follows:
 
-```Json
+```json
    "certificateThumbprint": {
       "value": ""
     },
@@ -120,7 +127,9 @@ If you already have a custom template, then make sure to double check that all t
     },
 ```
 
-```PowerShell
+Deploy the cluster using PowerShell:
+
+```powershell
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
 $CertSubjectName="mycluster.westus.cloudapp.azure.com"
@@ -133,9 +142,9 @@ $templateFilePath="c:\mytemplates\mytemplate.json"
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 ```
 
-Here is the equivalent CLI command to do the same. Change the values in the declare statements to appropriate values. CLI supports all the other parameters that the above PowerShell command supports.
+Deploy the cluster using Azure CLI:
 
-```CLI
+```azurecli
 declare certPassword=""
 declare resourceGroupLocation="westus"
 declare resourceGroupName="mylinux"
@@ -154,13 +163,15 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 Use the following command to create cluster, if you have a certificate that you want to use to secure your cluster with.
 
-If this is a CA signed certificate that you will end up using for other purposes as well, then it is recommended that you provide a distinct resource group specifically for your key vault. We recommend that you put the key vault into its own resource group. This action lets you remove the compute and storage resource groups, including the resource group that contains your Service Fabric cluster, without losing your keys and secrets. **The resource group that contains your key vault _must be in the same region_ as the cluster that is using it.**
+If this is a CA signed certificate that you will end up using for other purposes as well, then it is recommended that you provide a distinct resource group specifically for your key vault. We recommend that you put the key vault into its own resource group. This action lets you remove the compute and storage resource groups, including the resource group that contains your Service Fabric cluster, without losing your keys and secrets. **The resource group that contains your key vault *must be in the same region* as the cluster that is using it.**
 
-### Use the default 5 Node 1 node type template that ships in the module
+### Use the default five node, one node type template that ships in the module
 The template that is used is available on the [Azure samples : Windows template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)
  and [Ubuntu template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
-```PowerShell
+Deploy the cluster using PowerShell:
+
+```powershell
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
 $vaultName="myvault"
@@ -173,7 +184,9 @@ $os="WindowsServer2016DatacenterwithContainers"
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile C:\MyCertificates\chackocertificate3.pfx -CertificatePassword $certPassword -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
 ```
 
-```CLI
+Deploy the cluster using Azure CLI:
+
+```azurecli
 declare vmPassword="Password!1"
 declare certPassword="Password!1"
 declare vmUser="myadmin"
@@ -192,11 +205,11 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 ### Use your own custom cluster template
-If you need to author a custom template to suit your needs, it is highly recommended that you start with one of the templates that are available on the [Azure Service Fabric template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Follow guidance and explanations to [customize your cluster template][customize-your-cluster-template] section below.
+If you need to author a custom template to suit your needs, it is highly recommended that you start with one of the templates that are available on the [Azure Service Fabric template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Learn how to [customize your cluster template][customize-your-cluster-template].
 
 If you already have a custom template, then make sure to double check that all the three certificate related parameters in the template and the parameter file are named as follows and values are null as follows.
 
-```Json
+```json
    "certificateThumbprint": {
       "value": ""
     },
@@ -208,7 +221,9 @@ If you already have a custom template, then make sure to double check that all t
     },
 ```
 
-```PowerShell
+Deploy the cluster using PowerShell:
+
+```powershell
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
 $vaultName="myvault"
@@ -222,9 +237,9 @@ $certificateFile="C:\MyCertificates\chackonewcertificate3.pem"
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword $certPassword
 ```
 
-Here is the equivalent CLI command to do the same. Change the values in the declare statements to appropriate values.
+Deploy the cluster using Azure CLI:
 
-```CLI
+```azurecli
 declare certPassword="Password!1"
 declare resourceGroupLocation="westus"
 declare resourceGroupName="mylinux"
@@ -241,9 +256,11 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### Use a pointer to a secret uploaded into a key vault
 
-To use an existing key vault, you _must enable it for deployment_ to allow the compute resource provider to get certificates from it and install it on cluster nodes:
+To use an existing key vault, the key vault must be [enabled for deployment](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI)) to allow the compute resource provider to get certificates from it and install it on cluster nodes.
 
-```PowerShell
+Deploy the cluster using PowerShell:
+
+```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 $parameterFilePath="c:\mytemplates\mytemplate.json"
@@ -252,9 +269,10 @@ $secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc6
 
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 ```
-Here is the equivalent CLI command to do the same. Change the values in the declare statements to appropriate values.
 
-```CLI
+Deploy the cluster using Azure CLI:
+
+```azurecli
 declare $resourceGroupName = "testRG"
 declare $parameterFilePath="c:\mytemplates\mytemplate.json"
 declare $templateFilePath="c:\mytemplates\mytemplateparm.json"
