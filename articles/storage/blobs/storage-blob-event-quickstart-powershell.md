@@ -33,9 +33,6 @@ Log in to your Azure subscription with the `Connect-AzureRmAccount` command and 
 Connect-AzureRmAccount
 ```
 
-> [!NOTE]
-> Availability for Storage events is tied to Event Grid [availability](../../event-grid/overview.md) and will become available in other regions as Event Grid does.
-
 This example uses **westus2** and stores the selection in a variable for use throughout.
 
 ```powershell
