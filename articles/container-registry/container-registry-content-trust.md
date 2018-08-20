@@ -176,8 +176,8 @@ Along with the locally generated root and repository keys, several others are ge
 
 If you lose access to your root key, you lose access to the signed tags in any repository whose tags were signed with that key. Azure Container Registry cannot restore access to image tags signed with a lost root key. To remove all trust data (signatures) for your registry, first disable, then re-enable content trust for the registry.
 
-> [WARNING]
-> Disabling and re-enabling content trust in your registry **deletes all trust data for all signed tags in every repository in your registry**. Disabling content trust does not delete the images themselves.
+> [!WARNING]
+> Disabling and re-enabling content trust in your registry **deletes all trust data for all signed tags in every repository in your registry**. This action is irreversible--Azure Container Registry cannot recover deleted trust data. Disabling content trust does not delete the images themselves.
 
 To disable content trust for your registry, first navigate to the registry in the Azure portal. Under **POLICIES**, select **Content Trust (Preview)** > **Disabled** > **Save**. You're warned of the loss of all signatures in the registry. Select **OK** to permanently delete all signatures in your registry.
 
