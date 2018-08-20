@@ -23,6 +23,7 @@ Subscribe to Azure Subscriptions events to respond to changes in resources acros
 |Title |Description  |
 |---------|---------|
 | [Tutorial: Azure Automation with Event Grid and Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Create a virtual machine, which sends an event. The event triggers an Automation runbook that tags the virtual machine, and triggers a message that is sent to a Microsoft Teams channel. |
+| [How to: subscribe to events through portal](subscribe-through-portal.md) | Use the portal to subscribe to events for an Azure subscription. |
 | [Azure CLI: subscribe to events for an Azure subscription](./scripts/event-grid-cli-azure-subscription.md) |Sample script that creates an Event Grid subscription to an Azure subscription and sends events to a WebHook. |
 | [PowerShell: subscribe to events for an Azure subscription](./scripts/event-grid-powershell-azure-subscription.md)| Sample script that creates an Event Grid subscription to an Azure subscription and sends events to a WebHook. |
 | [Event schema](event-schema-subscriptions.md) | Shows fields in Azure subscription events. |
