@@ -112,9 +112,9 @@
 #### [Interpret the sign-in log schema in Azure Monitor](reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md)
 
 ### Troubleshoot
-#### [Missing audit data](reports-monitoring/troubleshoot-missing-audit-data.md)
+#### [Missing data in Azure AD activity logs](reports-monitoring/troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](reports-monitoring/troubleshoot-missing-data-download.md)
-#### [Azure AD Activity logs content pack errors](reports-monitoring/troubleshoot-content-pack.md)
+#### [Azure AD activity logs content pack errors](reports-monitoring/troubleshoot-content-pack.md)
 #### [Errors in Azure AD Reporting API](reports-monitoring/troubleshoot-graph-api.md)
 
 ###	[Programmatic Access](reports-monitoring/concept-reporting-api.md)
