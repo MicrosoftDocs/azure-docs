@@ -48,10 +48,11 @@ The operation to add a new node can take several hours or days to complete.
 The following steps are a high-level overview of how to add a node. Don't follow these steps without first referring to your OEM-provided capacity expansion documentation.
 
 1. Place the new physical server in the rack and cable it appropriately. 
-2. Configure the correct IP Address in the baseboard management controller (BMC) and apply all BIOS settings per your OEM-provided documentation.
-3. Apply the current firmware baseline to all components by using the tools that are provided by the hardware manufacturer that run on the HLH.
-4. Run the Add node operation in the Azure Stack admin portal.
-5. Validate that the add node operation succeeds. To do so, check the [**Status** of the Scale Unit](#monitor-add-node-operations). 
+2. Enable physical switch ports and adjust access control lists (ACLs) if applicable.
+3. Configure the correct IP Address in the baseboard management controller (BMC) and apply all BIOS settings per your OEM-provided documentation.
+4. Apply the current firmware baseline to all components by using the tools that are provided by the hardware manufacturer that run on the HLH.
+5. Run the Add node operation in the Azure Stack admin portal.
+6. Validate that the add node operation succeeds. To do so, check the [**Status** of the Scale Unit](#monitor-add-node-operations). 
 
 ## Add the node
 
@@ -62,7 +63,7 @@ You can use the admin portal or PowerShell to add new nodes. The add node operat
 1. Sign in to the Azure Stack admin portal as an Azure Stack operator.
 2. Navigate to **New** > **Capacity** > **Scale Unit Node**.
    ![Scale unit node](media/azure-stack-add-scale-node/select-node1.png)
-3. On the **Add node** pane, select the *Region* and then select the *Scale unit* that you want to add the node to. Also specify the *BMC IP ADDRESS* for the scale unit node you are adding. You can only add one node at a time.
+3. On the **Add node** pane, select the *Region*, and then select the *Scale unit* that you want to add the node to. Also specify the *BMC IP ADDRESS* for the scale unit node you are adding. You can only add one node at a time.
    ![Add node details](media/azure-stack-add-scale-node/select-node2.png)
  
 
