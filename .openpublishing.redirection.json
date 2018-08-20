@@ -8379,7 +8379,7 @@
         },
         {
             "source_path": "articles/cosmos-db/access-control.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/azure/cosmos-db/secure-access-to-data",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data",
             "redirect_document_id": false
         },
         {
