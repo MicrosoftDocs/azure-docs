@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/28/18
+ms.date: 08/20/18
 ms.author: kumud
 ms.custom: mvc
 ---
@@ -27,14 +27,10 @@ Load balancing provides a higher level of availability and scale by spreading in
 
 > [!div class="checklist"]
 > * Create an Azure load balancer
-> * Create a load balancer health probe
-> * Create load balancer traffic rules
 > * Create virtual machines and install IIS server
-> * Attach virtual machines to a load balancer
+> * Create load balancer resources
 > * View a load balancer in action
 > * Add and remove VMs from a load balancer
-
-
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
@@ -58,49 +54,6 @@ In this section, you create a public load balancer that helps load balance virtu
 
 ![Create a load balancer](./media/load-balancer-standard-public-portal/1a-load-balancer.png)
    
-## Create load balancer resources
-
-In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer rules.
-
-### Create a backend address pool
-
-To distribute traffic to the VMs, a backend address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. Create the backend address pool *myBackendPool* to inlcude *VM1* and *VM2*.
-
-1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
-2. Under **Settings**, click **Backend pools**, then click **Add**.
-3. On the **Add a backend pool** page, for name, type *myBackEndPool*, as the name for your backend pool, and then click **OK**.
-
-### Create a health probe
-
-To allow the load balancer to monitor the status of your app, you use a health probe. The health probe dynamically adds or removes VMs from the load balancer rotation based on their response to health checks. Create a health probe *myHealthProbe* to monitor the health of the VMs.
-
-1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
-2. Under **Settings**, click **Health probes**, then click **Add**.
-3. Use these values to create the health probe:
-    - *myHealthProbe* - for the name of the health probe.
-    - **HTTP** - for the protocol type.
-    - *80* - for the port number.
-    - *15* - for number of **Interval** in seconds between probe attempts.
-    - *2* - for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.
-4. Click **OK**.
-
-   ![Adding a probe](./media/load-balancer-standard-public-portal/4-load-balancer-probes.png)
-
-### Create a load balancer rule
-
-A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend *FrontendLoadBalancer* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
-
-1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
-2. Under **Settings**, click **Load balancing rules**, then click **Add**.
-3. Use these values to configure the load balancing rule:
-    - *myHTTPRule* - for the name of the load balancing rule.
-    - **TCP** - for the protocol type.
-    - *80* - for the port number.
-    - *80* - for the backend port.
-    - *myBackendPool* - for the name of the backend pool.
-    - *myHealthProbe* - for the name of the health probe.
-4. Click **OK**.
-    
 ## Create backend servers
 
 In this section, you create a virtual network, create three virtual machines for the backend pool of your load balancer, and then install IIS on the virtual machines to help test the load balancer.
@@ -180,17 +133,51 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
 6. Close the RDP session with *myVM1*.
 7. Repeat steps 1 to 6 to install IIS and the updated iisstart.htm file on *myVM2* and *myVM3*.
 
-## Add VMs to the backend address pool
+## Create load balancer resources
 
-To distribute traffic to the VMs, add virtual machines *VM1*, *VM2*, and *VM3* to the previously created backend address pool *myBackendPool*. The backend pool contains the IP addresses of the virtual (NICs) connected to the load balancer.
+In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer rules.
+
+### Create a backend address pool
+
+To distribute traffic to the VMs, a backend address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. Create the backend address pool *myBackendPool* to include *VM1* and *VM2*.
 
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
-2. Under **Settings**, click **Backend pools**, then within the backend pool's list, click **myBackendPool**.
-3. On the **myBackendPool** page, do the following:
-    - Click **Add a target network IP configuration** to add each virtual machine (*myVM1*, *myVM2*, & *myVM3*) that you created to the backend pool.
-    - Click **OK**.
+2. Under **Settings**, click **Backend pools**, then click **Add**.
+3. On the **Add a backend pool** page, do the following:
+   - For name, type *myBackEndPool*, as the name for your backend pool.
+   - Click **Add a target network IP configuration** to add each virtual machine (*myVM1*, *myVM2*, & *myVM3*) that you created to the backend pool.
+4. Check to make sure your load balancer backend pool setting displays all the VMs *myVM1*, *myVM2*, and *myVM3*, and then click **OK**.
 
-4. Check to make sure your load balancer backend pool setting displays all the VMs **VM1**, **VM2**, and **myVM3**.
+### Create a health probe
+
+To allow the load balancer to monitor the status of your app, you use a health probe. The health probe dynamically adds or removes VMs from the load balancer rotation based on their response to health checks. Create a health probe *myHealthProbe* to monitor the health of the VMs.
+
+1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
+2. Under **Settings**, click **Health probes**, then click **Add**.
+3. Use these values to create the health probe:
+    - *myHealthProbe* - for the name of the health probe.
+    - **HTTP** - for the protocol type.
+    - *80* - for the port number.
+    - *15* - for number of **Interval** in seconds between probe attempts.
+    - *2* - for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.
+4. Click **OK**.
+
+   ![Adding a probe](./media/load-balancer-standard-public-portal/4-load-balancer-probes.png)
+
+### Create a load balancer rule
+
+A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend *FrontendLoadBalancer* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
+
+1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
+2. Under **Settings**, click **Load balancing rules**, then click **Add**.
+3. Use these values to configure the load balancing rule:
+    - *myHTTPRule* - for the name of the load balancing rule.
+    - **TCP** - for the protocol type.
+    - *80* - for the port number.
+    - *80* - for the backend port.
+    - *myBackendPool* - for the name of the backend pool.
+    - *myHealthProbe* - for the name of the health probe.
+4. Click **OK**.
 
 ## Test the load balancer
 1. Find the public IP address for the Load Balancer on the **Overview** screen. Click **All resources** and then click **myPublicIP**.
