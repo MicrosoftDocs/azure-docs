@@ -129,6 +129,8 @@
       href: billing-review-enterprise-billing.md
     - name: Review subscription use
       href: billing-review-subscription-billing.md
+    - name: Review resource usage
+      href: billing-review-service-usage-api.md
   - name: .NET samples
     items:
     - name: Invoice API code sample
