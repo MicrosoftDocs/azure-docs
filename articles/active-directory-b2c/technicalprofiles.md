@@ -271,8 +271,8 @@ The `<ClaimsProviderSelections>` in a user journey defines the list of claims pr
 - **Always**, execute the technical profile.
 - **Never**, skip the technical profile. 
 - **OnClaimsExistence** execute only when a certain claim, specified in the technical profile exists. 
-- **OnItemExistenceInStringCollectionClaim**, execute only when the item exists in string collection claim. 
-- **OnItemAbsenceInStringCollectionClaim** execute only when an item does not exist in string collection claim.
+- **OnItemExistenceInStringCollectionClaim**, execute only when an item exists in a string collection claim. 
+- **OnItemAbsenceInStringCollectionClaim** execute only when an item does not exist in a string collection claim.
 
 Using `OnClaimsExistence`,  `OnItemExistenceInStringCollectionClaim` or `OnItemAbsenceInStringCollectionClaim`, requires to provide following metadata: `ClaimTypeOnWhichToEnable`, specifies the claim's type, which is to be evaluated. `ClaimValueOnWhichToEnable`, specifies the value, which is to be compared.
 
