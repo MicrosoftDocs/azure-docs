@@ -23,17 +23,17 @@ This conceptual article introduces the core approaches that help you scale appli
 
 ## Manually scale pods or nodes
 
-One of the first approaches to scale is often manually scaling the number of instances. You can manually scale replicas (pods) and nodes to test how your application responds to a chance in available resources and state. Manually scaling resources also lets you define a set amount of resources to use to maintain a fixed cost, such as the number of nodes. To manually scale, you define the replica or node code, and the Kubernetes API schedules creating additional pods or draining nodes.
+You can manually scale replicas (pods) and nodes to test how your application responds to a chance in available resources and state. Manually scaling resources also lets you define a set amount of resources to use to maintain a fixed cost, such as the number of nodes. To manually scale, you define the replica or node code, and the Kubernetes API schedules creating additional pods or draining nodes.
 
 To get started with manually scaling pods and nodes see [Scale applications in AKS][aks-scale].
 
 ## Horizontal pod autoscaler
 
-As your applications run in AKS, the application load often changes. Kubernetes uses the horizontal pod autoscaler (HPA) to monitor the resource demand and automatically scale the number of replicas. By default, the horizontal pod autoscaler checks the Metrics API every 30 seconds for any required changes in replica count. When changes are required, the number of replicas is increased or decreased accordingly. Horizontal pod autoscaling works with AKS clusters that have deployed the Metrics Server for Kubernetes 1.8+.
+Kubernetes uses the horizontal pod autoscaler (HPA) to monitor the resource demand and automatically scale the number of replicas. By default, the horizontal pod autoscaler checks the Metrics API every 30 seconds for any required changes in replica count. When changes are required, the number of replicas is increased or decreased accordingly. Horizontal pod autoscaler works with AKS clusters that have deployed the Metrics Server for Kubernetes 1.8+.
 
 When you configure the horizontal pod autoscaler for a given deployment, you define the minimum and maximum number of replicas that can run. You also define the metric to monitor and base any scaling decisions on, such as CPU usage.
 
-To get started with horizontal pod autoscaling in AKS, see [Autoscale pods in AKS][aks-hpa].
+To get started with the horizontal pod autoscaler in AKS, see [Autoscale pods in AKS][aks-hpa].
 
 ### Cooldown of scaling events
 
@@ -41,15 +41,15 @@ As the horizontal pod autoscaler checks the Metrics API every 30 seconds, previo
 
 To minimize these race events, cooldown or delay values can be set. These values define how long the horizontal pod autoscaler must wait after a scale event before another scale event can be triggered. This behavior allows the new replica count to take effect and the Metrics API reflect the distributed workload. By default, the delay on scale up events is 3 minutes, and the delay on scale down events is 5 minutes
 
-If you implement horizontal pod autoscaling, you may need to tune these cooldown values. The default cooldown values may give the impression that the horizontal pod autoscaler isn't scaling the replica count quickly enough. For example, to more quickly increase the number of replicas in use, reduce the `--horizontal-pod-autoscaler-upscale-delay`.
+You may need to tune these cooldown values. The default cooldown values may give the impression that the horizontal pod autoscaler isn't scaling the replica count quickly enough. For example, to more quickly increase the number of replicas in use, reduce the `--horizontal-pod-autoscaler-upscale-delay`.
 
 ## Cluster autoscaler
 
 To respond to changing pod demands, Kubernetes has a cluster autoscaler that that adjust the number of nodes based on the requested compute resources in the node pool. By default, the cluster autoscaler checks the API server every 10 seconds for any required changes in node count. If the cluster autoscale determines that a change is required, the number of nodes in your AKS cluster is increased or decreased accordingly. The cluster autoscaler works with RBAC-enabled AKS clusters that run Kubernetes 1.10.x or higher.
 
-Cluster autoscaler is typically used alongside horizontal pod autoscaling. When combined, horizontal pod autoscaling increases or decreases the number of pods based on application demand, and the cluster autoscaler adjusts the number of nodes as needed to run those additional pods accordingly.
+Cluster autoscaler is typically used alongside the horizontal pod autoscaler. When combined, the horizontal pod autoscaler increases or decreases the number of pods based on application demand, and the cluster autoscaler adjusts the number of nodes as needed to run those additional pods accordingly.
 
-To get started with cluster autoscaling in AKS, see [Cluster Autoscaler on AKS][aks-cluster-autoscaler].
+To get started with the cluster autoscaler in AKS, see [Cluster Autoscaler on AKS][aks-cluster-autoscaler].
 
 ### Scale up events
 
@@ -82,7 +82,7 @@ Your applications may experience some disruption as pods are scheduled on additi
 
 Kubernetes has built-in components to scale the replica and node count. However, if your application needs to rapidly scale, the horizontal pod autoscaler may schedule more pods than can be provided by the existing compute resources in the node pool. If configured, this scenario would then trigger the cluster autoscaler to deploy additional nodes in the node pool, but it may take a few minutes for those nodes to successfully provision and allow the Kubernetes scheduler to run pods on them. To rapidly scale your AKS cluster, you can integrate with Azure Container Instances (ACI).
 
-ACI lets you quickly deploy container instances without additional infrastructure overhead. When you connect with AKS, ACI becomes a secured, logical extension of your AKS cluster. The Virtual Kubelet component is installed in your AKS cluster that then presents ACI as a Kubernetes node. Kubernetes can then schedule pods that run as ACI instances, not as pods on nodes directly in your AKS cluster. Your application requires no modification. Deployments can now scale across AKS and ACI and with no delay as cluster autoscaler deploys new nodes in your AKS cluster.
+ACI lets you quickly deploy container instances without additional infrastructure overhead. When you connect with AKS, ACI becomes a secured, logical extension of your AKS cluster. The Virtual Kubelet component is installed in your AKS cluster that presents ACI as a Kubernetes node. Kubernetes can then schedule pods that run as ACI instances, not as pods on nodes directly in your AKS cluster. Your application requires no modification. Deployments can now scale across AKS and ACI and with no delay as cluster autoscaler deploys new nodes in your AKS cluster.
 
 The ACI connector is deployed to an additional subnet in the same virtual network as your AKS cluster. This virtual network configuration allows the traffic between ACI and AKS to be secured. Like an AKS cluster, and ACI instance is a secure, logical compute resource that is isolated from other users.
 
