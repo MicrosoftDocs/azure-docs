@@ -27,6 +27,11 @@ The following is a list of supported compute targets:
 * Azure Container Instance
 
 [TBD - why use one over the other This might be inline in the bulleted list, or it might be better formatted as a table.]
+Key differentiators
+
+|Compute target|Difference|
+|----|-----|
+|Local computer|Local|
 
 ## Workflow
 
@@ -38,49 +43,6 @@ The workflow for developing and deploying a model with Azure Machine Learning ge
 1. Query the run history for logged metric from the current, and past runs, of your training job. 
 2. Once a satisfactory run is found, register the persisted model in the model registry.
 3. Deploy the image as a web service in Azure.
-
-## Supported compute targets for training
-
-The supported compute targets for training are: 
-
-* Your local computer
-* A Linux VM in Azure (such as the Data Science Virtual Machine)
-* Azure Batch AI Cluster
-* Azure Container Instance
-* Apache Spark for HDInsight
-
-Key differentiators
-
-|Compute target|Local or Remote|
-|----|-----|
-|Local computer|Local|
-
-You can run your scripts on: 
-
-* Python (3.5.2) environment on your local computer installed by Workbench
-* Conda Python environment inside of a Docker container on local computer
-* On a Python environment that you own and manage on a remote Linux Machine
-* Conda Python environment inside of a Docker container on a remote Linux machine. For example, an [Ubuntu-based DSVM on Azure]
-(https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
-* [HDInsight for Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) on Azure
-
->[!IMPORTANT]
->Azure Machine Learning service currently supports Python 3.5.2 and Spark 2.1.11 as Python and Spark runtime versions, respectively. 
-
->[!IMPORTANT]
-> Windows VMs running Docker are **not** supported as remote compute targets.
-
-## Local machine
-
-This is a local machine.
-
-## The Data Science VM
-
-## Azure Batch AI Cluster
-
-## Azure Container Instance
-
-## Apache Spark for HDInsight
 
 ## Execution environment
 The _execution environment_ defines the run time configuration and the dependencies needed to run the program in Workbench.
