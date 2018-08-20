@@ -51,7 +51,7 @@ In the upper-right corner, in the **Package Source** field, choose "Nuget.org".
 From the **Browse** tab, search for the "Microsoft.CognitiveServices.Speech" package, select it and check the **Project** and **helloworld** boxes on the right, and select **Install** to install it into the helloworld project.
 
 > [!NOTE]
-> The current version of the Cognitive Services Speech SDK is `0.5.0`.
+> The current version of the Cognitive Services Speech SDK is `0.6.0`.
 
 ![Install Microsoft.CognitiveServices.Speech NuGet Package](media/sdk/qs-cpp-windows-04-nuget-install-0.5.0.png)
 
