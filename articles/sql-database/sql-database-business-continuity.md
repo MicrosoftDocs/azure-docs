@@ -31,6 +31,7 @@ SQL Database provides several business continuity features, including automated 
 Then, you can learn about the additional mechanisms that you can use to recover from the disruptive events that cannot be handled by SQL Database high availability architecture, such as:
  - [Temporal tables](sql-database-temporal-tables.md) enable you to restore row versions from any point in time.
  - [Built-in automated backups](sql-database-automated-backups.md) and [Point in Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) enables you to restore complete database to some point in time within the last 35 days.
+ - You can [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore) to the point at which it was deleted if the **logical server has not been deleted**.
  - [Long-term backup retention](sql-database-long-term-retention.md) enables you to keep the backups up to 10 years.
  - [Geo-replication](sql-database-geo-replication-overview.md) allows the application to perform quick disaster recovery in case of a data center scale outage.
 
@@ -47,17 +48,13 @@ The following table compares the ERT and RPO for each service tier for the three
 
 ### Use point-in-time restore to recover a database
 
-SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every 5 - 10 minutes to protect your business from data loss. If you're using the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), then these backups are stored in RA-GRS storage for 35 days for databases in the Standard and Premium service tiers and 7 days for databases in the Basic service tier. If the retention period for your service tier does not meet your business requirements, you can increase the retention period by [changing the service tier](sql-database-single-database-scale.md). If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the backups retention is configurable up to 35 days in the General purpose and Business critical tiers. The full and differential database backups are also replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage. For more information, see [automatic database backups](sql-database-automated-backups.md).
+SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every 5 - 10 minutes to protect your business from data loss. The backups are stored in RA-GRS storage for 35 days for all service tiers except Basic DTU service tiers where the backups are stored for 7 days. For more information, see [automatic database backups](sql-database-automated-backups.md). You can restore an existing database form the automated backups to an earlier point in time as a new database on the same logical server using the Azure portal, PowerShell, or the REST API. For more information, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-If the maximum supported point-in-time restore (PITR) retention period is not sufficient for your application, you can extend it by configuring a long-term retention (LTR) policy for the database(s). For more information, see [Automated Backups](sql-database-automated-backups.md) and [Long-term backup retention](sql-database-long-term-retention.md).
+If the maximum supported point-in-time restore (PITR) retention period is not sufficient for your application, you can extend it by configuring a long-term retention (LTR) policy for the database(s). For more information, see [Long-term backup retention](sql-database-long-term-retention.md).
 
 You can use these automatic database backups to recover a database from various disruptive events, both within your data center and to another data center. Using automatic database backups, the estimated time of recovery depends on several factors including the total number of databases recovering in the same region at the same time, the database size, the transaction log size, and network bandwidth. The recovery time is usually less than 12 hours. It may take longer to recover a very large or active database. For more details about recovery time, see [database recovery time](sql-database-recovery-using-backups.md#recovery-time). When recovering to another data region, the potential data loss is limited to 1 hour by the geo-redundant storage of hourly differential database backups.
 
-> [!IMPORTANT]
-> To recover using automated backups, you must be a member of the SQL Server Contributor role or the subscription owner - see [RBAC: Built-in roles](../role-based-access-control/built-in-roles.md). You can recover using the Azure portal, PowerShell, or the REST API. You cannot use Transact-SQL.
->
-
-Use automated backups as your business continuity and recovery mechanism if your application:
+Use automated backups and [point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore) as your business continuity and recovery mechanism if your application:
 
 * Is not considered mission critical.
 * Doesn't have a binding SLA - a downtime of 24 hours or longer does not result in financial liability.
@@ -88,30 +85,6 @@ Use active geo-replication and auto-failover groups if your application meets an
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
-
-## Recover a database after a user or application error
-
-No one is perfect! A user might accidentally delete some data, inadvertently drop an important table, or even drop an entire database. Or, an application might accidentally overwrite good data with bad data due to an application defect.
-
-In this scenario, these are your recovery options.
-
-### Perform a point-in-time restore
-You can use the automated backups to recover a copy of your database to a known good point in time, provided that time is within the database retention period. After the database is restored, you can either replace the original database with the restored database or copy the needed data from the restored data into the original database. If the database uses active geo-replication, we recommend copying the required data from the restored copy into the original database. If you replace the original database with the restored database, you need to reconfigure and resynchronize active geo-replication (which can take quite some time for a large database). While this restores a database to the last available point in time, restoring the geo-secondary to any point in time is not currently supported.
-
-For more information and for detailed steps for restoring a database to a point in time using the Azure portal or using PowerShell, see [point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore). You cannot recover using Transact-SQL.
-
-### Restore a deleted database
-If the database is deleted but the logical server has not been deleted, you can restore the deleted database to the point at which it was deleted. This restores a database backup to the same logical SQL server from which it was deleted. You can restore it using the original name or provide a new name or the restored database.
-
-For more information and for detailed steps for restoring a deleted database using the Azure portal or using PowerShell, see [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore). You cannot restore using Transact-SQL.
-
-> [!IMPORTANT]
-> If the logical server is deleted, you cannot recover a deleted database.
-
-
-### Restore backups from long-term retention
-
-If the data loss occurred outside the current retention period for automated backups and your database is configured for long-term retention using Azure blob storage, you can restore from a full backup in the Azure blob storage to a new database. At this point, you can either replace the original database with the restored database or copy the needed data from the restored database into the original database. If you need to retrieve an old version of your database prior to a major application upgrade, satisfy a request from auditors or a legal order, you can create a database using a full backup saved in Azure blob storage.  For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
 ## Recover a database to another region from an Azure regional data center outage
 <!-- Explain this scenario -->
