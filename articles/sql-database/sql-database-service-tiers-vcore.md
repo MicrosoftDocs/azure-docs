@@ -22,10 +22,10 @@ The following table helps you understand the differences between these two tiers
 |Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|
 |Compute|1 to 80 vCore, Gen4 and Gen5 |1 to 80 vCore, Gen4 and Gen5|
 |Memory|Gen4: 7 GB per core<br>Gen5: 5.5 GB per core | Gen4: 7 GB per core<br>Gen5: 5.5 GB per core |
-|Storage|Premium remote storage, 5 GB – 4 TB|Local SSD storage, 5 GB – 1 TB|
+|Storage|[Premium remote storage](../virtual-machines/windows/premium-storage.md),<br/>Singleton Database: 5 GB – 4 TB<br/>Managed Instance: 32 - 8TB |Local SSD storage,<br/>Single Database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 4 TB |
 |IO throughput (approximate)|500 IOPS per vCore with 7000 maximum IOPS|5000 IOPS per core with 200000 maximum IOPS|
 |Availability|1 replica, no read-scale|3 replicas, 1 [read-scale](sql-database-read-scale-out.md), zone redundant HA|
-|Backups|RA-GRS, 7-35 days (7 days by default)|RA-GRS, 7-35 days (7 days by default)|
+|Backups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|
 |In-Memory|N/A|Supported|
 |||
 
@@ -38,9 +38,9 @@ See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked ques
 
 Consider the following:
 - The allocated storage is used by data files (MDF) and log files (LDF) files.
-- Each performance level supports a maximum database size, with a default max size of 32 GB.
-- When you configure the required database size (size of MDF), 30% of additional storage is automatically added to support LDF
-- You can select any database size between 10 GB and the supported maximum
+- Each Singleton Database performance level supports a maximum database size, with a default max size of 32 GB.
+- When you configure the required Singleton database size (size of MDF), 30% of additional storage is automatically added to support LDF
+- You can select any Singleton database size between 10 GB and the supported maximum
  - For Standard storage, increase or decrease size in 10-GB increments
  - For Premium storage, increase or decrease size in 250-GB increments
 - In the General Purpose service tier, `tempdb` uses an attached SSD and this storage cost is included in the vCore price.
@@ -56,9 +56,9 @@ To monitor the current total size of MDF and LDF, use [sp_spaceused](https://doc
 
 ## Backups and storage
 
-Storage for database backups is allocated to support the Point in Time Restore (PITR) and Long Term Retention (LTR) capabilities of SQL Database. This storage is allocated separately for each database and billed as two separate per-database charges. 
+Storage for database backups is allocated to support the Point in Time Restore (PITR) and [Long Term Retention (LTR)](sql-database-long-term-retention.md) capabilities of SQL Database. This storage is allocated separately for each database and billed as two separate per-database charges. 
 
-- **PITR**: Individual database backups are copied to RA-GRS storage are automatically. The storage size increases dynamically as the new backups are created.  The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The storage consumption depends on the rate of change of the database and the retention period. You can configure a separate retention period for each database between 7 and 35 days. A minimum storage amount equal to 1x of data size is provided at no extra charge. For most databases, this amount is enough to store 7 days of backups.
+- **PITR**: Individual database backups are copied to [RA-GRS storage](../storage/common/storage-designing-ha-apps-with-ragrs.md) are automatically. The storage size increases dynamically as the new backups are created.  The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The storage consumption depends on the rate of change of the database and the retention period. You can configure a separate retention period for each database between 7 and 35 days. A minimum storage amount equal to 1x of data size is provided at no extra charge. For most databases, this amount is enough to store 7 days of backups.
 - **LTR**: SQL Database offers the option configuring long-term retention of full backups for up to 10 years. If LTR policy is enabled, theses backups are stored in RA-GRS storage automatically, but you can control how often the backups are copied. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. This configuration will define how much storage will be used for the LTR backups. You can use the LTR pricing calculator to estimate the cost of LTR storage. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
 ## Azure Hybrid Use Benefit
