@@ -131,11 +131,12 @@ You can also call a REST API technical profile with your business logic, overwri
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| setting.showContinueButton | No | Displays the continue button. |
-| setting.showCancelButton | No | Displays the cancel button. |
+| setting.showContinueButton | No | Displays the continue button. Possible values: `true` (default), or `false` |
+| setting.showCancelButton | No | Displays the cancel button. Possible values: `true` (default), or `false` |
 | setting.operatingMode | No | For a sign-in page, this property controls the behavior of the username field, such as input validation and error messages. Expected values: `Username` or `Email`. |
 | ContentDefinitionReferenceId | Yes | The identifier of the [content definition](contentdefinitions.md) associated with this technical profile. |
-| EnforceEmailVerification | No | For sign-up or profile edit, enforces email verification. The default value is `true`. | 
+| EnforceEmailVerification | No | For sign-up or profile edit, enforces email verification. Possible values: `true` (default), or `false`. | 
+| setting.showSignupLink | No | Displays the sign-up button. Possible values: `true` (default), or `false` |
 | SignUpTarget | No | The signup target exchange identifier. When the user clicks the sign-up button, Azure AD B2C executes the specified exchange identifier. |
 
 ## Cryptographic keys
