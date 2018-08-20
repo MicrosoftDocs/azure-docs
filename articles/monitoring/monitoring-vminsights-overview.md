@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2018
+ms.date: 08/20/2018
 ms.author: magoedte
 
 ---
@@ -28,21 +28,32 @@ Azure Monitor VM insights monitors your Azure virtual machines (VM) at scale by 
 
 Integration with Log Analytics delivers powerful aggregation, filtering, and ability to perform trend analysis of the data over time. 
 
-<State this is aiming to deliver comprehensive monitoring of your applications that can't be delivered similarly just by enabling Log Analytics and Azure Monitor alone.>
- 
-You can view this data in the context of single instance of the VM from the virtual machine resource blade, and as an aggregated view of all VMs in your subscription from Azure Monitor. 
+The comprehensive monitoring of your applications can't be achieved alone with Azure Monitor, Service Maps, or Log Analytics.  
+
+You can view this data in the context of single instance of the VM from the virtual machine directly, and as an aggregated view of all VMs in your subscription from Azure Monitor. 
 
 [Virtual machine insights perspective from portal](./media/monitoring-vminsights-overview/access-solution-perspective-01.png)
 
 DevOps can effectively deliver predictable performance and availability of vital applications by identifying critical operating system events and performance bottlenecks, network issues, and understand if an issue is related to other dependencies.  
 
-![VM Insights performance charts preview](./media/monitoring-vminsights-overview/example-performance-charts-01.png)
 
-These charts help you understand resource utilization over a period time while investigating resource utilization issues detected or during proactive analysis.  
+## Data usage 
 
-What are the financial factors to consider before enabling this solution?
-What is the amount of data ingested per VM broken down by performance and health feature?
-- This should probably be summarized in the deployment article.
+As soon as you onboard the solution, data collected by your VMs is ingested and stored in Azure Log Analytics.  Pricing for Log Analytics can be found [here](https://azure.microsoft.com/pricing/details/log-analytics/) if you are new to the service and unfamiliar with the cost. 
 
+The cost of data can be considerable depending on the following factors: 
+* Number of systems you are collecting from and the collection frequency
+* Type of data created by the source.  In this case, performance metrics, virtual machine process identity information, and detailed connection events.
+* The period data is retained in the workspace
+
+The log size varies based on string lengths of counters and can increase with the number of logical disks and network adapters.  If you already have a workspace and are collecting these counters, there will not be any duplicate charges applied.  ​
+​
+Based on our testing with a standard configuration of the solution, the following is 
+
+
+
+typical VM may generate about 0.5 GB per month of performance data with using a 60 second collection interval. ​
+​
+If you are already using Service Map, the only change you’ll see is the additional connection data being sent to Log Analytics.​
 
 
