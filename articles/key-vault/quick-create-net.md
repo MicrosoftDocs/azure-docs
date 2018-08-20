@@ -61,7 +61,7 @@ az login
 Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 Select a resource group name and fill in the placeholder.
-The following example creates a resource group in the East US location.
+The following example creates a resource group in the East US location:
 
 ```azurecli
 # To list locations: az account list-locations --output table
@@ -104,7 +104,7 @@ This command shows the secret information, including the URI. After you complete
 
 ## Clone the repo
 
-Clone the repo in order to make a local copy for you to edit the source. Run the following command:
+Clone the repo to make a local copy where you can edit the source. Run the following command:
 
 ```
 git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
