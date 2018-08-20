@@ -94,7 +94,7 @@
   - name: Webhook schema
     href: container-registry-webhook-reference.md
   - name: Event Grid schema
-    href: ../event-grid/event-schema-container-registry.md
+    href: ../event-grid/event-schema-container-registry.md?toc=%2fazure%2fcontainer-registry%2ftoc.yml
 - name: Resources
   items:
   - name: Region availability
