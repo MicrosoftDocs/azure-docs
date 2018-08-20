@@ -17,7 +17,7 @@ ms.author: yujhong
 ---
 # Develop with Azure DevOps
 
-This article demonstrates how to set up continuous deployment to your web app running in Azure Government using Azure DevOps. Continuous deployment (CD) means starting an automated deployment process whenever a code change is made to your application or whenever a new successful build is available. Azure DevOps is used by teams to configure continuous deployment for their applications hosted in their Azure subscriptions. Refer to [CI/CD for newbies](https://www.visualstudio.com/en-us/docs/build/get-started/ci-cd-part-1) for an overview of CI/CD with Azure Pipelines.
+This article demonstrates how to set up continuous deployment to your web app running in Azure Government using Azure DevOps. Continuous deployment (CD) means starting an automated deployment process whenever a code change is made to your application or whenever a new successful build is available. Azure DevOps is used by teams to configure continuous deployment for their applications hosted in their Azure subscriptions. Refer to [CI/CD for newbies](https://www.visualstudio.com/en-us/docs/build/get-started/ci-cd-part-1) for an overview of CI/CD with Azure DevOps.
 
 [Release Management in Azure DevOps](https://docs.microsoft.com/vsts/build-release/overview) is a service that enables continuous deployment for various applications. We can use this service for applications running in Azure Government by defining [service endpoints](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints) for Azure Government. 
 
