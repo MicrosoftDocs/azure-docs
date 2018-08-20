@@ -27,6 +27,8 @@
     href: azure-stack-vaas-test-vm.md
   - name: Validate a new Azure Stack solution
     href: azure-stack-vaas-validate-solution-new.md
+  - name: Create an OEM package
+    href: azure-stack-vaas-create-oem-package.md
   - name: Validate OEM packages
     href: azure-stack-vaas-validate-oem-package.md
   - name: Validate software updates from Microsoft
