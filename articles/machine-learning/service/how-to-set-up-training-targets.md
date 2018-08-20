@@ -11,374 +11,67 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
 ---
-# Set up compute targets for model training
+# How to select and use a compute target to train your model
 
-Azure Machine Learning service enables data scientists to execute their experiments in a number of different compute targets. In this article, you'll learn about the compute targets available for training your experiments and how to set them up for your experiments.
+With the Azure Machine Learning service, you can train your model in several different environments. These environments, called __compute targets__, can be local or in the cloud. In this document, you will learn about the supported compute targets and how to use them.
 
 A compute target is the compute resource used to execute your training script or host your web service deployment. They can be created and managed by using Azure Machine Learning Python SDK or CLI. You can also attach existing compute targets to your workspace in Azure portal. You can start with local runs on your machine, but then follow an easy path for scaling up and out to other environments such as remote Data Science VMs with GPU or Batch AI clusters.
 
-The workflow for developing and deploying a model with Azure Machine Learning generally follows these steps:
+## Supported compute targets
 
-1. Develop machine learning training scripts in Python using Jupyter Notebooks, Visual Studio Code, or any other Python development environment of your choice.
-1. Provision and configure a compute target, which can be either local or cloud compute resources, to use when training the model.
-1. Submit the scripts to the configured compute target to run in that environment.
-1. Query the run history for logged metric from the current, and past runs, of your training job. 
-2. Once a satisfactory run is found, register the persisted model in the model registry.
-3. Deploy the image as a web service in Azure.
-
-## Supported compute targets for training
-
-The supported compute targets for training are: 
+The following is a list of supported compute targets:
 
 * Your local computer
-* A Linux VM in Azure (such as the Data Science Virtual Machine)
-* Azure Batch AI Cluster
-* Azure Container Instance
-* Apache Spark for HDInsight
+* Data Science Virtual Machines (DSVM) and Deep Learning Virtual Machines (DLVMs)
+* Azure Batch AI clusters
+* Container instances in Azure Container Instances (ACI)
 
-Key differentiators
 
-|Compute target|Local or Remote|
-|----|-----|
-|Local computer|Local|
+## Workflow
 
-You can run your scripts on: 
+The workflow for developing and deploying a model with Azure Machine Learning follows these steps:
 
-* Python (3.5.2) environment on your local computer installed by Workbench
-* Conda Python environment inside of a Docker container on local computer
-* On a Python environment that you own and manage on a remote Linux Machine
-* Conda Python environment inside of a Docker container on a remote Linux machine. For example, an [Ubuntu-based DSVM on Azure]
-(https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
-* [HDInsight for Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) on Azure
+1. Develop machine learning training scripts in Python.
+1. Create and configure a compute target.
+1. Submit the scripts to the compute target.
+1. Inspect the run history to find the best model.
+1. Register the model in the model registry.
+1. Deploy the model.
 
->[!IMPORTANT]
->Azure Machine Learning service currently supports Python 3.5.2 and Spark 2.1.11 as Python and Spark runtime versions, respectively. 
+Your training script isn't tied to a specific compute target. You can train initially on your local computer, then switch targets to a VM or Azure Batch AI without having to rewrite the training script.
 
->[!IMPORTANT]
-> Windows VMs running Docker are **not** supported as remote compute targets.
+The following example creates an Azure Batch AI compute target and display the status. The `compute_target` object can be used to submit your project for training:
 
-## Local machine
+```python
+# Create a new compute target to train on Azure Batch AI
+from azureml.core.compute import ComputeTarget, BatchAiCompute
+from azureml.core.compute_target import ComputeTargetException
 
-This is a local machine.
+# Name the Batch AI cluster
+batchai_cluster_name = "gpucluster2"
 
-## The Data Science VM
+# Try to find an existing compute target in the workspace. If none exists,
+#   create a new one.
+try:
+    compute_target = ComputeTarget(workspace = ws, name = batchai_cluster_name)
+    print('found compute target. just use it.')
+except ComputeTargetException:
+    print('creating a new compute target...')
+    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_NC6", # NC6 is GPU-enabled
+                                                                #vm_priority = 'lowpriority', # optional
+                                                                autoscale_enabled = True,
+                                                                cluster_min_nodes = 1, 
+                                                                cluster_max_nodes = 4)
+    # create the cluster
+    compute_target = ComputeTarget.create(ws, batchai_cluster_name, provisioning_config)
 
-## Azure Batch AI Cluster
+    # can poll for a minimum number of nodes and for a specific timeout. 
+    # if no min node count is provided it will use the scale settings for the cluster
+    compute_target.wait_for_provisioning(show_output = True, min_node_count = None, timeout_in_minutes = 20)
 
-## Azure Container Instance
-
-## Apache Spark for HDInsight
-
-## Execution environment
-The _execution environment_ defines the run time configuration and the dependencies needed to run the program in Workbench.
-
-You manage the local execution environment using your favorite tools and package managers if you're running on the Workbench default runtime. 
-
-Conda is used to manage local Docker and remote Docker executions as well as HDInsight-based executions. For these compute targets, the execution environment configuration is managed through **Conda_dependencies.yml** and **Spark_dependencies.yml files**. These files are in the **aml_config** folder inside your project.
-
-**Supported runtimes for execution environments are:**
-* Python 3.5.2
-* Spark 2.1.11
-
-### Run configuration
-In addition to the compute target and execution environment, Azure Machine Learning provides a framework to define and change *run configurations*. Different executions of your experiment may require different configuration as part of iterative experimentation. You may be sweeping different parameter ranges, using different data sources, and tuning spark parameters. Experimentation Service provides a framework for managing run configurations.
-
-Running _az ml computetarget attach_ command produces two files in your **aml_config** folder in your project: a ".compute" and  a ".runconfig" following this convention: _<your_computetarget_name>.compute_ and _<your_computetarget_name>.runconfig_. The .runconfig file is automatically created for your convenience when you create a compute target. You can create and manage other run configurations using _az ml runconfigurations_ command in CLI. You can also create and edit them on your file system.
-
-Run configuration in Workbench also enables you to specify environment variables. You can specify environment variables and use them in your code by adding the following section in your .runconfig file. 
-
+     # For a more detailed view of current Batch AI cluster status, use the 'status' property    
+    print(compute_target.status.serialize())
 ```
-EnvironmentVariables:
-    "EXAMPLE_ENV_VAR1": "Example Value1"
-    "EXAMPLE_ENV_VAR2": "Example Value2"
-```
-
-These environment variables can be accessed in your code. For example, this phyton code snippet prints the environment variable named "EXAMPLE_ENV_VAR1"
-```
-print(os.environ.get("EXAMPLE_ENV_VAR1"))
-```
-
-## Experiment execution scenarios
-In this section, we dive into execution scenarios and learn about how Azure Machine Learning runs experiments, specifically running an experiment locally, on a remote VM, and on an HDInsight Cluster. This section is a walkthrough starting from creating a compute target to executing your experiments.
-
->[!NOTE]
->For the rest of this article, we are using the CLI (Command-line interface) commands to show the concepts and the capabilities. Capabilities described here can also be used from Workbench.
-
-
-## Local Docker image
-You can also run your projects on a Docker container on your local machine through Experimentation Service. Workbench provides a base Docker image that comes with Azure Machine Learning libraries and as well as Spark 2.1.11 runtime to make local Spark executions easy. Docker needs to be already running on the local machine.
-
-For running your Python or PySpark script on local Docker, you can execute the following commands in CLI.
-
-```
-$az ml experiment submit -c docker myscript.py
-```
-or
-```
-az ml experiment submit --run-configuration docker myscript.py
-```
-
-The execution environment on local Docker is prepared using the Azure Machine Learning base Docker image. Workbench downloads this image when running for the first time and overlays it with packages specified in your conda_dependencies.yml file. This operation makes the initial run slower but subsequent runs are considerably faster thanks to Workbench reusing cached layers. 
-
->[!IMPORTANT]
->You need to run _az ml experiment prepare -c docker_ command first to prepare the Docker image for your first run. You can also set the **PrepareEnvironment** parameter to true in your docker.runconfig file. This action automatically prepares your environment as part of your run execution.  
-
->[!NOTE]
->If running a PySpark script on Spark, spark_dependencies.yml is also used in addition to conda_dependencies.yml.
-
-Running your scripts on a Docker image gives you the following benefits:
-
-1. It ensures that your script can be reliably executed in other execution environments. Running on a Docker container helps you discover and avoid any local references that may impact portability. 
-
-2. It allows you to quickly test code on runtimes and frameworks that are complex to install and configure, such as Apache Spark, without having to install them yourself.
-
-
-
-## Remote Docker image
-In some cases, resources available on your local machine may not be enough to train the desired model. In this situation, Experimentation Service allows an easy way to run your Python or PySpark scripts on more powerful VMs using remote Docker execution. 
-
-Remote VM should satisfy the following requirements:
-* Remote VM needs to be running Linux-Ubuntu and should be accessible through SSH. 
-* Remote VM needs to have Docker running.
-
->[!IMPORTANT]
-> Windows VMs running Docker is **not** supported as remote compute targets
-
-
-You can use the following command to create both the compute target definition and run configuration for remote Docker-based executions.
-
-```
-az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
-```
-
-Once you configure the compute target, you can use the following command to run your script.
-```
-$ az ml experiment submit -c remotevm myscript.py
-```
->[!NOTE]
->Keep in mind that execution environment is configured using the specifications in conda_dependencies.yml. spark_dependencies.yml is also used if PySpark framework is specified in .runconfig file. 
-
-The Docker construction process for remote VMs is exactly the same as the process for local Docker runs so you should expect a similar execution experience.
-
->[!TIP]
->If you prefer to avoid the latency introduced by building the Docker image for your first run, you can use the following command to prepare the compute target before executing your script. az ml experiment prepare -c remotedocker
-
-
-
-## Remote VM 
-Experimentation service also supports running a script on user's own Python environment inside a remote Ubuntu virtual machine. This allows you to manage your own environment for execution and still use Azure Machine Learning capabilities. 
-
-Follow the following steps to run your script on your own environment.
-* Prepare your Python environment on a remote Ubuntu VM or a DSVM installing your dependencies.
-* Install Azure Machine Learning requirements using the following command.
-
-```
-pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
-```
-
->[!TIP]
->In some cases, you may need to run this command in sudo mode depending on your privileges. 
-```
-sudo pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
-```
- 
-* Use the following command to create both the compute target definition and run configuration for user-managed runs on remote VM executions.
-```
-az ml computetarget attach remote --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
-```
->[!NOTE]
->This will set "userManagedEnvironment" parameter in your .compute configuration file to true.
-
-* Set location of your Python runtime executable in your .compute file. You should refer to the full path of your python executable. 
-```
-pythonLocation: python3
-```
-
-Once you configure the compute target, you can use the following command to run your script.
-```
-$ az ml experiment submit -c remotevm myscript.py
-```
-
->[!NOTE]
-> When you are running on a DSVM, you should use the following commands
-
-If you would like to run directly on DSVM's global python environment, run this command.
-```
-sudo /anaconda/envs/py35/bin/pip install <package>
-```
-
-
-## HDInsight clusters
-HDInsight is a popular platform for big-data analytics supporting Apache Spark. Workbench enables experimentation on big data using HDInsight Spark clusters. 
-
->[!NOTE]
->The HDInsight cluster must use Azure Blob as the primary storage. Using Azure Data Lake storage is not supported yet.
-
-You can create a compute target and run configuration for an HDInsight Spark cluster using the following command:
-
-```
-$ az ml computetarget attach cluster --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword"  
-```
-
->[!NOTE]
->If you use FQDN instead of an IP address and your HDI Spark cluster is named _foo_, the SSH endpoint is on the driver node named _foo-ssh.azurehdinsight.net_. Don't forget the **-ssh** postfix in the server name when using FQDN for _--address_ parameter.
-
-
-Once you have the compute context, you can run the following command to execute your PySpark script.
-
-```
-$ az ml experiment submit -c myhdi myscript.py
-```
-
-Workbench prepares and manages execution environment on HDInsight cluster using Conda. Configuration is managed by _conda_dependencies.yml_ and _spark_dependencies.yml_ configuration files. 
-
-You need SSH access to the HDInsight cluster in order to execute experiments in this mode. 
-
->[!NOTE]
->Supported configuration is HDInsight Spark clusters running Linux (Ubuntu with Python/PySpark 3.5.2 and Spark 2.1.11).
-
-## Authentication and compute targets
-Azure Machine Learning Workbench allows you to create and use compute targets using SSH Key-based authentication in addition to the username/password-based scheme. You can use this capability when using remotedocker or cluster as your compute target. When you use this scheme, the Workbench creates a public/private key pair and reports back the public key. You append the public key to the ~/.ssh/authorized_keys files for your username. Azure Machine Learning Workbench then uses ssh key-based authentication for accessing and executing on this compute target. Since the private key for the compute target is saved in the key store for the workspace, other users of the workspace can use the compute target the same way by providing the username provided for creating the compute target.  
-
-You follow these steps to use this functionality. 
-
-- Create a compute target using one of the following commands.
-
-```
-az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
-```
-or
-```
-az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" -k
-```
-- Append the public key generated by the Workbench to the ~/.ssh/authorized_keys file on the attached compute target. 
-
->[!IMPORTANT]
->You need to log on the compute target using the same username you used to create the compute target. 
-
-- You can now prepare and use the compute target using SSH key-based authentication.
-
-```
-az ml experiment prepare -c remotevm
-```
-
-## More info on dependencies
-When you run a script in Azure Machine Learning (Azure ML) Workbench, the behavior of the execution is controlled by files in the **aml_config** folder. This folder is under your project folder root. It is important to understand the contents of these files in order to achieve the desired outcome for your execution in an optimal way.
-
-Following are the relevant files under this folder:
-- conda_dependencies.yml
-- spark_dependencies.yml
-- compute target files
-    - \<compute target name>.compute
-- run configuration files
-    - \<run configuration name>.runconfig
-
->[!NOTE]
->You typically have a compute target file and run configuration file for each compute target you create. However, you can create these files independently and have multiple run configuration files pointing to the same compute target.
-
-### conda_dependencies.yml
-This file is a [conda environment file](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) that specifies the Python runtime version and packages that your code depends on. When Azure ML Workbench executes a script in a Docker container or HDInsight cluster, it creates a [conda environment](https://conda.io/docs/using/envs.html) for your script to run on. 
-
-In this file, you specify Python packages that your script needs for execution. Azure ML  Experimentation Service creates the conda environment according to your list of dependencies. Packages listed here must be reachable by the execution engine through channels such as:
-
-* [continuum.io](https://anaconda.org/conda-forge/repo)
-* [PyPI](https://pypi.python.org/pypi)
-* a publicly accessible endpoint (URL)
-* or a local file path
-* others reachable by the execution engine
-
->[!NOTE]
->When running on HDInsight cluster, Azure ML Workbench creates a conda environment for your specific run. This allows different users to run on different python environments on the same cluster.  
-
-Here is an example of a typical **conda_dependencies.yml** file.
-```yaml
-name: project_environment
-dependencies:
-  # Python version
-  - python=3.5.2
-  
-  # some conda packages
-  - scikit-learn
-  - cryptography
-  
-  # use pip to install some more packages
-  - pip:
-     # a package in PyPi
-     - azure-storage
-     
-     # a package hosted in a public URL endpoint
-     - https://cntk.ai/PythonWheel/CPU-Only/cntk-2.1-cp35-cp35m-win_amd64.whl
-     
-     # a wheel file available locally on disk (this only works if you are executing against local Docker target)
-     - C:\temp\my_private_python_pkg.whl
-```
-
-Azure ML Workbench uses the same conda environment without rebuilding it as long as the **conda_dependencies.yml** remains the same. It will rebuild your environment if your dependencies change.
-
->[!NOTE]
->If you target execution against _local_ compute context, **conda_dependencies.yml** file is **not** used. Package dependencies for your local Azure ML Workbench Python environment need to be installed manually.
-
-### spark_dependencies.yml
-This file specifies the Spark application name when you submit a PySpark script and Spark packages that need to be installed. You can also specify a public Maven repository as well as Spark packages that can be found in those Maven repositories.
-
-Here is an example:
-
-```yaml
-configuration:
-  # Spark application name
-  "spark.app.name": "ClassifyingIris"
-  
-repositories:
-  # Maven repository hosted in Azure CDN
-  - "https://mmlspark.azureedge.net/maven"
-  
-  # Maven repository hosted in spark-packages.org
-  - "https://spark-packages.org/packages"
-  
-packages:
-  # MMLSpark package hosted in the Azure CDN Maven
-  - group: "com.microsoft.ml.spark"
-    artifact: "mmlspark_2.11"
-    version: "0.5"
-    
-  # spark-sklearn packaged hosted in the spark-packages.org Maven
-  - group: "databricks"
-    artifact: "spark-sklearn"
-    version: "0.2.0"
-```
-
->[!NOTE]
->Cluster tuning parameters such as worker size and cores should go into "configuration" section in the spark_dependecies.yml file 
-
->[!NOTE]
->If you are executing the script in Python environment, *spark_dependencies.yml* file is ignored. It is used only if you are running against Spark (either on Docker or HDInsight Cluster).
-
-### Run configuration
-To specify a particular run configuration, you need a .compute file and a .runconfig file. These are typically generated using a CLI command. You can also clone exiting ones, rename them, and edit them.
-
-```azurecli
-# create a compute target pointing to a VM via SSH
-$ az ml computetarget attach remotedocker -n <compute target name> -a <IP address or FQDN of VM> -u <username> -w <password>
-
-# create a compute context pointing to an HDI cluster head-node via SSH
-$ az ml computetarget attach cluster -n <compute target name> -a <IP address or FQDN of HDI cluster> -u <username> -w <password> 
-```
-
-This command creates a pair of files based on the compute target specified. Let's say you named your compute target _foo_. This command generates _foo.compute_ and _foo.runconfig_ in your **aml_config** folder.
-
->[!NOTE]
-> _local_ or _docker_ names for the run configuration files are arbitrary. Azure ML Workbench adds these two run configurations when you create a blank project for your convenience. You can rename "<run configuration name>.runconfig" files that come with the project template, or create new ones with any name you want.
-
-#### \<compute target name>.compute
-_\<compute target name>.compute_ file specifies connection and configuration information for the compute target. It is a list of name-value pairs. Following are the supported settings:
-
-**type**: Type of the compute environment. Supported values are:
-  - local
-  - remote
-  - docker
-  - remotedocker
-  - cluster
-
 
 ## Next steps
 * [What is Azure Machine Learning service](overview-what-is-azure-ml.md)
