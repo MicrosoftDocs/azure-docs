@@ -26,13 +26,6 @@ The following is a list of supported compute targets:
 * Azure Batch AI
 * Azure Container Instance
 
-[TBD - why use one over the other This might be inline in the bulleted list, or it might be better formatted as a table.]
-Key differentiators
-
-|Compute target|Difference|
-|----|-----|
-|Local computer|Local|
-
 
 ## Workflow
 
@@ -41,23 +34,11 @@ The workflow for developing and deploying a model with Azure Machine Learning fo
 1. Develop machine learning training scripts in Python.
 1. Create and configure a compute target.
 1. Submit the scripts to the compute target.
-1. Inspect the run heitory to find the best model.
-1. Register the model in the model registery.
+1. Inspect the run history to find the best model.
+1. Register the model in the model registry.
 1. Deploy the model.
 
 Your training script isn't tied to a specific compute target. You can train initially on your local computer, then switch targets to a VM or Azure Batch AI without having to rewrite the training script.
-
-## Local computer
-
-More info on local computer and example of using local computer
-
-## Azure Virtual Machine
-
-more info on vm and example.
-
-## Azure Batch AI
-
-more info on batch ai.
 
 The following example creates an Azure Batch AI compute target and display the status. The `compute_target` object can be used to submit your project for training:
 
@@ -93,17 +74,6 @@ except ComputeTargetException:
 ```
 
 For more information on using the BatchAiCompute object, see [tbd]. 
-
-## Azure Container Instance
-
-
-## Next steps
-* [What is Azure Machine Learning service](overview-what-is-azure-ml.md)
-* [Quickstart: Create a workspace with Python](quickstart-get-started.md)
-* [Quickstart: Create a workspace with Azure CLI](quickstart-get-started-with-cli.md)
-* [Tutorial: Train a model](tutorial-train-models-with-aml.md)
-
-
 
 ## Next steps
 * [What is Azure Machine Learning service](overview-what-is-azure-ml.md)
