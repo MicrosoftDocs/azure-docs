@@ -93,6 +93,8 @@
     href: /azure/templates/microsoft.containerregistry/registries
   - name: Webhook schema
     href: container-registry-webhook-reference.md
+  - name: Event Grid schema
+    href: ../event-grid/event-schema-container-registry.md
 - name: Resources
   items:
   - name: Region availability
