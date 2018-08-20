@@ -570,8 +570,8 @@ HTTP triggers let you use keys for added security. A standard HTTP trigger can u
 
 There are two types of keys:
 
-- **Host keys**: These keys are shared by all functions within the function app. When used as an API key, these allow access to any function within the function app.
-- **Function keys**: These keys apply only to the specific functions under which they are defined. When used as an API key, these only allow access to that function.
+* **Host keys**: These keys are shared by all functions within the function app. When used as an API key, these allow access to any function within the function app.
+* **Function keys**: These keys apply only to the specific functions under which they are defined. When used as an API key, these only allow access to that function.
 
 Each key is named for reference, and there is a default key (named "default") at the function and host level. Function keys take precedence over host keys. When two keys are defined with the same name, the function key is always used.
 
@@ -590,7 +590,7 @@ Keys are stored as part of your function app in Azure and are encrypted at rest.
 
 * Use the Functions [key management REST APIs](https://github.com/Azure/azure-functions-host/wiki/Key-management-API). For example, a GET request to the following endpoint of the `myfunctionapp` app returns all keys for a function named `HttpTriggerCSharp1`: `https://myfunctionapp.azurewebsites.net/admin/functions/HttpTriggerCSharp1/keys`
 
-    This request requires you to provide the host master key as a `code` query string value, or a valid token.
+    This request requires you to provide the host master key in the request. You can do this by using the **x-functions-key** HTTP header or as a `code` query string value. Remember to securely store and transmit your master key, which provides administrator access to your function app.
 
 ### API key authorization
 
