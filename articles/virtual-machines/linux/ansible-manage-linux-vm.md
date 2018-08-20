@@ -6,7 +6,7 @@ keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 08/10/2018
+ms.date: 08/20/2018
 ms.topic: quickstart
 ---
 
@@ -17,13 +17,17 @@ Ansible allows you to automate the deployment and configuration of resources in 
 
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- **Configure Azure Cloud Shell** - If you are new to Azure Cloud Shell, the article, [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart), illustrates how to start and configure Cloud Shell. 
+- **Configure Azure Cloud Shell** **OR** **Install and Configure Ansible**
 
-- **Install Ansible** - Install Ansible on one of the following Linux platforms: [CentOS 7.4](/azure/virtual-machines/linux/ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](/azure/virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts), or [SLES 12 SP2](/azure/virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+    - **Configure Azure Cloud Shell** - If you are new to Azure Cloud Shell, the article, [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart), illustrates how to start and configure Cloud Shell. 
 
-- **Configure Ansible** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
+    - **Linux virtual machine** - If you don't have access to a Linux virtual machine, you can [create a virtual machine with Ansible](ansible-create-vm.md).
 
-- **Linux virtual machine** - If you don't have access to a Linux virtual machine, you can [create a virtual machine with Ansible](ansible-create-vm.md).
+    **--OR--**
+
+    - **Install Ansible** - Install Ansible on one of the following Linux platforms: [CentOS 7.4](/azure/virtual-machines/linux/ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](/azure/virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts), or [SLES 12 SP2](/azure/virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+
+    - **Configure Ansible** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
 
 ## Use Ansible to deallocate (stop) an Azure virtual machine
 This section illustrates how to use Ansible to deallocate (stop) an Azure virtual machine
