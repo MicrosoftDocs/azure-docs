@@ -108,7 +108,7 @@ Set-Service -Name netman -StartupType Manual
 Set-Service -Name nsi -StartupType Automatic
 Set-Service -Name termService -StartupType Manual
 Set-Service -Name MpsSvc -StartupType Automatic
-Set-Service -Name RemoteRegistry -StartupType AutAutomatico
+Set-Service -Name RemoteRegistry -StartupType Automatic
 ```
 
 ## Update Remote Desktop registry settings
