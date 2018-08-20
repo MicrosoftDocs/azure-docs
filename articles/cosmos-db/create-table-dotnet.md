@@ -113,7 +113,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 1. In Visual Studio, right-click on the **TableStorage** project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
    ![Manage NuGet Packages](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
-2. In the NuGet **Browse** box, type *Microsoft.Azure.CosmosDB.Table*. This will find the Cosmos DB Table API client library. Note that this library is currently available for .NET Standard framework only, it's not yet available for .NET Core.
+2. In the NuGet **Browse** box, type *Microsoft.Azure.CosmosDB.Table*. This will find the Cosmos DB Table API client library. Note that this library is currently available for .NET Standard only, it's not yet available for .NET Core.
    
    ![NuGet Browse tab](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 
