@@ -108,7 +108,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |6.10|Your app or add-in must not encourage, promote, or enable piracy of copyrighted content.|
 |6.11|You must provide details on the submission form if your app or add-in calls, supports, contains, or uses cryptography.|
 |6.12|Your app or add-in must not be designed or marketed to perform, instruct, or encourage tasks that could cause physical or psychological harm to a customer or any other person.|
-|6.13| If your app or add-in is a game distributed in markets which require a game rating, you must make the rating available in your description. Supported ratings boards include: CERO CRB DJCTZ ESRB FPB GRB OFLC - New Zealand PEGI USK|
+|6.13| Effective August 2018, games are no longer accepted for publication to AppSource|
 |6.14|Your app or add-in must comply with all applicable laws in the regions in which it is available.|
 
 <a name="bk_7"> </a>
@@ -253,6 +253,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.2|August 20,2018|Updated policy 6.13|
 |2.2|August 20,2018|Removed policy 7.18.|
 |2.2|July 4, 2018|Updated policy 3.2.|
 |2.2|June 11, 2018|Added policy 7.4.6.|
