@@ -31,6 +31,7 @@ SQL Database provides several business continuity features, including automated 
 Then, you can learn about the additional mechanisms that you can use to recover from the disruptive events that cannot be handled by SQL Database high availability architecture, such as:
  - [Temporal tables](sql-database-temporal-tables.md) enable you to restore row versions from any point in time.
  - [Built-in automated backups](sql-database-automated-backups.md) and [Point in Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) enables you to restore complete database to some point in time within the last 35 days.
+ - You can [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore) to the point at which it was deleted if the **logical server has not been deleted**.
  - [Long-term backup retention](sql-database-long-term-retention.md) enables you to keep the backups up to 10 years.
  - [Geo-replication](sql-database-geo-replication-overview.md) allows the application to perform quick disaster recovery in case of a data center scale outage.
 
@@ -84,30 +85,6 @@ Use active geo-replication and auto-failover groups if your application meets an
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
-
-## Recover a database after a user or application error
-
-No one is perfect! A user might accidentally delete some data, inadvertently drop an important table, or even drop an entire database. Or, an application might accidentally overwrite good data with bad data due to an application defect.
-
-In this scenario, these are your recovery options.
-
-### Perform a point-in-time restore
-You can use the automated backups to recover a copy of your database to a known good point in time, provided that time is within the database retention period. After the database is restored, you can either replace the original database with the restored database or copy the needed data from the restored data into the original database. If the database uses active geo-replication, we recommend copying the required data from the restored copy into the original database. If you replace the original database with the restored database, you need to reconfigure and resynchronize active geo-replication (which can take quite some time for a large database). While this restores a database to the last available point in time, restoring the geo-secondary to any point in time is not currently supported.
-
-For more information and for detailed steps for restoring a database to a point in time using the Azure portal or using PowerShell, see [point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore). You cannot recover using Transact-SQL.
-
-### Restore a deleted database
-If the database is deleted but the logical server has not been deleted, you can restore the deleted database to the point at which it was deleted. This restores a database backup to the same logical SQL server from which it was deleted. You can restore it using the original name or provide a new name or the restored database.
-
-For more information and for detailed steps for restoring a deleted database using the Azure portal or using PowerShell, see [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore). You cannot restore using Transact-SQL.
-
-> [!IMPORTANT]
-> If the logical server is deleted, you cannot recover a deleted database.
-
-
-### Restore backups from long-term retention
-
-If the data loss occurred outside the current retention period for automated backups and your database is configured for long-term retention using Azure blob storage, you can restore from a full backup in the Azure blob storage to a new database. At this point, you can either replace the original database with the restored database or copy the needed data from the restored database into the original database. If you need to retrieve an old version of your database prior to a major application upgrade, satisfy a request from auditors or a legal order, you can create a database using a full backup saved in Azure blob storage.  For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
 ## Recover a database to another region from an Azure regional data center outage
 <!-- Explain this scenario -->
