@@ -394,6 +394,9 @@
       href: boot-diagnostics.md
     - name: Serial console 
       href: serial-console.md
+      items:
+        - name: CMD and PowerShell commands
+          href: serial-console-cmd-ps-commands.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
     - name: Deployment issues

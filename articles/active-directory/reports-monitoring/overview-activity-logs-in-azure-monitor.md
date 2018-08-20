@@ -121,7 +121,7 @@ This section answers frequently asked questions and discusses known issues with 
 
 **Q: How much will it cost to store my data?**
 
-**A**: The storage costs depend on both the size of your logs and the retention period you choose. For a list of the estimated costs for tenants, which depend on the volume of logs generated, go to the [Storage size for activity logs](https://review.docs.microsoft.com/en-us/azure/active-directory/reporting-azure-monitor-diagnostics-overview?branch=pr-en-us-47660#storage-size-for-activity-logs) section.
+**A**: The storage costs depend on both the size of your logs and the retention period you choose. For a list of the estimated costs for tenants, which depend on the volume of logs generated, see the [Storage size for activity logs](#storage-size-for-activity-logs) section.
 
 ---
 

@@ -2881,6 +2881,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-runbook-settings.md",
+            "redirect_url": "/azure/automation/automation-runbook-execution",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-invoke-runbook-from-omsla-alert.md",
             "redirect_url": "/azure/automation/automation-create-alert-triggered-runbook",
             "redirect_document_id": false
@@ -26417,6 +26422,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/user/azure-stack-powershell-download.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-powershell-download",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/application-proxy-teams.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-teams",
             "redirect_document_id": true
@@ -26987,6 +26997,21 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup.md",
+            "redirect_url": "/azure/active-directory/user-help/user-help-register-device-on-network",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/user-help/device-management-azuread-joined-devices-setup.md",
+            "redirect_url": "/azure/active-directory/user-help/user-help-join-device-on-network",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/hdinsight/kafka/apache-kafka-azure-functions.md",
             "redirect_url": "/azure/hdinsight/kafka/apache-kafka-introduction",
             "redirect_document_id": false
@@ -27243,6 +27268,16 @@
 		{
             "source_path": "articles/active-directory/active-directory-conditional-access-no-modern-authentication.md",
             "redirect_url": "/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/cognitive-services/speech-service/speech-scenarios.md",
+            "redirect_url": "/azure/cognitive-services/speech-service/overview",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/cognitive-services/luis/Home.md",
+            "redirect_url": "/azure/cognitive-services/luis/what-is-luis",
             "redirect_document_id": true
         }
 

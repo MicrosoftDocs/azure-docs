@@ -3,7 +3,7 @@
 - name: Overview
   items: 
   - name: What is Language Understanding?
-    href: Home.md
+    href: what-is-luis.md
 - name: Quickstarts
   expanded: true
   items: 
