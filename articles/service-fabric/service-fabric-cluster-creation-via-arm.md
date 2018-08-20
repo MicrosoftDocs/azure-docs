@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Service Fabric cluster from a template | Microsoft Docs
-description: This article describes how to set up a secure Service Fabric cluster in Azure by using Azure Resource Manager, Azure Key Vault, and Azure Active Directory (Azure AD) for client authentication.
+description: Learn how to set up a secure Service Fabric cluster in Azure by using Azure Resource Manager, Azure Key Vault, and Azure Active Directory (Azure AD) for client authentication.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/31/2018
+ms.date: 08/16/2018
 ms.author: aljo
 
 ---
@@ -23,67 +23,28 @@ ms.author: aljo
 >
 >
 
-This step-by-step guide walks you through setting up a secure Azure Service Fabric cluster in Azure by using Azure Resource Manager. We acknowledge that the article is long. Nevertheless, unless you are already thoroughly familiar with the content, be sure to follow each step carefully.
+An [Azure Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual machines into which your microservices are deployed and managed. This article describes how to set up a secure Azure Service Fabric cluster in Azure using Azure Resource Manager.
+
+Cluster security is configured when the cluster is first setup and cannot be changed later. Before setting up a cluster, read [Service Fabric cluster security scenarios][service-fabric-cluster-security]. In Azure, Service Fabric uses x509 certificate to secure your cluster and its endpoints, authenticate clients, and encrypt data. Azure Active Directory is also recommended to secure access to management endpoints. Azure AD tenants and users must be created before creating the cluster.  For more information, read [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
 
 The guide covers the following procedures:
 
-* Key Concepts that you need to be aware of before deploying a Service Fabric cluster.
 * Creating a cluster in Azure by using Service Fabric Resource Manager modules.
-* Setting up Azure Active Directory (Azure AD) for authenticating users performing management operations on the cluster.
 * Authoring a custom Azure Resource Manager template for your cluster and deploying it.
-
-## Key concepts to be aware of
-In Azure, Service Fabric mandates that you to use an x509 certificate to secure your cluster and its endpoints. Certificates are used in Service Fabric to provide authentication and encryption to secure various aspects of a cluster and its applications. For client access/performing management operations on the cluster, including deploying, upgrading, and deleting applications, services, and the data they contain, you can use certificates or Azure Active Directory credentials. The use of Azure Active Directory is highly encouraged, since that is the only way to prevent sharing of certificates on your clients.  For more information on how certificates are used in Service Fabric, see [Service Fabric cluster security scenarios][service-fabric-cluster-security].
-
-Service Fabric uses X.509 certificates to secure a cluster and provide application security features. You use [Key Vault][key-vault-get-started] to manage certificates for Service Fabric clusters in Azure. 
-
-
-### Cluster and server certificate (required)
-These certificates (one primary and optionally a secondary) are required to secure a cluster and prevent unauthorized access to it. It provides cluster security in two ways:
-
-* **Cluster authentication:** Authenticates node-to-node communication for cluster federation. Only nodes that can prove their identity with this certificate can join the cluster.
-* **Server authentication:** Authenticates the cluster management endpoints to a management client, so that the management client knows it is talking to the real cluster and not a 'man in the middle'. This certificate also provides an SSL for the HTTPS management API and for Service Fabric Explorer over HTTPS.
-
-To serve these purposes, the certificate must meet the following requirements:
-
-* The certificate must contain a private key. These certificates typically have extensions .pfx or .pem  
-* The certificate must be created for key exchange, which is exportable to a Personal Information Exchange (.pfx) file.
-* The **certificate's subject name must match the domain that you use to access the Service Fabric cluster**. This matching is required to provide an SSL for the cluster's HTTPS management endpoint and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the *.cloudapp.azure.com domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
-
-### Set up Azure Active Directory for client authentication (Optional, but recommended)
-
-Azure AD enables organizations (known as tenants) to manage user access to applications. Applications are divided into those with a web-based sign-in UI and those with a native client experience. In this article, we assume that you have already created a tenant. If you have not, start by reading [How to get an Azure Active Directory tenant][active-directory-howto-tenant].
-
-A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, you create two Azure AD applications to control access to the cluster, one web application and one native application.
-
-More on how to set it up later in the document.
-
-### Application certificates (optional)
-Any number of additional certificates can be installed on a cluster for application security purposes. Before creating your cluster, consider the application security scenarios that require a certificate to be installed on the nodes, such as:
-
-* Encryption and decryption of application configuration values.
-* Encryption of data across nodes during replication.
-
-The concept of creating secure clusters is the same, whether they are Linux or Windows clusters. 
-
-### Client authentication certificates (optional)
-Any number of additional certificates can be specified for Admin or user client operations. By default the cluster certificate has admin client privileges. These additional client certificates should not be installed into the cluster, it just needs to be specified as being allowed in the cluster configuration, however, they need to be installed on the client machines to connect to the cluster and perform any management operations.
-
 
 ## Prerequisites 
 The concept of creating secure clusters is the same, whether they are Linux or Windows clusters. This guide covers the use of Azure PowerShell or Azure CLI to create new clusters. The prerequisites are either:
 
--  [Azure PowerShell 4.1 and above][azure-powershell] or [Azure CLI 2.0 and above][azure-CLI].
--  you can find details on the Service Fabric modules here - [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric)  and [az SF CLI module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
-
+* [Azure PowerShell 4.1 and above][azure-powershell] or [Azure CLI 2.0 and above][azure-CLI].
+* you can find details on the Service Fabric modules here - [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric)  and [az SF CLI module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
 
 ## Use Service Fabric RM module to deploy a cluster
 
-In this document, we will use the Service Fabric RM powershell and CLI module to deploy a cluster, the PowerShell or the CLI module command allows for multiple scenarios. Let us go through each of the them. Pick the scenario that you feel best meets your needs. 
+In this document, we will use the Service Fabric RM powershell and CLI module to deploy a cluster, the PowerShell or the CLI module command allows for multiple scenarios. Let us go through each of the them. Pick the scenario that you feel best meets your needs.
 
-- Create a new cluster 
-	- using a system generated self signed certificate
-	- using a certificate you already own
+Create a new cluster:
+- using a system generated self signed certificate
+- using a certificate you already own
 
 You can use a default cluster template or a template that you already have
 
@@ -91,7 +52,7 @@ You can use a default cluster template or a template that you already have
 
 Use the following command to create cluster, if you want the system to generate a self-signed certificate and use it to secure your cluster. This command sets up a primary cluster certificate that is used for cluster security and to set up admin access to perform management operations using that certificate.
 
-### login to Azure
+#### Sign in to Azure
 
 ```PowerShell
 Connect-AzureRmAccount
@@ -112,9 +73,10 @@ The template that is used is available on the [Azure Service Fabric template sam
 The commands below works for creating Windows and Linux clusters, you just need to specify the OS accordingly. The PowerShell/CLI commands also output the certificate in the specified CertificateOutputFolder; however, make sure certificate folder already created. The command takes in other parameters like VM SKU as well.
 
 > [!NOTE]
-> The below Powershell command only works with Azure Resource Manager PowerShell version > 6.1. To check the current version of Azure Resource Manager PowerShell version, run the following PowerShell command "Get-Module AzureRM". Follow this link to upgrade your Azure Resource Manager PowerShell version. https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0
+> The below PowerShell command only works with Azure Resource Manager PowerShell version > 6.1. To check the current version of Azure Resource Manager PowerShell version, run the following PowerShell command "Get-Module AzureRM". Follow this link to upgrade your Azure Resource Manager PowerShell version. https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0
 >
 >
+
 ```PowerShell
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
@@ -316,54 +278,6 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 	--template-file $templateFilePath --parameter-file $parametersFilePath 
 ```
 
-<a id="add-AAD-for-client"></a>
-
-## Set up Azure Active Directory for client authentication
-
-Azure AD enables organizations (known as tenants) to manage user access to applications. Applications are divided into those with a web-based sign-in UI and those with a native client experience. In this article, we assume that you have already created a tenant. If you have not, start by reading [How to get an Azure Active Directory tenant][active-directory-howto-tenant].
-
-A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, you create two Azure AD applications to control access to the cluster, one web application and one native application.
-
-To simplify some of the steps involved in configuring Azure AD with a Service Fabric cluster, we have created a set of Windows PowerShell scripts.
-
-> [!NOTE]
-> You must complete the following steps before you create the cluster. Because the scripts expect cluster names and endpoints, the values should be planned and not values that you have already created.
-
-1. [Download the scripts][sf-aad-ps-script-download] to your computer.
-2. Right-click the zip file, select **Properties**, select the **Unblock** check box, and then click **Apply**.
-3. Extract the zip file.
-4. Run `SetupApplications.ps1`, and provide the TenantId, ClusterName, and WebApplicationReplyUrl as parameters. For example:
-
-```PowerShell
-.\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
-```
-
-> [!NOTE]
-> For national clouds (Azure Government, Azure China, Azure Germany), you should also specify the `-Location` parameter.
-
-You can find your TenantId by executing the PowerShell command `Get-AzureSubscription`. Executing this command displays the TenantId for every subscription.
-
-ClusterName is used to prefix the Azure AD applications that are created by the script. It does not need to match the actual cluster name exactly. It is intended only to make it easier to map Azure AD artifacts to the Service Fabric cluster that they're being used with.
-
-WebApplicationReplyUrl is the default endpoint that Azure AD returns to your users after they finish signing in. Set this endpoint as the Service Fabric Explorer endpoint for your cluster, which by default is:
-
-https://&lt;cluster_domain&gt;:19080/Explorer
-
-You are prompted to sign in to an account that has administrative privileges for the Azure AD tenant. After you sign in, the script creates the web and native applications to represent your Service Fabric cluster. If you look at the tenant's applications in the [Azure portal][azure-portal], you should see two new entries:
-
-   * *ClusterName*\_Cluster
-   * *ClusterName*\_Client
-
-The script prints the JSON required by the Azure Resource Manager template when you create the cluster in the next section, so it's a good idea to keep the PowerShell window open.
-
-```json
-"azureActiveDirectory": {
-  "tenantId":"<guid>",
-  "clusterApplication":"<guid>",
-  "clientApplication":"<guid>"
-},
-```
-
 <a id="customize-arm-template" ></a>
 
 ## Create a Service Fabric cluster resource manager template
@@ -477,7 +391,7 @@ The cluster authentication certificate must be configured in both the Service Fa
 
 ### Add Azure AD configuration to use Azure AD for client access
 
-You add the Azure AD configuration to a cluster Resource Manager template by referencing the key vault that contains the certificate keys. Add those Azure AD parameters and values in a Resource Manager template parameters file (azuredeploy.parameters.json).
+You add the Azure AD configuration to a cluster Resource Manager template by referencing the key vault that contains the certificate keys. Add those Azure AD parameters and values in a Resource Manager template parameters file (azuredeploy.parameters.json). Azure AD tenants and users must be created before creating the cluster.  For more information, read [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
 
 ```json
 {
@@ -589,21 +503,6 @@ The following diagram illustrates where your key vault and Azure AD configuratio
 ![Resource Manager dependency map][cluster-security-arm-dependency-map]
 
 
-## Encrypting the disks attached to your windows cluster node/virtual machine instances
-
-For encrypting the disks (OS drive and other managed disks) attached to your nodes, we leverage the Azure Disk Encryption. Azure Disk Encryption is a new capability that helps you [encrypt your Windows virtual machine disks](service-fabric-enable-azure-disk-encryption-windows.md). 
-Azure Disk Encryption leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows to provide volume encryption for the OS volume. 
-The solution is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. 
-The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage. 
-
-## Encrypting the disks attached to your Linux cluster node/virtual machine instances
-
-For encrypting the disks (Data drive and other managed disks) attached to your nodes, we leverage the Azure Disk Encryption. Azure Disk Encryption is a new capability that helps you [encrypt your Linux virtual machine disks](service-fabric-enable-azure-disk-encryption-linux.md). 
-Azure Disk Encryption leverages the industry standard [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the data disks. 
-The solution is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. 
-The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage. 
-
-
 ## Create the cluster using Azure resource template 
 
 You can now deploy you cluster using the steps outlined earlier in the document, or if you have 
@@ -615,84 +514,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 
 In case you run into issues and get cryptic messages, then use "-Debug" as an option.
 
-
-<a name="assign-roles"></a>
-
-## Assign users to roles
-After you have created the applications to represent your cluster, assign your users to the roles supported by Service Fabric: read-only and admin. You can assign the roles by using the [Azure portal][azure-portal].
-
-1. In the Azure portal, select your tenant on the top-right corner.
-
-    ![Select tenant button][select-tenant-button]
-2. Select **Azure Active Directory** on the left tab and then select "Enterprise applications".
-3. Select "All applications", and then find and select the web application, which has a name like `myTestCluster_Cluster`.
-4. Click the **Users and groups** tab.
-
-    ![Users and Groups tab][users-and-groups-tab]
-5. Click the **Add user** button on the new page, select a user and the role to assign, and then click the **Select** button at the bottom of the page.
-
-    ![Assign users to roles page][assign-users-to-roles-page]
-6. Click the **Assign** button at the bottom of the page.
-
-    ![Add assignment confirmation][assign-users-to-roles-confirm]
-
-> [!NOTE]
-> For more information about roles in Service Fabric, see [Role-based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).
->
->
-
-
-## Troubleshooting help in setting up Azure Active Directory
-Setting up Azure AD and using it can be challenging, so here are some pointers on what you can do to debug the issue.
-
-### Service Fabric Explorer prompts you to select a certificate
-#### Problem
-After you sign in successfully to Azure AD in Service Fabric Explorer, the browser returns to the home page but a message prompts you to select a certificate.
-
-![SFX certificate dialog][sfx-select-certificate-dialog]
-
-#### Reason
-The user isn’t assigned a role in the Azure AD cluster application. Thus, Azure AD authentication fails on Service Fabric cluster. Service Fabric Explorer falls back to certificate authentication.
-
-#### Solution
-Follow the instructions for setting up Azure AD, and assign user roles. Also, we recommend that you turn on “User assignment required to access app,” as `SetupApplications.ps1` does.
-
-### Connection with PowerShell fails with an error: "The specified credentials are invalid"
-#### Problem
-When you use PowerShell to connect to the cluster by using “AzureActiveDirectory” security mode, after you sign in successfully to Azure AD, the connection fails with an error: "The specified credentials are invalid."
-
-#### Solution
-This solution is the same as the preceding one.
-
-### Service Fabric Explorer returns a failure when you sign in: "AADSTS50011"
-#### Problem
-When you try to sign in to Azure AD in Service Fabric Explorer, the page returns a failure: "AADSTS50011: The reply address &lt;url&gt; does not match the reply addresses configured for the application: &lt;guid&gt;."
-
-![SFX reply address does not match][sfx-reply-address-not-match]
-
-#### Reason
-The cluster (web) application that represents Service Fabric Explorer attempts to authenticate against Azure AD, and as part of the request it provides the redirect return URL. But the URL is not listed in the Azure AD application **REPLY URL** list.
-
-#### Solution
-Select "App registrations" in AAD page, select your cluster application, and then select the **Reply URLs** button. On "Reply URLs" page, add the URL of Service Fabric Explorer to the list or replace one of the items in the list. When you have finished, save your change.
-
-![Web application reply url][web-application-reply-url]
-
-### Connect the cluster by using Azure AD authentication via PowerShell
-To connect the Service Fabric cluster, use the following PowerShell command example:
-
-```PowerShell
-Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
-```
-
-To learn about the Connect-ServiceFabricCluster cmdlet, see [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
-
-### Can I reuse the same Azure AD tenant in multiple clusters?
-Yes. But remember to add the URL of Service Fabric Explorer to your cluster (web) application. Otherwise, Service Fabric Explorer doesn’t work.
-
-### Why do I still need a server certificate while Azure AD is enabled?
-FabricClient and FabricGateway perform a mutual authentication. During Azure AD authentication, Azure AD integration provides a client identity to the server, and the server certificate is used to verify the server identity. For more information about Service Fabric certificates, see [X.509 certificates and Service Fabric][x509-certificates-and-service-fabric].
-
 ## Next steps
 At this point, you have a secure cluster with Azure Active Directory providing management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).
 
@@ -700,27 +521,11 @@ At this point, you have a secure cluster with Azure Active Directory providing m
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
-[key-vault-get-started]:../key-vault/key-vault-get-started.md
-[aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
-[azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
-[active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md
-[service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
-[service-fabric-manage-application-in-visual-studio]: service-fabric-manage-application-in-visual-studio.md
-[sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
-[azure-quickstart-templates]: https://github.com/Azure/azure-quickstart-templates
 [service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure
 [resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
-[x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
 [customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
-[select-tenant-button]: ./media/service-fabric-cluster-creation-via-arm/select-tenant-button.png
-[users-and-groups-tab]: ./media/service-fabric-cluster-creation-via-arm/users-and-groups-tab.png
-[assign-users-to-roles-page]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-page.png
-[assign-users-to-roles-confirm]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-confirm.png
-[sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
-[sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
-[web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png

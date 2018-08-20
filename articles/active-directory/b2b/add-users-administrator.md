@@ -40,6 +40,9 @@ To add B2B collaboration users to the directory, follow these steps:
 
    ![Shows where New guest user is in the UI](./media/add-users-administrator/InviteGuest.png) 
 
+    > [!NOTE]
+    > Some email providers allow users to add a plus symbol (+) and additional text to their email addresses to help with things like inbox filtering. However, Azure AD doesn’t currently support plus symbols in email addresses. To avoid delivery issues, omit the plus symbol and any characters following it up to the @ symbol.
+
 6. Select **Invite** to automatically send the invitation to the guest user. 
  
 After you send the invitation, the user account is automatically added to the directory as a guest.

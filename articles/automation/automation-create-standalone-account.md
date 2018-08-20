@@ -35,7 +35,7 @@ To create or update an Automation account, and to complete the tasks described i
 
 If you aren't a member of the subscription’s Active Directory instance before you are added to the subscription's global administrator/coadministrator role, you are added to Active Directory as a guest. In this scenario, you see this message on the **Add Automation Account** page: “You do not have permissions to create."
 
-If a user is added to the global administrator/coadministrator role first, you can remove them from the subscription's Active Directory instance, and then re-add them to the full User role in Active Directory.
+If a user is added to the global administrator/coadministrator role first, you can remove them from the subscription's Active Directory instance, and then readd them to the full User role in Active Directory.
 
 To verify user roles:
 
@@ -62,7 +62,7 @@ To create an Azure Automation account in the Azure portal, complete the followin
   >
   > ![Add Automation account warning](media/automation-create-standalone-account/create-account-without-perms.png)
   >
-1. In the **Add Automation Account** pane, in the **Name** box, enter a name for your new Automation account.
+1. In the **Add Automation Account** pane, in the **Name** box, enter a name for your new Automation account. This name cannot be changed after it is chosen.
 1. If you have more than one subscription, in the **Subscription** box, specify the subscription you want to use for the new account.
 1. For **Resource group**, enter or select a new or existing resource group.
 1. For **Location**, select an Azure datacenter location.
@@ -80,7 +80,7 @@ To create an Azure Automation account in the Azure portal, complete the followin
 
 ### Resources included
 
-When the Automation account is successfully created, several resources are automatically created for you. After creation these the runbooks can be safely deleted if you do not wish to keep them. The Run As Accounts, can be used to authenticate to your account in a runbook, and should be left unless you create another one or do not require them. The following table summarizes resources for the Run As account.
+When the Automation account is successfully created, several resources are automatically created for you. After creation, these runbooks can be safely deleted if you do not wish to keep them. The Run As Accounts, can be used to authenticate to your account in a runbook, and should be left unless you create another one or do not require them. The following table summarizes resources for the Run As account.
 
 | Resource | Description |
 | --- | --- |
