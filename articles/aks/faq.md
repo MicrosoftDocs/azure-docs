@@ -25,7 +25,7 @@ Yes, autoscaling is available via the [Kubernetes autoscaler][auto-scaler] as of
 
 ## Does AKS support Kubernetes role-based access control (RBAC)?
 
-Yes, Kubernetes RBAC is enabled by default when clusters are created with the Azure CLI, and can optionally be enabled when clusters are created using the Azure portal or templates.
+Yes, Kubernetes RBAC is enabled by default when clusters are created with the Azure CLI. RBAC can be enabled for clusters created using the Azure portal or templates.
 
 ## Can I deploy AKS into my existing virtual network?
 
@@ -33,14 +33,14 @@ Yes, you can deploy an AKS cluster into an existing virtual network using the [a
 
 ## Can I restrict the Kubernetes API server to only be accessible within my virtual network?
 
-Not at this time. The Kubernetes API server is exposed as a public fully qualified domain name (FQDN). You should control access to your cluster using [Kubernetes role-based access control (RBAC) and Azure Active Directory (AAD)][aks-rbac-aad]
+Not at this time. The Kubernetes API server is exposed as a public fully qualified domain name (FQDN). You can control access to your cluster using [Kubernetes role-based access control (RBAC) and Azure Active Directory (AAD)][aks-rbac-aad]
 
 ## Are security updates applied to AKS agent nodes?
 
 Yes, Azure automatically applies security patches to the nodes in your cluster on a nightly schedule. However, you are responsible for ensuring that nodes are rebooted as required. You have several options for performing node reboots:
 
 - Manually, through the Azure portal or the Azure CLI.
-- By upgrading your AKS cluster. Cluster upgrades automatically [cordon and drain nodes][cordon-drain], then bring each node back up with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-ugprade].
+- By upgrading your AKS cluster. Cluster upgrades automatically [cordon and drain nodes][cordon-drain], then bring each node back up with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade].
 - Using [Kured](https://github.com/weaveworks/kured), an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) and monitors each node for the presence of a file indicating that a reboot is required. OS reboots are managed across the cluster using the same [cordon and drain process][cordon-drain] as a cluster upgrade.
 
 ## Why are two resource groups created with AKS?
@@ -48,9 +48,9 @@ Yes, Azure automatically applies security patches to the nodes in your cluster o
 Each AKS deployment spans two resource groups:
 
 - The first resource group is created by you and contains only the Kubernetes service resource. The AKS resource provider automatically creates the second one during deployment, such as *MC_myResourceGroup_myAKSCluster_eastus*.
-- This second resource group, such as *MC_myResourceGroup_myAKSCluster_eastus*, contains all of the infrastructure resources associated with the cluster, such as VMs, networking, and storage. This separate resource group is created to simplify resource cleanup.
+- This second resource group, such as *MC_myResourceGroup_myAKSCluster_eastus*, contains all of the infrastructure resources associated with the cluster. These resources include the Kubernetes node VMs, virtual networking, and storage. This separate resource group is created to simplify resource cleanup.
 
-If you create resources that are to be used with your AKS cluster, such as storage accounts or reserved public IP addresses, place them in the automatically generated resource group.
+If you create resources for use with your AKS cluster, such as storage accounts or reserved public IP addresses, place them in the automatically generated resource group.
 
 ## Can I modify tags and other properties of the AKS resources in the MC_* resource group?
 
@@ -83,7 +83,7 @@ To run Windows Server containers, you need to run Windows Server-based nodes. Wi
 
 ## Does AKS offer a service level agreement?
 
-In a service level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service should the published service level not be met. Since AKS itself is free, there is no cost available to reimburse and thus no formal SLA. However, AKS seeks to maintain availability of at least 99.5% for the Kubernetes API server.
+In a service level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS itself is free, there is no cost available to reimburse and thus no formal SLA. However, AKS seeks to maintain availability of at least 99.5% for the Kubernetes API server.
 
 <!-- LINKS - internal -->
 
