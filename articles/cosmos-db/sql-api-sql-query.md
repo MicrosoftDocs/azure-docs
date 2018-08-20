@@ -395,7 +395,7 @@ Let’s take a look at some queries using binary operators.
     WHERE c.grade >= 5     -- matching grades == 5
 ```
 
-The unary operators +,-, ~ and NOT are also supported, and can be used inside queries as shown in the following examples:
+The unary operators +,-, ~, and NOT are also supported, and can be used inside queries as shown in the following examples:
 
 ```sql
     SELECT *
@@ -625,7 +625,7 @@ The following table shows the result of equality comparisons in the SQL API betw
    </tbody>
 </table>
 
-For other comparison operators such as >, >=, !=, < and <=, the following rules apply:   
+For other comparison operators such as >, >=, !=, <, and <=, the following rules apply:   
 
 * Comparison across types results in Undefined.  
 * Comparison between two objects or two arrays results in Undefined.   
