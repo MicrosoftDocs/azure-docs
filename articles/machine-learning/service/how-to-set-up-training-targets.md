@@ -435,31 +435,7 @@ print(os.environ.get("EXAMPLE_ENV_VAR1"))
 
 **TrackedRun**: This flag signals the Experimentation Service whether or not to track the run in Azure ML Workbench run history infrastructure. The default value is _true_. 
 
-**UseSampling**: _UseSampling_ specifies whether the active sample datasets for data sources are used for the run. If set to _false_, data sources ingest and use the full data read from the data store. If set to _true_, active samples are used. Users can use the **DataSourceSettings** to specify which specific sample datasets to use if they want to override the active sample. 
 
-**DataSourceSettings**: This configuration section specifies the data source settings. In this section, user specifies which existing data sample for a particular data source is used as part of the run. 
-
-The following configuration setting specifies that sample named "MySample" is used for the data source named "MyDataSource"
-```
-DataSourceSettings:
-    MyDataSource.dsource:
-    Sampling:
-    Sample: MySample
-```
-
-**DataSourceSubstitutions**: Data source substitutions can be used when the user wants to switch from one data source to another without changing their code. For example, users can switch from a sampled-down, local file to the original, larger dataset stored in Azure Blob by changing the data source reference. When a substitution is used, Azure ML Workbench runs your data sources and data preparation packages by referencing the substitute data source.
-
-The following example replaces the "mylocal.datasource" references in Azure ML data sources and data preparation packages with "myremote.dsource". 
- 
-```
-DataSourceSubstitutions:
-    mylocal.dsource: myremote.dsource
-```
-
-Based on the substitution above, the following code sample now reads from "myremote.dsource" instead of "mylocal.dsource" without users changing their code.
-```
-df = datasource.load_datasource('mylocal.dsource')
-```
 
 ## Next steps
 * [What is Azure Machine Learning service](overview-what-is-azure-ml.md)
