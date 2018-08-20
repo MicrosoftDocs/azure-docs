@@ -48,12 +48,14 @@ The cost of data can be considerable depending on the following factors:
 
 The log size varies based on string lengths of counters and can increase with the number of logical disks and network adapters.  If you already have a workspace and are collecting these counters, there will not be any duplicate charges applied.  ​
 ​
-Based on our testing with a standard configuration of the solution, the following is 
+Based on our testing with the default configuration of the solution, the following table provides an estimate of data consumption.
 
+|Data type | Estimated data generated |
+|----------|--------------------------|
+|Performance |0.5 GB /month at 60 second interval |
+|Maps |1.2 GB /month for connection and identity data |
+|Average Graph Store ingested data | 471 MB per VM /month|
 
-
-typical VM may generate about 0.5 GB per month of performance data with using a 60 second collection interval. ​
-​
 If you are already using Service Map, the only change you’ll see is the additional connection data being sent to Log Analytics.​
 
 
