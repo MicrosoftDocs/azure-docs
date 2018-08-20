@@ -11,11 +11,24 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
 ---
-# Set up compute targets for model training
+# How to select and use a compute target to train your model
 
-Azure Machine Learning service enables data scientists to execute their experiments in a number of different compute targets. In this article, you'll learn about the compute targets available for training your experiments and how to set them up for your experiments.
+With the Azure Machine Learning service, you can train your model in several different environments. These environments, called __compute targets__, can be local or in the cloud. In this document, you will learn about the supported compute targets and how to use them.
 
 A compute target is the compute resource used to execute your training script or host your web service deployment. They can be created and managed by using Azure Machine Learning Python SDK or CLI. You can also attach existing compute targets to your workspace in Azure portal. You can start with local runs on your machine, but then follow an easy path for scaling up and out to other environments such as remote Data Science VMs with GPU or Batch AI clusters.
+
+## Supported compute targets
+
+The following is a list of supported compute targets:
+
+* Your local computer
+* A Linux virtual machine in Linux. For example, the Data Science Virtual Machine.
+* Azure Batch AI
+* Azure Container Instance
+
+[TBD - why use one over the other This might be inline in the bulleted list, or it might be better formatted as a table.]
+
+## Workflow
 
 The workflow for developing and deploying a model with Azure Machine Learning generally follows these steps:
 
@@ -318,66 +331,6 @@ Azure ML Workbench uses the same conda environment without rebuilding it as long
 >[!NOTE]
 >If you target execution against _local_ compute context, **conda_dependencies.yml** file is **not** used. Package dependencies for your local Azure ML Workbench Python environment need to be installed manually.
 
-### spark_dependencies.yml
-This file specifies the Spark application name when you submit a PySpark script and Spark packages that need to be installed. You can also specify a public Maven repository as well as Spark packages that can be found in those Maven repositories.
-
-Here is an example:
-
-```yaml
-configuration:
-  # Spark application name
-  "spark.app.name": "ClassifyingIris"
-  
-repositories:
-  # Maven repository hosted in Azure CDN
-  - "https://mmlspark.azureedge.net/maven"
-  
-  # Maven repository hosted in spark-packages.org
-  - "https://spark-packages.org/packages"
-  
-packages:
-  # MMLSpark package hosted in the Azure CDN Maven
-  - group: "com.microsoft.ml.spark"
-    artifact: "mmlspark_2.11"
-    version: "0.5"
-    
-  # spark-sklearn packaged hosted in the spark-packages.org Maven
-  - group: "databricks"
-    artifact: "spark-sklearn"
-    version: "0.2.0"
-```
-
->[!NOTE]
->Cluster tuning parameters such as worker size and cores should go into "configuration" section in the spark_dependecies.yml file 
-
->[!NOTE]
->If you are executing the script in Python environment, *spark_dependencies.yml* file is ignored. It is used only if you are running against Spark (either on Docker or HDInsight Cluster).
-
-### Run configuration
-To specify a particular run configuration, you need a .compute file and a .runconfig file. These are typically generated using a CLI command. You can also clone exiting ones, rename them, and edit them.
-
-```azurecli
-# create a compute target pointing to a VM via SSH
-$ az ml computetarget attach remotedocker -n <compute target name> -a <IP address or FQDN of VM> -u <username> -w <password>
-
-# create a compute context pointing to an HDI cluster head-node via SSH
-$ az ml computetarget attach cluster -n <compute target name> -a <IP address or FQDN of HDI cluster> -u <username> -w <password> 
-```
-
-This command creates a pair of files based on the compute target specified. Let's say you named your compute target _foo_. This command generates _foo.compute_ and _foo.runconfig_ in your **aml_config** folder.
-
->[!NOTE]
-> _local_ or _docker_ names for the run configuration files are arbitrary. Azure ML Workbench adds these two run configurations when you create a blank project for your convenience. You can rename "<run configuration name>.runconfig" files that come with the project template, or create new ones with any name you want.
-
-#### \<compute target name>.compute
-_\<compute target name>.compute_ file specifies connection and configuration information for the compute target. It is a list of name-value pairs. Following are the supported settings:
-
-**type**: Type of the compute environment. Supported values are:
-  - local
-  - remote
-  - docker
-  - remotedocker
-  - cluster
 
 
 ## Next steps
