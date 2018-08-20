@@ -12,6 +12,7 @@ ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
+ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.workload: azure-vs
 ms.date: 03/26/2018

@@ -8,6 +8,7 @@ manager: wpickett
 editor: ''
 ms.service: storage
 ms.workload: web
+ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.custom: vs-azure
 ms.tgt_pltfrm: vs-getting-started
