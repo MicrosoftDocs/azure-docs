@@ -30,7 +30,7 @@ You can also get started by watching the following videos that show Azure Cosmos
 >
 >
 
-More advanced querying querying techniques are demonstrated in the following video:
+More advanced querying techniques are demonstrated in the following video:
 
 > [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
 >
