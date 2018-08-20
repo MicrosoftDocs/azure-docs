@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 08/20/2018
 ms.author: raynew
 ---
 
@@ -36,7 +36,7 @@ To enable collection of disk and network performance data, change the statistics
 
 This could happen if the OVA is partially downloaded or due to the browser if you are using vSphere web client to deploy the OVA. Ensure that the download is complete and try deploying the OVA with a different browser.
 
-### Collector is not able to connect to the internet
+### Collector is not able to connect to the Internet
 
 This can happen when the machine you are using is behind a proxy. Make sure you provide the authorization credentials if the proxy needs one.
 If you are using any URL-based firewall proxy to control outbound connectivity, be sure to whitelist these required URLs:
@@ -45,6 +45,9 @@ If you are using any URL-based firewall proxy to control outbound connectivity, 
 --- | ---
 *.portal.azure.com | Required to check connectivity with the Azure service and validate time synchronization issues.
 *.oneget.org | Required to download the powershell based vCenter PowerCLI module.
+
+**The collector can't connect to the internet because of a certificate validation failure**
+This can happen if you are using an intercepting proxy to connect to the Internet, and if you have not imported the proxy certificate on to the collector VM. You can import the proxy certificate using the steps detailed [here](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
 
 **The collector can't connect to the project using the project ID and key I copied from the portal.**
 
