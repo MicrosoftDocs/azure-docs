@@ -57,7 +57,7 @@ A.  Data Box is available in US and all the countries in European Union during t
 A. Data Box is supported for all regions within US and West Europe and North Europe for preview. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
 
 ### Q. Whom should I contact if I encounter any issues with Data Box?
-A. If you encounter any issues with Data Box, please contact [Microsoft Support](data-box-contact-microsoft-support).
+A. If you encounter any issues with Data Box, please contact [Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 
 ## Order device
@@ -73,7 +73,7 @@ Check your subscription. Data Box is only available for Enterprise Agreement (EA
 If you have supported offer type for the subscription, check your subscription access level. You need to be a contributor or owner in your subscription to create an order.
 
 ### Q. I ordered a couple of Data Box devices. I am not able to create any additional orders. Why would this be?
-A. We allow for a maximum of 3 active orders per subscription per commerce boundary (combination of country and the region selected). If you need to order device, [contact Microsoft Support](data-box-contact-microsoft-support.md) to increase the limit for your subscription.
+A. We allow for a maximum of 3 active orders per subscription per commerce boundary (combination of country and the region selected). If you need to order device, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md) to increase the limit for your subscription.
 
 ### Q. Data Box model not available
 A. "Data Box service is not available for the combination of country and region customer has selected. We do not service cross commerce boundary customers

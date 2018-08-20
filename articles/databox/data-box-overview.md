@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/08/2018
+ms.date: 08/20/2018
 ms.author: alkohli
 ---
 # What is Azure Data Box?
@@ -44,10 +44,6 @@ Data Box is designed to move large amounts of data to Azure with little to no im
 
  - **Speed** - Data Box uses 1 Gbps or 10 Gbps network interfaces to move up to 80 TB of data into Azure in less than a week.
 
- - **Easy to use** - Data Box is an easy to use solution.
-     - The device uses USB connectivity with almost no setup time.
-     - The solution provides end-to-end tracking via the Azure portal.
-
 - **Secure** - Data Box has built-in security protections for the device, data, and the service.
     - The device has a rugged device casing secured by tamper-resistant screws and tamper-evident stickers. 
     - The data on the device is secured with an AES 256-bit encryption at all times.
@@ -55,7 +51,7 @@ Data Box is designed to move large amounts of data to Azure with little to no im
     - The service is protected by the Azure security features.
     - Once your data is uploaded to Azure, the disks on the device are wiped clean, in accordance with NIST 800-88r1 standards.
     
-    For more information, go to Azure Data Box security and data protection.
+    For more information, go to [Azure Data Box security and data protection](data-box-security.md).
 
 ## Features and specifications
 
@@ -94,7 +90,7 @@ The Data Box includes the following components:
 
     ![The Data Box local web UI](media/data-box-overview/data-box-local-web-ui.png)
 
-    For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-web-ui-admin.md).
+    For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-portal-ui-admin.md).
 
 ## The workflow
 
@@ -102,7 +98,7 @@ A typical flow includes the following steps:
 
 1. **Order** - Create an order in the Azure portal, provide shipping information, and the destination Azure storage account for your data. If the device is available, Azure prepares and ships the device with a shipment tracking ID.
 
-2. **Receive** - Once the device is delivered, cable the device for network and power using specified cables. Turn on and connect to the device. Configure the device network and mount shares on the host computer from where you want to copy the data.
+2. **Receive** - Once the device is delivered, cable the device for network and power using the specified cables. Turn on and connect to the device. Configure the device network and mount shares on the host computer from where you want to copy the data.
 
 3. **Copy data** - Copy data to Data Box shares.
 
@@ -130,8 +126,8 @@ Data Box can transfer data based on the region in which service is deployed, cou
 
 ## Next steps
 
-- Review the Data Box system requirements.
-- Understand the Data Box limits.
+- Review the [Data Box system requirements](data-box-system-requirements.md).
+- Understand the [Data Box limits(data-box-limits.md)].
 - Quickly deploy [Azure Data Box](data-box-quickstart-portal.md) in Azure portal.
 
 

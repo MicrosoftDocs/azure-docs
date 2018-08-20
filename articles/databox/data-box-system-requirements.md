@@ -80,5 +80,5 @@ Your datacenter needs to have high-speed network. We strongly recommend that you
 
 ## Next step
 
-* [Deploy your Azure Data Box](azure-data-box-deploy.md)
+* [Deploy your Azure Data Box](data-box-deploy-ordered.md)
 

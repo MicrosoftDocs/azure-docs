@@ -56,7 +56,7 @@ When you receive the Data Box, do the following steps to unpack, cable, and turn
 1. If there is any evidence that the device is tampered with or damaged, do not proceed. Contact Microsoft Support to ship you a replacement device.
 2. Before you cable your device, ensure that you have the following cables:
     
-    1. Provided grounded power cord rated at 10 A or greater with an IEC60320 C-13 connector at one end to connect to the device.
+    1. (Included) grounded power cord rated at 10 A or greater with an IEC60320 C-13 connector at one end to connect to the device.
     2. One 1 GbE RJ-45 CAT 6 network cables to connect to the 1 Gbps management network interface.
     3. One 1 GbE RJ-45 network cable to connect to the 1 Gbps data network interface.
     4. Two 10 GbE SFP+ copper cables to connect to the 10 Gbps network interfaces.
@@ -77,7 +77,7 @@ When you receive the Data Box, do the following steps to unpack, cable, and turn
 
 This step takes about 5-7 minutes to complete.
 
-1. To get the device password, go to **General > Credentials** in the [Azure portal](http://portal.azure.com).
+1. To get the device password, go to **General > Device details** in the [Azure portal](http://portal.azure.com).
 2. Assign a static IP address of 192.168.100.5 and subnet 255.255.255.0 to the Ethernet adapter on the computer you are using to connect to Data Box. Access the local web UI of the device at `https://192.168.100.10`. The connection could take up to 5 minutes after you turned on the device. 
 3. Sign in using the password from the Azure portal. You see an error indicating a problem with the website’s security certificate. Follow the browser-specific instructions to proceed to the web page.
 4. By default, the network settings for the 10 Gbps data interface (or 1 Gbps) are configured as DHCP. If needed, you can configure this interface as static and provide an IP address. 
