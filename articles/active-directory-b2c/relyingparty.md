@@ -208,7 +208,7 @@ The **SubjectNamingInfo** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ClaimType | True | A reference to an output claim's **PartnerClaimType**. The output claims must be defined in the relying party policy **OutputClaims** collection. |
+| ClaimType | Yes | A reference to an output claim's **PartnerClaimType**. The output claims must be defined in the relying party policy **OutputClaims** collection. |
 
 The following example shows how to define an OpenId Connect relying party. The subject name info is configured as the `objectId`:
 

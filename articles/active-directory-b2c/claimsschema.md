@@ -48,7 +48,7 @@ The `ClaimType` element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Id | True | An identifier that's used for the claim type. Other elements can use this identifier in the policy file. |
+| Id | Yes | An identifier that's used for the claim type. Other elements can use this identifier in the policy file. |
 
 The `ClaimType` element contains the following child elements:
 
@@ -74,8 +74,8 @@ The `Protocol` element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Name | True | The name of a valid protocol supported by Azure AD B2C. Possible values are: None, OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed, WsTrust, or Proprietary. |
-| PartnerClaimType | True | The claim type name to be used. |
+| Name | Yes | The name of a valid protocol supported by Azure AD B2C. Possible values are: None, OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed, WsTrust, or Proprietary. |
+| PartnerClaimType | Yes | The claim type name to be used. |
 
 ### Mask
 
@@ -83,8 +83,8 @@ The `Mask` element can contain the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Type | True | The type of the claim mask. This attribute takes one of the following values: <ul><li>**Simple** - A simple text mask that is applied to the leading portion of a string claim.</li><li> **Regex** - A regular expression that can be applied to the string claim as whole.  If the latter value is specified, an optional eponym attribute must also be defined with the regular expression to use. |
-| Regex | False | If `Type` is set to **Regex**, specify the regular expression to use.
+| Type | Yes | The type of the claim mask. Possible values: **Simple** or **Regex**. The **Simple** value indicates that a simple text mask is applied to the leading portion of a string claim. The **Regex** value indicates that a regular expression is applied to the string claim as whole.  If the **Regex** value is specified, an optional attribute must also be defined with the regular expression to use. |
+| Regex | No | If `Type` is set to **Regex**, specify the regular expression to use.
 
 The follwing example configures a **PhoneNumber** claim with the **Simple** mask:
 
@@ -124,7 +124,7 @@ The `Restriction` element may contain the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| MergeBehavior | False | The method used to merge enumeration values with a ClaimType in a parent policy with the same identifier. Use this attribute when you overwrite a claim specified in base policy. The attribute takes one of the following values: <ul><li> **Append** - The collection of data should be appended to the end of the collection specified in the parent policy.</li><li> **Prepend** - The collection of data should be added before the collection specified in the parent policy.</li><li> **ReplaceAll** - The collection of data specified in the parent policy should be ignored, using the data specified in the current policy.</li></ul>|
+| MergeBehavior | No | The method used to merge enumeration values with a ClaimType in a parent policy with the same identifier. Use this attribute when you overwrite a claim specified in base policy. The attribute takes one of the following values: <ul><li> **Append** - The collection of data should be appended to the end of the collection specified in the parent policy.</li><li> **Prepend** - The collection of data should be added before the collection specified in the parent policy.</li><li> **ReplaceAll** - The collection of data specified in the parent policy should be ignored, using the data specified in the current policy.</li></ul>|
 
 The `Restriction` element contains the following elements:
 
@@ -139,9 +139,9 @@ The `Enumeration` element contains one of the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Text | True | The display string that is shown to the user in the user interface for this option. |
-|Value |True | The claim value that is associated with selecting this option. |
-| SelectByDefault | False | Indicates whether or not this option should be selected by default in the UI. Possible values: True or False. |
+| Text | Yes | The display string that is shown to the user in the user interface for this option. |
+|Value | Yes | The claim value that is associated with selecting this option. |
+| SelectByDefault | No | Indicates whether or not this option should be selected by default in the UI. Possible values: True or False. |
 
 The following example configures a **city** dropdown list claim with a default value set to **New York**:
 
@@ -168,8 +168,8 @@ The `Pattern` element can contain the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| RegularExpression | True | The regular expression that claims of this type must match in order to be valid. |
-| HelpText | False | The pattern or regular expression for this claim. |
+| RegularExpression | Yes | The regular expression that claims of this type must match in order to be valid. |
+| HelpText | No | The pattern or regular expression for this claim. |
 
 The following example configures an **email** claim with regular expression input validation and help text:
 

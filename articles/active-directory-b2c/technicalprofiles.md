@@ -87,13 +87,14 @@ The **TechnicalProfile** contains the following elements:
 | InputClaimsTransformations | 0:1 | A list of previously defined references to claims transformations that should be executed before any claims are sent to the claims provider or the relying party. |
 | InputClaims | 0:1 | A list of the previously defined references to claim types that are taken as input in the technical profile. |
 | PersistedClaims | 0:1 | A list of the previously defined references to claim types that are persisted by the claims provider that relates to the technical profile. |
-| OutputClaims | 0:1 | An list of the previously defined references to claim types that are taken as output in the technical profile. |
+| OutputClaims | 0:1 | A list of the previously defined references to claim types that are taken as output in the technical profile. |
 | OutputClaimsTransformations | 0:1 | A list of previously defined references to claims transformations that should be executed after the claims are received from the claims provider. |
 | ValidationTechnicalProfiles | 0:n | A list of references to other technical profiles that the technical profile uses for validation purposes. |
 | SubjectNamingInfo | 0:1 | Controls the production of the subject name in tokens where the subject name is specified separately from claims. For example, OAuth or SAML.  |
 | IncludeClaimsFromTechnicalProfile | 0:1 | An identifier of a technical profile from which you want all of the input and output claims to be added to this technical profile. The referenced technical profile must be defined in the same policy file. | 
 | IncludeTechnicalProfile |0:1 | An identifier of a technical profile from which you want all data to be added to this technical profile. The referenced technical profile must exist in the same policy file. |
 | UseTechnicalProfileForSessionManagement | 0:1 | A different technical profile to be used for session management. |
+|EnabledForUserJourneys| 0:1 |Controls if the technical profile is executed in a user journey.  |
 
 ### Protocol
 
@@ -263,6 +264,31 @@ The **UseTechnicalProfileForSessionManagement** element contains the following a
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ReferenceId | Yes | An identifier of a technical profile already defined in the policy file or parent policy file. |
+
+### EnabledForUserJourneys
+The `<ClaimsProviderSelections>` in a user journey defines the list of claims provider selection options and their order. With the `EnabledForUserJourneys` element  you filter, which claims provider is avaible to the user. The **EnabledForUserJourneys** element contains one of the following values:
+
+- **Always**, execute the technical profile.
+- **Never**, skip the technical profile. 
+- **OnClaimsExistence** execute only when a certain claim, specified in the technical profile exists. 
+- **OnItemExistenceInStringCollectionClaim**, execute only when an item exists in a string collection claim. 
+- **OnItemAbsenceInStringCollectionClaim** execute only when an item does not exist in a string collection claim.
+
+Using `OnClaimsExistence`,  `OnItemExistenceInStringCollectionClaim` or `OnItemAbsenceInStringCollectionClaim`, requires to provide following metadata: `ClaimTypeOnWhichToEnable`, specifies the claim's type, which is to be evaluated. `ClaimValueOnWhichToEnable`, specifies the value, which is to be compared.
+
+Following technical profile is executed only if the `identityProviders` string collection contains the value of `facebook.com`
+```XML
+<TechnicalProfile Id="UnLink-Facebook-OAUTH">
+  <DisplayName>Unlink Facebook</DisplayName>
+...
+    <Metadata>
+        <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
+        <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
+    </Metadata>        
+...
+  <EnabledForUserJourneys>OnItemExistenceInStringCollectionClaim</EnabledForUserJourneys>
+</TechnicalProfile>  
+```
 
 
 
