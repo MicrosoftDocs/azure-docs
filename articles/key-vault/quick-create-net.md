@@ -143,12 +143,12 @@ Azure Key Vault provides a way to securely store credentials and other keys and 
 1. Return to the Azure CLI.
 2. Run the assign-identity command to create the identity for this application:
 
-```azurecli
-az webapp identity assign --name "keyvaultdotnetcorequickstart" --resource-group "<YourResourceGroupName>"
-```
+   ```azurecli
+   az webapp identity assign --name "keyvaultdotnetcorequickstart" --resource-group "<YourResourceGroupName>"
+   ```
 
 >[!NOTE]
->This command is the equivalent of going to the portal and switching **Managed service identity** to **On** in the web application properties.
+>The command in this procedure is the equivalent of going to the portal and switching **Managed service identity** to **On** in the web application properties.
 
 ## Assign permissions to your application to read secrets from Key Vault
 
@@ -160,7 +160,7 @@ Make a note of the output when you publish the application to Azure. It should b
           "type": "SystemAssigned"
         }
         
-Then, run this command by using the name of your key vault and the value of **PrincipalId** copied from earlier:
+Then, run this command by using the name of your key vault and the value of **PrincipalId**:
 
 ```azurecli
 
