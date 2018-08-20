@@ -12,13 +12,13 @@ services: iot-accelerators
 
 # Use Time Series Insights to visualize telemetry sent from the Remote Monitoring solution accelerator
 
-As an operator, you may want to extend the out-of-the-box data visualization capabilities of the Remote Monitoring solution accelerator. This how-to guide shows you how to use using a Time Series Insights environment to visualize and analyze telemetry sent to the Remote Monitoring solution accelerator.
+As an operator, you may want to extend the out-of-the-box data visualization capabilities of the Remote Monitoring solution accelerator. This how-to guide shows you how to use a Time Series Insights environment to visualize and analyze telemetry sent to the Remote Monitoring solution accelerator.
 
 ## Prerequisites
 
 To follow the steps in this how-to guide, you need an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-The steps in this how-to guide assume you have deployed the Remote Monitoring solution accelerator to your Azure subscription. If you haven't deployed the solution accelerator, follow the steps in the [Deploy and run a cloud-based remote monitoring solution](quickstart-remote-monitoring-deploy.md) quickstart.
+The steps in this how-to guide assume you've deployed the Remote Monitoring solution accelerator to your Azure subscription. If you haven't deployed the solution accelerator, follow the steps in the [Deploy and run a cloud-based remote monitoring solution](quickstart-remote-monitoring-deploy.md) quickstart.
 
 This article assumes the name of your solution accelerator is **contoso-simulation**. Replace **contoso-simulation** with the name of your solution accelerator as you complete the following steps.
 
