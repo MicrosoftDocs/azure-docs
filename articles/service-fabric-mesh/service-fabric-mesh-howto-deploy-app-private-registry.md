@@ -78,7 +78,7 @@ az group create --name myResourceGroup --location eastus
 
 ### Create a container registry
 
-Create an Azure container registry (ACR) instance using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry007* is used. If you get an error that the registry name is in use, choose a different name. Use that name everywhere `<acrName>` appears in later instructions.
+Create an Azure container registry (ACR) instance using the [az acr create][az-acr-create] command. The registry name must be unique within Azure and contain 5-50 alphanumeric characters. In the following example, the name *myContainerRegistry007* is used. If you get an error that the registry name is in use, choose a different name. Use that name everywhere `<acrName>` appears in these instructions.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
@@ -112,24 +112,26 @@ When the registry is created, you'll see output similar to the following:
 To push an image to an Azure container registry (ACR), you must first have a container image. If you don't yet have any local container images, run the following command to pull the an image from Docker Hub (you may need to switch Docker to work with Linux images by right-clicking the docker icon and selecting **Switch to Linux containers...**).
 
 ```bash
-docker pull seabreeze/azure-mesh-helloworld:1.0-alpine
+docker pull seabreeze/azure-mesh-helloworld:1.1-alpine
 ```
 
 Before you can push an image to your registry, you must tag it with the fully qualified name of your ACR login server.
 
-Run the following command to get the full login server name of your ACR instance. It will be referred to as <acrLoginServer> throughout the rest of this article.
+Run the following command to get the full login server name of your ACR instance.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Tag the image using the [docker tag][docker-tag] command. Below, replace `<acrLoginServer>` with the login server name reported by the command above. The following example tags the seabreeze/azure-mesh-helloworld:1.0-alpine image. If you are using a different image, substitute the image name in the following command.
+The full login server name that is returned will be referred to as `<acrLoginServer>` throughout the rest of this article.
+
+Now tag your docker image using the [docker tag][docker-tag] command. In the command below, replace `<acrLoginServer>` with the login server name reported by the command above. The following example tags the seabreeze/azure-mesh-helloworld:1.1-alpine image. If you are using a different image, substitute the image name in the following command.
 
 ```bash
-docker tag seabreeze/azure-mesh-helloworld:1.0-alpine <acrLoginServer>/seabreeze/azure-mesh-helloworld:1.0-alpine
+docker tag seabreeze/azure-mesh-helloworld:1.1-alpine <acrLoginServer>/seabreeze/azure-mesh-helloworld:1.1-alpine
 ```
 
-For example: `docker tag seabreeze/azure-mesh-helloworld:1.0-alpine myContainerRegistry007.azurecr.io/seabreeze/azure-mesh-helloworld:1.0-alpine`
+For example: `docker tag seabreeze/azure-mesh-helloworld:1.1-alpine myContainerRegistry007.azurecr.io/seabreeze/azure-mesh-helloworld:1.1-alpine`
 
 Log in to the Azure Container Registry.
 
@@ -142,10 +144,10 @@ For example: `az acr login -n myContainerRegistry007`
 Push the image to the azure container registry with the following command:
 
 ```bash
-docker push <acrLoginServer>/seabreeze/azure-mesh-helloworld:1.0-alpine
+docker push <acrLoginServer>/seabreeze/azure-mesh-helloworld:1.1-alpine
 ```
 
-For example: `docker push myContainerRegistry007.azurecr.io/seabreeze/azure-mesh-helloworld:1.0-alpine`
+For example: `docker push myContainerRegistry007.azurecr.io/seabreeze/azure-mesh-helloworld:1.1-alpine`
 
 ### List container images
 
@@ -177,10 +179,10 @@ Output:
 ```bash
 Result
 --------
-1.0-alpine
+1.1-alpine
 ```
 
-The preceding output confirms the presence of `azure-mesh-helloworld:1.0-alpine` in the private container registry.
+The preceding output confirms the presence of `azure-mesh-helloworld:1.1-alpine` in the private container registry.
 
 ## Retrieve credentials for the registry
 
@@ -192,6 +194,7 @@ In order to deploy a container instance from the registry that was created, you 
 ```azurecli-interactive
 az acr update --name <acrName> --admin-enabled true
 ```
+
 For example: `az acr update --name myContainerRegistry007 --admin-enabled true`
 
 Get the registry server name, user name, and password by using the following commands:
