@@ -143,7 +143,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |7.17.1|Each app or add-in must have a unique name (for example, Test Add-in, Test Add-in: Premium).|
 |7.17.2|The binary can remain the same across the multiple app or add-in listings.|
 |7.17.3|We recommend, as a best practice, that you notify users that multiple app or add-in listings exist in the description for each. This ensures that users are aware that different cost/functionality tiers are available. |
-|7.18<br/>**Education apps or add-ins**|An education app or add-in is used in a class or study context, by teachers and/or students.<br/><br/>An education app or add-in is submitted under the "Education" category.<br/><br/>An education app or add-in must provide in the testing notes at least one and up to three applicable subjects:<br/><br/>Math<br/>Literacy (English Language Arts)<br/>Science<br/>Social Studies<br/>Health and Fitness<br/>Engineering and Technology<br/>Business, Finance, and Economics<br/>Computer Science<br/>Languages<br/>Art and Music<br/>Teaching Tools and Resources<br/><br/>An education app or add-in must provide in the testing notes a minimum of one applicable age range:<br/><br/>Preschool and Kindergarten<br/>Elementary School (1st-5th Grade)<br/>Middle School (6-8th Grade)<br/>High School (9-12th Grade)<br/>Higher Education|
+|7.18| Deleted.
 |7.19| You may not use Microsoft product names in your app or add-in title.<br/><br/>**Note:** We may make some exceptions in cases where an add-in runs in multiple Microsoft products; for example, Contoso for SharePoint, Contoso for Outlook, Contoso for Office 365.
 
 <a name="bk_9"> </a>
@@ -253,6 +253,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.2|August 20,2018|Removed policy 7.18.|
 |2.2|July 4, 2018|Updated policy 3.2.|
 |2.2|June 11, 2018|Added policy 7.4.6.|
 |2.2|May 16, 2018|Updated policy 5.1.|
