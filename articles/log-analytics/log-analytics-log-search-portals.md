@@ -1,5 +1,5 @@
 ---
-title: Viewing and analyzing data in Log Analytics | Microsoft Docs
+title: Viewing and analyzing data in Azure Log Analytics | Microsoft Docs
 description: This article describes the portals that you can use in Azure Log Analytics to create and edit log searches.  
 services: log-analytics
 documentationcenter: ''
