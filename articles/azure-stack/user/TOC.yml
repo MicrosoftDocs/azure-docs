@@ -67,6 +67,8 @@
         href: azure-stack-storage-overview.md
       - name: Storage considerations
         href: azure-stack-acs-differences.md
+      - href: azure-stack-managed-disk-considerations.md
+        name: Managed Disks considerations
       - name: Storage development tools
         href: azure-stack-storage-dev.md
       - name: Data transfer tools

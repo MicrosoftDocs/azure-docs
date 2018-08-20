@@ -28,8 +28,9 @@ These release notes provide information about improvements, fixes, and known iss
 ### New features
 This build includes the following improvements and fixes for Azure Stack.  
 
-- <!-- 2682594   | ASDK  -->   Beginning with version 1808, all Azure Stack environments use the Coordinated Universal Time (UTC) time zone format.  All log data and related information now displays in UTC format. 
+- <!-- 2682594   | ASDK  -->   **All Azure Stack environments now use the Coordinated Universal Time (UTC) time zone format.**  All log data and related information now displays in UTC format. 
 
+- <!-- 2437250  | IS  ASDK --> **Managed Disks are supported.** You can now use Managed Disks in Azure Stack virtual machines and virtual machine scale sets. For more information, see [Azure Stack Managed Disks: Differences and considerations](.\.\user\azure-stack-managed-disk-considerations).
  
 
 ### Fixed issues
