@@ -21,7 +21,7 @@ ms.component: na
 There are two options available in the Azure portal for analyzing data stored in Log analytics and for creating queries for ad hoc analysis. The queries that you create using these portals can be used for other features such as alerts and dashboards.
 
 ## Log Analytics page (preview)
-Open the Log Analytics page from **Logs (preview)** in the Log Analytics menu. This is new experience for working with log data and creating queries. You can get an introduction to this portal and inspect its features at [Get started with the Analytics Portal in Log Analytics](query-language/get-started-analytics-portal.md).
+Open the Log Analytics page from **Logs (preview)** in the Log Analytics menu. This is a new experience for working with log data and creating queries. You can get an introduction to this portal and inspect its features at [Get started with the Analytics Portal in Log Analytics](query-language/get-started-analytics-portal.md).
 
 > [!NOTE]
 > The Log Analytics page has the same functionality as the Advanced Analytics portal which is an external tool outside of the Azure portal. The Advanced Analytics portal is still available, but links and other references to it in the Azure portal are being replaced with this new page.
