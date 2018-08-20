@@ -19,7 +19,6 @@ ms.author: magoedte
 
 # Understand the health of your virtual machines with Azure Monitor VM insights
 
-
 Viewing the health state of your Azure virtual machines can be observed two ways with VM insights.  You can view the health of the selected VM when you select **Insights (preview)** from the left-hand pane or to see a broad view across all VMs in your subscription, select **Virtual Machines (preview)** from Azure Monitor.  
 
 ## Sign in to the Azure portal
@@ -72,8 +71,8 @@ The **Fired alerts** table shows the top alerts raised and the **Top health issu
 |Health Criteria |The name of the health criteria measuring the health state on the monitored VM. |
 |Unhealthy components |The number of components in the environment that are in an unhealthy state with respect to the health criterion. |
 |Unknown state components |The number of components whose health state is unknown with respect to this health condition. |
-|Category |The health criteria are organized into four major health categories based on the aspect that they align with.<br>  a. Availability<br>  b. Performance  |
-|Component type | Indicates the type of component of the VM on which this health criterion is acting. For example, Logical disk, physical disk, Network adapter etc.
+|Category |The health criteria are organized into two major health categories based on the aspect that they align with - *Availability* and *Performance*.  |
+|Component type | Indicates the type of component of the VM on which this health criterion is acting - *Logical disk*, *Disk*, *Network adapter*, *Memory*, and *Processor*.
 
 Selecting **See All Health Criteria** opens a page show a list view of all the health criteria available with this solution.  The information can be further filtered based on the following options:
 
@@ -119,14 +118,29 @@ Health diagnostics view gives the user the ability to view all the components of
 
 You can launch Health diagnostics in the following ways.
 
-1. From the VM insights home page, by clicking on the icon for Critical, Warning, or Unknown health state and drill-down to the page that lists all the VMs matching that category.  Clicking on the value in the **Health State** column will open Health Diagnostics scoped to that particular VM.     
+1. By rollup health state for all VMs from the aggregate VM perspective in Azure Monitor.  On the VM insights health page, clicking on the icon for Critical, Warning, or Unknown health state under the section **Guest VM health** and drill-down to the page that lists all the VMs matching that filtered category.  Clicking on the value in the **Health State** column will open Health Diagnostics scoped to that particular VM.     
 
     <Show image> 
 
-    This will open a page listing all the VMs in that category, for example all VMs in a critical state.  
+2. By operating system from the aggregate VM perspective in Azure Monitor. Under **VM distribution**, selecting any one of the column values will open the **Virtual Machines** page and return a list in the table matching the filtered category.  Clicking on the value under **Health State** column opens Health diagnostics for the selected VM.    
 
-2. Under VM distribution, Click on the VM count in any one of the columns (VM Count/Critical/Warning/Healthy/Unknown).  
+    <Show image>
  
-This is will open the list view of VMs in that category  
-2. 
+4. From the guest VM on the VM insights health tab, by selecting **View health diagnostics** 
+
+    <Show image>
+
+Health diagnostics organizes health information into the following categories: 
+
+* Availability
+* Performance
+* Configuration
+* Security 
  
+All health criteria defined for a selected target displays in the appropriate category. 
+
+<Show image>
+
+Health state for health criteria is defined by one of the three states – critical, warning and healthy. There is another state, which is not associated with health criterion, but represents the monitoring status – Unknown 
+The following are the health states represented in Health Diagnostics 
+Icon 
