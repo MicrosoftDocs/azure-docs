@@ -46,7 +46,7 @@ If you need to keep the backups for longer than the maximum PITR retention perio
 > [!IMPORTANT]
 > If you delete the Azure SQL server that hosts SQL databases, all elastic pools and databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server. But if you configured long-term retention, the backups for the databases with LTR will not be deleted and these databases can be restored.
 
-### PITR Retention period
+### PITR retention period
 The default retention period for a database created using the DTU-based purchasing model depends on the service tier:
 
 * Basic service tier is 1 week.
