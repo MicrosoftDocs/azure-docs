@@ -27,7 +27,7 @@ Using a declarative language, Ansible allows you to automate the creation, confi
 
   **Install and configure Ansible on a Linux virtual machine**
 
-  1. **Install Ansible** - Install Ansible on one of the following Linux platforms: [CentOS 7.4](/azure/virtual-machines/linux/ansible-install-configure#centos-74), [Ubuntu 16.04 LTS](/azure/virtual-machines/linux/ansible-install-configure#ubuntu-1604-lts), or [SLES 12 SP2](/azure/virtual-machines/linux/ansible-install-configure#sles-12-sp2)
+  1. **Install Ansible** - Install Ansible on a [supported Linux platform](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine).
 
   1. **Configure Ansible** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 

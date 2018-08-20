@@ -14,11 +14,6 @@ ms.topic: quickstart
 
 Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machines (VMs) in Azure, the same as you would any other resource. This article details how to install Ansible and the required Azure Python SDK modules for some of the most common Linux distros. You can install Ansible on other distros by adjusting the installed packages to fit your particular platform. To create Azure resources in a secure manner, you also learn how to create and define credentials for Ansible to use. For a list of additional tools available in the Cloud Shell, see [Features and tools for Bash in the Azure Cloud Shell](../../cloud-shell/features.md#tools).
 
-There are two ways to install Ansible for use with Azure:
-
-- **Configure Azure Cloud Shell** - Ansible is installed in the Azure Cloud Shell. For more information about starting and configuring the Cloud Shell, see the article, [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart).
-- **Install Ansible on a Linux virtual machine** - Learn how to [install Ansible on any of several supported Linux distros](#install-ansible-on-an-azure-linux-virtual-machine).
-
 ## Prerequisites
 
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
