@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with the Update Management agent.
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/13/2018
+ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
@@ -13,19 +13,19 @@ manager: carmonm
 
 # Understand the agent check results in Update Management
 
-There may be many different reasons in a machine is not updating properly. In Update Management you can check the health of a Hybrid Worker agent to determine the underlying problem. By clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal, you launch the **Update agent checks** page. This page shows you problems with the agent and a link to this article in order to assist you in troubleshooting your issues.
+There may be many reasons your Non-Azure machine is not showing **Ready** in Update Management. In Update Management you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter from the Azure portal and in offline scenarios.
 
 ## Start the troubleshooter
 
-On the list on VMs, select **troubleshoot** on a virtual machine that is having issues under the **Update Agent Readiness** column.
+By clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal, you launch the **Troubleshoot Update Agent** page. This page shows you problems with the agent and a link to this article in order to assist you in troubleshooting your issues.
 
 ![vm list page](../media/update-agent-issues/vm-list.png)
 
-Click **Run Checks**, to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/windows/run-command.md) to run a script on the page.
+On The **Troubleshoot Update Agent** page, click **Run Checks**, to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/windows/run-command.md) to run a script on machine to verify multiple dependencies the agent has.
 
 ![troubleshoot page](../media/update-agent-issues/troubleshoot-page.png)
 
-When complete the results are returned in the window.
+When complete the results are returned in the window. The [Pre-requisite checks](#pre-requisistes-checks) section, provides information on what each check is looking for.
 
 ![Update agent checks page](../media/update-agent-issues/update-agent-checks.png)
 
@@ -56,10 +56,15 @@ This check, determines if you are using TLS 1.2 to encrypt your communications. 
 
 ### Agent Service
 
+This check determines if the agent can properly communicate with the agent service.
+
 For a list of addresses and ports to open , see[Network planning for Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning)
 
-### jrds
+### jrds Service
 
+This check determines if the agent can properly communicate with the job runtime date service.
+
+For a list of addresses and ports to open , see[Network planning for Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning)
 
 ## VM Service Health Checks
 
