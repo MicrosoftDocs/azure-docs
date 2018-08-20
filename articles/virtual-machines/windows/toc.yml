@@ -96,6 +96,8 @@
       href: managed-disks-overview.md
     - name: Premium storage
       href: premium-storage.md
+    - name: Standard SSDs
+      href: disks-standard-ssd.md
     - name: Premium storage performance
       href: premium-storage-performance.md
     - name: Standard storage
@@ -103,9 +105,7 @@
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-    - name: Standard SSDs
-      href: disks-standard-ssd.md           
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md           
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
