@@ -56,7 +56,7 @@ The following steps are a high-level overview of how to add a node. Don't follow
 
 ## Add the node
 
-You can use the admin portal or PowerShell to add new nodes. The add node operation first adds the new scale unit node as available compute capacity and then automatically extends the storage capacity. The capacity expands automatically because Azure Stack is a hyperconverged system where *computes* and *storage* scale together.
+You can use the admin portal or PowerShell to add new nodes. The add node operation first adds the new scale unit node as available compute capacity and then automatically extends the storage capacity. The capacity expands automatically because Azure Stack is a hyperconverged system where *compute* and *storage* scale together.
 
 ### Use the admin portal
 
