@@ -38,6 +38,8 @@ Environment parameters describe the Azure Stack environment under test. These va
 1. Log in to DVM machine or any machine that has access to the Azure Stack environment.
 2. Execute the following commands in an elevated PowerShell window:
     ```PowerShell
+    $stampInfoPass = ConvertTo-SecureString $CloudAdminPassword -AsPlainText -Force
+    $stampInfoCreds = New-Object System.Management.Automation.PSCredential($CloudAdminUser, $stampInfoPass)
     $params = Invoke-RestMethod -Method Get -Uri 'https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation'
     ConvertTo-Json $params > stampinfoproperties.json
     ```
@@ -48,7 +50,7 @@ Environment parameter values can also be manually located in the **ECE configura
 
 ## Test parameters
 
-Common test parameters include sensitive information that can't stored in configuration files. These must be manually provided.
+Common test parameters include sensitive information that can't be stored in configuration files. These must be manually provided.
 
 Parameter    | Description
 -------------|-----------------

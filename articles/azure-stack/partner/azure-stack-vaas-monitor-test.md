@@ -21,17 +21,17 @@ ms.reviewer: johnhas
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-After scheduling tests against your Azure Stack solution, the Validation as a Service (VaaS) will begin reporting test execution status. This information is available in the VaaS portal along with actions such as rescheduling and cancelling tests.
+After scheduling tests against your Azure Stack solution, Validation as a Service (VaaS) will begin reporting test execution status. This information is available in the VaaS portal along with actions such as rescheduling and cancelling tests.
 
 ## Navigate to the workflow tests summary page
 
-1. On the to the solutions dashboard, select an existing solution that contains at at least one workflow.
+1. On the solutions dashboard, select an existing solution that contains at at least one workflow.
 
     ![Workflow tiles](media/tile_all-workflows.png)
 
-1. Click **Manage** on the workflow tile. The next page lists the workflows created for the selected solution.
+1. Click **Manage** on the workflow tile. The next page lists the projects created for the selected solution.
 
-1. Click on the workflow name to open its test summary page.
+1. Click on the project name to open its test summary.
 
 ## Modify workflow parameters
 
