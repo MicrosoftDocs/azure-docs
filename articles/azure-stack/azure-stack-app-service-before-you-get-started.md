@@ -238,27 +238,6 @@ net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 ```
 
-### Add the FileShareOwners group to the local Administrators group
-
-For Windows Remote Management to work properly, you must add the FileShareOwners group to the local Administrators group.
-
-#### Active Directory
-
-Run the following commands at an elevated command prompt on the file server or on every file server that acts as a failover cluster node. Replace the value for `<DOMAIN>` with the domain name that you want to use.
-
-```DOS
-set DOMAIN=<DOMAIN>
-net localgroup Administrators %DOMAIN%\FileShareOwners /add
-```
-
-#### Workgroup
-
-Run the following command at an elevated command prompt on the file server:
-
-```DOS
-net localgroup Administrators FileShareOwners /add
-```
-
 ### Configure access control to the shares
 
 Run the following commands at an elevated command prompt on the file server or on the failover cluster node, which is the current cluster resource owner. Replace values in italics with values that are specific to your environment.
