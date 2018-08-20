@@ -48,7 +48,7 @@ This section shows you two options to create an SSH key pair on Windows.
 
 ### Create SSH keys with ssh-keygen
 
-If you run a command shell on Windows that supports an SSH client, create an SSH key pair using the `ssh-keygen` command. Type the following command, and answer the prompts. If an SSH key pair exists in the current location, those files are overwritten. 
+If you run a command shell on Windows that supports an SSH client (or you use Azure Cloud Shell), create an SSH key pair using the `ssh-keygen` command. Type the following command, and answer the prompts. If an SSH key pair exists in the current location, those files are overwritten. 
 
 ```bash
 ssh-keygen -t rsa -b 2048
