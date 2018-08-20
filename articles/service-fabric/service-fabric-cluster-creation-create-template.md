@@ -260,4 +260,4 @@ Now that you have a template for your cluster, learn how to [deploy the cluster 
 [resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
 
 <!-- Images -->
-[cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png
+[cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-create-template/cluster-security-arm-dependency-map.png
