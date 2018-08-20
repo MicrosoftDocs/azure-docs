@@ -19,7 +19,7 @@ This article provides examples for using the string claims transformations of th
 
 ## AssertStringClaimsAreEqual 
 
-Compare two claims, and throw an exception if they are not equal according to the specified comparison inputClaim1 (String) stringComparison [ordinal, ordinalIgnoreCase].
+Compare two claims, and throw an exception if they are not equal according to the specified comparison inputClaim1, inputClaim2 and stringComparison.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
