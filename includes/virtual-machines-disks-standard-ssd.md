@@ -42,7 +42,7 @@ Standard SSDs are designed to provide single-digit millisecond latencies for mos
 
 Premium SSDs on the other hand, perform better than Standard SSDs, with low latencies, high IOPS/throughput, and even better consistency with provisioned disk performance. It is the recommended disk type for critical production workloads. If your workload requires high-performance, low-latency disk support, you should consider using Premium Storage.
 
-Like the Premium SSDs, Standard SSDs also use IO Unit size of 256 KB. If the data being transferred is less than 256 KB, it is considered 1 I/O unit. Larger I/O sizes are counted as multiple I/Os of size 256 KB. For example, a 1,100 KB I/O is counted as five I/O units.
+Like the Premium SSDs, Standard SSDs also use IO Unit size of 256 KiB. If the data being transferred is less than 256 KiB, it is considered 1 I/O unit. Larger I/O sizes are counted as multiple I/Os of size 256 KiB. For example, a 1,100 KiB I/O is counted as five I/O units.
 
 ## Pricing and Billing
 
@@ -59,7 +59,7 @@ When using Standard SSDs, the following billing considerations apply:
 
 **Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
-**Transactions**: Similar to Standard HDD, transactions on Standard SSDs incur billing. Transactions include both read and write operations on the disk. I/O unit size used for accounting the transactions on Standard SSD is 256 KB. Larger I/O sizes are counted as multiple I/Os of size 256 KB.
+**Transactions**: Similar to Standard HDD, transactions on Standard SSDs incur billing. Transactions include both read and write operations on the disk. I/O unit size used for accounting the transactions on Standard SSD is 256 KiB. Larger I/O sizes are counted as multiple I/Os of size 256 KiB.
 
 For more information on pricing for Virtual Machines and Managed Disks, see:
 
