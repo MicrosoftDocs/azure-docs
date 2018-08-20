@@ -225,7 +225,8 @@ Note that if you need custom presets, you should contact  amslived@microsoft.com
 | 200 |340 |192 |30 |Baseline |Video_340x192_200kbps |
 
 #### Output Audio Stream
-Audio is encoded to stereo AAC-LC at 64 kbps, sampling rate of 44.1 kHz.
+
+Audio is encoded to stereo AAC-LC at 128 kbps, sampling rate of 48 kHz.
 
 ## Signaling Advertisements
 When your Channel has Live Encoding enabled, you have a component in your pipeline that is processing video, and can manipulate it. You can signal for the Channel to insert slates and/or advertisements into the outgoing adaptive bitrate stream. Slates are still images that you can use to cover up the input live feed in certain cases (for example during a commercial break). Advertising signals, are time-synchronized signals you embed into the outgoing stream to tell the video player to take special action – such as to switch to an advertisement at the appropriate time. See this [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) for an overview of the SCTE-35 signaling mechanism used for this purpose. Below is a typical scenario you could implement in your live event.
