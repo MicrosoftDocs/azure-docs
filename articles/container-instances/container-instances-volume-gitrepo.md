@@ -87,7 +87,7 @@ For example, the Azure CLI `--gitrepo-url` parameter for a private GitHub reposi
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
 ```
 
-For a Azure DevOps Git repository, specify any user name (you can use "azuredevopsuser" as in the following example) in combination with a valid PAT:
+For an Azure DevOps Git repository, specify any user name (you can use "azuredevopsuser" as in the following example) in combination with a valid PAT:
 
 ```azurecli
 --gitrepo-url https://azuredevopsuser:abcdef1234fdsa4321abcdef@azuredevopsorganizationname.visualstudio.com/_git/some-private-repository

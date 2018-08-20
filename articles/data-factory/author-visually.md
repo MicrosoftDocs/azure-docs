@@ -64,7 +64,7 @@ The pane shows the following Azure DevOps code repository settings:
 | **RepositoryName** | Your Azure DevOps code repository name. Azure DevOps projects contain Git repositories to manage your source code as your project grows. You can create a new repository or use an existing repository that's already in your project. | <your Azure DevOps code repository name> |
 | **Collaboration branch** | Your Azure DevOps collaboration branch that is used for publishing. By default, it is `master`. Change this setting in case you want to publish resources from another branch. | <your collaboration branch name> |
 | **Root folder** | Your root folder in your Azure DevOps collaboration branch. | <your root folder name> |
-| **Import existing Data Factory resources to repository** | Specifies whether to import existing data factory resources from the UX **Authoring canvas** into a Azure DevOps Git repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
+| **Import existing Data Factory resources to repository** | Specifies whether to import existing data factory resources from the UX **Authoring canvas** into an Azure DevOps Git repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
 
 #### Configuration method 2  (Azure DevOps Git repo): UX authoring canvas
 In the Azure Data Factory UX **Authoring canvas**, locate your data factory. Select the **Data Factory** drop-down menu, and then select **Configure Code Repository**.
@@ -75,7 +75,7 @@ A configuration pane appears. For details about the configuration settings, see 
 
 ## Use a different Azure Active Directory tenant
 
-You can create a Azure DevOps Git repo in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using.
+You can create an Azure DevOps Git repo in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using.
 
 ## Switch to a different Git repo
 

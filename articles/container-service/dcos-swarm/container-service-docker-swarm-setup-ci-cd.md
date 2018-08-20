@@ -42,7 +42,7 @@ Before starting this tutorial, you need to complete the following tasks:
 - [Create a Swarm cluster in Azure Container Service](container-service-deployment.md)
 - [Connect with the Swarm cluster in Azure Container Service](../container-service-connect.md)
 - [Create an Azure container registry](../../container-registry/container-registry-get-started-portal.md)
-- [Have a Azure DevOps organization and project created](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)
+- [Have an Azure DevOps organization and project created](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)
 - [Fork the GitHub repository to your GitHub account](https://github.com/jcorioland/MyShop/)
 
 [!INCLUDE [container-service-swarm-mode-note](../../../includes/container-service-swarm-mode-note.md)]
@@ -54,9 +54,9 @@ One way to create this machine is to use the image available in the [Azure Marke
 
 In this section, you configure your Azure DevOps organization.
 
-### Configure a Azure DevOps Linux build agent
+### Configure an Azure DevOps Linux build agent
 
-To create Docker images and push these images into an Azure container registry from a Azure DevOps build, you need to register a Linux agent. You have these installation options:
+To create Docker images and push these images into an Azure container registry from an Azure DevOps build, you need to register a Linux agent. You have these installation options:
 
 * [Deploy an agent on Linux](https://www.visualstudio.com/docs/build/admin/agents/v2-linux)
 
@@ -64,7 +64,7 @@ To create Docker images and push these images into an Azure container registry f
 
 ### Install the Docker Integration Azure DevOps extension
 
-Microsoft provides a Azure DevOps extension to work with Docker in build and release processes. This extension is available in the [Azure DevOps Services Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.docker). Click **Install** to add this extension to your Azure DevOps organization:
+Microsoft provides an Azure DevOps extension to work with Docker in build and release processes. This extension is available in the [Azure DevOps Services Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.docker). Click **Install** to add this extension to your Azure DevOps organization:
 
 ![Install the Docker Integration](./media/container-service-docker-swarm-setup-ci-cd/install-docker-vsts.png)
 
