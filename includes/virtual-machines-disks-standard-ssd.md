@@ -31,12 +31,12 @@ The following table contains disk sizes, which are currently offered for Standar
 
 |Standard SSD Disk Type  |Disk Size  |IOPS per Disk  |Throughput per disk  |
 |---------|---------|---------|---------|
-|E10     |128 GB         |Up to 500         |Up to 60 MB per second         |
-|E15     |256 GB         |Up to 500         |Up to 60 MB per second         |
-|E20     |512 GB         |Up to 500         |Up to 60 MB per second         |
-|E30     |1024 GB         |Up to 500         |Up to 60 MB per second         |
-|E40     |2048 GB         |Up to 500         |Up to 60 MB per second         |
-|E50     |4095 GB         |Up to 500         |Up to 60 MB per second         |
+|E10     |128 GiB         |Up to 500         |Up to 60 MiB per second         |
+|E15     |256 GiB         |Up to 500         |Up to 60 MiB per second         |
+|E20     |512 GiB         |Up to 500         |Up to 60 MiB per second         |
+|E30     |1024 GiB         |Up to 500         |Up to 60 MiB per second         |
+|E40     |2048 GiB         |Up to 500         |Up to 60 MiB per second         |
+|E50     |4095 GiB         |Up to 500         |Up to 60 MiB per second         |
 
 Standard SSDs are designed to provide single-digit millisecond latencies for most IO operations, and to deliver the IOPS and throughput up to the limits described in the above table. Actual IOPS and Throughput may vary sometimes depending on the traffic patterns. Standard SSDs will provide more consistent performance than the HDD disks with the lower latency.
 
@@ -53,7 +53,7 @@ When using Standard SSDs, the following billing considerations apply:
 - Outbound data transfers
 - Transactions
 
-**Managed Disk Size**: Managed disks are billed on the provisioned size. Azure maps the provisioned size (rounded up) to the nearest disk size offer. For details of the disk sizes offered, see the table in Scalability and Performance Targets section above. Each disk maps to a supported provisioned disk size and billed accordingly. For example, if you provisioned a 200 GB Standard SSD, it will map to the disk size offer of E15 (256GB). Billing for any provisioned disk is prorated hourly by using the monthly price for the Premium Storage offer. For example, if you provisioned an E10 disk and deleted it after 20 hours, you're billed for the E10 offering prorated to 20 hours. This is regardless of the amount of actual data written to the disk.
+**Managed Disk Size**: Managed disks are billed on the provisioned size. Azure maps the provisioned size (rounded up) to the nearest disk size offer. For details of the disk sizes offered, see the table in Scalability and Performance Targets section above. Each disk maps to a supported provisioned disk size and billed accordingly. For example, if you provisioned a 200 GiB Standard SSD, it will map to the disk size offer of E15 (256 GiB). Billing for any provisioned disk is prorated hourly by using the monthly price for the Premium Storage offer. For example, if you provisioned an E10 disk and deleted it after 20 hours, you're billed for the E10 offering prorated to 20 hours. This is regardless of the amount of actual data written to the disk.
 
 **Snapshots**: Snapshots of Managed Disks are billed for the capacity used by the snapshots, at the target and at the source, if any. For more information on snapshots, see [Managed Disk Snapshots](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
 
