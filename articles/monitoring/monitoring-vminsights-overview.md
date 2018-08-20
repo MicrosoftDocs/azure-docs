@@ -32,10 +32,9 @@ The comprehensive monitoring of your applications can't be achieved alone with A
 
 You can view this data in the context of single instance of the VM from the virtual machine directly, and as an aggregated view of all VMs in your subscription from Azure Monitor. 
 
-[Virtual machine insights perspective from portal](./media/monitoring-vminsights-overview/access-solution-perspective-01.png)
+![Virtual machine insights perspective from portal](./media/monitoring-vminsights-overview/vminsights-solution-perspectives.png)
 
 DevOps can effectively deliver predictable performance and availability of vital applications by identifying critical operating system events and performance bottlenecks, network issues, and understand if an issue is related to other dependencies.  
-
 
 ## Data usage 
 
