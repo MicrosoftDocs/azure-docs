@@ -27,9 +27,9 @@
     href: billing-spending-limit.md
   - name: Analyze costs
     href: billing-cost-analysis.md
-  - name: Save with Azure reservations
+  - name: Save with Azure Reservations
     items:
-    - name: What are Azure reservations?
+    - name: What are Azure Reservations?
       href: billing-save-compute-costs-reservations.md
     - name: Buy a reservation
       items:
@@ -49,7 +49,7 @@
       href: billing-understand-reserved-instance-usage.md
     - name: Usage for Enterprise
       href: billing-understand-reserved-instance-usage-ea.md
-    - name: Manage Azure reservations
+    - name: Manage Reservations
       href: billing-manage-reserved-vm-instance.md
 - name: Manage account
   items:
