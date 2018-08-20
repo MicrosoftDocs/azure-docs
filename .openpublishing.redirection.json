@@ -8399,7 +8399,7 @@
         },
         {
             "source_path": "articles/documentdb/table-powershell.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/azure/cosmos-db/table-introduction",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/table-introduction",
             "redirect_document_id": false
         },
         {
