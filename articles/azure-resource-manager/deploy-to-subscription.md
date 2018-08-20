@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 08/20/2018
 ms.author: tomfitz
 ---
 # Deploy resources to an Azure subscription
 
 Typically, you deploy resources to a resource group in your Azure subscription. However, some resources can be deployed at the level of your Azure subscription. These resources apply across your subscription. [Policies](../azure-policy/azure-policy-introduction.md), [Role-based access control](../role-based-access-control/overview.md), and [Azure Security Center](../security-center/security-center-intro.md) are services that you may want to apply at the subscription level, rather than the resource group level.
 
-This article uses Azure CLI to deploy the templates. Currently, PowerShell doesn't support deploying a template to a subscription.
+This article uses Azure CLI and PowerShell to deploy the templates.
 
 ## Assign policy
 
@@ -68,6 +68,19 @@ az deployment create \
   --parameters policyDefinitionID=$definition policyName=auditRGLocation
 ```
 
+To deploy this template with PowerShell, use:
+
+```azurepowershell-interactive
+$definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit resource location matches resource group location' }
+
+New-AzureRmDeployment `
+  -Name policyassign `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
+  -policyDefinitionID $definition.PolicyDefinitionId `
+  -policyName auditRGLocation
+```
+
 To apply a built-in policy to your Azure subscription, use the following Azure CLI commands. In this example, the policy has parameters.
 
 ```azurecli-interactive
@@ -79,6 +92,23 @@ az deployment create \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json \
   --parameters policyDefinitionID=$definition policyName=setLocation policyParameters="{'listOfAllowedLocations': {'value': ['westus']} }"
+```
+
+To deploy this template with PowerShell, use:
+
+```azurepowershell-interactive
+$definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Allowed locations' }
+
+$locations = @("westus", "westus2")
+$policyParams =@{listOfAllowedLocations = @{ value = $locations}}
+
+New-AzureRmDeployment `
+  -Name policyassign `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
+  -policyDefinitionID $definition.PolicyDefinitionId `
+  -policyName setLocation `
+  -policyParameters $policyParams
 ```
 
 ## Define and assign policy
@@ -135,6 +165,15 @@ az deployment create \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
+To deploy this template with PowerShell, use:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name definePolicy `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
+```
+
 ## Assign role
 
 The following example assigns a role to a user or group.
@@ -173,13 +212,28 @@ To assign an Active Directory group to a role for your subscription, use the fol
 role=$(az role definition list --name Contributor --query [].name --output tsv)
 
 # Get ID of the AD group to assign the role to
-principalid=$(az ad group show --group tomfitzexample --query objectId --output tsv)
+principalid=$(az ad group show --group demogroup --query objectId --output tsv)
 
 az deployment create \
   -n demoRole \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json \
   --parameters principalId=$principalid roleDefinitionId=$role
+```
+
+To deploy this template with PowerShell, use:
+
+```azurepowershell-interactive
+$role = Get-AzureRmRoleDefinition -Name Contributor
+
+$adgroup = Get-AzureRmADGroup -DisplayName demogroup
+
+New-AzureRmDeployment `
+  -Name demoRole `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
+  -roleDefinitionId $role.Id `
+  -principalId $adgroup.Id
 ```
 
 ## Next steps
