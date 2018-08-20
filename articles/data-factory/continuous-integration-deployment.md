@@ -47,9 +47,9 @@ Select **Load file** to select the exported Resource Manager template and provid
 
 ## Continuous integration lifecycle
 Here is the entire lifecycle for continuous integration & deployment
-that you can use after you enable VSTS GIT integration in the Data Factory UI:
+that you can use after you enable Azure DevOps GIT integration in the Data Factory UI:
 
-1.  Set up a development data factory with VSTS in which all developers can author Data Factory resources like pipelines, datasets, and so forth.
+1.  Set up a development data factory with Azure DevOps in which all developers can author Data Factory resources like pipelines, datasets, and so forth.
 
 1.  Then developers can modify resources such as pipelines. As they make their modifications, they can select **Debug** to see how the pipeline runs with the most recent changes.
 
@@ -61,23 +61,23 @@ that you can use after you enable VSTS GIT integration in the Data Factory UI:
 
 1.  The exported Resource Manager template can be deployed with different parameter files to the test factory and the production factory.
 
-## Automate continuous integration with VSTS Releases
+## Automate continuous integration with Azure DevOps Releases
 
-Here are the steps to set up a VSTS Release so you can automate the deployment of a data factory to multiple environments.
+Here are the steps to set up a Azure DevOps Release so you can automate the deployment of a data factory to multiple environments.
 
-![Diagram of continuous integration with VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagram of continuous integration with Azure DevOps](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### Requirements
 
--   An Azure subscription linked to Team Foundation Server or VSTS using the [*Azure Resource Manager service endpoint*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+-   An Azure subscription linked to Team Foundation Server or Azure DevOps Services using the [*Azure Resource Manager service endpoint*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
--   A Data Factory with VSTS Git configured.
+-   A Data Factory with Azure DevOps Git configured.
 
 -   An [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) containing the secrets.
 
-### Set up a VSTS Release
+### Set up a Azure DevOps Release
 
-1.  Go to your VSTS page in the same project as the one configured with the Data Factory.
+1.  Go to your Azure DevOps page in the same project as the one configured with the Data Factory.
 
 1.  Click on the top menu **Build and Release** &gt; **Releases** &gt; **Create release definition**.
 
@@ -115,7 +115,7 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
 ### Optional - Get the secrets from Azure Key Vault
 
-If you have secrets to pass in an Azure Resource Manager template, we recommend using Azure Key Vault with the VSTS release.
+If you have secrets to pass in an Azure Resource Manager template, we recommend using Azure Key Vault with the Azure DevOps release.
 
 There are two ways to handle the secrets:
 
@@ -150,13 +150,13 @@ There are two ways to handle the secrets:
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### Grant permissions to the VSTS agent
-The Azure Key Vault task may fail the first time with an Access Denied error. Download the logs for the release, and locate the `.ps1` file with the command to give permissions to the VSTS agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. (*Get* and *List* are the minimum permissions required).
+### Grant permissions to the Azure DevOps agent
+The Azure Key Vault task may fail the first time with an Access Denied error. Download the logs for the release, and locate the `.ps1` file with the command to give permissions to the Azure DevOps agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. (*Get* and *List* are the minimum permissions required).
 
 ### Update active triggers
 Deployment can fail if you try to update active triggers. To update active triggers, you need to manually stop them and start them after the deployment. You can add an Azure Powershell task for this purpose, as shown in the following example:
 
-1.  In the Tasks tab of the VSTS Release, search for **Azure Powershell** and add it.
+1.  In the Tasks tab of the Azure DevOps Release, search for **Azure Powershell** and add it.
 
 1.  Choose **Azure Resource Manager** as the connection type and select your subscription.
 
@@ -174,7 +174,7 @@ You can follow similar steps and use similar code (with the `Start-AzureRmDataFa
 
 ## Sample deployment template
 
-Here is a sample deployment template that you can import in VSTS.
+Here is a sample deployment template that you can import in Azure DevOps.
 
 ```json
 {
