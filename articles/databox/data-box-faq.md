@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box FAQ | Microsoft Docs in data 
-description: Contains frquently asked questions and answers for Azure Data Box, a cloud solution that enables you to transfer large amounts of data into Azure
+description: Contains frquently asked questions and answers for Azure Data Box, a cloud solution that enables you to transfer large amounts of data into Azure.
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -11,7 +11,7 @@ ms.assetid:
 ms.service: databox
 ms.devlang: NA
 ms.topic: overview
-ms.custom: mvc
+ms.custom: 
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2018
@@ -70,13 +70,13 @@ A. If you were not able to create a Data Box order, there is a problem with eith
 
 Check your subscription. Data Box is only available for Enterprise Agreement (EA), Cloud solution provider (CSP), or Pay-as-you-go subscription offers. If your subscription does not fall in any of the above types, contact Microsoft Support to upgrade your subscription.
 
-If you have supported offer type for the subscription, check your subscription access level. You need to be a contributor or owner in your subscription to create an order.
+If you have a supported offer type for the subscription, check your subscription access level. You need to be a contributor or owner in your subscription to create an order.
 
 ### Q. I ordered a couple of Data Box devices. I am not able to create any additional orders. Why would this be?
-A. We allow for a maximum of 3 active orders per subscription per commerce boundary (combination of country and the region selected). If you need to order device, contact Microsoft Support to increase the limit for your subscription.
+A. We allow for a maximum of 3 active orders per subscription per commerce boundary (combination of country and the region selected). If you need to order an additional device, contact Microsoft Support to increase the limit for your subscription.
 
-### Q. When I try to create an order, I recieve a notification the Data Box service is not available. What does this mean?
-A. What this means is that the Data Box service is not available for the combination of country and region you have selected.  We do not service cross commerce boundary customers. Changing this combination would likely allow you to avail of the Data Box service. For a list of the regions where the service is available, go to [Region availability for Data Box](data-box-overview.md#region-availability).
+### Q. When I try to create an order, I recieve a notification that the Data Box service is not available. What does this mean?
+A. What this means is that the Data Box service is not available for the combination of country and region you have selected.  We do not service cross commerce boundary (combination of country and the region selected) customers. Changing this combination would likely allow you to avail of the Data Box service. For a list of the regions where the service is available, go to [Region availability for Data Box](data-box-overview.md#region-availability).
 
 ### Q. I placed my Data Box order few days back. When will I receive my Data Box?
 A. When you place an order, we check whether a device is available for your order. If a device is available, we will ship it within 10 days. It is conceivable that there are periods of high demand. In this situation, your order will be queued and you will be notified.
