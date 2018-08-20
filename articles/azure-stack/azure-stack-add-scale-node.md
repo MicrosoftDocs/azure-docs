@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 08/20/2018
 ms.author: brenduns
 ms.reviewer: thoroet 
 ---
@@ -129,6 +129,9 @@ The following are common issues seen when adding a node.
 
 **Scenario 2:** One or more scale unit nodes have been added but the storage expansion failed. In this scenario, the scale unit node object reports a status of Running but the Configuring Storage task isn't started.  
 - Remediation: Use the privileged endpoint to review the storage health by running the following PowerShell cmdlet:
+  ```powershell
+     Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
+  ```
  
 **Scenario 3:** You received an alert that indicates the storage scale-out job failed.  
 - Remediation: In this case, the storage configuration task has failed. This problem requires you to contact support.
