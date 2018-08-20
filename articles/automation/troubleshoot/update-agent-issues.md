@@ -11,9 +11,21 @@ ms.component: update-management
 manager: carmonm
 ---
 
-# Understandthe agent check results in Update Management
+# Understand the agent check results in Update Management
 
-There may be many different reasons in a machine is not updating properly. In Update Management you can check the health of an agent to determine the underlying problem. By clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal, you launch the **Update agent checks** page. This page shows you problems with the agent and a link to this article in order to assist you in troubleshooting your issues.
+There may be many different reasons in a machine is not updating properly. In Update Management you can check the health of a Hybrid Worker agent to determine the underlying problem. By clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal, you launch the **Update agent checks** page. This page shows you problems with the agent and a link to this article in order to assist you in troubleshooting your issues.
+
+## Start the troubleshooter
+
+On the list on VMs, select **troubleshoot** on a virtual machine that is having issues under the **Update Agent Readiness** column.
+
+![vm list page](../media/update-agent-issues/vm-list.png)
+
+Click **Run Checks**, to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/windows/run-command.md) to run a script on the page.
+
+![troubleshoot page](../media/update-agent-issues/troubleshoot-page.png)
+
+When complete the results are returned in the window.
 
 ![Update agent checks page](../media/update-agent-issues/update-agent-checks.png)
 
@@ -42,21 +54,54 @@ This check, determines if you are using TLS 1.2 to encrypt your communications. 
 
 ## Connectivity Checks
 
-### Insert check name here
+### Agent Service
+
+For a list of addresses and ports to open , see[Network planning for Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning)
+
+### jrds
+
 
 ## VM Service Health Checks
 
 ### Health Service Check
 
+This check determines if the Microsoft Monitoring Agent/Health service `HealthService` is running on the machine.
+
 ### Event 4502 Check
+
+This check determines if there have been any `4502` events in the Operations Manager log on the machine in the last 24 hours.
 
 ## Access Permissions Checks
 
 ### Crypto Folder Access
 
-## Non-Azure Machines
+The Crypto Folder Access check determines if Local System Account has access to `C:\ProgramData\Microsoft\Crypto\RSA`
 
-```powershell
+## Troubleshoot offline
+
+Do troubleshoot the Hybrid worker offline, you can run the following script to retrieve the same results.
+
+```azurepowershell-interactive
+param(
+    [string]$automationAccountLocation,
+    [switch]$returnAsJson
+    )
+
+$location = switch ( $automationAccountLocation )
+    {
+        "southeastasia"     { "sea"  }
+        "eastus2"           { "eus2" }
+        "southcentralus"    { "scus" }
+        "northeurope"       { "ne"   }
+        "westeurope"        { "we"   }
+        "japaneast"         { "jpe"  }
+        "australiasoutheast"{ "ase"  }
+        "centralindia"      { "cid"  }
+        "canadacentral"     { "cc"   }
+        "uksouth"           { "uks"  }
+        "westcentralus"     { "wcus" }
+        default             { "eus2" }
+    }
 
 $CheckedRules = @()
 [string]$CurrentResult = ""
@@ -69,20 +114,48 @@ function New-RuleCheckResult
     [string]$ruleName,
     [string]$ruleDescription,
     [string]$result,
-    [string]$checkDetails
+    [string]$checkDetails,
+    [string]$ruleGroupId = $ruleId,
+    [string]$ruleGroupName
     )
     $props = [pscustomobject] [ordered] @{
-    'RuleId'=$ruleId
-    'RuleName'=$ruleName
-    'RuleDescription'=$ruleDescription
-    'CheckResult'=$result
-    'CheckDetails'=$checkDetails
+    'RuleId'= $ruleId
+    'RuleGroupId'= $ruleGroupId
+    'RuleName'= $ruleName
+    'RuleGroupName' = $ruleGroupName
+    'RuleDescription'= $ruleDescription
+    'CheckResult'= $result
+    'CheckDetails'= $checkDetails
     }
     return $props
 }
 
+function checkRegValue
+{
+    [CmdletBinding()]
+    param(
+    [string][Parameter(Mandatory=$true)]$path,
+    [string][Parameter(Mandatory=$true)]$name,
+    #[string]$propType,
+    [int][Parameter(Mandatory=$true)]$valueToCheck
+    )
+    $val = Get-ItemProperty -path $path -name $name -ErrorAction SilentlyContinue
+    if($val.$name -eq $null)
+    {
+        return $null
+    }
+    if($val.$name -eq $valueToCheck)
+    {
+        return $true
+    }
+    else
+    {
+        return $false
+    }
+}
 
-#==================== CHECK #1 (Supported OS Check)
+
+#==================== (Supported OS Check)
 if([System.Environment]::OSVersion.Version -ge [System.Version]"6.1.7601")
 {
      $CurrentDetails = "Your Operating system is supported"
@@ -93,17 +166,17 @@ else
      $CurrentDetails = "Your version of Windows is not supported.  A list of supported client types can be found here: https://docs.microsoft.com/en-us/azure/automation/automation-update-management#supported-client-types"
      $CurrentResult = "Failed"
 }
- $CheckedRules += New-RuleCheckResult 1 "OS Check" "The Windows Operating system must be version 6.1.7601 (Windows Server 2008 R2 SP1) or later" $CurrentResult $CurrentDetails
+ $CheckedRules += New-RuleCheckResult "OperatingSystemCheck" "Operating System" "The Windows Operating system must be version 6.1.7601 (Windows Server 2008 R2 SP1) or later" $CurrentResult $CurrentDetails "prerequisites" "Prerequisite Checks"
 
 
-#==================== CHECK #2 (.NET Framework Check)
+#==================== (.NET Framework Check)
 if($CurrentResult -eq "Failed")
 {
     $CurrentDetails = ".NET Framework check was skipped because a dependant rule (OSCheck) failed"
     $CurrentResult = "Skipped"
 }
-elseif(Get-ChildItem 'HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP' -Recurse |
-Get-ItemProperty -name Version, Release -EA 0 | Where { $_.PSChildName -eq "Full"} | Select-Object Version)
+elseif(Get-ChildItem 'HKLM:\\SOFTWARE\\Microsoft\\NET Framework Setup\\NDP' -Recurse |
+Get-ItemProperty -name Version, Release -ErrorAction SilentlyContinue | Where { $_.PSChildName -eq "Full"} | Select-Object Version)
 # Since only .NET versions 4.5 and above have a 'Full' folder  https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
 {
     $CurrentDetails = "You have .NET Framework of version 4.5 or later"
@@ -114,10 +187,10 @@ else
     $CurrentDetails = "The .NET Framework is outdated. Download the lastest version here: https://www.microsoft.com/net/download/dotnet-framework-runtime"
     $CurrentResult = "Failed"
 }
-$CheckedRules += New-RuleCheckResult 2 ".NET Framework Check" ".NET Framework version 4.5 or later is required" $CurrentResult $CurrentDetails
+$CheckedRules += New-RuleCheckResult "DotNetFrameworkInstalledCheck" ".Net Framework 4.5+" ".NET Framework version 4.5 or later is required" $CurrentResult $CurrentDetails "prerequisites" "Prerequisite Checks"
 
 
-#==================== CHECK #3 (WMF Check)
+#==================== (WMF Check)
 if(($CurrentResult -eq "Failed") -or ($CurrentResult -eq "Skipped"))
 {
     $CurrentDetails = "The WMF check was skipped because a dependant rule failed"
@@ -128,31 +201,60 @@ elseif($PSVersionTable.PSVersion -ge 5.1)
     $CurrentDetails = "You have Windows Management Framework version 5.1 or later"
     $CurrentResult = "Passed"
 }
+elseif($PSVersionTable.PSVersion.Major -ge 4)
+{
+    $CurrentDetails = "While your version of WMF is supported, it is recommended you have Windows Management Framework version 5.1 or later for increased reliability. Download version 5.1 here: https://www.microsoft.com/en-us/download/details.aspx?id=54616"
+    $CurrentResult = "PassedWithWarning"
+}
 else
 {
     $CurrentDetails = "Windows Management Framework is outdated. Download version 5.1 here: https://www.microsoft.com/en-us/download/details.aspx?id=54616"
     $CurrentResult = "Failed"
 }
-$CheckedRules += New-RuleCheckResult 3 "WMF Check" "A Windows Management Framework version 5.1 or later is required" $CurrentResult $CurrentDetails
+$CheckedRules += New-RuleCheckResult "WindowsManagementFrameworkInstalledCheck" "WMF 5.1" "A Windows Management Framework version 5.1 or later is recomended, version 4.0 or later is required." $CurrentResult $CurrentDetails "prerequisites" "Prerequisite Checks"
 
 
-#==================== CHECK #4 (Firewall Setup Check)
-$jrds=Test-NetConnection -ComputerName "eus2-jobruntimedata-prod-su1.azure-automation.net" -Port 443 -WarningAction SilentlyContinue
-$jrds2=Test-NetConnection -ComputerName "eus2-agentservice-prod-1.azure-automation.net" -Port 443 -WarningAction SilentlyContinue
-if($jrds.TcpTestSucceeded -eq "true" -and $jrds2.TcpTestSucceeded -eq "true")
+#==<<<<<== [Firewall Setup Check Group START]
+
+
+#============= (FSC Agent Service)
+$wsIds = @()
+$wsIds = (Get-ChildItem 'HKLM:\\SYSTEM\\CurrentControlSet\\Services\\HealthService\\Parameters\\Management Groups' -Recurse -ErrorAction SilentlyContinue | Get-ItemProperty -name "Service Connector Service Name" -ErrorAction SilentlyContinue | Where { ($_.PSChildName).Substring(0,4) -eq "AOI-"} | Select-Object "Service Connector Service Name" ).'Service Connector Service Name'.Remove(0,16)
+ForEach ($id in $wsIds)
 {
-    $CurrentDetails = "Tcp Test Succeeded East US 2 Port 443"
+    if((Test-NetConnection -ComputerName "$id.agentsvc.azure-automation.net" -Port 443 -WarningAction SilentlyContinue).TcpTestSucceeded)
+    {
+        $CurrentDetails = "Agent Service TCP Test to $id.agentsvc.azure-automation.net Succeeded on Port 443"
+        $CurrentResult = "Passed"
+    }
+    else
+    {
+        $CurrentDetails = "Agent Service TCP Test to $id.agentsvc.azure-automation.net Failed on Port 443"
+        $CurrentResult = "Failed"
+    }
+    $CheckedRules += New-RuleCheckResult "AutomationAgentServiceConnectivityCheck" "$id.agentsvc.azure-automation.net" "Proxy and firewall configuration must allow Windows agent to communicate with Log Analytics and Automation services on port 443" $CurrentResult $CurrentDetails "connectivity" "Connectivity Checks"
+}
+
+#==================== (FSC jrds)
+$jrds=Test-NetConnection -ComputerName "$location-jobruntimedata-prod-su1.azure-automation.net" -Port 443 -WarningAction SilentlyContinue
+
+if($jrds.TcpTestSucceeded -eq "true")
+{
+    $CurrentDetails = "Job Runtime Data TCP Test Succeeded in $location on Port 443"
     $CurrentResult = "Passed"
 }
 else
 {
-    $CurrentDetails = "Tcp Test Succeeded East US 2 Port 443"
+    $CurrentDetails = "Job Runtime Data TCP Test Failed in $location on Port 443"
     $CurrentResult = "Failed"
 }
-$CheckedRules += New-RuleCheckResult 4 "Firewall Req Check" "Proxy and firewall configuration must allow Windows agent to communicate with Log Analytics and Automation services on port 443" $CurrentResult $CurrentDetails
+$CheckedRules += New-RuleCheckResult "AutomationJobRuntimeDataServiceConnectivityCheck" "$location-jobruntimedata-prod-su1.azure-automation.net" "Proxy and firewall configuration must allow Windows agent to communicate with Log Analytics and Automation services on port 443" $CurrentResult $CurrentDetails "connectivity" "Connectivity Checks"
 
 
-#==================== CHECK #5 (Health Service Check)
+#==<<<<<== [Firewall Setup Check Group END]
+
+
+#==================== (Health Service Check)
 if(Get-Service -Name "HealthService" -ErrorAction SilentlyContinue| Where-Object {$_.Status -eq "Running"} | Select-Object)
 {
      $CurrentDetails = "Microsoft Monitoring Agent/Health Service is running"
@@ -163,10 +265,10 @@ else
      $CurrentDetails = "Microsoft Monitoring Agent/Health Service is NOT running"
      $CurrentResult = "Failed"
 }
-$CheckedRules += New-RuleCheckResult 5 "Health Service Check" "Health Service must be running on the machine" $CurrentResult $CurrentDetails
+$CheckedRules += New-RuleCheckResult "MonitoringAgentServiceRunningCheck" "MMA Service Status" "Health Service must be running on the machine" $CurrentResult $CurrentDetails "servicehealth" "VM Service Health Checks"
 
 
-#==================== CHECK #6 (Event 4502 Check)
+#==================== (Event 4502 Check)
 $OpsMgrLogExists = [System.Diagnostics.EventLog]::Exists('Operations Manager');
 if($OpsMgrLogExists)
 {
@@ -187,13 +289,12 @@ else
     $CurrentDetails = "Operations Manager event log does not exist on this machine"
     $CurrentResult = "Failed"
 }
-$CheckedRules += New-RuleCheckResult 6 "Event 4502 Check" "Event Log must not have event 4502 logged in the past 24 hours" $CurrentResult $CurrentDetails
+$CheckedRules += New-RuleCheckResult "HybridWorkerRegistrationErrorsCheck" "MMA Service Events" "Event Log must not have event 4502 logged in the past 24 hours" $CurrentResult $CurrentDetails "servicehealth" "VM Service Health Checks"
 
 
-#==================== CHECK #7 (Crypto Access)
-$Folder = "C:\ProgramData\Microsoft\Crypto\RSA"
-$User = tasklist /v /FI "IMAGENAME eq explorer.exe" /FO list | find "User Name:"
-$User = $User.Substring(14)
+#==================== (Crypto Access)
+$Folder = "C:\\ProgramData\\Microsoft\\Crypto\\RSA"
+$User = $env:UserName
 $permission = (Get-Acl $Folder).Access | ?{($_.IdentityReference -match $User) -or ($_.IdentityReference -match "Everyone")} | Select IdentityReference, FileSystemRights
 if ($permission)
 {
@@ -202,68 +303,71 @@ if ($permission)
 }
 else
 {
-    $CurrentDetails = "$User Doesn't have any permission on $Folder"
+    $CurrentDetails = "You don't have any permission on $Folder"
     $CurrentResult = "Failed"
 }
-$CheckedRules += New-RuleCheckResult 7 "Crypto Folder Access" "System account must have read access to folder C:\ProgramData\Microsoft\Crypto\RSA" $CurrentResult $CurrentDetails
+$CheckedRules += New-RuleCheckResult "CryptoRsaFolderAccessCheck" "Crypto Folder Access" "System account must have read access to folder $Folder" $CurrentResult $CurrentDetails "permissions" "Access Permission Checks"
 
 
-return $CheckedRules | ConvertTo-Json
-```
+#==================== (TLS 1.2 Check)
+$ServerEnabled =     checkRegValue "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\SCHANNEL\\Protocols\\TLS 1.2\\Server" "Enabled" 1
+$ServerNotDisabled = checkRegValue "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\SCHANNEL\\Protocols\\TLS 1.2\\Server" "DisabledByDefault" 0
+$ClientEnabled =     checkRegValue "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\SCHANNEL\\Protocols\\TLS 1.2\\Client" "Enabled" 1
+$ClientNotDisabled = checkRegValue "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\SCHANNEL\\Protocols\\TLS 1.2\\Client" "DisabledByDefault" 0
 
-Output
+$ServerNotEnabled = checkRegValue "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\SCHANNEL\\Protocols\\TLS 1.2\\Server" "Enabled" 0
+$ServerDisabled =   checkRegValue "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\SCHANNEL\\Protocols\\TLS 1.2\\Server" "DisabledByDefault" 1
+$ClientNotEnabled = checkRegValue "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\SCHANNEL\\Protocols\\TLS 1.2\\Client" "Enabled" 0
+$ClientDisabled =   checkRegValue "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\SCHANNEL\\Protocols\\TLS 1.2\\Client" "DisabledByDefault" 1
 
-```json
-[
+if ($CheckedRules[0].CheckResult -ne "Passed" -and [System.Environment]::OSVersion.Version -ge [System.Version]"6.0.6001")
+{
+    $CurrentDetails = "Your OS does not naturaly support TLS 1.2. While it is possible to update and add support for TLS 1.2 on your current OS, updating is highly recomended as your current version of Windows only supports update assessments. Information on updateing can be found here: https://support.microsoft.com/en-us/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows"
+    $CurrentResult = "Failed"
+}
+elseif([System.Environment]::OSVersion.Version -ge [System.Version]"6.1.7601" -and [System.Environment]::OSVersion.Version -le [System.Version]"6.1.8400")
+{
+    if($ClientNotDisabled -and $ServerNotDisabled -and !($ServerNotEnabled -and $ClientNotEnabled))
     {
-        "RuleId":  "1",
-        "RuleName":  "OS Check",
-        "RuleDescription":  "The Windows Operating system must be version 6.1.7601 (Windows Server 2008 R2 SP1) or later",
-        "CheckResult":  "Passed",
-        "CheckDetails":  "Your Operating system is supported"
-    },
-    {
-        "RuleId":  "2",
-        "RuleName":  ".NET Framework Check",
-        "RuleDescription":  ".NET Framework version 4.5 or later is required",
-        "CheckResult":  "Passed",
-        "CheckDetails":  "You have .NET Framework of version 4.5 or later"
-    },
-    {
-        "RuleId":  "3",
-        "RuleName":  "WMF Check",
-        "RuleDescription":  "A Windows Management Framework version 5.1 or later is required",
-        "CheckResult":  "Passed",
-        "CheckDetails":  "You have Windows Management Framework version 5.1 or later"
-    },
-    {
-        "RuleId":  "4",
-        "RuleName":  "Firewall Req Check",
-        "RuleDescription":  "Proxy and firewall configuration must allow Windows agent to communicate with Log Analytics and Automatio
-n services on port 443",
-        "CheckResult":  "Passed",
-        "CheckDetails":  "Tcp Test Succeeded East US 2 Port 443"
-    },
-    {
-        "RuleId":  "5",
-        "RuleName":  "Health Service Check",
-        "RuleDescription":  "Health Service must be running on the machine",
-        "CheckResult":  "Failed",
-        "CheckDetails":  "Microsoft Monitoring Agent/Health Service is NOT running"
-    },
-    {
-        "RuleId":  "6",
-        "RuleName":  "Event 4502 Check",
-        "RuleDescription":  "Event Log must not have event 4502 logged in the past 24 hours",
-        "CheckResult":  "Failed",
-        "CheckDetails":  "Operations Manager event log does not exist on this machine"
-    },
-    {
-        "RuleId":  "7",
-        "RuleName":  "Crypto Folder Access",
-        "RuleDescription":  "System account must have read access to folder C:\\ProgramData\\Microsoft\\Crypto\\RSA",
-        "CheckResult":  "Failed",
-        "CheckDetails":  "NORTHAMERICA\\gwallace Doesn\u0027t have any permission on C:\\ProgramData\\Microsoft\\Crypto\\RSA"
+        $CurrentDetails = "Your OS does not support TLS 1.2 by default but your regestry has been set up to do so."
+        $CurrentResult = "Passed"
     }
-]
+    else
+    {
+        $CurrentDetails = "Your OS does not support TLS 1.2 by default. Instructions on how to enable support can be found here: https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings#tls-12"
+        $CurrentResult = "Failed"
+    }
+}
+elseif([System.Environment]::OSVersion.Version -ge [System.Version]"6.2.9200")
+{
+    if($ClientDisabled -or $ServerDisabled -or $ServerNotEnabled -or $ClientNotEnabled)
+    {
+        $CurrentDetails = "Your OS supports TLS 1.2 by default but certain regestry keys have been set up to dissable it. Instructions on how to re-enable default support by can be found here: https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings#tls-12"
+        $CurrentResult = "Failed"
+    }
+    else
+    {
+        $CurrentDetails = "Your OS supports TLS 1.2 by default."
+        $CurrentResult = "Passed"
+    }
+}
+else
+{
+    $CurrentDetails = "Your OS does not naturaly support TLS 1.2"
+    $CurrentResult = "Failed"
+}
+$CheckedRules += New-RuleCheckResult "TlsVersionCheck" "TLS 1.2" "Client and Server connections must support TLS 1.2" $CurrentResult $CurrentDetails "prerequisites" "Prerequisite Checks"
+
+
+if($returnAsJson.IsPresent)
+{
+    return ConvertTo-Json $CheckedRules -Compress
+}
+else
+{
+    return $CheckedRules
+}
 ```
+
+## Next steps
+
