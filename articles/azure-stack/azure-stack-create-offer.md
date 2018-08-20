@@ -12,8 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2018
+ms.date: 08/20/2018
 ms.author: brenduns
+ms.reviewer: efemmano
 
 ---
 # Create an offer in Azure Stack
