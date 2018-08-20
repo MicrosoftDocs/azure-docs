@@ -65,7 +65,7 @@ When you receive the Data Box, do the following steps to unpack, cable, and turn
 	
 4. Cable the device as shown below.  
 
-    ![Data Box cabled](media/data-box-quickstart-portal/back-plane-labeled.png)    
+    <!--![Data Box cabled](media/data-box-quickstart-portal/back-plane-labeled.png)-->  
 
     1. Connect the power cable to the device.
     2. Use the CAT 6 network cable to connect your host computer to the management port (MGMT) on the device. 

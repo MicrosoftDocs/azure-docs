@@ -66,6 +66,6 @@ In this tutorial, you learned about Azure Data Box topics such as:
 Advance to the following article to learn how to manage Data Box via the local web UI.
 
 > [!div class="nextstepaction"]
-> [Use local web UI to administer Azure Data Box](./data-box-local--web-ui-admin.md)
+> [Use local web UI to administer Azure Data Box](./data-box-portal-ui-admin.md)
 
 

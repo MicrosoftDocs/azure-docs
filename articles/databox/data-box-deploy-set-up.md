@@ -41,7 +41,8 @@ Before you begin, make sure that:
     - Two 10 GbE SFP+ Twinax copper cables
     - One 1 GbE RJ-45 CAT 6 network cable
     - One 1 GbE RJ-45 network cable
-        ![Data Box Cables](media/data-box-deploy-set-up/data-box-cables-needed.png)
+        
+        <!--![Data Box Cables](media/data-box-deploy-set-up/data-box-cables-needed.png)-->
 
 ## Cable your device
 
@@ -50,7 +51,7 @@ Perform the following steps to cable your device.
 1. Inspect the device for any evidence of tampering, or any other obvious damage. If the device is tampered or severely damaged, do not proceed. Contact Microsoft Support immediately to help you assess whether the device is in good working order and if they need to ship you a replacement.
 2. Transport the device to the location where you wish to power it on. Place the device on a flat surface. The device can also be placed on a standard rack shelf.
 
-    ![Data Box device](media/data-box-deploy-set-up/data-box-front-view.png)
+    <!--![Data Box device](media/data-box-deploy-set-up/data-box-front-view.png)-->
 
 3. Connect the power and network cables. The backplane of a connected device is shown below. 
 
@@ -62,11 +63,11 @@ Perform the following steps to cable your device.
        
     3. Use the 10 GbE SFP+ Twinax copper cables to connect the DATA 1 and DATA 2 ports respectively.
 
-    ![Data Box device ports labeled](media/data-box-deploy-set-up/data-box-backplane-cabling.png)
+    <!--![Data Box device ports labeled](media/data-box-deploy-set-up/data-box-backplane-cabling.png)-->
 
 4. Locate the power button on the front operating panel of the device. Turn on the device.
 
-    ![Data Box power button](media/data-box-deploy-set-up/data-box-power-button.png)
+    <!--![Data Box power button](media/data-box-deploy-set-up/data-box-power-button.png)-->
 
 ## Set up your device
 
