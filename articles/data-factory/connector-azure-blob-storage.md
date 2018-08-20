@@ -45,13 +45,16 @@ Azure Blob connector support the following authentication types, refer to the co
 - [Service principal authentication](#service-principal-authentication)
 - [Managed service identity authentication](#managed-service-identity-authentication)
 
+>[!NOTE]
+>HDInsights, Azure Machine Learning and Azure SQL Data Warehouse PolyBase load only support Azure Blob storage account key authentication.
+
 ### Account key authentication
 
 To use storage account key authentication, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **AzureBlobStorage**. |Yes |
+| type | The type property must be set to **AzureBlobStorage** (suggested) or **AzureStorage** (see notes below). |Yes |
 | connectionString | Specify the information needed to connect to Storage for the connectionString property. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
@@ -95,7 +98,7 @@ To use shared access signature authentication, the following properties are supp
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **AzureBlobStorage**. |Yes |
+| type | The type property must be set to **AzureBlobStorage** (suggested) or **AzureStorage** (see notes below). |Yes |
 | sasUri | Specify the shared access signature URI to the Storage resources, such as blob, container, or table. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure Integration Runtime or the Self-hosted Integration Runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
@@ -129,7 +132,7 @@ When you create a shared access signature URI, consider the following points:
 - Set **Expiry time** appropriately. Make sure that the access to Storage objects doesn't expire within the active period of the pipeline.
 - The URI should be created at the right container/blob or table level based on the need. A shared access signature URI to a blob allows Data Factory to access that particular blob. A shared access signature URI to an Blob storage container allows Data Factory to iterate through blobs in that container. To provide access to more or fewer objects later, or to update the shared access signature URI, remember to update the linked service with the new URI.
 
-# Service principal authentication
+### Service principal authentication
 
 To use service principal authentication, follow these steps:
 
@@ -156,7 +159,7 @@ These properties are supported for an Azure Blob storage linked service:
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 >[!NOTE]
->Service principal authentication is only supported by "AzureBlobStorage" type linked service but not "AzureStorage" type linked service.
+>Service principal authentication is only supported by "AzureBlobStorage" type linked service but not previous "AzureStorage" type linked service.
 
 **Example:**
 
@@ -182,7 +185,7 @@ These properties are supported for an Azure Blob storage linked service:
 }
 ```
 
-# Managed service identity authentication
+### Managed service identity authentication
 
 A data factory can be associated with a [managed service identity](data-factory-service-identity.md), which represents this specific data factory. You can directly use this service identity for Data Lake Store authentication similar to using your own service principal. It allows this designated factory to access and copy data from/to your Data Lake Store.
 
@@ -204,7 +207,7 @@ These properties are supported for an Azure Blob storage linked service:
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 >[!NOTE]
->Managed service identity authentication is only supported by "AzureBlobStorage" type linked service but not "AzureStorage" type linked service.
+>Managed service identity authentication is only supported by "AzureBlobStorage" type linked service but not previous "AzureStorage" type linked service. 
 
 **Example:**
 
