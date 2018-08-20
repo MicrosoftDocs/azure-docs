@@ -67,7 +67,7 @@ Azure App Service on Azure Stack Update 3 includes the following improvements an
   - Updated Git for Windows to v 2.17.1.2
   - Updated Kudu to 74.10611.3437
   
- - **Updates to underlying operating system of all roles**:
+- **Updates to underlying operating system of all roles**:
   - [Servicing stack update for Windows Server 2016 for x64-based Systems (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
   - [2018-07 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
 
