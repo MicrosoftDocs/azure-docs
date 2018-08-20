@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/07/2018
+ms.date: 08/20/2018
 ms.author: alkohli
 ---
 # Tutorial: Order Azure Data Box
 
-Azure Data Box Disk is a cloud solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to solid-state disks (SSDs) supplied by Microsoft and ship the disks back. This data is then uploaded to Azure.
+Azure Data Box is a cloud solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to an Microsoft-supplied 80 TB (usable capacity) storage device and then ship the device back. This data is then uploaded to Azure.
 
 This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:
 
@@ -113,13 +113,15 @@ You can only cancel when the device is ordered and the order is being processed 
 
    [![Data Box status ordered](media/data-box-deploy-ordered/data-box-ordered.png)](media/data-box-deploy-ordered/data-box-ordered.png#lightbox)   
 
-To delete a canceled order, go to Overview and click Delete from the command bar.
+To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
 
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
 > * Prerequisites to deploy Data Box
 > * Order Data Box
+> * Track the order
+> * Cancel the order
 
 Advance to the next tutorial to learn how to set up your Data Box.
 

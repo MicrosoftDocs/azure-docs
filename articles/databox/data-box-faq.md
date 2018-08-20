@@ -57,7 +57,7 @@ A.  Data Box is available in US and all the countries in European Union during t
 A. Data Box is supported for all regions within US and West Europe and North Europe for preview. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
 
 ### Q. Whom should I contact if I encounter any issues with Data Box?
-A. If you encounter any issues with Data Box, please contact [Microsoft Support](data-box-disk-contact-microsoft-support.md).
+A. If you encounter any issues with Data Box, please contact Microsoft Support.
 
 
 ## Order device
@@ -73,7 +73,7 @@ Check your subscription. Data Box is only available for Enterprise Agreement (EA
 If you have supported offer type for the subscription, check your subscription access level. You need to be a contributor or owner in your subscription to create an order.
 
 ### Q. I ordered a couple of Data Box devices. I am not able to create any additional orders. Why would this be?
-A. We allow for a maximum of 3 active orders per subscription per commerce boundary (combination of country and the region selected). If you need to order device, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md) to increase the limit for your subscription.
+A. We allow for a maximum of 3 active orders per subscription per commerce boundary (combination of country and the region selected). If you need to order device, contact Microsoft Support to increase the limit for your subscription.
 
 ### Q. Data Box model not available
 A. "Data Box service is not available for the combination of country and region customer has selected. We do not service cross commerce boundary customers
@@ -89,10 +89,10 @@ In case we have lots of customers in waitlist then let customer know - Currently
  
 
 ### Q. How do I unlock the Data Box? 
-A.  In the Azure portal, go to your Data Box order, and navigate to **Device details**. Copy the unlock password. Use this password to log into the local web UI on your Data Box. For more information, go to [Tutorial: Unpack, cable, connect your Azure Data Box](data-box-deloy-set-up.md).
+A.  In the Azure portal, go to your Data Box order, and navigate to **Device details**. Copy the unlock password. Use this password to log into the local web UI on your Data Box. For more information, go to [Tutorial: Unpack, cable, connect your Azure Data Box](data-box-deploy-set-up.md).
 
 ### Q. Can I use a Linux host computer to connect and copy the data on to the Data Box?
-A.  Yes. You can use Data Box to connect to SMB and NFS clients. For more information, go to the list of [Supported operating systems](data-box-disk-system-requirements.md) for your host computer.
+A.  Yes. You can use Data Box to connect to SMB and NFS clients. For more information, go to the list of [Supported operating systems](data-box-system-requirements.md) for your host computer.
 
 ### Q. My Data Box is dispatched but now I want to cancel this order. Why is the cancel button not available?
 A.  You can only cancel the order after the Data Box is ordered and before the shipment. Once the Data Box is dispatched, you can no longer cancel the order. 
@@ -143,7 +143,7 @@ A.  Use an SMB copy tool such as Robocopy, Diskboss or even Windows File Explore
 ### Q. Are there any tips to speed up the data copy?
 A.  To speed up the copy process:
 
-- Use multiple streams of data copy. For instance, with Robocopy, use the multithreaded option. For more information on the exact command used, go to [Tutorial: Copy data to Azure Data Box and verify](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
+- Use multiple streams of data copy. For instance, with Robocopy, use the multithreaded option. For more information on the exact command used, go to [Tutorial: Copy data to Azure Data Box and verify](data-box-deploy-copy-data.md).
 - Use multiple sessions.
 - Instead of copying over network share (where you could be limited by the network speeds) ensure that you have the data residing locally on the computer to which the Data Box is connected.
 - Benchmark the performance of the computer used to copy the data. Download and use the [Bluestop FIO tool](https://bluestop.org/fio/) to benchmark the performance of the server hardware.
@@ -222,6 +222,6 @@ A.
 
 ## Next steps
 
-- Review the [Data Box system requirements](data-box-disk-system-requirements.md).
-- Understand the [Data Box limits](data-box-disk-limits.md).
-- Quickly deploy [Azure Data Box](data-box-disk-quickstart-portal.md) in Azure portal.
+- Review the [Data Box system requirements](data-box-system-requirements.md).
+- Understand the [Data Box limits](data-box-limits.md).
+- Quickly deploy [Azure Data Box](data-box-quickstart-portal.md) in Azure portal.
