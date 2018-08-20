@@ -23,7 +23,7 @@ ms.reviewer: johnhas
 
 Validation as a Service (VaaS) is an Azure service that is made available to Microsoft Azure Stack partners who have a co-engineering agreement with Microsoft to design, develop, validate, sell, deploy, and support Azure Stack solutions in the market.
 
-Learn how to get ready to use Validation as a Service by setting up the Azure Active Directory instance and creating a storage account.
+Learn how to get ready to use VaaS by setting up the Azure Active Directory instance and creating a storage account.
 
 ## Configure an Azure Active Directory tenant
 
@@ -51,15 +51,15 @@ This process authorizes your tenant with the **Azure Stack Validation Service** 
 
     | Data | Description |
     |--------------------------------|---------------------------------------------------------------------------------------------|
-    | Organization Name | Official organization name. |
-    | Azure AD Tenant Directory Name | Azure AD Tenant Directory name being registered. |
-    | Azure AD Tenant Directory ID | Azure AD Tenant Directory GUID associated with the directory. For information on how to find your Azure AD Tenant Directory ID, see [Get tenant ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). |
+    | Organization Name | The official organization name |
+    | Azure AD Tenant Directory Name | The Azure AD Tenant Directory name being registered |
+    | Azure AD Tenant Directory ID | The Azure AD Tenant Directory GUID associated with the directory. For information on how to find your Azure AD Tenant Directory ID, see [Get your tenant ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). |
 
-2. Wait for confirmation from the Azure Stack Validation team that your tenant can use the VaaS portal.
+2. Wait for confirmation from the Azure Stack Validation team to verify that your tenant can use the VaaS portal.
 
 ### Consent to the VaaS application
 
-As the AAD administrator, give the VaaS AAD application the required permissions on behalf of your tenant.
+As the AAD administrator, give the VaaS AAD application the required permissions on behalf of your tenant:
 
 1. Use the global admin credentials for the tenant to sign into the [VaaS portal](https://azurestackvalidation.com/). Click on **My Account**.
 
@@ -87,12 +87,12 @@ To assign roles in the **Azure Stack Validation Service** application:
 4. Select **Users and groups**. The **Azure Stack Validation Service - Users and group** blade lists the users with permission to use the application.
 5. Select **+ Add user** to add a user from your tenant and assign a role.
 
-## Create an Azure Storage Account
+## Create an Azure Storage account
 
-During test execution, VaaS outputs diagnostic logs to an Azure Storage Account. In addition to test logs, the storage account may also be used to the upload the OEM customization packages during the Package Validation workflow.
+During test execution, VaaS outputs diagnostic logs to an Azure Storage account. In addition to test logs, the storage account may also be used to the upload the OEM extension packages for the Package Validation workflow.
 
 > [!NOTE]
-> This Azure Storage account is hosted in the Azure public cloud (and not on your Azure Stack environment).
+> This Azure Storage account is hosted in the Azure public cloud, not on your Azure Stack environment.
 
 1. To create a storage account, follow the instructions at [Create a storage account](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account).
 2. When selecting the type of storage account, select the **Blob storage** account type.

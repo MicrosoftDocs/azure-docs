@@ -44,17 +44,17 @@ For more information, see [Validate software updates from Microsoft](azure-stack
 
 ## Get digitally signed solution partner packages
 
-In addition to validating Azure Stack updates, partners use the **Package Validation** workflow to validate updates to OEM customization packages, which include Azure Stack partner-specific drivers, firmware, and other software used during deployment of the Azure Stack software. Deploy the package you are validating on the current version of the Azure Stack software using at a least the minimum-sized solution that will be supported. The package is submitted to VaaS before executing tests. If the tests succeed, notify [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com). Tell the Azure Stack partner that the package has completed testing and should be digitally signed with the Azure Stack digital signature. Microsoft signs the package and notifies the Azure Stack partner that the package is available for download in the VaaS portal.
+In addition to validating Azure Stack updates, partners use the **Package Validation** workflow to validate updates to OEM customization packages, which include Azure Stack partner-specific drivers, firmware, and other software used during deployment of the Azure Stack software. Deploy the package you are validating on the current version of the Azure Stack software using at a least the minimum-sized solution that will be supported. The package is submitted to VaaS before executing tests. If the tests succeed, notify [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) that the package has completed testing and should be digitally signed with the Azure Stack digital signature. Microsoft signs the package and notifies the Azure Stack partner that the package is available for download in the VaaS portal.
 
 For more information, see [Validate OEM packages](azure-stack-vaas-validate-oem-package.md).
 
 ## Preview VaaS test collateral
 
-Microsoft regularly makes new features available in Azure Stack. As part of the development process for delivering these features to market, new test collateral is made available in the **Test Pass** workflow. The Test Pass workflow includes test collateral from the other workflows to allow for unofficial test execution. Do not use the Test Pass workflow to submit results for approval. Use the Solution Validation and Package Validations workflow to get official approval for your solution.
+Microsoft regularly makes new features available in Azure Stack. As part of the development process for delivering these features to market, new test collateral is made available in the **Test Pass** workflow. The Test Pass workflow includes test collateral from the other workflows to allow for unofficial test execution. Do not use the Test Pass workflow to submit results for approval. Use the Solution Validation and Package Validation workflows to get official approval for your solution.
 
-For more information, see [Quickstart: Use the Validation as a Service portal to schedule your first test](azure-stack-vaas-schedule-test-pass.md)
+For more information, see [Quickstart: Use the Validation as a Service portal to schedule your first test](azure-stack-vaas-schedule-test-pass.md).
 
 ## Next steps
 
 - [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md)
-- Learn about [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md).
+- Learn about [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md)

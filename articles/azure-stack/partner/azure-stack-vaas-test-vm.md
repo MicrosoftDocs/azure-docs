@@ -1,5 +1,5 @@
 ---
-title: Deploy the local agent and test image virtual machines in Azure Stack Validation as a Service | Microsoft Docs
+title: Deploy the local agent and test virtual machines| Microsoft Docs
 description: Deploy the local agent and test image virtual machines for Azure Stack Validation as a Service.
 services: azure-stack
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.reviewer: johnhas
 
 ---
 
-# Deploy the local agent and test virtual machines
+# Deploy the local agent and upload test virtual machine images
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -55,7 +55,7 @@ Azure Stack is the system under test. The machine should not be part of Azure St
 2. Run the following command to download the local agent:
 
     ```PowerShell  
-        Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.3.2.0.nupkg" -outfile "OnPremAgent.zip"
+        Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "OnPremAgent.zip"
         Expand-Archive -Path ".\OnPremAgent.zip" -DestinationPath VaaSOnPremAgent.3.2.0 -Force
         Set-Location VaaSOnPremAgent.3.2.0\lib\net46
     ````
@@ -134,5 +134,5 @@ An agent is uniquely identified by its name. By default, it uses the fully quali
 ## Next steps
 
 - [Validate a new Azure Stack solution](azure-stack-vaas-validate-solution-new.md)  
-- If you have slow or intermittent Internet connectivity, you can download the PIR image. For more information, see [Handle slow network connectivity](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity).
+- If you have slow or intermittent Internet connectivity, you can download the PIR images. For more information, see [Handle slow network connectivity](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity).
 - To learn more about [Azure Stack Validation as a Service](https://docs.microsoft.com/azure/azure-stack/partner).
