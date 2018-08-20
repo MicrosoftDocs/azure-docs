@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Service Fabric cluster | Microsoft Docs
-description: Learn how to set up a secure Service Fabric cluster in Azure by using Azure Resource Manager, Azure Key Vault, and Azure Active Directory (Azure AD) for client authentication.
+description: Learn how to set up a secure Service Fabric cluster in Azure using Azure Resource Manager.  You can create a cluster using a default template or using your own cluster template.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -16,7 +16,7 @@ ms.date: 08/16/2018
 ms.author: aljo
 
 ---
-# Create a Service Fabric cluster by using Azure Resource Manager 
+# Create a Service Fabric cluster using Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 > * [Azure portal](service-fabric-cluster-creation-via-portal.md)
@@ -39,7 +39,7 @@ You can find the reference documentation for the Service Fabric modules here:
 * [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric)
 * [az SF CLI module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
 
-## Create new cluster  - using a system generated self signed certificate
+## Create a new cluster using a system generated self-signed certificate
 
 Use the following command to create cluster, if you want the system to generate a self-signed certificate and use it to secure your cluster. This command sets up a primary cluster certificate that is used for cluster security and to set up admin access to perform management operations using that certificate.
 
@@ -54,7 +54,7 @@ Set-AzureRmContext -SubscriptionId <subscriptionId>
 azure login
 az account set --subscription $subscriptionId
 ```
-### Use the default 5 Node 1 node type template that ships in the module to set up the cluster
+### Use the default cluster template that ships in the module
 
 Use the following command to create a cluster quickly, by specifying minimal parameters
 
@@ -102,7 +102,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 	--vm-password $vmpassword --vm-user-name $vmuser
 ```
 
-### Use the custom template that you already have
+### Use your own custom template
 
 If you need to author a custom template to suit your needs, it is highly recommended that you start with one of the templates that are available on the [Azure Service Fabric template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Follow guidance and explanations to [customize your cluster template][customize-your-cluster-template] section below.
 
@@ -150,7 +150,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 	--template-file $templateFilePath --parameter-file $parametersFilePath
 ```
 
-## Create new cluster - using the certificate you bought from a CA or you already have
+## Create a new cluster using your own X.509 certificate
 
 Use the following command to create cluster, if you have a certificate that you want to use to secure your cluster with.
 
@@ -191,7 +191,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 	--vm-password $vmPassword --vm-user-name $vmUser
 ```
 
-### Use the custom template that you have 
+### Use your own custom cluster template
 If you need to author a custom template to suit your needs, it is highly recommended that you start with one of the templates that are available on the [Azure Service Fabric template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Follow guidance and explanations to [customize your cluster template][customize-your-cluster-template] section below.
 
 If you already have a custom template, then make sure to double check that all the three certificate related parameters in the template and the parameter file are named as follows and values are null as follows.
@@ -239,7 +239,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 	--template-file $templateFilePath --parameter-file $parametersFilePath 
 ```
 
-### Use a pointer to the secret you already have uploaded into the key vault
+### Use a pointer to a secret uploaded into a key vault
 
 To use an existing key vault, you _must enable it for deployment_ to allow the compute resource provider to get certificates from it and install it on cluster nodes:
 
