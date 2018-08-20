@@ -31,7 +31,7 @@ In this tutorial you will learn how to use the Log Analytics page in the Azure p
 
 
 ## Meet the Log Analytics page 
-The Log Analytics page is a web tool used to write and execute Azure Log Analytics queries. Open it by selecting **Logs (preview)** in the Log Analytics menu. It starts with a new query that 
+The Log Analytics page is a web tool used to write and execute Azure Log Analytics queries. Open it by selecting **Logs (preview)** in the Log Analytics menu. It starts with a new blank query.
 
 ![Home page](media/get-started-analytics-portal/homepage.png)
 
