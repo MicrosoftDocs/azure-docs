@@ -43,21 +43,21 @@ LUIS doesn't provide answers to user utterances, it only identifies what type of
 
 The purpose of the app is to determine the intention of conversational, natural language text. These intentions are categorized into **Intents**. This app has a few intents. The first intent, **`GetJobInformation`**, identifies when a user wants information about jobs available inside a company. The second intent, **`None`**, is used for any utterances from the user that are outside the _domain_ (scope) of this app. Later, a third intent, **`ApplyForJob`**, is added for any utterances about applying for a job. This third intent is different from `GetJobInformation` because the job information should already be known when someone applies for the job. However, depending on the word choice, determining which intent may be tricky as they both are about a job.
 
-Use [https://www.luis.ai](https://www.luis.ai) as the LUIS portal with applications in the en-us culture, and use the free starter key as the publishing key. 
+Use [https://www.luis.ai](https://www.luis.ai) as the LUIS portal with applications in the `en-us` culture, and use the free starter key as the publishing key. 
 
 ## Create a new app
 
-1. Log in to the LUIS website. 
+1. Log in to the LUIS portal. 
 
-2. On the LUIS website, select **Create new app**.  
+2. Select **Create new app**.  
 
     [![](media/luis-quickstart-intents-only/app-list.png "Screenshot of Language Understanding (LUIS) My Apps page")](media/luis-quickstart-intents-only/app-list.png#lightbox)
 
-3. In the pop-up dialog, enter the name `HumanResources`. 
+3. In the pop-up dialog, enter the name `HumanResources` and keep the default culture, **English**. Leave the description empty.
 
     ![LUIS new app](./media/luis-quickstart-intents-only/create-app.png)
 
-    When that process finishes, the app shows the **Intents** page with the **None** Intent.
+    Next, the app shows the **Intents** page with the **None** Intent.
 
     [![](media/luis-quickstart-intents-only/list-of-intents-1.png "Screenshot of Language Understanding (LUIS) Intents list")](media/luis-quickstart-intents-only/list-of-intents-1.png#lightbox)
 
@@ -87,7 +87,7 @@ Use [https://www.luis.ai](https://www.luis.ai) as the LUIS portal with applicati
 ## Add example utterances to None intent 
 The client application needs to know if an utterance is outside the subject domain of the application. If LUIS returns the **None** intent for an utterance, your client application can ask if the user wants to end the conversation. The client application can also give more directions for continuing the conversation if the user doesn't want to end it. 
 
-These non-domain example utterances are grouped into the **None** intent. Do not leave it empty. 
+These example utterances, outside the subject domain, are grouped into the **None** intent. Do not leave it empty. 
 
 1. Select **Intents** from the left panel.
 
