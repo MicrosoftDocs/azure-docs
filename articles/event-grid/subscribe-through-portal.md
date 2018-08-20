@@ -14,9 +14,9 @@ ms.author: tomfitz
 
 This article describes how to create Event Grid subscriptions through the portal.
 
-## Create subscriptions
+## Create event subscriptions
 
-To create an Event Grid subscription for your Azure subscription, use the following steps.
+To create an Event Grid subscription for any of the supported [event sources](event-sources.md), use the following steps. This article shows how to create an Event Grid subscription for an Azure subscription.
 
 1. Select **All services**.
 
@@ -34,7 +34,21 @@ To create an Event Grid subscription for your Azure subscription, use the follow
 
    ![Select Azure subscription](./media/subscribe-through-portal/azure-subscription.png)
 
-## Resource subscriptions
+1. To subscribe to all event types for this event source, keep the **Subscribe to all event types** option checked. Otherwise, select the event types for this subscription.
+
+   ![Select event types](./media/subscribe-through-portal/select-event-types.png)
+
+1. Provide additional details about the event subscription, such as the endpoint for handling events and a subscription name.
+
+   ![Provide subscription details](./media/subscribe-through-portal/provide-subscription-details.png)
+
+## Create subscription on resource
+
+Some event sources support creating an event subscription through the portal interface for that resource. Select the event source, and look for **Events** in left pane.
+
+![Provide subscription details](./media/subscribe-through-portal/resource-events.png)
+
+The portal presents you with options for creating an event subscription that is relevant to that source.
 
 ## Next steps
 
