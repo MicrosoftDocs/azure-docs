@@ -1,17 +1,17 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Upgrade and scale an Azure API Management instance | Microsoft Docs
-description: This topic describes how to upgrade and scale an Azure API Management instance.
+title: Configure autoscale of an Azure API Management instance | Microsoft Docs
+description: This topic describes how to set up autoscale behavior for an Azure API Management instance.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: anneta
 editor: ''
 
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/18/2018
+ms.date: 06/20/2018
 ms.author: apimpm
 ---
 
