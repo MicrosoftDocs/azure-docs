@@ -13,7 +13,7 @@ ms.author: nolachar
 ---
 # What is Computer Vision?
 
-The cloud-based Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. Computer Vision works with popular image formats, such as JPEG and PNG. To analyze an image, you can either upload an image or specify an image URL. Computer Vision algorithms can analyze the content of an image in different ways based on your inputs and choices, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains mature content, or find all the faces in an image.
+The cloud-based Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. Computer Vision works with popular image formats, such as JPEG and PNG. To analyze an image, you can either upload an image or specify an image URL. Computer Vision algorithms can analyze the content of an image in different ways based on your inputs and choices, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult or racy content, or find all the faces in an image.
 
 ## What can Computer Vision analyze?
 
