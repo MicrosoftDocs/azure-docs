@@ -22,9 +22,9 @@ A compute target is the compute resource used to execute your training script or
 The following is a list of supported compute targets:
 
 * Your local computer
-* A Linux virtual machine in Linux. For example, the Data Science Virtual Machine.
-* Azure Batch AI
-* Azure Container Instance
+* Data Science Virtual Machines (DSVM) and Deep Learning Virtual Machines (DLVMs)
+* Azure Batch AI clusters
+* Container instances in Azure Container Instances (ACI)
 
 
 ## Workflow
@@ -72,8 +72,6 @@ except ComputeTargetException:
      # For a more detailed view of current Batch AI cluster status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
-
-For more information on using the BatchAiCompute object, see [tbd]. 
 
 ## Next steps
 * [What is Azure Machine Learning service](overview-what-is-azure-ml.md)
