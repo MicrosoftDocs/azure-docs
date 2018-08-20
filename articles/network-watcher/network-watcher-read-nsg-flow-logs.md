@@ -130,9 +130,6 @@ $valuearray += $value
 
 Now the `$valuearray` array contains the string value of each block. To verify the entry, get the second to the last value from the array by running `$valuearray[$valuearray.Length-2]`. You do not want the last value, because it is the closing bracket.
 
-> [!NOTE]
-> The format of NSG flow logs is changing soon. For details, see [Network security group flow log changes](prepare-flow-log.md).
-
 The results of this value are shown in the following example:
 
 ```json
