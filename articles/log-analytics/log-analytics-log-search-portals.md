@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/20/2018
 ms.author: magoedte; bwren
 ms.component: na
 ---
@@ -21,7 +21,7 @@ ms.component: na
 There are two options available in the Azure portal for analyzing data stored in Log analytics and for creating queries for ad hoc analysis. The queries that you create using these portals can be used for other features such as alerts and dashboards.
 
 ## Log Analytics page (preview)
-The Log Analytics page is new experience for working with log data and creating queries. You can get an introduction to this portal and inspect its features at [Get started with the Log Analytics page in the Azure portal](query-language/get-started-analytics-portal.md).
+Open the Log Analytics page from **Logs (preview)** in the Log Analytics menu. This is new experience for working with log data and creating queries. You can get an introduction to this portal and inspect its features at [Get started with the Log Analytics page in the Azure portal](query-language/get-started-analytics-portal.md).
 
 The Log Analytics page provides the following improvements over the [Log search](#log-search) experience.
 
@@ -35,14 +35,16 @@ The Log Analytics page provides the following improvements over the [Log search]
 * Smart Analytics - identifies spikes in your charts and a quick analysis of the cause.
 * Column selection – sort and group columns in the query results.
 
+Open the Log Analytics page from the **Logs (Preview)** 
+
 > [!NOTE]
-> The Log Analytics page has the same functionality as the Advanced Analytics portal which is an external tool outside of the Azure portal. The Advanced Analytics portal is still available, but links and other references to it in the Azure portal are being replaced with Log explorer.
+> The Log Analytics page has the same functionality as the Advanced Analytics portal which is an external tool outside of the Azure portal. The Advanced Analytics portal is still available, but links and other references to it in the Azure portal are being replaced with this new page.
 
 ![Advanced Analytics portal](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
 
 ### Firewall requirements
-Your browser requires access to the following addresses to access Log explorer and the Advanced Analytics portal.  If your browser is accessing the Azure portal through a firewall, you must enable access to these addresses.
+Your browser requires access to the following addresses to access the Log Analytics page and the Advanced Analytics portal.  If your browser is accessing the Azure portal through a firewall, you must enable access to these addresses.
 
 | Uri | IP | Ports |
 |:---|:---|:---|
@@ -52,7 +54,7 @@ Your browser requires access to the following addresses to access Log explorer a
 
 
 ## Log search
-The Log search page is suitable for analyzing log data using basic queries. It provides multiple features for editing queries without having a full knowledge of the query language.  You can get a summary of these features in [Create log searches in Azure Log Analytics using Log Search](log-analytics-log-search-log-search-portal.md). 
+Open the Log Analytics page from **Logs** in the Log Analytics menu or from **Log Analytics** in the Azure Monitor menu. This is suitable for analyzing log data using basic queries. It provides multiple features for editing queries without having a full knowledge of the query language.  You can get a summary of these features in [Create log searches in Azure Log Analytics using Log Search](log-analytics-log-search-log-search-portal.md). 
 
 
 ![Log Search page](media/log-analytics-log-search-portals/log-search-portal.png)
@@ -60,6 +62,6 @@ The Log search page is suitable for analyzing log data using basic queries. It p
 
 ## Next steps
 
-- Walk through a tutorial on using [Log Search](log-analytics-tutorial-viewdata.md) to learn how to create queries using the query language
-- Check out the [Advanced Analytics portal](https://go.microsoft.com/fwlink/?linkid=856587) to create sophisticated queries and use as a development environment for your log searches.
+- Walk through a [tutorial using Log Search](log-analytics-tutorial-viewdata.md) to learn how to create queries using the query language
+- Walk through a [lesson using the Advanced Analytics portal](query-language/get-started-analytics-portal.md) which provides the same experience as the Log Analytics page.
 
