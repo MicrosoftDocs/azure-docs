@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 08/20/2018
 ms.author: jeedes
 
 ---
@@ -128,7 +128,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     ![Configure Single Sign-On](./media/Workday-tutorial/tutorial_workday_attributes.png)
 
     > [!NOTE]
-    > Here we have mapped nameid value with UPN(user.userprincipalname) as example. You have to map the same with actual name id value which you are using in your workday subscription for successful working of SSO.
+    > Here we have mapped the Name ID with UPN (user.userprincipalname) as default. You need to map the Name ID with actual User ID in your Workday account (your email, UPN etc.) for successful working of SSO.
 
 6. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -235,7 +235,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     ![OK](./media/workday-tutorial/IC782933.png "OK")
 
     > [!NOTE]
-    > Please ensure you set up single sign-on correctly. In case you enable single sign-on with incorrect setup, you may get locked out. Workday provides a backup log-in url where users can sign-in using their normal username and password in the following format: [Your Workday URL]/login.flex?redirect=n
+    > Please ensure you set up single sign-on correctly. In case you enable single sign-on with incorrect setup, you may not be able to enter the application with your credentials and get locked out. In this situation, Workday provides a backup log-in url where users can sign-in using their normal username and password in the following format:[Your Workday URL]/login.flex?redirect=n
 
 ### Create an Azure AD test user
 
