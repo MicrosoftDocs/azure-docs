@@ -4,10 +4,8 @@ description: This article describe how to get started using Visual Studio Tools 
 services: machine-learning
 ms.technology: vs-azure
 ms.workload: azure-vs
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: chris-lauren
+ms.author: chris.lauren
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
