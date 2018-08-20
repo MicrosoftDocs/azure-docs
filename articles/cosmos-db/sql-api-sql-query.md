@@ -15,7 +15,7 @@ ms.date: 08/10/2018
 ms.author: laviswa
 
 ---
-# SQL queries for Azure Cosmos DB
+# Query Azure Cosmos DB data with SQL queries
 
 Microsoft Azure Cosmos DB supports querying documents using SQL (Structured Query Language) as a JSON query language on SQL API accounts. While designing the query language for Azure Cosmos DB, the following two goals are considered:
 
