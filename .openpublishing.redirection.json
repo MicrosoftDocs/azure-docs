@@ -26998,12 +26998,12 @@
         },
         {
             "source_path": "articles/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup.md",
-            "redirect_url": "azure/active-directory/user-help/user-help-register-device-on-network",
+            "redirect_url": "/azure/active-directory/user-help/user-help-register-device-on-network",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/user-help/device-management-azuread-joined-devices-setup.md",
-            "redirect_url": "azure/active-directory/user-help/user-help-join-device-on-network",
+            "redirect_url": "/azure/active-directory/user-help/user-help-join-device-on-network",
             "redirect_document_id": true
         },
         {
@@ -27268,6 +27268,11 @@
 		{
             "source_path": "articles/cognitive-services/speech-service/speech-scenarios.md",
             "redirect_url": "/azure/cognitive-services/speech-service/overview",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/cognitive-services/luis/Home.md",
+            "redirect_url": "/azure/cognitive-services/luis/what-is-luis",
             "redirect_document_id": true
         }
 
