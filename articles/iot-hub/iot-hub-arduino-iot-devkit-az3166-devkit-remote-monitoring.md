@@ -115,7 +115,7 @@ When the sample app runs, DevKit sends sensor data over WiFi to your Azure IoT R
 
 ## Change device ID
 
-You can change the device ID in IoT Hub by following the [Customize Device ID guide](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/). If you want to change the hardcoded **AZ3166** to a customized device ID in the code, modify the line of code displayed oi the [remote monitoring example](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23).
+If you want to change the hardcoded **AZ3166** to a customized device ID in the code, modify the line of code displayed in the [remote monitoring example](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23).
 
 ## Problems and feedback
 
@@ -131,3 +131,5 @@ Now that you have learned how to connect a DevKit device to your Azure IoT Remot
 * [Azure IoT solution accelerators overview](https://docs.microsoft.com/azure/iot-suite/)
 
 * [Connect an MXChip IoT DevKit device to your Azure IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+
+* [IoT developer kit](https://microsoft.github.io/azure-iot-developer-kit/) 
