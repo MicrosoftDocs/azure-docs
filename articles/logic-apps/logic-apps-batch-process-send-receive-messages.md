@@ -7,20 +7,20 @@ author: divyaswarnkar
 ms.author: divswa
 manager: jeconnoc
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 08/19/2018
 ms.reviewer: estfan, LADocs
 ms.suite: integration
 ---
 
 # Send, receive, and batch process messages in Azure Logic Apps
 
-To group messages and process them together in a specific way, 
+To send and process messages together in a specific way as groups, 
 you can create a batching solution that collects messages into a 
-*batch* until your specified criteria are met and then releases 
-the batched messages for processing. Batching reduces how often 
-your logic app processes messages. This article shows how to 
-create a batching solution by creating two logic apps in this 
-specific order and in the same Azure region: 
+*batch* until your specified criteria are met for releasing and 
+and processing the batched messages. Batching can reduce how often 
+your logic app processes messages. This article shows how to build 
+a batching solution by creating two logic apps within the same 
+Azure subscription, Azure region, and following this specific order: 
 
 * The ["batch receiver"](#batch-receiver) logic app, 
 which accepts and collects messages into a batch 
@@ -39,9 +39,10 @@ which send the messages to the previously created batch receiver.
    subsets based on that key. That way, the receiver app can 
    collect all items with the same key and process them together.
 
-Make sure your batch receiver and batch sender share the same Azure region. 
-If they don't, you can't select the batch receiver when you create the batch 
-sender because they're not visible to each other.
+Make sure your batch receiver and batch sender share the 
+same Azure subscription *and* Azure region. If they don't, 
+you can't select the batch receiver when you create the 
+batch sender because they're not visible to each other.
 
 ## Prerequisites
 
@@ -51,27 +52,29 @@ To follow this example, you need these items:
 [start with a free Azure account](https://azure.microsoft.com/free/). 
 Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Basic knowledge about 
-[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
-If you're using Visual Studio, make sure you've installed the necessary Visual Studio 
-Tools for Azure Logic Apps. To learn more, see [Quickstart: Create logic apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
-
 * An email account with any 
 [email provider supported by Azure Logic Apps](../connectors/apis-list.md)
+
+* Basic knowledge about 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
+
+* To use Visual Studio rather than the Azure portal, make sure you 
+[set up Visual Studio for working with Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="batch-receiver"></a>
 
 ## Create batch receiver
 
-Before you can send messages to a batch, 
-you must first create the "batch receiver" 
-logic app, which starts with the **Batch** trigger. 
-That way, when you create the "batch sender" logic app, 
-you can select this receiver logic app. The batch 
-receiver continues collecting messages until your 
-specified criteria is met for releasing and processing those messages. 
+Before you can send messages to a batch, that batch must 
+first exist as the destination where you send those messages. 
+So first, you must create the "batch receiver" logic app, 
+which starts with the **Batch** trigger. That way, 
+when you create the "batch sender" logic app, 
+you can select the batch receiver logic app. The batch 
+receiver continues collecting messages until your specified 
+criteria is met for releasing and processing those messages. 
 While batch receivers don't need to know anything about batch senders, 
-the batch senders must know where to send messages. 
+batch senders must know the destination where they send the messages. 
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio, 
 create a logic app with this name: "BatchReceiver" 
@@ -173,14 +176,15 @@ partition key to divide the batch into logical subsets
 for collecting messages with that key. 
 
 * Make sure you've already [created your batch receiver](#batch-receiver) 
-so when you create your batch sender, you can select that 
+so when you create your batch sender, you can select the existing 
 batch receiver as the destination batch. While batch receivers 
 don't need to know anything about batch senders, 
 batch senders must know where to send messages. 
 
-* Make sure your batch receiver and batch sender share the same Azure region. 
-If they don't, you can't select the batch receiver when you create the batch 
-sender because they're not visible to each other.
+* Make sure your batch receiver and batch sender share the 
+same Azure region *and* Azure subscription. If they don't, 
+you can't select the batch receiver when you create the 
+batch sender because they're not visible to each other.
 
 1. Create another logic app with this name: "BatchSender"
 

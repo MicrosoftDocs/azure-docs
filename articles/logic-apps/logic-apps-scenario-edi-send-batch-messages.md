@@ -7,15 +7,15 @@ author: divyaswarnkar
 ms.author: divswa
 manager: jeconnoc
 ms.topic: article
-ms.date: 08/16/18
+ms.date: 08/19/2018
 ms.reviewer: estfan, LADocs
 ---
 
 # Send EDI messages in batches to trading partners with Azure Logic Apps
 
 In business to business (B2B) scenarios, 
-partners often exchange messages in groups or batches. 
-By creating a batching solution with Logic Apps, 
+partners often exchange messages in groups or *batches*. 
+When you build a batching solution with Logic Apps, 
 you can send messages to trading partners and 
 process those messages together in batches. 
 This article shows how you can batch process EDI messages, 
@@ -24,15 +24,15 @@ logic app and a "batch receiver" logic app.
 
 Batching X12 messages works like batching other messages; 
 you use a batch trigger that collects messages into a batch 
-and a batch action that sends messages to a batch. Also, 
+and a batch action that sends messages to the batch. Also, 
 X12 batching includes an X12 encoding step before the 
 messages go to the trading partner or other destination. 
 To learn more about the batch trigger and action, see 
 [Batch process messages](../logic-apps/logic-apps-batch-process-send-receive-messages.md).
 
-In this article, you'll create a batching solution 
-by creating two logic apps in this specific order 
-and in the same Azure region: 
+In this article, you'll buld a batching solution by 
+creating two logic apps within the same Azure subscription, 
+Azure region, and following this specific order:
 
 * A ["batch receiver"](#receiver) logic app, 
 which accepts and collects messages into a batch 
@@ -48,9 +48,10 @@ by using the specified X12 agreement or partner identities.
 * A ["batch sender"](#sender) logic app, 
 which sends the messages to the previously created batch receiver. 
 
-Make sure your batch receiver and batch sender share the same Azure region. 
-If they don't, you can't select the batch receiver when you create the batch 
-sender because they're not visible to each other.
+Make sure your batch receiver and batch sender share the 
+same Azure subscription *and* Azure region. If they don't, 
+you can't select the batch receiver when you create the 
+batch sender because they're not visible to each other.
 
 ## Prerequisites
 
@@ -60,8 +61,11 @@ To follow this example, you need these items:
 [start with a free Azure account](https://azure.microsoft.com/free/). 
 Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
+* Basic knowledge about 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
 * An existing [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
-associated with your Azure subscription
+that's associated with your Azure subscription and is linked to your logic apps
 
 * At least two existing [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) 
 in your integration account. Each partner must use the X12 (Standard Carrier Alpha Code) 
@@ -70,24 +74,28 @@ qualifier as a business identity in the partner's properties.
 * An existing [X12 agreement](../logic-apps/logic-apps-enterprise-integration-x12.md) 
 in your integration account
 
+* To use Visual Studio rather than the Azure portal, make sure you 
+[set up Visual Studio for working with Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+
 <a name="receiver"></a>
 
 ## Create X12 batch receiver
 
-Before you can send messages to a batch, 
-you must first create the "batch receiver" 
-logic app, which starts with the **Batch** trigger. 
-That way, when you create the "batch sender" logic app, 
-you can select this receiver logic app. The batch 
-receiver continues collecting messages until your 
-specified criteria is met for releasing and processing those messages. 
+Before you can send messages to a batch, that batch must 
+first exist as the destination where you send those messages. 
+So first, you must create the "batch receiver" logic app, 
+which starts with the **Batch** trigger. That way, 
+when you create the "batch sender" logic app, 
+you can select the batch receiver logic app. The batch 
+receiver continues collecting messages until your specified 
+criteria is met for releasing and processing those messages. 
 While batch receivers don't need to know anything about batch senders, 
-the batch senders must know where to send messages. 
+batch senders must know the destination where they send the messages. 
 
 For this batch receiver, you specify the batch mode, name, 
 release criteria, X12 agreement, and other settings. 
 
-1. In the [Azure portal](https://portal.azure.com), 
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio, 
 create a logic app with this name: "BatchX12Messages"
 
 2. [Link your logic app to your integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
@@ -150,7 +158,11 @@ Select this trigger: **Batch messages**
 
       ![Batch Encode action items](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-items.png)
 
-6. Save your logic app.
+6. Save your logic app. 
+
+7. If you're using Visual Studio, make sure you 
+[deploy your batch receiver logic app to Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). 
+Otherwise, you can't select the batch receiver when you create the batch sender.
 
 ### Test your logic app
 
@@ -195,14 +207,15 @@ optionally provide a unique partition key to divide
 the batch into subsets to collect messages with that key. 
 
 * Make sure you've already [created your batch receiver](#receiver) 
-so when you create your batch sender, you can select that 
+so when you create your batch sender, you can select the existing 
 batch receiver as the destination batch. While batch receivers 
 don't need to know anything about batch senders, 
 batch senders must know where to send messages. 
 
-* Make sure your batch receiver and batch sender share the same Azure region. 
-If they don't, you can't select the batch receiver when you create the batch 
-sender because they're not visible to each other.
+* Make sure your batch receiver and batch sender share the 
+same Azure region *and* Azure subscription. If they don't, 
+you can't select the batch receiver when you create the 
+batch sender because they're not visible to each other.
 
 1. Create another logic app with this name: "SendX12MessagesToBatch" 
 
