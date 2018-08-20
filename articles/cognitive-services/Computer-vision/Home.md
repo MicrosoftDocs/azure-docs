@@ -26,7 +26,7 @@ Computer Vision can analyze images that meet the following requirements:
 
 ## How do I use Computer Vision?
 
-You can use Computer Vision in your application, by either using our [client libraries](quickstarts-sdk/csharp-analyze-sdk) to invoke the service, or invoking the [REST API](vision-api-how-to-topics/howtocallvisionapi.md) directly, to:
+You can use Computer Vision in your application, by either using our [client libraries](quickstarts-sdk/csharp-analyze-sdk.md) to invoke the service, or invoking the [REST API](vision-api-how-to-topics/howtocallvisionapi.md) directly, to:
 
 - **[Tag visual features](quickstarts/csharp-analyze.md)** in an image, based on more than 2,000 recognizable objects, living beings, scenery, and actions. When tags are ambiguous or not common knowledge, the response provides 'hints' to clarify the meaning of the tag in the context of a known setting. Tagging isn't limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets etc.
 - **[Categorize an image](quickstarts/csharp-analyze.md)** based on a [category taxonomy](Category-Taxonomy.md) with parent/child hereditary hierarchies, as defined in previous versions of the service. Categories can be used alone, or with our new tagging models.  
