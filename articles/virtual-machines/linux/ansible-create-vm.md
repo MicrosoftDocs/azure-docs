@@ -17,7 +17,7 @@ Using a declarative language, Ansible allows you to automate the creation, confi
 
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- **Configure Azure Cloud Shell or Install and configure Ansible on a Linux virtual machine**
+- **Configure Azure Cloud Shell** --OR-- **Install and configure Ansible on a Linux virtual machine**
 
   **Configure Azure Cloud Shell**
 
