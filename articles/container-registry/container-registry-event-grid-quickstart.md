@@ -113,8 +113,7 @@ az eventgrid event-subscription create \
 
 When the subscription is completed, you should output similar to the following:
 
-```console
-
+```JSON
 {
   "destination": {
     "endpointBaseUrl": "https://eventgridviewer.azurewebsites.net/api/updates",
