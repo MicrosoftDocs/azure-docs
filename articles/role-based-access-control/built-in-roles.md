@@ -113,9 +113,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Website Contributor](#website-contributor) | Lets you manage websites (not web plans), but not access to them. |
 
 
-## Fundamental
-
-### Owner
+## Owner
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -124,7 +122,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | * | Create and manage resources of all types |
 
-### Contributor
+## Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -139,7 +137,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Blueprint/blueprintAssignments/write |  |
 > | Microsoft.Blueprint/blueprintAssignments/delete |  |
 
-### Reader
+## Reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -148,9 +146,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | */read | Read resources of all types, except secrets. |
 
-## A
-
-### AcrImageSigner
+## AcrImageSigner
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -160,7 +156,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.ContainerRegistry/registries/*/read |  |
 > | Microsoft.ContainerRegistry/registries/*/write |  |
 
-### AcrQuarantineReader
+## AcrQuarantineReader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -169,7 +165,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/*/read |  |
 
-### AcrQuarantineWriter
+## AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -179,7 +175,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.ContainerRegistry/registries/*/write |  |
 > | Microsoft.ContainerRegistry/registries/*/read |  |
 
-### API Management Service Contributor
+## API Management Service Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -194,7 +190,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### API Management Service Operator Role
+## API Management Service Operator Role
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -219,7 +215,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Get list of user keys |
 
-### API Management Service Reader Role
+## API Management Service Reader Role
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -237,7 +233,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Get list of user keys |
 
-### Application Insights Component Contributor
+## Application Insights Component Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -253,7 +249,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Application Insights Snapshot Debugger
+## Application Insights Snapshot Debugger
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -267,7 +263,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Automation Job Operator
+## Automation Job Operator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -287,7 +283,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Automation Operator
+## Automation Operator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -316,7 +312,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Automation Runbook Operator
+## Automation Runbook Operator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -330,7 +326,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Azure Stack Registration Owner
+## Azure Stack Registration Owner
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -341,9 +337,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.AzureStack/registrations/products/read | Gets the properties of an Azure Stack Marketplace product |
 > | Microsoft.AzureStack/registrations/read | Gets the properties of an Azure Stack registration |
 
-## B
-
-### Backup Contributor
+## Backup Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -382,7 +376,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Backup Operator
+## Backup Operator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -438,7 +432,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Backup Reader
+## Backup Reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -476,7 +470,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Returns the Result of Export Job Operation. |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
 
-### Billing Reader
+## Billing Reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -490,7 +484,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### BizTalk Contributor
+## BizTalk Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -505,9 +499,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-## C
-
-### CDN Endpoint Contributor
+## CDN Endpoint Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -523,7 +515,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### CDN Endpoint Reader
+## CDN Endpoint Reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -539,7 +531,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### CDN Profile Contributor
+## CDN Profile Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -555,7 +547,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### CDN Profile Reader
+## CDN Profile Reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -571,7 +563,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Classic Network Contributor
+## Classic Network Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -586,7 +578,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Classic Storage Account Contributor
+## Classic Storage Account Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -601,7 +593,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Classic Storage Account Key Operator Service Role
+## Classic Storage Account Key Operator Service Role
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -611,7 +603,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.ClassicStorage/storageAccounts/listkeys/action | Lists the access keys for the storage accounts. |
 > | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | Regenerates the existing access keys for the storage account. |
 
-### Classic Virtual Machine Contributor
+## Classic Virtual Machine Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -636,7 +628,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### ClearDB MySQL DB Contributor
+## ClearDB MySQL DB Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -651,7 +643,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Support/* | Create and manage support tickets |
 > | successbricks.cleardb/databases/* | Create and manage ClearDB MySQL databases |
 
-### Cosmos DB Account Reader Role
+## Cosmos DB Account Reader Role
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -666,9 +658,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-## D
-
-### Data Box Contributor
+## Data Box Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -682,7 +672,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Support/* | Create and manage support tickets |
 > | Microsoft.Databox/* |  |
 
-### Data Box Operator
+## Data Box Operator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -694,7 +684,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Support/* | Create and manage support tickets |
 > | Microsoft.Databox/jobs/listsecrets/action | Lists the unencrypted secrets related to the order. |
 
-### Data Factory Contributor
+## Data Factory Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -710,7 +700,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Data Lake Analytics Developer
+## Data Lake Analytics Developer
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -741,7 +731,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | Create or update a compute policy. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | Delete a compute policy. |
 
-### Data Purger
+## Data Purger
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -753,7 +743,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | Delete specified data from workspace |
 
-### DevTest Labs User
+## DevTest Labs User
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -792,7 +782,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **NotActions** |  |
 > | Microsoft.Compute/virtualMachines/vmSizes/read | Lists available sizes the virtual machine can be updated to |
 
-### DNS Zone Contributor
+## DNS Zone Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -807,7 +797,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage Support tickets |
 
-### DocumentDB Account Contributor
+## DocumentDB Account Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -822,9 +812,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-## I
-
-### Intelligent Systems Account Contributor
+## Intelligent Systems Account Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -839,9 +827,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-## K
-
-### Key Vault Contributor
+## Key Vault Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -858,9 +844,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | Purge a soft deleted key vault |
 > | Microsoft.KeyVault/hsmPools/* |  |
 
-## L
-
-### Lab Creator
+## Lab Creator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -874,7 +858,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Log Analytics Contributor
+## Log Analytics Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -895,7 +879,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Log Analytics Reader
+## Log Analytics Reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -909,7 +893,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
 
-### Logic App Contributor
+## Logic App Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -937,7 +921,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Web/serverFarms/read | Get the properties on an App Service Plan |
 > | Microsoft.Web/sites/functions/listSecrets/action | List Secrets Web Apps Functions. |
 
-### Logic App Operator
+## Logic App Operator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -961,9 +945,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Web/customApis/*/read | Read Custom API. |
 > | Microsoft.Web/serverFarms/read | Get the properties on an App Service Plan |
 
-## M
-
-### Managed Application Operator Role
+## Managed Application Operator Role
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -972,7 +954,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | Microsoft.Solutions/applications/read | Retrieves a list of applications. |
 
-### Managed Identity Contributor
+## Managed Identity Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -988,7 +970,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Managed Identity Operator
+## Managed Identity Operator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1003,7 +985,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Management Group Contributor
+## Management Group Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1016,7 +998,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Management/managementGroups/subscriptions/write | Associates existing subscription with the management group. |
 > | Microsoft.Management/managementGroups/write | Create or update a management group. |
 
-### Management Group Reader
+## Management Group Reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1025,7 +1007,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
 
-### Monitoring Contributor
+## Monitoring Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1056,7 +1038,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.WorkloadMonitor/workloads/* |  |
 > | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
-### Monitoring Reader
+## Monitoring Reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1067,9 +1049,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.OperationalInsights/workspaces/search/action | Executes a search query |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-## N
-
-### Network Contributor
+## Network Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1084,7 +1064,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### New Relic APM Account Contributor
+## New Relic APM Account Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1099,9 +1079,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Support/* | Create and manage support tickets |
 > | NewRelic.APM/accounts/* |  |
 
-## R
-
-### Reader and Data Access
+## Reader and Data Access
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1111,7 +1089,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 
-### Redis Cache Contributor
+## Redis Cache Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1126,7 +1104,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Resource Policy Contributor (Preview)
+## Resource Policy Contributor (Preview)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1140,9 +1118,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.PolicyInsights/* |  |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-## S
-
-### Scheduler Job Collections Contributor
+## Scheduler Job Collections Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1157,7 +1133,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Scheduler/jobcollections/* | Create and manage job collections |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Search Service Contributor
+## Search Service Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1172,7 +1148,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Search/searchServices/* | Create and manage search services |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Security Admin
+## Security Admin
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1198,7 +1174,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Security/securityContacts/delete | Deletes the security contact |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Security Manager
+## Security Manager
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1216,7 +1192,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Security/* | Create and manage security components and policies |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Security Reader
+## Security Reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1232,7 +1208,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Support/* | Create and manage support tickets |
 > | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
 
-### Site Recovery Contributor
+## Site Recovery Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1267,7 +1243,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Site Recovery Operator
+## Site Recovery Operator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1332,7 +1308,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Site Recovery Reader
+## Site Recovery Reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1371,7 +1347,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### SQL DB Contributor
+## SQL DB Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1402,7 +1378,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 
-### SQL Security Manager
+## SQL Security Manager
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1438,7 +1414,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Create and manage SQL server security alert policies |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### SQL Server Contributor
+## SQL Server Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1472,7 +1448,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Can't edit SQL server security alert policies |
 
-### Storage Account Contributor
+## Storage Account Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1489,7 +1465,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/* | Create and manage storage accounts |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Storage Account Key Operator Service Role
+## Storage Account Key Operator Service Role
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1499,7 +1475,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/listkeys/action | Returns the access keys for the specified storage account. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenerates the access keys for the specified storage account. |
 
-### Storage Blob Data Contributor (Preview)
+## Storage Blob Data Contributor (Preview)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1514,7 +1490,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returns the result of writing a blob |
 
-### Storage Blob Data Reader (Preview)
+## Storage Blob Data Reader (Preview)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1525,7 +1501,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
 
-### Storage Queue Data Contributor (Preview)
+## Storage Queue Data Contributor (Preview)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1540,7 +1516,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returns a message |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Returns the result of writing a message |
 
-### Storage Queue Data Reader (Preview)
+## Storage Queue Data Reader (Preview)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1551,7 +1527,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returns a message |
 
-### Support Request Contributor
+## Support Request Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1562,9 +1538,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-## T
-
-### Traffic Manager Contributor
+## Traffic Manager Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1579,9 +1553,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-## U
-
-### User Access Administrator
+## User Access Administrator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1592,9 +1564,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Authorization/* | Manage authorization |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-## V
-
-### Virtual Machine Administrator Login
+## Virtual Machine Administrator Login
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1610,7 +1580,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Compute/virtualMachines/login/action | Log in to a virtual machine as a regular user |
 > | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Log in to a virtual machine with Windows administrator or Linux root user privileges |
 
-### Virtual Machine Contributor
+## Virtual Machine Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1655,7 +1625,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-### Virtual Machine User Login
+## Virtual Machine User Login
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1670,9 +1640,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Log in to a virtual machine as a regular user |
 
-## W
-
-### Web Plan Contributor
+## Web Plan Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1687,7 +1655,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Support/* | Create and manage support tickets |
 > | Microsoft.Web/serverFarms/* | Create and manage server farms |
 
-### Website Contributor
+## Website Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
