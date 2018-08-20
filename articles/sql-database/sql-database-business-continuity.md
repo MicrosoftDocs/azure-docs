@@ -46,7 +46,7 @@ The following table compares the ERT and RPO for each service tier for the three
 | Restore from SQL long-term retention |ERT < 12 h, RPO < 1 wk |ERT < 12 h, RPO < 1 wk |ERT < 12 h, RPO < 1 wk |ERT < 12 h, RPO < 1 wk|ERT < 12 h, RPO < 1 wk|
 | Active geo-replication |ERT < 30s, RPO < 5s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s|ERT < 30 s, RPO < 5 s|
 
-### Use point-in-time restore to recover a database
+## Recover a database on the existing server
 
 SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every 5 - 10 minutes to protect your business from data loss. The backups are stored in RA-GRS storage for 35 days for all service tiers except Basic DTU service tiers where the backups are stored for 7 days. For more information, see [automatic database backups](sql-database-automated-backups.md). You can restore an existing database form the automated backups to an earlier point in time as a new database on the same logical server using the Azure portal, PowerShell, or the REST API. For more information, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
@@ -63,7 +63,7 @@ Use automated backups and [point-in-time restore](sql-database-recovery-using-ba
 
 If you need faster recovery, use [active geo-replication](sql-database-geo-replication-overview.md) (discussed next). If you need to be able to recover data from a period older than 35 days, use [Long-term retention](sql-database-long-term-retention.md). 
 
-### Use active geo-replication and auto-failover groups to reduce recovery time and limit data loss associated with a recovery
+## Use active geo-replication and auto-failover groups to reduce recovery time
 
 In addition to using database backups for database recovery if a business disruption occurs, you can use [active geo-replication](sql-database-geo-replication-overview.md) to configure a database to have up to four readable secondary databases in the regions of your choice. These secondary databases are kept synchronized with the primary database using an asynchronous replication mechanism. This feature is used to protect against business disruption if a data center outage occurs or during an application upgrade. Active geo-replication can also be used to provide better query performance for read-only queries to geographically dispersed users.
 

@@ -33,7 +33,7 @@ Plan how you deploy a Managed Instance in virtual network using your answers to 
 
 ## Requirements
 
-For Managed Instance creation you need dedicate subnet inside the VNet that conforms to the following requirements:
+For Managed Instance creation you need to dedicate a subnet inside the VNet that conforms to the following requirements:
 - **Be empty**: The subnet must not contain any other cloud service associated to it, and it must not be Gateway subnet. You won’t be able to create Managed Instance in subnet that contains resources other than managed instance or add other resources inside the subnet later.
 - **No NSG**: The subnet must not have a Network Security Group associated with it.
 - **Have specific route table**: The subnet must have a User Route Table (UDR) with 0.0.0.0/0 Next Hop Internet as the only route assigned to it. For more information, see [Create the required route table and associate it](#create-the-required-route-table-and-associate-it)
