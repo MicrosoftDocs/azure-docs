@@ -91,9 +91,6 @@ For further instructions on installing Elastic search, refer to [Installation in
 
 3. Add the following content to the file:
 
-   > [!WARNING]
-   > The following instructions work with flow logs version 1. The format of NSG flow logs will be upgraded to version 2 soon. For details, see [Network security group flow log changes](prepare-flow-log.md). The following instructions will not work with version 2 of the log files, without modification.
-
    ```
    input {
       azureblob
@@ -198,9 +195,6 @@ For more information about this plugin, refer to the [documentation](https://git
 A sample dashboard to view trends and details in your alerts is shown in the following picture:
 
 ![figure 1][1]
-
-> [!WARNING]
-> The following downloadable files work with flow logs version 1. The format of NSG flow logs will be upgraded to version 2 soon. For details, see [Network security group flow log changes](prepare-flow-log.md). The following files will not work with version 2 of the log files, without modification.
 
 Download the [dashboard file](https://aka.ms/networkwatchernsgflowlogdashboard), the [visualization file](https://aka.ms/networkwatchernsgflowlogvisualizations), and the [saved search file](https://aka.ms/networkwatchernsgflowlogsearch).
 
