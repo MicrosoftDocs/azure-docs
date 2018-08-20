@@ -242,7 +242,7 @@ HDInsight Tools for VS Code also enable you to submit interactive PySpark querie
 
 ### To disable environment check
 
-By default, HDInsight tools will check environment and install dependent packages when submit interactive PySpark queries. To disable environment check, set the **hdinsight.disablePysparkEnvironmentCheck** to **true** under **USER SETTINGS**.
+By default, HDInsight tools will check environment and install dependent packages when submit interactive PySpark queries. To disable environment check, set the **hdinsight.disablePysparkEnvironmentValidation** to **true** under **USER SETTINGS**.
 
    ![Set the environment check](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check.png)
 
@@ -349,15 +349,17 @@ Azure HDInsight has been added to the left panel. You can browse and manage the 
 
     ![Sign in link image](./media/hdinsight-for-vscode/hid-azure-hdinsight-sign-in.png)
 
-2. Click **Sign in to Azure**, it shows loading and pop up the sign in link and code at the right bottom.
+2. Click **Sign in to Azure**, it pops sign in link and code at the right bottom.
+
+    ![Sign in instructions for other environment](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin-code.png)
 
 3. Click **Copy & Open** button will open browser, paste the code, click **Continue** button, then you will see the hint about sign in successfully.
 
-4. After signed in, the available subscriptions will show up.
+4. After signed in, the available subscriptions and clusters (Spark, Hadoop and HBase are supported) will be listed in **AZURE HDINSIGHT**. 
 
    ![Azure HDInsight Subscription](./media/hdinsight-for-vscode/hdi-azure-hdinsight-subscription.png)
 
-5. Expand the subscription, all related clusters show up. You can browse and manage the cluster.
+5. Expand the cluster then Hive Databases, the schema of tables lists.
 
    ![Azure HDInsight cluster](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
 
