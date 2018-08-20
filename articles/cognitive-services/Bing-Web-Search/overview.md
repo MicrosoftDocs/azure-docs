@@ -1,15 +1,13 @@
 ---
 title: What is Bing Web Search? | Microsoft Docs
-description: Shows how to use the Bing Web Search API to search the web for webpages, images, news, videos, and more.
+description: The Bing Web Search API is a RESTful service that allows your application use Bing's web search capabilities, including web pages, images, videos, news, entities, related search queries, spelling corrections, unit conversions, translations, and calculations.
 services: cognitive-services
-author: swhite-msft
-manager: rosh
-ms.assetid:
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: overview
 ms.date: 08/14/2018
-ms.author: scottwhi, erhopf
+ms.author: erhopf
 ---
 
 # What is Bing Web Search?

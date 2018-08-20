@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
 ms.date: 8/16/2018
-ms.author: v-jerkin, erhopf
+ms.author: erhopf
 ---
 
 # Countries, regions, and languages supported by the Bing Web Search API

@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Use C# to call the Bing Web Search API"
-description: Get information and code samples to help you quickly get started using the Bing Web Search API in Microsoft Cognitive Services on Azure.
+description: In this quickstart, you will learn how to make your first call to the Bing Web Search API using C# and receive a JSON response.
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: v-jerkin, erhopf
+ms.author: erhopf
+#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using C#. 
 ---
 
 # Quickstart: Use C# to call the Bing Web Search API  

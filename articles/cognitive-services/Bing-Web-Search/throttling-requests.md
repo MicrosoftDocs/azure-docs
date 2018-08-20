@@ -1,7 +1,7 @@
 ---
 title: Throttling requests to the Bing Web Search API
 titleSuffix: Microsoft Cognitive Services
-description: Bing Web Search SDK for applications that search the web.
+description: Learn more about request throttling and when using the Bing Web Search API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun

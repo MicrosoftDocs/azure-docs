@@ -1,11 +1,10 @@
 ---
 title: Use suggested Bing Web Search terms
 titleSuffix: Microsoft Cognitive Services
-description: Bing Web Search SDK for applications that search the web.
+description: Pair the Bing Web Search API with the Bing Autosuggest API to provide users with an improved search experience.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
-ms.assetid:
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article

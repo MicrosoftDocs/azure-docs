@@ -1,11 +1,10 @@
 ---
-title: Bing Web Search responses | Microsoft Docs
+title: Bing Web Search API responses | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Bing Web Search SDK for applications that search the web.
+description: Learn about answer types and responses provided by the Bing Web Search API. 
 services: cognitive-services
 author: erhopf
 manager: cgronlun
-ms.assetid:
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
