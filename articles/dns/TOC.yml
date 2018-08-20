@@ -29,6 +29,8 @@
   items:
   - name: DNS zones and records
     href: dns-zones-records.md
+  - name: DNS alias records
+    href: dns-alias.md
   - name: DNS delegation with Azure DNS
     href: dns-domain-delegation.md
   - name: DNS FAQ
