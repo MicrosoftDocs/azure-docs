@@ -67,7 +67,7 @@ Condition defines the criteria that is monitored by the rule.
 
 ### Configure actions
 
-This section shows you how to set up actions to take when the rule fired. Actions get invoked when all the conditions specified in the rule evaluate to true.
+This section shows you how to set up actions to take when the rule is fired. Actions get invoked when all the conditions specified in the rule evaluate to true.
 
 1. Choose the **+** next to **Actions**. Here you see the list of available actions.  
 
