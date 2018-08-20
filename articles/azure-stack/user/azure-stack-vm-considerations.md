@@ -22,7 +22,7 @@ ms.author: mabrigg
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Azure Stack virtual machines provide on-demand, scalable computing resources. Before you deploy virtual machines (VMs), you must understand the differences between the virtual machine features available in Azure Stack and Microsoft Azure. This article describes these differences and identifies key considerations for planning virtual machine deployments. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) article.
+Azure Stack virtual machines provide on-demand, scalable computing resources. Before you deploy virtual machines (VMs), you must understand the differences between the virtual machine features available in Azure Stack and Microsoft Azure. This article describes these differences and identifies key considerations for planning virtual machine deployments. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations) article.
 
 ## Cheat sheet: Virtual machine differences
 
