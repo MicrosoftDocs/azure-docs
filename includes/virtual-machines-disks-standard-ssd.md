@@ -25,7 +25,7 @@ Standard SSDs support all service management operations offered by Managed Disks
 
 **Snapshots**: Like all Managed Disks, Standard SSDs also support creation of Snapshots. Snapshot type can be either Standard (HDD) or Premium (SSD). For cost saving, we recommend Snapshot type of Standard (HDD) for all Azure disk types. This is because when you create a managed disk from a snapshot, you're always able to choose a higher tier such as Standard SSD or Premium SSD.
 
-## Scalability and Performance Targets
+## Scalability and performance targets
 
 The following table contains disk sizes, which are currently offered for Standard SSD.
 
@@ -44,7 +44,7 @@ Premium SSDs on the other hand, perform better than Standard SSDs, with low late
 
 Like the Premium SSDs, Standard SSDs also use IO Unit size of 256 KiB. If the data being transferred is less than 256 KiB, it is considered 1 I/O unit. Larger I/O sizes are counted as multiple I/Os of size 256 KiB. For example, a 1,100 KiB I/O is counted as five I/O units.
 
-## Pricing and Billing
+## Pricing and billing
 
 When using Standard SSDs, the following billing considerations apply:
 
@@ -55,16 +55,16 @@ When using Standard SSDs, the following billing considerations apply:
 
 **Managed Disk Size**: Managed disks are billed on the provisioned size. Azure maps the provisioned size (rounded up) to the nearest disk size offer. For details of the disk sizes offered, see the table in Scalability and Performance Targets section above. Each disk maps to a supported provisioned disk size and billed accordingly. For example, if you provisioned a 200 GiB Standard SSD, it will map to the disk size offer of E15 (256 GiB). Billing for any provisioned disk is prorated hourly by using the monthly price for the Premium Storage offer. For example, if you provisioned an E10 disk and deleted it after 20 hours, you're billed for the E10 offering prorated to 20 hours. This is regardless of the amount of actual data written to the disk.
 
-**Snapshots**: Snapshots of Managed Disks are billed for the capacity used by the snapshots, at the target and at the source, if any. For more information on snapshots, see [Managed Disk Snapshots](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
+**Snapshots**: Snapshots of Managed Disks are billed for the capacity used by the snapshots, at the target and at the source, if any. For more information on snapshots, see [Managed Disk Snapshots](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
 
-**Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) (data going out of Azure data centers) incur billing for bandwidth usage.
+**Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/bandwidth/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
 **Transactions**: Similar to Standard HDD, transactions on Standard SSDs incur billing. Transactions include both read and write operations on the disk. I/O unit size used for accounting the transactions on Standard SSD is 256 KiB. Larger I/O sizes are counted as multiple I/Os of size 256 KiB.
 
 For more information on pricing for Virtual Machines and Managed Disks, see:
 
-- [Virtual Machines Pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/)
-- [Managed Disks Pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/)
+- [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)
+- [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 ## Next steps
 
