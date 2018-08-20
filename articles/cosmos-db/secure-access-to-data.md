@@ -171,7 +171,7 @@ foreach (Permission perm in permFeed)
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
-## Add users and assign roles to access Azure Cosmos DB account
+## Add users and assign roles
 
 To add Azure Cosmos DB account reader access to your user account, have a subscription owner perform the following steps in the Azure portal.
 
