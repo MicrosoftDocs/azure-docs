@@ -54,7 +54,7 @@ A. Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can t
 A.  Data Box is available in US and all the countries in European Union during the preview phase.  
 
 ### Q. Which regions can I store data in with Data Box?
-A. Data Box is supported for all regions within US and West Europe and North Europe for preview. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
+A. Data Box is supported for all regions within US, West Europe, North Europe, France, and UK. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
 
 ### Q. Whom should I contact if I encounter any issues with Data Box?
 A. If you encounter any issues with Data Box, please contact Microsoft Support.
@@ -75,15 +75,12 @@ If you have supported offer type for the subscription, check your subscription a
 ### Q. I ordered a couple of Data Box devices. I am not able to create any additional orders. Why would this be?
 A. We allow for a maximum of 3 active orders per subscription per commerce boundary (combination of country and the region selected). If you need to order device, contact Microsoft Support to increase the limit for your subscription.
 
-### Q. Data Box model not available
-A. "Data Box service is not available for the combination of country and region customer has selected. We do not service cross commerce boundary customers
-Cover the regions available - in the presentation"
+### Q. When I try to create an order, I recieve a notification the Data Box service is not available. What does this mean?
+A. What this means is that the Data Box service is not available for the combination of country and region you have selected.  We do not service cross commerce boundary customers. Changing this combination would likely allow you to avail of the Data Box service. For a list of the regions where the service is available, go to [Region availability for Data Box](data-box-overview.md#region-availability).
 
-### Q. When will I receive Data Box
-A. "Either use ACIS  or lens 
+### Q. I placed my Data Box order few days back. When will I receive my Data Box?
+A. When you place an order, we check whether a device is available for your order. If a device is available, we will ship it within 10 days. It is conceivable that there are periods of high demand. In this situation, your order will be queued and you will be notified.
 
-Use ACIS tool or lens to check the waitlist of the customer in Queue and set the expectation with customer about serving them at the earliest possible. 
-In case we have lots of customers in waitlist then let customer know - Currently we have high demand for the product and we are in the process of addressing the demand."
 
 ## Configure and connect
  
@@ -95,10 +92,10 @@ A.  In the Azure portal, go to your Data Box order, and navigate to **Device det
 A.  Yes. You can use Data Box to connect to SMB and NFS clients. For more information, go to the list of [Supported operating systems](data-box-system-requirements.md) for your host computer.
 
 ### Q. My Data Box is dispatched but now I want to cancel this order. Why is the cancel button not available?
-A.  You can only cancel the order after the Data Box is ordered and before the shipment. Once the Data Box is dispatched, you can no longer cancel the order. 
+A.  You can only cancel the order after the Data Box is ordered and before the order is processed. Once the Data Box order is processed, you can no longer cancel the order. 
 
 ### Q. Can I connect a Data Box at the same to multiple host computers to transfer data?
-A. Yes. Multiple clients can connect to Data Box to transfer data and multiple copy jobs can be run in parallel.
+A. Yes. Multiple host computers can connect to Data Box to transfer data and multiple copy jobs can be run in parallel.
 
 ### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -118,15 +115,15 @@ A.
 A.  You can track the status of the Data Box order in the Azure portal. When you create the order, you are also prompted to provide a notification email. If you have provided one, then you are notified via email on all status changes of the order. More information on how to [Configure notification emails](data-box-portal-ui-admin.md#edit-notification-details).
 
 ### Q. How do I return the disks? 
-A.  Microsoft provides a shipping label with the Data Box in the shipping package. Affix the label to the shipping box and drop off the sealed package at your shipping carrier location. If the label is damaged or lost, go to **Overview > Download shipping label** and download a new return shipping label.
+A.  Microsoft displays a shipping label on the E Ink display. Affix the label to the shipping box and drop off the sealed package at your shipping carrier location. If the label is damaged or lost, go to **Overview > Download shipping label** and download a new return shipping label.
 
-### Q. Portal status is not updating
-A. FAQ - I see from the tracking that device has reached the DC but I do not see any copy progress. Copy errors. Is my copy stuck. Speed of copy
+### Q. I received an email notification that my device has reached the Azure datacenter. How do I find out if the data upload is in progress?
+A. You can go to your Data Box order in the Azure portal and go to **Overview**. If the data upload to Azure has started, you will see the copy progress in the right pane. 
 
 ## Migrate data
 
 ### Q. What is the maximum data size that can be used with Data Box?  
-A.  Data Box solution can have up to 5 disks with a maximum usable capacity of 35 TB. The disks themselves are 8 TB (usable 7 TB). 
+A.  Data Box has a usable storage capacity of 80 TB. You can use it for data that ranges in size from 40 TB - 80 TB. For larger data size, you can order multiple Data Box or you can order Data Box Heavy.  
 
 ### Q. What are the maximum block blob and page blob sizes supported by Data Box? 
 A.  The maximum sizes are governed by Azure Storage limits. The maximum block blob is roughly 4.768 TiB and the maximum page blob size is 8 TiB. For more information, go to [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md). 
@@ -157,7 +154,7 @@ A.  To speed up the copy process:
 
 
 ### Q. Can I use multiple storage accounts with Data Box?
-A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob storage are supported with Data Box. Both hot and cool blob are supported. During the Ga release, the storage accounts in all regions in US, West Europe, and North Europe in the Azure public cloud are supported.
+A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob storage are supported with Data Box. Both hot and cool blob are supported. During the GA release, the storage accounts in all regions in US, West Europe, North Europe, France, and UK in the Azure public cloud are supported.
 
 ## Ship device
 
@@ -165,9 +162,9 @@ A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob sto
 A.
 
 ### Q. Can I use my own shipping carrier to ship Data Box?
-A. For Data Box Service, Microsoft handles the shipping to and from the Azure datacenter. If you want to use your own carrier, you could use the Azure Import/Export service. For more information, go to [What is Azure Import/Export service?]()
+A. For Data Box service, Microsoft handles the shipping to and from the Azure datacenter. If you want to use your own carrier, you could use the Azure Import/Export service. For more information, go to [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md)
 
-### Q. E-ink display is not showing the return shipment label
+### Q. E-ink display is not showing the return shipment label. What should I do?
 A. Ensure customer has run prepare to ship on the local OOBI and it completed without errors. If this was the case, you can always download a shipping label by going to your order in the portal. Navigate to 
 
 ## Verify and upload
@@ -180,6 +177,8 @@ A.  When you copy the data to Data Box, depending on whether the data is block b
  - *<You_storage_account_name_BlockBlob>/<my_container>/Blob* 
  - *<Your_storage_account_name_PageBlob>/<my_container>/Blob*
  - *<Your_storage_account_name_AzFile>/ . 
+
+Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
 ### Q. I just noticed that I did not follow the Azure naming requirements for my containers. Will my data fail to upload to Azure?
 A. If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages and so on), the upload will fail.
@@ -197,27 +196,19 @@ A.  During the transit, the following features on the Data Box help protect the 
 For more information, go to [Data Box security features](data-box-security.md).  
 
 ### Q. I have finished Prepare to Ship and shut down the device. Can I still add more data to Data Box?
-A. Yes. If you decide to validate your data (we recommend you do!), you need to rerun validation if you added more data to the disks.
+A. Yes. You can turn on the device and add more data. You will need to run **Prepare to Ship** again once you have completed data copy.
 
 ### Q. I have filled up my Data Box with Data and need to order another one. Is there a way to quickly place the order?
 A. You can clone your previous order. Cloning creates the same order as before and allow you to edit order details only without the need to type in address, contact, and notification details. 
 
-### Q. Device is damaged
-A. Ops to get in touch with customer for next steps (Create a new order we will serve them new device as part of new order, ask customer to return existing device at the earliest. Do communicate to customer about not being charged for the current order
+### Q. My device was delivered but the device seems to be damaged. What should I do?
+A. If your device has arrived damaged or there is evidence of tampering, do not use the device. Contact Microsoft Support and return the device at your earliest. You can also create a new Data Box order for a replacement device. In this case, you will not be charged for the replacement device.
 
 ### Q. I can't access the Data Box unlock password in the Azure portal. Why would this be?
 A. If you are not able to access the unlock password in the Azure portal, check the permissions on your subscription and storage account. Ensure that you have contributor or owner permission at resource group level. If not, then you need to have atleast Data Box Operator role permission to see the access credentials.
 
-
-
-
-
-### Q. System fault indicator LED is on
-A. 
-
-
-
-
+### Q. The system fault indicator LED on the front operating panel is on. What should I do?
+A. If the system fault indicator LED is on, it indicated that your system is not healthy. Contact Microsoft Support for next steps.
 
 
 ## Next steps
