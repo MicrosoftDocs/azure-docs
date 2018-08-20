@@ -14,6 +14,12 @@ metadata:
   ms.author: a-kiwels
 abstract:
   description: Azure CycleCloud is designed to enable enterprise IT organizations to provide secure and flexible cloud HPC and Big Compute environments to their end users. With dynamic scaling of clusters, the business can get the resources it needs at the right time and the right price. Azure CycleCloud’s automated configuration enables IT to focus on providing service to the business users.
+  aside:
+    image:
+    alt: Get Azure CycleCloud
+    src: /images/get-cyclecloud.png
+  title: Get Azure CycleCloud
+  href: https://www.microsoft.com/en-us/download/details.aspx?id=57182
 
 sections:
   - items:
