@@ -18,9 +18,11 @@ ms.author: aljo
 ---
 # Create a Service Fabric cluster resource manager template
 
-An [Azure Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual machines into which your microservices are deployed and managed. A Service Fabric cluster running in Azure is an Azure resource and is deployed, managed, and monitored using the Resource Manager.  This article describes how create a Resource Manager template for a Service Fabric cluster running in Azure.
+An [Azure Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual machines into which your microservices are deployed and managed. A Service Fabric cluster running in Azure is an Azure resource and is deployed, managed, and monitored using the Resource Manager.  This article describes how create a Resource Manager template for a Service Fabric cluster running in Azure.  When the template is complete, you can [deploy the cluster on Azure](service-fabric-cluster-creation-via-arm.md).
 
 Cluster security is configured when the cluster is first setup and cannot be changed later. Before setting up a cluster, read [Service Fabric cluster security scenarios][service-fabric-cluster-security]. In Azure, Service Fabric uses x509 certificate to secure your cluster and its endpoints, authenticate clients, and encrypt data. Azure Active Directory is also recommended to secure access to management endpoints. Azure AD tenants and users must be created before creating the cluster.  For more information, read [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
+
+Before deploying a production cluster to run production workloads, be sure to first read the [Production readiness checklist](service-fabric-production-readiness-checklist.md).
 
 ## Create a Service Fabric cluster resource manager template
 This section is for users who want to custom author a Service Fabric cluster resource manager template. once you have a template, you can still go back and use the PowerShell or CLI modules to deploy it.
@@ -260,7 +262,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 In case you run into issues and get cryptic messages, then use "-Debug" as an option.
 
 ## Next steps
-Now that you have a template for your cluster, learn how to [deploy the cluster to Azure](service-fabric-cluster-creation-via-arm.md).
+Now that you have a template for your cluster, learn how to [deploy the cluster to Azure](service-fabric-cluster-creation-via-arm.md).  If you haven't already, read the [Production readiness checklist](service-fabric-production-readiness-checklist.md) before deploying a production cluster.
 
 
 <!-- Links -->
