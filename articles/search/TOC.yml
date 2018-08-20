@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Search?
+  - name: About Azure Search
     href: search-what-is-azure-search.md
 - name: Quickstarts
   expanded: true
@@ -175,7 +175,7 @@
         href: search-indexer-field-mappings.md
   - name: Searching data
     items:
-    - name: Query types/composition
+    - name: Query types & composition
       href: search-query-overview.md
     - name: Search explorer (portal)
       href: search-explorer.md

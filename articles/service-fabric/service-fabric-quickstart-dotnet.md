@@ -12,10 +12,11 @@ ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.technology: vs-azure
+ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, vs-azure
 
 ---
 # Quickstart: Deploy a .NET reliable services application to Service Fabric

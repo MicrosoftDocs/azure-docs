@@ -120,6 +120,8 @@
     href: infrastructure-automation.md
   - name: Security and policy
     href: security-policy.md
+  - name: States and lifecycle
+    href: states-lifecycle.md
   - name: Monitoring
     href: monitor.md
   - name: Backup and recovery
@@ -479,6 +481,11 @@
       href: boot-diagnostics.md
     - name: Serial console 
       href: serial-console.md
+      items:
+      - name: Serial Console GRUB/Single user mode
+        href: serial-console-grub-single-user-mode.md
+      - name: Serial Console NMI/SysRq
+        href: serial-console-nmi-sysrq.md
     - name: Access to applications
       href: troubleshoot-app-connection.md
     - name: Allocation failures 

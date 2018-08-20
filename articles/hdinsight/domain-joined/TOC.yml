@@ -16,10 +16,13 @@
     maintainContext: true
   - name: Use VSCode to link to domain joined cluster
     href: ../hdinsight-for-vscode.md
+    maintainContext: true
   - name: Use IntelliJ to link to domain joined cluster
     href: ../spark/apache-spark-intellij-tool-plugin.md
+    maintainContext: true
   - name: Use Eclipse to link to domain joined cluster
     href: ../spark/apache-spark-eclipse-tool-plugin.md
+    maintainContext: true
   - name: Use Oozie in domain-joined clusters
     href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: Securing data

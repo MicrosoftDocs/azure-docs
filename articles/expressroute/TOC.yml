@@ -27,6 +27,8 @@
       href: expressroute-locations-providers.md
     - name: Locations by provider
       href: expressroute-locations.md
+  - name: BFD over ExpressRoute
+    href: expressroute-bfd.md
   - name: Virtual network gateways for ExpressRoute
     href: expressroute-about-virtual-network-gateways.md
   - name: Prerequisites
@@ -83,6 +85,8 @@
       href: how-to-routefilter-powershell.md
     - name: Azure CLI
       href: how-to-routefilter-cli.md
+  - name: Enable and disable peerings
+    href: expressroute-howto-reset-peering.md
   - name: Move from public peering to Microsoft peering
     href: how-to-move-peering.md
   - name: Move a circuit from classic to Resource Manager
