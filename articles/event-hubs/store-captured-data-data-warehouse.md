@@ -11,21 +11,20 @@ Event Hubs [Capture](https://docs.microsoft.com/en-us/azure/event-hubs/event-hub
 In this tutorial, you do the following actions: 
 
 > [!div class="checklist"]
-> * Deploy infrastructure for this solution 
 > * Create a table in SQL Data Warehouse 
 > * Publish code to the Functions App
 > * Create an Event Grid subscription from the Functions app
 > * Stream sample data into Event Hub. 
 > * Verify captured data in SQL Data Warehouse
 
-# Prerequisites
+## Prerequisites
 
 - [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/). While installing, ensure that you install the following workloads: .NET desktop development, Azure development, ASP.NET and web development, Node.js development, Python development
 - Download the [Git sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). The sample solution contains the following components:
     - *WindTurbineDataGenerator* – A simple publisher that sends sample wind turbine data to a Capture-enabled event hub
     - *FunctionDWDumper* – An Azure Function that receives an Event Grid notification when an Avro file is captured to the Azure Storage blob. It receives the blob’s URI path, reads its contents, and pushes this data to a SQL Data Warehouse.
 
-## Deploy the infrastructure
+### Deploy the infrastructure
 Deploy the infrastructure needed for this tutorial by using this [Azure Resource Manager template](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json). This template creates the following resources:
 
 -	Event Hub with the Capture feature enabled
@@ -35,7 +34,20 @@ Deploy the infrastructure needed for this tutorial by using this [Azure Resource
 -	SQL Server for hosting the Data Warehouse
 -	SQL Data Warehouse for storing the migrated data
 
+The following sections provide Azure CLI and Azure PowerShell commands for deploying the infrastructure required for the tutorial. Update names of the following objects before running the commands: 
 
+- Azure resource group
+- Event Hubs namespace
+- Event hub
+- Azure SQL server
+- SQL user (and password)
+- Azure SQL database
+- Azure Storage 
+- Azure Functions App
+
+These scripts take a while to create all the Azure artifcts. Wait until the script completes before proceeding further. 
+
+#### Azure CLI
 To deploy the template using Azure CLI, use the following commands:
 
 ```azurecli-interactive
@@ -46,6 +58,8 @@ az group deployment create \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json \
   --parameters eventHubNamespaceName=<event-hub-namespace> eventHubName=hubdatamigration sqlServerName=<sql-server-name> sqlServerUserName=<user-name> sqlServerPassword=<password> sqlServerDatabaseName=<database-name> storageName=<unique-storage-name> functionAppName=<app-name>
 ```
+
+#### Azure PowerShell
 To deploy the template using PowerShell, use the following commands:
 
 ```powershell
@@ -55,7 +69,18 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateU
 ```
 
 ## Create a table in SQL Data Warehouse 
-Create a table in your SQL data warehouse by running the *CreateDataWarehouseTable.sql* script using Visual Studio or the Query Editor in the portal. 
+Create a table in your SQL data warehouse by running the [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) script using Visual Studio or the Query Editor in the portal. 
+
+```sql
+CREATE TABLE [dbo].[Fact_WindTurbineMetrics] (
+    [DeviceId] nvarchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL, 
+    [MeasureTime] datetime NULL, 
+    [GeneratedPower] float NULL, 
+    [WindSpeed] float NULL, 
+    [TurbineSpeed] float NULL
+)
+WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
+```
 
 ## Publish code to the Functions App
 
