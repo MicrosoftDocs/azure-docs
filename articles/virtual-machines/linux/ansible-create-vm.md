@@ -19,13 +19,13 @@ Using a declarative language, Ansible allows you to automate the creation, confi
 
 - **Configure Azure Cloud Shell** or **Install and Configure Ansible**
 
-  - **Configure Azure Cloud Shell** - If you are new to Azure Cloud Shell, the article, [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart), illustrates how to start and configure Cloud Shell. 
+  1. **Configure Azure Cloud Shell** - If you are new to Azure Cloud Shell, the article, [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart), illustrates how to start and configure Cloud Shell. 
 
   **--OR--**
 
-  - **Install Ansible** - Install Ansible on one of the following Linux platforms: [CentOS 7.4](/azure/virtual-machines/linux/ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](/azure/virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts), or [SLES 12 SP2](/azure/virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+  1. **Install Ansible** - Install Ansible on one of the following Linux platforms: [CentOS 7.4](/azure/virtual-machines/linux/ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](/azure/virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts), or [SLES 12 SP2](/azure/virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
 
-  - **Configure Ansible** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
+  1. **Configure Ansible** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
 
 ## Create a resource group
 Ansible needs a resource group in which your resources are deployed. The following sample Ansible playbook section creates a resource group named `myResourceGroup` in the `eastus` location:

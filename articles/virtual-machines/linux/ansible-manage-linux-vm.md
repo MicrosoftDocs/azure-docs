@@ -19,15 +19,15 @@ Ansible allows you to automate the deployment and configuration of resources in 
 
 - **Configure Azure Cloud Shell** or **Install and Configure Ansible**
 
-    - **Configure Azure Cloud Shell** - If you are new to Azure Cloud Shell, the article, [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart), illustrates how to start and configure Cloud Shell. 
+    1. **Configure Azure Cloud Shell** - If you are new to Azure Cloud Shell, the article, [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart), illustrates how to start and configure Cloud Shell. 
 
-    - **Linux virtual machine** - If you don't have access to a Linux virtual machine, you can [create a virtual machine with Ansible](ansible-create-vm.md).
+    2. **Linux virtual machine** - If you don't have access to a Linux virtual machine, you can [create a virtual machine with Ansible](ansible-create-vm.md).
 
     **--OR--**
 
-    - **Install Ansible** - Install Ansible on one of the following Linux platforms: [CentOS 7.4](/azure/virtual-machines/linux/ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](/azure/virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts), or [SLES 12 SP2](/azure/virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+    1. **Install Ansible** - Install Ansible on one of the following Linux platforms: [CentOS 7.4](/azure/virtual-machines/linux/ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](/azure/virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts), or [SLES 12 SP2](/azure/virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
 
-    - **Configure Ansible** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
+    2. **Configure Ansible** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
 
 ## Use Ansible to deallocate (stop) an Azure virtual machine
 This section illustrates how to use Ansible to deallocate (stop) an Azure virtual machine
