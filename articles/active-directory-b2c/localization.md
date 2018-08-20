@@ -35,7 +35,7 @@ The `Localization` element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Enabled | False | True or False |
+| Enabled | No | True or False |
 
 The `Localization` element contains following XML elements
 
@@ -50,8 +50,8 @@ The `SupportedLanguages` element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| DefaultLanguage | True | The language to be used as the default for localized resources. |
-| MergeBehavior | False | An enumeration values of values that are merged together with any ClaimType present in a parent policy with the same identifier. Use this attribute when you overwrite a claim specified in base policy. Possible values: **Append** - Specifies that the collection of data present should be appended to the end of the collection specified in the parent policy; **Prepend** -  Specifies that the collection of data present should be added before the collection specified in the parent policy; **ReplaceAll** - Specifies that the collection of data defined in the parent policy should be ignored, using instead the data defined in the current policy. |
+| DefaultLanguage | Yes | The language to be used as the default for localized resources. |
+| MergeBehavior | No | An enumeration values of values that are merged together with any ClaimType present in a parent policy with the same identifier. Use this attribute when you overwrite a claim specified in base policy. Possible values: **Append** - Specifies that the collection of data present should be appended to the end of the collection specified in the parent policy; **Prepend** -  Specifies that the collection of data present should be added before the collection specified in the parent policy; **ReplaceAll** - Specifies that the collection of data defined in the parent policy should be ignored, using instead the data defined in the current policy. |
 
 ### SupportedLanguages
 
@@ -67,7 +67,7 @@ The `LocalizedResources` element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Id | True | An identifier that is used to uniquely identify localized resources. |
+| Id | Yes | An identifier that is used to uniquely identify localized resources. |
 
 The `LocalizedResources` element contains the following elements:
 
@@ -90,9 +90,9 @@ The `LocalizedCollection` element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ElementType | True | References a ClaimType element or a user interface element in the policy file. |
-| ElementId | True | A string that contains a reference to a claim type already defined in the ClaimsSchema section that is used if `ElementType` is set to ClaimType. |
-| TargetCollection | True | The target collection. |
+| ElementType | Yes | References a ClaimType element or a user interface element in the policy file. |
+| ElementId | Yes | A string that contains a reference to a claim type already defined in the ClaimsSchema section that is used if `ElementType` is set to ClaimType. |
+| TargetCollection | Yes | The target collection. |
 
 The `LocalizedCollection` element contains the following elements:
 
@@ -104,8 +104,8 @@ The `Item` element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Text | True | The user-friendly display string that should be shown to the user in the user interface for this option. |
-| Value | True | The string claim value associated with selecting this option. |
+| Text | Yes | The user-friendly display string that should be shown to the user in the user interface for this option. |
+| Value | Yes | The string claim value associated with selecting this option. |
 
 The following example shows the use of the `LocalizedCollections` element. It contains two `LocalizedCollection` elements, one for English and another one for Spanish. Both set the `Restriction` collection of the claim Gender with a list of items for English and Spanish.
 
@@ -140,9 +140,9 @@ The `LocalizedString` element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ElementType | True | References to a ClaimType element or a user interface element in the policy. Possible values: **ClaimType** - To localize one of the claim attributes, as specify in the StringId; **UxElement** - To localize one of the user interface elements, as specify in the StringId; **ErrorMessage** - To localize one of the system error messages, as specify in the StringId. |
-| ElementId | True | If `ElementType` is set to **ClaimType**, thid elements contains a reference to a claim type already defined in the ClaimsSchema section. |
-| StringId | True | If `ElementType` is set to **ClaimType**, this element specifies the attribute of a particular claim type. Possible values: **DisplayName** - to set the claim display name; **AdminHelpText** - to set the claim user help text name; **PatternHelpText** - to set the claim pattern help text. If `ElementType` is set to **UxElement**, this element specifies the attribute of a particular user interface element id. If `ElementType` is set to **ErrorMessage**, this element specifies the ID of a particular error message. |
+| ElementType | Yes | References to a ClaimType element or a user interface element in the policy. Possible values: **ClaimType** - To localize one of the claim attributes, as specify in the StringId; **UxElement** - To localize one of the user interface elements, as specify in the StringId; **ErrorMessage** - To localize one of the system error messages, as specify in the StringId. |
+| ElementId | Yes | If `ElementType` is set to **ClaimType**, thid elements contains a reference to a claim type already defined in the ClaimsSchema section. |
+| StringId | Yes | If `ElementType` is set to **ClaimType**, this element specifies the attribute of a particular claim type. Possible values: **DisplayName** - to set the claim display name; **AdminHelpText** - to set the claim user help text name; **PatternHelpText** - to set the claim pattern help text. If `ElementType` is set to **UxElement**, this element specifies the attribute of a particular user interface element id. If `ElementType` is set to **ErrorMessage**, this element specifies the ID of a particular error message. |
 
 
 The following example shows a localized sign-up page. The first 3 `LocalizedString` values set the claim attribute. The third changes the value of the continue button. The last one changes the error message.

@@ -70,7 +70,7 @@ The `ContentDefinition` element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Id | True | An identifier for a content definition. The value is one specified in the **Content definition IDs** section later in this page. |
+| Id | Yes | An identifier for a content definition. The value is one specified in the **Content definition IDs** section later in this page. |
 
 The `ContentDefinition` element contains the following elements:
 
@@ -94,8 +94,8 @@ The `LocalizedResourcesReferences` element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Language | True | A string that contains a supported language for the policy per RFC 5646 - Tags for Identifying Languages. |
-| LocalizedResourcesReferenceId | True | The identifier of the `LocalizedResources` element. |
+| Language | Yes | A string that contains a supported language for the policy per RFC 5646 - Tags for Identifying Languages. |
+| LocalizedResourcesReferenceId | Yes | The identifier of the `LocalizedResources` element. |
 
 The following example shows a sign-up or sign-in content definition:
 
