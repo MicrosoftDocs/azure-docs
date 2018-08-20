@@ -30,7 +30,7 @@ messages go to the trading partner or other destination.
 To learn more about the batch trigger and action, see 
 [Batch process messages](../logic-apps/logic-apps-batch-process-send-receive-messages.md).
 
-In this article, you'll buld a batching solution by 
+In this article, you'll build a batching solution by 
 creating two logic apps within the same Azure subscription, 
 Azure region, and following this specific order:
 

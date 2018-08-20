@@ -17,7 +17,7 @@ ms.suite: integration
 To send and process messages together in a specific way as groups, 
 you can create a batching solution that collects messages into a 
 *batch* until your specified criteria are met for releasing and 
-and processing the batched messages. Batching can reduce how often 
+processing the batched messages. Batching can reduce how often 
 your logic app processes messages. This article shows how to build 
 a batching solution by creating two logic apps within the same 
 Azure subscription, Azure region, and following this specific order: 
@@ -90,8 +90,8 @@ Select this trigger: **Batch messages**
 
    | Property | Description | 
    |----------|-------------|
-   | **Batch Mode** | - **Inline**: For when you define a single release criteria configuration inside the batch trigger <br>- **Integration Account**: For when you define multiple release criteria configurations through an integration account |  
-   | **Batch Name** | The name for your batch, which is "TestBatch" in this example. Applies only to **Inline** batch mode. |  
+   | **Batch Mode** | - **Inline**: For defining release criteria inside the batch trigger <br>- **Integration Account**: For defining multiple release criteria configurations through an integration account |  
+   | **Batch Name** | The name for your batch, which is "TestBatch" in this example, and applies only to **Inline** batch mode |  
    | **Release Criteria** | Applies only to **Inline** batch mode and specifies the criteria to meet before processing each batch: <p>- **Message count based**: The number of messages to collect in the batch, for example, 10 messages <br>- **Size based**: The maximum batch size in bytes, for example, 100 MB <br>- **Schedule based**: The interval and frequency between batch releases, for example, 10 minutes. You can also specify a start date and time. <br>- **Select all**: Use all the specified criteria. | 
    ||| 
    
@@ -148,8 +148,8 @@ Select this trigger: **Batch messages**
    * In the **Body** box, when the dynamic content list appears, 
    select the **Message Id** field. 
 
-     A **For each** loop automatically appears around the send 
-     email action because that action accepts an array as input. 
+     The Logic Apps Designer automatically adds a "For each" loop around 
+     the send email action because that action accepts an array as input. 
      This loop sends an email for each message in the batch. 
      So, when the batch trigger is set to 10 messages, 
      you get 10 emails each time the trigger fires.
