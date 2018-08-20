@@ -22,16 +22,17 @@ Computer Vision can analyze images that meet the following requirements:
 - The image must be presented in JPEG, PNG, GIF, or BMP format
 - The file size of the image must be less than 4 megabytes (MB)
 - The dimensions of the image must be greater than 50 x 50 pixels  
-  > For OCR, the dimensions of the image must be between 40 x 40 and 3200 x 3200 pixels, and the image cannot be bigger than 10 megapixels.
+
+> [!NOTE] For OCR, the dimensions of the image must be between 40 x 40 and 3200 x 3200 pixels, and the image cannot be bigger than 10 megapixels.
 
 ## How do I use Computer Vision?
 
 You can use Computer Vision in your application, by either using our [client libraries](quickstarts-sdk/csharp-analyze-sdk.md) to invoke the service, or invoking the [REST API](vision-api-how-to-topics/howtocallvisionapi.md) directly, to:
 
 - **[Tag visual features](quickstarts/csharp-analyze.md)** in an image, based on more than 2,000 recognizable objects, living beings, scenery, and actions. When tags are ambiguous or not common knowledge, the response provides 'hints' to clarify the meaning of the tag in the context of a known setting. Tagging isn't limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets etc.
-- **[Categorize an image](quickstarts/csharp-analyze.md)** based on a [category taxonomy](Category-Taxonomy.md) with parent/child hereditary hierarchies, as defined in previous versions of the service. Categories can be used alone, or with our new tagging models.  
-  > [!NOTE]
-  > Currently, English is the only supported language for tagging and categorizing images.  
+- **[Categorize an image](quickstarts/csharp-analyze.md)** based on a [category taxonomy](Category-Taxonomy.md) with parent/child hereditary hierarchies, as defined in previous versions of the service. Categories can be used alone, or with our new tagging models.
+> [!NOTE]
+> Currently, English is the only supported language for tagging and categorizing images.
 - **[Describe an image](quickstarts/csharp-analyze.md)** in human-readable language, using complete sentences. Computer Vision's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. An example of a bot that uses this technology to generate image captions can be found [here](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).
 - **[Detect faces](quickstarts/csharp-analyze.md)** in an image and provide information about each detected face. Computer Vision returns the face coordinates, the rectangle for the face, gender, and age for each detected face. Computer Vision provides a subset of the functionality that can be found in [Face](/azure/cognitive-services/face/), and you can use the Face service for more detailed analysis, such as facial identification and pose detection.
 - **[Detect image types](quickstarts/csharp-analyze.md)**, such as whether an image is a line drawing, or rate the likelihood of whether an image is clip art.
@@ -40,8 +41,8 @@ You can use Computer Vision in your application, by either using our [client lib
 - **[Detect adult and racy content](quickstarts/csharp-analyze.md)** in an image, rating the likelihood that the image contains either adult or racy content and generating a confidence score for both. The filter for adult and racy content detection can be set on a sliding scale to accommodate your preferences.
 - **[Extract text using OCR](quickstarts/csharp-print-text.md)** from an image into a machine-readable character stream. If needed, OCR corrects the rotation of the recognized text, in degrees, around the horizontal image axis, and provides the frame coordinates of each word. OCR supports 25 languages, and automatically detects the language of extracted text.
 - **[Recognize printed and handwritten text](quickstarts/csharp-hand-text.md)** from an image. Computer Vision can detect and extract both printed and handwritten text from images of various objects with different surfaces and backgrounds, such as receipts, posters, business cards, letters, and whiteboards.  
-  > [!NOTE]
-  > Currently, recognizing printed and handwritten text is currently in preview, and English is the only supported language.  
+> [!NOTE]
+> Currently, recognizing printed and handwritten text is currently in preview, and English is the only supported language.  
 - **[Generate a thumbnail](quickstarts/csharp-thumb.md)** from an image, first generating a high-quality thumbnail and then analyzing the objects within the image. Computer Vision then crops the image to fit the requirements of the 'region of interest' (ROI). The generated thumbnail can be presented using an aspect ratio that is different from the aspect ratio of the original image, depending on your needs.  
 
 ## Next steps
