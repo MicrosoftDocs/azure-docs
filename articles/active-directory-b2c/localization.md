@@ -180,11 +180,11 @@ Add `LocalizedResources` elements inside the `Localization` element, medially af
 - Unified sign-up or sign-in page, English `<LocalizedResources Id="api.api.signuporsignin.en">`
 - Unified sign-up or sign-in page, Spanish `<LocalizedResources Id="api.api.signuporsignin.es">`
 - Unified sign-up or sign-in page, France `<LocalizedResources Id="api.api.signuporsignin.fr">` 
-- Sign-Up, English `<LocalizedResources Id="api.localaccountsignup.es">`
-- Sign-Up, Spanish `<LocalizedResources Id="api.localaccountsignup.en">`
+- Sign-Up, English `<LocalizedResources Id="api.localaccountsignup.en">`
+- Sign-Up, Spanish `<LocalizedResources Id="api.localaccountsignup.es">`
 - Sign-Up, France `<LocalizedResources Id="api.localaccountsignup.fr">`
-- MFA, English `<LocalizedResources Id="api.phonefactor.es">`
-- MFA, Spanish `<LocalizedResources Id="api.phonefactor.en">`
+- MFA, English `<LocalizedResources Id="api.phonefactor.en">`
+- MFA, Spanish `<LocalizedResources Id="api.phonefactor.es">`
 - MFA, France `<LocalizedResources Id="api.phonefactor.fr">`
 
 Each `LocalizedResources` contains all of the required  `LocalizedStrings` with multiple `LocalizedString` elements and `LocalizedCollections` with multiple `LocalizedCollection` elements.  Following example, adds the sign-up page English localization. 
