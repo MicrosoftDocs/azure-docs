@@ -168,7 +168,7 @@ select **Open with Logic App Editor**.
 
 You can now download the already published logic app into your resource group project. 
 So although you might have started a logic app in the Azure portal, you can still 
-import and manage that app in Visual Studio.For more information, see 
+import and manage that app in Visual Studio. For more information, see 
 [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
 ## Create Azure Functions project
