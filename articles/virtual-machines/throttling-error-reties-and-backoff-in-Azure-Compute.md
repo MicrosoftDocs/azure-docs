@@ -23,7 +23,7 @@ ms.author: vashan, rajraj, changov
 ---
 
 
-# Throttling errors retries and backoff in Azure Compute 
+# Throttling errors and retries in Azure Compute 
  
 Azure Compute requests may be throttled at a subscription and on a per-region basis to help with the overall performance of the service. We ensure all the calls to the Azure Compute Resource Provider that manages resources under Microsoft.Compute namespace don't exceed the maximum allowed API request rate. This document describes API throttling, details on how to troubleshoot throttling issues, and best practices to avoid being throttled.  
 
@@ -38,11 +38,12 @@ To distinguish the cases, inspect the `x-ms-ratelimit-remaining-subscription-rea
 If the remaining call count is approaching 0, the subscription’s general call limit defined by Azure Resource Manager has been reached. Activities by all subscription clients are counted together.  
 
 Otherwise, the throttling is coming from the target resource provider (the one addressed by the `/providers/<RP>` segment of the request URL). 
+## Call rate inforamtional response headers 
 
 | Header                            | Value format                           | Example                               | Description                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| x-ms-ratelimit-remaining-resource | <source RP>/<policy or bucket>;<count> | Microsoft.Compute/HighCostGet3Min;159 | Remaining API call count for the throttling policy covering the resource bucket or operation group including the target of this request                                                                   |
-| x-ms-request-charge               | <count>                                | 1                                     | The number of call counts “charged” for this HTTP request toward the applicable policy’s limit. This is most typically 1. Batch requests, such as for scaling a virtual machine scale set, can charge multiple counts. |
+| x-ms-ratelimit-remaining-resource |<code> <source RP>/<policy or bucket>;<count></code> | Microsoft.Compute/HighCostGet3Min;159 | Remaining API call count for the throttling policy covering the resource bucket or operation group including the target of this request                                                                   |
+| x-ms-request-charge               | <code><count>   </code>                             | 1                                     | The number of call counts “charged” for this HTTP request toward the applicable policy’s limit. This is most typically 1. Batch requests, such as for scaling a virtual machine scale set, can charge multiple counts. |
 
 
 
@@ -57,7 +58,7 @@ x-ms-ratelimit-remaining-resource: Microsoft.Compute/VMScaleSetBatchedVMRequests
 x-ms-ratelimit-remaining-resource: Microsoft.Compute/VmssQueuedVMOperations;4720 
 ```
 
-33 Throttling error details
+##Throttling error details
 
 The 429 HTTP status is commonly used to reject a request because a call rate limit is reached. A typical throttling error response from Compute Resource Provider will look like the example below (only relevant headers are shown):
 
