@@ -223,10 +223,10 @@ This article answers common questions about Azure Files features and functionali
 
     No, Azure Files only supports Azure AD integration with an Azure AD tenant that resides in the same subscription as the file share. Only one subscription can be associated with an Azure AD tenant.
 
-* <a id="ad-support-rest-apis"></a>
-**Are there REST APIs to support Get/Set/Copy directory/file NTFS ACLs?**
+* <a id="ad-aad-smb-afs"></a>
+**Can I leverage Azure AD authentication over SMB capabilities on file shares managed by Azure File Sync?**
 
-    The preview does not support REST APIs to get, set, or copy NTFS ACLs for directories or files.    
+    No, Azure Files does not support preserving NTFS ACLs on file shares managed by Azure File Sync. The file ACLs carried from on-premises file servers are persisted by Azure File Sync. Any NTFS ACLs configured natively against Azure Files will be overwritten by the Azure File Sync service. Additionally, Azure Files does not support authentication with Azure AD credentials for access to file shares managed by the Azure File Sync service.
 
 * <a id="encryption-at-rest"></a>
 **How can I ensure that my Azure file share is encrypted at rest?**  
