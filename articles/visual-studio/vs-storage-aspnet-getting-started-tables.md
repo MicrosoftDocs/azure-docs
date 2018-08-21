@@ -25,7 +25,7 @@ This tutorial shows how to write ASP.NET code for some common scenarios using Az
 ## Prerequisites
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Azure storage account](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
