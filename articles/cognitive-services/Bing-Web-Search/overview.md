@@ -12,7 +12,7 @@ ms.author: erhopf
 
 # What is Bing Web Search?
 
-The Bing Web Search API is a RESTful service that allows your application use Bing's web search capabilities. Requests can be configured to return search results that include web pages, images, videos, news, entities, related search queries, spelling corrections, unit conversions, translations, and calculations. Results are provided as JSON and based on search relevance and your subscriptions to Bing Search APIs.
+The Bing Web Search API is a RESTful service that allows your application use Bing's web search capabilities. Configure requests to return search results that include web pages, images, videos, news, entities, related search queries, spelling corrections, unit conversions, translations, and calculations. Results are provided as JSON and based on search relevance and your subscriptions to Bing Search APIs.
 
 This API is optimal for applications that need access to all content that is relevant to a user's search query. If you're building an application that requires only a specific type of content, consider using the [Bing Image Search API](../Bing-Image-Search/overview.md), [Bing Video Search API](../Bing-Video-Search/search-the-web.md), or [Bing News Search API](../Bing-News-Search/search-the-web.md). See [Cognitive Services APIs](https://docs.microsoft.com/en-us/azure/cognitive-services#cognitive-services-apis) for a complete list of Bing Search APIs.
 
@@ -20,14 +20,15 @@ Want to see how it works? Try our [Bing Web Search API demo](https://azure.micro
 
 ## Key features  
 
-With the Bing Web Search API, your application can:
+While the primary role of Bing Web Search is to provide instant answers to search queries, the service a
 
-* Get instant answers from Bing Web Search.
-* [Filter search results](filter-answers.md) by content type.
-* [Arrange and rank](rank-results.md) search results to fit your application's layout and design.  
-* Customize results based on a user's [location or market](supported-countries-markets.md).  
-* Analyze search queries with [Bing Statistics](bing-web-stats.md).  
-* Pair with the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to provide users with suggested queries based on partial search terms as the user types.  
+| Feature | Description |
+|---------|-------------|
+| [Suggest search terms in real time](../bing-autosuggest/get-suggested-search-terms.md) | Improve your app experience by using the Bing Autosuggest API to display suggested search terms as they're typed. |
+| [Filter results by content type](filter-answers.md) | Customize and refine search results with filters and query parameters. |
+| [Hit highlighting for unicode characters](hit-highlighting.md) | Identify and remove unwanted unicode characters from search results before displaying them to users with  hit highlighting. |
+| [Localize search results by country, region, and/or market](supported-countries-markets.md) | Bing Web Search supports more than three dozen countries or regions. Use this feature to refine search results for a specific country/region or market. |
+| [Analyze search metrics with Bing Statistics](bing-web-stats.md) | Bing Statistics is a paid subscription that provides analytics on call volume, top query strings, geographic distribution, and more. |
 
 ## Workflow
 
