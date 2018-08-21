@@ -16,7 +16,7 @@ ms.author: #Required; microsoft alias of author; optional team alias.
 You only use quickstarts when you can get the service, technology, or functionality into the hands of new customers in less than 10 minutes.
 --->
 
-# Quickstart: <do something with X> 
+# Quickstart: Find real-time space occupancy based on multiple sensors motions
 <!---Required:
 Starts with "quickstart: "
 Make the first word following "quickstart:" a verb.
