@@ -280,7 +280,7 @@ You can retrieve data from Salesforce reports by specifying a query as `{call "<
 
 To query the soft deleted records from the Salesforce Recycle Bin, you can specify `readBehavior` as `queryAll`. 
 
-### Differentce between SOQL and SQL query syntax
+### Difference between SOQL and SQL query syntax
 
 When copying data from Salesforce, you can use either SOQL query or SQL query. Note that these two has different syntax and functionality support, do not mix it. You are suggested to use the SOQL query which is natively supported by Salesforce. The following table lists the main differences:
 
