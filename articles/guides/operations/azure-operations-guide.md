@@ -181,7 +181,7 @@ Azure is built on a set of REST APIs that support the Azure portal UI. Most of t
 
 ### Azure Cloud Shell
 
-Administrators can access Azure PowerShell and Azure CLI through a web-based experience called Azure Cloud Shell. This interactive interface provides a flexible tool for Linux and Windows administrators to use their command-line interface of choice, either Bash or PowerShell. Azure Cloud Shell can be access through the portal or as a stand-alone web interface at [shell.azure.com](https://shell.azure.com). For more information, see [Overview of Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+Administrators can access Azure PowerShell and Azure CLI through a browser-accessible experience called Azure Cloud Shell. This interactive interface provides a flexible tool for Linux and Windows administrators to use their command-line interface of choice, either Bash or PowerShell. Azure Cloud Shell can be access through the portal ,as a stand-alone web interface at [shell.azure.com](https://shell.azure.com), or from a number of other access points. For more information, see [Overview of Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
 ## Azure subscriptions
 
 A subscription is a logical grouping of Azure services that is linked to an Azure account. A singe Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an account administrator, who has full control over the subscription, and a service administrator, who has control over all services in the subscription. In addition to administrators, individual accounts can be granted detailed control of Azure resources through RBAC.
