@@ -82,7 +82,7 @@ Select **Cloud** > **Azure Resource Group**.
    Visual Studio prompts you to select a template. 
    You can start with a blank, Logic App, or other template, 
    but this example uses an Azure Quickstart Template for building 
-   a serverless app that includes a logic app and Azure function app.
+   a serverless app that includes a logic app and a call to an Azure function.
 
    To create only a logic app in Visual Studio, 
    select the **Logic App** template. This template 
@@ -94,22 +94,22 @@ Select **Cloud** > **Azure Resource Group**.
 select **Azure Quickstart (github/Azure/azure-quickstart-templates)**. 
 
 1. In the search box, enter "logic-app" as your filter, 
-and select this serverless quickstart template: 
+and select this serverless quickstart template and choose **OK**: 
 **101-logic-app-and-function-app**
 
    ![Select Azure quickstart template](./media/logic-apps-serverless-get-started-vs/select-template.png)
 
-   This quickstart template creates a deployment 
-   template inside your resource group project. 
-   The template also includes a simple logic app 
-   that's triggered by an HTTP request, 
-   calls an Azure function, and returns the result 
-   as an HTTP response.
-
+   Visual Studio creates and opens a solution for your resource group project. 
+   The quickstart template you selected creates a deployment template 
+   named `azuredeploy.json` inside your resource group project. 
+   This deployment template includes the definition for a simple 
+   logic app that triggers on an HTTP request, calls an Azure function, 
+   and returns the result as an HTTP response. 
+   
    ![New serverless solution](./media/logic-apps-serverless-get-started-vs/create-serverless-solution.png)
 
 1. Next, you must deploy your solution to Azure before you can open 
-your logic app and review the resources for your serverless app, 
+the deployment template and review the resources for your serverless app. 
 
 ## Deploy your solution
 
@@ -135,13 +135,13 @@ your function app.
 
    ![Provide names for your logic app and function app](./media/logic-apps-serverless-get-started-vs/logic-function-app-name-parameters.png)
 
-   When your solution starts deployment to your specified resource group, 
+   When Visual Studio starts deployment to your specified resource group, 
    your solution's deployment status appears in the Visual Studio **Output** window. 
    After deployment finishes, your logic app is live in the Azure portal.
 
 ## Edit logic app in Visual Studio
 
-After your solution deploys to your resource group, 
+Now that your solution is deployed to your resource group, 
 open your logic app with the Logic App Designer 
 so you can edit and change your logic app.
 
@@ -167,11 +167,11 @@ and then choose **OK**.
 To create your Functions project and function with JavaScript, Python, 
 F#, PowerShell, Batch, or Bash, follow the steps in the article, 
 [Work with Azure Functions Core Tools](../azure-functions/functions-run-local.md). 
-If you're developing your Azure function with C# within your solution, 
+To develop your Azure function with C# inside your solution, 
 you can use a C# class library by following the steps in the article, 
 [Publish a .NET class library as a Function App](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/).
 
-## Build functions in Visual Studio
+## Deploy functions from Visual Studio
 
 Your deployment template deploys any Azure functions that you have in your solution 
 from the Git repo that's specified by variables in the `azuredeploy.json` file. 
