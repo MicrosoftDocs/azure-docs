@@ -126,7 +126,7 @@
         - name: Search queries
           href: query-language/search-queries.md
         - name: Useful operators
-          href: useful-operators.md
+          href: query-language/useful-operators.md
       - name: Lessons
         items:
         - name: String operations
@@ -148,9 +148,9 @@
       - name: Cheatsheets
         items:
         - name: SQL
-          href: sql-cheatsheet.md
+          href: query-language/sql-cheatsheet.md
         - name: Splunk
-          href: splunk-cheatsheet.md
+          href: query-language/splunk-cheatsheet.md
     - name: Cross-resource searches
       href: log-analytics-cross-workspace-search.md
     - name: Take action from search results
