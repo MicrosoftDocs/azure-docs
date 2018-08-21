@@ -43,47 +43,53 @@ Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
 In this section, you create a public load balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. 
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
-2. In the **Create a load balancer** page enter these values for the load balancer:
-    - *myLoadBalancer* - for the name of the load balancer.
-    - **Public** - for the type of the load balancer.
-    - **Standard** - for the SKU version of the load balancer.
-     - *myPublicIP* - for the **New** Public IP that you create.
-    - *myResourceGroupSLB* -  for the name of the **New** resource group that you select to create.
-    - **westeurope** - for the location.
-3. Click **Create** to create the load balancer.
+2. In the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Create**:
+    | Setting                 | Value                                              |
+    | ---                     | ---                                                |
+    | Name                   | *myLoadBalancer*                                   |
+    | Type          | Public                                        |
+    | SKU           | Standard                          |
+    | Public IP address | Select **Create new** and type *myPublicIP* in the text box. The Standard SKU for the Public IP address is selected by default. For **Availability zone**, select **Zone-redundant**. |
+    | Subscription               | Select your subscription.    |
+    |Resource group | Select **Create new**, and then type *myResourceGroupSLB*.    |
+    | Location           | Select **West Europe**.                          |
+    
 
-![Create a load balancer](./media/load-balancer-standard-public-portal/1a-load-balancer.png)
+![Create a load balancer](./media/load-balancer-standard-public-portal/create-load-balancer.png)
    
 ## Create backend servers
 
 In this section, you create a virtual network, create three virtual machines for the backend pool of your load balancer, and then install IIS on the virtual machines to help test the load balancer.
 
 ### Create a virtual network
-1. On the top left-hand side of the screen click **New** > **Networking** > **Virtual network** and enter these values for the virtual network:
-    - *myVnet* - for the name of the virtual network.
-    - *myResourceGroupSLB* - for the name of the existing resource group
-    - *myBackendSubnet* - for the subnet name.
+1. On the top left-hand side of the Azure portal, select **Create a resource** > **Networking** > **Virtual network** and then enter these values for the virtual network:
+    |Setting|Value|
+    |---|---|
+    |Name|Enter *myVNet*.|
+    |Subscription| Select your subscription.|
+    |Resource group| Select **Use existing** and then select *myResourceGroupSLB*.|
+    |Subnet name| Enter *myBackendSubnet*.|
+    
 2. Click **Create** to create the virtual network.
-
-    ![Create a virtual network](./media/load-balancer-standard-public-portal/2-load-balancer-virtual-network.png)
 
 ### Create virtual machines
 
-1. On the top left-hand side of the screen, click **New** > **Compute** > **Windows Server 2016 Datacenter** and enter these values for the virtual machine:
-    - *myVM1* - for the name of the virtual machine.        
-    - *azureuser* - for the administrator user name.    
-    - *myResourceGroupSLB* - for **Resource group**, select **Use existing**, and then select *myResourceGroupSLB*.
+1. On the top left-hand side of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter** and enter these values for the virtual machine:
+    1. For the name of the virtual machine, enter *myVM1*.        
+    2. For **Resource group**, select **Use existing**, and then select *myResourceGroupSLB*.
 2. Click **OK**.
 3. Select **DS1_V2** for the size of the virtual machine, and click **Select**.
 4. Enter these values for the VM settings:
-    -  *myVNet* - ensure it is selected as the virtual network.
-    - *myBackendSubnet* - ensure it is selected as the subnet.
-    - *myNetworkSecurityGroup* - for the name of the new network security group (firewall) that you must create.
+    1. Ensure that  *myVNet* is selected as the virtual network, and *myBackendSubnet* is selected as the subnet.
+    2. For **Public IP address**, in the Create Public IP address**, select **Standard** and then select **OK**.
+    3. For **Network Security Group**, select **Advanced**, and then do the following:
+        1. Select *Network security group (firewall), and the **Choose network security group** page, select **Create new**. 
+        2. In the **Choose network security group** page, for **Name**, enter *myNetworkSecurityGroup* as the name of the new network security group, and then select **OK**.
 5. Click **Disabled** to disable boot diagnostics.
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
-7. Create two more VMs, named, *VM2* and *VM3* with *myVnet* as its virtual network, *myBackendSubnet* and its subnet, and **myNetworkSecurityGroup* as its network security group using steps 1-6. 
+7. Create two more VMs, named, *VM2* and *VM3* with *myVnet* as its virtual network, *myBackendSubnet* as its subnet, and *myNetworkSecurityGroup* as its network security group using steps 1-6. 
 
-### Create NSG rules
+### Create network security group rules
 
 In this section, you create NSG rules to allow inbound connections using HTTP and RDP.
 
@@ -98,26 +104,17 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
     - *100* for **Priority**
     - *myHTTPRule* for name
     - *Allow HTTP* - for description
-4. Click **OK**.
- 
- ![Create a virtual network](./media/load-balancer-standard-public-portal/8-load-balancer-nsg-rules.png)
-5. Repeat steps 2 to 4 to create another rule named *myRDPRule* to allow for an inbound RDP connection using port 3389 with the following values:
-    - *Service Tag* - for **Source**.
-    - *Internet* - for **Source service tag**
-    - *3389* - for **Destination port ranges**
-    - *TCP* - for **Protocol**
-    - *Allow* - for **Action**
-    - *200* for **Priority**
-    - *myRDPRule* for name
-    - *Allow RDP* - for description
+4. Select **Add**.
 
 ### Install IIS on VMs
 
 1. Click **All resources** in the left-hand menu, and then from the resources list click **myVM1** that is located in the *myResourceGroupSLB* resource group.
 2. On the **Overview** page, click **Connect** to RDP into the VM.
-3. Log into the VM with username *azureuser*.
-4. On the server desktop, navigate to **Windows Administrative Tools**>**Windows PowerShell**.
-5. In the PowerShell Window, run the following commands to install the IIS server, remove the  default iisstart.htm file, and then add a new iisstart.htm file that displays the name of the VM:
+3. In the **Connect to virtual machine** pop-up window, select **Download RDP File**, and then Open the downloaded RDP file.
+4. In the **Remote Desktop Connection** window, click **Connect**.
+5. Log into the VM with the credentials that you provided during the creation of this VM. This launches a remote desktop session with virtual machine - *myVM1*.
+6. On the server desktop, navigate to **Windows Administrative Tools**>**Windows PowerShell**.
+7. In the PowerShell Window, run the following commands to install the IIS server, remove the  default iisstart.htm file, and then add a new iisstart.htm file that displays the name of the VM:
 
    ```azurepowershell-interactive
     
@@ -128,7 +125,7 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
      remove-item  C:\inetpub\wwwroot\iisstart.htm
     
     # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
    ```
 6. Close the RDP session with *myVM1*.
 7. Repeat steps 1 to 6 to install IIS and the updated iisstart.htm file on *myVM2* and *myVM3*.
@@ -144,7 +141,7 @@ To distribute traffic to the VMs, a backend address pool contains the IP address
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Backend pools**, then click **Add**.
 3. On the **Add a backend pool** page, do the following:
-   - For name, type *myBackEndPool*, as the name for your backend pool.
+   - For name, type *myBackendPool*, as the name for your backend pool.
    - Click **Add a target network IP configuration** to add each virtual machine (*myVM1*, *myVM2*, & *myVM3*) that you created to the backend pool.
 4. Check to make sure your load balancer backend pool setting displays all the VMs *myVM1*, *myVM2*, and *myVM3*, and then click **OK**.
 
