@@ -1,4 +1,4 @@
-# Capture Event Hubs data in a SQL Data Warehouse using Event Grid and Azure Functions
+# Process and migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions
 
 Event Hubs [Capture](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview) is the easiest way to automatically deliver streamed data in Event Hubs to an Azure Blob storage or Azure Data Lake store. You can subsequently process and deliver the data to any other storage destinations of your choice, such as SQL Data Warehouse or Cosmos DB. In this tutorial, you learn how you to capture data from your event hub into a SQL Database Warehouse by using an [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) triggered Azure Function.
 
@@ -11,7 +11,7 @@ Event Hubs [Capture](https://docs.microsoft.com/en-us/azure/event-hubs/event-hub
 In this tutorial, you do the following actions: 
 
 > [!div class="checklist"]
-> * Create a table in SQL Data Warehouse 
+> * Deploy the infrastructure
 > * Publish code to the Functions App
 > * Create an Event Grid subscription from the Functions app
 > * Stream sample data into Event Hub. 
@@ -68,7 +68,7 @@ New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
 New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
 ```
 
-## Create a table in SQL Data Warehouse 
+### Create a table in SQL Data Warehouse 
 Create a table in your SQL data warehouse by running the [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) script using Visual Studio or the Query Editor in the portal. 
 
 ```sql
