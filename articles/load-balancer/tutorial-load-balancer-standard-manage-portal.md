@@ -142,7 +142,8 @@ To distribute traffic to the VMs, a backend address pool contains the IP address
 2. Under **Settings**, click **Backend pools**, then click **Add**.
 3. On the **Add a backend pool** page, do the following:
    - For name, type *myBackendPool*, as the name for your backend pool.
-   - Click **Add a target network IP configuration** to add each virtual machine (*myVM1*, *myVM2*, & *myVM3*) that you created to the backend pool.
+   - For **Virtual network**, select *myVNet*.
+   - Add *myVM1*, *myVM2*, and *my VM3* under **Virtual Machine** along with their corresponding IP addresses, and then select **Add**.
 4. Check to make sure your load balancer backend pool setting displays all the VMs *myVM1*, *myVM2*, and *myVM3*, and then click **OK**.
 
 ### Create a health probe
