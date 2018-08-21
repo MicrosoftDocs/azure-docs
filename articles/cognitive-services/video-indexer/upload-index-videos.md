@@ -8,13 +8,16 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 08/17/2018
 ms.author: juliako
 
 ---
 # Upload and index your videos  
 
 This article shows how to use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos with Azure Video Indexer. It also discusses some of the parameters that you can set on the API to change the process and output of the API.
+
+> [!Note]
+> When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). <br/>With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. <br/>With paid option, you create a Video Indexer account that is [connected to your Azure subscription and a Azure Media Services account](connect-to-azure.md). You pay for minutes indexed as well as the Media Account related charges. 
 
 ## Configurations and params
 
@@ -34,15 +37,21 @@ Use this parameter if raw or external recordings contain background noise. This 
 
 Price depends on the selected indexing option.  
 
-### streamingPereset
+### callbackUrl
+
+A POST URL to notify when indexing is completed. Video Indexer adds two query string parameters to it: id and state. For example, if the callback url is 'https://test.com/notifyme?projectName=MyProject', the notification will be sent with additional parameters to 'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
+
+You can also add more parameters to the URL before POSTing the call to Video Indexer and these parameters will be included in the callback. Later, in your code you can parse the query string and get back all of the specified parameters in the query string (data that you had originally appended to the URL plus the Video Indexer supplied info.) 
+
+### streamingPreset
 
 Once your video has been uploaded, Video Indexer, optionally encodes the video. Then, proceeds to indexing, and analyzing the video. When Video Indexer is done analyzing, you will get a notification with the video ID.  
 
-When using the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) or [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API, one of the optional parameters is `streamingPreset`. If you set `streamingPereset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered. Once the indexing and encoding jobs are done, the video is published so you can also stream your video. The Streaming Endpoint from which you want to stream the video must be in the **Running** state.
+When using the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) or [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API, one of the optional parameters is `streamingPreset`. If you set `streamingPreset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered. Once the indexing and encoding jobs are done, the video is published so you can also stream your video. The Streaming Endpoint from which you want to stream the video must be in the **Running** state.
 
 In order to run the indexing and encoding jobs, the [Azure Media Services account connected to your Video Indexer account](connect-to-azure.md), requires Reserved Units. For more information, see [Scaling Media Processing](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Since these are compute intensive jobs, S3 unit type is highly recommended. The number of RUs defines the max number of jobs that can run in parallel. The baseline recommendation is 10 S3 RUs. 
 
-If you only want to index your video but not encode it, set `streamingPereset`to `NoStreaming`.
+If you only want to index your video but not encode it, set `streamingPreset`to `NoStreaming`.
 
 ## Code sample
 

@@ -72,8 +72,6 @@
       href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
     - name: ASP.NET Core
       href: https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp
-    - name: Node.js
-      href: active-directory-b2c-devquickstarts-web-node.md
   - name: Single page apps
     items:
     - name: Overview
@@ -263,6 +261,8 @@
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Frequently asked questions
     href: active-directory-b2c-faqs.md
+  - name: Getting help
+    href: /azure/active-directory/develop/developer-support-help-options
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/active-directory-b2c/
   - name: Pricing calculator

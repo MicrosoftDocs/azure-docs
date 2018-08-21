@@ -4,14 +4,14 @@ description: Learn how you can use Azure Cosmos DB to store and query massive vo
 keywords: what is MongoDB
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
+manager: slyons
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
-ms.author: sngun
+ms.author: sclyon
 experimental: true
 experiment_id: "662dc5fd-886f-4a"
 ---

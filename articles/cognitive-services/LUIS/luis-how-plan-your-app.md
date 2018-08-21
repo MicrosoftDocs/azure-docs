@@ -2,13 +2,13 @@
 title: Plan your LUIS applications | Microsoft Docs
 description: Outline relevant app intents and entities, and then create your application plans in Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Plan your LUIS app
@@ -60,7 +60,7 @@ LUIS provides [prebuilt entities](luis-prebuilt-entities.md) for common types li
 
 ![Number prebuilt entity](./media/luis-plan-your-app/number-entity.png)
 
-See [Data Extraction](luis-concept-data-extraction.md#prebuilt-entity-data) to learn more about extracting regular expression entities from the endpoint JSON query response. 
+See [Data Extraction](luis-concept-data-extraction.md#prebuilt-entity-data) to learn more about extracting Prebuilt entity from the endpoint JSON query response. 
 
 ### List entity 
 A list entity is an explicitly specified list of values. Each value consists of one or more synonyms. In a travel app, you might choose to create a list entity to represent airport names.

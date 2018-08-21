@@ -20,7 +20,7 @@ This article describes how to manage Azure Data Lake Analytics accounts, data so
 
 * Use a 64-bit version of Python.
 * You can use the standard Python distribution found at **[Python.org downloads](https://www.python.org/downloads/)**. 
-* Many developers find it convenient to use the **[Anaconda Python distribution](https://www.continuum.io/downloads)**.  
+* Many developers find it convenient to use the **[Anaconda Python distribution](https://www.anaconda.com/download/)**.  
 * This article was written using Python version 3.6 from the standard Python distribution
 
 ## Install Azure Python SDK

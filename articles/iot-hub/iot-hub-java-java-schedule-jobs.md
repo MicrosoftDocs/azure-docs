@@ -26,7 +26,7 @@ A job wraps one of these actions and tracks the execution against a set of devic
 To learn more about each of these capabilities, see:
 
 * Device twin and properties: [Get started with device twins](iot-hub-java-java-twin-getstarted.md)
-* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Tutorial: Use direct methods](iot-hub-java-java-direct-methods.md)
+* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Tutorial: Use direct methods](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -477,5 +477,5 @@ In this tutorial, you configured a new IoT hub in the Azure portal, and then cre
 
 Use the following resources to learn how to:
 
-* Send telemetry from devices with the [Get started with IoT Hub](iot-hub-java-java-getstarted.md) tutorial.
-* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](iot-hub-java-java-direct-methods.md) tutorial.
+* Send telemetry from devices with the [Get started with IoT Hub](quickstart-send-telemetry-java.md) tutorial.
+* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](quickstart-control-device-java.md) tutorial.

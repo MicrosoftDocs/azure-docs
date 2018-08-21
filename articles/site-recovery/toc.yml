@@ -51,7 +51,7 @@
       href: tutorial-prepare-azure.md
     - name: Migrate on-premises machines to Azure
       href: migrate-tutorial-on-premises-azure.md
-    - name: Migrate Windows Server 2008, 2008 R2 servers to Azure
+    - name: Migrate Windows Server 2008 servers to Azure
       href: migrate-tutorial-windows-server-2008.md
     - name: Migrate AWS instances to Azure
       href: migrate-tutorial-aws-azure.md
@@ -93,6 +93,8 @@
     items:
     - name: Replication to Azure
       items:
+      - name: Common questions for Hyper-V to Azure replication
+        href: hyper-v-azure-common-questions.md
       - name: Hyper-V to Azure support matrix
         href: hyper-v-azure-support-matrix.md
       - name: Hyper-V to Azure architecture

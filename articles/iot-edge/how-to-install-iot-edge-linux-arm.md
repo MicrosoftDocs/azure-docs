@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 08/14/2018
 ms.author: kgremban
 ---
 # Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)
@@ -97,11 +97,18 @@ The edge device can be configured manually using a [device connection string][ln
      registration_id: "{registration_id}"
    ```
 
+Save and close the file. 
+
+   `CTRL + X`, `Y`, `Enter`
+
 After entering the provisioning information in the configuration, restart the daemon:
 
 ```cmd/sh
 sudo systemctl restart iotedge
 ```
+
+>[!TIP]
+>You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use **sudo** in front of the commands. 
 
 ## Verify successful installation
 

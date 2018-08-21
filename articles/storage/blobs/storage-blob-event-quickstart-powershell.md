@@ -2,12 +2,13 @@
 title: Route Azure Blob storage events to a custom web endpoint - Powershell | Microsoft Docs
 description: Use Azure Event Grid to subscribe to Blob storage events. 
 services: storage,event-grid 
-keywords: 
 author: david-stanford
+
 ms.author: dastanfo
 ms.date: 07/05/2018
 ms.topic: article
 ms.service: storage
+ms.component: blobs
 ---
 
 # Route Blob storage events to a custom web endpoint with PowerShell
@@ -31,9 +32,6 @@ Log in to your Azure subscription with the `Connect-AzureRmAccount` command and 
 ```powershell
 Connect-AzureRmAccount
 ```
-
-> [!NOTE]
-> Availability for Storage events is tied to Event Grid [availability](../../event-grid/overview.md) and will become available in other regions as Event Grid does.
 
 This example uses **westus2** and stores the selection in a variable for use throughout.
 

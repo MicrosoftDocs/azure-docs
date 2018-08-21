@@ -147,6 +147,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 * **Initial Setup**: When the initial deployment of API Management service into a subnet does not succeed, it is advised to first deploy a virtual machine into the same subnet. Next remote desktop into the virtual machine and validate that there is connectivity to one of each resource below in your azure subscription
     * Azure Storage blob
     * Azure SQL Database
+    * Azure Storage Table
 
  > [!IMPORTANT]
  > After you have validated the connectivity, make sure to remove all the resources deployed in the subnet, before deploying API Management into the subnet.

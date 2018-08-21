@@ -1,10 +1,9 @@
 ---
-title: Speech service supported languages - Microsoft Cognitive Services | Microsoft Docs
+title: Speech service supported languages - Microsoft Cognitive Services
 description: A list of the languages supported by the Speech service.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service

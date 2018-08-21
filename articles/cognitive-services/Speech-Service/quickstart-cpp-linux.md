@@ -1,10 +1,9 @@
 ---
-title: 'Quickstart: Recognize speech in C++ on Linux using the Cognitive Services Speech SDK | Microsoft Docs'
+title: 'Quickstart: Recognize speech in C++ on Linux using the Cognitive Services Speech SDK'
 titleSuffix: "Microsoft Cognitive Services"
 description: Learn how to recognize speech in C++ on Linux using the Cognitive Services Speech SDK
 services: cognitive-services
 author: wolfma61
-manager: onano
 
 ms.service: cognitive-services
 ms.technology: Speech
@@ -14,6 +13,8 @@ ms.author: wolfma
 ---
 
 # Quickstart: Recognize speech in C++ on Linux using the Speech SDK
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you learn how to create a C++ console application on Linux (Ubuntu 16.04) using the Cognitive Services Speech SDK to transcribe speech to text.
 
@@ -32,7 +33,7 @@ In this article, you learn how to create a C++ console application on Linux (Ubu
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `0.5.0`.
+The current version of the Cognitive Services Speech SDK is `0.6.0`.
 
 The Cognitive Services Speech SDK for Linux is available for building of 64-bit and 32-bit applications.
 The required files can be downloaded as a tar-file from https://aka.ms/csspeech/linuxbinary.
@@ -130,4 +131,4 @@ Look for this sample in the `quickstart/cpp-linux` folder.
 
 ## Next steps
 
-* Visit the [samples page](samples.md) for additional samples.
+* [Get our samples](speech-sdk.md#get-the-samples)

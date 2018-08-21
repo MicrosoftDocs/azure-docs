@@ -3,7 +3,7 @@ title: Overview of Azure Event Hubs Capture | Microsoft Docs
 description: Capture telemetry data with Event Hubs Capture
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
-ms.author: sethm
+ms.date: 08/16/2018
+ms.author: shvija
 
 ---
 

@@ -12,7 +12,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 
@@ -28,7 +28,7 @@ This problem typically happens if the application vendor has changed their sign-
 
 While Microsoft has technologies to automatically detect when integrations break, it might not be possible to find the issues right away, or the issues take some time to fix. In the case when one of these integrations does not work correctly, open a support case so it can be fixed as quickly as possible.
 
-**If you are in contact with this application’s vendor,** send them our way so Microsoft can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](./develop/active-directory-app-gallery-listing.md) to get them started.
+**If you are in contact with this application’s vendor,** send them our way so Microsoft can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](develop/howto-app-gallery-listing.md) to get them started.
 
 ## Credentials are filled in and submitted, but the page indicates the credentials are incorrect
 
@@ -56,7 +56,7 @@ In case the previous suggestions do not work, it could be the case that a change
 
 While Microsoft has technologies to automatically detect when application integrations break, it might not be possible to find the issues right away, or the issues might take some time to fix. When an integration does not work correctly, you can open a support case to get it fixed as quickly as possible. 
 
-In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](./develop/active-directory-app-gallery-listing.md) to get them started.
+In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](develop/howto-app-gallery-listing.md) to get them started.
 
 ## The extension works in Chrome and Firefox, but not in Internet Explorer
 
@@ -64,13 +64,13 @@ There are two main causes to this issue:
 
 -   Depending on the security settings enabled in Internet Explorer, if the website is not part of a **Trusted Zone**, sometimes our script be blocked from executing for the application.
 
-  *  To resolve this, instruct the user to **Add the application’s website** to the **Trusted Sites** list within their **Internet Explorer security settings**. You can send your users to the [How to add a site to my trusted sites list](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) article for detailed instructions.
+  *  To resolve this, instruct the user to **Add the application’s website** to the **Trusted Sites** list within their **Internet Explorer security settings**. You can send your users to the [How to add a site to my trusted sites list](https://answers.microsoft.com/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) article for detailed instructions.
 
 -   In rare circumstances, Internet Explorer’s security validation can sometimes cause the page to load more slowly than the execution of our script.
 
    * Unfortunately, this situation can vary depending on the browser version, computer speed, or site visited. In this case, we suggest that you contact support so we can fix the integration for this specific application.
 
-In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](./develop/active-directory-app-gallery-listing.md) to get them started.
+In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](develop/howto-app-gallery-listing.md) to get them started.
 
 ## Check if the application’s login page has changed recently or requires an additional field
 
@@ -78,7 +78,7 @@ If the application’s login page has changed drastically, sometimes this causes
 
 While Microsoft has technologies to automatically detect when application integrations break, it might not be possible to find the issues right away, or the issues might take some time to fix. When an integration does not work correctly, you can open a support case to get it fixed as quickly as possible. 
 
-In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](./develop/active-directory-app-gallery-listing.md) to get them started.
+In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](develop/howto-app-gallery-listing.md) to get them started.
 
 ## How to install the Access Panel Browser extension
 

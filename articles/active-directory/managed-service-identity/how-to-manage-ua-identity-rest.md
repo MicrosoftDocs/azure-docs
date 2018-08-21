@@ -31,13 +31,16 @@ In this article, you learn how to create, list, and delete a user assigned manag
 - If you are using Windows, install the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about) or use the [Azure Cloud Shell](../../cloud-shell/overview.md) in the Azure portal.
 - If you use the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about) or a [Linux distribution OS](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [Install the Azure CLI local console](/azure/install-azure-cli).
 - If you are using Azure CLI local console, sign in to Azure using `az login` with an account that is associated with the Azure subscription you would like to deploy or retrieve user assigned managed identity information.
+- To perform the management operations in this article, your account needs the following role assignments:
+    - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create, read (list), update, and delete a user assigned identity.
+    - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to read (list) the properties of a user assigned identity.
 - Retrieve a Bearer access token using `az account get-access-token` to perform the following user assigned managed identity operations.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Create a user assigned managed identity 
 
-To create a user assigned managed identity, use the following CURL request to the Azure Resource Manager API. At a minimum, your account needs to be assigned the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create a user assigned identity. Replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`,`<LOCATION>`, and `<ACCESS TOKEN>` values with your own values:
+To create a user assigned managed identity, use the following CURL request to the Azure Resource Manager API. Replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`,`<LOCATION>`, and `<ACCESS TOKEN>` values with your own values:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -49,14 +52,14 @@ ation": "<LOCATION>"}' -H "Content-Type: application/json" -H "Authorization: Be
 
 ## List user assigned managed identities
 
-To list user assigned managed identities, use the following CURL request to the Azure Resource Manager API. At a minimum, your account needs to be assigned the [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to list the properties of a user assigned identity. Replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<ACCESS TOKEN>` values with your own values:
+To list user assigned managed identities, use the following CURL request to the Azure Resource Manager API. Replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<ACCESS TOKEN>` values with your own values:
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 ## Delete a user assigned managed identity
 
-To delete a user assigned managed identity, use the following CURL request to the Azure Resource Manager API. At a minimum, your account needs to be assigned the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to delete a user assigned identity. Replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<ACCESS TOKEN>` parameters values with your own values:
+To delete a user assigned managed identity, use the following CURL request to the Azure Resource Manager API. Replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<ACCESS TOKEN>` parameters values with your own values:
 
 > [!NOTE]
 > Deleting a user assigned identity will not remove the reference from any resource it was assigned to. To remove a user assigned managed from a VM using CURL see [Remove a user assigned identity from an Azure VM](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).

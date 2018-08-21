@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.date: 08/15/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -109,7 +109,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the `<ClaimsP
                     <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
                     <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
                     <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="contosoAuthentication" />
+                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
                     <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="AzureADContoso" />
                 </OutputClaims>
                 <OutputClaimsTransformations>

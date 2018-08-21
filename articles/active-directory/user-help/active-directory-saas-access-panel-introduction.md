@@ -2,22 +2,19 @@
 title: What is the access panel in Azure Active Directory? | Microsoft Docs
 description: Learn how to use variations of the access panel (web browser, Android app, iPhone and iPad app) to access SaaS apps.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
 
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
 ms.service: active-directory
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/11/18
-ms.author: markvi
+ms.author: lizross
 ms.reviewer: asteen
-ms.custom: H1Hack27Feb2017
-
 ---
+
 # What is the access panel?
 
 The access panel is a web-based portal. If you have a work or school account in Azure Active Directory (Azure AD), you can use the access panel to view and start cloud-based applications that an Azure AD administrator has granted you access to. You can also use self-service group and app management capabilities through the access panel.
@@ -80,7 +77,7 @@ To sign in to password-based single sign-on, you must use the extension. After t
 - You can sign in to an app directly by using the app's **Sign-on URL**. When you use the app's URL, the extension detects the action and gives you the option of signing in from the extension.
 - You can launch any of your apps from the access panel by using the *quick search* feature of the extension. 
 - The extension shows you the last three applications that you launched in **Recently Used** section.
-- You can use internal company URLs while remote through [Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)
+- You can use internal company URLs while remote through [Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
 > Additional features are available only for Edge, Chrome, and Firefox.
@@ -98,8 +95,8 @@ If you are using a My Apps URL other than `https://myapps.microsoft.com`, config
 5. Select **Sign in to get started**.
 
 To use internal company URLs while remote using the extension, do the following:
-1. [Configure Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) on your tenant.
-2. [Publish the application](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) and URL through Application Proxy.
+1. [Configure Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) on your tenant.
+2. [Publish the application](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) and URL through Application Proxy.
 3. Install the extension, and sign in to it by selecting Sign in to get started.
 4. You can now browse to the internal company URL even while remote.
 

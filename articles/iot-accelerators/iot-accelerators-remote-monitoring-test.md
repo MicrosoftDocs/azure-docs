@@ -82,7 +82,7 @@ The following video shows a walkthrough of connecting simulated and real devices
 
 To follow this tutorial, you need:
 
-* A deployed instance of the Remote Monitoring solution in your Azure subscription. If you haven't deployed the Remote Monitoring solution yet, you should complete the [Deploy the Remote Monitoring solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) tutorial.
+* A deployed instance of the Remote Monitoring solution in your Azure subscription. If you haven't deployed the Remote Monitoring solution yet, you should complete the [Deploy the Remote Monitoring solution accelerator](../iot-accelerators/quickstart-remote-monitoring-deploy.md) tutorial.
 
 * Visual Studio 2017. If you don't have Visual Studio 2017 installed, you can download the free [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) edition.
 
@@ -135,6 +135,8 @@ The following commands use the `az` command from [Azure CLI 2.0](https://docs.mi
     ```sh
     az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
+
+    You should only enable SSH access during test and development. If you enable SSH, [you should disable it again as soon as possible](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines)
 
 1. To change the virtual machine password to a password you know, run the following command. Use the name of the virtual machine you noted previously and a password of your choice:
 

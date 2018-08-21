@@ -137,7 +137,7 @@ After you verify that the application runs in Docker, push the image to your reg
 
 Run `docker login` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
 
-The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/active-directory-application-objects.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could log in using your registry username and password.
+The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could log in using your registry username and password.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -429,13 +429,13 @@ The Service Fabric runtime allocates 20 minutes to download and extract containe
 
 ```json
 {
-"name": "Hosting",
+        "name": "Hosting",
         "parameters": [
           {
-              "name": " ContainerImageDownloadTimeout ",
+              "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
-]
+        ]
 }
 ```
 
@@ -458,7 +458,7 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
 
 ```json
 { 
-   "name": "Hosting", 
+        "name": "Hosting", 
         "parameters": [ 
           { 
             "name": "ContainerServiceArguments", 

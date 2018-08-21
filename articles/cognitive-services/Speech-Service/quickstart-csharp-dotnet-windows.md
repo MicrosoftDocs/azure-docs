@@ -1,10 +1,9 @@
 ---
-title: 'Quickstart: Recognize speech in C# under .NET Framework on Windows using the Cognitive Services Speech SDK | Microsoft Docs'
+title: 'Quickstart: Recognize speech in C# under .NET Framework on Windows using the Cognitive Services Speech SDK'
 titleSuffix: "Microsoft Cognitive Services"
 description: Learn how to recognize speech in C# under .NET Framework on Windows using the Cognitive Services Speech SDK
 services: cognitive-services
 author: wolfma61
-manager: onano
 
 ms.service: cognitive-services
 ms.component: speech-service
@@ -15,8 +14,10 @@ ms.author: wolfma
 
 # Quickstart: Recognize speech in C# under .NET Framework on Windows using the Speech SDK
 
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+
 In this article, you learn how to create a C# console application for .NET Framework on Windows using the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
+The application is built with the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
 
 ## Prerequisites
 
@@ -43,9 +44,15 @@ The application is based on the [Microsoft Cognitive Services Speech SDK NuGet P
 
     ![Install Microsoft.CognitiveServices.Speech NuGet Package](media/sdk/qs-csharp-dotnet-windows-03-nuget-install-0.5.0.png "Install Nuget package")
 
-1. In the license screen that pops up, accept the license:
+1. Accept the displayed license.
 
     ![Accept the license](media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "Accept the license")
+
+1. The following output line appears in the Package Manager console.
+
+   ```text
+   Successfully installed 'Microsoft.CognitiveServices.Speech 0.6.0' to helloworld
+   ```
 
 ## Create a platform configuration matching your PC architecture
 
@@ -65,7 +72,7 @@ In this section, you add a new platform to the configuration that matches your p
 
 ## Add the sample code
 
-1. In the `Program.cs` file in your Visual Studio project, replace all code with the following:
+1. Open `Program.cs` and replace all the code in it with the following.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
@@ -77,7 +84,7 @@ In this section, you add a new platform to the configuration that matches your p
 
 ## Build and run the sample
 
-1. Build the application. From the menu bar, select **Build** > **Build Solution**. The code should compile without errors now:
+1. Build the application. From the menu bar, select **Build** > **Build Solution**. The code should compile without errors now.
 
     ![Successful build](media/sdk/qs-csharp-dotnet-windows-08-build.png "Successful build")
 
@@ -85,8 +92,7 @@ In this section, you add a new platform to the configuration that matches your p
 
     ![Start the app into debugging](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Start the app into debugging")
 
-1. A console window pops up, prompting you to say something (in English).
-   The result of the recognition is displayed on screen.
+1. A console window appears, prompting you to say something (in English). The recognized text then appears in the same window.
 
     ![Console output after successful recognition](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Console output after successful recognition")
 
@@ -95,6 +101,6 @@ Look for this sample in the `quickstart/csharp-dotnet-windows` folder.
 
 ## Next steps
 
-- [Translate speech](how-to-translate-speech.md)
+- [Translate speech](how-to-translate-speech-csharp.md)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)

@@ -6,7 +6,8 @@ author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/04/2018
-ms.author: bryanla
+ms.author: anshan
+manager: cshankar
 # Customer intent: As a data analyst or developer, I want learn how to create a TSI environment, so I can use TSI queries to understand device behavior.
 ---
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2018
+ms.date: 08/20/2018
 ms.author: kumud
 ms.custom: mvc
 ---
@@ -81,15 +81,11 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
 * **Health probes**
 
-     To determine the health of instances in the backend pool, Load Balancer uses health probes that you define. When a probe fails to respond, the load balancer stops sending new connections to the unhealthy instances. Existing connections are not affected, and they continue until the application terminates the flow, an idle timeout occurs, or the VM is shut down.
+    To determine the health of instances in the backend pool, Load Balancer uses health probes that you define. When a probe fails to respond, the load balancer stops sending new connections to the unhealthy instances. Existing connections are not affected, and they continue until the application terminates the flow, an idle timeout occurs, or the VM is shut down.
+     
+    Load Balancer provides [different health probe types](load-balancer-custom-probe-overview.md#types) for TCP, HTTP, and HTTPS endpoints.
 
-    Three types of probes are supported:
-
-    - **HTTP custom probe**: You can use this probe to create your own custom logic to determine the health of a backend pool instance. The load balancer regularly probes your endpoint (every 15 seconds, by default). The instance is considered to be healthy if it responds with an HTTP 200 within the timeout period (default of 31 seconds). Any status other than HTTP 200 causes this probe to fail. This probe is also useful for implementing your own logic to remove instances from the load balancer's rotation. For example, you can configure the instance to return a non-200 status if the instance is greater than 90 percent CPU.  This probe overrides the default guest agent probe.
-
-    - **TCP custom probe**: This probe relies on establishing a successful TCP session to a defined probe port. As long as the specified listener on the VM exists, this probe succeeds. If the connection is refused, the probe fails. This probe overrides the default guest agent probe.
-
-    - **Guest agent probe**: The load balancer can also utilize the guest agent inside the VM. The guest agent listens and responds with an HTTP 200 OK response only when the instance is in the ready state. If the agent fails to respond with an HTTP 200 OK, the load balancer marks the instance as unresponsive and stops sending traffic to that instance. The load balancer continues to attempt to reach the instance. If the guest agent responds with an HTTP 200, the load balancer sends traffic to that instance again. Guest agent probes are a _last resort and not recommended_ when HTTP or TCP custom probe configurations are possible. 
+    Additionally, when using Classic cloud services, an additional type is allowed:  [Guest agent](load-balancer-custom-probe-overview.md#guestagent).  This should be consider to be a health probe of last resort and is not recommended when other options are viable.
     
 * **Outbound connections (SNAT)**
 
@@ -109,7 +105,7 @@ Load Balancer supports both Basic and Standard SKUs, each differing in scenario 
 However, depending on which SKU you choose, the complete scenario configuration might differ slightly. Load Balancer documentation calls out when an article applies only to a specific SKU. To compare and understand the differences, see the following table. For more information, see [Standard Load Balancer overview](load-balancer-standard-overview.md).
 
 >[!NOTE]
-> If you are using a newer design scenario, consider using Standard Load Balancer. 
+> New designs should adopt Standard Load Balancer. 
 
 Standalone VMs, availability sets, and virtual machine scale sets can be connected to only one SKU, never both. When you use them with public IP addresses, both Load Balancer and the public IP address SKU must match. Load Balancer and public IP SKUs are not mutable.
 
@@ -118,19 +114,7 @@ _It is a best practice to specify the SKUs explicitly, even though it is not yet
 >[!IMPORTANT]
 >Standard Load Balancer is a new Load Balancer product and largely a superset of Basic Load Balancer. There are important and deliberate differences between the two products. Any end-to-end scenario that's possible with Basic Load Balancer can also be created with Standard Load Balancer. If you're already used to Basic Load Balancer, you should familiarize yourself with Standard Load Balancer to understand the latest changes in behavior between Standard and Basic and their impact. Review this section carefully.
 
-| | [Standard SKU](load-balancer-standard-overview.md) | Basic SKU |
-| --- | --- | --- |
-| backend pool size | Up to 1000 instances. | Up to 100 instances. |
-| backend pool endpoints | Any VM in a single virtual network, including a blend of VMs, availability sets, and virtual machine scale sets. | VMs in a single availability set or virtual machine scale set. |
-| Azure Availability Zones | Zone-redundant and zonal front ends for inbound and outbound, outbound flow mappings survive zone failure, cross-zone load balancing. | / |
-| Diagnostics | Azure Monitor, multi-dimensional metrics including byte and packet counters, health probe status, connection attempts (TCP SYN), outbound connection health (SNAT successful and failed flows), active data plane measurements. | Azure Log Analytics for public load balancer only, SNAT exhaustion alert, backend pool health count. |
-| HA Ports | Internal load balancer. | / |
-| Secure by default | By default, closed for public IP and load balancer endpoints. For traffic to flow, a network security group must be used to explicitly whitelist entities. | Default open, network security group optional. |
-| Outbound connections | Multiple front ends with per-rule opt-out. An outbound scenario _must_ be explicitly created for the VM to be able to use outbound connectivity. [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) can be reached without outbound connectivity and do not count toward data processed. Any public IP addresses, including Azure PaaS services that are unavailable as virtual network service endpoints, must be reached via outbound connectivity and count toward data processed. When only an internal load balancer is serving a VM, outbound connections via default SNAT are unavailable. Outbound SNAT programming is transport-protocol specific, based on the protocol of the inbound load-balancing rule. | Single front end, selected at random when multiple front ends are present. When only an internal load balancer is serving a VM, the default SNAT is used. |
-| Multiple front ends | Inbound and outbound. | Inbound only. |
-| Management Operations | Most operations < 30 seconds. | 60-90+ seconds typical. |
-| SLA | 99.99 percent for a data path with two healthy VMs. | Implicit in the VM SLA. | 
-| Pricing | Charges are based on the number of rules and data processed inbound or outbound that are associated with the resource.  | No charge. |
+[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
 For more information, see [service limits for Load Balancer](https://aka.ms/lblimits). For Standard Load Balancer details, see [overview](load-balancer-standard-overview.md), [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla).
 
@@ -140,7 +124,7 @@ For more information, see [service limits for Load Balancer](https://aka.ms/lbli
 
 A public load balancer maps the public IP address and port number of incoming traffic to the private IP address and port number of the VM, and vice versa for the response traffic from the VM. By applying load-balancing rules, you can distribute specific types of traffic across multiple VMs or services. For example, you can spread the load of web request traffic across multiple web servers.
 
-The following figure shows a load-balanced endpoint for web traffic that is shared among three VMs for the public and private TCP port 80. These three VMs are in a load-balanced set.
+The following figure shows a load-balanced endpoint for web traffic that is shared among three VMs for the public and  TCP port 80. These three VMs are in a load-balanced set.
 
 ![Public load balancer example](./media/load-balancer-overview/IC727496.png)
 
@@ -177,7 +161,7 @@ For information about the Standard Load Balancer SLA, go to the [Load Balancer S
 ## Limitations
 
 - Load Balancer is a TCP or UDP product for load balancing and port forwarding for these specific IP protocols.  Load balancing rules and inbound NAT rules are supported for TCP and UDP and not supported for other IP protocols including ICMP. Load Balancer does not terminate, respond, or otherwise interact with the payload of a UDP or TCP flow. It is not a proxy. Successful validation of connectivity to a frontend must take place in-band with the same protocol used in a load balancing or inbound NAT rule (TCP or UDP) _and_ at least one of your virtual machines must generate a response for a client to see a response from a frontend.  Not receiving an in-band response from the Load Balancer frontend indicates no virtual machines were able to respond.  It is not possible to interact with a Load Balancer frontend without a virtual machine able to respond.  This also applies to outbound connections where [port masquerade SNAT](load-balancer-outbound-connections.md#snat) is only supported for TCP and UDP; any other IP protocols including ICMP  will also fail.  Assign an instance-level Public IP address to mitigate.
-- Unlike public Load Balancers which provide [outbound connections](load-balancer-outbound-connections.md) when transitioning from private IP addresses inside the virtual network to public IP addresses, internal Load Balancers do not translate outbound originated connections to the frontend of an internal Load Balancer as both are in private IP address space.  This avoids potential for SNAT exhaustion inside unique internal IP address space where translation is not required.  The side effect is that if an outbound flow from a VM in the backend pool attempts a flow to frontend of the internal Load Balancer in which pool it resides _and_ is mapped back to itself, both legs of the flow don't match and the flow will fail.  If the flow did not map back to the same VM in the backend pool which created the flow to the frontend, the flow will succeed.   When the flow maps back to itself the outbound flow appears to originate from the VM to the frontend and the corresponding inbound flow appears to originate from the VM to itself. From the guest OS's point of view, the inbound and outbound parts of the same flow don't match inside the virtual machine. The TCP stack will not recognize these halves of the same flow as being part of the same flow as the source and destination don't match.  When the flow maps to to any other VM in the backend pool, the halves of the flow will match and the VM can successfully respond to the flow.  The symptom for this scenario is intermittent connection timeouts. There are several common workarounds for reliably achieving this scenario (originating flows from a backend pool to the backend pools respective internal Load Balancer frontend) which include either insertion of a third party proxy behind the internal Load Balancer or [using DSR style rules](load-balancer-multivip-overview.md).  While you could use a public Load Balancer to mitigate, the resulting scenario is prone to [SNAT exhaustion](load-balancer-outbound-connections.md#snat) and should be avoided unless carefully managed.
+- Unlike public Load Balancers which provide [outbound connections](load-balancer-outbound-connections.md) when transitioning from private IP addresses inside the virtual network to public IP addresses, internal Load Balancers do not translate outbound originated connections to the frontend of an internal Load Balancer as both are in private IP address space.  This avoids potential for SNAT port exhaustion inside unique internal IP address space where translation is not required.  The side effect is that if an outbound flow from a VM in the backend pool attempts a flow to frontend of the internal Load Balancer in which pool it resides _and_ is mapped back to itself, both legs of the flow don't match and the flow will fail.  If the flow did not map back to the same VM in the backend pool which created the flow to the frontend, the flow will succeed.   When the flow maps back to itself the outbound flow appears to originate from the VM to the frontend and the corresponding inbound flow appears to originate from the VM to itself. From the guest OS's point of view, the inbound and outbound parts of the same flow don't match inside the virtual machine. The TCP stack will not recognize these halves of the same flow as being part of the same flow as the source and destination don't match.  When the flow maps to any other VM in the backend pool, the halves of the flow will match and the VM can successfully respond to the flow.  The symptom for this scenario is intermittent connection timeouts when the flow returns to the same backend which originated the flow. There are several common workarounds for reliably achieving this scenario (originating flows from a backend pool to the backend pools respective internal Load Balancer frontend) which include either insertion of a proxy layer behind the internal Load Balancer or [using DSR style rules](load-balancer-multivip-overview.md).  Customers can combine an internal Load Balancer with any 3rd party proxy or substitute internal [Application Gateway](../application-gateway/application-gateway-introduction.md) for proxy scenarios limited to HTTP/HTTPS. While you could use a public Load Balancer to mitigate, the resulting scenario is prone to [SNAT exhaustion](load-balancer-outbound-connections.md#snat) and should be avoided unless carefully managed.
 
 ## Next steps
 

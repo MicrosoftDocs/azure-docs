@@ -3,9 +3,7 @@
 - name: Overview
   items: 
   - name: What is Language Understanding?
-    href: Home.md
-  - name: Supported languages
-    href: luis-supported-languages.md
+    href: what-is-luis.md
 - name: Quickstarts
   expanded: true
   items: 
@@ -79,6 +77,10 @@
       href: luis-tutorial-batch-testing.md
     - name: With patterns
       href: luis-tutorial-pattern.md
+    - name: With roles
+      href: luis-tutorial-pattern-roles.md
+    - name: With Pattern.any entity
+      href: luis-tutorial-pattern-any.md
 - name: Samples
   items:
   - name: Code samples
@@ -194,7 +196,7 @@
   - name: Test
     items:
     - name: Interactive testing
-      href: interactive-test.md
+      href: luis-interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
   - name: Publish app
@@ -215,7 +217,7 @@
       href: luis-how-to-manage-keys.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
-    - name: Collaborate with other authors
+    - name: Manage authors and collaborators
       href: luis-how-to-collaborate.md 
     - name: Manage authoring key
       href: luis-how-to-account-settings.md   
@@ -227,7 +229,7 @@
         href: luis-traffic-manager.md  
 
   - name: Migrate to V2 API
-    href: migration-v1-to-v2.md
+    href: luis-migration-api-v1-to-v2.md
   - name: Find region programmatically
     items: 
     - name: Using C#
@@ -242,6 +244,8 @@
     href: luis-reference-regions.md
   - name: Boundaries
     href: luis-boundaries.md
+  - name: Supported languages
+    href: luis-supported-languages.md
   - name: Prebuilt entity reference
     items:
     - name: Entities per culture
@@ -302,7 +306,7 @@
       href: https://aka.ms/luis-authoring-sdk
 - name: Related
   items: 
-  - name: Bot Framework
+  - name: Azure Bot Service
     href: https://dev.botframework.com/
   - name: Bot Builder 3.x SDK C#
     href: https://github.com/Microsoft/BotBuilder
