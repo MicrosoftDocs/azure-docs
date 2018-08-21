@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance-reports
+ms.component: report-monitor
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
@@ -96,12 +96,6 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ---
 
-**Q: How many records can I query through the activities API?**
-
-**A:** You can query up to 1 million records (if you don’t use the top operator, which sorts the record by most recent). If you do use the “top” operator, you can query up to 500K records. You can find sample queries on how to use the API [here](concept-reporting-api.md).
-
----
-
 ## Risky sign-ins
 
 **Q: There is a risk event in Identity Protection but I’m not seeing corresponding sign-in in the all sign-ins. Is this expected?**
@@ -125,6 +119,12 @@ This article includes answers to frequently asked questions about Azure Active D
 **Q: How are IP addresses calculated in the sign-ins and risky sign-ins report?**
 
 **A:** IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. This is complicated by factors such as mobile providers and VPNs issuing IP addresses from central pools often very far from where the client device is actually used. Given the above, converting IP address to a physical location is a best effort based on traces, registry data, reverse look ups and other information. 
+
+---
+
+**Q: What does the risk event "Sign-in with additional risk detected" signify?**
+
+**A:** To give you an insight into all the risky sign-ins in your environment, "Sign-in with additional risk detected" functions as placeholder for sign-ins for detections that are exclusive to Azure AD Identity Protection subscribers.
 
 ---
 

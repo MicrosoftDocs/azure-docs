@@ -53,6 +53,7 @@ See the language-specific example:
 * [C# script bind to CloudTable](#input---c-script-example---cloudtable)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
+* [Java](#input---java-example)
 
 ### Input - C# example - one entity
 
@@ -409,6 +410,25 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
+### Input - Java example
+
+The following example shows an HTTP triggered function which returns the total count of the items in a specified partition in Table storage.
+
+```java
+@FunctionName("getallcount")
+public int run(
+   @HttpTrigger(name = "req",
+                 methods = {"get"},
+                 authLevel = AuthorizationLevel.ANONYMOUS) Object dummyShouldNotBeUsed,
+   @TableInput(name = "items",
+                tableName = "mytablename",  partitionKey = "myparkey",
+                connection = "myconnvarname") MyItem[] items
+) {
+    return items.length;
+}
+```
+
+
 ## Input - attributes
  
 In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a table input binding:
@@ -466,6 +486,10 @@ The storage account to use is determined in the following order:
 * The `StorageAccount` attribute applied to the function.
 * The `StorageAccount` attribute applied to the class.
 * The default storage account for the function app ("AzureWebJobsStorage" app setting).
+
+## Input - Java annotations
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@TableInput` annotation on parameters whose value would come from Table storage.  This annotation can be used with native Java types, POJOs, or nullable values using Optional<T>. 
 
 ## Input - configuration
 

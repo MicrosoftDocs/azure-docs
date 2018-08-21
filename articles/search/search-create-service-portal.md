@@ -55,7 +55,7 @@ As an Azure service, Azure Search can be hosted in datacenters around the world.
 ## Select a pricing tier (SKU)
 [Azure Search is currently offered in multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, or Standard. Each tier has its own [capacity and limits](search-limits-quotas-capacity.md). See [Choose a pricing tier or SKU](search-sku-tier.md) for guidance.
 
-In this walkthrough, we have chosen the Standard tier for our service.
+Standard is usually chosen for production workloads, but most customers start with the Free service.
 
 A pricing tier cannot be changed once the service is created. If you need a higher or lower tier later, you have to re-create the service.
 

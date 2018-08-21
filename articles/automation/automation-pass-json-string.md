@@ -20,7 +20,7 @@ To do this, you have to convert the JSON to a string
 and then convert the string to a PowerShell object before passing its contents to the runbook.
 
 In this example, we'll create a PowerShell script that calls
-[Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx)
+[Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook)
 to start a PowerShell runbook, passing the contents of the JSON to the runbook.
 The PowerShell runbook starts an Azure VM, getting the parameters for the VM from the JSON that was passed in.
 

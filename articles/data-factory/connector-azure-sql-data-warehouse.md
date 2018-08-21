@@ -393,7 +393,7 @@ SQL Data Warehouse PolyBase directly supports Azure Blob and Azure Data Lake Sto
 
 If the requirements aren't met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
-1. The **Source linked service** type is **AzureStorage** or **AzureDataLakeStore** with service principal authentication.
+1. The **Source linked service** type is Azure Blob storage (**AzureBLobStorage**/**AzureStorage**) with account key authentication or Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) with service principal authentication.
 1. The **input dataset** type is **AzureBlob** or **AzureDataLakeStoreFile**. The format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat**, with the following configurations:
 
    1. `rowDelimiter` must be **\n**.

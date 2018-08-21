@@ -670,6 +670,12 @@ if ($fileShare -eq $null) {
 
     ![A screen shot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
+	If **Hybrid File Sync Service** does not appear in the list, perform the following steps:
+
+	- Click **Add**.
+	- In the **Role** field, select **Reader and Data Access**.
+	- In the **Select** field, type **Hybrid File Sync Service**, select the role and click **Save**.
+
 # [PowerShell](#tab/powershell)
 ```PowerShell    
 $foundSyncPrincipal = $false

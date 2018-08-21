@@ -52,8 +52,7 @@ CLIENT_SECRET=`echo $PERMISSIONS | sed -e 's/^.*"password"[ ]*:[ ]*"//' -e 's/".
 
 SUBSCRIPTION_ID=`echo $ID | tr -d '"' | base64 `
 
-CLUSTER_INFO=`az aks show --name $cluster_name  --resource-group $resource_group -o json`
-NODE_RESOURCE_GROUP=`echo $CLUSTER_INFO | sed -e 's/^.*"nodeResourceGroup"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+NODE_RESOURCE_GROUP=`az aks show --name $cluster_name  --resource-group $resource_group -o tsv --query 'nodeResourceGroup' | base64`
 
 echo "---
 apiVersion: v1
@@ -309,7 +308,7 @@ Then, fill in the image field under **containers** with the version of the clust
 Deploy cluster-autoscaler by running
 
 ```console
-kubectl create -f cluster-autoscaler-containerservice.yaml
+kubectl create -f aks-cluster-autoscaler.yaml
 ```
 
 To check if the cluster autoscaler is running, use the following command and check the list of pods. There should be a pod prefixed with "cluster-autoscaler" running. If you see this, your cluster autoscaler has been deployed.

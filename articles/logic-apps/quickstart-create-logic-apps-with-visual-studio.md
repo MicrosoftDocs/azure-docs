@@ -4,12 +4,14 @@ title: Create logic apps that automate workflows with Visual Studio - Azure Logi
 description: Quickstart for how to automate tasks, processes, and workflows with Azure Logic Apps in Visual Studio
 services: logic-apps
 ms.service: logic-apps
+ms.technology: vs-azure
+ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.date: 07/31/2018
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, vs-azure
 
 # optional metadata
 ms.reviewer: klam, LADocs
