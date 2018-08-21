@@ -24,20 +24,13 @@ Viewing the health state of the operating system running on your Azure virtual m
 ## Sign in to the Azure portal
 Sign in to the [Azure portal](https://portal.azure.com). 
 
-
 ## Single virtual machine perspective
 
-You can view the health of an Azure VM when you select **Insights (preview)** from the left-hand pane of the selected virtual machine.  On the VM insights page, select the **Health** tab to switch to the health view of the VM.  On the page,  you can filter the health state details by clicking on **Health State** icon in the upper left-hand corner of the page to see which components are unhealthy or you can view **Unresolved alerts** raised by an unhealthy component categorized by alert severity raised on the VM.   Refer [Alerting and an alert management](<link to section below>) for more details.  
+To view the health of an Azure VM, select **Insights (preview)** from the left-hand pane of the virtual machine.  On the VM insights page, the **Health** tab to switch to the health view of the VM.  On the **Health** tab, which is selected by default, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of alerts raised by an unhealthy component. Refer to [Alerting and an alert management](<link to section below>) for more details.  Selecting **View health diagnostics** opens a page showing all the components of the VM, associated health criteria, state changes and other significant issues encountered by monitoring objects related to the VM. Refer to the [Health diagnostics](<link to section>) for more details. 
 
-A taskbar on the insights pane includes an option to open **Health diagnostics** and view the health state of the health criteria running on the VM.  Refer to the [Health diagnostics](<link to section>) for more details.  
+If the health status is not healthy, the **Top health issues** table provides an overview of the top five health issues identified on the VM.  To see a complete list of health issues or just health state of all components, click on **See all health criteria**. 
 
-On the **Virtual Machines** page, if you select the name of a VM under the column **VM Name**, you are directed to the VM instance page with more details of the alerts and health criteria issues identified that are affecting the selected VM.  From here you can filter the health state details by clicking on **Health State** icon in the upper left-hand corner of the page to see which components are unhealthy or you can view alerts raised by an unhealthy component categorized by alert severity.    
-
-**Top health issues** provides an overview of the top five health issues identified on the VM and you can see the complete list of health issues by clicking on the **See more** option.  The 
-
-The user can get an overview of the top health issues on the VM by going through the health criteria listed in this grid. The top 5 health issues on this VM are listed in this grid, the user can see the entire list of health issues by clicking on the see more option. 
-
-The information that's presented here is described in the following table:
+The information that's presented under **Top health issues* and on the **Health Criteria** page is described in the following table:
 
 |Column | Description |
 |-------|-------------|
@@ -49,9 +42,12 @@ The information that's presented here is described in the following table:
 |Category |Represented as *Availability* or *Performance*. |
 |Type | The category of health criteria, which is represented as *Unit*, *Dependency*, *Aggregate*. |
 
-The **See more** option in this grid opens a page listing health criteria running on this VM. The list view would look like below. The user can curate the list further by choosing the appropriate filters. The filters available here are health criteria type (unit is chosen by default) and category (availability and performance).  
+The list view would look like below. Results can be filtered further from the drop-down lists **Category** and **Type**.  By default the *Unit* type and categories are selected.
 
 ## Aggregate virtual machine perspective
+
+To view health collection for all of your virtual machines, from the nagivation list in the portal select **Azure Monitor**, and then select **Virtual Machines (preview)**.  On the **Health** tab, 
+
 
 When accessing VM insights from Azure Monitor, you are presented with an overview of the health for a collection of monitored virtual machines (VM) from the **Health** tab. 
 
