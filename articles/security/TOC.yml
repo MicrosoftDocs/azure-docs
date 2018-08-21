@@ -172,6 +172,12 @@
       href: azure-operational-security-checklist.md
 - name: Governance and compliance
   items:
+  - name: AU PROTECTED
+    items:
+    - name: IaaS web application
+      href: ./blueprints/au-protected-iaaswa-overview.md
+    - name: PaaS web application
+      href: ./blueprints/au-protected-paaswa-overview.md
   - name: FedRAMP
     items:
     - name: Data analytics
