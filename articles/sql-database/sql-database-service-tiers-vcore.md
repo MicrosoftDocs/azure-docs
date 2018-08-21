@@ -13,7 +13,8 @@ ms.author: carlrab
 ---
 # Choosing a vCore service tier, compute, memory, storage, and IO resources
 
-Service tiers are differentiated by a range of performance levels, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups. With the vCore model, single databases and elastic pools are eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. It also allows you to use [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) to gain cost savings.
+The vCore model provides two service tiers General Purpose and Business Critical. Service tiers are differentiated by a range of performance levels, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups.
 
 The following table helps you understand the differences between these two tiers:
 
@@ -23,8 +24,8 @@ The following table helps you understand the differences between these two tiers
 |Compute|1 to 80 vCore, Gen4 and Gen5 |1 to 80 vCore, Gen4 and Gen5|
 |Memory|Gen4: 7 GB per core<br>Gen5: 5.5 GB per core | Gen4: 7 GB per core<br>Gen5: 5.5 GB per core |
 |Storage|[Premium remote storage](../virtual-machines/windows/premium-storage.md),<br/>Singleton Database: 5 GB – 4 TB<br/>Managed Instance: 32 - 8TB |Local SSD storage,<br/>Single Database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 4 TB |
-|IO throughput (approximate)|500 IOPS per vCore with 7000 maximum IOPS|5000 IOPS per core with 200000 maximum IOPS|
-|Availability|1 replica, no read-scale|3 replicas, 1 [read-scale](sql-database-read-scale-out.md), zone redundant HA|
+|IO throughput (approximate)|Singleton Database: 500 IOPS per vCore with 7000 maximum IOPS</br>Managed Instance: Depends on [size of file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per core with 200000 maximum IOPS|
+|Availability|1 replica, no read-scale|3 replicas, 1 [read-scale replica](sql-database-read-scale-out.md), zone redundant HA|
 |Backups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|
 |In-Memory|N/A|Supported|
 |||
