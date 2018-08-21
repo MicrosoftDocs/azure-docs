@@ -34,9 +34,9 @@ Load balancing provides a higher level of availability and scale by spreading in
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-## Log in to Azure
+## Sign in to the Azure portal
 
-Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
 
 ## Create a Standard Load Balancer
 
@@ -81,7 +81,7 @@ In this section, you create a virtual network, create three virtual machines for
 3. Select **DS1_V2** for the size of the virtual machine, and click **Select**.
 4. Enter these values for the VM settings:
     1. Ensure that  *myVNet* is selected as the virtual network, and *myBackendSubnet* is selected as the subnet.
-    2. For **Public IP address**, in the Create Public IP address**, select **Standard** and then select **OK**.
+    2. For **Public IP address**, in the **Create Public IP address** pane, select **Standard**, and then select **OK**.
     3. For **Network Security Group**, select **Advanced**, and then do the following:
         1. Select *Network security group (firewall), and the **Choose network security group** page, select **Create new**. 
         2. In the **Choose network security group** page, for **Name**, enter *myNetworkSecurityGroup* as the name of the new network security group, and then select **OK**.
@@ -190,7 +190,7 @@ You may need to perform maintenance on the VMs running your app, such as install
 
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Backend pools**, then within the backend pool's list, click **myBackendPool**.
-3. On the **myBackendPool** page, under **Target network IP configurations** , to remove *VM1* form the backend click the delete icon next to **Virtual machine:myVM1**
+3. On the **myBackendPool** page, under **Target network IP configurations**, to remove *VM1* from the backend click the delete icon next to **Virtual machine:myVM1**
 
 With *myVM1* no longer in the backend address pool, you can perform any maintenance tasks on *myVM1*, such as installing software updates. In the absence of *VM1**, the load is now balanced across *myVM2* and *myVM3*. 
 
