@@ -8,6 +8,7 @@ ms.author: estfan
 manager: jeconnoc
 ms.reviewer: jehollan, LADocs 
 ms.suite: integration
+ms.custom: vs-azure
 ms.topic: article
 ms.date: 08/01/2018
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
