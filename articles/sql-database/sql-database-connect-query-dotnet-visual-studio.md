@@ -2,6 +2,7 @@
 title: Use Visual Studio and .NET to query Azure SQL Database | Microsoft Docs
 description: This topic shows you how to use Visual Studio to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
 services: sql-database
+ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.workload: azure-vs
 author: CarlRabeler
@@ -12,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.custom: devcenter
+ms.custom: devcenter, vs-azure
 ---
 # Use .NET (C#) with Visual Studio to connect and query an Azure SQL database
 

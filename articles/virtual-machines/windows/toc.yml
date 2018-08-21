@@ -96,6 +96,8 @@
       href: managed-disks-overview.md
     - name: Premium storage
       href: premium-storage.md
+    - name: Standard SSDs
+      href: disks-standard-ssd.md
     - name: Premium storage performance
       href: premium-storage-performance.md
     - name: Standard storage
