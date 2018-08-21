@@ -103,7 +103,7 @@ type BingAnswer struct {
 
 ## Declare the main function and define variables  
 
-This code block declares the main function and required variables. Confirm that the endpoint is valid and replace the `token` value with a valid subscription key. Feel free to customize the `searchTerm`.
+This code declares the main function and required variables. Confirm that the endpoint is valid and replace the `token` value with a valid subscription key. Feel free to customize the `searchTerm`.
 
 ```go
 // Declare the main function. This is required for all Go programs.
@@ -116,7 +116,7 @@ func main() {
 
 ## Make a request
 
-In this code block the HTTP method is declared, the header is inserted, the payload is constructed, the client is instantiated, and the request is sent.
+This code declares the HTTP method, inserts the header, constructs the payload, instantiates the client, and sends the request.
 
 ```go
 // Declare a new GET request.
@@ -169,7 +169,7 @@ for _, result := range ans.WebPages.Value {
 
 ## Put it all together
 
-The last step is to validate your code and run it! Your program should look like this:
+The last step is to validate your code and run it! This is what your program should look like.
 
 ```go
 package main
