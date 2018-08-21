@@ -19,7 +19,7 @@ The Speech Devices SDK consumes the [Speech SDK](speech-sdk.md), and uses the Sp
 
 The Speech Devices SDK also allows you to build your ambient devices with your own [customized wake word](speech-devices-sdk-create-kws.md)—so the cue that initiates a user interaction is unique to your brand. 
 
-The SDK facilitates a variety of voice-enabled scenarios, such as drive-thru ordering systems, in-store or in-home assistants, and smart speakers. You could respond to users with text, speak back to them in a default or [custom voice](how-to-customize-voice-font), provide search results, [translate](speech-translation.md) to other languages, and more. 
+The SDK facilitates a variety of voice-enabled scenarios, such as drive-thru ordering systems, in-store or in-home assistants, and smart speakers. You could respond to users with text, speak back to them in a default or [custom voice](how-to-customize-voice-font.md), provide search results, [translate](speech-translation.md) to other languages, and more. 
 
 
 
