@@ -72,18 +72,15 @@
         href: data-box-portal-ui-admin.md
       - name: Troubleshoot disk issues
         href: data-box-disk-troubleshoot.md 
-    - name: Resources
-      items:
-      - name: Azure roadmap
-        href: https://azure.microsoft.com/roadmap/?category=storage
-      - name: Azure Data Box marketing
-        href: https://azure.microsoft.com/services/storage/databox/
-      - name: Pricing
-        href: https://azure.microsoft.com/pricing/
-      - name: Pricing calculator
-        href: https://azure.microsoft.com/pricing/calculator/
-      - name: Service updates
-        href: https://azure.microsoft.com/updates/?product=databox
-      - name: Videos
-        href: https://azure.microsoft.com/documentation/videos/index/?services=databox
+  - name: Resources
+    items:
+    - name: Azure roadmap
+      href: https://azure.microsoft.com/roadmap/?category=storage
+    - name: Azure Data Box marketing
+      href: https://azure.microsoft.com/services/storage/databox/
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/storage/databox/
+    - name: Service updates
+      href: https://azure.microsoft.com/updates/?product=databox
+
 
