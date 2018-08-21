@@ -36,8 +36,8 @@ This document introduces how you can create and configure Self-hosted IR.
 	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
 	```
 
-## Setting up self-hosted IR on Azure VM using ARM Template (automatation)
-You can automate self-hosted IR setup on an Azure VM using [this ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). This provides an easy way to have a fully functioning Self-hosted IR inside Azure VNet with High Avalaibility and Scalability feature (as long as you set node count to be 2 or higher).
+## Setting up self-hosted IR on Azure VM using Azure Resource Manager Template (automatation)
+You can automate self-hosted IR setup on an Azure VM using [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). This provides an easy way to have a fully functioning Self-hosted IR inside Azure VNet with High Avalaibility and Scalability feature (as long as you set node count to be 2 or higher).
 
 ## Command flow and data flow
 When you move the data between on-premises and cloud, the activity uses a self-hosted integration runtime to transfer the data from on-premises data source to cloud and vice versa.
