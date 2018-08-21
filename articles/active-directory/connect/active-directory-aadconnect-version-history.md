@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/10/2018
+ms.date: 08/21/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -36,7 +36,7 @@ Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 
 ### Release status
 
-7/20/2018: Released for download and auto upgrade. The auto upgrade process is still in progress.
+8/21/2018: Released for download and auto upgrade. 
 
 ### New features and improvements
 
