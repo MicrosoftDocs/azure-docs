@@ -224,7 +224,7 @@ If you switch off auto provision after it was previously on:
 -	Security Center stops collecting data from the default workspace
  
 > [!NOTE]
->  Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Security Center](security-center-platform-migration-faq.#how-do-i-remove-mdoms-extensions-installed-by-security-center).
+>  Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Security Center](security-center-platform-migration-faq.md#how-do-i-remove-mdoms-extensions-installed-by-security-center).
 >
 	
 ## Manual agent provisioning <a name="manualagent"></a>
@@ -249,10 +249,10 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
 
 4.	If  you want to deploy the agents on new VMs using ARM template, install the OMS virtual machine extension:
 
-    a.	[Install the OMS virtual machine extension for Windows](../virtual-machines/extensions/oms-windows)
+    a.	[Install the OMS virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md)
     
-    b.	[Install the OMS virtual machine extension for Linux](../azure/virtual-machines/extensions/oms-linux)
-5.	To deploy the extensions on existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../log-analytics/log-analytics-quick-collect-azurevm)
+    b.	[Install the OMS virtual machine extension for Linux](../virtual-machines/extensions/oms-linux.md)
+5.	To deploy the extensions on existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../log-analytics/log-analytics-quick-collect-azurevm.md)
 
   > [!NOTE]
   > The section **Collect event and performance data** is optional.
@@ -265,6 +265,7 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
 	- When installing on a Linux VM:
 	
 	    `Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
+
 ## Troubleshooting
 -	To identify automatic provision installation issues, see [Monitoring agent health issues]
 -	To identify manual onboarding issues, see [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)
