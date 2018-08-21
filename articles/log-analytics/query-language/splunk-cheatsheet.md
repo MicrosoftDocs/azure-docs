@@ -88,7 +88,7 @@ Azure Log Analytics queries start from a tabular result set where the filter. In
 | | |
 
 
-## Getting n events/rows for inspection 
+### Getting n events/rows for inspection 
 Azure Log Analytics also supports `take` as an alias to `limit`. In Splunk, if the results are ordered, `head` will return the first n results. In Azure Log Analytics, limit is not ordered but returns the first n rows that are found.
 
 | |  | |
@@ -99,7 +99,7 @@ Azure Log Analytics also supports `take` as an alias to `limit`. In Splunk, if t
 
 
 
-## Getting the first n events/rows ordered by a field/column
+### Getting the first n events/rows ordered by a field/column
 For bottom results, in Splunk you use `tail`. In Azure Log Analytics you can specify the ordering direction with `asc`.
 
 | |  | |
@@ -111,7 +111,7 @@ For bottom results, in Splunk you use `tail`. In Azure Log Analytics you can spe
 
 
 
-## Extending the result set with new fields/columns
+### Extending the result set with new fields/columns
 Splunk also has an `eval` function, which is not to be comparable with the `eval` operator. Both the `eval` operator in Splunk and the `extend` operator in Azure Log Analytics only support scalar functions and arithmetic operators.
 
 | |  | |
@@ -121,7 +121,7 @@ Splunk also has an `eval` function, which is not to be comparable with the `eval
 | | |
 
 
-## Rename 
+### Rename 
 Azure Log Analytics uses the same operator to rename and to create a new field. Splunk has two separate operators, `eval` and `rename`.
 
 | |  | |
@@ -133,7 +133,7 @@ Azure Log Analytics uses the same operator to rename and to create a new field. 
 
 
 
-## Format results/Projection
+### Format results/Projection
 Splunk does not seem to have an operator similar to `project-away`. You can use the UI to filter away fields.
 
 | |  | |
@@ -144,7 +144,7 @@ Splunk does not seem to have an operator similar to `project-away`. You can use 
 
 
 
-## Aggregation
+### Aggregation
 See the [Aggregations in Log Analytics queries](aggregations.md) for the different aggregation functions.
 
 | |  | |
@@ -155,7 +155,7 @@ See the [Aggregations in Log Analytics queries](aggregations.md) for the differe
 
 
 
-## Join
+### Join
 Join in Splunk has significant limitations. The subquery has a limit of 10000 results (set in the deployment configuration file), and there a limited number of join flavors.
 
 | |  | |
@@ -166,7 +166,7 @@ Join in Splunk has significant limitations. The subquery has a limit of 10000 re
 
 
 
-## Sort
+### Sort
 In Splunk, to sort in ascending order you must use the `reverse` operator. Azure Log Analytics also supports defining where to put nulls, at the beginning or at the end.
 
 | |  | |
@@ -177,7 +177,7 @@ In Splunk, to sort in ascending order you must use the `reverse` operator. Azure
 
 
 
-## Multivalue expand
+### Multivalue expand
 This is a similar operator in both Splunk and Log Analytics.
 
 | |  | |
@@ -189,7 +189,7 @@ This is a similar operator in both Splunk and Log Analytics.
 
 
 
-## Results facets, interesting fields
+### Results facets, interesting fields
 In the Log Analytics portal, only the first column is exposed. All columns are available through the API.
 
 | |  | |
@@ -201,7 +201,7 @@ In the Log Analytics portal, only the first column is exposed. All columns are a
 
 
 
-## De-duplicate
+### De-duplicate
 You can use `summarize arg_min()` instead to reverse the order of which record gets chosen.
 
 | |  | |
