@@ -54,7 +54,7 @@
           href: azure-security-disk-encryption-windows.md
         - name: Disk encryption for Linux VMs
           href: azure-security-disk-encryption-linux.md
-      - name: Azure Disk Encryption with Azure AD app 
+      - name: Azure Disk Encryption with Azure AD app (previous release)
         items:
         - name: Disk encryption with Azure AD app prerequisites 
           href: azure-security-disk-encryption-prerequisites-aad.md

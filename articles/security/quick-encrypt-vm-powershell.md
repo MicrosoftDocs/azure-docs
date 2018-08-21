@@ -57,7 +57,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Create a virtual machine 
 You now need to create a virtual machine so you can encrypt its disk. The script you'll use creates a Windows Server 2016 VM with 8-GB RAM and a 30-GB OS disk. 
 
-1. Copy the script into the **Administrator: Windows PowerShell ISE** script pane and change the top three variables. The resource group and location need to be the same as you used for the [prerequisites script](bkmk_PrereqScript).  
+1. Copy the script into the **Administrator: Windows PowerShell ISE** script pane and change the top three variables. The resource group and location need to be the same as you used for the [prerequisites script](#bkmk_PrereqScript).  
 
     ```AzurePowershell
     # Variables for common values
