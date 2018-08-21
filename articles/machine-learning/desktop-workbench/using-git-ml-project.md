@@ -17,7 +17,7 @@ Learn how Azure Machine Learning Workbench uses Git to provide version control, 
 
 Machine Learning Workbench is designed for Git integration. When you create a new project, the project folder is automatically "Git-initialized" as a local Git repo. A second, hidden local Git repo is also created, with a branch named AzureMLHistory/\<project GUID\>. The branch keeps track of project folder changes for each execution. 
 
-Associating the Azure Machine Learning project with a Git repo enables automatic version control, locally and remotely. The Git repo is hosted in Visual Studio Team Services (Team Services). Because the Machine Learning project is associated with a Git repo, anybody who has access to the remote repo can download the latest source code to another computer (roaming).  
+Associating the Azure Machine Learning project with a Git repo enables automatic version control, locally and remotely. The Git repo is hosted in Azure DevOps. Because the Machine Learning project is associated with a Git repo, anybody who has access to the remote repo can download the latest source code to another computer (roaming).  
 
 > [!NOTE]
 > Team Services has its own access control list (ACL), which is independent of the Azure Machine Learning Experimentation service. User access might vary between a Git repo and a Machine Learning workspace or project. You might need to manage access. 

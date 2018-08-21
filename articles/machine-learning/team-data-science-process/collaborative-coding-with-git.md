@@ -26,7 +26,7 @@ In this article we describe how to do collaborative code development for data sc
 
 ## 1. <a name='Linkaworkitemwithagitbranch-1'></a>Link a work item with a Git branch 
 
-VSTS provides a convenient way to connect a work item (a story or task) with a Git branch. This enables you to link your story or task directly to the code associated with it. 
+Azure DevOps provides a convenient way to connect a work item (a story or task) with a Git branch. This enables you to link your story or task directly to the code associated with it. 
 
 To connect a work item to a new branch, double-click a work item, and in the pop-up window, click **Create a new branch** under **+ Add link**.  
 
@@ -68,9 +68,9 @@ Now suppose you make some change to the *data\_ingestion* branch for the work it
 
 ![5](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
-## 3. <a name='CreateapullrequestonVSTS-3'></a>Create a pull request on VSTS 
+## 3. <a name='CreateapullrequestonVSTS-3'></a>Create a pull request on Azure DevOps 
 
-When you are ready after a few commits and pushes, to merge the current branch into its base branch, you can submit a **pull request** on VSTS server. 
+When you are ready after a few commits and pushes, to merge the current branch into its base branch, you can submit a **pull request** on Azure DevOps server. 
 
 Go to the main page of your team project and click **CODE**. Select the branch to be merged and the Git repository name that you want to merge the branch into. Then click **Pull Requests**, click **New pull request** to create a pull request review before the work on the branch is merged to its base branch.
 

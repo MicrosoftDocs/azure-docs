@@ -29,7 +29,7 @@ This article includes instructions on how to:
 2. **add work items** to sprints. 
 
 > [!NOTE]
-> The steps needed to set up a TDSP team environment using Visual Studio Team Services (VSTS) are outlined in the following set of instructions. They specify how to accomplish these tasks with VSTS because that is how to implement TDSP at Microsoft.  If you choose to use VSTS, items (3) and (4) in the previous list are benefits that you get naturally. If another code hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different. For example, the item in section six, **Link a work item with a Git branch**, might not be as easy as it is on VSTS.
+> The steps needed to set up a TDSP team environment using Azure DevOps are outlined in the following set of instructions. They specify how to accomplish these tasks with Azure DevOps because that is how to implement TDSP at Microsoft.  If you choose to use Azure DevOps, items (3) and (4) in the previous list are benefits that you get naturally. If another code hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different. For example, the item in section six, **Link a work item with a Git branch**, might not be as easy as it is on Azure DevOps.
 >
 >
 
@@ -67,9 +67,9 @@ In the TDSP sprint planning framework, there are four frequently used types of *
 
 ## 2. <a name='SprintPlanning-2'></a>Sprint planning 
 
-Sprint planning is useful for project prioritization, and resource planning and allocation. Many data scientists are engaged with multiple projects, each of which can take months to complete. Projects often proceed at different paces. On the VSTS server, you can easily create, manage, and track work items in your team project and conduct sprint planning to ensure that your projects are moving forward as expected. 
+Sprint planning is useful for project prioritization, and resource planning and allocation. Many data scientists are engaged with multiple projects, each of which can take months to complete. Projects often proceed at different paces. On the Azure DevOps server, you can easily create, manage, and track work items in your team project and conduct sprint planning to ensure that your projects are moving forward as expected. 
 
-Follow [this link](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning) for the step-by-step instructions on sprint planning in VSTS. 
+Follow [this link](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning) for the step-by-step instructions on sprint planning in Azure DevOps. 
 
 
 ## 3. <a name='AddFeature-3'></a>Add a feature  

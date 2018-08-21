@@ -194,7 +194,8 @@ Instead of managing each agent separately, you can organize agents into agent po
 
 Create a Personal Access Token to access Azure DevOps.
 
-1. Sign in to your Azure DevOps organization and select your account profile name.
+1. Sign in to your Azure DevOps organization and select your organization profile name.
+
 2. Select **Manage Security** to access token creation page.
 
     ![User sign in](media\azure-stack-solution-hybrid-pipeline\000_17.png)
@@ -276,7 +277,7 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [Az
 
 ### Add code to an Azure DevOps project
 
-1. Sign in to Azure DevOps with an account that has project creation rights on Azure Stack. The next screen capture shows how to connect to the HybridCICD project.
+1. Sign in to Azure DevOps with an organization that has project creation rights on Azure Stack. The next screen capture shows how to connect to the HybridCICD project.
 
     ![Connect to a Project](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
 
