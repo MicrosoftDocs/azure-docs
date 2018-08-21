@@ -27,7 +27,7 @@ This document is one in a series of articles that show how the fictitious compan
 [Article 8: Rehost a Linux app on Azure VMs and Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Demonstrates how Contoso migrates the Linux osTicket app to Azure VMs using Site Recovery, and migrates the app database to an Azure MySQL Server instance using MySQL Workbench. | Available
 [Article 9: Refactor an app on Azure Web Apps and Azure SQL database](contoso-migration-refactor-web-app-sql.md) | Demonstrates how Contoso migrates the SmartHotel app to an Azure Web App, and migrates the app database to Azure SQL Server instance | Available
 [Article 10: Refactor a Linux app to Azure Web Apps and Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Shows how Contoso migrates the Linux osTicket app to Azure Web Apps in multiple sites, integrated with GitHub for continuous delivery. They migrate the app database to an Azure MySQL instance. | Available
-[Article 11: Refactor TFS on VSTS](contoso-migration-tfs-vsts.md) | Shows how Contoso migrates the on-premises Team Foundation Server (TFS) deployment by migrating it to Visual Studio Team Services (VSTS) in Azure. | Available
+[Article 11: Refactor TFS on Azure DevOps Services](contoso-migration-tfs-vsts.md) | Shows how Contoso migrates the on-premises Team Foundation Server (TFS) deployment by migrating it to Azure DevOps Services in Azure. | Available
 [Article 12: Rearchitect an app to Azure containers and SQL Database](contoso-migration-rearchitect-container-sql.md) | Shows how Contoso migrates and rearchitects their SmartHotel app to Azure. They rearchitect the app web tier as a Windows container, and the app database in an Azure SQL Database. | Available
 Article 13: Rebuild an app to Azure | Shows how Contoso rebuild their SmartHotel app using a range of Azure capabilities and services, including App Services, Azure Kubernetes, Azure Functions, Cognitive services, and Cosmos DB. | This article.
 
@@ -69,7 +69,7 @@ After pinning down their goals and requirements, Contoso designs and review a de
 - An Azure function will provide uploads of pet photos, and the site will interact with this functionality.
 - The pet photo function leverages Cognitive Services Vision API, and CosmosDB.
 - The back end of the site is built using microservices. These will be deployed to containers managed on the Azure Kubernetes service (AKS).
-- Containers will be built using VSTS, and pushed to the Azure Container Registry (ACR).
+- Containers will be built using Azure DevOps, and pushed to the Azure Container Registry (ACR).
 - For now, Contoso will manually deploy the Web app and function code using Visual Studio.
 - Microservices will be deployed using a PowerShell script that calls Kubernetes command-line tools.
 
@@ -90,7 +90,7 @@ Contoso evaluates their proposed design by putting together a pros and cons list
 
 1. Contoso provision the ACR, AKS, and CosmosDB.
 2. They provision the infrastructure for the deployment, including the Azure Web App, storage account, function, and API. 
-3. After the infrastructure is in place, they'll build their microservices container images using VSTS, which pushes them to the ACR.
+3. After the infrastructure is in place, they'll build their microservices container images using Azure DevOps, which pushes them to the ACR.
 4. Contoso will deploy these microservices to ASK using a PowerShell script.
 5. Finally, they'll deploy the Azure function and Web App.
 
@@ -123,7 +123,7 @@ Here's how Contoso will run the migration:
 
 > [!div class="checklist"]
 > * **Step 1: Provision AKS and ACR**: Contoso provisions the managed AKS cluster and Azure container registry using PowerShell
-> * **Step 2: Build Docker containers**: They set up CI for Docker containers using VSTS, and push them to the ACR.
+> * **Step 2: Build Docker containers**: They set up CI for Docker containers using Azure DevOps, and push them to the ACR.
 > * **Step 3: Deploy back-end microservices**: They deploy the rest of the infrastructure that will be leveraged by back-end microservices.
 > * **Step 4: Deploy front-end infrastructure**: They deploy the front-end infrastructure, inlcuding blob storage for the pet phones, the Cosmos DB, and Vision API.
 > * **Step 5: Migrate the back end**: They deploy microservices and run on AKS, to migrate the back end.
@@ -199,68 +199,68 @@ They provision as follows:
 
 ## Step 2: Build a Docker container
 
-### Create a VSTS and build
+### Create an Azure DevOps project and build
 
-Contoso creates a VSTS project, and configures a CI Build to create the container and then pushes it to the ACR. The instructions in this section use the [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend) repository.
+Contoso creates an Azure DevOps project, and configures a CI Build to create the container and then pushes it to the ACR. The instructions in this section use the [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend) repository.
 
-1. From visualstudio.com, they create a new account (**contosodevops360.visualstudio.com**), and configure it to use Git.
+1. From visualstudio.com, they create a new organization (**contosodevops360.visualstudio.com**), and configure it to use Git.
 
 2. They create a new project (**smarthotelrefactor**) using Git for version control, and Agile for the workflow.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts1.png) 
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts1.png) 
 
 
 3. They import the GitHub repo.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts2.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts2.png)
     
-4. In **Build and Release**, they create a new definition using VSTS Git as a source, from the imported **smarthotel** repository. 
+4. In **Build and Release**, they create a new definition using Azure DevOps Git as a source, from the imported **smarthotel** repository. 
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts3.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts3.png)
 
 6. They select to start with an empty pipeline.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts4.png)  
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts4.png)  
 
 7. They select **Hosted Linux Preview** for the build definition.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts5.png) 
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts5.png) 
  
 8. In **Phase 1**, they add a **Docker Compose** task. This task builds the Docker compose.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts6.png) 
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts6.png) 
 
 9. They repeat and add another **Docker Compose** task. This one pushes the containers to ACR.
 
-     ![VSTS](./media/contoso-migration-rebuild/vsts7.png) 
+     ![Azure DevOps](./media/contoso-migration-rebuild/vsts7.png) 
 
 8. They select the first task (to build), and configure the build with the Azure subscription, authorization, and the ACR. 
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts8.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts8.png)
 
-9. They specify the path of the **docket-compose.yaml** file, in the **src** folder of the repo. They select to build service images, and include the latest tag. When the action changes to **Build service images**, the name of the VSTS task changes to **Build services automatically**
+9. They specify the path of the **docket-compose.yaml** file, in the **src** folder of the repo. They select to build service images, and include the latest tag. When the action changes to **Build service images**, the name of the Azure DevOps task changes to **Build services automatically**
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts9.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts9.png)
 
 10. Now, Contoso configures the second Docker task (to push). They select the subscription and the **smarthotelacreus2** ACR. 
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts10.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts10.png)
 
-11. Again, they enter the file to the docker-compose.yaml file, and select **Push service images** and include the latest tag. When the action changes to **Push service images**, the name of the VSTS task changes to **Push services automatically**
+11. Again, they enter the file to the docker-compose.yaml file, and select **Push service images** and include the latest tag. When the action changes to **Push service images**, the name of the Azure DevOps task changes to **Push services automatically**
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts11.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts11.png)
 
-12. With the VSTS tasks configured, Contoso saves the build definition, and starts the build process.
+12. With the Azure DevOps tasks configured, Contoso saves the build definition, and starts the build process.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts12.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts12.png)
 
 13. They click on the build job to check progress.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts13.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts13.png)
 
 14. After the build finishes, the ACR shows the new repos, which are populated with the containers used by the microservices.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts14.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts14.png)
 
 
 ## Step 3: Deploy back-end microservices
