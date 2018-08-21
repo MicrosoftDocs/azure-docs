@@ -52,5 +52,10 @@ I0508 12:28:48.321952    8672 kubelet_node_status.go:497] Using Node Hostname fr
 I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
 ```
 
+## Next steps
+
+If you need additional troubleshooting information from the Kubernetes master, see [view Kubernetes master node logs in AKS][aks-master-logs].
+
 <!-- LINKS - internal -->
 [aks-ssh]: aks-ssh.md
+[aks-master-logs]: view-master-logs.md
