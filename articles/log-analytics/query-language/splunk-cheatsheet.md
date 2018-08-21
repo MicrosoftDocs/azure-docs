@@ -66,146 +66,163 @@ The following table specifies functions in Log Analytics that are equivalent to 
 
 The following sections give examples of using different operators between Splunk and Log Analytics.
 
-> ![NOTE]
-> Note: For the purpose of the following example, the Splunk field _rule_ maps to a table in Azure Log Analytics, and Splunk's default timestamp maps to the Logs Analytics _ingestion_time()_ column.
+> [!NOTE]
+> For the purpose of the following example, the Splunk field _rule_ maps to a table in Azure Log Analytics, and Splunk's default timestamp maps to the Logs Analytics _ingestion_time()_ column.
 
-## Search
-### Splunk
+### Search
+In Splunk, you can omit the `search` keyword and specify an unquoted string. In Azure Log Analytics you must start each search with `find`, an unquoted string is a column name, and the lookup value must be a quoted string. 
+
+| |  | |
+|:---|:---|:---|
+| Splunk | **search** | `search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h` |
+| Log Analytics | **find** | `find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)` |
+| | |
+
+### Filter
+Azure Log Analytics queries start from a tabular result set where the filter. In Splunk, filtering is the default operation on the current index. Note that you can also use `where` operator in Splunk, but it is not recommended.
+
+| |  | |
+|:---|:---|:---|
+| Splunk | **search** | `Event.Rule="330009.2" Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" _indextime>-24h` |
+| Log Analytics | **where** | `Office_Hub_OHubBGTaskError | where Session_Id == "c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time() > ago(24h)` |
+| | |
+
+#### Splunk
 **search** `search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h`
 
-### Azure Log Analytics
+#### Log Analytics
 **find** `find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)`
 
-### Comment
+#### Comment
 In Splunk, you can omit the `search` keyword and specify an unquoted string. In Azure Log Analytics you must start each search with `find`, an unquoted string is a column name, and the lookup value must be a quoted string.
 
 ## Filter
-### Splunk:  
+#### Splunk
 **search** `Event.Rule="330009.2" Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" _indextime>-24h`  
-### Azure Log Analytics:  
+#### Log Analytics
 **where** `Office_Hub_OHubBGTaskError | where Session_Id == "c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time() > ago(24h)`
   
-### Comment: 
+#### Comment
 Azure Log Analytics queries start from a tabular result set where the filter. In Splunk, filtering is the default operation on the current index. Note that you can also use `where` operator in Splunk, but it is not recommended.
 
 ## Getting n events/rows for inspection 
-### Splunk: 
+#### Splunk
  **head** `Event.Rule=330009.2 | head 100`
 
-### Azure Log Analytics
+#### Log Analytics
  **limit** `Office_Hub_OHubBGTaskError| limit 100`
 
-### Comment
+#### Comment
 Azure Log Analytics also supports `take` as an alias to `limit`. In Splunk, if the results are ordered, `head` will return the first n results. In Azure Log Analytics, limit is not ordered but returns the first n rows that are found.
 
 ## Getting the first n events/rows ordered by a field/column
-### Splunk 
+#### Splunk 
 **head** `Event.Rule="330009.2" | sort Event.Sequance | head 20`
 
-### Azure Log Analytics
+#### Log Analytics
 **top** `Office_Hub_OHubBGTaskError|  top 20 by Event_Sequence`
 
-### Comment
+#### Comment
 For bottom results, in Splunk you use `tail`. In Azure Log Analytics you can specify the ordering direction with `asc`.
 
 ## Extending the result set with new fields/columns
-### Splunk
+#### Splunk
 **eval** `Event.Rule=330009.2 |  eval state= if(Data.Exception = "0", "success", "error")`
 
-### Azure Log Analytics
+#### Log Analytics
 **extend** `Office_Hub_OHubBGTaskError| extend state = iif(Data_Exception == 0,"success" ,"error")`
 
-### Comment
+#### Comment
 Splunk also has an `eval` function, which is not to be comparable with the `eval` operator. Both the `eval` operator in Splunk and the `extend` operator in Azure Log Analytics only support scalar functions and arithmetic operators.
 
 ## Rename 
-### Splunk
+#### Splunk
 **rename** `Event.Rule=330009.2 | rename Date.Exception as execption`
   
-### Azure Log Analytics
+#### Log Analytics
 **extend** `Office_Hub_OHubBGTaskError| extend execption = Date_Exception`
 
-### Comment
+#### Comment
 Azure Log Analytics uses the same operator to rename and to create a new field. Splunk has two separate operators, `eval` and `rename`.
 
 ## Format results/Projection
-### Splunk
+#### Splunk
 **table** `Event.Rule=330009.2 | table rule, state`
 
-### Azure Log Analytics
+#### Log Analytics
 **project, project-away** `Office_Hub_OHubBGTaskError| project exception, state`
 
-### Comment
+#### Comment
 Splunk does not seem to have an operator similar to `project-away`. You can use the UI to filter away fields.
 
 ## Aggregation
-### Splunk
+#### Splunk
 **stats** `search (Rule=120502.*) | stats count by OSEnv, Audience`
 
-### Azure Log Analytics
+#### Log Analytics
 **summarize** `Office_Hub_OHubBGTaskError | summarize count() by App_Platform, Release_Audience`
 
-### Comment
+#### Comment
 See the aggregation functions section for the different aggregation functions.
 
 ## Join
 
-### Splunk
+#### Splunk
 **join** `Event.Rule=120103* | stats by Client.Id, Data.Alias | join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]`
 
-### Azure Log Analytics
+#### Log Analytics
 **join** `cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions  
 | where  Data_Hresult== -2147221040 
 |join kind = inner (Office_System_SystemHealthMetadata 
 | summarize by Client_Id, Data_Alias  
 )on Client_Id`  
 
-### Comment
+#### Comment
 Join in Splunk has severe limitations. The subquery has a limit of 10000 results (set in the deployment configuration file), and there a limited number of join flavors.
 
 ## Sort
 
-### Splunk
+#### Splunk
 **sort** `Event.Rule=120103* | sort Data.Hresult | reverse`
 
-### Azure Log Analytics
+#### Log Analytics
 **order by** `Office_Hub_OHubBGTaskError | order by Data_Hresult,  desc`
 
-### Comment
+#### Comment
 In Splunk, to sort in ascending order you must use the `reverse` operator. Azure Log Analytics also supports defining where to put nulls, at the beginning or at the end.
 
 ## Multivalue expand
-### Splunk
+#### Splunk
 **mvexpand** | `mvexpand foo`
 
-### Azure Log Analytics
+#### Log Analytics
 **mvexpand** | `mvexpand foo`  
 
-### Comment
+#### Comment
 Similar operator.
 
 
 ## Results facets, interesting fields
 
-### Splunk
+#### Splunk
 **fields** `Event.Rule=330009.2 | fields App.Version, App.Platform`  
 
-### Azure Log Analytics
+#### Log Analytics
 **facets** `Office_Excel_BI_PivotTableCreate  | facet by App_Branch, App_Version`
 
-### Comment
+#### Comment
 In the Log Analytics portal, only the first column is exposed. All columns are available through the API.
 
 
 ## De-duplicate
 
-### Splunk
+#### Splunk
 **dedup** `Event.Rule=330009.2 | dedup device_id sortby -batterylife`
 
-### Azure Log Analytics
+#### Log Analytics
 **summarize arg_max()** `Office_Excel_BI_PivotTableCreate | summarize arg_max(batterylife, *) by device_id`
 
-### Comment
+#### Comment
 You can use `summarize arg_min()` instead to reverse the order of which record gets chosen.
 
 ## Next steps
