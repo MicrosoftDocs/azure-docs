@@ -39,11 +39,11 @@ In addition to process-specific extensions, a Custom Script extension is availab
 
 ## Prerequisites
 
-To handle the extension on the VM, you need the Azure Linux Agent installed. Some individual extensions have prerequisites, such as access to resources or dependencies.
+To handle the extension on the VM, you need the Azure VM Agent installed. Some individual extensions have prerequisites, such as access to resources or dependencies.
 
-### Azure VM agent
+### Azure VM Agent
 
-The Azure VM agent manages interactions between an Azure VM and the Azure fabric controller. The VM agent is responsible for many functional aspects of deploying and managing Azure VMs, including running VM extensions. The Azure VM agent is preinstalled on Azure Marketplace images, and can be installed manually on supported operating systems. The Azure VM Agent for Windows is known as the Windows Guest agent.
+The Azure VM Agent manages interactions between an Azure VM and the Azure fabric controller. The VM Agent is responsible for many functional aspects of deploying and managing Azure VMs, including running VM extensions. The Azure VM Agent is preinstalled on Azure Marketplace images, and can be installed manually on supported operating systems. The Azure VM Agent for Windows is known as the Windows Guest agent.
 
 For information on supported operating systems and installation instructions, see [Azure virtual machine agent](agent-windows.md).
 
