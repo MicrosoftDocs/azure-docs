@@ -29,11 +29,11 @@ This article summarizes supported configurations and components when you replica
 
 ## Resource support
 
-**Resource move type** | **Details** 
+**Resource move type** | **Details**
 --- | --- | ---
 **Move vault across resource groups** | Not supported<br/><br/> You can't move a Recovery services vault across resource groups.
 **Move compute/storage/network resources across resource groups** | Not supported.<br/><br/> If you move a VM or associated components such as storage/network after it's replicating, you need to disable replication and reenable replication for the VM.
-**Replicate Azure VMs from one subscription to another for disaster recovery** | Not supported.
+**Replicate Azure VMs from one subscription to another for disaster recovery** | Supported.
 **Migrate VMs across subscriptions** | Not supported.
 **Migrate VMs within the same region** | Not supported.
 
