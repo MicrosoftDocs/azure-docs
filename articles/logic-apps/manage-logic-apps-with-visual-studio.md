@@ -9,7 +9,7 @@ author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: article
-ms.custom: mvc, vs-azure
+ms.custom: mvc
 ms.date: 03/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
