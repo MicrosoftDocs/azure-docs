@@ -7,16 +7,15 @@ documentationcenter: ''
 author: yujhongmicrosoft
 manager: zakramer
 
-ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 1/8/2018
+ms.date: 08/10/2018
 ms.author: yujhong
-
 ---
+
 # Connecting from Azure DevOps
 
 The tutorial below will help you set up continuous deployment to your web app running in Azure Government using Azure DevOps.
@@ -32,6 +31,7 @@ Refer to [CI/CD for newbies](https://www.visualstudio.com/en-us/docs/build/get-s
 > 
 > 
 
+Visual Studio Team Services itself is not available in Azure Government Clouds. When CD is configured using Team Services to deploy apps to Azure Government clouds, artifact storage, build, and (or) deployment orchestration for the app would execute outside the government cloud. To learn more about Visual Studio Team Services, click [here](https://docs.microsoft.com/vsts/index). 
 
 To learn more about Azure DevOps, click [here](https://docs.microsoft.com/vsts/index). 
 
@@ -81,7 +81,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
     > 
 
     ![ps3](./media/documentation-government-vsts-img10.png)
-9. After the script has run you should see your service connection values. Copy these values as we will need them when setting up our endpoint. 
+9. After the script has run, you should see your service connection values. Copy these values as we will need them when setting up our endpoint. 
 
     ![ps4](./media/documentation-government-vsts-img11.png)
 
@@ -139,7 +139,12 @@ You need at least one [agent](https://www.visualstudio.com/en-us/docs/build/conc
 * I use Azure DevOps Server on-premises. Can I configure CD on my Azure DevOps Server to target Azure Government?
 Currently, Azure DevOps Server cannot be used to deploy to an Azure Government Cloud. This capability will be added in the next update of TFS 2017.
 
-## Next steps
+## Get help and provide feedback
+
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
 * Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)
+
+## Next steps
+
+[Develop with Visual Studio](documentation-government-get-started-connect-with-vs.md)

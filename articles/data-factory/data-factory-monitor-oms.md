@@ -10,7 +10,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 08/20/2018
 ms.author: douglasl
 ---
 # Monitor Azure Data Factory with Operations Management Suite (OMS)
@@ -20,6 +20,10 @@ You can use Azure Data Factory integration with Azure Monitor to route data to O
 1.  You want to write complex queries on a rich set of metrics that is published by Data Factory to OMS. You can also create custom alerts on these queries via OMS.
 
 2.  You want to monitor across data factories. You can route data from multiple data factories to a single OMS workspace.
+
+For a seven-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
 
 ## Get Started
 
