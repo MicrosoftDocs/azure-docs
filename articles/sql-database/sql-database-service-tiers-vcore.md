@@ -13,17 +13,22 @@ ms.author: carlrab
 ---
 # Choosing a vCore service tier, compute, memory, storage, and IO resources
 
-The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. It also allows you to use [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) to gain cost savings.
-The vCore model provides two service tiers General Purpose and Business Critical. Service tiers are differentiated by a range of performance levels, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups.
+The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. It also enables you to choose generation of hardware:
+- Gen 4 - Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors, vCore = 1 PP (physical core), attached SSD
+- Gen 5 - Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, vCore=1 LP (hyper-thread), fast eNVM SSD
 
-## Overview
+It also allows you to use [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) to gain cost savings.
+
+## Service tier characteristics
+
+The vCore model provides two service tiers General Purpose and Business Critical. Service tiers are differentiated by a range of performance levels, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups.
 
 The following table helps you understand the differences between these two tiers:
 
 ||**General Purpose**|**Business Critical**|
 |---|---|---|
 |Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|
-|Compute|1 to 80 vCore, Gen4 and Gen5 |1 to 80 vCore, Gen4 and Gen5|
+|Compute|1 to 80 vCore, Gen4\* and Gen5 |1 to 80 vCore, Gen4\* and Gen5|
 |Memory|Gen4: 7 GB per core<br>Gen5: 5.5 GB per core | Gen4: 7 GB per core<br>Gen5: 5.5 GB per core |
 |Storage|[Premium remote storage](../virtual-machines/windows/premium-storage.md),<br/>Singleton Database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 8 TB |Local SSD storage,<br/>Single Database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 4 TB |
 |IO throughput (approximate)|Singleton Database: 500 IOPS per vCore with 7000 maximum IOPS</br>Managed Instance: Depends on [size of file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per core with 200000 maximum IOPS|
@@ -31,6 +36,8 @@ The following table helps you understand the differences between these two tiers
 |Backups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|
 |In-Memory|N/A|Supported|
 |||
+
+\* Managed Instance don't supports more than 24 vCores in Gen4.
 
 > [!IMPORTANT]
 > If you need less than one vCore of compute capacity, use the DTU-based purchasing model.
