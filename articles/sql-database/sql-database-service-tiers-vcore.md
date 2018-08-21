@@ -13,21 +13,31 @@ ms.author: carlrab
 ---
 # Choosing a vCore service tier, compute, memory, storage, and IO resources
 
-Service tiers are differentiated by a range of performance levels, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups. With the vCore model, single databases and elastic pools are eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. It also enables you to choose generation of hardware:
+- Gen 4 - Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors, vCore = 1 PP (physical core), attached SSD
+- Gen 5 - Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, vCore=1 LP (hyper-thread), fast eNVM SSD
+
+It also allows you to use [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) to gain cost savings.
+
+## Service tier characteristics
+
+The vCore model provides two service tiers General Purpose and Business Critical. Service tiers are differentiated by a range of performance levels, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups.
 
 The following table helps you understand the differences between these two tiers:
 
 ||**General Purpose**|**Business Critical**|
 |---|---|---|
 |Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|
-|Compute|1 to 80 vCore, Gen4 and Gen5 |1 to 80 vCore, Gen4 and Gen5|
+|Compute|1 to 80 vCore, Gen4\* and Gen5 |1 to 80 vCore, Gen4\* and Gen5|
 |Memory|Gen4: 7 GB per core<br>Gen5: 5.5 GB per core | Gen4: 7 GB per core<br>Gen5: 5.5 GB per core |
-|Storage|[Premium remote storage](../virtual-machines/windows/premium-storage.md),<br/>Singleton Database: 5 GB – 4 TB<br/>Managed Instance: 32 - 8TB |Local SSD storage,<br/>Single Database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 4 TB |
-|IO throughput (approximate)|500 IOPS per vCore with 7000 maximum IOPS|5000 IOPS per core with 200000 maximum IOPS|
-|Availability|1 replica, no read-scale|3 replicas, 1 [read-scale](sql-database-read-scale-out.md), zone redundant HA|
+|Storage|[Premium remote storage](../virtual-machines/windows/premium-storage.md),<br/>Singleton Database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 8 TB |Local SSD storage,<br/>Single Database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 4 TB |
+|IO throughput (approximate)|Singleton Database: 500 IOPS per vCore with 7000 maximum IOPS</br>Managed Instance: Depends on [size of file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per core with 200000 maximum IOPS|
+|Availability|1 replica, no read-scale|3 replicas, 1 [read-scale replica](sql-database-read-scale-out.md),<br/>zone redundant HA|
 |Backups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|
 |In-Memory|N/A|Supported|
 |||
+
+\* Managed Instance don't supports more than 24 vCores in Gen4.
 
 > [!IMPORTANT]
 > If you need less than one vCore of compute capacity, use the DTU-based purchasing model.
@@ -67,7 +77,9 @@ In the vCore-based purchasing model, you can exchange your existing licenses for
 
 ![pricing](./media/sql-database-service-tiers/pricing.png)
 
-## Migration of single databases with geo-replication links
+## Migration from DTU model to vCore model
+
+### Migration of single databases with geo-replication links
 
 Migrating to from DTU-based model to vCore-based model is similar to upgrading or downgrading the geo-replication relationships between Standard and Premium databases. It does not require terminating geo-replication but the user must observe the sequencing rules. When upgrading, you must upgrade the secondary database first, and then upgrade the primary. When downgrading, reverse the order: you must downgrade the primary database first, and then downgrade the secondary. 
 
@@ -89,15 +101,15 @@ The following table provides guidance for the specific migration scenarios:
 
 \* Each 100 DTU in Standard tier requires at least 1 vCore and each 125 DTU in Premium tier requires at least 1 vCore
 
-## Migration of failover groups 
+### Migration of failover groups 
 
 Migration of failover groups with multiple databases requires individual migration of the primary and secondary databases. During that process, the same considerations and sequencing rules apply. After the databases are converted to the vCore-based model, the failover group will remain in effect with the same policy settings. 
 
-## Creation of a geo-replication secondary
+### Creation of a geo-replication secondary
 
 You can only create a geo-secondary using the same service tier as the primary. For database with high log generation rate, it is advised that the secondary is created with the same performance level as the primary. If you are creating a geo-secondary in the elastic pool for a single primary database, it is advised that the pool has the `maxVCore` setting that matches the primary database performance level. If you are creating a geo-secondary in the elastic pool for a primary in another elastic pool, it is advised that the pools have the same `maxVCore` settings
 
-## Using database copy to convert a DTU-based database to a vCore-based database.
+### Using database copy to convert a DTU-based database to a vCore-based database.
 
 You can copy any database with a DTU-based performance level to a database with a vCore-based performance level without restrictions or special sequencing as long as the target performance level supports the maximum database size of the source database. This is because the database copy creates a snapshot of data as of the starting time of the copy operation and does not perform data synchronization between the source and the target. 
 
