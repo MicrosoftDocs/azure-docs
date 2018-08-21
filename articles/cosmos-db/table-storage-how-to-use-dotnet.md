@@ -35,7 +35,7 @@ You need the following to complete this sample successfully:
 * [Azure Storage Common Library for .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). - A required preview package that is supported in production environments. 
 * [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) - This library is currently available for .NET Standard only, it's not yet available for .NET Core.
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-* [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Azure storage account](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
