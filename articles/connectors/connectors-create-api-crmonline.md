@@ -1,18 +1,14 @@
 ---
-# required metadata
 title: Connect to Dynamics 365 - Azure Logic Apps | Microsoft Docs
 description: Create and manage records with Dynamics 365 (online) REST APIs and Azure Logic Apps
 author: Mattp123
-manager: jeconnoc
 ms.author: matp
-ms.date: 02/10/2017
-ms.topic: article
 ms.service: logic-apps
 services: logic-apps
-
-# optional metadata
-ms.reviewer: klam, LADocs
+ms.reviewer: estfan, LADocs
 ms.suite: integration
+ms.topic: article
+ms.date: 08/18/2018
 tags: connectors
 ---
 
@@ -117,43 +113,60 @@ To manually start the logic app, on the designer toolbar, choose **Run**.
 
 1. Now create a lead record in Dynamics 365 so you can trigger your logic app's workflow.
 
-## Set advanced options
+## Add filter or query
 
-To specify how to filter data in a logic app step, 
-click **Show advanced options** in that step, 
-then add a filter or order by query.
+To specify how to filter data in a Dynamics 365 action, 
+choose **Show advanced options** in that action. 
+You can then add a filter or order by query.
+For example, you can use a filter query to get only the 
+active accounts and order those records by account name. 
+For this task, follow these steps:
 
-For example, you can use a filter query to get only active accounts and order by the account name. 
-To perform this task, enter the OData filter query `statuscode eq 1`, 
-and select **Account Name** from the dynamic content list. 
-More information: [MSDN: $filter](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_1) 
-and [$orderby](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_2).
+1. Under **Filter query**, enter this OData filter query: `statuscode eq 1`
 
-![Logic app advanced options](./media/connectors-create-api-crmonline/advanced-options.png)
+2. Under **Order By**, when the dynamic content list appears, 
+select **Account Name**. 
 
-### Best practices when using advanced options
+   ![Specify filter and order](./media/connectors-create-api-crmonline/advanced-options.png)
 
-When you add a value to a field, you must match the field type whether 
-you type a value or select a value from the dynamic content list.
+For more information, see these Dynamics 365 Customer Engagement 
+Web API Web API system query options: 
 
-Field type | How to use | Where to find | Name | Data type  
------------|------------|---------------|------|---------
-Text fields | Text fields require a single line of text or dynamic content that is a text type field. Examples include the Category and Sub-Category fields. | Settings > Customizations > Customize the System > Entities > Task > Fields | category | Single Line of Text        
+* [$filter](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#filter-results)
+* [$orderby](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#order-results)
+
+### Best practices for advanced options
+
+When you add a value to a field in an action or trigger, 
+your value must match the field type whether you enter 
+a value or select a value from the dynamic content list.
+
+| Field type | Description | Where to find | Name | Data type | 
+|------------|-------------|---------------|------|-----------|
+| Text fields | Require a single line of text or dynamic content that has text type. <p>Examples: Category and Sub-Category fields | Settings > Customizations > Customize the System > Entities > Task > Fields | category | Single Line of Text        
 Integer fields | Some fields require integer or dynamic content that is an integer type field. Examples include Percent Complete and Duration. |Settings > Customizations > Customize the System > Entities > Task > Fields |percentcomplete |Whole Number         
 Date fields | Some fields require a date entered in mm/dd/yyyy format or dynamic content that is a date type field. Examples include Created On, Start Date, Actual Start, Last on Hold Time, Actual End, and Due Date. | Settings > Customizations > Customize the System > Entities > Task > Fields |createdon |Date and Time
 Fields that require both a record ID and lookup type |Some fields that reference another entity record require both the record ID and the lookup type. |Settings > Customizations > Customize the System > Entities > Account > Fields  | accountid  | Primary Key
 |||||
 
-### More examples of fields that require both a record ID and lookup type
+### More examples 
 
-Expanding on the previous table, here are more examples of fields that don't work with values selected from the dynamic content list. Instead, these fields require both a record ID and lookup type entered into the fields in PowerApps.  
+Expanding on the previous table, here are more examples for fields 
+that don't work with the values selected from the dynamic content list. 
+Instead, these fields require both a record ID and the lookup type 
+for the fields in Logic Apps.
 
-* Owner and Owner Type. The Owner field must be a valid user or team record ID. The Owner Type must be either **systemusers** or **teams**.
+| Field | Description | 
+|-------|-------------|
+| **Owner** | Must be either a valid user or team record ID. | 
+| **Owner Type** | Must be either **systemusers** or **teams**. | 
+| **Customer** | Must be a valid account or contact record ID. | 
+| **Customer Type** | Must be either **accounts** or **contacts**. | 
+| **Regarding** | Must be a valid record ID, such as an account ID or contact record ID. | 
+| **Regarding Type** | Must be the lookup type for the record, such as **accounts** or **contacts**. | 
+|||
 
-* Customer and Customer Type. The Customer field must be a valid account or contact record ID. The Owner Type must be either **accounts** or **contacts**.
-
-* Regarding and Regarding Type. The Regarding field must be a valid record ID, such as an account or contact record ID. The Regarding Type must be the lookup type for the record, such as **accounts** or **contacts**.
-
+For example, the **Create record** action 
 The following task creation action example adds an account record that corresponds to the record ID adding it to the regarding field of the task.
 
 ![Flow recordId and type account](./media/connectors-create-api-crmonline/recordid-type-account.png)
@@ -195,11 +208,20 @@ To expand a failed step, click that step.
 
    ![Failed step details](./media/connectors-create-api-crmonline/tshoot3.png)
 
-For more information about troubleshooting logic apps, see [Diagnosing logic app failures](../logic-apps/logic-apps-diagnosing-failures.md).
+For more information about troubleshooting logic apps, see 
+[Diagnosing logic app failures](../logic-apps/logic-apps-diagnosing-failures.md).
 
-## Connector-specific details
+## Connector reference
 
-View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/crm/). 
+For technical details, such as triggers, actions, and limits, 
+as described by the connector's Swagger file, 
+see the [connector's reference page](/connectors/crm/). 
+
+## Get support
+
+* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
 ## Next steps
-Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
