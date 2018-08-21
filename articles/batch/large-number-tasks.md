@@ -18,7 +18,7 @@ ms.author: danlep
 ms.custom: 
 
 ---
-# Submit a large number of tasks in a job
+# Submit a large number of tasks in a Batch job
 
 When you run large-scale Azure Batch workloads, you might want to submit tens of thousands, hundreds of thousands, or even more tasks in a single job. 
 
@@ -47,7 +47,7 @@ It can take some time to add a large collection of tasks to a job - for example,
  
   The Azure CLI with Batch CLI templates increases the number of concurrent operations automatically based on the pool configuration, but this property is not configurable in the CLI. 
 
-* **HTTP connection limits** - The number of concurrent HTTP connections can throttle the performance of the Batch client when it is adding large numbers of tasks. The number of HTTP connections is limited with certain APIs. When developing with the .NET API, for example, the [ServicePointManager.DefaultConnectionLimit](dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) property is set to 2 by default, but you can increase the value.
+* **HTTP connection limits** - The number of concurrent HTTP connections can throttle the performance of the Batch client when it is adding large numbers of tasks. The number of HTTP connections is limited with certain APIs. When developing with the .NET API, for example, the [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) property is set to 2 by default, but you can increase the value.
 
 ## Example: Batch .NET
 
