@@ -26,6 +26,11 @@ The following is a list of supported compute targets:
 * Azure Batch AI clusters
 * Container instances in Azure Container Instances (ACI)
 
+[TBD - why use one over the other This might be inline in the bulleted list, or it might be better formatted as a table.]
+
+|Compute target|Key differentiators|
+|----|-----|
+|Local computer|Local|
 
 ## Workflow
 
@@ -72,6 +77,10 @@ except ComputeTargetException:
      # For a more detailed view of current Batch AI cluster status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
+
+For more information on using the BatchAiCompute object, see [tbd]. 
+
+## Azure Container Instances (ACI)
 
 ## Next steps
 * [What is Azure Machine Learning service](overview-what-is-azure-ml.md)
