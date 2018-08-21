@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/09/2018
+ms.date: 08/21/2018
 ms.author: alkohli
 ---
 # Azure Data Box security and data protection
@@ -32,7 +32,7 @@ The Microsoft Azure Data Box solution consists of four main components that inte
 
 The following diagram indicates the flow of data through the Azure Data Box solution from on-premises to Azure.
 
-![Data Box security](media/data-box-disk-security/data-box-disk-security-1.png)
+<!--![Data Box security](media/data-box-disk-security/data-box-disk-security-1.png)-->
 
 ## Security features
 

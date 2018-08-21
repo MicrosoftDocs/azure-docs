@@ -76,7 +76,7 @@ If you have a supported offer type for the subscription, check your subscription
 A. We allow for a maximum of 3 active orders per subscription per commerce boundary (combination of country and the region selected). If you need to order an additional device, contact Microsoft Support to increase the limit for your subscription.
 
 ### Q. When I try to create an order, I recieve a notification that the Data Box service is not available. What does this mean?
-A. What this means is that the Data Box service is not available for the combination of country and region you have selected.  We do not service cross commerce boundary (combination of country and the region selected) customers. Changing this combination would likely allow you to avail of the Data Box service. For a list of the regions where the service is available, go to [Region availability for Data Box](data-box-overview.md#region-availability).
+A. What this means is that the Data Box service is not available for the combination of country and region you have selected. Changing this combination would likely allow you to avail of the Data Box service. For a list of the regions where the service is available, go to [Region availability for Data Box](data-box-overview.md#region-availability).
 
 ### Q. I placed my Data Box order few days back. When will I receive my Data Box?
 A. When you place an order, we check whether a device is available for your order. If a device is available, we will ship it within 10 days. It is conceivable that there are periods of high demand. In this situation, your order will be queued and you will be notified.
@@ -97,7 +97,7 @@ A.  You can only cancel the order after the Data Box is ordered and before the o
 ### Q. Can I connect a Data Box at the same to multiple host computers to transfer data?
 A. Yes. Multiple host computers can connect to Data Box to transfer data and multiple copy jobs can be run in parallel.
 
-### Q. The network interface on my Data Box is not working. What should I do? 
+<!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
 
 ### Q. I could not set up Data Box using a Dynamic (DHCP) IP address. Why would this be?
@@ -107,7 +107,7 @@ A.
 A.
 
 ### Q. I could not set up Data Box on a private network. Why would this be?
-A.
+A.-->
 
 ## Track status
 
@@ -129,7 +129,7 @@ A.  Data Box has a usable storage capacity of 80 TB. You can use it for data tha
 A.  The maximum sizes are governed by Azure Storage limits. The maximum block blob is roughly 4.768 TiB and the maximum page blob size is 8 TiB. For more information, go to [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md). 
 
 ### Q. What is the data transfer speed for Data Box?
-A. When tested with disks connected via USB 3.0, the disk performance was up to 430 MB/s. The actual numbers vary depending upon the file size used. For smaller files, you may see lower performance.
+A. Depending on the file size, you can see up to 
 
 ### Q. How do I know that my data is secure during transit? 
 A.  Data Box is encrypted using BitLocker AES-128 bit encryption and the passkey is only available in the Azure portal. Log into the Azure portal using your account credentials to get the passkey. Supply this passkey when you run the Data Box unlock tool.
@@ -174,9 +174,9 @@ A.  Once the order status for **Data Copy** shows as **Complete**, you should be
 
 ### Q. Where is my data located in Azure after the upload?
 A.  When you copy the data to Data Box, depending on whether the data is block blob or page blob or Azure files, the data is uploaded to one of these path in your Azure Storage account:
- - *<You_storage_account_name_BlockBlob>/<my_container>/Blob* 
- - *<Your_storage_account_name_PageBlob>/<my_container>/Blob*
- - *<Your_storage_account_name_AzFile>/ . 
+ - `<You_storage_account_name_BlockBlob>/<my_container>/Blob` 
+ - `<Your_storage_account_name_PageBlob>/<my_container>/Blob`
+ - `<Your_storage_account_name_AzFile>/` 
 
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 

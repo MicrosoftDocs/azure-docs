@@ -41,7 +41,7 @@ Before you begin, make sure that:
 
 Your Data Box creates three shares for each associated storage account. The three shares store data from block blobs, page blobs, and Azure Files. 
 
-Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares.
+Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
 Consider the following example. 
 
@@ -101,7 +101,7 @@ If you are using a Linux host computer, perform the following steps to configure
 
     `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
 
-The following example shows how to connect via NFS to a Data Box share. The Data Box device IP is `10.161.23.130`, the share `Mystoracct_Blob` is mounted on the ubuntuVM, mount point being `/home/databoxubuntuhost/databox`.
+    The following example shows how to connect via NFS to a Data Box share. The Data Box device IP is `10.161.23.130`, the share `Mystoracct_Blob` is mounted on the ubuntuVM, mount point being `/home/databoxubuntuhost/databox`.
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
@@ -119,11 +119,12 @@ Once you are connected to the Data Box shares, the next step is to copy data. Pr
 
 ### Copy data to an SMB share
 
- After you have connected to the SMB share, initiate a data copy. You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command: 
+After you have connected to the SMB share, initiate a data copy. 
+
+You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:
     
-    ```
     robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile> 
-    ```
+  
  The attributes are described in the following table.
     
 |Attribute  |Description  |
@@ -143,73 +144,71 @@ Once you are connected to the Data Box shares, the next step is to copy data. Pr
 |/efsraw     | Copies all encrypted files in EFS raw mode. Use only with encrypted files.         |
 |log+:<LogFile>| Appends the output to the existing log file.|    
  
- The following sample shows the output of the robocopy command to copy files to the Data Box.
-
-        ```
-        C:\Users>robocopy
-            -------------------------------------------------------------------------------
-           ROBOCOPY     ::     Robust File Copy for Windows
-        -------------------------------------------------------------------------------
-        
-          Started : Thursday, March 8, 2018 2:34:53 PM
-               Simple Usage :: ROBOCOPY source destination /MIR
-        
-                     source :: Source Directory (drive:\path or \\server\share\path).
-                destination :: Destination Dir  (drive:\path or \\server\share\path).
-                       /MIR :: Mirror a complete directory tree.
-        
-            For more usage information run ROBOCOPY /?    
-        
-        ****  /MIR can DELETE files as well as copy them !
-        
-        C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.126.76.172\devicemanagertest1_AzFile\templates /MT:32
-        -------------------------------------------------------------------------------
-           ROBOCOPY     ::     Robust File Copy for Windows
-        -------------------------------------------------------------------------------
-        
-          Started : Thursday, March 8, 2018 2:34:58 PM
-           Source : C:\Git\azure-docs-pr\contributor-guide\
-             Dest : \\10.126.76.172\devicemanagertest1_AzFile\templates\
-        
-            Files : *.*
-        
-          Options : *.* /DCOPY:DA /COPY:DAT /MT:32 /R:5 /W:60
-        
-        ------------------------------------------------------------------------------
-        
-        100%        New File                 206        C:\Git\azure-docs-pr\contributor-guide\article-metadata.md
-        100%        New File                 209        C:\Git\azure-docs-pr\contributor-guide\content-channel-guidance.md
-        100%        New File                 732        C:\Git\azure-docs-pr\contributor-guide\contributor-guide-index.md
-        100%        New File                 199        C:\Git\azure-docs-pr\contributor-guide\contributor-guide-pr-criteria.md
-                    New File                 178        C:\Git\azure-docs-pr\contributor-guide\contributor-guide-pull-request-co100%  .md
-                    New File                 250        C:\Git\azure-docs-pr\contributor-guide\contributor-guide-pull-request-et100%  e.md
-        100%        New File                 174        C:\Git\azure-docs-pr\contributor-guide\create-images-markdown.md
-        100%        New File                 197        C:\Git\azure-docs-pr\contributor-guide\create-links-markdown.md
-        100%        New File                 184        C:\Git\azure-docs-pr\contributor-guide\create-tables-markdown.md
-        100%        New File                 208        C:\Git\azure-docs-pr\contributor-guide\custom-markdown-extensions.md
-        100%        New File                 210        C:\Git\azure-docs-pr\contributor-guide\file-names-and-locations.md
-        100%        New File                 234        C:\Git\azure-docs-pr\contributor-guide\git-commands-for-master.md
-        100%        New File                 186        C:\Git\azure-docs-pr\contributor-guide\release-branches.md
-        100%        New File                 240        C:\Git\azure-docs-pr\contributor-guide\retire-or-rename-an-article.md
-        100%        New File                 215        C:\Git\azure-docs-pr\contributor-guide\style-and-voice.md
-        100%        New File                 212        C:\Git\azure-docs-pr\contributor-guide\syntax-highlighting-markdown.md
-        100%        New File                 207        C:\Git\azure-docs-pr\contributor-guide\tools-and-setup.md
-        ------------------------------------------------------------------------------
-        
-                       Total    Copied   Skipped  Mismatch    FAILED    Extras
-            Dirs :         1         1         1         0         0         0
-           Files :        17        17         0         0         0         0
-           Bytes :     3.9 k     3.9 k         0         0         0         0          
-        C:\Users>
-        ```
-<br>
-
-    For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
-
-7. Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the error files for troubleshooting.
-8. To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device. 
+The following sample shows the output of the robocopy command to copy files to the Data Box.
     
-    ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
+    C:\Users>robocopy
+        -------------------------------------------------------------------------------
+        ROBOCOPY     ::     Robust File Copy for Windows
+    -------------------------------------------------------------------------------
+    
+        Started : Thursday, March 8, 2018 2:34:53 PM
+            Simple Usage :: ROBOCOPY source destination /MIR
+    
+                    source :: Source Directory (drive:\path or \\server\share\path).
+            destination :: Destination Dir  (drive:\path or \\server\share\path).
+                    /MIR :: Mirror a complete directory tree.
+    
+        For more usage information run ROBOCOPY /?    
+    
+    ****  /MIR can DELETE files as well as copy them !
+    
+    C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.126.76.172\devicemanagertest1_AzFile\templates /MT:32
+    -------------------------------------------------------------------------------
+        ROBOCOPY     ::     Robust File Copy for Windows
+    -------------------------------------------------------------------------------
+    
+        Started : Thursday, March 8, 2018 2:34:58 PM
+        Source : C:\Git\azure-docs-pr\contributor-guide\
+            Dest : \\10.126.76.172\devicemanagertest1_AzFile\templates\
+    
+        Files : *.*
+    
+        Options : *.* /DCOPY:DA /COPY:DAT /MT:32 /R:5 /W:60
+    
+    ------------------------------------------------------------------------------
+    
+    100%        New File                 206        C:\Git\azure-docs-pr\contributor-guide\article-metadata.md
+    100%        New File                 209        C:\Git\azure-docs-pr\contributor-guide\content-channel-guidance.md
+    100%        New File                 732        C:\Git\azure-docs-pr\contributor-guide\contributor-guide-index.md
+    100%        New File                 199        C:\Git\azure-docs-pr\contributor-guide\contributor-guide-pr-criteria.md
+                New File                 178        C:\Git\azure-docs-pr\contributor-guide\contributor-guide-pull-request-co100%  .md
+                New File                 250        C:\Git\azure-docs-pr\contributor-guide\contributor-guide-pull-request-et100%  e.md
+    100%        New File                 174        C:\Git\azure-docs-pr\contributor-guide\create-images-markdown.md
+    100%        New File                 197        C:\Git\azure-docs-pr\contributor-guide\create-links-markdown.md
+    100%        New File                 184        C:\Git\azure-docs-pr\contributor-guide\create-tables-markdown.md
+    100%        New File                 208        C:\Git\azure-docs-pr\contributor-guide\custom-markdown-extensions.md
+    100%        New File                 210        C:\Git\azure-docs-pr\contributor-guide\file-names-and-locations.md
+    100%        New File                 234        C:\Git\azure-docs-pr\contributor-guide\git-commands-for-master.md
+    100%        New File                 186        C:\Git\azure-docs-pr\contributor-guide\release-branches.md
+    100%        New File                 240        C:\Git\azure-docs-pr\contributor-guide\retire-or-rename-an-article.md
+    100%        New File                 215        C:\Git\azure-docs-pr\contributor-guide\style-and-voice.md
+    100%        New File                 212        C:\Git\azure-docs-pr\contributor-guide\syntax-highlighting-markdown.md
+    100%        New File                 207        C:\Git\azure-docs-pr\contributor-guide\tools-and-setup.md
+    ------------------------------------------------------------------------------
+    
+                    Total    Copied   Skipped  Mismatch    FAILED    Extras
+        Dirs :         1         1         1         0         0         0
+        Files :        17        17         0         0         0         0
+        Bytes :     3.9 k     3.9 k         0         0         0         0          
+    C:\Users>
+       
+For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
+
+Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the error files for troubleshooting.
+
+To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
+    
+   ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ### Copy data to an NFS share
 
@@ -243,6 +242,7 @@ Final step is to prepare the device to ship. In this step, all the device shares
 3. Shut down the device. Go to **Shut down or restart** page and click **Shut down**. When prompted for confirmation, click **OK** to continue.
 4. Remove the cables and return to the device case. The next step is to ship the device to Microsoft.
 
+## Next steps
 
 In this tutorial, you learned about Azure Data Box topics such as:
 

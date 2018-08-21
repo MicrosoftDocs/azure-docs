@@ -22,7 +22,7 @@ This quickstart describes how to deploy the Azure Data Box using the Azure porta
 
 For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md)
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 
 ## Prerequisites
@@ -120,7 +120,7 @@ This step takes 2-3 minutes to complete.
 
 To delete the order, go to **Overview** and click **Delete** from the command bar.
 
-## Next step
+## Next steps
 
 In this quickstart, you’ve deployed an Azure Data Box to help import your data into Azure. To learn more about Azure Data Box management, advance to the following tutorial: 
 

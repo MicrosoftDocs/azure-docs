@@ -70,7 +70,6 @@ Perform the following steps in the Azure portal to order a device.
       [![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
 6. In **Order**, specify the **Order details**. Enter or select the following information and click **Next**.
-
     
     |Setting  |Value  |
     |---------|---------|
@@ -114,6 +113,8 @@ You can only cancel when the device is ordered and the order is being processed 
    [![Data Box status ordered](media/data-box-deploy-ordered/data-box-ordered.png)](media/data-box-deploy-ordered/data-box-ordered.png#lightbox)   
 
 To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
+
+## Next steps
 
 In this tutorial, you learned about Azure Data Box topics such as:
 
