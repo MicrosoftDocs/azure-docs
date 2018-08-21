@@ -14,7 +14,7 @@ ms.author: carlrab
 # Choosing a vCore service tier, compute, memory, storage, and IO resources
 
 The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. It also allows you to use [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) to gain cost savings.
-The vCore model provides two service tiers General Purpose and Business Critical. Service tiers are differentiated by a range of performance levels, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups. With the vCore model, single databases and elastic pools are eligible for up to 30 percent savings with the .
+The vCore model provides two service tiers General Purpose and Business Critical. Service tiers are differentiated by a range of performance levels, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups.
 
 The following table helps you understand the differences between these two tiers:
 
