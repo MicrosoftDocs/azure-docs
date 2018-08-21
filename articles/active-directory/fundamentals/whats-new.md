@@ -76,7 +76,7 @@ This new feature helps people manage their security info (such as, phone number,
 
 This converged experience also works for people using either SSPR or MFA. Additionally, if your organization doesn't enforce MFA or SSPR registration, people can still register any MFA or SSPR security info methods allowed by your organization from the My Apps portal.
 
-This is an opt-in public preview. Administrators can turn on the new experience (if desired) for a selected group or for all users in a tenant. For more info about the converged experience, see the [Converged experience blog](https://cloudblogs.microsoft.com/enterprisemobility/2018/08/06/mfa-and-sspr-updates-now-in-public-preview/)
+This is an opt-in public preview. Administrators can turn on the new experience (if desired) for a selected group or for all users in a tenant. For more information about the converged experience, see the [Converged experience blog](https://cloudblogs.microsoft.com/enterprisemobility/2018/08/06/mfa-and-sspr-updates-now-in-public-preview/)
 
 ---
 
@@ -90,7 +90,7 @@ There's a new setting called, **HTTP-Only Cookies** in your Application Proxy ap
 
 This setting isn't compatible with apps using ActiveX controls, such as Remote Desktop. If you're in this situation, we recommend that you turn this setting off.
 
-For more info, see ...
+For more information, see ...
 
 ---
 
@@ -102,7 +102,7 @@ For more info, see ...
  
 Just-In-Time activation and assignment settings can now be applied to Management Group resource types, just like you already do for Subscriptions, Resource Groups, and Resources (such as VMs, App Services, and more). In addition, anyone with a role that provides administrator access for a Management Group can discover and manage that resource in PIM.
 
-For more info, see ...
+For more information, see [Discover and manage Azure resources by using Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-resource-roles-discover-resources)
  
 ---
  
@@ -131,15 +131,15 @@ For more information about this experience, see ...
 
 ---
 
-[526816](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=526816&triage=true&fullScreen=false&_a=edit)
-
 ### Native Tableau support is now available in Azure AD Application Proxy
 
 **Type:** Changed feature  
 **Service category:** App Proxy  
 **Product capability:** Access Control
 
-We've updated our pre-authentication protocol from OpenID Connect protocol to the OAuth 2.0 Code Grant protocol, which means that you no longer have to do any additional configuration to use Tableau with Application Proxy. The switch to the OAuth 2.0 Code Grant protocol also helps Application Proxy to better support more modern apps by only using HTTP redirects that are commonly supported in JavaScript and HTML tags.
+With our update from the OpenID Connect to the OAuth 2.0 Code Grant protocol for our pre-authentication protocol, you no longer have to do any additional configuration to use Tableau with Application Proxy. This protocol change also helps Application Proxy better support more modern apps by using only HTTP redirects, which are commonly supported in JavaScript and HTML tags.
+
+For more information, see ...
 
 ---
 
