@@ -1,6 +1,6 @@
 ---
-title: Getting started guide for Azure IT operators | Microsoft Docs
-description: Getting started guide for Azure IT operators
+title: Get started guide for Azure IT operators | Microsoft Docs
+description: Get started guide for Azure IT operators
 services:
 documentationcenter:
 author: themichaelbender-ms
@@ -18,7 +18,7 @@ ms.date: 08/21/2018
 ms.author: mibender
 ---
 
-# Introduction to cloud computing and Microsoft Azure
+# Get started for Azure IT operators
 
 This guide introduces core concepts related to the deployment and management of a Microsoft Azure infrastructure. If you are new to cloud computing, or Azure itself, this guide helps quickly get you started with concepts, deployment, and management details. Many sections of this guide discuss an operation such as deploying a virtual machine, and then provide a link for in-depth technical detail.
 
@@ -50,10 +50,9 @@ For small businesses, Azure allows for a low-cost entry point, with the ability 
 For more information on the available Azure regions, see [Azure regions](https://azure.microsoft.com/regions/).
 
 ### Cloud computing model
-With the cloud computing model, there are three categories of service including Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). With tradition on-premises software, administrators are responsible for all levels of the software stack (commonly known as the OSI Model). In cloud computing, each category utilizes a shared-responsiblity model where customers and vendors hold responsibilty for the maintenance and availability of the components with their pieces of the computing stack.
-![Cloud Computing Stack Comparison](./media/cloud-computing-comparison.png)
 
-Let's take a look at each of the categories for cloud computing.
+Azure uses a cloud computing model based on categories of service provided to customers. The three categories of service include Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). Vendors share some or all of the responsiblity for components in the computing stack in each of these categories. Let's take a look at each of the categories for cloud computing.
+![Cloud Computing Stack Comparison](./media/cloud-computing-comparison.png)
 
 #### IaaS: Infrastructure as a service
 
