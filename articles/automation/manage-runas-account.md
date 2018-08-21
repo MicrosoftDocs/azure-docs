@@ -13,7 +13,7 @@ manager: carmonm
 
 # Manage Azure Automation Run As accounts
 
-Run As accounts in Azure Automation are used to manage resources in Azure with the Azure cmdlets.
+Run As accounts in Azure Automation are used to provide authentication for managing resources in Azure with the Azure cmdlets.
 
 When you create a Run As account, it creates a new service principal user in Azure Active Directory and assigns the Contributor role to this user at the subscription level.
 
@@ -30,7 +30,7 @@ There are two types of Run As Accounts:
 
 ## <a name="permissions"></a>Permissions to configure Run As accounts
 
-To create or update an Run As account, you must have specific privileges and permissions. A Global Administrator/Co-Administrator can complete all the tasks. In a situation where you have seperation of duties, the following table shows a listing of the tasks, the equivalent cmdlet and permissions needed:
+To create or update a Run As account, you must have specific privileges and permissions. A Global Administrator/Co-Administrator can complete all the tasks. In a situation where you have seperation of duties, the following table shows a listing of the tasks, the equivalent cmdlet and permissions needed:
 
 |Task|Cmdlet  |Minimum Permissions  |
 |---|---------|---------|
