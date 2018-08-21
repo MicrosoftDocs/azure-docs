@@ -126,7 +126,7 @@ print cred["username"]
 print cred["password"]
 ```
 
-## Next Steps
+## Next steps
 
 * To learn more about links in graphical authoring, see [Links in graphical authoring](automation-graphical-authoring-intro.md#links-and-workflow)
 * To understand the different authentication methods with Automation, see [Azure Automation Security](automation-security-overview.md)
