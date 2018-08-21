@@ -87,9 +87,9 @@ The Azure DevOps Project automatically configures a full Azure CI/CD pipeline in
 
 ## Examine the Azure DevOps CD Release Management definition
 
-The Azure DevOps Project automatically creates and configures the necessary steps to deploy from your Azure DevOps organization to your Azure subscription.  These steps include configuring an Azure service connection to authenticate Azure DevOps to your Azure subscription.  The automation also creates a Azure DevOps Release Definition, and the release provides the CD to the Azure.  Follow the steps below to examine more about the Azure DevOps Release Definition.
+The Azure DevOps Project automatically creates and configures the necessary steps to deploy from your Azure DevOps organization to your Azure subscription.  These steps include configuring an Azure service connection to authenticate Azure DevOps to your Azure subscription.  The automation also creates an Azure DevOps Release Definition, and the release provides the CD to the Azure.  Follow the steps below to examine more about the Azure DevOps Release Definition.
 
-1. Select **Build and Release**, then choose **Releases**.  The Azure DevOps project created a Azure DevOps release definition to manage deployments to Azure.
+1. Select **Build and Release**, then choose **Releases**.  The Azure DevOps project created an Azure DevOps release definition to manage deployments to Azure.
 
 1. On the left-hand side of the browser, select the **ellipsis** next to your release definition, then choose **Edit**.
 

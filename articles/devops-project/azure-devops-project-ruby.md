@@ -22,7 +22,7 @@ monikerRange: 'vsts'
 
 # Create a CI/CD pipeline for Ruby on Rails with the Azure DevOps Project
 
-Configure continuous integration (CI) and continuous delivery (CD) for your Ruby on Rails application with The **Azure DevOps Project**.  The Azure DevOps project simplifies the initial configuration of a Azure DevOps build and release pipeline.
+Configure continuous integration (CI) and continuous delivery (CD) for your Ruby on Rails application with The **Azure DevOps Project**.  The Azure DevOps project simplifies the initial configuration of an Azure DevOps build and release pipeline.
 
 If you don't have an Azure subscription, you can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 

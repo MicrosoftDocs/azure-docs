@@ -22,7 +22,7 @@ monikerRange: 'vsts'
 
 # Create a CI/CD pipeline for Go with the Azure DevOps Project
 
-Configure continuous integration (CI) and continuous delivery (CD) for your **Go** application with The **Azure DevOps Project**.  The Azure DevOps project simplifies the initial configuration of a Azure DevOps build and release pipeline.
+Configure continuous integration (CI) and continuous delivery (CD) for your **Go** application with The **Azure DevOps Project**.  The Azure DevOps project simplifies the initial configuration of an Azure DevOps build and release pipeline.
 
 If you don't have an Azure subscription, you can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -92,7 +92,7 @@ The Azure DevOps project automatically configured a full Azure CI/CD pipeline in
 
 1. Select **Retention**.  Based on your scenario, you can specify policies to keep or remove a certain number of builds.
 
-1. Select **Build and Release**, then choose **Releases**.  The Azure DevOps project created a Azure DevOps release definition to manage deployments to Azure.
+1. Select **Build and Release**, then choose **Releases**.  The Azure DevOps project created an Azure DevOps release definition to manage deployments to Azure.
 
 1. On the left-hand side of the browser, select the **ellipsis** next to your release definition, then choose **Edit**.
 

@@ -94,7 +94,7 @@ The Azure DevOps project automatically configured a full Azure CI/CD pipeline in
 
 1. Select **Retention**.  Based on your scenario, you can specify policies to keep or remove a certain number of builds.
 
-1. Select **Build and Release**, then choose **Releases**.  The Azure DevOps project created a Azure DevOps release definition to manage deployments to Azure.
+1. Select **Build and Release**, then choose **Releases**.  The Azure DevOps project created an Azure DevOps release definition to manage deployments to Azure.
 
 1. On the left-hand side of the browser, select the **ellipsis** next to your release definition, then choose **Edit**.
 

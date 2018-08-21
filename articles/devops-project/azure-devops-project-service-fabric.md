@@ -88,9 +88,9 @@ The Azure DevOps Project automatically configures a full Azure CI/CD pipeline in
 
 ## Examine the Azure DevOps CD Release Management definition
 
-The Azure DevOps Project automatically creates and configures the necessary steps to deploy from your Azure DevOps organization to your Azure subscription.  These steps include configuring an Azure service connection to authenticate Azure DevOps to your Azure subscription.  The automation also creates a Azure DevOps Release Definition, and this release provides the CD to the Azure.  Follow the steps below to examine more about the Azure DevOps Release Definition.
+The Azure DevOps Project automatically creates and configures the necessary steps to deploy from your Azure DevOps organization to your Azure subscription.  These steps include configuring an Azure service connection to authenticate Azure DevOps to your Azure subscription.  The automation also creates an Azure DevOps Release Definition, and this release provides the CD to the Azure.  Follow the steps below to examine more about the Azure DevOps Release Definition.
 
-1. Select **Build and Release**, then choose **Releases**.  The Azure DevOps project created a Azure DevOps release definition to manage deployments to Azure.
+1. Select **Build and Release**, then choose **Releases**.  The Azure DevOps project created an Azure DevOps release definition to manage deployments to Azure.
 
 1. On the left-hand side of the browser, select the **ellipsis** next to your release definition, then choose **Edit**.
 
@@ -111,7 +111,7 @@ The Azure DevOps Project automatically creates and configures the necessary step
  > [!NOTE]
  > The steps below test the CI/CD pipeline with a simple text change to your web app.
 
-You're now ready to collaborate with a team on your app with a CI/CD process that automatically deploys your latest work to your web site.  Each change to the Azure DevOps git repo starts a build in Azure DevOps, and a Azure DevOps Release Management definition deploys your changes to Azure.  Follow the steps below, or use other techniques to commit changes to your repository.  For example, you can **clone** the Git repository in your favorite tool or IDE, and then push changes to this repo.
+You're now ready to collaborate with a team on your app with a CI/CD process that automatically deploys your latest work to your web site.  Each change to the Azure DevOps git repo starts a build in Azure DevOps, and an Azure DevOps Release Management definition deploys your changes to Azure.  Follow the steps below, or use other techniques to commit changes to your repository.  For example, you can **clone** the Git repository in your favorite tool or IDE, and then push changes to this repo.
 
 1. Select **Code** and then **Files** from the Azure DevOps menu, and navigate to your repository.
 1. Navigate to the **Views\Home** directory, then select the **ellipsis** next to the **Index.cshtml** file, and then choose **Edit**.
