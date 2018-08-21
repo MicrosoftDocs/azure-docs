@@ -15,7 +15,7 @@ ms.date: 09/24/2018
 
 With the Azure Machine Learning service, you can train your model in several different environments. These environments, called __compute targets__, can be local or in the cloud. In this document, you will learn about the supported compute targets and how to use them.
 
-A compute target is the compute resource used to execute your training script or host your web service deployment. They can be created and managed by using Azure Machine Learning Python SDK or CLI. You can also attach existing compute targets to your workspace in Azure portal. You can start with local runs on your machine, but then follow an easy path for scaling up and out to other environments such as remote Data Science VMs with GPU or Batch AI clusters. 
+A compute target is the compute resource used to execute your training script or host your web service deployment. They can be created and managed by using Azure Machine Learning Python SDK or CLI. You can also attach existing compute targets to your workspace in Azure portal. You can start with local runs on your machine, but then follow an easy path for scaling up and out to other environments such as remote Data Science VMs with GPU or Batch AI clusters.
 
 ## Supported compute targets
 
@@ -25,6 +25,7 @@ The following is a list of supported compute targets:
 * Data Science Virtual Machines (DSVM) and Deep Learning Virtual Machines (DLVMs)
 * Azure Batch AI clusters
 * Container instances in Azure Container Instances (ACI)
+
 
 ## Workflow
 
@@ -38,18 +39,6 @@ The workflow for developing and deploying a model with Azure Machine Learning fo
 1. Deploy the model.
 
 Your training script isn't tied to a specific compute target. You can train initially on your local computer, then switch targets to a VM or Azure Batch AI without having to rewrite the training script.
-
-## Local computer
-
-More info on local computer and example of using local computer
-
-## Azure DSVMs and DLVMs
-
-more info on vm and example.
-
-## Azure Batch AI
-
-more info on batch ai.
 
 The following example creates an Azure Batch AI compute target and display the status. The `compute_target` object can be used to submit your project for training:
 
