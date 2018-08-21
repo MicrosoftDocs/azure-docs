@@ -92,6 +92,9 @@ When using a mobile app, like the Microsoft Authenticator app, as a method for p
 
 Users do not have the option to register their mobile app when registering for self-service password reset from [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup), or in the new security info registration preview at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
+> [!WARNING]
+> You must enable the [Converged registration for self-service password reset and Azure Multi-Factor Authentication (Public preview)](concept-registration-mfa-sspr-converged.md) before users will be able to access the new experience at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+
 ### Change authentication methods
 
 If you start with a policy that has only one required authentication method for reset or unlock registered and you change that to two methods, what happens?

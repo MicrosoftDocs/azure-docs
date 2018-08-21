@@ -3,8 +3,8 @@ title: Guide to creating a solution template for the  Marketplace | Microsoft Do
 description: Detailed instructions of how to create, certify and deploy a Multi-VM Image Solution Template for purchase on the Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 
 ms.assetid: e14e05f2-2385-4ce0-b351-0747cb74ba19
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
-ms.author: mbaldwin
+ms.author: hascipio; v-divte
 
 ---
 # Guide to create a solution template for Azure Marketplace
@@ -58,7 +58,7 @@ Now that you created your solution template and uploaded the zip file, please fo
 You might also be interested in these related articles:
 
 * VM images: [About Virtual Machine Images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-* VM extensions: [VM Agent and VM Extensions Overview](https://msdn.microsoft.com/library/azure/dn832621.aspx) and [Azure VM Extensions and Features](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows)
+* VM extensions: [Azure VM Extensions and Features](../virtual-machines/extensions/features-windows.md)
 * Azure Resource Manager: [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md) and [Simple Template Examples](https://github.com/rjmax/ArmExamples)
 * Storage account throttles: [How to Monitor for Storage Account Throttling](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) and [Premium storage](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)
 

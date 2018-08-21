@@ -3,12 +3,11 @@ title: Release notes for the Azure File Sync agent | Microsoft Docs
 description: Release notes for the Azure File Sync agent.
 services: storage
 author: wmgries
-manager: aungoo
-
 ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
+ms.component: files
 ---
 
 # Release notes for the Azure File Sync agent

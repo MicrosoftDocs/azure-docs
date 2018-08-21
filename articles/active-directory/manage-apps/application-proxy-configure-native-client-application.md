@@ -45,7 +45,7 @@ Configure your native application as follows:
    ![Create a new app registration](./media/application-proxy-configure-native-client-application/create.png)
 5. Select **Create**.
 
-For more detailed information about creating a new app registration, see [Integrating applications with Azure Active Directory](./../develop/active-directory-integrating-applications.md).
+For more detailed information about creating a new app registration, see [Integrating applications with Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 
 ## Step 3: Grant access to other applications
