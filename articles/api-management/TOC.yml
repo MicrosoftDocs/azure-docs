@@ -81,6 +81,8 @@
       href: api-management-capacity.md
     - name: Upgrade and scale
       href: upgrade-and-scale.md
+    - name: Configure autoscale
+      href: api-management-howto-autoscale.md
     - name: Configure a custom domain
       href: configure-custom-domain.md
   - name: Cache
