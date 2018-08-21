@@ -92,7 +92,7 @@ These steps walk through how to set up and generate a storage-as-a-service (SAS)
 
 ### Create an Azure storage account
 
-1. To create a storage account, follow the instructions, [Create a storage account](https://docs.microsoft.com/azure/storage/storage-create-storage-account#create-a-storage-account).
+1. To create a storage account, follow the instructions, [Create a storage account](../../storage/common/storage-quickstart-create-account.md).
 
 2. When selecting the type of storage account, select the **Blob storage** account type.
 
