@@ -391,6 +391,10 @@ An administrator must intervene and determine why the application or cluster bec
 - Bug fix in creation of RM tasks due to which health check during preparing repair tasks wasn't happening as expected.
 - Changed the startup mode for windows service POANodeSvc from auto to delayed-auto.
 
-### Version 1.2.1 (Latest)
+### Version 1.2.1
 
 - Bug fix in cluster scale-down workflow. Introduced garbage collection logic for POA repair tasks belonging to non-existent nodes.
+
+### Version 1.2.2 (Latest)
+
+- Miscellaneous bug fixes.
