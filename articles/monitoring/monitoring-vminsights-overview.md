@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 08/21/2018
 ms.author: magoedte
 
 ---
@@ -23,8 +23,14 @@ ms.author: magoedte
 Azure Monitor VM insights monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including their different processes and interconnected dependencies on other resources and external processes. It includes three key features to deliver this in-depth insight:
 ​
 * Core performance metrics from processor, memory, disk, and network adapter of the guest VM operating system are collected and presented in pre-defined trending performance charts.
-* Dependency map showing the discovered interconnected components with that VM from multiple resource groups and subscriptions
-* Logical components of Azure VMs running Windows and Linux operating system are measured based on a set of pre-configured health criteria and alerts when the evaluated condition is met
+* Dependency map showing the discovered interconnected components with that VM from multiple resource groups and subscriptions.
+* Logical components of Azure VMs running Windows and Linux operating system are measured based on a set of pre-configured health criteria and alerts when the evaluated condition is met.
+
+Viewing this information about your virtual machines is organized into three perspectives:
+
+* Health
+* Performance
+* Maps
 
 Integration with Log Analytics delivers powerful aggregation, filtering, and ability to perform trend analysis of the data over time. 
 
