@@ -28,86 +28,67 @@ The application uses only .NET Core classes and runs on Windows using the .NET C
 
 To run this application, follow these steps.
 
-1. Create a new Console solution in Visual Studio.
-2. replace `Program.cs` with the sample code below, and replace `accessKey` with a valid subscription key.  
-3. Run the program.
+1. create a new Console solution named `BingSearchApisQuickStart` in Visual Studio
+2. Define the application requirements in your solution's main code file.
+    ```csharp
+    using System;
+    using System.Text;
+    using System.Net;
+    using System.IO;
+    using System.Collections.Generic;
+    ```
+3. Define the API endpoint, your subscription key, and search term.
 
+    ```csharp
+    // Replace the accessKey string value with your valid access key.
+    const string accessKey = "enter key here";
+    const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/search";
+    const string searchTerm = "puppies";
+    ```
+
+4. Define a `SearchResult` struct to contain the image search results, and JSON header information.
+    
 ```csharp
-using System;
-using System.Text;
-using System.Net;
-using System.IO;
-using System.Collections.Generic;
-
-namespace BingSearchApisQuickstart
-{
-
-    class Program
+    namespace BingSearchApisQuickstart
     {
-        // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
-
-        // Replace the accessKey string value with your valid access key.
-        const string accessKey = "enter key here";
-
-        // Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-        // search APIs.  In the future, regional endpoints may be available.  If you
-        // encounter unexpected authorization errors, double-check this value against
-        // the endpoint for your Bing search instance in your Azure dashboard.
-        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/search";
-
-        const string searchTerm = "puppies";
-
-        // Used to return image search results including relevant headers
+        class Program
+        {
+...
         struct SearchResult
         {
             public String jsonResult;
             public Dictionary<String, String> relevantHeaders;
         }
+...
+```
+5. Create a method named `BingImageSearch` to perform the call to the API, and return the results as a SearchResult.
 
-        static void Main()
+    ```csharp
+    ...
+    namespace BingSearchApisQuickstart
+    {
+        class Program
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-
-            if (accessKey.Length == 32)
+            static SearchResult BingImageSearch(string searchQuery)
             {
-                Console.WriteLine("Searching images for: " + searchTerm);
+    ```
+    1. In the `BingImageSearch` method, construct the URI for the search request
 
-                SearchResult result = BingImageSearch(searchTerm);
+        ```csharp
+        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery);
+        ```
+    2. Perform the web request and get the response as a JSON string.
 
-                Console.WriteLine("\nRelevant HTTP Headers:\n");
-                foreach (var header in result.relevantHeaders)
-                    Console.WriteLine(header.Key + ": " + header.Value);
-
-                Console.WriteLine("\nJSON Response:\n");
-                Console.WriteLine(JsonPrettyPrint(result.jsonResult));
-            }
-            else
-            {
-                Console.WriteLine("Invalid Bing Search API subscription key!");
-                Console.WriteLine("Please paste yours into the source code.");
-            }
-
-            Console.Write("\nPress Enter to exit ");
-            Console.ReadLine();
-        }
-
-        /// <summary>
-        /// Performs a Bing Image search and return the results as a SearchResult.
-        /// </summary>
-        static SearchResult BingImageSearch(string searchQuery)
-        {
-            // Construct the URI of the search request
-            var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery);
-
-            // Perform the Web request and get the response
-            WebRequest request = HttpWebRequest.Create(uriQuery);
-            request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
-            HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
-            string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-            // Create result object for return
+        ```csharp
+        WebRequest request = HttpWebRequest.Create(uriQuery);
+        request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
+        HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
+        string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
+        // Create result object for return
+        var searchResult = new SearchResult()
+        ```
+    3. Create the search result object, and extract the BING HTTP headers. 
+        ```csharp
             var searchResult = new SearchResult()
             {
                 jsonResult = json,
@@ -120,84 +101,12 @@ namespace BingSearchApisQuickstart
                 if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
                     searchResult.relevantHeaders[header] = response.Headers[header];
             }
+        ```
+6. Write the resulting JSON to the console, 
+    ```csharp
+    Console.WriteLine(JsonPrettyPrint(result.jsonResult));
+    ```
 
-            return searchResult;
-        }
-
-        /// <summary>
-        /// Formats the given JSON string by adding line breaks and indents.
-        /// </summary>
-        /// <param name="json">The raw JSON string to format.</param>
-        /// <returns>The formatted JSON string.</returns>
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json))
-                return string.Empty;
-
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
-
-            StringBuilder sb = new StringBuilder();
-            bool quote = false;
-            bool ignore = false;
-            char last = ' ';
-            int offset = 0;
-            int indentLength = 2;
-
-            foreach (char ch in json)
-            {
-                switch (ch)
-                {
-                    case '"':
-                        if (!ignore) quote = !quote;
-                        break;
-                    case '\\':
-                        if (quote && last != '\\') ignore = true;
-                        break;
-                }
-
-                if (quote)
-                {
-                    sb.Append(ch);
-                    if (last == '\\' && ignore) ignore = false;
-                }
-                else
-                {
-                    switch (ch)
-                    {
-                        case '{':
-                        case '[':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', ++offset * indentLength));
-                            break;
-                        case '}':
-                        case ']':
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', --offset * indentLength));
-                            sb.Append(ch);
-                            break;
-                        case ',':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', offset * indentLength));
-                            break;
-                        case ':':
-                            sb.Append(ch);
-                            sb.Append(' ');
-                            break;
-                        default:
-                            if (quote || ch != ' ') sb.Append(ch);
-                            break;
-                    }
-                }
-                last = ch;
-            }
-
-            return sb.ToString().Trim();
-        }
-    }
-}
-```
 
 ## JSON response
 
