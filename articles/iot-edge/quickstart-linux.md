@@ -287,7 +287,8 @@ Delete the containers that were created on your device by the IoT Edge runtime. 
 Remove the container runtime.
 
    ```bash
-   sudo apt-get remove --purge moby
+   sudo apt-get remove --purge moby-cli
+   sudo apt-get remove --purge moby-engine
    ```
 
 ## Next steps

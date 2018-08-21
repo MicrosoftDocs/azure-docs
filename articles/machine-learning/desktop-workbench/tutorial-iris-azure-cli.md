@@ -253,7 +253,7 @@ $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r 
 Using the web service ID from the output of the previous step, call the web service and test it. 
 
 ```azure-cli
-# Get web service usage infomration
+# Get web service usage information 
 $ az ml service usage realtime -i <web service id>
 
 # Call the web service with the run command:
