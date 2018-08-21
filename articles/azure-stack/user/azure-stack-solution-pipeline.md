@@ -82,7 +82,7 @@ This tutorial assumes that you have some basic knowledge of Azure and Azure Stac
 
 ### Developer tool requirements
 
-* Create a [Azure DevOps workspace](https://docs.microsoft.com/vsts/repos/tfvc/create-work-workspaces). The sign-up process creates a project named **MyFirstProject**.
+* Create an [Azure DevOps workspace](https://docs.microsoft.com/vsts/repos/tfvc/create-work-workspaces). The sign-up process creates a project named **MyFirstProject**.
 * [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to Azure DevOps](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Connect to your project and [clone it locally](https://www.visualstudio.com/docs/git/gitquickstart).
 
@@ -195,6 +195,7 @@ Instead of managing each agent separately, you can organize agents into agent po
 Create a Personal Access Token to access Azure DevOps.
 
 1. Sign in to your Azure DevOps organization and select your organization profile name.
+
 2. Select **Manage Security** to access token creation page.
 
     ![User sign in](media\azure-stack-solution-hybrid-pipeline\000_17.png)
@@ -239,7 +240,7 @@ By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Serv
 
 1. Sign in to VSTO and navigate to the app settings page.
 2. On **Settings**, select **Security**.
-3. In **VSTS Groups**, select **Endpoint Creators**.
+3. In **Azure DevOps Groups**, select **Endpoint Creators**.
 
     ![NorthwindCloud Endpoint Creators](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
 
@@ -249,7 +250,7 @@ By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Serv
 
 5. In **Add users and groups**, enter a user name and select that user from the list of users.
 6. Select **Save changes**.
-7. In the **VSTS Groups** list, select **Endpoint Administrators**.
+7. In the **Azure DevOps Groups** list, select **Endpoint Administrators**.
 
     ![NorthwindCloud Endpoint Administrators](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
 
@@ -265,7 +266,7 @@ Now that the endpoint information exists, the Azure DevOps to Azure Stack connec
 
 In this part of the tutorial you'll:
 
-* Add code to a Azure DevOps project.
+* Add code to an Azure DevOps project.
 * Create self-contained web app deployment.
 * Configure the continuous deployment process
 
@@ -274,7 +275,7 @@ In this part of the tutorial you'll:
 
 Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates like web ](https://azure.microsoft.com/resources/templates/) app code from Azure DevOps to deploy to both clouds.
 
-### Add code to a Azure DevOps project
+### Add code to an Azure DevOps project
 
 1. Sign in to Azure DevOps with an organization that has project creation rights on Azure Stack. The next screen capture shows how to connect to the HybridCICD project.
 
@@ -311,7 +312,7 @@ Using a hosted build agent in Azure DevOps is a convenient option for building a
 
 ### Configure the continuous deployment (CD) process
 
-Azure DevOps Services and Azure DevOps Server provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, quality assurance (QA), and production. This process can include requiring approvals at specific stages of the application life cycle.
+Azure DevOps Services and Team Foundation Server (TFS) provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, quality assurance (QA), and production. This process can include requiring approvals at specific stages of the application life cycle.
 
 ### Create release definition
 
