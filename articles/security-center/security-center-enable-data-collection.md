@@ -224,7 +224,7 @@ If you switch off auto provision after it was previously on:
 -	Security Center stops collecting data from the default workspace
  
 > [!NOTE]
->  Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Security Center](security-center-platform-migration-faq.md#how-do-i-remove-mdoms-extensions-installed-by-security-center).
+>  Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Security Center](security-center-platform-migration-faq#how-do-i-remove-mdoms-extensions-installed-by-security-center).
 >
 	
 ## Manual agent provisioning <a name="manualagent"></a>
