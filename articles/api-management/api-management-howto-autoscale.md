@@ -17,7 +17,7 @@ ms.author: apimpm
 
 # Automatically scale an Azure API Management instance  
 
-Azure API Management service instance can scale automatically based on a set of rules. This behavior can be enabled and configured through Azure Monitor and is supported in **Standard** and **Premium** tiers of the Azure API Management service.
+Azure API Management service instance can scale automatically based on a set of rules. This behavior can be enabled and configured through Azure Monitor and is supported only in **Standard** and **Premium** tiers of the Azure API Management service.
 
 The article walks through the process of configuring autoscale and suggests optimal configuration of autoscale rules.
 
@@ -36,13 +36,13 @@ Certain limitations and consequences of scaling decisions need to be considered 
 
 + Autoscale can be enabled only for **Standard** and **Premium** tiers of Azure API Management service.
 + Pricing tiers also specify the maximum number of units for a service instance.
-+ Scaling process will take at least 20 minutes. If the service instance is locked by another operation, the process will take longer.
-+ In case of multiregional deployments, only units in the **Primary location** can be scaled. Units in secondary locations can't be scaled.
-+ Scaling will trigger a restart of the Azure API Management units, which can cause an intermittent performance degradation.
++ Scaling process will take at least 20 minutes.
++ If the service is locked by another operation, scaling request will fail and retry automatically.
++ In case of a service with multi-regional deployments, only units in the **Primary location** can be scaled. Units in other locations can't be scaled.
 
-## Enable and configure autoscale for Azure API Management instance
+## Enable and configure autoscale for Azure API Management service
 
-Follow the steps below to configure autoscale behavior for an Azure API Management instance.
+Follow the steps below to configure autoscale for an Azure API Management service:
 
 1. Navigate to **Monitor** instance in the Azure portal.
 
@@ -52,8 +52,8 @@ Follow the steps below to configure autoscale behavior for an Azure API Manageme
 
     ![Azure Monitor autoscale resource](media/api-management-howto-autoscale/02.png)
 
-3. Specify location of your Azure API Management instance in the dropdown menus.
-4. Click on the Azure API Management instance.
+3. Locate your Azure API Management service based on the filters in dropdown menus.
+4. Select the desired Azure API Management service instance.
 5. In the newly opened section, click the **Enable autoscale** button.
 
     ![Azure Monitor autoscale enable](media/api-management-howto-autoscale/03.png)
@@ -101,7 +101,7 @@ Follow the steps below to configure autoscale behavior for an Azure API Manageme
     | Metric name           | Capacity          | Same metric as the one used for the scale out rule.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
     | Time grain statistic  | Average           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | Operator              | Less than         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-    | Threshold             | 35%               | Similarly to the scale out rule, this value heavily depends on the usage patterns of the Azure API Management. <br /> Ideally, it should be lower than half of the value used for scale out purposes. For example, if 80% was used for the scale out rule and Azure API Management instance has scaled out from 1 to 2 units, the new average capacity metric value might drop to around 80% / 2 = 40%. To avoid constant deadlock between scaling out and in, 35% could be a reasonable threshold. |
+    | Threshold             | 35%               | Similarly to the scale out rule, this value heavily depends on the usage patterns of the Azure API Management. |
     | Duration (in minutes) | 30                | Same value as the one used for the scale out rule.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | *Action*              |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | Operation             | Decrease count by | Opposite to what was used for the scale out rule.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
@@ -115,7 +115,7 @@ Follow the steps below to configure autoscale behavior for an Azure API Manageme
 12. Set the **maximum** number of Azure API Management units.
 
     > [!NOTE]
-    > Azure API Management tiers enforce a limit of units an instance can scale out to.
+    > Azure API Management has a limit of units an instance can scale out to. The limit depends on a service tier.
 
     ![Azure Monitor scale in rule](media/api-management-howto-autoscale/07.png)
 
@@ -124,4 +124,3 @@ Follow the steps below to configure autoscale behavior for an Azure API Manageme
 ## Next steps
 
 + [How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md)
-+ [How to automatically scale an Azure API Management service instance](api-management-howto-autoscale.md)
