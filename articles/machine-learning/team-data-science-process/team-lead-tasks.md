@@ -26,11 +26,11 @@ A **Team Lead** manages a team in the data science unit of an enterprise. A team
 
 ![1](./media/team-lead-tasks/team-leads-1-creating-teams.png)
 
->[AZURE.NOTE] The tasks in blocks 1 and 2 of the figure are needed if you are using Visual Studio Team Services (VSTS) as the code hosting platform and you want to have a separate team project for your own team. Once these tasks are completed, all repositories of your team can be created under this team project. 
+>[AZURE.NOTE] The tasks in blocks 1 and 2 of the figure are needed if you are using Azure DevOps as the code hosting platform and you want to have a separate team project for your own team. Once these tasks are completed, all repositories of your team can be created under this team project. 
 
 After several prerequisites tasks specified in a following section are satisfied by the group manager, there are the five principal tasks (some optional) that you complete in this tutorial. These tasks correspond the main numbered sections of this topic:
 
-1. Create a **team project** on the group's VSTS server of the group and two team repositories in the project:
+1. Create a **team project** on the group's Azure DevOps server of the group and two team repositories in the project:
 	- **ProjectTemplate repository** 
 	- **TeamUtilities repository**
 2. Seed the team **ProjectTemplate** repository from the **GroupProjectTemplate** repository which has been set up by your group manager. 
@@ -40,13 +40,13 @@ After several prerequisites tasks specified in a following section are satisfied
 4. (Optional) Mount the Azure file storage to the **Data Science Virtual Machine** (DSVM) of the team lead and add data assets on it.
 5. Set up the **security control** by adding team members and configure their privileges.
 
->[AZURE.NOTE] We outline the steps needed to set up a TDSP team environment using VSTS in the following instructions. We specify how to accomplish these tasks with VSTS because that is how we implement TDSP at Microsoft. If another code hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different.
+>[AZURE.NOTE] We outline the steps needed to set up a TDSP team environment using Azure DevOps in the following instructions. We specify how to accomplish these tasks with Azure DevOps because that is how we implement TDSP at Microsoft. If another code hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different.
 
 ## Repositories and directories
 
 This topic   uses abbreviated names for repositories and directories. These names make it easier to follow the operations between the repositories and directories. This notation (**R** for Git repositories and **D** for local directories on your DSVM) is used in the following sections:
 
-- **R1**: The **GroupProjectTemplate** repository on Git that your group manager set up on your VSTS group server.
+- **R1**: The **GroupProjectTemplate** repository on Git that your group manager set up on your Azure DevOps group server.
 - **R3**: The team **ProjectTemplate** repository on Git you set up.
 - **R4**: The **TeamUtilities** repository on Git you set up.
 - **D1**: The local directory cloned from R1 and copied to D3.
@@ -67,24 +67,24 @@ In any case, team leads need to let their team members know which template and u
 
 The prerequisites are satisfied by completing the tasks assigned to your group manager outlined in [Group Manager tasks for a data science team](group-manager-tasks.md). To summarize here, the following requirements need to meet before you begin the team lead tasks: 
 
-- Your **group VSTS server** (or group account on some other code hosting platform) has been set up by your group manager.
+- Your **group Azure DevOps server** (or group account on some other code hosting platform) has been set up by your group manager.
 - Your **GroupProjectTemplate repository** (R1) has been set up on your group account by your group manager on the code hosting platform you plan to use.
 - You have been **authorized** on your group account to create repositories for your team.
 - Git must be installed on your machine. If you are using a Data Science Virtual Machine (DSVM), Git has been pre-installed and you are good to go. Otherwise, see the [Platforms and tools appendix](platforms-and-tools.md#appendix).  
 - If you are using a **Windows DSVM**, you need to have [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installed on your machine. In the README.md file, scroll down to the **Download and Install** section and click the *latest installer*. This takes you to the latest installer page. Download the .exe installer from here and run it. 
-- If you are using **Linux DSVM**, create an SSH public key on your DSVM and add it to your group VSTS server. For more information about SSH, see the **Create SSH public key** section in the [Platforms and tools appendix](platforms-and-tools.md#appendix). 
+- If you are using **Linux DSVM**, create an SSH public key on your DSVM and add it to your group Azure DevOps server. For more information about SSH, see the **Create SSH public key** section in the [Platforms and tools appendix](platforms-and-tools.md#appendix). 
 	
 ## 1. Create a team project and repositories
 
-Complete this step if you are using VSTS as your code hosting platform for versioning and collaboration. This section has you create three artifacts in the VSTS server of your group:
+Complete this step if you are using Azure DevOps as your code hosting platform for versioning and collaboration. This section has you create three artifacts in the Azure DevOps server of your group:
 
-- **MyTeam** project in VSTS
+- **MyTeam** project in Azure DevOps
 - **MyProjectTemplate** repository (**R3**) on Git
 - **MyTeamUtilities** repository (**R4**) on Git
 
 ### Create the MyTeam project
 
-- Go to your group's VSTS server homepage at URL `https://<VSTS Server Name\>.visualstudio.com`. 
+- Go to your group's Azure DevOps server homepage at URL `https://<Azure DevOps Server Name\>.visualstudio.com`. 
 - Click **New** to create a team project. 
 
 	![2](./media/team-lead-tasks/team-leads-2-create-new-team.png)
@@ -165,39 +165,39 @@ To begin this procedure:
 
 **Windows**
 
-	git clone https://<Your VSTS Server name>.visualstudio.com/GroupCommon/_git/GroupProjectTemplate
+	git clone https://<Your Azure DevOps Server name>.visualstudio.com/GroupCommon/_git/GroupProjectTemplate
 	
 
 ![12](./media/team-lead-tasks/team-leads-12-create-two-group-repos.png)
 
 **Linux**
 	
-	git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/GroupCommon/_git/GroupProjectTemplate
+	git clone ssh://<Your Azure DevOps Server name>@<Your Azure DevOps Server name>.visualstudio.com:22/GroupCommon/_git/GroupProjectTemplate
 	
 	
 ![13](./media/team-lead-tasks/team-leads-13-clone_two_group_repos_linux.png)
 
-These commands clone your **GroupProjectTemplate** (R1) repository on your group VSTS server to local directory in **GitRepos\GroupCommon** on your local machine. After cloning, directory **GroupProjectTemplate** (D1) is created in directory **GitRepos\GroupCommon**. Here, we assume that your group manager created a team project **GroupCommon**, and the **GroupProjectTemplate** repository is under this team project. 
+These commands clone your **GroupProjectTemplate** (R1) repository on your group Azure DevOps server to local directory in **GitRepos\GroupCommon** on your local machine. After cloning, directory **GroupProjectTemplate** (D1) is created in directory **GitRepos\GroupCommon**. Here, we assume that your group manager created a team project **GroupCommon**, and the **GroupProjectTemplate** repository is under this team project. 
 
 
 ### Clone your team repositories into local directories
 
-These commands clone your **MyTeamProjectTemplate** (R3) and **MyTeamUtilities** (R4) repositories under your team project **MyTeam** on your group VSTS server to the **MyTeamProjectTemplate** (D3) and **MyTeamUtilities** (D4) directories in **GitRepos\MyTeam** on your local machine. 
+These commands clone your **MyTeamProjectTemplate** (R3) and **MyTeamUtilities** (R4) repositories under your team project **MyTeam** on your group Azure DevOps server to the **MyTeamProjectTemplate** (D3) and **MyTeamUtilities** (D4) directories in **GitRepos\MyTeam** on your local machine. 
 
 - Change to directory **GitRepos\MyTeam**
 - Run the following commands, as appropriate, on the operating system of your local machine. 
 
 **Windows**
 
-	git clone https://<Your VSTS Server name>.visualstudio.com/<Your Team Name>/_git/MyTeamProjectTemplate
-	git clone https://<Your VSTS Server name>.visualstudio.com/<Your Team Name>/_git/MyTeamUtilities
+	git clone https://<Your Azure DevOps Server name>.visualstudio.com/<Your Team Name>/_git/MyTeamProjectTemplate
+	git clone https://<Your Azure DevOps Server name>.visualstudio.com/<Your Team Name>/_git/MyTeamUtilities
 
 ![14](./media/team-lead-tasks/team-leads-14-clone_two_empty_team_repos.png)
 		
 **Linux**
 	
-	git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamProjectTemplate
-	git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamUtilities
+	git clone ssh://<Your Azure DevOps Server name>@<Your Azure DevOps Server name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamProjectTemplate
+	git clone ssh://<Your Azure DevOps Server name>@<Your Azure DevOps Server name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamUtilities
 	
 ![15](./media/team-lead-tasks/team-leads-15-clone_two_empty_team_repos_linux.png)
 
@@ -245,7 +245,7 @@ To add the contents in the (optionally customized) local directories D3 and D4 t
 	
 ![18](./media/team-lead-tasks/team-leads-18-push-to-group-server-2.png)
 
-The files in the MyTeamProjectTemplate repository of your group's VSTS server are synced nearly instantly when this script is run.
+The files in the MyTeamProjectTemplate repository of your group's Azure DevOps server are synced nearly instantly when this script is run.
 
 ![19](./media/team-lead-tasks/team-leads-19-push-to-group-server-showed-up.png)
 
@@ -405,7 +405,7 @@ If you do not have your Azure file storage information on a text file, you can f
 
 ## 5. Set up security control policy 
 
-From your group VSTS server's homepage, click the **gear icon** next to your user name in the upper right corner, then select the **Security** tab. You can add members to your team here with various permissions.
+From your group Azure DevOps server's homepage, click the **gear icon** next to your user name in the upper right corner, then select the **Security** tab. You can add members to your team here with various permissions.
 
 ![44](./media/team-lead-tasks/team-leads-44-add-team-members.png)
 
