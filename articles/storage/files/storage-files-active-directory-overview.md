@@ -35,7 +35,7 @@ It's helpful to understand some key terms relating to Azure AD authentication ov
 
 -   **Kerberos authentication**
 
-    Kerberos is an authentication protocol that is used to verify the identity of a user or host. For more information on Kerberos, see [Configure Kerberos constrained delegation (KCD) on a managed domain](../../active-directory-domain-services/active-directory-ds-enable-kcd.md).
+    Kerberos is an authentication protocol that is used to verify the identity of a user or host. For more information on Kerberos, see [Kerberos Authentication Overview](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview).
 
 -  **Server Message Block (SMB) protocol**
 
@@ -81,8 +81,8 @@ When a user tries to mount an Azure file share or access a directory or file in 
 
 ### Configure directory- or file-level permissions for Azure Files 
 
-Azure Files enforces standard NTFS file permissions at the directory and file level, including at the root directory. Configuration of directory- or file-level permissions is supported over SMB only. Mount the target file share from your VM and configure permissions using the
-[icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) command tool. 
+Azure Files enforces standard NTFS file permissions at the directory and file level, including at the root directory. Configuration of directory- or file-level permissions is supported over SMB only. Mount the target file share from your VM and configure permissions using the Windows
+[icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) or [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) command. 
 
 Configuring NTFS permissions through Windows File Explorer is not supported in the preview.
 
