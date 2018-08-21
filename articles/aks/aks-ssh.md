@@ -49,7 +49,7 @@ aks-nodepool1-42032720-2  10.240.0.4
 Run the `debian` container image and attach a terminal session to it. The container can then be used to create an SSH session with any node in the AKS cluster.
 
 ```console
-kubectl run -it --rm aks-ssh --image=debian
+kubectl run -it --rm aks-ssh --restart=Never --image=debian
 ```
 
 Install an SSH client in the container.
@@ -58,19 +58,10 @@ Install an SSH client in the container.
 apt-get update && apt-get install openssh-client -y
 ```
 
-Open a second terminal and list all pods to get the newly created pod name.
+Open a second terminal and copy the private SSH key to the pod.
 
 ```console
-$ kubectl get pods
-
-NAME                       READY     STATUS    RESTARTS   AGE
-aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
-```
-
-Copy the private SSH key to the pod, replace the pod name with the proper value.
-
-```console
-kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
+kubectl cp ~/.ssh/id_rsa aks-ssh:/id_rsa
 ```
 
 Update the `id_rsa` file so that it is user read-only.
