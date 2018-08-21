@@ -149,12 +149,143 @@ Now that you've set up your virtual environment and installed the Bing Web Searc
 
 ## Define functions and filter results
 
-Now that you've made your first call to the Bing Web Search API, let's take a look at additional functionality and filtering.
+Now that you've made your first call to the Bing Web Search API, let's look at a few functions that highlight SDK functionality for refining queries and filtering results. Each of these samples can be added to your Python program that was created in the last section.
 
-### Set the response filter to news and freshness to today
+### Limit the number of results returned by Bing
 
-### Enable Safe Search, set the answer count and use the promote filter
+This sample uses the `count` and `offset` parameters to filter search results using the SDK's [`search` method](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search). The `name` and `URL` for the first result are displayed.
+
+1. Add this sample code to your Python project:
+    ```python
+    # Declare the function.
+    def web_results_with_count_and_offset(subscription_key):
+        client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
+    
+        try:
+            '''
+            Set the query, offset, and count using the SDK's search method. See:
+            https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search.
+            '''
+            web_data = client.web.search(query="Best restaurants in Seattle", offset=10, count=20)
+            print("\r\nSearching for \"Best restaurants in Seattle\"")
+    
+            if web_data.web_pages.value:
+                '''
+                If web pages are available, print the # of responses, and the first and second
+                web pages returned.
+                '''
+                print("Webpage Results#{}".format(len(web_data.web_pages.value)))
+    
+                first_web_page = web_data.web_pages.value[0]
+                print("First web page name: {} ".format(first_web_page.name))
+                print("First web page URL: {} ".format(first_web_page.url))
+    
+            else:
+                print("Didn't find any web pages...")
+    
+        except Exception as err:
+            print("Encountered exception. {}".format(err))
+    ```
+2. Run the program.
+
+### Filter for news and freshness
+
+This sample uses the `response_filter` and `freshness` parameters to filter search results using the SDK's [`search` method](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search). The search results returned are limited to "News" and pages that Bing has discovered in the last 24 hours. The `name` and `URL` for the first result are displayed.
+
+1. Add this sample code to your Python project:
+    ```python
+    # Declare the function.
+    def web_search_with_response_filter(subscription_key):
+        client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
+        try:
+            '''
+            Set the query, response_filter, and freshness using the SDK's search method. See:
+            https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search.
+            '''
+            web_data = client.web.search(query="xbox",
+                response_filter=["News"],
+                freshness="Day")
+            print("\r\nSearching for \"xbox\" with the response filter set to \"News\" and freshness filter set to \"Day\".")
+    
+            '''
+            If news articles are available, print the # of responses, and the first and second
+            articles returned.
+            '''
+            if web_data.news.value:
+    
+                print("# of news results: {}".format(len(web_data.news.value)))
+    
+                first_web_page = web_data.news.value[0]
+                print("First article name: {} ".format(first_web_page.name))
+                print("First article URL: {} ".format(first_web_page.url))
+    
+                print("")
+    
+                second_web_page = web_data.news.value[1]
+                print("\nSecond article name: {} ".format(second_web_page.name))
+                print("Second article URL: {} ".format(second_web_page.url))
+    
+            else:
+                print("Didn't find any news articles...")
+    
+        except Exception as err:
+            print("Encountered exception. {}".format(err))
+    
+    # Call the function.
+    web_search_with_response_filter(subscription_key)
+    ```
+2. Run the program.
+
+### Use safe search, answer count, and promotion filters
+
+This sample uses the `answer_count`, `promote`, and `safe_search` parameters to filter search results using the SDK's [`search` method](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search). The `name` and `URL` for the first result are displayed.
+
+The `name` and `URL` for the first result are displayed.
+
+1. Sample
+    ```python
+    # Declare the function.
+    def web_search_with_answer_count_promote_and_safe_search(subscription_key):
+    
+        client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
+    
+        try:
+            '''
+            Set the query, answer_count, promote, and safe_search parameters using the SDK's search method. See:
+            https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search.
+            '''
+            web_data = client.web.search(
+                query="Niagara Falls",
+                answer_count=2,
+                promote=["videos"],
+                safe_search=SafeSearch.strict  # or directly "Strict"
+            )
+            print("\r\nSearching for \"Niagara Falls\"")
+            
+            '''
+            If results are available, print the # of responses, and the first result returned.
+            '''    
+            if web_data.web_pages.value:
+    
+                print("Webpage Results#{}".format(len(web_data.web_pages.value)))
+    
+                first_web_page = web_data.web_pages.value[0]
+                print("First web page name: {} ".format(first_web_page.name))
+                print("First web page URL: {} ".format(first_web_page.url))
+    
+            else:
+                print("Didn't see any Web data..")
+    
+        except Exception as err:
+            print("Encountered exception. {}".format(err))
+    ```
+2. Run the program.
 
 ## Next steps
 
-[Cognitive Services Python SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+> [!div class="nextstepaction"]
+> [Cognitive Services Python SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+
+## See also 
+
+* [Bing Web Search SDK for Python reference](https://docs.microsoft.com/en-us/python/api/overview/azure/cognitiveservices/websearch?view=azure-python)

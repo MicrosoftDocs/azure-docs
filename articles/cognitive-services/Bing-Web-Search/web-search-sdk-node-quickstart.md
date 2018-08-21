@@ -14,13 +14,11 @@ ms.author: v-gedod, erhopf
 
 # Quickstart: Use the Bing Web Search SDK for Node.js
 
-The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
+The Bing Web Search SDK makes it easy to integrate Bing Web Search into your application. In this quickstart, you'll learn how to use the Bing Web Search SDK for Node.js to make a call to the REST API, receive a JSON response, and filter and parse the results. [Sample code for this quickstart is available on GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/webSearch.js).
 
 [!INCLUDE [quickstart-signup](includes/quickstart-signup.md)]
 
-The [source code for Node Bing Web Search SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/webSearch.js) is available on Git Hub.
-
-## Application dependencies
+## Prerequisites
 
 To set up a console application using the Bing Web Search SDK, run `npm install azure-cognitiveservices-websearch` in your development environment.
 
