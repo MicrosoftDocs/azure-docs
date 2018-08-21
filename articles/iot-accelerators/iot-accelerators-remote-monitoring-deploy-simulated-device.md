@@ -46,6 +46,16 @@ To follow this how-to guide, you need:
 
 In this section, you configure Docker to load the device model files from the **/tmp/devicemodels** folder in the virtual machine rather than from inside the Docker container. Run the commands in this section in a **bash** shell on your local machine:
 
+In this section, you configure Docker to load the device model files from the **/tmp/devicemodels** folder in the virtual machine rather than from inside the Docker container. Run the commands in this section in a **bash** shell on your local machine:
+
+1. Use SSH to connect to the virtual machine in Azure from your local machine. The following command assumes the public IP address of virtual machine **vm-vikxv** is **104.41.128.108** -- replace this value with the public IP address of your virtual machine from the previous section:
+
+   ```sh
+    ssh azureuser@104.41.128.108
+    ```
+
+    Follow the prompts to sign in to the virtual machine with the password you set in the previous section.
+
 1. Configure the device simulation service to load the device models from outside the container. First open the Docker configuration file:
 
     ```sh
@@ -82,7 +92,7 @@ In this section, you configure Docker to load the device model files from the **
     docker ps
     ```
 
-    Then copy the device model files to the **tmp** folder in the virtual machine. The following command assumes the container ID is c378d6878407 - replace this value with your device simulation container ID:
+    Then copy the device model files to the **tmp** folder in the virtual machine. The following command assumes the container ID is c378d6878407 -- replace this value with your device simulation container ID:
 
     ```sh
     docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
@@ -90,7 +100,7 @@ In this section, you configure Docker to load the device model files from the **
 
     Keep the **bash** window with your SSH session open.
 
-1. Copy your custom device model files into the virtual machine. Run this command in another **bash** shell on the machine where you created your custom device models. First, navigate to the local folder that contains your device model JSON files. The following commands assume the public IP address of the virtual machine is **104.41.128.108** - replace this value with the public IP address of your virtual machine. Enter your virtual machine password when prompted:
+1. Copy your custom device model files into the virtual machine. Run this command in another **bash** shell on the machine where you created your custom device models. First, navigate to the local folder that contains your device model JSON files. The following commands assume the public IP address of the virtual machine is **104.41.128.108** -- replace this value with the public IP address of your virtual machine. Enter your virtual machine password when prompted:
 
     ```sh
     scp *json azureuser@104.41.128.108:/tmp/devicemodels
