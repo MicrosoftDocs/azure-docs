@@ -313,13 +313,13 @@ This section describes how to delete and re-create a Run As or Classic Run As ac
 
 1. On the **Run As Accounts** properties page, select either the Run As account or Classic Run As account that you want to delete. Then, on the **Properties** pane for the selected account, click **Delete**.
 
- ![Delete Run As account](media/automation-manage-account/automation-account-delete-runas.png)
+ ![Delete Run As account](media/manage-runas-account/automation-account-delete-runas.png)
 
 1. While the account is being deleted, you can track the progress under **Notifications** from the menu.
 
 1. After the account has been deleted, you can re-create it on the **Run As Accounts** properties page by selecting the create option **Azure Run As Account**.
 
- ![Re-create the Automation Run As account](media/automation-manage-account/automation-account-create-runas.png)
+ ![Re-create the Automation Run As account](media/manage-runas-account/automation-account-create-runas.png)
 
 ## <a name="cert-renewal"></a>Self-signed certificate renewal
 
@@ -336,13 +336,13 @@ To renew the certificate, do the following:
 
 1. Select **Run As Accounts** under **Account Settings**.
 
-    ![Automation account properties pane](media/automation-manage-account/automation-account-properties-pane.png)
+    ![Automation account properties pane](media/manage-runas-account/automation-account-properties-pane.png)
 
 1. On the **Run As Accounts** properties page, select either the Run As account or the Classic Run As account that you want to renew the certificate for.
 
 1. On the **Properties** pane for the selected account, click **Renew certificate**.
 
-    ![Renew certificate for Run As account](media/automation-manage-account/automation-account-renew-runas-certificate.png)
+    ![Renew certificate for Run As account](media/manage-runas-account/automation-account-renew-runas-certificate.png)
 
 1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
 
@@ -353,7 +353,7 @@ To control targeting of automation against resources in Azure Automation, the Ru
 
 In the Azure portal, select **Subscriptions** and choose the subscription of your Automation Account. Select **Access control (IAM)** and search for the service principal for your Automation Account (it looks like \<AutomationAccountName\>_unique identifier). Select the account and click **Remove** to remove it from the subscription.
 
-![Subscription contributors](media/automation-create-runas-account/automation-account-remove-subscription.png)
+![Subscription contributors](media/manage-runas-account/automation-account-remove-subscription.png)
 
 To add the service principal to a resource group, select the resource group in the Azure portal and select **Access control (IAM)**. Select **Add**, this opens the **Add permissions** page. For **Role**, select **Contributor**. In the **Select** text box type in the name of the service principal for your Run As account, and select it from the list. Click **Save** to save the changes. Do this for the resources groups you want to give your Azure Automation Run As service principal access to.
 
