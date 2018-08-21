@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure Active Directory integration with Azure Files (Preview) | Microsoft Docs
-description: Learn how to use Azure Active Directory integration with Azure Files to grant access to file shares, directories, or files over SMB (Preview).
+title: Overview of Azure Active Directory authentication over SMB for Azure Files (Preview) | Microsoft Docs
+description: Learn how to use Azure Active Directory (Azure AD) authentication over SMB for Azure Files. Your Azure VMs can use Azure AD credentials to access Azure file shares, directories, or files.
 services: storage
 author: tamram
 
@@ -10,11 +10,11 @@ ms.date: 08/19/2018
 ms.author: tamram
 ---
 
-# Overview of Azure Active Directory authentication with Azure Files over SMB (Preview)
+# Overview of Azure Active Directory authentication over SMB for Azure Files (Preview)
 
-[!INCLUDE [storage-files-aad-integration-include](../../../includes/storage-files-aad-integration-include.md)]
+[!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-To learn how to enable Azure AD authentication over SMB, see [Enable Azure Active Directory integration with Azure Files (Preview)](storage-files-active-directory-enable.md).
+To learn how to enable Azure AD authentication over SMB for Azure Files, see [Enable Azure Active Directory authentication over SMB for Azure Files (Preview)](storage-files-active-directory-enable.md).
 
 ## Glossary 
 
@@ -67,7 +67,7 @@ When a user attempts to access data in Azure Files, the request is sent to Azure
 
 ### Enable Azure AD authentication over SMB
 
-You can enable Azure AD authentication over SMB on your new and existing storage accounts. Once Azure AD integration has been enabled, you can configure role-based access control (RBAC) for your Azure AD users and security groups and assign access rights to any file shares in the storage account. 
+You can enable Azure AD authentication over SMB for Azure Files on your new and existing storage accounts. Once Azure AD authentication has been enabled, you can configure role-based access control (RBAC) for your Azure AD users and security groups and assign access rights to any file shares in the storage account. 
 
 Before enabling Azure AD authentication over SMB, verify that Azure AD Domain Services has been deployed for the primary Azure AD tenant with which your storage account is associated. If you have not yet setup Azure AD Domain Services, follow the step by step guidance provided in [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
 
@@ -105,5 +105,6 @@ There is no additional service charge to enable Azure AD authentication over SMB
 
 See these resources for more information about Azure Files and Azure AD authentication over SMB:
 
--   [Introduction to Azure Files](storage-files-introduction.md)
--   [Enable Azure Active Directory authentication over SMB for Azure Files (Preview)](storage-files-active-directory-enable.md)
+- [Introduction to Azure Files](storage-files-introduction.md)
+- [Enable Azure Active Directory authentication over SMB for Azure Files (Preview)](storage-files-active-directory-enable.md)
+- [FAQ](storage-files-faq.md)
