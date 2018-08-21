@@ -47,6 +47,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Application Gateways |[Diagnostics Logging for Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log analytics for Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch diagnostic logging](../batch/batch-diagnostics.md) |
+| Cognitive Services | Schema not available. |
 | Content Delivery Network | [Azure Diagnostic Logs for CDN](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB Logging](../cosmos-db/logging.md) |
 | Data Factory | [Monitor Data Factories using Azure Monitor](../data-factory/monitor-using-azure-monitor.md) |
@@ -55,6 +56,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | DB for PostgreSQL |  Schema not available. |
 | Event Hubs |[Azure Event Hubs diagnostic logs](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schema not available. |
+| Azure Firewall | Schema not available. |
 | IoT Hub | [IoT Hub Operations](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Key Vault Logging](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
