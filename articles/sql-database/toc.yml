@@ -15,6 +15,8 @@
     href: sql-database-get-started-cli.md
   - name: Create DB - Azure PowerShell
     href: sql-database-get-started-powershell.md
+  - name: Create Managed Instance
+    href: sql-database-managed-instance-get-started.md
   - name: Connect and query
     href: sql-database-connect-query.md
     items:
@@ -126,6 +128,8 @@
       href: sql-database-managed-instance-custom-dns.md
     - name: Sync network configuration
       href: sql-database-managed-instance-sync-network-configuration.md
+    - name: Connectivity architecture
+      href: sql-database-managed-instance-connectivity-architecture.md
     - name: Connect applications
       href: sql-database-managed-instance-connect-app.md
     - name: T-SQL differences
@@ -478,7 +482,7 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
-  - name: Multi-tenant SaaS reference architecture
+  - name: Multi-tenant SaaS sample application
     items:
     - name: Wingtip Tickets sample
       href: saas-tenancy-welcome-wingtip-tickets-app.md

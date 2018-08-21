@@ -29,6 +29,9 @@ If you want to be more aggressive at identifying underutilized virtual machines,
 ## Reduce costs by eliminating unprovisioned ExpressRoute circuits
 Advisor identifies ExpressRoute circuits that have been in the provider status of *Not Provisioned* for more than one month, and recommends deleting the circuit if you aren't planning to provision the circuit with your connectivity provider.
 
+## Reduce costs by deleting or reconfiguring idle virtual network gateways
+Advisor identifies virtual network gates that have been idle for over 90 days. Since these gateways are billed hourly, you should consider reconfiguring or deleting them if you don't intend to use them anymore. 
+
 ## Buy reserved virtual machine instances to save money over pay-as-you-go costs
 Advisor will review your virtual machine usage over the last 30 days and determine if you could save money by purchasing an Azure reservation. Advisor will show you the regions and sizes where you potentially have the most savings and will show you the estimated savings from purchasing reservations. 
 

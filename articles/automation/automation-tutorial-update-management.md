@@ -120,9 +120,6 @@ To customize the subject of the alert email,  under **Create rule**, under **Cus
 
 Next, schedule a deployment that follows your release schedule and service window to install updates. You can choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
 
-> [!WARNING]
-> When updates require a restart, the VM is restarted automatically.
-
 To schedule a new update deployment for the VM, go to **Update management**, and then select **Schedule update deployment**.
 
 Under **New update deployment**, specify the following information:
@@ -130,6 +127,8 @@ Under **New update deployment**, specify the following information:
 * **Name**: Enter a unique name for the update deployment.
 
 * **Operating system**: Select the OS to target for the update deployment.
+
+* **Machines to update**: Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
 * **Update classification**: Select the types of software that the update deployment included in the deployment. For this tutorial, leave all types selected.
 
@@ -148,9 +147,18 @@ Under **New update deployment**, specify the following information:
 
 * **Maintenance window (minutes)**: Leave the default value. You can set the window of time that you want the update deployment to occur within. This setting helps ensure that changes are performed within your defined service windows.
 
+* **Reboot options**: This setting
+detemines how reboots should be handled. Available options are:
+  * Reboot if required (Default)
+  * Always reboot
+  * Never reboot
+  * Only reboot - will not install updates
+
+When you're finished configuring the schedule, select **Create**.
+
 ![Update Schedule Settings pane](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-When you're finished configuring the schedule, select **Create**. You're returned to the status dashboard. Select **Scheduled Update deployments** to show the deployment schedule you created.
+You're returned to the status dashboard. Select **Scheduled Update deployments** to show the deployment schedule you created.
 
 ## View results of an update deployment
 

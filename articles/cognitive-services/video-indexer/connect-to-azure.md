@@ -40,11 +40,11 @@ This article shows how to create a Video Indexer account that's linked to an Azu
 
         ![access control](./media/create-account/access-control-iam.png)
 
-    * Register the EventGrid resource provider using the Azure portal.
+* Register the EventGrid resource provider using the Azure portal.
 
-        In the Azure portal, go to **Subscriptions** > [subscription] > **ResourceProviders** > **Microsoft.EventGrid**. If not in the "Registered" state, click **Register**. It takes a couple of minutes to register. 
+    In the Azure portal, go to **Subscriptions** > [subscription] > **ResourceProviders** > **Microsoft.EventGrid**. If not in the "Registered" state, click **Register**. It takes a couple of minutes to register. 
 
-        ![EventGrid](./media/create-account/event-grid.png)
+    ![EventGrid](./media/create-account/event-grid.png)
 
 ## Connect to Azure
 

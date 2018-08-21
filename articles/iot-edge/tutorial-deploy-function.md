@@ -4,7 +4,7 @@ description: In this tutorial, you deploy an Azure function as a module to an ed
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 08/10/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -21,6 +21,10 @@ You can use Azure Functions to deploy code that implements your business logic d
 > * Use VS Code and Docker to create a Docker image and publish it to a container registry.
 > * Deploy the module from the container registry to your IoT Edge device.
 > * View filtered data.
+
+<center>
+![Tutorial architecture diagram](./media/tutorial-deploy-function/FunctionsTutDiagram.png)
+</center>
 
 >[!NOTE]
 >Azure Function modules on Azure IoT Edge are in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
