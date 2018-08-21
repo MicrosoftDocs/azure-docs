@@ -16,6 +16,8 @@ Use this quickstart to make your first call to the Bing Image Search API and rec
 
 While this application is written in Java, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON.
 
+The source code for this Java sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7.java).
+
 ## Prerequisites
 
 * The [Java Development Kit(JDK) 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 

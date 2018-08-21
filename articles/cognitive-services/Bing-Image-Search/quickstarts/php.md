@@ -16,6 +16,8 @@ Use this quickstart to make your first call to the Bing Image Search API and rec
 
 While this application is written in PHP, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON.
 
+The source code for this PHP sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7.java).
+
 ## Prerequisites
 
 * [PHP 5.6.x or later](http://php.net/downloads.php).
