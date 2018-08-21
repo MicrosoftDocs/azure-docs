@@ -372,7 +372,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
-| ![logo](./media/tutorial-list/active-directory-saas-n2fexpensereports-tutorial.png)| [N2F - Expense reports](n2f-expensereports-tutorial-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-n2fexpensereports-tutorial.png)| [N2F - Expense reports](n2f-expensereports-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-namely-tutorial.png)| [Namely](namely-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-neotalogicstudio-tutorial.png)| [Neota Logic Studio](neotalogicstudio-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-netdocuments-tutorial.png)| [NetDocuments](netdocuments-tutorial.md)|
