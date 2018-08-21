@@ -16,22 +16,32 @@ ms.date: 08/10/2018
 ms.author: yujhong
 ---
 
-# Develop with Visual Studio Team Services
+# Connecting from Azure DevOps
 
-This article demonstrates how to set up continuous deployment to your web app running in Azure Government using Visual Studio Team Services (VSTS). Continuous deployment (CD) means starting an automated deployment process whenever a code change is made to your application or whenever a new successful build is available. Visual Studio Team Services is used by teams to configure continuous deployment for their applications hosted in their Azure subscriptions. Refer to [CI/CD for newbies](https://www.visualstudio.com/en-us/docs/build/get-started/ci-cd-part-1) for an overview of CI/CD with Team Services.
+The tutorial below will help you set up continuous deployment to your web app running in Azure Government using Azure DevOps.
+Continuous deployment (CD) means starting an automated deployment process whenever a code change is made to your application or whenever a new successful build is available. 
+Azure DevOps is used by teams to configure continuous deployment for their applications hosted in their Azure subscriptions.
+Refer to [CI/CD for newbies](https://www.visualstudio.com/en-us/docs/build/get-started/ci-cd-part-1) for an overview of CI/CD with Team Services.
 
-[Release Management in Visual Studio Team Services](https://docs.microsoft.com/vsts/build-release/overview) is a service that enables continuous deployment for various applications. We can use this service for applications running in Azure Government by defining [service endpoints](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints) for Azure Government. 
+ 
+[Release Management in Azure DevOps](https://docs.microsoft.com/vsts/build-release/overview) is a service that enables continuous deployment for various applications. We can use this service for applications running in Azure Government by defining [service endpoints](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints) for Azure Government. 
+
+> [!NOTE]
+> Azure DevOps itself is not available in Azure Government Clouds. When CD is configured using Team Services to deploy apps to Azure Government clouds, artifact storage, build, and (or) deployment orchestration for the app would execute outside the government cloud.   
+> 
+> 
 
 Visual Studio Team Services itself is not available in Azure Government Clouds. When CD is configured using Team Services to deploy apps to Azure Government clouds, artifact storage, build, and (or) deployment orchestration for the app would execute outside the government cloud. To learn more about Visual Studio Team Services, click [here](https://docs.microsoft.com/vsts/index). 
 
-If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
+To learn more about Azure DevOps, click [here](https://docs.microsoft.com/vsts/index). 
 
 ## Prerequisites
 
-* Review [Guidance for developers](documentation-government-developer-guide.md).<br/> This article discusses Azure Government's unique URLs and endpoints for managing your environment. You must know about these endpoints in order to connect to Azure Government. 
-* Review [Compare Azure Government and global Azure](compare-azure-government-global-azure.md) and click on a service of interest to see variations between Azure Government and global Azure.
-+ Have a [VSTS account](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) and [Team Project](https://docs.microsoft.com/vsts/accounts/create-team-project?tabs=vsts)
-+ Install and set up [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1)
+Before starting this tutorial, you must have the following:
++ An active Azure Government subscription.
+If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
++ Have a [Azure DevOps organization](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) and [Team Project](https://docs.microsoft.com/vsts/accounts/create-team-project?tabs=vsts)
++ Installed and set up [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1)
 
 ## Create Azure Government app service 
 
@@ -75,7 +85,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 
     ![ps4](./media/documentation-government-vsts-img11.png)
 
-## Configure the VSTS Endpoint
+## Configure the Azure DevOps Endpoint
 
 > [!NOTE]
 > Make sure that you add the endpoint soon after running the Powershell script above, as the key expires. 
@@ -85,29 +95,29 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 1. Navigate to your Team Project from your Visual Studio Account. 
 2. Navigate to the Services tab and click on "New Service Endpoint".    
 
-    ![vsts1](./media/documentation-government-vsts-img12.png)
+    ![Azure DevOps1](./media/documentation-government-vsts-img12.png)
 3. Choose "Azure Resource Manager" from the dropdown menu. 
 
-    ![vsts2](./media/documentation-government-vsts-img13.png)
+    ![Azure DevOps2](./media/documentation-government-vsts-img13.png)
 4. Click on the blue text in order to set up the service principal. 
 	
-    ![vsts3](./media/documentation-government-vsts-img14.png)
+    ![Azure DevOps3](./media/documentation-government-vsts-img14.png)
 5. Fill out the dialog with "AzureUSGovernment" for the "Environment" parameter and choose a friendly name for "Connection Name". Fill out the rest of dialog with the Service Connection values generated in **Step 9 of the "Generate a Service Principal" section above**. Click "Verify Connection" in the bottom right corner, make sure it says "Verified", and then click "Ok".
 
-    ![vsts4](./media/documentation-government-vsts-img15.png)
+    ![Azure DevOps4](./media/documentation-government-vsts-img15.png)
 6. Confirm your build has been created successfully.
 
-    ![vsts5](./media/documentation-government-vsts-img16.png)
+    ![Azure DevOps5](./media/documentation-government-vsts-img16.png)
 			
 ## Define a Release Process
 
 1. After you have completed the steps above, we can now define the release process for our build.
 2. Choose the link to the completed build (for example, Build 1634). In the build's Summary tab under Deployments, choose "Create release". This starts a new release definition that's automatically linked to the build definition.
 
-    ![vsts6](./media/documentation-government-vsts-img17.png)
+    ![Azure DevOps6](./media/documentation-government-vsts-img17.png)
 3. Select the Azure App Service Deployment template and choose Next.
 
-    ![vsts7](./media/documentation-government-vsts-img18.png)
+    ![Azure DevOps7](./media/documentation-government-vsts-img18.png)
 	In "Source..." make sure your CI build definition for the Web deploy package is selected as the artifact source.
 4. Select the Continuous deployment check box, and then choose Create.
 5. Select the Deploy Azure App Service task and configure it as follows:
@@ -126,8 +136,8 @@ Now that your pipeline has been constructed, you can [deploy changes](https://do
 ## Q&A
 * Do I need a build agent?
 You need at least one [agent](https://www.visualstudio.com/en-us/docs/build/concepts/agents/agents) to run your deployments. By default, the build and deployment processes are configured to use the [hosted agents](https://www.visualstudio.com/en-us/docs/build/concepts/agents/hosted). Configuring a private agent would limit data sharing outside of Azure Government.
-* I use Team Foundation Server on-premises. Can I configure CD on my TFS Server to target Azure Government?
-Currently, Team Foundation Server cannot be used to deploy to an Azure Government Cloud. This capability will be added in the next update of TFS 2017.
+* I use Azure DevOps Server on-premises. Can I configure CD on my Azure DevOps Server to target Azure Government?
+Currently, Azure DevOps Server cannot be used to deploy to an Azure Government Cloud. This capability will be added in the next update of TFS 2017.
 
 ## Get help and provide feedback
 
