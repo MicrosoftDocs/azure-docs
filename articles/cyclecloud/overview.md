@@ -37,7 +37,7 @@ Azure CycleCloud makes it easy to create High Performance Computing (HPC) cluste
 
 ## How Do I Use Azure CycleCloud?
 
-Azure CycleCloud is an installable web application that you can run on premise or in your Azure subscription. Once installed, CycleCloud can be configured to use compute and data resources in your prepared Azure subscription. CycleCloud provides a number of official cluster templates including schedulers (Grid Engine, Slurm, PBSPro, HTCondor), filesystems (Redis, Avere), containers (Docker, Singularity) and many scientific applications. Cluster templates provided by the CycleCloud community are also available. You can use these cluster templates unmodified or you can customize them for your specific needs.
+Azure CycleCloud is an installable web application that you can run on premise or in your Azure subscription. Once installed, CycleCloud can be configured to use compute and data resources in your prepared Azure subscription. CycleCloud provides a number of official cluster templates including schedulers (Grid Engine, Slurm, HTCondor), filesystems (Redis, Avere), containers (Docker, Singularity) and many scientific applications. Cluster templates provided by the CycleCloud community are also available. You can use these cluster templates unmodified or you can customize them for your specific needs.
 
 Once a cluster is created, you can manually add compute nodes and node arrays to handle the computational jobs that are submitted to the cluster. Alternatively, you can configure the cluster to dynamically adjust the compute resources to meet the job load. This allows you to limit cluster cost for reduced workloads and scale up the cluster to meet spikes in demand.
 

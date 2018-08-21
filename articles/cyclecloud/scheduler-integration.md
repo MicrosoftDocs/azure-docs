@@ -213,9 +213,9 @@ The following are the Grid Engine specific configuration options you can toggle 
 
 CycleCloud supports a `standard set <autostop-attributes>` of autostop attributes for Grid Engine.
 
-## PBS Pro
+## PBS Professional OSS
 
-The [PBS Pro Scheduler (PBS Pro)](http://pbspro.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Pro cluster are the 'master' node which provides a shared filesystem on which the PBS Pro software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
+The [PBS Professional PSS (PBS Pro)](http://pbspro.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Pro cluster are the 'master' node which provides a shared filesystem on which the PBS Pro software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
 
 ``` ini
 [cluster my-pbspro]

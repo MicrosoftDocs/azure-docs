@@ -12,7 +12,7 @@ ms.author: a-kiwels
 
 # Azure CycleCloud QuickStart 2: Create and Run a Simple HPC Cluster
 
-In this quickstart, you will create a new cluster using the Grid Engine template, and create an alert for the cluster to notify you if it exceeds a monthly budget.
+In this quickstart, you will start a new cluster using PBS Pro as a scheduler and LAMMPS as a solver, and create an alert for the cluster to notify you if it exceeds a monthly budget.
 
 ## Select a Cluster Type
 
@@ -21,15 +21,15 @@ Click on **Clusters** in the main menu, which will bring up the list of availabl
 > [!NOTE]
 > Azure CycleCloud ships with a limited number of supported cluster types by default, but many others are maintained in [CycleCloud GitHub](https://github.com/cyclecloud) and can easily be imported into CycleCloud.
 
-In this quickstart, you will create an HPC cluster configured with [Open Grid Scheduler](http://gridscheduler.sourceforge.net/), which is the open source version of the Sun Grid Engine job scheduler. Click on **Grid Engine** to bring up the cluster creation wizard.
+In this quickstart, you will create an HPC cluster configured with [LAMMPS](https://lammps.sandia.gov/). Click the LAMMPS icon under "Applications" on the New Cluster page to bring up the cluster creation wizard.
 
-![Create New Cluster screen](~/images/create-new-cluster.png)
+![Create New Cluster screen](~/images/new-lammps-cluster.png)
 
 ## New Cluster Settings
 
-The ARM template set some of these settings for you, but others need to be set here. On the **About** page, enter the Cluster Name you specified in the first quickstart. Click **Next**.
+The ARM template set some of these settings for you, but others need to be set here. On the **About** page, enter a new cluster name such as "LammpsCluster". Click **Next**.
 
-![Cluster Creation Wizard screen](~/images/quickstart-new-cluster.png)
+![Cluster Creation Wizard screen](~/images/new-cluster-name.png)
 
 ### Required Settings
 
@@ -37,7 +37,7 @@ Under **Virtual Machines**, use the dropdown to select your region. **Master VM 
 
 Azure CycleCloud will automatically scale your cluster if you choose to enable it on this screen. For this quickstart, ensure that Autoscale is selected, and that `Max Cores` has been set to 100.
 
-Under **Networking**, select the subnet to use for the compute infrastructure. Use `cyclevnet-compute` for this exercise, then click **Next**.
+Under **Networking**, select the subnet to use for the compute infrastructure. Use the subnet ID that ends in `-compute`, then click **Next**.
 
 ![New Cluster Required Settings screen](~/images/quickstart-required-settings.png)
 

@@ -25,9 +25,9 @@ Azure CycleCloud's cluster types are great for standard use cases, but users oft
 
 For this tutorial, you will need:
 
-1. An active Azure subscription.
-  * [!INCLUDE [quickstarts-free-trial-note.md](~/includes/free-trial-note.md)]
-2. A Shell session in a terminal.
+1. An Azure account with an active subscription.
+2. Azure CycleCloud set up on your Azure account.
+3. A Shell session in a terminal.
   * If you are using a Windows machine, use the [browser-based Bash shell](https://shell.azure.com).
   * For non-Windows machines, install and use Azure CLI v2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -127,7 +127,7 @@ raid_level = 0
 
 Save your changes.
 
-[//]: # (## kimli screenshot)
+![Edit Cluster Template window](~/images/edit-cluster-template.png)
 
 The lines added tell CycleCloud that two premium 512 GB disks (SSD = True) with a RAID 0 config should be added to the master node when it is provisioned, then mount the volume at `/mnt/exports/` and format the lot as an `ext4` filesystem.
 
@@ -143,11 +143,13 @@ cyclecloud import_template -f templates/extended_nfs.template.txt
 
 Once it is complete, return to the CycleCloud web interface and create a new cluster. You should see the a new application type called azurecyclecloud_tutorial:
 
-[//]: # (## kimli screenshot)
+![New Cluster Type](~/images/new-cluster-type.png)
 
 ## Start the Cluster
 
-Start a new cluster using your new application template. When selecting your Virtual Machine settings, ensure you choose one that supports attached premium storage such as **Standard_DS12_v2**.
+Start a new cluster using your new application template. When selecting your Virtual Machine settings, ensure you choose one that supports attached premium storage such as **Standard_D2s_v3**.
+
+![VM Machine Type SSD Yes](~/images/SSD-VM.png)
 
 When your cluster is up, log into the master node and verify that `/mnt/exports/` is a 1TB volume with:
 
@@ -171,7 +173,7 @@ In this tutorial, you learned how to:
 * Modify cluster template to add storage to the cluster's NFS Server
 * Add a new cluster type in CycleCloud
 
-For more Azure CycleCloud tutorials, see our documentation site or view the available cluster templates on GitHub.
+To continue exploring the features of Azure CycleCloud, try the Deploy a Custom Application tutorial.
 
 > [!div class="nextstepaction"]
-> [More Azure CycleCloud](https://docs.microsoft.com/en-us/azure/cyclecloud/)
+> [Next Tutorial](~/tutorials/deploy-custom-application.md)

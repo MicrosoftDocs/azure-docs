@@ -71,22 +71,13 @@ from your browser. Copy the link provided into your web browser. Further configu
 
 ### Notes on Security
 
-The default installation of CycleCloud uses non-encrypted HTTP running on port 8080. We strongly recommend configuring SSL for all installations.
+The default installation of CycleCloud uses non-encrypted HTTP running on port 8080. We strongly recommend [configuring SSL](ssl-configuration.md) for all installations.
 
 Do not install CycleCloud on a shared drive, or any drive in which non-admin users have access. Anyone with access to the CycleCloud group will gain access to unencrypted data. We recommend that non-admin users not be added to this group.
 
-## Upgrading CycleCloud
+## Update CycleCloud
 
-To upgrade an existing CycleCloud installation, use:
-
-``` script
-rpm -Uvh cyclecloud.rpm
-```
-
-To upgrade the CycleCloud command line tool, copy the new binary over the old. In most cases, upgrades within a release series (e.g. 5.x) do not typically require CLI upgrades.
-
-> [!NOTE]
->As of version 6.6.0, Java Runtime Environment is no longer packaged in the installation. JRE version 8 or higher is required.
+See the [Update Azure CycleCloud](update-install.md) page.
 
 ## Installing Multiple Instances of CycleCloud on the Same Machine
 

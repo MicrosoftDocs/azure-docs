@@ -16,7 +16,7 @@ If you've completed QuickStarts 1 and 2, you've installed, set up, and configure
 
 ## Master Node
 
-To run jobs on the standard Grid Engine cluster, you must log onto the cluster's **Master** node, where the Grid Engine job queue resides. The SSH public key you provided earlier is stored in the Azure CycleCloud application server and pushed into each cluster that you create. This allows you to use your SSH private key to log into the master node. To get the public IP address of the cluster head node, select the master node in the cluster management pane and click the **Connect** button:
+To run jobs on the LAMMPS cluster, you must log onto the cluster's **Master** node, where the LAMMPS job queue resides. The SSH public key you provided earlier is stored in the Azure CycleCloud application server and pushed into each cluster that you create. This allows you to use your SSH private key to log into the master node. To get the public IP address of the cluster head node, select the master node in the cluster management pane and click the **Connect** button:
 
 ![CycleCloud Master Node Connect Button](~/images/cluster-connect-button.png)
 
@@ -24,7 +24,7 @@ The pop-up window shows the connection string you would use to connect to the cl
 
 ![CycleCloud Master Node Connection Screen](~/images/connect-to-master-node.png)
 
-Copy the appropriate string and use your SSH client or Cloud Shell to connect to the master node. After the connection is complete, you will be logged into the Grid Engine master node.
+Copy the appropriate string and use your SSH client or Cloud Shell to connect to the master node. After the connection is complete, you will be logged into the master node.
 
 ## Submit a Job
 
@@ -37,42 +37,51 @@ $ qstat -f
 The output should confirm that no jobs are running and no execute nodes are provisioned:
 
 ``` output
-queuename                      qtype resv/used/tot. load_avg arch          states
----------------------------------------------------------------------------------
-all.q@ip-0A000404              BIP   0/0/8          0.46     linux-x64
+[name@ip-0A000404 ~]$ qstat -Q
+Queue              Max   Tot Ena Str   Que   Run   Hld   Wat   Trn   Ext Type
+---------------- ----- ----- --- --- ----- ----- ----- ----- ----- ----- ----
+workq                0     0 yes yes     0     0     0     0     0     0 Exec
+[name@ip-0A000404 ~]$
 ```
 
-Submit 100 test "hostname" jobs with:
+Change to the "demo" directory and submit the LAMMPS job using the existing `runpi.sh` script:
 
 ```azurecli-interactive
-$ qsub -t 1:100 -b y -cwd hostname
+cd demo
+./runpi.sh
 ```
 
-You should receive confirmation that the job request has been submitted:
+The `runpi.sh` script prepares a sample job that contains 1000 individual tasks, and submits that job using the `qsub` command. You can view the contents of the script by running the `cat` command.
+
+Verify that the job is now in the queue with `qstat -Q`:
 
 ``` output
 Your job-array 1.1-100:1 ("hostname") has been submitted
 ```
 
-The command you ran, `$ qsub -t 1:100 -b y -cwd hostname`, tells the node the following:
+The command you ran tells the node the following:
 
 ``` output
-Submit (qsub) a task (-t) array of 1 to 100 (1:100) jobs with a binary (-b y) to run the (hostname) command in the current working directory (-cwd)
+[name@ip-0A000404 ~]$ qstat -Q
+Queue              Max   Tot Ena Str   Que   Run   Hld   Wat   Trn   Ext Type
+---------------- ----- ----- --- --- ----- ----- ----- ----- ----- ----- ----
+workq                0     1 yes yes     1     0     0     0     0     0 Exec
 ```
-
-Confirm the jobs are in the queue with the `qstat` command.
 
 ## Auto Scale
 
-At this point, no execute nodes have been provisioned because the cluster is configured to auto scale. The cluster will detect that the job queue has work in it, and will provision the required compute nodes to execute the jobs. By default, the system will try to provision a core of compute power for every job, but this can be customized.
+Until this point, no execute nodes have been provisioned because the cluster is configured to auto scale. The cluster will detect that the job queue has work in it, and will provision the required compute nodes to execute the jobs. CycleCloud will not provision more cores than the limit set on the cluster's autoscaling settings. In this case, the sample job contains 1000 tasks, but CycleCloud will only provision up to 100 cores worth of virtual machines.
 
-In this quickstart you submitted 100 jobs, so 100 cores will be requested. Since the cluster has a scale limit of 16 in place, a maximum of 16 cores will be provisioned:
+Return to the web interface to see the execute nodes being provisioned. After provisioning, the status bars will turn green and the job's tasks will start running. For non-tightly coupled jobs, where the individual tasks can independently execute, jobs will start running as soon as any VM is ready. For tightly coupled jobs (i.e. MPI jobs), jobs will not start executing until every VM associated with the jobs is ready.
 
-![Max Cores Setting](~/images/max-cores.png)
+Verify that the job is complete by running `qstat -Q` in your shell periodically. The Queued column (Que) should be 0, indicating that no more jobs are awaiting execution. In this quickstart, jobs typically finish in a minute or two.
 
-When the jobs are complete and the nodes are idle, the compute VMs will scale down as well.
+When there are no more jobs in the queue, the execute nodes will start auto-stopping, and your cluster will return to just having the master node.
 
 QuickStart 3 is complete. In this exercise, you've submitted 100 jobs to your Master Node, confirmed the request went through, and observed the auto scaling via the GUI. When the jobs are complete, you will need to clean up the resources used to free them for other activity.
+
+> [!NOTE]
+> If you want to continue with this Azure CycleCloud installation for the [CycleCloud Tutorials](/tutorials/modify-cluster-template.md), you do not need to follow quickstart 4. Be aware that you are charged for usage while the nodes are running, even if no jobs are scheduled.
 
 > [!div class="nextstepaction"]
 > [Continue to Quickstart 4](quickstart-clean-up-resources.md)

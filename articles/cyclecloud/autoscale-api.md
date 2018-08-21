@@ -93,7 +93,7 @@ import jetpack.autoscale
 array = {
     'Name': 'execute',
     'TargetCoreCount': 128,
-    'MachineType': "c3.xlarge",
+    'MachineType': "Standard_D4v3",
     'Configuration': {
         'custom_setting': 123
     }
@@ -153,12 +153,12 @@ array = {
     'Name': 'execute',
     'TargetGroupCount': 4,
     'GroupCoreCount': 64,
-    'MachineType': "c3.xlarge"
+    'MachineType': "Standard_D4v3"
 }
 jetpack.autoscale.update([array])
 ```
 
-The above request shows that we want to allocate 4 groups of tightly-coupled nodes, each group having 64 cores. The machine type in this case is a `c3.xlarge` which has 4 cores, so each group would be 16 nodes meaning that the total request is for 64 c3.xlarge instances. If you want to organize groups by instances instead of cores, you can use the `GroupInstanceCount` attribute. For example, the above request could be changed to use a `GroupInstanceCount` of 16 instead of a `GroupCoreCount` of 64. The end result is that 4 groups of 16 instances will be allocated. If multiple machine types are specified, a group will be created consisting of a single machine type, starting from the beginning of the list. For example, if c3.8xlarge, c3.4xlarge are both specified, groups will be made using c3.8xlarge until there is no more capacity at which time c3.4xlarge machines will be used to create groups.
+The above request shows that we want to allocate 4 groups of tightly-coupled nodes, each group having 64 cores. The machine type in this case is a `Standard_D4v3` which has 4 cores, so each group would be 16 nodes meaning that the total request is for 64 Standard_D4v3 instances. If you want to organize groups by instances instead of cores, you can use the `GroupInstanceCount` attribute. For example, the above request could be changed to use a `GroupInstanceCount` of 16 instead of a `GroupCoreCount` of 64. The end result is that 4 groups of 16 instances will be allocated. If multiple machine types are specified, a group will be created consisting of a single machine type, starting from the beginning of the list. For example, if Standard_D4v3 and Standard_D12v3 are both specified, groups will be made using Standard_D12v3 until there is no more capacity at which time Standard_D4v3 machines will be used to create groups.
 
 When a grouped request is handled by CycleCloud a new dynamic node array is created which extends the
 original nodearray the request was spawned from. In the above case a new node array named `execute:64` would be dynamically created (the name of the original array with the group size appended on after a colon). Within this new array, groups will be allocated. In the above example you would end up with 4 groups of 16 instances all in this new array, each group having a unique GroupId set on the node. If an auto scale request was made for 128 cores, a second dynamic array would be created named `execute:128` to handle all 128-core jobs.

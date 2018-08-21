@@ -14,6 +14,12 @@ metadata:
   ms.author: a-kiwels
 abstract:
   description: Azure CycleCloud is designed to enable enterprise IT organizations to provide secure and flexible cloud HPC and Big Compute environments to their end users. With dynamic scaling of clusters, the business can get the resources it needs at the right time and the right price. Azure CycleCloud’s automated configuration enables IT to focus on providing service to the business users.
+  aside:
+    image:
+      alt: Get Azure CycleCloud
+      src: images/get-cyclecloud.png
+    title: Get Azure CycleCloud
+    href: https://www.microsoft.com/en-us/download/details.aspx?id=57182
 
 sections:
   - items:
@@ -37,53 +43,6 @@ sections:
           image:
             src: media/index/i_get-started.svg
           title: Clusters and Nodes
-  - title: Build Clusters Quickly
-    items:
-    - type: paragraph
-      text: Azure CycleCloud has cluster templates built-in to get you started quickly.
-    - type: list
-      style: icon48
-      items:
-      - image:
-          src: media/index/gridengine-logo-small.jpg
-        text: Grid Engine
-        href: cluster-templates.md
-      - image:
-          src: media/index/HTCondor_red_blk.png
-        text: HTCondor
-        href: cluster-templates.md
-      - image:
-          src: media/index/PBS-logo-small.png
-        text: PBS Pro
-        href: cluster-templates.md
-      - image:
-          src: media/index/slurm-logo-small.png
-        text: Slurm
-        href: cluster-templates.md
-      - image:
-          src: media/index/redis-logo-small.png
-        text: Redis
-        href: cluster-templates.md
-      - image:
-          src: media/index/kafka-logo-small.png
-        text: Kafka
-        href: cluster-templates.md
-      - image:
-          src: media/index/zookeeper-logo-small.png
-        text: Zookeeper
-        href: cluster-templates.md
-      - image:
-          src: media/index/mrbayes-logo.jpg
-        text: MrBayes
-        href: cluster-templates.md
-      - image:
-          src: media/index/i_forks.svg
-        text: LAMMPS
-        href: cluster-templates.md
-      - image:
-          src: media/index/i_categorize.svg
-        text: NFS
-        href: cluster-templates.md
   - title: Reference
     items:
     - type: list

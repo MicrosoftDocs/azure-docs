@@ -18,6 +18,8 @@
   items:
   - name: Modify a Cluster Template
     href: ~/tutorials/modify-cluster-template.md
+  - name: Deploy a Custom Application
+    href: ~/tutorials/deploy-custom-application.md
 - name: Concepts
   items:
   - name: Clusters and Nodes
@@ -86,8 +88,12 @@
     href: configuration.md
   - name: Install Azure CycleCloud CLI
     href: install-cyclecloud-cli.md
+  - name: Run CycleCloud in an Azure Container Instance
+    href: container-distribution.md
   - name: Start a Cluster
     href: start-cluster.md
+  - name: Connect to the Master Node
+    href: connect-to-master-node.md
   - name: Terminate a Cluster
     href: end-cluster.md
   - name: Work with Custom Images
@@ -102,6 +108,8 @@
     href: images.md
   - name: Create Custom Roles
     href: create-custom-roles.md
+  - name: Update CycleCloud
+    href: update-install.md
 - name: Reference
   items:
   - name: Cluster Reference
@@ -129,9 +137,9 @@
 - name: Resources
   items:
   - name: Get Azure CycleCloud
-    href: https://azure.microsoft.com/en-us/features/cyclecloud/
+    href: https://www.microsoft.com/en-us/download/details.aspx?id=57182
   - name: CycleCloud Cluster Templates
-    href: https://github.com/CycleCloud
+    href: download-cluster-templates.md
   - name: CycleCloud Community
     href: https://github.com/CycleCloudCommunity
   - name: Azure Community Forums
