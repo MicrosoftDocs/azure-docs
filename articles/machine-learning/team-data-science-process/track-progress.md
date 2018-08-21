@@ -21,7 +21,7 @@ ms.author: deguhath
 
 # Track progress of data science projects
 
-Data science group managers, team leads, and project leads need to track the progress of their team projects, what work has been done on them and by whom, and remains on the to-do lists. 
+Data science group managers, team leads, and project leads need to track the progress of their projects, what work has been done on them and by whom, and remains on the to-do lists. 
 
 ## Azure DevOps dashboards
 If you are using Azure DevOps, you are able to build dashboards to track the activities and the work items associated with a given Agile project. 
