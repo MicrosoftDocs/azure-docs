@@ -12,7 +12,7 @@ ms.author: raynew
 
 # Contoso migration:  Refactor a Team Foundation Server deployment to Azure DevOps Services
 
-This article shows how Contoso are refactoring their on-premises Team Foundation Server (TFS) deployment by migrating it to Azure DevOps Services in Azure. Contoso's development team have used TFS for team collaboration and source control for the past five years. Now, they want to move to a cloud-based solution for dev and test work, and for source control. Azure DevOps Services will play a role as they move to a DevOps model, and develop new cloud-native apps.
+This article shows how Contoso are refactoring their on-premises Team Foundation Server (TFS) deployment by migrating it to Azure DevOps Services in Azure. Contoso's development team have used TFS for team collaboration and source control for the past five years. Now, they want to move to a cloud-based solution for dev and test work, and for source control. Azure DevOps Services will play a role as they move to an Azure DevOps model, and develop new cloud-native apps.
 
 This document is the eleventh in a series of articles that show how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background information, and scenarios that illustrate how to set up a migration infrastructure, and run different types of migrations. Scenarios grow in complexity, and we'll add additional articles over time.
 
@@ -94,7 +94,7 @@ Here's how Azure will complete the migration:
 ## Step 1: Create a storage account
 
 1. In the Azure portal, Contoso creates a storage account (**contosodevmigration**).
-2. They place the account in their secondary region they use for failover - Central US. They use a general-purpose standard account with locally-redudant storage.
+2. They place the account in their secondary region they use for failover - Central US. They use a general-purpose standard account with locally-redundant storage.
 
     ![Storage account](./media/contoso-migration-tfs-vsts/storage1.png) 
 
@@ -389,11 +389,11 @@ Contoso start with a dry run migration, to make sure everything's working as exp
 
      ![Dry run](./media/contoso-migration-tfs-vsts/test7.png)
 
-12. After the migration finishes a Contoso Dev Leads signs into Azure DevOps Services to check that the dry run worked properly. After authentication, Azure DevOps Services needs a few details to confirm the organization.
+12. After the migration finishes a Contoso Dev Leads signs into Azure DevOps Services to check that the dry run worked properly. After authentication, Azure DevOps needs a few details to confirm the organization.
 
     ![Dry run](./media/contoso-migration-tfs-vsts/test8.png)
 
-13. In Azure DevOps Services, the Dev Lead can see that the projects have been migrated to Azure DevOps Services. There's a notice that the organization will be deleted in 15 days.
+13. In Azure DevOps, the Dev Lead can see that the projects have been migrated to Azure DevOps Services. There's a notice that the organization will be deleted in 15 days.
 
     ![Dry run](./media/contoso-migration-tfs-vsts/test9.png)
 
