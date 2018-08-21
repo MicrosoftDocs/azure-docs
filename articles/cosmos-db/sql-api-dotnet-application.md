@@ -8,13 +8,14 @@ manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
+ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.workload: azure-vs
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
-ms.custom: devcenter
+ms.custom: devcenter, vs-azure
 
 
 ---

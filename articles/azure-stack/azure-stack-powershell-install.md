@@ -3,7 +3,7 @@ title: Install PowerShell for Azure Stack | Microsoft Docs
 description: Learn how to install PowerShell for Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
 ms.date: 08/10/2018
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: thoroet
 ---
 

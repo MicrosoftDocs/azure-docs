@@ -11,7 +11,7 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/30/2018
-ms.author: Deborah.Chen
+ms.author: dech
 ms.custom: mvc
 ---
 # Azure Cosmos DB: Data migration tool

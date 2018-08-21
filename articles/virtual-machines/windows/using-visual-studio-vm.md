@@ -9,7 +9,9 @@ editor: tysonn
 tags: azure-resource-manager
 
 ms.service: virtual-machines-windows
+ms.prod: visual-studio-dev15
 ms.technology: vs-azure
+ms.custom: vs-azure
 ms.workload: azure-vs
 ms.devlang: na
 ms.topic: article

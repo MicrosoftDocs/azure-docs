@@ -3,7 +3,7 @@ title: Stream into Azure Event Hubs for Apache Kafka | Microsoft Docs
 description: Stream into Event Hubs using the Kafka protocol and APIs.
 services: event-hubs
 documentationcenter: ''
-author: ShubhaVijayasarathy
+author: basilhariri
 manager: timlt
 
 ms.service: event-hubs
@@ -13,7 +13,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2018
-ms.author: shvija
+ms.author: bahariri
 
 ---
 
