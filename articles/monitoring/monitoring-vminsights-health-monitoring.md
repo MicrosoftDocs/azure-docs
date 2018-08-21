@@ -26,11 +26,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Single virtual machine perspective
 
-To view the health of an Azure VM, select **Insights (preview)** from the left-hand pane of the virtual machine.  On the VM insights page, the **Health** tab to switch to the health view of the VM.  On the **Health** tab, which is selected by default, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of alerts raised by an unhealthy component. Refer to [Alerting and an alert management](<link to section below>) for more details.  Selecting **View health diagnostics** opens a page showing all the components of the VM, associated health criteria, state changes and other significant issues encountered by monitoring objects related to the VM. Refer to the [Health diagnostics](<link to section>) for more details. 
+To view the health of an Azure VM, select **Insights (preview)** from the left-hand pane of the virtual machine.  On the VM insights page, the **Health** tab to switch to the health view of the VM.  
+
+![VM insights of a selected Azure virtual machine](./media/monitoring-vminsights-health-monitoring/vminsights-health-page-01.png)
+
+On the **Health** tab, which is selected by default, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of alerts raised by an unhealthy component. Refer to [Alerting and an alert management](<link to section below>) for more details.  Selecting **View health diagnostics** opens a page showing all the components of the VM, associated health criteria, state changes and other significant issues encountered by monitoring objects related to the VM. Refer to the [Health diagnostics](<link to section>) for more details. 
 
 If the health status is not healthy, the **Top health issues** table provides an overview of the top five health issues identified on the VM.  To see a complete list of health issues or just health state of all components, click on **See all health criteria**. 
 
-The information that's presented under **Top health issues* and on the **Health Criteria** page is described in the following table:
+The information presented under **Top health issues** and on the **Health Criteria** page is described in the following table:
 
 |Column | Description |
 |-------|-------------|
@@ -43,6 +47,8 @@ The information that's presented under **Top health issues* and on the **Health 
 |Type | The category of health criteria, which is represented as *Unit*, *Dependency*, *Aggregate*. |
 
 The list view would look like below. Results can be filtered further from the drop-down lists **Category** and **Type**.  By default the *Unit* type and categories are selected.
+
+![Top health issues example](./media/monitoring-vminsights-health-monitoring/top-health-issues-vm-01.png)
 
 ## Aggregate virtual machine perspective
 
