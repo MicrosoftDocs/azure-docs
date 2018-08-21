@@ -65,7 +65,7 @@ Follow these steps to publish your apps with Application Proxy. If you haven't a
    ![Configure your application](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. If necessary, configure additional settings. For most applications, you should keep these settings in their default states. 
    - **Backend Application Timeout**: Set this value to **Long** only if your application is slow to authenticate and connect. 
-   - **Use HTTP-Only Cookie**: Keep this value as **No** unless you require Application Proxy access. When Application Proxy access is required, session cookies need to include the HTTPOnly flag in the HTTP response header.
+   - **Use HTTP-Only Cookie**: Set this value to **Yes** to have Application Proxy cookies include the HTTPOnly flag in the HTTP response header.
    - **Translate URLs in Headers**: Keep this value as **Yes** unless your application required the original host header in the authentication request.
    - **Translate URLs in Application Body**: Keep this value as **No** unless you have hardcoded HTML links to other on-premises applications, and don't use custom domains. For more information, see [Link translation with Application Proxy](application-proxy-configure-hard-coded-link-translation.md).
    
