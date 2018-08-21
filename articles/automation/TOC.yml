@@ -142,7 +142,7 @@
         - name: Compiling DSC configurations
           href: automation-dsc-compile.md
         - name: Composing DSC Configurations using Composite Resources
-          href: manage-configurations.md
+          href: compose-configurationwithcompositeresources.md
         - name: Continuous deployment using Chocolatey
           href: automation-dsc-cd-chocolatey.md
         - name: Forward State Configuration reporting data to Log Analytics
