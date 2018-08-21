@@ -16,7 +16,7 @@ ms.reviewer: carlrab
 ---
 # Overview of business continuity with Azure SQL Database
 
-Azure SQL Database is an implementation of the latest stable SQL Server Database Engine configured and optimized for Azure cloud environment that provides [high availability](sql-database-high-availability.md) and resiliency to the errors that might affect your business process. In the most of the cases, Azure SQL Database will handle the disruptive events that might happen in the cloud environment and keep your business processes running. However, there are some disruptive events that cannot be handled by SQL Database such as:
+Azure SQL Database is an implementation of the latest stable SQL Server Database Engine configured and optimized for Azure cloud environment that provides [high availability](sql-database-high-availability.md) and resiliency to the errors that might affect your business process. **Business continuity** in Azure SQL Database refers to the mechanisms, policies and procedures that enable a business to continue operating in the face of disruption, particularly to its computing infrastructure.  In the most of the cases, Azure SQL Database will handle the disruptive events that might happen in the cloud environment and keep your business processes running. However, there are some disruptive events that cannot be handled by SQL Database such as:
  - User accidentally deleted or updated a row in a table.
  - Malicious attacker succeeded to delete data or drop a database.
  - Earthquake caused a power outage and temporary disabled data-center.
@@ -27,7 +27,13 @@ This overview describes the capabilities that Azure SQL Database provides for bu
 
 ## SQL Database features that you can use to provide business continuity
 
-SQL Database provides several business continuity features, including automated backups and optional database replication. First, you need to understand how SQL Database [high availability architecture](sql-database-high-availability.md) provides 99.99% availability and resiliency to some disruptive events that might affect your business process.
+From a database perspective, there are four major potential disruption scenarios:
+- **Local hardware or software failures** affecting the database node such as a disk-drive failure.
+- **Data corruption or deletion** - typically caused by an application bug or human error.  Such failures are intrinsically application-specific and cannot as a rule be detected or mitigated automatically by the infrastructure.
+- **Datacenter outage**, possibly caused by a natural disaster.  This scenario requires some level of geo-redundancy with application failover to an alternate datacenter.
+- **Upgrade or maintenance errors** – unanticipated issues that occur during planned upgrades or maintenance to an application or database may require rapid rollback to a prior database state.
+
+SQL Database provides several business continuity features, including automated backups and optional database replication that can mitigate these scenarios. First, you need to understand how SQL Database [high availability architecture](sql-database-high-availability.md) provides 99.99% availability and resiliency to some disruptive events that might affect your business process.
 Then, you can learn about the additional mechanisms that you can use to recover from the disruptive events that cannot be handled by SQL Database high availability architecture, such as:
  - [Temporal tables](sql-database-temporal-tables.md) enable you to restore row versions from any point in time.
  - [Built-in automated backups](sql-database-automated-backups.md) and [Point in Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) enables you to restore complete database to some point in time within the last 35 days.
@@ -46,7 +52,7 @@ The following table compares the ERT and RPO for each service tier for the three
 | Restore from SQL long-term retention |ERT < 12 h, RPO < 1 wk |ERT < 12 h, RPO < 1 wk |ERT < 12 h, RPO < 1 wk |ERT < 12 h, RPO < 1 wk|ERT < 12 h, RPO < 1 wk|
 | Active geo-replication |ERT < 30s, RPO < 5s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s|ERT < 30 s, RPO < 5 s|
 
-### Use point-in-time restore to recover a database
+## Recover a database on the existing server
 
 SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every 5 - 10 minutes to protect your business from data loss. The backups are stored in RA-GRS storage for 35 days for all service tiers except Basic DTU service tiers where the backups are stored for 7 days. For more information, see [automatic database backups](sql-database-automated-backups.md). You can restore an existing database form the automated backups to an earlier point in time as a new database on the same logical server using the Azure portal, PowerShell, or the REST API. For more information, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
@@ -63,7 +69,7 @@ Use automated backups and [point-in-time restore](sql-database-recovery-using-ba
 
 If you need faster recovery, use [active geo-replication](sql-database-geo-replication-overview.md) (discussed next). If you need to be able to recover data from a period older than 35 days, use [Long-term retention](sql-database-long-term-retention.md). 
 
-### Use active geo-replication and auto-failover groups to reduce recovery time and limit data loss associated with a recovery
+## Use active geo-replication and auto-failover groups to reduce recovery time
 
 In addition to using database backups for database recovery if a business disruption occurs, you can use [active geo-replication](sql-database-geo-replication-overview.md) to configure a database to have up to four readable secondary databases in the regions of your choice. These secondary databases are kept synchronized with the primary database using an asynchronous replication mechanism. This feature is used to protect against business disruption if a data center outage occurs or during an application upgrade. Active geo-replication can also be used to provide better query performance for read-only queries to geographically dispersed users.
 
