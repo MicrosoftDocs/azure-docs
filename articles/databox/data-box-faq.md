@@ -75,7 +75,7 @@ If you have a supported offer type for the subscription, check your subscription
 ### Q. I ordered a couple of Data Box devices. I am not able to create any additional orders. Why would this be?
 A. We allow for a maximum of 3 active orders per subscription per commerce boundary (combination of country and the region selected). If you need to order an additional device, contact Microsoft Support to increase the limit for your subscription.
 
-### Q. When I try to create an order, I recieve a notification that the Data Box service is not available. What does this mean?
+### Q. When I try to create an order, I receive a notification that the Data Box service is not available. What does this mean?
 A. What this means is that the Data Box service is not available for the combination of country and region you have selected. Changing this combination would likely allow you to avail of the Data Box service. For a list of the regions where the service is available, go to [Region availability for Data Box](data-box-overview.md#region-availability).
 
 ### Q. I placed my Data Box order few days back. When will I receive my Data Box?
@@ -123,7 +123,7 @@ A. You can go to your Data Box order in the Azure portal and go to **Overview**.
 ## Migrate data
 
 ### Q. What is the maximum data size that can be used with Data Box?  
-A.  Data Box has a usable storage capacity of 80 TB. You can use it for data that ranges in size from 40 TB - 80 TB. For larger data size, you can order multiple Data Box or you can order Data Box Heavy.  
+A.  Data Box has a usable storage capacity of 80 TB. You can use it for data that ranges in size from 40 TB - 80 TB. For larger data size, you can order multiple devices or you can order Data Box Heavy.  
 
 ### Q. What are the maximum block blob and page blob sizes supported by Data Box? 
 A.  The maximum sizes are governed by Azure Storage limits. The maximum block blob is roughly 4.768 TiB and the maximum page blob size is 8 TiB. For more information, go to [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md). 
@@ -135,7 +135,7 @@ A. Depending on the file size, you can see up to
 A.  Data Box is encrypted using BitLocker AES-128 bit encryption and the passkey is only available in the Azure portal. Log into the Azure portal using your account credentials to get the passkey. Supply this passkey when you run the Data Box unlock tool.
 
 ### Q. How do I copy the data to the Data Box? 
-A.  Use an SMB copy tool such as Robocopy, Diskboss or even Windows File Explorer drag-and-drop to copy data onto the device. 
+A.  Use an SMB copy tool such as Robocopy, Diskboss, or even Windows File Explorer drag-and-drop to copy data onto the device. 
 
 ### Q. Are there any tips to speed up the data copy?
 A.  To speed up the copy process:
@@ -158,13 +158,13 @@ A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob sto
 
 ## Ship device
 
-### Q. How do I schedule a pick up for my Data Box? 
+### Q. How do I schedule a pickup for my Data Box? 
 A.
 
 ### Q. Can I use my own shipping carrier to ship Data Box?
 A. For Data Box service, Microsoft handles the shipping to and from the Azure datacenter. If you want to use your own carrier, you could use the Azure Import/Export service. For more information, go to [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md)
 
-### Q. E-ink display is not showing the return shipment label. What should I do?
+### Q. E Ink display is not showing the return shipment label. What should I do?
 A. Ensure customer has run prepare to ship on the local OOBI and it completed without errors. If this was the case, you can always download a shipping label by going to your order in the portal. Navigate to 
 
 ## Verify and upload
@@ -173,7 +173,7 @@ A. Ensure customer has run prepare to ship on the local OOBI and it completed wi
 A.  Once the order status for **Data Copy** shows as **Complete**, you should be able to access your data right away.
 
 ### Q. Where is my data located in Azure after the upload?
-A.  When you copy the data to Data Box, depending on whether the data is block blob or page blob or Azure files, the data is uploaded to one of these path in your Azure Storage account:
+A.  When you copy the data to Data Box, depending on whether the data is block blob or page blob or Azure files, the data is uploaded to one of these paths in your Azure Storage account:
  - `<You_storage_account_name_BlockBlob>/<my_container>/Blob` 
  - `<Your_storage_account_name_PageBlob>/<my_container>/Blob`
  - `<Your_storage_account_name_AzFile>/` 
@@ -181,7 +181,7 @@ A.  When you copy the data to Data Box, depending on whether the data is block b
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
 ### Q. I just noticed that I did not follow the Azure naming requirements for my containers. Will my data fail to upload to Azure?
-A. If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages and so on), the upload will fail.
+A. If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages, and so on), the upload will fail.
 
 ### Q. How do I verify the data I copied onto Data Box?
 A.  After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify that against files in the source data.
