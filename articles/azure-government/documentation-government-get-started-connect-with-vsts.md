@@ -23,7 +23,7 @@ This article demonstrates how to set up continuous deployment to your web app ru
 
 Azure DevOps itself is not available in Azure Government Clouds. When CD is configured using Azure DevOps to deploy apps to Azure Government clouds, artifact storage, build, and (or) deployment orchestration for the app would execute outside the government cloud. To learn more about Azure DevOps, click [here](https://docs.microsoft.com/vsts/index). 
 
-If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
+If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 
 ## Prerequisites
 
@@ -97,7 +97,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 6. Confirm your build has been created successfully.
 
     ![azuredevops5](./media/documentation-government-vsts-img16.png)
-			
+
 ## Define a Release Process
 
 1. After you have completed the steps above, we can now define the release process for our build.
@@ -107,6 +107,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 3. Select the Azure App Service Deployment template and choose Next.
 
     ![azuredevops7](./media/documentation-government-vsts-img18.png)
+
 	In "Source..." make sure your CI build definition for the Web deploy package is selected as the artifact source.
 4. Select the Continuous deployment check box, and then choose Create.
 5. Select the Deploy Azure App Service task and configure it as follows:
@@ -125,8 +126,8 @@ Now that your pipeline has been constructed, you can [deploy changes](https://do
 ## Q&A
 * Do I need a build agent?
 You need at least one [agent](https://www.visualstudio.com/en-us/docs/build/concepts/agents/agents) to run your deployments. By default, the build and deployment processes are configured to use the [hosted agents](https://www.visualstudio.com/en-us/docs/build/concepts/agents/hosted). Configuring a private agent would limit data sharing outside of Azure Government.
-* I use Team Foundation Server on-premises. Can I configure CD on my TFS Server to target Azure Government?
-Currently, Team Foundation Server cannot be used to deploy to an Azure Government Cloud. This capability will be added in the next update of TFS 2017.
+* I use Azure DevOps Server on-premises. Can I configure CD on my Azure DevOps Server to target Azure Government?
+Currently, Azure DevOps Server cannot be used to deploy to an Azure Government Cloud. This capability will be added in the next update of TFS 2017.
 
 ## Get help and provide feedback
 
