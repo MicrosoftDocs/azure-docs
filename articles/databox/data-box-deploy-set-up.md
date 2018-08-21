@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/07/2018
+ms.date: 08/21/2018
 ms.author: alkohli
 ---
 # Tutorial: Unpack, cable, connect your Azure Data Box
@@ -35,7 +35,7 @@ Before you begin, make sure that:
 3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds are impacted. 
-4. You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7 U slot in your datacenter rack.
+4. You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack.
 5. You must have the following cables to connect your Data Box to the host computer.
     - One grounded power cord 100 TB storage device
     - Two 10 GbE SFP+ Twinax copper cables
@@ -90,7 +90,7 @@ Perform the following steps to set up your device using the local web UI and the
     > [!NOTE]
     > Ensure that the device serial number matches across both the portal UI and the local web UI.
 7. The device is locked at this point. Provide the device password that you got from the Azure portal in the previous step to sign into the device. Click **Sign in**.
-8. On the **Dashboard**, ensure that the network interfaces are configured. There are 4 network interfaces on your device, two 1 Gbps, and two 10 Gbps. One of the 1 Gbps is a management interface and hence not user-configurable. The remaining 3 network interfaces are dedicated to data and can be configured by the user. Both the 1 Gbps interfaces can also be used as 10 Gbps interfaces.
+8. On the **Dashboard**, ensure that the network interfaces are configured. There are four network interfaces on your device, two 1 Gbps, and two 10 Gbps. One of the 1 Gbps is a management interface and hence not user-configurable. The remaining three network interfaces are dedicated to data and can be configured by the user. Both the 1 Gbps interfaces can also be used as 10 Gbps interfaces.
     - If DHCP is enabled in your environment, network interfaces are automatically configured. 
     - If DHCP is not enabled, go to **Set network interfaces**, and assign static IPs if needed.
 
