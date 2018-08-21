@@ -14,118 +14,133 @@ ms.workload: na
 ms.date: 08/17/2018
 ms.author: mstewart
 ---
+# Quickstart: Encrypt a Windows IaaS VM with Azure PowerShell
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
+Azure Disk Encryption is a capability that helps you encrypt your Windows and Linux IaaS virtual machine disks. The solution is integrated with Azure Key Vault to help you control and manage the disk-encryption keys and secrets. By using Azure Disk encryption you can ensure that your VMs are secured at rest using industry-standard encryption technology. In this quickstart, you will create a Windows Server 2016 VM and encrypt the OS disk. 
 
-<!---quickstarts are fundamental day-1 instructions for helping new customers use a subscription to quickly try out a specific product/service. The entire activity is a short set of steps that provides an initial experience.
-You only use quickstarts when you can get the service, technology, or functionality into the hands of new customers in less than 10 minutes.
---->
-
-# Quickstart:  Encrypt a Windows IaaS VM with Azure PowerShell
-<!---Required:
-Starts with "quickstart: "
-Make the first word following "quickstart:" a verb.
---->
-
-Introductory paragraph.
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
---->
-
-In this quickstart, you will <do X>
-
-If you don’t have a <service> subscription, create a free trial account...
-<!--- Required, if a free trial account exists
-Because quickstarts are intended to help new customers use a subscription to quickly try out a specific product/service, include a link to a free trial before the first H2, if one exists. You can find listed examples in [Write quickstarts](contribute-how-to-mvc-quickstart.md)
---->
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
-<!---If you feel like your quickstart has a lot of prerequisites, the quickstart may be the wrong content type - a tutorial or how-to guide may be the better option.
-If you need them, make Prerequisites your first H2 in a quickstart.
-If there’s something a customer needs to take care of before they start (for example, creating a VM) it’s OK to link to that content before they begin.
---->
+- Windows PowerShell ISE
+- Install and configure the [latest version of Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)
+- A copy of the [Azure Disk Encryption prerequisites script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 )
+    - Use **CTRL-A** to select all the text then use **CTRL-C** to copy all the text into Notepad.
+    - Save the file as **ADEPrereqScript.ps1**
 
-## Sign in to <service/product/tool name>
+## Sign in to Azure
 
-Sign in to the [<service> portal](url).
-<!---If you need to sign in to the portal to do the quickstart, this H2 and link are required.--->
+1. Right click **Windows PowerShell ISE** and click **Run as administrator**.
+1. In the **Administrator: Windows PowerShell ISE** window, click **View** and then click **Show Script Pane**.
+1. In the script pane type the following: 
+     ```azurepowershell
+     Connect-AzureRMAccount
+     ```
+1. Click on the green arrow for **Run Script**, or use F5. 
+1. Use the interactive sign in to finish connecting to your Azure account.
+1. Copy your **subscription ID** that is returned for use in running the next PowerShell script. 
 
-## Procedure 1
+## <a name="bkmk_PrereqScript"></a> Run the Azure Disk Encryption prerequisites script
+ **ADEPrereqScript.ps1** will create a resource group, a key vault, and set the key vault access policy. The script also creates a resource lock on the key vault to help protect it from accidental deletion.  
 
-<!---Required:
-Quickstarts are prescriptive and guide the customer through an end-to-end procedure. Make sure to use specific naming for setting up accounts and configuring technology.
-Don't link off to other content - include whatever the customer needs to complete the scenario in the article. For example, if the customer needs to set permissions, include the permissions they need to set, and the specific settings in the quickstart procedure. Don't send the customer to another article to read about it.
-In a break from tradition, do not link to reference topics in the procedural part of the quickstart when using cmdlets or code. Provide customers what they need to know in the quickstart to successfully complete the quickstart.
-For portal-based procedures, minimize bullets and numbering.
-For the CLI or PowerShell based procedures, don't use bullets or numbering.
---->
+1. In the **Administrator: Windows PowerShell ISE** window, click **File** and then click **Open**. Navigate to the **ADEPrereqScript.ps1** file and double-click on it so it opens in the script pane.
+2. Click on the green arrow for **Run Script**, or use F5 to run the script. 
+3. Type in names for a new **resource group** and a new **key vault**. Don't use an existing resource group or key vault for this quickstart since we'll delete the resource group later. 
+4. Type in the location where you want to create the resources, such as **EastUS**. Get a location list with `Get-AzureRMLocation`.
+5. Copy in your **subscription ID**. You can get your Subscription ID with `Get-AzureRMSubscription`.  
+6. Click on the green arrow for **Run Script**. 
+7. Copy the returned **DiskEncryptionKeyVaultUrl** and **DiskEncryptionKeyVaultId** to be used later.
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+![Azure Disk Encryption prerequisite script running in PowerShell ISE](media/azure-security-disk-encryption/ade-prereq-script.PNG)
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
-   ![Browser](media/contribute-how-to-mvc-quickstart/browser.png)
-   <!---Use screenshots but be judicious to maintain a reasonable length. Make sure screenshots align to the [current standards](contribute-mvc-screen-shots.md).
-   If users access your product/service via a web browser the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.--->
-1. Step four of the procedure
 
-## Procedure 2
+## Create a virtual machine 
+You now need to create a virtual machine so you can encrypt its disk. The script you will use creates a Windows Server 2016 VM with 8 GB RAM and a 30 GB OS disk. 
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+1. Copy the script into the **Administrator: Windows PowerShell ISE** script pane and change the top three variables. The resource group and location need to be the same as you used for the [prerequisites script](bkmk_PrereqScript).  
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
-
-## Procedure 3
-
-Include a sentence or two to explain only what is needed to complete the procedure.
-<!---Code requires specific formatting. Here are a few useful examples of commonly used code blocks. Make sure to use the interactive functionality where possible.
-For the CLI or PowerShell based procedures, don't use bullets or numbering.--->
-
-Here is an example of a code block for Java:
-
-    ```java
-    cluster = Cluster.build(new File("src/remote.yaml")).create();
-    ...
-    client = cluster.connect();
+    ```AzurePowershell
+    # Variables for common values
+    $resourceGroup = "MySecureRG"
+    $location = "EastUS"
+    $vmName = "MySecureVM"
+    
+    # Create user object
+    $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+    
+    # Create a resource group
+    #New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+    
+    # Create a subnet configuration
+    $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+    
+    # Create a virtual network
+    $vnet = New-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
+      -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+    
+    # Create a public IP address and specify a DNS name
+    $pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+      -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+    
+    # Create an inbound network security group rule for port 3389
+    $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+      -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+      -DestinationPortRange 3389 -Access Allow
+    
+    # Create a network security group
+    $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+      -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+    
+    # Create a virtual network card and associate with public IP address and NSG
+    $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+      -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+    
+    # Create a virtual machine configuration
+    $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D2_v3 | `
+    Set-AzureRmVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
+    Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter-smalldisk -Version latest | `
+    Add-AzureRmVMNetworkInterface -Id $nic.Id
+    
+    # Create a virtual machine
+    New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
     ```
 
-or a code block for Azure CLI:
+2. Click on the green arrow for **Run Script** to build the VM.  
 
-    ```azurecli-interactive 
-    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
-    ```
-    or a code block for Azure PowerShell:
 
-    ```azurepowershell-interactive
-    New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
-    ```
+## Encrypt the disk of the VM
+Now that you have created and configured a key vault and a VM, you can encrypt the disk with the **Set-AzureRmVmDiskEncryptionExtension** cmdlet. 
+ 
+1. Run the following cmdlet to encrypt the VM's disk:
 
+    ```azurepowershell
+     Set-AzureRmVmDiskEncryptionExtension -ResourceGroupName "MySecureRG" -VMName "MySecureVM" `
+     -DiskEncryptionKeyVaultId "<Returned by the prerequisites script>" -DiskEncryptionKeyVaultUrl "<Returned by the prerequisites script>"
+     ```
+
+ 1. When the encryption finishes, you can verify that the disk is encrypted with the following: 
+     ```azurepowershell
+     Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName "MySecureRG" -VMName "MySecureVM"
+     ```
+    ![Get-AzureRmVmDiskEncryptionStatus output](media/azure-security-disk-encryption/ade-get-encryption-status.PNG)
+    
 ## Clean up resources
+ **ADEPrereqScript.ps1** creates a resource lock on the key vault. To clean up the resources from this quickstart, you need to remove the resource lock first then delete the resource group. 
 
-If you're not going to continue to use this application, delete <resources> with the following steps:
+1. Remove the resource lock from the key vault
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
-
-<!---Required:
-To avoid any costs associated with following the quickstart procedure, a Clean up resources (H2) should come just before Next steps (H2)
---->
+     ```azurepowershell
+      $LockId =(Get-AzureRMResourceLock -ResourceGroupName "MySecureRG" -ResourceName "MySecureVault" -ResourceType "Microsoft.KeyVault/vaults").LockID 
+     Remove-AzureRmResourceLock -LockID $LockId
+      ```
+    
+2. Remove the resource group. This will delete all resources in the group too. 
+     ```azurepowershell
+      Remove-AzureRmResourceGroup -Name "MySecureRG"
+      ```
 
 ## Next steps
+Advance to the next article io learn more about Azure Disk Encryption prerequisites for IaaS VMs.
 
-Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
-
-<!--- Required:
-Quickstarts should always have a Next steps H2 that points to the next logical quickstart in a series, or, if there are no other quickstarts, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also section". --->
+> [Azure Disk Encryption Prerequisites](azure-security-disk-encryption-prerequisites.md)
