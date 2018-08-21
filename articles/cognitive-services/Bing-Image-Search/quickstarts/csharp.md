@@ -30,6 +30,7 @@ To run this application, follow these steps.
 
 1. create a new Console solution named `BingSearchApisQuickStart` in Visual Studio
 2. Define the application requirements in your solution's main code file.
+
     ```csharp
     using System;
     using System.Text;
@@ -37,7 +38,8 @@ To run this application, follow these steps.
     using System.IO;
     using System.Collections.Generic;
     ```
-3. Define the API endpoint, your subscription key, and search term.
+
+1. Define the API endpoint, your subscription key, and search term.
 
     ```csharp
     // Replace the accessKey string value with your valid access key.
@@ -48,19 +50,21 @@ To run this application, follow these steps.
 
 4. Define a `SearchResult` struct to contain the image search results, and JSON header information.
     
-```csharp
-    namespace BingSearchApisQuickstart
-    {
-        class Program
+    ```csharp
+        namespace BingSearchApisQuickstart
         {
-...
-        struct SearchResult
-        {
-            public String jsonResult;
-            public Dictionary<String, String> relevantHeaders;
+            class Program
+            {
+    ...
+                struct SearchResult
+                {
+                    public String jsonResult;
+                    public Dictionary<String, String> relevantHeaders;
+                }
+    ...
+            }
         }
-...
-```
+    ```
 5. Create a method named `BingImageSearch` to perform the call to the API, and return the results as a SearchResult.
 
     ```csharp
