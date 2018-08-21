@@ -65,8 +65,8 @@ The following list provides the requirements to create a Run As account in Power
 
 * Windows 10 or Windows Server 2016 with Azure Resource Manager modules 3.4.1 and later. The PowerShell script does not support earlier versions of Windows.
 * Azure PowerShell 1.0 and later. For information about the PowerShell 1.0 release, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* An Automation account, which is referenced as the value for the \*–AutomationAccountName\* and \*-ApplicationDisplayName\* parameters.
-* Permisions equivalent to what is listed in [Required permissions to configure Run As accounts](#permissions)
+* An Automation account, which is referenced as the value for the *–AutomationAccountName* and *-ApplicationDisplayName* parameters.
+* Permissions equivalent to what is listed in [Required permissions to configure Run As accounts](#permissions)
 
 To get the values for *SubscriptionID*, *ResourceGroup*, and *AutomationAccountName*, which are required parameters for the script, do the following:
 
@@ -346,6 +346,7 @@ To renew the certificate, do the following:
 
 1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
 
+If you are un-able to renew the Run As certificate
 ## Limiting Run As account permissions
 
 To control targeting of automation against resources in Azure Automation, the Run As account by default is granted contributor rights in the subscription. If you need to restrict what the RunAs service principal can do, you can remove the account from the contributor role to the subscription and add it as a contributor to the resource groups you want to specify.
