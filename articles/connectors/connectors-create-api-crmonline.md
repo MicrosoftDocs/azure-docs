@@ -16,9 +16,9 @@ ms.suite: integration
 tags: connectors
 ---
 
-# Connect to Dynamics 365 from logic app workflows
+# Create and manage records in Dynamics 365 (online) with Azure Logic Apps
 
-With Logic Apps, you can connect to Dynamics 365 (online) 
+With Azure Logic Apps, you can connect to Dynamics 365 (online) 
 and create useful business flows that create records, 
 update items, or return a list of records. With the 
 Dynamics 365 connector, you can:

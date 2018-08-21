@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Connect to DB2 - Azure Logic Apps | Microsoft Docs
+title: Connect to IBM DB2 - Azure Logic Apps | Microsoft Docs
 description: Manage resources with DB2 REST APIs and Azure Logic Apps
 author: gplarsen
 manager: jeconnoc
@@ -11,12 +11,13 @@ ms.service: logic-apps
 services: logic-apps
 
 # optional metadata
-ms.reviewer: klam, estfan
+ms.reviewer: estfan, LADocs
 ms.suite: integration
 tags: connectors
 ---
 
-# Get started with the DB2 connector
+# Manage resoruces in IBM DB2 with Azure Logic Apps
+
 Microsoft connector for DB2 connects Logic Apps to resources stored in an IBM DB2 database. This connector includes a Microsoft client to communicate with remote DB2 server computers across a TCP/IP network. This includes cloud databases, such as IBM Bluemix dashDB or IBM DB2 for Windows running in Azure virtualization, and on-premises databases using the on-premises data gateway. See the [supported list](connectors-create-api-db2.md#supported-db2-platforms-and-versions) of IBM DB2 platforms and versions (in this topic).
 
 The DB2 connector supports the following database operations:
