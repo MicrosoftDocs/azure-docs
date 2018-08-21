@@ -12,7 +12,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance-reports
+ms.component: report-monitor
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk 
@@ -51,7 +51,7 @@ Your session should look similar to this screen:
 
 1. First, go to your application registration page. You can do this by navigating to the [Azure portal](https://portal.azure.com), clicking **Azure Active Directory**, then clicking **App registrations** and choosing your application from the list. 
 
-2. Then, follow the steps to [register your certificate with Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials#register-your-certificate-with-azure-ad) for the application. 
+2. Then, follow the steps to [register your certificate with Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials#register-your-certificate-with-azure-ad) for the application. 
 
 3. Note the Application ID, and the thumbprint of the certificate you just registered with your application. To find the thumbprint, from your application page in the portal, go to **Settings** and click **Keys**. The thumbprint will be under the **Public Keys** list.
 

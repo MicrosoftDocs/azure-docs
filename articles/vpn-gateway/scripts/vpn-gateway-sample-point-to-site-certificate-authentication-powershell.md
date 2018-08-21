@@ -88,7 +88,7 @@ $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
 $p2srootcert = New-AzureRmVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
 Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName `
  -VirtualNetworkGatewayname "VNet1GW" `
- -ResourceGroupName "TestRG" -PublicCertData $CertBase64
+ -ResourceGroupName "TestRG1" -PublicCertData $CertBase64
 
 ```
 

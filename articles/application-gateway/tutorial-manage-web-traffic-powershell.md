@@ -1,6 +1,6 @@
 ---
 title: Manage web traffic - Azure PowerShell
-description: Learn how to create an application gateway with a virtual machine scale set to manage web traffic using using Azure PowerShell.
+description: Learn how to create an application gateway with a virtual machine scale set to manage web traffic using Azure PowerShell.
 services: application-gateway
 author: vhorne
 manager: jpconnock

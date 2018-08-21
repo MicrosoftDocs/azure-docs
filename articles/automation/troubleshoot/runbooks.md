@@ -131,7 +131,43 @@ This error can be caused by using outdated Azure modules.
 
 This error can be resolved by updating your Azure modules to the latest version.
 
-In your Automation Account, click **Modules**, and click **Update Azure modules**. The update takes roughly 15 minutes, once complete re-run the runbook that was failing.
+In your Automation Account, click **Modules**, and click **Update Azure modules**. The update takes roughly 15 minutes, once complete re-run the runbook that was failing. To learn more about updating your modules, see [Update Azure modules in Azure Automation](../automation-update-azure-modules.md).
+
+### <a name="child-runbook-auth-failure"></a>Scenario: Child runbook fails when dealing with multiple subscriptions
+
+#### Issue
+
+When executing child runbooks with `Start-AzureRmRunbook`, the child runbook fails to manage Azure resources.
+
+#### Cause
+
+The child runbook is not using the correct context when running.
+
+#### Resolution
+
+When working with multiple subscriptions the subscription context might be lost when invoking child runbooks. To ensure that the subscription context is passed to the child runbooks, add the `DefaultProfile` parameter to the cmdlet and pass the context to it.
+
+```azurepowershell-interactive
+# Connect to Azure with RunAs account
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+
+Add-AzureRmAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
+$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
+
+Start-AzureRmAutomationRunbook `
+    –AutomationAccountName 'MyAutomationAccount' `
+    –Name 'Test-ChildRunbook' `
+    -ResourceGroupName 'LabRG' `
+    -DefaultProfile $AzureContext `
+    –Parameters $params –wait
+```
 
 ### <a name="not-recognized-as-cmdlet"></a>Scenario: The runbook fails because of a missing cmdlet
 
@@ -183,6 +219,8 @@ Any of the following solutions fix the problem:
 * Suggested methods to work within the memory limit are to split the workload between multiple runbooks, not process as much data in memory, not to write unnecessary output from your runbooks, or consider how many checkpoints you write into your PowerShell workflow runbooks.  
 
 * Update your Azure modules by following the steps [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).  
+
+* Another solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers are not limited by the [fair share](../automation-runbook-execution.md#fair-share) limits that Azure sandboxes are.
 
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook fails because of deserialized object
 
