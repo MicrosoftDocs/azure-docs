@@ -189,7 +189,7 @@ Get-ItemProperty -name Version, Release -ErrorAction SilentlyContinue | Where { 
 }
 else
 {
-    $CurrentDetails = "The .NET Framework is outdated. Download the lastest version here: https://www.microsoft.com/net/download/dotnet-framework-runtime"
+    $CurrentDetails = "The .NET Framework is outdated. Download the latest version here: https://www.microsoft.com/net/download/dotnet-framework-runtime"
     $CurrentResult = "Failed"
 }
 $CheckedRules += New-RuleCheckResult "DotNetFrameworkInstalledCheck" ".Net Framework 4.5+" ".NET Framework version 4.5 or later is required" $CurrentResult $CurrentDetails "prerequisites" "Prerequisite Checks"
@@ -216,7 +216,7 @@ else
     $CurrentDetails = "Windows Management Framework is outdated. Download version 5.1 here: https://www.microsoft.com/en-us/download/details.aspx?id=54616"
     $CurrentResult = "Failed"
 }
-$CheckedRules += New-RuleCheckResult "WindowsManagementFrameworkInstalledCheck" "WMF 5.1" "A Windows Management Framework version 5.1 or later is recomended, version 4.0 or later is required." $CurrentResult $CurrentDetails "prerequisites" "Prerequisite Checks"
+$CheckedRules += New-RuleCheckResult "WindowsManagementFrameworkInstalledCheck" "WMF 5.1" "A Windows Management Framework version 5.1 or later is recommended, version 4.0 or later is required." $CurrentResult $CurrentDetails "prerequisites" "Prerequisite Checks"
 
 
 #==<<<<<== [Firewall Setup Check Group START]
@@ -327,14 +327,14 @@ $ClientDisabled =   checkRegValue "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Se
 
 if ($CheckedRules[0].CheckResult -ne "Passed" -and [System.Environment]::OSVersion.Version -ge [System.Version]"6.0.6001")
 {
-    $CurrentDetails = "Your OS does not naturaly support TLS 1.2. While it is possible to update and add support for TLS 1.2 on your current OS, updating is highly recomended as your current version of Windows only supports update assessments. Information on updateing can be found here: https://support.microsoft.com/en-us/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows"
+    $CurrentDetails = "Your OS does not naturally support TLS 1.2. While it is possible to update and add support for TLS 1.2 on your current OS, updating is highly recommended as your current version of Windows only supports update assessments. Information on updating can be found here: https://support.microsoft.com/en-us/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows"
     $CurrentResult = "Failed"
 }
 elseif([System.Environment]::OSVersion.Version -ge [System.Version]"6.1.7601" -and [System.Environment]::OSVersion.Version -le [System.Version]"6.1.8400")
 {
     if($ClientNotDisabled -and $ServerNotDisabled -and !($ServerNotEnabled -and $ClientNotEnabled))
     {
-        $CurrentDetails = "Your OS does not support TLS 1.2 by default but your regestry has been set up to do so."
+        $CurrentDetails = "Your OS does not support TLS 1.2 by default but your registry has been set up to do so."
         $CurrentResult = "Passed"
     }
     else
@@ -347,7 +347,7 @@ elseif([System.Environment]::OSVersion.Version -ge [System.Version]"6.2.9200")
 {
     if($ClientDisabled -or $ServerDisabled -or $ServerNotEnabled -or $ClientNotEnabled)
     {
-        $CurrentDetails = "Your OS supports TLS 1.2 by default but certain regestry keys have been set up to dissable it. Instructions on how to re-enable default support by can be found here: https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings#tls-12"
+        $CurrentDetails = "Your OS supports TLS 1.2 by default but certain registry keys have been set up to disable it. Instructions on how to re-enable default support by can be found here: https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings#tls-12"
         $CurrentResult = "Failed"
     }
     else
@@ -358,7 +358,7 @@ elseif([System.Environment]::OSVersion.Version -ge [System.Version]"6.2.9200")
 }
 else
 {
-    $CurrentDetails = "Your OS does not naturaly support TLS 1.2"
+    $CurrentDetails = "Your OS does not naturally support TLS 1.2"
     $CurrentResult = "Failed"
 }
 $CheckedRules += New-RuleCheckResult "TlsVersionCheck" "TLS 1.2" "Client and Server connections must support TLS 1.2" $CurrentResult $CurrentDetails "prerequisites" "Prerequisite Checks"
