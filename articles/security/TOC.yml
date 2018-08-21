@@ -41,7 +41,7 @@
     - name: Disk encryption for IaaS VMs
       items:
       - name: About Azure Disk Encryption
-       href: azure-security-disk-encryption-overview.md
+        href: azure-security-disk-encryption-overview.md
       - name: Azure Disk Encryption
         items:
         - name: Quickstarts
