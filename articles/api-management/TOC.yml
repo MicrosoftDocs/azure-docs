@@ -17,7 +17,7 @@
     href: import-and-publish.md
   - name: 2 - Create and publish a product
     href: api-management-howto-add-products.md
-  - name: 3 - Mock an API responses
+  - name: 3 - Mock API responses
     href: mock-api-responses.md
   - name: 4 - Protect your API
     href: transform-api.md

@@ -10,7 +10,7 @@ ms.topic: conceptual
 
 # Azure Batch rendering capabilities
 
-Standard Azure Batch capabilities are used to run rendering workloads and applications, but there are some areas where specific rendering support has been added.
+Standard Azure Batch capabilities are used to run rendering workloads and applications. Batch also includes specific features to support rendering workloads.
 
 For an overview of Batch concepts, including pools, jobs, and tasks, see [this article](https://docs.microsoft.com/azure/batch/batch-api-basics).
 
@@ -36,16 +36,16 @@ Other options are available if additional applications are required on the pool 
 * [Application packages](https://docs.microsoft.com/azure/batch/batch-application-packages):
   * Package the application files using one or more ZIP files, upload via the Azure portal, and specify the package in pool configuration. When pool VMs are created, the ZIP files are downloaded and the files extracted.
 * Resource files:
-  * Application files are uploaded to Azure blob storage, and you specify file references ain the [pool start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask). When pool VMs are created the resource files are downloaded onto each VM.
+  * Application files are uploaded to Azure blob storage, and you specify file references in the [pool start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask). When pool VMs are created, the resource files are downloaded onto each VM.
 
 ### Pay-for-use licensing for pre-installed applications
 
 The applications that will be used and have a licensing fee need to be specified in the pool configuration.
 
-* The `applicationLicenses` property needs to be specified when [creating a pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  The following values can be specified in the array of strings - "vray", "arnold", "3dsmax", "maya".
-* When one or more applications are specified, then the cost of those applications will be charged in addition to the cost of the VMs.  Application prices are listed on the [Azure Batch pricing page](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
+* Specify the `applicationLicenses` property when [creating a pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  The following values can be specified in the array of strings - "vray", "arnold", "3dsmax", "maya".
+* When you specify one or more applications, then the cost of those applications is added to the cost of the VMs.  Application prices are listed on the [Azure Batch pricing page](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
-You can use the Azure portal or Batch Explorer display to select applications to be selected and show the application prices.
+You can use the Azure portal or Batch Explorer to select applications and show the application prices.
 
 If an attempt is made to use an application, but the application hasn’t been specified in the `applicationLicenses` property of the pool configuration, then the application execution fails with a licensing error and non-zero exit code.
 

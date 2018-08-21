@@ -4,7 +4,7 @@ description: Learn how to code and test Azure functions from the command prompt 
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 08/14/2018
 ms.author: glenga
 
 ---
@@ -127,6 +127,7 @@ In the terminal window or from a command prompt, run the following command to cr
 func init MyFunctionProj
 ```
 
+When you provide a project name, a new folder with that name is created and initialized. Otherwise, the current folder is initialized.  
 In version 2.x, when you run the command you must choose a runtime for your project. If you plan to develop JavaScript functions, choose **node**:
 
 ```output
@@ -294,19 +295,24 @@ To run a Functions project, run the Functions host. The host enables triggers fo
 ```bash
 func host start
 ```
+The `host` command is only required in version 1.x.
 
 `func host start` supports the following options:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-|**`--port -p`** | The local port to listen on. Default value: 7071. |
-| **`--debug <type>`** | Starts the host with the debug port open so that you can attach to the **func.exe** process from [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) or [Visual Studio 2017](functions-dotnet-class-library.md). The *\<type\>* options are `VSCode` and `VS`.  |
 | **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
-| **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. |
-| **`--debugLevel -d`** | The console trace level (off, verbose, info, warning, or error). Default: Info.|
+| **`--debug <type>`** | Starts the host with the debug port open so that you can attach to the **func.exe** process from [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) or [Visual Studio 2017](functions-dotnet-class-library.md). The *\<type\>* options are `VSCode` and `VS`.  |
+| **`--port -p`** | The local port to listen on. Default value: 7071. |
 | **`--timeout -t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
-| **`--pause-on-error`** | Pause for additional input before exiting the process. Used when launching Core Tools from Visual Studio or VS Code.|
+| **`--build`** | Build current project before running. Version 2.x and C# projects only. |
+| **`--cert`** | The path to a .pfx file that contains a private key. Only used with `--useHttps`. Version 2.x only. | 
+| **`--password`** | Either the password or a file that contains the password for a .pfx file. Only used with `--cert`. Version 2.x only. |
+| **`--language-worker`** | Arguments to configure the language worker. Version 2.x only. |
+| **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. Version 1.x only. |
+
+For a C# class library project (.csproj), you must include the `--build` option to generate the library .dll.
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 
