@@ -55,7 +55,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Install HA extension
 
-   <pre><code>sudo yum install -y pcs pacemaker fence-agents-azure-arm
+   <pre><code>sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
    </code></pre>
 
 1. **[A]** Setup host name resolution
@@ -93,6 +93,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    <pre><code>sudo systemctl start pcsd.service
    sudo systemctl enable pcsd.service
+   sudo systemctl enable pacemaker
    </code></pre>
 
 1. **[1]** Create Pacemaker cluster
@@ -166,11 +167,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    Then restart the corosync service
 
    <pre><code>sudo service corosync restart
-   </code></pre>
-
-1. **[1]** Change the pacemaker default settings
-
-   <pre><code>sudo crm configure rsc_defaults resource-stickiness="1"
    </code></pre>
 
 ## Create STONITH device

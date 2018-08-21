@@ -33,6 +33,7 @@ ms.author: sedusch
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
@@ -63,7 +64,7 @@ Read the following SAP Notes and papers first
 * SAP Note [1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
-* [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
+* [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
 * [Product Documentation for Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * [SAP Netweaver in pacemaker cluster](https://access.redhat.com/articles/3150081)
@@ -243,7 +244,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Install GlusterFS client and other requirements
 
-   <pre><code>sudo yum -y install glusterfs-fuse nmap-ncat resource-agents
+   <pre><code>sudo yum -y install glusterfs-fuse resource-agents resource-agents-sap
    </code></pre>
 
 1. **[A]** Add mount entries
@@ -280,38 +281,43 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo service waagent restart
    </code></pre>
 
+1. **[A]** RHEL configuration
+
+   Configure RHEL as described in SAP Note [2002167]
+
 ### Installing SAP NetWeaver ASCS/ERS
 
 1. **[1]** Create a virtual IP resource and health-probe for the ASCS instance
 
-   <pre><code>sudo crm node standby <b>nw1-cl-1</b>
+   <pre><code>sudo pcs node standby <b>nw1-cl-1</b>
    
-   sudo pcs resource create fs_<b>NW1</b>_ASCS Filesystem device='<b>glust-0</b>:/<b>NW1</b>-ascs' directory='/usr/sap/<b>NW1</b>/ASCS<b>00</b>' fstype='glusterfs' options='backup-volfile-servers=<b>glust-1:glust-2</b>'
+   sudo pcs resource create fs_<b>NW1</b>_ASCS Filesystem device='<b>glust-0</b>:/<b>NW1</b>-ascs' \
+     directory='/usr/sap/<b>NW1</b>/ASCS<b>00</b>' fstype='glusterfs' \
+     options='backup-volfile-servers=<b>glust-1:glust-2</b>' \
+     --group g-<b>NW1</b>_ASCS
    
    sudo pcs resource create vip_<b>NW1</b>_ASCS IPaddr2 \
-     ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b>
+     ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
+     --group g-<b>NW1</b>_ASCS
    
-   sudo pcs resource create nc_<b>NW1</b>_ASCS azure-lb port=620<b>00</b>
-   
-   sudo crm configure group g-<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
-      meta resource-stickiness=3000
+   sudo pcs resource create nc_<b>NW1</b>_ASCS azure-lb port=620<b>00</b> \
+     --group g-<b>NW1</b>_ASCS
    </code></pre>
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
-   <pre><code>
-   sudo crm_mon -r
+   <pre><code>sudo crm_mon -r
    
-   # Node nw1-cl-1: standby
-   # <b>Online: [ nw1-cl-0 ]</b>
-   # 
+   # Node <b>nw1-cl-1</b>: standby
+   # Online: [ <b>nw1-cl-0</b> ]
+   #
    # Full list of resources:
-   # 
-   # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-0</b>
-   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-0</b>
-   #  Resource Group: g-NW1_ASCS
-   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
-   #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
+   #
+   # rsc_st_azure    (stonith:fence_azure_arm):      Started <b>nw1-cl-0</b>
+   #  Resource Group: g-<b>NW1</b>_ASCS
+   #      fs_<b>NW1</b>_ASCS        (ocf::heartbeat:Filesystem):    Started <b>nw1-cl-0</b>
+   #      nc_<b>NW1</b>_ASCS        (ocf::heartbeat:azure-lb):      Started <b>nw1-cl-0</b>
+   #      vip_<b>NW1</b>_ASCS       (ocf::heartbeat:IPaddr2):       Started <b>nw1-cl-0</b>
    </code></pre>
 
 1. **[1]** Install SAP NetWeaver ASCS  
@@ -320,55 +326,54 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
-   <pre><code>
+   <pre><code># Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
+   sudo firewall-cmd --zone=public  --add-port=4237/tcp
+   
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
    If the installation fails to create a subfolder in /usr/sap/**NW1**/ASCS**00**, try setting the owner and group of the ASCS**00** folder and retry.
 
-   <pre><code>
-   chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
-   chgrp sapsys /usr/sap/<b>NW1</b>/ASCS<b>00</b>
+   <pre><code>sudo chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
+   sudo chgrp sapsys /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    </code></pre>
 
 1. **[1]** Create a virtual IP resource and health-probe for the ERS instance
 
-   <pre><code>
-   sudo crm node online <b>nw1-cl-1</b>
-   sudo crm node standby <b>nw1-cl-0</b>
+   <pre><code>sudo pcs node unstandby <b>nw1-cl-1</b>
+   sudo pcs node standby <b>nw1-cl-0</b>
    
-   sudo crm configure primitive vip_<b>NW1</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.12</b> cidr_netmask=<b>24</b> \
-     op monitor interval=10 timeout=20
+   sudo pcs resource create fs_<b>NW1</b>_AERS Filesystem device='<b>glust-0</b>:/<b>NW1</b>-aers' \
+     directory='/usr/sap/<b>NW1</b>/ERS<b>02</b>' fstype='glusterfs' \
+     options='backup-volfile-servers=<b>glust-1:glust-2</b>' \
+    --group g-<b>NW1</b>_AERS
    
-   sudo crm configure primitive nc_<b>NW1</b>_ERS anything \
-    params binfile="/usr/bin/nc" cmdline_options="-l -k 621<b>02</b>" \
-    op monitor timeout=20s interval=10 depth=0
+   sudo pcs resource create vip_<b>NW1</b>_AERS IPaddr2 \
+     ip=<b>10.0.0.12</b> cidr_netmask=<b>24</b> \
+    --group g-<b>NW1</b>_AERS
    
-   # WARNING: Resources nc_NW1_ASCS,nc_NW1_ERS violate uniqueness for parameter "binfile": "/usr/bin/nc"
-   # Do you still want to commit (y/n)? y
-   
-   sudo crm configure group g-<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS
+   sudo pcs resource create nc_<b>NW1</b>_AERS azure-lb port=621<b>02</b> \
+    --group g-<b>NW1</b>_AERS
    </code></pre>
  
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
-   <pre><code>
-   sudo crm_mon -r
+   <pre><code>sudo crm_mon -r
    
-   # Node <b>nw1-cl-0: standby</b>
-   # <b>Online: [ nw1-cl-1 ]</b>
-   # 
+   # Node <b>nw1-cl-0</b>: standby
+   # Online: [ <b>nw1-cl-1</b> ]
+   #
    # Full list of resources:
    #
-   # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-1</b>
-   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-1</b>
-   #  Resource Group: g-NW1_ASCS
-   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
-   #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
-   #  Resource Group: g-NW1_ERS
-   #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
-   #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
+   # rsc_st_azure    (stonith:fence_azure_arm):      Started <b>nw1-cl-1</b>
+   #  Resource Group: g-<b>NW1</b>_ASCS
+   #      fs_<b>NW1</b>_ASCS        (ocf::heartbeat:Filesystem):    Started <b>nw1-cl-1</b>
+   #      nc_<b>NW1</b>_ASCS        (ocf::heartbeat:azure-lb):      Started <b>nw1-cl-1</b>
+   #      vip_<b>NW1</b>_ASCS       (ocf::heartbeat:IPaddr2):       Started <b>nw1-cl-1</b>
+   #  Resource Group: g-<b>NW1</b>_AERS
+   #      fs_<b>NW1</b>_AERS        (ocf::heartbeat:Filesystem):    Started <b>nw1-cl-1</b>
+   #      nc_<b>NW1</b>_AERS        (ocf::heartbeat:azure-lb):      Started <b>nw1-cl-1</b>
+   #      vip_<b>NW1</b>_AERS       (ocf::heartbeat:IPaddr2):       Started <b>nw1-cl-1</b>
    </code></pre>
 
 1. **[2]** Install SAP NetWeaver ERS  
@@ -377,35 +382,27 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
-   <pre><code>
+   <pre><code># Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
+   sudo firewall-cmd --zone=public  --add-port=4237/tcp
+
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-   > [!NOTE]
-   > Use SWPM SP 20 PL 05 or higher. Lower versions do not set the permissions correctly and the installation will fail.
-
    If the installation fails to create a subfolder in /usr/sap/**NW1**/ERS**02**, try setting the owner and group of the ERS**02** folder and retry.
 
-   <pre><code>
-   chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
-   chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>
+   <pre><code>sudo chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
+   sudo chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>
    </code></pre>
-   > 
 
 1. **[1]** Adapt the ASCS/SCS and ERS instance profiles
- 
+
    * ASCS/SCS profile
 
-   <pre><code> 
-   sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_<b>ASCS00</b>_<b>nw1-ascs</b>
+   <pre><code>sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_<b>ASCS00</b>_<b>nw1-ascs</b>
    
    # Change the restart command to a start command
    #Restart_Program_01 = local $(_EN) pf=$(_PF)
    Start_Program_01 = local $(_EN) pf=$(_PF)
-   
-   # Add the following lines
-   service/halib = $(DIR_CT_RUN)/saphascriptco.so
-   service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
    
    # Add the keep alive parameter
    enque/encni/set_so_keepalive = true
@@ -413,90 +410,116 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    * ERS profile
 
-   <pre><code> 
-   sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>
+   <pre><code>sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>
    
-   # Add the following lines
-   service/halib = $(DIR_CT_RUN)/saphascriptco.so
-   service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
+   # Change the restart command to a start command
+   #Restart_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
+   Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
+   
+   # remove Autostart from ERS profile
+   # Autostart = 1
    </code></pre>
 
 
 1. **[A]** Configure Keep Alive
 
    The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this you need to set a parameter in the SAP NetWeaver ASCS/SCS profile and change the Linux system settings. Read [SAP Note 1410736][1410736] for more information.
-   
+
    The ASCS/SCS profile parameter enque/encni/set_so_keepalive was already added in the last step.
 
-   <pre><code> 
-   # Change the Linux system configuration
+   <pre><code># Change the Linux system configuration
    sudo sysctl net.ipv4.tcp_keepalive_time=120
    </code></pre>
 
-1. **[A]** Configure the SAP users after the installation
- 
-   <pre><code>
-   # Add sidadm to the haclient group
-   sudo usermod -aG haclient <b>nw1</b>adm   
-   </code></pre>
+1. **[A]** Update the /usr/sap/sapservices file
 
-1. **[1]** Add the ASCS and ERS SAP services to the sapservice file
-
-   Add the ASCS service entry to the second node and copy the ERS service entry to the first node.
+   To prevent the start of the instances by the sapinit startup script, all instances managed by Pacemaker must be commented out from /usr/sap/sapservices file. Do not comment out the SAP HANA instance if it will be used with HANA SR.
 
    <pre><code>
-   cat /usr/sap/sapservices | grep ASCS<b>00</b> | sudo ssh <b>nw1-cl-1</b> "cat >>/usr/sap/sapservices"
-   sudo ssh <b>nw1-cl-1</b> "cat /usr/sap/sapservices" | grep ERS<b>02</b> | sudo tee -a /usr/sap/sapservices
+   sudo vi /usr/sap/sapservices
+   
+   # On the node where you installed the ASCS, comment out the following line
+   # LD_LIBRARY_PATH=/usr/sap/<b>NW1</b>/ASCS<b>00</b>/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/<b>NW1</b>/ASCS<b>00</b>/exe/sapstartsrv pf=/usr/sap/<b>NW1</b>/SYS/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> -D -u <b>nw1</b>adm
+   
+   # On the node where you installed the ERS, comment out the following line
+   # LD_LIBRARY_PATH=/usr/sap/<b>NW1</b>/ERS<b>02</b>/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/<b>NW1</b>/ERS<b>02</b>/exe/sapstartsrv pf=/usr/sap/<b>NW1</b>/ERS<b>02</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> -D -u <b>nw1</b>adm
    </code></pre>
 
 1. **[1]** Create the SAP cluster resources
 
-   <pre><code>
-   sudo crm configure property maintenance-mode="true"   
+   <pre><code>sudo pcs property set maintenance-mode=true
    
-   sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
-    operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
-    op monitor interval=11 timeout=60 on_fail=restart \
-    params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
+   sudo pcs resource create rsc_sap_<b>NW1</b>_ASCS00 SAPInstance \
+    InstanceName=<b>NW1</b>_ASCS00_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS00_<b>nw1-ascs</b>" \
     AUTOMATIC_RECOVER=false \
-    meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
+    meta resource-stickiness=5000 \
+    --group g-<b>NW1</b>_ASCS
    
-   sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
-    operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
-    op monitor interval=11 timeout=60 on_fail=restart \
-    params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
-    meta priority=1000
+   sudo pcs resource create rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
+    InstanceName=<b>NW1</b>_ERS02_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS02_<b>nw1-aers</b>" \
+    AUTOMATIC_RECOVER=false IS_ERS=true \
+    --group g-<b>NW1</b>_AERS
+      
+   sudo pcs constraint colocation add g-<b>NW1</b>_AERS with g-<b>NW1</b>_ASCS -5000
+   sudo pcs constraint location rsc_sap_<b>NW1</b>_ASCS<b>00</b> rule score=2000 runs_ers_<b>NW1</b> eq 1
    
-   sudo crm configure modgroup g-<b>NW1</b>_ASCS add rsc_sap_<b>NW1</b>_ASCS<b>00</b>
-   sudo crm configure modgroup g-<b>NW1</b>_ERS add rsc_sap_<b>NW1</b>_ERS<b>02</b>
+   sudo pcs constraint order g-<b>NW1</b>_ASCS then g-<b>NW1</b>_ERS kind=Optional symmetrical=false
    
-   sudo crm configure colocation col_sap_<b>NW1</b>_no_both -5000: g-<b>NW1</b>_ERS g-<b>NW1</b>_ASCS
-   sudo crm configure location loc_sap_<b>NW1</b>_failover_to_ers rsc_sap_<b>NW1</b>_ASCS<b>00</b> rule 2000: runs_ers_<b>NW1</b> eq 1
-   sudo crm configure order ord_sap_<b>NW1</b>_first_start_ascs Optional: rsc_sap_<b>NW1</b>_ASCS<b>00</b>:start rsc_sap_<b>NW1</b>_ERS<b>02</b>:stop symmetrical=false
-   
-   sudo crm node online <b>nw1-cl-0</b>
-   sudo crm configure property maintenance-mode="false"
+   sudo pcs node unstandby <b>nw1-cl-0</b>
+   sudo pcs property set maintenance-mode=false
    </code></pre>
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
-   <pre><code>
-   sudo crm_mon -r
+   <pre><code>sudo crm_mon -r
    
-   # Online: <b>[ nw1-cl-0 nw1-cl-1 ]</b>
+   # Online: [ <b>nw1-cl-0</b> <b>nw1-cl-1</b> ]
    #
    # Full list of resources:
    #
-   # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-1</b>
-   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-1</b>
-   #  Resource Group: g-NW1_ASCS
-   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
-   #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
-   #      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-1</b>
-   #  Resource Group: g-NW1_ERS
-   #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
-   #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
-   #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-0</b>
+   # rsc_st_azure    (stonith:fence_azure_arm):      Started <b>nw1-cl-0</b>
+   #  Resource Group: g-<b>NW1</b>_ASCS
+   #      fs_<b>NW1</b>_ASCS        (ocf::heartbeat:Filesystem):    Started <b>nw1-cl-1</b>
+   #      nc_<b>NW1</b>_ASCS        (ocf::heartbeat:azure-lb):      Started <b>nw1-cl-1</b>
+   #      vip_<b>NW1</b>_ASCS       (ocf::heartbeat:IPaddr2):       Started <b>nw1-cl-1</b>
+   #      rsc_sap_<b>NW1</b>_ASCS00 (ocf::heartbeat:SAPInstance):   Started <b>nw1-cl-1</b>
+   #  Resource Group: g-<b>NW1</b>_AERS
+   #      fs_<b>NW1</b>_AERS        (ocf::heartbeat:Filesystem):    Started <b>nw1-cl-0</b>
+   #      nc_<b>NW1</b>_AERS        (ocf::heartbeat:azure-lb):      Started <b>nw1-cl-0</b>
+   #      vip_<b>NW1</b>_AERS       (ocf::heartbeat:IPaddr2):       Started <b>nw1-cl-0</b>
+   #      rsc_sap_<b>NW1</b>_ERS02  (ocf::heartbeat:SAPInstance):   Started <b>nw1-cl-0</b>
+   </code></pre>
+
+1. **[A]** Add firewall rules for ASCS and ERS on both nodes
+
+   <pre><code># Probe Port of ASCS
+   sudo firewall-cmd --zone=public --add-port=620<b>00</b>/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=620<b>00</b>/tcp
+   sudo firewall-cmd --zone=public --add-port=32<b>00</b>/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=32<b>00</b>/tcp
+   sudo firewall-cmd --zone=public --add-port=36<b>00</b>/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=36<b>00</b>/tcp
+   sudo firewall-cmd --zone=public --add-port=39<b>00</b>/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=39<b>00</b>/tcp
+   sudo firewall-cmd --zone=public --add-port=81<b>00</b>/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=81<b>00</b>/tcp
+   sudo firewall-cmd --zone=public --add-port=5<b>00</b>13/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=5<b>00</b>13/tcp
+   sudo firewall-cmd --zone=public --add-port=5<b>00</b>14/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=5<b>00</b>14/tcp
+   sudo firewall-cmd --zone=public --add-port=5<b>00</b>16/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=5<b>00</b>16/tcp
+   # Probe Port of ERS
+   sudo firewall-cmd --zone=public --add-port=621<b>02</b>/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=621<b>02</b>/tcp
+   sudo firewall-cmd --zone=public --add-port=33<b>02</b>/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=33<b>02</b>/tcp
+   sudo firewall-cmd --zone=public --add-port=5<b>02</b>13/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=5<b>02</b>13/tcp
+   sudo firewall-cmd --zone=public --add-port=5<b>02</b>14/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=5<b>02</b>14/tcp
+   sudo firewall-cmd --zone=public --add-port=5<b>02</b>16/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=5<b>02</b>16/tcp
    </code></pre>
 
 ## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>SAP NetWeaver application server preparation
@@ -509,17 +532,19 @@ The steps bellow assume that you install the application server on a server diff
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands
-   ```bash
-   sudo vi /etc/hosts
-   ```
-   Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment    
-    
-   <pre><code>
-   # IP address of the load balancer frontend configuration for NFS
-   <b>10.0.0.4 nw1-nfs</b>
-   # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
+
+   <pre><code>sudo vi /etc/hosts
+   </code></pre>
+
+   Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment
+
+   <pre><code># IP addresses of the GlusterFS nodes
+   <b>10.0.0.40 glust-0</b>
+   <b>10.0.0.41 glust-1</b>
+   <b>10.0.0.42 glust-2</b>
+   # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
    <b>10.0.0.11 nw1-ascs</b>
-   # IP address of the load balancer frontend configuration for SAP NetWeaver ERS
+   # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
    <b>10.0.0.12 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
@@ -530,39 +555,30 @@ The steps bellow assume that you install the application server on a server diff
 
 1. Create the sapmnt directory
 
-   <pre><code>
-   sudo mkdir -p /sapmnt/<b>NW1</b>
+   <pre><code>sudo mkdir -p /sapmnt/<b>NW1</b>
    sudo mkdir -p /usr/sap/trans
 
    sudo chattr +i /sapmnt/<b>NW1</b>
    sudo chattr +i /usr/sap/trans
    </code></pre>
 
-1. Configure autofs
- 
-   <pre><code>
-   sudo vi /etc/auto.master
-   
-   # Add the following line to the file, save and exit
-   +auto.master
-   /- /etc/auto.direct
+1. Install GlusterFS client and other requirements
+
+   <pre><code>sudo yum -y install glusterfs-fuse uuidd
    </code></pre>
 
-   Create a new file with
+1. Add mount entries
 
-   <pre><code>
-   sudo vi /etc/auto.direct
+   <pre><code>sudo vi /etc/fstab
    
-   # Add the following lines to the file, save and exit
-   /sapmnt/<b>NW1</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/sapmntsid
-   /usr/sap/trans -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/trans
+   # Add the following lines to fstab, save and exit
+   <b>glust-0</b>:/<b>NW1</b>-sapmnt /sapmnt/<b>NW1</b> glusterfs backup-volfile-servers=<b>glust-1:glust-2</b> 0 0
+   <b>glust-0</b>:/<b>NW1</b>-trans /usr/sap/trans glusterfs backup-volfile-servers=<b>glust-1:glust-2</b> 0 0
    </code></pre>
 
-   Restart autofs to mount the new shares
+   Mount the new shares
 
-   <pre><code>
-   sudo systemctl enable autofs
-   sudo service autofs restart
+   <pre><code>sudo mount -a
    </code></pre>
 
 1. Configure SWAP file
@@ -588,7 +604,7 @@ The steps bellow assume that you install the application server on a server diff
 
 ## Install database
 
-In this example, SAP NetWeaver is installed on SAP HANA. You can use every supported database for this installation. For more information on how to install SAP HANA in Azure, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
+In this example, SAP NetWeaver is installed on SAP HANA. You can use every supported database for this installation. For more information on how to install SAP HANA in Azure, see [High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
 
 1. Run the SAP database instance installation
 
@@ -602,11 +618,11 @@ In this example, SAP NetWeaver is installed on SAP HANA. You can use every suppo
 
 ## SAP NetWeaver application server installation
 
-Follow these steps to install an SAP application server. 
+Follow these steps to install an SAP application server.
 
 1. Prepare application server
 
-Follow the steps in the chapter [SAP NetWeaver application server preparation](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) above to prepare the application server.
+Follow the steps in the chapter [SAP NetWeaver application server preparation](high-availability-guide-rhel.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) above to prepare the application server.
 
 1. Install SAP NetWeaver application server
 
@@ -622,9 +638,9 @@ Follow the steps in the chapter [SAP NetWeaver application server preparation](h
 
    Update the SAP HANA secure store to point to the virtual name of the SAP HANA System Replication setup.
 
-   Run the following command to list the entries
-   <pre><code>
-   hdbuserstore List
+   Run the following command to list the entries as \<sapsid>adm
+
+   <pre><code>hdbuserstore List
    </code></pre>
 
    This should list all entries and should look similar to
@@ -635,17 +651,294 @@ Follow the steps in the chapter [SAP NetWeaver application server preparation](h
    KEY DEFAULT
      ENV : 10.0.0.14:<b>30313</b>
      USER: <b>SAPABAP1</b>
-     DATABASE: HN1
+     DATABASE: <b>NW1</b>
    </code></pre>
 
-   The output shows that the IP address of the default entry is pointing to the virtual machine and not to the load balancer's IP address. This entry needs to be changed to point to the virtual hostname of the load balancer. Make sure to use the same port (**30313** in the output above)!
+   The output shows that the IP address of the default entry is pointing to the virtual machine and not to the load balancer's IP address. This entry needs to be changed to point to the virtual hostname of the load balancer. Make sure to use the same port (**30313** in the output above) and database name (**HN1** in the output above)!
 
-   <pre><code>
-   su - <b>nw1</b>adm
-   hdbuserstore SET DEFAULT <b>nw1-db</b>:<b>30313</b> <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>
+   <pre><code>su - <b>nw1</b>adm
+   hdbuserstore SET DEFAULT <b>nw1-db</b>:<b>30313@NW1</b> <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>
+   </code></pre>
+
+## Test the cluster setup
+
+1. Manually migrate the ASCS instance
+
+   Resource state before starting the test:
+
+   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_AERS
+        fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+        vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+   Run the following commands as root to migrate the ASCS instance.
+
+   <pre><code>[root@nw1-cl-0 ~]# pcs resource move rsc_sap_NW1_ASCS00
+   
+   [root@nw1-cl-0 ~]# pcs resource clear rsc_sap_NW1_ASCS00
+   
+   # Remove failed actions for the ERS that occured as part of the migration
+   [root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Resource state after the test:
+
+   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_AERS
+        fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+        vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+1. Simulate node crash
+
+   Resource state before starting the test:
+
+   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_AERS
+        fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+        vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+   Run the following command as root on the node where the ASCS instance is running
+
+   <pre><code>[root@nw1-cl-1 ~]# echo b > /proc/sysrq-trigger
+   </code></pre>
+
+   The status after the node is started again should look like this.
+
+   <pre><code>Online: [ nw1-cl-0 nw1-cl-1 ]
+   
+   Full list of resources:
+   
+   rsc_st_azure    (stonith:fence_azure_arm):      Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_AERS
+        fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+        vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   
+   Failed Actions:
+   * rsc_sap_NW1_ERS02_monitor_11000 on nw1-cl-0 'not running' (7): call=45, status=complete, exitreason='',
+       last-rc-change='Tue Aug 21 13:52:39 2018', queued=0ms, exec=0ms
+   </code></pre>
+
+   Use the following command to clean the failed resources.
+
+   <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Resource state after the test:
+
+   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_AERS
+        fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+        vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+1. Kill message server process
+
+   Resource state before starting the test:
+
+   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_AERS
+        fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+        vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+   Run the following commands as root to identify the process of the message server and kill it.
+
+   <pre><code>[root@nw1-cl-0 ~]# pgrep ms.sapNW1 | xargs kill -9
+   </code></pre>
+
+   If you only kill the message server once, it will be restarted by sapstart. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
+
+   <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ASCS00
+   [root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Resource state after the test:
+
+   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_AERS
+        fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+        vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+1. Kill enqueue server process
+
+   Resource state before starting the test:
+
+   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_AERS
+        fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+        vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+   Run the following commands as root on the node where the ASCS instance is running to kill the enqueue server.
+
+   <pre><code>[root@nw1-cl-1 ~]# pgrep en.sapNW1 | xargs kill -9
+   </code></pre>
+
+   The ASCS instance should immediately fail over to the other node. The ERS instance should also fail over after the ASCS instance is started. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
+
+   <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ASCS00
+   [root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Resource state after the test:
+
+   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_AERS
+        fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+        vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+1. Kill enqueue replication server process
+
+   Resource state before starting the test:
+
+   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_AERS
+        fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+        vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+   Run the following command as root on the node where the ERS instance is running to kill the enqueue replication server process.
+
+   <pre><code>[root@nw1-cl-1 ~]# pgrep er.sapNW1 | xargs kill -9
+   </code></pre>
+
+   If you only run the command once, sapstart will restart the process. If you run it often enough, sapstart will not restart the process and the resource will be in a stopped state. Run the following commands as root to clean up the resource state of the ERS instance after the test.
+
+   <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Resource state after the test:
+
+   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_AERS
+        fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+        vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+1. Kill enqueue sapstartsrv process
+
+   Resource state before starting the test:
+
+   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_AERS
+        fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+        vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+   Run the following commands as root on the node where the ASCS is running.
+
+   <pre><code>[root@nw1-cl-0 ~]# pgrep -fl ASCS00.*sapstartsrv
+   # 59545 sapstartsrv
+   
+   [root@nw1-cl-0 ~]# kill -9 59545
+   </code></pre>
+
+   The sapstartsrv process should always be restarted by the Pacemaker resource agent as part of the monitoring. Resource state after the test:
+
+   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_AERS
+        fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+        vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
 
 ## Next steps
+
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
