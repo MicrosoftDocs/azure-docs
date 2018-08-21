@@ -56,7 +56,7 @@ Azure DNS supports alias record sets. You can use an alias record set to refer t
 
 Additionally, you can now point your apex or naked domain (for example, contoso.com) to a Traffic Manager profile using an alias record.
 
-For more information, see [conceptual alias record set article].
+For more information, see [Overview of Azure DNS alias records](dns-alias.md).
 
 
 ## Next steps
