@@ -24,17 +24,18 @@ A self-hosted integration runtime is capable of running copy activities between 
 This document introduces how you can create and configure Self-hosted IR.
 
 ## High-level steps to install self-hosted IR
-1. Create a Self-hosted integration runtime. Here is a PowerShell example:
+1. Create a Self-hosted integration runtime. You can use ADF UI for creating the self-hosted IR. Here is a PowerShell example:
 
 	```powershell
 	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
 	```
-   - Download and install self-hosted integration runtime (on local machine).
-   - Retrieve authentication key and register self-hosted integration runtime with the key. Here is a PowerShell example:
+2. Download and install self-hosted integration runtime (on local machine).
+3. Retrieve authentication key and register self-hosted integration runtime with the key. Here is a PowerShell example:
 
 	```powershell
 	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
 	```
+
 ## Setting up self-hosted IR on Azure VM using ARM Template (automatation)
 You can automate self-hosted IR setup on an Azure VM using [this ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). This provides an easy way to have a fully functioning Self-hosted IR inside Azure VNet with High Avalaibility and Scalability feature (as long as you set node count to be 2 or higher).
 
