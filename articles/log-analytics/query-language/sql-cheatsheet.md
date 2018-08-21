@@ -1,5 +1,5 @@
 ---
-title: Useful operators in Azure Log Analytics queries | Microsoft Docs
+title: SQL to Azure Log Analytics query language cheat sheet | Microsoft Docs
 description: Common functions to use for different scenarios in Log Analytics queries.
 services: log-analytics
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.author: bwren
 ms.component: na
 ---
 
-# SQL to Azure Log Analytics query language cheat sheet 
+# SQL to Log Analytics query language cheat sheet 
 
 The table helps users who are familiar with SQL to learn the Log Analytics query language. Have a look at the T-SQL command for solving a common scenarios and the equivalent using Log Analytics.
 
@@ -41,3 +41,8 @@ Top n recrods by measure				|`SELECT TOP 100 name, COUNT(*) as Count FROM depend
 Union									|`SELECT * FROM dependencies UNION SELECT * FROM exceptions`					 					|<code>union dependencies, exceptions</code>
 Union: with conditions					|`SELECT * FROM dependencies WHERE value > 4 UNION SELECT * FROM exceptions value < 5`				|<code>dependencies <br>&#124; where value > 4 <br>&#124; union (exceptions <br>&#124; where value < 5)</code>
 Join									|`SELECT * FROM dependencies JOIN exceptions ON dependencies.operation_Id = exceptions.operation_Id`|<code>dependencies <br>&#124; join (exceptions) on operation_Id == operation_Id</code>
+
+
+## Next steps
+
+- Go through a lesson on the [writing queries in Log Analytics](get-started-queries.md).

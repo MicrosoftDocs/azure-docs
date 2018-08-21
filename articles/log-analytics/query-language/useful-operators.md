@@ -38,3 +38,7 @@ Dynamic object (JSON and array)      	|`parsejson()` <br> `makeset()`, `makelist
 Logical operators 				      	|`and`, `or`, `iff(condition, value_t, value_f)` <br> `binary_and()`, `binary_or()`, `binary_not()`, `binary_xor()`
 Machine learning 				      	|`evaluate autocluster`, `basket`, `diffpatterns`, `extractcolumns`
 
+
+## Next steps
+
+- Go through a lesson on the [writing queries in Log Analytics](get-started-queries.md).
