@@ -68,13 +68,14 @@ In this section, you create a virtual network, create two virtual machines for t
 2. Click **OK**.
 3. Select **DS1_V2** for the size of the virtual machine, and click **Select**.
 4. Enter these values for the VM settings:
-    - *myAvailabilitySet* - for the name of the new Availability set that you create.
-    -  *myVNet* - ensure it is selected as the virtual network.
-    - *myBackendSubnet* - ensure it is selected as the subnet.
-    - *myNetworkSecurityGroup* - for the name of the new network security group (firewall) that you must create.
+    1. Ensure that  *myVNet* is selected as the virtual network, and *myBackendSubnet* is selected as the subnet.
+    2. For **Public IP address**, in the **Create Public IP address** pane, select **Standard**, and then select **OK**.
+    3. For **Network Security Group**, select **Advanced**, and then do the following:
+        1. Select *Network security group (firewall), and the **Choose network security group** page, select **Create new**. 
+        2. In the **Create network security group** page, for **Name**, enter *myNetworkSecurityGroup*, and then select **OK**.
 5. Click **Disabled** to disable boot diagnostics.
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
-7. Create a second VM, named, *VM2* with *myAvailibilityset* as the Availability set, *myVnet* as its virtual network, *myBackendSubnet* and its subnet, and **myNetworkSecurityGroup* as its network security group using steps 1-6. 
+7. Using steps 1-6, create a second VM, named, *VM2* with *myAvailibilityset* as the Availability set, *myVnet* as its virtual network, *myBackendSubnet* and its subnet, and **myNetworkSecurityGroup* as its network security group. 
 
 ### Create NSG rules
 
@@ -93,17 +94,6 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
     - *Allow HTTP* - for description
 4. Click **OK**.
  
- ![Create a virtual network](./media/load-balancer-standard-public-portal/8-load-balancer-nsg-rules.png)
-5. Repeat steps 2 to 4 to create another rule named *myRDPRule* to allow for an inbound RDP connection using port 3389 with the following values:
-    - *Service Tag* - for **Source**.
-    - *Internet* - for **Source service tag**
-    - *3389* - for **Destination port ranges**
-    - *TCP* - for **Protocol**
-    - *Allow* - for **Action**
-    - *200* for **Priority**
-    - *myRDPRule* for name
-    - *Allow RDP* - for description
-
 ### Install IIS
 
 1. Click **All resources** in the left-hand menu, and then from the resources list click **myVM1** that is located in the *myResourceGroupLB* resource group.
@@ -120,7 +110,7 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
 
 ## Create load balancer resources
 
-In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer and NAT rules.
+In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify a load balancer rule.
 
 
 ### Create a backend address pool
