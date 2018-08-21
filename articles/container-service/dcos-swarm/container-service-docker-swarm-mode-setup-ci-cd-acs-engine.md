@@ -1,6 +1,6 @@
 ---
 title: CI/CD with Azure Container Service Engine and Swarm Mode
-description: Use Azure Container Service Engine with Docker Swarm Mode, an Azure Container Registry, and Visual Studio Team Services to deliver continuously a multi-container .NET Core application
+description: Use Azure Container Service Engine with Docker Swarm Mode, an Azure Container Registry, and Azure DevOps to deliver continuously a multi-container .NET Core application
 services: container-service
 author: diegomrtnzg
 manager: jeconnoc
@@ -48,7 +48,7 @@ Before starting this tutorial, you need to complete the following tasks:
 - [Create a Swarm Mode cluster in Azure Container Service with ACS Engine](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acsengine-swarmmode)
 - [Connect with the Swarm cluster in Azure Container Service](../container-service-connect.md)
 - [Create an Azure container registry](../../container-registry/container-registry-get-started-portal.md)
-- [Have a Azure DevOps organization and team project created](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)
+- [Have an Azure DevOps organization and project created](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)
 - [Fork the GitHub repository to your GitHub account](https://github.com/jcorioland/MyShop/tree/docker-linux)
 
 >[!NOTE]
@@ -61,7 +61,7 @@ In this section, you configure your Azure DevOps organization. To configure Azur
 
 ![Open Services Endpoint](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/services-vsts.PNG)
 
-### Connect Azure DevOps organization and Azure account
+### Connect Azure DevOps and Azure account
 
 Set up a connection between your Azure DevOps project and your Azure account.
 
