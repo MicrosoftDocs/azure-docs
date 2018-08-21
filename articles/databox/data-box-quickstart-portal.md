@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/08/2018
+ms.date: 08/21/2018
 ms.author: alkohli
 ---
 # Quickstart: Deploy Azure Data Box using the Azure portal
@@ -65,7 +65,7 @@ When you receive the Data Box, do the following steps to unpack, cable, and turn
 	
 4. Cable the device as shown below.  
 
-    <!--![Data Box cabled](media/data-box-quickstart-portal/back-plane-labeled.png)-->  
+    ![Data Box cabled](media/data-box-quickstart-portal/data-box-cabled-dhcp.png)  
 
     1. Connect the power cable to the device.
     2. Use the CAT 6 network cable to connect your host computer to the management port (MGMT) on the device. 
@@ -112,19 +112,15 @@ The time to complete this operation depends upon your data size.
 
 This step takes 2-3 minutes to complete.
 
-- You can cancel the Data Box order in the Azure portal before the order is processed. Once the order is processed, the order cannot be canceled. The order progresses until it reaches the completed stage.
+- You can cancel the Data Box order in the Azure portal before the order is processed. Once the order is processed, the order cannot be canceled. The order progresses until it reaches the completed stage. To cancel the order, go to **Overview** and click **Cancel** from the command bar.
 
-    To cancel the order, go to Overview and click **Cancel** from the command bar.
-
- - You can delete the order once the status shows as **Completed** or **Canceled** in the Azure portal.
-
-To delete the order, go to **Overview** and click **Delete** from the command bar.
+- You can delete the order once the status shows as **Completed** or **Canceled** in the Azure portal. To delete the order, go to **Overview** and click **Delete** from the command bar.
 
 ## Next steps
 
 In this quickstart, you’ve deployed an Azure Data Box to help import your data into Azure. To learn more about Azure Data Box management, advance to the following tutorial: 
 
 > [!div class="nextstepaction"]
-> [Use the Azure portal to administer Data Box Disk](data-box-deploy-ordered.md)
+> [Use the Azure portal to administer Data Box](data-box-deploy-ordered.md)
 
 
