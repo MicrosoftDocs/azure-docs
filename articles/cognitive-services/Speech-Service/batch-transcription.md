@@ -65,7 +65,7 @@ As with all features of the Unified Speech Service, you create a subscription ke
 
     ![Screenshot of Custom Speech Subscriptions page](media/stt/Subscriptions.jpg)
 
-4. Copy and paste that key in the client code in the sample below.
+4. Copy and paste that key in the client code in the following sample.
 
 > [!NOTE]
 > If you plan to use a custom model, you will need the ID of that model too. Note that this is not the deployment or endpoint ID that you find on the Endpoint Details view. It is the model ID that you can retrieve when you select the details of that model.
