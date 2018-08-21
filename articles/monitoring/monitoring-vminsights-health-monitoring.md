@@ -52,14 +52,11 @@ The list view would look like below. Results can be filtered further from the dr
 
 ## Aggregate virtual machine perspective
 
-To view health collection for all of your virtual machines, from the nagivation list in the portal select **Azure Monitor**, and then select **Virtual Machines (preview)**.  On the **Health** tab, 
-
-
-When accessing VM insights from Azure Monitor, you are presented with an overview of the health for a collection of monitored virtual machines (VM) from the **Health** tab. 
+To view health collection for all of your virtual machines, from the navigation list in the portal, select **Azure Monitor** and then select **Virtual Machines (preview)**.  
 
 ![VM Insights monitoring view from Azure Monitor](./media/monitoring-vminsights-health-monitoring/vminsights-aggregate-monitoring-view-01.png)
 
-Here you are able to learn the following:
+On the **Health** tab, you are able to learn the following:
 
 1. How many VMs are in a critical or unhealthy state, versus how many are healthy or not submitting data (referred to as an unknown state)?
 2. Which VMs by operating system (OS) or OS components are reporting an unhealthy state and how many?
@@ -177,7 +174,6 @@ The health of the Core Windows Services Rollup rolls into the health of Operatin
 
 ### State changes
 The right most column in health diagnostics screen is “State Changes”. This column lists all the state changes associated with the health criteria that is selected in the Health Criteria section or the state change of the VM if a VM is selected in the Component Model column or Health Criteria column. 
- 
 
 This section consists of the health criteria state and the associated time (with the latest state on the top). 
 
