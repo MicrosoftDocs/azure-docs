@@ -410,13 +410,13 @@ Now let’s turn our attention to building the user interface so a user can actu
                     input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
           button.btn.btn-primary(type="submit") Update tasks
         hr
-       form.well(action="/addtask", method="post")
-        label Item Name:
-        input(name="name", type="textbox")
-        label Item Category:
-        input(name="category", type="textbox")
-        br
-        button.btn(type="submit") Add item
+        form.well(action="/addtask", method="post")
+          label Item Name:
+          input(name="name", type="textbox")
+          label Item Category:
+          input(name="category", type="textbox")
+          br
+          button.btn(type="submit") Add item
    ```
 
 This extends layout, and provides content for the **content** placeholder we saw in the **layout.jade** file earlier.
