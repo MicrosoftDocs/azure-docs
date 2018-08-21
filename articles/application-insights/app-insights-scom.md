@@ -21,6 +21,9 @@ If you use System Center Operations Manager (SCOM) to manage your servers, you c
 
 You can switch on Application Insights monitoring by using an SCOM management pack.
 
+> [!IMPORTANT]
+> This System Center Operations Manager Management Pack is now **deprecated**. It does not support the latest Application Insights SDKs and is no longer recommended.
+
 ## Before you start
 We assume:
 
