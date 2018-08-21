@@ -50,11 +50,11 @@
         href: azure-stack-integrate-dns.md
       - name: Firewall integration
         href: azure-stack-firewall.md
-      - name: Extension host
-        href: azure-stack-extension-host-prepare.md
         items:
         - name: Publish endpoints
           href: azure-stack-integrate-endpoints.md
+        - name: Extension host
+          href: azure-stack-extension-host-prepare.md
     - name: Identity integration
       items:    
       - name: Choose an identity provider

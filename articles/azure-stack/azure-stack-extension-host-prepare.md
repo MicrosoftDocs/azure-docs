@@ -14,11 +14,11 @@ manager: femila
 
 # Prepare for extension host for Azure Stack
 
-You can use extension host to help secures Azure Stack by reducing the number of required TCP/IP ports. This article looks at preparing for the extension host, which is automatically enabled through the Azure Stack Update package for 1808 or later.
+You can use the extension host to help secure Azure Stack by reducing the number of required TCP/IP ports. This article looks at preparing Azure Stack for the extension host, which is automatically enabled through the Azure Stack Update package for 1808 or later.
 
 ## Certificate requirements
 
-Extension host implements two new domains namespaces to guarantee unique host entries for each portal extension. The new domain namespaces require two additional wild-card certificates to ensure secure communication.
+The extension host implements two new domains namespaces to guarantee unique host entries for each portal extension. The new domain namespaces require two additional wild-card certificates to ensure secure communication.
 
 The table shows the new namespaces and the associated certificates:
 
@@ -38,7 +38,7 @@ The Azure Stack Readiness Checker Tool provides the ability to create a certific
 
 ## Validate new certificates
 
-1. Open PowerShell with elevated permission on the HLH. (`Hardware Load Host?`)
+1. Open PowerShell with elevated permission on the hardware lifecycle host or the Privileged Access Workstation.
 2. Run the following cmdlet to install the Azure Stack Readiness Checker tool.
     ```PowerShell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
