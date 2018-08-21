@@ -27,7 +27,7 @@ Compare two claims, and throw an exception if they are not equal according to th
 | inputClaim | inputClaim2 | string | Second claim's type, which is to be compared. |
 | InputParameter | stringComparison | string | string comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
 
-The `AssertStringClaimsAreEqual` claims transformation is alwasy executed from [validation technical profile](validation-technical-profile.md) that is called by [self-asserted technical profile](self-asserted-technical-profile.md). The `UserMessageIfClaimsTransformationStringsAreNotEqual` self-asseterd technical profile metadata controls the error message that the technical profile presented to the user if the values aren't same.
+The `AssertStringClaimsAreEqual` claims transformation is always executed from [validation technical profile](validation-technical-profile.md) that is called by [self-asserted technical profile](self-asserted-technical-profile.md). The `UserMessageIfClaimsTransformationStringsAreNotEqual` self-asseterd technical profile metadata controls the error message that the technical profile presented to the user.
 
 ![AssertStringClaimsAreEqual execution](./media/claims-transformations/assert-execution.png)
 
@@ -43,6 +43,28 @@ You can use this claims transformation to make sure, two ClaimTypes have the sam
     <InputParameter Id="stringComparison" DataType="string" Value="ordinalIgnoreCase" />
   </InputParameters>
 </ClaimsTransformation>
+```
+
+
+The `login-NonInteractive` validation technical profile calls the `AssertEmailAndStrongAuthenticationEmailAddressAreEqual` claims transformation.
+```XML
+<TechnicalProfile Id="login-NonInteractive">
+  ...
+  <OutputClaimsTransformations>
+    <OutputClaimsTransformation ReferenceId="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" />
+  </OutputClaimsTransformations>
+</TechnicalProfile>
+```
+The self-assereted technical profile calls the validation `login-NonInteractive` technical profile.
+```XML
+<TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+  <Metadata>
+    <Item Key="UserMessageIfClaimsTransformationStringsAreNotEqual">Custom error message the email addresses you provided are not the same.</Item>
+  </Metadata>
+  <ValidationTechnicalProfiles>
+    <ValidationTechnicalProfile ReferenceId="login-NonInteractive" />
+  </ValidationTechnicalProfiles>
+</TechnicalProfile>
 ```
 
 ### Example

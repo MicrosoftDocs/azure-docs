@@ -29,15 +29,17 @@ Checks that one date and time claim (string data type) is greater than a second 
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Specifies whether this assertion should pass if the right operand is missing. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Specifies the number of milliseconds to allow between the two date times to consider the times equal (for example, to account for clock skew). |
 
-Following example compares the `refreshTokenIssuedOnDateTime` claim with `refreshTokensValidFromDateTime` claim. Throw an error if `refreshTokenIssuedOnDateTime` is greater than  `refreshTokensValidFromDateTime`
+The `AssertDateTimeIsGreaterThan` claims transformation is always executed from [validation technical profile](validation-technical-profile.md) that is called by [self-asserted technical profile](self-asserted-technical-profile.md). The `DateTimeGreaterThan` self-asseterd technical profile metadata controls the error message that the technical profile presented to the user.
 
-The `refreshTokenIssuedOnDateTime` is an internal parameter used to determine if the user should be permitted to reauthenticate silently using their existing refresh token. The `refreshTokensValidFromDateTime` internal parameter is used to determine if the user should be permitted to reauthenticate silently using their existing refresh token.
+![AssertStringClaimsAreEqual execution](./media/claims-transformations/assert-execution.png)
+
+Following example compares the `currentDateTime` claim with `approvedDateTime` claim. Throws an error if `currentDateTime` is greater than  `approvedDateTime`. The transformation treats as equal within 5 minutes (30000 milliseconds) difference.
 
 ```XML
-<ClaimsTransformation Id="AssertRefreshTokenIssuedLaterThanValidFromDate" TransformationMethod="AssertDateTimeIsGreaterThan">
+<ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="refreshTokenIssuedOnDateTime" TransformationClaimType="leftOperand" />
-    <InputClaim ClaimTypeReferenceId="refreshTokensValidFromDateTime" TransformationClaimType="rightOperand" />
+    <InputClaim ClaimTypeReferenceId="approvedDateTime" TransformationClaimType="leftOperand" />
+    <InputClaim ClaimTypeReferenceId="currentDateTime" TransformationClaimType="rightOperand" />
   </InputClaims>
   <InputParameters>
     <InputParameter Id="AssertIfEqualTo" DataType="boolean" Value="false" />
@@ -47,11 +49,32 @@ The `refreshTokenIssuedOnDateTime` is an internal parameter used to determine if
 </ClaimsTransformation>
 ```
 
+The `login-NonInteractive` validation technical profile calls the `AssertApprovedDateTimeLaterThanCurrentDateTime` claims transformation.
+```XML
+<TechnicalProfile Id="login-NonInteractive">
+  ...
+  <OutputClaimsTransformations>
+    <OutputClaimsTransformation ReferenceId="AssertApprovedDateTimeLaterThanCurrentDateTime" />
+  </OutputClaimsTransformations>
+</TechnicalProfile>
+```
+The self-assereted technical profile calls the validation `login-NonInteractive` technical profile.
+```XML
+<TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+  <Metadata>
+    <Item Key="DateTimeGreaterThan">Custom error message if the provided left operand is greater than the right operand.</Item>
+  </Metadata>
+  <ValidationTechnicalProfiles>
+    <ValidationTechnicalProfile ReferenceId="login-NonInteractive" />
+  </ValidationTechnicalProfiles>
+</TechnicalProfile>
+```
+
 ### Example
 
 - Input claims:
-    - **leftOperand**: 2018-01-20T00:00:00.100000Z
-    - **rightOperand**: 2018-01-01T00:00:00.100000Z
+    - **leftOperand**: 2018-10-01T15:00:00.0000000Z
+    - **rightOperand**: 2018-10-01T14:00:00.0000000Z
 - Result: Error thrown
 
 
