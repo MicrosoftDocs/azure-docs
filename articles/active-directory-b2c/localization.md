@@ -141,25 +141,189 @@ The `LocalizedString` element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ElementType | Yes | References to a ClaimType element or a user interface element in the policy. Possible values: **ClaimType** - To localize one of the claim attributes, as specify in the StringId; **UxElement** - To localize one of the user interface elements, as specify in the StringId; **ErrorMessage** - To localize one of the system error messages, as specify in the StringId. |
-| ElementId | Yes | If `ElementType` is set to **ClaimType**, thid elements contains a reference to a claim type already defined in the ClaimsSchema section. |
-| StringId | Yes | If `ElementType` is set to **ClaimType**, this element specifies the attribute of a particular claim type. Possible values: **DisplayName** - to set the claim display name; **AdminHelpText** - to set the claim user help text name; **PatternHelpText** - to set the claim pattern help text. If `ElementType` is set to **UxElement**, this element specifies the attribute of a particular user interface element id. If `ElementType` is set to **ErrorMessage**, this element specifies the ID of a particular error message. |
+| ElementId | Yes | If `ElementType` is set to **ClaimType**, this element contains a reference to a claim type already defined in the ClaimsSchema section. |
+| StringId | Yes | If `ElementType` is set to **ClaimType**, this element specifies the attribute of a particular claim type. Possible values: **DisplayName** - to set the claim display name; **AdminHelpText** - to set the claim user help text name; **PatternHelpText** - to set the claim pattern help text. <br/>&nbsp;<br/>If `ElementType` is set to **UxElement**, this element specifies the attribute of a particular user interface element id. If `ElementType` is set to **ErrorMessage**, this element specifies the ID of a particular error message. Following document describes the list of supported [localiztion Ids](localization-string-ids) |
 
 
 The following example shows a localized sign-up page. The first 3 `LocalizedString` values set the claim attribute. The third changes the value of the continue button. The last one changes the error message.
 
 ```XML
-<LocalizedResources Id="api.selfasserted-sign-up.en">
+<LocalizedResources Id="api.selfasserted.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
-	<LocalizedString ElementType="UxElement" StringId="button_signin">Sign-In</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you try to create already exists, please sign-in.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
 
+## Localization step by step
+This tutorial shows you how to support multiple locales or languages in the policy for the user journeys requires three steps:
+
+### Step 1 Set-up the explicit list of the supported languages
+
+Under the `BuildingBlocks` element add the `Localization` with the list of supported languages. The following XML snippet illustrates how to define the localization support for both English (default) and Spanish:
+
+```XML
+<Localization Enabled="true">
+  <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
+    <SupportedLanguage>en</SupportedLanguage>
+    <SupportedLanguage>es</SupportedLanguage>
+  </SupportedLanguages>
+</Localization>
+```
+
+### Step 2 Provide language-specific strings and collections
+Add `LocalizedResources` elements inside the `Localization` element, medially after the close of the `</SupportedLanguages>` element. You add `LocalizedResources` for each page (content definition) and any language you want to support. To customize the unified sign-up or sign-in page, sign-up and multi-factor authentication (MFA) pages for English, Spanish, and France, you add following `LocalizedResources` elements. 
+- Unified sign-up or sign-in page, English `<LocalizedResources Id="api.api.signuporsignin.en">`
+- Unified sign-up or sign-in page, Spanish `<LocalizedResources Id="api.api.signuporsignin.es">`
+- Unified sign-up or sign-in page, France `<LocalizedResources Id="api.api.signuporsignin.fr">` 
+- Sign-Up, English `<LocalizedResources Id="api.localaccountsignup.es">`
+- Sign-Up, Spanish `<LocalizedResources Id="api.localaccountsignup.en">`
+- Sign-Up, France `<LocalizedResources Id="api.localaccountsignup.fr">`
+- MFA, English `<LocalizedResources Id="api.phonefactor.es">`
+- MFA, Spanish `<LocalizedResources Id="api.phonefactor.en">`
+- MFA, France `<LocalizedResources Id="api.phonefactor.fr">`
+
+Each `LocalizedResources` contains all of the required  `LocalizedStrings` with multiple `LocalizedString` elements and `LocalizedCollections` with multiple `LocalizedCollection` elements.  Following example, adds the sign-up page English localization. 
+
+Note: This example makes a reference to `Gender` and `City` claim types. To use this example, make sure you define those claims. For more information, read [claimsschema](ClaimsSchema)
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you try to create already exists, please sign-in.</LocalizedString>
+  </LocalizedStrings>
+ <LocalizedCollections>
+   <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
+      <Item Text="Female" Value="F" />
+      <Item Text="Male" Value="M" />
+    </LocalizedCollection>
+   <LocalizedCollection ElementType="ClaimType" ElementId="City" TargetCollection="Restriction">
+      <Item Text="New York" Value="NY" />
+      <Item Text="Paris" Value="Paris" />
+      <Item Text="London" Value="London" />
+    </LocalizedCollection>
+  </LocalizedCollections>
+</LocalizedResources>
+```
+
+The sign-up page localization for Spanish.
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.es">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Dirección de correo electrónico</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Dirección de correo electrónico que puede usarse para ponerse en contacto con usted.</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Introduzca una dirección de correo electrónico.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_continue">Crear</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Ya existe un usuario con el id. especificado. Elija otro diferente.</LocalizedString>
+  </LocalizedStrings>
+ <LocalizedCollections>
+   <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
+      <Item Text="Femenino" Value="F" />
+      <Item Text="Masculino" Value="M" />
+    </LocalizedCollection>
+   <LocalizedCollection ElementType="ClaimType" ElementId="City" TargetCollection="Restriction">
+      <Item Text="Nueva York" Value="NY" />
+      <Item Text="París" Value="Paris" />
+      <Item Text="Londres" Value="London" />
+    </LocalizedCollection>
+  </LocalizedCollections>
+</LocalizedResources>
+```
+
+### Step 3 Edit the ContentDefinition for the page
+For each page you want to localize, you can specify in the `ContentDefinition` what language resources to look for each language code.
+
+In following sample, English (en) and Spanish (es) custom strings are added to the sign-up page. The `LocalizedResourcesReferenceId` for each `LocalizedResourcesReference` is the same as their locale, but you could use any string as the ID. For each language and page combination, you point to the  corresponding `<LocalizedResources>` you created earlier.
+
+```XML
+<ContentDefinition Id="api.localaccountsignup">
+...
+  <LocalizedResourcesReferences MergeBehavior="Prepend">
+    <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
+    <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
+  </LocalizedResourcesReferences>
+</ContentDefinition>
+```
+
+The final XML should look like  XML snippet:
+```XML
+<BuildingBlocks>
+  <ContentDefinitions>
+    <ContentDefinition Id="api.localaccountsignup">
+      <!-- Other content definitions elements... -->
+      <LocalizedResourcesReferences MergeBehavior="Prepend">
+         <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
+         <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
+      </LocalizedResourcesReferences>
+    </ContentDefinition>
+    <!-- More content definitions... -->
+  </ContentDefinitions>
+
+  <Localization Enabled="true">
+
+    <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
+      <SupportedLanguage>en</SupportedLanguage>
+      <SupportedLanguage>es</SupportedLanguage>
+      <!-- More supported language... -->
+    </SupportedLanguages>
+
+    <LocalizedResources Id="api.localaccountsignup.en">
+      <LocalizedStrings>
+        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
+      <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
+        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
+        <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
+       <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you try to create already exists, please sign-in.</LocalizedString>
+        <!-- More localized strings... -->
+      </LocalizedStrings>
+      <LocalizedCollections>
+        <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
+          <Item Text="Female" Value="F" />
+          <Item Text="Male" Value="M" />
+          <!-- More items... -->
+        </LocalizedCollection>
+        <LocalizedCollection ElementType="ClaimType" ElementId="City" TargetCollection="Restriction">
+          <Item Text="New York" Value="NY" />
+          <Item Text="Paris" Value="Paris" />
+          <Item Text="London" Value="London" />
+        </LocalizedCollection>
+        <!-- More localized collections... -->
+      </LocalizedCollections>
+    </LocalizedResources>
+
+    <LocalizedResources Id="api.localaccountsignup.es">
+      <LocalizedStrings>
+        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Dirección de correo electrónico</LocalizedString>
+        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Dirección de correo electrónico que puede usarse para ponerse en contacto con usted.</LocalizedString>
+        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Introduzca una dirección de correo electrónico.</LocalizedString>
+        <LocalizedString ElementType="UxElement" StringId="button_continue">Crear</LocalizedString>
+      <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Ya existe un usuario con el id. especificado. Elija otro diferente.</LocalizedString>
+      </LocalizedStrings>
+      <LocalizedCollections>
+       <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
+          <Item Text="Femenino" Value="F" />
+          <Item Text="Masculino" Value="M" />
+        </LocalizedCollection>
+        <LocalizedCollection ElementType="ClaimType" ElementId="City" TargetCollection="Restriction">
+          <Item Text="Nueva York" Value="NY" />
+          <Item Text="París" Value="Paris" />
+          <Item Text="Londres" Value="London" />
+        </LocalizedCollection>
+      </LocalizedCollections>
+    </LocalizedResources>
+    <!-- More localized resources... -->
+  </Localization>
+</BuildingBlocks>
+```
 
 
 
