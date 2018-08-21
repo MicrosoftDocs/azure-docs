@@ -21,6 +21,10 @@
     href: dns-web-sites-custom-domain.md
   - name: Create private DNS zone and record
     href: private-dns-getstarted-powershell.md
+  - name: Alias records for Traffic Manager
+    href: tutorial-tm.md
+  - name: Alias records for Public IP addresses
+    href: tutorial-pip.md
 - name: Samples
   items:
   - name: Azure CLI
