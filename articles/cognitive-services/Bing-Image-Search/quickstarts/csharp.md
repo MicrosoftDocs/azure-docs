@@ -53,65 +53,67 @@ The application uses only .NET Core classes and runs on Windows using the .NET C
 
 Define a `SearchResult` struct to contain the image search results, and JSON header information.
     
-    ```csharp
-        namespace BingSearchApisQuickstart
+```csharp
+    namespace BingSearchApisQuickstart
+    {
+        class Program
         {
-            class Program
+    ...
+            struct SearchResult
             {
-    ...
-                struct SearchResult
-                {
-                    public String jsonResult;
-                    public Dictionary<String, String> relevantHeaders;
-                }
-    ...
+                public String jsonResult;
+                public Dictionary<String, String> relevantHeaders;
             }
+    ...
         }
-    ```
+    }
+```
 
 ## Make and handle a request
 
 Create a method named `BingImageSearch` to perform the call to the API, and return the results as a SearchResult.
 
-    ```csharp
-    ...
-    namespace BingSearchApisQuickstart
+```csharp
+...
+namespace BingSearchApisQuickstart
+{
+    class Program
     {
-        class Program
+        static SearchResult BingImageSearch(string searchQuery)
         {
-            static SearchResult BingImageSearch(string searchQuery)
-            {
+```
+
+1. In the `BingImageSearch` method, construct the URI for the search request
+
+    ```csharp
+    var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery);
     ```
-    1. In the `BingImageSearch` method, construct the URI for the search request
+2. Perform the web request and get the response as a JSON string.
 
-        ```csharp
-        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery);
-        ```
-    2. Perform the web request and get the response as a JSON string.
+    ```csharp
+    WebRequest request = HttpWebRequest.Create(uriQuery);
+    request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
+    HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
+    string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
+    // Create result object for return
+    var searchResult = new SearchResult()
+    ```
+3. Create the search result object, and extract the BING HTTP headers. 
 
-        ```csharp
-        WebRequest request = HttpWebRequest.Create(uriQuery);
-        request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
-        HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
-        string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-        // Create result object for return
+    ```csharp
         var searchResult = new SearchResult()
-        ```
-    3. Create the search result object, and extract the BING HTTP headers. 
-        ```csharp
-            var searchResult = new SearchResult()
-            {
-                jsonResult = json,
-                relevantHeaders = new Dictionary<String, String>()
-            };
+        {
+            jsonResult = json,
+            relevantHeaders = new Dictionary<String, String>()
+        };
 
-            // Extract Bing HTTP headers
-            foreach (String header in response.Headers)
-            {
-                if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
-                    searchResult.relevantHeaders[header] = response.Headers[header];
-            }
-        ```
+        // Extract Bing HTTP headers
+        foreach (String header in response.Headers)
+        {
+            if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
+                searchResult.relevantHeaders[header] = response.Headers[header];
+        }
+    ```
 
 ## View the response
 
