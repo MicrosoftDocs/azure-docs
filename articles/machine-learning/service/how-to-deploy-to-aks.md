@@ -27,7 +27,7 @@ Deploying to AKS provides auto-scaling, logging, model data collection, and fast
 
 ## Install libraries and initialize the workspace
 
-TBD - Why do we need these specific imports?
+Why do we need these specific imports?
 
 ```python
 from azureml.coreazureml  import Workspace
@@ -163,7 +163,7 @@ prediction = aks_service.run(input_data = test_sample)
 print(prediction)
 ```
 
-## Clean up
+## Cleanup
 
 To delete the service, image, and model, use the following code snippet:
 
@@ -172,7 +172,3 @@ aks_service.delete()
 image.delete()
 model.delete()
 ```
-
-### Next steps
-
-* To learn how to monitor your models performance, see [tbd].
