@@ -14,7 +14,7 @@ ms.devlang:
 ms.topic:
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 06/12/2017
+ms.date: 08/21/2018
 ms.author: mibender
 ---
 
@@ -49,27 +49,34 @@ For small businesses, Azure allows for a low-cost entry point, with the ability 
 
 For more information on the available Azure regions, see [Azure regions](https://azure.microsoft.com/regions/).
 
-### Cloud computing is classified into three categories: SaaS, PaaS, and IaaS.
+### Cloud computing model
+With the cloud computing model, there are three categories of service including Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). With tradition on-premises software, administrators are responsible for all levels of the software stack (commonly known as the OSI Model). In cloud computing, each category utilizes a shared-responsiblity model where customers and vendors hold responsibilty for the maintenance and availability of the components with their pieces of the computing stack.
+![Cloud Computing Stack Comparison](./media/cloud-computing-comparison.png)
 
-#### SaaS: Software as a service
-
-SaaS is software that is centrally hosted and managed. It’s usually based on a multitenant architecture—a single version of the application is used for all customers. It can be scaled out to multiple instances to ensure the best performance in all locations. SaaS software typically is licensed through a monthly or annual subscription.
-
-Microsoft Office 365 is a good example of a SaaS offering. Subscribers pay a monthly or annual subscription fee, and they get Microsoft Exchange, Microsoft OneDrive, and the rest of the Microsoft Office suite as a service. Subscribers always get the most recent version and the Exchange server is managed for you. Compared to installing and upgrading Office every year, this is less expensive and requires less effort.
-
-#### PaaS: Platform as a service
-
-With PaaS, you deploy your application into an environment that the cloud service vendor provides. The vendor does all of the infrastructure management so you can  focus on application development.
-
-Azure provides several PaaS compute offerings, including the Web Apps feature of Azure App Service and Azure Cloud Services (web and worker roles). In either case, developers have multiple ways to deploy their application without knowing anything about the nuts and bolts that support it. Developers don’t have to create virtual machines (VMs), use Remote Desktop Protocol (RDP) to sign in to each one, or install the application. They just hit a button (or close to it), and the tools provided by Microsoft provision the VMs and then deploy and install the application on them.
+Let's take a look at each of the categories for cloud computing.
 
 #### IaaS: Infrastructure as a service
 
-An IaaS cloud vendor runs and manages all physical compute resources and the required software to enable computer virtualization. A customer of this service deploys virtual machines in these hosted datacenters. Although the virtual machines are located in an offsite datacenter, the IaaS consumer has control over the configuration and management of them.
+An IaaS cloud vendor runs and manages all physical compute resources and the required software to enable computer virtualization. A customer of this service deploys virtual machines in these hosted datacenters. Although the virtual machines are located in an offsite datacenter, the IaaS consumer has control over the configuration and management of the operating system leaving the underlying infrastructure to the cloud vendor.
 
 Azure includes several IaaS solutions including virtual machines, virtual machine scale sets, and the related networking infrastructure. Virtual machines are a popular choice for initially migrating services to Azure because it enables a “lift and shift” migration model. You can configure a VM like the infrastructure currently running your services in your datacenter, and then migrate your software to the new VM. You might need to make configuration updates, such as URLs to other services or storage, but you can migrate many applications in this way.
 
 Virtual machine scale sets are built on top of Azure Virtual Machines and provide an easy way to deploy clusters of identical VMs. Virtual machine scale sets also support autoscaling so that new VMs can be deployed automatically when required. This makes virtual machine scale sets an ideal platform to host higher-level microservice compute clusters, such as Azure Service Fabric and Azure Container Service.
+
+#### PaaS: Platform as a service
+
+With PaaS, you deploy your application into an environment that the cloud service vendor provides. The vendor does all of the infrastructure management so you can  focus on application development and data managment.
+
+Azure provides several PaaS compute offerings, including the Web Apps feature of Azure App Service and Azure Cloud Services (web and worker roles). In either case, developers have multiple ways to deploy their application without knowing anything about the nuts and bolts that support it. Developers don’t have to create virtual machines (VMs), use Remote Desktop Protocol (RDP) to sign in to each one, or install the application. They just hit a button (or close to it), and the tools provided by Microsoft provision the VMs and then deploy and install the application on them.
+
+#### SaaS: Software as a service
+
+SaaS is software that is centrally hosted and managed. It’s usually based on a multitenant architecture—a single version of the application is used for all customers. It can be scaled out to multiple instances to ensure the best performance in all locations. SaaS software typically is licensed through a monthly or annual subscription. SaaS software typically is licensed through a monthly or annual subscription. SaaS software vendors are responsible for all components of the software stack so all you manage is the services provided.
+
+Microsoft Office 365 is a good example of a SaaS offering. Subscribers pay a monthly or annual subscription fee, and they get Microsoft Exchange, Microsoft OneDrive, and the rest of the Microsoft Office suite as a service. Subscribers always get the most recent version and the Exchange server is managed for you. Compared to installing and upgrading Office every year, this is less expensive and requires less effort.
+
+
+
 
 ## Azure services
 
@@ -172,6 +179,9 @@ The Azure command-line interface is a tool that you can use to create, manage, a
 **REST APIs**
 Azure is built on a set of REST APIs that support the Azure portal UI. Most of these REST APIs are also supported to let you programmatically provision and manage your Azure resources and apps from any Internet-enabled device. For more information, see the [Azure REST SDK Reference](https://docs.microsoft.com/rest/api/index).
 
+### Azure Cloud Shell
+
+Administrators can access Azure PowerShell and Azure CLI through a browser-accessible experience called Azure Cloud Shell. This interactive interface provides a flexible tool for Linux and Windows administrators to use their command-line interface of choice, either Bash or PowerShell. Azure Cloud Shell can be access through the portal ,as a stand-alone web interface at [shell.azure.com](https://shell.azure.com), or from a number of other access points. For more information, see [Overview of Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
 ## Azure subscriptions
 
 A subscription is a logical grouping of Azure services that is linked to an Azure account. A singe Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an account administrator, who has full control over the subscription, and a service administrator, who has control over all services in the subscription. In addition to administrators, individual accounts can be granted detailed control of Azure resources through RBAC.
@@ -351,6 +361,7 @@ Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template
 Accessing a virtual machine from the Internet requires the associated network interface, or load balancer if applicable, to be configured with a public IP address. The public IP address includes a DNS name that will resolve to the virtual machine or load balancer. For more information, see [IP addresses in Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 You manage access to the virtual machine over the public IP address by using a network security group (NSG) resource. An NSG acts like a firewall and allows or denies traffic across the network interface or subnet on a set of defined ports. For instance, to create a Remote Desktop session with an Azure VM, you need to configure the NSG to allow inbound traffic on port 3389. For more information, see [Opening ports to a VM in Azure using the Azure portal](../../virtual-machines/windows/nsg-quickstart-portal.md).
+
 
 Finally, as with the management of any computer system, you should provide security for an Azure virtual machine at the operating system by using security credentials and software firewalls.
 
