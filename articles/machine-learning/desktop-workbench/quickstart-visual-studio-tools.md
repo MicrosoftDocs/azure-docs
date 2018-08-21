@@ -14,7 +14,6 @@ ms.date: 11/15/2017
 ROBOTS: NOINDEX
 ---
 
-
 # Visual Studio Tools for AI
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
