@@ -12,11 +12,15 @@ ms.author: iainfou
 
 # SSH to Azure Kubernetes Service (AKS) cluster nodes
 
-Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you may need to access an AKS node. This access could be for maintenance, log collection, or other troubleshooting operations. The AKS nodes are Linux VMs, so you can access them using SSH. For security purposes, the AKS nodes are not exposed to the internet. This article shows you how to create an SSH connection with an AKS node using their private IP addresses.
+Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you may need to access an AKS node. This access could be for maintenance, log collection, or other troubleshooting operations. The AKS nodes are Linux VMs, so you can access them using SSH. For security purposes, the AKS nodes are not exposed to the internet.
+
+This article shows you how to create an SSH connection with an AKS node using their private IP addresses.
 
 ## Add your public SSH key
 
-By default, SSH keys are generated for you when you create an AKS cluster. If you did not specify your own SSH keys when you created your AKS cluster, you first need to add your public SSH keys to the AKS nodes. To add your SSH key to an AKS node, complete the following steps:
+By default, SSH keys are generated when you create an AKS cluster. If you did not specify your own SSH keys when you created your AKS cluster, add your public SSH keys to the AKS nodes. 
+
+To add your SSH key to an AKS node, complete the following steps:
 
 1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. Provide your own core resource group and AKS cluster name:
 
@@ -50,7 +54,7 @@ By default, SSH keys are generated for you when you create an AKS cluster. If yo
 
 ## Get the AKS node address
 
-The AKS nodes are not publicly exposed to the internet. To SSH to the AKS nodes, you use their internal, private IP addresses.
+The AKS nodes are not publicly exposed to the internet. To SSH to the AKS nodes, you use the private IP address.
 
 View the private IP address of an AKS cluster node using the [az vm list-ip-addresses][az-vm-list-ip-addresses] command. Provide your own AKS cluster resource group name obtained in a previous [az-aks-show][az-aks-show] step:
 
@@ -58,7 +62,7 @@ View the private IP address of an AKS cluster node using the [az vm list-ip-addr
 az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
 ```
 
-The following example output shows the private IP addresses the AKS nodes:
+The following example output shows the private IP addresses of the AKS nodes:
 
 ```
 VirtualMachine            PrivateIPAddresses
@@ -82,7 +86,7 @@ To create an SSH connection to an AKS node, you run a helper pod in your AKS clu
     apt-get update && apt-get install openssh-client -y
     ```
 
-1. In a new terminal window, list the pods on your AKS cluster using the [kubectl get pods][kubectl-get] command. The pod created in the previous step starts with the name *aks-ssh*, as shown in the following example:
+1. In a new terminal window, not connected to your container, list the pods on your AKS cluster using the [kubectl get pods][kubectl-get] command. The pod created in the previous step starts with the name *aks-ssh*, as shown in the following example:
 
     ```
     $ kubectl get pods
