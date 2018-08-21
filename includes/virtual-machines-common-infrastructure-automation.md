@@ -19,8 +19,8 @@ To create and manage Azure virtual machines (VMs) in a consistent manner at scal
 Learn how to:
 
 - [Install and configure Ansible on Linux for use with Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
-- [Create a basic VM](../articles/virtual-machines/linux/ansible-create-vm.md).
-- [Create a complete VM environment including supporting resources](../articles/virtual-machines/linux/ansible-create-complete-vm.md).
+- [Create a Linux virtual machine](../articles/virtual-machines/linux/ansible-create-vm.md).
+- [Manage a Linux virtual machine](../articles/virtual-machines/linux/ansible-manage-linux-vm.md).
 
 
 ## Chef
