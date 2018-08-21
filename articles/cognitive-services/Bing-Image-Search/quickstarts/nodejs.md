@@ -3,12 +3,12 @@ title: "Quickstart: Send search queries using the REST API for the Bing Image Se
 description: In this quickstart, you send search queries to the Bing Search API to get a list of relevant images using Node.js.
 services: cognitive-services
 documentationcenter: ''
-author: v-jerkin
+author: aahill
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 9/21/2017
-ms.author: v-jerkin
+ms.date: 8/20/2018
+ms.author: aahi
 ---
 
 # Quickstart: Send search queries using the REST API and Node.js

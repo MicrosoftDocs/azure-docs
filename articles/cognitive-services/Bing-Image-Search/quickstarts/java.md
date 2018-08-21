@@ -3,12 +3,12 @@ title: "Quickstart: Send search queries using the REST API for the Bing Image Se
 description: Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response.
 services: cognitive-services
 documentationcenter: ''
-author: v-jerkin
+author: aahill
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 9/21/2017
-ms.author: v-jerkin
+ms.date: 8/20/2018
+ms.author: aahi
 ---
 # Quickstart: Send search queries using the REST API and Java
 

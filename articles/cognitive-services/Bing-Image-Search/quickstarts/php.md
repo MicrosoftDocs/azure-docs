@@ -3,12 +3,12 @@ title: "Quickstart: Send search queries using the REST API for the Bing Image Se
 description: In this quickstart, you send search queries to the Bing Search API to get a list of relevant images using PHP.
 services: cognitive-services
 documentationcenter: ''
-author: v-jerkin
+author: aahill
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 9/21/2017
-ms.author: v-jerkin
+ms.date: 8/20/2018
+ms.author: aahi
 ---
 # Quickstart: Send search queries using the REST API and PHP
 
@@ -22,88 +22,52 @@ While this application is written in PHP, the API is a RESTful Web service compa
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## Running the application
+## Sending search queries to the Bing Image Search REST API
 
 To run this application, follow these steps.
 
-1. Make sure secure HTTP support is enabled in your `php.ini` file. On Windows, this file is usually located in `C:\windows`.
+1. Make sure secure HTTP support is enabled in your `php.ini` file. On Windows, this file is located in `C:\windows`.
 2. Create a new PHP project in your favorite IDE or editor.
-3. Add the provided code.
-4. Replace `accessKey` with a valid subscription key.
-5. Run the program.
+3. Store the API endpoint, your subscription key, and search term.
 
-```php
-<?php
+    ```php
+    $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
+    // Replace the accessKey string value with your valid access key.
+    $accessKey = 'enter key here';
+    $term = 'puppies';
+    ```
 
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
+4. Prepare the HTTP request.
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-// search APIs.  In the future, regional endpoints may be available.  If you
-// encounter unexpected authorization errors, double-check this value against
-// the endpoint for your Bing Search instance in your Azure dashboard.
-$endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
-
-$term = 'puppies';
-
-function BingImageSearch ($url, $key, $query) {
-    // Prepare HTTP request
-    // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    ```php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
     $options = array ( 'http' => array (
-                           'header' => $headers,
-                           'method' => 'GET' ));
+                            'header' => $headers,
+                            'method' => 'GET' ));
+    ```
+5. Perform the web request and get the JSON response.
 
-    // Perform the Web request and get the JSON response
+    ```php
     $context = stream_context_create($options);
     $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
+    ```
 
-    // Extract Bing HTTP headers
+6. Process and print the returned JSON response.
+
+    ```php
     $headers = array();
-    foreach ($http_response_header as $k => $v) {
-        $h = explode(":", $v, 2);
-        if (isset($h[1]))
-            if (preg_match("/^BingAPIs-/", $h[0]) || preg_match("/^X-MSEdge-/", $h[0]))
-                $headers[trim($h[0])] = trim($h[1]);
-    }
+        foreach ($http_response_header as $k => $v) {
+            $h = explode(":", $v, 2);
+            if (isset($h[1]))
+                if (preg_match("/^BingAPIs-/", $h[0]) || preg_match("/^X-MSEdge-/", $h[0]))
+                    $headers[trim($h[0])] = trim($h[1]);
+        }
+        return array($headers, $result);
+    ```
 
-    return array($headers, $result);
-}
+## Sample JSON response
 
-if (strlen($accessKey) == 32) {
-
-    print "Searching images for: " . $term . "\n";
-    
-    list($headers, $json) = BingImageSearch($endpoint, $accessKey, $term);
-    
-    print "\nRelevant Headers:\n\n";
-    foreach ($headers as $k => $v) {
-        print $k . ": " . $v . "\n";
-    }
-    
-    print "\nJSON Response:\n\n";
-    echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
-
-} else {
-
-    print("Invalid Bing Search API subscription key!\n");
-    print("Please paste yours into the source code.\n");
-
-}
-?>
-```
-
-## JSON response
-
-A sample response follows. To limit the length of the JSON, only a single result is shown, and other parts of the response have been truncated. 
+Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result.
 
 ```json
 {

@@ -3,53 +3,58 @@ title: "Quickstart: Request and filter images using the SDK using C#"
 description: In this quickstart, you request and filter the images returned by Bing Image Search, using C#.
 titleSuffix: Azure cognitive services setup Image search SDK C# console application
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: cagronlund
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: v-gedod
+ms.author: aahi
 ---
 
 # Quickstart: Request and filter images using the SDK and C#
 
-The Bing Image Search SDK contains the functionality of the REST API for image requests and parsing results. 
+This article shows you how to send search queries, find trending images, and extract image details with the Bing Image Search SDK.
 
-The [source code for C# Bing Image Search SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) is available on Git Hub.
+The source code for this C# sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch).
 
 ## Application dependencies
 
-To set up a console application using the Bing Image Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.ImageSearch` package.
+* The [Cognitive Image Search NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0). This package will install the following dependencies:
+    * Microsoft.Rest.ClientRuntime
+    * Microsoft.Rest.ClientRuntime.Azure
+    * Newtonsoft.Json
 
-Installing the [NuGet Image Search package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0) also installs dependencies, including:
-* Microsoft.Rest.ClientRuntime
-* Microsoft.Rest.ClientRuntime.Azure
-* Newtonsoft.Json
+To install the Bing Image Search SDK in visual studio, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.
 
-## Image Search client
-To create an instance of the `ImageSearchAPI` client, add using directives:
-```
+## Create an image search client
+
+First, add the following `using` directives to your project in order to create an instance of the `ImageSearchAPI` client:
+
+```csharp
 using Microsoft.Azure.CognitiveServices.Search.ImageSearch;
 using Microsoft.Azure.CognitiveServices.Search.ImageSearch.Models;
 
-```
-Then, instantiate the client:
-```
+Next, instantiate the client, using a valid Azure subscription key:
+
+```csharp
 var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
-
-
 ```
+
 Use the client to search with a query text:
-```
+
+```csharp
+
 // Search for "Yosemite National Park"
 var imageResults = client.Images.SearchAsync(query: "Canadian Rockies").Result;
 Console.WriteLine("Search images for query \"canadian rockies\"");
 
 ```
-Parse the image results returned by the previous query:
 
-```
+Parse the image results returned in the response. 
+
+```csharp
+
 if (imageResults.Value.Count > 0)
 {
     var firstImageResult = imageResults.Value.First();
@@ -68,6 +73,48 @@ Console.WriteLine($"\r\nImage result total estimated matches: {imageResults.Tota
 
 ```
 
+Parse any pivot suggestions returned in the response:
+
+```csharp
+
+if (imageResults.PivotSuggestions.Count > 0)
+{
+    var firstPivot = imageResults.PivotSuggestions.First();
+
+    Console.WriteLine($"Pivot suggestion count: {imageResults.PivotSuggestions.Count}");
+    Console.WriteLine($"First pivot: {firstPivot.Pivot}");
+
+    if (firstPivot.Suggestions.Count > 0)
+    {
+        var firstSuggestion = firstPivot.Suggestions.First();
+
+        Console.WriteLine($"Suggestion count: {firstPivot.Suggestions.Count}");
+        Console.WriteLine($"First suggestion text: {firstSuggestion.Text}");
+        Console.WriteLine($"First suggestion web search url: {firstSuggestion.WebSearchUrl}");
+    }
+    else
+    {
+        Console.WriteLine("Couldn't find suggestions!");
+    }
+}
+
+```
+Parse any pivot suggestions returned in the result:
+
+```csharp
+if (imageResults.QueryExpansions.Count > 0)
+{
+    var firstQueryExpansion = imageResults.QueryExpansions.First();
+
+    Console.WriteLine($"\r\nQuery expansion count: {imageResults.QueryExpansions.Count}");
+    Console.WriteLine($"First query expansion text: {firstQueryExpansion.Text}");
+    Console.WriteLine($"First query expansion search link: {firstQueryExpansion.SearchLink}");
+}
+else
+{
+    Console.WriteLine("Couldn't find query expansions!");
+}
+```
 ## Complete console application
 
 The following console application executes the previously defined query "Canadian Rockies" to search for results then print first image insights token, thumbnail url, and image content url:

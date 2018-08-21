@@ -14,14 +14,17 @@ ms.author: v-gedod
 
 # Quickstart: Request and filter images using the SDK and Java
 
-The Bing Image Search SDK provides the REST API functionality for image queries and parsing results. 
+This article shows you how to send search queries, find trending images, and extract image details with the Bing Image Search SDK.
 
-The [source code for Java Bing Image Search SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch) is available on Git Hub. 
+The source code for this Java sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch) is available on GitHub. 
 
 ## Application dependencies
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**. 
-Install the Bing Image Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the declaration:
-```
+
+Install the Bing Image Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the following declaration:
+
+```xml
+
  <dependencies>
     <dependency>
       <groupId>com.microsoft.azure.cognitiveservices</groupId>
@@ -29,10 +32,14 @@ Install the Bing Image Search SDK dependencies by using Maven, Gradle, or anothe
       <version>0.0.1-beta-SNAPSHOT</version>
     </dependency>
  </dependencies> 
+
 ```
+
 ## Image Search client
 Add imports to the class implementation.
-```
+
+```java
+
 import com.microsoft.azure.cognitiveservices.imagesearch.*;
 import com.microsoft.azure.cognitiveservices.imagesearch.ImageObject;
 import com.microsoft.azure.cognitiveservices.imagesearch.PivotSuggestions;
@@ -49,9 +56,12 @@ import okhttp3.Response;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 ```
-Implement the **ImageSearchAPIImpl** client, which requires an instance of the **ServiceClientCredentials** class.
-```
+
+Implement the `ImageSearchAPIImpl` client, which requires an instance of the `ServiceClientCredentials` class.
+
+```java
 public static ImageSearchAPIImpl getClient(final String subscriptionKey) {
     return new ImageSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
             new ServiceClientCredentials() {
@@ -73,10 +83,11 @@ public static ImageSearchAPIImpl getClient(final String subscriptionKey) {
                 }
             });
 }
+```
 
-```
-Search for images about the "Canadian Rockies." Verify the number of results. Print the values for the **firstImageResult**, **pivotSuggestions**, and **queryExpansions** parameters.
-```
+Search for images about the "Canadian Rockies." Verify the number of results. Print the values for the `firstImageResult`, `pivotSuggestions`, and `queryExpansions` parameters.
+
+```java
 public static void imageSearch(String subscriptionKey)
 {
      ImageSearchAPIImpl client = ImageSrchSDK.getClient(subscriptionKey);
@@ -158,10 +169,11 @@ public static void imageSearch(String subscriptionKey)
     }
 
 }
+```
 
-```
 Search for images about "Gibraltar" and filter for animated GIFs and a wide aspect ratio. Verify the number of results. Print the values for the **insightsToken**, **thumbnailUrl**, and **webUrl** parameters for the first result.
-```
+
+```java
 public static void imageSearchWithFilters(String subscriptionKey)
 {
      ImageSearchAPIImpl client = ImageSrchSDK.getClient(subscriptionKey);
@@ -202,10 +214,11 @@ public static void imageSearchWithFilters(String subscriptionKey)
     }
 
 }
+```
 
-```
-Search for trending images. Verify the **categories** and **tiles** parameters.
-```
+Search for trending images. Verify the `categories` and `tiles` parameters.
+
+```java 
 public static void imageTrending(String subscriptionKey)
 {
     ImageSearchAPIImpl client = ImageSrchSDK.getClient(subscriptionKey);
