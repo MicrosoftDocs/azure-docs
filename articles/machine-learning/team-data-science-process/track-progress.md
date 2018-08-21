@@ -23,10 +23,10 @@ ms.author: deguhath
 
 Data science group managers, team leads, and project leads need to track the progress of their team projects, what work has been done on them and by whom, and remains on the to-do lists. 
 
-## VSTS dashboards
-If you are using Visual Studio Team Services (VSTS), you are able to build dashboards to track the activities and the work items associated with a given Agile project. 
+## Azure DevOps dashboards
+If you are using Azure DevOps, you are able to build dashboards to track the activities and the work items associated with a given Agile project. 
 
-For more information on how to create and customize dashboards and widgets on Visual Studio Team Services, see the following sets of instructions:
+For more information on how to create and customize dashboards and widgets on Azure DevOps, see the following sets of instructions:
 
 - [Add and manage dashboards](https://docs.microsoft.com/vsts/report/dashboards/dashboards)
 - [Add widgets to a dashboard](https://docs.microsoft.com/vsts/report/dashboards/add-widget-to-dashboard).
