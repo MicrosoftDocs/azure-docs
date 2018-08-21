@@ -24,12 +24,11 @@ The application uses only .NET Core classes and runs on Windows using the .NET C
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## Making a call to the Bing Image Search API
+## Create and initialize a project
 
-To run this application, follow these steps.
 
-1. create a new Console solution named `BingSearchApisQuickStart` in Visual Studio
-2. Define the application requirements in your solution's main code file.
+
+1. create a new Console solution named `BingSearchApisQuickStart` in Visual Studio. Then import the following packages into your solution's main code file.
 
     ```csharp
     using System;
@@ -39,7 +38,7 @@ To run this application, follow these steps.
     using System.Collections.Generic;
     ```
 
-1. Define the API endpoint, your subscription key, and search term.
+2. Define the API endpoint, your subscription key, and search term.
 
     ```csharp
     // Replace the accessKey string value with your valid access key.
@@ -48,7 +47,9 @@ To run this application, follow these steps.
     const string searchTerm = "puppies";
     ```
 
-4. Define a `SearchResult` struct to contain the image search results, and JSON header information.
+## Create a struct to format the Bing Image Search response
+
+Define a `SearchResult` struct to contain the image search results, and JSON header information.
     
     ```csharp
         namespace BingSearchApisQuickstart
@@ -65,7 +66,10 @@ To run this application, follow these steps.
             }
         }
     ```
-5. Create a method named `BingImageSearch` to perform the call to the API, and return the results as a SearchResult.
+
+## Make and handle a request
+
+Create a method named `BingImageSearch` to perform the call to the API, and return the results as a SearchResult.
 
     ```csharp
     ...
@@ -106,7 +110,10 @@ To run this application, follow these steps.
                     searchResult.relevantHeaders[header] = response.Headers[header];
             }
         ```
-6. Write the resulting JSON to the console, 
+
+## View the response
+
+Write the resulting JSON to the console,
     ```csharp
     Console.WriteLine(JsonPrettyPrint(result.jsonResult));
     ```

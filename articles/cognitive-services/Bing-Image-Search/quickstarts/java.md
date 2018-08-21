@@ -24,12 +24,11 @@ While this application is written in Java, the API is a RESTful Web service comp
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## Running the application
+## Create and initialize a project
 
 To run this application, follow these steps.
 
-2. Create a new Java project in your favorite IDE or editor.
-3. import the libraries required by the application
+1. Create a new Java project in your favorite IDE or editor. Then import the following libraries into the project
 
     ```java
     import java.net.*;
@@ -42,7 +41,7 @@ To run this application, follow these steps.
     import com.google.gson.JsonParser;
     ```
 
-4. Set the API endpoint, your subscription key, and search term.
+2. Set the API endpoint, your subscription key, and search term.
 
     ```java
     static String subscriptionKey = "enter key here";
@@ -51,7 +50,10 @@ To run this application, follow these steps.
     static String searchTerm = "puppies";
     ```
 
-5. Construct the URL for the search request. Note that your search term must be URL-encoded before being appended to the request.
+## Construct the search request and query
+
+Use the information from the last step to format a search URL for the API request. Note that your search term must be URL-encoded before being appended to the request.
+
     ```java
     // construct URL of search request (endpoint + query string)
     URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
@@ -59,7 +61,9 @@ To run this application, follow these steps.
     connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
     ```
 
-6. Receive the JSON response from the Bing Image Search API, and construct the result object.
+## Receive and process the JSON response
+
+1. Receive the JSON response from the Bing Image Search API, and construct the result object.
 
     ```java
     // receive JSON body
@@ -68,7 +72,7 @@ To run this application, follow these steps.
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
     ```
-7. Separate the Bing-related HTTP headers from the JSON body
+2. Separate the Bing-related HTTP headers from the JSON body
     ```java
     // extract Bing-related HTTP headers
     Map<String, List<String>> headers = connection.getHeaderFields();
@@ -80,7 +84,7 @@ To run this application, follow these steps.
     }
     ```
 
-8. Close the Stream, and print the response
+3. Close the Stream, and print the response
 
     ```java
     stream.close();
@@ -90,7 +94,6 @@ To run this application, follow these steps.
     System.out.println("\nJSON Response:\n");
     System.out.println(prettify(result.jsonResponse));
     ```
-
 
 ## JSON response
 

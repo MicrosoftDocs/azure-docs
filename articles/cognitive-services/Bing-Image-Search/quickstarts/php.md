@@ -22,7 +22,7 @@ While this application is written in PHP, the API is a RESTful Web service compa
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## Sending search queries to the Bing Image Search REST API
+## Create and initialize a project
 
 To run this application, follow these steps.
 
@@ -36,8 +36,9 @@ To run this application, follow these steps.
     $accessKey = 'enter key here';
     $term = 'puppies';
     ```
+## Construct and perform a HTTP request
 
-4. Prepare the HTTP request.
+1. Use the information from the last step to prepare a HTTP request to the Image Search API.
 
     ```php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
@@ -45,14 +46,16 @@ To run this application, follow these steps.
                             'header' => $headers,
                             'method' => 'GET' ));
     ```
-5. Perform the web request and get the JSON response.
+2. Perform the web request and get the JSON response.
 
     ```php
     $context = stream_context_create($options);
     $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
     ```
 
-6. Process and print the returned JSON response.
+## Process and print the JSON
+
+Process and print the returned JSON response.
 
     ```php
     $headers = array();
