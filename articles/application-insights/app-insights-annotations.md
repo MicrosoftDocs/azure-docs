@@ -17,42 +17,42 @@ ms.author: mbullwin
 
 ---
 # Annotations on metric charts in Application Insights
-Annotations on [Metrics Explorer](app-insights-metrics-explorer.md) charts show where you deployed a new build, or other significant event. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Visual Studio Team Services build system](https://docs.microsoft.com/vsts/pipelines/tasks/). You can also create annotations to flag any event you like by [creating them from PowerShell](#create-annotations-from-powershell).
+Annotations on [Metrics Explorer](app-insights-metrics-explorer.md) charts show where you deployed a new build, or other significant event. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Azure DevOps build system](https://docs.microsoft.com/vsts/pipelines/tasks/). You can also create annotations to flag any event you like by [creating them from PowerShell](#create-annotations-from-powershell).
 
 ![Example of annotations with visible correlation with server response time](./media/app-insights-annotations/00.png)
 
 
 
-## Release annotations with VSTS build
+## Release annotations with Azure DevOps build
 
-Release annotations are a feature of the cloud-based build and release service of Visual Studio Team Services. 
+Release annotations are a feature of the cloud-based build and release service of Azure DevOps Services. 
 
 ### Install the Annotations extension (one time)
-To be able to create release annotations, you'll need to install one of the many Team Service extensions available in the Visual Studio Marketplace.
+To be able to create release annotations, you'll need to install one of the many Azure DevOps Services extensions available in the Visual Studio Marketplace.
 
-1. Sign in to your [Visual Studio Team Services](https://visualstudio.microsoft.com/vso/) project.
-2. In Visual Studio Marketplace, [get the Release Annotations extension](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), and add it to your Team Services account.
+1. Sign in to your [Azure DevOps](https://visualstudio.microsoft.com/vso/) project.
+2. In Visual Studio Marketplace, [get the Release Annotations extension](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), and add it to your Azure DevOps organization.
 
-![At top right of Team Services web page, open Marketplace. Select Visual Team Services and then under Build and Release, choose See More.](./media/app-insights-annotations/10.png)
+![At top right of the Azure DevOps web page, open Marketplace. Select Azure DevOps and then under Build and Release, choose See More.](./media/app-insights-annotations/10.png)
 
-You only need to do this once for your Visual Studio Team Services account. Release annotations can now be configured for any project in your account. 
+You only need to do this once for your Azure DevOps organization. Release annotations can now be configured for any project in your organization. 
 
 ### Configure release annotations
 
-You need to get a separate API key for each VSTS release template.
+You need to get a separate API key for each Azure DevOps release template.
 
 1. Sign in to the [Microsoft Azure Portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. (Or [create one now](app-insights-overview.md), if you haven't done so yet.)
 2. Open **API Access**,  **Application Insights Id**.
    
     ![In portal.azure.com, open your Application Insights resource and choose Settings. Open API Access. Copy the Application ID](./media/app-insights-annotations/20.png)
 
-4. In a separate browser window, open (or create) the release template that manages your deployments from Visual Studio Team Services. 
+4. In a separate browser window, open (or create) the release template that manages your deployments from Azure DevOps. 
    
     Add a task, and select the Application Insights Release Annotation task from the menu.
    
     Paste the **Application Id** that you copied from the API Access blade.
    
-    ![In Visual Studio Team Services, open Release, select a release definition, and choose Edit. Click Add Task and select Application Insights Release Annotation. Paste the Application Insights Id.](./media/app-insights-annotations/30.png)
+    ![In Azure DevOps, open Release, select a release definition, and choose Edit. Click Add Task and select Application Insights Release Annotation. Paste the Application Insights Id.](./media/app-insights-annotations/30.png)
 4. Set the **APIKey** field to a variable `$(ApiKey)`.
 
 5. Back in the Azure window, create a new API Key and take a copy of it.
@@ -65,7 +65,7 @@ You need to get a separate API key for each VSTS release template.
    
     Paste your API key to the ApiKey variable definition.
    
-    ![In the Team Services window, select the Configuration tab and click Add Variable. Set the name to ApiKey and into the Value, paste the key you just generated, and click the lock icon.](./media/app-insights-annotations/50.png)
+    ![In the Azure DevOps window, select the Configuration tab and click Add Variable. Set the name to ApiKey and into the Value, paste the key you just generated, and click the lock icon.](./media/app-insights-annotations/50.png)
 7. Finally, **Save** the release definition.
 
 
@@ -77,7 +77,7 @@ Click on any annotation marker to open details about the release, including requ
 ![Click any release annotation marker.](./media/app-insights-annotations/60.png)
 
 ## Create custom annotations from PowerShell
-You can also create annotations from any process you like (without using VS Team System). 
+You can also create annotations from any process you like (without using Azure DevOps). 
 
 
 1. Make a local copy of the [Powershell script from GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
