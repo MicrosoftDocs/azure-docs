@@ -2877,7 +2877,27 @@
         },
         {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
-            "redirect_url": "/azure/automation/automation-create-runas-account",
+            "redirect_url": "/azure/automation/manage-runas-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-create-runas-account.md",
+            "redirect_url": "/azure/automation/manage-runas-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-manage-account.md",
+            "redirect_url": "/azure/automation/manage-runas-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-create-aduser-account.md",
+            "redirect_url": "/azure/automation/automation-credentials",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-verify-runas-authentication.md",
+            "redirect_url": "/azure/automation/manage-runas-account",
             "redirect_document_id": false
         },
         {
@@ -8378,6 +8398,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/access-control.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/documentdb/documentdb-automation-resource-manager-cli-nodejs.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/cli-samples",
             "redirect_document_id": false
@@ -8394,7 +8419,7 @@
         },
         {
             "source_path": "articles/documentdb/table-powershell.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/azure/cosmos-db/table-introduction",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/table-introduction",
             "redirect_document_id": false
         },
         {

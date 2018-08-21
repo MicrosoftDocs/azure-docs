@@ -10,6 +10,7 @@ editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
+ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.tgt_pltfrm: na
 ms.devlang: csharp
