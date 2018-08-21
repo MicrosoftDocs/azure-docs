@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
 ---
-# How to select and use a compute target to train your model
+# Select and use a compute target to train your model
 
 With the Azure Machine Learning service, you can train your model in several different environments. These environments, called __compute targets__, can be local or in the cloud. In this document, you will learn about the supported compute targets and how to use them.
 
@@ -44,6 +44,18 @@ The workflow for developing and deploying a model with Azure Machine Learning fo
 1. Deploy the model.
 
 Your training script isn't tied to a specific compute target. You can train initially on your local computer, then switch targets to a VM or Azure Batch AI without having to rewrite the training script.
+
+## Local computer
+
+More info on local computer and example of using local computer
+
+## Azure DSVMs and DLVMs
+
+more info on vm and example.
+
+## Azure Batch AI
+
+more info on batch ai.
 
 The following example creates an Azure Batch AI compute target and display the status. The `compute_target` object can be used to submit your project for training:
 
