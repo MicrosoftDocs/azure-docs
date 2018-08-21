@@ -23,6 +23,7 @@ The example program uses .NET Core classes only and runs on Windows using the .N
 
 * Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 * Linux/macOS: [Mono](http://www.mono-project.com/)  
+* Subscription key
 
 ## Make a call to the Bing Web Search API  
 

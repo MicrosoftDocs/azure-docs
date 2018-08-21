@@ -19,7 +19,8 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 ## Prerequisites
 
-* [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/)  
+* [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/)
+* Subscription key  
 
 ## Make a call to the Bing Web Search API
 

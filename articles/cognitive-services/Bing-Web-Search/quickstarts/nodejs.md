@@ -19,7 +19,8 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 ## Prerequisites
 
-* [Node.js 6](https://nodejs.org/en/download/) or later  
+* [Node.js 6](https://nodejs.org/en/download/) or later
+* Subscription key  
 
 ## Make a call to the Bing Web Search API  
 
