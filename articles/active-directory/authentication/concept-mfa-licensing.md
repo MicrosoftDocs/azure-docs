@@ -60,7 +60,7 @@ The following table provides a list of the features that are available in the va
 
 ## How to turn on Azure Multi-Factor Authentication for Azure AD Administrators
 
-Users assigned the Global Administrator role in Azure AD tenants can enable two-step verification for their Azure AD Global Admin accounts at no additional cost. If you are using a Microsoft Account, you can register for multi-factor authentication using the guidance found in the Microsoft account support article, [About two-step verification](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). If you are not using a Microsoft Account, turn on multi-factor authentication for Global Admins using the guidance found in the article [How to require two-step verification for a user or group](howto-mfa-userstates.md).
+Users assigned the Global Administrator role in Azure AD tenants can enable two-step verification for their Azure AD Global Admin accounts at no additional cost. If you are using a Microsoft Account, you can register for multi-factor authentication using the guidance found in the Microsoft account support article, [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification). If you are not using a Microsoft Account, turn on multi-factor authentication for Global Admins using the guidance found in the article [How to require two-step verification for a user or group](howto-mfa-userstates.md).
 
 ## How to get Azure Multi-Factor Authentication
 

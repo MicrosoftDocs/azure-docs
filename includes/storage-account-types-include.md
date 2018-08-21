@@ -1,3 +1,15 @@
+---
+title: "include file"
+description: "include file"
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: "include"
+ms.date: 08/20/2018
+ms.author: tamram
+ms.custom: "include file"
+---
+
 There are two types of storage accounts:
 
 ### General-purpose Storage Accounts
@@ -25,5 +37,5 @@ For more details on Blob storage accounts, see [Azure Blob Storage: Cool and Hot
 
 Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can get started with Azure with a [free account](https://azure.microsoft.com/pricing/free-trial/). Once you decide to purchase a subscription plan, you can choose from a variety of [purchase options](https://azure.microsoft.com/pricing/purchase-options/). If you’re an [MSDN subscriber](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage. See [Azure Storage Pricing ](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
 
-To learn how to create a storage account, see [Create a storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) for more details. You can create up to 200 uniquely named storage accounts with a single subscription. See [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) for details about storage account limits.
+To learn how to create a storage account, see [Create a storage account](../articles/storage/common/storage-quickstart-create-account.md) for more details. You can create up to 200 uniquely named storage accounts with a single subscription. See [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) for details about storage account limits.
 
