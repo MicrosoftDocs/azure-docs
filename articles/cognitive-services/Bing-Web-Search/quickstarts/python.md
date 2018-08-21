@@ -21,9 +21,9 @@ This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). C
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)
 
-## Make a call to the Bing Web Search API
+## Define variables
 
-Set `subscription_key` to your API key for the Bing API service.
+Enter a valid subscription key.
 
 ```python
 subscription_key = "YOUR_ACCESS_KEY"
@@ -36,13 +36,15 @@ Verify that the `search_url` endpoint is correct. If you run into any authorizat
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
 ```
 
-Set `search_term` to query Bing for Microsoft Cognitive Services.
+Feel free to customize the search query by replacing the value for `search_term`.
 
 ```python
-search_term = "Microsoft Cognitive Services"
+search_term = "Azure Cognitive Services"
 ```
 
-This block uses the `requests` library in Python to call the Bing Web Search API and return results as a JSON object. The API key is passed in the `headers` dictionary and the search term via the `params` dictionary. For a complete list of options available to filter search results, see [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) documentation.
+## Create a request
+
+This block uses the `requests` library to call the Bing Web Search API and return the results as a JSON object. The API key is passed in the `headers` dictionary, and the search term and query parameters are passed in the `params` dictionary. See [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) documentation for a complete list of options and parameters.
 
 ```python
 import requests
@@ -54,7 +56,9 @@ response.raise_for_status()
 search_results = response.json()
 ```
 
-The `search_results` object contains the search results along with metadata such as related queries and pages. This code block formats the top pages returned by the query.
+## Format and display the response
+
+The `search_results` object includes the search results and metadata such as related queries and pages. This code uses the `IPython.display` library to format and display the response.
 
 ```python
 from IPython.display import HTML
@@ -69,7 +73,7 @@ HTML("<table>{0}</table>".format(rows))
 
 ## Sample response  
 
-Responses from the Bing Web Search API are returned as JSON. This sample response has been formatted using the `IPython.display` library and renders the output in browser.  
+Responses from the Bing Web Search API are returned as JSON. This sample response has been formatted using the `IPython.display` library and displays the output in your browser.  
 
 ## Next steps
 

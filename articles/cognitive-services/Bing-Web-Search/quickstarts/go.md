@@ -40,7 +40,7 @@ import (
 )
 ```
 
-## Create a struct to format the Bing Web Search response
+## Create a struct to format the response
 
 Use this struct to format the JSON response from the Bing Web Search API.
 
@@ -103,7 +103,7 @@ type BingAnswer struct {
 
 ## Declare the main function and define variables  
 
-This code declares the main function and required variables. Confirm that the endpoint is valid and replace the `token` value with a valid subscription key. Feel free to customize the `searchTerm`.
+This code declares the main function and required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key. Feel free to customize the search query by replacing the value for `searchTerm`.
 
 ```go
 // Declare the main function. This is required for all Go programs.
@@ -169,7 +169,7 @@ for _, result := range ans.WebPages.Value {
 
 ## Put it all together
 
-The last step is to validate your code and run it! This is what your program should look like.
+The last step is to validate your code and run it! Here's the complete program:
 
 ```go
 package main
