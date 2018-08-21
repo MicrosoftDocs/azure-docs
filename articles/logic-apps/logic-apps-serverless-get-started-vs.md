@@ -19,8 +19,8 @@ You can quickly develop and deploy cloud apps by using
 the serverless tools and capabilities in Azure such as 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 and [Azure Functions](../azure-functions/functions-overview.md). 
-This article shows you how to get started building a serverless app 
-in Visual Studio with a logic app that calls an Azure function. 
+This article shows how to start building a serverless app, 
+which uses a logic app that calls an Azure function, in Visual Studio. 
 To learn more about serverless solutions in Azure, see 
 [Azure Serverless with Functions and Logic Apps](../logic-apps/logic-apps-serverless-overview.md).
 
@@ -60,7 +60,7 @@ for locally debugging Functions
 
 To get started, create an [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 
 for your serverless app. In Azure, you create resources within a resource group, 
-which is a logical collection used for organizing, managing, and deploying resources 
+which is a logical collection you use for organizing, managing, and deploying resources 
 for an entire app as a single asset. For a serverless app in Azure, your resource group 
 includes resources for both Azure Logic Apps and Azure Functions. Learn more about 
 [Azure resource groups and resources](../azure-resource-manager/resource-group-overview.md).
@@ -128,10 +128,10 @@ and the resource group to where you want to deploy. Choose **Deploy**.
 
    ![Deployment settings](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
 
-1. If the **Edit Parameters** box appears, provide the resource name you 
-want to use for your logic app and for your Azure function app at deployment, 
-and then save your settings. Make sure you use a globally unique name for 
-your function app.
+1. If the **Edit Parameters** box appears, provide the resource name 
+to use for your logic app and your Azure function app at deployment, 
+and then save your settings. Make sure you use a globally unique name 
+for your function app.
 
    ![Provide names for your logic app and function app](./media/logic-apps-serverless-get-started-vs/logic-function-app-name-parameters.png)
 
