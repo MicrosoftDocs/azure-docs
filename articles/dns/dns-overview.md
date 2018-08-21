@@ -50,9 +50,13 @@ Azure DNS also supports private DNS domains, which is now in public preview. Thi
 
 For more information, see [Using Azure DNS for private domains](private-dns-overview.md).
 
-## Custom records
+## Alias records
 
-Azure DNS supports custom alias record sets. You can use an alias record set to refer to an Azure resource, such as an Azure public IP address or a Traffic Manager profile. If the IP address of the service changes, the alias record set does not need to change. The alias record set points to the service instance, and the service instance is associated with an IP address. For more information, see [conceptual alias record set article].
+Azure DNS supports alias record sets. You can use an alias record set to refer to an Azure resource, such as an Azure Public IP address or a Traffic Manager profile. If the IP address of the underlying resource changes, the alias record set seamlessly updates itself during DNS resolution. The alias record set points to the service instance, and the service instance is associated with an IP address. 
+
+Additionally, you can now point your apex or naked domain (for example, contoso.com) to a Traffic Manager profile using an alias record.
+
+For more information, see [conceptual alias record set article].
 
 
 ## Next steps
