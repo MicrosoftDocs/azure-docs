@@ -27,7 +27,7 @@ Compare two claims, and throw an exception if they are not equal according to th
 | inputClaim | inputClaim2 | string | Second claim's type, which is to be compared. |
 | InputParameter | stringComparison | string | string comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
 
-The `AssertStringClaimsAreEqual` claims transformation is always executed from [validation technical profile](validation-technical-profile.md) that is called by [self-asserted technical profile](self-asserted-technical-profile.md). The `UserMessageIfClaimsTransformationStringsAreNotEqual` self-asseterd technical profile metadata controls the error message that the technical profile presented to the user.
+The **AssertStringClaimsAreEqual** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **UserMessageIfClaimsTransformationStringsAreNotEqual** self-asserted technical profile metadata controls the error message that is presented to the user.
 
 ![AssertStringClaimsAreEqual execution](./media/claims-transformations/assert-execution.png)
 
@@ -55,7 +55,9 @@ The `login-NonInteractive` validation technical profile calls the `AssertEmailAn
   </OutputClaimsTransformations>
 </TechnicalProfile>
 ```
-The self-assereted technical profile calls the validation `login-NonInteractive` technical profile.
+
+The self-asserted technical profile calls the validation **login-NonInteractive** technical profile.
+
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>

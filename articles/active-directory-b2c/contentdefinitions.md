@@ -115,7 +115,7 @@ The following example shows a sign-up or sign-in content definition with a refer
 </ContentDefinition>
 ```
 
-To learn how to add localization support to your content definitions, read [Localization](localization) document.
+To learn how to add localization support to your content definitions, see [Localization](localization.md).
 
 ## Content definition IDs
 

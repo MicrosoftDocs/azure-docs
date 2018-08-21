@@ -141,8 +141,8 @@ The `LocalizedString` element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ElementType | Yes | References to a ClaimType element or a user interface element in the policy. Possible values: **ClaimType** - To localize one of the claim attributes, as specify in the StringId; **UxElement** - To localize one of the user interface elements, as specify in the StringId; **ErrorMessage** - To localize one of the system error messages, as specify in the StringId. |
-| ElementId | Yes | If `ElementType` is set to **ClaimType**, this element contains a reference to a claim type already defined in the ClaimsSchema section. |
-| StringId | Yes | If `ElementType` is set to **ClaimType**, this element specifies the attribute of a particular claim type. Possible values: **DisplayName** - to set the claim display name; **AdminHelpText** - to set the claim user help text name; **PatternHelpText** - to set the claim pattern help text. <br/>&nbsp;<br/>If `ElementType` is set to **UxElement**, this element specifies the attribute of a particular user interface element id. If `ElementType` is set to **ErrorMessage**, this element specifies the ID of a particular error message. Following document describes the list of supported [localiztion Ids](localization-string-ids) |
+| ElementId | Yes | If **ElementType** is set to `ClaimType`, this element contains a reference to a claim type already defined in the ClaimsSchema section. | 
+| StringId | Yes | If **ElementType** is set to `ClaimType`, this element contains a reference to an attribute of a claim type. Possible values: `DisplayName` - to set the claim display name; `AdminHelpText` - to set the claim user help text name; `PatternHelpText` - to set the claim pattern help text. If **ElementType** is set to `UxElement`, this element contains a reference to an attribute of a user interface element. If **ElementType** is set to `ErrorMessage`, this element specifies the identifier of an error message. |
 
 
 The following example shows a localized sign-up page. The first 3 `LocalizedString` values set the claim attribute. The third changes the value of the continue button. The last one changes the error message.
@@ -154,17 +154,17 @@ The following example shows a localized sign-up page. The first 3 `LocalizedStri
     <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you try to create already exists, please sign-in.</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
 
-## Localization step by step
-This tutorial shows you how to support multiple locales or languages in the policy for the user journeys requires three steps:
+## Set up localization
+This article shows you how to support multiple locales or languages in the policy for user journeys. Localization requires three steps: set-up the explicit list of the supported languages, provide language-specific strings and collections, and edit the ContentDefinition for the page.
 
-### Step 1 Set-up the explicit list of the supported languages
+### Set up the explicit list of supported languages
 
-Under the `BuildingBlocks` element add the `Localization` with the list of supported languages. The following XML snippet illustrates how to define the localization support for both English (default) and Spanish:
+Under the **BuildingBlocks** element add the **Localization** element with the list of supported languages. The following example shows how to define the localization support for both English (default) and Spanish:
 
 ```XML
 <Localization Enabled="true">
@@ -175,8 +175,9 @@ Under the `BuildingBlocks` element add the `Localization` with the list of suppo
 </Localization>
 ```
 
-### Step 2 Provide language-specific strings and collections
-Add `LocalizedResources` elements inside the `Localization` element, medially after the close of the `</SupportedLanguages>` element. You add `LocalizedResources` for each page (content definition) and any language you want to support. To customize the unified sign-up or sign-in page, sign-up and multi-factor authentication (MFA) pages for English, Spanish, and France, you add following `LocalizedResources` elements. 
+### Provide language-specific strings and collections 
+
+Add **LocalizedResources** elements inside the **Localization** element after the close of the **SupportedLanguages** element. You add **LocalizedResources** elements for each page (content definition) and any language you want to support. To customize the unified sign-up or sign-in page, sign-up and multi-factor authentication (MFA) pages for English, Spanish, and France, you add the following **LocalizedResources** elements.  
 - Unified sign-up or sign-in page, English `<LocalizedResources Id="api.api.signuporsignin.en">`
 - Unified sign-up or sign-in page, Spanish `<LocalizedResources Id="api.api.signuporsignin.es">`
 - Unified sign-up or sign-in page, France `<LocalizedResources Id="api.api.signuporsignin.fr">` 
@@ -187,9 +188,9 @@ Add `LocalizedResources` elements inside the `Localization` element, medially af
 - MFA, Spanish `<LocalizedResources Id="api.phonefactor.es">`
 - MFA, France `<LocalizedResources Id="api.phonefactor.fr">`
 
-Each `LocalizedResources` contains all of the required  `LocalizedStrings` with multiple `LocalizedString` elements and `LocalizedCollections` with multiple `LocalizedCollection` elements.  Following example, adds the sign-up page English localization. 
+Each **LocalizedResources** element contains all of the required  **LocalizedStrings** elements with multiple **LocalizedString** elements and **LocalizedCollections** elements with multiple **LocalizedCollection** elements.  The following example adds the sign-up page English localization: 
 
-Note: This example makes a reference to `Gender` and `City` claim types. To use this example, make sure you define those claims. For more information, read [claimsschema](ClaimsSchema)
+Note: This example makes a reference to `Gender` and `City` claim types. To use this example, make sure you define those claims. For more information, see [ClaimsSchema](claimsschema.md).
 
 ```XML
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -198,7 +199,7 @@ Note: This example makes a reference to `Gender` and `City` claim types. To use 
     <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you try to create already exists, please sign-in.</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
   </LocalizedStrings>
  <LocalizedCollections>
    <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
@@ -239,10 +240,10 @@ The sign-up page localization for Spanish.
 </LocalizedResources>
 ```
 
-### Step 3 Edit the ContentDefinition for the page
-For each page you want to localize, you can specify in the `ContentDefinition` what language resources to look for each language code.
+### Edit the ContentDefinition for the page 
+For each page that you want to localize, specify the language codes to look for in the **ContentDefinition**.
 
-In following sample, English (en) and Spanish (es) custom strings are added to the sign-up page. The `LocalizedResourcesReferenceId` for each `LocalizedResourcesReference` is the same as their locale, but you could use any string as the ID. For each language and page combination, you point to the  corresponding `<LocalizedResources>` you created earlier.
+In the following example, English (en) and Spanish (es) custom strings are added to the sign-up page. The **LocalizedResourcesReferenceId** for each **LocalizedResourcesReference** is the same as their locale, but you could use any string as the identifier. For each language and page combination, you point to the  corresponding **LocalizedResources** you previously created.
 
 ```XML
 <ContentDefinition Id="api.localaccountsignup">
@@ -254,7 +255,8 @@ In following sample, English (en) and Spanish (es) custom strings are added to t
 </ContentDefinition>
 ```
 
-The final XML should look like  XML snippet:
+The following example shows the final XML:
+
 ```XML
 <BuildingBlocks>
   <ContentDefinitions>
@@ -282,7 +284,7 @@ The final XML should look like  XML snippet:
       <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
         <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
         <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-       <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you try to create already exists, please sign-in.</LocalizedString>
+       <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
         <!-- More localized strings... -->
       </LocalizedStrings>
       <LocalizedCollections>

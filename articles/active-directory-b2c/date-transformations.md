@@ -29,11 +29,11 @@ Checks that one date and time claim (string data type) is greater than a second 
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Specifies whether this assertion should pass if the right operand is missing. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Specifies the number of milliseconds to allow between the two date times to consider the times equal (for example, to account for clock skew). |
 
-The `AssertDateTimeIsGreaterThan` claims transformation is always executed from [validation technical profile](validation-technical-profile.md) that is called by [self-asserted technical profile](self-asserted-technical-profile.md). The `DateTimeGreaterThan` self-asseterd technical profile metadata controls the error message that the technical profile presented to the user.
+The **AssertDateTimeIsGreaterThan** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **DateTimeGreaterThan** self-asserted technical profile metadata controls the error message that the technical profile presents to the user.
 
 ![AssertStringClaimsAreEqual execution](./media/claims-transformations/assert-execution.png)
 
-Following example compares the `currentDateTime` claim with `approvedDateTime` claim. Throws an error if `currentDateTime` is greater than  `approvedDateTime`. The transformation treats as equal within 5 minutes (30000 milliseconds) difference.
+The following example compares the `currentDateTime` claim with the `approvedDateTime` claim. An error is thrown if `currentDateTime` is greater than  `approvedDateTime`. The transformation treats values as equal if they are within 5 minutes (30000 milliseconds) difference.
 
 ```XML
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
@@ -58,7 +58,9 @@ The `login-NonInteractive` validation technical profile calls the `AssertApprove
   </OutputClaimsTransformations>
 </TechnicalProfile>
 ```
-The self-assereted technical profile calls the validation `login-NonInteractive` technical profile.
+
+The self-asserted technical profile calls the validation **login-NonInteractive** technical profile.
+
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>

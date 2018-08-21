@@ -59,7 +59,7 @@ Checks that boolean values of two claims are equal, and throws an exception if t
 | inputClaim | inputClaim | boolean | The ClaimType to be asserted. |
 | InputParameter |valueToCompareTo | boolean | The value to compare (true or false). |
 
-The `AssertBooleanClaimIsEqualToValue` claims transformation is always executed from [validation technical profile](validation-technical-profile.md) that is called by [self-asserted technical profile](self-asserted-technical-profile.md). The `UserMessageIfClaimsTransformationBooleanValueIsNotEqual` self-asseterd technical profile metadata controls the error message that the technical profile presented to the user.
+The **AssertBooleanClaimIsEqualToValue** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** self-asserted technical profile metadata controls the error message that the technical profile presents to the user.
 
 ![AssertStringClaimsAreEqual execution](./media/claims-transformations/assert-execution.png)
 
@@ -86,7 +86,9 @@ The `login-NonInteractive` validation technical profile calls the `AssertAccount
   </OutputClaimsTransformations>
 </TechnicalProfile>
 ```
-The self-assereted technical profile calls the validation `login-NonInteractive` technical profile.
+
+The self-asserted technical profile calls the validation **login-NonInteractive** technical profile.
+
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>

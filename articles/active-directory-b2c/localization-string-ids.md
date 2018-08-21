@@ -14,7 +14,7 @@ ms.component: B2C
 ---
 
 # Localization string IDs
-The `Localization` element allows you to support multiple locales or languages in the policy for the user journeys. This document provides the list of localization IDs you can use in your policy. To get familiar with UI localization, read [Localization](localization) document.
+The **Localization** element enables you to support multiple locales or languages in the policy for the user journeys. This article provides the list of localization IDs that you can use in your policy. To get familiar with UI localization, see [Localization](localization.md).
 
 ## Sign-up or sign-in page elements
 
