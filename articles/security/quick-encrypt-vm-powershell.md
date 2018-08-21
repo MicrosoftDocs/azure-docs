@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na 
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 08/24/2018
 ms.author: mstewart
 ---
 # Quickstart: Encrypt a Windows IaaS VM with Azure PowerShell
 
-Azure Disk Encryption is a capability that helps you encrypt your Windows and Linux IaaS virtual machine disks. The solution is integrated with Azure Key Vault to help you control and manage the disk-encryption keys and secrets. By using Azure Disk encryption you can ensure that your VMs are secured at rest using industry-standard encryption technology. In this quickstart, you will create a Windows Server 2016 VM and encrypt the OS disk. 
+Azure Disk Encryption helps you encrypt your Windows and Linux IaaS virtual machine disks. The solution is integrated with Azure Key Vault to help you control and manage the disk-encryption keys and secrets. By using Azure Disk encryption, you can ensure that your VMs are secured at rest using industry-standard encryption technology. In this quickstart, you'll create a Windows Server 2016 VM and encrypt the OS disk. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,20 +30,20 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-1. Right click **Windows PowerShell ISE** and click **Run as administrator**.
+1. Right-click **Windows PowerShell ISE** and click **Run as administrator**.
 1. In the **Administrator: Windows PowerShell ISE** window, click **View** and then click **Show Script Pane**.
-1. In the script pane type the following: 
+1. In the script pane, type the following cmdlet: 
      ```azurepowershell
      Connect-AzureRMAccount
      ```
 1. Click on the green arrow for **Run Script**, or use F5. 
-1. Use the interactive sign in to finish connecting to your Azure account.
+1. Use the interactive sign-in to finish connecting to your Azure account.
 1. Copy your **subscription ID** that is returned for use in running the next PowerShell script. 
 
 ## <a name="bkmk_PrereqScript"></a> Run the Azure Disk Encryption prerequisites script
  **ADEPrereqScript.ps1** will create a resource group, a key vault, and set the key vault access policy. The script also creates a resource lock on the key vault to help protect it from accidental deletion.  
 
-1. In the **Administrator: Windows PowerShell ISE** window, click **File** and then click **Open**. Navigate to the **ADEPrereqScript.ps1** file and double-click on it so it opens in the script pane.
+1. In the **Administrator: Windows PowerShell ISE** window, click **File** and then click **Open**. Navigate to the **ADEPrereqScript.ps1** file and double-click on it. The script will open in the script pane.
 2. Click on the green arrow for **Run Script**, or use F5 to run the script. 
 3. Type in names for a new **resource group** and a new **key vault**. Don't use an existing resource group or key vault for this quickstart since we'll delete the resource group later. 
 4. Type in the location where you want to create the resources, such as **EastUS**. Get a location list with `Get-AzureRMLocation`.
@@ -55,7 +55,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 
 ## Create a virtual machine 
-You now need to create a virtual machine so you can encrypt its disk. The script you will use creates a Windows Server 2016 VM with 8 GB RAM and a 30 GB OS disk. 
+You now need to create a virtual machine so you can encrypt its disk. The script you'll use creates a Windows Server 2016 VM with 8-GB RAM and a 30-GB OS disk. 
 
 1. Copy the script into the **Administrator: Windows PowerShell ISE** script pane and change the top three variables. The resource group and location need to be the same as you used for the [prerequisites script](bkmk_PrereqScript).  
 
@@ -109,7 +109,7 @@ You now need to create a virtual machine so you can encrypt its disk. The script
 
 
 ## Encrypt the disk of the VM
-Now that you have created and configured a key vault and a VM, you can encrypt the disk with the **Set-AzureRmVmDiskEncryptionExtension** cmdlet. 
+Now that you've created and configured a key vault and a VM, you can encrypt the disk with the **Set-AzureRmVmDiskEncryptionExtension** cmdlet. 
  
 1. Run the following cmdlet to encrypt the VM's disk:
 
@@ -118,7 +118,8 @@ Now that you have created and configured a key vault and a VM, you can encrypt t
      -DiskEncryptionKeyVaultId "<Returned by the prerequisites script>" -DiskEncryptionKeyVaultUrl "<Returned by the prerequisites script>"
      ```
 
- 1. When the encryption finishes, you can verify that the disk is encrypted with the following: 
+ 1. When the encryption finishes, you can verify that the disk is encrypted with the following cmdlet: 
+
      ```azurepowershell
      Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName "MySecureRG" -VMName "MySecureVM"
      ```
@@ -140,7 +141,7 @@ Now that you have created and configured a key vault and a VM, you can encrypt t
       ```
 
 ## Next steps
-Advance to the next article io learn more about Azure Disk Encryption prerequisites for IaaS VMs.
+Advance to the next article to learn more about Azure Disk Encryption prerequisites for IaaS VMs.
 
 > [!div class="nextstepaction"]
 > [Azure Disk Encryption Prerequisites](azure-security-disk-encryption-prerequisites.md)

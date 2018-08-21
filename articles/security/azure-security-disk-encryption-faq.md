@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 08/24/2018
 ms.author: mstewart
 
 ---
@@ -93,11 +93,11 @@ You can't use the on-premises key management service or HSM to safeguard the enc
 
 There are prerequisites for Azure Disk Encryption. See the [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md) article to create a new key vault, or set up an existing key vault for disk encryption access to enable encryption, and safeguard secrets and keys. For more information on the key encryption key support scenarios, see [Azure Disk Encryption overview](azure-security-disk-encryption-overview.md).
 
-## What are the prerequisites to configure Azure Disk Encryption with an Azure AD app (deprecated)?
+## What are the prerequisites to configure Azure Disk Encryption with an Azure AD app (previous release)?
 
 There are prerequisites for Azure Disk Encryption. See the [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites-aad.md) article to create an Azure Active Directory application, create a new key vault, or set up an existing key vault for disk encryption access to enable encryption, and safeguard secrets and keys. For more information on the key encryption key support scenarios, see [Azure Disk Encryption overview](azure-security-disk-encryption-overview.md).
 
-## Is Azure Disk Encryption using an Azure AD app (deprecated) still supported?
+## Is Azure Disk Encryption using an Azure AD app (previous release) still supported?
 Yes. Disk encryption using an Azure AD app is still supported. However, when encrypting new VMs it's recommended that you use the new method rather than encrypting with an Azure AD app. 
 
 ## Can I migrate VMs that were encrypted with an Azure AD app to encryption without an Azure AD app?

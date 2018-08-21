@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na 
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 08/24/2018
 ms.author: mstewart
 ---
 
@@ -115,7 +115,7 @@ Before you start, review the [Prerequisites](azure-security-disk-encryption-prer
  -  [Disable encryption on a running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - Disabling encryption is only allowed on Data volumes for Linux VMs.  
 
-### Encrypt or decrypt VMs with an Azure AD app (deprecated) 
+### Encrypt or decrypt VMs with an Azure AD app (previous release) 
  
 - [Enable disk encryption on existing or running IaaS Windows VMs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)
 
@@ -520,7 +520,7 @@ After BitLocker encryption or DM-Crypt encryption is enabled, the local encrypte
     Add-AzureRmVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
 ## <a name="bkmk_UploadSecret"></a> Upload the secret for the pre-encrypted VM to your key vault
-When encrypting using an Azure AD app (deprecated), the disk-encryption secret that you obtained previously must be uploaded as a secret in your key vault. The key vault needs to have disk encryption and permissions enabled for your Azure AD client.
+When encrypting using an Azure AD app (previous release), the disk-encryption secret that you obtained previously must be uploaded as a secret in your key vault. The key vault needs to have disk encryption and permissions enabled for your Azure AD client.
 
 ```powershell 
  $AadClientId = "My-AAD-Client-Id"

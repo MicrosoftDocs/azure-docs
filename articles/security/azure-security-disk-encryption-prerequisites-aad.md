@@ -1,5 +1,5 @@
 ---
-title: Azure Disk Encryption with Azure AD App Prerequisites (deprecated) | Microsoft Docs
+title: Azure Disk Encryption with Azure AD App Prerequisites (previous release) | Microsoft Docs
 description: This article provides prerequisites for using Microsoft Azure Disk Encryption for IaaS VMs.
 services: security
 documentationcenter: na
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na 
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 08/24/2018
 ms.author: mstewart
 ---
-# Azure Disk Encryption prerequisites (deprecated)
+# Azure Disk Encryption prerequisites (previous release)
 
-**Starting on August 17, 2018, you no longer need to use an Azure AD application when encrypting IaaS VMs. This functionality is deprecated and will be removed from Azure Disk encryption in the future. VMs that were already encrypted with Azure AD application parameters are still supported and should continue to be maintained with that AAD syntax. New VMs should be encrypted without the Azure AD application parameters. To view instructions for the current version, see [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md).**
+**The new release of Azure Disk Encryption eliminates the requirement for providing an Azure AD application parameter to enable VM disk encryption. With the new release, you are no longer required to provide Azure AD credentials during the enable encryption step. All new VMs must be encrypted without the Azure AD application parameters using the new release. To view instructions to enable VM disk encryption using the new release, see [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md). VMs that were already encrypted with Azure AD application parameters are still supported and should continue to be maintained with the AAD syntax.**
 
  This article, Azure Disk Encryption Prerequisites, explains items that need to be in place before you can use Azure Disk Encryption. Along with general prerequisites, Azure Disk Encryption is integrated with [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) and it uses an Azure AD application to provide authentication in order to manage encryption keys in the key vault. You may also wish to use [Azure PowerShell](/powershell/azure/overview) or the [Azure CLI](/cli/azure/) to set up or configure Key Vault and the Azure AD application.
 
