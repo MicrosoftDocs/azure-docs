@@ -131,6 +131,16 @@ This section answers frequently asked questions and discusses known issues with 
 
 ---
 
+**Q: How do I integrate Azure AD activity logs with my SIEM system?**
+
+**A**: You can do this in two ways:
+
+- Use Azure Monitor with Event Hubs to stream logs to your SIEM system. First, [stream the logs to an event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md) and then [set up your SIEM tool](quickstart-azure-monitor-stream-logs-to-event-hub.md#access-data-from-your-event-hub) with the configured event hub. 
+
+- Use the [Reporting Graph API](concept-reporting-api.md) to access the data, and push it into the SIEM system using your own scripts.
+
+---
+
 **Q: What SIEM tools are currently supported?** 
 
 **A**: Currently, Azure Monitor is supported by [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar, and [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). For more information about how the connectors work, see [Stream Azure monitoring data to an event hub for consumption by an external tool](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
