@@ -89,7 +89,7 @@ Customize the following sample code with a subscription key and an API key. This
         }
 ```
 
-After you obtain the token, you must specify the SAS Uri pointing to the audio file requiring transcription. The rest of the code iterates through the status and displays results.
+After you obtain the token, you must specify the SAS URI pointing to the audio file requiring transcription. The rest of the code iterates through the status and displays results.
 
 ```cs
    static async Task TranscribeAsync()
@@ -165,7 +165,7 @@ Currently the only storage supported is Azure Blob storage.
 
 ## Downloading the sample
 
-The sample displayed here is on [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+The sample shown here is on [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
 > Typically, an audio transcription requires a time span equal to the duration of the audio file, plus a 2-3 minute overhead.
