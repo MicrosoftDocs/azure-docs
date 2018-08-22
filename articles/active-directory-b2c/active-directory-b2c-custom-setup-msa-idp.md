@@ -7,7 +7,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
@@ -146,7 +146,7 @@ At this point, the identity provider has been set up, but it’s not available i
 1.  Open the base file of your policy (for example, TrustFrameworkBase.xml).
 2.  Find the `<UserJourneys>` element and copy the entire content of `<UserJourneys>` node.
 3.  Open the extension file (for example, TrustFrameworkExtensions.xml) and find the `<UserJourneys>` element. If the element doesn't exist, add one.
-4.  Paste the entire content of `<UserJournesy>` node that you copied as a child of the `<UserJourneys>` element.
+4.  Paste the entire content of `<UserJourneys>` node that you copied as a child of the `<UserJourneys>` element.
 
 ### Display the button
 The `<ClaimsProviderSelections>` element defines the list of claims provider selection options and their order.  `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up/sign-in page. If you add a `<ClaimsProviderSelection>` element for Microsoft account, a new button shows up when a user lands on the page. To add this element:
@@ -156,7 +156,7 @@ The `<ClaimsProviderSelections>` element defines the list of claims provider sel
 3.  Add following XML snippet under `<ClaimsProviderSelections>` node:
 
 ```xml
-<ClaimsProviderSelection TargetClaimsExchangeId="MSAExchange" />
+<ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
 ```
 
 ### Link the button to an action
@@ -166,7 +166,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 2.  Add following XML snippet under `<ClaimsExchanges>` node:
 
 ```xml
-<ClaimsExchange Id="MSAExchange" TechnicalProfileReferenceId="MSA-OIDC" />
+<ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
 ```
 
 > [!NOTE]

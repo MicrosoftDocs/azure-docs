@@ -1,12 +1,12 @@
 ---
 title: Azure CLI Script Sample - Install IIS | Microsoft Docs
-description: Azure CLI Script Sample - Install IIS 
+description: Azure CLI Script Sample - Install IIS
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
-tags: 
+tags:
 
 ms.assetid:
 ms.service: virtual-machines-Windows
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/28/2017
-ms.author: nepeters
+ms.author: cynthn
 ---
 
 # Quick Create a virtual machine with the Azure CLI
@@ -30,11 +30,11 @@ This script creates an Azure Virtual Machine running Windows Server 2016, and us
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-windows-iis/create-vm-windows-iis.sh "Quick Create VM")]
 
-## Clean up deployment 
+## Clean up deployment
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 

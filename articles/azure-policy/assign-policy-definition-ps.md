@@ -47,7 +47,7 @@ The preceding commands use the following information:
 
 - **Name** - The actual name of the assignment.  For this example, *audit-vm-manageddisks* was used.
 - **DisplayName** - Display name for the policy assignment. In this case, you're using *Audit Virtual Machines without Managed Disks Assignment*.
-- **Definition** – The policy definition, based on which you're using to create the assignment. In this case, it is the ID of policy definition *udit VMs that do not use managed disks*.
+- **Definition** – The policy definition, based on which you're using to create the assignment. In this case, it is the ID of policy definition *Audit VMs that do not use managed disks*.
 - **Scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups. Be sure to replace &lt;scope&gt; with the name of your resource group.
 
 You’re now ready to identify non-compliant resources to understand the compliance state of your environment.

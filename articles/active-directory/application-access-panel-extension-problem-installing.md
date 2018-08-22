@@ -3,18 +3,19 @@ title: Install the application access panel browser extension - Azure | Microsof
 description: Fix common errors encountered when you install the access panel browser extension.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/4/18
-ms.author: asteen
-ms.reviewer: japere
+ms.author: barbkess
+ms.reviewer: japere,asteen
 ---
 
 # Install the access panel browser extension
@@ -82,8 +83,8 @@ You can also download the extension for Chrome and Edge directly from following 
        The last three apps you've used are displayed in the **Recently Used** shortcut list.
        
 * To use internal company URLs while remote, do the following:
-    1. [Configure Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) on your tenant
-    2. [Publish the application](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) and URL through Application Proxy
+    1. [Configure Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) on your tenant
+    2. [Publish the application](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) and URL through Application Proxy
     3. Install the extension, and sign in to it by selecting Sign in to get started
     4. You can now browse to the internal company URL even while remote
 

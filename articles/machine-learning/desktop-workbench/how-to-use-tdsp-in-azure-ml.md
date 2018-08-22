@@ -3,19 +3,20 @@ title: Structure projects with the Team Data Science Process template | Microsof
 description: How to instantiate Team Data Science Process (TDSP) templates in Azure Machine Learning that structure projects for collaboration
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: bradsev
 
 ---
 

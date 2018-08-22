@@ -20,7 +20,7 @@ robots: noindex
 ---
 # Azure Data Factory - Frequently Asked Questions
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [frequently asked question - Data Factory version 2](../frequently-asked-questions.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [frequently asked question - Data Factory](../frequently-asked-questions.md).
 
 ## General questions
 ### What is Azure Data Factory?
@@ -38,7 +38,7 @@ See [Data Factory Pricing Details page][adf-pricing-details] for the pricing det
 * For a tutorial on how to **copy/move data** using Copy Activity, see [Copy data from Azure Blob Storage to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * For a tutorial on how to **transform data** using HDInsight Hive Activity. See [Process data by running Hive script on Hadoop cluster](data-factory-build-your-first-pipeline.md)
 
-### What is the Data Factory’s region availability?
+### What is the Data Factory's region availability?
 Data Factory is available in **US West** and **North Europe**. The compute and storage services used by data factories can be in other regions. See [Supported regions](data-factory-introduction.md#supported-regions).
 
 ### What are the limits on number of data factories/pipelines/activities/datasets?

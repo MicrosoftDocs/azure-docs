@@ -6,11 +6,12 @@ author: vidhoonv
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom:
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2018
-ms.author: viviswan
+ms.author: sclyon
 
 ---
 # How to globally distribute reads using Read Preference with the Azure Cosmos DB MongoDB API 

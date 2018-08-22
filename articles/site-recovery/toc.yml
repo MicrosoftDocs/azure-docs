@@ -51,6 +51,8 @@
       href: tutorial-prepare-azure.md
     - name: Migrate on-premises machines to Azure
       href: migrate-tutorial-on-premises-azure.md
+    - name: Migrate Windows Server 2008 servers to Azure
+      href: migrate-tutorial-windows-server-2008.md
     - name: Migrate AWS instances to Azure
       href: migrate-tutorial-aws-azure.md
     - name: Migrate Azure VMs to another region
@@ -91,6 +93,8 @@
     items:
     - name: Replication to Azure
       items:
+      - name: Common questions for Hyper-V to Azure replication
+        href: hyper-v-azure-common-questions.md
       - name: Hyper-V to Azure support matrix
         href: hyper-v-azure-support-matrix.md
       - name: Hyper-V to Azure architecture
@@ -235,6 +239,8 @@
         href: vmware-azure-manage-configuration-server.md
       - name: Manage the configuration server for physical server replication
         href: physical-manage-configuration-server.md
+      - name: Manage process servers
+        href: vmware-azure-manage-process-server.md
       - name: Manage vCenter servers
         href: vmware-azure-manage-vcenter.md
       - name: Remove servers and disable protection

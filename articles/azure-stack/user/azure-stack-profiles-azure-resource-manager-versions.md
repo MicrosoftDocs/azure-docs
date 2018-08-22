@@ -3,7 +3,7 @@ title: Resource provider API versions supported by profiles in Azure Stack | Mic
 description: Learn about the Azure Resource Manager version supported by profiles in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 
 ms.service: azure-stack
@@ -11,8 +11,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
-ms.author: mabrigg
+ms.date: 08/17/2018
+ms.author: sethm
 ms.reviewer: sijuman
 
 ---
@@ -141,11 +141,14 @@ The Azure Compute APIs give you programmatic access to virtual machines and thei
 
 | Resource Types | API Versions |
 |--------------------|--------------------|
-| Alert Rules | 2016-03-01 |
-| Event Categories | 2017-03-01-preview |
-| Event Types | 2017-03-01-preview |
-| Metric Definitions | 2016-03-01 |
 | Operations | 2015-04-01 |
+| Event Types | 2015-04-01 |
+| Event Categories | 2015-04-01 |
+| Metric Definitions | 2018-01-01 |
+| Metrics | 2018-01-01 |
+| Diagnostic Settings | 2017-05-01-preview |
+| Diagnostic Settings Categories | 2017-05-01-preview |
+
 
 ### Microsoft.KeyVault
 
@@ -187,27 +190,27 @@ Azure Resource Manager enables you to deploy and manage the infrastructure for y
 | Resource Types | API Versions |
 |-----------------------------------------|-------------------|
 | Application Registrations | 2015-01-01 |
-| Check Resource Name | 2015-012016-09-01 |
+| Check Resource Name | 2016-09-01 |
 | Delegated Providers | 2015-01-01 |
 | Delegated Providers/offers | 2015-01-01 |
 | DelegatedProviders/offers/estimatePrice | 2015-01-01 |
 | Deployments | 2016-0209-01 |
 | Deployments/operations | 2016-0209-01 |
 | Extensions Metadata | 2015-01-01 |
-| Links | 2015-012016-09-01 |
+| Links | 2016-09-01 |
 | Locations | 2015-01-01 |
 | Offers | 2015-01-01 |
 | Operations | 2015-01-01 |
 | Providers | 2015-012017-08-01 |
-| Resource Groups | 2015-012016-09-01 |
-| Resources | 2015-012016-09-01 |
-| Subscriptions | 2015-012016-09-01 |
-| Subscriptions/location | 2015-012016-09-01 |
-| Subscriptions/operation results | 2015-012016-09-01 |
+| Resource Groups | 2016-09-01 |
+| Resources | 2016-09-01 |
+| Subscriptions | 2016-09-01 |
+| Subscriptions/location | 2016-09-01 |
+| Subscriptions/operation results | 2016-09-01 |
 | Subscriptions/providers | 2015-012017-08-01 |
-| Subscriptions/Resource Groups | 2015-012016-09-01 |
-| Subscriptions/resourceGroups/resources | 2015-012016-09-01 |
-| Subscriptions/resources | 2015-012016-09-01 |
+| Subscriptions/Resource Groups | 2016-09-01 |
+| Subscriptions/resourceGroups/resources | 2016-09-01 |
+| Subscriptions/resources | 2016-09-01 |
 | Subscriptions/tagNames | 2016-0609-01 |
 | Subscriptions/tagNames/tagValues | 2016-0609-01 |
 | Tenants | 2015-012017-08-01 |

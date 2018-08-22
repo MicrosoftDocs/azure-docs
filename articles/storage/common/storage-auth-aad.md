@@ -1,14 +1,13 @@
 ---
 title: Authenticate access to Azure Storage using Azure Active Directory (Preview) | Microsoft Docs
-description: Authenticate access to Azure Storage using Azure Active Directory (Preview).  
+description: Authenticate access to Azure Storage using Azure Active Directory (Preview).
 services: storage
 author: tamram
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 06/01/2018
 ms.author: tamram
+ms.component: common
 ---
 
 # Authenticate access to Azure Storage using Azure Active Directory (Preview)
@@ -33,7 +32,8 @@ Keep in mind the following points about the preview:
     - Python
         - [Blob](https://github.com/Azure/azure-storage-python/releases/tag/v1.2.0rc1-blob)
         - [Queue](https://github.com/Azure/azure-storage-python/releases/tag/v1.2.0rc1-queue)
-    - Node.js ([npm](https://www.npmjs.com/package/azure-storage) | [package](https://aka.ms/downloadazurestoragejs))
+    - [Node.js](https://www.npmjs.com/package/azure-storage)
+    - [JavaScript](https://aka.ms/downloadazurestoragejs))
 
 > [!IMPORTANT]
 > This preview is intended for non-production use only. Production service-level agreements (SLAs) will not be available until Azure AD integration for Azure Storage is declared generally available. If Azure AD integration is not yet supported for your scenario, continue to use Shared Key authorization or SAS tokens in your applications.

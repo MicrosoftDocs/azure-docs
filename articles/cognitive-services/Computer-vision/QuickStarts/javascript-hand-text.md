@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/15/2018
 ms.author: nolachar
 ---
-# Quickstart:  Extract Handwritten Text with JavaScript
+# Quickstart: Extract handwritten text with JavaScript
 
 In this quickstart, you extract handwritten text from an image using Computer Vision.
 
@@ -60,7 +60,7 @@ This sample uses jQuery 1.9.0. For a sample that uses JavaScript without jQuery,
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/RecognizeText";
+            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText";
 
         // Request parameter.
         // Note: The request parameter changed for APIv2.

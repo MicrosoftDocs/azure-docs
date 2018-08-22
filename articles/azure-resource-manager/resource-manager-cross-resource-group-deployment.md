@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2018
+ms.date: 06/02/2018
 ms.author: tomfitz
 
 ---
@@ -124,13 +124,11 @@ The following example deploys two storage accounts - one in the resource group s
 
 If you set `resourceGroup` to the name of a resource group that does not exist, the deployment fails.
 
-To deploy the example template, use Azure PowerShell 4.0.0 or later, or Azure CLI 2.0.0 or later.
+## Use the resourceGroup() and subscription() functions
 
-## Use the resourceGroup() function
+For cross resource group deployments, the [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) and [subscription()](resource-group-template-functions-resource.md#subscription) functions resolve differently based on how you specify the nested template. 
 
-For cross resource group deployments, the [resourceGroup() function](resource-group-template-functions-resource.md#resourcegroup) resolves differently based on how you specify the nested template. 
-
-If you embed one template within another template, resourceGroup() in the nested template resolves to the parent resource group. An embedded template uses the following format:
+If you embed one template within another template, the functions in the nested template resolve to the parent resource group and subscription. An embedded template uses the following format:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -141,12 +139,12 @@ If you embed one template within another template, resourceGroup() in the nested
     "mode": "Incremental",
     "template": {
         ...
-        resourceGroup() refers to parent resource group
+        resourceGroup() and subscription() refer to parent resource group/subscription
     }
 }
 ```
 
-If you link to a separate template, resourceGroup() in the linked template resolves to the nested resource group. A linked template uses the following format:
+If you link to a separate template, the functions in the linked template resolve to the nested resource group and subscription. A linked template uses the following format:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -157,7 +155,7 @@ If you link to a separate template, resourceGroup() in the linked template resol
     "mode": "Incremental",
     "templateLink": {
         ...
-        resourceGroup() in linked template refers to linked resource group
+        resourceGroup() and subscription() in linked template refer to linked resource group/subscription
     }
 }
 ```

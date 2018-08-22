@@ -20,7 +20,7 @@ robots: noindex
 ---
 # Process large-scale datasets by using Data Factory and Batch
 > [!NOTE]
-> This article applies to version 1 of Azure Data Factory, which is generally available. If you use version 2 of the Data Factory service, which is in preview, see [Custom activities in Data Factory version 2](../transform-data-using-dotnet-custom-activity.md).
+> This article applies to version 1 of Azure Data Factory, which is generally available. If you use the current version of the Data Factory service, see [Custom activities in Data Factory](../transform-data-using-dotnet-custom-activity.md).
 
 This article describes an architecture of a sample solution that moves and processes large-scale datasets in an automatic and scheduled manner. It also provides an end-to-end walkthrough to implement the solution by using Data Factory and Azure Batch.
 
@@ -88,10 +88,10 @@ The sample solution is intentionally simple. It's designed to show you how to us
 If you don't have an Azure subscription, you can create a free trial account quickly. For more information, see [Free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 #### Azure storage account
-You use a storage account to store the data in this tutorial. If you don't have a storage account, see [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account). The sample solution uses blob storage.
+You use a storage account to store the data in this tutorial. If you don't have a storage account, see [Create a storage account](../../storage/common/storage-quickstart-create-account.md). The sample solution uses blob storage.
 
 #### Azure Batch account
-Create a Batch account by using the [Azure portal](http://portal.azure.com/). For more information, see [Create and manage a Batch account](../../batch/batch-account-create-portal.md). Note the Batch account name and account key. You also can use the [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) cmdlet to create a Batch account. For instructions on how to use this cmdlet, see [Get started with Batch PowerShell cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
+Create a Batch account by using the [Azure portal](http://portal.azure.com/). For more information, see [Create and manage a Batch account](../../batch/batch-account-create-portal.md). Note the Batch account name and account key. You also can use the [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) cmdlet to create a Batch account. For instructions on how to use this cmdlet, see [Get started with Batch PowerShell cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
 
 The sample solution uses Batch (indirectly via a data factory pipeline) to process data in a parallel manner on a pool of compute nodes (a managed collection of VMs).
 
@@ -100,11 +100,11 @@ Create a Batch pool with at least two compute nodes.
 
 1. In the [Azure portal](https://portal.azure.com), select **Browse** in the left menu, and select **Batch Accounts**.
 
-2. Select your Batch account to open the **Batch Account** blade.
+1. Select your Batch account to open the **Batch Account** blade.
 
-3. Select the **Pools** tile.
+1. Select the **Pools** tile.
 
-4. On the **Pools** blade, select the **Add** button on the toolbar to add a pool.
+1. On the **Pools** blade, select the **Add** button on the toolbar to add a pool.
 
    a. Enter an ID for the pool (**Pool ID**). Note the ID of the pool. You need it when you create the data factory solution.
 
@@ -123,7 +123,7 @@ You use [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) o
 
 1. Create a container named **mycontainer** with private access (no anonymous access).
 
-2. If you use CloudXplorer, create folders and subfolders with the following structure:
+1. If you use CloudXplorer, create folders and subfolders with the following structure:
 
    ![Folder and subfolder structure](./media/data-factory-data-processing-using-batch/image3.png)
 
@@ -131,15 +131,15 @@ You use [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) o
 
    If you use Storage Explorer, in the next step, you upload files with the following names: `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt`, and so on. This step automatically creates the folders.
 
-3. Create a text file **file.txt** on your machine with content that has the keyword **Microsoft**. An example is "test custom activity Microsoft test custom activity Microsoft."
+1. Create a text file **file.txt** on your machine with content that has the keyword **Microsoft**. An example is "test custom activity Microsoft test custom activity Microsoft."
 
-4. Upload the file to the following input folders in blob storage:
+1. Upload the file to the following input folders in blob storage:
 
    ![Input folders](./media/data-factory-data-processing-using-batch/image4.png)
 
    If you use Storage Explorer, upload the **file.txt** file to **mycontainer**. Select **Copy** on the toolbar to create a copy of the blob. In the **Copy Blob** dialog box, change the **destination blob name** to `inputfolder/2015-11-16-00/file.txt`. Repeat this step to create `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt`, and so on. This action automatically creates the folders.
 
-5. Create another container named `customactivitycontainer`. Upload the custom activity zip file to this container.
+1. Create another container named `customactivitycontainer`. Upload the custom activity zip file to this container.
 
 #### Visual Studio
 Install Visual Studio 2012 or later to create the custom Batch activity to be used in the data factory solution.
@@ -147,7 +147,7 @@ Install Visual Studio 2012 or later to create the custom Batch activity to be us
 ### High-level steps to create the solution
 1. Create a custom activity that contains the data processing logic.
 
-2. Create a data factory that uses the custom activity.
+1. Create a data factory that uses the custom activity.
 
 ### Create the custom activity
 The data factory custom activity is the heart of this sample solution. The sample solution uses Batch to run the custom activity. For information about how to develop custom activities and use them in data factory pipelines, see [Use custom activities in a data factory pipeline](data-factory-use-custom-activities.md).
@@ -189,19 +189,19 @@ The method has a few key components that you need to understand:
 
    g. Select **OK** to create the project.
 
-2. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 
-3. In the Package Manager Console, execute the following command to import Microsoft.Azure.Management.DataFactories:
+1. In the Package Manager Console, execute the following command to import Microsoft.Azure.Management.DataFactories:
 
 	```powershell
 	Install-Package Microsoft.Azure.Management.DataFactories
 	```
-4. Import the **Azure Storage** NuGet package into the project. You need this package because you use the Blob Storage API in this sample:
+1. Import the **Azure Storage** NuGet package into the project. You need this package because you use the Blob Storage API in this sample:
 
 	```powershell
 	Install-Package Azure.Storage
 	```
-5. Add the following using directives to the source file in the project:
+1. Add the following using directives to the source file in the project:
 
 	```csharp
 	using System.IO;
@@ -215,17 +215,17 @@ The method has a few key components that you need to understand:
 	using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Blob;
 	```
-6. Change the name of the namespace to **MyDotNetActivityNS**.
+1. Change the name of the namespace to **MyDotNetActivityNS**.
 
 	```csharp
 	namespace MyDotNetActivityNS
 	```
-7. Change the name of the class to **MyDotNetActivity**, and derive it from the **IDotNetActivity** interface as shown:
+1. Change the name of the class to **MyDotNetActivity**, and derive it from the **IDotNetActivity** interface as shown:
 
 	```csharp
 	public class MyDotNetActivity : IDotNetActivity
 	```
-8. Implement (add) the **Execute** method of the **IDotNetActivity** interface to the **MyDotNetActivity** class. Copy the following sample code to the method. For an explanation of the logic used in this method, see the [Execute method](#execute-method) section.
+1. Implement (add) the **Execute** method of the **IDotNetActivity** interface to the **MyDotNetActivity** class. Copy the following sample code to the method. For an explanation of the logic used in this method, see the [Execute method](#execute-method) section.
 
 	```csharp
 	/// <summary>
@@ -307,7 +307,7 @@ The method has a few key components that you need to understand:
 	   return new Dictionary<string, string>();
 	}
 	```
-9. Add the following helper methods to the class. These methods are invoked by the **Execute** method. Most important, the **Calculate** method isolates the code that iterates through each blob.
+1. Add the following helper methods to the class. These methods are invoked by the **Execute** method. Most important, the **Calculate** method isolates the code that iterates through each blob.
 
 	```csharp
 	/// <summary>
@@ -391,15 +391,15 @@ The method has a few key components that you need to understand:
 
     The Calculate method calculates the number of instances of the keyword "Microsoft" in the input files (blobs in the folder). The search term "Microsoft" is hard-coded in the code.
 
-10. Compile the project. Select **Build** from the menu, and then select **Build Solution**.
+1. Compile the project. Select **Build** from the menu, and then select **Build Solution**.
 
-11. Start Windows Explorer, and go to the **bin\\debug** or **bin\\release** folder. The folder choice depends on the type of build.
+1. Start Windows Explorer, and go to the **bin\\debug** or **bin\\release** folder. The folder choice depends on the type of build.
 
-12. Create a zip file **MyDotNetActivity.zip** that contains all the binaries in the **\\bin\\Debug** folder. You might want to include the MyDotNetActivity.**pdb** file so that you get additional details such as the line number in the source code that caused the issue when a failure occurs.
+1. Create a zip file **MyDotNetActivity.zip** that contains all the binaries in the **\\bin\\Debug** folder. You might want to include the MyDotNetActivity.**pdb** file so that you get additional details such as the line number in the source code that caused the issue when a failure occurs.
 
    ![The bin\Debug folder list](./media/data-factory-data-processing-using-batch/image5.png)
 
-13. Upload **MyDotNetActivity.zip** as a blob to the blob container `customactivitycontainer` in the blob storage that the StorageLinkedService linked service in ADFTutorialDataFactory uses. Create the blob container `customactivitycontainer` if it doesn't already exist.
+1. Upload **MyDotNetActivity.zip** as a blob to the blob container `customactivitycontainer` in the blob storage that the StorageLinkedService linked service in ADFTutorialDataFactory uses. Create the blob container `customactivitycontainer` if it doesn't already exist.
 
 #### Execute method
 This section provides more details about the code in the Execute method.
@@ -429,20 +429,20 @@ This section provides more details about the code in the Execute method.
 	```
    For more information, see the documentation for the [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx) method.
 
-2. The code for working through the set of blobs logically goes within the do-while loop. In the **Execute** method, the do-while loop passes the list of blobs to a method named **Calculate**. The method returns a string variable named **output** that is the result of having iterated through all the blobs in the segment.
+1. The code for working through the set of blobs logically goes within the do-while loop. In the **Execute** method, the do-while loop passes the list of blobs to a method named **Calculate**. The method returns a string variable named **output** that is the result of having iterated through all the blobs in the segment.
 
    It returns the number of occurrences of the search term "Microsoft" in the blob passed to the **Calculate** method.
 
 	```csharp
 	output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
 	```
-3. After the **Calculate** method is finished, it must be written to a new blob. For every set of blobs processed, a new blob can be written with the results. To write to a new blob, first find the output dataset.
+1. After the **Calculate** method is finished, it must be written to a new blob. For every set of blobs processed, a new blob can be written with the results. To write to a new blob, first find the output dataset.
 
 	```csharp
 	// Get the output dataset by using the name of the dataset matched to a name in the Activity output collection.
 	Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
 	```
-4. The code also calls the helper method **GetFolderPath** to retrieve the folder path (the storage container name).
+1. The code also calls the helper method **GetFolderPath** to retrieve the folder path (the storage container name).
 
 	```csharp
 	folderPath = GetFolderPath(outputDataset);
@@ -454,20 +454,20 @@ This section provides more details about the code in the Execute method.
 	
 	return blobDataset.FolderPath;
 	```
-5. The code calls the **GetFileName** method to retrieve the file name (blob name). The code is similar to the previous code that was used to get the folder path.
+1. The code calls the **GetFileName** method to retrieve the file name (blob name). The code is similar to the previous code that was used to get the folder path.
 
 	```csharp
 	AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 	
 	return blobDataset.FileName;
 	```
-6. The name of the file is written by creating a URI object. The URI constructor uses the **BlobEndpoint** property to return the container name. The folder path and file name are added to construct the output blob URI.  
+1. The name of the file is written by creating a URI object. The URI constructor uses the **BlobEndpoint** property to return the container name. The folder path and file name are added to construct the output blob URI.  
 
 	```csharp
 	// Write the name of the file.
 	Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 	```
-7. After the name of the file is written, you can write the output string from the **Calculate** method to a new blob:
+1. After the name of the file is written, you can write the output string from the **Calculate** method to a new blob:
 
 	```csharp
 	// Create a blob and upload the output text.
@@ -529,17 +529,17 @@ The following walkthrough provides additional details.
 
    c. Select **Data Factory** on the **Data analytics** blade.
 
-2. On the **New data factory** blade, enter **CustomActivityFactory** for the name. The name of the data factory must be globally unique. If you receive the error "Data factory name CustomActivityFactory is not available," change the name of the data factory. For example, use yournameCustomActivityFactory, and create the data factory again.
+1. On the **New data factory** blade, enter **CustomActivityFactory** for the name. The name of the data factory must be globally unique. If you receive the error "Data factory name CustomActivityFactory is not available," change the name of the data factory. For example, use yournameCustomActivityFactory, and create the data factory again.
 
-3. Select **RESOURCE GROUP NAME**, and select an existing resource group or create a resource group.
+1. Select **RESOURCE GROUP NAME**, and select an existing resource group or create a resource group.
 
-4. Verify that the subscription and region where you want the data factory to be created are correct.
+1. Verify that the subscription and region where you want the data factory to be created are correct.
 
-5. Select **Create** on the **New data factory** blade.
+1. Select **Create** on the **New data factory** blade.
 
-6. The data factory is created in the dashboard of the portal.
+1. The data factory is created in the dashboard of the portal.
 
-7. After the data factory is created successfully, you see the **Data factory** page, which shows you the contents of the data factory.
+1. After the data factory is created successfully, you see the **Data factory** page, which shows you the contents of the data factory.
 
    ![Data factory page](./media/data-factory-data-processing-using-batch/image6.png)
 
@@ -549,13 +549,13 @@ Linked services link data stores or compute services to a data factory. In this 
 #### Create an Azure Storage linked service
 1. Select the **Author and deploy** tile on the **Data factory** blade for **CustomActivityFactory**. The Data Factory Editor appears.
 
-2. Select **New data store** on the command bar, and choose **Azure storage.** The JSON script you use to create a Storage linked service in the editor appears.
+1. Select **New data store** on the command bar, and choose **Azure storage.** The JSON script you use to create a Storage linked service in the editor appears.
 
    ![New data store](./media/data-factory-data-processing-using-batch/image7.png)
 
-3. Replace **account name** with the name of your storage account. Replace **account key** with the access key of the storage account. To learn how to get your storage access key, see [View, copy, and regenerate storage access keys](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Replace **account name** with the name of your storage account. Replace **account key** with the access key of the storage account. To learn how to get your storage access key, see [View, copy, and regenerate storage access keys](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-4. Select **Deploy** on the command bar to deploy the linked service.
+1. Select **Deploy** on the command bar to deploy the linked service.
 
    ![Deploy](./media/data-factory-data-processing-using-batch/image8.png)
 
@@ -564,7 +564,7 @@ In this step, you create a linked service for your Batch account that is used to
 
 1. Select **New compute** on the command bar, and choose **Azure Batch.** The JSON script you use to create a Batch linked service in the editor appears.
 
-2. In the JSON script:
+1. In the JSON script:
 
    a. Replace **account name** with the name of your Batch account.
 
@@ -591,7 +591,7 @@ In this step, you create a linked service for your Batch account that is used to
    
    e. Specify **StorageLinkedService** for the **linkedServiceName** property. You created this linked service in the previous step. This storage is used as a staging area for files and logs.
 
-3. Select **Deploy** on the command bar to deploy the linked service.
+1. Select **Deploy** on the command bar to deploy the linked service.
 
 #### Step 3: Create datasets
 In this step, you create datasets to represent input and output data.
@@ -599,7 +599,7 @@ In this step, you create datasets to represent input and output data.
 #### Create the input dataset
 1. In the Data Factory Editor, select the **New dataset** button on the toolbar. Select **Azure Blob storage** from the drop-down list.
 
-2. Replace the JSON script in the right pane with the following JSON snippet:
+1. Replace the JSON script in the right pane with the following JSON snippet:
 
 	```json
 	{
@@ -681,14 +681,14 @@ In this step, you create datasets to represent input and output data.
     | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
     | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
 
-3. Select **Deploy** on the toolbar to create and deploy the **InputDataset** table.
+1. Select **Deploy** on the toolbar to create and deploy the **InputDataset** table.
 
 #### Create the output dataset
 In this step, you create another dataset of the type AzureBlob to represent the output data.
 
 1. In the Data Factory Editor, select the **New dataset** button on the toolbar. Select **Azure Blob storage** from the drop-down list.
 
-2. Replace the JSON script in the right pane with the following JSON snippet:
+1. Replace the JSON script in the right pane with the following JSON snippet:
 
 	```json
 	{
@@ -730,7 +730,7 @@ In this step, you create another dataset of the type AzureBlob to represent the 
 
 	Remember that all the files in an input folder (for example, 2015-11-16-00) are part of a slice with the start time 2015-11-16-00. When this slice is processed, the custom activity scans through each file and produces a line in the output file with the number of occurrences of the search term "Microsoft." If there are three files in the folder 2015-11-16-00, there are three lines in the output file  2015-11-16-00.txt.
 
-3. Select **Deploy** on the toolbar to create and deploy the **OutputDataset**.
+1. Select **Deploy** on the toolbar to create and deploy the **OutputDataset**.
 
 #### Step 4: Create and run the pipeline with a custom activity
 In this step, you create a pipeline with one activity, the custom activity you created previously.
@@ -742,7 +742,7 @@ In this step, you create a pipeline with one activity, the custom activity you c
 
 1. In the Data Factory Editor, select **New pipeline** on the command bar. If you don't see the command, select the ellipsis symbol to display it.
 
-2. Replace the JSON script in the right pane with the following JSON snippet:
+1. Replace the JSON script in the right pane with the following JSON snippet:
 
 	```json
 	{
@@ -801,7 +801,7 @@ In this step, you create a pipeline with one activity, the custom activity you c
     - The **isPaused** property is set to false by default. The pipeline runs immediately in this example because the slices start in the past. You can set this property to **true** to pause the pipeline and set it back to **false** to restart.
     -   The **start** and **end** times are five hours apart. Slices are produced hourly, so five slices are produced by the pipeline.
 
-3. Select **Deploy** on the command bar to deploy the pipeline.
+1. Select **Deploy** on the command bar to deploy the pipeline.
 
 #### Step 5: Test the pipeline
 In this step, you test the pipeline by dropping files into the input folders. Start by testing the pipeline with one file for each input folder.
@@ -810,23 +810,23 @@ In this step, you test the pipeline by dropping files into the input folders. St
 
    ![Diagram](./media/data-factory-data-processing-using-batch/image10.png)
 
-2. In the **Diagram** view, double-click the input dataset **InputDataset**.
+1. In the **Diagram** view, double-click the input dataset **InputDataset**.
 
    ![InputDataset](./media/data-factory-data-processing-using-batch/image11.png)
 
-3. The **InputDataset** blade appears with all five slices ready. Notice the **SLICE START TIME** and **SLICE END TIME** for each slice.
+1. The **InputDataset** blade appears with all five slices ready. Notice the **SLICE START TIME** and **SLICE END TIME** for each slice.
 
    ![Input slice start and end times](./media/data-factory-data-processing-using-batch/image12.png)
 
-4. In the **Diagram** view, select **OutputDataset**.
+1. In the **Diagram** view, select **OutputDataset**.
 
-5. The five output slices appear in the **Ready** state if they were produced.
+1. The five output slices appear in the **Ready** state if they were produced.
 
    ![Output slice start and end times](./media/data-factory-data-processing-using-batch/image13.png)
 
-6. Use the portal to view the tasks associated with the slices and see what VM each slice ran on. For more information, see the [Data Factory and Batch integration](#data-factory-and-batch-integration) section.
+1. Use the portal to view the tasks associated with the slices and see what VM each slice ran on. For more information, see the [Data Factory and Batch integration](#data-factory-and-batch-integration) section.
 
-7. The output files appear under `mycontainer` in `outputfolder` in your blob storage.
+1. The output files appear under `mycontainer` in `outputfolder` in your blob storage.
 
    ![Output files in storage](./media/data-factory-data-processing-using-batch/image15.png)
 
@@ -839,15 +839,15 @@ In this step, you test the pipeline by dropping files into the input folders. St
 
    ![Slice mapping diagram](./media/data-factory-data-processing-using-batch/image16.png)
 
-8. Now try with multiple files in a folder. Create the files **file2.txt**, **file3.txt**, **file4.txt**, and **file5.txt** with the same content as in file.txt in the folder **2015-11-06-01**.
+1. Now try with multiple files in a folder. Create the files **file2.txt**, **file3.txt**, **file4.txt**, and **file5.txt** with the same content as in file.txt in the folder **2015-11-06-01**.
 
-9. In the output folder, delete the output file **2015-11-16-01.txt**.
+1. In the output folder, delete the output file **2015-11-16-01.txt**.
 
-10. On the **OutputDataset** blade, right-click the slice with **SLICE START TIME** set to **11/16/2015 01:00:00 AM**. Select **Run** to rerun/reprocess the slice. The slice now has five files instead of one file.
+1. On the **OutputDataset** blade, right-click the slice with **SLICE START TIME** set to **11/16/2015 01:00:00 AM**. Select **Run** to rerun/reprocess the slice. The slice now has five files instead of one file.
 
     ![Run](./media/data-factory-data-processing-using-batch/image17.png)
 
-11. After the slice runs and its status is **Ready**, verify the content in the output file for this slice (**2015-11-16-01.txt**). The output file appears under `mycontainer` in `outputfolder` in your blob storage. There should be a line for each file of the slice.
+1. After the slice runs and its status is **Ready**, verify the content in the output file for this slice (**2015-11-16-01.txt**). The output file appears under `mycontainer` in `outputfolder` in your blob storage. There should be a line for each file of the slice.
 
 	```
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
@@ -882,7 +882,7 @@ Debugging consists of a few basic techniques.
 
    ![Input folder structure](./media/data-factory-data-processing-using-batch/image3.png)
 
-2. In the **Execute** method of your custom activity, use the **IActivityLogger** object to log information that helps you troubleshoot issues. The logged messages show up in the user\_0.log file.
+1. In the **Execute** method of your custom activity, use the **IActivityLogger** object to log information that helps you troubleshoot issues. The logged messages show up in the user\_0.log file.
 
    On the **OutputDataset** blade, select the slice to see the **Data slice** blade for that slice. Under **Activity runs**, you see one activity run for the slice. If you select **Run** in the command bar, you can start another activity run for the same slice.
 
@@ -905,15 +905,15 @@ Debugging consists of a few basic techniques.
 	
 	Trace\_T\_D\_12/6/2015 1:43:38 AM\_T\_D\_\_T\_D\_Information\_T\_D\_0\_T\_D\_Activity e3817da0-d843-4c5c-85c6-40ba7424dce2 finished successfully
 	```
-3. Include the **PDB** file in the zip file so that the error details have information such as call stack when an error occurs.
+1. Include the **PDB** file in the zip file so that the error details have information such as call stack when an error occurs.
 
-4. All the files in the zip file for the custom activity must be at the top level with no subfolders.
+1. All the files in the zip file for the custom activity must be at the top level with no subfolders.
 
    ![Custom activity zip file list](./media/data-factory-data-processing-using-batch/image20.png)
 
-5. Ensure that **assemblyName** (MyDotNetActivity.dll), **entryPoint** (MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip), and **packageLinkedService** (should point to the blob storage that contains the zip file) are set to the correct values.
+1. Ensure that **assemblyName** (MyDotNetActivity.dll), **entryPoint** (MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip), and **packageLinkedService** (should point to the blob storage that contains the zip file) are set to the correct values.
 
-6. If you fixed an error and want to reprocess the slice, right-click the slice in the **OutputDataset** blade and select **Run**.
+1. If you fixed an error and want to reprocess the slice, right-click the slice in the **OutputDataset** blade and select **Run**.
 
    ![OutputDataset blade Run option](./media/data-factory-data-processing-using-batch/image21.png)
 
@@ -921,7 +921,7 @@ Debugging consists of a few basic techniques.
    > A container is in your blob storage named `adfjobs`. This container isn't automatically deleted, but you can safely delete it after you finish testing the solution. Similarly, the data factory solution creates a Batch job named `adf-\<pool ID/name\>:job-0000000001`. You can delete this job after you test the solution if you like.
    >
    >
-7. The custom activity doesn't use the **app.config** file from your package. Therefore, if your code reads any connection strings from the configuration file, it doesn't work at runtime. The best practice when you use Batch is to hold any secrets in Azure Key Vault. Then use a certificate-based service principal to protect the key vault and distribute the certificate to the Batch pool. The .NET custom activity can access secrets from the key vault at runtime. This generic solution can scale to any type of secret, not just a connection string.
+1. The custom activity doesn't use the **app.config** file from your package. Therefore, if your code reads any connection strings from the configuration file, it doesn't work at runtime. The best practice when you use Batch is to hold any secrets in Azure Key Vault. Then use a certificate-based service principal to protect the key vault and distribute the certificate to the Batch pool. The .NET custom activity can access secrets from the key vault at runtime. This generic solution can scale to any type of secret, not just a connection string.
 
     There is an easier workaround, but it's not a best practice. You can create a SQL database linked service with connection string settings. Then you can create a dataset that uses the linked service and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code. It should work fine at runtime.  
 
@@ -930,11 +930,11 @@ You can extend this sample to learn more about Data Factory and Batch features. 
 
 1. Add the following subfolders in `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, and 2015-11-16-09. Place input files in those folders. Change the end time for the pipeline from `2015-11-16T05:00:00Z` to `2015-11-16T10:00:00Z`. In the **Diagram** view, double-click **InputDataset** and confirm that the input slices are ready. Double-click **OutputDataset** to see the state of the output slices. If they're in the **Ready** state, check the output folder for the output files.
 
-2. Increase or decrease the **concurrency** setting to understand how it affects the performance of your solution, especially the processing that occurs on Batch. For more information on the **concurrency** setting, see "Step 4: Create and run the pipeline with a custom activity."
+1. Increase or decrease the **concurrency** setting to understand how it affects the performance of your solution, especially the processing that occurs on Batch. For more information on the **concurrency** setting, see "Step 4: Create and run the pipeline with a custom activity."
 
-3. Create a pool with higher/lower **Maximum tasks per VM**. To use the new pool you created, update the Batch linked service in the data factory solution. For more information on the **Maximum tasks per VM** setting, see "Step 4: Create and run the pipeline with a custom activity."
+1. Create a pool with higher/lower **Maximum tasks per VM**. To use the new pool you created, update the Batch linked service in the data factory solution. For more information on the **Maximum tasks per VM** setting, see "Step 4: Create and run the pipeline with a custom activity."
 
-4. Create a Batch pool with the **autoscale** feature. Automatically scaling compute nodes in a Batch pool is the dynamic adjustment of processing power used by your application. 
+1. Create a Batch pool with the **autoscale** feature. Automatically scaling compute nodes in a Batch pool is the dynamic adjustment of processing power used by your application. 
 
 	The sample formula here achieves the following behavior. When the pool is initially created, it starts with one VM. The $PendingTasks metric defines the number of tasks in the running and active (queued) states. The formula finds the average number of pending tasks in the last 180 seconds and sets TargetDedicated accordingly. It ensures that TargetDedicated never goes beyond 25 VMs. As new tasks are submitted, the pool automatically grows. As tasks complete, VMs become free one by one and the autoscaling shrinks those VMs. You can adjust startingNumberOfVMs and maxNumberofVMs to your needs.
  
@@ -952,7 +952,7 @@ You can extend this sample to learn more about Data Factory and Batch features. 
 
    If the pool uses the default [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), the Batch service might take 15 to 30 minutes to prepare the VM before running the custom activity. If the pool uses a different autoScaleEvaluationInterval, the Batch service might take autoScaleEvaluationInterval plus 10 minutes.
 
-5. In the sample solution, the **Execute** method invokes the **Calculate** method that processes an input data slice to produce an output data slice. You can write your own method to process input data and replace the **Calculate** method call in the **Execute** method with a call to your method.
+1. In the sample solution, the **Execute** method invokes the **Calculate** method that processes an input data slice to produce an output data slice. You can write your own method to process input data and replace the **Calculate** method call in the **Execute** method with a call to your method.
 
 ### Next steps: Consume the data
 After you process data, you can consume it with online tools such as Power BI. Here are links to help you understand Power BI and how to use it in Azure:
@@ -973,7 +973,7 @@ After you process data, you can consume it with online tools such as Power BI. H
   * [Basics of Batch](../../batch/batch-technical-overview.md)
   * [Overview of Batch features](../../batch/batch-api-basics.md)
   * [Create and manage a Batch account in the Azure portal](../../batch/batch-account-create-portal.md)
-  * [Get started with the Batch client library for .NET](../../batch/batch-dotnet-get-started.md)
+  * [Get started with the Batch client library for .NET](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx

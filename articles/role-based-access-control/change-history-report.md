@@ -1,6 +1,6 @@
 ---
 title: View activity logs for RBAC changes in Azure | Microsoft Docs
-description: View activity logs for role-based access control changes for the past 90 days.
+description: View activity logs for role-based access control (RBAC) changes for the past 90 days.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -9,15 +9,15 @@ manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/23/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ---
-# View activity logs for role-based access control changes
+# View activity logs for RBAC changes
 
 Sometimes you need information about role-based access control (RBAC) changes, such as for auditing or troubleshooting purposes. Any time someone makes changes to role assignments or role definitions within your subscriptions, the changes get logged in [Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). You can view the activity logs to see all the RBAC changes for the past 90 days.
 

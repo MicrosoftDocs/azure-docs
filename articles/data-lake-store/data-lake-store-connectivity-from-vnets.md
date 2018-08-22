@@ -39,7 +39,7 @@ The output resembles the following. The value against **Address** property is th
 
 
 ### Enabling connectivity from VMs restricted by using NSG
-When an NSG rule is used to block access to the Internet, then you can create another NSG that allows access to the Data Lake Store IP Address. For more information about NSG rules, see [Network security groups overview](../virtual-network/security-overview.md). For instructions on how to create NSGs, see [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+When an NSG rule is used to block access to the Internet, then you can create another NSG that allows access to the Data Lake Store IP Address. For more information about NSG rules, see [Network security groups overview](../virtual-network/security-overview.md). For instructions on how to create NSGs, see [How to create a network security group](../virtual-network/tutorial-filter-network-traffic.md).
 
 ### Enabling connectivity from VMs restricted by using UDR or ExpressRoute
 When routes, either UDRs or BGP-exchanged routes, are used to block access to the Internet, a special route needs to be configured so that VMs in such subnets can access Data Lake Store endpoints. For more information, see [User-defined routes overview](../virtual-network/virtual-networks-udr-overview.md). For instructions on creating UDRs, see [Create UDRs in Resource Manager](../virtual-network/tutorial-create-route-table-powershell.md).

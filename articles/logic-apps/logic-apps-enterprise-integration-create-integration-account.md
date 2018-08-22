@@ -4,7 +4,7 @@ description: Create, link, move, and delete integration accounts for enterprise 
 services: logic-apps
 documentationcenter: 
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: 
 
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f

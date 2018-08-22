@@ -58,7 +58,8 @@ Content-Disposition: form-data; name="knowledgeRequest"
 
 For examples that use the insights token, see [C#](#using-csharp) | [Java](#using-java) | [Node.js](#using-nodejs) | [Python](#using-python).
 
-<a name="csharp" />
+<a name="using-csharp" />
+
 ## Using C#
 
 ### Prerequisites
@@ -233,8 +234,7 @@ namespace VisualSearchInsightsToken
 }
 ```
 
-
-
+<a name="using-java" />
 
 ## Using Java
 
@@ -353,6 +353,7 @@ public class InsightsToken {
 
 
 <a name="using-nodejs" />
+
 ## Using Node.js
 
 ### Prerequisites
@@ -418,7 +419,7 @@ function requestCallback(err, res, body) {
 ```
 
 
-
+<a name="using-python" />
 
 ## Using Python
 

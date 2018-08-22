@@ -84,7 +84,7 @@ Example:
 
 |Name|Description|
 |---|---|
-|id|The OCR line id.|
+|id|The OCR line ID.|
 |text|The OCR text.|
 |confidence|The recognition confidence.|
 |language|The OCR language.|
@@ -127,7 +127,7 @@ Example:
 
 |Name|Description|
 |---|---|
-|id|The keyword id.|
+|id|The keyword ID.|
 |text|The keyword text.|
 |confidence|The keyword's recognition confidence.|
 |language|The keyword language (when translated).|
@@ -175,13 +175,13 @@ Example:
 
 |Name|Description|
 |---|---|
-|id|The face id.|
+|id|The face ID.|
 |name|The face name. It can be ‘Unknown #0’, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
-|description|In case of a celebrity, its description ("Satya Nadella was born at..."). |
+|description|In case of a celebrity, its description. |
 |thumbnalId|The id of the thumbnail of that face.|
-|knownPersonId|In case of a known person, its internal id.|
-|referenceId|In case of a Bing celebrity, its Bing id.|
+|knownPersonId|In case of a known person, its internal ID.|
+|referenceId|In case of a Bing celebrity, its Bing ID.|
 |referenceType|Currently just Bing.|
 |title|In case of a celebrity, its title (for example "Microsoft's CEO").|
 |imageUrl|In case of a celebrity, its image url.|
@@ -220,7 +220,7 @@ Example:
 
 |Name|Description|
 |---|---|
-|id|The label id.|
+|id|The label ID.|
 |name|The label name (for example, 'Computer', 'TV').|
 |language|The label name language (when translated). BCP-47|
 |instances|A list of time ranges where this label appeared (a label can appear multiple times). Each instance has a confidence field. |
@@ -279,8 +279,8 @@ Example:
 
 |Name|Description|
 |---|---|
-|id|The shot id.|
-|keyFrames|A list of key frames within the shot (each has an Id and a list of instances time ranges).|
+|id|The shot ID.|
+|keyFrames|A list of key frames within the shot (each has an ID and a list of instances time ranges).|
 |instances|A list of time ranges of this shot (shots have only 1 instance).|
 
 ```json
@@ -326,33 +326,6 @@ Example:
       ]
     }
   ]
-```
-
-### audioEffects
-
-|Name|Description|
-|---|---|
-|id|The audio effect ID.|
-|type|The audio effect type (for example, Clapping, Speech, Silence).|
-|instances|A list of time ranges where this audio effect appeared.|
-
-```json
-"audioEffects": [
-{
-    "id": 0,
-    "type": "Clapping",
-    "instances": [
-    {
-        "start": "00:00:00",
-        "end": "00:00:03"
-    },
-    {
-        "start": "00:01:13",
-        "end": "00:01:21"
-    }
-    ]
-}
-]
 ```
 
 

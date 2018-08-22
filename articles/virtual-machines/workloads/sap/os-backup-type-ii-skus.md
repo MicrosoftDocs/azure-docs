@@ -12,19 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
 ---
 # OS backup and restore for Type II SKUs
 
-This document describes the steps to perform an operating system backup and restore for the **Type II  SKUs** of the HANA Large Instances. 
+This document describes the steps to perform an operating system file level backup and restore for the **Type II  SKUs** of the HANA Large Instances. 
 
 >[!NOTE]
 >The OS backup scripts uses the ReaR software, which is pre-installed in the server.  
 
-After the provisioning is complete by the Microsoft Service Management team, by default, the server is configured with two backups schedule to back up the full operating system. You can check the schedule of the backup job by using the following command:
+After the provisioning is complete by the Microsoft Service Management team, by default, the server is configured with two backups schedule to back up the file system level back up of operating system. You can check the schedule of the backup job by using the following command:
 ```
 #crontab –l
 ```
@@ -34,7 +34,7 @@ You can change the backup schedule any time using the following command:
 ```
 ## How to take a manual backup?
 
-The operating system backup is scheduled using a **cron job** already. However, you can perform the operating system backup manually as well. To perform a manual backup, run the following command:
+The operating system file system backup is scheduled using a **cron job** already. However, you can perform the operating system file level backup manually as well. To perform a manual backup, run the following command:
 
 ```
 #rear -v mkbackup

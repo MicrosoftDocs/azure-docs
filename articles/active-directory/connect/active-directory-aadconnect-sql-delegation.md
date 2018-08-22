@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -43,7 +43,7 @@ To provision the database out of band and install Azure AD Connect with database
 2.	Grant the Azure AD Connect administrator and the domain service account the following permissions:
     - SQL Login 
     - **database owner(dbo)** rights.  </br>
-![Permissions](media/active-directory-aadconnect-sql-delegation/sql3.png)
+![Permissions](media/active-directory-aadconnect-sql-delegation/sql3a.png)
 3.	Send an email to the Azure AD Connect administrator indicating the SQL server and instance name that should be used when installing Azure AD Connect.
 
 ## Additional information

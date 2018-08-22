@@ -12,9 +12,13 @@ ms.topic: quickstart
 ms.date: 05/17/2018
 ms.author: nolachar
 ---
-# Quickstart: Use a Domain Model with Python
+# Quickstart: Use a domain model with Python
 
 In this quickstart, you use domain models to identify celebrities and landmarks in an image using Computer Vision.
+
+You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 ## Prerequisites
 
@@ -39,6 +43,13 @@ The following code uses the Python `requests` library to call the Computer Visio
 ### Recognize Landmark request
 
 ```python
+import requests
+# If you are using a Jupyter notebook, uncomment the following line.
+#%matplotlib inline
+import matplotlib.pyplot as plt
+from PIL import Image
+from io import BytesIO
+
 # Replace <Subscription Key> with your valid subscription key.
 subscription_key = "<Subscription Key>"
 assert subscription_key
@@ -58,28 +69,21 @@ landmark_analyze_url = vision_base_url + "models/landmarks/analyze"
 image_url = "https://upload.wikimedia.org/wikipedia/commons/f/f6/" + \
     "Bunker_Hill_Monument_2005.jpg"
 
-import requests
-headers  = {'Ocp-Apim-Subscription-Key': subscription_key}
-params   = {'model': 'landmarks'}
-data     = {'url': image_url}
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+params  = {'model': 'landmarks'}
+data    = {'url': image_url}
 response = requests.post(
     landmark_analyze_url, headers=headers, params=params, json=data)
 response.raise_for_status()
 
-# The 'analysis' object contains various fields that describe the image. The most
-# relevant caption for the image is obtained from the 'descriptions' property.
+# The 'analysis' object contains various fields that describe the image. The
+# most relevant landmark for the image is obtained from the 'result' property.
 analysis = response.json()
 assert analysis["result"]["landmarks"] is not []
 print(analysis)
-
 landmark_name = analysis["result"]["landmarks"][0]["name"].capitalize()
 
-# Display the image and overlay it with the caption.
-# If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
-from PIL import Image
-from io import BytesIO
-import matplotlib.pyplot as plt
+# Display the image and overlay it with the landmark name.
 image = Image.open(BytesIO(requests.get(image_url).content))
 plt.imshow(image)
 plt.axis("off")
@@ -114,33 +118,40 @@ A successful response is returned in JSON, for example:
 ### Recognize Celebrity request
 
 ```python
+import requests
+# If you are using a Jupyter notebook, uncomment the following line.
+#%matplotlib inline
+import matplotlib.pyplot as plt
+from PIL import Image
+from io import BytesIO
+
 # Replace <Subscription Key> with your valid subscription key.
 subscription_key = "<Subscription Key>"
 assert subscription_key
+
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
 
 celebrity_analyze_url = vision_base_url + "models/celebrities/analyze"
 
+# Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/d/d9/" + \
     "Bill_gates_portrait.jpg"
 
-import requests
-headers  = {'Ocp-Apim-Subscription-Key': subscription_key}
-params   = {'model': 'celebrities'}
-data     = {'url': image_url}
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+params  = {'model': 'celebrities'}
+data    = {'url': image_url}
 response = requests.post(
     celebrity_analyze_url, headers=headers, params=params, json=data)
 response.raise_for_status()
 
+# The 'analysis' object contains various fields that describe the image. The
+# most relevant celebrity for the image is obtained from the 'result' property.
 analysis = response.json()
 assert analysis["result"]["celebrities"] is not []
 print(analysis)
-
 celebrity_name = analysis["result"]["celebrities"][0]["name"].capitalize()
 
-from PIL import Image
-from io import BytesIO
-import matplotlib.pyplot as plt
+# Display the image and overlay it with the celebrity name.
 image = Image.open(BytesIO(requests.get(image_url).content))
 plt.imshow(image)
 plt.axis("off")

@@ -4,11 +4,10 @@ description: Use Azure blob storage with a web app to store application data
 services: storage
 documentationcenter: 
 author: tamram
-manager: jeconnoc
+
 
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
@@ -77,7 +76,7 @@ In this case, `<blob_storage_account>` is the name of the Blob storage account y
 ```azurecli-interactive 
 $blobStorageAccount="<blob_storage_account>"
 
-blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
+$blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
 az storage container create -n images --account-name $blobStorageAccount \

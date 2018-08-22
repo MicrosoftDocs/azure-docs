@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 07/06/2018
 ms.author: raynew
 
 ---
@@ -67,7 +67,7 @@ In the following scenarios, failover  requires an extra intermediate step that u
 	* storflt
 	* intelide
 	* atapi
-* VMware VM that don't have DHCP enabled , rrespective of whether they are using DHCP or static IP addresses.
+* VMware VM that don't have DHCP enabled , irrespective of whether they are using DHCP or static IP addresses.
 
 In all the other cases, no intermediate step is not required, and failover takes significantly less time.
 

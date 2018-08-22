@@ -11,6 +11,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+ms.date: 04/27/2018
+ms.component: hybrid
 ms.date: 05/31/2018
 ms.author: billmath
 

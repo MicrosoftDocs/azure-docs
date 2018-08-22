@@ -10,13 +10,14 @@ editor: tysonn
 ms.assetid: 31572b51-6b57-4945-8208-ecfc3b5304fc
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
-
+ms.component: na
 ---
+
 # Custom fields in Log Analytics
 The **Custom Fields** feature of Log Analytics allows you to extend existing records in Log Analytics by adding your own searchable fields.  Custom fields are automatically populated from data extracted from other properties in the same record.
 
@@ -126,7 +127,7 @@ We can see that **Service_CF** is created but is not yet added to any records.
 
 ![Initial count](media/log-analytics-custom-fields/initial-count.png)
 
-After some time has passed so new events are collected, we can see that that the **Service_CF** field is now being added to records that match our criteria.
+After some time has passed so new events are collected, we can see that the **Service_CF** field is now being added to records that match our criteria.
 
 ![Final results](media/log-analytics-custom-fields/final-results.png)
 

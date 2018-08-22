@@ -47,7 +47,7 @@ In PowerShell, provide that policy identifier as the `Id` parameter to retrieve 
 
 ### Azure CLI
 
-In Azure CLI 2.0, provide the name of the policy definition:
+In Azure CLI, provide the name of the policy definition:
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment

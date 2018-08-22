@@ -57,7 +57,7 @@ Higher-level, workload-specific capabilities are also available for Azure Batch:
 * Batch supports large-scale [rendering workloads](batch-rendering-service.md) with rendering tools including Autodesk Maya, 3ds Max, Arnold, and V-Ray. 
 * R users can install the [doAzureParallel R package](https://github.com/Azure/doAzureParallel) to easily scale out the execution of R algorithms on Batch pools.
 
-You can also run Batch jobs as part of a larger Azure workflow to transform data, managed by tools such as [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md).
+You can also run Batch jobs as part of a larger Azure workflow to transform data, managed by tools such as [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md).
 
 
 ## How it works

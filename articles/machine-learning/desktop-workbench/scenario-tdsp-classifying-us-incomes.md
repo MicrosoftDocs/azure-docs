@@ -3,19 +3,20 @@ title: Income classification - Team Data Science Process - Azure Machine Learnin
 description: How to use the Team Data Science Process template to create a project in Azure Machine Learning that classifies US incomes.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
-ms.author: bradsev
 
 ---
 

@@ -96,7 +96,7 @@ To format the text files:
 ## Load to a staging table
 To get data into the data warehouse, it works well to first load the data into a staging table. By using a staging table, you can handle errors without interfering with the production tables, and you avoid running rollback operations on the production table. A staging table also gives you the opportunity to use SQL Data Warehouse to run transformations before inserting the data into production tables.
 
-To load with T-SQL, run the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL statement. This command inserts the results of a select statement into a new table. When the statement selects from an external table, it imports the external data. 
+To load with T-SQL, run the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL statement. This command inserts the results of a select statement into a new table. When the statement selects from an external table, it imports the external data. 
 
 In the following example, ext.Date is an external table. All rows are imported into a new table called dbo.Date.
 

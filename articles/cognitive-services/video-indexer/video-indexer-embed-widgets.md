@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 07/31/2018
 ms.author: juliako
 
 ---
@@ -240,6 +240,4 @@ Auto play – by default the player will start playing the video. you can choose
 
 For information about how to view and edit Video Indexer insights, see [this](video-indexer-view-edit.md) article.
 
-## See also
-
-[Video Indexer overview](video-indexer-overview.md)
+Also, check out [Video indexer codepen](https://codepen.io/videoindexer/pen/eGxebZ).

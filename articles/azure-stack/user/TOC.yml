@@ -27,6 +27,10 @@
     href: azure-stack-solution-hybrid-identity.md
   - name: Configure hybrid cloud connectivity
     href: azure-stack-solution-hybrid-connectivity.md
+  - name: Subscribe to an offer
+    href: azure-stack-subscribe-services.md
+  - name: Create a VM from a template
+    href: azure-stack-create-vm-template.md
 - name: How-to guides
   items:
   - name: Use the Azure Stack Portal
@@ -35,9 +39,9 @@
     href: azure-stack-rest-api-use.md
   - name: Security & compliance
     items:
-    - name: Manage RBAC
+    - name: Use role-based access control
       href: azure-stack-manage-permissions.md
-    - name: Create service principals
+    - name: Use service principals
       href: Azure-stack-create-service-principals.md
   - name: Use services
     items:
@@ -106,11 +110,13 @@
     - name: Set up development environment
       items:
       - name: Install Azure Stack PowerShell
-        href: https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install
-      - name: Download tools
-        href: azure-stack-powershell-download.md
-      - name: Configure PowerShell - User
+        href: ../azure-stack-powershell-install.md
+        maintainContext: true
+      - name: Configure PowerShell
         href: azure-stack-powershell-configure-user.md
+      - name: Download Azure Stack tools
+        href: ../azure-stack-powershell-download.md
+        maintainContext: true
       - name: Install Visual Studio
         href: azure-stack-install-visual-studio.md
       - name: Using API version profiles
@@ -128,13 +134,13 @@
           href: azure-stack-version-profiles-python.md
         - name: Resource provider APIs supported by profiles
           href: azure-stack-profiles-azure-resource-manager-versions.md
-    - name: Use policy module
+    - name: Use the Azure Stack Policy module
       href: azure-stack-policy-module.md
     - name: Use templates
       items:
       - name: Template overview
         href: azure-stack-arm-templates.md
-      - name: Develop templates
+      - name: Template considerations
         href: azure-stack-develop-templates.md
       - name: Check templates
         href: azure-stack-validate-templates.md
@@ -149,7 +155,9 @@
 - name: Reference
   items:
   - name: Azure Stack PowerShell
-    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
+  - name: Azure Stack REST API Browser
+    href: /rest/api/
   - name: Azure Stack CLI
     href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
 - name: Related

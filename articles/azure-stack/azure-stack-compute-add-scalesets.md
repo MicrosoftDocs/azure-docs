@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
 
@@ -30,8 +30,8 @@ On Azure Stack, virtual machine scale sets don't support auto-scale. You can add
 
 ## Prerequisites
 
-- **Marketplace syndication**  
-    Register Azure Stack with global Azure to enable Marketplace syndication. Follow the instructions in [Register Azure Stack with Azure](azure-stack-registration.md).
+- **The Marketplace**  
+    Register Azure Stack with global Azure to enable the availability of items in the Marketplace. Follow the instructions in [Register Azure Stack with Azure](azure-stack-registration.md).
 - **Operating system image**  
     If you haven’t added an operating system image to the Azure Stack Marketplace, see [Add an Azure Stack marketplace item from Azure](asdk/asdk-marketplace-item.md).
 
@@ -85,7 +85,7 @@ For more information, see [operating system disks and images](.\user\azure-stack
 To remove a virtual machine scale set gallery item, run the following PowerShell command:
 
 ```PowerShell  
-    Remove-AzsVMSSGalleryItem
+    Remove-AzsGalleryItem
 ````
 
 > [!NOTE]

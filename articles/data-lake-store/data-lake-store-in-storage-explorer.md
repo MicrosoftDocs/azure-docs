@@ -9,12 +9,10 @@ manager: DJ
 editor: 'Jenny Jiang'
 
 ms.assetid: 
-ms.service: Data Lake Store
+ms.service: data-lake-store
 ms.custom: Azure Data Lake Store 
-ms.workload: 
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
 

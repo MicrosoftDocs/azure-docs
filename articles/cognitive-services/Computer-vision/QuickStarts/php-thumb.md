@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: nolachar
 ---
-# Quickstart: Generate a Thumbnail with PHP
+# Quickstart: Generate a thumbnail with PHP
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 
@@ -29,8 +29,10 @@ To run the sample, do the following steps:
 1. Replace `<Subscription Key>` with your valid subscription key.
 1. Change `uriBase` to use the location where you obtained your subscription keys, if necessary.
 1. Optionally, set `imageUrl` to the image you want to analyze.
-1. Save the file with an `.php` extension.
+1. Save the file with a `.php` extension.
 1. Open the file in a browser window with PHP support.
+
+This sample uses the PHP5 [HTTP_Request2](http://pear.php.net/package/HTTP_Request2) package.
 
 ```php
 <html>
@@ -50,8 +52,6 @@ $uriBase = 'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/';
 $imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg';
 
-// This sample uses the PHP5 HTTP_Request2 package
-// (http://pear.php.net/package/HTTP_Request2).
 require_once 'HTTP/Request2.php';
 
 $request = new Http_Request2($uriBase . 'generateThumbnail');

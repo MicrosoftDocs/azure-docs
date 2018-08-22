@@ -3,7 +3,7 @@
 title: Connect to Microsoft Excel - Azure Logic Apps | Microsoft Docs
 description: Manage data with Microsoft Excel REST APIs and Azure Logic Apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 08/23/2016
 ms.topic: article

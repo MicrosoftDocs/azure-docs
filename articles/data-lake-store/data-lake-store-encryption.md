@@ -10,9 +10,7 @@ editor:
 ms.assetid: 
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: article
 ms.date: 03/26/2018
 ms.author: yagupta
 ---

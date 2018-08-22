@@ -11,44 +11,44 @@ ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: ghogen
 ---
-# Connecting to Bing News Search API by using Connected Services in Visual Studio
+# Connect to Bing News Search API by using Connected Services in Visual Studio
 
-By using Bing News Search, you can enable apps and services to harness the power of an ad-free search engine scoped to the web. Bing News Search is one of the search services available with Azure Intelligent Search, one of many Cognitive Services offered in Azure.
+By using Bing News Search, you can enable apps and services to harness the power of an ad-free search engine scoped to the web. Bing News Search is one of the search services available with Cognitive Services.
 
 This article provides details for using the Visual Studio Connected Service feature for Bing News Search. The capability is available in Visual Studio 2017 15.7 or later, with the Cognitive Services extension installed.
 
 ## Prerequisites
 
-- **An Azure subscription**. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- An Azure subscription. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
+- Visual Studio 2017 version 15.7, with the Web Development workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
-[!INCLUDE [vs-install-cognitive-services-vsix](../includes/vs-install-cognitive-services-vsix.md)]
+[!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
-## Add support to your project for Cognitive Services Bing News Search API
+## Add support to your project for Bing News Search API
 
-1. Create a new ASP.NET Core web project named MyWebApplication. Use the **Web Application (Model-View-Controller)** project template with all the default settings. It’s important to name the project MyWebApplication so the namespace will match when you copy code into the project. 
+1. Create a new ASP.NET Core web project named MyWebApplication. Use the **Web Application (Model-View-Controller)** project template, with all the default settings. It’s important to name the project MyWebApplication, so the namespace matches when you copy code into the project. 
 
 1. In **Solution Explorer**, choose **Add** > **Connected Service**.
-   The Connected Service page appears with services you can add to your project.
+   The Connected Service page appears, with services you can add to your project.
 
-   ![Add Connected Service menu item](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Screenshot of Add Connected Service menu item](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. In the menu of available services, choose **Bring Intelligent Search To Your Apps**.
 
-   ![Choose the service to connect to](./media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-0.PNG)
+   ![Screenshot of list of connected services](./media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-0.PNG)
 
-   If you've signed into Visual Studio, and have an Azure subscription associated with your account, a page appears with a dropdown list with your subscriptions.
+   If you've signed into Visual Studio, and have an Azure subscription associated with your account, a page appears with a dropdown list with your subscriptions. Select the subscription you want to use, and then choose a name for the Bing News Search API. You can also choose **Edit** to modify the automatically generated name.
 
-   ![Select your subscription](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-1.PNG)
+   ![Screenshot of subscription and name fields](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-1.PNG)
 
-1. Select the subscription you want to use, and then choose a name for the Bing News Search API, or choose the **Edit** link to modify the automatically generated name, choose the resource group, and the Pricing Tier.
+1. Choose the resource group, and the pricing tier.
 
-   ![Edit connected service details](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-2.PNG)
+   ![Screenshot of resource group and pricing tier fields](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-2.PNG)
 
-   Follow the link for details on the pricing tiers.
+   If you want more details about the pricing tiers, select **Review pricing**.
 
 1. Choose **Add** to add support for the Connected Service.
-   Visual Studio modifies your project to add the NuGet packages, configuration file entries, and other changes to support a connection the Bing News Search API. The Output shows the log of what is happening to your project. You should see something like the following:
+   Visual Studio modifies your project to add the NuGet packages, configuration file entries, and other changes to support a connection to the Bing News Search API. The output shows the log of what is happening to your project. You should see something like the following:
 
    ```output
    [5/4/2018 12:41:21.084 PM] Adding Intelligent Search to the project.
@@ -65,7 +65,7 @@ This article provides details for using the Visual Studio Connected Service feat
    [5/4/2018 12:42:10.217 PM] Successfully added Intelligent Search to the project.
    ```
 
-   The appsettings.json file now contains the following new settings.
+   The appsettings.json file now contains the following new settings:
 
    ```json
    "CognitiveServices": {
@@ -81,7 +81,7 @@ This article provides details for using the Visual Studio Connected Service feat
 
 Now that you’ve added support for the Bing News Search API to your project, here’s how to use the API to add intelligent search to a web page.
 
-1.  In *Startup.cs*, in the `ConfigureServices` method, add a call to `IServiceCollection.AddSingleton` to make the configuration object that contains the key settings available to the code in your project.
+1.  In *Startup.cs*, in the `ConfigureServices` method, add a call to `IServiceCollection.AddSingleton`. This makes the configuration object that contains the key settings available to the code in your project.
  
    ```csharp
         public void ConfigureServices(IServiceCollection services)
@@ -92,7 +92,7 @@ Now that you’ve added support for the Bing News Search API to your project, he
    ```
 
 
-1. Add a new class file under Models folder, called *BingNewsModel.cs*. If you named your project differently, use your own project's namespace instead of MyWebApplication. Replace the contents with the following code:
+1. Add a new class file under the **Models** folder, called *BingNewsModel.cs*. If you named your project differently, use your own project's namespace, instead of MyWebApplication. Replace the contents with the following code:
  
     ```csharp
     using Microsoft.Azure.CognitiveServices.Search.NewsSearch.Models;
@@ -111,9 +111,9 @@ Now that you’ve added support for the Bing News Search API to your project, he
     }
     ```
 
-   This model will be used to store the results of a call to the Bing News Search service.
+   This model is used to store the results of a call to the Bing News Search service.
  
-1. In the Controllers folder, add a new class file called IntelligentSearchController.cs. Replace the contents with the following code:
+1. In the **Controllers** folder, add a new class file called *IntelligentSearchController.cs*. Replace the contents with the following code:
 
    ```csharp
     using System.Net.Http;
@@ -171,9 +171,9 @@ Now that you’ve added support for the Bing News Search API to your project, he
     }
    ```
 
-   In this code, the constructor sets up the configuration object that contains your keys. The method for the "Search" route is just a redirection to the `BingSearchResult` function, which calls the `GetNewsSearchClient` method to get the `NewsSearchAPI` client object.  The `NewsSearchAPI` client object contains the `SearchAsync` method which actually calls the service and returns the results in the `SearchResult` model that you just created. 
+   In this code, the constructor sets up the configuration object that contains your keys. The method for the `Search` route is just a redirection to the `BingSearchResult` function. This calls the `GetNewsSearchClient` method to get the `NewsSearchAPI` client object.  The `NewsSearchAPI` client object contains the `SearchAsync` method, which actually calls the service and returns the results in the `SearchResult` model that you just created. 
 
-1. Add a class `MyHandler`, which was referenced in the preceding code. This delegates the asynchronous call to the Search service to its base class, `DelegatingHandler`.
+1. Add a class, `MyHandler`, which was referenced in the preceding code. This delegates the asynchronous call to the search service to its base class, `DelegatingHandler`.
 
    ```csharp
     using System.Net.Http;
@@ -193,7 +193,7 @@ Now that you’ve added support for the Bing News Search API to your project, he
     }
    ```
 
-1. To add support for submitting searches and viewing the results, add a view *BingSearchResult.cshtml* to a new folder, IntelligentSearch, in the Views folder. Copy in the following code.
+1. To add support for submitting searches and viewing the results, in the **Views** folder, create a new folder called **IntelligentSearch**. In this new folder, add a view *BingSearchResult.cshtml*. Copy in the following code:
 
     ```cshtml
     @using System
@@ -248,17 +248,17 @@ Now that you’ve added support for the Bing News Search API to your project, he
     </div>
     ```
 
-1. Start the web application locally, enter the URL for the page you just created (/IntelligentSearch/BingSearchResult), and post a search request using the Search button.
+1. Start the web application locally, enter the URL for the page you just created (/IntelligentSearch/BingSearchResult), and post a search request by using the Search button.
 
-   ![Bing News Search Results](media/vs-bing-news-search-connected-service/Cog-News-Search-Results.PNG)
+   ![Screenshot of Bing News Search results](media/vs-bing-news-search-connected-service/Cog-News-Search-Results.PNG)
            
 ## Clean up resources
 
-When no longer needed, delete the resource group. This deletes the cognitive service and related resources. To delete the resource group through the portal:
+When the resource group is no longer needed, you can delete it. This deletes the cognitive service and related resources. To delete the resource group through the portal:
 
-1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this QuickStart in the search results, select it.
+1. Enter the name of your resource group in the search box at the top of the portal. Select the resource group you want to delete.
 2. Select **Delete resource group**.
-3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
+3. In the **Type the Resource Group Name** box, enter the name of the resource group and select **Delete**.
 
 ## Next steps
 

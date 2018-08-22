@@ -23,7 +23,7 @@ Bing updates analytics data every 24 hours and maintains up to 13 month's worth 
 
 ## Accessing your analytics
 
-To access your analytics dashboard, go to https://bingapistatistics.com. Make sure you're logged in using the same Microsoft account (MSA) you used to get your paid subscription.
+To access your analytics dashboard, go to https://bingapistatistics.com. Make sure you're signed in using the same Microsoft account (MSA) you used to get your paid subscription.
 
 
 ## Filtering the data

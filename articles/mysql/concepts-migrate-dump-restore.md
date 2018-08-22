@@ -6,9 +6,9 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/02/2018
 ---
 
 # Migrate your MySQL database to Azure Database for MySQL using dump and restore
@@ -71,7 +71,6 @@ To select specific tables in your database to back up, list the table names sepa
 ```bash
 $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```
-
 To back up more than one database at once, use the --database switch and list the database names separated by spaces. 
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
@@ -105,23 +104,22 @@ $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p test
 
 ## Export using PHPMyAdmin
 To export, you can use the common tool phpMyAdmin, which you may already have installed locally in your environment. To export your MySQL database using PHPMyAdmin:
-- Open phpMyAdmin.
-- Select your database. Click the database name in the list on the left. 
-- Click the **Export** link. A new page appears to view the dump of database.
-- In the Export area, click the **Select All** link to choose the tables in your database. 
-- In the SQL options area, click the appropriate options. 
-- Click the **Save as file** option and the corresponding compression option and then click the **Go** button. A dialog box should appear prompting you to save the file locally.
+1. Open phpMyAdmin.
+2. Select your database. Click the database name in the list on the left. 
+3. Click the **Export** link. A new page appears to view the dump of database.
+4. In the Export area, click the **Select All** link to choose the tables in your database. 
+5. In the SQL options area, click the appropriate options. 
+6. Click the **Save as file** option and the corresponding compression option and then click the **Go** button. A dialog box should appear prompting you to save the file locally.
 
 ## Import using PHPMyAdmin
 Importing your database is similar to exporting. Do the following actions:
-- Open phpMyAdmin. 
-- In the phpMyAdmin setup page, click **Add** to add your Azure Database for MySQL server. Provide the connection details and login information.
-- Create an appropriately named database and select it on the left of the screen. To rewrite the existing database, click the database name, select all the check boxes beside the table names, and select **Drop** to delete the  existing tables. 
-- Click the **SQL** link to show the page where you can type in SQL commands, or upload your SQL file. 
-- Use the **browse** button to find the database file. 
-- Click the **Go** button to export the backup, execute the SQL commands, and re-create your database.
+1. Open phpMyAdmin. 
+2. In the phpMyAdmin setup page, click **Add** to add your Azure Database for MySQL server. Provide the connection details and login information.
+3. Create an appropriately named database and select it on the left of the screen. To rewrite the existing database, click the database name, select all the check boxes beside the table names, and select **Drop** to delete the existing tables. 
+4. Click the **SQL** link to show the page where you can type in SQL commands, or upload your SQL file. 
+5. Use the **browse** button to find the database file. 
+6. Click the **Go** button to export the backup, execute the SQL commands, and re-create your database.
 
 ## Next steps
 - [Connect applications to Azure Database for MySQL](./howto-connection-string.md).
-
 - For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](http://aka.ms/datamigration).

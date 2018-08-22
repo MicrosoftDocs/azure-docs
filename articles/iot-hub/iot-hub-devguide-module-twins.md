@@ -314,7 +314,7 @@ Versions are also useful when an observing agent (such as the module app observi
 ## Next steps
 To try out some of the concepts described in this article, see the following IoT Hub tutorials:
 
-* [Get started with IoT Hub module identity and module twin using .NET backup and .NET device][lnk-module-twin-tutorial]
+* [Get started with IoT Hub module identity and module twin using .NET back end and .NET device][lnk-module-twin-tutorial]
 
 <!-- links and images -->
 

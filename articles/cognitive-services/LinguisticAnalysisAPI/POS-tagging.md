@@ -72,4 +72,4 @@ For some words, the part-of-speech is unambiguous (for instance, *quagmire* is r
 
 ## Specification
 
-As for tokenization, we rely on the specification from the [Penn Treebank](https://www.cis.upenn.edu/~treebank/).
+As for tokenization, we rely on the specification from the [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).

@@ -23,8 +23,7 @@ Comprehensive list of limits across QnA Maker.
 |Maximum number of published knowledge bases allowed (Max indexes -- 1 (reserved for test)|2|14|49|199|199|2999|
 
 ## Extraction Limits
-* Maximum number of files that can be extracted (Free tier): 3 
-* Maximum file size limit per file: 5 MB
+* Maximum number of files that can be extracted and maximum file size: See [QnAMaker pricing](https://azure.microsoft.com/en-in/pricing/details/cognitive-services/qna-maker/)
 * Maximum number of deep-links that can be crawled for extraction of QnAs from FAQ HTML pages: 20
 
 ## Metadata Limits
@@ -55,6 +54,6 @@ These represent the limits for each create knowledge base action; that is, click
 ## Update Knowledge base call limits
 These represent the limits for each update action; that is, clicking *Save and train* or calling the UpdateKnowledgeBase API.
 * Length of each source name: 300
-* Maximum number of questions alternate questions added or deleted: 100
+* Maximum number of alternate questions added or deleted: 100
 * Maximum number of metadata fields added or deleted: 10
 * Maximum number of URLs that can be refreshed: 5

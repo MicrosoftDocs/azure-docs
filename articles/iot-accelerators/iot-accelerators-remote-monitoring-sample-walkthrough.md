@@ -1,6 +1,6 @@
 ---
-title: Architecture of remote monitoring solution - Azure | Microsoft Docs
-description: A walkthrough of the architecture of the remote monitoring solution accelerator.
+title: Remote Monitoring solution accelerator overview - Azure | Microsoft Docs
+description: An overview of the Remote Monitoring solution accelerator.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -10,9 +10,9 @@ ms.date: 11/10/2017
 ms.author: dobett
 ---
 
-# Remote Monitoring solution accelerator architecture
+# Remote Monitoring solution accelerator overview
 
-The Remote Monitoring [solution accelerator](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) implements an end-to-end monitoring solution for multiple machines in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario. You can use the solution as a starting point for your own implementation and [customize](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) it to meet your own specific business requirements.
+The Remote Monitoring [solution accelerator](../iot-accelerators/about-iot-accelerators.md) implements an end-to-end monitoring solution for multiple machines in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario. You can use the solution as a starting point for your own implementation and [customize](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) it to meet your own specific business requirements.
 
 This article walks you through some of the key elements of the Remote Monitoring solution to enable you to understand how it works. This knowledge helps you to:
 
@@ -22,7 +22,7 @@ This article walks you through some of the key elements of the Remote Monitoring
 
 ## Logical architecture
 
-The following diagram outlines the logical components of the Remote Monitoring solution accelerator overlaid on the [IoT architecture](../iot-accelerators/iot-accelerators-what-is-azure-iot.md):
+The following diagram outlines the logical components of the Remote Monitoring solution accelerator overlaid on the [IoT architecture](../iot-fundamentals/iot-introduction.md):
 
 ![Logical architecture](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -130,6 +130,8 @@ If you want to explore the source code and developer documentation, start with o
 
 * [Solution accelerator for Remote Monitoring with Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Solution accelerator for Remote Monitoring with Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
-* [Solution accelerator for Remote Monitoring architecture)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
+
+Detailed solution architecture diagrams:
+* [Solution accelerator for Remote Monitoring architecture](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
 For more conceptual information about the Remote Monitoring solution accelerator, see [Customize the solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).
