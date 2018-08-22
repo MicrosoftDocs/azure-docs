@@ -44,6 +44,7 @@ In this section, you create a public load balancer that helps load balance virtu
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
 2. In the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Create**:
+    
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Name                   | *myLoadBalancer*                                   |

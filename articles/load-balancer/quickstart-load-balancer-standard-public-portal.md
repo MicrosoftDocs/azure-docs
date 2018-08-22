@@ -26,9 +26,9 @@ Load balancing provides a higher level of availability and scale by spreading in
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
 
 ## Create a public load balancer
 
@@ -36,6 +36,7 @@ In this section, you create a public load balancer that helps load balance virtu
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
 2. In the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Create**:
+
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Name                   | *myLoadBalancer*                                   |
