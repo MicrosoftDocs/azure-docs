@@ -71,7 +71,7 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
     ````PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal'
+    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal', ,'Admin Extension Host','Public Extension Host'
     
     $destination = 'c:\certificates'
     
