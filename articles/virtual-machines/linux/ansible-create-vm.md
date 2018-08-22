@@ -17,7 +17,7 @@ Using a declarative language, Ansible allows you to automate the creation, confi
 
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-[!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation.md](/includes/ansible-prereqs-for-cloudshell-use-or-vm-creation.md)]
+[!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation.md)]
 
 ## Create a resource group
 Ansible needs a resource group in which your resources are deployed. The following sample Ansible playbook section creates a resource group named `myResourceGroup` in the `eastus` location:
