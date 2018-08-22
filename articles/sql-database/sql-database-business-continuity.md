@@ -73,7 +73,7 @@ If you need faster recovery, use [active geo-replication](sql-database-geo-repli
 
 In addition to using database backups for database recovery if a business disruption occurs, you can use [active geo-replication](sql-database-geo-replication-overview.md) to configure a database to have up to four readable secondary databases in the regions of your choice. 
 
-If the primary database goes offline unexpectedly or you need to take it offline for maintenance activities, you can quickly promote a secondary to become the primary (also called a failover) and configure applications to connect to the promoted primary. If your application is connecting to the databases using the failover group listener, you don’t need to change the SQL connection string configuration after failover. With a planned failover, there is no data loss. With an unplanned failover, there may be some small amount of data loss for very recent transactions due to the nature of asynchronous replication. Using auto-failover groups, you can customize the failover policy to minimize the potential data loss. After a failover, you can later failback - either according to a plan or when the data center comes back online. In all cases, users experience a small amount of downtime and need to reconnect.
+
 
 ## Recover a database to another region
 <!-- Explain this scenario -->
@@ -81,7 +81,7 @@ If the primary database goes offline unexpectedly or you need to take it offline
 Although rare, an Azure data center can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours.
 
 * One option is to wait for your database to come back online when the data center outage is over. This works for applications that can afford to have the database offline. For example, a development project or free trial you don't need to work on constantly. When a data center has an outage, you do not know how long the outage might last, so this option only works if you don't need your database for a while.
-* Another option is to either fail over to another data region if you are using active geo-replication or the recover a database using geo-redundant database backups (geo-restore). Failover takes only a few seconds while database recovery from backups takes hours.
+* Another option is to either quickly promote a secondary on another data region to become the primary (also called a failover) and configure applications to connect to the promoted primary if you are using active geo-replication or the recover a database using geo-redundant database backups (geo-restore). There may be some small amount of data loss for very recent transactions due to the nature of asynchronous replication. Using auto-failover groups, you can customize the failover policy to minimize the potential data loss. In all cases, users experience a small amount of downtime and need to reconnect. Failover takes only a few seconds while database recovery from backups takes hours.
 
 In order to fail over to another region, you can use [active geo-replication](sql-database-geo-replication-overview.md) to configure a database to have up to four readable secondary databases in the regions of your choice. These secondary databases are kept synchronized with the primary database using an asynchronous replication mechanism. 
 
