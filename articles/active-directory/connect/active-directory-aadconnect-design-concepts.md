@@ -87,7 +87,7 @@ For this feature to work, the AD DS account used to synchronize with on-premises
 You can enable the use of ConsistencyGuid as sourceAnchor during new installation. This section covers both Express and Custom installation in details.
 
   >[!NOTE]
-  > Only newer versions of Azure AD Connect (1.1.524.0 and after) supports the use of ConsistencyGuid as sourceAnchor during new installation.
+  > Only newer versions of Azure AD Connect (1.1.524.0 and after) support the use of ConsistencyGuid as sourceAnchor during new installation.
 
 ### How to enable the ConsistencyGuid feature
 Currently, the feature can only be enabled during new Azure AD Connect installation only.
