@@ -71,9 +71,7 @@ If you need faster recovery, use [active geo-replication](sql-database-geo-repli
 
 ## Use active geo-replication and auto-failover groups to reduce recovery time
 
-In addition to using database backups for database recovery if a business disruption occurs, you can use [active geo-replication](sql-database-geo-replication-overview.md) to configure a database to have up to four readable secondary databases in the regions of your choice. These secondary databases are kept synchronized with the primary database using an asynchronous replication mechanism. This feature is used to protect against business disruption if a data center outage occurs or during an application upgrade. Active geo-replication can also be used to provide better query performance for read-only queries to geographically dispersed users.
-
-To enable automated and transparent failover you should organize your geo-replicated databases into groups using the [auto-failover group](sql-database-geo-replication-overview.md) feature of SQL Database.
+In addition to using database backups for database recovery if a business disruption occurs, you can use [active geo-replication](sql-database-geo-replication-overview.md) to configure a database to have up to four readable secondary databases in the regions of your choice. 
 
 If the primary database goes offline unexpectedly or you need to take it offline for maintenance activities, you can quickly promote a secondary to become the primary (also called a failover) and configure applications to connect to the promoted primary. If your application is connecting to the databases using the failover group listener, you don’t need to change the SQL connection string configuration after failover. With a planned failover, there is no data loss. With an unplanned failover, there may be some small amount of data loss for very recent transactions due to the nature of asynchronous replication. Using auto-failover groups, you can customize the failover policy to minimize the potential data loss. After a failover, you can later failback - either according to a plan or when the data center comes back online. In all cases, users experience a small amount of downtime and need to reconnect.
 
@@ -90,11 +88,11 @@ Although rare, an Azure data center can have an outage. When an outage occurs, i
 * One option is to wait for your database to come back online when the data center outage is over. This works for applications that can afford to have the database offline. For example, a development project or free trial you don't need to work on constantly. When a data center has an outage, you do not know how long the outage might last, so this option only works if you don't need your database for a while.
 * Another option is to either fail over to another data region if you are using active geo-replication or the recover a database using geo-redundant database backups (geo-restore). Failover takes only a few seconds while database recovery from backups takes hours.
 
-In order to fail over to another region, you can use [active geo-replication](sql-database-geo-replication-overview.md) to configure a database to have up to four readable secondary databases in the regions of your choice.
+In order to fail over to another region, you can use [active geo-replication](sql-database-geo-replication-overview.md) to configure a database to have up to four readable secondary databases in the regions of your choice. These secondary databases are kept synchronized with the primary database using an asynchronous replication mechanism. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
-Use active geo-replication and auto-failover groups if your application meets any of these criteria:
+This feature is used to protect against business disruption if a data center outage occurs or during an application upgrade. To enable automated and transparent failover you should organize your geo-replicated databases into groups using the [auto-failover group](sql-database-geo-replication-overview.md) feature of SQL Database. Use active geo-replication and auto-failover groups if your application meets any of these criteria:
 
 * Is mission critical.
 * Has a service level agreement (SLA) that does not allow for 24 hours or more of downtime.
