@@ -4,12 +4,10 @@ description: Learn how to use Ansible to create and manage an Azure Kubernetes S
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, Kubernetes
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
+ms.date: 08/21/2018
 ---
 
 # Create and configure Azure Kubernetes Service clusters in Azure using Ansible
@@ -18,9 +16,20 @@ Ansible allows you to automate the deployment and configuration of resources in 
 ## Prerequisites
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - **Azure service principal** - When [creating the service principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal), note the following values: **appId**, **displayName**, **password**, and **tenant**.
-- **Configure Azure Cloud Shell** - If you are new to Azure Cloud Shell, the article, [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart), illustrates how to start and configure Cloud Shell. 
-or 
-- **Install and Configure Ansible** - Install Ansible on one of the following Linux platforms: [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts), or [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2). Then [Create Azure credentials and configure Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
+
+- **Configure Azure Cloud Shell** or **Install and configure Ansible on a Linux virtual machine**
+
+  **Configure Azure Cloud Shell**
+
+  1. **Configure Azure Cloud Shell** - If you are new to Azure Cloud Shell, the article, [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart), illustrates how to start and configure Cloud Shell. 
+
+  **--OR--**
+
+  **Install and configure Ansible on a Linux virtual machine**
+
+  1. **Install Ansible** - Install Ansible on a [supported Linux platform](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine).
+
+  1. **Configure Ansible** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
 > [!Note]
 > Ansible 2.6 is required to run the following the sample playbooks in this tutorial. 
