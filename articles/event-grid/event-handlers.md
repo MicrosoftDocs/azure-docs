@@ -6,7 +6,7 @@ author: tfitzmac
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 08/21/2018
 ms.author: tomfitz
 ---
 
@@ -32,7 +32,7 @@ When using Azure Functions as the handler, use the Event Grid trigger instead of
 
 |Title  |Description  |
 |---------|---------|
-| [Overview: Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid.md) | Overview of using the Event Grid trigger in Functions. |
+| [Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid.md) | Overview of using the Event Grid trigger in Functions. |
 | [Tutorial: automate resizing uploaded images using Event Grid](resize-images-on-storage-blob-upload-event.md) | Users upload images through web app to storage account. When a storage blob is created, Event Grid sends an event to the function app, which resizes the uploaded image. |
 | [Tutorial: stream big data into a data warehouse](event-grid-event-hubs-integration.md) | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |
 | [Tutorial: Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sends messages from Service Bus topic to function app and logic app. |

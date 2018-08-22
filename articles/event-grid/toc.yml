@@ -107,6 +107,8 @@
     href: monitor-event-delivery.md
   - name: Query event subscriptions
     href: query-event-subscriptions.md
+  - name: Subscribe through portal
+    href: subscribe-through-portal.md
   - name: Map custom fields to schema
     href: input-mappings.md
   - name: Use CloudEvents schema
