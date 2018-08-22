@@ -40,23 +40,19 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2437250  | IS  ASDK --> **Managed Disks are supported.** You can now use Managed Disks in Azure Stack virtual machines and virtual machine scale sets. For more information, see [Azure Stack Managed Disks: Differences and considerations](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
 
-- <!-- 2515955   | IS ,ASDK--> **Use All Services to view the full list of Azure Stack services.** With Azure Stack version 1808, *All services* replaces *More services* in the [Azure Stack admin](azure-stack-manage-portals.md) and user portals.  You now use *All services* to browse the list of available Azure Stack services the same way you do in the Azure portals.
-
-
- 
- 
- 
 
 
 
-### Fixed issues
-
-
+ ### Fixed issues
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
 
-<!-- ### Additional releases timed with this update    -->
+### Changes
+- <!-- 1697698  | IS, ASDK --> The *Quickstart tutorials* in the User portal dashboard now link to relevant articles in the on-line Azure Stack documentation.
+
+- <!-- 2515955   | IS ,ASDK--> *All services* replaces *More services* in the [Azure Stack admin](azure-stack-manage-portals.md) and user portals. You can now use *All services* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals.
+
 
 ### Common Vulnerabilities and Exposures
 
