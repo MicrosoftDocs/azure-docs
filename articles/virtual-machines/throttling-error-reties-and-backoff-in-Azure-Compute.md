@@ -40,11 +40,17 @@ If the remaining call count is approaching 0, the subscription’s general call 
 Otherwise, the throttling is coming from the target resource provider (the one addressed by the `/providers/<RP>` segment of the request URL). 
 ## Call rate inforamtional response headers 
 
-| Header                            | Value format                           | Example                               | Description                                                                                                                                                                                               |
-|-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| x-ms-ratelimit-remaining-resource |<code> <source RP>/<policy or bucket>;<count></code> | Microsoft.Compute/HighCostGet3Min;159 | Remaining API call count for the throttling policy covering the resource bucket or operation group including the target of this request                                                                   |
-| x-ms-request-charge               | <code><count>   </code>                             | 1                                     | The number of call counts “charged” for this HTTP request toward the applicable policy’s limit. This is most typically 1. Batch requests, such as for scaling a virtual machine scale set, can charge multiple counts. |
+Case 1: 
+Header: x-ms-ratelimit-remaining-resource
+Value format: <code> <source RP>/<policy or bucket>;<count></code>
+Example: Microsoft.Compute/HighCostGet3Min;159
+Description: Remaining API call count for the throttling policy covering the resource bucket or operation group including the target of this request
 
+Case 2: 
+Header: x-ms-request-charge  
+Value format: <code><count>   </code> 
+Example: 1 
+Description: The number of call counts “charged” for this HTTP request toward the applicable policy’s limit. This is most typically 1. Batch requests, such as for scaling a virtual machine scale set, can charge multiple counts.
 
 
 API request can be subjected to multiple throttling policies. There will be a separate `x-ms-ratelimit-remaining-resource` header for each policy. 
