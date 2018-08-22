@@ -104,7 +104,7 @@ For bottom results, in Splunk you use `tail`. In Azure Log Analytics you can spe
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **head** |  <code>Event.Rule="330009.2"`<br>&#124; `sort Event.Sequence<br>&#124; head 20</code> |
+| Splunk | **head** |  <code>Event.Rule="330009.2"<br>&#124; sort Event.Sequence<br>&#124; head 20</code> |
 | Log Analytics | **top** | <code>Office_Hub_OHubBGTaskError<br>&#124; top 20 by Event_Sequence</code> |
 | | |
 
