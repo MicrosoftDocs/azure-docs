@@ -268,7 +268,18 @@ s
 
 This table shows the results.  In the notebook the table has varying shades of green to highlight high/low values.
 
-<table>
+<table id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180" > 	
+<thead>    <tr> 	
+        <th class="blank level0" ></th> 	
+        <th class="col_heading level0 col0" >0</th> 	
+        <th class="col_heading level0 col1" >1</th> 	
+        <th class="col_heading level0 col2" >2</th> 	
+        <th class="col_heading level0 col3" >3</th> 	
+        <th class="col_heading level0 col4" >4</th> 	
+        <th class="col_heading level0 col5" >5</th> 	
+        <th class="col_heading level0 col6" >6</th> 	
+        <th class="col_heading level0 col7" >7</th> 	
+    </tr></thead> 
 <tbody>    <tr> 
         <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row0" class="row_heading level0 row0" >AUC_macro</th> 
         <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col0" class="data row0 col0" >0.988094</td> 
