@@ -65,10 +65,10 @@ The Data Box device has the following features in this release.
 | Cables required                                         | 1 X power cable <br> 2 X 1 Gbps RJ45 cables <br> 2 X 10 Gbps SFP+ copper cables|
 | Components                                              | Built-in power supply unit (PSU)|
 | Storage capacity                                        | 100 TB <br> 80 TB usable capacity after RAID 5 protection|
-| Network interfaces                                      | 2 X 1 GbE interface  - 1 interface dedicated to management, not user configurable, used for initial setup. The other interface is for data, is user configurable, and is DHCP by default. These network interfaces can work as 10 GbE as well. <br> 2 X 10 GbE interface - DHCP (default) or static, user configurable, both are data interfaces. |
+| Network interfaces                                      | 2 X 1 GbE interface - MGMT, DATA 3. <br> MGMT - for management, not user configurable, used for initial setup <br> DATA3 - for data, user configurable, and is dynamic by default <br> MGMT and DATA 3 can also work as 10 GbE <br> 2 X 10 GbE interface - DATA 1, DATA 2 <br> Both are for data, can be configured as dynamic (default) or static |
 | Data transfer media                                     | RJ45, SFP+ copper 10 GbE Ethernet  |
-| Security                                                | Rugged device casing with tamper-proof custom screws <br> Tamper-evident stickers placed at the bottom of the device.|
-| Data transfer rate                                      | Up to 80 TB in a day over 10 GbE network interface.        |
+| Security                                                | Rugged device casing with tamper-proof custom screws <br> Tamper-evident stickers placed at the bottom of the device|
+| Data transfer rate                                      | Up to 80 TB in a day over 10 GbE network interface        |
 | Management                                              | Local web UI - one-time initial setup and configuration <br> Azure portal - day-to-day device management        |
 
 ## Data Box components

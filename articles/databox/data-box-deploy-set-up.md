@@ -41,8 +41,6 @@ Before you begin, make sure that:
     - Two 10 GbE SFP+ Twinax copper cables
     - One 1 GbE RJ-45 CAT 6 network cable
     - One 1 GbE RJ-45 network cable
-        
-        <!--![Data Box Cables](media/data-box-deploy-set-up/data-box-cables-needed.png)-->
 
 ## Cable your device
 
@@ -50,46 +48,42 @@ Perform the following steps to cable your device.
 
 1. Inspect the device for any evidence of tampering, or any other obvious damage. If the device is tampered or severely damaged, do not proceed. Contact Microsoft Support immediately to help you assess whether the device is in good working order and if they need to ship you a replacement.
 2. Transport the device to the location where you wish to power it on. Place the device on a flat surface. The device can also be placed on a standard rack shelf.
-
-    <!--![Data Box device](media/data-box-deploy-set-up/data-box-front-view.png)-->
-
 3. Connect the power and network cables. The backplane of a connected device is shown below. 
+    
+    ![Data Box device backplane cabeled](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 
     1. Connect the power cable to the labeled power input location. The other end of the power cable should be connected to a power distribution unit.
-    2. Use the 1 GbE RJ45 cables to connect the MGMT and DATA 3 ports respectively.  
+    2. Use the 1 GbE RJ45 cables to connect the MGMT port on one end and a laptop on the other end. 
     
         > [!NOTE]
         >  - The management port (MGMT) cannot be used for data as this port is hard coded to IP address 192.168.100.10.
        
-    3. Use the 10 GbE SFP+ Twinax copper cables to connect the DATA 1 and DATA 2 ports respectively.
-
-    <!--![Data Box device ports labeled](media/data-box-deploy-set-up/data-box-backplane-cabling.png)-->
+    3. Use the 1 GbE RJ45 cable to connect to DATA 3 port on one end.
+    4. Use the 10 GbE SFP+ Twinax copper cables to connect the DATA 1 and DATA 2 ports respectively. 
+    5. The other end of the cables from the data ports are connected to the host computer via a 10 GbE switch.
 
 4. Locate the power button on the front operating panel of the device. Turn on the device.
 
-    <!--![Data Box power button](media/data-box-deploy-set-up/data-box-power-button.png)-->
+    ![Data Box power button](media/data-box-deploy-set-up/data-box-powered-door-open.png)
 
 ## Set up your device
 
 Perform the following steps to set up your device using the local web UI and the portal UI.
 
-1. Sign into the [Azure portal](https://portal.azure.com).
-2. Download the device credentials from portal. Go to **General > Credentials**. Copy the **Device password**. The device password is tied to a specific order in the portal. 
-
-    ![Get device credentials](media/data-box-deploy-set-up/data-box-device-credentials.png)
-
-3. Connect your host computer to the device via a CAT 6 network cable. 
-4. Configure the Ethernet adapter on the computer you are using to connect to the device with a static IP address of 192.168.100.5 and subnet 255.255.255.0. 
-5. Connect to MGMT port of your device and access its local web UI at https://192.168.100.10. This may take up to 5 minutes after you turned on the device.
-6. Click **Details** and then click **Go on to the webpage**.
+1. Configure the Ethernet adapter on the laptop you are using to connect to the device with a static IP address of 192.168.100.5 and subnet 255.255.255.0. 
+2. Connect to MGMT port of your device and access its local web UI at https://192.168.100.10. This may take up to 5 minutes after you turned on the device.
+3. Click **Details** and then click **Go on to the webpage**.
 
    ![Connect to local web UI](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 
 
-7. You see a **Sign in** page for the local web UI.
+4. You see a **Sign in** page for the local web UI. Ensure that the device serial number matches across both the portal UI and the local web UI. The device is locked at this point.
+5. Sign into the [Azure portal](https://portal.azure.com).
+6. Download the device credentials from portal. Go to **General > Device details**. Copy the **Device password**. The device password is tied to a specific order in the portal. 
+
+    ![Get device credentials](media/data-box-deploy-set-up/data-box-device-credentials.png)
     
-    > [!NOTE]
-    > Ensure that the device serial number matches across both the portal UI and the local web UI.
-7. The device is locked at this point. Provide the device password that you got from the Azure portal in the previous step to sign into the device. Click **Sign in**.
+    
+7. Provide the device password that you got from the Azure portal in the previous step to sign into the local web UI of the device. Click **Sign in**.
 8. On the **Dashboard**, ensure that the network interfaces are configured. There are four network interfaces on your device, two 1 Gbps, and two 10 Gbps. One of the 1 Gbps is a management interface and hence not user-configurable. The remaining three network interfaces are dedicated to data and can be configured by the user. Both the 1 Gbps interfaces can also be used as 10 Gbps interfaces.
     - If DHCP is enabled in your environment, network interfaces are automatically configured. 
     - If DHCP is not enabled, go to **Set network interfaces**, and assign static IPs if needed.
