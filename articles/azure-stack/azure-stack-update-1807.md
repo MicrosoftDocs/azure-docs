@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 08/21/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -46,6 +46,8 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2753130 |  IS, ASDK   -->  **Azure Resource Manager templates now support the condition element** - You can now deploy a resource in an Azure Resource Manger template using a condition. You can design your template to deploy a resource based on a condition, such as evaluating if a parameter value is present. For information about using a template as a condition, see [Conditionally deploy a resource](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) and [Variables section of Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) in the Azure documentation. 
 
+   You can also use templates to [deploy resources to more than one subscription or resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
+
 - <!--2753073 | IS, ASDK -->  **The Microsoft.Network API resource version support has been updated** to include support for API version 2017-10-01 from 2015-06-15 for Azure Stack network resources.  Support for resource versions between 2017-10-01 and 2015-06-15 is not included in this release but will be included in a future release.  Please refer to [Considerations for Azure Stack networking](user/azure-stack-network-differences.md) for functionality differences.
 
 - <!-- 2272116 | IS, ASDK   -->  **Azure Stack has added support for reverse DNS lookups for externally facing Azure Stack infrastructure endpoints** (that is for portal, adminportal, management, and adminmanagement). This allows Azure Stack external endpoint names to be resolved from an IP address.
@@ -54,7 +56,7 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2222444 | IS, ASDK   -->  **Improvements in accuracy and resiliency have been made to networking usage meters**.  Network usage meters are now more accurate and take into account suspended subscriptions, outage periods and race conditions.
 
-- <!-- 2753080 | IS -->  **Update available notification**- Connected Azure Stack deployments will now periodically check a secured endpoint and determine if an update is available for your cloud. This notification appears in the Update tile, as it would after manually checking for and importing a new update. Read more about [managing updates for Azure Stack](azure-stack-updates.md).
+- <!-- 2753080 | IS -->  **Update available notification.** Connected Azure Stack deployments will now periodically check a secured endpoint and determine if an update is available for your cloud. This notification appears in the Update tile, as it would after manually checking for and importing a new update. Read more about [managing updates for Azure Stack](azure-stack-updates.md).
 
 - <!-- 2297790 | IS, ASDK -->  **Improvements to the Azure Stack syslog client (preview feature)**. This client allows the forwarding of audit and logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports the TCP protocol with plain text or TLS 1.2 encryption, the latter being the default configuration. You can configure the TLS connection with either server-only or mutual authentication.
 
@@ -81,7 +83,7 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- TBD | ASDK, IS --> Various improvements were made to the update process to make it more reliable. In addition, fixes have been made to underlying infrastructure, which minimize potential downtime for workloads during the update.
 
-- <!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions. Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a tenant subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
+- <!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions. Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a user subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
 
 - <!-- 448955 | IS ASDK --> You can now successfully query activity logs for systems that are deployed in a UTC+N time zone.    
 
@@ -111,27 +113,18 @@ This update includes the following improvements for Azure Stack.
 <!-- ### Additional releases timed with this update    -->
 
 ### Common Vulnerabilities and Exposures
+Azure Stack uses Server Core installations of Windows Server 2016 to host key infrastructure. This release installs the following Windows Server 2016 updates on the infrastructure servers for Azure Stack: 
+- [CVE-2018-8206](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8206)
+- [CVE-2018-8222](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8222)
+- [CVE-2018-8282](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8282)
+- [CVE-2018-8304](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8304)
+- [CVE-2018-8307](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8307)
+- [CVE-2018-8308](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8308) 
+- [CVE-2018-8309](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8309)
+- [CVE-2018-8313](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8313)  
 
-This update contains fixes for the following Common Vulnerabilities and Exposures (CVEs).
+For more information about these vulnerabilities, click on the preceding links, or see Microsoft Knowledge Base articles [4338814](https://support.microsoft.com/help/4338814)  and [4345418](https://support.microsoft.com/help/4345418).
 
-| Date | Product | Product Family | Article | Download | Details |
-|------------|-------------------------------------------------|----------------|---------|----------------------|---------------|
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8206](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8206) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8206](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8206) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8222](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8222) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8222](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8222) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8282](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8282) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8282](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8282) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8304](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8304) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8304](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8304) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8307](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8307) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8307](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8307) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8308](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8308) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8308](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8308) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8309](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8309) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8309](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8309) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8313](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8313) |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8313](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8313) |
 
 
 ## Before you begin
@@ -159,7 +152,9 @@ This update contains fixes for the following Common Vulnerabilities and Exposure
 
 ### Post-update steps
 
-*There are no post-update steps for update 1807.*
+- <!-- 2933866 – IS --> **Improved status for failed update installations.** This version introduces two new STATE categories to provide Operators more details about failed update installations. The two categories are *PreparationFailed*, and *InstallationFailed*. After installing this version, you might see information for previous update installation failures revised to reflect these new categories. 
+
+<!-- *There are no post-update steps for update 1807.* -->
 
 <!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
  - Link to KB  
@@ -266,7 +261,7 @@ The following are post-installation known issues for this build version.
 
 ### SQL and MySQL
 
-- <!-- TBD - ASDK --> The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
+
 
 - <!-- No Number - IS, ASDK -->  Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers. 
 

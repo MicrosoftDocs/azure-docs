@@ -5,6 +5,7 @@
   - name: What is Azure Firewall?
     href: overview.md
 - name: Tutorials
+  expanded: true
   items:
   - name: 1. Deploy and configure
     href: tutorial-firewall-deploy-portal.md

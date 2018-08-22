@@ -33,6 +33,8 @@ You can use the Azure portal and look for VMs scheduled for maintenance.
 	  | Already updated | Your VM is already updated and no further action is required at this time. | 
 	  | Retry later | You have initiated maintenance with no success. You will be able to use the self-service maintenance option at a later time. | 
 	  | Retry now | You can retry a previously unsuccessful self-initiated maintenance. | 
+	  | - | Your virtual machine is not part of a planned maintenance wave. |
+	  
 
    **Maintenance - Self-service window**: Shows the time window when you can self-start maintenance on your VMs.
    
