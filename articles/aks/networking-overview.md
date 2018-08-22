@@ -185,5 +185,5 @@ Kubernetes clusters created with ACS Engine support both the [kubenet][kubenet] 
 
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[aks-ssh]: aks-ssh.md
+[aks-ssh]: ssh.md
 [ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object

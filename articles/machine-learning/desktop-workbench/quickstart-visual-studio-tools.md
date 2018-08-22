@@ -2,8 +2,6 @@
 title: Quickstart article for Visual Studio Tools for Machine Learning on Azure | Microsoft Docs
 description: This article describe how to get started using Visual Studio Tools for Machine Learning, from creating an experiment, training a model, and operationalizing a web-service.
 services: machine-learning
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
 ms.workload: azure-vs
 author: chris-lauren
 ms.author: chris.lauren
