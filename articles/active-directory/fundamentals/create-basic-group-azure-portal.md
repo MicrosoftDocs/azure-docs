@@ -29,7 +29,7 @@ You can create a basic group and add your members at the same time.
 
     ![Azure AD portal with Groups showing](media/create-basic-group-azure-portal/group-full-screen.png)
 
-3. In the **Groups** blade, fill out the required information.
+3. In the **Group** blade, fill out the required information.
 
     ![New group blade, filled out with example info](media/create-basic-group-azure-portal/new-group-blade.png)
 
@@ -45,11 +45,11 @@ You can create a basic group and add your members at the same time.
 
     - **Membership type (required).** Select a pre-defined membership type. This includes:
 
-        - **Assigned.** Lets you assign specific employees to be members of this group and to have unique permissions. For more info about how to add members, see the [Assign members to your group](#assign-members-to-your-group) section of this article.
+        - **Assigned.** Lets you assign specific employees to be members of this group and to have unique permissions. For the purposes of this article, we're using this option.
 
-        - **Dynamic user.** Lets you use dynamic group rules to automatically add and remove members. If a member's attributes change, the system looks at your dynamic group rules for the directory to see if the member meets the rule requirements (is added) or no longer meets the rules requirements (is removed). For more info about creating a dynamic group, see [Create a dyncamic group and check status](../users-groups-roles/groups-create-rule.md).
+        - **Dynamic user.** Lets you use dynamic group rules to automatically add and remove members. If a member's attributes change, the system looks at your dynamic group rules for the directory to see if the member meets the rule requirements (is added) or no longer meets the rules requirements (is removed). For more info about creating a dynamic group for users, see [Create a dyncamic group and check status](../users-groups-roles/groups-create-rule.md).
 
-        - **Dynamic device.** Lets you use dynamic group rules to automatically add and remove devices. If a device's attributes change, the system looks at your dynamic group rules for the directory to see if the device meets the rule requirements (is added) or no longer meets the rules requirements (is removed). For more info about creating a dynamic group, see [Create a dyncamic group and check status](../users-groups-roles/groups-create-rule.md).
+        - **Dynamic device.** Lets you use dynamic group rules to automatically add and remove devices. If a device's attributes change, the system looks at your dynamic group rules for the directory to see if the device meets the rule requirements (is added) or no longer meets the rules requirements (is removed). For more info about creating a dynamic group for devices, see [Create a dyncamic group and check status](../users-groups-roles/groups-create-rule.md).
 
         >[!Important]
         >You can create a dynamic group for either devices or users, but not for both. You also can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributions.
