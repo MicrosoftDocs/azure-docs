@@ -2877,7 +2877,27 @@
         },
         {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
-            "redirect_url": "/azure/automation/automation-create-runas-account",
+            "redirect_url": "/azure/automation/manage-runas-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-create-runas-account.md",
+            "redirect_url": "/azure/automation/manage-runas-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-manage-account.md",
+            "redirect_url": "/azure/automation/manage-runas-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-create-aduser-account.md",
+            "redirect_url": "/azure/automation/automation-credentials",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-verify-runas-authentication.md",
+            "redirect_url": "/azure/automation/manage-runas-account",
             "redirect_document_id": false
         },
         {
@@ -27283,6 +27303,11 @@
 		{
             "source_path": "articles/cognitive-services/speech-service/speech-scenarios.md",
             "redirect_url": "/azure/cognitive-services/speech-service/overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/aks/aks-ssh.md",
+            "redirect_url": "/azure/aks/ssh",
             "redirect_document_id": true
         },
 		{
