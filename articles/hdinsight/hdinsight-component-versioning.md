@@ -228,12 +228,12 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
 
   | Cluster type | Hadoop | HBase | Interactive Query | Storm | Spark | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
-  | Head: default VM size |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
-  | Head: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
+  | Head: default VM size |D3 v2 |D3 v2 | D13, D14 |A4 v2 |D12 v2 |D12 v2 |
+  | Head: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A4 v2, A8 v2, A2m v2 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
   | Worker: default VM size |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
   | Worker: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
-  | ZooKeeper: default VM size | |A3 | |A2 | | |
-  | ZooKeeper: recommended VM sizes | |A3, A4, A5 | | A2, A3, A4 | | |
+  | ZooKeeper: default VM size | |A4 v2 | |A2 v2 | | |
+  | ZooKeeper: recommended VM sizes | |A4 v2, A8 v2, A2m v2 | | A2 v2, A4 v2, A8 v2 | | |
   | Edge: default VM size | | | | | |Windows: D12 v2; Linux: D4 v2 |
   | Edge: recommended VM size | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Brazil South and Japan West only (no v2 sizes):
