@@ -1,26 +1,55 @@
 ---
-# required metadata
 title: Connect to IBM DB2 - Azure Logic Apps | Microsoft Docs
 description: Manage resources with DB2 REST APIs and Azure Logic Apps
-author: gplarsen
-manager: jeconnoc
-ms.author: plarsen
-ms.date: 09/26/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-
-# optional metadata
+ms.service: logic-apps
+author: gplarsen
+ms.author: plarsen
 ms.reviewer: estfan, LADocs
 ms.suite: integration
+ms.topic: article
+ms.date: 09/26/2016
 tags: connectors
 ---
 
-# Manage resoruces in IBM DB2 with Azure Logic Apps
+# Manage resources in IBM DB2 with Azure Logic Apps
 
-Microsoft connector for DB2 connects Logic Apps to resources stored in an IBM DB2 database. This connector includes a Microsoft client to communicate with remote DB2 server computers across a TCP/IP network. This includes cloud databases, such as IBM Bluemix dashDB or IBM DB2 for Windows running in Azure virtualization, and on-premises databases using the on-premises data gateway. See the [supported list](connectors-create-api-db2.md#supported-db2-platforms-and-versions) of IBM DB2 platforms and versions (in this topic).
+With Azure Logic Apps and the IBM DB2 connector, you can create automated 
+tasks and workflows based on the resources stored in your IBM DB2 database. 
+Your workflows can connect to the resources in your database, read and 
+list your database tables, add rows, change rows, delete rows, and more. 
+You can include actions in your logic apps that get responses 
+from your database and make the output available for other actions. 
 
-The DB2 connector supports the following database operations:
+This article shows how you create a logic app that performs 
+various database operations. If you're new to logic apps, review 
+[What is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+
+## Supported platforms and versions
+
+The IBM DB2 connector includes a Microsoft client that 
+communicates with remote DB2 servers across a TCP/IP network. 
+You can use this connector for accessing cloud databases such 
+as IBM Bluemix dashDB or IBM DB2 for Windows running in Azure virtualization. 
+You can also access on-premises databases after you 
+[install and set up the on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). 
+
+The IBM DB2 connector supports these IBM DB2 platforms and versions along 
+with IBM DB2 compatible products, for example, IBM Bluemix dashDB, 
+that support Distributed Relational Database Architecture (DRDA) 
+SQL Access Manager (SQLAM) versions 10 and 11:
+
+* IBM DB2 for z/OS 11.1
+* IBM DB2 for z/OS 10.1
+* IBM DB2 for i 7.3
+* IBM DB2 for i 7.2
+* IBM DB2 for i 7.1
+* IBM DB2 for LUW 11
+* IBM DB2 for LUW 10.5
+
+## Supported database operations
+
+The IBM DB2 connector supports these database operations:
 
 * List database tables
 * Read one row using SELECT
@@ -29,30 +58,40 @@ The DB2 connector supports the following database operations:
 * Alter one row using UPDATE
 * Remove one row using DELETE
 
-This topic shows you how to use the connector in a logic app to process database operations.
+## Supported logic app actions
 
-To learn more about Logic Apps, see [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+The IBM DB2 connector supports these actions in your logic apps:
 
-## Available actions
-The DB2 connector supports the following logic app actions:
+* Delete row
+* Get row
+* Get rows
+* Get tables
+* Insert row
+* Update row
 
-* GetTables
-* GetRow
-* GetRows
-* InsertRow
-* UpdateRow
-* DeleteRow
+## Prerequisites
+
+* An Azure subscription. If you don't have an Azure subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+
+* An IBM DB2 database
+
+* Basic knowledge about 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* The logic app where you want to access your DB2 database. 
+This connector doesn't provide any triggers, so you can use 
+a different trigger to start your logic app.
 
 ## List tables
-Creating a logic app for any operation is comprised of many steps performed through the Microsoft Azure portal.
 
-Within the logic app, you can add an action to list tables in a DB2 database. The action instructs the connector to process a DB2 schema statement, such as `CALL SYSIBM.SQLTABLES`.
-
-### Create a logic app
-1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**.
-2. Enter the **Name**, such as `Db2getTables`, **Subscription**, **Resource group**, **Location**, and **App Service Plan**. Select **Pin to dashboard**, and then select **Create**.
+Creating a logic app for any operation consists of 
+steps performed through the Microsoft Azure portal.
+Within the logic app, you can add an action to list tables in a DB2 database. 
+The action instructs the connector to process a DB2 schema statement, such as `CALL SYSIBM.SQLTABLES`.
 
 ### Add a trigger and action
+
 1. In the **Logic Apps Designer**, select **Blank LogicApp** in the **Templates** list.
 2. In the **triggers** list, select **Recurrence**. 
 3. In the **Recurrence** trigger, select **Edit**, select **Frequency** drop-down to select **Day**, and then set the **Interval** to type **7**.  
@@ -261,21 +300,17 @@ You can define a logic app action to remove one row in a DB2 table. This action 
     
     ![](./media/connectors-create-api-db2/Db2connectorDeleteRowOutputs.png)
 
-## Supported DB2 platforms and versions
-This connector supports the following IBM DB2 platforms and versions, as well as IBM DB2 compatible products (e.g. IBM Bluemix dashDB) that support Distributed Relational Database Architecture (DRDA) SQL Access Manager (SQLAM) version 10 and 11:
+## Connector reference
 
-* IBM DB2 for z/OS 11.1
-* IBM DB2 for z/OS 10.1
-* IBM DB2 for i 7.3
-* IBM DB2 for i 7.2
-* IBM DB2 for i 7.1
-* IBM DB2 for LUW 11
-* IBM DB2 for LUW 10.5
+For technical details, such as triggers, actions, and limits, 
+as described by the connector's Swagger file, 
+see the [connector's reference page](/connectors/db2/). 
 
-## Connector-specific details
+## Get support
 
-View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/db2/). 
+* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
 ## Next steps
-[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
 
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

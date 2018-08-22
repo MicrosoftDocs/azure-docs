@@ -25,8 +25,7 @@ you can send an email using Office 365.
 
 This article shows how you create a logic app that creates a task 
 in Dynamics 365 whenever a new lead record is created in Dynamics 365.
-If you're new to logic apps, review 
-[What is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 ## Prerequisites
 
@@ -35,12 +34,12 @@ If you're new to logic apps, review
 
 * A [Dynamics 365 account](https://dynamics.microsoft.com)
 
-* The logic app where you want to access your Dynamics 365 account. 
-To start your logic app with an Dynamics 365 trigger, you need a 
-[blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
-
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* The logic app where you want to access your Dynamics 365 account. 
+To start your logic app with a Dynamics 365 trigger, you need a 
+[blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ## Add Dynamics 365 trigger
 
@@ -129,8 +128,8 @@ select **Account Name**.
 
    ![Specify filter and order](./media/connectors-create-api-crmonline/advanced-options.png)
 
-For more information, see these Dynamics 365 Customer Engagement 
-Web API Web API system query options: 
+For more information, see these Dynamics 365 
+Customer Engagement Web API system query options: 
 
 * [$filter](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#filter-results)
 * [$orderby](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#order-results)
@@ -152,9 +151,10 @@ the required data types for the values you specify.
 | Fields requiring both a record ID and lookup type | Primary key | Some fields that reference another entity record require both the record ID and the lookup type. | 
 ||||
 
-Expanding on these field types, here are example fields in Dynamics 365 triggers and 
-actions that conflict with values that you select from the dynamic content list. 
-Instead, these fields require both a record ID and the lookup type.
+Expanding on these field types, here are example fields in 
+Dynamics 365 triggers and actions that conflict with values 
+that you select from the dynamic content list. Instead, 
+these fields require both a record ID and the lookup type.
 
 | Field | Description | 
 |-------|-------------|
@@ -166,9 +166,9 @@ Instead, these fields require both a record ID and the lookup type.
 | **Customer Type** | Must be either **accounts** or **contacts**. | 
 |||
 
-Here is an example **Create a new record** action that creates a new task record: 
+In this example, the action named **Create a new record** creates a new task record: 
 
-![Create task record with record IDs and and lookup types](./media/connectors-create-api-crmonline/create-record-advanced.png)
+![Create task record with record IDs and lookup types](./media/connectors-create-api-crmonline/create-record-advanced.png)
 
 This action assigns the task record to a specific person or team, 
 based on the record ID in the **Owner** field and the lookup type 
