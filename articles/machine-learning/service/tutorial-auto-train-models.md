@@ -39,16 +39,17 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 
-1. An Azure Machine Learning Workspace and its accompanying  **aml_config\config.json** file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart.
+1. An Azure Machine Learning Workspace and its accompanying  **aml_config\config.json** file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart. 
 
-1. The following package dependencies (matplotlib, scikit-learn, and pandas) must also be installed in the conda environment in which you installed the Azure Machine Learning SDK.
-
+1. Follow the Jupyter notebook instructions in [Configure your development environment](how-to-configure-environment.md).  In step 4 the new packages you need are matplotlib, scikit-learn, and pandas:
    ```
    conda install -y matplotlib scikit-learn pandas
    ``` 
 
-> [!TIP]
-> (Optional) To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-auto-train) into the same directory as **aml_config**.  See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
+
+(Optional) Download [this tutorial as a notebook](https://aka.ms/aml-notebook-auto-train) into the same directory as **aml_config** and **utils.py**.  
+
+Or start your own notebook and copy the code from the sections below.
 
 
 ## Set up your development environment
