@@ -49,7 +49,7 @@ if accessKey.length != 32 then
 end
 ```
 
-## Create a request
+## Make a request
 
 This code constructs the Bing Web Search API endpoint from the `uri` and `path` variables, creates a request, and handles the response.
 

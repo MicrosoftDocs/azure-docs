@@ -42,7 +42,7 @@ Feel free to customize the search query by replacing the value for `search_term`
 search_term = "Azure Cognitive Services"
 ```
 
-## Create a request
+## Make a request
 
 This block uses the `requests` library to call the Bing Web Search API and return the results as a JSON object. The API key is passed in the `headers` dictionary, and the search term and query parameters are passed in the `params` dictionary. See [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) documentation for a complete list of options and parameters.
 
@@ -58,7 +58,7 @@ search_results = response.json()
 
 ## Format and display the response
 
-The `search_results` object includes the search results and metadata such as related queries and pages. This code uses the `IPython.display` library to format and display the response.
+The `search_results` object includes the search results and metadata such as related queries and pages. This code uses the `IPython.display` library to format and display the response in your browser.
 
 ```python
 from IPython.display import HTML
@@ -70,10 +70,6 @@ rows = "\n".join(["""<tr>
                   for v in search_results["webPages"]["value"]])
 HTML("<table>{0}</table>".format(rows))
 ```
-
-## Sample response  
-
-Responses from the Bing Web Search API are returned as JSON. This sample response has been formatted using the `IPython.display` library and displays the output in your browser.  
 
 ## Next steps
 

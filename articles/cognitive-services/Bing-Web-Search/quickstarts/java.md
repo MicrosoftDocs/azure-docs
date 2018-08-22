@@ -21,7 +21,6 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 * [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [gson library](https://github.com/google/gson)
-  *Can be run locally or through Maven*
 * Subscription key
 
 ## Create a project and import libraries
@@ -53,11 +52,11 @@ If you're using Maven, declare gson in the `POM.xml`. Skip this step if you've i
 
 ## Declare the BingWebSearch class
 
-Most of the code included in this quickstart will reside in the `BingWebSearch` class.
+Declare the `BingWebSearch` class. It will include most of the code we review in this quickstart including the `main` method.  
 
 ```java
 public class BingWebSearch {
-// The code in the following subsections will go here.
+// The code in the following subsections goes here.
 }
 ```
 
@@ -71,7 +70,7 @@ static String subscriptionKey = "enter key here";
 
 /*
  * If you encounter unexpected authorization errors, double-check this value
- * against the endpoint for your Bing Web search instance in your Azure 
+ * against the endpoint for your Bing Web search instance in your Azure
  * dashboard.
  */
 static String host = "https://api.cognitive.microsoft.com";
@@ -87,18 +86,18 @@ This method, which lives in the `BingWebSearch` class, constructs the `url`, rec
 public static SearchResults SearchWeb (String searchQuery) throws Exception {
     // Construct the URL.
     URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
-    
+
     // Open the connection.
     HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
     connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-    
+
     // Receive the JSON response body.
     InputStream stream = connection.getInputStream();
     String response = new Scanner(stream).useDelimiter("\\A").next();
-    
+
     // Construct the result object.
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-    
+
     // Extract Bing-related HTTP headers.
     Map<String, List<String>> headers = connection.getHeaderFields();
     for (String header : headers.keySet()) {
@@ -126,6 +125,8 @@ public static String prettify(String json_text) {
 ```
 
 ### Declare the main method
+
+The `main` method includes code that validates the `subscriptionKey`, makes a request, and prints the JSON response.
 
 ```java
 public static void main (String[] args) {
@@ -172,7 +173,7 @@ class SearchResults{
 
 The last step is to compile your code and run it! Here are the commands:
 
-```
+```powershell
 javac BingWebSearch.java -classpath ./gson-2.8.1.jar -encoding UTF-8
 java -cp ./gson-2.8.1.jar BingWebSearch
 ```

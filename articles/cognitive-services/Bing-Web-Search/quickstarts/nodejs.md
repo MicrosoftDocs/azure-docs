@@ -60,7 +60,7 @@ if (subscriptionKey.length === 32) {
 }
 ```
 
-## Create a response handler
+## Declare a response handler
 
 This code creates a handler to stringify and parse the response.
 
@@ -87,7 +87,7 @@ let response_handler = function (response) {
 };
 ```
 
-## Create a request
+## Make a request
 
 This code constructs the request, calls the Bing Web Search API, and prints the response.
 

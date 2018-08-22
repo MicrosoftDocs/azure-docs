@@ -42,7 +42,7 @@ import (
 
 ## Create a struct to format the response
 
-Use this struct to format the JSON response from the Bing Web Search API.
+Use this struct to format the JSON response.
 
 ```go
 // This struct formats the answers provided by the Bing Web Search API.
@@ -112,6 +112,10 @@ func main() {
     const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/search"
     token := "YOUR-ACCESS-KEY"
     searchTerm := "Microsoft Cognitive Services"
+
+// The remaining code in this quickstart goes in the main function.
+
+}
 ```
 
 ## Make a request
@@ -169,7 +173,7 @@ for _, result := range ans.WebPages.Value {
 
 ## Put it all together
 
-The last step is to validate your code and run it! Here's the complete program:
+The last step is to validate your code and run it! If you'd like to validate your code against ours, here's the complete program:
 
 ```go
 package main
