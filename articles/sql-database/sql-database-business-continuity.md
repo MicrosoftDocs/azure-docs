@@ -81,13 +81,6 @@ If the primary database goes offline unexpectedly or you need to take it offline
 > To use active geo-replication and auto-failover groups, you must either be the subscription owner or have administrative permissions in SQL Server. You can configure and fail over using the Azure portal, PowerShell, or the REST API using Azure subscription permissions or using Transact-SQL with SQL Server permissions.
 > 
 
-Use active geo-replication and auto-failover groups if your application meets any of these criteria:
-
-* Is mission critical.
-* Has a service level agreement (SLA) that does not allow for 24 hours or more of downtime.
-* Downtime may result in financial liability.
-* Has a high rate of data change is high and losing an hour of data is not acceptable.
-* The additional cost of active geo-replication is lower than the potential financial liability and associated loss of business.
 
 ## Recover a database to another region from an Azure regional data center outage
 <!-- Explain this scenario -->
@@ -101,6 +94,14 @@ In order to fail over to another region, you can use [active geo-replication](sq
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
+
+Use active geo-replication and auto-failover groups if your application meets any of these criteria:
+
+* Is mission critical.
+* Has a service level agreement (SLA) that does not allow for 24 hours or more of downtime.
+* Downtime may result in financial liability.
+* Has a high rate of data change is high and losing an hour of data is not acceptable.
+* The additional cost of active geo-replication is lower than the potential financial liability and associated loss of business.
 
 When you take action, how long it takes you to recover, and how much data loss you incur depends upon how you decide to use these business continuity features in your application. Indeed, you may choose to use a combination of database backups and active geo-replication depending upon your application requirements. For a discussion of application design considerations for stand-alone databases and for elastic pools using these business continuity features, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
