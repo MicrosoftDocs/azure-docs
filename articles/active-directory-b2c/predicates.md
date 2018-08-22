@@ -141,7 +141,7 @@ The **PredicateGroup** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| PredicateReferences | 1:n | A ist of  predicate references. | 
+| PredicateReferences | 1:n | A list of  predicate references. | 
 
 The **PredicateReferences** element contains the following attributes:
 
@@ -310,7 +310,7 @@ After you define the basic validations, you can combine them together and create
 </PredicateValidations>
 ```
 
-In your claim type, add the **PredicateValidationReference** element and specify the **Id** as one of the predicate validations, such as SimplePassword, StrongPassword, or CustomPassword.
+In your claim type, add the **PredicateValidationReference** element and specify the identifier as one of the predicate validations, such as SimplePassword, StrongPassword, or CustomPassword.
 
 ```XML
 <ClaimType Id="password">
@@ -325,7 +325,7 @@ In your claim type, add the **PredicateValidationReference** element and specify
 
 The following shows how the elements are organized when Azure AD B2C displays the error message:
 
-![Predicate process](predicates-pass.png)
+![Predicate process](./media/predicates/predicates-pass.png)
 
  ## Configure a date range
 
@@ -358,7 +358,7 @@ Add a **PredicateValidation** with a reference to the `DateRange` predicate.
 </PredicateValidations>
 ```
 
-In your claim type, add **PredicateValidationReference** element and specify the **Id** as `CustomDateRange`. 
+In your claim type, add **PredicateValidationReference** element and specify the identifier as `CustomDateRange`. 
     
 ```XML
 <ClaimType Id="dateOfBirth">
