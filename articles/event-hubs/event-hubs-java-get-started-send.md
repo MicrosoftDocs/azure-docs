@@ -8,7 +8,7 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 08/30/2018
 ms.author: shvija
 
 ---
