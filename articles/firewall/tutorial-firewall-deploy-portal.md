@@ -211,13 +211,8 @@ For the **Workload-SN** subnet, you configure the outbound default route to go t
 9. For **Target FQDNS**, type **github.com**
 10. Click **Add**.
 
-> [!NOTE]
-> Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. The allowed infrastructure FQDNs include:
->- Compute access to storage Platform Image Repository (PIR).
->- Managed disks status storage access.
->- Windows Diagnostics
->
-> You can override this build-in infrastructure rule collection by creating a *deny all* application rule collection which is processed last. It will always be processed before the infrastructure rule collection. Anything not in the infrastructure rule collection is denied by default.
+
+Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. For more information, see [Infrastructure FQDNs](infrastructure-fqdns.md).
 
 ## Configure network rules
 

@@ -19,6 +19,8 @@
   items:
     - name: FQDN tags
       href: fqdn-tags.md
+    - name: Infrastructure FQDNs
+      href: infrastructure-fqdns.md
     - name: Logs and metrics
       href: logs-and-metrics.md
 - name: How-to guides
