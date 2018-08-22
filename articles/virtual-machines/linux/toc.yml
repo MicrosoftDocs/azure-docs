@@ -122,8 +122,6 @@
     href: infrastructure-automation.md
   - name: Security and policy
     href: security-policy.md
-  - name: States and lifecycle
-    href: states-lifecycle.md
   - name: Monitoring
     href: monitor.md
   - name: Backup and recovery
@@ -284,10 +282,10 @@
       items:
       - name: Install and configure
         href: ansible-install-configure.md
-      - name: Create a basic VM
+      - name: Create a Linux VM
         href: ansible-create-vm.md
-      - name: Create a complete VM
-        href: ansible-create-complete-vm.md
+      - name: Manage a Linux VM
+        href: ansible-manage-linux-vm.md
     - name: Terraform
       items:
       - name: Install and configure
