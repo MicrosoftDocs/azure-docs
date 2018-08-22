@@ -29,7 +29,7 @@ The concepts listed in this section are also discussed in the following Microsof
 
 ## Application and service concepts
 
-**Application**: An application is a collection of constituent services that perform a certain function or functions. The lifecycle of each application instance can be managed independently.
+**Application**: An application is a collection of constituent services that perform a certain function or functions. The lifecycle of each application instance can be managed independently. Two different types of application: Service Fabric Mesh Applications and Service Fabric Native Applications.
 
 **Service**: A service performs a complete and standalone function and can start and run independently of other services. A service is composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at run time, and data consists of arbitrary static data to be consumed by the service.
 
@@ -37,14 +37,9 @@ The concepts listed in this section are also discussed in the following Microsof
 
 **Service Fabric Native Application**: Service Fabric Native Applications are described by the Native Application Model (XML-based application and service manifests).  Service Fabric Native Applications cannot run in Service Fabric Mesh.
 
-### Service Fabric Mesh Applications
+### Service Fabric Mesh Application concepts
 
-**Resources**: Resources are anything that can be deployed individually to Service Fabric, including applications, services, networks, and volumes. Resources are defined using the Azure Resource Model schema. Each resource is described declaratively in a resource file, which is a simple YAML or JSON document that describes the Mesh Application, and is provisioned by the Service Fabric platform. Currently, the following types of resources are supported:
-
-* Application
-* Service
-* Volume
-* Network
+**Resources**: Resources are anything that can be deployed individually to Service Fabric, including applications, services, networks, and volumes. Resources are defined using the Azure Resource Model schema. Each resource is described declaratively in a resource file, which is a simple YAML or JSON document that describes the Mesh Application, and is provisioned by the Service Fabric platform. 
 
 **Application resource**: An Application resource is the unit of deployment, versioning, and lifetime of a Mesh application. It is composed of one, or more, of Service resources that represent a microservice.
 
@@ -61,7 +56,7 @@ The concepts listed in this section are also discussed in the following Microsof
 
 All the code packages defined as part of a Service resource are deployed and activated together as a group. 
 
-### Service Fabric Native Applications
+### Service Fabric Native Application concepts
 
 **Application type**: The name/version assigned to a collection of service types. It is defined in an `ApplicationManifest.xml` file and embedded in an application package directory. The directory is then copied to the Service Fabric cluster's image store. You can then create a named application from this application type within the cluster.
 
@@ -130,11 +125,7 @@ Read the [Deploy an application](service-fabric-deploy-remove-applications.md) a
 To deploy your services, you need to describe how they should run. Service Fabric supports three different deployment models:
 
 ### Resource model (preview)
-Resources are anything that can be deployed individually to Service Fabric, including applications, services, networks, and volumes. Resources are defined using a YAML file or JSON file using the Azure Resource Model schema.
-
-The resource model is the simplest way to describe your Service Fabric applications. Its main focus is on simple deployment and management of containerized services.
-
-Resources can be deployed anywhere Service Fabric runs.
+Resources are anything that can be deployed individually to Service Fabric, including applications, services, networks, and volumes. Resources are defined using a YAML file or JSON file using the Azure Resource Model schema. Resources can be deployed anywhere Service Fabric runs. The resource model is the simplest way to describe your Service Fabric applications. Its main focus is on simple deployment and management of containerized services. To learn more, read [Introduction to the Service Fabric Resource Model](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources).
 
 ### Native model
 The native application model provides your applications with full low-level access to Service Fabric. Applications and services are defined as registered types in XML manifest files.
