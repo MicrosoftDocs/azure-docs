@@ -78,7 +78,8 @@ The durability tier is used to indicate to the system the privileges that your V
 
 > [!WARNING]
 > Node types running with Bronze durability obtain _no privileges_. This means that infrastructure jobs that impact your stateless workloads will not be stopped or delayed, which might impact your workloads. Use only Bronze for node types that run only stateless workloads. For production workloads, running Silver or above is recommended. 
->
+
+> Regardless of any durability level, [Deallocation](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/deallocate) operation on VM Scale Set will destroy the cluster
 
 **Advantages of using Silver or Gold durability levels**
  
