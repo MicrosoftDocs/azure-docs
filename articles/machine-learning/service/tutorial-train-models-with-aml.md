@@ -37,15 +37,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-1. The following resources and assets must be available:
-   - [Python 3.5 or higher](https://www.python.org/) installed
-   - A package manager, such as [Continuum Anaconda](https://anaconda.org/anaconda/continuum-docs) or [Miniconda](https://conda.io/miniconda.html), installed
-   - The Azure Machine Learning SDK for Python installed
-   - An Azure Machine Learning workspace.  
-   - A `config.json` file, that specifies Azure subscription information for the workspace. This file is located in a directory named `aml_config`.  
-
-   If these are not yet created or installed, follow the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) article.
-
+1. A workspace and an accompanying `aml_config\config.json` file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md).
 1. The following package dependencies (matplotlib and scikit-learn) must also be installed in the conda environment in which you installed the Azure Machine Learning SDK.
 
    ```
