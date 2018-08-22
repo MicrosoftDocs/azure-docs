@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/20/2018
+ms.date: 08/22/2018
 ms.author: ryanwi
 
 ---
@@ -29,7 +29,7 @@ The concepts listed in this section are also discussed in the following Microsof
 
 ## Application and service concepts
 
-**Application**: An application is a collection of constituent services that perform a certain function or functions. The lifecycle of each application instance can be managed independently. Two different types of application: Service Fabric Mesh Applications and Service Fabric Native Applications.
+**Application**: An application is a collection of constituent services that perform a certain function or functions. The lifecycle of each application instance can be managed independently. Two different types of application run on Service Fabric: Service Fabric Mesh Applications and Service Fabric Native Applications.
 
 **Service**: A service performs a complete and standalone function and can start and run independently of other services. A service is composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at run time, and data consists of arbitrary static data to be consumed by the service.
 
