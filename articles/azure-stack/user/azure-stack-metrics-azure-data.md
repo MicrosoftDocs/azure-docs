@@ -24,9 +24,9 @@ Applies to: Azure Stack integrated systems and Azure Stack Development Kit.
 This article provides an overview of the Azure Monitor service in Azure Stack. It discusses what Azure Monitor does and provides pointers to additional information on how to use Azure Monitor on Azure Stack. 
 
 > [!Note]  
-Metrics and Diagnostic logs are not available for development kit
+Metrics and Diagnostic logs are not available for Azure Stack Development Kit.
 
-## Prerequisite
+## Prerequisites
 
 You should register **Microsoft.insights** providers on your subscription's offer resource providers settings. `Is there any existing guides on how Azure user should perform this kind of the ops?`
 
@@ -55,11 +55,11 @@ Applications can run on top of the Guest OS in the compute model. They emit thei
  - Customer Error Logs
 
 > [!Note]  
-> Linux Diagnostics extension on Azure Stack is not yet supported (TBD)
+> Linux Diagnostics extension on Azure Stack are not supported.
 
 ### Host and Guest VM metrics
 
-The previously listed compute resources have a dedicated host VM and guest OS they interact with. The host VM and guest OS are the equivalent of root VM and guest VM in the Hyper-V hypervisor model. You can collect metrics on both. You can also collect diagnostics logs on the guest OS. (Vita: although we can have guest Agent to collect metrics/logs, Azure will do differently, they will VM guest metrics into MDM and OBO) A list of collectable metrics for Host and Guest VM metrics on Azure Stack are available at supported metrics(TBA: [Supported metrics with Azure Monitor on Azure Stack](azure-stack-metrics-supported.md)). 
+The previously listed compute resources have a dedicated host VM and guest OS they interact with. The host VM and guest OS are the equivalent of root VM and guest VM in the Hyper-V hypervisor model. You can collect metrics on both. You can also collect diagnostics logs on the guest OS. (Vita: although we can have guest Agent to collect metrics/logs, Azure will do differently, they will VM guest metrics into MDM and OBO) A list of collectable metrics for Host and Guest VM metrics on Azure Stack are available at supported metrics (TBA: [Supported metrics with Azure Monitor on Azure Stack](azure-stack-metrics-supported.md)). 
 
 ### Activity log
 
@@ -86,6 +86,7 @@ Some monitoring data is already stored and available in Azure Monitor for a set 
 Archive the data to storage account longer (Vita: shorter is not supported neither) than the time period listed above is not support yet on Azure Stack. 
 
 **Query**
+
 You can use the Azure Monitor REST API, cross platform Command-Line Interface (CLI) commands, PowerShell cmdlets, or the .NET SDK to access the data in the system or Azure storage. 
 
 **Virtualize**
@@ -100,6 +101,7 @@ A few visualization methods include:
 ## Methods of accessing Azure monitor on Azure Stack
 
 In general, you can manipulate data tracking, routing, and retrieval using one of the following methods. Not all methods are available for all actions or data types.
+
  - [Azure Stack Portal](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-use-portal)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [Cross-platform Command Line Interface(CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
@@ -108,6 +110,4 @@ In general, you can manipulate data tracking, routing, and retrieval using one o
 
 ## Next steps
 
-Learn more about 
- - Options of the monitoring data consumption on Azure Stack
- - [Consume monitoring data from Azure Stack](azure-stack-metrics-monitor.md)
+Learn more about the options of the monitoring data consumption on Azure Stack in the article [Consume monitoring data from Azure Stack](azure-stack-metrics-monitor.md).

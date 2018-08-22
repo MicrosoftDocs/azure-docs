@@ -18,15 +18,19 @@ ms.author: mabrigg
 ---
 
 # Supported metrics with Azure Monitor on Azure Stack
-To be consistent with Azure, Azure monitor on Azure Stack provides same ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. 
-Below is a list of the all metrics currently available with Azure Monitor's metric pipeline on Azure Stack, it only includes metrics available using the consolidated Azure Monitor metric pipeline. To query for and access these metrics please use the 2018-01-01 api-version. 
 
-##Microsoft.Compute/virtualMachines
+You can retrieve your metrics from Azure monitor on Azure Stack in the same as global Azure. You can your measures in the portal, get them from the REST API, or query them with PowerShell or CLI.
+
+The following tables list the metrics  available with Azure Monitor's metric pipeline on Azure Stack. To query and access these metrics, you will need to the **2018-01-01** api-version version of the API profile. For more information about API profiles and Azure Stack, see [Manage API version profiles in Azure Stack](azure-stack-version-profiles.md).
+
+## Microsoft.Compute/virtualMachines
+
 | Metric | Metric Display Name | Unit | Aggregation Type | Description | Dimensions |
 |----------------|---------------------|---------|------------------|-----------------------------------------------------------------------------------------------|---------------|
 | Percentage CPU | Percentage CPU | Percent | Average | The percentage of allocated compute units that are currently in use by the Virtual Machine(s) | No Dimensions |
 
 ## Microsoft.Storage/storageAccounts
+
 | Metric | Metric Display Name | Unit | Aggregation Type | Description | Dimensions |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | UsedCapacity | Used capacity | Bytes | Average | Account used capacity | No Dimensions |
@@ -38,6 +42,7 @@ Below is a list of the all metrics currently available with Azure Monitor's metr
 | Availability | Availability | Percent | Average | The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the TotalBillableRequests value and dividing it by the number of applicable requests, including those that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation. | GeoType, ApiName |
 
 ## Microsoft.Storage/storageAccounts/blobServices
+
 | Metric | Metric Display Name | Unit | Aggregation Type | Description | Dimensions |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | BlobCapacity | Blob Capacity | Bytes | Total | The amount of storage used by the storage account’s Blob service in bytes. | BlobType |
@@ -51,6 +56,7 @@ Below is a list of the all metrics currently available with Azure Monitor's metr
 | Availability | Availability | Percent | Average | The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the TotalBillableRequests value and dividing it by the number of applicable requests, including those that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation. | GeoType, ApiName |
 
 ## Microsoft.Storage/storageAccounts/tableServices
+
 | Metric | Metric Display Name | Unit | Aggregation Type | Description | Dimensions |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | TableCapacity | Table Capacity | Bytes | Average | The amount of storage used by the storage account’s Table service in bytes. | No Dimensions |
@@ -64,6 +70,7 @@ Below is a list of the all metrics currently available with Azure Monitor's metr
 | Availability | Availability | Percent | Average | The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the TotalBillableRequests value and dividing it by the number of applicable requests, including those that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation. | GeoType, ApiName |
 
 ## Microsoft.Storage/storageAccounts/queueServices
+
 | Metric | Metric Display Name | Unit | Aggregation Type | Description | Dimensions |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | QueueCapacity | Queue Capacity | Bytes | Average | The amount of storage used by the storage account’s Queue service in bytes. | No Dimensions |
@@ -77,3 +84,5 @@ Below is a list of the all metrics currently available with Azure Monitor's metr
 | Availability | Availability | Percent | Average | The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the TotalBillableRequests value and dividing it by the number of applicable requests, including those that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation. | GeoType, ApiName |
 
 ## Next steps
+
+Learn more about [Azure monitor on Azure Stack](azure-stack-metrics-azure-data.md).

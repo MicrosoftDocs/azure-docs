@@ -1,6 +1,6 @@
 ---
-title: Title | Microsoft Docs
-description: description
+title: Consume monitoring data from Azure Stack | Microsoft Docs
+description: Learn about options to consume monitoring data from Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -19,21 +19,19 @@ ms.author: mabrigg
 
 # Consume monitoring data from Azure Stack
 
-This is about how to consume data from Azure Stack.
+You can find monitoring data in a single place with the Azure Monitor pipeline, just like Azure Monitor in global Azure. But not all of the monitoring data found in global Azure is available in Azure Stack. In this article, you can find a summary of the various ways that you can programmatically ingest monitoring data from the service.
  
-Across the Azure Stack platform, we bring together monitoring data in a single place with the Azure Monitor pipeline, just like what Azure Monitor did on Azure. But practically acknowledge that today not all monitoring data is available in that pipeline yet. In this article, we will summarize the various ways you can programmatically access monitoring data from Azure service. 
- 
-## Options for data consumption 
+## Options for data consumption
 
-| Data type | Category | Supported Services | Methods of Access |
+| Data type | Category | Supported services | Methods of access |
 |-------------------------------------------------------------|----------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| Azure Monitor platform-level metrics | Metrics | See the list here: Supported metrics with Azure Monitor on Azure Stack | REST API: <br>Storage blob or event hub: not supported yet. |
-| Compute guest OS metrics(eg. Perf count) | Metrics | Windows and Linux Virtual Machines | Storage table or blob: Windows or Linux Azure Diagnostics <br>Event Hub: Windows Azure Diagnostics |
-| Storage metrics | Metrics | Azure Storage | Storage table: Storage Analytics |
-| Activity log | Events | All Azure Services | REST API: Azure Monitor Event API <br>Storage blob or Event Hub: not supported yet. |
-| Compute guest OS logs(eg. IIS, ETW, syslogs) | Events | Windows and Linux Virtual Machines | Storage table or blob: Windows or Linux Azure Diagnostics <br>Event Hub: Windows Azure Diagnostics |
-| App service logs - TBD |  |  |  |
-| Storage logs | Events | Azure Storage | Storage table: Storage Analytics |
-|  |  |  | (Vita: how about hybrid OMS/AppInsights, shall we mention?) |
+| Azure Monitor platform-level metrics | Metrics | [Supported metrics with Azure Monitor on Azure Stack](azure-stack-metrics-supported.md) | REST API |
+| Compute guest OS metrics (for example, Perf count) | Metrics | Windows and Linux Virtual Machines | Storage table or blob:<br>Windows or Linux Azure Diagnostics <br>Event Hub:<br>Windows Azure Diagnostics |
+| Storage metrics | Metrics | Azure Storage | Storage table:<br>Storage Analytics |
+| Activity log | Events | All Azure Services | REST API:<br>Azure Monitor Event API |
+| Compute guest OS logs (for example,  IIS, ETW, syslogs) | Events | Windows and Linux Virtual Machines | Storage table or blob:<br>Windows or Linux Azure Diagnostics <br>Event Hub:<br>Windows Azure Diagnostics |
+| Storage logs | Events | Azure Storage | Storage table:<br>Storage Analytics<br>`Vita: how about hybrid OMS/AppInsights, shall we mention?` |
 
 ## Next steps
+
+Learn more about [Azure monitor on Azure Stack](azure-stack-metrics-azure-data.md).

@@ -101,9 +101,9 @@
       href: azure-stack-metrics-monitor.md
       items: 
       - name: Supported metrics
-        href: azure-stack-metrics-supported.md
-      - name: Consume Azure monitoring data
         href: azure-stack-metrics-azure-data.md
+      - name: Consume Azure monitoring data
+        href: azure-stack-metrics-monitor.md
     - name: Solution templates
       items:
       - name: Deploy a Service Fabric cluster
