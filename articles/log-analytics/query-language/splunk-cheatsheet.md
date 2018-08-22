@@ -74,8 +74,8 @@ In Splunk, you can omit the `search` keyword and specify an unquoted string. In 
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **search** | `search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h` |
-| Log Analytics | **find** | `find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)` |
+| Splunk | **search** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
+| Log Analytics | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 | | |
 
 ### Filter
@@ -83,8 +83,8 @@ Azure Log Analytics queries start from a tabular result set where the filter. In
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **search** | `Event.Rule="330009.2" Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" _indextime>-24h` |
-| Log Analytics | **where** | `Office_Hub_OHubBGTaskError`<br>&#124; `where Session_Id == "c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time() > ago(24h)` |
+| Splunk | **search** | <code>Event.Rule="330009.2" Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" _indextime>-24h</code> |
+| Log Analytics | **where** | <code>Office_Hub_OHubBGTaskError<br>&#124; where Session_Id == "c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time() > ago(24h)</code> |
 | | |
 
 
@@ -93,8 +93,8 @@ Azure Log Analytics also supports `take` as an alias to `limit`. In Splunk, if t
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **head** | `Event.Rule=330009.2`<br>&#124; `head 100` |
-| Log Analytics | **limit** | `Office_Hub_OHubBGTaskError`<br>&#124; `limit 100` |
+| Splunk | **head** | <code>Event.Rule=330009.2<br>&#124; head 100<code> |
+| Log Analytics | **limit** | <code>Office_Hub_OHubBGTaskError<br>&#124; limit 100</code> |
 | | |
 
 
@@ -104,8 +104,8 @@ For bottom results, in Splunk you use `tail`. In Azure Log Analytics you can spe
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **head** |  `Event.Rule="330009.2"`<br>&#124; `sort Event.Sequence`<br>&#124; `head 20` |
-| Log Analytics | **top** | `Office_Hub_OHubBGTaskError`<br>&#124; `top 20 by Event_Sequence` |
+| Splunk | **head** |  <code>Event.Rule="330009.2"`<br>&#124; `sort Event.Sequence<br>&#124; head 20</code> |
+| Log Analytics | **top** | <code>Office_Hub_OHubBGTaskError<br>&#124; top 20 by Event_Sequence</code> |
 | | |
 
 
@@ -116,8 +116,8 @@ Splunk also has an `eval` function, which is not to be comparable with the `eval
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **eval** |  `Event.Rule=330009.2`<br>&#124; `eval state= if(Data.Exception = "0", "success", "error")` |
-| Log Analytics | **extend** | `Office_Hub_OHubBGTaskError`<br>&#124; `extend state = iif(Data_Exception == 0,"success" ,"error")` |
+| Splunk | **eval** |  <code>Event.Rule=330009.2<br>&#124; eval state= if(Data.Exception = "0", "success", "error")</code> |
+| Log Analytics | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend state = iif(Data_Exception == 0,"success" ,"error")</code> |
 | | |
 
 
@@ -126,8 +126,8 @@ Azure Log Analytics uses the same operator to rename and to create a new field. 
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **rename** |  `Event.Rule=330009.2`<br>&#124; `rename Date.Exception as execption` |
-| Log Analytics | **extend** | `Office_Hub_OHubBGTaskError`<br>&#124; `extend execption = Date_Exception` |
+| Splunk | **rename** |  <code>Event.Rule=330009.2<br>&#124; rename Date.Exception as execption</code> |
+| Log Analytics | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend execption = Date_Exception</code> |
 | | |
 
 
@@ -138,8 +138,8 @@ Splunk does not seem to have an operator similar to `project-away`. You can use 
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **table** |  `Event.Rule=330009.2`<br>&#124; `table rule, state` |
-| Log Analytics | **project**<br>**project-away** | `Office_Hub_OHubBGTaskError`<br>&#124; `project exception, state` |
+| Splunk | **table** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
+| Log Analytics | **project**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 | | |
 
 
@@ -149,8 +149,8 @@ See the [Aggregations in Log Analytics queries](aggregations.md) for the differe
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **stats** |  `search (Rule=120502.*)`<br>&#124; `stats count by OSEnv, Audience` |
-| Log Analytics | **summarize** | `Office_Hub_OHubBGTaskError`<br>&#124; `summarize count() by App_Platform, Release_Audience` |
+| Splunk | **stats** |  <code>search (Rule=120502.*)<br>&#124; stats count by OSEnv, Audience</code> |
+| Log Analytics | **summarize** | <code>Office_Hub_OHubBGTaskError<br>&#124; summarize count() by App_Platform, Release_Audience</code> |
 | | |
 
 
@@ -160,8 +160,8 @@ Join in Splunk has significant limitations. The subquery has a limit of 10000 re
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **join** |  `Event.Rule=120103* | stats by Client.Id, Data.Alias | join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]` |
-| Log Analytics | **join** | `cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions`<br>&#124; `where  Data_Hresult== -2147221040`<br>&#124; `join kind = inner (Office_System_SystemHealthMetadata`<br>&#124; `summarize by Client_Id, Data_Alias)on Client_Id`   |
+| Splunk | **join** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias | join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
+| Log Analytics | **join** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
 | | |
 
 
@@ -171,8 +171,8 @@ In Splunk, to sort in ascending order you must use the `reverse` operator. Azure
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **sort** |  `Event.Rule=120103`<br>&#124; `sort Data.Hresult`<br>&#124; `reverse` |
-| Log Analytics | **order by** | `Office_Hub_OHubBGTaskError`<br>&#124; `order by Data_Hresult,  desc` |
+| Splunk | **sort** |  <code>Event.Rule=120103<br>&#124; sort Data.Hresult<br>&#124; reverse</code> |
+| Log Analytics | **order by** | <code>Office_Hub_OHubBGTaskError<br>&#124; order by Data_Hresult,  desc</code> |
 | | |
 
 
@@ -194,8 +194,8 @@ In the Log Analytics portal, only the first column is exposed. All columns are a
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **fields** |  `Event.Rule=330009.2`<br>&#124; `fields App.Version, App.Platform` |
-| Log Analytics | **facets** | `Office_Excel_BI_PivotTableCreate`<br>&#124; `facet by App_Branch, App_Version` |
+| Splunk | **fields** |  <code>Event.Rule=330009.2<br>&#124; fields App.Version, App.Platform</code> |
+| Log Analytics | **facets** | <code>Office_Excel_BI_PivotTableCreate<br>&#124; facet by App_Branch, App_Version</code> |
 | | |
 
 
@@ -206,8 +206,8 @@ You can use `summarize arg_min()` instead to reverse the order of which record g
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **dedup** |  `Event.Rule=330009.2`<br>&#124; `dedup device_id sortby -batterylife` |
-| Log Analytics | **summarize arg_max()** | `Office_Excel_BI_PivotTableCreate`<br>&#124; `summarize arg_max(batterylife, *) by device_id` |
+| Splunk | **dedup** |  <code>Event.Rule=330009.2<br>&#124; dedup device_id sortby -batterylife</code> |
+| Log Analytics | **summarize arg_max()** | <code>Office_Excel_BI_PivotTableCreate<br>&#124; summarize arg_max(batterylife, *) by device_id</code> |
 | | |
 
 
