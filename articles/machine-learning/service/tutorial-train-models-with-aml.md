@@ -37,17 +37,17 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-1. A workspace and an accompanying `aml_config\config.json` file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md).
+1. An Azure Machine Learning Workspace and its accompanying  **aml_config\config.json** file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart.
 1. The following package dependencies (matplotlib and scikit-learn) must also be installed in the conda environment in which you installed the Azure Machine Learning SDK.
 
    ```
    conda install -y matplotlib scikit-learn
    ``` 
 
-1. The file [utils.py](https://aka.ms/aml-file-utils-py) downloaded into the same directory as `aml_config`.
+1. The file [utils.py](https://aka.ms/aml-file-utils-py) downloaded into the same directory as **aml_config**.
 
 > [!TIP]
-> (Optional) To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-train) into the same directory as `aml_config` and `utils.py`. See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
+> (Optional) To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-train) into the same directory as **aml_config** and **utils.py**. See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
 
 ## Set up your development environment
 
@@ -77,7 +77,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### Load workspace
 
-Create a workspace object from the existing workspace. When the workspace was created, you saved a file into `aml_config\config.json`. `Workspace.from_config()` reads this file and load the workspace into an object named `ws`.  You'll use `ws` throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **aml_config\config.json** and load the details into an object named `ws`.  You'll use `ws` throughout the rest of the code in this tutorial.
 
 ```python
 ws = Workspace.from_config()
