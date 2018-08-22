@@ -14,7 +14,7 @@ manager: femila
 
 # Prepare for extension host for Azure Stack
 
-You can use the extension host to help secure Azure Stack by reducing the number of required TCP/IP ports. This article looks at preparing Azure Stack for the extension host, which is automatically enabled through an Azure Stack Update package post 1808.
+You can use the extension host to help secure Azure Stack by reducing the number of required TCP/IP ports. This article looks at preparing Azure Stack for the extension host, which is automatically enabled through an Azure Stack Update package after the 1808 update.
 
 ## Certificate requirements
 
@@ -108,26 +108,26 @@ Use a computer that can connect to the Azure Stack privileged endpoint for the n
 
 ### Update DNS configuration
 
-> Note  
+> [!Note]  
 > This step is not required if you used DNS Zone delegation for DNS Integration.
 If individual host A records have been configured to publish Azure Stack endpoints, you need to create two additional host A records:
 
 | IP | Hostname | Type |
 |----|------------------------------|------|
-|  | Adminhosting.<Region>.<FQDN> | A |
-|  | Hosting.<Region>.<FQDN> | A |
+| \<IP> | Adminhosting.<Region>.<FQDN> | A |
+| \<IP> | Hosting.<Region>.<FQDN> | A |
 
 Allocated IPs can be retrieved using privileged endpoint by running the cmdlet **Get-AzureStackStampInformation**.
 
 ### Ports and protocols
 
-The following article covers the ports and protocols that require inbound communication to publish Azure Stack prior to extension host rollout.
+The article, [Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md), covers the ports and protocols that require inbound communication to publish Azure Stack before the extension host rollout.
 
 ### Publish new endpoints
 
 There are two new endpoints required to be published through your firewall. The allocated IPs from the public VIP pool can be retrieved using the cmdlet **Get-AzureStackStampInformation**.
 
-> Note  
+> [!Note]  
 > Make this change before enabling the extension host. This allows the Azure Stack portals to be continuously accessible.
 
 | Endpoint (VIP) | Protocol | Ports |
@@ -138,7 +138,7 @@ There are two new endpoints required to be published through your firewall. The 
 ### Update existing publishing Rules (Post enablement of extension host)
 
 > [!Note]  
-> The 1808 Azure Stack Update Package does **not** enable extension host yet. It allows to prepare for extension host by importing the required certificates. Do not close any ports before extension host was enabled by a future Azure Stack update package. `how can this be phrased so not to contain future functionality?`
+> The 1808 Azure Stack Update Package does **not** enable extension host yet. It allows to prepare for extension host by importing the required certificates. Do not close any ports before extension host is automatically enabled through an Azure Stack Update package after the 1808 update.
 
 The following existing endpoint ports must be closed in your existing firewall rules.
 
