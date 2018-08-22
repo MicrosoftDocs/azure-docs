@@ -202,22 +202,21 @@ To find a record ID, follow these steps:
 To find and review failed steps in your logic app, 
 you can view your logic app's status and run details.
 
-1. In the Azure portal, on your logic app's main menu, 
-select **Overview**. 
+1. In the Azure portal, on your logic app's main menu, select **Overview**. 
+The **Runs history** section shows all the run statuses for your logic app. 
 
-   The **Runs history** section shows all the run statuses for your logic app. 
+   To view more information about a failed run, select that run.
 
-   ![Logic app run status](./media/connectors-create-api-crmonline/tshoot1.png)
+   ![Logic app run status](./media/connectors-create-api-crmonline/run-history.png)
 
-2. To view more information about any failed runs, 
-choose the failed run event. 
-To expand a failed step, click that step.
+1. Expand a failed step so you can view more details. 
 
-   ![Expand failed step](./media/connectors-create-api-crmonline/tshoot2.png)
+   ![Expand failed step](./media/connectors-create-api-crmonline/expand-failed-step.png)
 
-   The step details appear and can help troubleshoot the cause of the failure.
+1. Review the step's details, including the inputs and outputs, 
+which can help you find the cause behind the failure.
 
-   ![Failed step details](./media/connectors-create-api-crmonline/tshoot3.png)
+   ![Failed step - inputs and outputs](./media/connectors-create-api-crmonline/expand-failed-step-inputs-outputs.png)
 
 For more information about troubleshooting logic apps, see 
 [Diagnosing logic app failures](../logic-apps/logic-apps-diagnosing-failures.md).
