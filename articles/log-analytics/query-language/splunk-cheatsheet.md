@@ -93,7 +93,7 @@ Azure Log Analytics also supports `take` as an alias to `limit`. In Splunk, if t
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **head** | <code>Event.Rule=330009.2<br>&#124; head 100<code> |
+| Splunk | **head** | <code>Event.Rule=330009.2<br>&#124; head 100</code> |
 | Log Analytics | **limit** | <code>Office_Hub_OHubBGTaskError<br>&#124; limit 100</code> |
 | | |
 
@@ -127,7 +127,7 @@ Azure Log Analytics uses the same operator to rename and to create a new field. 
 | |  | |
 |:---|:---|:---|
 | Splunk | **rename** |  <code>Event.Rule=330009.2<br>&#124; rename Date.Exception as execption</code> |
-| Log Analytics | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend execption = Date_Exception</code> |
+| Log Analytics | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend exception = Date_Exception</code> |
 | | |
 
 
