@@ -16,7 +16,7 @@ Use this quickstart to make your first call to the Bing Image Search API and rec
 
 While this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
 
-The source code for this C# sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7.cs) with additional error handling, and code annotations.
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7.cs) with additional error handling, and code annotations.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ This application uses only .NET Core classes and runs on Windows using the .NET 
     using System.Collections.Generic;
     ```
 
-2. Define the API endpoint, your subscription key, and search term.
+2. Create variables for the API endpoint, your subscription key, and search term.
 
     ```csharp
     //...
@@ -89,7 +89,7 @@ namespace BingSearchApisQuickstart
 
 In the `BingImageSearch` method, perform the following steps.
 
-1. Construct the URI for the search request.
+1. Construct the URI for the search request. Note that `searchQuery` must be formatted before being appended to the string. 
 
     ```csharp
     static SearchResult BingImageSearch(string searchQuery)

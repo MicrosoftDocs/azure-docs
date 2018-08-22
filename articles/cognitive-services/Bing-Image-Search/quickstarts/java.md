@@ -12,11 +12,11 @@ ms.author: aahi
 ---
 # Quickstart: Send search queries using the REST API and Java
 
-Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. The simple application in this article sends a search query and displays the raw results.
+Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Java application sends a search query to the API and displays the raw results.
 
-While this application is written in Java, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON.
+While this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
 
-The source code for this Java sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7.java).
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7.java) with additional error handling, and code annotations.
 
 ## Prerequisites
 
@@ -28,9 +28,7 @@ The source code for this Java sample is available [on GitHub](https://github.com
 
 ## Create and initialize a project
 
-To run this application, follow these steps.
-
-1. Create a new Java project in your favorite IDE or editor. Then import the following libraries into the project
+1. Create a new Java project in your favorite IDE or editor, and import the following libraries.
 
     ```java
     import java.net.*;
@@ -43,7 +41,7 @@ To run this application, follow these steps.
     import com.google.gson.JsonParser;
     ```
 
-2. Set the API endpoint, your subscription key, and search term.
+2. Create variables for the API endpoint, your subscription key, and search term.
 
     ```java
     static String subscriptionKey = "enter key here";
@@ -54,10 +52,10 @@ To run this application, follow these steps.
 
 ## Construct the search request and query
 
-Use the information from the last step to format a search URL for the API request. Note that your search term must be URL-encoded before being appended to the request.
+Use the variables from the last step to format a search URL for the API request. Note that your search term must be URL-encoded before being appended to the request.
 
 ```java
-// construct URL of search request (endpoint + query string)
+// construct the search request URL (in the form of endpoint + query string)
 URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
 HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
 connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);

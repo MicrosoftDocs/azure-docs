@@ -13,88 +13,90 @@ ms.author: aahi
 
 # Quickstart: Send search queries using the REST API and Node.js
 
-Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. The simple application in this article sends a search query and displays the raw results.
+Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple JavaScript application sends a search query to the API and displays the raw results.
 
-While this application is written in JavaScript and runs in Node.js, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON.
+While this application is written in JavaScript and runs in Node.js, the API is a RESTful Web service compatible most programming languages.
+
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7.js) with additional error handling, and code annotations.
 
 ## Prerequisites
 
-* the latest version of [Node.js](https://nodejs.org/en/download/).
+* The latest version of [Node.js](https://nodejs.org/en/download/).
 
+* The [JavaScript Request Library]
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## Running the application
+## Create and initialize the application
 
-To run this application, follow these steps.
+1. Create a new JavaScript file in your favorite IDE or editor, and set the strictness and https requirements.
 
-1. Create a new Node.js project in your favorite IDE or editor.
-2. Copy and paste the provided code into a new JavaScript file.
-3. Replace `subscriptionKey` with a valid subscription key.
-4. Run the program.
+    ```javascript
+    'use strict';
+    let https = require('https');
+    ```
 
-```javascript
-'use strict';
+2. Create variables for the API endpoint, image API search path, your subscription key, and search term.
+    ```javascript
+    let subscriptionKey = 'enter key here';
+    let host = 'api.cognitive.microsoft.com';
+    let path = '/bing/v7.0/images/search';
+    let term = 'puppies';
+    ```
 
-let https = require('https');
+## Construct the search request and query.
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+1. Use the variables from the last step to format a search URL for the API request. Note that your search term must be URL-encoded before being sent to the API.
 
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'enter key here';
+    ```javascript
+    let request_params = {
+        method : 'GET',
+        hostname : host,
+        path : path + '?q=' + encodeURIComponent(search),
+        headers : {
+        'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
+    ```
 
-// Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-// search APIs.  In the future, regional endpoints may be available.  If you
-// encounter unexpected authorization errors, double-check this host against
-// the endpoint for your Bing Search instance in your Azure dashboard.
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/images/search';
+2. Use the request library to send your query to the API. `response_handler` will be defined in the next section.
+    ```javascript
+    let req = https.request(request_params, response_handler);
+    req.end();
+    ```
 
-let term = 'puppies';
+## Handle and parse the response
 
-let response_handler = function (response) {
-    let body = '';
-    response.on('data', function (d) {
-        body += d;
-    });
-    response.on('end', function () {
-        console.log('\nRelevant Headers:\n');
-        for (var header in response.headers)
-            // header keys are lower-cased by Node.js
-            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                 console.log(header + ": " + response.headers[header]);
-        body = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log('\nJSON Response:\n');
-        console.log(body);
-    });
-    response.on('error', function (e) {
-        console.log('Error: ' + e.message);
-    });
-};
+1. define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. within this function, perform the following steps:
+    
+    1. Define a variable to contain the body of the JSON response.  
+        ```javascript
+        let response_handler = function (response) {
+            let body = '';
+        };
+        ```
 
-let bing_image_search = function (search) {
-  console.log('Searching images for: ' + term);
-  let request_params = {
-		method : 'GET',
-		hostname : host,
-		path : path + '?q=' + encodeURIComponent(search),
-		headers : {
-			'Ocp-Apim-Subscription-Key' : subscriptionKey,
-		}
-	};
+    2. Store the body of the response when the **data** flag is called 
+        ```javascript
+        response.on('data', function (d) {
+            body += d;
+        });
+        ```
 
-	let req = https.request(request_params, response_handler);
-	req.end();
-}
-
-if (subscriptionKey.length === 32) {
-    bing_image_search(term);
-} else {
-    console.log('Invalid Bing Search API subscription key!');
-    console.log('Please paste yours into the source code.');
-}
-```
+    3. When an **end** flag is signalled, the JSON can be processed, and both the headers and JSON body can be displayed.
+    
+        ```javascript
+        response.on('end', function () {
+            console.log('\nRelevant Headers:\n');
+            // display headers
+            for (var header in response.headers)
+                // note: header keys are lower-cased by Node.js
+                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                     console.log(header + ": " + response.headers[header]);
+            body = JSON.stringify(JSON.parse(body), null, '  ');
+            console.log('\nJSON Response:\n');
+            console.log(body);
+         });
+        ```
 
 ## JSON response
 

@@ -12,24 +12,24 @@ ms.author: aahi
 
 # Quickstart: Send search queries using the REST API and Python
 
-Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. The application in this article sends a search query, and displayed the returned images.
+Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Python application sends a search query to the API and displays the raw results.
 
-While this application is written in Python, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON.
+While this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
 You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
 
 
-The source code for this Python sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py).
+Additionally, the source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py).
 
 ## Prerequisites
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Running the walkthrough
-To continue with the walkthrough, set `subscription_key` to your API key for the Bing API service.
 
+To get started, set `subscription_key` to a valid subscription key for the Bing API service.
 
 ```python
 subscription_key = None
@@ -70,7 +70,7 @@ The `search_results` object contains the actual images along with rich metadata 
 thumbnail_urls = [img["thumbnailUrl"] for img in search_results["value"][:16]]
 ```
 
-Then, we can use the `PIL` library to download the thumbnail images and the `matplotlib` library to render them on a $4 \times 4$ grid.
+Then use the `PIL` library to download the thumbnail images and the `matplotlib` library to render them on a $4 \times 4$ grid.
 
 
 ```python
