@@ -40,7 +40,7 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2437250  | IS  ASDK --> **Managed Disks are supported.** You can now use Managed Disks in Azure Stack virtual machines and virtual machine scale sets. For more information, see [Azure Stack Managed Disks: Differences and considerations](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
 
-- <!-- 2515955   | IS ,ASDK--> **Use All Services to view the full list of Azure Stack services.** With Azure Stack version 1808m *All services* replaces *More services* in the [Azure Stack admin](azure-stack-manage-portals.md) and user portals.  You now use *All services* to browse the full list of available Azure Stack services the same way you do in the Azure portals.
+- <!-- 2515955   | IS ,ASDK--> **Use All Services to view the full list of Azure Stack services.** With Azure Stack version 1808, *All services* replaces *More services* in the [Azure Stack admin](azure-stack-manage-portals.md) and user portals.  You now use *All services* to browse the list of available Azure Stack services the same way you do in the Azure portals.
 
 
  
@@ -125,10 +125,6 @@ The following are post-installation known issues for this build version.
 - <!--2760466 – IS  ASDK --> When you install a new Azure Stack environment that runs this version, the alert that indicates *Activation Required* might not display. [Activation](azure-stack-registration.md) is required before you can use marketplace syndication.  
 
 - <!-- TBD - IS ASDK --> The two administrative subscription types that were [introduced with version 1804](azure-stack-update-1804.md#new-features) should not be used. The subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider** subscription type.
-
-- <!-- 2403291 - IS ASDK --> You might not have use of the horizontal scroll bar along the bottom of the admin and user portals. If you can’t access the horizontal scroll bar, use the breadcrumbs to navigate to a previous blade in the portal by selecting the name of the blade you want to view from the breadcrumb list found at the top left of the portal.
-
-  ![Breadcrumb](media/azure-stack-update-1804/breadcrumb.png)
 
 - <!-- TBD - IS --> It might not be possible to view compute or storage resources in the administrator portal. The cause of this issue is an error during the installation of the update that causes the update to be incorrectly reported as successful. If this issue occurs, contact Microsoft Customer Support Services for assistance.
 
