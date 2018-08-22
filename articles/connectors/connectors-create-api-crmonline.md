@@ -138,68 +138,79 @@ Web API Web API system query options:
 ### Best practices for advanced options
 
 When you add a value to a field in an action or trigger, 
-your value must match the field type whether you enter 
-a value or select a value from the dynamic content list.
+your value's data type must match the field type whether 
+you enter a value or select a value from the dynamic content list.
 
-| Field type | Description | Where to find | Name | Data type | 
-|------------|-------------|---------------|------|-----------|
-| Text fields | Require a single line of text or dynamic content that has text type. <p>Examples: Category and Sub-Category fields | Settings > Customizations > Customize the System > Entities > Task > Fields | category | Single Line of Text        
-Integer fields | Some fields require integer or dynamic content that is an integer type field. Examples include Percent Complete and Duration. |Settings > Customizations > Customize the System > Entities > Task > Fields |percentcomplete |Whole Number         
-Date fields | Some fields require a date entered in mm/dd/yyyy format or dynamic content that is a date type field. Examples include Created On, Start Date, Actual Start, Last on Hold Time, Actual End, and Due Date. | Settings > Customizations > Customize the System > Entities > Task > Fields |createdon |Date and Time
-Fields that require both a record ID and lookup type |Some fields that reference another entity record require both the record ID and the lookup type. |Settings > Customizations > Customize the System > Entities > Account > Fields  | accountid  | Primary Key
-|||||
+This table describes some of these field types and 
+the required data types for the values you specify.
 
-### More examples 
+| Field type | Required data type | Description | 
+|------------|--------------------|-------------|
+| Text fields | Single line of text | These fields require a single line of text or dynamic content that has text type. <p>Examples: Category and Sub-Category fields | 
+| Integer fields | Whole number | Some fields require integer or dynamic content that is an integer type field. <p>Examples: Percent Complete and Duration fields | 
+| Date fields | Date and Time | Some fields require a date with mm/dd/yyyy format or dynamic content that is a date type field. <p>Examples: Created On, Start Date, Actual Start, Last on Hold Time, Actual End, and Due Date fields | 
+| Fields requiring both a record ID and lookup type | Primary key | Some fields that reference another entity record require both the record ID and the lookup type. | 
+||||
 
-Expanding on the previous table, here are more examples for fields 
-that don't work with the values selected from the dynamic content list. 
-Instead, these fields require both a record ID and the lookup type 
-for the fields in Logic Apps.
+Expanding on these field types, here are example fields in Dynamics 365 triggers and 
+actions that conflict with values that you select from the dynamic content list. 
+Instead, these fields require both a record ID and the lookup type.
 
 | Field | Description | 
 |-------|-------------|
 | **Owner** | Must be either a valid user or team record ID. | 
 | **Owner Type** | Must be either **systemusers** or **teams**. | 
-| **Customer** | Must be a valid account or contact record ID. | 
-| **Customer Type** | Must be either **accounts** or **contacts**. | 
 | **Regarding** | Must be a valid record ID, such as an account ID or contact record ID. | 
 | **Regarding Type** | Must be the lookup type for the record, such as **accounts** or **contacts**. | 
+| **Customer** | Must be a valid account or contact record ID. | 
+| **Customer Type** | Must be either **accounts** or **contacts**. | 
 |||
 
-For example, the **Create record** action 
-The following task creation action example adds an account record that corresponds to the record ID adding it to the regarding field of the task.
+Here is an example **Create a new record** action that creates a new task record: 
 
-![Flow recordId and type account](./media/connectors-create-api-crmonline/recordid-type-account.png)
+![Create task record with record IDs and and lookup types](./media/connectors-create-api-crmonline/create-record-advanced.png)
 
-This example also assigns the task to a specific user based on the user's record ID.
+This action assigns the task record to a specific person or team, 
+based on the record ID in the **Owner** field and the lookup type 
+in the **Owner Type** field:
 
-![Flow recordId and type account](./media/connectors-create-api-crmonline/recordid-type-user.png)
+![Owner record ID and lookup type](./media/connectors-create-api-crmonline/owner-record-id-and-lookup-type.png)
 
-To find a record's ID, see the following section: *Find the record ID*
+This action also adds an account record that's associated with the 
+record ID adding that account and is specified in the **Regarding** 
+field with the **accounts** lookup type in the **Regarding Type** field: 
 
-## Find the record ID
+![Regarding record ID and lookup type](./media/connectors-create-api-crmonline/regarding-record-id-lookup-type-account.png)
 
-1. Open a record, such as an account record.
+## Find record ID
 
-2. On the actions toolbar, choose **Pop Out**. ![popout record](./media/connectors-create-api-crmonline/popout-record.png) 
+To find a record ID, follow these steps: 
 
-   Alternatively, on the actions toolbar, to copy the full URL into your default email program, click **EMAIL A LINK**.
+1. In Dynamics 365, open a record, such as an account record.
 
-   The record ID is displayed in between the %7b and %7d encoding characters of the URL.
+2. On the actions toolbar, choose one of these steps:
 
-   ![Flow recordId and type account](./media/connectors-create-api-crmonline/recordid.png)
+   * Choose **Pop Out**. ![popout record](./media/connectors-create-api-crmonline/popout-record.png) 
+   * Choose **EMAIL A LINK** so you can copy the full URL into your default email program.
+
+   The record ID appears in the URL between the `%7b` and `%7d` encoding characters:
+
+   ![Find record ID](./media/connectors-create-api-crmonline/find-record-ID.png)
 
 ## Troubleshooting
 
-To troubleshoot a failed step in a logic app, view the status details of the event.
+To find and review failed steps in your logic app, 
+you can view your logic app's status and run details.
 
-1. Under **Logic Apps**, select your logic app, and then click **Overview**. 
+1. In the Azure portal, on your logic app's main menu, 
+select **Overview**. 
 
-   The Summary area is shown and provides the run status for the logic app. 
+   The **Runs history** section shows all the run statuses for your logic app. 
 
    ![Logic app run status](./media/connectors-create-api-crmonline/tshoot1.png)
 
-2. To view more information about any failed runs, click the failed event. 
+2. To view more information about any failed runs, 
+choose the failed run event. 
 To expand a failed step, click that step.
 
    ![Expand failed step](./media/connectors-create-api-crmonline/tshoot2.png)
