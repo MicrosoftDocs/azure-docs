@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2018
+ms.date: 08/20/2018
 ms.author: tomfitz
 ---
 # Create resource groups in Azure Resource Manager templates
 
 To create a resource group in an Azure Resource Manager template, define a **Microsoft.Resources/resourceGroups** resource with a name and location for the resource group. Deploy the template to your Azure subscription. You can also deploy resources to that resource group in the same template.
 
-This article uses Azure CLI to deploy the templates. Currently, PowerShell doesn't support deploying a template to a subscription.
+This article uses Azure CLI and PowerShell to deploy the templates.
 
 ## Create empty resource group
 
@@ -57,6 +57,17 @@ az deployment create \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
   --parameters rgName=demoRG rgLocation=northcentralus
+```
+
+To deploy this template with PowerShell, use:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoEmptyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus
 ```
 
 ## Create several resource groups
@@ -104,6 +115,18 @@ az deployment create \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json \
   --parameters rgNamePrefix=demoRG rgLocation=northcentralus instanceCount=3
+```
+
+To deploy this template with PowerShell, use:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoCopyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus `
+  -instanceCount 3
 ```
 
 ## Create resource group and deploy resource
@@ -183,6 +206,18 @@ az deployment create \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json \
   --parameters rgName=rgStorage rgLocation=northcentralus storagePrefix=storage
+```
+
+To deploy this template with PowerShell, use:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoRGStorage `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
+  -rgName rgStorage `
+  -rgLocation northcentralus `
+  -storagePrefix storage
 ```
 
 ## Next steps
