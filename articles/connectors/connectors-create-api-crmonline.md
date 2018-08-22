@@ -12,12 +12,12 @@ ms.date: 08/18/2018
 tags: connectors
 ---
 
-# Create and manage records in Dynamics 365 with Azure Logic Apps
+# Manage Dynamics 365 records with Azure Logic Apps
 
-With Azure Logic Apps and the Dynamics 365 connector, 
-you can create automated tasks and workflows based on 
-the data you get from Dynamics 365. Your workflows can create records, 
-update items, return records, and more in your Dynamics 365 account. 
+With Azure Logic Apps and the Dynamics 365 connector, you can 
+create automated tasks and workflows based on your records in 
+Dynamics 365. Your workflows can create records, update items, 
+return records, and more in your Dynamics 365 account. 
 You can include actions in your logic apps that get responses from 
 Dynamics 365 and make the output available for other actions. 
 For example, when an item is updated in Dynamics 365, 

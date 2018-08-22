@@ -12,7 +12,7 @@ ms.date: 09/26/2016
 tags: connectors
 ---
 
-# Manage resources in IBM DB2 with Azure Logic Apps
+# Manage IBM DB2 resources with Azure Logic Apps
 
 With Azure Logic Apps and the IBM DB2 connector, you can create automated 
 tasks and workflows based on the resources stored in your DB2 database. 
@@ -86,7 +86,7 @@ logic app in the Logic App Designer, if not already open.
 1. In the search box, enter "db2" as your filter. For this example, 
 under the actions list, select this action: **Get tables (Preview)**
    
-   ![Select action](./media/connectors-create-api-db2/Db2connectorActions.png)
+   ![Select action](./media/connectors-create-api-db2/select-db2-action.png)
 
 You're now prompted to provide connection details for your DB2 database 
 either [in the cloud](#cloud-connection) or [on premises](#on-premises-connection).
@@ -95,20 +95,20 @@ either [in the cloud](#cloud-connection) or [on premises](#on-premises-connectio
 
 ## Connect to DB2 in the cloud
 
-To set up your connection, provide these connection details, 
+To set up your connection, provide these connection details when prompted, 
 choose **Create**, and then save your logic app:
 
 | Property | Required | Description | 
 |----------|----------|-------------| 
 | **Connect via on-premise gateway** | No | Applies only for on-premises connections. | 
-| **Connection Name** | Yes | The name for your connection, for example, "hisdemo" |
-| **Server** | Yes | The address or alias colon port number for your DB2 server, for example, "hisdemo.cloudapp.net:50000" <p><p>**Note**: This value is a string that represents a TCP/IP address or alias, either in IPv4 or IPv6 format, followed by a colon and a TCP/IP port number. |
+| **Connection Name** | Yes | The name for your connection, for example, "MyLogicApp-DB2-connection" |
+| **Server** | Yes | The address or alias colon port number for your DB2 server, for example, "myDB2server.cloudapp.net:50000" <p><p>**Note**: This value is a string that represents a TCP/IP address or alias, either in IPv4 or IPv6 format, followed by a colon and a TCP/IP port number. |
 | **Database** | Yes | The name for your database <p><p>**Note**: This value is a string that represents a DRDA Relational Database Name (RDBNAM): <p>- DB2 for z/OS accepts a 16-byte string where the database is known as an "IBM DB2 for z/OS" location. <br>- DB2 for i accepts an 18-byte string where the database is known as an "IBM DB2 for i" relational database. <br>- DB2 for LUW accepts an 8-byte string.|
 | **Username** | Yes | Your user name for the database <p><p>**Note**: This value is a string whose length is based on the specific database: <p><p>- DB2 for z/OS accepts an 8-byte string. <br>- DB2 for i accepts a 10-byte string. <br>- DB2 for Linux or UNIX accepts an 8-byte string. <br>- DB2 for Windows accepts a 30-byte string. | 
 | **Password** | Yes | Your password for the database | 
 |||| 
 
-![Connection details for cloud-based databases](./media/connectors-create-api-db2/Db2connectorCloudConnection.png)
+![Connection details for cloud-based databases](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
 
 <a name="on-premises-connection"></a>
 
@@ -129,27 +129,32 @@ provide these connection details, and then choose **Create**:
 | **Gateway** | Yes | The name for your installed on-premises data gateway <p><p>**Note**: Select this value from the list, which includes all the installed data gateways within your Azure subscription and resource group. | 
 |||| 
 
-![Connection details for on-premises databases](./media/connectors-create-api-db2/Db2connectorOnPremisesDataGatewayConnection.png)
+![Connection details for on-premises databases](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
 
-## View output
+### View output tables
 
-After your logic app 
+To run your logic app manually, on the designer toolbar, choose **Run**. 
+After your logic app finishes running, you can view the output from the run.
 
 1. On your logic app menu, choose **Overview**. 
 
-1. Under **Summary** in the **Runs history** section, 
+1. Under **Summary**, in the **Runs history** section, 
 select the most recent run, which is the first item in the list. 
 
 1. Under **Logic app run**, choose **Run Details**. 
 
-1. In the actions list, select **Get_tables**. 
+   You can now review the status, inputs, 
+   and outputs for each step in your logic app. 
 
-1. Review the **Status**, which should be **Succeeded**. 
+1. Expand the **Get tables** action.
 
-Select the **Inputs link** to view the inputs. 
-Select the **Outputs link**, and view the outputs; which should include a list of tables.
+1. To view the inputs, choose **Show raw inputs**. 
+
+1. To view the outputs, choose **Show raw outputs**. 
+
+   The outputs include a list of tables. 
    
-   ![](./media/connectors-create-api-db2/Db2connectorGetTablesLogicAppRunOutputs.png)
+   ![View output tables](./media/connectors-create-api-db2/db2-connector-get-tables-outputs.png)
 
 ## Get row
 
