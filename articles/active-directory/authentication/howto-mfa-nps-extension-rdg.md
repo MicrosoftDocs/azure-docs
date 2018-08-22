@@ -177,7 +177,7 @@ Remote Desktop connection authorization policies (RD CAPs) specify the requireme
   ![Server Name](./media/howto-mfa-nps-extension-rdg/image9.png)
 
 4. In the Properties dialog box, select the **RD CAP Store** tab.
-5. On the RD CAP Store tab, select **Central Server running NPS**. 
+5. On the RD CAP Store tab, select **Central server running NPS**. 
 6. In the **Enter a name or IP address for the server running NPS** field, type the IP address or server name of the server where you installed the NPS extension.
 
   ![Enter Name or IP Address](./media/howto-mfa-nps-extension-rdg/image10.png)
@@ -223,7 +223,7 @@ To ensure there is time to validate users’ credentials, perform two-step verif
 By default, when you configure the RD Gateway to use a central policy store for connection authorization policies, the RD Gateway is configured to forward CAP requests to the NPS server. The NPS server with the Azure MFA extension installed, processes the RADIUS access request. The following steps show you how to verify the default connection request policy. 
 
 1. On the RD Gateway, in the NPS (Local) console, expand **Policies**, and select **Connection Request Policies**.
-2. Right-click **Connect Request Policies**, and double-click **TS GATEWAY AUTHORIZATION POLICY**.
+2. Double-click **TS GATEWAY AUTHORIZATION POLICY**.
 3. In the **TS GATEWAY AUTHORIZATION POLICY properties** dialog box, click the **Settings** tab.
 4. On **Settings** tab, under Forwarding Connection Request, click **Authentication**. RADIUS client is configured to forward requests for authentication.
 
@@ -264,7 +264,7 @@ The Remote Desktop Gateway needs to be configured as a RADIUS client to the NPS 
 Recall that the NPS server with the Azure MFA extension is the designated central policy store for the Connection Authorization Policy (CAP). Therefore, you need to implement a CAP on the NPS server to authorize valid connections requests.  
 
 1. On the NPS Server, open the NPS (Local) console, expand **Policies**, and click **Network Policies**.
-2. Right-click **Connections to other access servers**, and click **Duplicate policy**. 
+2. Right-click **Connections to other access servers**, and click **Duplicate Policy**. 
 
  ![Duplicate Policy](./media/howto-mfa-nps-extension-rdg/image19.png)
 
@@ -272,7 +272,7 @@ Recall that the NPS server with the Azure MFA extension is the designated centra
 
  ![Network Properties](./media/howto-mfa-nps-extension-rdg/image20.png)
 
-4. In the **Copy of Connections to other access servers** dialog box, in **Policy Name**, enter a suitable name, such as _RDG_CAP_. Check **Policy enabled**, and select **Grant access**. Optionally, in **Type of network access server**, select **Remote Desktop Gateway**, or you can leave it as **Unspecified**.
+4. In the **Copy of Connections to other access servers** dialog box, in **Policy name**, enter a suitable name, such as _RDG_CAP_. Check **Policy enabled**, and select **Grant access**. Optionally, in **Type of network access server**, select **Remote Desktop Gateway**, or you can leave it as **Unspecified**.
 
  ![Copy of Connections](./media/howto-mfa-nps-extension-rdg/image21.png)
 

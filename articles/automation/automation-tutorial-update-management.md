@@ -120,9 +120,6 @@ To customize the subject of the alert email,  under **Create rule**, under **Cus
 
 Next, schedule a deployment that follows your release schedule and service window to install updates. You can choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
 
-> [!WARNING]
-> When updates require a restart, the VM is restarted automatically.
-
 To schedule a new update deployment for the VM, go to **Update management**, and then select **Schedule update deployment**.
 
 Under **New update deployment**, specify the following information:

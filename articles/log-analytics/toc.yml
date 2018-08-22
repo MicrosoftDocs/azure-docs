@@ -115,14 +115,42 @@
       items:
       - name: Transition from legacy language
         href: log-analytics-log-search-transition.md
-      - name: Get started with Analytics portal
-        href: query-language/get-started-analytics-portal.md
-      - name: Get started with queries
-        href: query-language/get-started-queries.md
-      - name: Search queries
-        href: query-language/search-queries.md
       - name: Language reference
         href: https://docs.loganalytics.io
+      - name: Get started
+        items:
+        - name: Get started with Analytics portal
+          href: query-language/get-started-analytics-portal.md
+        - name: Get started with queries
+          href: query-language/get-started-queries.md
+        - name: Search queries
+          href: query-language/search-queries.md
+        - name: Useful operators
+          href: query-language/useful-operators.md
+      - name: Lessons
+        items:
+        - name: String operations
+          href: query-language/string-operations.md
+        - name: Date and time operations
+          href: query-language/datetime-operations.md
+        - name: Aggregation functions
+          href: query-language/aggregations.md
+        - name: Advanced aggregations
+          href: query-language/advanced-aggregations.md
+        - name: Joins
+          href: query-language/joins.md
+        - name: JSON and data structures
+          href: query-language/json-data-structures.md
+        - name: Advanced query writing
+          href: query-language/advanced-query-writing.md
+        - name: Charts and diagrams
+          href: query-language/charts.md
+      - name: Cheatsheets
+        items:
+        - name: SQL
+          href: query-language/sql-cheatsheet.md
+        - name: Splunk
+          href: query-language/splunk-cheatsheet.md
     - name: Cross-resource searches
       href: log-analytics-cross-workspace-search.md
     - name: Take action from search results
