@@ -18,7 +18,7 @@ ms.author: ryanwi
 
 ---
 # Service Fabric terminology overview
-Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. This article details the terminology used by Service Fabric to understand the terms used in the documentation.
+Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric is the orchestrator that powers [Service Fabric Mesh](/azure/service-fabric-mesh). You can use any framework to write your services and choose where to run the application from multiple environment choices. This article details the terminology used by Service Fabric to understand the terms used in the documentation.
 
 The concepts listed in this section are also discussed in the following Microsoft Virtual Academy videos: <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">Core concepts</a>, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">Design-time concepts</a>, and <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">Runtime concepts</a>.
 
@@ -27,14 +27,49 @@ The concepts listed in this section are also discussed in the following Microsof
 
 **Node**: A machine or VM that's part of a cluster is called a *node*. Each node is assigned a node name (a string). Nodes have characteristics, such as placement properties. Each machine or VM has an auto-start Windows service, `FabricHost.exe`, that starts running upon boot and then starts two executables: `Fabric.exe` and `FabricGateway.exe`. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of `Fabric.exe` and `FabricGateway.exe`.
 
-## Application concepts
+## Application and service concepts
+
+**Application**: An application is a collection of constituent services that perform a certain function or functions. The lifecycle of each application instance can be managed independently.
+
+**Service**: A service performs a complete and standalone function and can start and run independently of other services. A service is composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at run time, and data consists of arbitrary static data to be consumed by the service.
+
+**Service Fabric Mesh Application**: Service Fabric Mesh Applications are described by the Resource Model (YAML and JSON resource files) and can be deployed to any environment where Service Fabric runs.
+
+**Service Fabric Native Application**: Service Fabric Native Applications are described by the Native Application Model (XML-based application and service manifests).  Service Fabric Native Applications cannot run in Service Fabric Mesh.
+
+### Service Fabric Mesh Applications
+
+**Resources**: Resources are anything that can be deployed individually to Service Fabric, including applications, services, networks, and volumes. Resources are defined using the Azure Resource Model schema. Each resource is described declaratively in a resource file, which is a simple YAML or JSON document that describes the Mesh Application, and is provisioned by the Service Fabric platform. Currently, the following types of resources are supported:
+
+* Application
+* Service
+* Volume
+* Network
+
+**Application resource**: An Application resource is the unit of deployment, versioning, and lifetime of a Mesh application. It is composed of one, or more, of Service resources that represent a microservice.
+
+**Service resource**: Each Service resource is composed of one, or more, code packages that describe everything needed to run the container image associated with the code package.
+**Volume resource**: Volumes are directories that get mounted inside your container instances that you can use to persist state. The Volume resource is a declarative way to describe how a directory is mounted and the backing storage for it.
+**Network resource**: A network resource is individually deployable resource, independent of an application or service resource that may refer to it as their dependency. It is used to create a private network for your applications.
+
+**Code package**: Code packages describe everything needed to run the container image associated with the code package, including the following:
+
+* Container name, version, and registry
+* CPU and memory resources required for each container
+* Network endpoints
+* Volumes to mount in the container, referencing a separate volume resource.
+
+All the code packages defined as part of a Service resource are deployed and activated together as a group. 
+
+### Service Fabric Native Applications
+
 **Application type**: The name/version assigned to a collection of service types. It is defined in an `ApplicationManifest.xml` file and embedded in an application package directory. The directory is then copied to the Service Fabric cluster's image store. You can then create a named application from this application type within the cluster.
 
 Read the [Application model](service-fabric-application-model.md) article for more information.
 
 **Application package**: A disk directory containing the application type's `ApplicationManifest.xml` file. References the service packages for each service type that makes up the application type. The files in the application package directory are copied to Service Fabric cluster's image store. For example, an application package for an email application type might contain references to a queue-service package, a frontend-service package, and a database-service package.
 
-**Named application**: After you copy an application package to the image store, you create an instance of the application within the cluster. You create an instance when you specify the application package's application type, by using its name or version. Each application type instance is assigned a uniform resource identifier (URI) name that looks like: `"fabric:/MyNamedApp"`. Within a cluster, you can create multiple named applications from a single application type. You can also create named applications from different application types. Each named application is managed and versioned independently.      
+**Named application**: After you copy an application package to the image store, you create an instance of the application within the cluster. You create an instance when you specify the application package's application type, by using its name or version. Each application type instance is assigned a uniform resource identifier (URI) name that looks like: `"fabric:/MyNamedApp"`. Within a cluster, you can create multiple named applications from a single application type. You can also create named applications from different application types. Each named application is managed and versioned independently.
 
 **Service type**: The name/version assigned to a service's code packages, data packages, and configuration packages. The service type is defined in the `ServiceManifest.xml` file and embedded in a service package directory. The service package directory is then referenced by an application package's `ApplicationManifest.xml` file. Within the cluster, after creating a named application, you can create a named service from one of the application type's service types. The service type's `ServiceManifest.xml` file describes the service.
 
@@ -56,7 +91,7 @@ There are two types of services:
 **Code package**: A disk directory containing the service type's executable files, typically EXE/DLL files. The files in the code package directory are referenced by the service type's `ServiceManifest.xml` file. When you create a named service, the code package is copied to the node or nodes selected to run the named service. Then the code starts to run. There are two types of code package executables:
 
 * **Guest executables**: Executables that run as-is on the host operating system (Windows or Linux). These executables don't link to or reference any Service Fabric runtime files and therefore don't use any Service Fabric programming models. These executables are unable to use some Service Fabric features, such as the naming service for endpoint discovery. Guest executables can't report load metrics that are specific to each service instance.
-* **Service host executables**: Executables that use Service Fabric programming models by linking to Service Fabric runtime files, enabling Service Fabric features. For example, a named service instance can register endpoints with Service Fabric's Naming Service and can also report load metrics.      
+* **Service host executables**: Executables that use Service Fabric programming models by linking to Service Fabric runtime files, enabling Service Fabric features. For example, a named service instance can register endpoints with Service Fabric's Naming Service and can also report load metrics.
 
 **Data package**: A disk directory that contains the service type's static, read-only data files, typically photo, sound, and video files. The files in the data package directory are referenced by the service type's `ServiceManifest.xml` file. When you create a named service, the data package is copied to the node or nodes selected to run the named service. The code starts running and can now access the data files.
 
