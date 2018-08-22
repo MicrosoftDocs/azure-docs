@@ -27,9 +27,13 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 2. In the virtual machine's menu, click **Backup** to open the Backup dashboard.
 
-    ![Open Recovery Services vault backup item](./media/backup-azure-restore-files-from-vm/open-vault-from-vm.png)
+    ![Open Recovery Services vault backup item](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. In the Backup dashboard menu, click **File Recovery** to open its menu.
+3. In the Backup dashboard menu, click **File Recovery**.
+
+    ![File recovery button](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+
+    The **File Recovery** menu opens.
 
     ![File recovery menu](./media/backup-azure-restore-files-from-vm/file-recovery-blade.png)
 
