@@ -8,8 +8,6 @@ manager: femila
 editor: ''
 
 ms.service: azure-stack
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.tgt_pltfrm: na

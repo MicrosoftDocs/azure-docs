@@ -123,4 +123,4 @@ In this article, you learned how to enable and review the logs for the Kubernete
 [log-analytics-overview]: ../log-analytics/log-analytics-overview.md
 [analyze-log-analytics]: ../log-analytics/log-analytics-tutorial-viewdata.md
 [kubelet-logs]: kubelet-logs.md
-[aks-ssh]: aks-ssh.md
+[aks-ssh]: ssh.md
