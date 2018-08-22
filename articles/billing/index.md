@@ -20,7 +20,7 @@ ms.author: cwatson
 Learn how to understand your Azure billing, monitor usage and costs, and manage your account and subscriptions.
 
 > [!div class="nextstepaction"]
-> [Help improve Azure billing docs >](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 <ul class="panelContent cardsF">
     <li>
