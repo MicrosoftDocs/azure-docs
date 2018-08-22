@@ -21,10 +21,10 @@ Microsoft provides a variety of products and services to build, deploy, and mana
 |-|-|-|
 | [Azure Machine Learning service](#azure-machine-learning-services) | Managed cloud service for ML  | Train, deploy, and manage models in Azure using Python and CLI |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | Drag-and-drop visual interface for ML | Build, experiment, and deploy models using preconfigured algorithms |
-| [SQL Server Machine Learning Service](#sql-server-machine-learning-services) | Analytics engine embedded in SQL | Build and deploy models inside SQL Server |
+| [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | Analytics engine embedded in SQL | Build and deploy models inside SQL Server |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Standalone enterprise server for predictive analysis | Build and deploy models with R and Python |
 | [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools | Develop ML solutions in a pre-configured environment |
-| [Azure Cognitive Services](#azure-cognitive-services) | Azure services with pre-built ML models | Easily add intelligent features to your apps |
+| [Azure Cognitive Services](#azure-cognitive-services) | Azure services with pre-built AI and ML models | Easily add intelligent features to your apps |
 | [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
 | [ML.NET](#ml-net) | Open-source, cross-platform ML SDK | Develop ML solutions for .NET applications |
 | [Windows ML](#windows-ml) | Windows 10 ML platform | Evaluate trained models on a Windows 10 device |
@@ -42,11 +42,11 @@ Drag-and-drop predictive modeling, a large pallet of modules, and a library of s
 
 Use Machine Learning Studio when you want to develop and deploy models with no code required.
 
-## SQL Server Machine Learning Service
+## SQL Server Machine Learning Services
 
 [SQL Server Microsoft Machine Learning Service](https://docs.microsoft.com/sql/advanced-analytics/r/r-services) adds statistical analysis, data visualization, and predictive analytics in R and Python for relational data in SQL Server databases. R and Python libraries from Microsoft include advanced modeling and ML algorithms, which can execute in parallel and at scale, in SQL Server.
 
-Use Microsoft Machine Learning service when you need to train or deploy models inside of Microsoft SQL Server.
+Use SQL Server Machine Learning Services when you need built-in AI and predictive analytics on relational data in SQL Server.
 
 ## Microsoft Machine Learning Server
 
@@ -63,18 +63,19 @@ Use the Data Science VM when you need to run or host your jobs on a single node.
 
 ## Azure Cognitive Services
 
-[Azure Cognitive Services](/articles/cognitive-services/welcome.md) is a set of about 30 APIs that enable you to build apps that use natural methods of communication. These APIs allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. Easily add intelligent features to your apps, such as: 
+[Azure Cognitive Services](/articles/cognitive-services/welcome.md) is a set of APIs that enable you to build apps that use natural methods of communication. These APIs allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. Easily add intelligent features to your apps, such as: 
 
 - Emotion and sentiment detection
 - Vision and speech recognition
 - Language understanding (LUIS)
 - Knowledge and search
 
-Cognitive Services can be used to develop apps across devices and platforms. The APIs keep improving, and are easy to set up. 
+Cognitive Services can be used to develop apps across devices and platforms. The APIs keep improving, and are easy to set up.
 
 ## Azure Databricks
 
-[Azure Databricks](/articles/azure-databricks/what-is-azure-databricks.md) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.
+[Azure Databricks](/articles/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.
+Use Python, R, Scala, and SQL code in web-based notebooks to query, visualize, and model data.
 
 Use Databricks when you want to collaborate on building machine learning solutions on Apache Spark.
 
