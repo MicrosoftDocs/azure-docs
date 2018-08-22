@@ -21,7 +21,7 @@ In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomat
 For this article, you need a free LUIS account, created on the LUIS portal at [http://www.luis.ai](http://www.luis.ai). 
 
 ## Create a new app
-You can create and manage your applications on **My Apps** page of [LUIS](luis-reference-regions.md#luis-website). 
+You can create and manage your applications on **My Apps**. 
 
 1. Sign in to the LUIS portal.
 
