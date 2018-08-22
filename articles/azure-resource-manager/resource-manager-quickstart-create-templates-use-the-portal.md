@@ -77,7 +77,7 @@ In this section, you create a storage account using the Azure portal. Before you
 
 In this section, you open the saved template from the template library, edit the template inside the portal, and deploy the revised template. To edit a more complex template, consider using [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md) which provides richer edit functionalities.
 
-Azure requires all the services have an unique name. The deployment fails if you enter a storage account name that already exists. To avoid this issue, you can use a template function call uniquestring() to generate an unique storage account name.
+Azure requires that each Azure service has an unique name. The deployment fails if you enter a storage account name that already exists. To avoid this issue, you can use a template function call uniquestring() to generate an unique storage account name.
 
 1. In the Azure portal, select **All services** from the left menu, enter **template** in the filter box, and then select **Template (PREVIEW)**.
 
