@@ -22,7 +22,7 @@ ms.author: alleonar
 
 Azure Cost Management APIs help you review and manage consumption of your Azure resources.
 
-In this article, you learn how to create a daily report  that will generate a comma-separated value document with your usage information, and then how to use filters to customize the report so that you can query the usage of virtual machines, databases, and tagged resources in an Azure resource group.
+In this article, you learn how to create a daily report that will generate a comma-separated value document with your hourly usage information, and then how to use filters to customize the report so that you can query the usage of virtual machines, databases, and tagged resources in an Azure resource group.
 
 >[!NOTE]
 > The Cost Management API is currently in private preview.
@@ -46,7 +46,7 @@ The following headers are required:
 |*Content-Type:*|Required. Set to `application/json`.|  
 |*Authorization:*|Required. Set to a valid `Bearer` token
 
-Configure the parameters of the report in the HTTP request body. In the example below, the report is set to generate every day when active, is a CSV file written to an Azure Storage blob container, and contains per-hour month to date usage for all resources in resource group `westus`.
+Configure the parameters of the report in the HTTP request body. In the example below, the report is set to generate every day when active, is a CSV file written to an Azure Storage blob container, and contains hourly cost information for all resources in resource group `westus`.
 
 ```json
 {
