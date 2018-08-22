@@ -55,7 +55,7 @@ To enable automatic provisioning of the Microsoft Monitoring Agent:
   ![Enable automatic provisioning][1]
 
 >[!NOTE]
-> - For instructions on how to porovision a pre-existing installation, see [Automatic provisioning of pre-existing installations](#preexisting).
+> - For instructions on how to provision a pre-existing installation, see [Automatic provisioning in cases of a preexisting agent installation](#preexisting).
 > - For instructions on manuall provisioning, see [Install the Microsoft Monitoring Agent extension manually](#manualagent).
 > - For instructions on turning off automatic provisioning, see [Turn off automatic provisioning](#offprovisioning)
 >
@@ -84,7 +84,7 @@ Resource Group: DefaultResouceGroup-[geo]**
 > [!NOTE]
 > Workspaces created by Security Center do not incur Log Analytics charges. Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace. For the Free tier, Security Center enables the *SecurityCenterFree* solution on the default workspace. For the Standard tier, Security Center enables the *Security* solution on the default workspace.
 
-For more information on pricing, see Security Center pricing.
+For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 ### Using an existing workspace
 
@@ -191,7 +191,7 @@ To choose your filtering policy:
 
    ![Choose filtering policy][5]
 
-### Automatic provisioning of pre-existing installations <a name="preexisting"></a> 
+### Automatic provisioning in cases of a preexisting agent installation <a name="preexisting"></a> 
 
 The following use cases specify how automatic provision works in cases when there is already an agent or extension installed. 
 
@@ -268,7 +268,7 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
 
 ## Troubleshooting
 
--	To identify automatic provision installation issues, see [Monitoring agent health issues]
+-	To identify automatic provision installation issues, see [Monitoring agent health issues](security-center-troubleshooting-guide.md#monitoring-agent-health-issues).
 
 -	To identify manual onboarding issues, see [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)
 
