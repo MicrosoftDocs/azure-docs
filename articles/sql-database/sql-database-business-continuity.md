@@ -94,7 +94,6 @@ In order to fail over to another region, you can use [active geo-replication](sq
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
-
 Use active geo-replication and auto-failover groups if your application meets any of these criteria:
 
 * Is mission critical.
