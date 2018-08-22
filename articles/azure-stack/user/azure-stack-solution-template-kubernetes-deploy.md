@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 08/28/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -87,7 +87,7 @@ Give the service principal access to your subscription so that the principal can
 
 1.  Sign in to the [Administration portal](https://adminportal.local.azurestack.external).
 
-1. Select **More services** > **User subscriptions** > **+ Add**.
+1. Select **All services** and then under the **ADMINISTRATIVE RESOURCES** category select **User subscriptions** > **+ Add**.
 
 1. Select the subscription that you created.
 
