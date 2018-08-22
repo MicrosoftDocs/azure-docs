@@ -23,15 +23,15 @@ A Kubernetes cluster is divided into two components:
 - *Cluster master* nodes provide the core Kubernetes services, including the API server, the scheduler, and the data store.
 - *Nodes* run the user's applications.
 
-AKS provides a managed Kubernetes service, built on top of the open source Azure Container Service Engine (acs-engine). With this managed Kubernetes approach, the cluster master is configured and managed by the Azure platform.
+AKS provides a managed Kubernetes service, built on top of the open-source Azure Container Service Engine (acs-engine). With this managed Kubernetes approach, the cluster master is configured and managed by the Azure platform.
 
 ### Cluster master in AKS
 
-In AKS, the cluster master is provided as a managed Azure resource abstracted from the user. When you create an AKS cluster, a master is automatically created and configured. AKS provides a single-tenant cluster master, with a dedicated API server, scheduler, etc. There is no cost for the cluster master, only the nodes that are part of the AKS cluster. You define the number and size of those nodes, and the Azure platform configures the secure communication between the cluster master and nodes. All of the interaction with the cluster master occurs through through Kubernetes APIs, such as `kubectl` or the Kubernetes dashboard.
+In AKS, the cluster master is provided as a managed Azure resource abstracted from the user. When you create an AKS cluster, a master is automatically created and configured. AKS provides a single-tenant cluster master, with a dedicated API server, scheduler, etc. There is no cost for the cluster master, only the nodes that are part of the AKS cluster. You define the number and size of those nodes, and the Azure platform configures the secure communication between the cluster master and nodes. All of the interaction with the cluster master occurs through Kubernetes APIs, such as `kubectl` or the Kubernetes dashboard.
 
 This managed cluster master means that you do not need to configure components like a highly available *etcd* store, but it also means that you cannot access the cluster master directly. Upgrades to Kubernetes are orchestrated through the Azure CLI or Azure portal, which upgrades the cluster master and then the nodes. To troubleshoot possible issues, you can also review the cluster master logs.
 
-If you need to configure the cluster master in a particular way or need to direct access to them, you can deploy your own Kubernetes cluster using [acs-engine][acs-engine].
+If you need to configure the cluster master in a particular way or need direct access to them, you can deploy your own Kubernetes cluster using [acs-engine][acs-engine].
 
 ### Nodes in AKS
 
@@ -56,7 +56,7 @@ When you scale or upgrade an AKS cluster, the action is performed against the de
 
 Kubernetes logically defines *pods* as a logical way to run an instance of your application. You typically create pods using a *deployment*.
 
-- A *pod* represents a single instance of your application. Pods typically has a 1:1 mapping with a container, although there are advanced scenarios where a pod may contain multiple containers.
+- A *pod* represents a single instance of your application. Pods typically have a 1:1 mapping with a container, although there are advanced scenarios where a pod may contain multiple containers.
 - A *deployment* represents one or more identical pods, managed by the Kubernetes Deployment controller. A deployment defines the number of replicas (pods) to create, and the Kubernetes master ensures that if pods or nodes encounter problems, additional pods are scheduled on healthy nodes. You can update deployments to change the configuration of pods, container image used, or attached storage. The Deployment controller drains and terminates a given number of pods, creates pods from the new deployment definition, and continues the process until all pods in the deployment are updated.
 
 Most stateless applications in AKS should use the *deployment* model rather than scheduling individual pods. Individual pods are not restarted if they encounter a problem, and are not rescheduled on healthy nodes if their current node encounters a problem. Deployments are typically created and managed with `kubectl create` or `kubectl apply`.
@@ -110,9 +110,9 @@ Kubernetes resources, such as pods and Deployments, are logically grouped into a
 
 When you create an AKS cluster, the following namespaces are available:
 
-- *default* - This is where pods and deployments are created by default when none is provided. In smaller environments, you can deploy applications directly into the default namespace without creating additional logical separations. When you interact with the Kubernetes API such as with `kubectl get pods`, the default namespace is used when none is specified.
-- *kube-system* - This is where core resources exist, such as network features like DNS and proxy, or the Kubernetes dashboard. You typically don't deploy your own applications into this namespace.
-- *kube-public* - This is typically not used, but can be used for resources to be visible across the whole cluster, and can viewed by any users.
+- *default* - This namespace is where pods and deployments are created by default when none is provided. In smaller environments, you can deploy applications directly into the default namespace without creating additional logical separations. When you interact with the Kubernetes API such as with `kubectl get pods`, the default namespace is used when none is specified.
+- *kube-system* - This namespace is where core resources exist, such as network features like DNS and proxy, or the Kubernetes dashboard. You typically don't deploy your own applications into this namespace.
+- *kube-public* - This namespace is typically not used, but can be used for resources to be visible across the whole cluster, and can viewed by any users.
 
 ## Next steps
 
