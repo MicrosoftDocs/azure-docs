@@ -9,26 +9,23 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: pullabhk
+ms.assetid: 7600c2f0-2dbd-4478-9dbb-c4101f855513
 ---
 # Manage Azure VM backups using Azure Backup via REST API
 
 Azure Backup users can manage Azure VM backups through [Azure portal](backup-azure-arm-vms-prepare.md) or using [Powershell](backup-azure-vms-automation.md) and [CLI support](quick-backup-vm-cli.md) For automation purposes. This document talks about how to use [Azure REST APIs](https://docs.microsoft.com/rest/api/recoveryservices/) to manage Azure VM backup and restore operations.
 
-Following are the important steps to be followed to use REST APIs for managing Azure backups.
-
-## Authentication
-
-Secure authentication using [Service principal mechanism](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) to the application that should connect to the REST API.
+Following is the sequence of steps to be followed to use REST APIs for managing Azure VM backups using REST API.
 
 ## Create vault
 
-Refer to [create vault REST API](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate) to create or connect to an existing vault.
+Refer to [create vault REST API](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate) to create a Recovery Services Vault. Let's assume a Recovery Services Vault "testVault" is created.
 
 ## Creating or selecting policy
 
-List all available policies in the selected vault with this [list policies API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). An [example](https://docs.microsoft.com/rest/api/backup/backuppolicies/list#list_protection_policies_with_backupmanagementtype_filter_as_azureiaasvm) is provided to get policies for Azure VMs only.
+List all available policies in the selected vault with this [list policies API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). An [example](https://docs.microsoft.com/rest/api/backup/backuppolicies/list#list_protection_policies_with_backupmanagementtype_filter_as_azureiaasvm) is provided to list policies for Azure VMs only.
 
-Then [select the relevant policy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/get) by referring to it’s name (like “DefaultPolicy”).
+Then [view the details of the relevant policy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/get) by referring to it’s name (like “DefaultPolicy”).
 
 ## Configuring protection
 
