@@ -50,7 +50,7 @@ Consider the following example.
 - Share for page blob: *Mystoracct_PageBlob/my-container/blob*
 - Share for file: *Mystoracct_AzFile/my-share*
 
-Depending on whether your Data Box is connected to a Windows Server host computer or to a Linux host or connected using Azure Object Store connector, the steps to connect and copy can be different.
+Depending on whether your Data Box is connected to a Windows Server host computer or to a Linux host, the steps to connect and copy can be different.
 
 ### Connect to an SMB share 
 
@@ -105,9 +105,6 @@ If you are using a Linux host computer, perform the following steps to configure
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
-### Connect to ISV or modern applications
-
-Use Azure object connector to connect to ISV or modern applications.
 
 ## Copy data to Data Box
 
@@ -216,8 +213,6 @@ If you're using a Linux host computer, follow these guidelines:
 
 - Use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
 - Ensure that you have a multithreaded option with atleast 32 or 64 threads. 
-
-### Copy data from ISV or modern applications
 
 ## Prepare to ship
 

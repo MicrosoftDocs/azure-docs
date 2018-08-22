@@ -158,7 +158,7 @@ A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob sto
 
 ## Ship device
 
-### Q. How do I schedule a pickup for my Data Box? 
+<!--### Q. How do I schedule a pickup for my Data Box?--> 
 A.
 
 ### Q. Can I use my own shipping carrier to ship Data Box?

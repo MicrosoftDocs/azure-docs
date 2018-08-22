@@ -27,10 +27,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-Make sure that the subscription you use for Data Box service is one of the following types:
-- Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
-- Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-- Consumption - Pay as you go. More information about Azure [Pay-as-you-go subscriptions](https://azure.microsoft.com/offers/ms-azr-0003p/).
+Before you begin:
+
+- Make sure that the subscription you use for Data Box service is one of the following types:
+    - Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
+    - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+    - Consumption - Pay as you go. More information about Azure [Pay-as-you-go subscriptions](https://azure.microsoft.com/offers/ms-azr-0003p/).
+
+- Ensure that you have owner or contributor access to the subscription to create a Data Box order.
 
 ## Sign in to Azure
 
@@ -56,10 +60,10 @@ When you receive the Data Box, do the following steps to unpack, cable, and turn
 1. If there is any evidence that the device is tampered with or damaged, do not proceed. Contact Microsoft Support to ship you a replacement device.
 2. Before you cable your device, ensure that you have the following cables:
     
-    1. (Included) grounded power cord rated at 10 A or greater with an IEC60320 C-13 connector at one end to connect to the device.
-    2. One 1 GbE RJ-45 CAT 6 network cables to connect to the 1 Gbps management network interface.
-    3. One 1 GbE RJ-45 network cable to connect to the 1 Gbps data network interface.
-    4. Two 10 GbE SFP+ copper cables to connect to the 10 Gbps network interfaces.
+    - (Included) grounded power cord rated at 10 A or greater with an IEC60320 C-13 connector at one end to connect to the device.
+    - One 1 GbE RJ-45 network cables to connect to the 1 Gbps management network interface.
+    - One 1 GbE RJ-45 network cable to connect to the 1 Gbps data network interface.
+    - Two 10 GbE SFP+ copper cables to connect to the 10 Gbps network interfaces.
 
 3. Remove and place the device on a flat surface. 
 	
@@ -68,7 +72,7 @@ When you receive the Data Box, do the following steps to unpack, cable, and turn
     ![Data Box cabled](media/data-box-quickstart-portal/data-box-cabled-dhcp.png)  
 
     1. Connect the power cable to the device.
-    2. Use the CAT 6 network cable to connect your host computer to the management port (MGMT) on the device. 
+    2. Use the RJ-45 network cable to connect your host computer to the management port (MGMT) on the device. 
     3. Use the Twinax copper cable to connect at least one 10 Gbps (preferred over 1 Gbps) network interface, DATA 1 or DATA 2 for data. 
     4. Turn on the device. The power button is on the front panel of the device.
 
@@ -105,8 +109,9 @@ The time to complete this operation depends upon your data size.
 
 1. When the Data Box device is connected to the Azure datacenter network, the data upload to Azure starts automatically. 
 2. Azure Data Box service notifies you that the data copy is complete via the Azure portal. 
-    a. Check error logs for any failures and take appropriate actions.
-    b. Verify that your data is in the storage account(s) before you delete it from the source.
+
+    1. Check error logs for any failures and take appropriate actions.
+    2. Verify that your data is in the storage account(s) before you delete it from the source.
 
 ## Clean up resources
 
