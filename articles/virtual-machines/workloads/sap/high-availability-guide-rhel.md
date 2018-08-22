@@ -73,7 +73,7 @@ Read the following SAP Notes and papers first
 
 To achieve high availability, SAP NetWeaver requires shared storage. GlusterFS is configured in a separate cluster and can be used by multiple SAP systems.
 
-![SAP NetWeaver High Availability overview](./media/high-availability-guide-rhel/img_001.png)
+![SAP NetWeaver High Availability overview](./media/high-availability-guide-rhel/ha-rhel.png)
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the (A)SCS and ERS load balancer.
 
