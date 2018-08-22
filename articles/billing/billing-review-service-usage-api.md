@@ -25,7 +25,7 @@ Azure Cost Management APIs help you review and manage consumption of your Azure 
 In this article, you learn how to create a daily report  that will generate a comma-separated value document with your usage information, and then how to use filters to customize the report so that you can query the usage of virtual machines, databases, and tagged resources in an Azure resource group.
 
 >[!NOTE]
-> The Cost Management API is current in private preview.
+> The Cost Management API is currently in private preview.
 
 ## Create a basic cost management report
 
@@ -95,7 +95,7 @@ The `filter` and `dimensions` section of the request body when creating a report
 
 ### Get all compute usage
 
-Use the `ResourceType` dimension to only report Azure virtual machine costs.
+Use the `ResourceType` dimension to report Azure virtual machine costs in your subscription across all regions.
 
 ```json
 "filter": {
@@ -112,7 +112,7 @@ Use the `ResourceType` dimension to only report Azure virtual machine costs.
 
 ### Get all database usage
 
-Use the `ResourceType` dimension to just report Azure SQL Database costs.
+Use the `ResourceType` dimension to report Azure SQL Database costs in your subscription across all regions.
 
 ```json
 "filter": {
@@ -128,7 +128,7 @@ Use the `ResourceType` dimension to just report Azure SQL Database costs.
 
 ### Report on specific instances
 
-The `Resource` dimension lets you query specific resources.
+The `Resource` dimension lets you report costs for specific resources.
 
 ```json
 "filter": {
@@ -144,7 +144,7 @@ The `Resource` dimension lets you query specific resources.
 
 ### Changing timeframes
 
-Set the `timeframe` definition to custom to set a timeframe outside of the `WeekToDate` and `MonthToDate` options.
+Set the `timeframe` definition to `Custom` to set a timeframe outside of the  week to date and month to date bulit in options.
 
 ```json
 "timeframe": "Custom",
