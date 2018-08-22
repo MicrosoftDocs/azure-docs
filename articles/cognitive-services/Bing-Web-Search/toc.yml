@@ -63,8 +63,8 @@
     href: bing-web-upgrade-guide-v5-to-v7.md
 - name: Concepts
   items:
-  - name: Suggesting search terms
-    href: suggest-and-use-bing-search-terms.md
+  - name: Autosuggest search terms
+    href: autosuggest-and-use-bing-search-terms.md
   - name: Search responses
     href: search-responses.md
   - name: Throttling requests

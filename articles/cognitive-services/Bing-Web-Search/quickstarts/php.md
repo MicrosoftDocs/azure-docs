@@ -8,7 +8,7 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using PHP. 
+#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using PHP.
 ---
 
 # Quickstart: Use PHP to call the Bing Web Search API  
@@ -19,88 +19,134 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 ## Prerequisites
 
-* [PHP 5.6.x](http://php.net/downloads.php) or later  
+Here are a few things that you'll need before running this quickstart:
 
-## Make a call to the Bing Web Search API  
+* [PHP 5.6.x](http://php.net/downloads.php) or later
+* A subscription key  
 
-To run this application, follow these steps.
+## Enable secure HTTP support
 
-1. Make sure secure HTTP support is enabled in your `php.ini` as described in the code comment. On Windows, this file is in `C:\windows`.  
-2. Create a new PHP project in your favorite IDE or editor.  
-3. Copy this sample code into your project:  
-    ```php
-    <?php
+Before we get started, locate `php.ini` and uncomment this line:
 
-    /* IMPORTANT: Uncomment this line in your php.ini file.
-     * ;extension=php_openssl.dll
-     *
-     * **********************************************
-     * *** Update or verify the following values. ***
-     * **********************************************
+```
+;extension=php_openssl.dll
+```
+
+## Create a project and define variables  
+
+Create a new PHP project in your favorite IDE or editor. Don't forget to add opening and closing tags `<?php` and `?>`.
+
+A few variables must be set before we can continue. Confirm that the `$endpoint` is correct and replace the `$accesskey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `$term`.
+
+```php
+$accessKey = 'enter key here';
+$endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
+$term = 'Microsoft Cognitive Services';
+```
+
+## Construct a request
+
+This code declares a function called `BingWebSearch` that is used to construct requests to the Bing Web Search API. It takes three arguments: `$url`, `$key`, and `$query`.
+
+```php
+function BingWebSearch ($url, $key, $query) {
+    /* Prepare the HTTP request.
+     * NOTE: Use the key 'http' even if you are making an HTTPS request.
+     * See: http://php.net/manual/en/function.stream-context-create.php.
      */
+    $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
+    $options = array ('http' => array (
+                          'header' => $headers,
+                           'method' => 'GET'));
 
-    // Replace the accessKey string value with a valid subscription key.
-    $accessKey = 'enter key here';
+    // Perform the request and get a JSON response.
+    $context = stream_context_create($options);
+    $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
 
-    /* Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-     * search APIs.  In the future, regional endpoints may be available.  If you
-     * encounter unexpected authorization errors, double-check this value against
-     * the endpoint for your Bing Web search instance in your Azure dashboard.
-     */
-    $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
-
-    $term = 'Microsoft Cognitive Services';
-
-    function BingWebSearch ($url, $key, $query) {
-        /* Prepare the HTTP request.
-         * NOTE: Use the key 'http' even if you are making an HTTPS request.
-         * See: http://php.net/manual/en/function.stream-context-create.php.
-         */
-        $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
-        $options = array ('http' => array (
-                              'header' => $headers,
-                               'method' => 'GET'));
-
-        // Perform the request and get a JSON response.
-        $context = stream_context_create($options);
-        $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
-
-        // Extract Bing HTTP headers.
-        $headers = array();
-        foreach ($http_response_header as $k => $v) {
-            $h = explode(":", $v, 2);
-            if (isset($h[1]))
-                if (preg_match("/^BingAPIs-/", $h[0]) || preg_match("/^X-MSEdge-/", $h[0]))
-                    $headers[trim($h[0])] = trim($h[1]);
-        }
-
-        return array($headers, $result);
+    // Extract Bing HTTP headers.
+    $headers = array();
+    foreach ($http_response_header as $k => $v) {
+        $h = explode(":", $v, 2);
+        if (isset($h[1]))
+            if (preg_match("/^BingAPIs-/", $h[0]) || preg_match("/^X-MSEdge-/", $h[0]))
+                $headers[trim($h[0])] = trim($h[1]);
     }
 
-    if (strlen($accessKey) == 32) {
+    return array($headers, $result);
+}
+```
 
-        print "Searching the Web for: " . $term . "\n";
+## Make a request and print the response
 
-        list($headers, $json) = BingWebSearch($endpoint, $accessKey, $term);
+This code validates the subscription key, makes a request, and prints the response.
 
-        print "\nRelevant Headers:\n\n";
-        foreach ($headers as $k => $v) {
-            print $k . ": " . $v . "\n";
-        }
+```php
+// Validates the subscription key.
+if (strlen($accessKey) == 32) {
 
-        print "\nJSON Response:\n\n";
-        echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
+    print "Searching the Web for: " . $term . "\n";
+    // Makes the request.
+    list($headers, $json) = BingWebSearch($endpoint, $accessKey, $term);
 
-    } else {
-
-        print("Invalid Bing Search API subscription key!\n");
-        print("Please paste yours into the source code.\n");
-
+    print "\nRelevant Headers:\n\n";
+    foreach ($headers as $k => $v) {
+        print $k . ": " . $v . "\n";
     }
-    ?>
-    ```  
-4. Replace the `accessKey` value with a valid subscription key.  
-5. Run the program. For example: `php your_program.php`.  
+    // Prints JSON encoded response.
+    print "\nJSON Response:\n\n";
+    echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
+
+} else {
+
+    print("Invalid Bing Search API subscription key!\n");
+    print("Please paste yours into the source code.\n");
+
+}
+```
+
+## Put it all together
+
+The last step is to validate your code and run it! If you'd like to compare your code with ours, here's the complete program:
+
+```php
+<?php
+$accessKey = 'enter key here';
+$endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
+$term = 'Microsoft Cognitive Services';
+
+function BingWebSearch ($url, $key, $query) {
+    $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
+    $options = array ('http' => array (
+                          'header' => $headers,
+                           'method' => 'GET'));
+    $context = stream_context_create($options);
+    $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
+    $headers = array();
+    foreach ($http_response_header as $k => $v) {
+        $h = explode(":", $v, 2);
+        if (isset($h[1]))
+            if (preg_match("/^BingAPIs-/", $h[0]) || preg_match("/^X-MSEdge-/", $h[0]))
+                $headers[trim($h[0])] = trim($h[1]);
+    }
+    return array($headers, $result);
+}
+
+if (strlen($accessKey) == 32) {
+    print "Searching the Web for: " . $term . "\n";
+    list($headers, $json) = BingWebSearch($endpoint, $accessKey, $term);
+    print "\nRelevant Headers:\n\n";
+    foreach ($headers as $k => $v) {
+        print $k . ": " . $v . "\n";
+    }
+    print "\nJSON Response:\n\n";
+    echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
+
+} else {
+    print("Invalid Bing Search API subscription key!\n");
+    print("Please paste yours into the source code.\n");
+}
+?>
+```
 
 ## Sample response
 

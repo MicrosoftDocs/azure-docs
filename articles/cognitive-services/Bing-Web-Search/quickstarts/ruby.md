@@ -8,7 +8,7 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Ruby. 
+#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Ruby.
 ---
 
 # Quickstart: Use Ruby to call the Bing Web Search API  
@@ -19,67 +19,114 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 ## Prerequisites
 
-* [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/)  
+Here are a few things that you'll need before running this quickstart:
 
-## Make a call to the Bing Web Search API
+* [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/)
+* A subscription key
 
-To run this application, follow these steps.
+## Create a project and declare required modules
 
-1. Create a new Ruby project in your favorite IDE or editor.
-2. Copy this sample code into your project:  
-    ```ruby
-    require 'net/https'
-    require 'uri'
-    require 'json'
+Create a new Ruby project in your favorite IDE or editor. Then require `net/https` for requests, `uri` for URI handling, and `json` to parse the response.
 
-    # **********************************************
-    # *** Update or verify the following values. ***
-    # **********************************************
+```ruby
+require 'net/https'
+require 'uri'
+require 'json'
+```
 
-    # Replace the accessKey string value with a valid subscription key.
-    accessKey = "enter key here"
+## Define variables
 
-    # Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-    # search APIs.  In the future, regional endpoints may be available.  If you
-    # encounter unexpected authorization errors, double-check this value against
-    # the endpoint for your Bing Web search instance in your Azure dashboard.
+A few variables must be set before we can continue. Confirm that the `$uri` and `path` are valid and replace the `accessKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `term`.
 
-    uri  = "https://api.cognitive.microsoft.com"
-    path = "/bing/v7.0/search"
+```ruby
+accessKey = "YOUR_SUBSCRIPTION_KEY"
+uri  = "https://api.cognitive.microsoft.com"
+path = "/bing/v7.0/search"
+term = "Microsoft Cognitive Services"
 
-    term = "Microsoft Cognitive Services"
+if accessKey.length != 32 then
+    puts "Invalid Bing Search API subscription key!"
+    puts "Please paste yours into the source code."
+    abort
+end
+```
 
-    if accessKey.length != 32 then
-        puts "Invalid Bing Search API subscription key!"
-        puts "Please paste yours into the source code."
-        abort
+## Make a request
+
+Use this code to make a request and handle the response.
+
+```ruby
+# Construct the endpoint uri.
+uri = URI(uri + path + "?q=" + URI.escape(term))
+puts "Searching the Web for: " + term
+
+# Create the request.
+request = Net::HTTP::Get.new(uri)
+request['Ocp-Apim-Subscription-Key'] = accessKey
+
+# Get the response.
+response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+    http.request(request)
+end
+```
+
+## Print the response
+
+Validate the headers, format the response data as JSON, and print the results.
+
+```ruby
+puts "\nRelevant Headers:\n\n"
+response.each_header do |key, value|
+    # Header names are lower-cased.
+    if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
+        puts key + ": " + value
     end
+end
 
-    uri = URI(uri + path + "?q=" + URI.escape(term))
+puts "\nJSON Response:\n\n"
+puts JSON::pretty_generate(JSON(response.body))
+```
 
-    puts "Searching the Web for: " + term
+## Put it all together
 
-    # Create the request and get a JSON response.
-    request = Net::HTTP::Get.new(uri)
-    request['Ocp-Apim-Subscription-Key'] = accessKey
+The last step is to validate your code and run it! If you'd like to compare your code with ours, here's the complete program:
 
-    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-        http.request(request)
+```ruby
+require 'net/https'
+require 'uri'
+require 'json'
+
+accessKey = "enter key here"
+uri  = "https://api.cognitive.microsoft.com"
+path = "/bing/v7.0/search"
+term = "Microsoft Cognitive Services"
+
+if accessKey.length != 32 then
+    puts "Invalid Bing Search API subscription key!"
+    puts "Please paste yours into the source code."
+    abort
+end
+
+uri = URI(uri + path + "?q=" + URI.escape(term))
+puts "Searching the Web for: " + term
+
+request = Net::HTTP::Get.new(uri)
+request['Ocp-Apim-Subscription-Key'] = accessKey
+
+response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+    http.request(request)
+end
+
+puts "\nRelevant Headers:\n\n"
+response.each_header do |key, value|
+    if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
+        puts key + ": " + value
     end
+end
 
-    puts "\nRelevant Headers:\n\n"
-    response.each_header do |key, value|
-        # Header names are lowee-cased.
-        if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
-            puts key + ": " + value
-        end
-    end
-
-    puts "\nJSON Response:\n\n"
-    puts JSON::pretty_generate(JSON(response.body))
-    ```
-3. Replace `accessKey` with a valid subscription key.
-4. Run the program. For example: `ruby your_program.rb`.
+puts "\nJSON Response:\n\n"
+puts JSON::pretty_generate(JSON(response.body))
+```
 
 ## Sample response
 
