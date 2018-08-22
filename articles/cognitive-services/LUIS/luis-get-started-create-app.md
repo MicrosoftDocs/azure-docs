@@ -14,32 +14,33 @@ ms.author: diberry
 
 # Quickstart: Use prebuilt Home automation app
 
-In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off.
-
- This prebuilt domain already has intents and entities provided for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
+In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
 For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
 
 ## Prerequisites
-* To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal.
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+For this article, you need a free [LUIS](http://www.luis.ai) account. 
 
 ## Create a new app
 You can create and manage your applications on **My Apps** page of [LUIS](luis-reference-regions.md#luis-website). 
-1. Click **Create new app**.
+
+1. Sign in to the LUIS portal at [http://www.luis.ai](http://www.luis.ai).
+
+2. Click **Create new app**.
 
     [![](media/luis-quickstart-new-app/app-list.png "Screenshot of app list")](media/luis-quickstart-new-app/app-list.png)
 
-2. In the dialog box, name your application "Home Automation".
+3. In the dialog box, name your application "Home Automation".
 
     [![](media/luis-quickstart-new-app/create-new-app-dialog.png "Screenshot of Create new app pop-up dialog")](media/luis-quickstart-new-app/create-new-app-dialog.png)
 
-3. Choose your application culture (for this Home Automation app, choose English), and then click **Done**. 
+4. Choose your application culture (for this Home Automation app, choose English), and then click **Done**. 
 
     >[!NOTE]
     >The culture cannot be changed once the application is created. 
 
-LUIS creates the Home Automation app. 
+    LUIS creates the Home Automation app. 
 
 ## Add prebuilt domain
 
