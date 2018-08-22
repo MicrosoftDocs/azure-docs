@@ -16,7 +16,7 @@ Learn how to use the Custom Vision Service from a C# application. After it's cre
 
 ## Prerequisites
 
-* Any edition of Visual Studio 2015 or 2017 for Windows.
+* Any edition of Visual Studio 2017 for Windows.
 
 ## Get the Custom Vision SDK and samples
 To build this example, you need the Custom Vision SDK NuGet Packages:
