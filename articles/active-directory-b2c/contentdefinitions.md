@@ -49,19 +49,6 @@ The metadata of the `TechnicalProfile` element contains the content definition I
   ...
 ```
 
-The `Localization` element also uses the content definition ID:
-
-```XML
-<Localization Enabled="true">
-  <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
-    <SupportedLanguage>en</SupportedLanguage>
-    <SupportedLanguage>es</SupportedLanguage>
-  </SupportedLanguages>
-  <LocalizedResources Id="api.localaccountsignup.en">
-  <LocalizedResources Id="api.localaccountsignup.es">
-  ...
-```
-
 The `ContentDefinitions` element contains URLs to HTML5 templates that can be used in a user journey. The HTML5 page URI is used for a specified user interface step. For example, the sign-in or sign-up, password reset, or error pages. You can modify the look and feel by overriding the LoadUri for the HTML5 file. You can create new content definitions according to your needs. This element may contain a localized resources reference, to the localization ID specified in the [Localization](localization.md) element.
 
 ## ContentDefinition
@@ -127,6 +114,8 @@ The following example shows a sign-up or sign-in content definition with a refer
 </LocalizedResourcesReferences>
 </ContentDefinition>
 ```
+
+To learn how to add localization support to your content definitions, see [Localization](localization.md).
 
 ## Content definition IDs
 
