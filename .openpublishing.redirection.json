@@ -461,6 +461,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/machine-learning/desktop-workbench/overview-general-concepts.md",
+            "redirect_url": "/azure/machine-learning/service/concept-azure-machine-learning-architecture",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/machine-learning/preview/quickstart-visual-studio-code-tools.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/quickstart-visual-studio-code-tools",
             "redirect_document_id": true
