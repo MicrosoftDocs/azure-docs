@@ -292,14 +292,16 @@
     items:
     - name: Android
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
-    - name: Node.js
-      href: https://github.com/Microsoft/Cognitive-LUIS-Node.js
+    - name: Node.js Authoring
+      href: http://aka.ms/luis-sdk-node-authoring
+    - name: Node.js Endpoint
+      href: http://aka.ms/luis-sdk-node-endpoint
     - name: Go 
       href: https://aka.ms/luis-sdk-go
     - name: Java
       href: https://aka.ms/luis-java-sdk
     - name: Python
-      href: https://github.com/Microsoft/Cognitive-LUIS-Python
+      href: https://aka.ms/luis-python-sdk
     - name: .Net Endpoint
       href: https://aka.ms/luis-endpoint-sdk
     - name: .Net Authoring

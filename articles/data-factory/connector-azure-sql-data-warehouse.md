@@ -68,6 +68,9 @@ For different authentication types, refer to the following sections on prerequis
 - Azure AD application token authentication: [Service principal](#service-principal-authentication)
 - Azure AD application token authentication: [Managed Service Identity](#managed-service-identity-authentication)
 
+>[!TIP]
+>If you hit error with error code as "UserErrorFailedToConnectToSqlServer" and message like "The session limit for the database is XXX and has been reached.", add `Pooling=false` to your connection string and try again.
+
 ### SQL authentication
 
 #### Linked service example that uses SQL authentication

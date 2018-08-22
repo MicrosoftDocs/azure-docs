@@ -134,7 +134,7 @@ To run the Roobo tests and validate your development kit setup, build and instal
         exit
         ```
 
-    * Copy the files `kws.table`, `kws_g.fst`, `kws_k.fst`, and `words_kw.txt`) to the device's \data\keyword\ folder. Run the following commands in o command window.
+    * Copy the files `kws.table`, `kws_g.fst`, `kws_k.fst`, and `words_kw.txt`) to the device's \data\keyword\ folder. Run the following commands in o command window. If you have created a [custom wake word](speech-devices-sdk-create-kws.md), the kws.table file generated from the web is going to be in the same directory as `kws.table`, `kws_g.fst`, `kws_k.fst`, and `words_kw.txt` files are. Please use adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword commmand to push the kws.table file to the dev kit instead.
 
         ```
         adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
