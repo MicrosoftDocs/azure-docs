@@ -42,13 +42,13 @@ Otherwise, the throttling is coming from the target resource provider (the one a
 
 Case 1: 
 Header: x-ms-ratelimit-remaining-resource
-Value format: <code> <source RP>/<policy or bucket>;<count></code>
+Value format: ```<source RP>/<policy or bucket>;<count>```
 Example: Microsoft.Compute/HighCostGet3Min;159
 Description: Remaining API call count for the throttling policy covering the resource bucket or operation group including the target of this request
 
 Case 2: 
 Header: x-ms-request-charge  
-Value format: <code><count>   </code> 
+Value format: ```<count>   ```
 Example: 1 
 Description: The number of call counts “charged” for this HTTP request toward the applicable policy’s limit. This is most typically 1. Batch requests, such as for scaling a virtual machine scale set, can charge multiple counts.
 
