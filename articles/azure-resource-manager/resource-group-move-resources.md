@@ -4,8 +4,6 @@ description: Use Azure Resource Manager to move resources to a new resource grou
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
@@ -13,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/21/2018
 ms.author: tomfitz
 
 ---
@@ -109,14 +107,15 @@ Contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAn
 
 The services that enable moving to both a new resource group and subscription are:
 
+* Analysis Services
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
 * App Service Certificates
 * Application Insights
-* Analysis Services
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure DevOps - Azure DevOps organizations with non-Microsoft extension purchases must [cancel their purchases](https://go.microsoft.com/fwlink/?linkid=871160) before they can move the account across subscriptions.
 * Azure Maps
 * Azure Relay
 * Azure Stack - registrations
@@ -129,6 +128,8 @@ The services that enable moving to both a new resource group and subscription ar
 * Cognitive Services
 * Container Registry
 * Content Moderator
+* Cost Management
+* Customer Insights
 * Data Catalog
 * Data Factory
 * Data Lake Analytics
@@ -137,12 +138,14 @@ The services that enable moving to both a new resource group and subscription ar
 * Event Grid
 * Event Hubs
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
+* Iot Central
 * IoT Hubs
 * Key Vault
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.
+* Managed Identity - user-assigned
 * Media Services
 * Mobile Engagement
 * Notification Hubs
@@ -156,6 +159,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Search
 * Service Bus
 * Service Fabric
+* Service Fabric Mesh
 * SignalR Service
 * Storage
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
@@ -167,7 +171,6 @@ The services that enable moving to both a new resource group and subscription ar
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Machine Scale Sets - see [Virtual Machines limitations](#virtual-machines-limitations)
 * Virtual Networks - see [Virtual Networks limitations](#virtual-networks-limitations)
-* Visual Studio Team Services - VSTS accounts with non-Microsoft extension purchases must [cancel their purchases](https://go.microsoft.com/fwlink/?linkid=871160) before they can move the account across subscriptions.
 * VPN Gateway
 
 ## Services that cannot be moved
@@ -183,7 +186,10 @@ The services that currently don't enable moving a resource are:
 * Azure Databricks
 * Batch AI
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
+* Container Instances
 * Container Service
+* Data Box
+* Dev Spaces
 * Dynamics LCS
 * Express Route
 * Kubernetes Service
@@ -192,6 +198,7 @@ The services that currently don't enable moving a resource are:
 * Managed Applications
 * Managed Disks - see [Virtual Machines limitations](#virtual-machines-limitations)
 * Microsoft Genomics
+* NetApp
 * Public IP - see [Public IP limitations](#pip-limitations)
 * Recovery Services vault - also don't move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 * SAP HANA on Azure

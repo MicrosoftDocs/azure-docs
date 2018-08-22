@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 08/21/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -56,7 +56,7 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2222444 | IS, ASDK   -->  **Improvements in accuracy and resiliency have been made to networking usage meters**.  Network usage meters are now more accurate and take into account suspended subscriptions, outage periods and race conditions.
 
-- <!-- 2753080 | IS -->  **Update available notification**- Connected Azure Stack deployments will now periodically check a secured endpoint and determine if an update is available for your cloud. This notification appears in the Update tile, as it would after manually checking for and importing a new update. Read more about [managing updates for Azure Stack](azure-stack-updates.md).
+- <!-- 2753080 | IS -->  **Update available notification.** Connected Azure Stack deployments will now periodically check a secured endpoint and determine if an update is available for your cloud. This notification appears in the Update tile, as it would after manually checking for and importing a new update. Read more about [managing updates for Azure Stack](azure-stack-updates.md).
 
 - <!-- 2297790 | IS, ASDK -->  **Improvements to the Azure Stack syslog client (preview feature)**. This client allows the forwarding of audit and logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports the TCP protocol with plain text or TLS 1.2 encryption, the latter being the default configuration. You can configure the TLS connection with either server-only or mutual authentication.
 
@@ -152,7 +152,9 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Post-update steps
 
-*There are no post-update steps for update 1807.*
+- <!-- 2933866 – IS --> **Improved status for failed update installations.** This version introduces two new STATE categories to provide Operators more details about failed update installations. The two categories are *PreparationFailed*, and *InstallationFailed*. After installing this version, you might see information for previous update installation failures revised to reflect these new categories. 
+
+<!-- *There are no post-update steps for update 1807.* -->
 
 <!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
  - Link to KB  

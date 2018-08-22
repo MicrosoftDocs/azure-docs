@@ -73,9 +73,6 @@ The following administrator roles are available:
 
 * **[Intune Service Administrator](#intune-service-administrator)**: Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
 
-* **[License Administrator](#license-administrator)**: 
-Users in this role can add, remove, and update license assignments on users, groups (using group-based licensing), and manage the usage location on users. The role does not grant the ability to purchase or manage subscriptions, create or manage groups, or create or manage users beyond the usage location.
-
 * **[Message Center Reader](#message-center-reader)**: Users in this role can monitor notifications and advisory health updates in [Office 365 Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) for their organization on configured services such as Exchange, Intune and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Office 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. 
 
 * **[Partner Tier1 Support](#partner-tier1-support)**: Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
@@ -610,15 +607,6 @@ Can manage all aspects of the Intune product.
 | microsoft.aad.directory/User/Update/Manager | Update Users.Manager property in Azure Active Directory. |
 | microsoft.aad.supporttickets/AllEntities/AllActions | Create and manage Office 365 support tickets. |
 | microsoft.intune/AllEntities/AllActions | Manage all aspects of Intune. |
-
-### License Administrator
-Can assign licenses to users.
-
-| microsoft.aad.directory/users/assignLicense        | &nbsp; |
-| microsoft.aad.directory/users/usageLocation/update | &nbsp; |
-| microsoft.azure.accessService/allEntities/allTasks | &nbsp; |
-| microsoft.azure.serviceHealth/allEntities/allTasks | &nbsp; |
-| microsoft.office365.serviceHealth/allEntities/allTasks | &nbsp; |
 
 ### Lync Service Administrator
 Can manage all aspects of the Skype for Business product.

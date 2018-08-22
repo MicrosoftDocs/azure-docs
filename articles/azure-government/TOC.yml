@@ -44,7 +44,7 @@
   items: 
   - name: Use Visual Studio
     href: documentation-government-get-started-connect-with-vs.md
-  - name: Use Visual Studio Team Services
+  - name: Use Azure DevOps
     href: documentation-government-get-started-connect-with-vsts.md
   - name: Use SQL Server Management Studio
     href: documentation-government-connect-ssms.md
