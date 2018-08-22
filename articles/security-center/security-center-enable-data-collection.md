@@ -86,11 +86,13 @@ Resource Group: DefaultResouceGroup-[geo]**
 
 For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
+For more information about existing Log Analytics accounts, see [Existing Log Analytics customers](security-center-faq.md#existingloganalyticscust).
+
 ### Using an existing workspace
 
 If you already have an existing Log Analytics workspace you might want to use the same workspace.
 
-To use your existing Log Analytics workspace, you must have read permissions to access the workspace.
+To use your existing Log Analytics workspace, you must have read and write permissions on the workspace.
 
 > [!NOTE]
 > Solutions enabled on the existing workspace will be applied to Azure VMs that are connected to it. For paid solutions, this could result in additional charges. For data privacy considerations, make sure your selected workspace is in the right geographic region.
@@ -204,7 +206,7 @@ If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azu
 -	A pre-existing VM extension is present<br>
     - Security center supports existing extension installations, and does not override existing connections. Security Center stores security data from the VM in the workspace already connected and provides protection based on the solutions enabled on the workspace.   
     - To see to which workspace the existing extension is sending data to, run the test to [Validate connectivity with Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Alternatively, you can open Log analytics, select a workspace, select the VM, and look at the OMS connection. 
-
+    - If you have an environment where the Microsoft Monitoring Agent is installed on client workstations and reporting to an existing Log Analytics workspace, review the list of [operating systems supported by Azure Security Center](security-center-os-coverage.md) to make sure your operating system is supported, and see [Existing Log Analytics customers](security-center-faq.md#existingloganalyticscust) for more information.
  
 ### Turn off automatic provisioning <a name="offprovisioning"></a>
 You can turn off automatic provisioning from resources at any time by turning off this setting in the security policy. 
@@ -257,14 +259,37 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
   > [!NOTE]
   > The section **Collect event and performance data** is optional.
   >
-6. To use PowerShell to deploy the extension, use the following PowerShell example:
-	- When installing on a Windows VM:
-	 
-	    `Set-AzureRmVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True `
+6. To use PowerShell to deploy the extension: use the following PowerShell example:
+	1.  Go to **Log Analytics** and click on **Advanced settings**.
+    
+        ![Set log analytics][11]
+
+    2. Copy the values out of **WorkspaceID** and **Primary key**
+  
+       ![Copy values][12]
+
+    3. Populate the public config and the private config with these values:
+     
+            $PublicConf = '{
+                "workspaceId": "WorkspaceID value",
+                "MultipleConnectistopOnons": true
+            }' 
+ 
+            $PrivateConf = '{
+                "workspaceKey": "<Primary key value>”
+            }' 
+
+	   - When installing on a Windows VM:
+	    
+             Set-AzureRmVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
 	
-	- When installing on a Linux VM:
 	
-	    `Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
+	    - When installing on a Linux VM:
+	    
+	          Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
+
+
+
 
 ## Troubleshooting
 
@@ -291,3 +316,5 @@ This article showed you how data collection and automatic provisioning in Securi
 [8]: ./media/security-center-enable-data-collection/manual-provision.png
 [9]: ./media/security-center-enable-data-collection/pricing-tier.png
 [10]: ./media/security-center-enable-data-collection/workspace-selection.png
+[11]: ./media/security-center-enable-data-collection/log-analytics.png
+[12]: ./media/security-center-enable-data-collection/log-analytics2.png
