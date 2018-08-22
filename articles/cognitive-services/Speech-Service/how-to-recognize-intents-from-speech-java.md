@@ -36,7 +36,7 @@ ms.author: wolfma
 [!code-java[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#IntentContinuousRecognitionWithFile)]
 
 [!include[Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for the code that's used in this article in the samples/java/windows/console folder.
+Look for the code that's used in this article in the samples/java/jre/console folder.
 
 ## Next steps
 
