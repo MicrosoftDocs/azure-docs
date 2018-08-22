@@ -8,7 +8,7 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using PHP. 
+#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using PHP.
 ---
 
 # Quickstart: Use PHP to call the Bing Web Search API  
@@ -19,10 +19,10 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 ## Prerequisites
 
-Before starting you'll need:
+Here are a few things that you'll need before running this quickstart:
 
 * [PHP 5.6.x](http://php.net/downloads.php) or later
-* Subscription key  
+* A subscription key  
 
 ## Enable secure HTTP support
 

@@ -8,7 +8,7 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Node.js. 
+#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Node.js.
 ---
 
 # Quickstart: Use Node.js to call the Bing Web Search API  
@@ -19,10 +19,10 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 ## Prerequisites
 
-Before starting you'll need:
+Here are a few things that you'll need before running this quickstart:
 
 * [Node.js 6](https://nodejs.org/en/download/) or later
-* Subscription key  
+* A subscription key  
 
 ## Create a project and declare required modules
 

@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
-#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Go. 
+#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Go.
 ---
 
 # Quickstart: Use Go to call the Bing Web Search API  
@@ -20,10 +20,10 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 ## Prerequisites
 
-Before starting you'll need:
+Here are a few things that you'll need before running this quickstart:
 
 * [Go binaries](https://golang.org/dl/)
-* Subscription key
+* A subscription key
 
 This quickstart only requires **core** libraries, there are no external dependencies.  
 

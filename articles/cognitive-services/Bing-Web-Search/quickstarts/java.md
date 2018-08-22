@@ -8,7 +8,7 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Java. 
+#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Java.
 ---
 
 # Quickstart: Use Java to call the Bing Web Search API  
@@ -19,11 +19,11 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 ## Prerequisites
 
-Before starting you'll need:
+Here are a few things that you'll need before running this quickstart:
 
 * [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [gson library](https://github.com/google/gson)
-* Subscription key
+* A subscription key
 
 ## Create a project and import dependencies
 
@@ -58,11 +58,13 @@ Declare the `BingWebSearch` class. It will include most of the code we review in
 
 ```java
 public class BingWebSearch {
-// The code in the following subsections goes here.
+
+// The code in the following sections goes here.
+
 }
 ```
 
-### Define variables
+## Define variables
 
 This code sets the `subscriptionKey`, `host`, `path`, and `searchTerm`. Confirm that the endpoint is correct and replace the `subscriptionKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`.
 
@@ -80,7 +82,7 @@ static String path = "/bing/v7.0/search";
 static String searchTerm = "Microsoft Cognitive Services";
 ```
 
-### Declare the SearchWeb method
+## Construct a request
 
 This method, which lives in the `BingWebSearch` class, constructs the `url`, receives and parses the response, and extracts Bing-related HTTP headers.  
 
@@ -113,7 +115,7 @@ public static SearchResults SearchWeb (String searchQuery) throws Exception {
 }
 ```
 
-### Handle the response
+## Handle the response
 
 Use gson to parse and reserialize the response.
 
@@ -126,9 +128,9 @@ public static String prettify(String json_text) {
 }
 ```
 
-### Declare the main method
+## Declare the main method
 
-The `main` method includes code that validates the `subscriptionKey`, makes a request, and prints the JSON response.
+This method is required and is the first method invoked when the program is started. In this application, it includes code that validates the `subscriptionKey`, makes a request, and prints the JSON response.
 
 ```java
 public static void main (String[] args) {
@@ -138,7 +140,7 @@ public static void main (String[] args) {
         System.out.println("Please paste yours into the source code.");
         System.exit(1);
     }
-  
+
     // Call the SearchWeb method and print the response.
     try {
         System.out.println("Searching the Web for: " + searchTerm);
@@ -180,7 +182,7 @@ javac BingWebSearch.java -classpath ./gson-2.8.1.jar -encoding UTF-8
 java -cp ./gson-2.8.1.jar BingWebSearch
 ```
 
-The last step is to compile your code and run it! If you'd like to compare your code with ours, [sample code is available on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingWebSearchv7.java).
+If you'd like to compare your code with ours, [sample code is available on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingWebSearchv7.java).
 
 ## Sample response
 

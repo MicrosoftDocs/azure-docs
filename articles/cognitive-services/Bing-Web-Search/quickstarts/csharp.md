@@ -8,7 +8,7 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using C#. 
+#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using C#.
 ---
 
 # Quickstart: Use C# to call the Bing Web Search API  
@@ -19,11 +19,13 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 ## Prerequisites
 
+Here are a few things that you'll need before running this quickstart:
+
 The example program **only** uses .NET Core classes. It runs on Windows using the .NET CLR or Linux/macOS using [Mono](http://www.mono-project.com/).  
 
 * Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 * Linux/macOS: [Mono](http://www.mono-project.com/)  
-* Subscription key
+* A subscription key
 
 ## Create a project and declare dependencies
 
