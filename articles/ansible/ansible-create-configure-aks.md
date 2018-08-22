@@ -17,9 +17,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - **Azure service principal** - When [creating the service principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal), note the following values: **appId**, **displayName**, **password**, and **tenant**.
 
-[!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation.md)]
-
-  1. **Linux virtual machine** - If you don't have access to a Linux virtual machine, you can [create a virtual machine with Ansible](/azure/virtual-machines/linux/ansible-create-vm.md).
+[!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
 > Ansible 2.6 is required to run the following the sample playbooks in this tutorial. 
