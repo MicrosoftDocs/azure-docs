@@ -270,7 +270,7 @@ You can monitor OS encryption progress in three ways:
 
     /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
- We recommend that you do't sign-in to the VM while OS encryption is in progress. Copy the logs only when the other two methods have failed.
+ We recommend that you don't sign-in to the VM while OS encryption is in progress. Copy the logs only when the other two methods have failed.
 
 ## <a name="bkmk_preLinux"></a> Prepare a pre-encrypted Linux VHD
 The preparation for pre-encrypted VHDs can vary depending on the distribution. Examples on preparing [Ubuntu 16](#bkmk_Ubuntu),
