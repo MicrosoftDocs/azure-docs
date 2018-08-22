@@ -120,7 +120,7 @@ In the **Configure** page, configure a new VSTS account, or specify an existing 
 
 In the **Test** page, choose whether to enable load tests, then click **Continue**.
 
-Depending on the [pricing tier](/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to enable deployment slots, then click **Continue**.
+Depending on the [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to enable deployment slots, then click **Continue**.
 
 In the **Summary** page, verify your options and click **Finish**.
 

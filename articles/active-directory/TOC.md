@@ -144,8 +144,6 @@
 
 ###	[Programmatic Access](reports-monitoring/concept-reporting-api.md)
 #### [Prerequisites](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
-#### [Audit samples](reports-monitoring/sample-audit-api.md)
-#### [Sign-in samples](reports-monitoring/sample-sign-in-api.md)
 #### [Using certificates](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [Manage passwords](authentication/concept-sspr-howitworks.md)
@@ -235,13 +233,14 @@
 ### Manage enterprise apps
 #### [Add an application](manage-apps/add-application-portal.md)
 #### [View tenant apps](manage-apps/view-applications-portal.md)
+#### [Configure single sign-on](manage-apps/configure-single-sign-on-portal.md)
 #### [Assign users](manage-apps/assign-user-or-group-access-portal.md)
 #### [Customize branding](manage-apps/change-name-or-logo-portal.md)
 #### [Disable user sign-ins](manage-apps/disable-user-sign-in-portal.md)
 #### [Remove users](manage-apps/remove-user-or-group-access-portal.md)
 
 #### [Manage user account provisioning](manage-apps/configure-automatic-user-provisioning-portal.md)
-#### [Manage single sign-on for enterprise apps](manage-apps/configure-single-sign-on-portal.md)
+
 #### [Advanced certificate signing for SAML apps](manage-apps/certificate-signing-options.md)
 #### [Hide an application from a user's experience](manage-apps/hide-application-from-user-portal.md)
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](manage-apps/configure-authentication-for-federated-users-portal.md)
@@ -401,41 +400,13 @@
 ### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Secure your identities
-### Conditional access
-#### [Overview](conditional-access/overview.md)
-#### Quickstarts
-##### [Require MFA for specific apps](conditional-access/app-based-mfa.md)
-##### [Require terms of use to be accepted](conditional-access/require-tou.md)
-##### [Block access when a session risk is detected](conditional-access/app-sign-in-risk.md)
-#### Tutorials
-##### [Migrate classic MFA policy](conditional-access/policy-migration-mfa.md)
-#### Concepts
-##### [Baseline Protection](conditional-access/baseline-protection.md)
-##### [Conditions](conditional-access/conditions.md)
-##### [Location conditions](conditional-access/location-condition.md)
-##### [Controls](conditional-access/controls.md)
-##### [What if tool](conditional-access/what-if-tool.md)
-##### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
-#### How-to guides
-##### [Best practices](conditional-access/best-practices.md)
-##### [Require MFA for access attempts from untrusted networks](conditional-access/untrusted-networks.md)
-##### [Require managed devices](conditional-access/require-managed-devices.md)
-##### [Require approved client apps](conditional-access/app-based-conditional-access.md)
-##### [Require terms of use for users and apps](active-directory-tou.md)
-##### [Migrate classic policies](conditional-access/policy-migration.md)
-##### [Set up VPN connectivity](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
-##### [Set up SharePoint and Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
-##### [Remediation](active-directory-conditional-access-device-remediation.md)
-#### [Reference](conditional-access/technical-reference.md)
-##### [Technical reference](conditional-access/technical-reference.md)
-#### [FAQs](conditional-access/faqs.md)
-
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
 #### [Get started](active-directory-certificate-based-authentication-get-started.md)
 
-### [Azure AD Identity Protection](active-directory-identityprotection.md)
+### Azure AD Identity Protection
+#### [Overview](identity-protection/overview.md)
 #### [Enable](identity-protection/enable.md)
 #### [Detect vulnerabilities](identity-protection/vulnerabilities.md)
 #### [Risk events](active-directory-identity-protection-risk-events.md)

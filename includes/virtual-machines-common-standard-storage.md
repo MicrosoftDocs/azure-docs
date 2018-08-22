@@ -119,7 +119,12 @@ When using Standard Storage, the following billing considerations apply:
 
 **Unmanaged storage data and disk size:** For unmanaged disks and other data (blobs, tables, queues, and files), you are charged only for the amount of space you are using. For example, if you have a VM whose page blob is provisioned as 127 GB, but the VM is really only using 10 GB of space, you are billed for 10 GB of space. We support Standard storage up to 8191 GB, and Standard unmanaged disks up to 4095 GB. 
 
-**Managed disks:** Managed disks are billed on the provisioned size. If your disk is provisioned as a 10 GB disk and you are only using 5 GB, you are charged for the provision size of 10 GB.
+**Managed disks:** Billing for standard managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you create a standard managed disk and specify a provisioned size of 200 GiB, you are billed as per the pricing of the S15 Disk type.
+
+| **Standard HDD Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
+| Disk Size        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+
 
 **Snapshots**: Snapshots of standard disks are billed for the additional capacity used by the snapshots. For information on snapshots, see [Creating a Snapshot of a Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 

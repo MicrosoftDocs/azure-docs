@@ -42,7 +42,7 @@ The Azure portal provides you with a central place to manage your devices. You c
 
 3. In the **Manage** section, click **Devices**.
 
-    ![Configure device settings](./media/device-management-azure-portal/11.png)
+    ![Configure device settings](./media/device-management-azure-portal/74.png)
  
 The **Devices** page enables you to:
 
