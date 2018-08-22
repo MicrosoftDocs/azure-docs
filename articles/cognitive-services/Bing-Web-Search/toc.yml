@@ -64,7 +64,7 @@
 - name: Concepts
   items:
   - name: Autosuggest search terms
-    href: suggest-and-use-bing-search-terms.md
+    href: autosuggest-and-use-bing-search-terms.md
   - name: Search responses
     href: search-responses.md
   - name: Throttling requests

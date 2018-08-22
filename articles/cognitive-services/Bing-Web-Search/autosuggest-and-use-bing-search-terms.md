@@ -12,7 +12,7 @@ ms.date: 8/13/2018
 ms.author: erhopf
 ---
 
-# Autosuggest Bing search terms 
+# Autosuggest Bing search terms
 
 If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 
