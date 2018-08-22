@@ -3,13 +3,13 @@ title: "Quickstart: Request and filter images using the SDK in Java"
 description: In this quickstart, you request and filter the images returned by Bing Image Search, using Java.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: cagronlund
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 02/16/2018
-ms.author: v-gedod
+ms.date: 08/22/2018
+ms.author: aahi
 ---
 
 # Quickstart: Request and filter images using the SDK and Java

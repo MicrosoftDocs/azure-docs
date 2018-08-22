@@ -14,32 +14,30 @@ ms.author: aahi
 
 # Quickstart: Request and filter images using the SDK and C#
 
-This article shows you how to send search queries, find trending images, and extract image details with the Bing Image Search SDK.
+Use this quickstart to send search queries, find trending images, and extract image details with the Bing Image Search SDK. The source code for this C# sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) with a console interface to explore the examples described here.
 
-The source code for this C# sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch).
+## Prerequisites
 
-## Application dependencies
+* The [Cognitive Image Search NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
 
-* The [Cognitive Image Search NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0). This package will install the following dependencies:
-    * Microsoft.Rest.ClientRuntime
-    * Microsoft.Rest.ClientRuntime.Azure
-    * Newtonsoft.Json
+To install the Bing Image Search SDK in visual studio, use the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.
 
-To install the Bing Image Search SDK in visual studio, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.
+## Example 1: Search for images on the web with a client
 
-## Create an image search client
-
-First, add the following `using` directives to your project in order to create an instance of the `ImageSearchAPI` client:
+To begin creating an image search client, add the following `using` directives to your project in order to create an instance of the `ImageSearchAPI` client:
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Search.ImageSearch;
 using Microsoft.Azure.CognitiveServices.Search.ImageSearch.Models;
+```
 
 Next, instantiate the client, using a valid Azure subscription key:
 
 ```csharp
 var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 ```
+
+## Send a search query using the client
 
 Use the client to search with a query text:
 
@@ -50,13 +48,13 @@ var imageResults = client.Images.SearchAsync(query: "Canadian Rockies").Result;
 Console.WriteLine("Search images for query \"canadian rockies\"");
 
 ```
+## Parse the image results
 
-Parse the image results returned in the response. 
+Parse the image results returned in the response.
 
 ```csharp
 
-if (imageResults.Value.Count > 0)
-{
+if (imageResults.Value.Count > 0){
     var firstImageResult = imageResults.Value.First();
 
     Console.WriteLine($"\r\nImage result count: {imageResults.Value.Count}");
@@ -64,386 +62,137 @@ if (imageResults.Value.Count > 0)
     Console.WriteLine($"First image thumbnail url: {firstImageResult.ThumbnailUrl}");
     Console.WriteLine($"First image content url: {firstImageResult.ContentUrl}");
 }
-else
-{
+else{
     Console.WriteLine("Couldn't find image results!");
 }
-
 Console.WriteLine($"\r\nImage result total estimated matches: {imageResults.TotalEstimatedMatches}");
 
 ```
+
+### Parse the pivot suggestions
 
 Parse any pivot suggestions returned in the response:
 
 ```csharp
 
-if (imageResults.PivotSuggestions.Count > 0)
-{
+if (imageResults.PivotSuggestions.Count > 0){
     var firstPivot = imageResults.PivotSuggestions.First();
 
     Console.WriteLine($"Pivot suggestion count: {imageResults.PivotSuggestions.Count}");
     Console.WriteLine($"First pivot: {firstPivot.Pivot}");
 
-    if (firstPivot.Suggestions.Count > 0)
-    {
+    if (firstPivot.Suggestions.Count > 0){
         var firstSuggestion = firstPivot.Suggestions.First();
 
         Console.WriteLine($"Suggestion count: {firstPivot.Suggestions.Count}");
         Console.WriteLine($"First suggestion text: {firstSuggestion.Text}");
         Console.WriteLine($"First suggestion web search url: {firstSuggestion.WebSearchUrl}");
-    }
-    else
-    {
+    }else{
         Console.WriteLine("Couldn't find suggestions!");
     }
 }
 
 ```
-Parse any pivot suggestions returned in the result:
+
+### Parse the query expansions
+
+Parse any query expansions returned in the result:
 
 ```csharp
-if (imageResults.QueryExpansions.Count > 0)
-{
+if (imageResults.QueryExpansions.Count > 0){
     var firstQueryExpansion = imageResults.QueryExpansions.First();
 
     Console.WriteLine($"\r\nQuery expansion count: {imageResults.QueryExpansions.Count}");
     Console.WriteLine($"First query expansion text: {firstQueryExpansion.Text}");
     Console.WriteLine($"First query expansion search link: {firstQueryExpansion.SearchLink}");
-}
-else
-{
+}else{
     Console.WriteLine("Couldn't find query expansions!");
 }
-```
-## Complete console application
-
-The following console application executes the previously defined query "Canadian Rockies" to search for results then print first image insights token, thumbnail url, and image content url:
-
-```
-using System;
-using System.Collections.Generic;
-using Microsoft.Azure.CognitiveServices.Search.ImageSearch;
-using Microsoft.Azure.CognitiveServices.Search.ImageSearch.Models;
-using System.Linq;
-
-namespace ImageSrchSDK
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
-            ImageResults(client);
-            ImageDetail(client);
-            ImageTrending(client);
-            ImageSearchWithFilters(client);
-
-            Console.WriteLine("Any key to exit...");
-            Console.ReadKey();
-        }
-
-        // Searches for results on query (Canadian Rockies) and prints first image insights token, thumbnail url, and image content url.
-        static void ImageResults(ImageSearchAPI client)
-        {
-            try
-            {
-                var imageResults = client.Images.SearchAsync(query: "canadian rockies").Result;
-                Console.WriteLine("Search images for query \"canadian rockies\"");
-
-                if (imageResults == null)
-                {
-                    Console.WriteLine("No image result data.");
-                }
-                else
-                {
-                    // Image results
-                    if (imageResults.Value.Count > 0)
-                    {
-                        var firstImageResult = imageResults.Value.First();
-
-                        Console.WriteLine($"\r\nImage result count: {imageResults.Value.Count}");
-                        Console.WriteLine($"First image insights token: {firstImageResult.ImageInsightsToken}");
-                        Console.WriteLine($"First image thumbnail url: {firstImageResult.ThumbnailUrl}");
-                        Console.WriteLine($"First image content url: {firstImageResult.ContentUrl}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find image results!");
-                    }
-
-                    Console.WriteLine($"\r\nImage result total estimated matches: {imageResults.TotalEstimatedMatches}");
-                    Console.WriteLine($"Image result next offset: {imageResults.NextOffset}");
-
-                    // Pivot suggestions
-                    if (imageResults.PivotSuggestions.Count > 0)
-                    {
-                        var firstPivot = imageResults.PivotSuggestions.First();
-
-                        Console.WriteLine($"\r\nPivot suggestion count: {imageResults.PivotSuggestions.Count}");
-                        Console.WriteLine($"First pivot: {firstPivot.Pivot}");
-
-                        if (firstPivot.Suggestions.Count > 0)
-                        {
-                            var firstSuggestion = firstPivot.Suggestions.First();
-
-                            Console.WriteLine($"\r\nSuggestion count: {firstPivot.Suggestions.Count}");
-                            Console.WriteLine($"First suggestion text: {firstSuggestion.Text}");
-                            Console.WriteLine($"First suggestion web search url: {firstSuggestion.WebSearchUrl}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find suggestions!");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find pivot suggestions!");
-                    }
-
-                    // Query expansions
-                    if (imageResults.QueryExpansions.Count > 0)
-                    {
-                        var firstQueryExpansion = imageResults.QueryExpansions.First();
-
-                        Console.WriteLine($"\r\nQuery expansion count: {imageResults.QueryExpansions.Count}");
-                        Console.WriteLine($"First query expansion text: {firstQueryExpansion.Text}");
-                        Console.WriteLine($"First query expansion search link: {firstQueryExpansion.SearchLink}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find query expansions!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("\r\nEncountered exception. " + ex.Message);
-            }
-        }
-    }
-}
-
 ```
 
 ## Search options
 
-The Bing search samples demonstrate various features of the SDK.  Add the following functions to the previously defined `ImageSrchSDK` class.
+The Bing image Search SDK and API provides several features along with image results. The following examples describe features of the `ImageSrchSDK` class.
 
-### Search using a filter
+## Example 2: Filtering and narrowing search results 
 
-Search images for "studio ghibli", filtered for animated gifs and wide aspect, then verify number of results and print out insightsToken, thumbnail url, and url of first result.
+When using the Bing Image Search API or SDK, you can filter image results based on a variety of different attributes. This example searches for images based on "studio ghibli" that are filtered for animated .gifs with a wide aspect ratio. 
 
-```
-        public static void ImageSearchWithFilters(ImageSearchAPI client)
-        {
-            try
-            {
-                var imageResults = client.Images.SearchAsync(query: "studio ghibli", imageType: ImageType.AnimatedGif, aspect: ImageAspect.Wide).Result;
-                Console.WriteLine("Search images for \"studio ghibli\" results that are animated gifs and wide aspect");
+```csharp
+var imageResults = client.Images.SearchAsync(query: "studio ghibli", imageType: ImageType.AnimatedGif, aspect: ImageAspect.Wide).Result;
 
-                if (imageResults == null)
-                {
-                    Console.WriteLine("Didn't see any image result data.");
-                }
-                else
-                {
-                    // First image result
-                    if (imageResults.Value.Count > 0)
-                    {
-                        var firstImageResult = imageResults.Value.First();
-
-                        Console.WriteLine($"\r\nImage result count: {imageResults.Value.Count}");
-                        Console.WriteLine($"First image insightsToken: {firstImageResult.ImageInsightsToken}");
-                        Console.WriteLine($"First image thumbnail url: {firstImageResult.ThumbnailUrl}");
-                        Console.WriteLine($"First image web search url: {firstImageResult.WebSearchUrl}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find image results!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-
-        }
-
+//get the first image result
+var firstImageResult = imageResults.Value.First();
+//print out the image's details
+Console.WriteLine($"First image insightsToken: {firstImageResult.ImageInsightsToken}");
+Console.WriteLine($"First image thumbnail url: {firstImageResult.ThumbnailUrl}");
+Console.WriteLine($"First image web search url: {firstImageResult.WebSearchUrl}");
 ```
 
-### Trending images
+## Example 3: Search for trending images
 
-Search for trending images, and then verify categories and tiles.
+When using the Bing Image Search API or SDK, you can find trending images across different categories and tiles using the `TrendingAsync()` method. This method returns currently trending images separated into a one or more [categories](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#category). These categories contain images and URLs to more images on the subject.
 
-```
-        public static void ImageTrending(ImageSearchAPI client)
-        {
-            try
-            {
-                var trendingResults = client.Images.TrendingAsync().Result;
-                Console.WriteLine("Search trending images");
+```csharp
+var trendingResults = client.Images.TrendingAsync().Result;
+Console.WriteLine($"\r\nCategory count: {trendingResults.Categories.Count}");
+//get the first category
+var firstCategory = trendingResults.Categories[0];
+Console.WriteLine($"First category title: {firstCategory.Title}");
 
-                if (trendingResults == null)
-                {
-                    Console.WriteLine("Didn't see any trending image data.");
-                }
-                else
-                {
-                    // Categories
-                    if (trendingResults.Categories?.Count > 0)
-                    {
-                        var firstCategory = trendingResults.Categories[0];
-                        Console.WriteLine($"\r\nCategory count: {trendingResults.Categories.Count}");
-                        Console.WriteLine($"First category title: {firstCategory.Title}");
-
-                        // Tiles
-                        if (firstCategory.Tiles?.Count > 0)
-                        {
-                            var firstTile = firstCategory.Tiles[0];
-                            Console.WriteLine($"\r\nTile count: {firstCategory.Tiles.Count}");
-                            Console.WriteLine($"First tile text: {firstTile.Query.Text}");
-                            Console.WriteLine($"First tile url: {firstTile.Query.WebSearchUrl}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find tiles!");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find categories!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-
-        }
-
+//get the first Tile
+var firstTile = firstCategory.Tiles[0];
+Console.WriteLine($"First tile text: {firstTile.Query.Text}");
+Console.WriteLine($"First tile url: {firstTile.Query.WebSearchUrl}");
 ```
 
-### Image details
+## Example 4: Find details and insights about Bing images 
 
-Search images for "Degas", and then search for image details of the first image.
+The Bing Image Search API can provide you with a variety of information about the details of images found on Bing. This example searches images for "Degas", and then gets details from Azure Cognitive Services about the first image.
+
+First make the search with the image client using the `DetailsAsync()` method. 
+
+```csharp
+var modules = new List<string>() { ImageInsightModule.All };
+var imageDetail = client.Images.DetailsAsync(query: "degas", insightsToken: firstImage.ImageInsightsToken, modules: modules).Result;
 ```
-        public static void ImageDetail(ImageSearchAPI client)
-        {
 
-            try
-            {
-                var imageResults = client.Images.SearchAsync(query: "degas").Result;
+You can then access the image details by printing them.
 
-                var firstImage = imageResults?.Value?.FirstOrDefault();
+```javascript
 
-                if (firstImage != null)
-                {
-                    var modules = new List<string>() { ImageInsightModule.All };
-                    var imageDetail = client.Images.DetailsAsync(query: "degas", insightsToken: firstImage.ImageInsightsToken, modules: modules).Result;
-                    Console.WriteLine($"\r\nSearch detail for image insightsToken={firstImage.ImageInsightsToken}");
+// Best representative query
+Console.WriteLine($"\r\nBest representative query text: {imageDetail.BestRepresentativeQuery.Text}");
+Console.WriteLine($"Best representative query web search url: {imageDetail.BestRepresentativeQuery.WebSearchUrl}");
 
-                    if (imageDetail != null)
-                    {
-                        // Insights token
-                        Console.WriteLine($"Expected image insights token: {imageDetail.ImageInsightsToken}");
+// Caption 
+Console.WriteLine($"\r\nImage caption: {imageDetail.ImageCaption.Caption}");
+Console.WriteLine($"Image caption data source url: {imageDetail.ImageCaption.DataSourceUrl}");
 
-                        // Best representative query
-                        if (imageDetail.BestRepresentativeQuery != null)
-                        {
-                            Console.WriteLine($"\r\nBest representative query text: {imageDetail.BestRepresentativeQuery.Text}");
-                            Console.WriteLine($"Best representative query web search url: {imageDetail.BestRepresentativeQuery.WebSearchUrl}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find best representative query!");
-                        }
+// Pages that include the image
+var firstPage = imageDetail.PagesIncluding.Value[0];
+Console.WriteLine($"\r\nPages including count: {imageDetail.PagesIncluding.Value.Count}");
+Console.WriteLine($"First page content url: {firstPage.ContentUrl}");
+Console.WriteLine($"First page name: {firstPage.Name}");
+Console.WriteLine($"First page date published: {firstPage.DatePublished}");
 
-                        // Caption 
-                        if (imageDetail.ImageCaption != null)
-                        {
-                            Console.WriteLine($"\r\nImage caption: {imageDetail.ImageCaption.Caption}");
-                            Console.WriteLine($"Image caption data source url: {imageDetail.ImageCaption.DataSourceUrl}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find image caption!");
-                        }
+// Related searches 
+var firstRelatedSearch = imageDetail.RelatedSearches.Value[0];
+Console.WriteLine($"\r\nRelated searches count: {imageDetail.RelatedSearches.Value.Count}");
+Console.WriteLine($"First related search text: {firstRelatedSearch.Text}");
+Console.WriteLine($"First related search web search url: {firstRelatedSearch.WebSearchUrl}");
 
-                        // Pages including the image
-                        if (imageDetail.PagesIncluding?.Value?.Count > 0)
-                        {
-                            var firstPage = imageDetail.PagesIncluding.Value[0];
-                            Console.WriteLine($"\r\nPages including count: {imageDetail.PagesIncluding.Value.Count}");
-                            Console.WriteLine($"First page content url: {firstPage.ContentUrl}");
-                            Console.WriteLine($"First page name: {firstPage.Name}");
-                            Console.WriteLine($"First page date published: {firstPage.DatePublished}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find any pages including this image!");
-                        }
+// Visually similar images
+var firstVisuallySimilarImage = imageDetail.VisuallySimilarImages.Value[0];
+Console.WriteLine($"\r\nVisually similar images count: {imageDetail.RelatedSearches.Value.Count}");
+Console.WriteLine($"First visually similar image name: {firstVisuallySimilarImage.Name}");
+Console.WriteLine($"First visually similar image content url: {firstVisuallySimilarImage.ContentUrl}");
+Console.WriteLine($"First visually similar image size: {firstVisuallySimilarImage.ContentSize}");
 
-                        // Related searches 
-                        if (imageDetail.RelatedSearches?.Value?.Count > 0)
-                        {
-                            var firstRelatedSearch = imageDetail.RelatedSearches.Value[0];
-                            Console.WriteLine($"\r\nRelated searches count: {imageDetail.RelatedSearches.Value.Count}");
-                            Console.WriteLine($"First related search text: {firstRelatedSearch.Text}");
-                            Console.WriteLine($"First related search web search url: {firstRelatedSearch.WebSearchUrl}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find any related searches!");
-                        }
-
-                        // Visually similar images
-                        if (imageDetail.VisuallySimilarImages?.Value?.Count > 0)
-                        {
-                            var firstVisuallySimilarImage = imageDetail.VisuallySimilarImages.Value[0];
-                            Console.WriteLine($"\r\nVisually similar images count: {imageDetail.RelatedSearches.Value.Count}");
-                            Console.WriteLine($"First visually similar image name: {firstVisuallySimilarImage.Name}");
-                            Console.WriteLine($"First visually similar image content url: {firstVisuallySimilarImage.ContentUrl}");
-                            Console.WriteLine($"First visually similar image size: {firstVisuallySimilarImage.ContentSize}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find any related searches!");
-                        }
-
-                        // Image tags
-                        if (imageDetail.ImageTags?.Value?.Count > 0)
-                        {
-                            var firstTag = imageDetail.ImageTags.Value[0];
-                            Console.WriteLine($"\r\nImage tags count: {imageDetail.ImageTags.Value.Count}");
-                            Console.WriteLine($"First tag name: {firstTag.Name}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("\r\nCouldn't find any related searches!");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("\r\nCouldn't find detail about the image!");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("\r\nCouldn't find image results!");
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("\r\nEncountered exception. " + ex.Message);
-            }
-        }
-
+// Image tags
+var firstTag = imageDetail.ImageTags.Value[0];
+Console.WriteLine($"\r\nImage tags count: {imageDetail.ImageTags.Value.Count}");
+Console.WriteLine($"First tag name: {firstTag.Name}");
 ```
 
 ## Next steps
