@@ -70,7 +70,7 @@ Read the following SAP Notes and papers first:
 
 To achieve high availability, SAP HANA is installed on two virtual machines. The data is replicated by using HANA System Replication.
 
-![SAP HANA high availability overview](./media/sap-hana-high-availability/ha-suse-hana.png)
+![SAP HANA high availability overview](./media/sap-hana-high-availability-rhel/ha-hana.png)
 
 SAP HANA System Replication setup uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer:
 

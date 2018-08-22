@@ -29,7 +29,7 @@ ms.author: sedusch
 > [!NOTE]
 > Pacemaker on Red Hat Enterprise Linux uses the Azure Fence Agent to fence a cluster node if required. A failover can take up to 15 minutes if a resource stop fails or the cluster nodes cannot communicate which each other anymore.
 
-![Pacemaker on SLES overview](./media/high-availability-guide-rhel-pacemaker/pacemaker.png)
+![Pacemaker on SLES overview](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
 
 ## Cluster installation
 
@@ -37,7 +37,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Register
 
-   Register your virtual machines and attach it to a pool that contains repositories for RHEL 7 and GlusterFS
+   Register your virtual machines and attach it to a pool that contains repositories for RHEL 7.
 
    <pre><code>sudo subscription-manager register
    sudo subscription-manager attach --pool=&lt;pool id&gt;
