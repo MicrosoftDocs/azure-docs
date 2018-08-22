@@ -23,7 +23,7 @@ Dynamics 365 and make the output available for other actions.
 For example, when an item is updated in Dynamics 365, 
 you can send an email using Office 365.
 
-This article shows how you create a logic app that creates a task 
+This article shows how you can build a logic app that creates a task 
 in Dynamics 365 whenever a new lead record is created in Dynamics 365.
 If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
@@ -45,12 +45,13 @@ To start your logic app with a Dynamics 365 trigger, you need a
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-Add a trigger that detects when a new lead record appears in Dynamics 365.
+First, add a Dynamics 365 trigger that fires when 
+a new lead record appears in Dynamics 365.
 
 1. In the [Azure portal](https://portal.azure.com), 
 open your blank logic app in Logic App Designer, if not open already.
 
-1. In the search box, enter `Dynamics 365` as your filter. 
+1. In the search box, enter "Dynamics 365" as your filter. 
 For this example, under the triggers list, 
 select this trigger: **When a record is created**
 
@@ -64,8 +65,7 @@ select this trigger: **When a record is created**
    |----------|-------------|
    | **Organization Name** | The name for your organization's Dynamics 365 instance to monitor, for example, "Contoso" |
    | **Entity Name** | The name for the entity to monitor, for example, "Leads" | 
-   | **How often do you want to check for items?** | The interval and frequency for how often your logic app checks for updates related to the trigger |
-   | **Frequency** | The unit of time between intervals when checking for updates |
+   | **Frequency** | The unit of time to use with intervals when checking for updates related to the trigger |
    | **Interval** | The number of seconds, minutes, hours, days, weeks, or months that pass before the next check |
    | | |
 
@@ -73,7 +73,7 @@ select this trigger: **When a record is created**
 
 ## Add Dynamics 365 action
 
-Now add the action that creates a task record for the newly added lead record.
+Now add the Dynamics 365 action that creates a task record for the new lead record.
 
 1. Under your trigger, choose **New step**.
 
@@ -86,16 +86,16 @@ From the actions list, select this action: **Create a new record**
 
    | Property | Description | 
    |----------|-------------| 
-   | **Organization Name** | The Dynamics 365 instance where you want to create the record, which doesn't have to be the same instance in your trigger |
-   | **Entity Name** | The entity where you want to create the record, for example, **Tasks** | 
+   | **Organization Name** | The Dynamics 365 instance where you want to create the record, which doesn't have to be the same instance in your trigger, but is "Contoso" in this example |
+   | **Entity Name** | The entity where you want to create the record, for example, "Tasks" | 
    | | |
 
    ![Action details](./media/connectors-create-api-crmonline/action-details.png)
 
 1. When the **Subject** box appears in your action, 
 click inside the **Subject** box so the dynamic content 
-list appears. From this list, select the field values 
-to include in the task from the new lead record:
+list appears. From this list, select the field values to 
+include in the task record associated with the new lead record:
 
    | Field | Description | 
    |-------|-------------| 
@@ -103,12 +103,13 @@ to include in the task from the new lead record:
    | **Topic** | The descriptive name for the lead in the record | 
    | | | 
 
-   ![New record details](./media/connectors-create-api-crmonline/create-record-details.png)
+   ![Task record details](./media/connectors-create-api-crmonline/create-record-details.png)
 
 1. On the designer toolbar, choose **Save** for your logic app. 
-To manually start the logic app, on the designer toolbar, choose **Run**.
 
-    ![Run logic app](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
+1. To manually start the logic app, on the designer toolbar, choose **Run**.
+
+   ![Run logic app](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
 
 1. Now create a lead record in Dynamics 365 so you can trigger your logic app's workflow.
 
@@ -136,49 +137,47 @@ Customer Engagement Web API system query options:
 
 ### Best practices for advanced options
 
-When you add a value to a field in an action or trigger, 
-your value's data type must match the field type whether 
-you enter a value or select a value from the dynamic content list.
+When you specify a value for a field in an action or trigger, 
+the value's data type must match the field type whether you 
+manually enter the value or select the value from the dynamic content list.
 
-This table describes some of these field types and 
-the required data types for the values you specify.
+This table describes some of field types and 
+the required data types for their values.
 
 | Field type | Required data type | Description | 
 |------------|--------------------|-------------|
-| Text fields | Single line of text | These fields require a single line of text or dynamic content that has text type. <p>Examples: Category and Sub-Category fields | 
-| Integer fields | Whole number | Some fields require integer or dynamic content that is an integer type field. <p>Examples: Percent Complete and Duration fields | 
-| Date fields | Date and Time | Some fields require a date with mm/dd/yyyy format or dynamic content that is a date type field. <p>Examples: Created On, Start Date, Actual Start, Last on Hold Time, Actual End, and Due Date fields | 
-| Fields requiring both a record ID and lookup type | Primary key | Some fields that reference another entity record require both the record ID and the lookup type. | 
+| Text fields | Single line of text | These fields require a single line of text or dynamic content that has the text type. <p><p>*Example fields*: **Description** and **Category** | 
+| Integer fields | Whole number | Some fields require integer or dynamic content that has the integer type. <p><p>*Example fields*: **Percent Complete** and **Duration** | 
+| Date fields | Date and Time | Some fields require a date with mm/dd/yyyy format or dynamic content that has the date type. <p><p>*Example fields*: **Created On**, **Start Date**, **Actual Start**, **Actual End**, and **Due Date** | 
+| Fields requiring both a record ID and lookup type | Primary key | Some fields that reference another entity record require both a record ID and a lookup type. | 
 ||||
 
 Expanding on these field types, here are example fields in 
-Dynamics 365 triggers and actions that conflict with values 
-that you select from the dynamic content list. Instead, 
-these fields require both a record ID and the lookup type.
+Dynamics 365 triggers and actions that require both a 
+record ID and the lookup type. This requirement means 
+values that you select from the dynamic list won't work. 
 
 | Field | Description | 
 |-------|-------------|
-| **Owner** | Must be either a valid user or team record ID. | 
+| **Owner** | Must be either a valid user ID or team record ID. | 
 | **Owner Type** | Must be either **systemusers** or **teams**. | 
 | **Regarding** | Must be a valid record ID, such as an account ID or contact record ID. | 
-| **Regarding Type** | Must be the lookup type for the record, such as **accounts** or **contacts**. | 
-| **Customer** | Must be a valid account or contact record ID. | 
-| **Customer Type** | Must be either **accounts** or **contacts**. | 
+| **Regarding Type** | Must be a lookup type, such as **accounts** or **contacts**. | 
+| **Customer** | Must be a valid record ID, such as an account ID or contact record ID. | 
+| **Customer Type** | Must be the lookup type, such as **accounts** or **contacts**. | 
 |||
 
 In this example, the action named **Create a new record** creates a new task record: 
 
 ![Create task record with record IDs and lookup types](./media/connectors-create-api-crmonline/create-record-advanced.png)
 
-This action assigns the task record to a specific person or team, 
-based on the record ID in the **Owner** field and the lookup type 
-in the **Owner Type** field:
+This action assigns the task record to a specific user ID or team record ID, 
+based on the record ID in the **Owner** field and the lookup type in the **Owner Type** field:
 
 ![Owner record ID and lookup type](./media/connectors-create-api-crmonline/owner-record-id-and-lookup-type.png)
 
-This action also adds an account record that's associated with the 
-record ID adding that account and is specified in the **Regarding** 
-field with the **accounts** lookup type in the **Regarding Type** field: 
+This action also adds an account record that's associated with the record ID 
+added in the **Regarding** field and the lookup type in the **Regarding Type** field: 
 
 ![Regarding record ID and lookup type](./media/connectors-create-api-crmonline/regarding-record-id-lookup-type-account.png)
 
@@ -197,15 +196,15 @@ To find a record ID, follow these steps:
 
    ![Find record ID](./media/connectors-create-api-crmonline/find-record-ID.png)
 
-## Troubleshooting
+## Troubleshoot failed runs
 
 To find and review failed steps in your logic app, 
-you can view your logic app's status and run details.
+you can view your logic app's runs history, status, 
+inputs, outputs, and so on.
 
 1. In the Azure portal, on your logic app's main menu, select **Overview**. 
-The **Runs history** section shows all the run statuses for your logic app. 
-
-   To view more information about a failed run, select that run.
+In the **Runs history** section, which shows all the run statuses for your logic app, 
+select a failed run for more information.
 
    ![Logic app run status](./media/connectors-create-api-crmonline/run-history.png)
 
@@ -213,7 +212,7 @@ The **Runs history** section shows all the run statuses for your logic app.
 
    ![Expand failed step](./media/connectors-create-api-crmonline/expand-failed-step.png)
 
-1. Review the step's details, including the inputs and outputs, 
+1. Review the step's details, such as the inputs and outputs, 
 which can help you find the cause behind the failure.
 
    ![Failed step - inputs and outputs](./media/connectors-create-api-crmonline/expand-failed-step-inputs-outputs.png)
