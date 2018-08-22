@@ -35,7 +35,7 @@ Environment parameters describe the Azure Stack environment under test. These va
 
 ### Generate the stamp information file
 
-1. Log in to DVM machine or any machine that has access to the Azure Stack environment.
+1. Log in to the DVM or any machine that has access to the Azure Stack environment.
 2. Execute the following commands in an elevated PowerShell window:
     ```PowerShell
     $stampInfoPass = ConvertTo-SecureString $CloudAdminPassword -AsPlainText -Force
