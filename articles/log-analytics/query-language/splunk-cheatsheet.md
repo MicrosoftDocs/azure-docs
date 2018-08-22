@@ -47,7 +47,7 @@ The following table specifies functions in Log Analytics that are equivalent to 
 |split  | split() | (1) |
 |if     | iff()   | (1) |
 |tonumber | todouble()<br>tolong()<br>toint() | (1) |
-|upper<br>lower |toupper()<br>[tolower()|(1) |
+|upper<br>lower |toupper()<br>tolower()|(1) |
 | replace | replace() | (1)<br> Also note that while `replace()` takes three parameters in both products, the parameters are different. |
 | substr | substring() | (1)<br>Also note that Splunk uses one-based indices. Log Analytics notes zero-based indices. |
 | tolower |  tolower() | (1) |
@@ -57,7 +57,7 @@ The following table specifies functions in Log Analytics that are equivalent to 
 | searchmatch | == | In Splunk, `searchmatch` allows searching for the exact string.
 | random | rand()<br>rand(n) | Splunk's function returns a number from zero to 2<sup>31</sup>-1. Log Analytics' returns a number between 0.0 and 1.0, or if a parameter provided, between 0 and n-1.
 | now | now() | (1)
-| relative_time | totimespan() | (1)<br>In Log Analytics,, Splunk's equivalent of relative_time(datetimeVal, offsetVal) is datetimeVal + totimespan(offsetVal).<br>For example, `search | eval n=relative_time(now(), "-1d@d")`<br>becomes<br>` ...  | extend myTime = now() - totimespan("1d")`
+| relative_time | totimespan() | (1)<br>In Log Analytics, Splunk's equivalent of relative_time(datetimeVal, offsetVal) is datetimeVal + totimespan(offsetVal).<br>For example, <code>search &#124; eval n=relative_time(now(), "-1d@d")</code> becomes <code>...  &#124; extend myTime = now() - totimespan("1d")</code>.
 
 (1) In Splunk, the function is invoked with the `eval` operator. In Log Analytics, it is used as part of `extend` or `project`.<br>(2) In Splunk, the function is invoked with the `eval` operator. In Log Analytics, it can be used with the `where` operator.
 
