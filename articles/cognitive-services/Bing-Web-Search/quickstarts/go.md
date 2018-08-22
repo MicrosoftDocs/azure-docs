@@ -20,6 +20,8 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 ## Prerequisites
 
+Before starting you'll need:
+
 * [Go binaries](https://golang.org/dl/)
 * Subscription key
 
@@ -27,7 +29,7 @@ This quickstart only requires **core** libraries, there are no external dependen
 
 ## Create a project and import core libraries
 
-Create a new Go project in your favorite IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, `time` and `encoding/json` to handle the json, and `fmt` to print the output.
+Create a new Go project in your favorite IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, `time` and `encoding/json` to handle the JSON, and `fmt` to print the output.
 
 ```go
 package main
@@ -40,9 +42,9 @@ import (
 )
 ```
 
-## Create a struct to format the response
+## Create a struct to format the search results
 
-Use this struct to format the JSON response.
+The `BingAnswer` struct formats the data provided in the response.
 
 ```go
 // This struct formats the answers provided by the Bing Web Search API.
@@ -103,7 +105,7 @@ type BingAnswer struct {
 
 ## Declare the main function and define variables  
 
-This code declares the main function and required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key. Feel free to customize the search query by replacing the value for `searchTerm`.
+This code declares the main function and sets required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`.
 
 ```go
 // Declare the main function. This is required for all Go programs.
@@ -118,9 +120,9 @@ func main() {
 }
 ```
 
-## Make a request
+## Construct a request
 
-This code declares the HTTP method, inserts the header, constructs the payload, instantiates the client, and sends the request.
+This code declares the HTTP request, inserts the header and payload, and instantiates the client.
 
 ```go
 // Declare a new GET request.
@@ -137,16 +139,22 @@ req.URL.RawQuery = param.Encode()
 // Insert the request header.  
 req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
-// Create a new client.  
+// Instantiate a client.  
 client := new(http.Client)
+```
 
+## Make a request
+
+Use this code to call the Bing Web Search API and close the connection after a response is returned.
+
+```go
 // Send the request to Bing.  
 resp, err := client.Do(req)
 if err != nil {
     panic(err)
 }
 
-// Close the response.
+// Close the connection.
 defer resp.Body.Close()
 body, err := ioutil.ReadAll(resp.Body)
 if err != nil {
@@ -156,7 +164,7 @@ if err != nil {
 
 ## Handle the response
 
-Remember the struct we created earlier? We're going to use it to format the response.
+Remember the struct we created earlier? We're going to use it to format the response and print the search results.
 
 ```go
 // Create a new answer.  
@@ -173,7 +181,7 @@ for _, result := range ans.WebPages.Value {
 
 ## Put it all together
 
-The last step is to validate your code and run it! If you'd like to validate your code against ours, here's the complete program:
+The last step is to validate your code and run it! If you'd like to compare your code with ours, here's the complete program:
 
 ```go
 package main

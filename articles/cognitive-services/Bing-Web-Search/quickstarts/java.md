@@ -19,11 +19,13 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 ## Prerequisites
 
+Before starting you'll need:
+
 * [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [gson library](https://github.com/google/gson)
 * Subscription key
 
-## Create a project and import libraries
+## Create a project and import dependencies
 
 Create a new Java project in your favorite IDE or editor and import the following libraries. gson is required to convert Java Objects into JSON.
 
@@ -62,14 +64,14 @@ public class BingWebSearch {
 
 ### Define variables
 
-This code sets the `subscriptionKey`, `host`, `path`, and `searchTerm`. Confirm that the endpoint is correct and replace the `subscriptionKey` value with a valid subscription key. Feel free to customize the search query by replacing the value for `searchTerm`.
+This code sets the `subscriptionKey`, `host`, `path`, and `searchTerm`. Confirm that the endpoint is correct and replace the `subscriptionKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`.
 
 ```java
 // Enter a valid subscription key.
 static String subscriptionKey = "enter key here";
 
 /*
- * If you encounter unexpected authorization errors, double-check this value
+ * If you encounter unexpected authorization errors, double-check these values
  * against the endpoint for your Bing Web search instance in your Azure
  * dashboard.
  */
@@ -178,87 +180,7 @@ javac BingWebSearch.java -classpath ./gson-2.8.1.jar -encoding UTF-8
 java -cp ./gson-2.8.1.jar BingWebSearch
 ```
 
-If you'd like to validate your code against ours, here's the complete program:
-
-```java
-import java.net.*;
-import java.util.*;
-import java.io.*;
-import javax.net.ssl.HttpsURLConnection;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
-public class BingWebSearch {
-    static String subscriptionKey = "enter key here";
-    static String host = "https://api.cognitive.microsoft.com";
-    static String path = "/bing/v7.0/search";
-    static String searchTerm = "Microsoft Cognitive Services";
-
-    public static SearchResults SearchWeb (String searchQuery) throws Exception {
-        URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
-        HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-
-        InputStream stream = connection.getInputStream();
-        String response = new Scanner(stream).useDelimiter("\\A").next();
-
-        SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-
-        Map<String, List<String>> headers = connection.getHeaderFields();
-        for (String header : headers.keySet()) {
-            if (header == null) continue;      // may have null key
-            if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
-                results.relevantHeaders.put(header, headers.get(header).get(0));
-            }
-        }
-        stream.close();
-        return results;
-    }
-
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    public static void main (String[] args) {
-        if (subscriptionKey.length() != 32) {
-            System.out.println("Invalid Bing Search API subscription key!");
-            System.out.println("Please paste yours into the source code.");
-            System.exit(1);
-        }
-
-        try {
-            System.out.println("Searching the Web for: " + searchTerm);
-
-            SearchResults result = SearchWeb(searchTerm);
-
-            System.out.println("\nRelevant HTTP Headers:\n");
-            for (String header : result.relevantHeaders.keySet())
-                System.out.println(header + ": " + result.relevantHeaders.get(header));
-
-            System.out.println("\nJSON Response:\n");
-            System.out.println(prettify(result.jsonResponse));
-        }
-        catch (Exception e) {
-            e.printStackTrace(System.out);
-            System.exit(1);
-        }
-    }
-}
-
-class SearchResults{
-    HashMap<String, String> relevantHeaders;
-    String jsonResponse;
-    SearchResults(HashMap<String, String> headers, String json) {
-        relevantHeaders = headers;
-        jsonResponse = json;
-    }
-}
-```
+The last step is to compile your code and run it! If you'd like to compare your code with ours, [sample code is available on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingWebSearchv7.java).
 
 ## Sample response
 

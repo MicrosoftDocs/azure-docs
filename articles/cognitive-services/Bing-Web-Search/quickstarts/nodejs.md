@@ -19,12 +19,14 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 ## Prerequisites
 
+Before starting you'll need:
+
 * [Node.js 6](https://nodejs.org/en/download/) or later
 * Subscription key  
 
 ## Create a project and declare required modules
 
-Create a new Node.js project in your favorite IDE or editor. This code quickstart uses strict mode and requires the `https` module.
+Create a new Node.js project in your favorite IDE or editor. Then copy the code snippet below into your project. This quickstart uses strict mode and requires the `https` module to send and receive data.
 
 ```javascript
 // Use strict mode.
@@ -36,13 +38,13 @@ let https = require('https');
 
 ## Define variables
 
-This code defines required variables and validates the subscription key. Confirm that the `host` and `path` are valid and replace the `subscriptionKey` value with a valid subscription key. Feel free to customize the search query by replacing the value for `term`.
+A few variables must be set before we can continue. Confirm that the `host` and `path` are valid and replace the `subscriptionKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `term`.
 
 ```javascript
 // Replace with a valid subscription key.
 let subscriptionKey = 'enter key here';
 
-/* 
+/*
  * Verify the endpoint URI. If you
  * encounter unexpected authorization errors, double-check this host against
  * the endpoint for your Bing Web search instance in your Azure dashboard.  
@@ -51,7 +53,7 @@ let host = 'api.cognitive.microsoft.com';
 let path = '/bing/v7.0/search';
 let term = 'Microsoft Cognitive Services';
 
-// Validate the subscription key. 
+// Validate the subscription key.
 if (subscriptionKey.length === 32) {
     bing_web_search(term);
 } else {
@@ -60,9 +62,9 @@ if (subscriptionKey.length === 32) {
 }
 ```
 
-## Declare a response handler
+## Create a response handler
 
-This code creates a handler to stringify and parse the response.
+Create a handler to stringify and parse the response. The `response_handler` is called each time a request is made to the Bing Web Search API, as you'll see in the next section.
 
 ```javascript
 let response_handler = function (response) {
@@ -76,7 +78,7 @@ let response_handler = function (response) {
             // Headers are lowercased by Node.js.
             if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
                  console.log(header + ": " + response.headers[header]);
-        // Stringify and parse the response body. 
+        // Stringify and parse the response body.
         body = JSON.stringify(JSON.parse(body), null, '  ');
         console.log('\nJSON Response:\n');
         console.log(body);
@@ -87,86 +89,31 @@ let response_handler = function (response) {
 };
 ```
 
-## Make a request
+## Make a request and print the response
 
-This code constructs the request, calls the Bing Web Search API, and prints the response.
+Construct the request and make a call to the Bing Web Search API. After the request is made, the `response_handler` function is called and the response is printed.
 
 ```javascript
 let bing_web_search = function (search) {
-  console.log('Searching the Web for: ' + term);
-    // Declare the method, hostname, path, and headers.
-    let request_params = {
-    method : 'GET',
-    hostname : host,
-    path : path + '?q=' + encodeURIComponent(search),
-    headers : {
-        'Ocp-Apim-Subscription-Key' : subscriptionKey,
-    }
-  };
-  // Request to the Bing Web Search API. 
-  let req = https.request(request_params, response_handler);
-  req.end();
+    console.log('Searching the Web for: ' + term);
+        // Declare the method, hostname, path, and headers.
+        let request_params = {
+            method : 'GET',
+            hostname : host,
+            path : path + '?q=' + encodeURIComponent(search),
+            headers : {
+                'Ocp-Apim-Subscription-Key' : subscriptionKey,
+            }
+        };
+    // Request to the Bing Web Search API.
+    let req = https.request(request_params, response_handler);
+    req.end();
 }
 ```
 
 ## Put it all together
 
-The last step is to validate your code and run it! Here's the complete program:
-
-```javascript
-'use strict';
-
-let https = require('https');
-
-let subscriptionKey = 'enter key here';
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/search';
-let term = 'Microsoft Cognitive Services';
-
-if (subscriptionKey.length === 32) {
-    bing_web_search(term);
-} else {
-    console.log('Invalid Bing Search API subscription key!');
-    console.log('Please paste yours into the source code.');
-}
-
-let response_handler = function (response) {
-    let body = '';
-    response.on('data', function (d) {
-        body += d;
-    });
-    response.on('end', function () {
-        console.log('\nRelevant Headers:\n');
-        for (var header in response.headers)
-            // Headers are lower-cased by Node.js.
-            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                 console.log(header + ": " + response.headers[header]);
-        body = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log('\nJSON Response:\n');
-        console.log(body);
-    });
-    response.on('error', function (e) {
-        console.log('Error: ' + e.message);
-    });
-};
-
-let bing_web_search = function (search) {
-  console.log('Searching the Web for: ' + term);
-
-    let request_params = {
-    method : 'GET',
-    hostname : host,
-    path : path + '?q=' + encodeURIComponent(search),
-    headers : {
-        'Ocp-Apim-Subscription-Key' : subscriptionKey,
-    }
-  };
-
-  let req = https.request(request_params, response_handler);
-  req.end();
-}
-```
-
+The last step is to run your code! If you'd like to compare your code with ours, [sample code is available on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingWebSearchv7.js).
 
 ## Sample response
 

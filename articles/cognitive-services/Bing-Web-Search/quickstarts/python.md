@@ -23,7 +23,7 @@ This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). C
 
 ## Define variables
 
-Enter a valid subscription key.
+replace the `subscription_key` value with a valid subscription key from your Azure account.
 
 ```python
 subscription_key = "YOUR_ACCESS_KEY"
@@ -70,6 +70,10 @@ rows = "\n".join(["""<tr>
                   for v in search_results["webPages"]["value"]])
 HTML("<table>{0}</table>".format(rows))
 ```
+
+## Sample code on Github
+
+If you'd like to run this code locally, the complete [sample is available on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingWebSearchv7.js).
 
 ## Next steps
 

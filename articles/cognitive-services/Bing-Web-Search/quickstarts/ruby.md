@@ -19,12 +19,14 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 ## Prerequisites
 
+Before starting you'll need:
+
 * [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/)
 * Subscription key  
 
 ## Create a project and declare required modules
 
-Create a new Ruby project in your favorite IDE or editor. Then require `net/https` for requests, `uri` for uniform handling of URIs, and `json` to parse the Bing Web Search API response.
+Create a new Ruby project in your favorite IDE or editor. Then require `net/https` for requests, `uri` for URI handling, and `json` to parse the response.
 
 ```ruby
 require 'net/https'
@@ -34,7 +36,7 @@ require 'json'
 
 ## Define variables
 
-This code defines required variables and validates the subscription key. Confirm that the `$uri` and `path` are valid and replace the `accessKey` value with a valid subscription key. Feel free to customize the search query by replacing the value for `term`.
+A few variables must be set before we can continue. Confirm that the `$uri` and `path` are valid and replace the `accessKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `term`.
 
 ```ruby
 accessKey = "YOUR_SUBSCRIPTION_KEY"
@@ -51,7 +53,7 @@ end
 
 ## Make a request
 
-This code constructs the Bing Web Search API endpoint from the `uri` and `path` variables, creates a request, and handles the response.
+Use this code to make a request and handle the response.
 
 ```ruby
 # Construct the endpoint uri.
@@ -70,12 +72,12 @@ end
 
 ## Print the response
 
-This code prints the response.
+Validate the headers, format the response data as JSON, and print the results.
 
 ```ruby
 puts "\nRelevant Headers:\n\n"
 response.each_header do |key, value|
-    # Header names are lowee-cased.
+    # Header names are lower-cased.
     if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
         puts key + ": " + value
     end
@@ -87,7 +89,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## Put it all together
 
-The last step is to validate your code and run it! Here's the complete program:
+The last step is to validate your code and run it! If you'd like to compare your code with ours, here's the complete program:
 
 ```ruby
 require 'net/https'

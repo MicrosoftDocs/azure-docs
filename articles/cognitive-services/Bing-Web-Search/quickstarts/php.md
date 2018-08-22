@@ -19,6 +19,8 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 ## Prerequisites
 
+Before starting you'll need:
+
 * [PHP 5.6.x](http://php.net/downloads.php) or later
 * Subscription key  
 
@@ -34,7 +36,7 @@ Before we get started, locate `php.ini` and uncomment this line:
 
 Create a new PHP project in your favorite IDE or editor and make sure to add opening and closing tags `<?php` and `?>` to your project.
 
-This code defines required variables. Confirm that the `$endpoint` is correct and replace the `$accesskey` value with a valid subscription key. Feel free to customize the search query by replacing the value for `$term`.
+A few variables must be set before we can continue. Confirm that the `$endpoint` is correct and replace the `$accesskey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `$term`.
 
 ```php
 $accessKey = 'enter key here';
@@ -42,9 +44,9 @@ $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
 $term = 'Microsoft Cognitive Services';
 ```
 
-## Declare the BingWebSearch function
+## Construct a request
 
-This code creates a function called `BingWebSearch` that is used to construct requests to the Bing Web Search API. It takes three arguments: `$url`, `$key`, and `$query`.
+This code declares a function called `BingWebSearch` that is used to construct requests to the Bing Web Search API. It takes three arguments: `$url`, `$key`, and `$query`.
 
 ```php
 function BingWebSearch ($url, $key, $query) {
@@ -76,7 +78,7 @@ function BingWebSearch ($url, $key, $query) {
 
 ## Make a request and print the response
 
-This code validates the subscription key, makes a request to the Bing Web Search API, and prints the response.
+This code validates the subscription key, makes a request, and prints the response.
 
 ```php
 // Validates the subscription key.
@@ -104,7 +106,7 @@ if (strlen($accessKey) == 32) {
 
 ## Put it all together
 
-The last step is to validate your code and run it! Here's the complete program:
+The last step is to validate your code and run it! If you'd like to compare your code with ours, here's the complete program:
 
 ```php
 <?php
