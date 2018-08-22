@@ -82,7 +82,7 @@ To create a resource group in the Azure portal, follow these steps:
 To create a general-purpose v2 storage account in the Azure portal, follow these steps:
 
 > [!NOTE]
-> The hierarchical namespace is only enabled in US East, Europe West, US West, Europe North, US East 2, Asia Southeast, Australia East, West US 2, and West Central US. Make sure you specify either one of these locations when creating the storage account.
+> The hierarchical namespace is only enabled in US East, US East 2, US West, West US 2, West Central US, Europe North, Europe West, Asia Southeast, and Australia East. Make sure you specify either one of these locations when creating the storage account.
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **All services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
 2. Enter a name for your storage account.
