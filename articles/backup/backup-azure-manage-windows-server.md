@@ -254,29 +254,6 @@ The Backup Storage tile in the dashboard shows the storage consumed in Azure. St
 * Cloud LRS storage usage associated with the vault
 * Cloud GRS storage usage associated with the vault
 
-## Open the Azure Backup agent
-
-Open the **Microsoft Azure Backup agent**. Find it on your computer by searching your machine for *Microsoft Azure Backup*.
-
-![Schedule a Windows Server Backup](./media/backup-azure-manage-windows-server/snap-in-search.png)
-
-From the **Actions** available at the right of the backup agent console you perform the following management tasks:
-
-* Register Server
-* Schedule Backup
-* Back Up now
-* Change Properties
-
-![Microsoft Azure Backup agent console actions](./media/backup-azure-manage-windows-server/console-actions.png)
-
-> [!NOTE]
-> To **Recover Data**, see [Restore files to a Windows server or Windows client machine](backup-azure-restore-windows-server.md).
->
->
-
-[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
-
-
 
 ## Frequently asked questions
 
