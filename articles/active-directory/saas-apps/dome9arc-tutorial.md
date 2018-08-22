@@ -131,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	| Attribute Name  | Attribute Value | 
 	| --------------- | --------------- | 
-	| memberof | user.assignedroles | 
+	| memberof | user.assignedroles |
 	
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
@@ -146,7 +146,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	d. Click **Ok**.
 
 > [!NOTE]
-> Please refer to the [link](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) on how to configure and setup the roles for the application.
+> Please refer to this [link](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) on how to configure and setup the roles for the application.
 
 7. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
