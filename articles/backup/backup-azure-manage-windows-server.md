@@ -38,7 +38,7 @@ To monitor alerts, or view management data about a Recovery Services vault, open
 
     ![recovery services vault dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
-    The Recovery Services vault Overview dashboard displays multiple tiles that provide information about alerts and backup jobs.
+    The Overview dashboard uses tiles to provide alerts and backup job data.
 
 ## Monitor backup jobs and alerts
 
@@ -79,7 +79,7 @@ The Backup Alerts list displays the selected information for the filtered alerts
 
 | Alert Level | Events that generate alerts |
 | ----------- | ----------- |
-| Critical | You receive criticial alerts when: Backup jobs fail, recovery jobs fail, and when you stop protection on a server, but retain the data.|
+| Critical | You receive critical alerts when: Backup jobs fail, recovery jobs fail, and when you stop protection on a server, but retain the data.|
 | Warning | You receive warning alerts when: Backup jobs complete with warnings, for example when fewer than 100 files are not backed up due to corruption issues, or when greater than 1,000,000 files are successfully backed up). |
 | Informational | currently, no informational alerts are in use. |
 
@@ -186,7 +186,7 @@ The list of Backup jobs opens.
 
 ![Backup items from settings](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
 
-When you open the Backup Jobs menu, it shows all statuses for all operations, on all backup types, for the last 24 hours. Use **Filter** to change the filters. Each of the filters are explained in the following sections. 
+The Backup Jobs menu shows the status for all operations, on all backup types, for the last 24 hours. Use **Filter** to change the filters. The filters are explained in the following sections.
 
 To change the filters:
 
@@ -212,7 +212,7 @@ The Item type is the backup management type of the protected instance. There are
 
 #### Operation
 
-You can view all operations, or one. You can't select two or three operations.The available Operations are:
+You can view one operation, or all operations. You can't select two or three operations. The available Operations are:
 
 * All Operations
 * Register
@@ -224,13 +224,13 @@ You can view all operations, or one. You can't select two or three operations.Th
 
 #### Status
 
-You can view All Status or one. You can't select two or three status. The available status are:
+You can view All Status or one. You can't select two or three statuses. The available statuses are:
 
 * All Status
 * Completed
 * In progress
 * Failed
-* Cancelled
+* Canceled
 * Completed with warnings
 
 #### Start time
@@ -243,7 +243,7 @@ The day and time when the query ends.
 
 ### Export jobs
 
-The **Export jobs** feature creates a spreadsheet with all information shown in the Jobs menu. The spreadsheet has one sheet listing all jobs, and there are individual sheets providing details for each job. 
+Use **Export jobs** to create a spreadsheet containing all Jobs menu information. The spreadsheet has one sheet that holds a summary of all jobs, and individual sheets for each job.
 
 To export the jobs information to a spreadsheet, click **Export jobs**. The service creates a speadsheet using the name of the vault and date, but you can change the name.
 
@@ -294,7 +294,7 @@ A3. Yes. In the following situations, notifications are not sent.
 
 * If notifications are configured hourly, and an alert is raised and resolved within the hour
 * When a job is canceled
-* When a second backup job fails because the original backup job is in progress
+* If a second backup job fails because the original backup job is in progress
 
 ## Troubleshooting Monitoring Issues
 
@@ -302,9 +302,9 @@ A3. Yes. In the following situations, notifications are not sent.
 
 **Troubleshooting steps:** The process, ```OBRecoveryServicesManagementAgent```, sends the job and alert data to the Azure Backup service. Occasionally this process can become stuck or shutdown.
 
-1. To verify the process is not running, open **Task Manager** and check if the ```OBRecoveryServicesManagementAgent``` process is running.
+1. To verify the process isn't running, open **Task Manager**, and check ```OBRecoveryServicesManagementAgent``` is running.
 
-2. If the process is not running, open **Control Panel** and browse the list of services. Start or restart **Microsoft Azure Recovery Services Management Agent**.
+2. If the process isn't running, open **Control Panel**, and browse the list of services. Start or restart **Microsoft Azure Recovery Services Management Agent**.
 
     For further information, browse the logs at:<br/>
    `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`
