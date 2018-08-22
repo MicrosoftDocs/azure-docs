@@ -38,7 +38,6 @@ The following steps are required to store and read Azure Cosmos DB access keys f
 4. After providing the information above, select **Create**.  
 
 ## Add Azure Cosmos DB access keys to the Key Vault.
-
 1. Navigate to the Key Vault you created in the previous step, open the **Secrets** tab.  
 2. Select **+Generate/Import**, 
 
