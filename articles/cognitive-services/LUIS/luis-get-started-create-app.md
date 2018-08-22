@@ -1,13 +1,13 @@
 ---
-title: Create your first Language Understanding (LUIS) app in 10 minutes in Azure | Microsoft Docs
-description:  In this quickstart, create and manage a LUIS application on the Language Understanding (LUIS) webpage.
+title: Create your first Language Understanding (LUIS) app in 10 minutes - Cognitive Services LUIS | Microsoft Docs
+description:  In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 03/29/2018
+ms.date: 08/22/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query. 
 ---
@@ -16,18 +16,16 @@ ms.author: diberry
 
 In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
-For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
-
 ## Prerequisites
 
-For this article, you need a free [LUIS](http://www.luis.ai) account. 
+For this article, you need a free LUIS account, created on the LUIS portal at [http://www.luis.ai](http://www.luis.ai). 
 
 ## Create a new app
 You can create and manage your applications on **My Apps** page of [LUIS](luis-reference-regions.md#luis-website). 
 
-1. Sign in to the LUIS portal at [http://www.luis.ai](http://www.luis.ai).
+1. Sign in to the LUIS portal.
 
-2. Click **Create new app**.
+2. Select **Create new app**.
 
     [![](media/luis-quickstart-new-app/app-list.png "Screenshot of app list")](media/luis-quickstart-new-app/app-list.png)
 
