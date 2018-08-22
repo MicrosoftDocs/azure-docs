@@ -13,7 +13,7 @@ ms.author: v-jerkin
 ---
 # About the Speech Devices SDK (Preview)
 
-The [Microsoft Speech Service](overview.md) works with a wide variety of devices and audio sources. Now you can take your speech applications to the next level with matched hardware and software. The Speech Devices SDK is a pre-tuned library paired with purpose built microphone array development kits. Giving you the power to rapidly test new voice scenarios, the Speech Devices SDK makes it easy to integrate with the cloud-based Microsoft Speech Service into your device and create an exceptional user experience for your customers. 
+The [Microsoft Speech Service](overview.md) works with a wide variety of devices and audio sources. Now you can take your speech applications to the next level with matched hardware and software. The Speech Devices SDK is a pre-tuned library paired with purpose built microphone array development kits. Giving you the power to rapidly test new voice scenarios, the Speech Devices SDK makes it easy to integrate the cloud-based Microsoft Speech Service into your device and create an exceptional user experience for your customers. 
 
 The Speech Devices SDK consumes the [Speech SDK](speech-sdk.md), and uses the Speech SDK to send the audio processed by our advanced audio processing algorithm from the device's microphone array to the [Microsoft Speech Service](overview.md).  It uses multi-channel audio to provide more accurate far-field [speech recognition](speech-to-text.md) via noise suppression, echo cancellation, beamforming and de-reverberation.
 
