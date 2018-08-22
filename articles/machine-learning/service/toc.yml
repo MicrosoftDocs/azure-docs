@@ -24,6 +24,7 @@
   - name: '2. Deploy models'
     href: tutorial-deploy-models-with-aml.md
   - name: Auto-select and tune algorithms
+    href: tutorial-auto-train-models.md
 - name: Concepts   
   items: 
   - name: Architecture and terms

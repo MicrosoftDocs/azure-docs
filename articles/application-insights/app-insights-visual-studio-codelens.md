@@ -8,8 +8,9 @@ manager: carmonm
 
 ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
 ms.service: application-insights
-ms.technology: vs-azure
 ms.custom: vs-azure
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
 ms.workload: azure-vs
 ms.tgt_pltfrm: ibiza
 ms.devlang: na

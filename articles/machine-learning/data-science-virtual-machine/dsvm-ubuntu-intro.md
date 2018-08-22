@@ -3,7 +3,8 @@ title: Provision a Linux (Ubuntu) Data Science Virtual Machine on Azure | Micros
 description: Configure and create a Data Science Virtual Machine For Linux (Ubuntu) on Azure to do analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
+ms.author: gokuma
 manager: cgronlun
 
 
@@ -15,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
 
 ---
 

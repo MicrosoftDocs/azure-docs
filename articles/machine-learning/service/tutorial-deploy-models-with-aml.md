@@ -314,7 +314,7 @@ for s in sample_indices:
     font_color = 'red' if y_test[s] != result[i] else 'black'
     clr_map = plt.cm.gray if y_test[s] != result[i] else plt.cm.Greys
     
-    plt.text(x = 10, y = -10, s = y_hat[s], fontsize = 18, color = font_color)
+    plt.text(x = 10, y = -10, s = result[i], fontsize = 18, color = font_color)
     plt.imshow(X_test[s].reshape(28, 28), cmap = clr_map)
     
     i = i + 1
