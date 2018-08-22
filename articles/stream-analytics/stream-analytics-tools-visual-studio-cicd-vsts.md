@@ -47,11 +47,11 @@ Share your application source files to a project in Azure DevOps so you can gene
 
 1. Create a new local Git repo for your project by selecting **Add to Source Control**, then **Git** on the status bar in the lower right-hand corner of Visual Studio. 
 
-2. In the **Synchronization** view in **Team Explorer**, select the **Publish Git Repo** button under **Push to Azure DevOps**.
+2. In the **Synchronization** view in **Team Explorer**, select the **Publish Git Repo** button under **Push to Visual Studio Team Services**.
 
    ![Push Git Repo](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishgitrepo.png)
 
-3. Verify your email and select your organization in the **Azure DevOps Domain** drop-down. Enter your repository name and select **Publish repository**.
+3. Verify your email and select your organization in the **Team Services Domain** drop-down. Enter your repository name and select **Publish repository**.
 
    ![Push Git repo](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishcode.png)
 
@@ -65,7 +65,7 @@ An Azure DevOps release definition describes a workflow that deploys an applicat
 ### Create a build definition
 Open a web browser and navigate to the project you just created in [Azure DevOps](https://app.vsaex.visualstudio.com/). 
 
-1. Under the **Build & Release** tab, select **Builds**, and then **+New**.  Select **Azure DevOps Git** and **Continue**.
+1. Under the **Build & Release** tab, select **Builds**, and then **+New**.  Select **VSTS Git** and **Continue**.
     
     ![Select source](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source.png)
 
