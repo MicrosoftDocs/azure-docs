@@ -115,7 +115,7 @@ public static SearchResults SearchWeb (String searchQuery) throws Exception {
 
 ### Handle the response
 
-Use gson to parse and re-serialize the response.
+Use gson to parse and reserialize the response.
 
 ```java
 public static String prettify(String json_text) {
@@ -158,7 +158,7 @@ public static void main (String[] args) {
 
 ## Create a container class for search results
 
-The `SearchResults` container class lives outside of the `BingWebSearch` class and includes relevant headers and JSON data for the response.
+The `SearchResults` container class is outside of the `BingWebSearch` class. It includes relevant headers and JSON data for the response.
 
 ```java
 class SearchResults{

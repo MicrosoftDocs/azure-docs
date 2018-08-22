@@ -34,7 +34,7 @@ Before we get started, locate `php.ini` and uncomment this line:
 
 ## Create a project and define variables  
 
-Create a new PHP project in your favorite IDE or editor and make sure to add opening and closing tags `<?php` and `?>` to your project.
+Create a new PHP project in your favorite IDE or editor. Don't forget to add opening and closing tags `<?php` and `?>`.
 
 A few variables must be set before we can continue. Confirm that the `$endpoint` is correct and replace the `$accesskey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `$term`.
 
