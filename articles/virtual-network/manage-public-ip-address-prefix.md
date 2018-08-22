@@ -3,8 +3,8 @@ title: Create, change, or delete an Azure public IP address prefix | Microsoft D
 description: Learn how to create, change, or delete a public IP address prefix.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: anavinahar
+manager: narayan
 editor: ''
 tags: azure-resource-manager
 
@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2018
-ms.author: jdial
+ms.date: 09/25/2018
+ms.author: snavin
 
 ---
 
 # Create, change, or delete a public IP address prefix
 
-Learn about a public IP address prefix and how to create, change, and delete one. A public IP address prefix enables you to specify how many public IP addresses you require. Azure allocates a contiguous range of addresses to your subscription, based on how many you specify. The addresses aren't assigned to any other subscription. When you create a public IP address resource, you can assign a static public IP address from the prefix. If you're not familiar with public IP address prefixes, see [Public IP address prefix overview](public-ip-address-prefix.md)
+Learn about a public IP address prefix and how to create, change, and delete one. A public IP address prefix enables you to specify how many public IP addresses you require. Azure allocates a contiguous range of addresses to your subscription, based on how many you specify. The addresses aren't assigned to any other subscription. When you create a public IP address resource, you can assign a static public IP address from the prefix and associate it to virtual machines, load balancers or other resources to enable internet connectivity. If you're not familiar with public IP address prefixes, see [Public IP address prefix overview](public-ip-address-prefix.md)
 
 ## Before you begin
 
@@ -58,6 +58,10 @@ Public IP address prefixes have a charge. For details, see [pricing](https://azu
 |---|---|
 |CLI|[az network public-ip-prefix create](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/new-azurermpublicipaddressprefix)|
+
+## Create a static public IP address from a prefix
+Once you create a prefix, you must allocate static IP addresses from the prefix. In order to do this, follow steps below:
+
 
 ## View, change settings for, or delete a prefix
 

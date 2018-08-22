@@ -51,4 +51,4 @@ When you create public IP address resources, Azure assign an available public IP
 
 ## Next steps
 
-- [Create](manage-public-ip-address-prefix.md#create-a-prefix) a public IP address prefix
+- [Create](manage-public-ip-address-prefix.md#create-a-public-ip-prefix) a public IP address prefix
