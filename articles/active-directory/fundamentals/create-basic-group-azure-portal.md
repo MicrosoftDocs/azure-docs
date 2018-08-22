@@ -24,11 +24,11 @@ You can create a basic group using the Azure Active Directory (Azure AD) portal.
 
 2. Select **Azure Active Directory**, **Groups**, and then select **New group**.
 
-    The **Group** blade opens for you to add your info.
+    ![Azure AD portal with Groups showing](media/group-full-screen.png)
+
+3. In the **Groups** blade, fill out the required information.
 
     ![New group blade, filled out with example info](media/create-basic-group-azure-portal/new-group-blade.png)
-
-3. Fill out the following boxes:
 
     - **Group type (required).** Select a pre-defined group type. This includes:
         
@@ -50,6 +50,8 @@ You can create a basic group using the Azure Active Directory (Azure AD) portal.
 
         >[!Important]
         >You can create a dynamic group for either devices or users, but not for both. You also can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributions.
+
+4. Select **Create**.
 
 ## Assign members to your group
 After you've created your group, you must add members. For this article we're using the group _MDM policy-West_, with a group membership of **Assigned**. For more info about creating a dynamic group, see [Create a dyncamic group and check status](../users-groups-roles/groups-create-rule.md).
