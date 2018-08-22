@@ -56,4 +56,7 @@ You can create a basic group using the Azure Active Directory (Azure AD) portal.
 ## Assign members to your group
 After you've created your group, you must add members. For this article we're using the group _MDM policy-West_, with a group membership of **Assigned**. For more info about creating a dynamic group, see [Create a dyncamic group and check status](../users-groups-roles/groups-create-rule.md).
 
+### To assign members to your group
+1. 
+
 
