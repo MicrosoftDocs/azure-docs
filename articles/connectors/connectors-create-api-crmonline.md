@@ -61,13 +61,13 @@ select this trigger: **When a record is created**
 
 1. Provide these trigger details:
 
-   | Property | Description | 
-   |----------|-------------|
-   | **Organization Name** | The name for your organization's Dynamics 365 instance to monitor, for example, "Contoso" |
-   | **Entity Name** | The name for the entity to monitor, for example, "Leads" | 
-   | **Frequency** | The unit of time to use with intervals when checking for updates related to the trigger |
-   | **Interval** | The number of seconds, minutes, hours, days, weeks, or months that pass before the next check |
-   | | |
+   | Property | Required | Description | 
+   |----------|----------|-------------| 
+   | **Organization Name** | Yes | The name for your organization's Dynamics 365 instance to monitor, for example, "Contoso" |
+   | **Entity Name** | Yes | The name for the entity to monitor, for example, "Leads" | 
+   | **Frequency** | Yes | The unit of time to use with intervals when checking for updates related to the trigger |
+   | **Interval** | Yes | The number of seconds, minutes, hours, days, weeks, or months that pass before the next check |
+   ||| 
 
    ![Trigger details](./media/connectors-create-api-crmonline/trigger-details.png)
 
@@ -84,10 +84,10 @@ From the actions list, select this action: **Create a new record**
 
 1. Provide these action details:
 
-   | Property | Description | 
-   |----------|-------------| 
-   | **Organization Name** | The Dynamics 365 instance where you want to create the record, which doesn't have to be the same instance in your trigger, but is "Contoso" in this example |
-   | **Entity Name** | The entity where you want to create the record, for example, "Tasks" | 
+   | Property | Required | Description | 
+   |----------|----------|-------------| 
+   | **Organization Name** | Yes | The Dynamics 365 instance where you want to create the record, which doesn't have to be the same instance in your trigger, but is "Contoso" in this example |
+   | **Entity Name** | Yes | The entity where you want to create the record, for example, "Tasks" | 
    | | |
 
    ![Action details](./media/connectors-create-api-crmonline/action-details.png)
