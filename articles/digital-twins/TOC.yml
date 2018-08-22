@@ -4,8 +4,8 @@
 #  href: index.yml
 - name: Overview
   items:
-  - name: What is Azure IoT Smart Spaces?
-    href: about-iot-spaces.md
+  - name: Overview of Azure Digital Twins
+    href: about-digital-twins.md
 - name: Quickstarts
   items:
   - name: View space occupancy
