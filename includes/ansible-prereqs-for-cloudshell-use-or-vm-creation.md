@@ -18,5 +18,4 @@
 
   **Configure Azure Cloud Shell**
 
-  1. **Configure Azure Cloud Shell** - If you are new to Azure Cloud Shell, the article, [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart), illustrates how to start and configure Cloud Shell. 
-  
+  1. **Configure Azure Cloud Shell** - If you are new to Azure Cloud Shell, the article, [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart), illustrates how to start and configure Cloud Shell.   

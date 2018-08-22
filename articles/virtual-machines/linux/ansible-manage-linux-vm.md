@@ -18,7 +18,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation.md)]
-[!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation-part2.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation-part2.md)]
+   1. **Linux virtual machine** - If you don't have access to a Linux virtual machine, you can [create a virtual machine with Ansible](/azure/virtual-machines/linux/ansible-create-vm.md).
 
 ## Use Ansible to deallocate (stop) an Azure virtual machine
 This section illustrates how to use Ansible to deallocate (stop) an Azure virtual machine

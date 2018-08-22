@@ -19,6 +19,8 @@ Ansible allows you to automate the deployment and configuration of resources in 
 
 [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation.md)]
 
+1. **Linux virtual machine** - If you don't have access to a Linux virtual machine, you can [create a virtual machine with Ansible](/azure/virtual-machines/linux/ansible-create-vm.md).
+
 > [!Note]
 > Ansible 2.6 is required to run the following the sample playbooks in this tutorial. 
 
