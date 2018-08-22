@@ -17,8 +17,8 @@ ms.date: 04/17/2018
 ms.author: spelluru
 ---
 
-# Integrate Azure DevTest Labs into your VSTS continuous integration and delivery pipeline
-You can use the *Azure DevTest Labs Tasks* extension that's installed in Visual Studio Team Services (VSTS) to easily integrate your CI/CD build-and-release pipeline with Azure DevTest Labs. The extension installs three tasks: 
+# Integrate Azure DevTest Labs into your Azure DevOps continuous integration and delivery pipeline
+You can use the *Azure DevTest Labs Tasks* extension that's installed in Azure DevOps to easily integrate your CI/CD build-and-release pipeline with Azure DevTest Labs. The extension installs three tasks: 
 * Create a VM
 * Create a custom image from a VM
 * Delete a VM 
@@ -203,5 +203,5 @@ You can now use the custom image to create VMs when they're required.
 ## Next steps
 * Learn how to [Create multi-VM environments with Resource Manager templates](devtest-lab-create-environment-from-arm.md).
 * Explore more quickstart Resource Manager templates for DevTest Labs automation from the [public DevTest Labs GitHub repo](https://github.com/Azure/azure-quickstart-templates).
-* If necessary, see the [VSTS Troubleshooting](https://docs.microsoft.com/vsts/build-release/actions/troubleshooting) page.
+* If necessary, see the [Azure DevOps Troubleshooting](https://docs.microsoft.com/vsts/build-release/actions/troubleshooting) page.
  
