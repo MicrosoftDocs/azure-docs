@@ -144,9 +144,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	c. From the **Value** list, type the attribute value shown for that row.
 
 	d. Click **Ok**.
-
-> [!NOTE]
-> Please refer to this [link](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) on how to configure and setup the roles for the application.
+	
+	> [!NOTE]
+	> Please refer to this [link](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) on how to configure and setup the roles for the application.
 
 7. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -155,7 +155,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 8. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/dome9arc-tutorial/tutorial_general_400.png)
-	
+
 9. On the **Dome9 Arc Configuration** section, click **Configure Dome9 Arc** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Dome9 Arc Configuration](./media/dome9arc-tutorial/tutorial_dome9arc_configure.png) 
