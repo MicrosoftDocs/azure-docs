@@ -12,25 +12,23 @@ ms.author: aahi
 ---
 # Quickstart: Send search queries using the REST API and C#
 
-Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. The simple C# application in this article sends a search query and displays the raw results.
+Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple C# application sends an image search query to the API, and displays the raw results.
 
-While this application is written in C#, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON.
+While this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
 
-The source code for this C# sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7.cs).
+The source code for this C# sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7.cs) with additional error handling, and code annotations.
 
 ## Prerequisites
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/). (The free Community Edition will work.)
 
-The application uses only .NET Core classes and runs on Windows using the .NET CLR, or on Linux and macOS using [Mono](http://www.mono-project.com/).
+This application uses only .NET Core classes and runs on Windows using the .NET CLR, or on Linux and macOS using [Mono](http://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Create and initialize a project
 
-
-
-1. create a new Console solution named `BingSearchApisQuickStart` in Visual Studio. Then import the following packages into your solution's main code file.
+1. create a new console solution named `BingSearchApisQuickStart` in Visual Studio. Then import the following packages into the main code file.
 
     ```csharp
     using System;
@@ -43,10 +41,16 @@ The application uses only .NET Core classes and runs on Windows using the .NET C
 2. Define the API endpoint, your subscription key, and search term.
 
     ```csharp
-    // Replace the accessKey string value with your valid access key.
-    const string accessKey = "enter key here";
-    const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/search";
-    const string searchTerm = "puppies";
+    //...
+    namespace BingSearchApisQuickstart
+    {
+        class Program
+        {
+        // Replace the accessKey string value with your valid access key.
+        const string accessKey = "enter key here";
+        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/search";
+        const string searchTerm = "puppies";
+    //...
     ```
 
 ## Create a struct to format the Bing Image Search response
@@ -58,15 +62,13 @@ Define a `SearchResult` struct to contain the image search results, and JSON hea
     {
         class Program
         {
-    ...
+        //...
             struct SearchResult
             {
                 public String jsonResult;
                 public Dictionary<String, String> relevantHeaders;
             }
-    ...
-        }
-    }
+    //...
 ```
 
 ## Make and handle a request
@@ -74,18 +76,24 @@ Define a `SearchResult` struct to contain the image search results, and JSON hea
 Create a method named `BingImageSearch` to perform the call to the API, and return the results as a SearchResult.
 
 ```csharp
-...
+//...
 namespace BingSearchApisQuickstart
 {
     class Program
     {
         static SearchResult BingImageSearch(string searchQuery)
         {
+        }
+//...
 ```
 
-1. In the `BingImageSearch` method, construct the URI for the search request
+In the `BingImageSearch` method, perform the following steps.
+
+1. Construct the URI for the search request.
 
     ```csharp
+    static SearchResult BingImageSearch(string searchQuery)
+        {
     var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery);
     ```
 2. Perform the web request and get the response as a JSON string.
@@ -95,10 +103,10 @@ namespace BingSearchApisQuickstart
     request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
     HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-    // Create result object for return
+    // Create the result object for return
     var searchResult = new SearchResult()
     ```
-3. Create the search result object, and extract the BING HTTP headers. 
+3. Create the search result object, and extract the Bing HTTP headers.
 
     ```csharp
         var searchResult = new SearchResult()
@@ -117,11 +125,11 @@ namespace BingSearchApisQuickstart
 
 ## View the response
 
-Write the resulting JSON to the console,
-    ```csharp
-    Console.WriteLine(JsonPrettyPrint(result.jsonResult));
-    ```
+Write the resulting JSON to the console.
 
+```csharp
+Console.WriteLine(result.jsonResult);
+```
 
 ## JSON response
 
