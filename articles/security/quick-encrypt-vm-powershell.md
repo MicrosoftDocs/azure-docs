@@ -33,12 +33,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Right-click **Windows PowerShell ISE** and click **Run as administrator**.
 1. In the **Administrator: Windows PowerShell ISE** window, click **View** and then click **Show Script Pane**.
 1. In the script pane, type the following cmdlet: 
+
      ```azurepowershell
-     Connect-AzureRMAccount
+      Connect-AzureRMAccount
      ```
+
 1. Click on the green arrow for **Run Script**, or use F5. 
-1. Use the interactive sign-in to finish connecting to your Azure account.
-1. Copy your **subscription ID** that is returned for use in running the next PowerShell script. 
+2. Use the interactive sign-in to finish connecting to your Azure account.
+3. Copy your **subscription ID** that is returned for use in running the next PowerShell script. 
 
 ## <a name="bkmk_PrereqScript"></a> Run the Azure Disk Encryption prerequisites script
  **ADEPrereqScript.ps1** will create a resource group, a key vault, and set the key vault access policy. The script also creates a resource lock on the key vault to help protect it from accidental deletion.  
@@ -59,7 +61,7 @@ You now need to create a virtual machine so you can encrypt its disk. The script
 
 1. Copy the script into the **Administrator: Windows PowerShell ISE** script pane and change the top three variables. The resource group and location need to be the same as you used for the [prerequisites script](#bkmk_PrereqScript).  
 
-    ```AzurePowershell
+   ```azurepowershell
     # Variables for common values
     $resourceGroup = "MySecureRG"
     $location = "EastUS"
@@ -103,7 +105,7 @@ You now need to create a virtual machine so you can encrypt its disk. The script
     
     # Create a virtual machine
     New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
-    ```
+   ```
 
 2. Click on the green arrow for **Run Script** to build the VM.  
 
@@ -131,7 +133,7 @@ Now that you've created and configured a key vault and a VM, you can encrypt the
 1. Remove the resource lock from the key vault
 
      ```azurepowershell
-      $LockId =(Get-AzureRMResourceLock -ResourceGroupName "MySecureRG" -ResourceName "MySecureVault" -ResourceType "Microsoft.KeyVault/vaults").LockID 
+     $LockId =(Get-AzureRMResourceLock -ResourceGroupName "MySecureRG" -ResourceName "MySecureVault" -ResourceType "Microsoft.KeyVault/vaults").LockID 
      Remove-AzureRmResourceLock -LockID $LockId
       ```
     
