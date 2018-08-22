@@ -44,7 +44,9 @@ The concepts listed in this section are also discussed in the following Microsof
 **Application resource**: An Application resource is the unit of deployment, versioning, and lifetime of a Mesh application. It is composed of one, or more, of Service resources that represent a microservice.
 
 **Service resource**: Each Service resource is composed of one, or more, code packages that describe everything needed to run the container image associated with the code package.
+
 **Volume resource**: Volumes are directories that get mounted inside your container instances that you can use to persist state. The Volume resource is a declarative way to describe how a directory is mounted and the backing storage for it.
+
 **Network resource**: A network resource is individually deployable resource, independent of an application or service resource that may refer to it as their dependency. It is used to create a private network for your applications.
 
 **Code package**: Code packages describe everything needed to run the container image associated with the code package, including the following:
