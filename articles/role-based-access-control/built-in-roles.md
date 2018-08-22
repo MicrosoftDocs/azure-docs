@@ -58,8 +58,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Classic Network Contributor](#classic-network-contributor) | Lets you manage classic networks, but not access to them. |
 | [Classic Storage Account Contributor](#classic-storage-account-contributor) | Lets you manage classic storage accounts, but not access to them. |
 | [Classic Storage Account Key Operator Service Role](#classic-storage-account-key-operator-service-role) | Classic Storage Account Key Operators are allowed to list and regenerate keys on Classic Storage Accounts |
-| [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they’re connected to. |
-| [ClearDB MySQL DB Contributor](#cleardb-mysql-db-contributor) | Lets you manage ClearDB MySQL databases, but not access to them. |
+| [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they’re connected to.|
 | [Cosmos DB Account Reader Role](#cosmos-db-account-reader-role) | Can read Azure Cosmos DB account data. See [DocumentDB Account Contributor](#documentdb-account-contributor) for managing Azure Cosmos DB accounts. |
 | [Data Box Contributor](#data-box-contributor) | Lets you manage everything under Data Box Service except giving access to others. |
 | [Data Box Operator](#data-box-operator) | Lets you manage Data Box Service except creating order or editing order details and giving access to others. |
@@ -649,21 +648,6 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
-
-## ClearDB MySQL DB Contributor
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Description** | Lets you manage ClearDB MySQL databases, but not access to them. |
-> | **Id** | 9106cda0-8a86-4e81-b686-29a22c54effe |
-> | **Actions** |  |
-> | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage alert rules |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
-> | successbricks.cleardb/databases/* | Create and manage ClearDB MySQL databases |
 
 ## Cosmos DB Account Reader Role
 > [!div class="mx-tableFixed"]
