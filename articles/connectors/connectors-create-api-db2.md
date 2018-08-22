@@ -3,12 +3,12 @@ title: Connect to IBM DB2 - Azure Logic Apps | Microsoft Docs
 description: Manage resources with IBM DB2 REST APIs and Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
-author: gplarsen
-ms.author: plarsen
-ms.reviewer: estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: plarsen, LADocs
 ms.suite: integration
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 08/23/2018
 tags: connectors
 ---
 
@@ -76,7 +76,9 @@ This connector doesn't provide any triggers, so you must use
 a different trigger to start your logic app. In this article, 
 the examples use the **Recurrence** trigger.
 
-## Add DB2 action
+<a name="add-db2-action"></a>
+
+## Add DB2 action - Get tables
 
 1. In the [Azure portal](https://portal.azure.com), open your 
 logic app in the Logic App Designer, if not already open.
@@ -88,12 +90,14 @@ under the actions list, select this action: **Get tables (Preview)**
    
    ![Select action](./media/connectors-create-api-db2/select-db2-action.png)
 
-You're now prompted to provide connection details for your DB2 database 
-either [in the cloud](#cloud-connection) or [on premises](#on-premises-connection).
+   You're now prompted to provide connection details for your DB2 database. 
+
+1. Follow the steps for creating connections for [cloud databases](#cloud-connection) 
+or [on-premises databases](#on-premises-connection).
 
 <a name="cloud-connection"></a>
 
-## Connect to DB2 in the cloud
+## Connect to cloud DB2
 
 To set up your connection, provide these connection details when prompted, 
 choose **Create**, and then save your logic app:
@@ -108,14 +112,17 @@ choose **Create**, and then save your logic app:
 | **Password** | Yes | Your password for the database | 
 |||| 
 
+For example:
+
 ![Connection details for cloud-based databases](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
 
 <a name="on-premises-connection"></a>
 
 ## Connect to on-premises DB2
 
-To set up your connection, you'll need to have the on-premises data gateway, 
-provide these connection details, and then choose **Create**:
+Before creating your connection, you must already have your on-premises data gateway installed. 
+Otherwise, you can't finish setting up your connection. If you have your gateway installation, 
+continue with providing these connection details, and then choose **Create**.
 
 | Property | Required | Description | 
 |----------|----------|-------------| 
@@ -128,6 +135,8 @@ provide these connection details, and then choose **Create**:
 | **Password** | Yes | Your password for the database | 
 | **Gateway** | Yes | The name for your installed on-premises data gateway <p><p>**Note**: Select this value from the list, which includes all the installed data gateways within your Azure subscription and resource group. | 
 |||| 
+
+For example:
 
 ![Connection details for on-premises databases](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
 
@@ -158,117 +167,175 @@ select the most recent run, which is the first item in the list.
 
 ## Get row
 
-For the **Get row** action, 
-You can define a logic app action to fetch one row in a DB2 table. 
-This action instructs the connector to 
-process a DB2 SELECT WHERE statement, such as `SELECT FROM AREA WHERE AREAID = '99999'`.
+To fetch one row in a DB2 database table, use the **Get row** action in your logic app. 
+This action runs a DB2 `SELECT WHERE` statement, for example, 
+`SELECT FROM AREA WHERE AREAID = '99999'`.
 
-1. In the **Get rows (Preview)** action, select **Change connection**. 
+1. If you've never used DB2 actions before in your logic app, 
+review the steps in the [Add DB2 action - Get tables](#add-db2-action) 
+section, but add the **Get row** action instead, and then return here to continue. 
 
-1. In the **Connections** configurations pane, select an existing connection. 
-For example, select **hisdemo2**.
+   After you add the **Get row** action, here is how your example logic app appears:
+
+   ![Get row action](./media/connectors-create-api-db2/db2-get-row-action.png)
+
+1. Specify values for all the required properties (*). 
+After you select a table, the action shows the relevant 
+properties that are specific to records in that table.
+
+   | Property | Required | Description | 
+   |----------|----------|-------------| 
+   | **Table name** | Yes | The table that has the row you want, such as "AREA" in this example | 
+   | **Row ID** | Yes | The ID for the record you want, such as "99999" in this example | 
+   |||| 
+
+   ![Select table](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+
+1. When you're done, on the designer toolbar, choose **Save**. 
+
+### View output row
+
+To run your logic app manually, on the designer toolbar, choose **Run**. 
+After your logic app finishes running, you can view the output from the run.
+
+1. On your logic app menu, choose **Overview**. 
+
+1. Under **Summary**, in the **Runs history** section, 
+select the most recent run, which is the first item in the list. 
+
+1. Under **Logic app run**, choose **Run Details**. 
+
+   You can now review the status, inputs, 
+   and outputs for each step in your logic app. 
+
+1. Expand the **Get row** action.
+
+1. To view the inputs, choose **Show raw inputs**. 
+
+1. To view the outputs, choose **Show raw outputs**. 
+
+   The outputs include your specified row. 
    
-    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
-
-1. In the **Table name** list, select the **down arrow**, and then select **AREA**.
-
-1. Enter values for all required columns (see red asterisk). For example, type `99999` for **AREAID**. 
-
-1. Optionally, select **Show advanced options** to specify query options.
-
-1. Select **Save**. 
-    
-    ![](./media/connectors-create-api-db2/Db2connectorGetRowValues.png)
-
-1. In the **Db2getRow** blade, within the **All runs** list under **Summary**, select the first-listed item (most recent run).
-
-1. In the **Logic app run** blade, select **Run Details**. Within the **Action** list, select **Get_rows**. See the value for **Status**, which should be **Succeeded**. Select the **Inputs link** to view the inputs. Select the **Outputs link**, and view the outputs; which should include row.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorGetRowOutputs.png)
+   ![View output row](./media/connectors-create-api-db2/db2-connector-get-row-outputs.png)
 
 ## Get rows
 
-You can define a logic app action to fetch all rows in a DB2 table. 
-This instructs the connector to process a DB2 SELECT statement, such as `SELECT * FROM AREA`.
+To fetch all rows in a DB2 database table, use the **Get rows** action in your logic app. 
+This action runs a DB2 `SELECT` statement, for example, `SELECT * FROM AREA`.
 
-1. In the **actions** list, type `db2` in the **Search for more actions** edit box, and then select **DB2 - Get rows (Preview)**.
-1. In the **Get rows (Preview)** action, select **Change connection**.
-1. In the **Connections** configuration pane, select **Create new**. 
+1. If you've never used DB2 actions before in your logic app, 
+review the steps in the [Add DB2 action - Get tables](#add-db2-action) 
+section, but add the **Get rows** action instead, and then return here to continue. 
+
+   After you add the **Get rows** action, here is how your example logic app appears:
+
+   ![Get rows action](./media/connectors-create-api-db2/db2-get-rows-action.png)
+
+1. Open the **Table name** list, and then select the table you want, 
+which is "AREA" in this example: 
+
+   ![Select table](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+
+1. To specify a filter or query for results, choose **Show advanced options**.
+
+1. When you're done, on the designer toolbar, choose **Save**. 
+
+### View output rows
+
+To run your logic app manually, on the designer toolbar, choose **Run**. 
+After your logic app finishes running, you can view the output from the run.
+
+1. On your logic app menu, choose **Overview**. 
+
+1. Under **Summary**, in the **Runs history** section, 
+select the most recent run, which is the first item in the list. 
+
+1. Under **Logic app run**, choose **Run Details**. 
+
+   You can now review the status, inputs, 
+   and outputs for each step in your logic app. 
+
+1. Expand the **Get rows** action.
+
+1. To view the inputs, choose **Show raw inputs**. 
+
+1. To view the outputs, choose **Show raw outputs**. 
+
+   The outputs include all the records in your specified table.
    
-    ![](./media/connectors-create-api-db2/Db2connectorNewConnection.png)
-1. In the **Gateways** configuration pane, leave the **checkbox** disabled (unclicked) **Connect via gateway**.
-   
-   * Type value for **Connection name**. For example, type `HISDEMO2`.
-   * Type value for **DB2 server name**, in the form of address or alias colon port number. For example, type `HISDEMO2.cloudapp.net:50000`.
-   * Type value for **DB2 database name**. For example, type `NWIND`.
-   * Type value for **Username**. For example, type `db2admin`.
-   * Type value for **Password**. For example, type `Password1`.
-1. Select **Create** to continue.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorCloudConnection.png)
-1. In the **Table name** list, select the **down arrow**, and then select **AREA**.
-1. Optionally, select **Show advanced options** to specify query options.
-1. Select **Save**. 
-    
-    ![](./media/connectors-create-api-db2/Db2connectorGetRowsTableName.png)
-1. In the **Db2getRows** blade, within the **All runs** list under **Summary**, select the first-listed item (most recent run).
-1. In the **Logic app run** blade, select **Run Details**. Within the **Action** list, select **Get_rows**. See the value for **Status**, which should be **Succeeded**. Select the **Inputs link** to view the inputs. Select the **Outputs link**, and view the outputs; which should include a list of rows.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorGetRowsOutputs.png)
+   ![View output rows](./media/connectors-create-api-db2/db2-connector-get-rows-outputs.png)
 
 ## Insert row
 
-You can define a logic app action to add one row in a DB2 table. This action instructs the connector to process a DB2 INSERT statement, such as `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
+To add a single row to a DB2 database table, 
+use the **Insert row** action in your logic app. 
+This action runs a DB2 `INSERT` statement, for example, 
+`INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
-### Create a logic app
-1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**.
-2. Enter the **Name**, such as `Db2insertRow`, **Subscription**, **Resource group**, **Location**, and **App Service Plan**. Select **Pin to dashboard**, and then select **Create**.
+1. If you've never used DB2 actions before in your logic app, 
+review the steps in the [Add DB2 action - Get tables](#add-db2-action) 
+section, but add the **Insert row** action instead, and then return here to continue. 
 
-### Add a trigger and action
-1. In the **Logic Apps Designer**, select **Blank LogicApp** in the **Templates** list.
-2. In the **triggers** list, select **Recurrence**. 
-3. In the **Recurrence** trigger, select **Edit**, select **Frequency** drop-down to select **Day**, and then select **Interval** to type **7**. 
-4. Select the **+ New step** box, and then select **Add an action**.
-5. In the **actions** list, type **db2** in the **Search for more actions** edit box, and then select **DB2 - Insert row (Preview)**.
-6. In the **DB2 - Insert row (Preview)** action, select **Change connection**. 
-7. In the **Connections** configuration pane, select a connection. For example, select **hisdemo2**.
+   After you add the **Insert row** action, here is how your example logic app appears:
+
+   ![Insert row action](./media/connectors-create-api-db2/db2-insert-row-action.png)
+
+1. Specify values for all the required properties (*). 
+After you select a table, the action shows the relevant 
+properties that are specific to records in that table. 
+
+   For this example, here are the properties:
+
+   | Property | Required | Description | 
+   |----------|----------|-------------| 
+   | **Table name** | Yes | The table where to add the record, such as "AREA" | 
+   | **Area ID** | Yes | The ID for the record to add, such as "99999" | 
+   | **Area description** | Yes | The description for the record to add, such as "Area 99999" | 
+   | **Region ID** | Yes | The ID for the region you want, such as "102" | 
+   |||| 
+
+   For example:
+
+   ![Select table](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+
+1. When you're done, on the designer toolbar, choose **Save**. 
+
+### View insert row outputs
+
+To run your logic app manually, on the designer toolbar, choose **Run**. 
+After your logic app finishes running, you can view the output from the run.
+
+1. On your logic app menu, choose **Overview**. 
+
+1. Under **Summary**, in the **Runs history** section, 
+select the most recent run, which is the first item in the list. 
+
+1. Under **Logic app run**, choose **Run Details**. 
+
+   You can now review the status, inputs, 
+   and outputs for each step in your logic app. 
+
+1. Expand the **Insert row** action.
+
+1. To view the inputs, choose **Show raw inputs**. 
+
+1. To view the outputs, choose **Show raw outputs**. 
+
+   The outputs include the row you added to your specified table.
    
-    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
-8. In the **Table name** list, select the **down arrow**, and then select **AREA**.
-9. Enter values for all required columns (see red asterisk). For example, type `99999` for **AREAID**, type `Area 99999`, and type `102` for **REGIONID**. 
-10. Select **Save**.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorInsertRowValues.png)
-11. In the **Db2insertRow** blade, within the **All runs** list under **Summary**, select the first-listed item (most recent run).
-12. In the **Logic app run** blade, select **Run Details**. Within the **Action** list, select **Get_rows**. See the value for **Status**, which should be **Succeeded**. Select the **Inputs link** to view the inputs. Select the **Outputs link**, and view the outputs; which should include the new row.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorInsertRowOutputs.png)
+   ![View output with inserted row](./media/connectors-create-api-db2/db2-connector-insert-row-outputs.png)
 
 ## Update row
 
 You can define a logic app action to change one row in a DB2 table. This action instructs the connector to process a DB2 UPDATE statement, such as `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
-### Create a logic app
-1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**.
-2. Enter the **Name**, such as `Db2updateRow`, **Subscription**, **Resource group**, **Location**, and **App Service Plan**. Select **Pin to dashboard**, and then select **Create**.
-
-### Add a trigger and action
-1. In the **Logic Apps Designer**, select **Blank LogicApp** in the **Templates** list.
-2. In the **triggers** list, select **Recurrence**. 
-3. In the **Recurrence** trigger, select **Edit**, select **Frequency** drop-down to select **Day**, and then select **Interval** to type **7**. 
-4. Select the **+ New step** box, and then select **Add an action**.
-5. In the **actions** list, type **db2** in the **Search for more actions** edit box, and then select **DB2 - Update row (Preview)**.
-6. In the **DB2 - Update row (Preview)** action, select **Change connection**. 
-7. In the **Connections** configurations pane, select to select an existing connection. For example, select **hisdemo2**.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
-8. In the **Table name** list, select the **down arrow**, and then select **AREA**.
-9. Enter values for all required columns (see red asterisk). For example, type `99999` for **AREAID**, type `Updated 99999`, and type `102` for **REGIONID**. 
-10. Select **Save**. 
+1. In the **Table name** list, select the **down arrow**, and then select **AREA**.
+1. Enter values for all required columns (see red asterisk). For example, type `99999` for **AREAID**, type `Updated 99999`, and type `102` for **REGIONID**. 
+1. Select **Save**. 
     
     ![](./media/connectors-create-api-db2/Db2connectorUpdateRowValues.png)
-11. In the **Db2updateRow** blade, within the **All runs** list under **Summary**, select the first-listed item (most recent run).
-12. In the **Logic app run** blade, select **Run Details**. Within the **Action** list, select **Get_rows**. See the value for **Status**, which should be **Succeeded**. Select the **Inputs link** to view the inputs. Select the **Outputs link**, and view the outputs; which should include the new row.
+1. In the **Db2updateRow** blade, within the **All runs** list under **Summary**, select the first-listed item (most recent run).
+1. In the **Logic app run** blade, select **Run Details**. Within the **Action** list, select **Get_rows**. See the value for **Status**, which should be **Succeeded**. Select the **Inputs link** to view the inputs. Select the **Outputs link**, and view the outputs; which should include the new row.
     
     ![](./media/connectors-create-api-db2/Db2connectorUpdateRowOutputs.png)
 
@@ -276,27 +343,13 @@ You can define a logic app action to change one row in a DB2 table. This action 
 
 You can define a logic app action to remove one row in a DB2 table. This action instructs the connector to process a DB2 DELETE statement, such as `DELETE FROM AREA WHERE AREAID = '99999'`.
 
-### Create a logic app
-1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**.
-2. Enter the **Name**, such as `Db2deleteRow`, **Subscription**, **Resource group**, **Location**, and **App Service Plan**. Select **Pin to dashboard**, and then select **Create**.
-
-### Add a trigger and action
-1. In the **Logic Apps Designer**, select **Blank LogicApp** in the **Templates** list. 
-2. In the **triggers** list, select **Recurrence**. 
-3. In the **Recurrence** trigger, select **Edit**, select **Frequency** drop-down to select **Day**, and then select **Interval** to type **7**. 
-4. Select the **+ New step** box, and then select **Add an action**.
-5. In the **actions** list, select **db2** in the **Search for more actions** edit box, and then select **DB2 - Delete row (Preview)**.
-6. In the **DB2 - Delete row (Preview)** action, select **Change connection**. 
-7. In the **Connections** configurations pane, select an existing connection. For example, select **hisdemo2**.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
-8. In the **Table name** list, select the **down arrow**, and then select **AREA**.
-9. Enter values for all required columns (see red asterisk). For example, type `99999` for **AREAID**. 
-10. Select **Save**. 
+1. In the **Table name** list, select the **down arrow**, and then select **AREA**.
+1. Enter values for all required columns (see red asterisk). For example, type `99999` for **AREAID**. 
+1. Select **Save**. 
     
     ![](./media/connectors-create-api-db2/Db2connectorDeleteRowValues.png)
-11. In the **Db2deleteRow** blade, within the **All runs** list under **Summary**, select the first-listed item (most recent run).
-12. In the **Logic app run** blade, select **Run Details**. Within the **Action** list, select **Get_rows**. See the value for **Status**, which should be **Succeeded**. Select the **Inputs link** to view the inputs. Select the **Outputs link**, and view the outputs; which should include the deleted row.
+1. In the **Db2deleteRow** blade, within the **All runs** list under **Summary**, select the first-listed item (most recent run).
+1. In the **Logic app run** blade, select **Run Details**. Within the **Action** list, select **Get_rows**. See the value for **Status**, which should be **Succeeded**. Select the **Inputs link** to view the inputs. Select the **Outputs link**, and view the outputs; which should include the deleted row.
     
     ![](./media/connectors-create-api-db2/Db2connectorDeleteRowOutputs.png)
 
