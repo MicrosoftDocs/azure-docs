@@ -140,8 +140,8 @@ The `LocalizedString` element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ElementType | Yes | References to a ClaimType element or a user interface element in the policy. Possible values: **ClaimType** - To localize one of the claim attributes, as specify in the StringId; **UxElement** - To localize one of the user interface elements, as specify in the StringId; **ErrorMessage** - To localize one of the system error messages, as specify in the StringId. |
-| ElementId | Yes | If **ElementType** is set to `ClaimType`, this element contains a reference to a claim type already defined in the ClaimsSchema section. | 
+| ElementType | Yes | References to a ClaimType element or a user interface element in the policy. Possible values: **ClaimType** - To localize one of the claim attributes, as specify in the StringId; **UxElement** - To localize one of the user interface elements, as specify in the StringId; **ErrorMessage** - To localize one of the system error messages, as specify in the StringId; **Predicate** - To localize one of the [Predicate](predicte.ms) error messages, as specify in the StringId; **InputValidation** - To localize one of the [PredicateValidation](predicte.ms) group error messages, as specify in the StringId. |
+| ElementId | Yes | If **ElementType** is set to `ClaimType`, `Predicate`, or `InputValidation`, this element contains a reference to a claim type already defined in the ClaimsSchema section. | 
 | StringId | Yes | If **ElementType** is set to `ClaimType`, this element contains a reference to an attribute of a claim type. Possible values: `DisplayName` - to set the claim display name; `AdminHelpText` - to set the claim user help text name; `PatternHelpText` - to set the claim pattern help text. If **ElementType** is set to `UxElement`, this element contains a reference to an attribute of a user interface element. If **ElementType** is set to `ErrorMessage`, this element specifies the identifier of an error message. |
 
 
@@ -159,12 +159,36 @@ The following example shows a localized sign-up page. The first 3 `LocalizedStri
 </LocalizedResources>
 ```
 
+The following example shows a localized the **UserHelpText** of **Predicate** with Id `IsLengthBetween8And64`. And a localized **UserHelpText** of **PredicateGroup** with Id `CharacterClasses` of **PredicateValidation** with Id `StrongPassword`.
+```XML
+<PredicateValidation Id="StrongPassword">
+  <PredicateGroups>
+    ...
+    <PredicateGroup Id="CharacterClasses">
+    ...
+    </PredicateGroup>
+  </PredicateGroups>
+</PredicateValidation>
+
+...
+
+<Predicate Id="IsLengthBetween8And64" Method="IsLengthRange">
+  ...
+</Predicate>
+...
+
+
+<LocalizedString ElementType="InputValidation" ElementId="StrongPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
+
+<LocalizedString ElementType="Predicate" ElementId="IsLengthBetween8And64" StringId="HelpText">The password must be between 8 and 64 characters.</LocalizedString>				
+```
+
 ## Set up localization
 This article shows you how to support multiple locales or languages in the policy for user journeys. Localization requires three steps: set-up the explicit list of the supported languages, provide language-specific strings and collections, and edit the ContentDefinition for the page.
 
 ### Set up the explicit list of supported languages
 
-Under the **BuildingBlocks** element add the **Localization** element with the list of supported languages. The following example shows how to define the localization support for both English (default) and Spanish:
+Under the **BuildingBlocks** element, add the **Localization** element with the list of supported languages. The following example shows how to define the localization support for both English (default) and Spanish:
 
 ```XML
 <Localization Enabled="true">
