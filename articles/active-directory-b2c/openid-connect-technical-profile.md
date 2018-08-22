@@ -30,7 +30,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `OpenIdCon
 
 ## Input claims
 
-The **InputClaims** element is not required. But you may want to send additional parameters to your identity provider. The following example adds the `domain_hint` query string parameter with the value of `contoso.com` to the authorization request.
+The **InputClaims** element is not required. But you may want to send additional parameters to your identity provider. The following example adds the **domain_hint** query string parameter with the value of `contoso.com` to the authorization request.
 
 ```XML
 <InputClaims>
@@ -46,14 +46,14 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 The following example shows the claims returned by the Microsoft Account identity provider:
 
-- The `sub` claim that is mapped to the `socialIdpUserId` claim.
-- The `name` claim that is mapped to the `displayName` claim.
-- The `email` claim that is not mapped to another claim. Azure AD B2C uses the `email` claim.
+- The **sub** claim that is mapped to the **socialIdpUserId** claim.
+- The **name** claim that is mapped to the **displayName** claim.
+- The **email** claim that is not mapped to another claim. Azure AD B2C uses the **email** claim.
 
-The technical profile also returns claims that aren't return by the identity provider:
+The technical profile also returns claims that aren't returned by the identity provider:
 
-- The `identityProvider` claim that contains the name of the identity provider.
-- The `authenticationSource` claim with a default value of `socialIdpAuthentication`.
+- The **identityProvider** claim that contains the name of the identity provider.
+- The **authenticationSource** claim with a default value of **socialIdpAuthentication**.
 
 ```xml
 <OutputClaims>

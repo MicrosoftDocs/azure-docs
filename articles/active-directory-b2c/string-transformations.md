@@ -29,9 +29,9 @@ Compare two claims, and throw an exception if they are not equal according to th
 
 The **AssertStringClaimsAreEqual** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **UserMessageIfClaimsTransformationStringsAreNotEqual** self-asserted technical profile metadata controls the error message that is presented to the user.
 
-![AssertStringClaimsAreEqual execution](./media/claims-transformations/assert-execution.png)
+![AssertStringClaimsAreEqual execution](./media/string-transformations/assert-execution.png)
 
-You can use this claims transformation to make sure, two ClaimTypes have the same value. If not, an error message is thrown. The following example checks that the `strongAuthenticationEmailAddress` ClaimType is equal to `email` ClaimType. Otherwise an error message is thrown. 
+You can use this claims transformation to make sure, two ClaimTypes have the same value. If not, an error message is thrown. The following example checks that the **strongAuthenticationEmailAddress** ClaimType is equal to **email** ClaimType. Otherwise an error message is thrown. 
 
 ```XML
 <ClaimsTransformation Id="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
@@ -46,7 +46,7 @@ You can use this claims transformation to make sure, two ClaimTypes have the sam
 ```
 
 
-The `login-NonInteractive` validation technical profile calls the `AssertEmailAndStrongAuthenticationEmailAddressAreEqual` claims transformation.
+The **login-NonInteractive** validation technical profile calls the **AssertEmailAndStrongAuthenticationEmailAddressAreEqual** claims transformation.
 ```XML
 <TechnicalProfile Id="login-NonInteractive">
   ...
@@ -150,11 +150,11 @@ Determine whether one string claim is equal to another. The result is a new bool
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | string | First claim type, which is to be compared. |
 | inputClaim | inputClaim2 | string | Second claim type, which is to be compared. |
-| InputParameter | operator | string | One of the values: `Equal` or `Not Equal`. |
+| InputParameter | operator | string | Possible values: `Equal` or `Not Equal`. |
 | InputParameter | ignoreCase | boolean | Specifies whether this comparison should ignore the case of the strings being compared. |
 | OutputClaim | outputClaim | boolean | The ClaimType that is produced after this claims transformation has been invoked. |
 
-Use this claims transformation to check if a claim is equal to another claim. For example, the following claims transformation checks if the value of the `Email` claim is equal to the `Verified.Email` claim.
+Use this claims transformation to check if a claim is equal to another claim. For example, the following claims transformation checks if the value of the **email** claim is equal to the **Verified.Email** claim.
 
 ```XML
 <ClaimsTransformation Id="CheckEmail" TransformationMethod="CompareClaims">
@@ -190,12 +190,12 @@ Determines whether a claim value is equal to the input parameter value.
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | string | The claim's type, which is to be compared. |
-| InputParameter | operator | string | One of the values: `Equal` or `Not Equal`. |
+| InputParameter | operator | string | Possible values: `Equal` or `Not Equal`. |
 | InputParameter | compareTo | string | string comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Specifies whether this comparison should ignore the case of the strings being compared. |
 | OutputClaim | outputClaim | boolean | The ClaimType that is produced after this claims transformation has been invoked. |
 
-You can use this claims transformation to check if a claim is equal to a value you specified. For example, the following claims transformation checks if the value of `termsOfUseConsentVersion` claim is equal to `v1`.
+You can use this claims transformation to check if a claim is equal to a value you specified. For example, the following claims transformation checks if the value of the **termsOfUseConsentVersion** claim is equal to `v1`.
 
 ```XML
 <ClaimsTransformation Id="IsTermsOfUseConsentRequiredForVersion" TransformationMethod="CompareClaimToValue">
@@ -284,7 +284,7 @@ Following example generates an integer random value between 0 and 1000. The valu
 
 ## FormatStringClaim
 
-Format a claim according to the provided format string. This transformation uses the C# **String.Format** method.
+Format a claim according to the provided format string. This transformation uses the C# `String.Format` method.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -292,7 +292,7 @@ Format a claim according to the provided format string. This transformation uses
 | InputParameter | stringFormat | string | The string format, including the {0}  parameter. |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
 
-Use this claims transformation to format any string with one parameter {0}. The following XML example creates a `userPrincipalName`. All social identity provider technical profiles, such as `Facebook-OAUTH` calls the `CreateUserPrincipalName` to generate a `userPrincipalName`.   
+Use this claims transformation to format any string with one parameter {0}. The following example creates a **userPrincipalName**. All social identity provider technical profiles, such as `Facebook-OAUTH` calls the **CreateUserPrincipalName** to generate a **userPrincipalName**.   
 
 ```XML
 <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
@@ -328,7 +328,7 @@ Format two claims according to the provided format string. This transformation u
 | InputParameter | stringFormat | string | The string format, including the {0} and {1} parameters. |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
 
-Use this claims transformation to format any string with two parameters, {0} and {1}. The following XML example creates an `displayName` with the specified format.
+Use this claims transformation to format any string with two parameters, {0} and {1}. The following example creates a **displayName** with the specified format:
 
 ```XML
 <ClaimsTransformation Id="CreateDisplayNameFromFirstNameAndLastName" TransformationMethod="FormatStringMultipleClaims">
@@ -357,14 +357,14 @@ Use this claims transformation to format any string with two parameters, {0} and
 
 ## GetMappedValueFromLocalizedCollection
 
-Looking up an item from a claim `Restriction` collection.
+Looking up an item from a claim **Restriction** collection.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | mapFromClaim | string |The claim that contains the `Text` to be looked up in the `restrictionValueClaim` claims with the `Restriction` collection.  |
-| OutputClaim | restrictionValueClaim | string |The claim that contains the `Restriction` collection. After the claims transformation has been invoked, the value of this claim contains the selected item's `Value`. |
+| InputClaim | mapFromClaim | string | The claim that contains the text to be looked up in the **restrictionValueClaim** claims with the **Restriction** collection.  |
+| OutputClaim | restrictionValueClaim | string | The claim that contains the **Restriction** collection. After the claims transformation has been invoked, the value of this claim contains the value of the selected item. |
 
-The following example looks up the error message description based on the error key. The `responseMsg` claim contains a collection of error messages to present to the end user or to be sent to the relying party.
+The following example looks up the error message description based on the error key. The **responseMsg** claim contains a collection of error messages to present to the end user or to be sent to the relying party.
 
 ```XML
 <ClaimType Id="responseMsg">
@@ -378,7 +378,7 @@ The following example looks up the error message description based on the error 
   </Restriction>
 </ClaimType>
 ```
-The claims transformation looks up the item `Text` and returns its `Value`. If the  `<Restriction>` is localized, using `<LocalizedCollection>`, the claims transformation returns the localized value.
+The claims transformation looks up the text of the item and returns its value. If the restriction is localized using `<LocalizedCollection>`, the claims transformation returns the localized value.
 
 ```XML
 <ClaimsTransformation Id="GetResponseMsgMappedToResponseCode" TransformationMethod="GetMappedValueFromLocalizedCollection">
@@ -409,7 +409,7 @@ Look up a claim value from a list of values based on the value of another claim.
 | InputParameter | errorOnFailedLookup | boolean | Controlling whether an error is returned when no matching lookup. |
 | OutputClaim | inputParameterId | string | The ClaimTypes that will be produced after this claims transformation has been invoked. The value of the matching Id. |
 
-The following example looks up the domain name in one of the inpuParameters collections. The claims transformation looks up the domain name in the `Id` and returns its `Value` (an application ID).
+The following example looks up the domain name in one of the inpuParameters collections. The claims transformation looks up the domain name in the identifier and returns its value (an application ID).
 
 ```XML
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
@@ -449,7 +449,7 @@ Gets the domain portion of an email address.
 | InputClaim | emailAddress | string | The ClaimType that contains the email address. |
 | OutputClaim | domain | string | The ClaimType that is produced after this claims transformation has been invoked - the domain. |
 
-Use this claims transformation to parse the domain name after the @ symbol of the user. This can be helpful in removing Personally identifiable information (PII) from audit data. The following claims transformation demonstrates how to parse the domain name from an 'email' claim.
+Use this claims transformation to parse the domain name after the @ symbol of the user. This can be helpful in removing Personally identifiable information (PII) from audit data. The following claims transformation demonstrates how to parse the domain name from an **email** claim.
 
 ```XML
 <ClaimsTransformation Id="SetDomainName" TransformationMethod="ParseDomain">
@@ -477,14 +477,14 @@ Checks that a string claim and `matchTo` input parameter are equal, and sets the
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim | string | The claim type, which is to be compared. |
 | InputParameter | matchTo | string | The string to be compared with `inputClaim`. |
-| InputParameter | stringComparison | string | One of the values: `Ordinal` or `OrdinalIgnoreCase`. |
+| InputParameter | stringComparison | string | Possible values: `Ordinal` or `OrdinalIgnoreCase`. |
 | InputParameter | stringMatchMsg | string | First value to be set if strings are equal. |
 | InputParameter | stringMatchMsgCode | string | Second value to be set if strings are equal. |
 | OutputClaim | outputClaim1 | string | If strings are equals, this output claim contains the value of `stringMatchMsg` input parameter. |
 | OutputClaim | outputClaim2 | string | If strings are equals, this output claim contains the value of `stringMatchMsgCode` input parameter. |
 | OutputClaim | stringCompareResultClaim | boolean | The compare result output claim type, which is to be set as `true` or `false` based on the result of comparison. |
 
-You can use this claims transformation to check if a claim is equal to value you specified. For example, the following claims transformation checks if the value of the `termsOfUseConsentVersion` claim is equal to `v1`. If yes, change the value to `v2`. 
+You can use this claims transformation to check if a claim is equal to value you specified. For example, the following claims transformation checks if the value of the **termsOfUseConsentVersion** claim is equal to `v1`. If yes, change the value to `v2`. 
 
 ```XML
 <ClaimsTransformation Id="CheckTheTOS" TransformationMethod="SetClaimsIfStringsAreEqual">
@@ -526,12 +526,12 @@ Checks that a string claim and `matchTo` input parameter are equal, and sets the
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | claimToMatch | string | The claim type, which is to be compared. |
 | InputParameter | matchTo | string | The string to be compared with inputClaim. |
-| InputParameter | stringComparison | string | One of the values: `Ordinal` or `OrdinalIgnoreCase`. |
+| InputParameter | stringComparison | string | Possible values: `Ordinal` or `OrdinalIgnoreCase`. |
 | InputParameter | outputClaimIfMatched | string | The value to be set if strings are equal. |
 | OutputClaim | outputClaim | string | If strings are equals, this output claim contains the value of `outputClaimIfMatched` input parameter. Or null, if the strings aren't match. |
 | OutputClaim | stringCompareResultClaim | boolean | The compare result output claim type, which is to be set as `true` or `false` based on the result of comparison. |
 
-For example, the following claims transformation checks if the value of `ageGroup` claim is equal to `Minor`. If yes, return the value to `B2C_V1_90001`. 
+For example, the following claims transformation checks if the value of **ageGroup** claim is equal to `Minor`. If yes, return the value to `B2C_V1_90001`. 
 
 ```XML
 <ClaimsTransformation Id="SetIsMinor" TransformationMethod="SetClaimsIfStringsMatch">

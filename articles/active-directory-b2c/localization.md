@@ -35,7 +35,7 @@ The **Localization** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Enabled | No | True or False |
+| Enabled | No | Possible values: `true` or `false`. |
 
 The **Localization** element contains following XML elements
 
@@ -51,7 +51,7 @@ The **SupportedLanguages** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | DefaultLanguage | Yes | The language to be used as the default for localized resources. |
-| MergeBehavior | No | An enumeration values of values that are merged together with any ClaimType present in a parent policy with the same identifier. Use this attribute when you overwrite a claim specified in base policy. Possible values: `Append` - Specifies that the collection of data present should be appended to the end of the collection specified in the parent policy; `Prepend` -  Specifies that the collection of data present should be added before the collection specified in the parent policy; `ReplaceAll` - Specifies that the collection of data defined in the parent policy should be ignored, using instead the data defined in the current policy. |
+| MergeBehavior | No | An enumeration values of values that are merged together with any ClaimType present in a parent policy with the same identifier. Use this attribute when you overwrite a claim specified in base policy. Possible values: `Append`, `Prepend`, or `ReplaceAll`. The `Append` value specifies that the collection of data present should be appended to the end of the collection specified in the parent policy. The `Prepend` value specifies that the collection of data present should be added before the collection specified in the parent policy. The `ReplaceAll` value specifies that the collection of data defined in the parent policy should be ignored, using instead the data defined in the current policy. |
 
 ### SupportedLanguages
 

@@ -15,7 +15,7 @@ ms.component: B2C
 
 # ClaimsSchema
 
-The `ClaimsSchema` element defines the claim types that can be referenced as part of the policy. Claims schema is the place where you declare your claims. A claim can be first name, last name, display name, phone number and more. ClaimsSchema element contains list of `ClaimType` elements. The `ClaimType` element contains the `Id` attribute, which is the claim name. 
+The **ClaimsSchema** element defines the claim types that can be referenced as part of the policy. Claims schema is the place where you declare your claims. A claim can be first name, last name, display name, phone number and more. ClaimsSchema element contains list of **ClaimType** elements. The **ClaimType** element contains the **Id** attribute, which is the claim name. 
 
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -44,19 +44,19 @@ The `ClaimsSchema` element defines the claim types that can be referenced as par
 
 ## ClaimType
 
-The `ClaimType` element contains the following attribute:
+The **ClaimType** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | Yes | An identifier that's used for the claim type. Other elements can use this identifier in the policy file. |
 
-The `ClaimType` element contains the following child elements:
+The **ClaimType** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | The title that's displayed to users on various screens. The value can be localized. |
 | DataType | 0:1 | The type of the claim. The data types of boolean, date, dateTime, int, long, string, stringCollection can be used. |
-| DefaultPartnerClaimTypes | 0:1 | The partner default claim types to use for a specified protocol. The value can be overwritten in the `PartnerClaimType` specified in the `InputClaim` or `OutputClaim` elements. Use this element to specify the default name for a protocol. For example, when the Identity Experience Framework interacts with a SAML2 identity provider or relying party application, the surname claim ('http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname') is called while the 'OpenIdConnect' protocol is called family_name. |
+| DefaultPartnerClaimTypes | 0:1 | The partner default claim types to use for a specified protocol. The value can be overwritten in the **PartnerClaimType** specified in the **InputClaim** or **OutputClaim** elements. Use this element to specify the default name for a protocol. For example, when the Identity Experience Framework interacts with a SAML2 identity provider or relying party application, the surname claim ('http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname') is called while the 'OpenIdConnect' protocol is called family_name. |
 | Mask | 0:1 | An optional string of masking characters that can be applied when displaying the claim. For example, the phone number 324-232-4343 can be masked as XXX-XXX-4343. |
 | UserHelpText | 0:1 | A description of the claim type that can be helpful for users to understand its purpose. The value can be localized. |
 | UserInputType | 0:1 | The type of input control that should be available to the user when manually entering the claim data for the claim type. See the user input types defined later in this page. |
@@ -64,13 +64,13 @@ The `ClaimType` element contains the following child elements:
 
 ### DefaultPartnerClaimTypes
 
-The `DefaultPartnerClaimTypes` may contain the following element:
+The **DefaultPartnerClaimTypes** may contain the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Protocol | 0:n | A technical profile that's allowed to be used against a claims provider selection. |
 
-The `Protocol` element contains the following attributes:
+The **Protocol** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
@@ -79,14 +79,14 @@ The `Protocol` element contains the following attributes:
 
 ### Mask
 
-The `Mask` element can contain the following attributes:
+The **Mask** element can contain the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Type | Yes | The type of the claim mask. Possible values: **Simple** or **Regex**. The **Simple** value indicates that a simple text mask is applied to the leading portion of a string claim. The **Regex** value indicates that a regular expression is applied to the string claim as whole.  If the **Regex** value is specified, an optional attribute must also be defined with the regular expression to use. |
-| Regex | No | If `Type` is set to **Regex**, specify the regular expression to use.
+| Type | Yes | The type of the claim mask. Possible values: `Simple` or `Regex`. The `Simple` value indicates that a simple text mask is applied to the leading portion of a string claim. The `Regex` value indicates that a regular expression is applied to the string claim as whole.  If the `Regex` value is specified, an optional attribute must also be defined with the regular expression to use. |
+| Regex | No | If **Type** is set to `Regex`, specify the regular expression to use.
 
-The follwing example configures a **PhoneNumber** claim with the **Simple** mask:
+The follwing example configures a **PhoneNumber** claim with the `Simple` mask:
 
 ```XML
 <ClaimType Id="PhoneNumber">
@@ -102,7 +102,7 @@ The Identity Experience Framework renders the phone number while hiding the firs
 
 ![Using claim type with mask](./media/claimsschema/claimtype-mask.png)
 
-The follwing example configures a **PhoneNumber** claim with the **Regex** mask:
+The follwing example configures a **PhoneNumber** claim with the `Regex` mask:
 
 ```XML
 <ClaimType Id="AlternateEmail">
@@ -120,13 +120,13 @@ The Identity Experience Framework renders only the first letter of the email add
 
 ### Restriction
 
-The `Restriction` element may contain the following attribute:
+The **Restriction** element may contain the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| MergeBehavior | No | The method used to merge enumeration values with a ClaimType in a parent policy with the same identifier. Use this attribute when you overwrite a claim specified in base policy. The attribute takes one of the following values: <ul><li> **Append** - The collection of data should be appended to the end of the collection specified in the parent policy.</li><li> **Prepend** - The collection of data should be added before the collection specified in the parent policy.</li><li> **ReplaceAll** - The collection of data specified in the parent policy should be ignored, using the data specified in the current policy.</li></ul>|
+| MergeBehavior | No | The method used to merge enumeration values with a ClaimType in a parent policy with the same identifier. Use this attribute when you overwrite a claim specified in the base policy. Possible values: `Append`, `Prepend`, or `ReplaceAll`. The `Append` value is a collection of data that should be appended to the end of the collection specified in the parent policy. The `Prepend` value is a collection of data that should be added before the collection specified in the parent policy. The `ReplaceAll` value is a collection of data specified in the parent policy that should be ignored. |
 
-The `Restriction` element contains the following elements:
+The **Restriction** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
@@ -135,7 +135,7 @@ The `Restriction` element contains the following elements:
 
 ### Enumeration
 
-The `Enumeration` element contains one of the following attributes:
+The **Enumeration** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
@@ -143,7 +143,7 @@ The `Enumeration` element contains one of the following attributes:
 |Value | Yes | The claim value that is associated with selecting this option. |
 | SelectByDefault | No | Indicates whether or not this option should be selected by default in the UI. Possible values: True or False. |
 
-The following example configures a **city** dropdown list claim with a default value set to **New York**:
+The following example configures a **city** dropdown list claim with a default value set to `New York`:
 
 ```XML
 <ClaimType Id="city">
@@ -164,7 +164,7 @@ Dropdown city list with a default value set to New York:
 
 ### Pattern
 
-The `Pattern` element can contain the following attributes:
+The **Pattern** element can contain the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
@@ -342,4 +342,4 @@ The **Paragraph** user input type is used to provide a field that shows text onl
 </ClaimType>
 ```
 
-To display one of the `Enumeration` values in a **responseMsg** claim, use `GetMappedValueFromLocalizedCollection` or `CreateStringClaim` claims transformation. For more information, see [String Claims Transformations](string-transformations.md) 
+To display one of the **Enumeration** values in a **responseMsg** claim, use `GetMappedValueFromLocalizedCollection` or `CreateStringClaim` claims transformation. For more information, see [String Claims Transformations](string-transformations.md) 

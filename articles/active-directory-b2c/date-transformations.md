@@ -31,7 +31,7 @@ Checks that one date and time claim (string data type) is greater than a second 
 
 The **AssertDateTimeIsGreaterThan** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **DateTimeGreaterThan** self-asserted technical profile metadata controls the error message that the technical profile presents to the user.
 
-![AssertStringClaimsAreEqual execution](./media/claims-transformations/assert-execution.png)
+![AssertStringClaimsAreEqual execution](./media/date-transformations/assert-execution.png)
 
 The following example compares the `currentDateTime` claim with the `approvedDateTime` claim. An error is thrown if `currentDateTime` is greater than  `approvedDateTime`. The transformation treats values as equal if they are within 5 minutes (30000 milliseconds) difference.
 
@@ -82,14 +82,14 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 
 ## ConvertDateToDateTimeClaim
 
-Converts a `Date` ClaimType to a `DateTime` ClaimTpye. The claims transformation converts the time format and adds 12:00:00 AM to the date.
+Converts a **Date** ClaimType to a **DateTime** ClaimTpye. The claims transformation converts the time format and adds 12:00:00 AM to the date.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | date | The ClaimType to be converted. |
 | OutputClaim | outputClaim | dateTime | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
 
-The follwing example demonstrates the conversion of the claim `dateOfBirth` (date data type) to another claim `dateOfBirthWithTime` (dateTime data type).
+The following example demonstrates the conversion of the claim `dateOfBirth` (date data type) to another claim `dateOfBirthWithTime` (dateTime data type).
 
 ```XML
 <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">

@@ -43,7 +43,7 @@ The following example shows a RESTful technical profile:
 
 ## Input claims
 
-The **InputClaims** element contains a list of claims to send to the REST API. You can also map the name of your claim to the name defined in the REST API. Following example shows the mapping between your policy and the REST API. The `givenName` claim is sent to the REST API as `firstName`, while `surname` is sent as `lastName`. The `email` claim is set as is.
+The **InputClaims** element contains a list of claims to send to the REST API. You can also map the name of your claim to the name defined in the REST API. Following example shows the mapping between your policy and the REST API. The **givenName** claim is sent to the REST API as **firstName**, while **surname** is sent as **lastName**. The **email** claim is set as is.
 
 ```XML
 <InputClaims>
@@ -63,11 +63,11 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 The following example shows the claim returned by the Facebook identity provider:
 
-- The `MembershipId` claim that is mapped to the `loyaltyNumber` claim.
+- The **MembershipId** claim that is mapped to the **loyaltyNumber** claim.
 
-The technical profile also returns claims, that aren't return by the identity provider: 
+The technical profile also returns claims, that aren't returned by the identity provider: 
 
-- The `loyaltyNumberIsNew` claim that has a default value set to `true`.
+- The **loyaltyNumberIsNew** claim that has a default value set to `true`.
 
 ```xml
 <OutputClaims>
@@ -81,9 +81,9 @@ The technical profile also returns claims, that aren't return by the identity pr
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ServiceUrl | Yes | The URL of the REST API endpoint. | 
-| AuthenticationType | Yes | The type of authentication being performed by the RESTful claims provider. Possible values: <ul><li>`None` - Indicates that the REST API is not anonymous.</li><li>`Basic` - The REST API is secured with HTTP basic authentication. Only verified users, including Azure AD B2C, can access your API.</li><li>`ClientCertificate` (recommended) - The REST API restricts access using client certificate authentication. Only services that have the appropriate certificates, such as Azure AD B2C can access your service.</li></ul> | 
-| SendClaimsIn | No | Specifies how the input claims are sent to the RESTful claims provider. Possible values:<ul><li>`Body` (default) - The input claim is sent in the request body in JSON format.</li><li>`Form` - The input claim is sent in the request body in an ampersand '&' separated key value format.</li><li>`Header` - The input claim is sent in the request header.</li><li>`QueryString` - The input claim is sent in the request query string.</li></ul> | 
-| ClaimsFormat | No | Specifies the format for the output claims. Possible values:<ul><li>`Body` (default) - The output claim is sent in the request body in JSON format.</li><li>`Form` - The output claim is sent in the request body in an ampersand '&' separated key value format.</li><li>`Header` - The output claim is sent in the request header.</li><li>`QueryString` - The output claim is sent in the request query string.</li></ul> | 
+| AuthenticationType | Yes | The type of authentication being performed by the RESTful claims provider. Possible values: `None`, `Basic`, or `ClientCertificate`. The `None` value indicates that the REST API is not anonymous. The `Basic` value indicates that the REST API is secured with HTTP basic authentication. Only verified users, including Azure AD B2C, can access your API. The `ClientCertificate` (recommended) value indicates that the REST API restricts access using client certificate authentication. Only services that have the appropriate certificates, such as Azure AD B2C can access your service. | 
+| SendClaimsIn | No | Specifies how the input claims are sent to the RESTful claims provider. Possible values: `Body` (default), `Form`, `Header`, or `QueryString`. The `Body` value is the input claim that is sent in the request body in JSON format. The `Form` value is the input claim that is sent in the request body in an ampersand '&' separated key value format. The `Header` value is the input claim that is sent in the request header. The `QueryString` value is the input claim that is sent in the request query string. | 
+| ClaimsFormat | No | Specifies the format for the output claims. Possible values: `Body` (default), `Form`, `Header`, or `QueryString`. The `Body` value is the output claim that is sent in the request body in JSON format. The `Form` value is the output claim that is sent in the request body in an ampersand '&' separated key value format. The `Header` value is the output claim that is sent in the request header. The `QueryString` value is the output claim that is sent in the request query string. | 
 | DebugMode | No | Runs the technical profile in debug mode. In debug mode, the REST API can return more information. See the returning error message section. | 
 
 ## Cryptographic keys

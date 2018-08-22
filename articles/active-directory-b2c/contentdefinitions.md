@@ -17,9 +17,9 @@ ms.component: B2C
 
 You can customize the look and feel of any self-asserted technical profile. Azure Active Directory (Azure AD) B2C runs code in your customer's browser and uses a modern approach called Cross-Origin Resource Sharing (CORS). 
 
-To customize the user interface, you specify a URL in the `ContentDefinition` element with customized HTML content. In the self-asserted technical profile or `OrchestrationStep` you point to that content definition **Id**. The content definition may contain a `LocalizedResourcesReferences` element that specifies a list of localized resource to load. Azure AD B2C merges user interface elements with the HTML content that's loaded from your URL and then displays the page to the user.
+To customize the user interface, you specify a URL in the **ContentDefinition** element with customized HTML content. In the self-asserted technical profile or **OrchestrationStep**, you point to that content definition identifier. The content definition may contain a **LocalizedResourcesReferences** element that specifies a list of localized resources to load. Azure AD B2C merges user interface elements with the HTML content that's loaded from your URL and then displays the page to the user.
 
-The following example shows the content definition ID and the definition of localized resources:
+The following example shows the content definition identifier and the definition of localized resources:
 
 ```XML
 <ContentDefinition Id="api.localaccountsignup">
@@ -35,7 +35,7 @@ The following example shows the content definition ID and the definition of loca
     ...
 ```
 
-The metadata of the `TechnicalProfile` element contains the content definition ID:
+The metadata of the **TechnicalProfile** element contains the content definition identifier:
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -49,17 +49,17 @@ The metadata of the `TechnicalProfile` element contains the content definition I
   ...
 ```
 
-The `ContentDefinitions` element contains URLs to HTML5 templates that can be used in a user journey. The HTML5 page URI is used for a specified user interface step. For example, the sign-in or sign-up, password reset, or error pages. You can modify the look and feel by overriding the LoadUri for the HTML5 file. You can create new content definitions according to your needs. This element may contain a localized resources reference, to the localization ID specified in the [Localization](localization.md) element.
+The **ContentDefinitions** element contains URLs to HTML5 templates that can be used in a user journey. The HTML5 page URI is used for a specified user interface step. For example, the sign-in or sign-up, password reset, or error pages. You can modify the look and feel by overriding the LoadUri for the HTML5 file. You can create new content definitions according to your needs. This element may contain a localized resources reference, to the localization identifier specified in the [Localization](localization.md) element.
 
 ## ContentDefinition
 
-The `ContentDefinition` element contains the following attribute:
+The **ContentDefinition** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | Yes | An identifier for a content definition. The value is one specified in the **Content definition IDs** section later in this page. |
 
-The `ContentDefinition` element contains the following elements:
+The **ContentDefinition** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
@@ -71,18 +71,18 @@ The `ContentDefinition` element contains the following elements:
 
 ### LocalizedResourcesReferences
 
-The `LocalizedResourcesReferences` element contains the following elements:
+The **LocalizedResourcesReferences** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| LocalizedResourcesReference | 1:n | A list of localized resources references for the content definition. | 
+| LocalizedResourcesReference | 1:n | A list of localized resource references for the content definition. | 
 
-The `LocalizedResourcesReferences` element contains the following attributes:
+The **LocalizedResourcesReferences** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Language | Yes | A string that contains a supported language for the policy per RFC 5646 - Tags for Identifying Languages. |
-| LocalizedResourcesReferenceId | Yes | The identifier of the `LocalizedResources` element. |
+| LocalizedResourcesReferenceId | Yes | The identifier of the **LocalizedResources** element. |
 
 The following example shows a sign-up or sign-in content definition:
 
@@ -119,7 +119,7 @@ To learn how to add localization support to your content definitions, see [Local
 
 ## Content definition IDs
 
-The ID attribute of the `ContentDefinition` element specifies the type of page that relates to the content definition. The element defines the context that a custom HTML5/CSS template is going to apply. The following table describes the set of content definition IDs that is recognized by the Identity Experience Framework, and the page types that relate to them. You can create your own content definitions with an arbitrary ID.
+The ID attribute of the **ContentDefinition** element specifies the type of page that relates to the content definition. The element defines the context that a custom HTML5/CSS template is going to apply. The following table describes the set of content definition IDs that is recognized by the Identity Experience Framework, and the page types that relate to them. You can create your own content definitions with an arbitrary ID.
 
 | ID | Default template | Description | 
 | -- | ---------------- | ----------- |

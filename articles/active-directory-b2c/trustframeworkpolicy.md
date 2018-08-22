@@ -15,7 +15,7 @@ ms.component: B2C
 
 # TrustFrameworkPolicy
 
-A custom policy is represented as one or more XML-formatted files, which refer to each other in a hierarchical chain. The XML elements define elements of the policy, such as the claims schema, claims transformations, content definitions, claims providers, technical profiles, user journey, and orchestration steps. Each policy file is defined within the top-level `TrustFrameworkPolicy` element of a policy file. 
+A custom policy is represented as one or more XML-formatted files, which refer to each other in a hierarchical chain. The XML elements define elements of the policy, such as the claims schema, claims transformations, content definitions, claims providers, technical profiles, user journey, and orchestration steps. Each policy file is defined within the top-level **TrustFrameworkPolicy** element of a policy file. 
 
 ```XML
 <TrustFrameworkPolicy
@@ -30,20 +30,20 @@ A custom policy is represented as one or more XML-formatted files, which refer t
 ```
 
 
-The `TrustFrameworkPolicy` element contains the following attributes:
+The **TrustFrameworkPolicy** element contains the following attributes:
 
 | Attribute | Required | Description |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | Yes | The schema version that is to be used to execute the policy. The value must be **0.3.0.0** |
+| PolicySchemaVersion | Yes | The schema version that is to be used to execute the policy. The value must be `0.3.0.0` |
 | TenantObjectId | No | The unique object identifier of the Azure Active Directory (Azure AD) B2C tenant. |
 | TenantId | Yes | The unique identifier of the tenant to which this policy belongs. |
 | PolicyId | Yes | The unique identifier for the policy. This identifier must be prefixed by *B2C_1A_* |
 | PublicPolicyUri | Yes | The URI for the policy, which is combination of the tenant ID and the policy ID. |
-| DeploymentMode | No | Possible values: **Production**, **Debugging**, or **Development**. **Production** is the default. Use this property to debug your policy. For more information, see [Collecting Logs](active-directory-b2c-troubleshoot-custom.md). |
-| UserJourneyRecorderEndpoint | No | The endpoint that is used when `DeploymentMode` is set to **Development**. The value must be `urn:journeyrecorder:applicationinsights`. For more information, see [Collecting Logs](active-directory-b2c-troubleshoot-custom.md). |
+| DeploymentMode | No | Possible values: `Production`, `Debugging`, or `Development`. `Production` is the default. Use this property to debug your policy. For more information, see [Collecting Logs](active-directory-b2c-troubleshoot-custom.md). |
+| UserJourneyRecorderEndpoint | No | The endpoint that is used when **DeploymentMode** is set to `Development`. The value must be `urn:journeyrecorder:applicationinsights`. For more information, see [Collecting Logs](active-directory-b2c-troubleshoot-custom.md). |
 
 
-The following example shows how to specify the `TrustFrameworkPolicy` element:
+The following example shows how to specify the **TrustFrameworkPolicy** element:
 
 ``` XML
 <TrustFrameworkPolicy
@@ -76,9 +76,9 @@ The inheritance model is as follows:
 
 ## Base policy
 
-To inherit a policy from another policy, a `BasePolicy` element must be declared under the `TrustFrameworkPolicy` element of the policy file. The `BasePolicy` element is a reference to the base policy from which this policy is derived.  
+To inherit a policy from another policy, a **BasePolicy** element must be declared under the **TrustFrameworkPolicy** element of the policy file. The **BasePolicy** element is a reference to the base policy from which this policy is derived.  
 
-The `BasePolicy` element contains the following child elements:
+The **BasePolicy** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | --------|
@@ -99,7 +99,7 @@ The following example shows how to specify a base policy. This **B2C_1A_TrustFra
 
 A relying party application, such as a web, mobile, or desktop application, calls the **relying party (RP)** policy. The RP policy file executes a specific task, such as signing in, resetting a password, or editing a profile. The RP policy configures the list of claims the relying party application receives as part of the token that is issued. Multiple applications can use the same policy. All applications receive the same token with claims and the user goes through the same user journey. A single application can use multiple policies.
 
-Inside the RP policy file, you specify the `DefaultUserJourney` element, which points to the `UserJourney`. The user journey usually is defined in the Base or Extensions policy.
+Inside the RP policy file, you specify the **DefaultUserJourney** element, which points to the **UserJourney**. The user journey usually is defined in the Base or Extensions policy.
 
 B2C_1_signup_signin policy:
 
@@ -117,7 +117,7 @@ B2C_1_TrustFrameWorkBase or B2C_1_TrustFrameworkExtensionPolicy:
   ...
 ```
 
-A user journey defines the business logic of what a user goes through. Each user journey is a set of **orchestration steps** that performs a series of actions, in sequence in terms of authentication and information collection. 
+A user journey defines the business logic of what a user goes through. Each user journey is a set of orchestration steps that performs a series of actions, in sequence in terms of authentication and information collection. 
 
 The **SocialAndLocalAccounts** policy file in the starter pack contains the SignUpOrSignIn, ProfileEdit, PasswordReset user journeys. You can add more user journeys for another scenarios, such as changing an email address or resetting a password. 
 

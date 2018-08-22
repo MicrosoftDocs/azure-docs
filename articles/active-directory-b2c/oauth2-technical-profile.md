@@ -40,15 +40,15 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 The following example shows the claims returned by the Facebook identity provider:
 
-- The `first_name` claim is mapped to the `givenName` claim.
-- The `last_name` claim is mapped to the `surname` claim.
-- The `displayName` claim that is not mapped to another claim. Azure AD B2C uses the `name` claim.
-- The `email` claim that is not mapped to another claim. Azure AD B2C uses the `email` claim.
+- The **first_name** claim is mapped to the **givenName** claim.
+- The **last_name** claim is mapped to the **surname** claim.
+- The **displayName** claim that is not mapped to another claim. Azure AD B2C uses the **name** claim.
+- The **email** claim that is not mapped to another claim. Azure AD B2C uses the **email** claim.
 
 The technical profile also returns claims that aren't returned by the identity provider: 
 
-- The `identityProvider` claim that contains the name of the identity provider.
-- The `authenticationSource` claim with a default value of `socialIdpAuthentication`.
+- The **identityProvider** claim that contains the name of the identity provider.
+- The **authenticationSource** claim with a default value of **socialIdpAuthentication**.
 
 ```xml
 <OutputClaims>

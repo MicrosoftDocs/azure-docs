@@ -24,12 +24,12 @@ Adds a string claim to a new stringCollection claim.
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | The ClaimType to be added to the output claim. |
-| InputClaim | collection | stringCollection | [Optional] If specified, the claims transformation copies the items from this collection, and adds the `item` to the end of the output `collection` claim. |
-| OutputClaim | collection | stringCollection | The ClaimTypes that are produced after this ClaimsTransformation has been invoked. The new collection with the `item`.|
+| InputClaim | collection | stringCollection | [Optional] If specified, the claims transformation copies the items from this collection, and adds the item to the end of the output collection claim. |
+| OutputClaim | collection | stringCollection | The ClaimTypes that are produced after this ClaimsTransformation has been invoked. |
 
-Use this claims transformation to add a string to a new or existing stringCollection. It's commonly used in a `AAD-UserWriteUsingAlternativeSecurityId` technical profile. Before a new social account is created, `CreateOtherMailsFromEmail` claims transformation reads the  ClaimType and adds the value to the `otherMails` ClaimType. 
+Use this claims transformation to add a string to a new or existing stringCollection. It's commonly used in a **AAD-UserWriteUsingAlternativeSecurityId** technical profile. Before a new social account is created, **CreateOtherMailsFromEmail** claims transformation reads the ClaimType and adds the value to the **otherMails** ClaimType. 
 
-The following claims transformation adds the `email` ClaimType to `otherMails` ClaimType.
+The following claims transformation adds the **email** ClaimType to **otherMails** ClaimType.
 
 ```XML
 <ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
@@ -57,11 +57,11 @@ Adds a string parameter to a new stringCollection claim.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-|InputClaim | collection | stringCollection | [Optional] If specified, the claims transformation copies the items from this collection, and adds the `item` to the end of the output `collection` claim. |
+| InputClaim | collection | stringCollection | [Optional] If specified, the claims transformation copies the items from this collection, and adds the item to the end of the output collection claim. |
 | InputParameter | item | string | The value to be added to the output claim. |
-| OutputClaim | collection | stringCollection | The ClaimTypes that will be produced after this ClaimsTransformation has been invoked. The new collection with the `item`. |
+| OutputClaim | collection | stringCollection | The ClaimTypes that will be produced after this ClaimsTransformation has been invoked. |
 
-Use this claims transformation to add a string value to a new or existing stringCollection. The following example adds a constant email address (admin@contoso.com) to the  `otherMails` claim. 
+Use this claims transformation to add a string value to a new or existing stringCollection. The following example adds a constant email address (admin@contoso.com) to the **otherMails** claim. 
 
 ```XML
 <ClaimsTransformation Id="SetCompanyEmail" TransformationMethod="AddParameterToStringCollection">
@@ -95,7 +95,7 @@ Gets the first item from the provided string collection.
 | InputClaim | collection | stringCollection | The ClaimTypes that are used by the claims transformation to get the item. |
 | OutputClaim | extractedItem | string | The ClaimTypes that are produced after this ClaimsTransformation has been invoked. The first item in the collection. |
 
-The following example reads the `otherMails` claim and return the first item into the `email` claim. 
+The following example reads the **otherMails** claim and return the first item into the **email** claim. 
 
 ```XML
 <ClaimsTransformation Id="CreateEmailFromOtherMails" TransformationMethod="GetSingleItemFromStringCollection">

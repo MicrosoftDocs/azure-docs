@@ -19,7 +19,7 @@ This article provides examples for using the boolean claims transformations of t
 
 ## AndClaims
 
-Performs an `And` of two boolean inputClaims and sets the outputClaim with result of the operation.
+Performs an And operation of two boolean inputClaims and sets the outputClaim with result of the operation.
 
 | Item  | TransformationClaimType  | Data Type  | Notes |
 |-------| ------------------------ | ---------- | ----- |
@@ -27,7 +27,7 @@ Performs an `And` of two boolean inputClaims and sets the outputClaim with resul
 | InputClaim | inputClaim2  | boolean | The second ClaimType to evaluate. |
 |OutputClaim | outputClaim | boolean | The ClaimTypes that will be produced after this claims transformation has been invoked (true or false). |
 
-The following claims transformation demonstrates how to `And` two boolean ClaimTypes: `isEmailNotExist`, and `isSocialAccount`. The output claim `presentEmailSelfAsserted` is set to `true` if the value of both input claims are `true`. In an orchestration step, you can use a precondition to preset a self-asserted page, only if a social account email is empty.
+The following claims transformation demonstrates how to And two boolean ClaimTypes: `isEmailNotExist`, and `isSocialAccount`. The output claim `presentEmailSelfAsserted` is set to `true` if the value of both input claims are `true`. In an orchestration step, you can use a precondition to preset a self-asserted page, only if a social account email is empty.
 
 ```XML
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
@@ -61,7 +61,7 @@ Checks that boolean values of two claims are equal, and throws an exception if t
 
 The **AssertBooleanClaimIsEqualToValue** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** self-asserted technical profile metadata controls the error message that the technical profile presents to the user.
 
-![AssertStringClaimsAreEqual execution](./media/claims-transformations/assert-execution.png)
+![AssertStringClaimsAreEqual execution](./media/boolean-transformations/assert-execution.png)
 
 The following claims transformation demonstrates how to check the value of a boolean ClaimType with a `true` value. If the value of the `accountEnabled` ClaimType is false, an error message is thrown.
 
@@ -109,7 +109,7 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 
 ## NotClaims
 
-Performs a `Not` of the boolean inputClaim and sets the outputClaim with result of the operation.
+Performs a Not operation of the boolean inputClaim and sets the outputClaim with result of the operation.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -137,7 +137,7 @@ Use this claim transformation to perform logical negation on a claim.
 
 ## OrClaims 
 
-Computes an `Or` of two boolean inputClaims and sets the outputClaim with result of the operation.
+Computes an Or of two boolean inputClaims and sets the outputClaim with result of the operation.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |

@@ -44,7 +44,7 @@ The **OutputClaims** element is mandatory. You should provide at least one outpu
 
 ## Output claims transformations
 
-The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify claims or generate new ones. The following technical profile calls the `RemoveAlternativeSecurityIdByIdentityProvider` claims transformation. This claims transformation removes a social identify from the collection of `AlternativeSecurityIds`. The output claims of this technical profile are `identityProvider2`, which is set to `facebook.com`, and `AlternativeSecurityIds`, which contains the list of social identities associated with this user after facebook.com identity is removed.
+The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify claims or generate new ones. The following technical profile calls the **RemoveAlternativeSecurityIdByIdentityProvider** claims transformation. This claims transformation removes a social identify from the collection of **AlternativeSecurityIds**. The output claims of this technical profile are **identityProvider2**, which is set to `facebook.com`, and **AlternativeSecurityIds**, which contains the list of social identities associated with this user after facebook.com identity is removed.
 
 ```XML
 <ClaimsTransformations>
@@ -78,7 +78,7 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 ## Use a validation technical profile
 
-A claims transformation technical profile can be used to validate information. In the following example, the [self asserted technical profile](self-asserted-technical-profile.md) named `LocalAccountSignUpWithLogonEmail` asks the user to enter the email twice, then calls the [validation technical profile](validation-technical-profile.md) named `Validate-Email` to validate the emails. The `Validate-Email` technical profile calls the claims transformation `AssertEmailAreEqual` to compare the two claims `email` and `emailRepeat`, and throw an exception if they are not equal according to the specified comparison.
+A claims transformation technical profile can be used to validate information. In the following example, the [self asserted technical profile](self-asserted-technical-profile.md) named **LocalAccountSignUpWithLogonEmail** asks the user to enter the email twice, then calls the [validation technical profile](validation-technical-profile.md) named **Validate-Email** to validate the emails. The **Validate-Email** technical profile calls the claims transformation **AssertEmailAreEqual** to compare the two claims **email** and **emailRepeat**, and throw an exception if they are not equal according to the specified comparison.
 
 ```XML
 <ClaimsTransformations>
@@ -94,7 +94,7 @@ A claims transformation technical profile can be used to validate information. I
 </ClaimsTransformations>
 ```
 
-The claims transformation technical profile calls the `AssertEmailAreEqual` claims transformation, which asserts that emails provided by the user are same.
+The claims transformation technical profile calls the **AssertEmailAreEqual** claims transformation, which asserts that emails provided by the user are same.
 
 ```XML
 <TechnicalProfile Id="Validate-Email">
@@ -113,7 +113,7 @@ The claims transformation technical profile calls the `AssertEmailAreEqual` clai
 </TechnicalProfile> 
 ```
 
-A self-asserted technical profile can call the validation technical profile and show the error message as specified in the `UserMessageIfClaimsTransformationStringsAreNotEqual` metadata.
+A self-asserted technical profile can call the validation technical profile and show the error message as specified in the **UserMessageIfClaimsTransformationStringsAreNotEqual** metadata.
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">

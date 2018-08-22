@@ -140,7 +140,7 @@ The **Key** element contains the following attribute:
 
 ### InputClaimsTransformations
 
-The `InputClaimsTransformations` element contains the following element:
+The **InputClaimsTransformations** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
@@ -266,7 +266,7 @@ The **UseTechnicalProfileForSessionManagement** element contains the following a
 | ReferenceId | Yes | An identifier of a technical profile already defined in the policy file or parent policy file. |
 
 ### EnabledForUserJourneys
-The `<ClaimsProviderSelections>` in a user journey defines the list of claims provider selection options and their order. With the `EnabledForUserJourneys` element  you filter, which claims provider is avaible to the user. The **EnabledForUserJourneys** element contains one of the following values:
+The **ClaimsProviderSelections** in a user journey defines the list of claims provider selection options and their order. With the **EnabledForUserJourneys** element  you filter, which claims provider is avaible to the user. The **EnabledForUserJourneys** element contains one of the following values:
 
 - **Always**, execute the technical profile.
 - **Never**, skip the technical profile. 
@@ -274,9 +274,10 @@ The `<ClaimsProviderSelections>` in a user journey defines the list of claims pr
 - **OnItemExistenceInStringCollectionClaim**, execute only when an item exists in a string collection claim. 
 - **OnItemAbsenceInStringCollectionClaim** execute only when an item does not exist in a string collection claim.
 
-Using `OnClaimsExistence`,  `OnItemExistenceInStringCollectionClaim` or `OnItemAbsenceInStringCollectionClaim`, requires to provide following metadata: `ClaimTypeOnWhichToEnable`, specifies the claim's type, which is to be evaluated. `ClaimValueOnWhichToEnable`, specifies the value, which is to be compared.
+Using **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** or **OnItemAbsenceInStringCollectionClaim**, requires you to provide the following metadata: **ClaimTypeOnWhichToEnable** specifies the claim's type that is to be evaluated, **ClaimValueOnWhichToEnable** specifies the value that is to be compared.
 
-Following technical profile is executed only if the `identityProviders` string collection contains the value of `facebook.com`
+The following technical profile is executed only if the **identityProviders** string collection contains the value of `facebook.com`:
+
 ```XML
 <TechnicalProfile Id="UnLink-Facebook-OAUTH">
   <DisplayName>Unlink Facebook</DisplayName>

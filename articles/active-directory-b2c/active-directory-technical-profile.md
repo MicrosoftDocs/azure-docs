@@ -21,7 +21,7 @@ Azure Active Directory (Azure AD) B2C provides support for the Azure Active Dire
 
 The **Name** attribute of the **Protocol** element needs to be set to `Proprietary`. The **handler** attribute must contain the fully qualified name of the protocol handler assembly `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-All Azure AD technical profiles include the `AAD-Common` technical profile. The following technical profiles don't specify the protocol because the protocol is configured in the `AAD-Common` technical profile:
+All Azure AD technical profiles include the **AAD-Common** technical profile. The following technical profiles don't specify the protocol because the protocol is configured in the **AAD-Common** technical profile:
 
 - **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingAlternativeSecurityId-NoError** - Look up a social account in the directory.
 - **AAD-UserWriteUsingAlternativeSecurityId** - Create a new social account.
@@ -32,7 +32,7 @@ All Azure AD technical profiles include the `AAD-Common` technical profile. The 
 - **AAD-UserReadUsingObjectId** - Read a user profile of a local or social account.
 - **AAD-UserWritePhoneNumberUsingObjectId** - Write the MFA phone number of a local or social account
 
-The following example shows the `AAD-Common` technical profile:
+The following example shows the **AAD-Common** technical profile:
 
 ```XML
 <TechnicalProfile Id="AAD-Common">
@@ -53,11 +53,11 @@ The following example shows the `AAD-Common` technical profile:
 
 The following technical profiles include **InputClaims** for social and local accounts:
 
-- The social account technical profiles `AAD-UserReadUsingAlternativeSecurityId` and `AAD-UserWriteUsingAlternativeSecurityId` includes the `AlternativeSecurityId` claim. This claim contains the social account unique user identifier.
-- The local account technical profiles `AAD-UserReadUsingEmailAddress` and `AAD-UserWriteUsingLogonEmail` includes the `email` claim. This claim contains the sign-in name of the local account.
-- The unified (local and social) technical profiles `AAD-UserReadUsingObjectId`, `AAD-UserWritePasswordUsingObjectId`, `AAD-UserWriteProfileUsingObjectId`, and `AAD-UserWritePhoneNumberUsingObjectId` includes the `objectId` claim. The unique identifier of an account.
+- The social account technical profiles **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserWriteUsingAlternativeSecurityId** includes the **AlternativeSecurityId** claim. This claim contains the social account user identifier.
+- The local account technical profiles **AAD-UserReadUsingEmailAddress** and **AAD-UserWriteUsingLogonEmail** includes the **email** claim. This claim contains the sign-in name of the local account.
+- The unified (local and social) technical profiles **AAD-UserReadUsingObjectId**, **AAD-UserWritePasswordUsingObjectId**, **AAD-UserWriteProfileUsingObjectId**, and **AAD-UserWritePhoneNumberUsingObjectId** includes the **objectId** claim. The unique identifier of an account.
 
-The `InputClaimsTransformations` element may contain a collection of `InputClaimsTransformation` elements that are used to modify the input claims or generate new ones.
+The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones.
 
 ## Output claims
 
@@ -65,13 +65,13 @@ The **OutputClaims** element contains a list of claims returned by the Azure AD 
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
-For example, the `AAD-UserWriteUsingLogonEmail` technical profile creates a local account and returns the following claims:
+For example, the **AAD-UserWriteUsingLogonEmail** technical profile creates a local account and returns the following claims:
 
-- `objectId`, which is identifier of the new account
-- `newUser`, which indicates whether the user is new
-- `authenticationSource`, which sets authentication to `localAccountAuthentication`
-- `userPrincipalName`, which is the user principal name of the new account
-- `signInNames.emailAddress`, which is the account sign-in name, similar to the `email` input claim
+- **objectId**, which is identifier of the new account
+- **newUser**, which indicates whether the user is new
+- **authenticationSource**, which sets authentication to `localAccountAuthentication`
+- **userPrincipalName**, which is the user principal name of the new account
+- **signInNames.emailAddress**, which is the account sign-in name, similar to the **email** input claim
 
 ```xml
 <OutputClaims>
@@ -87,7 +87,7 @@ For example, the `AAD-UserWriteUsingLogonEmail` technical profile creates a loca
 
 The **PersistedClaims** element contains all of the values that should be persisted by Azure AD with possible mapping information between a claim type already defined in the ClaimsSchema section in the policy and the Azure AD claim type. 
 
-The `AAD-UserWriteUsingLogonEmail` technical profile, which creates new local account, persists following claims:
+The **AAD-UserWriteUsingLogonEmail** technical profile, which creates new local account, persists following claims:
 
 ```XML
   <PersistedClaims>
@@ -103,20 +103,20 @@ The `AAD-UserWriteUsingLogonEmail` technical profile, which creates new local ac
   </PersistedClaims>
 ```
 
-The name of the claim is the name of the Azure AD attribute unless the `PartnerClaimType` attribute is specified, which contains the Azure AD attribute name.
+The name of the claim is the name of the Azure AD attribute unless the **PartnerClaimType** attribute is specified, which contains the Azure AD attribute name.
 
 ## Requirements of an operation
 
 1. There must be exactly one **InputClaim** element in the claims bag for all Azure AD technical profiles. 
 2. If the operation is `Write` or `DeleteClaims`, then it must also appear in a **PersistedClaims** element.
-3. The value of the `userPrincipalName` claim must be in the format of user@tenant.onmicrosoft.com.
-4. The `displayName` claim is required and cannot be an empty string.
+3. The value of the **userPrincipalName** claim must be in the format of `user@tenant.onmicrosoft.com`.
+4. The **displayName** claim is required and cannot be an empty string.
 
 ## Azure AD technical provider operations
 
 ### Read
 
-The **Read** operation reads data about a single user account. To read user data, you need to provide a key as an input claim, such as `objectId`, `userPrincipalName`, `signInNames` (any type, user name and email-based account) or `alternativeSecurityId`.  
+The **Read** operation reads data about a single user account. To read user data, you need to provide a key as an input claim, such as **objectId**, **userPrincipalName**, **signInNames** (any type, user name and email-based account) or **alternativeSecurityId**.  
 
 The following technical profile reads data about a user account using the user's objectId:
 
@@ -148,7 +148,7 @@ The following technical profile reads data about a user account using the user's
 
 ### Write
 
-The **Write** operation creates or updates a single user account. To write a user account, you need to provide a key as an input claim, such as `objectId`, `userPrincipalName`, `signInNames.emailAddress`, or `alternativeSecurityId`.  
+The **Write** operation creates or updates a single user account. To write a user account, you need to provide a key as an input claim, such as **objectId**, **userPrincipalName**, **signInNames.emailAddress**, or **alternativeSecurityId**.  
 
 The following technical profile creates new social account:
 
@@ -190,7 +190,7 @@ The following technical profile creates new social account:
 
 ### DeleteClaims
 
-The **DeleteClaims** operation clears the information from a provided list of claims. To delete information from claims, you need to provide a key as an input claim, such as `objectId`, `userPrincipalName`, `signInNames.emailAddress` or `alternativeSecurityId`.  
+The **DeleteClaims** operation clears the information from a provided list of claims. To delete information from claims, you need to provide a key as an input claim, such as **objectId**, **userPrincipalName**, **signInNames.emailAddress** or **alternativeSecurityId**.  
 
 The following technical profile deletes claims:
 
@@ -212,7 +212,7 @@ The following technical profile deletes claims:
 
 ### DeleteClaimsPrincipal
 
-The **DeleteClaimsPrincipal** operation deletes a single user account from the directory. To delete a user account, you need to provide a key as an input claim, such as `objectId`, `userPrincipalName`, `signInNames.emailAddress` or `alternativeSecurityId`.  
+The **DeleteClaimsPrincipal** operation deletes a single user account from the directory. To delete a user account, you need to provide a key as an input claim, such as **objectId**, **userPrincipalName**, **signInNames.emailAddress** or **alternativeSecurityId**.  
 
 The following technical profile deletes a user account from the directory using the user principal name:
 
@@ -229,7 +229,7 @@ The following technical profile deletes a user account from the directory using 
 </TechnicalProfile>
 ```
 
-The following technical profile deletes a social user account using `alternativeSecurityId`:
+The following technical profile deletes a social user account using **alternativeSecurityId**:
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteUserUsingAlternativeSecurityId">
@@ -247,7 +247,7 @@ The following technical profile deletes a social user account using `alternative
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Operation | Yes | The operation to be performed. Possible values: `Read`, `Write`, `DeleteClaims`, and `DeleteClaimsPrincipal`. | 
+| Operation | Yes | The operation to be performed. Possible values: `Read`, `Write`, `DeleteClaims`, or `DeleteClaimsPrincipal`. | 
 | RaiseErrorIfClaimsPrincipalDoesNotExist | No | Raise an error if the user object does not exist in the directory. Possible values: `true` or `false`. | 
 | UserMessageIfClaimsPrincipalDoesNotExist | No | If an error is to be raised (see the RaiseErrorIfClaimsPrincipalDoesNotExist attribute description), specify the message to show to the user if user object does not exist. | 
 | RaiseErrorIfClaimsPrincipalAlreadyExists | No | Raise an error if the user object already exists. Possible values: `true` or `false`.| 
