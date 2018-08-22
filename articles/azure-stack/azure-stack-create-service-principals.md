@@ -133,6 +133,10 @@ The following information is required as input for the automation parameters:
     -CertificateThumbprint $ServicePrincipal.Thumbprint `
     -ApplicationId $ServicePrincipal.ClientId `
     -TenantId $TenantID
+
+    # Output the SPN details
+    $ServicePrincipal
+    
    ```
 
 2. After the automation finishes, it displays the required details to use the SPN. 
