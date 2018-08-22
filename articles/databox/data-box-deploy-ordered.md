@@ -28,7 +28,7 @@ This tutorial describes how you can order an Azure Data Box. In this tutorial, y
 > * Track the order
 > * Cancel the order
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
