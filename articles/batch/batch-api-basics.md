@@ -284,7 +284,7 @@ If a start task fails on a compute node, then the state of the node is updated t
 If you add or update the start task for an existing pool, you must reboot its compute nodes for the start task to be applied to the nodes.
 
 >[!NOTE]
-> The total size of a start task, including resource files and environment variables, is limited. If you need to reduce the size of a start task, you can use one of two approaches:
+> Batch limits the total size of a start task, which includes resource files and environment variables. If you need to reduce the size of a start task, you can use one of two approaches:
 >
 > 1. You can use application packages to distribute applications or data across each node in your Batch pool. For more information about application packages, see [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md).
 > 2. You can manually create a zipped archive containing your applications files. Upload your zipped archive to Azure Storage as a blob. Specify the zipped archive as a resource file for your start task. Before you run the command line for your start task, unzip the archive from the command line. 
