@@ -64,7 +64,7 @@ Use the Data Science VM when you need to run or host your jobs on a single node.
 
 ## Azure Cognitive Services
 
-[Azure Cognitive Services](/articles/cognitive-services/welcome.md) is a set of APIs that enable you to build apps that use natural methods of communication. These APIs allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. Easily add intelligent features to your apps, such as: 
+[Azure Cognitive Services](/azure/cognitive-services/welcome) is a set of APIs that enable you to build apps that use natural methods of communication. These APIs allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. Easily add intelligent features to your apps, such as: 
 
 - Emotion and sentiment detection
 - Vision and speech recognition
@@ -75,7 +75,7 @@ Use Cognitive Services to develop apps across devices and platforms. The APIs ke
 
 ## Azure Databricks
 
-[Azure Databricks](/articles/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.
+[Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.
 Use Python, R, Scala, and SQL code in web-based notebooks to query, visualize, and model data.
 
 Use Databricks when you want to collaborate on building machine learning solutions on Apache Spark.
