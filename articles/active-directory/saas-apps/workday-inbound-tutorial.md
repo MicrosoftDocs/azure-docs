@@ -452,7 +452,8 @@ Agent\\Modules\\AADSyncAgent
 * Input: For "Directory Name", enter the AD Forest name, as entered in part \#2
 * Input: Admin username and password for Active Directory forest
 
-[!TIP] If you receive the error message "The relationship between the primary domain and the trusted domain failed", it is because the local machine is in an environment where multiple Active Directory forests or domains are configured, and at least one configured trust relationship is either failing or not operational. To resolve the issue, either correct or remove the broken trust relationship.
+>[!TIP]
+> If you receive the error message "The relationship between the primary domain and the trusted domain failed", it is because the local machine is in an environment where multiple Active Directory forests or domains are configured, and at least one configured trust relationship is either failing or not operational. To resolve the issue, either correct or remove the broken trust relationship.
 
 **Command #3**
 
