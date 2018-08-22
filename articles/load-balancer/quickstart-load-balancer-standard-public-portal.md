@@ -68,7 +68,6 @@ In this section, you create a virtual network, create two virtual machines for t
 
 1. On the top left-hand side of the screen, click **New** > **Compute** > **Windows Server 2016 Datacenter** and enter these values for the virtual machine:
     - *myVM1* - for the name of the virtual machine.        
-    - *azureuser* - for the administrator user name.    
     - *myResourceGroupSLB* - for **Resource group**, select **Use existing**, and then select *myResourceGroupSLB*.
 2. Click **OK**.
 3. Select **DS1_V2** for the size of the virtual machine, and click **Select**.
