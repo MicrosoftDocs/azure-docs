@@ -59,7 +59,7 @@ The Contoso cloud team has pinned down goals for the migration to Azure DevOps S
 
 - Contoso will move their TFS projects to the cloud, and no longer host their projects or source control on-premises.
 - TFS will be migrated to Azure DevOps Services.
-- Currently Contoso has one TFS collection named **ContosoDev**, which will be migrated to a Azure DevOps Services organization called **contosodevmigration.visualstudio.com**.
+- Currently Contoso has one TFS collection named **ContosoDev**, which will be migrated to an Azure DevOps Services organization called **contosodevmigration.visualstudio.com**.
 - The projects, work items, bugs and iterations from the last year will be migrated to Azure DevOps Services.
 - Contoso will leverage their Azure Active Directory, which they set up when they [deployed their Azure infrastructure](contoso-migration-infrastructure.md) at the beginning of their migration planning. 
 
@@ -432,7 +432,7 @@ With the dry run complete, Contoso move on to the production migration. They del
 
     ![Production](./media/contoso-migration-tfs-vsts/full5.png)
 
-8. After the migration finishes a Contoso Dev Leads logs onto Azure DevOps Services to check that the migration worked properly. After login, he can sees that projects have been migrated.
+8. After the migration finishes, a Contoso Dev Lead logs onto Azure DevOps Services to check that the migration worked properly. After login, he can see that projects have been migrated.
 
     ![Production](./media/contoso-migration-tfs-vsts/full6.png)
 
