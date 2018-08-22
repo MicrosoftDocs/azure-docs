@@ -195,10 +195,6 @@
     href: security-center-faq.md
   - name: Supported platforms
     href: security-center-os-coverage.md
-  - name: Platform migration
-    href: security-center-platform-migration.md
-  - name: Platform migration FAQ
-    href: security-center-platform-migration-faq.md
   - name: Planning and operations
     href: security-center-planning-and-operations-guide.md
   - name: Azure Security
