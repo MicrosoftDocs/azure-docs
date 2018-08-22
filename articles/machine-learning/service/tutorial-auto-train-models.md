@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to automatically generate a tuned machine lea
 
 [ ![flow diagram](./media/tutorial-auto-train-models/flow2.png) ](./media/tutorial-auto-train-models/flow2.png#lightbox)
 
-Similar to the [previous tutorial](tutorial-train-models-with-aml.md) this tutorial classifies handwritten images of digits (0-9) from the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. 
+Similar to the [train models tutorial](tutorial-train-models-with-aml.md), this tutorial classifies handwritten images of digits (0-9) from the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset.
 
 You'll learn how to:
 
@@ -38,13 +38,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-1. The following resources and assets must be available:
-   - [Python 3.5 or higher](https://www.python.org/) installed
-   - A package manager, such as [Continuum Anaconda](https://anaconda.org/anaconda/continuum-docs) or [Miniconda](https://conda.io/miniconda.html), installed
-   - The Azure Machine Learning SDK for Python installed
-   - An Azure Machine Learning workspace.  
-   - A `config.json` file, that contains Azure subscription information for the workspace. This file is located in a directory named `aml_config`.
-   If these resources are not yet created or installed, follow the steps in the [Get started with Azure Machine Learning service](https://aka.ms/aml-quickstart-get-started) quickstart.
+
+1. An Azure Machine Learning Workspace and its accompanying  **aml_config\config.json** file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart.
 
 1. The following package dependencies (matplotlib, scikit-learn, and pandas) must also be installed in the conda environment in which you installed the Azure Machine Learning SDK.
 
@@ -53,7 +48,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    ``` 
 
 > [!TIP]
-> (Optional) To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-auto-train) into the same directory as `aml_config`.  See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
+> (Optional) To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-auto-train) into the same directory as **aml_config**.  See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
 
 
 ## Set up your development environment
@@ -65,7 +60,7 @@ All the setup for your development work can be accomplished in this notebook.
 * Create a directory to store training scripts
 
 ### Import packages
-Import Python packages you'll need in this tutorial.
+Import Python packages you need in this tutorial.
 
 
 ```python
@@ -86,7 +81,7 @@ import numpy as np
 
 ### Configure workspace
 
-As part of the previous tutorial you have already created a workspace. When the workspace was created, you saved a file into `aml_config\config.json`. `Workspace.from_config()` reads this file and load the workspace into an object named `ws`.  You'll use `ws` throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **aml_config\config.json** and load the details into an object named `ws`.  You'll use `ws` throughout the rest of the code in this tutorial.
 
 Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace. The history of all runs is recorded under the specified run history.
 
@@ -165,7 +160,7 @@ To auto train a model, you first define settings for autogeneration and tuning a
 
 ### Define settings for autogeneration and tuning
 
-The first step in automatic tuning is to define the experiment parameters and models settings for autogeneration and tuning.  
+Define the experiment parameters and models settings for autogeneration and tuning.  
 
 
 |Property| Value in this tutorial |Description|
@@ -202,7 +197,7 @@ automl_classifier = AutoMLClassifier(project=project, **automl_settings)
 ```
 ### Run the automatic classifier
 
-Next start the experiment to run locally. Define the compute target as local and set the output to true to view progress on the experiment.
+Start the experiment to run locally. Define the compute target as local and set the output to true to view progress on the experiment.
 
 
 ```python
@@ -211,6 +206,7 @@ local_run = automl_classifier.fit(X = X_digits,
                                   compute_target = 'local', 
                                   show_output = True)
 ```
+Output such as the following appears one line at a time as each iteration progresses.
 
     Running locally
     Parent Run ID: AutoML_ca0c807b-b7bf-4809-a963-61c6feb73ea1
@@ -234,22 +230,25 @@ local_run = automl_classifier.fit(X = X_digits,
     Stopping criteria reached. Ending experiment.
 
 ## Explore the results
-Now explore the results of the experiment.
+Explore the results of automatic training with a Jupyter widget or by examining the experiment history.
 
 ### Jupyter widget
 
-The Jupyter notebook widget shows a graph and a table of results. You can use the dropdown above the graph to view a graph of each available metric for each iteration. 
+Use the Jupyter notebook widget to see a graph and a table of all results. 
 
 ```python
 from azureml.train.widgets import RunDetails
 RunDetails(local_run).show()
 ```
+
+Here is a static image of the widget.  In the notebook, you can use the dropdown above the graph to view a graph of each available metric for each iteration. 
+
 ![widget table](./media/tutorial-auto-train-models/table.png)
 ![widget plot](./media/tutorial-auto-train-models/graph.png)
 
 ### Retrieve all iterations
 
-Using the SDK methods you can view run history and see individual metrics for each iteration run. 
+View the experiment history and see individual metrics for each iteration run.
 
 ```python
 children = list(local_run.get_children())
@@ -267,356 +266,9 @@ s = rundata.style.background_gradient(cmap = cm)
 s
 ```
 
-<style  type="text/css" >
-    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col0 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col1 {
-            background-color:  #b3f3b3;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col2 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col3 {
-            background-color:  #d6f9d6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col4 {
-            background-color:  #dcfadc;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col5 {
-            background-color:  #cef8ce;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col6 {
-            background-color:  #defade;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col7 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row1_col0 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row1_col1 {
-            background-color:  #b3f3b3;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row1_col2 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row1_col3 {
-            background-color:  #d7f9d7;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row1_col4 {
-            background-color:  #ddfadd;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row1_col5 {
-            background-color:  #cef7ce;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row1_col6 {
-            background-color:  #dffadf;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row1_col7 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row2_col0 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row2_col1 {
-            background-color:  #b3f3b3;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row2_col2 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row2_col3 {
-            background-color:  #d6f9d6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row2_col4 {
-            background-color:  #dcfadc;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row2_col5 {
-            background-color:  #cef8ce;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row2_col6 {
-            background-color:  #defade;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row2_col7 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row3_col0 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row3_col1 {
-            background-color:  #adf2ad;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row3_col2 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row3_col3 {
-            background-color:  #c3f6c3;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row3_col4 {
-            background-color:  #dbfadb;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row3_col5 {
-            background-color:  #c9f7c9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row3_col6 {
-            background-color:  #ddfadd;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row3_col7 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row4_col0 {
-            background-color:  #acf2ac;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row4_col1 {
-            background-color:  #e3fbe3;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row4_col2 {
-            background-color:  #a2f1a2;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row4_col3 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row4_col4 {
-            background-color:  #e8fbe8;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row4_col5 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row4_col6 {
-            background-color:  #e8fbe8;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row4_col7 {
-            background-color:  #98ef98;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row5_col0 {
-            background-color:  #9cf09c;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row5_col1 {
-            background-color:  #cef8ce;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row5_col2 {
-            background-color:  #96ef96;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row5_col3 {
-            background-color:  #e5fbe5;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row5_col4 {
-            background-color:  #e1fae1;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row5_col5 {
-            background-color:  #e7fbe7;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row5_col6 {
-            background-color:  #e3fbe3;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row5_col7 {
-            background-color:  #92ee92;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row6_col0 {
-            background-color:  #9bf09b;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row6_col1 {
-            background-color:  #d8f9d8;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row6_col2 {
-            background-color:  #96ef96;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row6_col3 {
-            background-color:  #e5fbe5;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row6_col4 {
-            background-color:  #e4fbe4;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row6_col5 {
-            background-color:  #e0fae0;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row6_col6 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row6_col7 {
-            background-color:  #92ee92;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row7_col0 {
-            background-color:  #9cf09c;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row7_col1 {
-            background-color:  #cef8ce;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row7_col2 {
-            background-color:  #96ef96;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row7_col3 {
-            background-color:  #e5fbe5;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row7_col4 {
-            background-color:  #e1fae1;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row7_col5 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row7_col6 {
-            background-color:  #e3fbe3;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row7_col7 {
-            background-color:  #92ee92;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row8_col0 {
-            background-color:  #9ef09e;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row8_col1 {
-            background-color:  #caf7ca;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row8_col2 {
-            background-color:  #99ef99;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row8_col3 {
-            background-color:  #d6f9d6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row8_col4 {
-            background-color:  #e2fbe2;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row8_col5 {
-            background-color:  #d9f9d9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row8_col6 {
-            background-color:  #e3fbe3;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row8_col7 {
-            background-color:  #94ef94;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row9_col0 {
-            background-color:  #acf2ac;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row9_col1 {
-            background-color:  #e7fbe7;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row9_col2 {
-            background-color:  #a1f1a1;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row9_col3 {
-            background-color:  #e9fce9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row9_col4 {
-            background-color:  #e9fce9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row9_col5 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row9_col6 {
-            background-color:  #e9fce9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row9_col7 {
-            background-color:  #98ef98;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row10_col0 {
-            background-color:  #acf2ac;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row10_col1 {
-            background-color:  #e3fbe3;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row10_col2 {
-            background-color:  #a2f1a2;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row10_col3 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row10_col4 {
-            background-color:  #e8fbe8;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row10_col5 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row10_col6 {
-            background-color:  #e8fbe8;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row10_col7 {
-            background-color:  #98ef98;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row11_col0 {
-            background-color:  #acf2ac;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row11_col1 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row11_col2 {
-            background-color:  #a2f1a2;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row11_col3 {
-            background-color:  #e9fce9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row11_col4 {
-            background-color:  #e8fce8;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row11_col5 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row11_col6 {
-            background-color:  #e9fce9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row11_col7 {
-            background-color:  #98ef98;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row12_col0 {
-            background-color:  #e9fce9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row12_col1 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row12_col2 {
-            background-color:  #e9fce9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row12_col3 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row12_col4 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row12_col5 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row12_col6 {
-            background-color:  #90ee90;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row12_col7 {
-            background-color:  #e9fce9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row13_col0 {
-            background-color:  #aff3af;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row13_col1 {
-            background-color:  #e9fce9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row13_col2 {
-            background-color:  #a3f1a3;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row13_col3 {
-            background-color:  #e9fce9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row13_col4 {
-            background-color:  #e9fce9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row13_col5 {
-            background-color:  #e9fce9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row13_col6 {
-            background-color:  #e9fce9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row13_col7 {
-            background-color:  #99ef99;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row14_col0 {
-            background-color:  #abf2ab;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row14_col1 {
-            background-color:  #dcfadc;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row14_col2 {
-            background-color:  #a1f1a1;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row14_col3 {
-            background-color:  #e9fce9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row14_col4 {
-            background-color:  #e7fbe7;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row14_col5 {
-            background-color:  #e3fbe3;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row14_col6 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row14_col7 {
-            background-color:  #98ef98;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row15_col0 {
-            background-color:  #acf2ac;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row15_col1 {
-            background-color:  #e3fbe3;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row15_col2 {
-            background-color:  #a2f1a2;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row15_col3 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row15_col4 {
-            background-color:  #e8fbe8;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row15_col5 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row15_col6 {
-            background-color:  #e8fbe8;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row15_col7 {
-            background-color:  #98ef98;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row16_col0 {
-            background-color:  #aaf2aa;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row16_col1 {
-            background-color:  #dbf9db;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row16_col2 {
-            background-color:  #a1f1a1;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row16_col3 {
-            background-color:  #e9fce9;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row16_col4 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row16_col5 {
-            background-color:  #e2fbe2;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row16_col6 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row16_col7 {
-            background-color:  #98ef98;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row17_col0 {
-            background-color:  #acf2ac;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row17_col1 {
-            background-color:  #e3fbe3;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row17_col2 {
-            background-color:  #a1f1a1;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row17_col3 {
-            background-color:  #e5fbe5;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row17_col4 {
-            background-color:  #e7fbe7;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row17_col5 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row17_col6 {
-            background-color:  #e8fbe8;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row17_col7 {
-            background-color:  #98ef98;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row18_col0 {
-            background-color:  #acf2ac;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row18_col1 {
-            background-color:  #e3fbe3;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row18_col2 {
-            background-color:  #a2f1a2;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row18_col3 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row18_col4 {
-            background-color:  #e8fbe8;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row18_col5 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row18_col6 {
-            background-color:  #e8fbe8;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row18_col7 {
-            background-color:  #98ef98;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row19_col0 {
-            background-color:  #acf2ac;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row19_col1 {
-            background-color:  #e3fbe3;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row19_col2 {
-            background-color:  #a2f1a2;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row19_col3 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row19_col4 {
-            background-color:  #e8fbe8;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row19_col5 {
-            background-color:  #e6fbe6;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row19_col6 {
-            background-color:  #e8fbe8;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row19_col7 {
-            background-color:  #98ef98;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col0 {
-            background-color:  #acf2ac;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col1 {
-            background-color:  #e3fbe3;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col2 {
-            background-color:  #a2f1a2;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col3 {
-            background-color:  #e7fbe7;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col4 {
-            background-color:  #e8fce8;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col5 {
-            background-color:  #e5fbe5;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col6 {
-            background-color:  #e8fbe8;
-        }    #T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col7 {
-            background-color:  #98ef98;
-        }</style>  
-<table id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180" > 
-<thead>    <tr> 
-        <th class="blank level0" ></th> 
-        <th class="col_heading level0 col0" >0</th> 
-        <th class="col_heading level0 col1" >1</th> 
-        <th class="col_heading level0 col2" >2</th> 
-        <th class="col_heading level0 col3" >3</th> 
-        <th class="col_heading level0 col4" >4</th> 
-        <th class="col_heading level0 col5" >5</th> 
-        <th class="col_heading level0 col6" >6</th> 
-        <th class="col_heading level0 col7" >7</th> 
-    </tr></thead> 
+This table shows the results.  In the notebook the table has varying shades of green to highlight high/low values.
+
+<table>
 <tbody>    <tr> 
         <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row0" class="row_heading level0 row0" >AUC_macro</th> 
         <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col0" class="data row0 col0" >0.988094</td> 
@@ -833,7 +485,7 @@ s
 
 ## Register the best model 
 
-You can use the `local_run` object to get the best model and register it into the workspace. 
+Use the `local_run` object to get the best model and register it into the workspace. 
 
 ```python
 # find the run with the highest accuracy value.
@@ -903,7 +555,7 @@ In this Azure Machine Learning tutorial, you used Python to:
 > * Review training results
 > * Register the best model
 
-You're ready to learn more about automatic training on a remote resource.  
+You're now ready to learn more about automatic training on a remote resource.  
 
 > [!div class="nextstepaction"]
 > [How to automatically train on remote resources]()
