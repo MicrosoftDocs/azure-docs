@@ -138,7 +138,7 @@ To disable disk encryption for IaaS VMs, complete the following high-level steps
 Disabling data disk encryption for Linux is not supported if the OS drive is encrypted.
 
 
-## Encryption workflow (previous relsease)
+## Encryption workflow (previous release)
 
 The new release of Azure disk encryption eliminates the requirement for providing an Azure AD application parameter to enable VM disk encryption. With the new release, you are no longer required to provide an Azure AD credential during the enable encryption step. All new VMs must be encrypted without the Azure AD application parameters using the new release. VMs that were already encrypted with Azure AD application parameters are still supported and should continue to be maintained with the AAD syntax. To enable disk encryption for Windows and Linux VMs (previous release), do the following steps:
 
