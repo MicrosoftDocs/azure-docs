@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
-ms.date: 08/04/2017
+ms.date: 08/22/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro                         
@@ -19,12 +19,15 @@ ms.custom: it-pro
 
 You can create a basic group using the Azure Active Directory (Azure AD) portal. For the purposes of this article, a basic group is assigned to a single resource by the resource owner (administrator) and includes specific members (employees) that need to access that resource. For more complex scenarios, including dynamic memberships and rule creation, see the [Azure Active Directory user management documentation](../users-groups-roles/index.md).
 
-## To create a basic group
+## Create a basic group and assign members
+You can create a basic group and add your members at the same time.
+
+### To create a basic group and assign members
 1. Sign in to the [Azure AD portal](https://portal.azure.com) using a Global administrator account for the directory.
 
 2. Select **Azure Active Directory**, **Groups**, and then select **New group**.
 
-    ![Azure AD portal with Groups showing](media/group-full-screen.png)
+    ![Azure AD portal with Groups showing](media/create-basic-group-azure-portal/group-full-screen.png)
 
 3. In the **Groups** blade, fill out the required information.
 
@@ -42,21 +45,63 @@ You can create a basic group using the Azure Active Directory (Azure AD) portal.
 
     - **Membership type (required).** Select a pre-defined membership type. This includes:
 
-        - **Assigned.** Lets you assign specific employees to be members of this group and to have unique permissions. For more info about how to add members, see the [Add members to your group](#add-members-to-your-group) section of this article.
+        - **Assigned.** Lets you assign specific employees to be members of this group and to have unique permissions. For more info about how to add members, see the [Assign members to your group](#assign-members-to-your-group) section of this article.
 
-        - **Dynamic user.** Lets you use dynamic group rules to automatically add and remove members. If a member's attributes change, the system looks at your dynamic group rules for the directory to see if the member meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
+        - **Dynamic user.** Lets you use dynamic group rules to automatically add and remove members. If a member's attributes change, the system looks at your dynamic group rules for the directory to see if the member meets the rule requirements (is added) or no longer meets the rules requirements (is removed). For more info about creating a dynamic group, see [Create a dyncamic group and check status](../users-groups-roles/groups-create-rule.md).
 
-        - **Dynamic device.** Lets you use dynamic group rules to automatically add and remove devices. If a device's attributes change, the system looks at your dynamic group rules for the directory to see if the device meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
+        - **Dynamic device.** Lets you use dynamic group rules to automatically add and remove devices. If a device's attributes change, the system looks at your dynamic group rules for the directory to see if the device meets the rule requirements (is added) or no longer meets the rules requirements (is removed). For more info about creating a dynamic group, see [Create a dyncamic group and check status](../users-groups-roles/groups-create-rule.md).
 
         >[!Important]
         >You can create a dynamic group for either devices or users, but not for both. You also can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributions.
 
 4. Select **Create**.
 
-## Assign members to your group
-After you've created your group, you must add members. For this article we're using the group _MDM policy-West_, with a group membership of **Assigned**. For more info about creating a dynamic group, see [Create a dyncamic group and check status](../users-groups-roles/groups-create-rule.md).
+    Your group is created and ready for you to assign members.
 
-### To assign members to your group
-1. 
+5. Select the **Members** area, and then begin searching for the members to add to your group from the **Select members** blade.
+
+    ![Selecting members for your group during the group creation process](media/create-basic-group-azure-portal/select-members-create-group.png)
+
+6. When you're done adding members, choose **Select**.
+
+    The **Group** blade should update to show the number of members that are now assigned to the group.
+
+Assign, add, or remove members at a later time
+If you didn't assign your members as part of your group creation process, you can still do it -  just a bit differently. This also works if you want to add more members or remove existing members.
+
+### To assign, add, or remove members
+
+1. From the **Groups - All groups** blade, select the group you want to add members to. In this case, use our previously created group, **MDM policy - West**.
+
+    ![Groups-All groups blade, group name highlighted](media/create-basic-group-azure-portal/group-all-groups-screen.png)
+
+2. Select **Members**, and then select **Add members**.
+
+    The **Add members** blade appears.
+
+3. Select each of the members you want to include in your group, and then choose **Select**.
+
+    You'll get a message that says the member was added successfully.
+
+4. Refresh the screen to see all of the member names.
+
+## View your group with members
+Whether you add your members as part of the group creation process or later, you can always view your groups and associated members.
+
+### To view your groups and assigned members
+1. Select **Groups**, and then select your group name. In this case, _MDM policy - West_.
+
+2. Select **Members** and make sure the list of members looks right.
+
+## Next steps
+Now that you've added a group and at least one user, you can
+
+- [Add more users to your Azure AD directory](add-users-azure-active-directory.md)
+- [Manage your groups and members](active-directory-manage-groups.md)
+- [Manage your group settings](active-directory-groups-settings-azure-portal.md)
+- [Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+
+
+
 
 
