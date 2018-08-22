@@ -77,7 +77,7 @@ The result should look like the following output:
 Use the Azure Stack administration portal to verify that backup has completed successfully by following these steps:
 
 1. Open the [Azure Stack administration portal](azure-stack-manage-portals.md).
-2. Select **All services**, and then under the **ADMINISTRATION** category slect > **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
+2. Select **All services**, and then under the **ADMINISTRATION** category select > **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
 3. Find the **Name** and **Date Completed** of the backup in **Available backups** list.
 4. Verify the **State** is **Succeeded**.
 
