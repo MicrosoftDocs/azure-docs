@@ -24,7 +24,9 @@ Azure upgrades and patches underlying operating system, drivers, and SQL Server 
 
 ## Standard/General Purpose availability
 
-Standard availability refers to 99.99% SLA that is applied in Standard/Basic/General Purpose tiers. High availability in this architectural model is achieved by separation of compute and storage layers. The following figure shows four nodes in standard architectural model with the separated compute and storage layers.
+Standard availability refers to 99.99% SLA that is applied in Standard/Basic/General Purpose tiers. High availability in this architectural model is achieved by separation of compute and storage layers and the replication of data in the storage tier.
+
+The following figure shows four nodes in standard architectural model with the separated compute and storage layers.
 
 ![Separation of compute and storage](media/sql-database-managed-instance/general-purpose-service-tier.png)
 
@@ -39,11 +41,11 @@ Whenever database engine or operating system is upgraded, some part of underlyin
 
 Premium availability is enabled in Premium tier of Azure SQL Database and it is designed for intensive workloads that cannot tolerate any performance impact due to the ongoing maintenance operations.
 
-In the premium model, Azure SQL database integrates compute and storage on the single node. Both the SQL Server Database Engine process and underlying mdf/ldf files are placed on the same node with locally attached SSD storage providing low latency to your workload.
+In the premium model, Azure SQL database integrates compute and storage on the single node. High availability in this architectural model is achieved by replication of compute (SQL Server Database Engine process) and storage (locally attached SSD) deployed in 4-node [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)  cluster.
 
 ![Cluster of database engine nodes](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-High availability is implemented using standard [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Every database is a cluster of database nodes with one primary database that is accessible for customer workload, and a three secondary processes containing copies of data. The primary node constantly pushes the changes to secondary nodes in order to ensure that the data is available on secondary replicas if the primary node crashes for any reason. Failover is handled by the SQL Server Database Engine – one secondary replica becomes the primary node and a new secondary replica is created to ensure enough nodes in the cluster. The workload is automatically redirected to the new primary node. Failover time is measured in milliseconds and the new primary instance is immediately ready to continue serving requests.
+Both the SQL Server Database Engine process and underlying mdf/ldf files are placed on the same node with locally attached SSD storage providing low latency to your workload. High availability is implemented using standard [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Every database is a cluster of database nodes with one primary database that is accessible for customer workload, and a three secondary processes containing copies of data. The primary node constantly pushes the changes to secondary nodes in order to ensure that the data is available on secondary replicas if the primary node crashes for any reason. Failover is handled by the SQL Server Database Engine – one secondary replica becomes the primary node and a new secondary replica is created to ensure enough nodes in the cluster. The workload is automatically redirected to the new primary node. Failover time is measured in milliseconds and the new primary instance is immediately ready to continue serving requests.
 
 In addition, Business Critical cluster provides built-in read-only node that can be used to run read-only queries (for example reports) that should not affect performance of your primary workload. 
 

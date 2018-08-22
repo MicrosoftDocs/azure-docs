@@ -2,10 +2,8 @@
 title: Create Azure Machine Learning Experimentation with an Azure Resource Manager template | Microsoft Docs
 description: This article provides an example to create an Azure Machine Learning Experimentation account using an Azure Resource Manager template.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: jmartens, jasonwhowell, mldocs
+author: hning86
+ms.author: haining
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services

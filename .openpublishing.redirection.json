@@ -2917,7 +2917,27 @@
         },
         {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
-            "redirect_url": "/azure/automation/automation-create-runas-account",
+            "redirect_url": "/azure/automation/manage-runas-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-create-runas-account.md",
+            "redirect_url": "/azure/automation/manage-runas-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-manage-account.md",
+            "redirect_url": "/azure/automation/manage-runas-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-create-aduser-account.md",
+            "redirect_url": "/azure/automation/automation-credentials",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-verify-runas-authentication.md",
+            "redirect_url": "/azure/automation/manage-runas-account",
             "redirect_document_id": false
         },
         {
@@ -8418,6 +8438,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/access-control.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/documentdb/documentdb-automation-resource-manager-cli-nodejs.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/cli-samples",
             "redirect_document_id": false
@@ -8434,7 +8459,7 @@
         },
         {
             "source_path": "articles/documentdb/table-powershell.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/azure/cosmos-db/table-introduction",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/table-introduction",
             "redirect_document_id": false
         },
         {
@@ -24012,6 +24037,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/network-watcher/prepare-flow-log.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-nsg-flow-logging-overview",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/network-watcher/network-watcher-nsg-flow-logging-cli-nodejs.md",
             "redirect_url": "/azure/network-watcher/network-watcher-nsg-flow-logging-cli",
             "redirect_document_id": true
@@ -27027,13 +27057,18 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup.md",
-            "redirect_url": "azure/active-directory/user-help/user-help-register-device-on-network",
+            "redirect_url": "/azure/active-directory/user-help/user-help-register-device-on-network",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/user-help/device-management-azuread-joined-devices-setup.md",
-            "redirect_url": "azure/active-directory/user-help/user-help-join-device-on-network",
+            "redirect_url": "/azure/active-directory/user-help/user-help-join-device-on-network",
             "redirect_document_id": true
         },
         {

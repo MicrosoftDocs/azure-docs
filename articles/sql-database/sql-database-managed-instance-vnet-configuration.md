@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 08/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 ---
@@ -24,7 +24,7 @@ Azure SQL Database Managed Instance (preview) must be deployed within an Azure [
 Plan how you deploy a Managed Instance in virtual network using your answers to the following questions: 
 - Do you plan to deploy single or multiple Managed Instances? 
 
-  The number of Managed Instances determines the minimum size of the subnet to allocate for your Managed Instances. For more information, see [Determine the size of subnet for Managed Instance](#create-a-new-virtual-network-for-managed-instances). 
+  The number of Managed Instances determines the minimum size of the subnet to allocate for your Managed Instances. For more information, see [Determine the size of subnet for Managed Instance](#determine-the-size-of-subnet-for-managed-instances). 
 - Do you need to deploy your Managed Instance into an existing virtual network or you are creating a new network? 
 
    If you plan to use an existing virtual network, you need to modify that network configuration to accommodate your Managed Instance. For more information, see [Modify existing virtual network for Managed Instance](#modify-an-existing-virtual-network-for-managed-instances). 
@@ -33,7 +33,7 @@ Plan how you deploy a Managed Instance in virtual network using your answers to 
 
 ## Requirements
 
-For Managed Instance creation you need dedicate subnet inside the VNet that conforms to the following requirements:
+For Managed Instance creation you need to dedicate a subnet inside the VNet that conforms to the following requirements:
 - **Be empty**: The subnet must not contain any other cloud service associated to it, and it must not be Gateway subnet. You won’t be able to create Managed Instance in subnet that contains resources other than managed instance or add other resources inside the subnet later.
 - **No NSG**: The subnet must not have a Network Security Group associated with it.
 - **Have specific route table**: The subnet must have a User Route Table (UDR) with 0.0.0.0/0 Next Hop Internet as the only route assigned to it. For more information, see [Create the required route table and associate it](#create-the-required-route-table-and-associate-it)
