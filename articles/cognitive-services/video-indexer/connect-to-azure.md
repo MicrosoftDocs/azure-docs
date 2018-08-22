@@ -106,5 +106,7 @@ You should use the same Azure AD user you used when connecting to Azure.
 
 ## Next steps
 
+[Use Azure Video Indexer API](video-indexer-use-apis.md)
+
 [Examine details of the output JSON](video-indexer-output-json-v2.md).
 
