@@ -35,16 +35,14 @@ You can create and manage your applications on **My Apps** page of [LUIS](luis-r
 
     [![](media/luis-quickstart-new-app/create-new-app-dialog.png "Screenshot of Create new app pop-up dialog")](media/luis-quickstart-new-app/create-new-app-dialog.png)
 
-4. Choose your application culture (for this Home Automation app, choose English), and then click **Done**. 
+4. Choose your application culture. For this Home Automation app, choose English. Then select **Done**. LUIS creates the Home Automation app. 
 
     >[!NOTE]
     >The culture cannot be changed once the application is created. 
 
-    LUIS creates the Home Automation app. 
-
 ## Add prebuilt domain
 
-Click on **Prebuilt domains** in the left-side navigation pane. Then search for "Home". Click on **Add domain**.
+Select **Prebuilt domains** in the left-side navigation pane. Then search for "Home". Select **Add domain**.
 
 [![](media/luis-quickstart-new-app/home-automation.png "Screenshot of Home Automation domain called out in prebuilt domain menu")](media/luis-quickstart-new-app/home-automation.png)
 
@@ -54,7 +52,7 @@ When the domain is successfully added, the prebuilt domain box displays a **Remo
 
 ## Intents and entities
 
-Click on **Intents** in the left-side navigation pane to review the HomeAutomation domain intents. 
+Select **Intents** in the left-side navigation pane to review the HomeAutomation domain intents. 
 
 [![](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot of Intents list with Intent names in table highlighted")](media/luis-quickstart-new-app/home-automation-intents.png)
 
@@ -63,18 +61,18 @@ Each intent has sample utterances.
 > [!NOTE]
 > **None** is an intent provided by all LUIS apps. You use it to handle utterances that don't correspond to functionality your app provides. 
 
-Click on the **HomeAutomation.TurnOff** intent. You can see that the intent contains a list of utterances that are labeled with entities.
+Select the **HomeAutomation.TurnOff** intent. You can see that the intent contains a list of utterances that are labeled with entities.
 
 [![](media/luis-quickstart-new-app/home-automation-turnon.png "Screenshot of HomeAutomation.TurnOff intent")](media/luis-quickstart-new-app/home-automation-turnon.png)
 
 ## Train your app
 
-Click on **Train** in the top navigation.
+Select **Train** in the top navigation.
 
 [![](media/luis-quickstart-new-app/trained.png "Screenshot of HomeAutomation.TurnOff intent with green success notification")](media/luis-quickstart-new-app/trained.png)
 
 ## Test your app
-Once you've trained your app, you can test it. Click **Test** in the top navigation. Type a test utterance like "Turn off the lights" into the Interactive Testing pane, and press Enter. 
+Once you've trained your app, you can test it. Select **Test** in the top navigation. Type a test utterance like "Turn off the lights" into the Interactive Testing pane, and press Enter. 
 
 ```
 Turn off the lights
@@ -87,7 +85,7 @@ In this example, "Turn off the lights" is correctly identified as the top scorin
 [![](media/luis-quickstart-new-app/test.png "Screenshot of Test panel with utterance highlighted")](media/luis-quickstart-new-app/test.png)
 
 
-Click **Test** again to collapse the test pane. 
+Select **Test** again to collapse the test pane. 
 
 ## Publish your app
 Select **Publish** from the top navigation. 
