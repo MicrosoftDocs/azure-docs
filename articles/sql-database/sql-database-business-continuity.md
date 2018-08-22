@@ -69,12 +69,6 @@ Use automated backups and [point-in-time restore](sql-database-recovery-using-ba
 
 If you need faster recovery, use [active geo-replication](sql-database-geo-replication-overview.md) (discussed next). If you need to be able to recover data from a period older than 35 days, use [Long-term retention](sql-database-long-term-retention.md). 
 
-## Use active geo-replication and auto-failover groups to reduce recovery time
-
-In addition to using database backups for database recovery if a business disruption occurs, you can use [active geo-replication](sql-database-geo-replication-overview.md) to configure a database to have up to four readable secondary databases in the regions of your choice. 
-
-
-
 ## Recover a database to another region
 <!-- Explain this scenario -->
 
