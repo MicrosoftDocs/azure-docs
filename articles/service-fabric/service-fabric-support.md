@@ -42,6 +42,10 @@ Learn more about:
 - [Professional Support from Microsoft for on-premises](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
+>[!WARNING]
+> We support a Reliability tier of Bronze to allow you to run test workloads only and so if you hit issues with such a cluster, the Microsoft support team would help you in mitigating the issue, but will not perform a Root Cause Analysis. Please refer [The reliability characteristics of the cluster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) for more details about reliability levels.
+>
+
 ## Report Azure Service Fabric issues 
 We have set up a GitHub repo for reporting Service Fabric issues.  We are also actively monitoring the following forums.
 
