@@ -12,14 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 08/21/2018
 ms.author: bwren
 ms.component: na
 ---
 
-## Useful operators in Log Analytics queries
+# Useful operators in Log Analytics queries
 
 The table below provides some common functions to use for different scenarios in Log Analytics queries.
+
+## Useful operators
 
 Category								|Relevant Analytics Function
 ----------------------------------------|----------------------------------------

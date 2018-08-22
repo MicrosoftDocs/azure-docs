@@ -12,14 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 08/21/2018
 ms.author: bwren
 ms.component: na
 ---
 
 # SQL to Log Analytics query language cheat sheet 
 
-The table helps users who are familiar with SQL to learn the Log Analytics query language. Have a look at the T-SQL command for solving a common scenarios and the equivalent using Log Analytics.
+The table below helps users who are familiar with SQL to learn the Log Analytics query language. Have a look at the T-SQL command for solving a common scenarios and the equivalent using Log Analytics.
+
+## SQL to Log Analytics
 
 Description								|SQL Query                           																|Azure Log Analytics Query
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
