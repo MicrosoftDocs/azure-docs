@@ -18,7 +18,7 @@ abstract:
     image:
       alt: Get Azure CycleCloud
       src: images/get-cyclecloud.png
-    title: Get Azure CycleCloud
+    title: Download Azure CycleCloud
     href: https://www.microsoft.com/en-us/download/details.aspx?id=57182
 
 sections:

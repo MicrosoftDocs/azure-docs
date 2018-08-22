@@ -52,8 +52,6 @@
       href: data-encryption.md
   - name: Network Configuration
     items:
-    - name: Network Connectivity
-      href: network-connectivity.md
     - name: Network Security
       href: network-security.md
     - name: Proxy Traffic

@@ -53,7 +53,7 @@ Azure CycleCloud software update packages are cumulative. If you decide to defer
 
 ## Keeping Your System Supported
 
-See product documentation to learn how to upgrade running deployments to a supported version: Upgrade Azure CycleCloud
+See product documentation to learn how to upgrade running deployments to a supported version: [Upgrade Azure CycleCloud](update-install.md).
 
 ## Get Support
 

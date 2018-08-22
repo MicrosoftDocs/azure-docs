@@ -81,3 +81,81 @@ PrivateIp = x.x.x.x
 ```
 
 Note that the private IP address specified must be valid for the associated subnet. Azure reserves the first four and last IPs in the subnet. These addresses cannot be manually assigned to a node.
+
+### Using `cyclecloud connect`
+
+You can connect to an instance via a bastion server by specifying the IP address on the command line:
+
+```azurecli-interactive
+$ cyclecloud connect htcondor-master --bastion-host 1.1.1.1
+```
+
+The above command assumes `cyclecloud` as the username, 22 as the port, and loads your
+default SSH key. To customize these values, see the `--bastion-*` help options for the
+`cyclecloud` command.
+
+Alternately, the `cyclecloud` can detect the bastion host for you if you add the following
+directive to your `~/.cycle/config.ini`:
+
+``` ini
+[cyclecloud]
+bastion_auto_detect = true
+```
+
+With the above directive, you can run `cyclecloud connect htcondor-master` without
+specifying any details about the bastion server.
+
+You can also use `cyclecloud connect` to connect a Windows instance. Executing the following
+command will create an RDP connection over an SSH tunnel. Additionally, it will launch the
+Microsoft RDP client on OS X and Windows:
+
+```azurecli-interactive
+$ cyclecloud connect windows-execute-1
+```
+
+> [!NOTE]
+> CycleCloud chooses an unused ephemeral port for the tunnel to the Windows instance.
+
+Additionally, you configure the `cyclecloud` command to use a single bastion host for all your connections:
+
+``` ini
+[cyclecloud]
+bastion_host = 1.1.1.1
+bastion_user = example_user
+bastion_key = ~/.ssh/example_key.pem
+bastion_port = 222
+```
+
+### Using Raw SSH Commands
+
+You can connect to an internal server via the bastion server using agent forwarding:
+
+```azurecli-interactive
+ssh -A -t user@BASTION_SERVER_IP ssh -A root@TARGET_SERVER_IP
+```
+
+This connects to the bastion and then immediately runs ssh again, so
+you get a terminal on the target instance. The default NAT ami uses
+ec2-user. You may need to specify a user other than root on the target
+instance if your cluster is configured differently. The -A argument
+forwards the agent connection so your private key on your local
+machine is used automatically. Note that agent forwarding is a chain, so the second ssh
+command also includes -A so that any subsequent SSH connections
+initiated from the target instance also use your local private key.
+
+### Connecting to Services on the Target Instance
+
+You can use the SSH connection to connect to services on the target
+instance, such as a Remote Desktop, a database, etc. For example, if
+the target instance is Windows, you can create a Remote Desktop tunnel
+by connecting to the target instance with a similar SSH command from
+above, using the -L argument:
+
+
+```azurecli-interactive
+ssh -A -t user@BASTION_SERVER_IP  -L 33890:TARGET:3389 ssh -A root@TARGET_SERVER_IP
+```
+
+This will tunnel port 3389 on target to 33890 on your local
+machine. Then if you connect to `localhost:33890` you will actually
+be connected to the target instance.
