@@ -32,7 +32,7 @@ You can use the Azure IoT extensions for Visual Studio Code to perform operation
 
    ![Expand Azure IoT Hub Devices](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
-3. Click on the **...** in the **Azure IoT Hub Devices** section header. If you don't see the ellipsis, hover over the header. 
+3. Click on the **...** in the **Azure IoT Hub Devices** section header. If you don't see the ellipsis, click on or hover over the header. 
 
 4. Choose **Select IoT Hub**.
 
@@ -46,7 +46,7 @@ You can use the Azure IoT extensions for Visual Studio Code to perform operation
 
 1. In the VS Code Explorer, expand the **Azure IoT Hub Devices** section. 
 
-2. Click on the **...** in the **Azure IoT Hub Devices** section header. If you don't see the ellipsis, hover over the header. 
+2. Click on the **...** in the **Azure IoT Hub Devices** section header. If you don't see the ellipsis, click on or hover over the header. 
 
 3. Select **Create IoT Edge Device**. 
 
