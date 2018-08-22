@@ -31,7 +31,7 @@ All gateway patterns provide the following benefits:
 
 A gateway that does protocol translation can also perform edge analytics, device isolation, traffic smoothing, and offline support to existing devices and new devices that are resource constrained. Many existing devices are producing data that can power business insights; however they were not designed with cloud connectivity in mind. Opaque gateways allow this data to be unlocked and utilized in an end to end IoT solution.
 
-A gateway that does identity translation provide the benefits of protocol translation and additionally allow for full manageability of downstream devices from the cloud. All devices in your IoT solution show up in IoT Hub regardless of the protocol with they speak.
+A gateway that does identity translation provides the benefits of protocol translation and additionally allow for full manageability of downstream devices from the cloud. All devices in your IoT solution show up in IoT Hub regardless of the protocol with they speak.
 
 ## Cheat sheet
 Here is a quick cheat sheet that compares IoT Hub primitives when using transparent, opaque, and proxy gateways.
