@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Social accounts claims transformations
 
-In Azure AD B2C social accounts identities are stored in `userIdentities` attribute, `alternativeSecurityIdCollection` claim type. Each item in the `alternativeSecurityIdCollection` specifies the `issuer` (identity provider name) such as facebook.com and the `issuerUserId`, which is a unique user identifier for the issuer. 
+In Azure Active Directory (Azure AD) B2C, social account identities are stored in a `userIdentities` attribute of a **alternativeSecurityIdCollection** claim type. Each item in the **alternativeSecurityIdCollection** specifies the issuer (identity provider name, such as facebook.com) and the `issuerUserId`, which is a unique user identifier for the issuer. 
 
 ```JSON
 "userIdentities": [{
@@ -28,7 +28,7 @@ In Azure AD B2C social accounts identities are stored in `userIdentities` attrib
   }]
 ```
 
-This article provides examples for using the social account claims transformations of the Identity Experience Framework  schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
+This article provides examples for using the social account claims transformations of the Identity Experience Framework schema in a Azure AD B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
 
 ## CreateAlternativeSecurityId
 
@@ -60,9 +60,10 @@ Use this claims transformation to generate a `alternativeSecurityId` ClaimType. 
     - **key**: 12334
     - **identityProvider**: Facebook.com
 - Output claims:
-    - **alternativeSecurityId**: 		{
-			"issuer": "facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
-
+    - **alternativeSecurityId**: 	
+        ```JSON
+        { "issuer": "facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
+        ```
 
 ## AddItemToAlternativeSecurityIdCollection
 
@@ -84,11 +85,11 @@ The following example links a new social identity with an existing account. To l
 ```XML
 <ClaimsTransformation Id="AddAnotherAlternativeSecurityId" TransformationMethod="AddItemToAlternativeSecurityIdCollection">
   <InputClaims>
-	<InputClaim ClaimTypeReferenceId="AlternativeSecurityId2" TransformationClaimType="item" />
-	<InputClaim ClaimTypeReferenceId="AlternativeSecurityIds" TransformationClaimType="collection" />
+	  <InputClaim ClaimTypeReferenceId="AlternativeSecurityId2" TransformationClaimType="item" />
+	  <InputClaim ClaimTypeReferenceId="AlternativeSecurityIds" TransformationClaimType="collection" />
   </InputClaims>
   <OutputClaims>
-	<OutputClaim ClaimTypeReferenceId="AlternativeSecurityIds" TransformationClaimType="collection" />
+	  <OutputClaim ClaimTypeReferenceId="AlternativeSecurityIds" TransformationClaimType="collection" />
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -128,14 +129,15 @@ The following example links a new social identity with an existing account. To l
         ```
 
 ## GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation
- Returns list of `issuer` from `alternativeSecurityIdCollection` claim into new `stringCollection` claim.
+
+Returns list of `issuer` from `alternativeSecurityIdCollection` claim into new `stringCollection` claim.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | alternativeSecurityIdCollection | alternativeSecurityIdCollection | The ClaimType to be used to get the list of identity providers (issuer). |
 | OutputClaim | identityProvidersCollection | stringCollection | The ClaimTypes that are produced after this ClaimsTransformation has been invoked. List of identity providers associate with the alternativeSecurityIdCollection input claim |
 
-Following claims transformation, reads the user `alternativeSecurityIds` claim and extracts the list of identity provider names associated with that account. Use output `identityProvidersCollection` to show the user the list of identity providers associated with the account. Or, on the identity provider selection page, filter the list of identity providers based on output `identityProvidersCollection` claim. So, user can select to link new social identity that is not already associated with the account. 
+The following claims transformation reads the user `alternativeSecurityIds` claim and extracts the list of identity provider names associated with that account. Use output `identityProvidersCollection` to show the user the list of identity providers associated with the account. Or, on the identity provider selection page, filter the list of identity providers based on output `identityProvidersCollection` claim. So, user can select to link new social identity that is not already associated with the account. 
 
 ```XML
 <ClaimsTransformation Id="ExtractIdentityProviders" TransformationMethod="GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation">
@@ -163,10 +165,10 @@ Following claims transformation, reads the user `alternativeSecurityIds` claim a
         ]
         ```
 - Output claims:
-    - **identityProvidersCollection**: ["facebook.com", 
-    "google.com"
-  ]
-
+    - **identityProvidersCollection**: 
+        ```JSON
+        [ "facebook.com", "google.com" ]
+        ```
 
 ## RemoveAlternativeSecurityIdByIdentityProvider
 
@@ -180,9 +182,9 @@ Removes an `AlternativeSecurityId` from an `alternativeSecurityIdCollection` cla
 
 The following example unlinks one of the social identity with an existing account. To unlink a social identity: 
 1. In the `AAD-UserReadUsingAlternativeSecurityId` and `AAD-UserReadUsingObjectId` technical profiles, output the user's `alternativeSecurityIds` claim.
-1. Ask the user to select which social account to remove from the list identity providers that are associated with this user. 
-1. Call a claims transformation technical profile that calls the  `RemoveAlternativeSecurityIdByIdentityProvider` claims transformation, that removed the selected social identity, using identity provider name.
-1. Persist the `alternativeSecurityIds` claim to the user account
+2. Ask the user to select which social account to remove from the list identity providers that are associated with this user. 
+3. Call a claims transformation technical profile that calls the  `RemoveAlternativeSecurityIdByIdentityProvider` claims transformation, that removed the selected social identity, using identity provider name.
+4. Persist the `alternativeSecurityIds` claim to the user account
 
 ```XML
 <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider" TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">
@@ -201,7 +203,6 @@ The following example unlinks one of the social identity with an existing accoun
 
 - Input claims:
     - **identityProvider**: facebook.com
-
     - **collection**: 
         ```JSON
         [

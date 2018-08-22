@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Localization  
 
-The `Localization` element allows you to support multiple locales or languages in the policy for the user journeys. The localization support in policies allows you to:
+The **Localization** element allows you to support multiple locales or languages in the policy for the user journeys. The localization support in policies allows you to:
 
 - Set up the explicit list of the supported languages in a policy and pick a default language.
 - Provide language-specific strings and collections.
@@ -31,13 +31,13 @@ The `Localization` element allows you to support multiple locales or languages i
   ...
 ```
 
-The `Localization` element contains the following attributes:
+The **Localization** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Enabled | No | True or False |
 
-The `Localization` element contains following XML elements
+The **Localization** element contains following XML elements
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
@@ -46,16 +46,16 @@ The `Localization` element contains following XML elements
 
 ## SupportedLanguages
 
-The `SupportedLanguages` element contains the following attributes:
+The **SupportedLanguages** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | DefaultLanguage | Yes | The language to be used as the default for localized resources. |
-| MergeBehavior | No | An enumeration values of values that are merged together with any ClaimType present in a parent policy with the same identifier. Use this attribute when you overwrite a claim specified in base policy. Possible values: **Append** - Specifies that the collection of data present should be appended to the end of the collection specified in the parent policy; **Prepend** -  Specifies that the collection of data present should be added before the collection specified in the parent policy; **ReplaceAll** - Specifies that the collection of data defined in the parent policy should be ignored, using instead the data defined in the current policy. |
+| MergeBehavior | No | An enumeration values of values that are merged together with any ClaimType present in a parent policy with the same identifier. Use this attribute when you overwrite a claim specified in base policy. Possible values: `Append` - Specifies that the collection of data present should be appended to the end of the collection specified in the parent policy; `Prepend` -  Specifies that the collection of data present should be added before the collection specified in the parent policy; `ReplaceAll` - Specifies that the collection of data defined in the parent policy should be ignored, using instead the data defined in the current policy. |
 
 ### SupportedLanguages
 
-The `SupportedLanguages` element contains the following elements:
+The **SupportedLanguages** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
@@ -63,13 +63,13 @@ The `SupportedLanguages` element contains the following elements:
 
 ## LocalizedResources
 
-The `LocalizedResources` element contains the following attributes:
+The **LocalizedResources** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | Yes | An identifier that is used to uniquely identify localized resources. |
 
-The `LocalizedResources` element contains the following elements:
+The **LocalizedResources** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
@@ -78,7 +78,7 @@ The `LocalizedResources` element contains the following elements:
 
 ### LocalizedCollections
 
-The `LocalizedCollections` element contains the following elements:
+The **LocalizedCollections** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
@@ -86,28 +86,28 @@ The `LocalizedCollections` element contains the following elements:
 
 #### LocalizedCollection
 
-The `LocalizedCollection` element contains the following attributes:
+The **LocalizedCollection** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ElementType | Yes | References a ClaimType element or a user interface element in the policy file. |
-| ElementId | Yes | A string that contains a reference to a claim type already defined in the ClaimsSchema section that is used if `ElementType` is set to ClaimType. |
+| ElementId | Yes | A string that contains a reference to a claim type already defined in the ClaimsSchema section that is used if **ElementType** is set to a ClaimType. |
 | TargetCollection | Yes | The target collection. |
 
-The `LocalizedCollection` element contains the following elements:
+The **LocalizedCollection** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Item | 0:n | Defines an available option for the user to select for a claim in the user interface, such as a value in a dropdown. |
 
-The `Item` element contains the following attributes:
+The **Item** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Text | Yes | The user-friendly display string that should be shown to the user in the user interface for this option. |
 | Value | Yes | The string claim value associated with selecting this option. |
 
-The following example shows the use of the `LocalizedCollections` element. It contains two `LocalizedCollection` elements, one for English and another one for Spanish. Both set the `Restriction` collection of the claim Gender with a list of items for English and Spanish.
+The following example shows the use of the **LocalizedCollections** element. It contains two **LocalizedCollection** elements, one for English and another one for Spanish. Both set the **Restriction** collection of the claim `Gender` with a list of items for English and Spanish.
 
 ```XML
 <LocalizedResources Id="api.selfasserted.en">
@@ -130,22 +130,22 @@ The following example shows the use of the `LocalizedCollections` element. It co
 
 ### LocalizedStrings
 
-The `LocalizedStrings` element contains the following elements:
+The **LocalizedStrings** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | LocalizedString | 1:n | A localized string. |
 
-The `LocalizedString` element contains the following attributes:
+The **LocalizedString** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ElementType | Yes | References to a ClaimType element or a user interface element in the policy. Possible values: **ClaimType** - To localize one of the claim attributes, as specify in the StringId; **UxElement** - To localize one of the user interface elements, as specify in the StringId; **ErrorMessage** - To localize one of the system error messages, as specify in the StringId; **Predicate** - To localize one of the [Predicate](predicte.ms) error messages, as specify in the StringId; **InputValidation** - To localize one of the [PredicateValidation](predicte.ms) group error messages, as specify in the StringId. |
+| ElementType | Yes | A reference to a claim type element or a user interface element in the policy. Possible values: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`, or  . The `ClaimType` value is used to localize one of the claim attributes, as specified in the StringId. The `UxElement` value is used to localize one of the user interface elements as specified in the StringId. The `ErrorMessage` value is used to localize one of the system error messages as specified in the StringId. The `Predicate` value is used to localize one of the [Predicate](predicates.md) error messages, as specified in the StringId. The `InputValidation` value is used to localize one of the [PredicateValidation](predicates.md) group error messages as specified in the StringId. |
 | ElementId | Yes | If **ElementType** is set to `ClaimType`, `Predicate`, or `InputValidation`, this element contains a reference to a claim type already defined in the ClaimsSchema section. | 
-| StringId | Yes | If **ElementType** is set to `ClaimType`, this element contains a reference to an attribute of a claim type. Possible values: `DisplayName` - to set the claim display name; `AdminHelpText` - to set the claim user help text name; `PatternHelpText` - to set the claim pattern help text. If **ElementType** is set to `UxElement`, this element contains a reference to an attribute of a user interface element. If **ElementType** is set to `ErrorMessage`, this element specifies the identifier of an error message. |
+| StringId | Yes | If **ElementType** is set to `ClaimType`, this element contains a reference to an attribute of a claim type. Possible values: `DisplayName`, `AdminHelpText`, or `PatternHelpText`. The `DisplayName` value is used to set the claim display name. The `AdminHelpText` value is used to set the help text name of the claim user. The `PatternHelpText` value is used to set the claim pattern help text. If **ElementType** is set to `UxElement`, this element contains a reference to an attribute of a user interface element. If **ElementType** is set to `ErrorMessage`, this element specifies the identifier of an error message. |
 
 
-The following example shows a localized sign-up page. The first 3 `LocalizedString` values set the claim attribute. The third changes the value of the continue button. The last one changes the error message.
+The following example shows a localized sign-up page. The first three **LocalizedString** values set the claim attribute. The third changes the value of the continue button. The last one changes the error message.
 
 ```XML
 <LocalizedResources Id="api.selfasserted.en">
@@ -160,6 +160,7 @@ The following example shows a localized sign-up page. The first 3 `LocalizedStri
 ```
 
 The following example shows a localized the **UserHelpText** of **Predicate** with Id `IsLengthBetween8And64`. And a localized **UserHelpText** of **PredicateGroup** with Id `CharacterClasses` of **PredicateValidation** with Id `StrongPassword`.
+
 ```XML
 <PredicateValidation Id="StrongPassword">
   <PredicateGroups>
@@ -184,6 +185,7 @@ The following example shows a localized the **UserHelpText** of **Predicate** wi
 ```
 
 ## Set up localization
+
 This article shows you how to support multiple locales or languages in the policy for user journeys. Localization requires three steps: set-up the explicit list of the supported languages, provide language-specific strings and collections, and edit the ContentDefinition for the page.
 
 ### Set up the explicit list of supported languages
@@ -265,6 +267,7 @@ The sign-up page localization for Spanish.
 ```
 
 ### Edit the ContentDefinition for the page 
+
 For each page that you want to localize, specify the language codes to look for in the **ContentDefinition**.
 
 In the following example, English (en) and Spanish (es) custom strings are added to the sign-up page. The **LocalizedResourcesReferenceId** for each **LocalizedResourcesReference** is the same as their locale, but you could use any string as the identifier. For each language and page combination, you point to the  corresponding **LocalizedResources** you previously created.

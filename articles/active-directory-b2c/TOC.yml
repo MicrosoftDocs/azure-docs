@@ -280,6 +280,8 @@
               href: technical-profiles-overview.md
             - name: Azure Active Directory
               href: active-directory-technical-profile.md
+            - name: Claims transformation
+              href: claims-transformation-technical-profile.md
             - name: JWT token issuer
               href: jwt-issuer-technical-profile.md
             - name: OAuth1
@@ -296,6 +298,8 @@
               href: self-asserted-technical-profile.md
             - name: Validation
               href: validation-technical-profile.md
+        - name: Predicates
+          href: predicates.md
         - name: UserJourneys
           href: userjourneys.md
         - name: RelyingParty
