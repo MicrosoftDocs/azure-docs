@@ -18,7 +18,7 @@ The [Secure transfer required](../storage/common/storage-require-secure-transfer
 Before you begin this tutorial, you must have:
 
 * **Azure subscription**: To create a free one-month trial account, browse to [azure.microsoft.com/free](https://azure.microsoft.com/free).
-* **An Azure Storage account with secure transfer enabled**. For the instructions, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) and [Require secure transfer](../storage/common/storage-require-secure-transfer.md).
+* **An Azure Storage account with secure transfer enabled**. For the instructions, see [Create a storage account](../storage/common/storage-quickstart-create-account.md) and [Require secure transfer](../storage/common/storage-require-secure-transfer.md).
 * **A Blob container on the storage account**. 
 
 ## Create cluster

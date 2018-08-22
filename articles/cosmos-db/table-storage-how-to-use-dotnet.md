@@ -32,10 +32,10 @@ This sample shows you how to use the [Microsoft Azure CosmosDB Table Library for
 You need the following to complete this sample successfully:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure Storage Common Library for .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). This is a required preview package that is supported in production environments. 
-* [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) - This library is currently available for .NET Standard framework only, it's not yet available for .NET Core.
+* [Azure Storage Common Library for .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). - A required preview package that is supported in production environments. 
+* [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) - This library is currently available for .NET Standard only, it's not yet available for .NET Core.
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-* [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Azure storage account](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -46,17 +46,14 @@ For additional examples using Table storage, see [Getting Started with Azure Tab
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### Create an Azure storage account
-The easiest way to create your first Azure storage account is by using the [Azure portal](https://portal.azure.com). To learn more, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
+* The easiest way to create your first Azure storage account is by using the [Azure portal](https://portal.azure.com). To learn more, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
 
-You can also create an Azure storage account by using [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md), or the [Storage Resource Provider Client Library for .NET](/dotnet/api/microsoft.azure.management.storage).
+* You can also create an Azure storage account by using [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md), or the [Storage Resource Provider Client Library for .NET](/dotnet/api/microsoft.azure.management.storage).
 
-If you prefer not to create a storage account at this time, you can also use the Azure storage emulator to run and test your code in a local environment. For more information, see [Use the Azure Storage Emulator for Development and Testing](../storage/common/storage-use-emulator.md).
+* If you prefer not to create a storage account at this time, you can also use the Azure storage emulator to run and test your code in a local environment. For more information, see [Use the Azure Storage Emulator for Development and Testing](../storage/common/storage-use-emulator.md).
 
 ### Create an Azure Cosmos DB Table API account
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
-
-## Set up your development environment
-Next, set up your development environment in Visual Studio so you're ready to try the code examples in this guide.
 
 ### Create a Windows console application project
 In Visual Studio, create a new Windows console application. The following steps show you how to create a console application in Visual Studio 2017. The steps are similar in other versions of Visual Studio.
@@ -71,17 +68,19 @@ All code examples in this sample can be added to the `Main()` method of your con
 
 You can use the Azure CosmosDB Table Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
-### Use NuGet to install the required packages
+### Install the required NuGet packages
 There are three recommended packages you need to reference in your project to complete this sample:
 
-* [Azure Storage Common Library for .NET (preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
-* [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). This package provides programmatic access to data resources in your Azure Table storage account or Azure Cosmos DB Table API account.
+* [Azure Storage Common Library for .NET (preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). - Use a version which is less than or equal to 9.0.0.1 (<= 9.0.0.1).
+
+* [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). This package provides programmatic access to data resources in your Azure Table storage account or Azure Cosmos DB Table API account. This library is currently available for .NET Standard only, it's not yet available for .NET Core.
+
 * [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): This package provides a class for parsing a connection string in a configuration file, regardless of where your application is running.
 
-You can use NuGet to obtain both packages. Follow these steps:
+To obtain the NuGet packages, follow these steps:
 
 1. Right-click your project in **Solution Explorer**, and choose **Manage NuGet Packages**.
-2. Search online for "Microsoft.Azure.Storage.Common", and select **Install** to install the Azure Storage Common Library for .NET (Preview) and its dependencies. Ensure the **Include prerelease** box is checked as this is a preview package.
+2. Search online for "Microsoft.Azure.Storage.Common", choose version <= 9.0.0.1 and select **Install** to install the Azure Storage Common Library for .NET (Preview) and its dependencies. Ensure the **Include prerelease** box is checked as this is a preview package.
 3. Search online for "Microsoft.Azure.CosmosDB.Table", and select **Install** to install the Microsoft Azure CosmosDB Table Library.
 4. Search online for "WindowsAzure.ConfigurationManager", and select **Install** to install the Microsoft Azure Configuration Manager Library.
 

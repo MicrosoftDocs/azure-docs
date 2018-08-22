@@ -13,7 +13,6 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: mobile
-ms.technology: vs-azure
 ms.custom: vs-azure
 ms.date: 12/16/2015
 ms.author: mlearned

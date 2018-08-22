@@ -134,7 +134,6 @@ In version 2.x, when you run the command you must choose a runtime for your proj
 Select a worker runtime:
 dotnet
 node
-java
 ```
 
 Use the up/down arrow keys to choose a language, then press Enter. The output looks like the following example for a JavaScript project:
