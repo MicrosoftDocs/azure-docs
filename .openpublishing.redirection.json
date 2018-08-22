@@ -27314,7 +27314,16 @@
             "source_path": "articles/cognitive-services/luis/Home.md",
             "redirect_url": "/azure/cognitive-services/luis/what-is-luis",
             "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/data-factory/data-factory-monitor-oms.md",
+            "redirect_url": "/azure/data-factory/monitor-using-azure-monitor",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/ansible-create-complete-vm.md",
+            "redirect_url": "/azure/virtual-machines/linux/ansible-create-vm",
+            "redirect_document_id": true
         }
-
     ]
 }
