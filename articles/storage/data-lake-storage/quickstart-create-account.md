@@ -130,7 +130,7 @@ Then restart your shell.
 To create a new resource group with PowerShell, use the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command: 
 
 > [!NOTE]
-> The hierarchical namespace is only enabled in West US 2 and West Central US. Make sure you specify either one of these locations when creating the storage account.
+> The hierarchical namespace is only enabled in US East, US East 2, US West, West US 2, West Central US, Europe North, Europe West, Asia Southeast, and Australia East. Make sure you specify either one of these locations when creating the storage account.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -191,7 +191,7 @@ az group create \
 ```
 
 > [!NOTE]
-> The hierarchical namespace is only enabled in West US 2 and West Central US. Make sure you specify either one of these locations when creating the storage account.
+> The hierarchical namespace is only enabled in US East, US East 2, US West, West US 2, West Central US, Europe North, Europe West, Asia Southeast, and Australia East. Make sure you specify either one of these locations when creating the storage account.
 
 ### Create a general-purpose v2 storage account
 
