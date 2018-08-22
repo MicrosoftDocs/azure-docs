@@ -17,15 +17,15 @@ This article provides an overview of the Azure SQL Database resource limits and 
 
 ## What is the maximum number of servers and databases?
 
-| Maximum | Value |
-| :--- | :--- |
-| Databases per server | 5000 |
-| Default number of servers per subscription in any region | 20 |
-| Max number of servers per subscription in any region | 200 |
-| DTU / eDTU quota per server | 54,000 |
-| vCore quota per server | 540 |
-| Max pools per server | limited by number of DTUs or vCores |
-|||
+| Maximum | Logical server | Managed instance |
+| :--- | :--- | :--- |
+| Databases per server/instance | 5000 | 100 |
+| Default number of servers per subscription in any region | 20 | N/A |
+| Max number of servers per subscription in any region | 200 | N/A | 
+| DTU / eDTU quota per server | 54,000 | N/A |  
+| vCore quota per server/instance | 540 | 80 |
+| Max pools per server | Limited by number of DTUs or vCores | N/A |
+||||
 
 > [!NOTE]
 > To obtain more DTU /eDTU quota, vCore quota, or more servers than the default amount, a new support request can be submitted in the Azure portal for the subscription with issue type “Quota”. The DTU / eDTU quota and database limit per server constrains the number of elastic pools per server. 
