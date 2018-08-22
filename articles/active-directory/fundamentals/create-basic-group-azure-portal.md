@@ -64,20 +64,22 @@ You can create a basic group and add your members at the same time.
 
 6. When you're done adding members, choose **Select**.
 
-    The **Group** blade should update to show the number of members that are now assigned to the group.
+    The **Group** blade updates to show the number of members that are now assigned to the group.
 
-Assign, add, or remove members at a later time
+## Assign, add, or remove members at a later time
 If you didn't assign your members as part of your group creation process, you can still do it -  just a bit differently. This also works if you want to add more members or remove existing members.
 
 ### To assign, add, or remove members
 
-1. From the **Groups - All groups** blade, select the group you want to add members to. In this case, use our previously created group, **MDM policy - West**.
+1. From the **Groups - All groups** blade, select the group you want to update. In this case, use our previously created group, **MDM policy - West**.
 
     ![Groups-All groups blade, group name highlighted](media/create-basic-group-azure-portal/group-all-groups-screen.png)
 
 2. Select **Members**, and then select **Add members**.
 
     The **Add members** blade appears.
+
+    ![Add members blade, with searched for member shown](media/create-basic-group-azure-portal/update-members.png)
 
 3. Select each of the members you want to include in your group, and then choose **Select**.
 
@@ -91,7 +93,9 @@ Whether you add your members as part of the group creation process or later, you
 ### To view your groups and assigned members
 1. Select **Groups**, and then select your group name. In this case, _MDM policy - West_.
 
-2. Select **Members** and make sure the list of members looks right.
+    The group information appears, with the number of included members.
+
+2. If you want to see the member names, select **Members** from the **Manage** area, and review the list.
 
 ## Next steps
 Now that you've added a group and at least one user, you can
@@ -100,8 +104,3 @@ Now that you've added a group and at least one user, you can
 - [Manage your groups and members](active-directory-manage-groups.md)
 - [Manage your group settings](active-directory-groups-settings-azure-portal.md)
 - [Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
-
-
-
-
-
