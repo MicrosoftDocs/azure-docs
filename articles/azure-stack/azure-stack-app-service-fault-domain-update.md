@@ -45,7 +45,7 @@ To scale out the scale sets, follow these steps:
 
 1. Sign in to the Azure Stack Administrator Portal.
 1. Select **All services**.
-2. Under COMPUTE, select **Virtual machine scale sets**. Existing scale sets deployed as part of the App Service deployment will be listed with instance count information. The following screen capture shows an example of scale sets.
+2. In the **COMPUTE** category, select **Virtual machine scale sets**. Existing scale sets deployed as part of the App Service deployment will be listed with instance count information. The following screen capture shows an example of scale sets.
 
       ![Azure App Service Scale Sets listed in Virtual Machine Scale Sets UX][1]
 
