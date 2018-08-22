@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/18
+ms.date: 08/21/2018
 ms.author: kumud
 ms.custom: mvc
 ---
@@ -35,15 +35,19 @@ Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
 In this section, you create a public load balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, and you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. 
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
-2. In the **Create a load balancer** page enter these values for the load balancer:
-    - *myLoadBalancer* - for the name of the load balancer.
-    - **Public** - for the type of the load balancer.
-     - *myPublicIP* - for the **New** Public IP that you create.
-    - *myResourceGroupSLB* -  for the name of the **New** resource group that you select to create.
-    - **westeurope** - for the location.
-3. Click **Create** to create the load balancer.
-   
-    ![Create a load balancer](./media/load-balancer-standard-public-portal/1a-load-balancer.png)
+2. In the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Create**:
+    | Setting                 | Value                                              |
+    | ---                     | ---                                                |
+    | Name                   | *myLoadBalancer*                                   |
+    | Type          | Public                                        |
+    | SKU           | Standard                          |
+    | Public IP address | Select **Create new** and type *myPublicIP* in the text box. The Standard SKU for the Public IP address is selected by default. For **Availability zone**, select **Zone-redundant**. |
+    | Subscription               | Select your subscription.    |
+    |Resource group | Select **Create new**, and then type *myResourceGroupSLB*.    |
+    | Location           | Select **West Europe**.                          |
+    
+
+![Create a load balancer](./media/load-balancer-standard-public-portal/create-load-balancer.png)
 
 
 ## Create backend servers
