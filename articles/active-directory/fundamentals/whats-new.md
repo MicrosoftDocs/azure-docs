@@ -119,18 +119,6 @@ Today, when customers activate a role in PIM, it can take ten or more minutes fo
  
 ---
 
-### Updated B2C policy creation and management experience
-
-**Type:** Changed feature  
-**Service category:** B2C - Consumer Identity Management  
-**Product capability:** B2B/B2C
- 
-We've changed the name for built-in policies to be _user flows_, and we've simplified the policy creation and management experience. You can try this new experience by clicking the banner at the top of your directory overview and you can provide us with feedback using the smile and frown buttons at the top of the portal.
-
-For more information about this experience, see ...
-
----
-
 ### Native Tableau support is now available in Azure AD Application Proxy
 
 **Type:** Changed feature  
