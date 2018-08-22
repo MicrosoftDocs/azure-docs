@@ -1,6 +1,6 @@
 ---
 title: Concepts - Scale applications in Azure Kubernetes Services (AKS)
-description: Learn how to scale your applications in Azure Kubernetes Service (AKS), including horizontal pod autoscaler, cluster autoscaler, and the Azure Container Instances connector.
+description: Learn about scaling in Azure Kubernetes Service (AKS), including horizontal pod autoscaler, cluster autoscaler, and the Azure Container Instances connector.
 services: container-service
 author: iainfoulds
 
@@ -10,7 +10,7 @@ ms.date: 9/24/2018
 ms.author: iainfou
 ---
 
-# Scaling options for applications in Azure Kubenetes Service (AKS)
+# Scaling options for applications in Azure Kubernetes Service (AKS)
 
 As you run applications in Azure Kubernetes Service (AKS), you may need to increase or decrease the amount of compute resources. As the number of application instances you need change, the number of underlying Kubernetes nodes may also need to change. You may also need to quickly provision a large number of additional application instances.
 
