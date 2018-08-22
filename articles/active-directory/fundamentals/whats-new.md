@@ -106,7 +106,7 @@ For more information about PIM and Azure resources, see [Discover and manage Azu
  
 ---
 
-### Application access (preview) provides faster access the Azure AD portal
+### Application access (preview) provides faster access to the Azure AD portal
 
 **Type:** New feature  
 **Service category:** Privileged Identity Management  
