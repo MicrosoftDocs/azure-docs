@@ -1,5 +1,5 @@
 ---
-title: Tutorial:Create a public Basic Load Balancer - Azure portal | Microsoft Docs
+title: Tutorial - Create a public Basic Load Balancer - Azure portal | Microsoft Docs
 description: This tutorial shows you how to create an internal Basic Load Balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
