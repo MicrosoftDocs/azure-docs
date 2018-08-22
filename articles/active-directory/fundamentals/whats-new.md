@@ -132,24 +132,6 @@ For more information about our native support for Tableau, see [Azure AD Applica
 
 ## July 2018
 
-### Changes to Azure Active Directory IP address ranges
-
-**Type:** Plan for change  
-**Service category:** Other  
-**Product capability:** Platform
-
-We're introducing larger IP ranges to Azure AD, which means if you've configured Azure AD IP address ranges for your firewalls, routers, or Network Security Groups, you'll need to update them. We're making this update so you won't have to change your firewall, router, or Network Security Groups IP range configurations again when Azure AD adds new endpoints. 
-
-Network traffic is moving to these new ranges over the next two months. To continue with uninterrupted service, you must add these updated values to your IP Addresses before September 10, 2018:
-
-- 20.190.128.0/18 
-
-- 40.126.0.0/18 
-
-We strongly recommend not removing the old IP Address ranges until all of your network traffic has moved to the new ranges. For updates about the move and to learn when you can remove the old ranges, see [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
-
----
-
 ### Improvements to Azure Active Directory email notifications
 
 **Type:** Changed feature  
