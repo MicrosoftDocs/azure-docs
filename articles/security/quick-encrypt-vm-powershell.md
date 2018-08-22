@@ -120,7 +120,8 @@ Now that you've created and configured a key vault and a VM, you can encrypt the
      -DiskEncryptionKeyVaultId "<Returned by the prerequisites script>" -DiskEncryptionKeyVaultUrl "<Returned by the prerequisites script>"
      ```
 
- 1. When the encryption finishes, you can verify that the disk is encrypted with the following cmdlet: 
+
+1. When the encryption finishes, you can verify that the disk is encrypted with the following cmdlet: 
 
      ```azurepowershell
      Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName "MySecureRG" -VMName "MySecureVM"
