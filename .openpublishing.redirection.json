@@ -27305,6 +27305,11 @@
             "redirect_url": "/azure/cognitive-services/speech-service/overview",
             "redirect_document_id": true
         },
+        {
+            "source_path": "articles/aks/aks-ssh.md",
+            "redirect_url": "/azure/aks/ssh",
+            "redirect_document_id": true
+        },
 		{
             "source_path": "articles/cognitive-services/luis/Home.md",
             "redirect_url": "/azure/cognitive-services/luis/what-is-luis",
