@@ -6,7 +6,7 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: tutorial
 
-author: nilesha
+author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 09/24/2018
@@ -15,11 +15,11 @@ ms.date: 09/24/2018
 
 # Tutorial: Automatically train an image classification model with Azure Automated Machine Learning
 
-In this tutorial, you'll learn how to automatically generate a tuned machine learning model.  This model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml) tutorial.
+In this tutorial, you'll learn how to automatically generate a tuned machine learning model.  This model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
 
 ![flow diagram](./media/tutorial-auto-train-models/flow2.png)
 
-Similar to the [previous tutorial](tutorial-train-models-with-aml) this tutorial classifies handwritten images of digits (0-9) from the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. 
+Similar to the [previous tutorial](tutorial-train-models-with-aml.md) this tutorial classifies handwritten images of digits (0-9) from the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. 
 
 You'll learn how to:
 
