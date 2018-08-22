@@ -344,16 +344,17 @@ With an initiative definition, you can group several policy definitions to achie
 
    ![Initiative definitions](media/create-manage-policy/initiative-definition-2.png)
 
-1. If a policy definition being added to the initiative has parameters, they are shown under the policy name in the **POLICIES AND PARAMETERS** area. The _value_ can be set to either 'Set value' (hard coded for all assignments of this initiative) or 'Use Initiative Parameter' (set during each initiative assignment). If 'Set value' is selected, the drown-down to the right of _Values_ allows entering or selecting the desired value(s). If 'Use Initiative Parameter' is selected, a new **Initiative parameters** section is displayed and the _parameter name_ will match the _value_ of the policy parameter name. The allowed values on this initiative parameter can further restrict what may be set during initiative assignment.
+1. If a policy definition being added to the initiative has parameters, they are shown under the policy name in the **POLICIES AND PARAMETERS** area. The _value_ can be set to either 'Set value' (hard coded for all assignments of this initiative) or 'Use Initiative Parameter' (set during each initiative assignment). If 'Set value' is selected, the drown-down to the right of _Values_ allows entering or selecting the desired value(s). If 'Use Initiative Parameter' is selected, a new **Initiative parameters** section is displayed allowing you to define the parameter that will be set during initiative assignment. The allowed values on this initiative parameter can further restrict what may be set during initiative assignment.
 
    ![Initiative definition parameters](media/create-manage-policy/initiative-definition-3.png)
 
    > [!NOTE]
    > In the case of some `strongType` parameters, the list of values cannot be automatically
    > determined. In these cases, an ellipsis will appear to the right of the parameter row. Clicking
-   > it will open the 'Parameter scope (&lt;parameter name&gt;>)' page. On this page, select the
-   > subscription to use for providing the value options. This page has no impact on scope for
-   > compliance of the initiative.
+   > it will open the 'Parameter scope (&lt;parameter name&gt;)' page. On this page, select the
+   > subscription to use for providing the value options. This parameter scope is only used during
+   > creation of the initiative definition and has no impact on policy evaluation or the scope of
+   > the initiative when assigned.
 
 1. Click **Save**.
 
