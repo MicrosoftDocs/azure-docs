@@ -1,6 +1,6 @@
 ---
-title: Deploy an image classification model in Azure Container Instance (ACI) with Azure Machine Learning service
-description: This tutorial shows how to use Azure Machine Learning service to deploy an image classification model with scikit-learn in a Python Jupyter notebook.  This tutorial is part two of a two-part series.
+title: Automatically train an image classification model with Azure Automated Machine Learning service
+description: In this tutorial, you'll learn how to automatically generate a tuned machine learning model which can then be deployed with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -17,7 +17,7 @@ ms.date: 09/24/2018
 
 In this tutorial, you'll learn how to automatically generate a tuned machine learning model.  This model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
 
-![flow diagram](./media/tutorial-auto-train-models/flow2.png)
+[ ![flow diagram](./media/tutorial-auto-train-models/flow2.png) ](./media/tutorial-auto-train-models/flow2.png#lightbox)
 
 Similar to the [previous tutorial](tutorial-train-models-with-aml.md) this tutorial classifies handwritten images of digits (0-9) from the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. 
 
@@ -52,7 +52,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    conda install -y matplotlib scikit-learn pandas
    ``` 
 
-1. To try it yourself, place [this Jupyter notebook](https://aka.ms/aml-notebook-auto-train) into the same directory as `aml_config`.  See [configure you development environment to learn how to run a notebook](https://aka.ms/aml-how-to-configure-environment)
+> [!TIP]
+> (Optional) To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-auto-train) into the same directory as `aml_config`.  See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
 
 
 ## Set up your development environment
@@ -167,7 +168,7 @@ To auto train a model, you first define settings for autogeneration and tuning a
 The first step in automatic tuning is to define the experiment parameters and models settings for autogeneration and tuning.  
 
 
-|Property| Value |Description|
+|Property| Value in this tutorial |Description|
 |----|----|---|
 |**primary_metric**|AUC Weighted | Metric that you want to optimize.|
 |**max_time_sec**|12,000|Time limit in seconds for each iteration|
