@@ -649,58 +649,74 @@ After you start the virtual machine again, the SAP HANA resource fails to start 
 <pre><code>su - <b>hn1</b>adm
 
 # Stop the HANA instance just in case it is running
-sapcontrol -nr <b>03</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b>
+hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> sapcontrol -nr <b>03</b> -function StopWait 600 10
+hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
 
 # Switch back to root and clean up the failed state
 exit
-crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
+[root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
 </code></pre>
 
-### Test SBD fencing
+Resource state after the test:
 
-You can test the setup of SBD by killing the inquisitor process.
-
-<pre><code>hn1-db-0:~ # ps aux | grep sbd
-root       1912  0.0  0.0  85420 11740 ?        SL   12:25   0:00 sbd: inquisitor
-root       1929  0.0  0.0  85456 11776 ?        SL   12:25   0:00 sbd: watcher: /dev/disk/by-id/scsi-360014056f268462316e4681b704a9f73 - slot: 0 - uuid: 7b862dba-e7f7-4800-92ed-f76a4e3978c8
-root       1930  0.0  0.0  85456 11776 ?        SL   12:25   0:00 sbd: watcher: /dev/disk/by-id/scsi-360014059bc9ea4e4bac4b18808299aaf - slot: 0 - uuid: 5813ee04-b75c-482e-805e-3b1e22ba16cd
-root       1931  0.0  0.0  85456 11776 ?        SL   12:25   0:00 sbd: watcher: /dev/disk/by-id/scsi-36001405b8dddd44eb3647908def6621c - slot: 0 - uuid: 986ed8f8-947d-4396-8aec-b933b75e904c
-root       1932  0.0  0.0  90524 16656 ?        SL   12:25   0:00 sbd: watcher: Pacemaker
-root       1933  0.0  0.0 102708 28260 ?        SL   12:25   0:00 sbd: watcher: Cluster
-root      13877  0.0  0.0   9292  1572 pts/0    S+   12:27   0:00 grep sbd
-
-hn1-db-0:~ # kill -9 1912
+<pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
+    Started: [ hn1-db-0 hn1-db-1 ]
+Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Masters: [ hn1-db-0 ]
+    Slaves: [ hn1-db-1 ]
+Resource Group: g_ip_HN1_03
+    nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-0
+    vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
 </code></pre>
-
-Cluster node hn1-db-0 should be rebooted. The Pacemaker service might not get started afterwards. Make sure to start it again.
 
 ### Test a manual failover
 
-You can test a manual failover by stopping the `pacemaker` service on the hn1-db-0 node:
+Resource state before starting the test:
 
-<pre><code>service pacemaker stop
+<pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
+    Started: [ hn1-db-0 hn1-db-1 ]
+Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Masters: [ hn1-db-0 ]
+    Slaves: [ hn1-db-1 ]
+Resource Group: g_ip_HN1_03
+    nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-0
+    vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
 </code></pre>
 
-After the failover, you can start the service again. If you set `AUTOMATED_REGISTER="false"`, the SAP HANA resource on the hn1-db-0 node fails to start as secondary. In this case, configure the HANA instance as secondary by executing this command:
+You can test a manual failover by stopping the cluster on the hn1-db-0 node:
 
-<pre><code>service pacemaker start
-su - <b>hn1</b>adm
+<pre><code>[root@hn1-db-0 ~]# pcs cluster stop
+</code></pre>
+
+After the failover, you can start the cluster again. If you set `AUTOMATED_REGISTER="false"`, the SAP HANA resource on the hn1-db-0 node fails to start as secondary. In this case, configure the HANA instance as secondary by executing this command:
+
+<pre><code>[root@hn1-db-0 ~]# pcs cluster start
+[root@hn1-db-0 ~]# su - hn1adm
 
 # Stop the HANA instance just in case it is running
-sapcontrol -nr <b>03</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b>
+hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> sapcontrol -nr 03 -function StopWait 600 10
+hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b>
 
 # Switch back to root and clean up the failed state
-exit
-crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
+hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> exit
+[root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
+</code></pre>
+
+Resource state after the test:
+
+<pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
+    Started: [ hn1-db-0 hn1-db-1 ]
+Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Masters: [ hn1-db-1 ]
+     Slaves: [ hn1-db-0 ]
+Resource Group: g_ip_HN1_03
+    nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-1
+    vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 </code></pre>
 
 ### SUSE tests
 
-Run all test cases that are listed in the SAP HANA SR Performance Optimized Scenario or SAP HANA SR Cost Optimized Scenario guide, depending on your use case. You can find the guides on the [SLES for SAP best practices page][sles-for-sap-bp].
-
-The following tests are a copy of the test descriptions of the SAP HANA SR Performance Optimized Scenario SUSE Linux Enterprise Server for SAP Applications 12 SP1 guide. For an up-to-date version, always also read the guide itself. Always make sure that HANA is in sync before starting the test and also make sure that the Pacemaker configuration is correct.
+The following tests are a copy of the test descriptions of the SAP HANA SR Performance Optimized Scenario SUSE Linux Enterprise Server for SAP Applications 12 SP1 guide. Always make sure that HANA is in sync before starting the test and also make sure that the Pacemaker configuration is correct.
 
 In the following test descriptions we assume PREFER_SITE_TAKEOVER="true" and AUTOMATED_REGISTER="false".
 NOTE: The following tests are designed to be run in sequence and depend on the exit state of the preceding tests.
@@ -709,14 +725,14 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
       Masters: [ hn1-db-0 ]
       Slaves: [ hn1-db-1 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
    </code></pre>
 
    Run the following commands as \<hanasid>adm on node hn1-db-0:
@@ -730,34 +746,33 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1
    
-   # run as root
-   hn1-db-0:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-0
+   [root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
    </code></pre>
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-1 ]
       Slaves: [ hn1-db-0 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
    </code></pre>
 
 1. TEST 2: STOP PRIMARY DATABASE ON NODE 2
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-1 ]
       Slaves: [ hn1-db-0 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
    </code></pre>
 
    Run the following commands as \<hanasid>adm on node hn1-db-1:
@@ -772,33 +787,33 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2
    
    # run as root
-   hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
+   [root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
    </code></pre>
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-0 ]
       Slaves: [ hn1-db-1 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
    </code></pre>
 
 1. TEST 3: CRASH PRIMARY DATABASE ON NODE
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-0 ]
       Slaves: [ hn1-db-1 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
    </code></pre>
 
    Run the following commands as \<hanasid>adm on node hn1-db-0:
@@ -813,33 +828,33 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1
    
    # run as root
-   hn1-db-0:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-0
+   [root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
    </code></pre>
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-1 ]
       Slaves: [ hn1-db-0 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
    </code></pre>
 
 1. TEST 4: CRASH PRIMARY DATABASE ON NODE 2
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-1 ]
       Slaves: [ hn1-db-0 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
    </code></pre>
 
    Run the following commands as \<hanasid>adm on node hn1-db-1:
@@ -854,33 +869,33 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2
    
    # run as root
-   hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
+   [root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
    </code></pre>
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-0 ]
       Slaves: [ hn1-db-1 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
    </code></pre>
 
 1. TEST 5: CRASH PRIMARY SITE NODE (NODE 1)
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-0 ]
       Slaves: [ hn1-db-1 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
    </code></pre>
 
    Run the following commands as root on node hn1-db-0:
@@ -888,50 +903,38 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    <pre><code>hn1-db-0:~ #  echo 'b' > /proc/sysrq-trigger
    </code></pre>
 
-   Pacemaker should detect the killed cluster node and fence the node. Once the node is fenced, Pacemaker will trigger a takeover of the HANA instance. When the fenced node is rebooted, Pacemaker will not start automatically.
+   Pacemaker should detect the killed cluster node and fence the node. Once the node is fenced, Pacemaker will trigger a takeover of the HANA instance.  Run the following commands to register node hn1-db-0 as secondary, and cleanup the failed resource.
 
-   Run the following commands to start Pacemaker, clean the SBD messages for node hn1-db-0, register node hn1-db-0 as secondary, and cleanup the failed resource.
-
-   <pre><code># run as root
-   # list the SBD device(s)
-   hn1-db-0:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
-   # SBD_DEVICE="/dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116;/dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1;/dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3"
-   
-   hn1-db-0:~ # sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message hn1-db-0 clear
-   
-   hn1-db-0:~ # systemctl start pacemaker
-   
-   # run as &lt;hanasid&gt;adm
-   hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1
+   <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1
    
    # run as root
-   hn1-db-0:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-0
+   [root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
    </code></pre>
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-1 ]
       Slaves: [ hn1-db-0 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
    </code></pre>
 
 1. TEST 6: CRASH SECONDARY SITE NODE (NODE 2)
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-1 ]
       Slaves: [ hn1-db-0 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
    </code></pre>
 
    Run the following commands as root on node hn1-db-1:
@@ -939,50 +942,37 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    <pre><code>hn1-db-1:~ #  echo 'b' > /proc/sysrq-trigger
    </code></pre>
 
-   Pacemaker should detect the killed cluster node and fence the node. Once the node is fenced, Pacemaker will trigger a takeover of the HANA instance. When the fenced node is rebooted, Pacemaker will not start automatically.
+   Pacemaker should detect the killed cluster node and fence the node. Once the node is fenced, Pacemaker will trigger a takeover of the HANA instance. Run the following commands to register node hn1-db-1 as secondary, and cleanup the failed resource.
 
-   Run the following commands to start Pacemaker, clean the SBD messages for node hn1-db-1, register node hn1-db-1 as secondary, and cleanup the failed resource.
-
-   <pre><code># run as root
-   # list the SBD device(s)
-   hn1-db-1:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
-   # SBD_DEVICE="/dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116;/dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1;/dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3"
+   <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2
    
-   hn1-db-1:~ # sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message hn1-db-1 clear
-   
-   hn1-db-1:~ # systemctl start pacemaker
-   
-   # run as &lt;hanasid&gt;adm
-   hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2
-   
-   # run as root
-   hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
+   [root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
    </code></pre>
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-0 ]
       Slaves: [ hn1-db-1 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
    </code></pre>
 
 1. TEST 7: STOP THE SECONDARY DATABASE ON NODE 2
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-0 ]
       Slaves: [ hn1-db-1 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
    </code></pre>
 
    Run the following commands as \<hanasid>adm on node hn1-db-1:
@@ -990,36 +980,35 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
 
-   Pacemaker will detect the stopped HANA instance and mark the resource as failed on node hn1-db-1. Run the following command to clean up the failed state. Pacemaker should then automatically restart the HANA instance.
+   Pacemaker will detect the stopped HANA instance and mark the resource as failed on node hn1-db-1. Pacemaker should automatically restart the HANA instance. Run the following command to clean up the failed state.
 
-   <pre><code># run as root
-   hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
+   <pre><code>[root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
    </code></pre>
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-0 ]
       Slaves: [ hn1-db-1 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
    </code></pre>
 
 1. TEST 8: CRASH THE SECONDARY DATABASE ON NODE 2
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-0 ]
       Slaves: [ hn1-db-1 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
    </code></pre>
 
    Run the following commands as \<hanasid>adm on node hn1-db-1:
@@ -1029,34 +1018,33 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
 
    Pacemaker will detect the killed HANA instance and mark the resource as failed on node hn1-db-1. Run the following command to clean up the failed state. Pacemaker should then automatically restart the HANA instance.
 
-   <pre><code># run as root
-   hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
+   <pre><code>[root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
    </code></pre>
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-0 ]
       Slaves: [ hn1-db-1 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
    </code></pre>
 
 1. TEST 9: CRASH SECONDARY SITE NODE (NODE 2) RUNNING SECONDARY HANA DATABASE
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-0 ]
       Slaves: [ hn1-db-1 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
    </code></pre>
 
    Run the following commands as root on node hn1-db-1:
@@ -1064,32 +1052,21 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    <pre><code>hn1-db-1:~ # echo b > /proc/sysrq-trigger
    </code></pre>
 
-   Pacemaker should detect the killed cluster node and fence the node. When the fenced node is rebooted, Pacemaker will not start automatically.
+   Pacemaker should detect the killed cluster node and fence the node. Run the following command cleanup the failed resource.
 
-   Run the following commands to start Pacemaker, clean the SBD messages for node hn1-db-1, and cleanup the failed resource.
-
-   <pre><code># run as root
-   # list the SBD device(s)
-   hn1-db-1:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
-   # SBD_DEVICE="/dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116;/dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1;/dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3"
-   
-   hn1-db-1:~ # sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message hn1-db-1 clear
-   
-   hn1-db-1:~ # systemctl start pacemaker  
-   
-   hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
+   <pre><code>[root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
    </code></pre>
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
       Started: [ hn1-db-0 hn1-db-1 ]
-   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_03]
       Masters: [ hn1-db-0 ]
       Slaves: [ hn1-db-1 ]
-   Resource Group: g_ip_HN1_HDB03
-      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+   Resource Group: g_ip_HN1_03
+      nc_HN1_03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
+      vip_HN1_03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
    </code></pre>
 
 ## Next steps
