@@ -39,16 +39,17 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 
-1. An Azure Machine Learning Workspace and its accompanying  **aml_config\config.json** file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart.
+1. An Azure Machine Learning Workspace and its accompanying  **aml_config\config.json** file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart. 
 
-1. The following package dependencies (matplotlib, scikit-learn, and pandas) must also be installed in the conda environment in which you installed the Azure Machine Learning SDK.
-
+1. Follow the Jupyter notebook instructions in [Configure your development environment](how-to-configure-environment.md).  In step 4 the new packages you need are matplotlib, scikit-learn, and pandas:
    ```
    conda install -y matplotlib scikit-learn pandas
    ``` 
 
-> [!TIP]
-> (Optional) To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-auto-train) into the same directory as **aml_config**.  See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
+
+(Optional) Download [this tutorial as a notebook](https://aka.ms/aml-notebook-auto-train) into the same directory as **aml_config** and **utils.py**.  
+
+Or start your own notebook and copy the code from the sections below.
 
 
 ## Set up your development environment
@@ -267,8 +268,18 @@ s
 ```
 
 This table shows the results.  In the notebook the table has varying shades of green to highlight high/low values.
-
-<table>
+<table> 	
+<thead><tr>
+        <th></th> 	
+        <th>0</th> 	
+        <th>1</th> 	
+        <th>2</th> 	
+        <th>3</th> 	
+        <th>4</th> 	
+        <th>5</th> 	
+        <th>6</th> 	
+        <th>7</th> 	
+    </tr></thead> 
 <tbody>    <tr> 
         <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row0" class="row_heading level0 row0" >AUC_macro</th> 
         <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col0" class="data row0 col0" >0.988094</td> 

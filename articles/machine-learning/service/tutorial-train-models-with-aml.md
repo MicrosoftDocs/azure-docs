@@ -16,9 +16,11 @@ ms.date: 09/24/2018
 
 # Tutorial #1: Train an image classification model with Azure Machine Learning
 
-In this tutorial, you train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview).  This tutorial is **part one of a two-part tutorial series**.  
+In this tutorial, you train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview) in a Jupyter notebook.  You can then modify the notebook as a template to train your own machine learning model with your own images. This tutorial is **part one of a two-part tutorial series**.  
 
-You'll learn how to:
+This tutorial trains a simple logistic regression using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](http://scikit-learn.org) with Azure Machine Learning.  MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing a number from 0 to 9. The goal is to create a multi-class classifier to identify the digit a given image represents. 
+
+Learn how to:
 
 > [!div class="checklist"]
 > * Set up your development environment
@@ -26,8 +28,6 @@ You'll learn how to:
 > * Train a simple logistic regression locally using the popular scikit-learn machine learning library 
 > * Train multiple models on a remote GPU cluster
 > * Review training results and register the best model
-
-You'll train a simple logistic regression using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](http://scikit-learn.org) with Azure Machine Learning.  MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing a number from 0 to 9. The goal is to create a multi-class classifier to identify the digit a given image represents. 
 
 You'll learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md) later. 
 
@@ -38,7 +38,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 1. An Azure Machine Learning Workspace and its accompanying  **aml_config\config.json** file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart.
-1. The following package dependencies (matplotlib and scikit-learn) must also be installed in the conda environment in which you installed the Azure Machine Learning SDK.
+1. Follow the Jupyter notebook instructions in [Configure your development environment](how-to-configure-environment.md).  In step 4 the new packages you need are matplotlib and scikit-learn:
 
    ```
    conda install -y matplotlib scikit-learn
@@ -46,8 +46,10 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 1. The file [utils.py](https://aka.ms/aml-file-utils-py) downloaded into the same directory as **aml_config**.
 
-> [!TIP]
-> (Optional) To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-train) into the same directory as **aml_config** and **utils.py**. See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
+
+(Optional) Download [this tutorial as a notebook](https://aka.ms/aml-notebook-train) into the same directory as **aml_config** and **utils.py**.  
+
+Or start your own notebook and copy the code from the sections below.
 
 ## Set up your development environment
 
