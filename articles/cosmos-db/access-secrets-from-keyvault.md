@@ -19,10 +19,10 @@ When using Azure Cosmos DB for your applications, you can access the database, c
 
 The following steps are required to store and read Azure Cosmos DB access keys from Key Vault:
 
-- Create a Key Vault  
-- Add Azure Cosmos DB access keys to the Key Vault  
-- Create an Azure web application  
-- Register the application & grant permissions to read the Key Vault  
+* Create a Key Vault  
+* Add Azure Cosmos DB access keys to the Key Vault  
+* Create an Azure web application  
+* Register the application & grant permissions to read the Key Vault  
 
 
 ## Create a Key Vault
@@ -30,20 +30,20 @@ The following steps are required to store and read Azure Cosmos DB access keys f
 1. Sign in to [Azure Portal](https://portal.azure.com/).  
 2. Select **Create a resource > Security > Key Vault**.  
 3. On the **Create key vault** section provide the following information:  
-   - **Name:** Provide a unique name for your Key Vault.  
-   - **Subscription:** Choose the subscription that you will use.  
-   - Under **Resource Group** choose **Create new** and enter a resource group name.  
-   - In the Location pull-down menu, choose a location.  
-   - Leave other options to their defaults.  
+   * **Name:** Provide a unique name for your Key Vault.  
+   * **Subscription:** Choose the subscription that you will use.  
+   * Under **Resource Group** choose **Create new** and enter a resource group name.  
+   * In the Location pull-down menu, choose a location.  
+   * Leave other options to their defaults.  
 4. After providing the information above, select **Create**.  
 
 ## Add Azure Cosmos DB access keys to the Key Vault.
 1. Navigate to the Key Vault you created in the previous step, open the **Secrets** tab.  
 2. Select **+Generate/Import**, 
 
-   - Select **Manual** for **Upload options**.
-   - Provide a **Name** for your secret
-   - Provide the connection string of your Cosmos DB account into the **Value** field. And then select **Create**.
+   * Select **Manual** for **Upload options**.
+   * Provide a **Name** for your secret
+   * Provide the connection string of your Cosmos DB account into the **Value** field. And then select **Create**.
 
    ![Create a secret](./media/access-secrets-from-keyvault/create-a-secret.png)
 
