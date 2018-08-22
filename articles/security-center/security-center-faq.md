@@ -115,9 +115,9 @@ Security Center does not override existing connections to user workspaces. Secur
 ### What if I had a Microsoft Monitoring Agent installed on the machine but not as an extension?
 If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center does not install the Microsoft Monitoring Agent and security monitoring is limited.
 
-For more information, see the next section [What happens if a SCOM or OMS direct agent is already installed on my VM?](security-center-platform-migration-faq.md#what-happens-if-a-scom-or-oms-direct-agent-is-already-installed-on-my-vm)
+For more information, see the next section [What happens if a SCOM or OMS direct agent is already installed on my VM?](#scomomsinstalled)
 
-### What happens if a SCOM or OMS direct agent is already installed on my VM?
+### What happens if a SCOM or OMS direct agent is already installed on my VM?<a name="scomomsinstalled"></a>
 Security Center cannot identify in advance that an agent is installed.  Security Center attempts to install the Microsoft Monitoring Agent extension and fails due to the existing installed agent.  This failure prevents overriding the agent’s connection settings to its workspace and avoids creating multi-homing.
 
 > [!NOTE]
@@ -167,7 +167,7 @@ You can connect the agent to any existing custom workspace or Security Center cr
 
 Security Center will enable the correct solution on the workspace based on the selected pricing tier.
 
-### How do I remove OMS extensions installed by Security Center?
+### How do I remove OMS extensions installed by Security Center?<a name="remove-oms"></a>
 You can manually remove the Microsoft Monitoring Agent. This is not recommended as it limits Security Center recommendations and alerts.
 
 > [!NOTE]
