@@ -17,7 +17,7 @@ ms.date: 08/23/2018
 ms.author: rkarlin
 
 ---
-# Respond to threats faster using the Azure Security Center confidence score 
+# Respond to threats faster using the Azure Security Center alert confidence score 
 
 Azure Security Center provides you with visibility across the resources you run in Azure, and alerts you when it detects potential issues. The volume of alerts can be challenging for a security operations team to individually address, and it becomes necessary to prioritize which alerts to investigate. Investigating alerts can be complex and time consuming, and as a result, some alerts are ignored.
 

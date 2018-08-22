@@ -152,6 +152,8 @@
       href: security-center-custom-alert.md
     - name: Alert validation
       href: security-center-alert-validation.md
+    - name: Alert confidence score
+      href: security-center-confidence-score.md
     - name: Threat intelligence map
       href: security-center-threat-intel.md
     - name: Investigation
