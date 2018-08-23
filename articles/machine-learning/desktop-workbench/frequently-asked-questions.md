@@ -30,10 +30,6 @@ Azure Blob Storage and Azure Container Registry are used by Azure Machine Learni
 
 Machine Learning Services in SQL Server 2017 is an extensible, scalable platform for integrating machine learning tasks into database workflows. It is a perfect fit for scenarios where an on-premises solution is required, for example where data movement is expensive or untenable. In contrast, cloud or hybrid workloads are a great fit for our new Azure services. 
 
-**Do you support both Python and R? What about other programming languages like C++**
-
-We currently support Python only. We are working on R integration and expect to have it available soon. 
-
 **How does Azure Machine Learning relate to Microsoft Machine Learning for Spark?**
 
 MMLSpark provides deep learning and data science tools for Apache Spark, with emphasis on productivity, ease of experimentation and state-of-the-art algorithms. MMLSpark offers integration of Spark Machine Learning pipelines with the Microsoft Cognitive Toolkit and OpenCV. You can create powerful, highly scalable predictive, and analytical models for image and text data. MMLSpark is available under an open-source license and is included in AML Workbench as a set of consumable models and algorithms. For more information on MMLSpark, visit our product documentation. 
