@@ -35,7 +35,7 @@ Each function app has a single inbound IP address. To find that IP address:
 3. Select **Platform features**.
 4. Select **Properties**, and the inbound IP address appears under **Virtual IP address**.
 
-## Function app outbound IP addresses
+## <a name="find-outbound-ip-addresses"></a>Function app outbound IP addresses
 
 Each function app has a set of available outbound IP addresses. Any outbound connection from a function, such as to a back-end database, uses one of the available outbound IP addresses as the origin IP address. You can't know beforehand which IP address a given connection will use. For this reason, your back-end service must open its firewall to all of the function app's outbound IP addresses.
 

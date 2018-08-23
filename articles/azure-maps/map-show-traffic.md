@@ -22,13 +22,13 @@ This article shows you how to show traffic and incidents information on the map.
 
 In the code above, the first block of code constructs a map object. You can see [create a map](map-create.md) for instructions.
 
-The second block of code uses [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#settraffic) function of the map class to render the traffic flows and incidents on the map.
+The second block of code uses [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) function of the map class to render the traffic flows and incidents on the map.
 
 ## Next steps
 
 Learn more about the classes and methods used in this article: 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#settraffic)
+* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic)
 
 For more code examples to add to your maps, see the following articles: 
 * [Interacting with the map – mouse events](./map-events.md)
