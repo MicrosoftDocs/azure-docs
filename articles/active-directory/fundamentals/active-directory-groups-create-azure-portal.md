@@ -58,13 +58,13 @@ You can create a basic group and add your members at the same time.
 
     Your group is created and ready for you to assign members.
 
-5. Select the **Members** area, and then begin searching for the members to add to your group from the **Select members** blade.
+5. Select the **Members** area from the **Group** blade, and then begin searching for the members to add to your group from the **Select members** blade.
 
     ![Selecting members for your group during the group creation process](media/active-directory-groups-create-azure-portal/select-members-create-group.png)
 
 6. When you're done adding members, choose **Select**.
 
-    The **Group** blade updates to show the number of members that are now assigned to the group.
+    The **Group** blade updates to show the number of members who are now assigned to the group.
 
 ## Next steps
 Now that you've added a group and at least one user, you can:

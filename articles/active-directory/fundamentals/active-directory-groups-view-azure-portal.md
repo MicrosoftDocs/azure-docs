@@ -25,16 +25,17 @@ You can search for a specific group, or see all of your groups, and view the ass
 
     The **Groups - All groups** blade appears, showing all of your active groups.
 
-3. From the **Groups - All groups** blade, type as much of the group name as you can into the **Search** box.
+3. From the **Groups - All groups** blade, type as much of the group name as you can into the **Search** box. For the purposes of this article, we're searching for the **MDM policy - West** group.
+
+    The search results appear under the **Search** box, updating as you type more characters.
 
     ![All groups blade, with search text in the Search box](media/active-directory-groups-view-azure-portal/search-for-specific-group.png)
 
-## To view assigned members
-1. From the **Groups - All groups** blade, select the group name for which you want to see the members. In this case, _MDM policy - West_.
+4. Select the group **MDM policy - West** and view the group info on the **Overview** blade, including the number of members of that group.
 
-    The group information appears, with the number of included members.
+    ![Overview blade with number and members and Member option highlighted](media/active-directory-groups-view-azure-portal/group-overview-blade.png)
 
-2. Select **Members** from the **Manage** area, and review the complete list of members assigned to that specific group.
+5. Select **Members** from the **Manage** area, and review the complete list of member names assigned to that specific group.
 
 ## Next steps
 

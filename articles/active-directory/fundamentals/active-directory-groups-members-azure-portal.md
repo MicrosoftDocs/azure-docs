@@ -24,29 +24,29 @@ Using the Azure AD portal, you can continue to add and remove members from group
 
 2. Select **Azure Active Directory**, and then select **Groups**.
 
-3. From the **Groups - All groups** blade, select the group you want to add the member to. In this case, use our previously created group, **MDM policy - West**.
+3. From the **Groups - All groups** blade, search for and select the group you want to add the member to. In this case, use our previously created group, **MDM policy - West**.
 
     ![Groups-All groups blade, group name highlighted](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
 
-4. Select **Members**, and then select **Add members**.
+4. Select **Members** from the **Manage** area, and then select **Add members**.
 
     The **Add members** blade appears.
 
     ![Add members blade, with searched for member shown](media/active-directory-groups-members-azure-portal/update-members.png)
 
-5. Select each of the members you want to include in your group, and then choose **Select**.
+5. Search for and select each of the members you want to include in your group, and then choose **Select**.
 
-    You'll get a message that says the member was added successfully.
+    You'll get a message that says the members were added successfully.
 
 6. Refresh the screen to see all of the member names assigned to the group.
 
 ## To remove members from a group
 
-1. From the **Groups - All groups** blade, select the group you want to add the member to. In this case, use our previously created group, **MDM policy - West**.
+1. From the **Groups - All groups** blade, search for and select the group you want to remove the member from. Again we'll use, **MDM policy - West**.
 
-2. Select **Members**, select the name of the member to remove, and then select **Remove**.
+2. Select **Members** from the **Manage** area, search for and select the name of the member to remove, and then select **Remove**.
 
-    ![Member info blade, with removal option](media/active-directory-groups-members-azure-portal/remove-members-from-group.png)
+    ![Member info blade, with Remove option](media/active-directory-groups-members-azure-portal/remove-members-from-group.png)
 
 ## Next steps
 
