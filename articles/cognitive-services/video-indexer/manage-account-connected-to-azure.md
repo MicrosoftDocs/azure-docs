@@ -28,7 +28,7 @@ This section examines settings of your Video Indexer account.
 
 To view settings:
 
-1. Click on the user icon in the right top corner and select settings.
+1. Click on the user icon in the top right corner and select **Settings**.
 
     ![Settings](./media/manage-account-connected-to-azure/select-settings.png)
 
