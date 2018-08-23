@@ -1,6 +1,6 @@
 ---
 title: What is Bing Web Search? | Microsoft Docs
-description: The Bing Web Search API is a RESTful service that allows your application use Bing's web search capabilities, including web pages, images, videos, news, entities, related search queries, spelling corrections, unit conversions, translations, and calculations.
+description: The Bing Web Search API is a RESTful service that allows your application to use Bing's web search capabilities, including web pages, images, videos, news, entities, related search queries, spelling corrections, unit conversions, translations, and calculations.
 services: cognitive-services
 author: erhopf
 ms.service: cognitive-services
@@ -14,9 +14,9 @@ ms.author: erhopf
 
 The Bing Web Search API is a RESTful service that provides instant answers to user queries. Search results are easily configured to include web pages, images, videos, news, translations, and more. Results are provided as JSON and based on search relevance and your Bing Web Search subscriptions.
 
-This API is optimal for applications that need access to all content that is relevant to a user's search query. If you're building an application that requires only a specific type of result, consider using the [Bing Image Search API](../Bing-Image-Search/overview.md), [Bing Video Search API](../Bing-Video-Search/search-the-web.md), or [Bing News Search API](../Bing-News-Search/search-the-web.md). See [Cognitive Services APIs](https://docs.microsoft.com/en-us/azure/cognitive-services#cognitive-services-apis) for a complete list of Bing Search APIs.
+This API is optimal for applications that need access to all content that is relevant to a user's search query. If you're building an application that requires only a specific type of result, consider using the [Bing Image Search API](../Bing-Image-Search/overview.md), [Bing Video Search API](../Bing-Video-Search/search-the-web.md), or [Bing News Search API](../Bing-News-Search/search-the-web.md). See [Cognitive Services APIs](https://docs.microsoft.com/azure/cognitive-services#cognitive-services-apis) for a complete list of Bing Search APIs.
 
-Want to see how it works? Try our [Bing Web Search API demo](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/).
+Want to see how it works? Try our [Bing Web Search API demo](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/).
 
 ## Features  
 
@@ -34,7 +34,7 @@ In addition to instant answers, Bing Web Search provides additional features and
 
 The Bing Web Search API is easy to call from any programming language that can make HTTP requests and parse JSON responses. The service is accessible using the [REST API](quickstarts/python.md) or the [Bing Web Search SDKs](web-sdk-python-quickstart.md).  
 
-1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api).  
+1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  
 2. Send a [request to the Bing Web Search API](quickstarts/python.md).
 3. Parse the JSON response.
 
@@ -42,5 +42,5 @@ The Bing Web Search API is easy to call from any programming language that can m
 
 * Use our [Python quickstart](quickstarts/python.md) to make your first call to the Bing Web Search API.  
 * [Build a single-page web app](tutorial-bing-web-search-single-page-app.md).
-* Review [Web Search API v7 reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) documentation.  
+* Review [Web Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) documentation.  
 * Learn more about [use and display requirements](UseAndDisplayRequirements.md) for Bing Web Search.  

@@ -15,7 +15,7 @@ ms.author: v-gedod, erhopf
 
 The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results.
 
-The [source code for Python Bing Web Search SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/web_search_samples.py) is available on Git Hub.
+The [source code for Python Bing Web Search SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/web_search_samples.py) is available on GitHub.
 
 ## Application dependencies
 If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.

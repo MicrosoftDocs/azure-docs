@@ -15,7 +15,7 @@ ms.author: erhopf
 
 Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response in less than 10 minutes.  
 
-[!INCLUDE [quickstart-signup](../includes/quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). Click the launch Binder badge:
 
@@ -80,4 +80,4 @@ If you'd like to run this code locally, the complete [sample is available on Git
 > [!div class="nextstepaction"]
 > [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
-[!INCLUDE [quickstart-see-also](../includes/quickstart-see-also.md)]
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

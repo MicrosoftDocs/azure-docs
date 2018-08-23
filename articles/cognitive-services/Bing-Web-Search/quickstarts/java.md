@@ -15,19 +15,19 @@ ms.author: erhopf
 
 Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response.  
 
-[!INCLUDE [quickstart-signup](../includes/quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Prerequisites
 
 Here are a few things that you'll need before running this quickstart:
 
 * [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [gson library](https://github.com/google/gson)
+* [Gson library](https://github.com/google/gson)
 * A subscription key
 
 ## Create a project and import dependencies
 
-Create a new Java project in your favorite IDE or editor and import the following libraries. gson is required to convert Java Objects into JSON.
+Create a new Java project in your favorite IDE or editor and import the following libraries. Gson is required to convert Java Objects into JSON.
 
 ```java
 import java.net.*;
@@ -40,9 +40,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 ```
 
-### Declare gson in the Maven POM file
+### Declare Gson in the Maven POM file
 
-If you're using Maven, declare gson in the `POM.xml`. Skip this step if you've installed gson locally.
+If you're using Maven, declare Gson in the `POM.xml`. Skip this step if you've installed Gson locally.
 
 ```xml
 <dependency>
@@ -117,7 +117,7 @@ public static SearchResults SearchWeb (String searchQuery) throws Exception {
 
 ## Handle the response
 
-Use gson to parse and reserialize the response.
+Use Gson to parse and reserialize the response.
 
 ```java
 public static String prettify(String json_text) {
@@ -315,4 +315,4 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
 > [!div class="nextstepaction"]
 > [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
-[!INCLUDE [quickstart-see-also](../includes/quickstart-see-also.md)]  
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]  

@@ -32,7 +32,7 @@ You can use this information to let the user know that you modified their query 
 
 ![Query context UX example](./media/cognitive-services-bing-web-api/bing-query-context.PNG)  
 
-## Next Steps  
+## Next steps  
 
 * Review sample [Bing Web Search API responses](search-responses.md).  
 
