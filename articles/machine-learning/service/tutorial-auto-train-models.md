@@ -514,8 +514,7 @@ local_run.model_id # Use this id to deploy the model as a web service in Azure
 
 Use the model to predict a few random digits.  Display the predicted and the image.  Red font and inverse image (white on black) is used to highlight the misclassified samples.
 
-> [!NOTE]
-> Since the model accuracy is high, you might have to run the following code a few times before you can see a misclassified sample.
+Since the model accuracy is high, you might have to run the following code a few times before you can see a misclassified sample.
 
 ```python
 # find 30 random samples from test set
