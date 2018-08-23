@@ -52,8 +52,6 @@
       href: data-encryption.md
   - name: Network Configuration
     items:
-    - name: Network Connectivity
-      href: network-connectivity.md
     - name: Network Security
       href: network-security.md
     - name: Proxy Traffic
@@ -137,7 +135,7 @@
 - name: Resources
   items:
   - name: Get Azure CycleCloud
-    href: https://www.microsoft.com/en-us/download/details.aspx?id=57182
+    href: https://azure.microsoft.com/en-us/features/azure-cyclecloud/
   - name: CycleCloud Cluster Templates
     href: download-cluster-templates.md
   - name: CycleCloud Community
@@ -150,6 +148,8 @@
     items:
     - name: Current Release
       href: release-notes.md
+    - name: v7.5.1
+      href: ~/release-notes/7-5-1.md  
     - name: v7.5.0
       href: ~/release-notes/7-5-0.md
   - name: Service Policy

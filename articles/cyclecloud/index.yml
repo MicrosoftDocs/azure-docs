@@ -19,7 +19,7 @@ abstract:
       alt: Get Azure CycleCloud
       src: images/get-cyclecloud.png
     title: Get Azure CycleCloud
-    href: https://www.microsoft.com/en-us/download/details.aspx?id=57182
+    href: https://azure.microsoft.com/en-us/features/azure-cyclecloud/
 
 sections:
   - items:
@@ -68,6 +68,6 @@ sections:
       items:
       - html: <a href="cookbook-reference">Chef Cookbooks</a>
       - html: <a href="node-configuration-reference">Node Configuration Reference</a>
-      - html: <a href="https://github.com/CycleCloud">CycleCloud Cluster Templates on GitHub</a>
+      - html: <a href="download-cluster-templates">CycleCloud Cluster Templates</a>
       - html: <a href="https://github.com/CycleCloudCommunity">CycleCloud Community GitHub</a>
       - html: <a href="https://social.msdn.microsoft.com/Forums/en-US/home">Azure Forums</a>
