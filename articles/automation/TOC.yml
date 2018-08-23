@@ -59,18 +59,12 @@
       items:
       - name: Create standalone Automation account
         href: automation-create-standalone-account.md
-      - name: Create Azure AD user account
-        href: automation-create-aduser-account.md
+      - name: Manage Automation Run As account
+        href: manage-runas-account.md
       - name: Configure authentication with AWS
         href: automation-config-aws-account.md
-      - name: Create Automation Run As account
-        href: automation-create-runas-account.md
-      - name: Validate Automation account config
-        href: automation-verify-runas-authentication.md
       - name: Manage role-based access control
         href: automation-role-based-access-control.md
-      - name: Manage Automation account
-        href: automation-manage-account.md
     - name: Create runbooks
       items:
         - name: Runbook types
@@ -113,8 +107,6 @@
           href: automation-runbook-graphical-error-handling.md
         - name: Track a runbook job
           href: automation-runbook-execution.md
-        - name: Change runbook settings
-          href: automation-runbook-settings.md
         - name: Manage Azure Automation data
           href: automation-managing-data.md
         - name: Pass a JSON object to an Azure Automation runbook

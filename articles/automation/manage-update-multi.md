@@ -155,9 +155,6 @@ In the **New update deployment** pane, specify the following information:
 
 When you're finished configuring the schedule, select the **Create** button to return to the status dashboard. The **Scheduled** table shows the deployment schedule that you created.
 
-> [!WARNING]
-> For updates that require a restart, the virtual machine restarts automatically.
-
 ## View results of an update deployment
 
 After the scheduled deployment starts, you can see the status for that deployment on the **Update deployments** tab under **Update management**.

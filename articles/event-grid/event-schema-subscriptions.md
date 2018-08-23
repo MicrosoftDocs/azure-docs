@@ -3,11 +3,10 @@ title: Azure Event Grid subscription event schema
 description: Describes the properties that are provided for subscription events with Azure Event Grid
 services: event-grid
 author: tfitzmac
-manager: timlt
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/02/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
 ---
 
@@ -23,7 +22,9 @@ When you subscribe to events for an Azure subscription, your endpoint receives a
 
 To programmatically handle events, you can sort events by looking at the `operationName` value. For example, your event endpoint might only process events for operations that are equal to `Microsoft.Compute/virtualMachines/write` or `Microsoft.Storage/storageAccounts/write`.
 
-The event subject is the resource ID of the resource that is the target of the operation. To filter events for a resource, provide that resource ID when creating the event subscription. For sample scripts, see [Subscribe and filter for resource group - PowerShell](scripts/event-grid-powershell-resource-group-filter.md) or [Subscribe and filter for resource group - Azure CLI](scripts/event-grid-cli-resource-group-filter.md). To filter by a resource type, use a value in following format: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+The event subject is the resource ID of the resource that is the target of the operation. To filter events for a resource, provide that resource ID when creating the event subscription. To filter by a resource type, use a value in following format: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+
+For a list of sample scripts and tutorials, see [Azure subscription event source](event-sources.md#azure-subscriptions).
 
 ## Available event types
 
