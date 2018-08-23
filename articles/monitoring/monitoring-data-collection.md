@@ -19,10 +19,7 @@ ms.author: bwren
 # Collect monitoring data in Azure
 This article provides an overview of the monitoring data that's collected from applications and services in Azure. It also describes the tools that you can use to analyze the data. 
 
-## Types of monitoring data
-All monitoring data fits into one of two fundamental types, metrics or logs. Each type has distinct characteristics and is best suited for particular scenarios.
-
-### Metrics
+## Metrics
 Metrics are numerical values that describe some aspect of a system at a particular time. They include:
 
 * Distinct data, including the value itself.
@@ -40,12 +37,47 @@ For example, a certain number of users on your application at a given time might
 
 Alerts based on logs are not as responsive as alerts based on metrics, but they can include more complex logic. You can create an alert based on the results of any query that performs complex analysis on data from multiple sources.
 
-### Logs
+### What are the characteristics of metrics?
+Metrics have the following characteristics:
+
+* All metrics have **one-minute frequency** (unless specified otherwise in a metric's definition). You receive a metric value every minute from your resource, giving you near real-time visibility into the state and health of your resource.
+* Metrics are **available immediately**. You don't need to opt in or set up additional diagnostics.
+* You can access **93 days of history** for each metric. You can quickly look at the recent and monthly trends in the performance or health of your resource.
+* Some metrics can have name-value pair attributes called **dimensions**. These enable you to further segment and explore a metric in a more meaningful way.
+
+### What can you do with metrics?
+Metrics enable you to do the following tasks:
+
+
+- Configure a metric **alert rule that sends a notification or takes automated action** when the metric crosses the threshold that you have set. Actions are controlled through [action groups](monitoring-action-groups.md). Example actions include email, phone, and SMS notifications, calling a webhook, starting a runbook, and more. **Autoscale** is a special automated action that enables you to scale your a resource up and down to handle load yet keep costs lower when not under load. You can configure an autoscale setting rule to scale in or out based on a metric crossing a threshold.
+- **Route** all metrics to *Application Insights* or *Log Analytics* to enable instant analytics, search, and custom alerting on metrics data from your resources. You can also stream metrics to an *Event Hub*, enabling you to then route them to Azure Stream Analytics or to custom apps for near-real time analysis. You set up Event Hub streaming using diagnostic settings.
+- **Archive** the performance or health history of your resource for compliance, auditing, or offline reporting purposes.  You can route your metrics to Azure Blob storage when you configure diagnostic settings for your resource.
+- Use the **Azure portal** to discover, access, and view all metrics when you select a resource and plot the metrics on a chart. You can track the performance of your resource (such as a VM, website, or logic app) by pinning that chart to your dashboard.  
+- **Perform advanced analytics** or reporting on performance or usage trends of your resource.
+- **Query** metrics by using the PowerShell cmdlets or the Cross-Platform REST API.
+- **Consume** the metrics via the new Azure Monitor REST APIs.
+
+  ![Routing of Metrics in Azure Monitor](media//monitoring-data-collection/metrics-overview.png)
+
+## Logs
 Logs contain different kinds of data organized into records with different sets of properties for each type. Logs might contain numeric values like metrics but typically contain text data with detailed descriptions. They further differ from metrics in that they vary in their structure and are often not collected at regular intervals.
 
 A common type of log entry is an event. Events are collected sporadically. They're created by an application or service and typically include enough information to provide complete context on their own. For example, an event can indicate that a particular resource was created or modified, a new host started in response to increased traffic, or an error was detected in an application.
 
 Logs are especially useful for combining data from a variety of sources, for complex analysis and trending over time. Because the format of the data can vary, applications can create custom logs by using the structure that they need. Metrics can even be replicated in logs to combine them with other monitoring data for trending and other data analysis.
+
+Log Analytics collects data from a variety of sources.  Once collected, the data is organized into separate tables for each data type, which allows all data to be analyzed together regardless of its original source.
+
+Methods for collecting data into Log Analytics include the following:
+
+- Configure Azure Monitor to copy [metrics and logs](../monitoring/monitoring-data-collection.md#types-of-monitoring-data) that it collects from Azure resources.
+- Collect telemetry written to [Azure Storage](log-analytics-azure-storage-iis-table.md).
+- Agents on [Windows](log-analytics-windows-agent.md) and [Linux](log-analytics-linux-agents.md) virtual machines send telemetry from the guest operating system and applications to Log Analytics according to [Data Sources](log-analytics-data-sources.md) that you configure. Agents can be directly connected, connect through an [OMS Gateway](log-analytics-oms-gateway.md) when they don't have firewall access, or connect through a [System Center Operations Manager management group](log-analytics-om-agents.md).
+- Azure services such as [Application Insights](https://docs.microsoft.com/azure/application-insights/) and [Azure Security Center](https://docs.microsoft.com/azure/security-center/) store their data directly in Log Analytics without any configuration.
+- Write data from PowerShell command line or [Azure Automation runbook](../automation/automation-runbook-types.md) using Log Analytics cmdlets.
+- If you have custom requirements, then you can use the [HTTP Data Collector API](log-analytics-data-collector-api.md) to write data to Log Analytics from any REST API client or an [Azure Logic App](https://docs.microsoft.com/azure/logic-apps/) to write data from a custom workflow.
+
+![Log Analytics components](media//monitoring-data-collection/logs-overview.png)
 
 
 ## Monitoring tools in Azure
