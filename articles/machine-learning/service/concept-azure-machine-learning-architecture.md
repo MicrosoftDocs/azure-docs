@@ -33,6 +33,9 @@ The workflow for developing and deploying a model with Azure Machine Learning ge
 
 [!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
+> [!NOTE]
+> While this document defines terms and concepts used by Azure Machine Learning, it does not define terms and concepts for the Azure platform. For more information on Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
+
 ## Workspace
 
 The workspace provides a list of compute targets that can be used to train your model. It also keeps a history of the training runs, including logs, metrics, output, and a snapshot of your project. This information can be used to determine which training run produces the best model.
@@ -58,8 +61,6 @@ When you create a new workspace, it automatically creates several Azure resource
 The following diagram is a taxonomy of the workspace:
 
 [![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/taxonomy.png)](./media/concept-azure-machine-learning-architecture/taxonomy.png#lightbox)
-
-For more information on Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## Project
 
