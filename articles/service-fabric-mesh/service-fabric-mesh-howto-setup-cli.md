@@ -19,7 +19,7 @@ For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azu
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-If you choose to install and use the CLI locally, you must install the Azure CLI version 2.0.35 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].
+If you choose to install and use the CLI locally, you must install the Azure CLI version 2.0.43 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].
 
 Install the Azure Service Fabric Mesh CLI extension module using following command. 
 

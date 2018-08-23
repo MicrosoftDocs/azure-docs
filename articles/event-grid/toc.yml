@@ -25,10 +25,12 @@
       href: custom-event-quickstart-powershell.md
     - name: Portal
       href: custom-event-quickstart-portal.md
-  - name: Send events to Queue storage
+  - name: Queue storage as event handler
     href: custom-event-to-queue-storage.md
-  - name: Send events to Event Hubs
+  - name: Event Hubs as event handler
     href: custom-event-to-eventhub.md
+  - name: Container Registry events
+    href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
 - name: Tutorials
   items:
   - name: Email when VM changes
@@ -107,6 +109,8 @@
     href: monitor-event-delivery.md
   - name: Query event subscriptions
     href: query-event-subscriptions.md
+  - name: Subscribe through portal
+    href: subscribe-through-portal.md
   - name: Map custom fields to schema
     href: input-mappings.md
   - name: Use CloudEvents schema

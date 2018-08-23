@@ -54,6 +54,7 @@
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
 #### [Information workers adding B2B users](b2b/add-users-information-worker.md)
 #### [API and customization](b2b/customize-invitation-api.md)
+#### [Google federation](b2b/google-federation.md)
 #### [Code and Azure PowerShell samples](b2b/code-samples.md)
 #### [Self-service sign-up portal sample](b2b/self-service-portal.md)
 #### [Invitation email](b2b/invitation-email-elements.md)
@@ -112,9 +113,9 @@
 #### [Interpret the sign-in log schema in Azure Monitor](reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md)
 
 ### Troubleshoot
-#### [Missing audit data](reports-monitoring/troubleshoot-missing-audit-data.md)
+#### [Missing data in Azure AD activity logs](reports-monitoring/troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](reports-monitoring/troubleshoot-missing-data-download.md)
-#### [Azure AD Activity logs content pack errors](reports-monitoring/troubleshoot-content-pack.md)
+#### [Azure AD activity logs content pack errors](reports-monitoring/troubleshoot-content-pack.md)
 #### [Errors in Azure AD Reporting API](reports-monitoring/troubleshoot-graph-api.md)
 
 ###	[Programmatic Access](reports-monitoring/concept-reporting-api.md)
