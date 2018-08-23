@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/23/2018
+ms.date: 12/18/2017
 
 ---
 # How to choose algorithms for Microsoft Azure Machine Learning
