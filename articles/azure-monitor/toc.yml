@@ -64,7 +64,11 @@
 - name: Concepts
   items:
   - name: FAQ
-    href: ../log-analytics/log-analytics-faq.md?toc=/azure/azure-monitor/toc.json
+    items:
+    - name: Log Analytics
+      href: ../log-analytics/log-analytics-faq.md?toc=/azure/azure-monitor/toc.json
+    - name: Application Insights
+      href: ../application-insights/app-insights-troubleshoot-faq.md?toc=/azure/azure-monitor/toc.json
   - name: Data collection
     href: ../monitoring/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
   - name: Monitoring data
@@ -77,6 +81,8 @@
       href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=/azure/azure-monitor/toc.json
     - name: Diagnostic logs
       href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json
+    - name: Data ingestion time
+      href: ../log-analytics/log-analytics-data-ingestion-time.md?toc=/azure/azure-monitor/toc.json    
     - name: Data security
       items:
       - name: Log data
@@ -90,7 +96,11 @@
   - name: Insights
     items:
     - name: Application monitoring
-      href: ../application-insights/app-insights-overview.md?toc=/azure/azure-monitor/toc.json
+      items:
+      - name: Overview
+        href: ../application-insights/app-insights-overview.md?toc=/azure/azure-monitor/toc.json
+      - name: DevOps
+        href: ../application-insights/app-insights-detect-triage-diagnose.md?toc=/azure/azure-monitor/toc.json
     - name: Monitoring solutions
       href: ../monitoring/monitoring-solutions-inventory.md?toc=/azure/azure-monitor/toc.json
   - name: Analyze data
@@ -124,8 +134,6 @@
       href: ../monitoring-and-diagnostics/monitoring-action-groups.md?toc=/azure/azure-monitor/toc.json
   - name: Partner integrations
     href: ../monitoring-and-diagnostics/monitoring-partners.md?toc=/azure/azure-monitor/toc.json
-  - name: Features for service providers
-    href: ../log-analytics/log-analytics-service-providers.md?toc=/azure/azure-monitor/toc.json
 - name: How-to guides
   items:
   - name: Plan and prepare
@@ -158,6 +166,8 @@
         href: ../log-analytics/log-analytics-quick-create-workspace.md?toc=/azure/azure-monitor/toc.json
       - name: Delete a workspace
         href: ../log-analytics/log-analytics-manage-del-workspace.md?toc=/azure/azure-monitor/toc.json
+      - name: Design for service providers
+        href: ../log-analytics/log-analytics-service-providers.md?toc=/azure/azure-monitor/toc.json
     - name: Install and configure agents
       items:
       - name: Windows agents
