@@ -259,7 +259,7 @@ for run in children:
     properties = run.get_properties()
     metrics = {k: v for k, v in run.get_metrics().items() if not isinstance(v, list)}    
     metricslist[int(properties['iteration'])] = metrics
-    
+
 import pandas as pd
 import seaborn as sns
 rundata = pd.DataFrame(metricslist).sort_index(1)
@@ -269,18 +269,21 @@ s
 ```
 
 This table shows the results.  In the notebook the table has varying shades of green to highlight high/low values.
-<table>
-<thead><tr>
-        <th></th> 	
-        <th>0</th> 	
-        <th>1</th> 	
-        <th>2</th> 	
-        <th>3</th> 	
-        <th>4</th> 	
-        <th>5</th> 	
-        <th>6</th> 	
-        <th>7</th> 	
-    </tr></thead> 
+
+
+<!-- hello world -->
+
+<table><thead><tr>
+        <th></th>
+        <th>0</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+    </tr></thead>
 <tbody>    <tr> 
         <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row0" class="row_heading level0 row0" >AUC_macro</th> 
         <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col0" class="data row0 col0" >0.988094</td> 
@@ -493,7 +496,7 @@ This table shows the results.  In the notebook the table has varying shades of g
         <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col7" class="data row20 col7" >0.924723</td> 
     </tr></tbody> 
 </table> 
-
+<!-- hello world -->
 
 ## Register the best model 
 
