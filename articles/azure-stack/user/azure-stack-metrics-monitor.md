@@ -17,7 +17,7 @@ ms.author: mabrigg
 
 ---
 
-# Consume monitoring data from Azure Stack
+# How to consume monitoring data from Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
