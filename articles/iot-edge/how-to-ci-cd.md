@@ -12,7 +12,7 @@ services: iot-edge
 
 # Continuous integration and continuous deployment to Azure IoT Edge
 
-This article demonstrates how you can use the continuous integration and continuous deployment features of Azure DevOps and Microsoft Team Foundation Server (TFS) to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
+This article demonstrates how you can use the continuous integration and continuous deployment features of Azure DevOps Services and Microsoft Team Foundation Server (TFS) to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
 
 In this article, you will learn how to:
 * Create and check in a sample IoT Edge solution containing unit tests.
@@ -276,7 +276,7 @@ In this section, you will create a sample IoT Edge solution containing unit test
     
 
 > [!NOTE]
-> For more information about using Azure DevOps code repositories, see [Share your code with Visual Studio and Azure DevOps Git](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts).
+> For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts).
 
 
 ## Configure continuous integration
