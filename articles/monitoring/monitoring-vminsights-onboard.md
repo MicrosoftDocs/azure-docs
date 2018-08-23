@@ -29,8 +29,8 @@ Before you start, make sure that you have the following as described in the sub-
 
    - West Central US  
    - East US
-   - Southeast Asia (Health is not supported yet)
-   - West Europe (Health is not supported yet)
+   - Southeast Asia
+   - West Europe 
 
     If you do not have a workspace, you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
 
@@ -54,52 +54,6 @@ The following versions of the Windows and Linux operating systems are officially
 |Oracle Linux 7 | X | | X |  
 |Oracle Linux 6 | X | X | X |  
 |Debian 9.4, 8 | X | | X |  
-
-## Default performance counters sampled
-The solution samples a basic set of performance counters by default for the Windows and Linux operating system.  Below is a list that are configured for collection.
-
->[!NOTE]
->The collection interval for any newly added configuration is set to 60 seconds.
->
-
-### Windows 
-
-| Object Name | Instance Name | Counter Name |  
-| ----------- | ------------- | ------------ |  
-| LogicalDisk | * | % Free Space |  
-| LogicalDisk | * | Avg. Disk sec/Read |  
-| LogicalDisk | * | Avg. Disk sec/Transfer |  
-| LogicalDisk | * | Avg. Disk sec/Write |  
-| LogicalDisk | * | Disk Bytes/sec |  
-| LogicalDisk | * | Disk Read Bytes/sec |  
-| LogicalDisk | * | Disk Reads/sec |  
-| LogicalDisk | * | Disk Transfers/sec |  
-| LogicalDisk | * | Disk Write Bytes/sec |  
-| LogicalDisk | * | Disk Writes/sec |  
-| LogicalDisk | * | Free Megabytes |  
-| Memory | * | Available Mbytes |  
-| Network Adapter | * | Bytes Received/sec |  
-| Network Adapter | * | Bytes Sent/sec |  
-| Processor | _Total  | % Processor Time |  
-  
-### Linux  
-
-| Object Name | Instance Name | Counter Name |  
-| ----------- | ------------- | ------------ |  
-| Logical Disk | * | % Used Space |  
-| Logical Disk | * | Disk Read Bytes/sec |  
-| Logical Disk | * | Disk Reads/sec |  
-| Logical Disk | * | Disk Transfers/sec |  
-| Logical Disk | * | Disk Write Bytes/sec |  
-| Logical Disk | * | Disk Writes/sec |  
-| Logical Disk | * | Free Megabytes |  
-| Logical Disk | * | Logical Disk Bytes/sec |  
-| Memory | * | Available Mbytes Memory |  
-| Network | * | Total Bytes Received |  
-| Network | * | Total Bytes Transmitted |  
-| Processor | * | % Processor Time |  
-
-For more information about Log Analytics performance counters, see [Data collection details for performance counters](../log-analytics/log-analytics-data-sources-performance-counters.md).
 
 ## Enable from the Azure portal
 To enable monitoring of your Azure VM in the Azure portal, do the following:
