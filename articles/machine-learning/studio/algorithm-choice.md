@@ -74,7 +74,7 @@ Here is a list of the Machine Learning Studio algorithms mentioned in the cheat 
 - [PCA-based anomaly detection](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/pca-based-anomaly-detection)
 - [K-means](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/k-means-clustering)
 
-## More help with algorithms
+## Next Steps
 
 - For a downloadable infographic that describes algorithms and provides examples, see [Downloadable Infographic: Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md).
 
