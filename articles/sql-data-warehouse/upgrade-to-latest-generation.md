@@ -43,19 +43,18 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. By default, **select the suggested performance level** for the data warehouse based on your current performance level on Compute Optimized Gen1 tier by using the mapping below:
     
-| Compute Optimized Gen1 tier | Compute Optimized Gen2 tier |
-| :----------------------: | :-------------------: |
-|      DW100 – DW1000      |        DW1000c        |
-|          DW1200          |        DW1500c        |
-|          DW1500          |        DW1500c        |
-|          DW2000          |        DW2000c        |
-|          DW3000          |        DW3000c        |
-|          DW6000          |        DW6000c        |
-
+   | Compute Optimized Gen1 tier | Compute Optimized Gen2 tier |
+   | :----------------------: | :-------------------: |
+   |      DW100 – DW1000      |        DW1000c        |
+   |          DW1200          |        DW1500c        |
+   |          DW1500          |        DW1500c        |
+   |          DW2000          |        DW2000c        |
+   |          DW3000          |        DW3000c        |
+   |          DW6000          |        DW6000c        |
 
 3. Ensure your workload has completed running and quiesced before upgrading. You will experience downtime for a few minutes before your data warehouse is back online as a Compute Optimized Gen2 tier data warehouse. **Click Upgrade**. The price of the Compute Optimized Gen2 tier performance tier is currently half-off during the preview period:
     
-    ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
+   ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
 
 4. **Monitor your upgrade** by checking the status in the Azure portal:
 
@@ -68,7 +67,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 5. **Optional Recommendation:** 
 To expedite the data migration background process, you can immediately force data movement by running [Alter Index rebuild](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) on all primary columnstore tables you'd be querying at a larger SLO and resource class. This operation is **offline** compared to the trickle background process which can take hours to complete depending on the number and sizes of your tables; however, data migration will be much quicker where you can then take full advantage of the new enhanced storage architecture once complete with high-quality rowgroups. 
 
-This following query generates the required Alter Index Rebuild commands to expedite the data migration process:
+The following query generates the required Alter Index Rebuild commands to expedite the data migration process:
 
 ```sql
 SELECT 'ALTER INDEX [' + idx.NAME + '] ON [' 
