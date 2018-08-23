@@ -18,28 +18,18 @@ ms.component: B2C
 The **ClaimsSchema** element defines the claim types that can be referenced as part of the policy. Claims schema is the place where you declare your claims. A claim can be first name, last name, display name, phone number and more. ClaimsSchema element contains list of **ClaimType** elements. The **ClaimType** element contains the **Id** attribute, which is the claim name. 
 
 ```XML
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-  PolicySchemaVersion="0.3.0.0"
-  TenantId="mytenant.onmicrosoft.com"
-  PolicyId="B2C_1A_TrustFrameworkBase"
-  PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
-
-  <BuildingBlocks>
-    <ClaimsSchema>
-      <ClaimType Id="Id">
-        <DisplayName>Surname</DisplayName>
-        <DataType>string</DataType>
-        <DefaultPartnerClaimTypes>
-          <Protocol Name="OAuth2" PartnerClaimType="family_name" />
-          <Protocol Name="OpenIdConnect" PartnerClaimType="family_name" />
-          <Protocol Name="SAML2" PartnerClaimType="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" />
-        </DefaultPartnerClaimTypes>
-        <UserHelpText>Your surname (also known as family name or last name).</UserHelpText>
-        <UserInputType>TextBox</UserInputType>
+<BuildingBlocks>
+  <ClaimsSchema>
+    <ClaimType Id="Id">
+      <DisplayName>Surname</DisplayName>
+      <DataType>string</DataType>
+      <DefaultPartnerClaimTypes>
+        <Protocol Name="OAuth2" PartnerClaimType="family_name" />
+        <Protocol Name="OpenIdConnect" PartnerClaimType="family_name" />
+        <Protocol Name="SAML2" PartnerClaimType="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" />
+      </DefaultPartnerClaimTypes>
+      <UserHelpText>Your surname (also known as family name or last name).</UserHelpText>
+      <UserInputType>TextBox</UserInputType>
 ```
 
 ## ClaimType
@@ -48,19 +38,19 @@ The **ClaimType** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Id | Yes | An identifier that's used for the claim type. Other elements can use this identifier in the policy file. |
+| Id | Yes | An identifier that's used for the claim type. Other elements can use this identifier in the policy. |
 
 The **ClaimType** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | The title that's displayed to users on various screens. The value can be localized. |
-| DataType | 0:1 | The type of the claim. The data types of boolean, date, dateTime, int, long, string, stringCollection can be used. |
-| DefaultPartnerClaimTypes | 0:1 | The partner default claim types to use for a specified protocol. The value can be overwritten in the **PartnerClaimType** specified in the **InputClaim** or **OutputClaim** elements. Use this element to specify the default name for a protocol. For example, when the Identity Experience Framework interacts with a SAML2 identity provider or relying party application, the surname claim ('http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname') is called while the 'OpenIdConnect' protocol is called family_name. |
+| DisplayName | 0:1 | The title that's displayed to users on various screens. The value can be [localized](localization.md). |
+| DataType | 0:1 | The type of the claim. The data types of boolean, date, dateTime, int, long, string, stringCollection, alternativeSecurityIdCollection can be used. |
+| DefaultPartnerClaimTypes | 0:1 | The partner default claim types to use for a specified protocol. The value can be overwritten in the **PartnerClaimType** specified in the **InputClaim** or **OutputClaim** elements. Use this element to specify the default name for a protocol.  |
 | Mask | 0:1 | An optional string of masking characters that can be applied when displaying the claim. For example, the phone number 324-232-4343 can be masked as XXX-XXX-4343. |
-| UserHelpText | 0:1 | A description of the claim type that can be helpful for users to understand its purpose. The value can be localized. |
+| UserHelpText | 0:1 | A description of the claim type that can be helpful for users to understand its purpose. The value can be [localized](localization.md). |
 | UserInputType | 0:1 | The type of input control that should be available to the user when manually entering the claim data for the claim type. See the user input types defined later in this page. |
-| Restriction | 0:1 | The value restrictions for this claim, such as a regular expression (Regex) or a list of acceptable values. The value can be localized. |
+| Restriction | 0:1 | The value restrictions for this claim, such as a regular expression (Regex) or a list of acceptable values. The value can be [localized](localization.md). |
 
 ### DefaultPartnerClaimTypes
 
@@ -74,12 +64,38 @@ The **Protocol** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Name | Yes | The name of a valid protocol supported by Azure AD B2C. Possible values are: None, OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed, WsTrust, or Proprietary. |
+| Name | Yes | The name of a valid protocol supported by Azure AD B2C. Possible values are:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed, or WsTrust. |
 | PartnerClaimType | Yes | The claim type name to be used. |
+
+In the following example, when the Identity Experience Framework interacts with a SAML2 identity provider or relying party application, the `surname` claim is mapped to ('http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname'), with 'OpenIdConnect' and `OAuth2` the claim is mapped to `family_name`.
+
+```XML
+<ClaimType Id="surname">
+  <DisplayName>Surname</DisplayName>
+  <DataType>string</DataType>
+  <DefaultPartnerClaimTypes>
+    <Protocol Name="OAuth2" PartnerClaimType="family_name" />
+    <Protocol Name="OpenIdConnect" PartnerClaimType="family_name" />
+    <Protocol Name="SAML2" PartnerClaimType="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" />
+  </DefaultPartnerClaimTypes>
+</ClaimType>
+```
+
+As a result, the JWT token issued by Azure AD B2C, omits  the `family_name` instead of ClaimType name: `surname`.
+
+```JSON
+{
+  "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
+  "auth_time": 1535013501,
+  "given_name": "David",
+  "family_name": "Williams",
+  "name": "David Williams",
+}
+```
 
 ### Mask
 
-The **Mask** element can contain the following attributes:
+The **Mask** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
@@ -102,7 +118,7 @@ The Identity Experience Framework renders the phone number while hiding the firs
 
 ![Using claim type with mask](./media/claimsschema/claimtype-mask.png)
 
-The follwing example configures a **PhoneNumber** claim with the `Regex` mask:
+The follwing example configures a **AlternateEmail** claim with the `Regex` mask:
 
 ```XML
 <ClaimType Id="AlternateEmail">
@@ -194,7 +210,7 @@ The Identity Experience Framework renders the email address claim with email for
 
 ## UserInputType
 
-Azure AD B2C supports a variety of user input types, such as a textbox, password, and dropdown list that can be used when manually entering claim data for the claim type. You don't need to specify UserInputType when you declare a claim type to send or receive values from a custom Rest API.
+Azure AD B2C supports a variety of user input types, such as a textbox, password, and dropdown list that can be used when manually entering claim data for the claim type. You must specify the **UserInputType** when you collect information from the end user, using [self-asserted technical profile](self-asserted-technical-profile.md).
 
 ### TextBox
 
@@ -204,11 +220,6 @@ The **TextBox** user input type is used to provide a single-line text box.
 <ClaimType Id="displayName">
   <DisplayName>Display Name</DisplayName>
   <DataType>string</DataType>
-  <DefaultPartnerClaimTypes>
-    <Protocol Name="OAuth2" PartnerClaimType="unique_name" />
-    <Protocol Name="OpenIdConnect" PartnerClaimType="name" />
-    <Protocol Name="SAML2" PartnerClaimType="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" />
-  </DefaultPartnerClaimTypes>
   <UserHelpText>Your display name.</UserHelpText>
   <UserInputType>TextBox</UserInputType>
 </ClaimType>
