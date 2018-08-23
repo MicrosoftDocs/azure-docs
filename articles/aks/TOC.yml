@@ -29,6 +29,8 @@
     href: tutorial-kubernetes-upgrade-cluster.md
 - name: Concepts
   items:
+  - name: Clusters and workloads
+    href: concepts-clusters-workloads.md
   - name: Scale
     href: concepts-scale.md
   - name: Quotas and regional limits
