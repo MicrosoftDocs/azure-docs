@@ -4,7 +4,7 @@ description: Understand how to use HTTP and webhook triggers and bindings in Azu
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, HTTP, API, REST
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/03/2018
+ms.date: 08/22/2018
 ms.author: glenga
 ---
 
@@ -588,9 +588,9 @@ Keys are stored as part of your function app in Azure and are encrypted at rest.
 
     ![Manage function keys in the portal.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-* Use the Functions [key management REST APIs](https://github.com/Azure/azure-functions-host/wiki/Key-management-API). For example, a GET request to the following endpoint of the `myfunctionapp` app returns all keys for a function named `HttpTriggerCSharp1`: `https://myfunctionapp.azurewebsites.net/admin/functions/HttpTriggerCSharp1/keys`
+* Using the Functions [key management REST APIs](https://github.com/Azure/azure-functions-host/wiki/Key-management-API). For example, a GET request to the following endpoint of the `myfunctionapp` app returns all keys for a function named `HttpTriggerCSharp1`: `https://myfunctionapp.azurewebsites.net/admin/functions/HttpTriggerCSharp1/keys`
 
-    This request requires you to provide the host master key in the request. You can do this by using the **x-functions-key** HTTP header or as a `code` query string value. Remember to securely store and transmit your master key, which provides administrator access to your function app.
+    This request requires you to provide the host master key in the request. You can do this by using the **x-functions-key** HTTP header or by using the `code` query string. Remember to securely store and transmit your master key, which provides administrator access to your function app.
 
 ### API key authorization
 
