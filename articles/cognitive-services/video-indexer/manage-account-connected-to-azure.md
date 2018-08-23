@@ -20,7 +20,7 @@ This article demonstrates how to manage a Video Indexer account that is connecte
 
 Connect your Video Indexer account to Azure, as described in [Connected to Azure](connect-to-azure.md). 
 
-Make sure to follow [Prerequisites](connect-to-azure.md#prerequisites) described and review [Considerations](connect-to-azure.md##Considerations) in the article.
+Make sure to follow [Prerequisites](connect-to-azure.md#prerequisites) described and review [Considerations](connect-to-azure.md#considerations) in the article.
 
 ## Examine account settings
 
@@ -48,10 +48,6 @@ The **Settings** page enables you to set the autoscaling of reserved units. If t
 
 ![Sign up](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
-## Billing for Media Reserved Units
-
-You are charged based on actual minutes of usage of Media Reserved Units. For a detailed explanation, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.   
-
 ## Errors and warnings
 
 If your account needs some adjustments, you will see relevant errors and warnings about your account configuration on the **Settings** page. The messages contain links to exact places in Azure portal where you need to make changes. This sections gives more details about the error and warning messages.
@@ -62,6 +58,10 @@ If your account needs some adjustments, you will see relevant errors and warning
 
 * Streaming Endpoint disabled
 * Reserved units configuration issues 
+
+## Billing for Media Reserved Units
+
+You are charged based on actual minutes of usage of Media Reserved Units. For a detailed explanation, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.   
 
 ## Next steps
 
