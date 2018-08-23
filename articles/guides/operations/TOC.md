@@ -6,7 +6,7 @@
 #### [Linux Virtual Machines](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
 ### Virtual Networks
 #### [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Storage](https://docs.microsoft.com/en-us/azure/storage/)
+### [Storage](https://docs.microsoft.com/azure/storage/)
 ### Security
 #### [Use role assignments to manage resources](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
@@ -23,12 +23,12 @@
 ## [Azure Resource Manager](azure-operations-guide.md#azure-resource-manager)
 
 ### [Authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Deploy templates using the Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Deploy templates using Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Deploy templates using the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Deploy templates using the Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Deploy templates using Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Deploy templates using the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Security (RBAC)](azure-operations-guide.md#security-of-azure-resource)
-###[Use role assignments to manage resources](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Use role assignments to manage resources](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Virtual machines](azure-operations-guide.md#azure-virtual-machines)
 ### [VM sizes for Windows](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
@@ -42,7 +42,7 @@
 ### Virtual machine tutorials for Windows
 #### [Create / manage a VM](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Create / manage disks](../../virtual-machines/windows/tutorial-manage-data-disk.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Automate configuration](../../virtual-machines/windows/tutorial-automate-vm-deployment.md
+#### [Automate configuration](../../virtual-machines/windows/tutorial-automate-vm-deployment.md)
 #### [Create VM images](../../virtual-machines/windows/tutorial-custom-images.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Highly available VMs](../../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Create a VM scale set](../../virtual-machines/windows/tutorial-create-vmss.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
