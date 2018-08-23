@@ -174,7 +174,7 @@
         href: ../connectors/connectors-create-api-crmonline.md
       - name: EDIFACT
         href: logic-apps-enterprise-integration-edifact.md
-      - name: Excel
+      - name: Excel Online for Business or OneDrive
         href: ../connectors/connectors-create-api-excel.md
       - name: Facebook
         href: ../connectors/connectors-create-api-facebook.md
@@ -216,6 +216,8 @@
         href: ../connectors/connectors-create-api-onedriveforbusiness.md
       - name: Oracle Database
         href: ../connectors/connectors-create-api-oracledatabase.md
+      - name: Outlook.com
+        href: ../connectors/connectors-create-api-outlook.md
       - name: Project Online
         href: ../connectors/connectors-create-api-projectonline.md
       - name: Request / Response
