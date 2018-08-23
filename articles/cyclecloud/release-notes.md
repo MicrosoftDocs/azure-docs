@@ -10,7 +10,7 @@ ms.date: 08/01/2018
 ms.author: a-kiwels
 ---
 
-# Azure CycleCloud v7.5.0
+# Azure CycleCloud v7.5.1
 
 ## What's New
 
@@ -25,3 +25,5 @@ ms.author: a-kiwels
 * Now supports Azure Marketplace images that require acceptance of license terms
 * Can now override accelerated networking option
 * Election of Windows Azure Hybrid Licensing Benefit now supported
+* The status of instance sizes with no capacity now shown in the UI
+* Slurm support for Ubuntu added 
