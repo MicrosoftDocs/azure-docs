@@ -63,7 +63,7 @@ If you have a Virtual Machine that no longer needs the system assigned identity:
 
 2. Navigate to the desired Virtual Machine and select **Identity**.
 
-3. Under **System assigned**, **Status**, select **Off** and then click **Save**
+3. Under **System assigned**, **Status**, select **Off** and then click **Save**:
 
    ![Configuration page screenshot](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)
 
