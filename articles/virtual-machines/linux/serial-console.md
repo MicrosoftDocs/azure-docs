@@ -33,7 +33,7 @@ The Virtual Machine Serial Console on Azure provides access to a text-based cons
 * Virtual machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 * The account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
-* For settings specific to Linux distro, see [Accessing the serial console for Linux](#accessing-serial-console-for-linux)
+* For settings specific to Linux distros, see [Accessing the serial console for Linux](#access-serial-console-for-linux)
 
 
 ## Open the Serial Console
