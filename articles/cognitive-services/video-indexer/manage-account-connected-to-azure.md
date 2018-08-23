@@ -20,7 +20,7 @@ This article demonstrates how to manage a Video Indexer account that is connecte
 
 Connect your Video Indexer account to Azure, as described in [Connected to Azure](connect-to-azure.md). 
 
-Make sure to follow [Prerequisites](connect-to-azure.md#prerequisites) described and review [Considerations](connect-to-azure.md#considerations) in the article.
+Make sure to follow [Prerequisites](connect-to-azure.md#prerequisites) and review [Considerations](connect-to-azure.md#considerations) in the article.
 
 ## Examine account settings
 
