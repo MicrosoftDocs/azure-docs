@@ -358,6 +358,8 @@
       items:
       - name: Data collector API
         href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
+      - name: Data Collector API Pipeline example
+        href: log-analytics-create-pipeline-datacollector-api.md
       - name: Application data
         href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
     - name: System Center
