@@ -62,7 +62,7 @@ sections:
       text: Java
       href: https://docs.microsoft.com/azure/dev-spaces/get-started-java
 - title: How Azure Dev Spaces simplifies Kubernetes development
-items:
+  items:
   - type: paragraph
     text: Azure Dev Spaces helps development teams be more productive on Kubernetes in the following ways
   - type: list
