@@ -34,14 +34,14 @@ For a hands-on overview on using Azure SQL Analytics solution and for typical us
 
 ## Connected sources
 
-Azure SQL Analytics is a cloud monitoring solution supporting streaming of diagnostics telemetry for Azure SQL Databases and elastic pools. As it does not use agents to connect to the Log Analytics service, the solution does not support connectivity with Windows, Linux or SCOM resources, see the compatibility table below.
+Azure SQL Analytics is a cloud monitoring solution supporting streaming of diagnostics telemetry for Azure SQL Databases and elastic pools. As it doesn't use agents to connect to the Log Analytics service, the solution doesn't support connectivity with Windows, Linux or SCOM resources, see the compatibility table below.
 
 | Connected Source | Support | Description |
 | --- | --- | --- |
 | **[Azure Diagnostics](log-analytics-azure-storage.md)** | **Yes** | Azure metric and log data are sent to Log Analytics directly by Azure. |
-| [Azure storage account](log-analytics-azure-storage.md) | No | Log Analytics does not read the data from a storage account. |
-| [Windows agents](log-analytics-windows-agent.md) | No | Direct Windows agents are not used by the solution. |
-| [Linux agents](log-analytics-linux-agents.md) | No | Direct Linux agents are not used by the solution. |
+| [Azure storage account](log-analytics-azure-storage.md) | No | Log Analytics doesn't read the data from a storage account. |
+| [Windows agents](log-analytics-windows-agent.md) | No | Direct Windows agents aren't used by the solution. |
+| [Linux agents](log-analytics-linux-agents.md) | No | Direct Linux agents aren't used by the solution. |
 | [SCOM management group](log-analytics-om-agents.md) | No | A direct connection from the SCOM agent to Log Analytics is not used by the solution. |
 
 ## Configuration
@@ -114,7 +114,7 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 
 ### Elastic Pool and Database reports
 
-Both Elastic Pools and Databases have their own specific reports which show all the data that is collected for the resource in the specified time.
+Both Elastic Pools and Databases have their own specific reports that show all the data that is collected for the resource in the specified time.
 
 ![Azure SQL Analytics Database](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
 
@@ -148,7 +148,7 @@ AzureMetrics
 | render timechart
 ```
 
-*Setting up alerts on Database storage being in average above 95% in the last 1hr*
+*Setting up alerts on Database storage being in average above 95% in the last 1 hr*
 
 ```
 let time_range = 1h;
@@ -161,7 +161,7 @@ AzureMetrics
 | distinct ResourceId
 ```
 
-Please note: This query requires an alert rule to be setup to fire off an alert when there exit results (> 0 results) from the query, denoting that the condition exists on some databases. The output is a list of database resources that are above the storage_threshold within the time_range defined.
+Note: This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on some databases. The output is a list of database resources that are above the storage_threshold within the time_range defined.
 
 
 *Setting up alerts on Intelligent insights*
@@ -176,11 +176,11 @@ AzureDiagnostics
 | distinct ResourceId
 ```
 
-Please note: This query requires an alert rule to be setup to run with the same frequency as alert_run_interval in order to avoid duplicate results. The rule should be setup to fire off the alert when there exit results (> 0 results) from the query.
+Note: This query requires an alert rule to be set up to run with the same frequency as alert_run_interval in order to avoid duplicate results. The rule should be set up to fire off the alert when there exist results (> 0 results) from the query.
  
 Customize the alert_run_interval to specify the time range to check if the condition has occurred on databases configured to stream SQLInsights log to the solution.
  
-Customize the insights_string to capture the output of the Insights root cause analysis text. This is the same text displayed in the UI of the solution which you can use from the existing insights. Alternatively, you can use the following query to see the text of all Insights generated on your subscription. Use the query to harvest the distinct strings for setting up alerts in Insights.
+Customize the insights_string to capture the output of the Insights root cause analysis text. This is the same text displayed in the UI of the solution that you can use from the existing insights. Alternatively, you can use the following query to see the text of all Insights generated on your subscription. Use the query to harvest the distinct strings for setting up alerts in Insights.
 
 ```
 AzureDiagnostics
