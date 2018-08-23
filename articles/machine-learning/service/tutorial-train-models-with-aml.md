@@ -101,7 +101,7 @@ proj.get_details()
 
 ### Create remote compute target
 
-Azure Batch AI Cluster is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you create an Azure Batch AI cluster as your training environment. This code creates a cluster for you if it does not already exist in your workspace. 
+Azure Machine Learning Managed Compute is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you create a cluster as your remote training environment if it does not already exist in your workspace. 
 
 > [!IMPORTANT]
 > **Creation of the cluster takes approximately 5 minutes.** If the cluster is already in the workspace this code uses it and skips the creation process.
@@ -242,7 +242,7 @@ With almost no effort, you have a 92% accuracy.
 
 Now you can expand on this simple model by building multiple versions of the model with different regularization rates.  
 
-For this task, submit the job to the Batch AI cluster you set up earlier.  To submit a job you:
+For this task, submit the job to the remote training cluster you set up earlier.  To submit a job you:
 * Create a training script
 * Create an estimator
 * Submit the job 
@@ -333,7 +333,7 @@ shutil.copy('utils.py', proj.project_directory)
 
 Create an estimator by running the following code to define:
 * The name of the estimator object, `est`
-* The compute target, such as the Batch AI cluster you created
+* The compute target, such as the Managed Compute cluster you created
 * The training script name, train.py
 * The `data-folder` parameter used by the training script to access the data
 * Any necessary Python packages that are needed for training
@@ -359,7 +359,7 @@ est = Estimator(project = proj,
 
 Calling the `fit` function on the estimator submits the job to execution in the target you defined. 
 
-In this tutorial, this target is the Batch AI cluster. All files in the project directory are uploaded into the Batch AI cluster nodes for execution. 
+In this tutorial, this target is the Managed Compute cluster. All files in the project directory are uploaded into the cluster nodes for execution. 
 
 
 ```python
@@ -379,7 +379,7 @@ Each run goes through the following stages:
 
   This stage happens once for each Python environment since the container is cached for subsequent runs.  During image creation, logs are streamed to the run history. You can monitor the image creation progress using these logs.
 
-- **Scaling**: If the Batch AI cluster requires more nodes to execute the run than currently available, the cluster creates more nodes. Scaling typically **takes about 5 minutes.**
+- **Scaling**: If the remote cluster requires more nodes to execute the run than currently available, additional nodes are added automatically. Scaling typically **takes about 5 minutes.**
 
 - **Running**: In this stage, the necessary scripts and files are sent to the compute target, then data stores are mounted/copied, then the entry_script is run. While the job is running, stdout and the ./logs directory are streamed to the run history. You can monitor the run's progress using these logs.
 
@@ -416,7 +416,7 @@ run.wait_for_completion(show_output = False) # specify True for a verbose log
 
 ### Display run results
 
-You now have a model trained on a the BatchAI cluster.  You can retrieve metrics about the model:
+You now have a model trained on a remote cluster.  You can retrieve metrics about the model:
 
 ```python
 print(run.get_metrics())
