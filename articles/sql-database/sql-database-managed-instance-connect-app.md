@@ -75,7 +75,7 @@ Configure a Point-to-Site connection to a VNet using native Azure certificate au
 
 ## Required versions of drivers and tools
 
-The  minimal versions of the following tools and drivers are recomended if you want to connect to Managed Instance:
+The following minimal versions of the tools and drivers are recommended if you want to connect to Managed Instance:
 
 | Driver/tool | Version |
 | --- | --- |
