@@ -13,7 +13,7 @@ ms.author: sajagtap
 
 # Create video reviews using .NET
 
-This article provides information and code samples to help you quickly get started using the [Content Moderator SDK with C#]((https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
+This article provides information and code samples to help you quickly get started using the [Content Moderator SDK with C#](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
 
 - Create a video review for human moderators
 - Add frames to a review
