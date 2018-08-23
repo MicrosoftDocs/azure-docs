@@ -1,6 +1,6 @@
 ---
 title: Machine learning algorithm cheat sheet - Azure | Microsoft Docs
-description: A printable machine learning algorithm cheat sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning Studio.
+description: A printable machine learning algorithm cheat sheet that helps you choose the right machine learning algorithm for your predictive model.
 keywords: algorithm cheat sheet,cheat sheet,machine learning algorithm
 services: machine-learning
 documentationcenter: ''
@@ -16,33 +16,33 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 08/23/2018
 
 ---
-# Machine learning algorithm cheat sheet for Azure Machine Learning
+# Machine learning algorithm cheat sheet
 
-The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right algorithm for a machine learning model.
+The **Machine Learning Algorithm Cheat Sheet** helps you choose the right algorithm for a machine learning model.
 
-Azure Machine Learning has a large library of machine learning algorithms from the ***regression***, ***classification***, ***clustering***, and ***anomaly detection*** families. Each is designed to address a different type of machine learning problem.
+This cheat sheet examines machine learning algorithms from the ***regression***, ***classification***, ***clustering***, and ***anomaly detection*** families. Each is designed to address a different type of machine learning problem.
 
-## Download: Machine learning algorithm cheat sheet
+## Download: Machine Learning Algorithm Cheat Sheet
 
 **Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
-![Machine Learning Algorithm cheat sheet: Learn how to choose a Machine Learning algorithm.][cheat-sheet]
+![Machine Learning Algorithm Cheat Sheet: Learn how to choose a machine learning algorithm.][cheat-sheet]
 
 [cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_7-01.png
 
 Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size to keep it handy and get help choosing an algorithm.
 
 > [!NOTE]
-> See the article [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md) for a detailed guide to using this cheat sheet.
+> See the article [How to choose machine learning algorithms](algorithm-choice.md) for a detailed guide to using this cheat sheet.
 > 
 > 
 
 ## More help with algorithms
 
-For help in using this cheat sheet for choosing the right algorithm, plus a deeper discussion of the different types of machine learning algorithms and how they're used, see [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md).
+For help in using this cheat sheet for choosing the right algorithm, plus a deeper discussion of the different types of machine learning algorithms and how they're used, see [How to choose machine learning algorithms](algorithm-choice.md).
 
 <!--
 For a downloadable infographic that describes algorithms and provides examples, see [Downloadable Infographic: Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md).
@@ -50,7 +50,7 @@ For a downloadable infographic that describes algorithms and provides examples, 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## Notes and terminology definitions for the machine learning algorithm cheat sheet
+## Notes and terminology definitions for the Machine Learning Algorithm Cheat Sheet
 
 * The suggestions offered in this algorithm cheat sheet are approximate rules-of-thumb. Some can be bent, and some can be flagrantly violated. This is intended to suggest a starting point. Don’t be afraid to run a head-to-head competition between several algorithms on your data. There is simply no substitute for understanding the principles of each algorithm and understanding the system that generated your data.
 

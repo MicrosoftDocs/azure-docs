@@ -16,18 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 12/18/2017
+ms.date: 08/23/2018
 
 ---
 # How to choose algorithms for Microsoft Azure Machine Learning
 The answer to the question "What machine learning algorithm should I use?" is always "It depends." It depends on the size, quality, and nature of the data. It depends on what you want to do with the answer. It depends on how the math of the algorithm was translated into instructions for the computer you are using. And it depends on how much time you have. Even the most experienced data scientists can't tell which algorithm will perform best before trying them.
 
 ## The Machine Learning Algorithm Cheat Sheet
-The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Microsoft Azure Machine Learning library of algorithms.
+The **Machine Learning Algorithm Cheat Sheet** helps you choose the right machine learning algorithm for your predictive analytics solutions from the large family of machine learning algorithms.
 This article walks you through how to use it.
 
 > [!NOTE]
-> To download the cheat sheet and follow along with this article, go to [Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio](algorithm-cheat-sheet.md).
+> To download the cheat sheet and follow along with this article, go to [Machine learning algorithm cheat sheet](algorithm-cheat-sheet.md).
 > 
 > 
 
@@ -45,7 +45,7 @@ rule-of-thumb recommendations, so don't worry about it being exact.
 Several data scientists we talked with said that the only sure way to
 find the very best algorithm is to try all of them.
 
-Here's an example from the [Azure AI Gallery](https://gallery.azure.ai/) of an experiment (in Azure Machine Learning Studio) that tries
+Here's an example from the [Azure AI Gallery](https://gallery.azure.ai/) of an experiment (using Azure Machine Learning Studio) that tries
 several algorithms against the same data and compares the results:
 [Compare Multi-class Classifiers: Letter
 recognition](https://gallery.azure.ai/Experiment/a635502fc98b402a890efe21cec65b92).
@@ -358,9 +358,11 @@ JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) and an
 [insightful blog by Chris
 Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
+<!--
 ## More help with algorithms
 
 For a downloadable infographic that describes algorithms and provides links to examples in the [Azure AI Gallery](https://gallery.azure.ai/), see [Downloadable Infographic: Machine learning basics with algorithm examples](../studio/basics-infographic-with-algorithm-examples.md).
+-->
 
 <!-- Media -->
 
