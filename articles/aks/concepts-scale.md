@@ -21,6 +21,8 @@ This conceptual article introduces the core approaches that help you scale appli
 - [Cluster autoscaler](#cluster-autoscaler)
 - [Azure Container Instance (ACI) integration with AKS](#burst-to-azure-container-instance)
 
+![Scaling options and interactions in an Azure Kubernetes Services (AKS) cluster](media/concepts-scale/aks-scaling-options.png)
+
 ## Manually scale pods or nodes
 
 You can manually scale replicas (pods) and nodes to test how your application responds to a change in available resources and state. Manually scaling resources also lets you define a set amount of resources to use to maintain a fixed cost, such as the number of nodes. To manually scale, you define the replica or node count, and the Kubernetes API schedules creating additional pods or draining nodes.
