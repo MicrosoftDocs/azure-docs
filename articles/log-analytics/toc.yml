@@ -325,23 +325,6 @@
     href: /powershell/module/azurerm.operationalinsights
   - name: REST
     href: /rest/api/loganalytics 
-  - name: Application Insights data model
-    href: application-insights-data-model.md
-    items:
-    - name: Request
-      href: application-insights-data-model-request-telemetry.md
-    - name: Dependency
-      href: application-insights-data-model-dependency-telemetry.md
-    - name: Exception
-      href: application-insights-data-model-exception-telemetry.md
-    - name: Trace
-      href: application-insights-data-model-trace-telemetry.md
-    - name: Event
-      href: application-insights-data-model-event-telemetry.md
-    - name: Metric
-      href: application-insights-data-model-metric-telemetry.md
-    - name: Context
-      href: application-insights-data-model-context.md
 - name: Resources
   items:
   - name: Azure Roadmap

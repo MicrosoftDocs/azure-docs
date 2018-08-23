@@ -700,6 +700,25 @@
         href: ../monitoring/monitoring-solutions-resources-views.md?toc=/azure/azure-monitor/toc.json
       - name: Best practices
         href: ../monitoring/monitoring-solutions-best-practices.md?toc=/azure/azure-monitor/toc.json
+- name: Reference
+  items:
+  - name: Application Insights data model
+    href: application-insights-data-model.md
+    items:
+    - name: Request
+      href: ../application-insights/application-insights-data-model-request-telemetry.md?toc=/azure/azure-monitor/toc.json
+    - name: Dependency
+      href: ../application-insights/application-insights-data-model-dependency-telemetry.md?toc=/azure/azure-monitor/toc.json
+    - name: Exception
+      href: ../application-insights/application-insights-data-model-exception-telemetry.md?toc=/azure/azure-monitor/toc.json
+    - name: Trace
+      href: ../application-insights/application-insights-data-model-trace-telemetry.md?toc=/azure/azure-monitor/toc.json
+    - name: Event
+      href: ../application-insights/application-insights-data-model-event-telemetry.md?toc=/azure/azure-monitor/toc.json
+    - name: Metric
+      href: ../application-insights/application-insights-data-model-metric-telemetry.md?toc=/azure/azure-monitor/toc.json
+    - name: Context
+      href: ../application-insights/application-insights-data-model-context.md?toc=/azure/azure-monitor/toc.json
 - name: Resources
   items:
   - name: Azure Roadmap
