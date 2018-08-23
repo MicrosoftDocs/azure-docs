@@ -19,11 +19,13 @@ ms.reviewer: krbain
 Whether you add your members as part of the group creation process or later, you can always view your groups and associated members.
 
 ## To search for a specific group
-1.
+1. Sign in to the [Azure AD portal](https://portal.azure.com) using a Global administrator account for the directory.
 
-2. 
+2. Select **Azure Active Directory**, and then select **Groups**
 
-## To view your groups and assigned members
+2. From the **Groups - All groups** blade, type in as much of the group name as you can into the **Search** box.
+
+## To view all groups and assigned members
 1. Select **Groups**, and then select your group name. In this case, _MDM policy - West_.
 
     The group information appears, with the number of included members.

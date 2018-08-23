@@ -1,5 +1,5 @@
 ---
-title: How to add or remove members and devices from a group using the Azure AD portal | Microsoft Docs
+title: How to add or remove members from a group using the Azure AD portal | Microsoft Docs
 description: How to add or remove users and devices from a group using the Azure Active Directory portal.
 services: active-directory
 author: eross-msft
@@ -15,30 +15,38 @@ ms.custom: it-pro
 ms.reviewer: krbain
 ---
 
-# How to: Add or remove members or devices from a group using the Azure AD portal
+# How to: Add or remove members from a group using the Azure AD portal
 Using the Azure AD portal, you can continue to add and remove members from groups.
 
-## To add or remove members
+## To add members to a group
 
-1. From the **Groups - All groups** blade, select the group you want to update. In this case, use our previously created group, **MDM policy - West**.
+1. Sign in to the [Azure AD portal](https://portal.azure.com) using a Global administrator account for the directory.
 
-    ![Groups-All groups blade, group name highlighted](media/create-basic-group-azure-portal/group-all-groups-screen.png)
+2. Select **Azure Active Directory**, and then select **Groups**.
 
-2. Select **Members**, and then select **Add members**.
+3. From the **Groups - All groups** blade, select the group you want to add the member to. In this case, use our previously created group, **MDM policy - West**.
+
+    ![Groups-All groups blade, group name highlighted](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
+
+4. Select **Members**, and then select **Add members**.
 
     The **Add members** blade appears.
 
-    ![Add members blade, with searched for member shown](media/create-basic-group-azure-portal/update-members.png)
+    ![Add members blade, with searched for member shown](media/active-directory-groups-members-azure-portal/update-members.png)
 
-3. Select each of the members you want to include in your group, and then choose **Select**.
+5. Select each of the members you want to include in your group, and then choose **Select**.
 
     You'll get a message that says the member was added successfully.
 
-4. Refresh the screen to see all of the member names.
+6. Refresh the screen to see all of the member names assigned to the group.
 
-## To add or remove devices
+## To remove members from a group
 
-1. blah
+1. From the **Groups - All groups** blade, select the group you want to add the member to. In this case, use our previously created group, **MDM policy - West**.
+
+2. Select **Members**, select the name of the member to remove, and then select **Remove**.
+
+    ![Member info blade, with removal option](media/active-directory-groups-members-azure-portal/remove-members-from-group.png)
 
 ## Next steps
 
