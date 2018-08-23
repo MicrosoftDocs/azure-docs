@@ -1,6 +1,6 @@
 ---
-title: Onboard Azure Monitor VM insights | Microsoft Docs
-description: This article describes how you onboard and configure Azure Monitor VM insights so you can start understanding how your distributed application is performing and what  health issues have been identified.
+title: Onboard Azure Monitor VM Insights | Microsoft Docs
+description: This article describes how you onboard and configure Azure Monitor VM Insights so you can start understanding how your distributed application is performing and what  health issues have been identified.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/22/2018
+ms.date: 08/23/2018
 ms.author: magoedte
 ---
 
-# How to onboard the Azure Monitor VM insights solution
+# How to onboard the Azure Monitor VM Insights 
 This article describes how to set up VM insights to monitor the operating system health of your Azure virtual machines and discover and map application dependencies that may be hosted on them.  
 
 ## Prerequisites
@@ -27,10 +27,10 @@ Before you start, make sure that you have the following as described in the sub-
 
 1. A Log Analytics workspace in the following regions are currently supported:
 
-   - West Central US  
-   - East US
-   - Southeast Asia
-   - West Europe 
+   - West Central US 
+   - East US 
+   - Southeast Asia  
+   - West Europe  
 
     If you do not have a workspace, you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
 
