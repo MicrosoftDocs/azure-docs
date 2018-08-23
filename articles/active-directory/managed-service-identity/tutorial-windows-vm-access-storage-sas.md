@@ -21,13 +21,12 @@ ms.author: daveba
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity for a Windows Virtual Machine, then use the Managed Service Identity to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+This tutorial shows you how to use a system assigned identity for a Windows virtual machine (VM) to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 A Service SAS provides the ability to grant limited access to objects in a storage account, for limited time and a specific service (in our case, the blob service), without exposing an account access key. You can use a SAS credential as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we demonstrate uploading and downloading a blob using Azure Storage PowerShell. You will learn how to:
 
-
 > [!div class="checklist"]
-> * Enable Managed Service Identity on a Windows Virtual Machine 
+> * Create a storage account
 > * Grant your VM access to a storage account SAS in Resource Manager 
 > * Get an access token using your VM's identity, and use it to retrieve the SAS from Resource Manager 
 
@@ -37,33 +36,12 @@ A Service SAS provides the ability to grant limited access to objects in a stora
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## Sign in to Azure
+[Sign in to Azure portal]((https://portal.azure.com))
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+[Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
 
-## Create a Windows virtual machine in a new resource group
+[Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
-For this tutorial, we create a new Windows VM. You can also enable Managed Service Identity on an existing VM.
-
-1.	Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
-2.	Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
-3.	Enter the virtual machine information. The **Username** and **Password** created here is the credentials you use to login to the virtual machine.
-4.  Choose the proper **Subscription** for the virtual machine in the dropdown.
-5.	To select a new **Resource Group** you would like to virtual machine to be created in, choose **Create New**. When complete, click **OK**.
-6.	Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the settings blade, keep the defaults and click **OK**.
-
-    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## Enable Managed Service Identity on your VM
-
-A Virtual Machine Managed Service Identity enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling Managed Service Identity does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM.
-
-1. Navigate to the resource group of your new virtual machine, and select the virtual machine you created in the previous step.
-2. Under the VM "Settings" on the left panel, click **Configuration**.
-3. To register and enable the Managed Service Identity, select **Yes**, if you wish to disable it, choose No.
-4. Ensure you click **Save** to save the configuration.
-
-    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## Create a storage account 
 

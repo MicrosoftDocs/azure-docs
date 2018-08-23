@@ -25,7 +25,6 @@ This tutorial explains how to create a user assigned identity, assign it to a Wi
 You learn how to:
 
 > [!div class="checklist"]
-> * Create a Windows VM 
 > * Create a user assigned identity
 > * Assign your user assigned identity to your Windows VM
 > * Grant the user assigned identity access to a Resource Group in Azure Resource Manager 
@@ -34,8 +33,14 @@ You learn how to:
 
 ## Prerequisites
 
-- If your are unfamiliar with Managed Service Identity, check out the [overview](overview.md) section. **Be sure to review the [differences between system and user assigned identities](overview.md#how-does-it-work)**.
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+[Sign in to Azure portal]((https://portal.azure.com))
+
+[Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
+
 - To perform the required resource creation and role management steps in this tutorial, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Use Role-Based Access Control to manage access to your Azure subscription resources](/azure/role-based-access-control/role-assignments-portal).
 - If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 5.7.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 - If you are running PowerShell locally, you also need to: 
@@ -43,37 +48,6 @@ You learn how to:
     - Install the [latest version of PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
     - Run `Install-Module -Name PowerShellGet -AllowPrerelease` to get the pre-release version of the `PowerShellGet` module (you may need to `Exit` out of the current PowerShell session after you run this command to install the `AzureRM.ManagedServiceIdentity` module).
     - Run `Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease` to install the prerelease version of the `AzureRM.ManagedServiceIdentity` module to perform the user assigned identity operations in this article.
-
-## Create resource group
-
-In the following example, a resource group named, *myResourceGroupVM* is created in the *EastUS* region.
-
-```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "EastUS"
-```
-
-## Create virtual machine
-
-After the resource group is created, create a Windows VM.
-
-Set the username and password needed for the administrator account on the virtual machine with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
-
-```azurepowershell-interactive
-$cred = Get-Credential
-```
-Create the virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
-
-```azurepowershell-interactive
-New-AzureRmVm `
-    -ResourceGroupName "myResourceGroupVM" `
-    -Name "myVM" `
-    -Location "East US" `
-    -VirtualNetworkName "myVnet" `
-    -SubnetName "mySubnet" `
-    -SecurityGroupName "myNetworkSecurityGroup" `
-    -PublicIpAddressName "myPublicIpAddress" `
-    -Credential $cred
-```
 
 ## Create a user assigned identity
 

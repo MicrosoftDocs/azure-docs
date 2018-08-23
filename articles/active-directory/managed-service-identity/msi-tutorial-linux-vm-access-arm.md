@@ -35,29 +35,15 @@ You learn how to:
 
 ## Prerequisites
 
-- If your are unfamiliar with Managed Service Identity, check out the [overview](overview.md) section. **Be sure to review the [differences between system and user assigned identities](overview.md#how-does-it-work)**.
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
-- To perform the required resource creation and role management steps in this tutorial, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Use Role-Based Access Control to manage access to your Azure subscription resources](/azure/role-based-access-control/role-assignments-portal).
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+[Sign in to Azure portal]((https://portal.azure.com))
+
+[Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
-
-## Sign in to Azure
-
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-
-## Create a Linux Virtual Machine in a new Resource Group
-
-For this tutorial, you first create a new Linux VM. You can also opt to use an existing VM.
-
-1. Click **Create a resource** on the upper left-hand corner of the Azure portal.
-2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
-3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
-
-    ![Create Linux VM](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. Choose a **Subscription** for the virtual machine in the dropdown.
-5. To select a new **Resource Group** you would like the virtual machine to be created in, choose **Create New**. When complete, click **OK**.
-6. Select the size for the VM. To see more sizes, select **View all** or change the Supported disk type filter. On the settings blade, keep the defaults and click **OK**.
 
 ## Create a user assigned identity
 

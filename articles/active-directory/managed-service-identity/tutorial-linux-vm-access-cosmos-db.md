@@ -22,10 +22,9 @@ ms.author: daveba
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 
-This tutorial shows you how to create and use a Linux VM Managed Service Identity. You learn how to:
+This tutorial shows you how to to use a system assigned identity for a Linux virtual machine (VM) to access Azure Cosmos DB. You learn how to:
 
 > [!div class="checklist"]
-> * Create a Linux VM with  enabled
 > * Create a Cosmos DB account
 > * Create a collection in the Cosmos DB account
 > * Grant the Managed Service Identity access to an Azure Cosmos DB instance
@@ -35,42 +34,20 @@ This tutorial shows you how to create and use a Linux VM Managed Service Identit
 
 ## Prerequisites
 
-If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com) before continuing.
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+[Sign in to Azure portal]((https://portal.azure.com))
+
+[Create a Linux virtual machine](azure/virtual-machines/linux/quick-create-portal)
+
+[Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 To run the CLI script examples in this tutorial, you have two options:
 
 - Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) either from the Azure portal, or via the **Try It** button, located in the top right corner of each code block.
 - [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 or later) if you prefer to use a local CLI console.
-
-## Sign in to Azure
-
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-
-## Create a Linux virtual machine in a new resource group
-
-For this tutorial, create a new Managed Service Identity enabled Linux VM.
-
-To create an Managed Service Identity enabled VM:
-
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az-login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
-
-   ```azurecli-interactive
-   az login
-   ```
-
-2. Create a [resource group](../../azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group/#az-group-create). You can skip this step if you already have resource group you would like to use instead:
-
-   ```azurecli-interactive 
-   az group create --name myResourceGroup --location westus
-   ```
-
-3. Create a VM using [az vm create](/cli/azure/vm/#az-vm-create). The following example creates a VM named *myVM* with an Managed Service Identity, as requested by the `--assign-identity` parameter. The `--admin-username` and `--admin-password` parameters specify the administrative user name and password account for virtual machine sign-in. Update these values as appropriate for your environment: 
-
-   ```azurecli-interactive 
-   az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
-   ```
 
 ## Create a Cosmos DB account 
 

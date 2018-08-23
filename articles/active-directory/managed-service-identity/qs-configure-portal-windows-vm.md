@@ -49,9 +49,9 @@ To enable the system assigned identity on a VM that was originally provisioned w
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM.
 
-2. Navigate to the desired Virtual Machine and select the "Configuration" page.
+2. Navigate to the desired Virtual Machine and select **Identity**.
 
-3. Enable the system assigned identity on the VM by selecting "Yes" under "Managed service identity" and then click **Save**. This operation can take 60 seconds or more to complete:
+3. Under **System assigned**, **Status**, select **On** and then click **Save**:
 
    ![Configuration page screenshot](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
@@ -61,9 +61,9 @@ If you have a Virtual Machine that no longer needs the system assigned identity:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM. 
 
-2. Navigate to the desired Virtual Machine and select the "Configuration" page.
+2. Navigate to the desired Virtual Machine and select **Identity**.
 
-3. Disable the system assigned identity on the VM by selecting "No" under "Managed service identity", then click Save. This operation can take 60 seconds or more to complete:
+3. Under **System assigned**, **Status**, select **Off** and then click **Save**
 
    ![Configuration page screenshot](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)
 

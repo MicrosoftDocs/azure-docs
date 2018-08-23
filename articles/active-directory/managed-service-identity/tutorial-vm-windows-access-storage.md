@@ -21,11 +21,9 @@ ms.author: daveba
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Identity for a Windows Virtual Machine, and use that identity to access Azure Storage.  You learn how to:
+This tutorial shows you how to use a system assigned identity for a Windows virtual machine (VM) to access Azure Storage. You learn how to:
 
 > [!div class="checklist"]
-> * Create a Windows virtual machine in a new resource group 
-> * Enable Managed Identity on a Windows Virtual Machine (VM)
 > * Create a blob container in a storage account
 > * Grant your Windows VM's Managed Identity access to a storage account 
 > * Get an access and use it to call Azure Storage 
@@ -39,31 +37,11 @@ This tutorial shows you how to enable Managed Identity for a Windows Virtual Mac
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## Sign in to Azure
+[Sign in to Azure portal]((https://portal.azure.com))
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+[Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
 
-## Create a Windows virtual machine in a new resource group
-
-In this section, you create a Windows VM that is later granted a Managed Identity.
-
-1.	Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
-2.	Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
-3.	Enter the virtual machine information. The **Username** and **Password** created here is the credentials you use to login to the virtual machine.
-4.  Choose the proper **Subscription** for the virtual machine in the dropdown.
-5.	To select a new **Resource Group** you would like to virtual machine to be created in, choose **Create New**. When complete, click **OK**.
-6.	Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the settings blade, keep the defaults and click **OK**.
-
-    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## Enable Managed Identity on your VM
-
-A Virtual Machine Managed Identity enables you to get access tokens from Azure AD without needing to put credentials into your code. Under the covers, enabling Managed Identity on a Virtual Machine via the Azure portal does two things: it registers your VM with Azure AD to create a managed identity and configures the identity on the VM. 
-
-1. Navigate to the resource group of your new virtual machine, and select the virtual machine you created in the previous step.
-2. Under the **Settings** category, click **Configuration**.
-3. To enable the Managed Identity, select **Yes**.
-4. Click **Save** to apply the configuration. 
+[Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Create a storage account 
 

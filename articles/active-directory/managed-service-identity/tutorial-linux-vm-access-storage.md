@@ -21,12 +21,10 @@ ms.author: daveba
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-
-This tutorial shows you how to create and use a Linux VM Managed Identity to access Azure Storage. You learn how to:
+This tutorial shows you how to to use a system assigned identity for a Linux virtual machine (VM) to access Azure Storage. You learn how to:
 
 > [!div class="checklist"]
-> * Create a Linux virtual machine in a new resource group
-> * Enable Managed Identity on a Linux Virtual Machine (VM)
+> * Create a storage account
 > * Create a blob container in a storage account
 > * Grant the Linux VM's Managed Identity access to an Azure Storage container
 > * Get an access token and use it to call Azure Storage
@@ -36,41 +34,20 @@ This tutorial shows you how to create and use a Linux VM Managed Identity to acc
 
 ## Prerequisites
 
-If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com) before continuing.
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+[Sign in to Azure portal]((https://portal.azure.com))
+
+[Create a Linux virtual machine](azure/virtual-machines/linux/quick-create-portal)
+
+[Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 To run the CLI script examples in this tutorial, you have two options:
 
 - Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) either from the Azure portal, or via the **Try It** button, located in the top right corner of each code block.
 - [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 or later) if you prefer to use a local CLI console.
-
-## Sign in to Azure
-
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-
-## Create a Linux virtual machine in a new resource group
-
-In this section, you create a Linux VM that is later granted a Managed Identity.
-
-1. Select the **New** button in the upper-left corner of the Azure portal.
-2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
-3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
-
-   !["Basics" pane for creating a virtual machine](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. In the **Subscription** list, select a subscription for the virtual machine.
-5. To select a new resource group that you want the virtual machine to be created in, select **Resource group** > **Create new**. When you finish, select **OK**.
-6. Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. In the settings pane, keep the defaults and select **OK**.
-
-## Enable Managed Identity on your VM
-
-A Virtual Machine Managed Identity enables you to get access tokens from Azure AD without needing to put credentials into your code. Under the covers, enabling Managed Identity on a Virtual Machine via the Azure portal does two things: it registers your VM with Azure AD to create a managed identity and configures the identity on the VM.
-
-1. Navigate to the resource group of your new virtual machine, and select the virtual machine you created in the previous step.
-2. Under the **Settings** category, click on **Configuration**.
-3. To enable Managed Identity, select **Yes**.
-4. Click **Save** to apply the configuration. 
 
 ## Create a storage account 
 

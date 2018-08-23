@@ -21,7 +21,7 @@ ms.author: daveba
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity for a Linux Virtual Machine, and then use that identity to access the Azure Resource Manager API. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. 
+This quickstart shows you how to use a system assigned identity for a Linux virtual machine (VM) to access the Azure Resource Manager API. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. 
 You learn how to:
 
 > [!div class="checklist"]
@@ -35,34 +35,11 @@ You learn how to:
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## Sign in to Azure
+[Sign in to Azure portal]((https://portal.azure.com))
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+[Create a Linux virtual machine](azure/virtual-machines/linux/quick-create-portal#create-virtual-machine)
 
-## Create a Linux Virtual Machine in a new Resource Group
-
-For this tutorial, we create a new Linux VM. You can also enable Managed Service Identity on an existing VM.
-
-1. Click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
-2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
-3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
-
-    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. Choose a **Subscription** for the virtual machine in the dropdown.
-5. To select a new **Resource Group** you would like the virtual machine to be created in, choose **Create New**. When complete, click **OK**.
-6. Select the size for the VM. To see more sizes, select **View all** or change the Supported disk type filter. On the settings blade, keep the defaults and click **OK**.
-
-## Enable Managed Service Identity on your VM
-
-A Virtual Machine Managed Service Identity enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling Managed Service Identity on a VM, does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM.
-
-1. Select the **Virtual Machine** that you want to enable Managed Service Identity on.
-2. On the left navigation bar click **Configuration**.
-3. You see **Managed Service Identity**. To register and enable the Managed Service Identity, select **Yes**, if you wish to disable it, choose No.
-4. Ensure you click **Save** to save the configuration.
-
-    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+[Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Grant your VM access to a Resource Group in Azure Resource Manager 
 
