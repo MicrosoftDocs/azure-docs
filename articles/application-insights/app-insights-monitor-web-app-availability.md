@@ -129,6 +129,13 @@ You can monitor a scenario that involves a sequence of URLs. For example, if you
 > There is a charge for multi-step web tests. [Pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
+> [!NOTE]
+The charge is per uploaded multi-step test per month. NOT the number of times it is run itself when you setup the frequency level and other parameters. So, if you created one test and uploaded it, it would be $10 per month (the setup of the execution frequency, etc. does not impact that cost.). 
+Example:
+If you uploaded 10 tests - $100 per month, 100 tests - $1,000 / month, etc. The guidance is not to setup a test that runs more than 2 minute (meaning the user session of interactivity that is recorded should not exceed 100 steps “requests” or 2 minutes in runtime). If that is the case, you should break it out to a separate test.
+
+
+
 To create a multi-step test, you record the scenario by using Visual Studio Enterprise, and then upload the recording to Application Insights. Application Insights replays the scenario at intervals and verifies the responses.
 
 > [!NOTE]
