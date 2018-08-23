@@ -1,6 +1,6 @@
 ---
-title: Onboard Azure Monitor VM Insights | Microsoft Docs
-description: This article describes how you onboard and configure Azure Monitor VM Insights so you can start understanding how your distributed application is performing and what  health issues have been identified.
+title: Onboard Azure Monitor VM insights | Microsoft Docs
+description: This article describes how you onboard and configure Azure Monitor VM insights so you can start understanding how your distributed application is performing and what  health issues have been identified.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,25 +13,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2018
+ms.date: 08/22/2018
 ms.author: magoedte
 ---
 
-# How to onboard the Azure Monitor VM Insights solution
-
+# How to onboard the Azure Monitor VM insights solution
+This article describes how to set up VM insights to monitor the operating system health of your Azure virtual machines and discover and map application dependencies that may be hosted on them.  
 
 ## Prerequisites
-
+Before you start, make sure that you have the following as described in the sub-sections below.
+  
 ### Log Analytics 
 
 1. A Log Analytics workspace in the following regions are currently supported:
 
-- West Central US
-- East US
-- Southeast Asia (Health is not supported yet)
-- West Europe (Health is not supported yet)
+   - West Central US  
+   - East US
+   - Southeast Asia (Health is not supported yet)
+   - West Europe (Health is not supported yet)
 
-If you do not have a workspace, you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
+    If you do not have a workspace, you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
 
 2. The Log Analytics contributor role, to enable the solution. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
 
@@ -55,7 +56,7 @@ The following versions of the Windows and Linux operating systems are officially
 |Debian 9.4, 8 | X | | X |  
 
 ## Default performance counters sampled
-The solution samples a basic set of performance counters by default for the Windows and Linux operating system.  Below is a list that are configured to be collected: 
+The solution samples a basic set of performance counters by default for the Windows and Linux operating system.  Below is a list that are configured for collection.
 
 >[!NOTE]
 >The collection interval for any newly added configuration is set to 60 seconds.
@@ -101,7 +102,11 @@ The solution samples a basic set of performance counters by default for the Wind
 For more information about Log Analytics performance counters, see [Data collection details for performance counters](../log-analytics/log-analytics-data-sources-performance-counters.md).
 
 ## Enable from the Azure portal
+To enable monitoring of your Azure VM in the Azure portal, do the following:
 
+1. In the Azure portal, select **Virtual Machines**. 
+2. In the list of VMs, select a virtual machine. 
+3. 
 
 ## Enable with PowerShell
 To onboard multiple VMs or VM Scale Sets, you use a provided PowerShell script - [Install-VMInsights.ps1](https://github.com/dougbrad/OnBoardVMInsights/blob/master/Install-VMInsights.ps1) to complete this task.  This script will iterate through every virtual machine and VM Scale Set in your subscription, in the scoped resource group specified by *ResourceGroup*, or to a single VM or Scale Set specified by *Name*.  For each VM or VM Scale Set, the script verifies if the VM extension is already installed, and if not attempt to reinstall it.  Otherwise, it proceeds to install the Log Analytics and Dependency Agent VM extensions.   
