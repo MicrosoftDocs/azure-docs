@@ -183,6 +183,8 @@ created implicitly, however, data factories created with Azure Resource Manager 
 6. The Azure PowerShell which support this feature is version >= 6.6.0
 (AzureRM.DataFactoryV2 >= 0.5.7)
 
+7. To Grant permission, the user will require "Owner" role or inherited "Owner" role in the Data Factory where the Shared IR exists. 
+
   > [!NOTE]
   > This feature is only available in Azure Data Factory version 2 
 
