@@ -65,7 +65,7 @@ The **ContentDefinition** element contains the following elements:
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | A string that contains the relative URL of the cshtml page or HTML5/CSS page for the content definition. |
 | RecoveryUri | 0:1 | A string that contains the relative URL of the HTML page for displaying an error relating to the content definition. | 
-| DataUri | 1:1 | A string that contains the relative URL of an XML file that provides the user experience to invoke for the step. | 
+| DataUri | 1:1 | A string that contains the relative URL of an HTML file that provides the user experience to invoke for the step. | 
 | Metadata | 1:1 | A collection of key/value pairs that contains the metadata utilized by the content definition. | 
 | LocalizedResourcesReferences | 0:1 | A collection of localized resources references. Use this element to customize the localization of a user interface and a claim attribute. |
 
