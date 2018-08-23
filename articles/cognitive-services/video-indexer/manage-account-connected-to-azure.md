@@ -40,7 +40,7 @@ If your Videos Indexer account is connected to Azure, you see the following:
 * The number of indexing jobs running and queued.
 * The number and type of allocated Reserved Units.
 
-If your account needs some adjustments, you will see relevant errors and warnings about your account configuration and links to the exact place in Azure portal where you need to make changes. For more information, see the [errors and warnings](#errors-and-warnings) section that follows.
+If your account needs some adjustments, you will see relevant errors and warnings about your account configuration on the **Settings** page. The messages contain links to exact places in Azure portal where you need to make changes. For more information, see the [errors and warnings](#errors-and-warnings) section that follows.
 
 ## Auto-scale reserved units
 
@@ -54,12 +54,17 @@ You are charged based on actual minutes of usage of Media Reserved Units. For a 
 
 ## Errors and warnings
 
-If you need to adjust some configurations, you will see relevant errors and warnings about your account configuration on the **Settings** page. The messages contain links to the exact place in Azure portal where you need to make changes. 
+If your account needs some adjustments, you will see relevant errors and warnings about your account configuration on the **Settings** page. The messages contain links to exact places in Azure portal where you need to make changes. This sections gives more details about the error and warning messages.
 
 * Event Grid not registered
-* Streaming end point disabled
+
+    You have to register the EventGrid resource provider using the Azure portal, as described in [xxx]().
+
+* Streaming Endpoint disabled
 * Reserved units configuration issues 
 
 ## Next steps
 
-[Use Azure Video Indexer API](video-indexer-use-apis.md)
+You can programmatically interact with your trial account and/or with your Video Indexer accounts that are connected to azure by following the instructions in: [Use APIs](video-indexer-use-apis.md).
+
+You should use the same Azure AD user you used when connecting to Azure.
