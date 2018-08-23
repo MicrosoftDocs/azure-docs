@@ -41,7 +41,7 @@ The maximum size of the task collection that you can add in a single call depend
 * The following APIs support much larger task collections - up to hundreds of thousands of tasks in a single call. These APIs transparently handle dividing the task collection into "chunks" for the lower-level APIs and retries if addition of tasks fails.
 
     * [.NET API](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet)
-    * [Java API](java/api/com.microsoft.azure.batch.protocol._tasks.addcollectionasync?view=azure-java-stable)
+    * [Java API](/java/api/com.microsoft.azure.batch.protocol._tasks.addcollectionasync?view=azure-java-stable)
     * [Azure CLI with Batch CLI templates](batch-cli-templates.md)
     * [Python SDK extension](https://pypi.org/project/azure-batch-extensions/)
 
