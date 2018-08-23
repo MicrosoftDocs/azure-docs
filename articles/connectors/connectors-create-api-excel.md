@@ -84,7 +84,7 @@ by the connector's Swagger file, see these connector reference pages:
 
 > [!NOTE]
 > The Excel Online for Business and OneDrive connectors 
-> replace the [legacy version](connectors/excel/), 
+> replace the [legacy version](/connectors/excel/), 
 > which applied only to Microsoft PowerApps.
 
 ## Get support
