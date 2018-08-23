@@ -68,8 +68,6 @@
         href: azure-security-disk-encryption-faq.md
       - name: Troubleshooting
         href: azure-security-disk-encryption-tsg.md
-    - name: Encrypt an Azure VM
-      href: ../security-center/security-center-disk-encryption.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Azure Storage security
     href: security-storage-overview.md
   - name: Storage security guide
