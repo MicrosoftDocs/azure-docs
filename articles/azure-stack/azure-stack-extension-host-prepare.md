@@ -5,7 +5,7 @@ services: azure-stack
 keywords: 
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 08/28/2018
+ms.date: 08/29/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
@@ -24,8 +24,8 @@ The table shows the new namespaces and the associated certificates:
 
 | Deployment Folder | Required certificate subject and subject alternative names (SAN) | Scope (per region) | SubDomain namespace |
 |-----------------------|------------------------------------------------------------------|-----------------------|------------------------------|
-| Admin extension host | *.adminhosting.<region>.<fqdn> (Wildcard SSL Certificates) | Admin extension host | adminhosting.<region>.<fqdn> |
-| Public extension host | *.hosting.<region>.<fqdn> (Wildcard SSL Certificates) | Public extension host | hosting.<region>.<fqdn> |
+| Admin extension host | *.adminhosting.\<region>.\<fqdn> (Wildcard SSL Certificates) | Admin extension host | adminhosting.\<region>.\<fqdn> |
+| Public extension host | *.hosting.\<region>.\<fqdn> (Wildcard SSL Certificates) | Public extension host | hosting.\<region>.\<fqdn> |
 
 The detailed certificate requirements can be found in the [Azure Stack public key infrastructure certificate requirements](azure-stack-pki-certs.md) article.
 
@@ -38,7 +38,7 @@ The Azure Stack Readiness Checker Tool provides the ability to create a certific
 
 ## Validate new certificates
 
-1. Open PowerShell with elevated permission on the hardware lifecycle host or the Privileged Access Workstation.
+1. Open PowerShell with elevated permission on the hardware lifecycle host or the Azure Stack management workstation.
 2. Run the following cmdlet to install the Azure Stack Readiness Checker tool.
     ```PowerShell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
@@ -48,21 +48,25 @@ The Azure Stack Readiness Checker Tool provides the ability to create a certific
     ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
 
-    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal', 'Admin extension host', 'Public extension host'
+    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal', 'Admin extension host', 'Public extension host'
 
     $destination = 'c:\certificates'
 
     $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}
     ```
 
-4. Place your certificate(s) in the appropriate directories.
-5. Run the following cmdlets to start the certificate check:
+    > [!Note]  
+    > If you deploy with Azure Active Directory Federated Services (AD FS) the following directories must be added to **$directories** in the script: `ADFS`, `Graph`.
+
+4. Run the following cmdlets to start the certificate check:
 
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD -ExtensionHostFeature $true
     ```
+
+5. Place your certificate(s) in the appropriate directories.
 
 6. Check the output and all certificates pass all tests.
 
@@ -74,27 +78,13 @@ Use a computer that can connect to the Azure Stack privileged endpoint for the n
 1. Use a computer that can connect to the Azure Stack privileged endpoint for the next steps. Make sure you access to the new certificate files from that computer.
 2. Open PowerShell ISE to execute the next script blocks
 3. Import the certificate for hosting endpoint. Adjust the script to match your environment.
-4. Import the certificate for hosting endpoint. Adjust the script to match your environment.
-    ```PowerShell  
-    [Byte[]] $HostingCertContent = [Byte[]](Get-Content <File path of hosting certificate> -Encoding Byte)
-
-    Invoke-Command -ComputeName <PrivilegedEndpoint computer name> `
-    -Credential $CloudAdminCred `
-    -ConfigurationName "PrivilegedEndpoint" `
-    -ArgumentList @($HostingCertContent, $CertPassword) `
-    -ScriptBlock {
-            param($HostingCertContent, $CertPassword)
-            Import-UserHostingServiceCert $HostingCertContent $certPassword
-    }
-    ```
-5. Import the certificate for the Admin hosting endpoint.
 
     ```PowerShell  
-    $CertPassword = ConvertTo-SecurString "***" -AsPlainText -Force
+    $CertPassword = ConvertTo-SecureString "***" -AsPlainText -Force
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
 
-    [Byte[]] $AdminHostingCertContent = [Byte[]](Get-Content <File path of Admin hosting certificate> -Encoding Byte)
+    [Byte[]] $AdminHostingCertContent = [Byte[]](Get-Content c:\certificate\myadminhostingcertificate.pfx -Encoding Byte)
 
     Invoke-Command -ComputeName <PrivilegedEndpoint computer name> `
     -Credential $CloudAdminCred `
@@ -103,6 +93,21 @@ Use a computer that can connect to the Azure Stack privileged endpoint for the n
     -ScriptBlock {
             param($AdminHostingCertContent, $CertPassword)
             Import-AdminHostingServiceCert $AdminHostingCertContent $certPassword
+    }
+    ```
+
+5. Import the certificate for the Admin hosting endpoint.
+
+    ```PowerShell  
+    [Byte[]] $HostingCertContent = [Byte[]](Get-Content c:\certificate\myadminhostingcertificate.pfx  -Encoding Byte)
+
+    Invoke-Command -ComputeName <PrivilegedEndpoint computer name> `
+    -Credential $CloudAdminCred `
+    -ConfigurationName "PrivilegedEndpoint" `
+    -ArgumentList @($HostingCertContent, $CertPassword) `
+    -ScriptBlock {
+            param($HostingCertContent, $CertPassword)
+            Import-UserHostingServiceCert $HostingCertContent $certPassword
     }
     ```
 
