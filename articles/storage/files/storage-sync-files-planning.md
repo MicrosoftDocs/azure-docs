@@ -209,7 +209,7 @@ To support the failover integration between geo-redundant storage and Azure File
 
 | Primary region      | Paired region      |
 |---------------------|--------------------|
-| Australia East      | Australia Southest |
+| Australia East      | Australia Southeast |
 | Australia Southeast | Australia East     |
 | Canada Central      | Canada East        |
 | Canada East         | Canada Central     |
