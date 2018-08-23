@@ -97,19 +97,21 @@ There are many methods for deploying templates.  In this quickstart, you use the
 
     The Cloud shell is opened on the bottom of the screen.
 
-3. On the upper left corner of the Cloud shell, it shows the either **PowerShell** or Bash. To use CLI, you need to open a Bash session. To run PowerShell, you need to open a PowerShell session. To switch, select the down arrow, and then select the interpreter. The following image shows switching from PowerShell to Bash.
+3. On the upper left corner of the Cloud shell, it shows either **PowerShell** or **Bash**. To use CLI, you need to open a Bash session. To run PowerShell, you need to open a PowerShell session. To switch, select the down arrow, and then select the interpreter. The following image shows switching from PowerShell to Bash.
 
     ![Azure portal Cloud shell CLI](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
 
-    To switch, you must select **Restart** to restart the shell.
+    Restarting the shell is required when you switch.
 4. Select **Upload/download files**, and then select **Upload**.
 
     ![Azure portal Cloud shell upload file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
+
+    You must upload the template file before you can deploy it from the shell.
 5. Select the file you saved earlier in the quickstart. The default name is **azuredeploy.json**.
-6. From the Cloud shell, run the **ls** command to verify the file is uploaded successfully. You can also use the **cat** command to verify the template content. The following image shows running the command from Bash.  The PowerShell session shall be very similar.
+6. From the Cloud shell, run the **ls** command to verify the file is uploaded successfully. You can also use the **cat** command to verify the template content. The following image shows running the command from Bash.  You use the same commands from a PowerShell session.
 
     ![Azure portal Cloud shell list file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
-7. From the Cloud shell, run the following commands:
+7. From the Cloud shell, run the following commands. Select the tab to show the PowerShell code or the CLI code.
 
     # [CLI](#tab/CLI)
     ```cli
@@ -117,8 +119,7 @@ There are many methods for deploying templates.  In this quickstart, you use the
 
     az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file <TemplateFileName>
     ```
-    Content for Linux...
-    
+   
     # [PowerShell](#tab/PowerShell)
     
     ```powershell
@@ -129,7 +130,7 @@ There are many methods for deploying templates.  In this quickstart, you use the
     
     ---
 
-    Here is the screenshot of a sample CLI deployment:
+    The following screenshot shows a sample CLI deployment:
 
     ![Azure portal Cloud shell deploy template](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
 
@@ -144,9 +145,18 @@ There are many methods for deploying templates.  In this quickstart, you use the
 
 7. Run the following CLI command to list the newly created storage account:
 
+    # [CLI](#tab/CLI)
     ```cli
     az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
     ```
+   
+    # [PowerShell](#tab/PowerShell)
+    
+    ```powershell
+    Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName> -Name <StorageAccountName>
+    ```
+    
+    ---
 
 ## Clean up resources
 
