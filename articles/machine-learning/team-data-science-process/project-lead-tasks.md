@@ -58,16 +58,16 @@ To summarize here, the following requirements need to meet before you begin the 
 ## 1. Create a project repository (R5)
 
 - Log in to your group Azure DevOps server at *https://\<Azure DevOps Server Name\>.visualstudio.com*. 
-- Under **Recent projects & teams**, click **Browse**. A window that pops up lists all team projects on the Azure DevOps server. 
+- Under **Recent projects & teams**, click **Browse**. A window that pops up lists all projects on the Azure DevOps server. 
 
 	![2](./media/project-lead-tasks/project-leads-2-create-project-repo.png)
 
-- Click the team project name in which you are going to create your project repository. In this example, click **MyTeam**. 
-- Then, click **Navigate** to be directed to the home page of the team project **MyTeam**:
+- Click the project name in which you are going to create your project repository. In this example, click **MyTeam**. 
+- Then, click **Navigate** to be directed to the home page of the project **MyTeam**:
 
 	![3](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
 
-- Click **Collaborate on code** to be directed to the git home page of your team project.  
+- Click **Collaborate on code** to be directed to the git home page of your project.  
 
 	![4](./media/project-lead-tasks/project-leads-4-create-project-repo-3.png)
 
@@ -84,33 +84,33 @@ To summarize here, the following requirements need to meet before you begin the 
 
 ## 2. Seed the DSProject1 project repository
 
-The task here is to seed the **DSProject1** project repository (R5) from your team project template repository (R3). The seeding procedure uses the directories D3 and D5 on your local DSVM as intermediate staging sites. In summary, the seeding path is: R3 -> D3 -> D5 -> R5.
+The task here is to seed the **DSProject1** project repository (R5) from your project template repository (R3). The seeding procedure uses the directories D3 and D5 on your local DSVM as intermediate staging sites. In summary, the seeding path is: R3 -> D3 -> D5 -> R5.
 
 If you need to customize your **DSProject1** project repository to meet some specific project needs, you do so in the penultimate step of following procedure. Here is a summary of the steps used to seed the content of the **DSProject1** project repository. The individual steps correspond to the subsections in the seeding procedure:
 
-- Clone team project template repository into local directory: team R3 - cloned to -> local D3.
+- Clone project template repository into local directory: team R3 - cloned to -> local D3.
 - Clone DSProject1 repository to a local directory: team R5 - cloned to -> local D5.
-- Copy cloned team project template content to local clone of DSProject1 repository:  D3 - contents copied to -> D5.
+- Copy cloned project template content to local clone of DSProject1 repository:  D3 - contents copied to -> D5.
 - (Optional) Customization local D5.
 - Push local DSProject1 content to team repositories: D5 - contents add to -> team R5.
 
 
-### Clone your team project template repository (R3) to a directory (D3) on your local machine.
+### Clone your project template repository (R3) to a directory (D3) on your local machine.
 
 On your local machine, create a directory:
 
 - *C:\GitRepos\MyTeamCommon* for Windows 
 - *$home/GitRepos/MyTeamCommon* for Linux
 
-Change to that directory. Then, run the following command to clone your team project template repository to your local machine. 
+Change to that directory. Then, run the following command to clone your project template repository to your local machine. 
 
 **Windows**
 			
 	git clone <the HTTPS URL of the TeamProjectTemplate repository>
 	
-If you are using Azure DevOps as the code-hosting platform, typically, the *HTTPS URL of your team project template repository* is:
+If you are using Azure DevOps as the code-hosting platform, typically, the *HTTPS URL of your project template repository* is:
 
- ***https://\<Azure DevOps Server Name\>.visualstudio.com/\<Your team project name\>/_git/\<Your team project template repository name\>***. 
+ ***https://\<Azure DevOps Server Name\>.visualstudio.com/\<Your project name\>/_git/\<Your project template repository name\>***. 
 
 In this example, we have:
 
@@ -124,9 +124,9 @@ In this example, we have:
 		
 ![8](./media/project-lead-tasks/project-leads-8-clone-team-project-template-linux.png)
 
-If you are using Azure DevOps as the code-hosting platform, typically, the *SSH URL of the team project template repository* is:
+If you are using Azure DevOps as the code-hosting platform, typically, the *SSH URL of the project template repository* is:
 
-***ssh://\<Azure DevOps Server Name\>@\<Azure DevOps Server Name\>.visualstudio.com:22/\<Your Team Project Name>/_git/\<Your team project template repository name\>.*** 
+***ssh://\<Azure DevOps Server Name\>@\<Azure DevOps Server Name\>.visualstudio.com:22/\<Your Project Name>/_git/\<Your project template repository name\>.*** 
 
 In this example, we have:
 
@@ -142,7 +142,7 @@ Change directory to **GitRepos**, and run the following command to clone your pr
 
 ![9](./media/project-lead-tasks/project-leads-9-clone-project-repository.png)
 
-If you are using Azure DevOps as the code-hosting platform, typically, the _HTTPS URL of the Project repository_ is ***https://\<Azure DevOps Server Name\>.visualstudio.com/\<Your Team Project Name>/_git/<Your project repository name\>***. In this example, we have ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***.
+If you are using Azure DevOps as the code-hosting platform, typically, the _HTTPS URL of the Project repository_ is ***https://\<Azure DevOps Server Name\>.visualstudio.com/\<Your Project Name>/_git/<Your project repository name\>***. In this example, we have ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***.
 
 **Linux**
 
@@ -150,7 +150,7 @@ If you are using Azure DevOps as the code-hosting platform, typically, the _HTTP
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-If you are using Azure DevOps as the code-hosting platform, typically, the _SSH URL of the project repository_ is _ssh://<Azure DevOps Server Name\>@<Azure DevOps Server Name\>.visualstudio.com:22/<Your Team Project Name>/\_git/<Your project repository name\>. In this example, we have ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
+If you are using Azure DevOps as the code-hosting platform, typically, the _SSH URL of the project repository_ is _ssh://<Azure DevOps Server Name\>@<Azure DevOps Server Name\>.visualstudio.com:22/<Your Project Name>/\_git/<Your project repository name\>. In this example, we have ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
 
 ### Copy contents of D3 to D5 
 
@@ -181,11 +181,11 @@ Now you can see in _DSProject1_ folder, all the files (except the metadata in .g
 
 ### Customize D5 if you need to (Optional)
 
-If your project needs some specific directories or documents, other than the ones you get from your team project template (copied to your D5 directory in the previous step), you can customize the content of D5 now. 
+If your project needs some specific directories or documents, other than the ones you get from your project template (copied to your D5 directory in the previous step), you can customize the content of D5 now. 
 
 ### Add contents of DSProject1 in D5 to R5 on your group Azure DevOps server
 
-You now need to push contents in **_DSProject1_** to _R5_ repository in your team project on your group's Azure DevOps server. 
+You now need to push contents in **_DSProject1_** to _R5_ repository in your project on your group's Azure DevOps server. 
 
 
 - Change to directory **D5**. 
