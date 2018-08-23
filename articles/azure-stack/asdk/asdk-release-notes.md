@@ -43,7 +43,7 @@ This build includes the following improvements and fixes for Azure Stack.
 ### Changes
 - <!-- 1697698  | IS, ASDK --> The *Quickstart tutorials* in the User portal dashboard now link to relevant articles in the on-line Azure Stack documentation.
 
-- <!-- 2515955   | IS ,ASDK--> *All services* replaces *More services* in the [Azure Stack admin](/azure/azure-stack/azure-stack-manage-portals) and user portals. You can now use *All services* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals.
+- <!-- 2515955   | IS ,ASDK--> *All services* replaces *More services* in the Azure Stack admin and user portals. You can now use *All services* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals.
 
 
 
