@@ -59,7 +59,7 @@ Managed connectors are organized into these groups:
 > plus any limits, you can find the full list under the 
 > [Connectors overview](/connectors/). For pricing information, see 
 > [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/) 
-> [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md). 
+> and the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md). 
 
 <a name="built-ins"></a>
 
