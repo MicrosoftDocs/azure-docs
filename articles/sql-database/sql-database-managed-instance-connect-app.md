@@ -71,9 +71,23 @@ This scenario is illustrated in the following diagram:
 
 Managed Instance can be accessed only through a private IP address so in order to access it from your developer box, you first need to make a connection between your developer box and the Managed Instance VNet.  
  
-Configure a Point-to-Site connection to a VNet using native Azure certificate authentication articles ([Azure portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) shows in detail how it could be done.  
+Configure a Point-to-Site connection to a VNet using native Azure certificate authentication articles ([Azure portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) shows in detail how it could be done. 
+
+## Required versions of drivers and tools
+
+The following minimal versions of the tools and drivers are recommended if you want to connect to Managed Instance:
+
+| Driver/tool | Version |
+| --- | --- |
+|.NET Framework | 4.6.1 (or .NET Core) | 
+|ODBC driver	| v17 |
+|PHP driver	| 5.2.0 |
+|JDBC driver	| 6.4.0 |
+|Node.js driver	| 2.1.1 |
+|OLEDB driver	| 18.0.2.0 |
+|SSMS	| 17.8.1 or [higher](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## Next steps
 
 - For information about Managed Instance, see [What is a Managed Instance](sql-database-managed-instance.md).
-- For a tutorial showing you how to create a new Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
+- For a tutorial showing you how to create a new Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-get-started.md).
