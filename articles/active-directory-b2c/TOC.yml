@@ -263,6 +263,8 @@
               href: stringcollection-transformations.md
             - name: String
               href: string-transformations.md
+          - name: Predicates
+            href: predicates.md
           - name: ContentDefinitions
             href: contentdefinitions.md
           - name: Localization
@@ -298,8 +300,6 @@
               href: self-asserted-technical-profile.md
             - name: Validation
               href: validation-technical-profile.md
-        - name: Predicates
-          href: predicates.md
         - name: UserJourneys
           href: userjourneys.md
         - name: RelyingParty
