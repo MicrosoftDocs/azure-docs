@@ -1,18 +1,14 @@
 ---
-# required metadata
 title: Connectors for Azure Logic Apps | Microsoft Docs
-description: Automate workflows with built-in, managed API, on-premises, integration account, and enterprise connectors for Azure Logic Apps
+description: Automate workflows with connectors for Azure Logic Apps, including built-in, managed, on-premises, integration account, and enterprise connectors
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 06/29/2018
-
-# optional metadata
 ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.topic: article
+ms.date: 08/23/2018
 ---
 
 # Connectors for Azure Logic Apps
@@ -20,10 +16,16 @@ ms.suite: integration
 Connectors play an integral part when you create automated workflows with Azure Logic Apps. 
 By using connectors in your logic apps, you expand the capabilities for your on-premises 
 and cloud apps to perform tasks with the data that you create and already have. 
-While Logic Apps offers ~200+ connectors, this article describes popular and 
-more commonly used connectors that are successfully used by thousands of apps 
-and millions of executions for processing data and information.
+
+While Logic Apps offers [~200+ connectors](https://docs.microsoft.com/connectors), 
+this article describes popular and more commonly used connectors that are successfully 
+used by thousands of apps and millions of executions for processing data and information. 
 Connectors are available as either built-ins or managed connectors. 
+
+> [!NOTE]
+> For the full list of connectors and each connector's reference information, 
+> such as actions, any triggers, and limits, you can find the full list 
+> under the [Connectors overview](https://docs.microsoft.com/connectors).
 
 * [**Built-ins**](#built-ins): These built-in actions and triggers help you 
 create logic apps that run on custom schedules, communicate with other endpoints, 
@@ -51,11 +53,13 @@ Managed connectors are organized into these groups:
   You can then extend or perform BizTalk-like operations in your logic apps by 
   using the [integration account connectors](#integration-account-connectors). 
 
-For technical information about each connector's triggers and actions, 
-which are defined by a Swagger description, plus any limits, see 
-[Connector details](/connectors/). For cost information, see 
-[Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/) 
-and [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md). 
+> [!NOTE] 
+> For the full list of connectors and each connector's reference information, 
+> such as actions and any triggers, which are defined by a Swagger description, 
+> plus any limits, you can find the full list under the 
+> [Connectors overview](/connectors/). For pricing information, see 
+> [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/) 
+> and the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md). 
 
 <a name="built-ins"></a>
 
@@ -217,6 +221,7 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 
 ## Next steps
 
+* Find the [connectors' full list](https://docs.microsoft.com/connectors)
 * [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Create custom connectors for logic apps](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Create custom APIs for logic apps](../logic-apps/logic-apps-create-api-app.md)
