@@ -18,7 +18,7 @@ ms.author: alkohli
 ---
 # Migrate data from StorSimple 5000-7000 series to Azure File Sync
 
->! [IMPORTANT]
+> [!IMPORTANT]
 > On July 31, 2019 the StorSimple 5000/7000 series will reach end of support (EOS) status. We recommend that StorSimple 5000/7000 series customers migrate to one of the alternatives described in the document.
 
 Data migration is the process of moving data from one storage location to another. This entails making an exact copy of an organization’s current data from one device to another device—preferably without disrupting or disabling active applications — and then redirecting all input/output (I/O) activity to the new device. 
