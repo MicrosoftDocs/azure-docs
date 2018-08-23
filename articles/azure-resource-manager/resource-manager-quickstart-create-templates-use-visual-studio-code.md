@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/17/2018
+ms.date: 08/23/2018
 ms.topic: quickstart
 ms.author: jgao
 
@@ -88,32 +88,48 @@ To learn how to edit a template using Visual Studio Code, you add one more eleme
 
 ## Deploy the template
 
-There are many methods for deploying templates.  In this quickstart, you use the Cloud shell from the Azure portal. The Cloud shell supports both Azure CLI and Azure PowerShell. The instructions provided here use CLI.
+There are many methods for deploying templates.  In this quickstart, you use the Cloud shell from the Azure portal. The Cloud shell supports both Azure CLI and Azure PowerShell. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 2. Select **Cloud Shell** from the upper right corner as shown in the following image:
 
     ![Azure portal Cloud shell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
 
-3. Select the down arrow and then select **Bash** to switch to CLI from PowerShell.
+    The Cloud shell is opened on the bottom of the screen.
+
+3. On the upper left corner of the Cloud shell, it shows the either **PowerShell** or Bash. To use CLI, you need to open a Bash session. To run PowerShell, you need to open a PowerShell session. To switch, select the down arrow, and then select the interpreter. The following image shows switching from PowerShell to Bash.
 
     ![Azure portal Cloud shell CLI](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-4. Select **Restart** to restart the shell.
-5. Select **Upload/download files**, and then select **Upload**.
+
+    To switch, you must select **Restart** to restart the shell.
+4. Select **Upload/download files**, and then select **Upload**.
 
     ![Azure portal Cloud shell upload file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
-4. Select the file you saved earlier in the quickstart. The default name is **azuredeploy.json**.
-5. From the Cloud shell, run the **ls** command to verify the file is uploaded successfully. You can also use the **cat** command to verify the template content.
+5. Select the file you saved earlier in the quickstart. The default name is **azuredeploy.json**.
+6. From the Cloud shell, run the **ls** command to verify the file is uploaded successfully. You can also use the **cat** command to verify the template content. The following image shows running the command from Bash.  The PowerShell session shall be very similar.
 
     ![Azure portal Cloud shell list file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
-6. From the Cloud shell, run the following commands:
+7. From the Cloud shell, run the following commands:
 
+    # [CLI](#tab/CLI)
     ```cli
     az group create --name <ResourceGroupName> --location <AzureLocation>
 
     az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file <TemplateFileName>
     ```
-    Here is the screenshot of a sample deployment:
+    Content for Linux...
+    
+    # [PowerShell](#tab/PowerShell)
+    
+    ```powershell
+    New-AzureRmResourceGroup -Name <ResourceGroupName> -Location <AzureLocation>
+
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFileName>
+    ```
+    
+    ---
+
+    Here is the screenshot of a sample CLI deployment:
 
     ![Azure portal Cloud shell deploy template](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
 
