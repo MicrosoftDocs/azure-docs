@@ -23,7 +23,7 @@ By setting up federation with Google, you can allow guest users to sign in to yo
 > Your Google guest users must sign in using a link that includes the tenant context, for example `https://myapps.microsoft.com/?tenantid=<tenant id>`. Direct links to applications and resources also work as long as they include the tenant context. Guest users are currently unable to sign in using endpoints that have no tenant context. For example, using `https://myapps.microsoft.com`, `https://portal.azure.com`, or the Teams common endpoint will result in an error.
  
 ## What is the experience for the guest user?
-When you send an invitation to a guest user with a Google account,the guest users accesses your shared apps or resources using the link provided, which includes the tenant context. Their experience varies depending on whether they're already signed in to Google:
+When you send an invitation to a guest user with a Google account, the guest user accesses your shared apps or resources using the link provided, which includes the tenant context. Their experience varies depending on whether they're already signed in to Google:
   - If the guest user is not signed in to Google, they're prompted to sign in to Google.
   - If the guest user is already signed in to Google, they'll be prompted to choose the account they want to use. They must choose the account you used to invite them.
 
@@ -34,15 +34,15 @@ If the guest user sees a "header too long" error, they can try clearing their co
 ## Step 1: Configure a Google developer project
 First, create a new project in the Google Developers Console to obtain a client ID and a client secret that you can later add to Azure AD. 
 1. Go to the Google APIs at https://console.developers.google.com, and sign in with your Google account. We recommend that you use a shared team Google account.
-2. Create a new project.
+2. Create a new project: On the Dashboard, select **Create Project**, and then select **Create**. On the New Project page, enter a **Project Name**, and then select **Create**.
    
    ![New Google project](media/google-federation/google-new-project.png)
 
-3. Make sure your new project is selected in the project menu. Then open the menu in the upper left and select **Credentials**.
+3. Make sure your new project is selected in the project menu. Then open the menu in the upper left and select **APIs & Services** > **Credentials**.
 
    ![Google API credentials](media/google-federation/google-api.png)
  
-4. Choose the **Oauth consent screen** tab and enter a project name. (Leave the other settings.) Select **Save**.
+4. Choose the **Oauth consent screen** tab and enter a **Product name shown to users**. (Leave the other settings.) Select **Save**.
 
    ![Google OAuth consent screen](media/google-federation/google-oauth-consent-screen.png)
 
@@ -52,19 +52,19 @@ First, create a new project in the Google Developers Console to obtain a client 
 
 6. Under **Application type**, choose **Web application**, and then under **Authorized redirect URIs**, enter the following URIs:
    - `https://login.microsoftonline.com` 
-   - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` (where `<directory id>` is your directory ID)
+   - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(where `<directory id>` is your directory ID)
    
     > [!NOTE]
     > To find your directory ID, go to https://portal.azure.com, and under **Azure Active Directory**, choose **Properties** and copy the **Directory ID**.
 
    ![Create OAuth client ID](media/google-federation/google-create-oauth-client-id.png)
 
-7. Select **Create**. Write down the client ID and client secret, which you'll use when you add the identity provider in the Azure AD portal.
+7. Select **Create**. Copy the client ID and client secret, which you'll use when you add the identity provider in the Azure AD portal.
 
    ![OAuth client ID and client secret](media/google-federation/google-auth-client-id-secret.png)
 
 ## Step 2: Configure Google federation in Azure AD 
-Now you'll set the Google client ID and client secret, either by entering it in the Azure AD portal or through PowerShell. Be sure to test your Google federation configuration by inviting yourself using a Gmail address and trying to redeem the invitation with your invited Google account. 
+Now you'll set the Google client ID and client secret, either by entering it in the Azure AD portal or by using PowerShell. Be sure to test your Google federation configuration by inviting yourself using a Gmail address and trying to redeem the invitation with your invited Google account. 
 
 #### To configure Google federation in the Azure AD portal 
 1. Go to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**. 
@@ -75,13 +75,13 @@ Now you'll set the Google client ID and client secret, either by entering it in 
    ![Add Google identity provider](media/google-federation/google-identity-provider.png)
 
 #### To configure Google federation by using PowerShell
-1. Install the latest version of the Azure AD PowerShell for Graph module (AzureADPreview).
+1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
 2. Run the following command:
    `Connect-AzureAD`.
-3. At the login prompt, sign in with the managed Global Administrator account.  
+3. At the sign-in prompt, sign in with the managed Global Administrator account.  
 4. Run the following command: 
    
-   `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client ID]`
+   `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
    > Use the client id and client secret from the app you created in "Step 1: Configure a Google developer project." For more information, see the [New-AzureADMSIdentityProvider](https://docs.microsoft.com/en-us/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) article. 
@@ -100,10 +100,10 @@ You can delete your Google federation setup. If you do so, Google guest users wh
 1. Select **Yes** to confirm deletion. 
 
 ### To delete Google federation by using PowerShell: 
-1. Install the latest version of the Azure AD PowerShell for Graph module (AzureADPreview).
+1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
 2. Run `Connect-AzureAD`.  
 4. In the login in prompt, sign in with the managed Global Administrator account.  
-5. Enter the following:
+5. Enter the following command:
 
     `Remove-AzureADMSIdentityProvider -Id Google-OAUTH`
 
