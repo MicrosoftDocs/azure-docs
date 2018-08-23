@@ -69,7 +69,7 @@ Terminate the runtime in the console window when you're done testing your functi
 
 ### Debug the function in Eclipse
 
-In your Run As configuration set up in the previous step, change `azure-functions:run` to `mvn azure-functions:run -DenableDebug` and run the updated configuration to start the function app in debug mode.
+In your **Run As** configuration set up in the previous step, change `azure-functions:run` to `mvn azure-functions:run -DenableDebug` and run the updated configuration to start the function app in debug mode.
 
 Select the **Run** menu and open **Debug Configurations**. Choose **Remote Java Application** and create a new one. Give your configuration a name and fill in the settings. The port should be consistent with the debug port opened by function host, which by default is `5005`. After setup, click on `Debug` to start debugging.
 

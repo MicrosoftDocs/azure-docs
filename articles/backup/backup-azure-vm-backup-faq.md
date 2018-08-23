@@ -7,7 +7,7 @@ manager: shreeshd
 keywords: azure vm backup, azure vm restore, backup policy
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2017
+ms.date: 8/16/2018
 ms.author: trinadhk
 ---
 # Questions about the Azure VM Backup service
@@ -68,6 +68,9 @@ In this scenario, by default, restore VM job will create a VM with unmanaged dis
 2. [Convert the restored disks to managed disks](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
 3. [Create a VM with managed disks](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
 For Powershell cmdlets, refer [here](backup-azure-vms-automation.md#restore-an-azure-vm).
+
+### Can I restore the VM if my VM is deleted?
+Yes. Life Cycle of VM and its corresponding backup item are different. So, even if you delete the VM, you can go to corresponding backup item in the Recovery Services vault and trigger a restore using one of the recovery points. 
 
 ## Manage VM backups
 ### What happens when I change a backup policy on VM(s)?

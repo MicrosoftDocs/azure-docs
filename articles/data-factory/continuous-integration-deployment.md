@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 08/16/2018
 ms.author: douglasl
 ---
 # Continuous integration and deployment in Azure Data Factory
@@ -42,6 +42,10 @@ This action takes you to the Azure portal, where you can import the exported tem
 Select **Load file** to select the exported Resource Manager template and provide all the configuration values (for example, linked services).
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
+
+**Connection strings**. You can find the info required to create connection strings in the articles about the individual connectors. For example, for Azure SQL Database, see [Copy data to or from Azure SQL Database by using Azure Data Factory](connector-azure-sql-database.md). To verify the correct connection string - for a linked service, for example - you can also open code view for the resource in the Data Factory UI. In code view, however, the password or account key portion of the connection string is removed. To open code view, select the icon highlighted in the following screen shot.
+
+![Open code view to see connection string](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## Continuous integration lifecycle
 Here is the entire lifecycle for continuous integration & deployment
@@ -170,11 +174,7 @@ Deployment can fail if you try to update active triggers. To update active trigg
 
 You can follow similar steps and use similar code (with the `Start-AzureRmDataFactoryV2Trigger` function) to restart the triggers after deployment.
 
-## Sample template and script
-Here are two samples that you can use to get started with continuous integration and deployment for Data Factory:
-
--   A sample deployment template that you can import in VSTS.
--   A sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes the code to delete resources that have been removed.
+## Sample deployment template
 
 Here is a sample deployment template that you can import in VSTS.
 
@@ -714,7 +714,9 @@ Here is a sample deployment template that you can import in VSTS.
 }
 ```
 
-Here is a sample script to stop triggers before deployment and to restart triggers afterwards:
+## Sample script to stop and restart triggers and clean up
+
+Here is a sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes code to delete resources that have been removed.
 
 ```powershell
 param

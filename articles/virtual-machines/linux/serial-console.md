@@ -22,6 +22,8 @@ ms.author: harijay
 
 The Virtual Machine Serial Console on Azure provides access to a text-based console for Linux and Windows virtual machines. This serial connection is to COM1 serial port of the virtual machine and provides access to the virtual machine and are not related to virtual machine's network / operating system state. Access to the serial console for a virtual machine can be done only via Azure portal currently and allowed only for those users who have VM Contributor or above access to the virtual machine. 
 
+For serial console documentation for Windows VMs, [click here](../windows/serial-console.md).
+
 > [!Note] 
 > Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 > Currently this service is in **public preview** and access to the serial console for virtual machines is available to global Azure regions. At this point serial console is not available Azure Government, Azure Germany, and Azure China cloud.
@@ -33,7 +35,8 @@ The Virtual Machine Serial Console on Azure provides access to a text-based cons
 * Virtual machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 * The account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
-* For settings specific to Linux distros, see [Accessing the serial console for Linux](#access-serial-console-for-linux)
+* For settings specific to Linux distros, see [Access the serial console for Linux](#access-serial-console-for-linux)
+
 
 
 ## Open the Serial Console
@@ -48,7 +51,7 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
 
 
 > [!NOTE] 
-> Serial console requires a local user with a password configured. At this time, VMs only configured with SSH public key will not have access to the serial console. To create a local user with password, follow [VM Access Extension](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) and create local user with password.
+> Serial console requires a local user with a password configured. At this time, VMs only configured with an SSH public key will not have access to the serial console. To create a local user with password, use the [VM Access Extension](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (also available in the portal by clicking "Reset password") and create a local user with a password.
 
 ## Disable Serial Console
 By default, all subscriptions have serial console access enabled for all VMs. You may disable serial console at either the subscription level or VM level.
@@ -143,14 +146,15 @@ Unable to retrieve boot diagnostics settings for '<VMNAME>'. To use the serial c
 The VM is in a stopped deallocated state. Start the VM and retry the serial console connection. | Virtual machine must be in a started state to access the serial console
 You do not have the required permissions to use this VM the serial console. Ensure you have at least VM Contributor role permissions.| Serial console access requires certain permission to access. See [access requirements](#prerequisites) for details
 Unable to determine the resource group for the boot diagnostics storage account '<STORAGEACCOUNTNAME>'. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permission to access. See [access requirements](#prerequisites) for details
-
+Web socket is closed or could not be opened. | You may need to whitelist `*.console.azure.com`. A more detailed but longer approach is to whitelist the [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653), which change fairly regularly.
 ## Known issues 
-As we are still in the preview stages for serial console access, we are working through some known issues, below is the list of these with possible workarounds 
+As we are still in the preview stages for serial console access, we are working through some known issues. Below is the list of these with possible workarounds:
 
 Issue                           |   Mitigation 
 :---------------------------------|:--------------------------------------------|
 There is no option with virtual machine scale set instance serial console |  At the time of preview, access to the serial console for virtual machine scale set instances is not supported.
 Hitting enter after the connection banner does not show a log in prompt | [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
+A 'Forbidden' response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics does not have an account firewall. An accessible boot diagnostic storage account is necessary for serial console to function.
 
 
 ## Frequently asked questions 

@@ -104,6 +104,8 @@
       href: managed-disks-overview.md
     - name: Premium storage
       href: premium-storage.md
+    - name: Standard SSDs
+      href: disks-standard-ssd.md
     - name: Premium storage performance
       href: premium-storage-performance.md
     - name: Standard storage
@@ -280,10 +282,10 @@
       items:
       - name: Install and configure
         href: ansible-install-configure.md
-      - name: Create a basic VM
+      - name: Create a Linux VM
         href: ansible-create-vm.md
-      - name: Create a complete VM
-        href: ansible-create-complete-vm.md
+      - name: Manage a Linux VM
+        href: ansible-manage-linux-vm.md
     - name: Terraform
       items:
       - name: Install and configure

@@ -10,7 +10,7 @@ editor: monicar
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/21/2018
+ms.date: 08/08/2018
 ms.author: rafats
 
 ---
@@ -125,6 +125,9 @@ Sample JSON document.
 ## MongoDB API sample
 
 The following command sample shows how to create a unique index on the firstName, lastName, and email fields of the users collection for the MongoDB API. This ensures the uniqueness for a combination of all three fields across all documents in the collection. For MongoDB API collections, the unique index is created after the collection is created, but before populating the collection.
+
+> [!NOTE]
+> The unique key format for MongoDB API accounts is different from that of SQL API accounts, where you don’t have to specify the backslash (/) character before the field name. 
 
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )

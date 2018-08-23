@@ -17,7 +17,7 @@
     href: import-and-publish.md
   - name: 2 - Create and publish a product
     href: api-management-howto-add-products.md
-  - name: 3 - Mock an API responses
+  - name: 3 - Mock API responses
     href: mock-api-responses.md
   - name: 4 - Protect your API
     href: transform-api.md
@@ -81,6 +81,8 @@
       href: api-management-capacity.md
     - name: Upgrade and scale
       href: upgrade-and-scale.md
+    - name: Configure autoscale
+      href: api-management-howto-autoscale.md
     - name: Configure a custom domain
       href: configure-custom-domain.md
   - name: Cache
