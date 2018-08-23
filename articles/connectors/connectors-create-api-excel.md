@@ -9,7 +9,7 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 08/23/2018
 ---
 
 # Manage Excel Online data with Azure Logic Apps
