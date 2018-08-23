@@ -1,5 +1,9 @@
 ---
-ms.topic: "include"
+author: conceptdev
+ms.author: crdun
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
 ---
 1. On your Mac, launch **Keychain Access**. On the left navigation bar, under **Category**, open **My Certificates**. Find the SSL certificate that you downloaded in the previous section, and then disclose its contents. Select only the certificate (do not select the private key). Then [export it](https://support.apple.com/kb/PH20122?locale=en_US).
 2. In the [Azure portal](https://portal.azure.com/), select **Browse All** > **App Services**. Then select your Mobile Apps back end. 

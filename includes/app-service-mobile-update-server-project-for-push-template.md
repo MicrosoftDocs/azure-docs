@@ -1,5 +1,9 @@
 ---
-ms.topic: "include"
+author: conceptdev
+ms.author: crdun
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
 ---
 In this section, you update code in your existing Mobile Apps back-end project to send a push notification every time a new item is added. This process is powered by the [template](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) feature of Azure Notification Hubs, which enables cross-platform pushes. The various clients are registered for push notifications using templates, and a single universal push can get to all client platforms.
 

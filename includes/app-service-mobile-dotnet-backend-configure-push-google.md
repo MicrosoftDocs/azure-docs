@@ -1,5 +1,9 @@
 ---
-ms.topic: "include"
+author: conceptdev
+ms.author: crdun
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
 ---
 Use the procedure that matches your back-end project type&mdash;either [.NET back end](#dotnet) or [Node.js back end](#nodejs).
 

@@ -1,5 +1,9 @@
 ---
-ms.topic: "include"
+author: conceptdev
+ms.author: crdun
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
 ---
 1. Create a new class in the project called `ToDoBroadcastReceiver`.
 2. Add the following using statements to **ToDoBroadcastReceiver** class:
