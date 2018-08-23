@@ -21,7 +21,7 @@
   - name: Deploy a Custom Application
     href: ~/tutorials/deploy-custom-application.md
 - name: Concepts
-  items:
+  items: 
   - name: Clusters and Nodes
     href: clusters.md
   - name: Auto Scale
@@ -78,6 +78,28 @@
       href: user-authentication.md
     - name: Cluster Users
       href:
+- name: Cluster Configuration
+  items:
+  - name: Cluster Template File
+    href: ~/cluster-template-reference/cluster-template.md
+  - name: Cluster
+    href: ~/cluster-template-reference/cluster.md
+  - name: Node
+    href: ~/cluster-template-reference/node.md
+  - name: Volume
+    href: ~/cluster-template-reference/volume.md
+  - name: Network-Interface
+    href: ~/cluster-template-reference/network-interface.md
+  - name: Cluster-Init
+    href: ~/cluster-template-reference/cluster-init.md
+  - name: Input-Endpoint
+    href: ~/cluster-template-reference/input-endpoint.md
+  - name: Configuration
+    href: ~/cluster-template-reference/configuration.md
+  - name: (Beta) Environment
+    href: ~/cluster-template-reference/environment.md
+  - name: (Beta) NodeRef
+    href: ~/cluster-template-reference/noderef.md
 - name: How-To
   items:
   - name: Install CycleCloud Manually
