@@ -138,7 +138,7 @@ Oracle Linux        | Oracle Linux images available on Azure have console access
 Custom Linux images     | To enable serial console for your custom Linux VM image, enable console access in /etc/inittab to run a terminal on ttyS0. Here is an example to add this in the inittab file: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. For more information on properly creating custom images see [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd).
 
 ## Errors
-Most errors are transient in nature and retrying the serial console connection often addresses these. THe table below shows a list of errors and mitigations
+Most errors are transient in nature and retrying the serial console connection often addresses these. The table below shows a list of errors and mitigations
 
 Error                            |   Mitigation 
 :---------------------------------|:--------------------------------------------|
