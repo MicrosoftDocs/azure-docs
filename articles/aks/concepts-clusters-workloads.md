@@ -12,9 +12,9 @@ ms.author: iainfou
 
 # Kubernetes core concepts for Azure Kubernetes Service (AKS)
 
-As application development has moved towards a contained-based approach, the need to orchestrate and manage the inter-connected resources becomes important. Kubernetes is the leading platform that provides the ability to provide reliable scheduling of fault-tolerant application workloads, including the required virtual network, traffic routing, and storage. Azure Kubernetes Service (AKS) is a managed Kubernetes offering that further simplifies container-based application deployment and management.
+As application development has moved towards a contained-based approach, the need to orchestrate and manage the inter-connected resources becomes important. Kubernetes is the leading platform that provides the ability to provide reliable scheduling of fault-tolerant application workloads. Azure Kubernetes Service (AKS) is a managed Kubernetes offering that further simplifies container-based application deployment and management.
 
-This conceptual article introduces the core Kubernetes infrastructure components such as the *cluster master*, *nodes*, and *node pools*. Workloads resources such as *pods*, *deployments*, and *sets* are also introduced, along with how to group resources into *namespaces*.
+This article introduces the core Kubernetes infrastructure components such as the *cluster master*, *nodes*, and *node pools*. Workload resources such as *pods*, *deployments*, and *sets* are also introduced, along with how to group resources into *namespaces*.
 
 ## What is Kubernetes?
 
@@ -30,8 +30,10 @@ Azure Kubernetes Service (AKS) provides a managed Kubernetes service, built on t
 
 A Kubernetes cluster is divided into two components:
 
-- *Cluster master* nodes provide the core Kubernetes services, including the API server, the scheduler, and the data store.
-- *Nodes* run the user's applications.
+- *Cluster master* nodes provide the core Kubernetes services and orchestration of application workloads.
+- *Nodes* run your application workloads.
+
+![Kubernetes cluster master and node components](media/concepts-clusters-workloads/cluster-master-and-nodes.png)
 
 ## Cluster master
 
@@ -68,18 +70,27 @@ If you need to use a different host OS, container runtime, or include custom pac
 
 Nodes of the same configuration are grouped together into *node pools*. A Kubernetes cluster contains one or more node pools. The initial number of nodes and size are defined when you create an AKS cluster, which creates a *default node pool*. This default node pool in AKS contains the underlying VMs that run your agent nodes.
 
-When you scale or upgrade an AKS cluster, the action is performed against the default node pool. For upgrade operations, the nodes are cordoned and drained, with active pods scheduled on other nodes in the node pool until all the nodes are successfully upgraded.
+When you scale or upgrade an AKS cluster, the action is performed against the default node pool. For upgrade operations, running containers are scheduled on other nodes in the node pool until all the nodes are successfully upgraded.
 
-## Pods, Deployments, and Sets
+## Pods
 
-Kubernetes uses *pods* to run an instance of your application. You typically create pods using a *deployment*.
+Kubernetes uses *pods* to run an instance of your application. A pod represents a single instance of your application. Pods typically have a 1:1 mapping with a container, although there are advanced scenarios where a pod may contain multiple containers. These multi-container pods are scheduled together on the same node, and allow containers to share related resources.
 
-- A *pod* represents a single instance of your application. Pods typically have a 1:1 mapping with a container, although there are advanced scenarios where a pod may contain multiple containers.
-- A *deployment* represents one or more identical pods, managed by the Kubernetes Deployment controller. A deployment defines the number of replicas (pods) to create, and the Kubernetes Scheduler ensures that if pods or nodes encounter problems, additional pods are scheduled on healthy nodes. You can update deployments to change the configuration of pods, container image used, or attached storage. The Deployment controller drains and terminates a given number of pods, creates pods from the new deployment definition, and continues the process until all pods in the deployment are updated.
+When you create a pod, you can define *resource limits* to request a certain amount of CPU or memory resources. The Kubernetes Scheduler tries to schedule the pods to run on a node with available resources to meet the request. You can also specify maximum resource limits that prevents a given pod from consuming too much compute resource from the underlying node. A best practice is to include resource limits for all pods to help the Kubernetes Scheduler understand what resources are needed and permitted.
 
-Most stateless applications in AKS should use the deployment model rather than scheduling individual pods. Individual pods are not restarted if they encounter a problem, and are not rescheduled on healthy nodes if their current node encounters a problem. Deployments are typically created and managed with `kubectl create` or `kubectl apply`.
+A pod is a logical resource, but the container(s) are where the application workloads run. Pods are typically ephemeral, disposable resources, and individually scheduled pods miss out on some of the high availability and redundancy features Kubernetes provides. Instead, pods are usually deployed and managed by Kubernetes *Controllers*, such as the Deployment Controller.
 
-To create a deployment, you define a manifest file in the YAML (YAML Ain't Markup Language) format. The following example creates a basic deployment of the NGINX web server. The deployment specifies *2* replicas to be created, and that port *80* be open on the container. Resource requests are also defined for CPU and memory.
+## Deployments
+
+A *deployment* represents one or more identical pods, managed by the Kubernetes Deployment Controller. A deployment defines the number of *replicas* (pods) to create, and the Kubernetes Scheduler ensures that if pods or nodes encounter problems, additional pods are scheduled on healthy nodes.
+
+You can update deployments to change the configuration of pods, container image used, or attached storage. The Deployment Controller drains and terminates a given number of replicas, creates replicas from the new deployment definition, and continues the process until all replicas in the deployment are updated.
+
+Most stateless applications in AKS should use the deployment model rather than scheduling individual pods. Kubernetes can monitor the health and status of deployments to ensure that the required number of replicas run within the cluster. When you only schedule individual pods, the pods are not restarted if they encounter a problem, and are not rescheduled on healthy nodes if their current node encounters a problem.
+
+If an application requires a quorum of instances to always be available for management decisions to be made, you don't want an update process to disrupt that ability. *Pod Disruption Budgets* can be used to define how many replicas in a deployment can be taken down during an update or node upgrade. For example, if you have *5* replicas in your deployment, you can define a pod disruption of *4* to only permit one replica from being deleted/rescheduled at a time. As with pod resource limits, a best practice is to define pod disruption budgets on applications that require a minimum number of replicas to always be present.
+
+Deployments are typically created and managed with `kubectl create` or `kubectl apply`. To create a deployment, you define a manifest file in the YAML (YAML Ain't Markup Language) format. The following example creates a basic deployment of the NGINX web server. The deployment specifies *3* replicas to be created, and that port *80* be open on the container. Resource requests and limits are also defined for CPU and memory.
 
 ```yaml
 apiVersion: apps/v1
@@ -87,7 +98,7 @@ kind: Deployment
 metadata:
   name: nginx
 spec:
-  replicas: 2
+  replicas: 3
   template:
     metadata:
       labels:
@@ -100,21 +111,26 @@ spec:
         - containerPort: 80
       resources:
         requests:
+          cpu: 250m
+          memory: 64Mi
+        limits:
           cpu: 500m
-          memory: 64Mb
+          memory: 256Mi
 ```
 
 More complex applications can be created by also including services such as load balancers within the YAML manifest.
 
+## StatefulSets and DaemonSets
+
+The Deployment Controller uses the Kubernetes Scheduler to run a given number of replicas on any available node with available resources. This approach of using deployments may be sufficient for stateless applications, but not for applications that require a persistent naming convention or storage. For applications that require a replica to exist on each node, or selected nodes, within a cluster, the Deployment Controller doesn't look at how replicas are distributed across the nodes.
+
 ### StatefulSets
 
-A *StatefulSet* is similar to a deployment in that one or more identical pods are created and managed. With a StatefulSet, the naming convention, network names, and storage persist as pods are rescheduled. Modern application development often aims for state*less* applications, but StatefulSets can be used for state*ful* applications that include database components, for example.
+Modern application development often aims for stateless applications, but *StatefulSets* can be used for stateful applications, such as applications that include database components. A StatefulSet is similar to a deployment in that one or more identical pods are created and managed. Replicas in a StatefulSet follow a graceful, sequential approach to deployment, scale, upgrades, and terminations. With a StatefulSet, the naming convention, network names, and storage persist as replicas are rescheduled.
 
-Pods in a StatefulSet follow a graceful, sequential approach to deployment, scale, upgrades, and terminations. You define the application in YAML format using `kind: StatefulSet`, and the StatefulSet Controller then handles the deployment and management of the required pods.
+You define the application in YAML format using `kind: StatefulSet`, and the StatefulSet Controller then handles the deployment and management of the required replicas. Data is written to persistent storage, provided by Azure Managed Disks or Azure Files. A feature of StatefulSets is that the underlying persistent storage remains when the StatefulSet is deleted.
 
-Data is written to persistent storage, provided by Azure Managed Disks or Azure Files. A feature of StatefulSets is that the underlying persistent storage remains when the StatefulSet is deleted.
-
-Pods in a StatefulSet are scheduled and run across any available node in an AKS cluster. If you need to ensure that at least one pod in your Set runs on a node, you can instead use a DaemonSet.
+Replicas in a StatefulSet are scheduled and run across any available node in an AKS cluster. If you need to ensure that at least one pod in your Set runs on a node, you can instead use a DaemonSet.
 
 ### DaemonSets
 
