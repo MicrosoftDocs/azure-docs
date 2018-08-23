@@ -139,6 +139,9 @@ AzureMetrics
 | render timechart
 ```
 
+Note:
+- Pre-requirement of setting up this alert is that monitored databases stream diagnostics metrics ("All metrics" option) to the solution.
+
 *High DTU on Azure SQL Database Elastic Pool*
 
 ```
@@ -148,7 +151,10 @@ AzureMetrics
 | render timechart
 ```
 
-*Setting up alerts on Database storage being in average above 95% in the last 1 hr*
+Note:
+- Pre-requirement of setting up this alert is that monitored databases stream diagnostics metrics ("All metrics" option) to the solution.
+
+*Azure SQL Database storage in average above 95% in the last 1hr*
 
 ```
 let time_range = 1h;
@@ -161,10 +167,12 @@ AzureMetrics
 | distinct ResourceId
 ```
 
-Note: This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on some databases. The output is a list of database resources that are above the storage_threshold within the time_range defined.
+Note:
+- Pre-requirement of setting up this alert is that monitored databases stream diagnostics metrics ("All metrics" option) to the solution.
+- This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on some databases. The output is a list of database resources that are above the storage_threshold within the time_range defined.
+- The output is a list of database resources that are above the storage_threshold within the time_range defined.
 
-
-*Setting up alerts on Intelligent insights*
+*Alert on Intelligent insights*
 
 ```
 let alert_run_interval = 1h;
@@ -176,11 +184,11 @@ AzureDiagnostics
 | distinct ResourceId
 ```
 
-Note: This query requires an alert rule to be set up to run with the same frequency as alert_run_interval in order to avoid duplicate results. The rule should be set up to fire off the alert when there exist results (> 0 results) from the query.
- 
-Customize the alert_run_interval to specify the time range to check if the condition has occurred on databases configured to stream SQLInsights log to the solution.
- 
-Customize the insights_string to capture the output of the Insights root cause analysis text. This is the same text displayed in the UI of the solution that you can use from the existing insights. Alternatively, you can use the following query to see the text of all Insights generated on your subscription. Use the query to harvest the distinct strings for setting up alerts in Insights.
+Note: 
+- Pre-requirement of setting up this alert is that monitored databases stream SQLInsights diagnostics log to the solution.
+- This query requires an alert rule to be set up to run with the same frequency as alert_run_interval in order to avoid duplicate results. The rule should be set up to fire off the alert when there exist results (> 0 results) from the query.
+- Customize the alert_run_interval to specify the time range to check if the condition has occurred on databases configured to stream SQLInsights log to the solution.
+- Customize the insights_string to capture the output of the Insights root cause analysis text. This is the same text displayed in the UI of the solution that you can use from the existing insights. Alternatively, you can use the query below to see the text of all Insights generated on your subscription. Use the output of the query to harvest the distinct strings for setting up alerts on Insights.
 
 ```
 AzureDiagnostics
