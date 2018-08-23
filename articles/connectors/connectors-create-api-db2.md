@@ -428,9 +428,7 @@ Expand the **Delete row** action.
 
    The outputs no longer include the record you deleted from your specified table.
    
-   ![View output without deleted row](./media/connectors-create-api-db2/db2-connector-update-row-outputs.png)
-
-   ![](./media/connectors-create-api-db2/Db2connectorDeleteRowOutputs.png)
+   ![View output without deleted row](./media/connectors-create-api-db2/db2-connector-delete-row-outputs.png)
 
 ## Connector reference
 
