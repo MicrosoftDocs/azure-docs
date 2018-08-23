@@ -169,6 +169,8 @@
       href: security-center-search.md
     - name: Review compliance (REST)
       href: security-center-review-policy-compliance.md
+    - name: Assess subscriptions (REST)
+      href: security-center-compliance-rest-api.md
 
  
   - name: Scenarios
