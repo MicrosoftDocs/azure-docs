@@ -214,10 +214,10 @@
         href: ../connectors/connectors-create-api-onedrive.md
       - name: OneDrive for Business
         href: ../connectors/connectors-create-api-onedriveforbusiness.md
-      - name: Outlook.com
-        href: ../connectors/connectors-create-api-outlook.md
       - name: Oracle Database
         href: ../connectors/connectors-create-api-oracledatabase.md
+      - name: Outlook.com
+        href: ../connectors/connectors-create-api-outlook.md
       - name: Project Online
         href: ../connectors/connectors-create-api-projectonline.md
       - name: Request / Response
