@@ -106,18 +106,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![ArcGIS Enterprise Domain and URLs single sign-on information](./media/arcgisenterprise-tutorial/tutorial_arcgisenterprise_url1.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `aadintegration.dev.geocloud.com.portal`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `<EXTERNAL_DNS_NAME>.portal`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://aadintegration.dev.geocloud.com/portal/sharing/rest/oauth2/saml/signin2`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin2`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![ArcGIS Enterprise Domain and URLs single sign-on information](./media/arcgisenterprise-tutorial/tutorial_arcgisenterprise_url2.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://fqdn/portal/sharing/rest/oauth2/saml/signin`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [ArcGIS Enterprise Client support team](mailto:nshampur@esri.com) to get these values. You will get the Identifier value which is explianed later in this tutorial.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [ArcGIS Enterprise Client support team](mailto:nshampur@esri.com) to get these values. You will get the Identifier value from **Set Identity Provider** section, which is explained later in this tutorial.
 
 5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
 
@@ -137,15 +137,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![ArcGIS Enterprise Configuration](./media/arcgisenterprise-tutorial/configure2.png)
 
-10. Select **SET ENTERPRISE LOGIN**.
+10. Scroll down to the **Enterprise Logins via SAML** section and select **SET ENTERPRISE LOGIN**.
 
 	![ArcGIS Enterprise Configuration](./media/arcgisenterprise-tutorial/configure3.png)
 
-11. On the Set Identity Provider** section, perform the following steps:
+11. On the **Set Identity Provider** section, perform the following steps:
 
 	![ArcGIS Enterprise Configuration](./media/arcgisenterprise-tutorial/configure4.png)
 
-	a. Please provide a name like **Azure Active Directory Test**.
+	a. Please provide a name like **Azure Active Directory Test** in the **Name** textbox.
 
 	b. In the **URL** textbox, paste the **App Federation Metadata Url** value which you have copied from the Azure portal.
 
@@ -153,7 +153,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	![ArcGIS Enterprise Configuration](./media/arcgisenterprise-tutorial/configure5.png)
 
-	d. Select **UPDATE IDENTITY PROVIDER**.
+	d. Click **UPDATE IDENTITY PROVIDER**.
 
 ### Create an Azure AD test user
 
@@ -189,7 +189,10 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Create an ArcGIS Enterprise test user
 
-In this section, a user called Britta Simon is created in **ArcGIS Enterprise**.This application supports automatic provisioning, which enables automatic provisioning and deprovisioning based on your business rules.  Microsoft recommends using automatic provisioning whenever possible. See how to enable auto provisioning for [ArcGIS Enterprise support team](mailto:nshampur@esri.com).
+The objective of this section is to create a user called Britta Simon in ArcGIS Enterprise. ArcGIS Enterprise supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access ArcGIS Enterprise if it doesn't exist yet.
+
+> [!Note]
+> If you need to create a user manually, contact [ArcGIS Enterprise support team](mailto:nshampur@esri.com).
 
 ### Assign the Azure AD test user
 
