@@ -16,21 +16,25 @@ ms.reviewer: krbain
 ---
 
 # Quickstart: Search for and view your groups and assigned members using the Azure AD portal
-Whether you add your members as part of the group creation process or later, you can always view your groups and associated members.
+You can search for a specific group, or see all of your groups, and view the assigned members.
 
 ## To search for a specific group
 1. Sign in to the [Azure AD portal](https://portal.azure.com) using a Global administrator account for the directory.
 
-2. Select **Azure Active Directory**, and then select **Groups**
+2. Select **Azure Active Directory**, and then select **Groups**.
 
-2. From the **Groups - All groups** blade, type in as much of the group name as you can into the **Search** box.
+    The **Groups - All groups** blade appears, showing all of your active groups.
 
-## To view all groups and assigned members
-1. Select **Groups**, and then select your group name. In this case, _MDM policy - West_.
+3. From the **Groups - All groups** blade, type as much of the group name as you can into the **Search** box.
+
+    ![All groups blade, with search text in the Search box](media/active-directory-groups-view-azure-portal/search-for-specific-group.png)
+
+## To view assigned members
+1. From the **Groups - All groups** blade, select the group name for which you want to see the members. In this case, _MDM policy - West_.
 
     The group information appears, with the number of included members.
 
-2. If you want to see the member names, select **Members** from the **Manage** area, and review the list.
+2. Select **Members** from the **Manage** area, and review the complete list of members assigned to that specific group.
 
 ## Next steps
 
