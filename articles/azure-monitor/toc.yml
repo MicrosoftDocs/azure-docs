@@ -73,10 +73,8 @@
     href: ../monitoring/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
   - name: Monitoring data
     items: 
-    - name: Overview
+    - name: Metrics and logs
       href: ../monitoring/monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json
-    - name: Logs
-      href: ../log-analytics/log-analytics-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Activity log
       href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=/azure/azure-monitor/toc.json
     - name: Diagnostic logs
