@@ -92,11 +92,11 @@ The following Azure Media Services related considerations apply:
 
     You might need to adjust the type and number of media **Reserved Units**, according to your planned load. Keep in mind that if your load is high and you don’t have enough units or speed, videos processing can result in timeout failures.
 
-* If you connected to a new Media Services account, Video Indexer automatically starts a **Streaming Endpoint** in it:
+* If you connected to a new Media Services account, Video Indexer automatically starts the default **Streaming Endpoint** in it:
 
     ![Media Services streaming endpoint](./media/create-account/ams-streaming-endpoint.png)
 
-* If you connected to an existing Media Services account, Video Indexer does not change the streaming endpoints configuration. If there is no running **Streaming Endpoint**, you will not be able to watch videos from this Media Services account or in Video Indexer.
+* If you connected to an existing Media Services account, Video Indexer does not change the default Streaming Endpoint configuration. If there is no running **Streaming Endpoint**, you will not be able to watch videos from this Media Services account or in Video Indexer.
 
 ## Next steps
 

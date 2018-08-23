@@ -16,6 +16,9 @@ ms.author: juliako
 
 This article demonstrates how to manage a Video Indexer account that is connected to your Azure subscription and an Azure Media Services account.
 
+> [!NOTE]
+> You have to be the Video Indexer account owner to do account configuration adjustments discussed in this topic.
+
 ## Prerequisites
 
 Connect your Video Indexer account to Azure, as described in [Connected to Azure](connect-to-azure.md). 
@@ -46,11 +49,13 @@ If your account needs some adjustments, you will see relevant errors and warning
 
 The **Settings** page enables you to set the autoscaling of Media Reserved Units (RU). If the option is **On**, you can allocate the maximum number of RUs and be sure that Video Indexer stops/starts RUs automatically. With this option, you don't pay extra money for idle time but also do not wait for indexing jobs to complete a long time when the indexing load is high.
 
+Auto-scale does not scale below 1 RU or above the max allocation for the Media Services account. In order to increase the max RUs allocated, create a service request. For information about quotas and limitations and how to open a support ticket, see [Quotas and limitations](../../media-services/previous/media-services-quotas-and-limitations.md).
+
 ![Sign up](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## Errors and warnings
 
-If your account needs some adjustments, you see relevant errors and warnings about your account configuration on the **Settings** page. The messages contain links to exact places in Azure portal where you need to make changes. This sections gives more details about the error and warning messages.
+If your account needs some adjustments, you see relevant errors and warnings about your account configuration on the **Settings** page. The messages contain links to exact places in Azure portal where you need to make changes. This section gives more details about the error and warning messages.
 
 * Event Grid
 
@@ -59,6 +64,7 @@ If your account needs some adjustments, you see relevant errors and warnings abo
 * Streaming Endpoint
 
     Make sure the underlying Media Services account has the default **Streaming Endpoint** in a started state. Otherwise, you will not be able to watch videos from this Media Services account or in Video Indexer.
+
 * Media Reserved Units 
 
     You must allocate Media Reserved Units on your Media Service resource in order to index videos. For optimal indexing performance, it's recommended to allocate at least 10 S3 Reserved Units. For pricing information, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.   
