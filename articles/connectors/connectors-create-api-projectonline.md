@@ -1,6 +1,6 @@
 ---
 title: Connect to Project Online from Azure Logic Apps | Microsoft Docs
-description: Automate workflows that create and manage Project Online projects, tasks, and resources by using Azure Logic Apps
+description: Automate workflows that monitor, create, and manage Project Online projects, tasks, and resources by using Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -13,7 +13,7 @@ tags: connectors
 ms.date: 08/24/2018
 ---
 
-# Manage Project Online projects, tasks, and resources with Azure Logic Apps
+# Manage Project Online projects, tasks, and resources by using Azure Logic Apps
 
 With Azure Logic Apps and the Project Online connector, 
 you can create automated tasks and workflows for your projects, 
@@ -71,6 +71,9 @@ and open your logic app in Logic App Designer, if not open already.
    select the action you want.
 
 1. If you're prompted to sign in to Project Online, sign in now.
+
+   Your credentials authorize your logic app to create a 
+   connection to Project Online and access your data.
 
 1. Provide the necessary details for your selected trigger or 
 action and continue building your logic app's workflow.

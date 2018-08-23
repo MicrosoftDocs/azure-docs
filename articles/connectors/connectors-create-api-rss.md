@@ -1,6 +1,6 @@
 ---
 title: Connect to RSS feeds from Azure Logic Apps | Microsoft Docs
-description: Automate workflows that manage RSS feeds by using Azure Logic Apps
+description: Automate tasks and workflows that monitor and manage RSS feeds by using Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -32,6 +32,21 @@ and makes the output available to other actions. You can use an
 RSS action in your logic apps to perform a task with the RSS feed. 
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+
+## Prerequisites
+
+* An Azure subscription. If you don't have an Azure subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+
+* The URL for an RSS feed
+
+* Basic knowledge about 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* The logic app where you want to access an RSS feed. 
+To start with an RSS trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+To use an RSS action, start your logic app with another trigger, 
+for example, the **Recurrence** trigger.
 
 ## Connect to an RSS feed
 
