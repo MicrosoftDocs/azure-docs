@@ -16,6 +16,7 @@ ms.reviewer: krbain
 ---
 
 # Quickstart: Search for and view your groups and assigned members using the Azure AD portal
+
 You can search for a specific group, or see all of your groups, and view the assigned members.
 
 ## To search for a specific group
@@ -31,9 +32,9 @@ You can search for a specific group, or see all of your groups, and view the ass
 
     ![All groups blade, with search text in the Search box](media/active-directory-groups-view-azure-portal/search-for-specific-group.png)
 
-4. Select the group **MDM policy - West** and view the group info on the **Overview** blade, including the number of members of that group.
+4. Select the group **MDM policy - West** and view the group info on the **Group Overview** blade, including the number of members of that group.
 
-    ![Overview blade with number and members and Member option highlighted](media/active-directory-groups-view-azure-portal/group-overview-blade.png)
+    ![Group Overview blade with number and members and Member option highlighted](media/active-directory-groups-view-azure-portal/group-overview-blade.png)
 
 5. Select **Members** from the **Manage** area, and review the complete list of member names assigned to that specific group.
 

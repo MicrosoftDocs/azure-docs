@@ -64,7 +64,9 @@ You can create a basic group and add your members at the same time.
 
 6. When you're done adding members, choose **Select**.
 
-    The **Group** blade updates to show the number of members who are now assigned to the group.
+    The **Group Overview** blade updates to show the number of members who are now assigned to the group.
+
+    ![Group Overview blade with number of members highlighted](media/active-directory-groups-create-azure-portal/group-overview-blade-number-highlight.png)
 
 ## Next steps
 Now that you've added a group and at least one user, you can:
