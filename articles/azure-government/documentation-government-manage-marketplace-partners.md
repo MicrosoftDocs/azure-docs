@@ -89,7 +89,7 @@ Verify endpoints are not hard-coded into your solution Template for Azure Global
     ```
 
 ### Hardcoded list of locations
-Make sure your solution template supports the Azure Government locations. See the [list of Azure Government regions](documentation-government-get-started-connect-with-ps.md#determining-azure-government-regions)
+Make sure your solution template supports the Azure Government locations. 
 
 ### Unavailable resources
 Verify that resources, API versions, extensions and VM images used in your solution template are available in Azure Government. 

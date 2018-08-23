@@ -73,6 +73,7 @@
     href: conditional-access-dev-guide.md
   - name: Permissions
     href: v1-permissions-and-consent.md
+    displayName: Scopes
   - name: OAuth & OpenID Connect
     items:
     - name: OpenID Connect protocol

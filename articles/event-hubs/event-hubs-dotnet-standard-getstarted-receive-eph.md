@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
+ms.date: 08/16/2018
 ms.author: shvija
 
 ---
@@ -189,9 +189,9 @@ Add the [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft
                 Console.WriteLine("Registering EventProcessor...");
 
                 var eventProcessorHost = new EventProcessorHost(
-                    EhEntityPath,
+                    EventHubName,
                     PartitionReceiver.DefaultConsumerGroupName,
-                    EhConnectionString,
+                    EventHubConnectionString,
                     StorageConnectionString,
                     StorageContainerName);
 
