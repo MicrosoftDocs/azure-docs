@@ -2,20 +2,15 @@
 title: How to choose algorithms for Azure Machine Learning Studio | Microsoft Docs
 description: How to choose Azure Machine Learning Studio algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.
 services: machine-learning
-documentationcenter: ''
 author: pakalra
 ms.author: pakalra
 manager: cgronlun
 editor: cgronlun
-tags: ''
 
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.component: studio
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 08/23/2018
 
 ---
@@ -44,47 +39,47 @@ Here is a list of the Machine Learning Studio algorithms mentioned in the cheat 
 
 ### Two-class classification
 
-- [logistic regression](/azure/machine-learning/studio-module-reference/two-class-logistic-regression)
-- [decision forest](/azure/machine-learning/studio-module-reference/two-class-decision-forest)
-- [decision jungle](/azure/machine-learning/studio-module-reference/two-class-decision-jungle)
-- [boosted decision tree](/azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree)
-- [neural network](/azure/machine-learning/studio-module-reference/two-class-neural-network)
-- [averaged perceptron](/azure/machine-learning/studio-module-reference/two-class-averaged-perceptron)
-- [support vector machine](/azure/machine-learning/studio-module-reference/two-class-support-vector-machine)
-- [locally deep support vector machine](/azure/machine-learning/studio-module-reference/two-class-locally-deep-support-vector-machine)
-- [Bayes’ point machine](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine)
+- [logistic regression](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-logistic-regression)
+- [decision forest](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-decision-forest)
+- [decision jungle](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-decision-jungle)
+- [boosted decision tree](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree)
+- [neural network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network)
+- [averaged perceptron](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-averaged-perceptron)
+- [support vector machine](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-support-vector-machine)
+- [locally deep support vector machine](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-locally-deep-support-vector-machine)
+- [Bayes’ point machine](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine)
 
 ### Multi-class classification
 
-- [logistic regression](https://msdn.microsoft.com/library/azure/dn905853.aspx)
-- [decision forest](https://msdn.microsoft.com/library/azure/dn906015.aspx)
-- [decision jungle ](https://msdn.microsoft.com/library/azure/dn905963.aspx)
-- [neural network](https://msdn.microsoft.com/library/azure/dn906030.aspx)
-- [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)
+- [logistic regression](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-logistic-regression)
+- [decision forest](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-decision-forest)
+- [decision jungle](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-decision-jungle)
+- [neural network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network)
+- [one-v-all](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/one-vs-all-multiclass)
 
 ### Regression
 
-- [linear](https://msdn.microsoft.com/library/azure/dn905978.aspx)
-- [Bayesian linear](https://msdn.microsoft.com/library/azure/dn906022.aspx)
-- [decision forest](https://msdn.microsoft.com/library/azure/dn905862.aspx)
-- [boosted decision tree](https://msdn.microsoft.com/library/azure/dn905801.aspx)
-- [fast forest quantile](https://msdn.microsoft.com/library/azure/dn913093.aspx)
-- [neural network](https://msdn.microsoft.com/library/azure/dn905924.aspx)
-- [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)
-- [ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)
+- [linear](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/linear-regression)
+- [Bayesian linear](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/bayesian-linear-regression)
+- [decision forest](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/decision-forest-regression)
+- [boosted decision tree](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/boosted-decision-tree-regression)
+- [fast forest quantile](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/fast-forest-quantile-regression)
+- [neural network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
+- [Poisson](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/poisson-regression)
+- [ordinal](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/ordinal-regression)
 
 ### Anomaly detection
 
-- [support vector machine](https://msdn.microsoft.com/library/azure/dn913103.aspx)
-- [PCA-based anomaly detection](https://msdn.microsoft.com/library/azure/dn913102.aspx)
-- [K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)
+- [support vector machine](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/one-class-support-vector-machine)
+- [PCA-based anomaly detection](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/pca-based-anomaly-detection)
+- [K-means](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/k-means-clustering)
 
 ## More help with algorithms
 
 - For a downloadable infographic that describes algorithms and provides examples, see [Downloadable Infographic: Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md).
 
-- For a list by category of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model](/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) in the Machine Learning Studio Algorithm and Module Help.
+- For a list by category of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) in the Machine Learning Studio Algorithm and Module Help.
 
-- For a complete alphabetical list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules](/azure/machine-learning/studio-module-reference/index) in the Machine Learning Studio Algorithm and Module Help.
+- For a complete alphabetical list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index) in the Machine Learning Studio Algorithm and Module Help.
 
 - To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](studio-overview-diagram.md).
