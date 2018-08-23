@@ -4,7 +4,7 @@ description: Find answers to frequently asked questions about Azure Files.
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 07/19/2018
+ms.date: 08/22/2018
 ms.author: renash
 ms.component: files
 ---
@@ -223,6 +223,7 @@ This article answers common questions about Azure Files features and functionali
 **Can Azure Files integrate with a Azure AD tenant from a different subscription?**
     No, Azure Files only supports Azure AD integration with an Azure AD tenant that resides in the same subscription as the file share. Only one subscription can be associated with an Azure AD tenant.
 
+* <a id="ad-linux-vms"></a>
 **Does Azure AD authentication over SMB for Azure Files (Preview) support Linux VMs?**
     No, authenication from Linux VMs is not supported in the preview release.
 
