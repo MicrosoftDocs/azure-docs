@@ -6,4 +6,4 @@
  ms.author: tarcher
 ---
 
-[!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] and - if you don't have access to a Linux virtual machine - [create a virtual machine with Ansible](/azure/virtual-machines/linux/ansible-create-vm.md).
+[!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] and - if you don't have access to a Linux virtual machine - [create a virtual machine with Ansible](/azure/virtual-machines/linux/ansible-create-vm.md).
