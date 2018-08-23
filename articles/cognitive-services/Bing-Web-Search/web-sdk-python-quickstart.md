@@ -300,4 +300,4 @@ When you're done with this project, make sure to remove your subscription key fr
 
 ## See also
 
-* [Azure Python SDK reference](https://docs.microsoft.com/en-us/python/api/overview/azure/cognitiveservices/websearch?view=azure-python)
+* [Azure Python SDK reference](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch)

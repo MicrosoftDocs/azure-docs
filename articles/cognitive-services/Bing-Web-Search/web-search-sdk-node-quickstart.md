@@ -51,7 +51,7 @@ Now you're ready to start coding.
 
 In the same directory as your `package.json`, create a new Node.js project using your favorite IDE or editor. For example: `sample.js`.
 
-Next, copy this code into your project. It loads the two modules we installed in the previous section.
+Next, copy this code into your project. It loads the modules installed in the previous section.
 
 ```javascript
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
@@ -101,4 +101,4 @@ When you're done with this project, make sure to remove your subscription key fr
 
 ## See also
 
-* [Azure Node SDK reference](https://docs.microsoft.com/en-us/javascript/api/azure-cognitiveservices-websearch/index?view=azure-node-latest)
+* [Azure Node SDK reference](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-websearch/)

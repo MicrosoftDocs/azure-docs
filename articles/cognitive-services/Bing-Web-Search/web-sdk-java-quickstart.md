@@ -3,346 +3,294 @@ title: "Quickstart: Use the Bing Web Search SDK for Java"
 description: Setup for Web Search SDK console application.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 08/16/2018
-ms.author: v-gedod, erhopf
+ms.date: 08/22/2018
+ms.author: erhopf
 ---
 
 # Quickstart: Use the Bing Web Search SDK for Java
 
-This quickstart uses the Bing Web Search SDK to instantiate a client and make calls to the Bing Web Search API. After completing this guide, your Java app will make four calls to the Bing Web Search API, illustrating how requests can be configured to return
+The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Java application. In this quickstart, you'll learn how to send a request, receive a JSON response, and filter and parse the results.
+
+Want to see the code right now? The [Bing Web Search SDK for Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) are available on GitHub.
 
 [!INCLUDE [quickstart-signup](includes/quickstart-signup.md)]
 
-Source code for the [Bing Web Search SDK for Java sample](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) is available on GitHub.
-
 ## Prerequisites
 
-* Install Bing Web Search SDK dependencies using Maven, Gradle, or your favorite dependency management system. The Maven POM file requires:
-  ```
+Here are a few things that you'll need before running this quickstart:
+
+* [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Apache Maven](https://maven.apache.org/download.cgi) or your favorite build automation tool
+* A subscription key
+
+## Create a project and configure your POM file
+
+Create a new Java project using Maven or your favorite build automation tool. Assuming that you're using Maven, add the following lines to your POM file. Replace all instances of `mainClass` with your application.
+
+```xml
+<build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <configuration>
+          <!--Your comment
+            Replace the mainClass with the path to your java application. 
+            It should begin with com and doesn't require the .java extension.
+            For example: com.bingwebsearch.app.BingWebSearchSample. This maps to
+            The following directory structure:
+            src/main/java/com/bingwebsearch/app/BingWebSearchSample.java.
+          -->
+          <mainClass>com.path.to.your.app.APP_NAME</mainClass>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.0</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>attached</goal>
+            </goals>
+            <configuration>
+              <descriptorRefs>
+                <descriptorRef>jar-with-dependencies</descriptorRef>
+              </descriptorRefs>
+              <archive>
+                <manifest>
+                  <!--Your comment
+                    Replace the mainClass with the path to your java application. 
+                    For example: com.bingwebsearch.app.BingWebSearchSample.java.
+                    This maps to the following directory structure:
+                    src/main/java/com/bingwebsearch/app/BingWebSearchSample.java.
+                  -->
+                  <mainClass>com.path.to.your.app.APP_NAME.java</mainClass>
+                </manifest>
+              </archive>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
   <dependencies>
+    <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>azure</artifactId>
+      <version>1.9.0</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-net</groupId>
+      <artifactId>commons-net</artifactId>
+      <version>3.3</version>
+    </dependency>
     <dependency>
       <groupId>com.microsoft.azure.cognitiveservices</groupId>
       <artifactId>azure-cognitiveservices-websearch</artifactId>
-      <version>0.0.1-beta-SNAPSHOT</version>
+      <version>1.0.1</version>
     </dependency>
   </dependencies>
-  ```
-
-## Set up your client and call the Bing Web Search API
-
-Let's start by adding imports to the class implementation:
-
-```
-import com.microsoft.azure.cognitiveservices.websearch.*;
-import com.microsoft.azure.cognitiveservices.websearch.implementation.SearchResponseInner;
-import com.microsoft.azure.cognitiveservices.websearch.implementation.WebSearchAPIImpl;
-import com.microsoft.rest.credentials.ServiceClientCredentials;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 ```
 
-Implement the `WebSearchAPIImpl` client, which requires an instance of `ServiceClientCredentials`:
+## Declare dependencies
 
-```
-public static WebSearchAPIImpl getClient(final String subscriptionKey) {
-    return new WebSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
-            new ServiceClientCredentials() {
-                @Override
-                public void applyCredentialsFilter(OkHttpClient.Builder builder) {
-                    builder.addNetworkInterceptor(
-                            new Interceptor() {
-                                @Override
-                                public Response intercept(Chain chain) throws IOException {
-                                    Request request = null;
-                                    Request original = chain.request();
-                                    // Request customization: add request headers
-                                    Request.Builder requestBuilder = original.newBuilder()
-                                            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-                                    request = requestBuilder.build();
-                                    return chain.proceed(request);
-                                }
-                            });
-                }
-            });
-}
+Open your application in your favorite IDE or editor and import these dependencies:
 
+```java
+import com.microsoft.azure.cognitiveservices.search.websearch.BingWebSearchAPI;
+import com.microsoft.azure.cognitiveservices.search.websearch.BingWebSearchManager;
+import com.microsoft.azure.cognitiveservices.search.websearch.models.ImageObject;
+import com.microsoft.azure.cognitiveservices.search.websearch.models.NewsArticle;
+import com.microsoft.azure.cognitiveservices.search.websearch.models.SearchResponse;
+import com.microsoft.azure.cognitiveservices.search.websearch.models.VideoObject;
+import com.microsoft.azure.cognitiveservices.search.websearch.models.WebPage;
 ```
 
-This method searches for a single query, "Xbox", and prints `name`, and `URL` for first web, image, news, and videos results.
+If you created the project with Maven, you a package should already be declared. If not, declare the package now. For example: 
 
-```
-public static void WebSearchResultTypesLookup(String subscriptionKey)
-{
-    WebSearchAPIImpl client = getClient(subscriptionKey);
-
-    try
-    {
-        SearchResponseInner webData = client.webs().search("Yosemite");
-        System.out.println("\r\nSearched for Query# \" Yosemite \"");
-
-        // Web pages
-        if (webData.webPages().value().size() > 0)
-        {
-            // Find the first web page
-            WebPage firstWebPagesResult = webData.webPages().value().get(0);
-
-            if (firstWebPagesResult != null)
-            {
-                System.out.println(String.format("Webpage Results#%d", webData.webPages().value().size()));
-                System.out.println(String.format("First web page name: %s ", firstWebPagesResult.name()));
-                System.out.println(String.format("First web page URL: %s ", firstWebPagesResult.url()));
-            }
-            else
-            {
-                System.out.println("Couldn't find web results!");
-            }
-        }
-        else
-        {
-            System.out.println("Didn't see any Web data..");
-        }
-
-        // Images
-        if (webData.images().value().size() > 0)
-        {
-            // Find the first image result
-            ImageObject firstImageResult = webData.images().value().get(0);
-
-            if (firstImageResult != null)
-            {
-                System.out.println(String.format("Image Results#%d", webData.images().value().size()));
-                System.out.println(String.format("First Image result name: %s ", firstImageResult.name()));
-                System.out.println(String.format("First Image result URL: %s ", firstImageResult.contentUrl()));
-            }
-            else
-            {
-                System.out.println("Couldn't find first image results!");
-            }
-        }
-        else
-        {
-            System.out.println("Didn't see any image data..");
-        }
-
-        // News
-        if (webData.news().value().size() > 0)
-        {
-            // Find the first news result
-            NewsArticle firstNewsResult = webData.news().value().get(0);
-
-            if (firstNewsResult != null)
-            {
-                System.out.println(String.format("News Results#%d", webData.news().value().size()));
-                System.out.println(String.format("First news result name: %s ", firstNewsResult.name()));
-                System.out.println(String.format("First news result URL: %s ", firstNewsResult.url()));
-            }
-            else
-            {
-                System.out.println("Couldn't find any News results!");
-            }
-        }
-        else
-        {
-            System.out.println("Didn't see first news data..");
-        }
-
-        // Videos
-        if (webData.videos() != null && webData.videos().value().size() > 0)
-        {
-            // Find the first video result
-            VideoObject firstVideoResult = webData.videos().value().get(0);
-
-            if (firstVideoResult != null)
-            {
-                System.out.println(String.format("Video Results#%s", webData.videos().value().size()));
-                System.out.println(String.format("First Video result name: %s ", firstVideoResult.name()));
-                System.out.println(String.format("First Video result URL: %s ", firstVideoResult.contentUrl()));
-            }
-            else
-            {
-                System.out.println("Couldn't find first video results!");
-            }
-        }
-        else
-        {
-            System.out.println("Didn't see any video data..");
-        }
-    }
-
-    catch (ErrorResponseException ex)
-    {
-        System.out.println("Encountered exception. " + ex.getLocalizedMessage());
-    }
-
-}
-
+```java
+package com.bingwebsearch.app
 ```
 
-This method searches for "Best restaurants in Seattle", verifies the results, and prints the `name` and `URL` for the first result:
+## Declare the BingWebSearchSample class
 
-```
-public static void WebResultsWithCountAndOffset(String subscriptionKey)
-{
-    WebSearchAPIImpl client = getClient(subscriptionKey);
+Declare the `BingWebSearchSample` class. It will include most of the code we review in this quickstart including the `main` method.  
 
-    try
-    {
-        SearchResponseInner webData = client.webs().search(
-                "Best restaurants in Seattle", null, null, null, null, null, 10, null, 20, null, "en-us", null,
-                        null, null, SafeSearch.STRICT, null, null, null);
-        System.out.println("\r\nSearched for Query# \" Best restaurants in Seattle \"");
+```java
+public class BingWebSearchSample {
 
-        if (webData.webPages().value().size() > 0)
-        {
-            // Find the first web page
-            WebPage firstWebPagesResult = webData.webPages().value().get(0);
+// The code in the following sections goes here.
 
-            if (firstWebPagesResult != null)
-            {
-                System.out.println(String.format("Web Results#%d", webData.webPages().value().size()));
-                System.out.println(String.format("First web page name: %s ", firstWebPagesResult.name()));
-                System.out.println(String.format("First web page URL: %s ", firstWebPagesResult.url()));
-            }
-            else
-            {
-                System.out.println("Couldn't find first web result!");
-            }
-        }
-        else
-        {
-            System.out.println("Didn't see any Web data..");
-        }
-    }
-    catch (ErrorResponseException ex)
-    {
-        System.out.println("Encountered exception. " + ex.getLocalizedMessage());
-    }
-}
-
-```
-
-This method searches for "Microsoft" with response filters assigned to `news`, and prints details for the first news item.
-
-```
-public static void WebSearchWithResponseFilter(String subscriptionKey)
-{
-    WebSearchAPIImpl client = getClient(subscriptionKey);
-
-    try
-    {
-        List<AnswerType> responseFilterstrings = new ArrayList<AnswerType>();
-        responseFilterstrings.add(AnswerType.NEWS);
-        SearchResponseInner webData = client.webs().search(
-        "Best restaurants in Seattle", null, null, null, null, null, 10, null, 20, null, "en-us", null,
-                null, responseFilterstrings, SafeSearch.STRICT, null, null, null);
-
-        System.out.println("\\r\\nSearched for Query# \" Microsoft \" with response filters \"news\"");
-
-        // News
-        if (webData.news() != null && webData.news().value().size() > 0)
-        {
-            // Find the first news result
-            NewsArticle firstNewsResult = webData.news().value().get(0);
-
-            if (firstNewsResult != null)
-            {
-                System.out.println(String.format("News Results#%d", webData.news().value().size()));
-                System.out.println(String.format("First news result name: %s ", firstNewsResult.name()));
-                System.out.println(String.format("First news result URL: %s ", firstNewsResult.url()));
-            }
-            else
-            {
-                System.out.println("Couldn't find first News results!");
-            }
-        }
-        else
-        {
-            System.out.println("Didn't see any News data..");
-        }
-
-    }
-    catch (ErrorResponseException ex)
-    {
-        System.out.println("Encountered exception. " + ex.getLocalizedMessage());
-    }
-}
-
-```
-
-This method searches for "Niagara Falls", using the `answerCount` and `promote` parameters, and prints the results.
-
-```
-public static void WebSearchWithAnswerCountPromoteAndSafeSearch(String subscriptionKey)
-{
-    WebSearchAPIImpl client = getClient(subscriptionKey);
-
-    try
-    {
-        List<AnswerType> promoteAnswertypeStrings = new ArrayList<AnswerType>();
-        promoteAnswertypeStrings.add(AnswerType.VIDEOS);
-        SearchResponseInner webData = client.webs().search(
-            "Niagara Falls", null, null, null, null, null, 10, null, 20, null, "en-us", null,
-            promoteAnswertypeStrings, null, SafeSearch.STRICT, null, null, null);
-        System.out.println("\r\nSearched for Query# \" Niagara Falls \"");
-
-        if (webData.videos().value().size() > 0)
-        {
-            VideoObject firstVideosResult = webData.videos().value().get(0);
-
-            if (firstVideosResult != null)
-            {
-                System.out.println(String.format("Video Results#%d", webData.videos().value().size()));
-                System.out.println(String.format("First Video result name: %s ", firstVideosResult.name()));
-                System.out.println(String.format("First Video result URL: %s ", firstVideosResult.contentUrl()));
-            }
-            else
-            {
-                System.out.println("Couldn't find videos results!");
-            }
-        }
-        else
-        {
-            System.out.println("Didn't see any data..");
-        }
-    }
-    catch (ErrorResponseException ex)
-    {
-        System.out.println("Encountered exception. " + ex.getLocalizedMessage());
-    }
-}
-
-```
-
-Add the previous methods to a class with main function to run the code:
-```
-package javaWebSDK;
-import com.microsoft.azure.cognitiveservices.websearch.*;
-public class webSDK{
-
-	public static void main(String [ ] args) {
-
-		WebSearchResultTypesLookup("YOUR-SUBSCRIPTION-KEY");
-		WebResultsWithCountAndOffset("YOUR-SUBSCRIPTION-KEY");
-		WebSearchWithResponseFilter("YOUR-SUBSCRIPTION-KEY");
-		WebSearchWithAnswerCountPromoteAndSafeSearch("YOUR-SUBSCRIPTION-KEY");
-
-	}
-    // Add methods previously documented.
 }
 ```
 
+## Construct a request
+
+The `runSample` method, which lives in the `BingWebSearchSample` class, instantiates the client and constructs a request. Copy this code into your application:
+
+```java
+public static boolean runSample(BingWebSearchAPI client) {
+    /*
+     * This function performs the search.
+     *
+     * @param client instance of the Bing Web Search API client
+     * @return true if sample runs successfully
+     */
+    try {
+        /*
+         * Performs a search based on the .withQuery and prints the name and
+         * url for the first web pages, image, news, and video result
+         * included in the response.
+         */
+        System.out.println("Searched Web for \"Xbox\"");
+        // Construct the request.
+        SearchResponse webData = client.bingWebs().search()
+            .withQuery("Xbox")
+            .withMarket("en-us")
+            .withCount(10)
+            .execute();
+
+// Code continues in the next section...
+```
+
+## Handle the response
+
+Next, let's add some code to parse the response and print the results. The `name` and `url` for the first web page, image, news article, and video are printed if present in the response object.
+
+```java
+/*
+* WebPages
+* If the search response contains web pages, the first result's name
+* and url are printed.
+*/
+if (webData != null && webData.webPages() != null && webData.webPages().value() != null &&
+        webData.webPages().value().size() > 0) {
+    // find the first web page
+    WebPage firstWebPagesResult = webData.webPages().value().get(0);
+
+    if (firstWebPagesResult != null) {
+        System.out.println(String.format("Webpage Results#%d", webData.webPages().value().size()));
+        System.out.println(String.format("First web page name: %s ", firstWebPagesResult.name()));
+        System.out.println(String.format("First web page URL: %s ", firstWebPagesResult.url()));
+    } else {
+        System.out.println("Couldn't find the first web result!");
+    }
+} else {
+    System.out.println("Didn't find any web pages...");
+}
+/*
+ * Images
+ * If the search response contains images, the first result's name
+ * and url are printed.
+ */
+if (webData != null && webData.images() != null && webData.images().value() != null && 
+        webData.images().value().size() > 0) {
+    // find the first image result
+    ImageObject firstImageResult = webData.images().value().get(0);
+
+    if (firstImageResult != null) {
+        System.out.println(String.format("Image Results#%d", webData.images().value().size()));
+        System.out.println(String.format("First Image result name: %s ", firstImageResult.name()));
+        System.out.println(String.format("First Image result URL: %s ", firstImageResult.contentUrl()));
+    } else {
+        System.out.println("Couldn't find the first image result!");
+    }
+} else {
+    System.out.println("Didn't find any images...");
+}
+/*
+ * News
+ * If the search response contains news articles, the first result's name
+ * and url are printed.
+ */
+if (webData != null && webData.news() != null && webData.news().value() != null && 
+        webData.news().value().size() > 0) {
+    // find the first news result
+    NewsArticle firstNewsResult = webData.news().value().get(0);
+    if (firstNewsResult != null) {
+        System.out.println(String.format("News Results#%d", webData.news().value().size()));
+        System.out.println(String.format("First news result name: %s ", firstNewsResult.name()));
+        System.out.println(String.format("First news result URL: %s ", firstNewsResult.url()));
+    } else {
+        System.out.println("Couldn't find the first news result!");
+    }
+} else {
+    System.out.println("Didn't find any news articles...");
+}
+
+/*
+ * Videos
+ * If the search response contains videos, the first result's name
+ * and url are printed.
+ */
+if (webData != null && webData.videos() != null && webData.videos().value() != null && 
+        webData.videos().value().size() > 0) {
+    // find the first video result
+    VideoObject firstVideoResult = webData.videos().value().get(0);
+
+    if (firstVideoResult != null) {
+        System.out.println(String.format("Video Results#%s", webData.videos().value().size()));
+        System.out.println(String.format("First Video result name: %s ", firstVideoResult.name()));
+        System.out.println(String.format("First Video result URL: %s ", firstVideoResult.contentUrl()));
+    } else {
+        System.out.println("Couldn't find the first video result!");
+    }
+} else {
+    System.out.println("Didn't find any videos...");
+}
+```
+
+## Declare the main method
+
+This method is required and is the first method invoked when the program is started. In this application, it includes code that instantiates the client, validates the `subscriptionKey`, and calls `runSample` to make a request and print the search results. Make sure that you enter a valid subscription key for your Azure account before continuing.
+
+```java
+public static void main(String[] args) {
+    try {
+        // Enter a valid subscription key for your account.
+        final String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+        // Instantiate the client.
+        BingWebSearchAPI client = BingWebSearchManager.authenticate(subscriptionKey);
+        // Make a call to the Bing Web Search API.
+        runSample(client);
+    } catch (Exception e) {
+        System.out.println(e.getMessage());
+        e.printStackTrace();
+    }
+}
+```
+
+## Run the program
+
+The final step is to run your program!
+
+```console
+mvn compile exec:java
+```
+
+## Clean up resources
+
+When you're done with this project, make sure to remove your subscription key from the program's code.
 
 ## Next steps
 
-* Review the [Cognitive Services Java SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples).
+> [!div class="nextstepaction"]
+> [Cognitive Services Java SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch)
+
+## See also
+
+* [Azure Node SDK reference](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch)
