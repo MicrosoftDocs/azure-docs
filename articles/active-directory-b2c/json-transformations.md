@@ -47,6 +47,7 @@ In the following example, the claims transformation extracted the `emailAddress`
 
 - Input claims:
     - **inputJson**: {"emailAddress": "emily@live.com", "displayName": "Emily Smith"}
+- Input parameter:
     - **claimToExtract**: emailAddress
 - Output claims: emily@live.com
 
@@ -57,12 +58,12 @@ Get a list of specified elements from Json data.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | jsonSourceClaim | string | The ClaimTypes that are used by the claims transformation to get the item. |
+| InputClaim | jsonSourceClaim | string | The ClaimTypes that are used by the claims transformation to get the claims. |
 | InputParameter | errorOnMissingClaims | boolean | Specifies whether to throw an error if one of the claims is missing. |
 | InputParameter | includeEmptyClaims | string | Specify whether to include empty claims. |
 | InputParameter | jsonSourceKeyName | string | Element key name |
 | InputParameter | jsonSourceValueName | string | Element value name |
-| OutputClaim | Collection | string, int, boolean, and datetime |List of claims to extract. The name of the claim should be equal to the one specified in _jsonSourceKeyName_ input parameter. |
+| OutputClaim | Collection | string, int, boolean, and datetime |List of claims to extract. The name of the claim should be equal to the one specified in _jsonSourceClaim_ input claim. |
 
 In the following example, the claims transformation extracts the following claims: email (string), displayName (string), membershipNum (int), active (boolean) and  birthdate (datetime) from the JSON data.
 
@@ -93,7 +94,7 @@ In the following example, the claims transformation extracts the following claim
 
 - Input claims:
     - **jsonSourceClaim**: [{"key":"email","value":"emily@live.com"}, "key":"displayName","value":"Emily Smith"}, {"key":"membershipNum","value":6353399}, {"key":"active","value": true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
-- Input parameters
+- Input parameters:
     - **errorOnMissingClaims**: false
     - **includeEmptyClaims**: false
     - **jsonSourceKeyName**: key
@@ -111,7 +112,7 @@ Gets a specified numeric (long) element from a JSON data.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJson | string | The ClaimTypes that are used by the claims transformation to get the item. |
+| InputClaim | inputJson | string | The ClaimTypes that are used by the claims transformation to get the claim. |
 | InputParameter | claimToExtract | string | The name of the JSON element to extract. |
 | OutputClaim | extractedClaim | long | The ClaimType that is produced after this ClaimsTransformation has been invoked, the element's value specified in the _claimToExtract_ input parameters. |
 
@@ -199,13 +200,15 @@ Converts XML data to JSON format.
 
 In the following example, the claims transformation converts the following XML data to JSON format.
 
+#### Example
+Input claim:
+
 ```XML
 <user>
-  <name>yoel</name>
+  <name>Emily</name>
   <email>emily@contoso.com</email>
 </user>
 ```
-#### Example
 
 Output claim:
 
@@ -213,7 +216,7 @@ Output claim:
 {
   {
     "user": {
-      "name":"yoel",
+      "name":"Emily",
       "email":"emily@contoso.com"
     }
   }
