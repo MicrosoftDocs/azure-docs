@@ -2,7 +2,7 @@
 
 # [Upload files for a support request](how-to-use-file-uploader.md)
 
-# [Access rights for creating and managing support requests](create-manage-support-requests-using-access-contro.md)
+# [Access rights for creating and managing support requests](create-manage-support-requests-using-access-control.md)
 
 # [Quota increase requests](resource-manager-core-quotas-request.md)
 
