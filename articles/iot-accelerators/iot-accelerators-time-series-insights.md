@@ -12,7 +12,10 @@ services: iot-accelerators
 
 # Visualize Remote Monitoring Data with Time Series Insights
 
-An operator may want to further extend the out of the box data visualization provided by the Remote Monitoring preconfigure solution. Our solution accelerator provides out of the box integration with TSI. In this how-to you will learn how to configure Time Series Insights to analyze device telemetry and detect anomalies.
+An operator may want to further explore data in Remote Monitoring in the Time Series Insights explorer. Our solution accelerator provides out of the box integration with TSI*. In this how-to you will learn how to configure Time Series Insights to analyze device telemetry and detect anomalies.
+
+> [!NOTE]
+> Azure Time Series Insights for Remote Monitoring is in Preview and only available in [select regions](https://azure.microsoft.com/en-us/global-infrastructure/services/).
 
 ## Prerequisites
 
@@ -98,7 +101,7 @@ Create a new Event Source to connect to your IoT hub. Make sure that you use the
 
 ## Time Series Insights Explorer
 
-The Time Series Insights explorer is a web app that helps you create visualizations of your data.
+The Time Series Insights explorer is a web app that helps you create visualizations of your data. 
 
 1. Select the **Overview** tab.
 
