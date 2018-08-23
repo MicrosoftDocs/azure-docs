@@ -141,6 +141,6 @@ You can ask questions or provide feedback on the [Azure Disk Encryption forum](h
 ## Next steps
 In this document, you learned more about the most frequent questions related to Azure Disk Encryption. For more information about this service and its capabilities, see the following articles:
 
+- [Azure Disk Encryption Overview](azure-security-disk-encryption-overview.md)
 - [Apply disk encryption in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Encrypt an Azure virtual machine](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Azure data encryption at rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

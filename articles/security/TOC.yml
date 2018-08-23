@@ -67,8 +67,7 @@
         - name: Disk encryption with Azure AD app for Windows VMs 
           href: azure-security-disk-encryption-windows-aad.md
         - name: Disk encryption with Azure AD app for Linux VMs 
-    - name: Encrypt an Azure VM
-      href: ../security-center/security-center-disk-encryption.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+          href: azure-security-disk-encryption-linux-aad.md
   - name: Azure Storage security
     href: security-storage-overview.md
   - name: Storage security guide
