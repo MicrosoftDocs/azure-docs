@@ -53,7 +53,9 @@ You can use Node.js to access the same results you saw in the browser window in 
 
 3. Set the `LUIS_ENDPOINT_KEY` environment variable to your key.
 
-4. Run the code. It displays the same values that you saw earlier in the browser window.
+4. Install dependencies by running the following command at the command-line: `npm install`.
+
+5. Run the code with `npm start`. It displays the same values that you saw earlier in the browser window.
 
 ## LUIS keys
 

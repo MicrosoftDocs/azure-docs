@@ -45,7 +45,7 @@ You can use Go to access the same results you saw in the browser window in the p
 3. Run the Go application from the command line by entering the following text in the command prompt: 
 
     ```CMD
-    endpoint -appID df67dcdb-c37d-46af-88e1-8b97951ca1c2 -endpointKey <add-your-key> -version 0.1 -region westus
+    go run endpoint.go -appID df67dcdb-c37d-46af-88e1-8b97951ca1c2 -endpointKey <add-your-key> -region westus
     ```
     
     Replace `<add-your-key>` with the value of your key.  
