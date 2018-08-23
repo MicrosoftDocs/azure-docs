@@ -26,7 +26,7 @@ In the code above, the first block of code constructs a map object. You can see 
 
 In the second block of code, a line is created. A line is a [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.feature?view=azure-iot-typescript-latest) of LineString with LineStringProperties as its Feature property. Use `new atlas.data.Feature(new atlas.data.LineString())` to create a line and define its properties. 
 
-A line layer is an array of lines. The last block of code uses [addLineStrings](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addlinestrings) function of the map class to add the line layer to the map and define the properties of the line layer. See properties of a line layer at [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/modelslinestringlayeroptions?view=azure-iot-typescript-latest).
+A line layer is an array of lines. The last block of code uses [addLineStrings](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addlinestrings) function of the map class to add the line layer to the map and define the properties of the line layer. See properties of a line layer at [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.linestringlayeroptions?view=azure-iot-typescript-latest).
 
 <a id="addACircle"></a>
 
@@ -39,7 +39,7 @@ In the code above, the first block of code constructs a map object. You can see 
 
 In the second block of code, a circle is created. A circle is a [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.feature?view=azure-iot-typescript-latest) of [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.point?view=azure-iot-typescript-latest) with [CircleProperties](https://docs.microsoft.com/javascript/api/azure-maps-control/modelscircleproperties?view=azure-iot-typescript-latest) as its Feature property. Use `new atlas.data.Feature(new atlas.data.Point())` to create a circle and define its properties.
 
-A circle layer is an array of circles. The last block of code uses [addCircle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcircles) function of the map class to add the circle layer to the map and define the properties of the circle layer. See properties of a circle layer at [CircleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/modelscirclelayeroptions?view=azure-iot-typescript-latest).
+A circle layer is an array of circles. The last block of code uses [addCircle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcircles) function of the map class to add the circle layer to the map and define the properties of the circle layer. See properties of a circle layer at [CircleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.circlelayeroptions?view=azure-iot-typescript-latest).
 
 <a id="addAPolygon"></a>
 
@@ -51,7 +51,7 @@ In the code above, the first block of code constructs a map object. You can see 
 
 In the second block of code, a polygon is created. A polygon is a [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.feature?view=azure-iot-typescript-latest) of [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.polygon?view=azure-iot-typescript-latest) with [PolygonProperties](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.polygonproperties?view=azure-iot-typescript-latest) as its Feature property. Use `new atlas.data.Feature(new atlas.data.Polygon())` to create a polygon and define its properties. Provide ordered coordinates of the polygon path in the polygon constructor.
 
-A polygon layer is an array of polygons. The last block of code uses [addPolygons](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpolygons) function of the map class to add the polygon layer to the map and define its properties. See properties of a polygon layer at [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.polygonlayeroptions?view=azure-iot-typescript-latest). 
+A polygon layer is an array of polygons. The last block of code uses [addPolygons](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpolygons) function of the map class to add the polygon layer to the map and define its properties. See properties of a polygon layer at [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.polygonlayeroptions?view=azure-iot-typescript-latest). 
 
 ## Next steps
 For more code examples to add to your maps, see the following articles:
