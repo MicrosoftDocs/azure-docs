@@ -26,7 +26,7 @@ Learn how to:
 > * Set up your development environment
 > * Access and examine the data
 > * Train a simple logistic regression locally using the popular scikit-learn machine learning library 
-> * Train multiple models on a remote GPU cluster
+> * Train multiple models on a remote cluster
 > * Review training results and register the best model
 
 You'll learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md) later. 
