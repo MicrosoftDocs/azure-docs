@@ -66,7 +66,7 @@ Alternatively, you may use the set of commands below in Cloud Shell (bash comman
     $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
     ```
 * To disable serial console for a subscription:
-    ```azurecli-interactive
+    ```azurecli-interactive 
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)

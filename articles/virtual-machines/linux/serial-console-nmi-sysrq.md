@@ -83,11 +83,14 @@ From the SysRq Admin Guide above:
 For distribution-specific documentation on SysRq and steps to configure Linux to create a crash dump when it receives a SysRq "Crash" command, see the links below:
 #### Ubuntu ####
  - [Kernel Crash Dump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
+
 #### Red Hat ####
 - [What is the SysRq Facility and how do I use it?](https://access.redhat.com/articles/231663)
 - [How to use the SysRq facility to collect information from a RHEL server](https://access.redhat.com/solutions/2023)
+
 #### SUSE ####
 - [Configure kernel core dump capture](https://www.suse.com/support/kb/doc/?id=3374462)
+
 #### CoreOS ####
 - [Collecting crash logs](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
