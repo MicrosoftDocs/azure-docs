@@ -19,6 +19,8 @@ ms.author: mabrigg
 
 # Consume monitoring data from Azure Stack
 
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 You can find monitoring data in a single place with the Azure Monitor pipeline, just like Azure Monitor in global Azure. But not all of the monitoring data found in global Azure is available in Azure Stack. In this article, you can find a summary of the various ways that you can programmatically ingest monitoring data from the service.
  
 ## Options for data consumption

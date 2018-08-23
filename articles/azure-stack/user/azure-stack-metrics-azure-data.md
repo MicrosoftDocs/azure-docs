@@ -17,14 +17,14 @@ ms.author: mabrigg
 
 ---
 
-# Azure monitor on Azure Stack
+# Azure Monitor on Azure Stack
 
-Applies to: Azure Stack integrated systems and Azure Stack Development Kit.
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-This article provides an overview of the Azure Monitor service in Azure Stack. It discusses what Azure Monitor does and provides pointers to additional information on how to use Azure Monitor on Azure Stack. 
+This article provides an overview of the Azure Monitor service in Azure Stack. It discusses the operation of Azure Monitor and additional information on how to use Azure Monitor on Azure Stack. 
 
 > [!Note]  
-Metrics and Diagnostic logs are not available for Azure Stack Development Kit.
+Metrics and diagnostic logs are not available for the Azure Stack Development Kit.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ You should register **Microsoft.insights** providers on your subscription's offe
 
 ## Overview
 
-Just like what Azure Monitor does on Azure, Azure Monitor on Azure Stack also provides base-level infrastructure metrics and logs for most services in Microsoft Azure. Azure services that do not yet put their data into Azure Monitor will put it there in the future.
+Like Azure Monitor on Azure, Azure Monitor on Azure Stack provides base-level infrastructure metrics and logs for most services.
 
 ## Azure monitor sources: compute subset
 
