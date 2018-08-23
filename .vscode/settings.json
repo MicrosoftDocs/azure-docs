@@ -1,0 +1,3 @@
+{
+        "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}"
+}
