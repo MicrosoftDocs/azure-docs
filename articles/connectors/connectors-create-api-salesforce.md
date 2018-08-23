@@ -1,6 +1,6 @@
 ---
-title: Connect to Salesforce with Azure Logic Apps | Microsoft Docs
-description: Automate workflows that monitor, create, and manage Salesforce records and jobs by using Azure Logic Apps
+title: Connect to Salesforce from Azure Logic Apps | Microsoft Docs
+description: Automate tasks and workflows that monitor, create, and manage Salesforce records and jobs by using Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -35,7 +35,7 @@ If you're new to logic apps, review
 * An Azure subscription. If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
-* A Salesforce account
+* A [Salesforce account](https://salesforce.com/)
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
@@ -55,8 +55,8 @@ and open your logic app in Logic App Designer, if not open already.
 1. Choose a path: 
 
    * For blank logic apps, in the search box, 
-   enter "salesforce" as your filter. Under the triggers list, 
-   select the trigger you want. 
+   enter "salesforce" as your filter. 
+   Under the triggers list, select the trigger you want. 
 
    * For existing logic apps, under the step where you want 
    to add an action, choose **New step**. In the search box, 
