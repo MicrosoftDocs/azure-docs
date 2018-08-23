@@ -34,7 +34,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   A user account in Pingboard with admin permissions 
 
 > [!NOTE] 
-> Azure AD provisioning integration relies on the [Pingboard API](`https://your_domain.pingboard.com/scim/v2`), which is available to your account.
+> Azure AD provisioning integration relies on the [Pingboard API](https://pingboard.docs.apiary.io/#), which is available to your account.
 
 ## Assign users to Pingboard
 
