@@ -59,7 +59,7 @@ If your account needs some adjustments, you see relevant errors and warnings abo
 * Streaming Endpoint
 
     Make sure the underlying Media Services account has the default **Streaming Endpoint** in a started state. Otherwise, you will not be able to watch videos from this Media Services account or in Video Indexer.
-* Media Reserved Units configuration issues
+* Media Reserved Units 
 
     You must allocate Media Reserved Units on your Media Service resource in order to index videos. For optimal indexing performance, it's recommended to allocate at least 10 S3 Reserved Units. For pricing information, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.   
 
