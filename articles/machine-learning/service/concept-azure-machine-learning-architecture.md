@@ -59,6 +59,8 @@ The following diagram is a taxonomy of the workspace:
 
 [![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/taxonomy.png)](./media/concept-azure-machine-learning-architecture/taxonomy.png#lightbox)
 
+For more information on Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
+
 ## Project
 
 A project is a local folder that contains the files for your machine learning solution.
