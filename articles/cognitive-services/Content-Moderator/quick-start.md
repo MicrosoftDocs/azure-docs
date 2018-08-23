@@ -80,4 +80,4 @@ Start here by choosing from the Job, Review, and Workflow APIs.
 
 ## Next steps
 
-Learn more about content moderation starting with the [image moderation API](image-moderation-api.md).
+Check out the [API reference](api-reference) and the [SDKs](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). Jumpstart your integration with the [.NET SDK samples](Content-Moderator/sdk-and-samples.md#net-sdk-samples), [REST API samples in C#](https://github.com/sanjeev3/azure-docs-pr/blob/master/articles/cognitive-services/Content-Moderator/sdk-and-samples.md#rest-api-samples-in-c) and complete [tutorials](Content-Moderator/sdk-and-samples.md#tutorials).
