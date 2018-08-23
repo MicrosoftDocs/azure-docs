@@ -14,7 +14,7 @@ ms.author: sajagtap
 # Moderate images using .NET
 
 This article provides information and code samples to help you get started using 
-the Content Moderator SDK for .NET to: 
+the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to: 
 - Check an image for adult or racy content
 - Detect and extract text from an image
 - Detect faces in an image
@@ -403,4 +403,4 @@ The following JSON object contains output for the program.
 
 ## Next steps - get the source code
 
-[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
+Get the [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) and the [Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
