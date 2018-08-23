@@ -24,22 +24,19 @@ your data, for example:
 * Get and manage worksheets, tables, and rows.
 * Add single rows and key columns.
 
-You can include actions in your logic apps that get responses from 
-Excel Online and make the output available for other actions. 
+You can include actions in your logic apps that get responses 
+from Excel Online and make the output available for other actions. 
 For example, when a row is updated in Excel Online, 
 you can send an email using Office 365 Outlook. 
-You can store your Excel data as a comma-separated 
-value (CSV) file in a storage folder such as 
-[OneDrive](../connectors/connectors-create-api-onedrive.md). 
-You can also use your CSV file with the 
-[flat-file connector](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
+
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
 > The [Excel Online for Business](/connectors/excelonlinebusiness/) 
 > and [Excel Online for OneDrive](/connectors/excelonline/) connectors 
-> replace the [legacy version](/connectors/excel/), which applied to PowerApps only.
+> work with Azure Logic Apps and aren't the same as the 
+> [Excel connector for PowerApps](/connectors/excel/).
 
 ## Prerequisites
 
@@ -47,7 +44,12 @@ If you're new to logic apps, review
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
 * An [Office 365 account](https://www.office.com/) 
-for your work account or personal Microsoft account
+for your work account or personal Microsoft account 
+
+  Your Excel data can exist as a comma-separated 
+  value (CSV) file in a storage folder, for example, in OneDrive. 
+  You can also use the same CSV file with the 
+  [flat-file connector](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
@@ -76,16 +78,11 @@ and building your logic app's workflow.
 
 ## Connector reference
 
-For technical details, such as triggers, actions, and limits, as described 
-by the connector's Swagger file, see these connector reference pages:
+For technical details, such as actions and limits, described 
+by the connectors' Swagger files, see these connector reference pages:
 
 * [Excel Online for Business](/connectors/excelonlinebusiness/) 
 * [Excel Online for OneDrive](/connectors/excelonline/) 
-
-> [!NOTE]
-> The Excel Online for Business and OneDrive connectors 
-> replace the [legacy version](/connectors/excel/), 
-> which applied only to Microsoft PowerApps.
 
 ## Get support
 
