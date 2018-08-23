@@ -745,6 +745,8 @@
     href: http://aka.ms/servicefabricsamples
   - name: Support options
     href: service-fabric-support.md
+  - name: Service Fabric versions and virtual machine SKUs
+    href: service-fabric-versions.md
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videos
