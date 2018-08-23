@@ -51,6 +51,7 @@ The **ClaimType** element contains the following elements:
 | UserHelpText | 0:1 | A description of the claim type that can be helpful for users to understand its purpose. The value can be [localized](localization.md). |
 | UserInputType | 0:1 | The type of input control that should be available to the user when manually entering the claim data for the claim type. See the user input types defined later in this page. |
 | Restriction | 0:1 | The value restrictions for this claim, such as a regular expression (Regex) or a list of acceptable values. The value can be [localized](localization.md). |
+PredicateValidationReference| 0:1 | A reference to a **PredicateValidationsInput** element. The **PredicateValidationReference** elements enable you to perform a validation process to ensure that only properly formed data is entered. For more information, see [Predicates](predicates.md). |
 
 ### DefaultPartnerClaimTypes
 
@@ -58,7 +59,7 @@ The **DefaultPartnerClaimTypes** may contain the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Protocol | 0:n | A technical profile that's allowed to be used against a claims provider selection. |
+| Protocol | 0:n | List of protocols with their default partner claim type name. |
 
 The **Protocol** element contains the following attributes:
 
@@ -67,7 +68,7 @@ The **Protocol** element contains the following attributes:
 | Name | Yes | The name of a valid protocol supported by Azure AD B2C. Possible values are:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed, or WsTrust. |
 | PartnerClaimType | Yes | The claim type name to be used. |
 
-In the following example, when the Identity Experience Framework interacts with a SAML2 identity provider or relying party application, the `surname` claim is mapped to ('http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname'), with 'OpenIdConnect' and `OAuth2` the claim is mapped to `family_name`.
+In the following example, when the Identity Experience Framework interacts with a SAML2 identity provider or relying party application, the **surname** claim is mapped to `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, with OpenIdConnect and OAuth2, the claim is mapped to `family_name`.
 
 ```XML
 <ClaimType Id="surname">
@@ -81,8 +82,8 @@ In the following example, when the Identity Experience Framework interacts with 
 </ClaimType>
 ```
 
-As a result, the JWT token issued by Azure AD B2C, omits  the `family_name` instead of ClaimType name: `surname`.
-
+As a result, the JWT token issued by Azure AD B2C, omits the `family_name` instead of ClaimType name **surname**.
+ 
 ```JSON
 {
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
@@ -116,7 +117,7 @@ The follwing example configures a **PhoneNumber** claim with the `Simple` mask:
 
 The Identity Experience Framework renders the phone number while hiding the first six digits:
 
-![Using claim type with mask](./media/claimsschema/claimtype-mask.png)
+![Using claim type with mask](./media/claimsschema/mask.png)
 
 The follwing example configures a **AlternateEmail** claim with the `Regex` mask:
 
@@ -131,7 +132,7 @@ The follwing example configures a **AlternateEmail** claim with the `Regex` mask
 
 The Identity Experience Framework renders only the first letter of the email address and the email domain name:
 
-![Using claim type with mask](./media/claimsschema/claimtype-mask-regex.png)
+![Using claim type with mask](./media/claimsschema/mask-regex.png)
 
 
 ### Restriction
@@ -175,7 +176,7 @@ The following example configures a **city** dropdown list claim with a default v
 ```
 Dropdown city list with a default value set to New York:
 
-![Dropdown city list](./media/claimsschema/claimtype-dropdownsingleselect.png)
+![Dropdown city list](./media/claimsschema/dropdownsingleselect.png)
 
 
 ### Pattern
@@ -206,15 +207,17 @@ The following example configures an **email** claim with regular expression inpu
 
 The Identity Experience Framework renders the email address claim with email format input validation:
 
-![Using claim type with pattern](./media/claimsschema/claimtype-pattern.png)
+![Using claim type with pattern](./media/claimsschema/pattern.png)
 
 ## UserInputType
 
-Azure AD B2C supports a variety of user input types, such as a textbox, password, and dropdown list that can be used when manually entering claim data for the claim type. You must specify the **UserInputType** when you collect information from the end user, using [self-asserted technical profile](self-asserted-technical-profile.md).
+Azure AD B2C supports a variety of user input types, such as a textbox, password, and dropdown list that can be used when manually entering claim data for the claim type. You must specify the **UserInputType** when you collect information from the user by using a [self-asserted technical profile](self-asserted-technical-profile.md).
 
 ### TextBox
 
 The **TextBox** user input type is used to provide a single-line text box.
+
+![Using claim type with textbox](./media/claimsschema/textbox.png)
 
 ```XML
 <ClaimType Id="displayName">
@@ -228,6 +231,8 @@ The **TextBox** user input type is used to provide a single-line text box.
 ### EmailBox
 
 The **EmailBox** user input type is used to provide a basic email input field.
+
+![Using claim type with emailbox](./media/claimsschema/emailbox.png)
 
 ```XML
 <ClaimType Id="email">
@@ -245,6 +250,8 @@ The **EmailBox** user input type is used to provide a basic email input field.
 
 The **Password** user input type is used to record a password entered by the user.
 
+![Using claim type with password](./media/claimsschema/password.png)
+
 ```XML
 <ClaimType Id="password">
   <DisplayName>Password</DisplayName>
@@ -258,6 +265,8 @@ The **Password** user input type is used to record a password entered by the use
 
 The **DateTimeDropdown** user input type is used to provide a set of drop-downs to select a day, month, and year.
 
+![Using claim type with datetimedropdown](./media/claimsschema/datetimedropdown.png)
+
 ```XML
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date Of Birth</DisplayName>
@@ -268,10 +277,11 @@ The **DateTimeDropdown** user input type is used to provide a set of drop-downs 
 </ClaimType>
 ```
 
-
 ### RadioSingleSelect
 
 The **RadioSingleSelect** user input type is used to provide a collection of radio buttons that allows the user to select one option.
+
+![Using claim type with radiodsingleselect](./media/claimsschema/radiosingleselect.png)
 
 ```XML
 <ClaimType Id="color">
@@ -290,6 +300,8 @@ The **RadioSingleSelect** user input type is used to provide a collection of rad
 
 The **DropdownSingleSelect** user input type is used to provide a drop-down box that allows the user to select one option.
 
+![Using claim type with dropdownsingleselect](./media/claimsschema/dropdownsingleselect.png)
+
 ```XML
 <ClaimType Id="city">
   <DisplayName>City where you work</DisplayName>
@@ -306,6 +318,8 @@ The **DropdownSingleSelect** user input type is used to provide a drop-down box 
 ### CheckboxMultiSelect
 
 The **CheckboxMultiSelect** user input type is used to provide a collection of checkboxes that allows the user to select multiple options.
+
+![Using claim type with checkboxmultiselect](./media/claimsschema/checkboxmultiselect.png)
 
 ```XML
 <ClaimType Id="languages">
@@ -324,6 +338,8 @@ The **CheckboxMultiSelect** user input type is used to provide a collection of c
 
 The **Readonly** user input type is used to provide a readonly field to display the claim and value.
 
+![Using claim type with readonly](./media/claimsschema/readonly.png)
+
 ```XML
 <ClaimType Id="membershipNumber">
   <DisplayName>Membership number</DisplayName>
@@ -337,6 +353,8 @@ The **Readonly** user input type is used to provide a readonly field to display 
 ### Paragraph
 
 The **Paragraph** user input type is used to provide a field that shows text only in a paragraph tag. For example, &lt;p&gt;text&lt;/p&gt;.
+
+![Using claim type with paragraph](./media/claimsschema/paragraph.png)
 
 ```XML
 <ClaimType Id="responseMsg">

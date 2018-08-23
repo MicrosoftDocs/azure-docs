@@ -74,7 +74,7 @@ The inheritance model is as follows:
 - The child policy at any level can inherit from the parent policy and extend it by adding new elements.
 - There is no limit on the number of levels.
 
-For more information, see [Get started with custom policies](active-directory-b2c-get-started-custom.md)
+For more information, see [Get started with custom policies](active-directory-b2c-get-started-custom.md).
 
 ## Base policy
 
@@ -146,7 +146,7 @@ The orchestration steps may call a [Technical Profile](technicalprofiles.md). A 
 
  The **TrustFrameworkPolicy** element contains the following elements:
 
-- **BasePolicy** as specified above
+- BasePolicy as specified above
 - [BuildingBlocks](buildingblocks.md)
 - [ClaimsProviders](claimsproviders.md)
 - [UserJourneys](userjourneys.md)
