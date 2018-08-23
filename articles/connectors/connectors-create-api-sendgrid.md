@@ -67,7 +67,7 @@ and open your logic app in Logic App Designer, if not open already.
 
    * Between the steps where you want to add an action, 
    move your pointer over the arrow between steps. 
-   Choose the plus (sign) that appears, and then choose **Add an action**.
+   Choose the plus sign (**+**) that appears, and then choose **Add an action**.
 
 1. In the search box, enter "sendgrid" as your filter. 
 Under the actions list, select the action you want.
