@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 08/23/2018
 ms.author: genli
 
 ---
@@ -106,3 +106,19 @@ This file contains the IP address ranges (including compute, SQL, and storage ra
 ## How can I use Azure Resource Manager virtual networks with cloud services? 
 
 Cloud services can't be placed in Azure Resource Manager virtual networks. Resource Manager virtual networks and classic deployment virtual networks can be connected through peering. For more information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
+
+
+## How can I get the list of public IPs used by my Cloud Services?
+
+You can use following PS script to get the list of public IPs for Cloud Services under your subscription
+
+    $services = Get-AzureService  | Group-Object -Property ServiceName
+
+    foreach ($service in $services) 
+    {
+        "Cloud Service '$($service.Name)'"
+
+        $deployment = Get-AzureDeployment -ServiceName $service.Name 
+        "VIP - " +  $deployment.VirtualIPs[0].Address
+        "================================="
+    }
