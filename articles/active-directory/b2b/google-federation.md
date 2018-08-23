@@ -18,12 +18,12 @@ ms.reviewer: mal
 
 # Add Google as an identity provider for B2B guest users
 
-By setting up federation with Google, you can allow guest users to sign in to your shared apps and resources with their own Google accounts, without having to create Microsoft Accounts (MSAs) or Azure AD accounts.  
+By setting up federation with Google, you can allow invited users to sign in to your shared apps and resources with their own Google accounts, without having to create Microsoft Accounts (MSAs) or Azure AD accounts.  
 > [!NOTE]
 > Your Google guest users must sign in using a link that includes the tenant context, for example `https://myapps.microsoft.com/?tenantid=<tenant id>`. Direct links to applications and resources also work as long as they include the tenant context. Guest users are currently unable to sign in using endpoints that have no tenant context. For example, using `https://myapps.microsoft.com`, `https://portal.azure.com`, or the Teams common endpoint will result in an error.
  
-## What is the experience for the guest user?
-When you send an invitation to a guest user with a Google account, the guest user accesses your shared apps or resources using the link provided, which includes the tenant context. Their experience varies depending on whether they're already signed in to Google:
+## What is the experience for the Google user?
+When you send an invitation to a Google Gmail user, the guest user should access your shared apps or resources using a link that includes the tenant context. Their experience varies depending on whether they're already signed in to Google:
   - If the guest user is not signed in to Google, they're prompted to sign in to Google.
   - If the guest user is already signed in to Google, they'll be prompted to choose the account they want to use. They must choose the account you used to invite them.
 
