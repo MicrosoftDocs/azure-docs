@@ -60,5 +60,5 @@ Please follow the steps in the [Prerequisites to access the Azure Active Directo
 
 ## Next Steps
 
-[Use the audit API reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit)
-[Use the sign-in activity report API reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin)
+[Use the audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit)
+[Use the sign-in activity report API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
