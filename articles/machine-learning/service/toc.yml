@@ -46,6 +46,11 @@
   - name: Train and tune models
     items:    
     - name: Choose an ML algorithm	
+      items:
+      - name: Choose algorithms
+        href: algorithm-choice.md
+      - name: Algorithm cheat sheet
+        href: algorithm-cheat-sheet.md
   - name: Track and evaluate models	
     items:    
     - name: Track run history and training metrics
