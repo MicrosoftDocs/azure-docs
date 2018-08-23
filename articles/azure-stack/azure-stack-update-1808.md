@@ -40,6 +40,10 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2437250  | IS  ASDK --> **Managed Disks are supported.** You can now use Managed Disks in Azure Stack virtual machines and virtual machine scale sets. For more information, see [Azure Stack Managed Disks: Differences and considerations](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
 
+- <!-- Guang Hu  | IS  ASDK -->  **Azure Monitor**. Like Azure Monitor on Azure, Azure Monitor on Azure Stack provides base-level infrastructure metrics and logs for most services. For more information, see [Azure Monitor on Azure Stack](/azure/azure-stack/user/azure-stack-metrics-azure-data)
+
+- <!-- 2487932| IS -->  **Prepare for the extension host**. You can use the extension host to help secure Azure Stack by reducing the number of required TCP/IP ports. With the 1808 update, you can prepare, get your Azure Stack ready for extension host. For more information, see [Prepare for extension host for Azure Stack](/azure/azure-stack/azure-stack-extension-host-prepare).
+
 
 
 
