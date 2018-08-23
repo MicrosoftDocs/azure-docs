@@ -1,5 +1,5 @@
 ---
-title: Automatically train an image classification model with Azure Automated Machine Learning service
+title: Automatically train a classification model with Azure Automated Machine Learning service
 description: In this tutorial, you'll learn how to automatically generate a tuned machine learning model which can then be deployed with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 # As an app developer or data scientist I can automatically generate a tuned machine learning model.
 ---
 
-# Tutorial: Automatically train an image classification model with Azure Automated Machine Learning
+# Tutorial: Automatically train a classification model with Azure Automated Machine Learning
 
 In this tutorial, you'll learn how to automatically generate a tuned machine learning model.  This model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
 
@@ -39,22 +39,22 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 
-1. An Azure Machine Learning Workspace and its accompanying  **aml_config\config.json** file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart. 
-
-1. Follow the Jupyter notebook instructions in [Configure your development environment](how-to-configure-environment.md).  In step 4 the new packages you need are matplotlib, scikit-learn, and pandas:
+1. An Azure Machine Learning Workspace and its accompanying  **aml_config\config.json** file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart (approximately 5 minutes).
+1. A development environment [configured to run Azure Machine Learning service in Jupyter notebooks](how-to-configure-environment.md) (approximately 2 minutes).  In step 4 the new packages you need are matplotlib, scikit-learn, and pandas:
    ```
    conda install -y matplotlib scikit-learn pandas
    ``` 
 
+### Start the notebook
 
-(Optional) Download [this tutorial as a notebook](https://aka.ms/aml-notebook-auto-train) into the same directory as **aml_config** and **utils.py**.  
+(Optional) Download [this tutorial as a notebook](https://aka.ms/aml-notebook-auto-train) into the same directory as **aml_config**.  
 
-Or start your own notebook and copy the code from the sections below.
+Or start your own notebook from the same directory as **aml_config** and copy the code from the sections below.
 
 
 ## Set up your development environment
 
-All the setup for your development work can be accomplished in this notebook.
+All the setup for your development work can be accomplished in Python.
 
 * Import Python packages
 * Configure a workspace to enable communication between your local computer and remote resources
@@ -82,10 +82,9 @@ import numpy as np
 
 ### Configure workspace
 
-Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **aml_config\config.json** and load the details into an object named `ws`.  You'll use `ws` throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **aml_config\config.json** and load the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
 
 Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace. The history of all runs is recorded under the specified run history.
-
 
 ```python
 ws = Workspace.from_config()
@@ -114,7 +113,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## Explore data
 
-The previous tutorial used a high-resolution version of the MNIST dataset.  Since auto training requires many iterations, this tutorial uses a smaller resolution version of the images to speed up the time for each iteration.  
+The initial training tutorial used a high-resolution version  of the MNIST dataset (28x28 pixels).  Since auto training requires many iterations, this tutorial uses a smaller resolution version  of the images (8x8 pixels) to demonstrate the concepts while speeding up the time needed for each iteration.  
 
 ```python
 from sklearn import datasets
@@ -147,16 +146,16 @@ for i in np.random.permutation(X_digits.shape[0])[:sample_size]:
     plt.imshow(X_digits[i].reshape(8, 8), cmap = plt.cm.Greys)
 plt.show()
 ```
+A random sample of images displays:
 
 ![digits](./media/tutorial-auto-train-models/digits.png)
-
 
 
 You now have the necessary packages and data ready for auto training for your model. 
 
 ## Auto train a model 
 
-To auto train a model, you first define settings for autogeneration and tuning and then run the automatic classifier.
+To auto train a model, first define settings for autogeneration and tuning and then run the automatic classifier.
 
 
 ### Define settings for autogeneration and tuning
@@ -207,7 +206,8 @@ local_run = automl_classifier.fit(X = X_digits,
                                   compute_target = 'local', 
                                   show_output = True)
 ```
-Output such as the following appears one line at a time as each iteration progresses.
+
+Output such as the following appears one line at a time as each iteration progresses.  You will see a new line every **10-15 seconds**.
 
     Running locally
     Parent Run ID: AutoML_ca0c807b-b7bf-4809-a963-61c6feb73ea1
@@ -231,6 +231,7 @@ Output such as the following appears one line at a time as each iteration progre
     Stopping criteria reached. Ending experiment.
 
 ## Explore the results
+
 Explore the results of automatic training with a Jupyter widget or by examining the experiment history.
 
 ### Jupyter widget
@@ -242,7 +243,7 @@ from azureml.train.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 
-Here is a static image of the widget.  In the notebook, you can use the dropdown above the graph to view a graph of each available metric for each iteration. 
+Here is a static image of the widget.  In the notebook, you can use the dropdown above the graph to view a graph of each available metric for each iteration.
 
 ![widget table](./media/tutorial-auto-train-models/table.png)
 ![widget plot](./media/tutorial-auto-train-models/graph.png)
@@ -258,7 +259,7 @@ for run in children:
     properties = run.get_properties()
     metrics = {k: v for k, v in run.get_metrics().items() if not isinstance(v, list)}    
     metricslist[int(properties['iteration'])] = metrics
-    
+
 import pandas as pd
 import seaborn as sns
 rundata = pd.DataFrame(metricslist).sort_index(1)
@@ -268,18 +269,21 @@ s
 ```
 
 This table shows the results.  In the notebook the table has varying shades of green to highlight high/low values.
-<table> 	
-<thead><tr>
-        <th></th> 	
-        <th>0</th> 	
-        <th>1</th> 	
-        <th>2</th> 	
-        <th>3</th> 	
-        <th>4</th> 	
-        <th>5</th> 	
-        <th>6</th> 	
-        <th>7</th> 	
-    </tr></thead> 
+
+
+<!-- hello world -->
+
+<table><thead><tr>
+        <th></th>
+        <th>0</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+    </tr></thead>
 <tbody>    <tr> 
         <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row0" class="row_heading level0 row0" >AUC_macro</th> 
         <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col0" class="data row0 col0" >0.988094</td> 
@@ -492,7 +496,7 @@ This table shows the results.  In the notebook the table has varying shades of g
         <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col7" class="data row20 col7" >0.924723</td> 
     </tr></tbody> 
 </table> 
-
+<!-- hello world -->
 
 ## Register the best model 
 
@@ -513,8 +517,7 @@ local_run.model_id # Use this id to deploy the model as a web service in Azure
 
 Use the model to predict a few random digits.  Display the predicted and the image.  Red font and inverse image (white on black) is used to highlight the misclassified samples.
 
-> [!NOTE]
-> Since the model accuracy is high, you might have to run the following code a few times before you can see a misclassified sample.
+Since the model accuracy is high, you might have to run the following code a few times before you can see a misclassified sample.
 
 ```python
 # find 30 random samples from test set
@@ -566,7 +569,5 @@ In this Azure Machine Learning tutorial, you used Python to:
 > * Review training results
 > * Register the best model
 
-You're now ready to learn more about automatic training on a remote resource.  
+Learn more about [how to configure settings for automatic training]() or [how to use automatic training on a remote resource]().  
 
-> [!div class="nextstepaction"]
-> [How to automatically train on remote resources]()

@@ -34,8 +34,11 @@ ACI is not ideal for production deployments, but it is great for testing and und
 
 Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning](https://aka.ms/aml-notebook-train-model) notebook.  
 
-> [!TIP]
-> (Optional) To try the whole example yourself, download [this Jupyter notebook](https://aka.ms/aml-notebook-deploy) into the same directory as `aml_config` and `utils.py`.  See [Configure your development environment](how-to-configure-environment.md) to learn how to run a notebook.
+### Start the notebook
+
+(Optional) Download [this tutorial as a notebook](https://aka.ms/aml-notebook-deploy) into the same directory as **aml_config** and **utils.py**.  
+
+Or start your own notebook from the same directory as **aml_config** and **utils.py** and copy the code from the sections below.
 
 
 ## Set up the environment
@@ -245,8 +248,7 @@ Once your environment is set up, you can deploy. The following code goes through
 1. Start up a container in ACI using the image.
 1. Get the web service HTTP endpoint.
 
-> [!IMPORTANT]
-> It takes **about 7-8 minutes** to run this code.
+It takes **about 7-8 minutes** to run this code.
 
 ```python
 %%time
@@ -285,8 +287,7 @@ The following code goes through these steps:
 
 1. Print the returned predictions and plot them along with the input images. Red font and inverse image (white on black) is used to highlight the misclassified samples. 
 
-> [!NOTE]
-> Since the model accuracy is high, you might have to run the following code a few times before you can see a misclassified sample.
+ Since the model accuracy is high, you might have to run the following code a few times before you can see a misclassified sample.
 
 ```python
 import json
