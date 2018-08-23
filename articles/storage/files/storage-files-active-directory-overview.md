@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 08/19/2018
+ms.date: 08/22/2018
 ms.author: tamram
 ---
 
@@ -84,11 +84,12 @@ When an application running on a domain-joined VM tries to mount an Azure file s
 Azure Files enforces standard NTFS file permissions at the directory and file level, including at the root directory. Configuration of directory- or file-level permissions is supported over SMB only. Mount the target file share from your VM and configure permissions using the Windows
 [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) or [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) command. 
 
-Configuring NTFS permissions through Windows File Explorer is not supported in the preview.
+> [!NOTE]
+> Configuring NTFS permissions through Windows File Explorer is not supported in the preview.
 
 ### Use the storage account key for superuser permissions 
 
-Users possessing the storage account key can access Azure Files with superuser permissions. Superuser permissions surpass all access control restrictions configured at the share, directory, or file level with RBAC. A user with superuser permissions can mount Azure file shares using the storage account key by means of Shared Key authorization. 
+A user possessing the storage account key can access Azure Files with superuser permissions. Superuser permissions surpass all access control restrictions configured at the share level with RBAC and enforced by Azure AD. Superuser permissions are required to mount an Azure file share. 
 
 > [!IMPORTANT]
 > As part of best practices for security, avoid sharing your storage account keys, and leverage Azure AD permissions whenever possible.
