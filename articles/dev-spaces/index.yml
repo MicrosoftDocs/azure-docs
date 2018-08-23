@@ -66,6 +66,7 @@ sections:
   - type: paragraph
     text: Azure Dev Spaces helps development teams be more productive on Kubernetes in the following ways
   - type: list
+    style: unordered
     items:
     - text: Minimize local dev machine setup for each team member and work directly in AKS, a managed Kubernetes cluster in Azure.
     - text: Rapidly iterate and debug code directly in Kubernetes using Visual Studio 2017 or Visual Studio Code.
