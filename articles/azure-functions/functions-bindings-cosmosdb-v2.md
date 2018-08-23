@@ -1088,7 +1088,7 @@ Here's the *function.json* file:
 
 Here's the JavaScript code:
 
-```cs
+```javascript
 module.exports = function (context, req, toDoItem) {
     context.log('JavaScript queue trigger function processed work item');
     if (!toDoItem)
