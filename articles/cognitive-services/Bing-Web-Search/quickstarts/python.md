@@ -23,14 +23,14 @@ This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). C
 
 ## Define variables
 
-replace the `subscription_key` value with a valid subscription key from your Azure account.
+Replace the `subscription_key` value with a valid subscription key from your Azure account.
 
 ```python
 subscription_key = "YOUR_ACCESS_KEY"
 assert subscription_key
 ```
 
-Verify that the `search_url` endpoint is correct. If you run into any authorization errors, double-check this value against the Bing search endpoint in your Azure dashboard.
+Declare the Bing Web Search API endpoint. If you run into any authorization errors, double-check this value against the Bing search endpoint in your Azure dashboard.
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
