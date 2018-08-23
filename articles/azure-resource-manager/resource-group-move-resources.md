@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
 
 ---
@@ -228,7 +228,7 @@ Virtual Machines with certificate stored in Key Vault can be moved to a new reso
 
 ## Virtual Networks limitations
 
-When moving a virtual network, you must also move its dependent resources. For example, you must move gateways with the virtual network.
+When moving a virtual network, you must also move its dependent resources. For VPN Gateways, you must move IP addresses, virtual network gateways, and all associated connection resources. Local network gateways can be in a different resource group.
 
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 
