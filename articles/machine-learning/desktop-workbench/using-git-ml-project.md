@@ -33,7 +33,7 @@ This diagram depicts the relationship between an Azure DevOps Git repo and a Mac
 To get started using a remote Git repo, complete the steps that are described in the following sections.
 
 > [!NOTE]
-> Currently, Azure Machine Learning supports Git repositories only on Azure DevOps organizations. Support for general Git repos, like GitHub, is planned for the future.
+> Currently, Azure Machine Learning supports Git repositories only on Azure DevOps organizations.
 
 ## Step 1. Create a Machine Learning Experimentation account
 Create a Machine Learning Experimentation account and install the Azure Machine Learning Workbench app. For more information, see [Install and create Quickstart](../service/quickstart-installation.md).
