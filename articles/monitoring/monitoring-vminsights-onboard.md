@@ -105,8 +105,13 @@ For more information about Log Analytics performance counters, see [Data collect
 To enable monitoring of your Azure VM in the Azure portal, do the following:
 
 1. In the Azure portal, select **Virtual Machines**. 
-2. In the list of VMs, select a virtual machine. 
-3. 
+2. From the list, select a VM. 
+3. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
+4. On the **Insights (preview)** page, select **Try VM Insights**.
+
+    ![Enable VM Insights for a VM](./media/monitoring-vminsights-onboard/enable-vminsights-for-vm.png)
+
+5. On the **Azure Monitor Insights Onboarding** page, 
 
 ## Enable with PowerShell
 To onboard multiple VMs or VM Scale Sets, you use a provided PowerShell script - [Install-VMInsights.ps1](https://github.com/dougbrad/OnBoardVMInsights/blob/master/Install-VMInsights.ps1) to complete this task.  This script will iterate through every virtual machine and VM Scale Set in your subscription, in the scoped resource group specified by *ResourceGroup*, or to a single VM or Scale Set specified by *Name*.  For each VM or VM Scale Set, the script verifies if the VM extension is already installed, and if not attempt to reinstall it.  Otherwise, it proceeds to install the Log Analytics and Dependency Agent VM extensions.   

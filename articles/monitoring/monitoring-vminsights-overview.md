@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2018
+ms.date: 08/23/2018
 ms.author: magoedte
 
 ---
@@ -32,9 +32,7 @@ Viewing this information about your virtual machines is organized into three per
 * Performance
 * Maps
 
-Integration with Log Analytics delivers powerful aggregation, filtering, and ability to perform trend analysis of the data over time. 
-
-The comprehensive monitoring of your applications can't be achieved alone with Azure Monitor, Service Maps, or Log Analytics.  
+Integration with Log Analytics delivers powerful aggregation, filtering, and ability to perform trend analysis of the data over time. The comprehensive monitoring of your workloads can't be achieved alone with Azure Monitor, Service Maps, or Log Analytics.  
 
 You can view this data in the context of single instance of the VM from the virtual machine directly, and as an aggregated view of all VMs in your subscription from Azure Monitor. 
 
