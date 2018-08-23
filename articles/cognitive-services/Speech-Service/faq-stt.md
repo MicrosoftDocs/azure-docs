@@ -1,6 +1,7 @@
 ---
 title: Frequently asked questions about the Speech to Text service in Azure
-description: Read answers to the most popular questions about the Speech to Text service.
+description: Get answers to the most popular questions about the Speech to Text service.
+titleSuffix: "Azure Cognitive Services"
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
@@ -18,7 +19,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q**: What is the difference between a baseline model and a custom Speech to Text model?
 
-**A**: A baseline model has been trained by using Microsoft-owned data and is already deployed in the cloud. You can use a custom model to adapt a model to better fit a specific environment that has specific ambient noise or language. Factory floors, cars, or noisy streets would require an adapted acoustic model. Topics like biology, physics, radiology, product names, and custom acronyms would require an adapted language model.
+**A**: A baseline model has been trained by using Microsoft-owned data and is already deployed in the cloud.  You can use a custom model to adapt a model to better fit a specific environment that has specific ambient noise or language. Factory floors, cars, or noisy streets would require an adapted acoustic model. Topics like biology, physics, radiology, product names, and custom acronyms would require an adapted language model.
 
 **Q**: Where do I start if I want to use a baseline model?
 
@@ -44,13 +45,13 @@ You can deploy baseline and customized models in the portal and then run accurac
 
 **Q**: What's the difference between the Search and Dictation model and the Conversational model?
 
-**A**: You can choose from more than one baseline model in the Speech Service. The Conversational model is useful for recognizing speech that is spoken in a conversational style. This model is ideal for transcribing phone calls. The Search and Dictation model is ideal for voice-triggered apps. The Universal model is a new model that aims to address both scenarios.
+**A**: You can choose from more than one baseline model in the Speech service. The Conversational model is useful for recognizing speech that is spoken in a conversational style. This model is ideal for transcribing phone calls. The Search and Dictation model is ideal for voice-triggered apps. The Universal model is a new model that aims to address both scenarios.
 
 **Q**: Can I update my existing model (model stacking)?
 
 **A**: You can't update an existing model. As a solution, combine the old dataset with the new dataset and readapt.
 
-The old dataset and the new dataset must be combined in a single .zip file (for acoustic data) or in a .txt file (for language data). When adaptation is finished, the new, updated model needs to be de-deployed to obtain a new endpoint
+The old dataset and the new dataset must be combined in a single .zip file (for acoustic data) or in a .txt file (for language data). When adaptation is finished, the new, updated model needs to be redeployed to obtain a new endpoint
 
 **Q**: What if I need higher concurrency for my deployed model than what is offered in the portal? 
 
@@ -66,7 +67,7 @@ Contact us if you require a higher scale.
 
 **A**: You have a choice when you create a deployment to switch off tracing. At that point, no audio or transcriptions will be logged. Otherwise, requests are typically logged in Azure in secure storage. 
 
-If you have further privacy concerns that prohibit you from using the custom Speech Service, contact one of the support channels.
+If you have further privacy concerns that prohibit you from using the custom Speech service, contact one of the support channels.
 
 ## Importing data
 
@@ -76,11 +77,11 @@ If you have further privacy concerns that prohibit you from using the custom Spe
 
 **Q**: Can I zip my text files so I can upload a larger text file? 
 
-**A**: No, currently only uncompressed text files are allowed.
+**A**: No. Currently, only uncompressed text files are allowed.
 
 **Q**: The data report says there were failed utterances. What is the issue?
 
-**A**: Failing to upload 100% of the utterances in a file is not a problem. If the vast majority of the utterances in an acoustic or language data set (for example, more than 95 percent) are successfully imported, the dataset can be usable. However, we recommend that you try to understand why the utterances failed and fix the problems. Most common problems, such as formatting errors, are easy to fix. 
+**A**: Failing to upload 100 percent of the utterances in a file is not a problem. If the vast majority of the utterances in an acoustic or language dataset (for example, more than 95 percent) are successfully imported, the dataset can be usable. However, we recommend that you try to understand why the utterances failed and fix the problems. Most common problems, such as formatting errors, are easy to fix. 
 
 ## Creating an acoustic model
 
@@ -110,10 +111,10 @@ If you have further privacy concerns that prohibit you from using the custom Spe
 
 **A**: Yes, just select the custom acoustic model in the drop-down menu when you set up the offline test.
 
-**Q**: What is Word error rate (WER) and how is it computed?
+**Q**: What is word error rate (WER) and how is it computed?
 
 **A**: WER is the evaluation metric for speech recognition. WER is counted as the total number of errors,
-which includes insertions, deletions, and substitutions, divided by the total number of words in the reference transcription. For more information, see [Word error rate](https://en.wikipedia.org/wiki/Word_error_rate).
+which includes insertions, deletions, and substitutions, divided by the total number of words in the reference transcription. For more information, see [word error rate](https://en.wikipedia.org/wiki/Word_error_rate).
 
 **Q**: How do I determine whether the results of an accuracy test are good?
 

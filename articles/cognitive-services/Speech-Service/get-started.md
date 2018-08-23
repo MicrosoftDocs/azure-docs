@@ -1,7 +1,7 @@
 ---
 title: Try the Speech service for free
 description: Discover how you can try the Speech service at no cost.
-titleSuffix: "Microsoft Cognitive Services"
+titleSuffix: "Azure Cognitive Services"
 services: cognitive-services
 author: v-jerkin
 
@@ -18,7 +18,7 @@ Getting started with the Speech service is easy and affordable. A 30-day free tr
 
 If you need more time, sign up for a Microsoft Azure account—it comes with $200 in service credit that you can apply toward a paid Speech service subscription for up to 30 days.
 
-Finally, the Speech service offers a free, low-volume tier suitable for developing applications. You can keep this free subscription even after your service credit expires.
+Finally, the Speech service offers a free, low-volume tier that's suitable for developing applications. You can keep this free subscription even after your service credit expires.
 
 ## Free trial
 
@@ -28,11 +28,11 @@ To sign up for a 30-day free trial:
 
 1. Go to [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
 
-1. Select the **Speech** tab.
+1. Select the **Speech APIs** tab.
 
    ![Speech Services tab](media/index/try-speech-api-free-trial1.png)
    
-1. Select the **Get API key** button next to **Speech services**.
+1. Under **Speech services <sup>PREVIEW</sup>**, select the **Get API Key** button.
 
    ![API key](media/index/try-speech-api-free-trial2.png)
 
@@ -53,7 +53,7 @@ To sign up for a 30-day free trial:
 
     * In the steps that follow, enter your e-mail address or phone number, assign a password, and follow the instructions to verify your new Microsoft account.
 
-After you sign in, your free trial begins. The displayed webpage lists all of the Cognitive Services for which you currently have trial subscriptions. Two subscription keys are listed beside **Speech services**. You can use either key in your applications.
+After you sign in, your free trial begins. The displayed webpage lists all the Azure Cognitive Services services for which you currently have trial subscriptions. Two subscription keys are listed beside **Speech services**. You can use either key in your applications.
 
 > [!NOTE]
 > All free trial subscriptions are in the West US region. When you make requests, be sure to use the endpoint that corresponds to your region.
@@ -70,18 +70,18 @@ To sign up for a new Azure account:
 
     ![Start free](media/index/try-speech-api-new-azure1.png)
 
-3. Sign in with your Microsoft account. If you don't have one:
+1. Sign in with your Microsoft account. If you don't have one:
 
     * Go to the [Microsoft account portal](https://account.microsoft.com/account).
     * Select **Sign in with Microsoft**.
     * When asked to sign in, select **Create one.**
     * In the steps that follow, enter your e-mail address or phone number, assign a password, and follow the instructions to verify your new Microsoft account.
 
-1. Enter the rest of the information requested to sign up for an account. Specify your country and your name, and provide a phone number and e-mail address.
+1. Enter the rest of the information that's requested to sign up for an account. Specify your country and your name and provide a phone number and e-mail address.
 
     ![Enter information](media/index/try-speech-api-new-azure2.png)
 
-    Verify your identity by phone and by providing a credit card number. Then, accept the Azure user agreement. (Your credit card will not be billed.)
+    Verify your identity by phone and by providing a credit card number. (Your credit card will not be billed.) hen, accept the Azure user agreement. 
 
     ![Accept agreement](media/index/try-speech-api-new-azure3.png)
 
@@ -130,7 +130,7 @@ To add a Speech service resource to your Azure account:
 
 ## Next steps
 
-Do one of our 10-minute quickstarts, or check out our SDK samples:
+Complete one of our 10-minute quickstarts or check out our SDK samples:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Recognize speech in C#](quickstart-csharp-dotnet-windows.md)
