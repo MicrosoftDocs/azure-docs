@@ -1,6 +1,6 @@
 ---
-title: Title | Microsoft Docs
-description: description
+title: Supported metrics with Azure Monitor on Azure Stack | Microsoft Docs
+description: Learn about the supported metrics for Azure Monitor on Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
