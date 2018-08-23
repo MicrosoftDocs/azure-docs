@@ -37,7 +37,6 @@ Flow is built on top of Logic Apps. They share the same workflow designer and th
 Flow empowers any office worker to perform simple integrations (for example, an approval process on a SharePoint Document Library) without going through developers or IT. On the other hand, Logic Apps can enable advanced integrations (for example, B2B processes) where enterprise-level DevOps and security practices are required. It's typical for a business workflow to grow in complexity over time. Accordingly, you can start with a flow at first, then convert it to a logic app as needed.
 
 The following table helps you determine whether Flow or Logic Apps is best for a given integration.
-
 |  | Flow | Logic Apps |
 | --- | --- | --- |
 | Users |Office workers, business users, SharePoint administrators |Pro integrators and developers, IT pros |
@@ -51,7 +50,7 @@ The following table helps you determine whether Flow or Logic Apps is best for a
 
 Functions and Logic Apps are Azure services that enable serverless workloads. Azure Functions is a serverless compute service, while Azure Logic Apps provides serverless workflows. Complex *orchestrations* can be created by both. An orchestration is a collection of functions or steps, called *actions* in Logic Apps, that are executed to accomplish a complex task. For example, to process a batch of orders you might execute many instances of a function in parallel, wait for all instances to finish, and then execute a function that computes a result on the aggregate.
 
-For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable-functions-overview.md) (in preview). For Logic Apps, you create orchestrations by using a GUI or editing configuration files.
+For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable-functions-overview.md). For Logic Apps, you create orchestrations by using a GUI or editing configuration files.
 
 You can mix and match services when you build an orchestration, calling functions from logic apps and calling logic apps from functions. Choose how to build each orchestration based on the services' capabilities or your personal preference. The following table lists some of the key differences between these services:
  
