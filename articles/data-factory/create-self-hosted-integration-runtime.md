@@ -153,8 +153,6 @@ In the self-hosted IR to be shared,
 
    ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
 
-
-
    ![](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
 
 2. Note the **Resource ID** of the self-hosted IR to be shared.
