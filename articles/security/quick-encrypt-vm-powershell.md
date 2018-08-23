@@ -24,9 +24,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - Windows PowerShell ISE
 - Install and configure the [latest version of Azure PowerShell](/powershell/azure/install-azurerm-ps)
-- A copy of the [Azure Disk Encryption prerequisites script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 )
+- A copy of the [Azure Disk Encryption prerequisites script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+    - If you have this script already, download a new copy as it has recently changed. 
     - Use **CTRL-A** to select all the text then use **CTRL-C** to copy all the text into Notepad.
     - Save the file as **ADEPrereqScript.ps1**
+
 
 ## Sign in to Azure
 
