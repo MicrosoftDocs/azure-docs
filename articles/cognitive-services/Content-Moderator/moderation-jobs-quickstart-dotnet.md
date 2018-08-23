@@ -14,7 +14,7 @@ ms.author: sajagtap
 # Start moderation jobs using .NET
 
 This article provides information and code samples to help you get started using 
-the Content Moderator SDK for .NET to:
+the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
  
 - Start a moderation job to scan and create reviews for human moderators
 - Get the status of the pending review
@@ -263,4 +263,4 @@ You see a response like the following example:
 
 ## Next steps
 
-[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
+Get the [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) and the [Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
