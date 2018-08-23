@@ -13,6 +13,8 @@
     href: container-registry-get-started-portal.md
   - name: Container Registry - PowerShell
     href: container-registry-get-started-powershell.md
+  - name: Events with Event Grid - CLI
+    href: container-registry-event-grid-quickstart.md
 - name: Tutorials
   items:
   - name: Azure Container Instances
@@ -57,6 +59,8 @@
     href: container-registry-repositories.md
   - name: Delete container images
     href: container-registry-delete.md
+  - name: Content trust (preview)
+    href: container-registry-content-trust.md
   - name: Upgrade a Classic registry
     href: container-registry-upgrade.md
   - name: Use ACR webhooks
@@ -91,6 +95,9 @@
     href: /azure/templates/microsoft.containerregistry/registries
   - name: Webhook schema
     href: container-registry-webhook-reference.md
+  - name: Event Grid schema
+    href: ../event-grid/event-schema-container-registry.md
+    maintainContext: true
 - name: Resources
   items:
   - name: Region availability

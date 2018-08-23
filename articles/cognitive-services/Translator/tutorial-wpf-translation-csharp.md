@@ -667,4 +667,4 @@ The HTTP header named `X-ClientTraceId` is optional. The value should be a GUID.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Microsoft Translator Text API reference](http://docs.microsofttranslator.com/text-translate.html)
+> [Microsoft Translator Text API reference](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)

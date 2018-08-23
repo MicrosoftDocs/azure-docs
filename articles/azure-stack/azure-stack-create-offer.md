@@ -7,14 +7,14 @@ author: brenduns
 manager: femila
 editor: ''
 
-ms.assetid: 96b080a4-a9a5-407c-ba54-111de2413d59
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/2/2018
+ms.date: 08/20/2018
 ms.author: brenduns
+ms.reviewer: efemmano
 
 ---
 # Create an offer in Azure Stack
@@ -42,20 +42,16 @@ ms.author: brenduns
    > [!TIP]  
    > Changes to the offer aren't immediately visible to user. To see the changes, users might have to sign out and sign in again to the user portal to see the new offer.
 
-   To change the state of the offer:
-
-   - **Version 1803 and later**:  
-     On the Overview for the offer, select **Accessibility state**. Choose the state you want to use (for example, *Public*) and then select **Save**.
+   On the Overview for the offer, select **Accessibility state**. Choose the state you want to use (for example, **Public**) and then select **Save**.
  
-     ![Select Accessibility state](media/azure-stack-create-offer/change-state.png)
+     ![Choose the state](media/azure-stack-create-offer/change-stage-1807.png)
 
-     As an alternative, after you access an offer you can go to **Offer settings**. Select  **Accessibility state** to change the state.
+     As an alternative, select **Change state** and then choose a state.
 
-   - **Prior to version 1803**:  
-     Select **All Resources**, search for your new offer, and then select the new offer. Select **Change State**, and then select **Public**.
+    ![Select Accessibility state](media/azure-stack-create-offer/change-stage-select-1807.png)
 
    > [!NOTE]
-   > You can also use PowerShell to create default offers, plans, and quotas. For more information, see [Azure Stack PowerShell Module 1.3.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0).
+   > You can also use PowerShell to create default offers, plans, and quotas. For more information, see [Azure Stack PowerShell Module 1.4.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
 
 ## Next steps
 

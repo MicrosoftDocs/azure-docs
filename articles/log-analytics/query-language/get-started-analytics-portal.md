@@ -1,6 +1,6 @@
 ---
-title: Get started with the Analytics Portal in Azure Log Analytics| Microsoft Docs
-description: This article provides a tutorial for using the Analytics portal to write queries in Log Analytics.
+title: Get started with the Log Analytics page in the Azure portal | Microsoft Docs
+description: This article provides a tutorial for using the Log Analytics page to write queries.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
 ---
 
-# Get started with the Analytics portal
+# Get started with the Log Analytics page in the Azure portal
 
-In this tutorial you will learn how to use the Analytics portal to write Azure Log Analytics queries. It will teach you how to:
+In this tutorial you will learn how to use the Log Analytics page in the Azure portal (currently in preview) to write Log Analytics queries. It will teach you how to:
 
 - Write simple queries
 - Understand the schema of your data
@@ -30,12 +30,12 @@ In this tutorial you will learn how to use the Analytics portal to write Azure L
 - Export and share queries
 
 
-## Meet the Analytics portal
-The Analytics portal is a web tool used to write and execute Azure Log Analytics queries. 
+## Meet the Log Analytics page 
+The Log Analytics page is a web tool used to write and execute Azure Log Analytics queries. Open it by selecting **Logs (preview)** in the Log Analytics menu. It starts with a new blank query.
 
 ![Home page](media/get-started-analytics-portal/homepage.png)
 
-The home page offers easy access to useful resources, such as recent and saved queries, and examples. Open a new tab to start writing your own queries.
+
 
 ## Basic queries
 Queries can be used to search terms, identify trends, analyze patterns, and provide many other insights based on your data. Start with a basic query:
@@ -78,7 +78,7 @@ Start by getting everything in the _Event_ table.
 Event
 ```
 
-The Analytics portal automatically scopes results by:
+The Log Analytics page automatically scopes results by:
 
 - Time range:  By default, queries are limited to the last 24 hours.
 - Number of results: Results are limited to maximum of 10,000 records.
@@ -116,7 +116,7 @@ The results table often includes a lot of columns. You might find that some of t
 
 
 ## Select a time range
-By default, the Analytics portal applies the _last 24 hours_ time range. To use a different range, select another value through the time picker and click **Run**. In addition to the preset values, you can use the _Custom time range_ option to select an absolute range for your query.
+By default, the Log Analytics page applies the _last 24 hours_ time range. To use a different range, select another value through the time picker and click **Run**. In addition to the preset values, you can use the _Custom time range_ option to select an absolute range for your query.
 
 ![Time picker](media/get-started-analytics-portal/time-picker.png)
 
@@ -126,7 +126,7 @@ If the query explicitly contains a filter for _TimeGenerated_, the time picker t
 
 
 ## Charts
-In addition returning results in a table, query results can be presented in visual formats. Use the following query as an example:
+In addition to returning results in a table, query results can be presented in visual formats. Use the following query as an example:
 
 ```OQL
 Event 
@@ -178,7 +178,7 @@ The Query Explorer icon is at the top-right area. This lists all saved queries b
 ![Query explorer](media/get-started-analytics-portal/query-explorer.png)
 
 ## Export and share as link
-The Analytics portal supports several exporting methods:
+The Log Analytics page supports several exporting methods:
 
 - Excel: Save the results as a CSV file.
 - Power BI: Export the results to power BI. See [Import Azure Log Analytics data into Power BI](../log-analytics-powerbi.md) for details.

@@ -62,6 +62,9 @@ For different authentication types, refer to the following sections on prerequis
 - [Azure AD application token authentication: Service principal](#service-principal-authentication)
 - [Azure AD application token authentication: Managed Service Identity](#managed-service-identity-authentication)
 
+>[!TIP]
+>If you hit error with error code as "UserErrorFailedToConnectToSqlServer" and message like "The session limit for the database is XXX and has been reached.", add `Pooling=false` to your connection string and try again.
+
 ### SQL authentication
 
 #### Linked service example that uses SQL authentication
@@ -533,7 +536,7 @@ Define the **SqlSink** section in Copy Activity:
 }
 ```
 
-In your database, define the stored procedure with the same name as the **SqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the stored procedure should be the same as the **tableName** defined in the dataset.
+In your database, define the stored procedure with the same name as the **SqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the table type in the stored procedure should be the same as the **tableName** defined in the dataset.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
