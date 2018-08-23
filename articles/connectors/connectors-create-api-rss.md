@@ -27,7 +27,7 @@ is a popular format for web syndication and is used for publishing
 frequently updated content, such as blog posts and news headlines. 
 Many content publishers provide an RSS feed so users can subscribe to that content. 
 
-You can use an RSS trigger that get responses from an RSS feed 
+You can use an RSS trigger that gets responses from an RSS feed 
 and makes the output available to other actions. You can use an 
 RSS action in your logic apps to perform a task with the RSS feed. 
 If you're new to logic apps, review 

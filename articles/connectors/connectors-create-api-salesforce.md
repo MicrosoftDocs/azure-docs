@@ -24,7 +24,7 @@ for example:
 * Create, get, and manage jobs and records, 
 including insert, update, and delete actions.
 
-You can use a Salesforce triggers that get responses from Salesforce 
+You can use Salesforce triggers that get responses from Salesforce 
 and make the output available to other actions. You can use actions 
 in your logic apps to perform tasks with Salesforce resources. 
 If you're new to logic apps, review 
