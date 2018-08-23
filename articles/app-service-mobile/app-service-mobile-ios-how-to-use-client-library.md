@@ -499,11 +499,11 @@ To register templates, pass templates with your **client.push registerDeviceToke
 **Swift**:
 
 ```swift
-    client.push?.registerDeviceToken(NSData(), template: iOSTemplate, completion: { (error) in
-        if let err = error {
-            print("ERROR ", err)
-        }
-    })
+client.push?.registerDeviceToken(NSData(), template: iOSTemplate, completion: { (error) in
+    if let err = error {
+        print("ERROR ", err)
+    }
+})
 ```
 
 Your templates are of type NSDictionary and can contain multiple templates in the following format:
@@ -580,6 +580,7 @@ and allows for additional customization.
    and the Pod:
 
         pod 'ADALiOS'
+
 3. Using the Terminal, run `pod install` from the directory containing your project, and then open the generated
    Xcode workspace (not the project).
 4. Add the following code to your application, according to the language you are using. In each, make these
@@ -671,75 +672,77 @@ provides a more native UX feel and allows for additional customization.
 3. Facebook's documentation includes some Objective-C code in the App Delegate. If you are using **Swift**, you
    can use the following translations for AppDelegate.swift:
 
-        // Add the following import to your bridging header:
-        //        #import <FBSDKCoreKit/FBSDKCoreKit.h>
+    ```swift
+    // Add the following import to your bridging header:
+    //        #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
-        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-            FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-            // Add any custom logic here.
-            return true
-        }
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        // Add any custom logic here.
+        return true
+    }
 
-        func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-            let handled = FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
-            // Add any custom logic here.
-            return handled
-        }
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+        // Add any custom logic here.
+        return handled
+    }
+    ```
 4. In addition to adding `FBSDKCoreKit.framework` to your project, also add a reference to `FBSDKLoginKit.framework`
    in the same way.
 5. Add the following code to your application, according to the language you are using.
 
-**Objective-C**:
+    **Objective-C**:
 
-```objc
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import <FBSDKCoreKit/FBSDKAccessToken.h>
-// ...
-- (void) authenticate:(UIViewController*) parent
-            completion:(void (^) (MSUser*, NSError*)) completionBlock;
-{
-    FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
-    [loginManager
-        logInWithReadPermissions: @[@"public_profile"]
-        fromViewController:parent
-        handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-            if (error) {
-                completionBlock(nil, error);
-            } else if (result.isCancelled) {
-                completionBlock(nil, error);
-            } else {
-                NSDictionary *payload = @{
-                                        @"access_token":result.token.tokenString
-                                        };
-                [client loginWithProvider:@"facebook" token:payload completion:completionBlock];
+    ```objc
+    #import <FBSDKLoginKit/FBSDKLoginKit.h>
+    #import <FBSDKCoreKit/FBSDKAccessToken.h>
+    // ...
+    - (void) authenticate:(UIViewController*) parent
+                completion:(void (^) (MSUser*, NSError*)) completionBlock;
+    {
+        FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+        [loginManager
+            logInWithReadPermissions: @[@"public_profile"]
+            fromViewController:parent
+            handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+                if (error) {
+                    completionBlock(nil, error);
+                } else if (result.isCancelled) {
+                    completionBlock(nil, error);
+                } else {
+                    NSDictionary *payload = @{
+                                            @"access_token":result.token.tokenString
+                                            };
+                    [client loginWithProvider:@"facebook" token:payload completion:completionBlock];
+                }
+            }];
+    }
+    ```
+
+    **Swift**:
+
+    ```swift
+    // Add the following imports to your bridging header:
+    //        #import <FBSDKLoginKit/FBSDKLoginKit.h>
+    //        #import <FBSDKCoreKit/FBSDKAccessToken.h>
+
+    func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
+        let loginManager = FBSDKLoginManager()
+        loginManager.logInWithReadPermissions(["public_profile"], fromViewController: parent) { (result, error) in
+            if (error != nil) {
+                completion(nil, error)
             }
-        }];
-}
-```
-
-**Swift**:
-
-```swift
-// Add the following imports to your bridging header:
-//        #import <FBSDKLoginKit/FBSDKLoginKit.h>
-//        #import <FBSDKCoreKit/FBSDKAccessToken.h>
-
-func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
-    let loginManager = FBSDKLoginManager()
-    loginManager.logInWithReadPermissions(["public_profile"], fromViewController: parent) { (result, error) in
-        if (error != nil) {
-            completion(nil, error)
-        }
-        else if result.isCancelled {
-            completion(nil, error)
-        }
-        else {
-            let payload: [String: String] = ["access_token": result.token.tokenString]
-            client.loginWithProvider("facebook", token: payload, completion: completion)
+            else if result.isCancelled {
+                completion(nil, error)
+            }
+            else {
+                let payload: [String: String] = ["access_token": result.token.tokenString]
+                client.loginWithProvider("facebook", token: payload, completion: completion)
+            }
         }
     }
-}
-```
+    ```
 
 ## <a name="twitter-fabric"></a>How to: Authenticate users with Twitter Fabric for iOS
 

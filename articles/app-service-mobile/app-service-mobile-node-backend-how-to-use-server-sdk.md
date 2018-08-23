@@ -155,13 +155,13 @@ Back in the **Get started** pane, under **Create a table API**, choose **Node.js
 Select the box for **I acknowledge that this will overwrite all site contents**, and then select
 **Create TodoItem table**.
 
-### <a name="download-quickstart"></a>Download the Node.js back-end quickstart code project by using Gi
+### <a name="download-quickstart"></a>Download the Node.js back-end quickstart code project by using Git
 
 When you create a Node.js Mobile Apps back end by using the portal's **Quick start** pane, a Node.js project
 is created for you and deployed to your site. In the portal, you can add tables and APIs, and edit code files for the Node.js
 back end. You can also use various deployment tools to download the back-end project so that you
 can add or modify tables and APIs, and then republish the project. For more information, see the
-[Azure App Service deployment guide]. 
+[Azure App Service deployment guide].
 
 The following procedure uses a Git repository to download the quickstart
 project code:
@@ -207,7 +207,9 @@ two facets. Sometimes, however, you might want to only implement a mobile interf
 home page to ensure that the app service is up and running. You can either provide your own home page or enable
 a temporary home page. To enable a temporary home page, use the following code to instantiate Mobile Apps:
 
-    var mobile = azureMobileApps({ homePage: true });
+```javascript
+var mobile = azureMobileApps({ homePage: true });
+```
 
 If you only want this option available when developing locally, you can add this setting to your azureMobile.js
 file.
