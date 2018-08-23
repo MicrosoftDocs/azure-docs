@@ -6,7 +6,7 @@ author: tfitzmac
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 08/21/2018
 ms.author: tomfitz
 ---
 
@@ -34,6 +34,7 @@ Subscribe to Container Registry events to respond to changes in images.
 
 |Title |Description  |
 |---------|---------|
+| [Quickstart: send container registry events](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send Container Registry events. |
 | [Event schema](event-schema-container-registry.md) | Shows fields in Container Registry events. |
 
 ## Custom topics
