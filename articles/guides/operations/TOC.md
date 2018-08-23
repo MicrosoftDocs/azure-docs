@@ -1,20 +1,24 @@
-# Get started with Azure
-## [Cloud computing overview](azure-operations-guide.md#cloud-computing-overview)
-### [Azure regions](https://azure.microsoft.com/regions/)
-## [Services](azure-operations-guide.md#azure-services)
-### [Azure service documentation](https://docs.microsoft.com/azure)
-## [Key concepts](azure-operations-guide.md#azure-key-concepts)
-### [Microsoft Azure portal overview](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 
-### [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)
-### [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps)
-### [Install the Azure CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure REST SDK Reference](https://docs.microsoft.com/rest/api/index)
+# Azure for IT Operators
+## [Get started with Azure](azure-operations-guide.md) 
+## Quickstarts
+### Virtual Machines
+#### [Windows Virtual Machines](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Linux Virtual Machines](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### Virtual Networks
+#### [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Storage](https://docs.microsoft.com/en-us/azure/storage/)
+### Security
+#### [Use role assignments to manage resources](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
-## [Subscriptions](azure-operations-guide.md#azure-subscriptions)
+## Tutorials
+### Virtual Machines
+#### [Create & manage a Windows VM](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Create & manage Linux VMs](../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Jenkins CI/CD Pipeline](../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Load balance VMs](../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+## How To Guides
 ### [How to download your Azure billing invoice and daily usage data](../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Gain insights into your resource consumption](../../billing/billing-usage-rate-card-overview.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Online pricing calculator](http://azure.microsoft.com/pricing/calculator)
-### [Set up billing alerts](../../billing/billing-set-up-alerts.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Azure Resource Manager](azure-operations-guide.md#azure-resource-manager)
 
