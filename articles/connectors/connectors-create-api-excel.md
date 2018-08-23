@@ -24,10 +24,12 @@ your data, for example:
 * Get and manage worksheets, tables, and rows.
 * Add single rows and key columns.
 
-You can include actions in your logic apps that get responses 
-from Excel Online and make the output available for other actions. 
-For example, when a row is updated in Excel Online, 
-you can send an email using Office 365 Outlook. 
+You can include actions in your logic apps that use the output 
+from Excel Online actions. This connector provides only actions, 
+so to start your logic app, use a separate trigger, such as 
+a **Recurrence** trigger. For example, if you create worksheets 
+each week, you can send email about those new worksheets using 
+the Office 365 Outlook connector.
 
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
@@ -35,7 +37,7 @@ If you're new to logic apps, review
 > [!NOTE]
 > The [Excel Online for Business](/connectors/excelonlinebusiness/) 
 > and [Excel Online for OneDrive](/connectors/excelonline/) connectors 
-> work with Azure Logic Apps and aren't the same as the 
+> work with Azure Logic Apps and differ from the 
 > [Excel connector for PowerApps](/connectors/excel/).
 
 ## Prerequisites
