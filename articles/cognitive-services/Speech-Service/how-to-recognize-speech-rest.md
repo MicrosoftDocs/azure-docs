@@ -18,7 +18,7 @@ ms.author: v-jerkin
 
 The REST API can be used to recognize short utterances by using an HTTP POST request.
 
-The REST API is the simplest way to recognize speech if you aren't using a language that's supported by the SDK. You make an HTTP POST request to the service endpoint and pass the entire utterance in the body of the request. You receive a response that has the recognized text.
+The REST API is the simplest way to recognize speech if you aren't using a language that's supported by the [SDK](speech-sdk.md). You make an HTTP POST request to the service endpoint and pass the entire utterance in the body of the request. You receive a response that has the recognized text.
 
 > [!NOTE]
 > Utterances are limited to 15 seconds or less when you use the REST API.
