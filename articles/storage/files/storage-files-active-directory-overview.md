@@ -63,11 +63,11 @@ Azure Files uses Azure AD Domain Services to support Kerberos authentication wit
 
 When an identity associated with an application running on a VM attempts to access data in Azure Files, the request is sent to Azure AD Domain Services to authenticate the identity. If authentication is successful, Azure AD Domain Services returns a Kerberos token. The application sends a request that includes the Kerberos token, and Azure Files uses that token to authorize the request. Azure Files receives the token only and does not persist Azure AD credentials.
 
-![Screen shot showing diagram of Azure AD authentication over SMB](media/storage-files-active-directory-overview/files-aad-overview.png)
+![Screenshot showing diagram of Azure AD authentication over SMB](media/storage-files-active-directory-overview/files-aad-overview.png)
 
 ### Enable Azure AD authentication over SMB
 
-You can enable Azure AD authentication over SMB for Azure Files on your new and existing storage accounts created after August 29th, 2018. 
+You can enable Azure AD authentication over SMB for Azure Files on your new and existing storage accounts created after August 29, 2018. 
 
 Before enabling Azure AD authentication over SMB, verify that Azure AD Domain Services has been deployed for the primary Azure AD tenant with which your storage account is associated. If you have not yet set up Azure AD Domain Services, follow the step-by-step guidance provided in [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
 
@@ -104,7 +104,7 @@ There is no additional service charge to enable Azure AD authentication over SMB
 
 ## Next Steps
 
-See these resources for more information about Azure Files and Azure AD authentication over SMB:
+For more information about Azure Files and Azure AD authentication over SMB, see these resources:
 
 - [Introduction to Azure Files](storage-files-introduction.md)
 - [Enable Azure Active Directory authentication over SMB for Azure Files (Preview)](storage-files-active-directory-enable.md)
