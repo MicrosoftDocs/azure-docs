@@ -33,24 +33,24 @@ A Kubernetes cluster is divided into two components:
 - *Cluster master* nodes provide the core Kubernetes services, including the API server, the scheduler, and the data store.
 - *Nodes* run the user's applications.
 
-## Cluster master in AKS
+## Cluster master
 
 When you create an AKS cluster, a cluster master is automatically created and configured. This cluster master is provided as a managed Azure resource abstracted from the user. There is no cost for the cluster master, only the nodes that are part of the AKS cluster.
 
 The cluster master includes the following core Kubernetes components:
 
-- *kube-apiserver* - The API server is how the underlying Kubernetes APIs are exposed. This component provides all the interaction for management tools, such as `kubectl` or the Kubernetes dashboard.
+- *kube-apiserver* - The API server is how the underlying Kubernetes APIs are exposed. This component provides the interaction for management tools, such as `kubectl` or the Kubernetes dashboard.
 - *etcd* - To maintain the state of your Kubernetes cluster and configuration, the highly available *etcd* is a key value store within Kubernetes.
 - *kube-scheduler* - When you create or scale applications, the Scheduler determines what nodes can run the workload and starts them.
-- *kube-controller-manager* - The Controller Manager oversees a number of smaller Controllers that perform actions such as the replicating pods and handling node operations.
+- *kube-controller-manager* - The Controller Manager oversees a number of smaller Controllers that perform actions such as replicating pods and handling node operations.
 
-AKS provides a single-tenant cluster master, with a dedicated API server, Scheduler, etc. You define the number and size of the nodes, and the Azure platform configures the secure communication between the cluster master and nodes. All of the interaction with the cluster master occurs through Kubernetes APIs, such as `kubectl` or the Kubernetes dashboard.
+AKS provides a single-tenant cluster master, with a dedicated API server, Scheduler, etc. You define the number and size of the nodes, and the Azure platform configures the secure communication between the cluster master and nodes. Interaction with the cluster master occurs through Kubernetes APIs, such as `kubectl` or the Kubernetes dashboard.
 
-This managed cluster master means that you do not need to configure components like a highly available *etcd* store, but it also means that you cannot access the cluster master directly. Upgrades to Kubernetes are orchestrated through the Azure CLI or Azure portal, which upgrades the cluster master and then the nodes. To troubleshoot possible issues, you can also review the cluster master logs.
+This managed cluster master means that you do not need to configure components like a highly available *etcd* store, but it also means that you cannot access the cluster master directly. Upgrades to Kubernetes are orchestrated through the Azure CLI or Azure portal, which upgrades the cluster master and then the nodes. To troubleshoot possible issues, you can review the cluster master logs through Azure Log Analytics.
 
 If you need to configure the cluster master in a particular way or need direct access to them, you can deploy your own Kubernetes cluster using [acs-engine][acs-engine].
 
-## Nodes and node pools in AKS
+## Nodes and node pools
 
 To run your applications and supporting services, you need a Kubernetes *node*. An AKS cluster has one or more nodes, which is an Azure virtual machine (VM) that runs the Kubernetes node components and container runtime:
 
@@ -79,7 +79,7 @@ Kubernetes uses *pods* to run an instance of your application. You typically cre
 
 Most stateless applications in AKS should use the deployment model rather than scheduling individual pods. Individual pods are not restarted if they encounter a problem, and are not rescheduled on healthy nodes if their current node encounters a problem. Deployments are typically created and managed with `kubectl create` or `kubectl apply`.
 
-To create a deployment, you define a manifest file in the YAML (YAML Ain't Markup Language) format. The following example creates a basic deployment of the NGINX web server. The deployment specifies *2* replicas to be created, and that port *80* should be open on the container. Resource requests are also defined for CPU and memory.
+To create a deployment, you define a manifest file in the YAML (YAML Ain't Markup Language) format. The following example creates a basic deployment of the NGINX web server. The deployment specifies *2* replicas to be created, and that port *80* be open on the container. Resource requests are also defined for CPU and memory.
 
 ```yaml
 apiVersion: apps/v1
