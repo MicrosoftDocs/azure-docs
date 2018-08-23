@@ -3,9 +3,9 @@ title: Azure SQL Analytics solution in Log Analytics | Microsoft Docs
 description: Azure SQL Analytics solution helps you manage your Azure SQL databases
 services: log-analytics
 documentationcenter: ''
-author: mgoedtel
+author: danimir
 manager: carmonm
-editor: ''
+ms.reviewer: carlrab
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: magoedte
+ms.author: v-daljep
 ms.component: na
 ---
 
@@ -130,8 +130,6 @@ Through the Query duration and query waits perspectives, you can correlate the p
 
 You can easily [create alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use with a log alert:
 
-
-
 *High DTU on Azure SQL Database*
 
 ```
@@ -150,7 +148,45 @@ AzureMetrics
 | render timechart
 ```
 
+*Setting up alerts on Database storage being in average above 95% in the last 1hr*
 
+```
+let time_range = 1h;
+let storage_threshold = 95;
+AzureMetrics
+| where ResourceId contains "/DATABASES/"
+| where MetricName == "storage_percent"
+| summarize max_storage = max(Average) by ResourceId, bin(TimeGenerated, time_range)
+| where max_storage > storage_threshold
+| distinct ResourceId
+```
+
+Please note: This query requires an alert rule to be setup to fire off an alert when there exit results (> 0 results) from the query, denoting that the condition exists on some databases. The output is a list of database resources that are above the storage_threshold within the time_range defined.
+
+
+*Setting up alerts on Intelligent insights*
+
+```
+let alert_run_interval = 1h;
+let insights_string = "hitting its CPU limits";
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| where TimeGenerated > ago(alert_run_interval)
+| where rootCauseAnalysis_s contains insights_string
+| distinct ResourceId
+```
+
+Please note: This query requires an alert rule to be setup to run with the same frequency as alert_run_interval in order to avoid duplicate results. The rule should be setup to fire off the alert when there exit results (> 0 results) from the query.
+ 
+Customize the alert_run_interval to specify the time range to check if the condition has occurred on databases configured to stream SQLInsights log to the solution.
+ 
+Customize the insights_string to capture the output of the Insights root cause analysis text. This is the same text displayed in the UI of the solution which you can use from the existing insights. Alternatively, you can use the following query to see the text of all Insights generated on your subscription. Use the query to harvest the distinct strings for setting up alerts in Insights.
+
+```
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| distinct rootCauseAnalysis_s
+```
 
 ## Next steps
 
