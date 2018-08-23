@@ -16,7 +16,7 @@ ms.date: 09/24/2018
 
 # Tutorial #1: Train an image classification model with Azure Machine Learning
 
-In this tutorial, you train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview) in a Jupyter notebook.  You can then modify the notebook as a template to train your own machine learning model with your own images. This tutorial is **part one of a two-part tutorial series**.  
+In this tutorial, you train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview) in a Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own images. This tutorial is **part one of a two-part tutorial series**.  
 
 This tutorial trains a simple logistic regression using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](http://scikit-learn.org) with Azure Machine Learning.  MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing a number from 0 to 9. The goal is to create a multi-class classifier to identify the digit a given image represents. 
 
@@ -37,19 +37,21 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-1. An Azure Machine Learning Workspace and its accompanying  **aml_config\config.json** file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart.
-1. Follow the Jupyter notebook instructions in [Configure your development environment](how-to-configure-environment.md).  In step 4 the new packages you need are matplotlib and scikit-learn:
+1. An Azure Machine Learning Workspace and its accompanying  **aml_config\config.json** file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart (approximately 5 minutes).
+1. A development environment [configured to run Azure Machine Learning service in Jupyter notebooks](how-to-configure-environment.md) (approximately 2 minutes).  In step 4 the new packages you need are matplotlib and scikit-learn:
 
    ```
    conda install -y matplotlib scikit-learn
    ``` 
 
+
 1. The file [utils.py](https://aka.ms/aml-file-utils-py) downloaded into the same directory as **aml_config**.
 
+### Start the notebook
 
 (Optional) Download [this tutorial as a notebook](https://aka.ms/aml-notebook-train) into the same directory as **aml_config** and **utils.py**.  
 
-Or start your own notebook and copy the code from the sections below.
+Or start your own notebook from the same directory as **aml_config** and **utils.py** and copy the code from the sections below.
 
 ## Set up your development environment
 
@@ -79,7 +81,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### Load workspace
 
-Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **aml_config\config.json** and load the details into an object named `ws`.  You'll use `ws` throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **aml_config\config.json** and load the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
 
 ```python
 ws = Workspace.from_config()
@@ -103,8 +105,7 @@ proj.get_details()
 
 Azure Batch AI Cluster is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you create an Azure Batch AI cluster as your training environment. This code creates a cluster for you if it does not already exist in your workspace. 
 
-> [!IMPORTANT]
-> **Creation of the cluster takes approximately 5 minutes.** If the cluster is already in the workspace this code uses it and skips the creation process.
+ **Creation of the cluster takes approximately 5 minutes.** If the cluster is already in the workspace this code uses it and skips the creation process.
 
 
 ```python
@@ -193,6 +194,7 @@ for i in np.random.permutation(X_train.shape[0])[:sample_size]:
 plt.show()
 ```
 
+A random sample of images displays:
 
 ![random sample of images](./media/tutorial-train-models-with-aml/digits.png)
 
@@ -216,8 +218,7 @@ You now have everything you need to start training a model.
 
 Train a simple logistic regression model from scikit-learn locally.
 
-> [!IMPORTANT]
-> **Training locally can take a minute or two** depending on your computer configuration.
+**Training locally can take a minute or two** depending on your computer configuration.
 
 ```python
 %%time
@@ -234,6 +235,7 @@ y_hat = clf.predict(X_test)
 print(np.average(y_hat == y_test))
 ```
 
+The local model accuracy displays:
     0.9202
 
 With almost no effort, you have a 92% accuracy.
@@ -369,11 +371,11 @@ print(run.get_details().status)
 
 Since the call is asynchronous, it returns a **running** state as soon as the job is started.
 
-Now, we need to wait for the training to complete.
-
 ## Monitor a remote run
 
-Each run goes through the following stages:
+In total, the first run takes **approximately 10 minutes**. But for subsequent runs, as long as the script dependencies don't change, the same image is reused and hence the container start up time is much faster.
+
+Here is what's happening while you wait:
 
 - **Image creation**: A Docker image is created matching the Python environment specified by the estimator. The image is uploaded to the workspace. Image creation and uploading **takes about 5 minutes**. 
 
@@ -385,15 +387,12 @@ Each run goes through the following stages:
 
 - **Post-Processing**: The ./outputs directory of the run is copied over to the run history in your workspace so you can access these results.
 
-> [!IMPORTANT]
-> In total, the first run takes **approximately 10 minutes**. But for subsequent runs, as long as the script dependencies don't change, the same image is reused and hence the container start up time is much faster.
-
 
 There are multiple ways to check the progress of a running job. This tutorial uses a Jupyter widget as well as a `wait_for_completion` method. 
 
 ### Jupyter widget
 
-In a Jupyter notebook, a widget is available.  Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
+Watch the progress of the run with a Jupyter widget.  Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
 
 
 ```python
@@ -421,15 +420,16 @@ You now have a model trained on a the BatchAI cluster.  You can retrieve metrics
 ```python
 print(run.get_metrics())
 ```
+The model trained remotely has an accuracy slightly higher than the local model, due to the addition of the regularization rate during training.  
 
     0.9204
 
-    
+In the next tutorial you will explore this model in more detail.
 
 ## Register model
 
 The last step in the training script wrote the file `outputs/sklearn_mnist_model.pkl`.  Since all content in the `outputs` directory is automatically uploaded to your workspace, the model file is now also available in your workspace. 
-Registering the model in the workspace allows you (or other collaborators) later to query, examine, and deploy this model.
+Register the model in the workspace so that you (or other collaborators) can later query, examine, and deploy this model.
 
 ```python
 # register model 
