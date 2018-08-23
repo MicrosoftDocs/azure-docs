@@ -44,24 +44,24 @@ If your account needs some adjustments, you will see relevant errors and warning
 
 ## Auto-scale reserved units
 
-The **Settings** page enables you to set the autoscaling of reserved units. If the option is **On**, you can allocate the maximum number of Reserved Units and Video Indexer will stop and start them automatically. With this option, you don't pay extra money for idle time but also do not wait for indexing jobs to complete a long time when the indexing load is high.
+The **Settings** page enables you to set the autoscaling of Media Reserved Units (RU). If the option is **On**, you can allocate the maximum number of RUs and be sure that Video Indexer stops/starts RUs automatically. With this option, you don't pay extra money for idle time but also do not wait for indexing jobs to complete a long time when the indexing load is high.
 
 ![Sign up](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## Errors and warnings
 
-If your account needs some adjustments, you will see relevant errors and warnings about your account configuration on the **Settings** page. The messages contain links to exact places in Azure portal where you need to make changes. This sections gives more details about the error and warning messages.
+If your account needs some adjustments, you see relevant errors and warnings about your account configuration on the **Settings** page. The messages contain links to exact places in Azure portal where you need to make changes. This sections gives more details about the error and warning messages.
 
-* Event Grid not registered
+* Event Grid
 
-    You have to register the EventGrid resource provider using the Azure portal, as described in [xxx]().
+    You have to register the EventGrid resource provider using the Azure portal. In the [Azure portal](https://portal.azure.com/), go to **Subscriptions** > [subscription] > **ResourceProviders** > **Microsoft.EventGrid**. If not in the **Registered**"** state, click **Register**. It takes a couple of minutes to register. 
 
-* Streaming Endpoint disabled
-* Reserved units configuration issues 
+* Streaming Endpoint
 
-## Billing for Media Reserved Units
+    Make sure the underlying Media Services account has the default **Streaming Endpoint** in a started state. Otherwise, you will not be able to watch videos from this Media Services account or in Video Indexer.
+* Media Reserved Units configuration issues
 
-You are charged based on actual minutes of usage of Media Reserved Units. For a detailed explanation, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.   
+    * You must allocate Media Reserved Units on your Media Service resource in order to index videos. For optimal indexing performance, it's recommended to allocate at least 10 S3 Reserved Units. For pricing information, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.   
 
 ## Next steps
 

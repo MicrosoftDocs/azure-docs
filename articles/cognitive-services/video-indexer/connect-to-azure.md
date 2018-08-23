@@ -42,7 +42,7 @@ This article shows how to create a Video Indexer account that's linked to an Azu
 
 * Register the EventGrid resource provider using the Azure portal.
 
-    In the Azure portal, go to **Subscriptions** > [subscription] > **ResourceProviders** > **Microsoft.EventGrid**. If not in the "Registered" state, click **Register**. It takes a couple of minutes to register. 
+    In the [Azure portal](https://portal.azure.com/), go to **Subscriptions** > [subscription] > **ResourceProviders** > **Microsoft.EventGrid**. If not in the "Registered" state, click **Register**. It takes a couple of minutes to register. 
 
     ![EventGrid](./media/create-account/event-grid.png)
 
@@ -97,10 +97,6 @@ The following Azure Media Services related considerations apply:
     ![Media Services streaming endpoint](./media/create-account/ams-streaming-endpoint.png)
 
 * If you connected to an existing Media Services account, Video Indexer does not change the streaming endpoints configuration. If there is no running **Streaming Endpoint**, you will not be able to watch videos from this Media Services account or in Video Indexer.
-
-## Billing for Media Reserved Units
-
-You are charged based on actual minutes of usage of Media Reserved Units. For a detailed explanation, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.   
 
 ## Next steps
 
