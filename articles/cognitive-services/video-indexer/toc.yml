@@ -16,6 +16,8 @@
     href: migrate-from-v1-to-v2.md
   - name: Connect to Azure
     href: connect-to-azure.md
+  - name: Manage account connected to Azure
+    href: manage-account-connected-to-azure.md
   - name: Use Video Indexer API
     href: video-indexer-use-apis.md  
   - name: Use API to upload and index videos
