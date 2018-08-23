@@ -98,15 +98,14 @@ The following Azure Media Services related considerations apply:
 
 * If you connected to an existing Media Services account, Video Indexer does not change the streaming endpoints configuration. If there is no running **Streaming Endpoint**, you will not be able to watch videos from this Media Services account or in Video Indexer.
 
-## Use Video Indexer APIs v2
+## Billing for Media Reserved Units
+
+You are charged based on actual minutes of usage of Media Reserved Units. For a detailed explanation, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.   
+
+## Next steps
 
 You can programmatically interact with your trial account and/or with your Video Indexer accounts that are connected to azure by following the instructions in: [Use APIs](video-indexer-use-apis.md).
 
 You should use the same Azure AD user you used when connecting to Azure.
 
-## Next steps
-
-[Use Azure Video Indexer API](video-indexer-use-apis.md)
-
-[Examine details of the output JSON](video-indexer-output-json-v2.md).
 

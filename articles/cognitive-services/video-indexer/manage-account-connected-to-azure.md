@@ -18,17 +18,47 @@ This article demonstrates how to manage a Video Indexer account that is connecte
 
 ## Prerequisites
 
-Have an account [Connected to Azure](connect-to-azure.md)
+Connect your Video Indexer account to Azure, as described in [Connected to Azure](connect-to-azure.md). 
+
+Make sure to follow [Prerequisites](connect-to-azure.md#prerequisites) described and review [Considerations](connect-to-azure.md##Considerations) in the article.
 
 ## Examine account settings
 
-This section examines settings.
+This section examines settings of your Video Indexer account.
 
-## Autoscale reserved units
+To view settings:
 
-This section shows how to autoscale reserved units.
+1. Click on the user icon in the right top corner and select settings.
+
+    ![Settings](./media/manage-account-connected-to-azure/select-settings.png)
+
+2. On the **Settings** page, select the **Account** tab.
+
+If your Videos Indexer account is connected to Azure, you see the following:
+
+* The name of the underlying Azure Media Services account.
+* The number of indexing jobs running and queued.
+* The number and type of allocated Reserved Units.
+
+If your account needs some adjustments, you will see relevant errors and warnings about your account configuration and links to the exact place in Azure portal where you need to make changes. For more information, see the [errors and warnings](#errors-and-warnings) section that follows.
+
+## Auto-scale reserved units
+
+The **Settings** page enables you to set the autoscaling of reserved units. If the option is **On**, you can allocate the maximum number of Reserved Units and Video Indexer will stop and start them automatically. With this option, you don't pay extra money for idle time but also do not wait for indexing jobs to complete a long time when the indexing load is high.
 
 ![Sign up](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
+
+## Billing for Media Reserved Units
+
+You are charged based on actual minutes of usage of Media Reserved Units. For a detailed explanation, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.   
+
+## Errors and warnings
+
+If you need to adjust some configurations, you will see relevant errors and warnings about your account configuration on the **Settings** page. The messages contain links to the exact place in Azure portal where you need to make changes. 
+
+* Event Grid not registered
+* Streaming end point disabled
+* Reserved units configuration issues 
 
 ## Next steps
 
