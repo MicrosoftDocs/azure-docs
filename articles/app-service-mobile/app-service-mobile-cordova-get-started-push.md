@@ -201,24 +201,24 @@ Since you are targeting the Google Android platform initially, you must enable F
 
 #### Configure your Cordova app for Android
 
-In your Cordova app, open config.xml. Then replace `Your_Project_ID` with the numeric project ID for your app from
+In your Cordova app, open **config.xml**. Then replace `Your_Project_ID` with the numeric project ID for your app from
 the [Google Developer Console][18].
 
-    ```xml
-    <plugin name="phonegap-plugin-push" version="1.7.1" src="https://github.com/phonegap/phonegap-plugin-push.git">
-        <variable name="SENDER_ID" value="Your_Project_ID" />
-    </plugin>
-    ```
+```xml
+<plugin name="phonegap-plugin-push" version="1.7.1" src="https://github.com/phonegap/phonegap-plugin-push.git">
+    <variable name="SENDER_ID" value="Your_Project_ID" />
+</plugin>
+```
 
-Open index.js. Then update the code to use your numeric project ID.
+Open **index.js**. Then update the code to use your numeric project ID.
 
-    ```javascript
-    pushRegistration = PushNotification.init({
-        android: { senderID: 'Your_Project_ID' },
-        ios: { alert: 'true', badge: 'true', sound: 'true' },
-        wns: {}
-    });
-    ```
+```javascript
+pushRegistration = PushNotification.init({
+    android: { senderID: 'Your_Project_ID' },
+    ios: { alert: 'true', badge: 'true', sound: 'true' },
+    wns: {}
+});
+```
 
 #### <a name="configure-device"></a>Configure your Android device for USB debugging
 
@@ -258,8 +258,7 @@ app on the Android platform in one of the following ways:
 
   Screen-sharing applications such as [Mobizen][20] can assist you in developing Android applications. Mobizen projects your Android screen to a web browser on your PC.
 
-* *On an Android emulator:*
-  There are additional configuration steps that are required when you're using an emulator.
+* *On an Android emulator:* There are additional configuration steps that are required when you're using an emulator.
 
     Make sure you are deploying to a virtual device that has Google APIs set as the target, as shown in the Android Virtual Device (AVD) manager.
 
@@ -298,9 +297,11 @@ Before you register your app for push notifications, open config.xml in your Cor
 attribute value in the widget element, and then copy it for later use. In the following XML, the ID is
 `io.cordova.myapp7777777`.
 
-        <widget defaultlocale="en-US" id="io.cordova.myapp7777777"
-          version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="http://www.w3.org/ns/widgets"
-            xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
+```xml
+<widget defaultlocale="en-US" id="io.cordova.myapp7777777"
+    version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="http://www.w3.org/ns/widgets"
+    xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
+```
 
 Later, use this identifier when you create an App ID on Apple's developer portal. If you create a different
 App ID on the developer portal, you must take a few extra steps later in this tutorial. The ID in the
@@ -368,28 +369,32 @@ To use the Store options in Visual Studio, select a Windows target from the Solu
 Open the configuration designer by right-clicking **config.xml**. Then select **View Designer**. Next, select the **Windows**
 tab, and then select **Windows 10** under **Windows Target Version**.
 
-To support push notifications in your default (debug) builds, open the build.json file. Then copy the
+To support push notifications in your default (debug) builds, open the **build.json** file. Then copy the
 "release" configuration to your debug configuration.
 
-        "windows": {
-            "release": {
-                "packageCertificateKeyFile": "res\\native\\windows\\CordovaApp.pfx",
-                "publisherId": "CN=yourpublisherID"
-            }
-        }
+```json
+"windows": {
+    "release": {
+        "packageCertificateKeyFile": "res\\native\\windows\\CordovaApp.pfx",
+        "publisherId": "CN=yourpublisherID"
+    }
+}
+```
 
-After the update, the build.json file should contain the following code:
+After the update, the **build.json** file should contain the following code:
 
-    "windows": {
-        "release": {
-            "packageCertificateKeyFile": "res\\native\\windows\\CordovaApp.pfx",
-            "publisherId": "CN=yourpublisherID"
-            },
-        "debug": {
-            "packageCertificateKeyFile": "res\\native\\windows\\CordovaApp.pfx",
-            "publisherId": "CN=yourpublisherID"
-            }
+```json
+"windows": {
+    "release": {
+        "packageCertificateKeyFile": "res\\native\\windows\\CordovaApp.pfx",
+        "publisherId": "CN=yourpublisherID"
+        },
+    "debug": {
+        "packageCertificateKeyFile": "res\\native\\windows\\CordovaApp.pfx",
+        "publisherId": "CN=yourpublisherID"
         }
+    }
+```
 
 Build the app and verify that you have no errors. Your client app should now register for the notifications
 from the Mobile Apps back end. Repeat this section for every Windows project in your solution.
