@@ -74,6 +74,8 @@ The inheritance model is as follows:
 - The child policy at any level can inherit from the parent policy and extend it by adding new elements.
 - There is no limit on the number of levels.
 
+For more information, see [Get started with custom policies](active-directory-b2c-get-started-custom.md).
+
 ## Base policy
 
 To inherit a policy from another policy, a **BasePolicy** element must be declared under the **TrustFrameworkPolicy** element of the policy file. The **BasePolicy** element is a reference to the base policy from which this policy is derived.  
@@ -132,7 +134,7 @@ The orchestration steps may call a **Technical Profile**. A technical profile pr
 
 ![Policy execution](./media/trustframeworkpolicy/custom-policy-execution.png)
 
- The `TrustFrameworkPolicy` element contains the following elements:
+ The **TrustFrameworkPolicy** element contains the following elements:
 
-- `BasePolicy` as specified above
+- BasePolicy as specified above
 - [BuildingBlocks](buildingblocks.md)
