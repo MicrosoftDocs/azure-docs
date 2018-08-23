@@ -1,5 +1,5 @@
 ---
-title: Automatically train an image classification model with Azure Automated Machine Learning service
+title: Automatically train a classification model with Azure Automated Machine Learning service
 description: In this tutorial, you'll learn how to automatically generate a tuned machine learning model which can then be deployed with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 # As an app developer or data scientist I can automatically generate a tuned machine learning model.
 ---
 
-# Tutorial: Automatically train an image classification model with Azure Automated Machine Learning
+# Tutorial: Automatically train a image classification model with Azure Automated Machine Learning
 
 In this tutorial, you'll learn how to automatically generate a tuned machine learning model.  This model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
 
