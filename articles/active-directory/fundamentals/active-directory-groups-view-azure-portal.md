@@ -1,40 +1,39 @@
 ---
-title: View all existing groups in Azure AD | Microsoft Docs
-description: How to view or search for groups in Azure Active Directory
+title: Search for and view your groups and assigned members using the Azure AD portal | Microsoft Docs
+description: How to search for and view all of your groups using the Azure Active Directory portal.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
+
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
-ms.date: 08/28/2017
+ms.date: 08/23/2018
 ms.author: lizross
-ms.custom: H1Hack27Feb2017;it-pro
+ms.custom: it-pro
 ms.reviewer: krbain
 ---
 
-# View or search for your user groups in Azure Active Directory
-This article explains how to view groups in Azure Active Directory (Azure AD). One of the features of Azure AD user management is that you can use groups to perform management tasks such as assigning licenses or permissions to a number of users at once.
+# Quickstart: Search for and view your groups and assigned members using the Azure AD portal
+Whether you add your members as part of the group creation process or later, you can always view your groups and associated members.
 
-## How do I see all the groups?
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **All services**, enter **Users and groups** in the text box, and then select **Enter**.
+## To search for a specific group
+1.
 
-   ![Opening users and groups](./media/active-directory-groups-view-azure-portal/search-user-management.png)
-3. On the **Users and groups** blade, select **All groups**.
+2. 
 
-   ![Opening the groups blade](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
-4. On the **Users and groups - All groups** blade, you can add or remove display columns, filter the list to search for a group, or make changes to groups that you have sufficient permissions to change.
+## To view your groups and assigned members
+1. Select **Groups**, and then select your group name. In this case, _MDM policy - West_.
+
+    The group information appears, with the number of included members.
+
+2. If you want to see the member names, select **Members** from the **Manage** area, and review the list.
 
 ## Next steps
-These articles provide additional information on Azure Active Directory.
 
-* [See existing groups](active-directory-groups-view-azure-portal.md)
-* [Create a new group and adding members](active-directory-groups-create-azure-portal.md)
-* [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
-* [Manage members of a group](active-directory-groups-members-azure-portal.md)
-* [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
-* [Manage dynamic rules for users in a group](../users-groups-roles/groups-dynamic-membership.md)
+- [Add or remove members from a group using the Azure AD portal](active-directory-groups-members-azure-portal.md)
+- Modify or delete a group - New, need to create
+- [Manage group and membership settings](active-directory-groups-settings-azure-portal.md)
+- [Manage access to resources using groups](active-directory-manage-groups.md)
+- [Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
