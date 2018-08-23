@@ -18,7 +18,7 @@ ms.author: magoedte
 ---
 
 # How to onboard the Azure Monitor VM Insights 
-This article describes how to set up VM insights to monitor the operating system health of your Azure virtual machines and discover and map application dependencies that may be hosted on them.  
+This article describes how to set up VM Insights to monitor the operating system health of your Azure virtual machines and discover and map application dependencies that may be hosted on them.  
 
 ## Prerequisites
 Before you start, make sure that you have the following as described in the sub-sections below.
@@ -32,9 +32,11 @@ Before you start, make sure that you have the following as described in the sub-
    - Southeast Asia  
    - West Europe  
 
-    If you do not have a workspace, you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
+    If you do not have a workspace, you can you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).  
 
 2. The Log Analytics contributor role, to enable the solution. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 ### Supported Operating Systems
 
@@ -63,9 +65,20 @@ To enable monitoring of your Azure VM in the Azure portal, do the following:
 3. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
 4. On the **Insights (preview)** page, select **Try VM Insights**.
 
-    ![Enable VM Insights for a VM](./media/monitoring-vminsights-onboard/enable-vminsights-for-vm.png)
+    ![Enable VM Insights for a VM](./media/monitoring-vminsights-onboard/enable-vminsights-vm-portal-01.png)
 
-5. On the **Azure Monitor Insights Onboarding** page, 
+5. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  
+
+    The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
+
+    ![Enable VM Insights monitoring select workspace option](./media/monitoring-vminsights-onboard/enable-vminsights-vm-portal-02.png)
+
+>[!NOTE]
+>If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md). Be sure to create the workspace in the same subscription that the VM is deployed to. 
+
+After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the virtual machine. 
+
+![Enable VM Insights monitoring deployment processing](./media/monitoring-vminsights-onboard/enable-vminsights-vm-portal-03.png)
 
 ## Enable with PowerShell
 To onboard multiple VMs or VM Scale Sets, you use a provided PowerShell script - [Install-VMInsights.ps1](https://github.com/dougbrad/OnBoardVMInsights/blob/master/Install-VMInsights.ps1) to complete this task.  This script will iterate through every virtual machine and VM Scale Set in your subscription, in the scoped resource group specified by *ResourceGroup*, or to a single VM or Scale Set specified by *Name*.  For each VM or VM Scale Set, the script verifies if the VM extension is already installed, and if not attempt to reinstall it.  Otherwise, it proceeds to install the Log Analytics and Dependency Agent VM extensions.   
