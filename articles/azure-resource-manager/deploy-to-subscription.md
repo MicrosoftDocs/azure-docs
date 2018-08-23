@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
 ---
 # Deploy resources to an Azure subscription
@@ -18,6 +18,20 @@ ms.author: tomfitz
 Typically, you deploy resources to a resource group in your Azure subscription. However, some resources can be deployed at the level of your Azure subscription. These resources apply across your subscription. [Policies](../azure-policy/azure-policy-introduction.md), [Role-based access control](../role-based-access-control/overview.md), and [Azure Security Center](../security-center/security-center-intro.md) are services that you may want to apply at the subscription level, rather than the resource group level.
 
 This article uses Azure CLI and PowerShell to deploy the templates.
+
+## Name and location for deployment
+
+When deploying to your subscription, you must provide a location for the deployment. You can also provide a name for the deployment. If you don't specify a name for the deployment, the name of the template is used as the deployment name. For example, deploying a template named **azuredeploy.json** creates a default deployment name of **azuredeploy**.
+
+The location of subscription level deployments is immutable. You can't create a deployment in one location when there's an existing deployment with the same name but different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
+
+## Using template functions
+
+For subscription level deployments, there are some important considerations when using template functions:
+
+* The [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) function is **not** supported.
+* The [resourceId()](resource-group-template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at subscription level deployments. For example, get the resource ID for a policy definition with `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`
+* The [reference()](resource-group-template-functions-resource.md#reference) and [list()](resource-group-template-functions-resource.md#list) functions are supported.
 
 ## Assign policy
 
@@ -238,6 +252,7 @@ New-AzureRmDeployment `
 
 ## Next steps
 * For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
+* To create a resource group, see [Create resource groups in Azure Resource Manager templates](create-resource-group-in-template.md).
 * To learn about creating Azure Resource Manager templates, see [Authoring templates](resource-group-authoring-templates.md). 
 * For a list of the available functions in a template, see [Template functions](resource-group-template-functions.md).
 
