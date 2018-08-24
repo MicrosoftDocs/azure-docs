@@ -65,7 +65,7 @@ To be able to send push notifications to an iOS app, you must register your appl
 
     ![Create certificate for App ID button](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
 
-    You see the **Add iOS Certificate**"** assistant.
+    You see the **Add iOS Certificate** assistant.
 
     > [!NOTE]
     > This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you use the same certificate type when sending notifications.
