@@ -1,6 +1,6 @@
 ---
 title: Consume monitoring data from Azure Stack | Microsoft Docs
-description: Learn about options to consume monitoring data from Azure Stack.
+description: Learn about options for consuming monitoring data from Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
