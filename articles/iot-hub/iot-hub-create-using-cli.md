@@ -23,7 +23,7 @@ To complete this how-to, you need an Azure subscription. If you don't have an Az
 
 ## Sign in and set your Azure account
 
-First, sign in to your Azure account.
+If you are running Azure CLI locally instead of using Cloud Shell, you need to sign in to your Azure account.
 
 At the command prompt, run the [login command](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli):
 
@@ -65,7 +65,7 @@ The previous command creates an IoT hub in the S1 pricing tier for which you are
 
 ## Remove an IoT Hub
 
-You can use the Azure CLI to [delete an individual resource](https://docs.microsoft.com/cli/azure/resource), such as an IoT hub, or delete a resource group and all its resources, including any IoT hubs.
+You can use Azure CLI to [delete an individual resource](https://docs.microsoft.com/cli/azure/resource), such as an IoT hub, or delete a resource group and all its resources, including any IoT hubs.
 
 To [delete an IoT hub](https://docs.microsoft.com/en-us/cli/azure/iot/hub#az-iot-hub-delete), run the following command:
 
