@@ -49,7 +49,7 @@ featureFlags:
                 </a>
             </li>
             <li>
-                <a href="https://azure.microsoft.com/community/training/">
+                <a href="https://www.pluralsight.com/partners/microsoft/azure?aid=7010a000001xDURAA2">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
