@@ -1,5 +1,5 @@
 ---
-title: Analyze natural language text in Language Understanding (LUIS) using PHP - Cognitive Services - Azure Cognitive Services | Microsoft Docs
+title: Quickstart to Analyze natural language text in Language Understanding (LUIS) using PHP - Cognitive Services - Azure Cognitive Services | Microsoft Docs
 description: In this quickstart, use an available public LUIS app to determine a user's intention from conversational text. Using PHP, send the user's intention as text to the public app's HTTP prediction endpoint. At the endpoint, LUIS applies the public app's model to analyze the natural language text for meaning, determining overall intent and extracting data relevant to the app's subject domain.
 services: cognitive-services
 author: diberry
@@ -7,7 +7,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 08/23/2018
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the LUIS service, I want to query the LUIS endpoint of a published model using PHP so that I can see the JSON prediction response.
 ---
@@ -38,13 +38,14 @@ ms.author: diberry
 ## Analyze text with PHP 
 
 You can use PHP to access the same results you saw in the browser window in the previous step. 
-1. Copy the code that follows and save it into an HTML file:
+
+1. Copy the code that follows and save it with filename `endpoint-call.php`:
 
    [!code-php[PHP code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/php/endpoint-call.php)]
 
 2. Replace `"YOUR-KEY"` with your endpoint key.
 
-3. Run the PHP application. It displays the same JSON that you saw earlier in the browser window.
+3. Run the PHP application with `php endpoint-call.php`. It displays the same JSON that you saw earlier in the browser window.
 
 ## LUIS keys
 
