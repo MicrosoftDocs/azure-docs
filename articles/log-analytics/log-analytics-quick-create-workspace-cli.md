@@ -17,9 +17,9 @@ ms.author: magoedte
 ms.component: na
 ---
 
-# Create a Log Analytics workspace with the Azure CLI 2.0
+# Create a Log Analytics workspace with Azure CLI 2.0
 
-The Azure CLI 2.0 is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI 2.0 to deploy a Log Analytics workspace in Azure, which is a unique environment with its own data repository, data sources, and solutions.  The steps described in this article are required if you intend on collecting data from the following sources:
+The Azure CLI 2.0 is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use Azure CLI 2.0 to deploy a Log Analytics workspace in Azure, which is a unique environment with its own data repository, data sources, and solutions.  The steps described in this article are required if you intend on collecting data from the following sources:
 
 * Azure resources in your subscription  
 * On-premises computers monitored by System Center Operations Manager  

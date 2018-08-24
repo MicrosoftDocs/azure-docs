@@ -1,6 +1,6 @@
 ---
-title: Create a Log Analytics workspace using Azure CLI | Microsoft Docs
-description: Learn how to create a Log Analytics workspace to enable management solutions and data collection from your cloud and on-premises environments with Azure CLI.
+title: Create a Log Analytics workspace using Azure PowerShell| Microsoft Docs
+description: Learn how to create a Log Analytics workspace to enable management solutions and data collection from your cloud and on-premises environments with Azure PowerShell.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -17,7 +17,7 @@ ms.author: magoedte
 ms.component: na
 ---
 
-# Create a Log Analytics workspace with the Azure CLI 2.0
+# Create a Log Analytics workspace with Azure PowerShell
 
 The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to to deploy a Log Analytics workspace in Azure, which is a unique environment with its own data repository, data sources, and solutions.  The steps described in this article are required if you intend on collecting data from the following sources:
 
