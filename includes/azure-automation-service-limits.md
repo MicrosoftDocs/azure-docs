@@ -23,7 +23,7 @@ ms.custom: "include file"
 | Maximum runtime allowed per runbook  **<sup>1</sup>** |3 hours |Applies to Azure sandboxes only|
 | Max number of Automation Accounts in a subscription |No Limit ||
 |Max number of concurrent jobs that be run on a single Hybrid Runbook Worker|50 ||
-| Max runbook input parameter size | 512 kb||
-| Max webhook payload |  512 kb|
+| Max Runbook Job parameters size   | 512 kb||
+| Max webhook payload size |  512 kb|
 
 **<sup>1</sup>** A sandbox is a shared environment that can be used by multiple jobs, jobs using the same sandbox are bound by the resource limitations of the sandbox.
