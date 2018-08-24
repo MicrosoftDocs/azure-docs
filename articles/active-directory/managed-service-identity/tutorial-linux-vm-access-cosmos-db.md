@@ -38,11 +38,11 @@ This tutorial shows you how to to use a system assigned identity for a Linux vir
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-[Sign in to Azure portal]((https://portal.azure.com))
+- [Sign in to Azure portal]((https://portal.azure.com))
 
-[Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
+- [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
 
-[Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+- [Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 To run the CLI script examples in this tutorial, you have two options:
 

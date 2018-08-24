@@ -36,11 +36,11 @@ A Service SAS provides the ability to grant limited access to objects in a stora
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-[Sign in to Azure portal]((https://portal.azure.com))
+- [Sign in to Azure portal]((https://portal.azure.com))
 
-[Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
+- [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
 
-[Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+- [Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 
 ## Create a storage account 
