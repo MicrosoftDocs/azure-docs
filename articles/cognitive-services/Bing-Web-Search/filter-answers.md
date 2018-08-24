@@ -79,7 +79,7 @@ The following shows the response to the previous query. As you can see Bing didn
 If you want to exclude specific types of content, such as images, from the response, you can exclude them with the hyphen (minus) prefix to the responseFilter value: 
 
 ```
-&responseFilter-images
+&responseFilter=-images,-videos
 ```
 
 Although Bing did not return video and news results in the previous response, it does not mean that video and news content does not exist. It simply means that the page didn't include them. However, if you [page](./paging-webpages.md) through more results, the subsequent pages would likely include them. Also, if you call the [Video Search API](../bing-video-search/search-the-web.md) and [News Search API](../bing-news-search/search-the-web.md) endpoints directly, the response would likely contain results. 
