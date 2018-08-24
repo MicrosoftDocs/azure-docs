@@ -105,7 +105,7 @@ For single databases, the following tables show the resources available for a si
 |In-memory OLTP storage (GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
-|Max data size (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
+|Max data size (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
 |Max log size|307|307|307|307|614|1229|1229|1229|
 |TempDB size(GB)|64|128|256|384|384|384|384|384|
 |Target IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
