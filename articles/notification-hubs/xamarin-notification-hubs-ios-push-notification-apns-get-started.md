@@ -253,3 +253,4 @@ In this tutorial, you sent broadcast notifications to all your iOS devices regis
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
+[Azure portal]: https://portal.azure.com
