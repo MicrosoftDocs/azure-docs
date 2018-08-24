@@ -59,6 +59,7 @@ You can start training an experiment locally on small datasets and then scale up
 In a user-managed environment, you are responsible for ensuring that all the necessary packages are available in the Python environment you choose to run the script in. 
 
 1. Start by creating a local run config
+
 ```python
 from azureml.core.runconfig import RunConfiguration
 
@@ -71,6 +72,7 @@ run_config.prepare_environment = False
 # You can choose a specific Python environment by pointing to a Python path 
 #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/pytho
 ```
+
 2. Submit the script to run in the user-managed environment. The whole project folder is actually submitted for execution.
 
 ```python
