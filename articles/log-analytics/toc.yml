@@ -61,6 +61,8 @@
        href: log-analytics-quick-create-workspace.md  
      - name: Use Azure CLI
        href: log-analytics-quick-create-workspace-cli.md
+     - name: Use Azure PowerShell
+       href: log-analytics-quick-create-workspace-posh.md
   - name: Collect data
     items:
     - name: Connected sources

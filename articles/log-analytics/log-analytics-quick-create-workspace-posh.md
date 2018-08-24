@@ -19,7 +19,7 @@ ms.component: na
 
 # Create a Log Analytics workspace with the Azure CLI 2.0
 
-The Azure CLI 2.0 is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI 2.0 to deploy a Log Analytics workspace in Azure, which is a unique environment with its own data repository, data sources, and solutions.  The steps described in this article are required if you intend on collecting data from the following sources:
+The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to to deploy a Log Analytics workspace in Azure, which is a unique environment with its own data repository, data sources, and solutions.  The steps described in this article are required if you intend on collecting data from the following sources:
 
 * Azure resources in your subscription  
 * On-premises computers monitored by System Center Operations Manager  
@@ -34,14 +34,12 @@ For other sources, such as Azure VMs and Windows or Linux VMs in your environmen
 
 If you don't have an Azure subscription, create [a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To run this sample, make sure you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). To start, run `az login` to create a connection with Azure.
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Install the Azure CLI on Windows](../cli/azure/install-azure-cli-windows.md).
-
-If you don't have Azure CLI installed, you can use the [Cloud Shell](..azure-resource-manager/resource-group-template-deploy-cli.md#deploy-template-from-cloud-shell).
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 ## Create a workspace
-Create a worksapce with [az group create](/cli/azure/group#az_group_create). The following example creates a workspace named *TestWorkspace* in the resource group *Lab* in the *eastus* location using a Resource Manager template from your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. Or you can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
+Create a worksapce with [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). The following example creates a workspace named *TestWorkspace* in the resource group *Lab* in the *eastus* location using a Resource Manager template from your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. 
 
 The following parameters set a default value:
 
@@ -113,8 +111,8 @@ The following parameters set a default value:
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.   
 4. You are ready to deploy this template. Use the following commands from the folder containing the template:
 
-    ```azurecli
-    azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+    ```powershell
+        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
     ```
 
 The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
