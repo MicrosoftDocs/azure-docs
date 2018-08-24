@@ -239,7 +239,7 @@ In this tutorial, you configured GitHub to run a Jenkins build job on each code 
 > * Create a Docker image for your app
 > * Verify GitHub commits build new Docker image and updates running app
 
-Advance to the next tutorial to learn more about how to integrate Jenkins with Visual Studio Team Services.
+Advance to the next tutorial to learn more about how to integrate Jenkins with Azure DevOps Services.
 
 > [!div class="nextstepaction"]
-> [Deploy apps with Jenkins and Team Services](tutorial-build-deploy-jenkins.md)
+> [Deploy apps with Jenkins and Azure DevOps Services](tutorial-build-deploy-jenkins.md)

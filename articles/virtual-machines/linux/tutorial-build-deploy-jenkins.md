@@ -23,6 +23,7 @@ ms.custom: jenkins
 Continuous integration (CI) and continuous deployment (CD) form a pipeline by which you can build, release, and deploy your code. Azure DevOps Services provides a complete, fully featured set of CI/CD automation tools for deployment to Azure. Jenkins is a popular third-party CI/CD server-based tool that also provides CI/CD automation. You can use Azure DevOps Services and Jenkins together to customize how you deliver your cloud app or service.
 
 In this tutorial, you use Jenkins to build a Node.js web app. You then use Azure DevOps to deploy it
+
 to a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) that contains Linux virtual machines (VMs). You learn how to:
 
 > [!div class="checklist"]
@@ -145,7 +146,7 @@ A release pipeline specifies the process that Azure Pipelines uses to deploy the
 
 To create the release pipeline in Azure Pipelines:
 
-1. Open the **Releases** tab of the **Build &amp; Release** hub, and select **Create release definition**. 
+1. Open the **Releases** tab of the **Build &amp; Release** hub, and select **Create release pipeline**. 
 2. Select the **Empty** template by choosing to start with an **Empty process**.
 3. In the **Artifacts** section, select **+ Add Artifact** and choose **Jenkins** for **Source type**. Select your Jenkins service endpoint connection. Then select the Jenkins source job and select **Add**.
 4. Select the ellipsis next to **Environment 1**. Select **Add deployment group phase**.
