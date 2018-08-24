@@ -20,19 +20,19 @@ ms.custom: jenkins
 
 # Tutorial: Deploy your app to Linux virtual machines in Azure with using Jenkins and Azure DevOps Services
 
-Continuous integration (CI) and continuous deployment (CD) form a pipeline by which you can build, release, and deploy your code. Azure DevOps Services provides a complete, fully featured set of CI/CD automation tools for deployment to Azure. Jenkins is a popular third-party CI/CD server-based tool that also provides CI/CD automation. You can use Azure DevOps and Jenkins together to customize how you deliver your cloud app or service.
+Continuous integration (CI) and continuous deployment (CD) form a pipeline by which you can build, release, and deploy your code. Azure DevOps Services provides a complete, fully featured set of CI/CD automation tools for deployment to Azure. Jenkins is a popular third-party CI/CD server-based tool that also provides CI/CD automation. You can use Azure DevOps Services and Jenkins together to customize how you deliver your cloud app or service.
 
-In this tutorial, you use Jenkins to build a Node.js web app. You then use Azure DevOps Services or Team Foundation Server to deploy it
+In this tutorial, you use Jenkins to build a Node.js web app. You then use Azure DevOps to deploy it
 to a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) that contains Linux virtual machines (VMs). You learn how to:
 
 > [!div class="checklist"]
 > * Get the sample app.
 > * Configure Jenkins plug-ins.
 > * Configure a Jenkins Freestyle project for Node.js.
-> * Configure Jenkins for Azure DevOps integration.
+> * Configure Jenkins for Azure DevOps Services integration.
 > * Create a Jenkins service endpoint.
 > * Create a deployment group for the Azure virtual machines.
-> * Create a Azure DevOps release definition.
+> * Create a Azure Pipelines release pipeline.
 > * Execute manual and CI-triggered deployments.
 
 ## Before you begin
@@ -40,11 +40,11 @@ to a [deployment group](https://www.visualstudio.com/docs/build/concepts/definit
 * You need access to a Jenkins server. If you have not yet created a Jenkins server,
   see [Create a Jenkins master on an Azure virtual machine](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
-* Sign in to your Azure DevOps organization (**https://{yourorganization}.visualstudio.com**). 
-  You can get a [free Azure DevOps organization](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
+* Sign in to your Azure DevOps Services organization (**https://{yourorganization}.visualstudio.com**). 
+  You can get a [free Azure DevOps Services organization](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > For more information, see [Connect to Azure DevOps](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+  > For more information, see [Connect to Azure DevOps Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 
 *  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
@@ -89,22 +89,22 @@ First, you must configure two Jenkins plug-ins: **NodeJS** and **VS Team Service
 6. On the **Build** tab, select **Execute shell** and enter the command `npm install` to ensure that all dependencies are updated.
 
 
-## Configure Jenkins for Azure DevOps integration
+## Configure Jenkins for Azure DevOps Services integration
 
 > [!NOTE]
-> Ensure that the personal access token (PAT) you use for the following steps contains the *Release* (read, write, execute and manage) permission in Azure DevOps.
+> Ensure that the personal access token (PAT) you use for the following steps contains the *Release* (read, write, execute and manage) permission in Azure DevOps Services.
  
-1.  Create a PAT in your Azure DevOps organization if you don't already have one. Jenkins requires this information to access your Azure DevOps organization. Be sure to store the token information for upcoming steps in this section.
+1.  Create a PAT in your Azure DevOps Services organization if you don't already have one. Jenkins requires this information to access your Azure DevOps Services organization. Be sure to store the token information for upcoming steps in this section.
   
-    To learn how to generate a token, read [How do I create a personal access token for Azure DevOps Services and TFS?](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
+    To learn how to generate a token, read [How do I create a personal access token for Azure DevOps?](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
 2. In the **Post-build Actions** tab, select **Add post-build action**. Select **Archive the artifacts**.
 3. For **Files to archive**, enter `**/*` to include all files.
 4. To create another action, select **Add post-build action**.
-5. Select **Trigger release in TFS/Team Services**. Enter the URI for your Azure DevOps organization, such as **https://{your-organization-name}.visualstudio.com**.
+5. Select **Trigger release in TFS/Team Services**. Enter the URI for your Azure DevOps Services organization, such as **https://{your-organization-name}.visualstudio.com**.
 6. Enter the **Team Project** name.
-7. Choose a name for the release definition. (You create this release definition later in Azure DevOps.)
-8. Choose credentials to connect to your Azure DevOps Services or Team Foundation Server environment:
-   - Leave **Username** blank if you are using Azure DevOps. 
+7. Choose a name for the release pipeline. (You create this release pipeline later in Azure Pipelines.)
+8. Choose credentials to connect to your Azure DevOps environment:
+   - Leave **Username** blank if you are using Azure DevOps Services. 
    - Enter a username and password if you are using an on-premises version of Team Foundation Server.    
    ![Configuring Jenkins post-build actions](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
 5. Save the Jenkins project.
@@ -112,9 +112,9 @@ First, you must configure two Jenkins plug-ins: **NodeJS** and **VS Team Service
 
 ## Create a Jenkins service endpoint
 
-A service endpoint allows Azure DevOps to connect to Jenkins.
+A service endpoint allows Azure DevOps Services to connect to Jenkins.
 
-1. Open the **Services** page in Azure DevOps, open the **New Service Endpoint** list, and select **Jenkins**.
+1. Open the **Services** page in Azure DevOps Services, open the **New Service Endpoint** list, and select **Jenkins**.
    ![Add a Jenkins endpoint](media/tutorial-build-deploy-jenkins/add-jenkins-endpoint.png)
 2. Enter a name for the connection.
 3. Enter the URL of your Jenkins server, and select the **Accept untrusted SSL certificates** option. An example URL is	**http://{YourJenkinsURL}.westcentralus.cloudapp.azure.com**.
@@ -124,7 +124,7 @@ A service endpoint allows Azure DevOps to connect to Jenkins.
 
 ## Create a deployment group for Azure virtual machines
 
-You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) to register the Azure DevOps agent so the release definition can be deployed to your virtual machine. Deployment groups make it easy to define logical groups of target machines for deployment, and to install the required agent on each machine.
+You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) to register the Azure DevOps Services agent so the release pipeline can be deployed to your virtual machine. Deployment groups make it easy to define logical groups of target machines for deployment, and to install the required agent on each machine.
 
    > [!NOTE]
    > In the following procedure, be sure to install the prerequisites and *don't run the script with sudo privileges.*
@@ -137,13 +137,13 @@ You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/d
 6. Select **Copy script to clipboard** to copy the script.
 7. Log in to your deployment target virtual machine and run the script. Don't run the script with sudo privileges.
 8. After the installation, you are prompted for deployment group tags. Accept the defaults.
-9. In Azure DevOps, check for your newly registered virtual machine in **Targets** under **Deployment Groups**.
+9. In Azure DevOps Services, check for your newly registered virtual machine in **Targets** under **Deployment Groups**.
 
-## Create a Azure DevOps release definition
+## Create a Azure Pipelines release pipeline
 
-A release definition specifies the process that Azure DevOps uses to deploy the app. In this example, you execute a shell script.
+A release pipeline specifies the process that Azure Pipelines uses to deploy the app. In this example, you execute a shell script.
 
-To create the release definition in Azure DevOps:
+To create the release pipeline in Azure Pipelines:
 
 1. Open the **Releases** tab of the **Build &amp; Release** hub, and select **Create release definition**. 
 2. Select the **Empty** template by choosing to start with an **Empty process**.
@@ -155,8 +155,8 @@ To create the release definition in Azure DevOps:
 8. For **Script Path**, enter	**$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh**.
 9. Select **Advanced**, and then enable **Specify Working Directory**.
 10. For **Working Directory**, enter **$(System.DefaultWorkingDirectory)/Fabrikam-Node**.
-11. Edit the name of the release definition to the name that you specified on the **Post-build Actions** tab of the build in Jenkins. Jenkins requires this name to be able to trigger a new release when the source artifacts are updated.
-12. Select **Save** and select **OK** to save the release definition.
+11. Edit the name of the release pipeline to the name that you specified on the **Post-build Actions** tab of the build in Jenkins. Jenkins requires this name to be able to trigger a new release when the source artifacts are updated.
+12. Select **Save** and select **OK** to save the release pipeline.
 
 ## Execute manual and CI-triggered deployments
 
@@ -167,7 +167,7 @@ To create the release definition in Azure DevOps:
 5. In your browser, open the URL of one of the servers that you added to your deployment group. For example, enter **http://{your-server-ip-address}**.
 6. Go to the source Git repository and modify the contents of the **h1** heading in the file app/views/index.jade with some changed text.
 7. Commit your change.
-8. After a few minutes, you will see a new release created on the **Releases** page of Azure DevOps Services or Team Foundation Server. Open the release to see the deployment taking place. Congratulations!
+8. After a few minutes, you will see a new release created on the **Releases** page of Azure DevOps. Open the release to see the deployment taking place. Congratulations!
 
 ## Troubleshooting the Jenkins plugin
 
@@ -175,13 +175,13 @@ If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkin
 
 ## Next steps
 
-In this tutorial, you automated the deployment of an app to Azure by using Jenkins for build and Azure DevOps for release. You learned how to:
+In this tutorial, you automated the deployment of an app to Azure by using Jenkins for build and Azure DevOps Services for release. You learned how to:
 
 > [!div class="checklist"]
 > * Build your app in Jenkins.
-> * Configure Jenkins for Azure DevOps integration.
+> * Configure Jenkins for Azure DevOps Services integration.
 > * Create a deployment group for the Azure virtual machines.
-> * Create a release definition that configures the VMs and deploys the app.
+> * Create a release pipeline that configures the VMs and deploys the app.
 
 To learn about how to deploy a LAMP (Linux, Apache, MySQL, and PHP) stack, advance to the next tutorial.
 
