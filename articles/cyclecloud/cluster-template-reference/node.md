@@ -1,6 +1,6 @@
 # Node and Nodearray
 
-Node and nodearray objects are subordinate in rank to `cluster`.  A node represents a single VirtualMachine.
+Node and nodearray objects are rank 2 and subordinate to `cluster`.  A node represents a single VirtualMachine.
 A nodearray can represent a collection of VirtualMachines or at least one VirtualMachine ScaleSet.
 
 ## Node Defaults
@@ -133,6 +133,14 @@ Attribute | Type | Definition
 `ReturnPath.WebserverPort` | Integer | Webserver port where node can reach CycleCloud.
 `ReturnPath.BrokerPort` | Integer | Broker where node can reach CycleCloud.
 
+### Tags
+
+CycleCloud supports tagging VMs and VMSS.
+
+Attribute | Type | Definition
+------ | ----- | ----------
+Tags. | String | Use `tags.my-tag = my-tag-value` to add tags to the deployment in
+addition to the tags assigned by CycleCloud by default.
 
 
 ### Nodearray-Specific Attributes

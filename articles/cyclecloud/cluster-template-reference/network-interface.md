@@ -1,6 +1,6 @@
 # Network-Interface
 
-Network-interface objects are subordinate in rank to `node`.
+Network-interface objects are rank 3 and subordinate to `node` or `nodearray`.
 Network-interface represents an Azure Network Interface.
 
 ## Example

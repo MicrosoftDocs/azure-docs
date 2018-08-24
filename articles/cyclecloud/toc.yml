@@ -96,6 +96,8 @@
     href: ~/cluster-template-reference/input-endpoint.md
   - name: Configuration
     href: ~/cluster-template-reference/configuration.md
+  - name: Parameter
+    href: ~/cluster-template-reference/parameter.md
   - name: (Beta) Environment
     href: ~/cluster-template-reference/environment.md
   - name: (Beta) NodeRef
