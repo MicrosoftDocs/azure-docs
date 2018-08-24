@@ -4,7 +4,7 @@
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
 | Disk size           | 32 GB            | 64 GB            | 128 GB           | 256 GB | 512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
 | IOPS per disk       | 500              | 500              | 500              | 500 | 500              | 500              | 500             | 500              | 
-| Throughput per disk | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 50 MB/sec|
+| Throughput per disk | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec|
 
 **Premium managed virtual machine disks: per disk limits**
 
