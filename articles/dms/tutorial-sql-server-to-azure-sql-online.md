@@ -282,7 +282,3 @@ After the initial Full load is completed, the databases are marked **Ready to cu
 4. When the database migration status shows **Completed**, connect your applications to the new target Azure SQL Database.
  
     ![Activity Status - completed](media\tutorial-sql-server-to-azure-sql-online\dms-activity-completed.png)
-
-### Additional resources
-
-- [Known issues and workarounds with Azure SQL Database online migrations](known-issues-azure-sql-online.md).
