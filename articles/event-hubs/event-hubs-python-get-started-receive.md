@@ -29,10 +29,10 @@ statements and variable declarations. Other examples are available in the same G
 To complete this tutorial, you need the following prerequisites:
 
 - Python 3.4 or later.
-- An active [Event Hubs namespace and event hub](event-hubs-create.md).
-- An existing Event Hubs namespace and event hub. You can create these entities by following the instructions in [this article](event-hubs-create.md).
+- An existing Event Hubs namespace and event hub. You can create these entities by following the instructions in [this article](event-hubs-create.md). 
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
+
 
 ## Install Python package
 
@@ -41,10 +41,6 @@ To install the Python package for Event Hubs, open a command prompt that has Pyt
 ```bash
 pip install azure-eventhub
 ```
-
-## Create an Event Hubs namespace and event hub
-
-If you haven't done so already, the first step is to create a namespace and an event hub within that namespace. To create these entities, follow the instructions in the [Create a namespace and event hub](event-hubs-create.md) article. Make a note of the values you obtain from the portal as you will need them in the next step.
 
 ## Create a Python script to receive events
 
