@@ -1,6 +1,6 @@
 ---
-title: Secure back-end services using CA certificate authentication - Azure API Management | Microsoft Docs
-description: Learn how to secure back-end services using CA certificate authentication in Azure API Management.
+title: Add a custom CA certificate - Azure API Management | Microsoft Docs
+description: Learn how to add a custom CA certificate in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -16,9 +16,9 @@ ms.date: 08/20/2018
 ms.author: apimpm
 ---
 
-# How to secure back-end services using CA certificate authentication in Azure API Management
+# How to add a custom CA certificate in Azure API Management
 
-Azure API Management allows installing CA certificates on the machine inside the trusted root and intermediate stores. This functionality should be used if your services require a custom CA certificate, for example to secure the back-end service.
+Azure API Management allows installing CA certificates on the machine inside the trusted root and intermediate certificate stores. This functionality should be used if your services require a custom CA certificate.
 
 The article shows how to manage CA certificates of an Azure API Management service instance in the Azure portal.
 
@@ -36,7 +36,7 @@ Follow the steps below to upload a new CA certificate. If you have not created a
 
     ![Add CA certificates](media/api-management-howto-ca-certificates/01.png)  
 
-4. Browse for the certificate and decide on the certificate store. If needed, provide the password.
+4. Browse for the certificate and decide on the certificate store. Only the public key is needed, so the password is not required.
 
     ![Add CA certificates](media/api-management-howto-ca-certificates/02.png)  
 
