@@ -28,7 +28,7 @@ Modern applications are often complex and highly distributed with many discrete 
 
 ## Find resources with active alerts and health issues
 
-The overview page shows how many alerts have been fired and are still active for each resource, plus the current Azure Resource Health of each resource. Together, this information can help you quickly spot any resources that are encountering issues. Alerts help you detect issues in your code and how you've configured your infrastructure. Azure Resource Health surfaces issue with the Azure platform itself, that are not specific to your individual applications.
+The overview page shows how many alerts have been fired and are still active, along with the current Azure Resource Health of each resource. Together, this information can help you quickly spot any resources that are experiencing issues. Alerts help you detect issues in your code and how you've configured your infrastructure. Azure Resource Health surfaces issue with the Azure platform itself, that aren't specific to your individual applications.
 
 ![Screenshot of Resource Group Insights Overview pane](.\media\resource-group-insights\002-overview.png)
 
@@ -42,7 +42,7 @@ By default, the resources are grouped by app layer and resource type. **App laye
 
 ## Diagnose issues with your resource group
 
-The resource group insights page provides several other tools scoped to to help you diagnose issues
+The resource group insights page provides several other tools scoped to help you diagnose issues
 
    |         |          |
    | ---------------- |:-----|
@@ -54,7 +54,7 @@ The resource group insights page provides several other tools scoped to to help 
 
 ## Failures and Performance
 
-What if you've noticed your application is performing slowly, or users have reported errors? It's time consuming to search through all of your resources to isolate problems.
+What if you've noticed your application is running slowly, or users have reported errors? It's time consuming to search through all of your resources to isolate problems.
 
 The **Performance** and **Failures** tabs simplify this process by bringing together performance and failure diagnostic views for many common resource types.
 
@@ -64,11 +64,11 @@ Most resource types will open a gallery of Azure Monitor Workbook templates. Eac
 
 To test out the Failures tab select **Failures** under **Investigate** in the left-hand menu.
 
-You will notice that your left-side menu bar changes after your selection is made, offering you new options.
+The left-side menu bar changes after your selection is made, offering you new options.
 
 ![Screenshot of Resource Group Insights Overview pane](.\media\resource-group-insights\004-failures.png)
 
-When App Service is chosen you are presented with a gallery of Azure Monitor Workbook templates.
+When App Service is chosen, you are presented with a gallery of Azure Monitor Workbook templates.
 
 ![Screenshot of Resource Group Insights Overview pane](.\media\resource-group-insights\005-failure-insights-workbook.png)
 
@@ -76,7 +76,7 @@ Choosing the template for Failure Insights will open the workbook.
 
 ![Screenshot of Resource Group Insights Overview pane](.\media\resource-group-insights\006-failure-visual.png)
 
-Each of the rows can be selected. The selection is displayed in a graphical details view.
+You can select any of the rows. The selection is then displayed in a graphical details view.
 
 ![Screenshot of Resource Group Insights Overview pane](.\media\resource-group-insights\007-failure-details.png)
 
@@ -86,7 +86,7 @@ To get a sense of how this workbook functions internally, select **Edit** in the
 
 ![Screenshot of Resource Group Insights Overview pane](.\media\resource-group-insights\008-failure-edit.png)
 
-You will notice a number of **Edit** boxes appear near the various elements of workbook. Select the **Edit** box below the table of operations.
+A number of **Edit** boxes appear near the various elements of the workbook. Select the **Edit** box below the table of operations.
 
 ![Screenshot of Resource Group Insights Overview pane](.\media\resource-group-insights\009-failure-edit-graph.png)
 
@@ -98,11 +98,11 @@ You can modify the query directly. Or you can use it as a reference and borrow f
 
 ### Investigate Performance
 
-Performance offers its owns gallery of workbooks. For App Service the prebuilt Application Performance workbook offers the following view:
+Performance offers its own gallery of workbooks. For App Service the prebuilt Application Performance workbook offers the following view:
 
  ![Screenshot of Resource Group Insights Overview pane](.\media\resource-group-insights\011-performance.png)
 
-In this case if you select edit you will find that this set of visualizations is powered by Azure Monitor Metrics.
+In this case, if you select edit you will see that this set of visualizations is powered by Azure Monitor Metrics.
 
  ![Screenshot of Resource Group Insights Overview pane](.\media\resource-group-insights\012-performance-metrics.png)
 
