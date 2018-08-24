@@ -97,6 +97,13 @@
         href: azure-stack-kv-push-secret-into-vm.md
       - name: KeyVault sample app
         href: azure-stack-kv-sample-app.md
+    - name: Azure Stack Monitor
+      href: azure-stack-metrics-azure-data.md
+      items: 
+      - name: Supported metrics
+        href: azure-stack-metrics-supported.md
+      - name: Consume Azure monitoring data
+        href: azure-stack-metrics-monitor.md
     - name: Solution templates
       items:
       - name: Deploy a Service Fabric cluster
