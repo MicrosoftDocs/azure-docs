@@ -31,7 +31,7 @@ ms.author: diberry
 
 ## Create quickstart code 
 
-Add the NPM dependencies to the file.
+Add the NPM dependencies to the file named `add-utterances.js`.
 
    [!code-javascript[NPM Dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/node/add-utterances.js?range=8-11 "NPM Dependencies")]
 

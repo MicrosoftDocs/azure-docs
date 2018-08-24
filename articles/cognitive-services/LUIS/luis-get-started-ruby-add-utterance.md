@@ -30,7 +30,7 @@ ms.author: diberry
 
 ## Create quickstart code 
 
-Add the dependencies to the file.
+Add the dependencies to the file named `add-utterances.rb`.
 
    [!code-ruby[Ruby and LUIS Dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=1-21 "Ruby and LUIS Dependencies")]
 
