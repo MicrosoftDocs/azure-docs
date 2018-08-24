@@ -53,7 +53,7 @@ While you're looking at your container registry in the Azure portal, retrieve th
 
 With the container image and the container registry credentials, you're ready to deploy the machine learning model to your IoT Edge device. 
 
-Follow the instructions in [Deploy IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md)
+Follow the instructions in [Deploy IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) to launch your model on your IoT Edge device. 
 
 
 
