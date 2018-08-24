@@ -14,7 +14,7 @@ ms.author: iainfou
 
 As you run applications in Azure Kubernetes Service (AKS), you may need to increase or decrease the amount of compute resources. As the number of application instances you need change, the number of underlying Kubernetes nodes may also need to change. You may also need to quickly provision a large number of additional application instances.
 
-This conceptual article introduces the core approaches that help you scale applications in AKS:
+This article introduces the core concepts that help you scale applications in AKS:
 
 - [Manually scale](#manually-scale-pods-or-nodes)
 - [Horizontal pod autoscaler (HPA)](#horizontal-pod-autoscaler)
