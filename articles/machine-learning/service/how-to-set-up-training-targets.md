@@ -453,9 +453,6 @@ The Web Portal makes it easy to attach existing compute targets from your subscr
 7. You can view the status of the provisioning state by selecting the compute target from the list of Computes.
 8. Now you can submit a run against these targets.
 
-### Reuse existing compute in the SDK
-
-
 ## Next steps
 * [What is Azure Machine Learning service](overview-what-is-azure-ml.md)
 * [Quickstart: Create a workspace with Python](quickstart-get-started.md)
