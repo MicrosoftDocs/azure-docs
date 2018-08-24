@@ -188,7 +188,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 ### Azure DevOps Agent Pools
 
-Instead of managing each agent separately, you can organize agents into agent pools. An agent pool defines the sharing boundary for all agents in that pool. In Azure DevOps, agent pools are scoped to the Azure DevOps organization, which means that you can share an agent pool across team projects. To learn more about agent pools, see [Create Agent Pools and Queues](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts).
+Instead of managing each agent separately, you can organize agents into agent pools. An agent pool defines the sharing boundary for all agents in that pool. In Azure DevOps, agent pools are scoped to the Azure DevOps organization, which means that you can share an agent pool across projects. To learn more about agent pools, see [Create Agent Pools and Queues](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts).
 
 ### Add a Personal Access Token (PAT) for Azure Stack
 
@@ -200,7 +200,7 @@ Create a Personal Access Token to access Azure DevOps.
 
     ![User sign in](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
-    ![Select team project](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![Select a project](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 
     ![Add Personal access token](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
 
