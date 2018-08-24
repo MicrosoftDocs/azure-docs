@@ -25,6 +25,5 @@ ms.custom: "include file"
 |Max number of concurrent jobs that be run on a single Hybrid Runbook Worker|50 ||
 | Max runbook input parameter size | 512 kb||
 | Max webhook payload |  512 kb|
-| Max web request size (to Automation web service) | 1 MB||
 
 **<sup>1</sup>** A sandbox is a shared environment that can be used by multiple jobs, jobs using the same sandbox are bound by the resource limitations of the sandbox.
