@@ -144,7 +144,9 @@ Attribute | String | Definition
 ------ | ----- | ----------
 `Azure.AllocationMethod`  | String | Set this to `StandAlone` to manage single VMs or leave undefined to use VM ScaleSets
 `Azure.SinglePlacementGroup`  | Boolean | Use a single placement group for all VMSS, required by `ImageId`
+`InitialCount` | Integer | Number of nodes to start when cluster starts.
 `MaxCount` | Integer | To ensure that the cluster never exceeds 10 nodes you would specify a value of 10. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
+`InitialCoreCount` | Integer | Number of cores to start when cluster starts.
 `MaxCoreCount` | Integer | To ensure that the cluster never exceeds 100 cores you would specify a value of 100. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
 
 

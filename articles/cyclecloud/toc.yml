@@ -134,6 +134,8 @@
   items:
   - name: Cluster Reference
     href: cluster-reference.md
+  - name: Cluster Template Reference
+    href: cluster-template-reference.md
   - name: Jetpack
     href: jetpack.md
   - name: Common Cookbook Reference

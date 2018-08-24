@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud pogo Configuration | Microsoft Docs
+description: Configure Azure CycleCloud's pogo tool.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Cluster-Init
 
 Cluster-init objects are subordinate in rank to `node`.
