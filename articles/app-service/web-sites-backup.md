@@ -85,7 +85,9 @@ The following database solutions are supported with backup feature:
     ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** page for your app.
+   > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** page for your app. 
+   >
+   > In-app MySQL databases are automatically backed up without any configuration. If you make manually settings for in-app MySQL databases, such as adding connection strings, the backups may not work correctly.
    > 
    > 
 6. In the **Backup Configuration** page, click **Save**.    
