@@ -19,7 +19,7 @@ ms.author: deguhath
 ---
 
 
-# Platforms and tools for data science team projects
+# Platforms and tools for data science projects
 
 Microsoft provides a full spectrum of data and analytics services and resources for both cloud or on-premises platforms. They can be deployed to make the execution of your data science projects efficient and scalable. Guidance for teams implementing data science projects in a trackable, version controlled, and collaborative way is provided by the [Team Data Science Process](overview.md) (TDSP).  For an outline of the personnel roles, and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
@@ -124,7 +124,7 @@ Run the following bash command to install Git on Linux (CentOS) machines:
 
 ### Generate public SSH key on Linux (CentOS) machines
 
-If you are using Linux (CentOS) machines to run the git commands, you need to add the public SSH key of your machine to your Azure DevOps server, so that this machine is recognized by the Azure DevOps server. First, you need to generate a public SSH key and add the key to SSH public keys in your Azure DevOps security setting page. 
+If you are using Linux (CentOS) machines to run the git commands, you need to add the public SSH key of your machine to your Azure DevOps server, so that this machine is recognized by the Azure DevOps server. First, you need to generate a public SSH key and add the key to SSH public keys in your Azure DevOps Services security setting page. 
 
 - To generate the SSH key, run the following two commands: 
 
