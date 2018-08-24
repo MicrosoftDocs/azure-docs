@@ -29,12 +29,10 @@ statements and variable declarations. Other examples are available in the same G
 To complete this tutorial, you need the following prerequisites:
 
 - Python 3.4 or later.
+- An existing Event Hubs namespace and event hub. You can create these entities by following the instructions in [this article](event-hubs-create.md). 
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## Create an Event Hubs namespace and event hub
-
-The first step is to create a namespace and an event hub within that namespace. To create these entities, follow the instructions in the [Create a namespace and event hub](event-hubs-create.md) article. Make a note of the values you obtain from the portal as you will need them in the next step. 
 
 ## Install Python package
 
