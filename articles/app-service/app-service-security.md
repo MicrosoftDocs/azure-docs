@@ -65,7 +65,7 @@ App Service authentication and authorization support multiple authentication pro
 
 When authenticating against a back-end service, App Service provides two different mechanisms depending on your need:
 
-- **Service identity** - Sign in to the remote resource using the identity of the app itself. App Service lets you easily create a [managed service identity](app-service-managed-service-identity.md), which you can use to authenticate with other services, such as [Azure SQL Database](https://azure.microsoft.com/azure/sql-database/) or [Azure Key Vault](/azure/key-vault/). For an end-to-end tutorial of this approach, see [Secure Azure SQL Database connection from App Service using managed service identity](app-service-web-tutorial-connect-msi.md).
+- **Service identity** - Sign in to the remote resource using the identity of the app itself. App Service lets you easily create a [managed service identity](app-service-managed-service-identity.md), which you can use to authenticate with other services, such as [Azure SQL Database](/azure/sql-database/) or [Azure Key Vault](/azure/key-vault/). For an end-to-end tutorial of this approach, see [Secure Azure SQL Database connection from App Service using managed service identity](app-service-web-tutorial-connect-msi.md).
 - **On-behalf-of (OBO)** - Make delegated access to remote resources on behalf of the user. With Azure Active Directory as the authentication provider, your App Service app can perform delegated sign-in to a remote service, such as [Azure Active Directory Graph API](../active-directory/develop/active-directory-graph-api.md) or a remote API app in App Service. For an end-to-end tutorial of this approach, see [Authenticate and authorize users end-to-end in Azure App Service](app-service-web-tutorial-auth-aad.md).
 
 ## Connectivity to remote resources
@@ -80,7 +80,7 @@ In each of these cases, App Service provides a way for you to make secure connec
 
 ### Azure resources
 
-When your app connects to Azure resources, such as [SQL Database](/services/sql-database/) and [Azure Storage](/azure/storage/), the connection stays within Azure and doesn't cross any network boundaries. However, the connection goes through the shared networking in Azure, so always make sure that your connection is encrypted. 
+When your app connects to Azure resources, such as [SQL Database](https://azure.microsoft.com/services/sql-database/) and [Azure Storage](/azure/storage/), the connection stays within Azure and doesn't cross any network boundaries. However, the connection goes through the shared networking in Azure, so always make sure that your connection is encrypted. 
 
 If your app is hosted in an [App Service environment](environment/intro.md), you should [connect to supported Azure services using Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
