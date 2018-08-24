@@ -1,6 +1,6 @@
 ---
-title: Visualize Remote Monitoring Data with Azure Time Series Insights | Microsoft Docs
-description: Learn how to configure your Time Series Insights environment to explore and analyze the time series data of your Remote Monitoring solution.
+title: Integrate Azure Time Series Insights with Remote Monitoring | Microsoft Docs
+description: Learn how-to you will learn how to configure TSI for an existing Remote Monitoring solution that does not include TSI out of the box.
 author: philmea
 manager: timlt
 ms.author: philmea
@@ -13,7 +13,7 @@ services: iot-accelerators
 # Integrate Azure Time Series Insights (TSI) with Remote Monitoring
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service for managing IoT-scale time-series data in the cloud. You can use Time Series Insights to store and manage terabytes of time-series data, explore, and visualize billions of events simultaneously, conduct root-cause analysis, and to compare multiple sites and assets.
 
-An operator may want to further explore data in Remote Monitoring in the Azure Time Series Insights explorer. Our solution accelerator now provides automatic deployment and integration with TSI*. In this how-to you will learn how to configure TSI for an existing Remote Monitoring deployment that does not include TSI out of the box.
+An operator may want to further explore data in Remote Monitoring in the Azure Time Series Insights explorer. Our solution accelerator now provides automatic deployment and integration with TSI*. In this how-to you will learn how to configure TSI for an existing Remote Monitoring solution that does not include TSI out of the box.
 
 > [!NOTE]
 > Azure Time Series Insights for Remote Monitoring is in Preview and only available in [select regions](https://azure.microsoft.com/en-us/global-infrastructure/services/).
