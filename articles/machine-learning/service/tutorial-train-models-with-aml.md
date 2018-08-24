@@ -1,5 +1,5 @@
 ﻿---
-title: Train an image classification model with Azure Machine Learning
+title: "Tutorial: Train an image classification model with Azure Machine Learning"
 description: This tutorial shows how to use Azure Machine Learning service to train an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is part one of a two-part series. 
 services: machine-learning
 ms.service: machine-learning
@@ -13,10 +13,9 @@ ms.date: 09/24/2018
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
 ---
 
-
 # Tutorial #1: Train an image classification model with Azure Machine Learning
 
-In this tutorial, you train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview) in a Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own images. This tutorial is **part one of a two-part tutorial series**.  
+In this tutorial, you train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview) in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
 This tutorial trains a simple logistic regression using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](http://scikit-learn.org) with Azure Machine Learning.  MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing a number from 0 to 9. The goal is to create a multi-class classifier to identify the digit a given image represents. 
 
@@ -37,8 +36,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-1. An Azure Machine Learning Workspace and its accompanying  **aml_config\config.json** file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart (approximately 5 minutes).
-1. A development environment [configured to run Azure Machine Learning service in Jupyter notebooks](how-to-configure-environment.md) (approximately 2 minutes).  In step 4 the new packages you need are matplotlib and scikit-learn:
+1. An Azure Machine Learning Workspace and its accompanying  **aml_config\config.json** file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart (Estimated time to complete: 5 minutes).
+1. A development environment [configured to run Azure Machine Learning service in Jupyter notebooks](how-to-configure-environment.md) (Estimated time to complete: 2 minutes).  In step 4 the new packages you need are matplotlib and scikit-learn:
 
    ```
    conda install -y matplotlib scikit-learn
@@ -103,7 +102,7 @@ proj.get_details()
 
 ### Create remote compute target
 
-Azure Batch AI Cluster is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you create an Azure Batch AI cluster as your training environment. This code creates a cluster for you if it does not already exist in your workspace. 
+Azure Azure ML Managed Compute is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you create an Azure Managed Compute cluster as your training environment. This code creates a cluster for you if it does not already exist in your workspace. 
 
  **Creation of the cluster takes approximately 5 minutes.** If the cluster is already in the workspace this code uses it and skips the creation process.
 
@@ -202,7 +201,7 @@ Now you have an idea of what these images look like and the expected prediction 
 
 ### Upload data to the cloud
 
-Now you can make the data accessible remotely by uploading that data from your local machine into the cloud so it can be accessed for remote training. The datastore is a convenient construct associated with your workspace for you to upload/download data, and interact with it from your remote compute targets. (If your data is already stored in Azure, you would not need this step.)
+Now make the data accessible remotely by uploading that data from your local machine into the cloud so it can be accessed for remote training. The datastore is a convenient construct associated with your workspace for you to upload/download data, and interact with it from your remote compute targets. (If your data is already stored in Azure, you would not need this step.)
 
 The MNIST files are uploaded into a directory named `mnist` at the root of the datastore.
 
@@ -236,22 +235,23 @@ print(np.average(y_hat == y_test))
 ```
 
 The local model accuracy displays:
-    0.9202
 
-With almost no effort, you have a 92% accuracy.
+`0.9202`
+
+With just a few lines of code, you have a 92% accuracy.
 
 ## Train on a remote cluster
 
-Now you can expand on this simple model by building multiple versions of the model with different regularization rates.  
+Now you can expand on this simple model by building a model with a different regularization rate. This time you'll train the model on a remote resource.  
 
-For this task, submit the job to the Batch AI cluster you set up earlier.  To submit a job you:
+For this task, submit the job to the remote training cluster you set up earlier.  To submit a job you:
 * Create a training script
 * Create an estimator
 * Submit the job 
 
 ### Create a training script
 
-To submit the job to the cluster, you need to create a training script. Run the following code to create the training script called `train.py` in a place the workspace can find it. This training adds a regularization rate to the training algorithm, so produces a slightly different model than the local version.
+To submit the job to the cluster, first create a training script. Run the following code to create the training script called `train.py` in a place the workspace can find it. This training adds a regularization rate to the training algorithm, so produces a slightly different model than the local version.
 
 ```python
 %%writefile $proj.project_directory/train.py
@@ -311,18 +311,14 @@ joblib.dump(value = clf, filename = 'outputs/sklearn_mnist_model.pkl')
 Notice how the script gets data and saves models:
 
 + The training script reads an argument to find the directory containing the data.  When you submit the job later, you point to the datastore for this argument:
+`parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data directory mounting point')`
 
-    ```Python
-    parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data directory mounting point')
-    ```
     
-+ The training script saves your model into a directory named outputs. Anything written in this directory is automatically uploaded into your workspace. You'll access your model from this directory later in the tutorial.
++ The training script saves your model into a directory named outputs. <br/>
+`joblib.dump(value = clf, filename = 'outputs/sklearn_mnist_model.pkl')`<br/>
+Anything written in this directory is automatically uploaded into your workspace. You'll access your model from this directory later in the tutorial.
 
-    ```Python
-    joblib.dump(value = clf, filename = 'outputs/sklearn_mnist_model.pkl')
-    ```
-
-You also need to copy the utility library that loads the dataset into the project directory.
+Copy the utility library that loads the dataset into the project directory to be accessed by the training script.
 
 
 ```python
@@ -333,9 +329,9 @@ shutil.copy('utils.py', proj.project_directory)
 
 ### Create an estimator
 
-Create an estimator by running the following code to define:
+An estimator object is used to submit the run.  Create your estimator by running the following code to define:
 * The name of the estimator object, `est`
-* The compute target, such as the Batch AI cluster you created
+* The compute target, such as the Managed Compute cluster you created
 * The training script name, train.py
 * The `data-folder` parameter used by the training script to access the data
 * Any necessary Python packages that are needed for training
@@ -359,9 +355,9 @@ est = Estimator(project = proj,
 
 ### Submit the job to the cluster
 
-Calling the `fit` function on the estimator submits the job to execution in the target you defined. 
+Call the `fit` function on the estimator to submit the job to execution in the target you defined. 
 
-In this tutorial, this target is the Batch AI cluster. All files in the project directory are uploaded into the Batch AI cluster nodes for execution. 
+In this tutorial, this target is the Managed Compute cluster. All files in the project directory are uploaded into the cluster nodes for execution. 
 
 
 ```python
@@ -377,18 +373,18 @@ In total, the first run takes **approximately 10 minutes**. But for subsequent r
 
 Here is what's happening while you wait:
 
-- **Image creation**: A Docker image is created matching the Python environment specified by the estimator. The image is uploaded to the workspace. Image creation and uploading **takes about 5 minutes**. 
+- **Image creation**: A Docker image is created matching the Python environment specified by the estimator. The image is uploaded to the workspace. Image creation and uploading takes **about 5 minutes**. 
 
   This stage happens once for each Python environment since the container is cached for subsequent runs.  During image creation, logs are streamed to the run history. You can monitor the image creation progress using these logs.
 
-- **Scaling**: If the Batch AI cluster requires more nodes to execute the run than currently available, the cluster creates more nodes. Scaling typically **takes about 5 minutes.**
+- **Scaling**: If the remote cluster requires more nodes to execute the run than currently available, additional nodes are added automatically. Scaling typically takes **about 5 minutes.**
 
 - **Running**: In this stage, the necessary scripts and files are sent to the compute target, then data stores are mounted/copied, then the entry_script is run. While the job is running, stdout and the ./logs directory are streamed to the run history. You can monitor the run's progress using these logs.
 
 - **Post-Processing**: The ./outputs directory of the run is copied over to the run history in your workspace so you can access these results.
 
 
-There are multiple ways to check the progress of a running job. This tutorial uses a Jupyter widget as well as a `wait_for_completion` method. 
+You can check the progress of a running job in multiple ways. This tutorial uses a Jupyter widget as well as a `wait_for_completion` method. 
 
 ### Jupyter widget
 
@@ -415,14 +411,14 @@ run.wait_for_completion(show_output = False) # specify True for a verbose log
 
 ### Display run results
 
-You now have a model trained on a the BatchAI cluster.  You can retrieve metrics about the model:
+You now have a model trained on a remote cluster.  Retrieve the accuracy of the model:
 
 ```python
 print(run.get_metrics())
 ```
 The model trained remotely has an accuracy slightly higher than the local model, due to the addition of the regularization rate during training.  
 
-    0.9204
+`0.9204`
 
 In the next tutorial you will explore this model in more detail.
 
@@ -449,7 +445,7 @@ In this Azure Machine Learning tutorial, you used Python to:
 > * Set up your development environment
 > * Access and examine the data
 > * Train a simple logistic regression locally using the popular scikit-learn machine learning library
-> * Train multiple models on a remote GPU cluster
+> * Train multiple models on a remote cluster
 > * Review training details and register the best model
 
 You are ready to deploy this registered model using the instructions in the next part of the tutorial series:
