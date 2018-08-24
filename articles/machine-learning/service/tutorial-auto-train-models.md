@@ -1,5 +1,5 @@
 ---
-title: Automatically train a classification model with Azure Automated Machine Learning service
+title: "Tutorial: Automatically train a classification model with Azure Automated Machine Learning service"
 description: In this tutorial, you'll learn how to automatically generate a tuned machine learning model which can then be deployed with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
@@ -54,7 +54,7 @@ Or start your own notebook from the same directory as **aml_config** and copy th
 
 ## Set up your development environment
 
-All the setup for your development work can be accomplished in Python.
+All the setup for your development work can be accomplished in a Python notebook.  Setup includes:
 
 * Import Python packages
 * Configure a workspace to enable communication between your local computer and remote resources
