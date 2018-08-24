@@ -48,12 +48,11 @@ The workflow for developing and deploying a model with Azure Machine Learning fo
 
 Your training script isn't tied to a specific compute target. You can train initially on your local computer, then switch targets to a VM or Azure Batch AI without having to rewrite the training script.
 
-## Set up Compute Using the SDK
-The Azure Machine Learning SDK allows you to create and attach certain compute types to run experiments on. You can reference the SDK commands [here]().
+## Train Experiment on Local environment
 
-### Train Experiment on Local environment
+You can start training an experiment locally on small datasets and then scale up and out as they become more complex and require more compute power. You can run locally through user-managed and system-managed environments.
 
-You can start training an experiment locally on small datasets and then scale up and out as they become more complex and require more compute power. You can run locally through user-managed and system-managed environments. 
+### Using the SDK
 
 #### User-Managed Environment
 In a user-managed environment, you are responsible for ensuring that all the necessary packages are available in the Python environment you choose to run the script in. 
@@ -120,9 +119,11 @@ Submit the script to run in the system-managed environment. The whole project fo
   run.wait_for_completion(show_output = True)
   ```
 
-### Train Experiment on Data Science Virtual Machine
+## Train Experiment on Data Science Virtual Machine
 
 In some cases, resources available on your local machine may not be enough to train the desired model. In this situation, You can easily scale up or scale out your machine learning experiment by adding additional compute targets such as Ubuntu-based Data Science Virtual Machines (DSVM).
+
+### Using the SDK
 
 1. Create the Virtual Machine
   ```python
@@ -182,10 +183,30 @@ In some cases, resources available on your local machine may not be enough to tr
   # Shows output of the run on stdout.
   run.wait_for_completion(show_output = True)
   ```
+  
+### Using the CLI
 
-### Create Azure Batch AI Compute
+1. Provision DSVM compute target
+  ```az ml computetarget setup dsvm -n mydsvm -w <workspacename> -g <resource-group>```
+2. Prepare compute by creating a run config (This step can take a few minutes)
+  ```
+  # create runconfiguration
+  az ml runconfiguration create -n dsvmrun -t mydsvm
+
+  # prepare run
+  #az ml experiment prepare -c dsvmrun -d aml_config/conda_dependencies.yml
+  az ml run prepare -c dsvmrun -d aml_config/conda_dependencies.yml
+  ```
+3. Run experiment against the DSVM
+  ```az ml run submit -c mydsvm train.py -w myws -g myrg```
+4. View results 
+  ```az ml history last```
+
+## Train Experiment on Azure Batch AI Compute
 
 The following example looks for an existing Batch AI compute, and creates a new one if it is not found. The `compute_target` object can be used to submit your project for training. You can use this method of searching for existing compute targets for Virtual Machines as well. 
+
+### Using the SDK
 
 ```python
 # Create a new compute target to train on Azure Batch AI
@@ -220,98 +241,7 @@ except ComputeTargetException:
 
 For more information on using the BatchAiCompute object, see [tbd]. 
 
-### Create an Azure Container Instance (ACI)
-Azure Container Instances are isolated containers that have faster startup times and do not require the user to manage any Virtual Machines. They are good for scenarios that can operate in isolated containers, including simple applications, task automation, and build jobs. The following example shows how to Create an ACI compute target and a runconfig to execute the training script on. 
-
-```python
-# Create a new compute target to train on Azure Container Instances (ACI)
-from azureml.core.runconfig import RunConfiguration
-from azureml.core.conda_dependencies import CondaDependencies
-
-# create a new runconfig object
-run_config = RunConfiguration(project_object = project, run_config_name = 'my-aci-run-config')
-
-# signal that you want to use ACI to execute script.
-run_config.target = "containerinstance"
-
-# ACI container group is only supported in certain regions, which can be different than the region the Workspace is in.
-run_config.container_instance.region = 'eastus'
-
-# set the ACI CPU and Memory 
-run_config.container_instance.cpu_cores = 1
-run_config.container_instance.memory_gb = 2
-
-# enable Docker 
-run_config.environment.docker.enabled = True
-
-# set Docker base image to the default CPU-based image
-run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-#run_config.environment.docker.base_image = 'microsoft/mmlspark:plus-0.9.9'
-
-# use conda_dependencies.yml to create a conda environment in the Docker image for execution
-run_config.environment.python.user_managed_dependencies = False
-
-# auto-prepare the Docker image when used for execution (if it is not already prepared)
-run_config.prepare_environment = True
-
-# create a new CondaDependencies obj
-cd = CondaDependencies()
-
-# add scikit-learn as a conda dependency
-cd.add_conda_package('psutil')
-cd.add_conda_package('scikit-learn')
-
-# overwrite the default conda_dependencies.yml file
-cd.save_to_file(project_dir = project_folder, conda_file_path = run_config.environment.python.conda_dependencies_file)
-```
-
-### Attach an HDInsight Cluster using the SDK
-HDInsight is a popular platform for big-data analytics supporting Apache Spark. To use an HDInsight compute target:
-- Create a Spark for HDInsight cluster in Azure following [this](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) guide.  Make sure you use the Ubuntu version, __NOT__ CentOS.
-- Enter the IP address, username and password in the example below
-  ```python
-  from azureml.core.compute_target import HDIClusterTarget
-
-  try:
-      # Attaches a HDInsight cluster as a compute target.
-      project.attach_legacy_compute_target(HDIClusterTarget(name = "myhdi",
-                                                            address = "<IP Address>", 
-                                                            username = "<username>", 
-                                                            password = "<pwd>"))
-  except UserErrorException as e:
-      print("Caught = {}".format(e.message))
-      print("Compute config already attached.")
-
-  # Configure HDInsight run
-  # load the runconfig object from the "myhdi.runconfig" file generated by the attach operaton above.
-  run_config = RunConfiguration.load(project_object = project, run_config_name = 'myhdi')
-
-  # ask system to prepare the conda environment automatically when executed for the first time
-  run_config.prepare_environment = True
-  ```
-
-## Set up Compute Using the CLI
-You can also create and attach compute targets from the CLI. You can reference the CLI commands [here](). After you attach your project to the local folder, you can provision compute and submit a training script to the new targets.
-
-### Set Up DSVM Using the CLI
-
-1. Provision DSVM compute target
-  ```az ml computetarget setup dsvm -n mydsvm -w <workspacename> -g <resource-group>```
-2. Prepare compute by creating a run config (This step can take a few minutes)
-  ```
-  # create runconfiguration
-  az ml runconfiguration create -n dsvmrun -t mydsvm
-
-  # prepare run
-  #az ml experiment prepare -c dsvmrun -d aml_config/conda_dependencies.yml
-  az ml run prepare -c dsvmrun -d aml_config/conda_dependencies.yml
-  ```
-3. Run experiment against the DSVM
-  ```az ml run submit -c mydsvm train.py -w myws -g myrg```
-4. View results 
-  ```az ml history last```
-
-### Set up BatchAI Using the CLI
+### Using the CLI
 1. Provision BatchAI compute target
     ```az ml computetarget setup batach -n mybaicluster -w <workspace-name> -g <resource-group> --autoscale-enables --autoscale-max-nodes 1 --autoscale-min-nodes 1 -s STANDARD_D2_V2```
 2. Check the status of deployment 
@@ -427,6 +357,84 @@ You can also create and attach compute targets from the CLI. You can reference t
   ```az ml run submit -c mybaicluster train.py```
 6. View results 
   ```az ml history last```
+
+## Create an Azure Container Instance (ACI)
+Azure Container Instances are isolated containers that have faster startup times and do not require the user to manage any Virtual Machines. They are good for scenarios that can operate in isolated containers, including simple applications, task automation, and build jobs. The following example shows how to Create an ACI compute target and a runconfig to execute the training script on. 
+
+### Using the SDK
+
+```python
+# Create a new compute target to train on Azure Container Instances (ACI)
+from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
+
+# create a new runconfig object
+run_config = RunConfiguration(project_object = project, run_config_name = 'my-aci-run-config')
+
+# signal that you want to use ACI to execute script.
+run_config.target = "containerinstance"
+
+# ACI container group is only supported in certain regions, which can be different than the region the Workspace is in.
+run_config.container_instance.region = 'eastus'
+
+# set the ACI CPU and Memory 
+run_config.container_instance.cpu_cores = 1
+run_config.container_instance.memory_gb = 2
+
+# enable Docker 
+run_config.environment.docker.enabled = True
+
+# set Docker base image to the default CPU-based image
+run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
+#run_config.environment.docker.base_image = 'microsoft/mmlspark:plus-0.9.9'
+
+# use conda_dependencies.yml to create a conda environment in the Docker image for execution
+run_config.environment.python.user_managed_dependencies = False
+
+# auto-prepare the Docker image when used for execution (if it is not already prepared)
+run_config.prepare_environment = True
+
+# create a new CondaDependencies obj
+cd = CondaDependencies()
+
+# add scikit-learn as a conda dependency
+cd.add_conda_package('psutil')
+cd.add_conda_package('scikit-learn')
+
+# overwrite the default conda_dependencies.yml file
+cd.save_to_file(project_dir = project_folder, conda_file_path = run_config.environment.python.conda_dependencies_file)
+```
+### Using the CLI
+TODO
+
+## Attach an HDInsight Cluster 
+HDInsight is a popular platform for big-data analytics supporting Apache Spark. To use an HDInsight compute target Create a Spark for HDInsight cluster in Azure following [this](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) guide.  Make sure you use the Ubuntu version, __NOT__ CentOS.
+
+### Using the SDK
+- Enter the IP address, username and password in the example below
+  ```python
+  from azureml.core.compute_target import HDIClusterTarget
+
+  try:
+      # Attaches a HDInsight cluster as a compute target.
+      project.attach_legacy_compute_target(HDIClusterTarget(name = "myhdi",
+                                                            address = "<IP Address>", 
+                                                            username = "<username>", 
+                                                            password = "<pwd>"))
+  except UserErrorException as e:
+      print("Caught = {}".format(e.message))
+      print("Compute config already attached.")
+
+  # Configure HDInsight run
+  # load the runconfig object from the "myhdi.runconfig" file generated by the attach operaton above.
+  run_config = RunConfiguration.load(project_object = project, run_config_name = 'myhdi')
+
+  # ask system to prepare the conda environment automatically when executed for the first time
+  run_config.prepare_environment = True
+  ```
+  
+### Using the CLI
+TODO
 
 ## Set up Compute Using the Web Portal ***NEED IMAGES***
 
