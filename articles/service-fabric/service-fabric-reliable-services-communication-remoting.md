@@ -1,5 +1,5 @@
 ---
-title: Service remoting using C# in Azure Service Fabric | Microsoft Docs
+title: Service remoting using C# in Service Fabric | Microsoft Docs
 description: Service Fabric remoting allows clients and services to communicate with C# services by using a remote procedure call.
 services: service-fabric
 documentationcenter: .net
@@ -18,6 +18,7 @@ ms.author: vturecek
 
 ---
 # Service remoting in C# with Reliable Services
+
 > [!div class="op_single_selector"]
 > * [C# on Windows](service-fabric-reliable-services-communication-remoting.md)
 > * [Java on Linux](service-fabric-reliable-services-communication-remoting-java.md)
@@ -27,10 +28,11 @@ ms.author: vturecek
 For services that aren't tied to a particular communication protocol or stack, such as Web API, Windows Communication Foundation, or others, the Reliable Services framework provides a remoting mechanism to quickly and easily set up remote procedure calls for services. This article discusses how to set up remote procedure calls for services written with C#.
 
 ## Set up remoting on a service
+
 You can set up remoting for a service in two simple steps:
 
 1. Create an interface for your service to implement. This interface defines the methods that are available for a remote procedure call on your service. The methods must be task-returning asynchronous methods. The interface must implement `Microsoft.ServiceFabric.Services.Remoting.IService` to signal that the service has a remoting interface.
-2. Use a remoting listener in your service. RemotingListener is an `ICommunicationListener` implementation that provides remoting capabilities. The `Microsoft.ServiceFabric.Services.Remoting.Runtime` namespace contains an extension method,`CreateServiceRemotingListener`, for both stateless and stateful services that can be used to create a remoting listener by using the default remoting transport protocol.
+2. Use a remoting listener in your service. RemotingListener is an `ICommunicationListener` implementation that provides remoting capabilities. The `Microsoft.ServiceFabric.Services.Remoting.Runtime` namespace contains the extension method `CreateServiceRemotingListener` for both stateless and stateful services that can be used to create a remoting listener by using the default remoting transport protocol.
 
 >[!NOTE]
 >The `Remoting` namespace is available as a separate NuGet package called `Microsoft.ServiceFabric.Services.Remoting`.
@@ -66,12 +68,14 @@ class MyService : StatelessService, IMyService
     }
 }
 ```
+
 > [!NOTE]
 > The arguments and the return types in the service interface can be any simple, complex, or custom types, but they must be able to be serialized by the .NET [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx).
 >
 >
 
-## Call Remote Service methods
+## Call remote service methods
+
 Calling methods on a service by using the remoting stack is done by using a local proxy to the service through the `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` class. The `ServiceProxy` method creates a local proxy by using the same interface that the service implements. With that proxy, you can call methods on the interface remotely.
 
 ```csharp
@@ -85,15 +89,18 @@ string message = await helloWorldClient.HelloWorldAsync();
 The remoting framework propagates exceptions thrown by the service to the client. As a result, when `ServiceProxy`is used, the client is responsible for handling the exceptions thrown by the service.
 
 ## ServiceProxy lifetime
-ServiceProxy creation is a lightweight operation, so you can create as many as you need. Service Proxy instances can be reused as long as they are needed. If a remote procedure call throws an exception, you can still reuse the same proxy instance. Each ServiceProxy contains a communication client used to send messages over the wire. While invoking remote calls, internal checks are performed to determine if the communication client is valid. Based on the results of those checks, the communication client is re-created if needed. Therefore, if an exception occurs, you do not need to re-create `ServiceProxy`.
+
+ServiceProxy creation is a lightweight operation, so you can create as many as you need. ServiceProxy instances can be reused as long as they are needed. If a remote procedure call throws an exception, you can still reuse the same proxy instance. Each ServiceProxy contains a communication client used to send messages over the wire. While invoking remote calls, internal checks are performed to determine if the communication client is valid. Based on the results of those checks, the communication client is re-created if needed. Therefore, if an exception occurs, you do not need to re-create `ServiceProxy`.
 
 ### ServiceProxyFactory lifetime
+
 [ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is a factory that creates proxy instances for different remoting interfaces. If you use the API `ServiceProxy.Create` to create a proxy, the framework creates a singleton ServiceProxy.
 It is useful to create one manually when you need to override [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) properties.
 Factory creation is an expensive operation. ServiceProxyFactory maintains an internal cache of the communication client.
 A best practice is to cache ServiceProxyFactory for as long as possible.
 
 ## Remoting exception handling
+
 All remote exceptions thrown by the service API are sent back to the client as AggregateException. RemoteExceptions should be able to be serialized by DataContract. If they are not, the proxy API throws [ServiceException](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) with the serialization error in it.
 
 ServiceProxy handles all failover exceptions for the service partition it is created for. It re-resolves the endpoints if there are failover exceptions (non-transient exceptions) and retries the call with the correct endpoint. The number of retries for failover exceptions is indefinite.
@@ -103,11 +110,11 @@ Default retry parameters are provided by [OperationRetrySettings](https://docs.m
 
 A user can configure these values by passing the OperationRetrySettings object to the ServiceProxyFactory constructor.
 
-## Use the Remoting V2 stack
+## Use the remoting V2 stack
 
-As of version 2.8 of the NuGet Remoting package, you have the option to use the Remoting V2 stack. The Remoting V2 stack is more performant and provides features like custom serialization and more pluggable APIs.
-Template code continues to use the Remoting V1 stack.
-Remoting V2 is not compatible with V1 (the previous Remoting stack), so follow these instructions on [how to upgrade from V1 to V2](#how-to-upgrade-from-remoting-v1-to-remoting-v2) without impacting service availability.
+As of version 2.8 of the NuGet remoting package, you have the option to use the remoting V2 stack. The remoting V2 stack performs better. It also provides features like custom serialization and more pluggable APIs.
+Template code continues to use the remoting V1 stack.
+Remoting V2 is not compatible with V1 (the previous remoting stack). Follow the instructions in the article  [Upgrade from V1 to V2](#upgrade-from-remoting-v1-to-remoting-v2) to avoid effects on service availability.
 
 The following approaches are available to enable the V2 stack.
 
@@ -115,7 +122,7 @@ The following approaches are available to enable the V2 stack.
 
 These steps change the template code to use the V2 stack by using an assembly attribute.
 
-1. Change the Endpoint Resource from `"ServiceEndpoint"` to `"ServiceEndpointV2"` in the service manifest.
+1. Change the endpoint resource from `"ServiceEndpoint"` to `"ServiceEndpointV2"` in the service manifest.
 
   ```xml
   <Resources>
@@ -147,9 +154,9 @@ Build the client assembly with the interface assembly to make sure that the asse
 
 As an alternative to using an assembly attribute, the V2 stack also can be enabled by using explicit V2 classes.
 
-These steps change template code to use the V2 stack by using explicit V2 classes.
+These steps change the template code to use the V2 stack by using explicit V2 classes.
 
-1. Change the Endpoint Resource from `"ServiceEndpoint"` to `"ServiceEndpointV2"` in the service manifest.
+1. Change the endpoint resource from `"ServiceEndpoint"` to `"ServiceEndpointV2"` in the service manifest.
 
   ```xml
   <Resources>
@@ -159,7 +166,7 @@ These steps change template code to use the V2 stack by using explicit V2 classe
   </Resources>
   ```
 
-2. Use the [FabricTransportServiceRemotingListener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet) from the `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime` namespace.
+2. Use [FabricTransportServiceRemotingListener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet) from the `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime` namespace.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -184,13 +191,14 @@ These steps change template code to use the V2 stack by using explicit V2 classe
           });
   ```
 
-## Upgrade from Remoting V1 to Remoting V2
-To upgrade from V1 to V2, two-step upgrades are required. Follow these steps in the sequence listed.
+## Upgrade from remoting V1 to remoting V2
 
-1. Upgrade the V1 Service to V2 Service by using this attribute.
-This change makes sure that the service listens  on V1 and V2 Listener.
+To upgrade from V1 to V2, two-step upgrades are required. Follow the steps in the sequence as listed.
 
-    a.  Add an Endpoint Resource with the name "ServiceEndpointV2" in the service manifest.
+1. Upgrade the V1 service to V2 service by using this attribute.
+This change makes sure that the service listens on the V1 and V2 listener.
+
+    a. Add an endpoint resource with the name "ServiceEndpointV2" in the service manifest.
       ```xml
       <Resources>
         <Endpoints>
@@ -199,7 +207,7 @@ This change makes sure that the service listens  on V1 and V2 Listener.
       </Resources>
       ```
 
-    b.  Use the following Extension Method to Create Remoting Listener.
+    b. Use the following extension method to create a remoting listener.
 
     ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -208,32 +216,33 @@ This change makes sure that the service listens  on V1 and V2 Listener.
     }
     ```
 
-    c.  Add Assembly Attribute on Remoting Interfaces to use V1 and V2 Listener and V2 Client.
+    c. Add an assembly attribute on remoting interfaces to use the V1 and V2 listener and the V2 client.
     ```csharp
     [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2|RemotingListenerVersion.V1, RemotingClientVersion = RemotingClientVersion.V2)]
 
       ```
-2. Upgrade the V1 client to V2 client by using the V2 client attribute.
+2. Upgrade the V1 client to a V2 client by using the V2 client attribute.
 This step makes sure the client uses the V2 stack.
-No change in the Client Project/Service is required. Building client projects with updated interface assembly is sufficient.
+No change in the client project/service is required. Building client projects with updated interface assembly is sufficient.
 
-3. This step is optional. Use the V2Listener Attribute and then Upgrade the V2 Service.
-This step makes sure that service is listening only on V2 Listener.
+3. This step is optional. Use the V2 listener attribute, and then upgrade the V2 service.
+This step makes sure that the service is listening only on the V2 Listener.
 
 ```csharp
 [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2, RemotingClientVersion = RemotingClientVersion.V2)]
 ```
 
 
-## Use the Remoting V2(InterfaceCompatible) stack
- Remoting V2(InterfaceCompatible aka V2_1) stack has all the features of V2 Remoting stack besides it is interface compatible stack to Remoting V1 stack but is not backward compatible with V2 and V1. In order to do the upgrade from V1 to V2_1 without impacting service availability, follow below article[how to upgrade from V1 to V2(InterfaceCompatible)](#how-to-upgrade-from-remoting-v1-to-remoting-v2interfacecompatible).
+## Use the remoting V2 (interface compatible) stack
+
+ The remoting V2 (interface compatible, known as V2_1) stack has all the features of the V2 remoting stack. Its interface stack is compatible with the remoting V1 stack, but it is not backward compatible with V2 and V1. To upgrade from V1 to V2_1 without affecting service availability, follow the steps in the article [Upgrade from V1 to V2 (interface compatible)](#upgrade-from-remoting-v1-to-remoting-v2interfacecompatible).
 
 
-### Use Assembly Attribute to use Remoting V2(InterfaceCompatible) stack
+### Use an assembly attribute to use the remoting V2 (interface compatible) stack
 
-Follow these steps to change to a V2_1 Stack.
+Follow these steps to change to a V2_1 stack.
 
-1. Add an Endpoint Resource with the name "ServiceEndpointV2_1" in the service manifest.
+1. Add an endpoint resource with the name "ServiceEndpointV2_1" in the service manifest.
 
   ```xml
   <Resources>
@@ -243,7 +252,7 @@ Follow these steps to change to a V2_1 Stack.
   </Resources>
   ```
 
-2. Use the Remoting Extension Method to create Remoting Listener.
+2. Use the remoting extension method to create a remoting listener.
 
   ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -252,19 +261,21 @@ Follow these steps to change to a V2_1 Stack.
     }
   ```
 
-3. Add and [Assembly Attribute](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) on Remoting Interfaces.
+3. Add an [assembly attribute](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) on remoting interfaces.
 
   ```csharp
  	[assembly:  FabricTransportServiceRemotingProvider(RemotingListenerVersion=  RemotingListenerVersion.V2_1, RemotingClientVersion= RemotingClientVersion.V2_1)]
 
   ```
-No Changes are required in Client Project.
+
+No changes are required in the client project.
 Build the client assembly with the interface assembly to make sure that the previous assembly attribute is being used.
 
-### Use Explicit Remoting Classes to create Listener/ ClientFactory for V2(InterfaceCompatible) version
+### Use explicit remoting classes to create a listener/ClientFactory for the V2 (interface compatible) version
+
 Follow these steps:
 
-1. Add an Endpoint Resource with the name "ServiceEndpointV2_1" in the service manifest.
+1. Add an endpoint resource with the name "ServiceEndpointV2_1" in the service manifest.
 
   ```xml
   <Resources>
@@ -274,7 +285,7 @@ Follow these steps:
   </Resources>
   ```
 
-2. Use [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). The default Service Endpoint Resource name used is "ServiceEndpointV2_1", and it must be defined in the Service Manifest.
+2. Use the [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). The default service endpoint resource name used is "ServiceEndpointV2_1." It must be defined in the service manifest.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -292,7 +303,7 @@ Follow these steps:
     }
   ```
 
-3. Use V2 [Client Factory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
+3. Use the V2 [Client Factory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
   ```csharp
   var proxyFactory = new ServiceProxyFactory((c) =>
           {
@@ -302,13 +313,14 @@ Follow these steps:
           });
   ```
 
-## Upgrade from Remoting V1 to Remoting V2(InterfaceCompatible).
-In order to upgrade from V1 to V2(InterfaceCompatible aka V2_1), 2-step upgrades are required. Follow the steps in the sequence listed here.
+## Upgrade from remoting V1 to remoting V2 (interface compatible)
 
-1. Upgrade the V1 Service to V2_1 Service by using following Attribute.
-This change makes sure that service is listening  on V1 and V2_1 Listener.
+To upgrade from V1 to V2 (interface compatible, known as V2_1), two-step upgrades are required. Follow the steps in the sequence as listed.
 
-    a)  Add an Endpoint Resource with name as "ServiceEndpointV2_1" in the service manifest.
+1. Upgrade the V1 service to V2_1 service by using the following attribute.
+This change makes sure that the service is listening on the V1 and the V2_1 listener.
+
+    a. Add an endpoint resource with the name "ServiceEndpointV2_1" in the service manifest.
       ```xml
       <Resources>
         <Endpoints>
@@ -317,7 +329,7 @@ This change makes sure that service is listening  on V1 and V2_1 Listener.
       </Resources>
       ```
 
-    b)  Use Following Extension Method to Create Remoting Listener.
+    b. Use the following extension method to create a remoting listener.
 
     ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -326,28 +338,29 @@ This change makes sure that service is listening  on V1 and V2_1 Listener.
     }
     ```
 
-    c)  Add Assembly Attribute on Remoting Interfaces to use V1,V2_1 Listener and V2_1 Client.
+    c. Add an assembly attribute on remoting interfaces to use the V1, V2_1 listener, and V2_1 client.
     ```csharp
    [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1 | RemotingListenerVersion.V1, RemotingClientVersion = RemotingClientVersion.V2_1)]
 
       ```
-2. Upgrade the V1 Client to  V2_1 Client by using V2_1 Client Attribute.
-This step makes sure Client is using V2_1 stack.
-No Change in Client Project/Service is required. Building Client projects with updated interface assembly is sufficient.
+2. Upgrade the V1 client to the V2_1 client by using the V2_1 client attribute.
+This step makes sure the client is using the V2_1 stack.
+No change in the client project/service is required. Building client projects with updated interface assembly is sufficient.
 
-3. This step is optional. Remove V1 Listener Version from Attribute and then Upgrade the V2 Service.
-This step makes sure that service is listening only on V2 Listener.
+3. This step is optional. Remove the V1 listener version from the attribute, and then upgrade the V2 service.
+This step makes sure that the service is listening only on the V2 listener.
 
 ```csharp
 [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1, RemotingClientVersion = RemotingClientVersion.V2_1)]
 ```
 
-### Use Custom Serialization with Remoting Wrapped Message
-In Remoting Wrapped Message, we create a single wrapped object with all the parameters as a field in it.
+### Use custom serialization with a remoting wrapped message
+
+For a remoting wrapped message, we create a single wrapped object with all the parameters as a field in it.
 Follow these steps:
 
-1. Implement the IServiceRemotingMessageSerializationProvider interface to provide implementation for custom serialization.
-    This code snippet shows what the implementation looks like:
+1. Implement the `IServiceRemotingMessageSerializationProvider` interface to provide implementation for custom serialization.
+    This code snippet shows what the implementation looks like.
 
       ```csharp
       public class ServiceRemotingJsonSerializationProvider : IServiceRemotingMessageSerializationProvider
@@ -508,7 +521,7 @@ Follow these steps:
     }
     ```
 
-2.    Override Default Serialization Provider with JsonSerializationProvider for Remoting    Listener.
+2. Override the default serialization provider with `JsonSerializationProvider` for a remoting listener.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -524,7 +537,7 @@ Follow these steps:
    }
   ```
 
-3.    Override Default Serialization Provider with JsonSerializationProvider for Remoting Client Factory.
+3. Override the default serialization provider with `JsonSerializationProvider` for a remoting client factory.
 
 ```csharp
 var proxyFactory = new ServiceProxyFactory((c) =>
@@ -533,7 +546,9 @@ var proxyFactory = new ServiceProxyFactory((c) =>
     serializationProvider: new ServiceRemotingJsonSerializationProvider());
   });
   ```
+
 ## Next steps
+
 * [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Windows Communication Foundation communication with Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 * [Secure communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)
