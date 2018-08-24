@@ -34,11 +34,7 @@ For other sources, such as Azure VMs and Windows or Linux VMs in your environmen
 
 If you don't have an Azure subscription, create [a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To run this sample, make sure you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). To start, run `az login` to create a connection with Azure.
-
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Install the Azure CLI on Windows](../cli/azure/install-azure-cli-windows.md).
-
-If you don't have Azure CLI installed, you can use the [Cloud Shell](..azure-resource-manager/resource-group-template-deploy-cli.md#deploy-template-from-cloud-shell).
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create a workspace
 Create a worksapce with [az group create](/cli/azure/group#az_group_create). The following example creates a workspace named *TestWorkspace* in the resource group *Lab* in the *eastus* location using a Resource Manager template from your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. Or you can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
