@@ -131,7 +131,7 @@ In this tutorial, you set up Azure Security Center, and then reviewed VMs in Sec
 > * View and fix configuration health issues
 > * Review detected threats
 
-Advance to the next tutorial to learn how to create a CI/CD with Azure Pipelines and a Windows VM running IIS.
+Advance to the next tutorial to learn how to create a CI/CD pipeline with Azure DevOps Services and a Windows VM running IIS.
 
 > [!div class="nextstepaction"]
-> [CI/CD with Azure Pipelines](./tutorial-vsts-iis-cicd.md)
+> [Azure Pipelines(./tutorial-vsts-iis-cicd.md)
