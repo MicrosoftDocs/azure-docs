@@ -19,7 +19,7 @@ Software-defined connectivity solutions typically use a controller or a device p
 
 ##  <a name="access"></a>Access control
 
-Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal. Service principal-based access provides the device controller appropriate authentication to upload branch information. For more information,see [Create service principal](./azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).
+Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal. Service principal-based access provides the device controller appropriate authentication to upload branch information. For more information,see [Create service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).
 
 ##  <a name="site"></a>Upload branch information
 
