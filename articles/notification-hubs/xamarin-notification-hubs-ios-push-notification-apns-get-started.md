@@ -54,7 +54,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 ## Configure your notification hub for iOS push notifications
 
-This section walks you through the steps to create a new notification hub and configure authentication with APNS using the **.p12** push certificate that you previously created. If you want to use a notification hub that you have already created, you can skip to step 5.
+This section walks you through the steps to create a new notification hub and configure authentication with APNs using the **.p12** push certificate that you previously created. If you want to use a notification hub that you have already created, you can skip to step 5.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
@@ -65,11 +65,11 @@ This section walks you through the steps to create a new notification hub and co
 3. Specify the **password** for the certificate.
 4. Select **Sandbox** mode. Use the **Production** mode only if you want to send push notifications to users who purchased your app from the store.
 
-    ![Configure APNS in Azure portal][6]
+    ![Configure APNs in Azure portal][6]
 
-    ![Configure APNS certification in Azure portal][7]
+    ![Configure APNs certification in Azure portal][7]
 
-Your notification hub is now configured to work with APNS, and you have the connection strings to register your app and send push notifications.
+Your notification hub is now configured to work with APNs, and you have the connection strings to register your app and send push notifications.
 
 ## Connect your app to the notification hub
 
