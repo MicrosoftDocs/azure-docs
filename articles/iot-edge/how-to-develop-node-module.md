@@ -90,7 +90,7 @@ In each module folder, there are multiple Docker files for different container t
 
 2. In the VS Code command palette, type and run the command **Azure IoT Edge: Build IoT Edge solution**.
 3. Select the `deployment.template.json` file for your solution from the command palette. 
-4. In Azure IoT Hub Devices explorer, right-click an IoT Edge device ID, then select **Create deployment for IoT Edge device**. 
+4. In Azure IoT Hub Devices explorer, right-click an IoT Edge device ID, then select **Create deployment for Single device**. 
 5. Open the **config** folder of your solution, then select the `deployment.json` file. Click **Select Edge Deployment Manifest**. 
 
 Then you can see the deployment is successfully created with a deployment ID in VS Code integrated terminal.
