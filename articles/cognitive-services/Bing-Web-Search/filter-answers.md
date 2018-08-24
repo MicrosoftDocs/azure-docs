@@ -76,7 +76,7 @@ The following shows the response to the previous query. As you can see Bing didn
 }
 ```
 
-If you want to exclude specific types of content, such as images, from the response, you can exclude them with the hyphen (minus) prefix to the responseFilter value. Separate types with a comma: 
+If you want to exclude specific types of content, such as images, from the response, you can exclude them with the hyphen (minus) prefix to the responseFilter value. Separate excluded types with a comma: 
 
 ```
 &responseFilter=-images,-videos
