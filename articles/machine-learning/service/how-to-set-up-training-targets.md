@@ -48,9 +48,10 @@ The workflow for developing and deploying a model with Azure Machine Learning fo
 
 Your training script isn't tied to a specific compute target. You can train initially on your local computer, then switch targets to a VM or Azure Batch AI without having to rewrite the training script.
 
-## Provision Compute Using the SDK
+## Set up Compute Using the SDK
+The Azure Machine Learning SDK allows you to create and attach certain compute types to run experiments on. You can reference the SDK commands [here]().
 
-## Local computer
+## Train Experiment on Local environment
 
 You can start training an experiment locally on small datasets and then scale up and out as they become more complex and require more compute power. You can run locally through user-managed and system-managed environments. 
 
@@ -84,7 +85,7 @@ run = Run.submit(project_object = project,
 run.wait_for_completion(show_output = True)
 ```
 ### System-Managed Environment
-Before submitting to a remote compute target, you will need to create a conda dependencies file with packages you need for the training script to complete. You can then ask the system to build a new conda environment and execute your scripts in it. The environment is built once and can be reused later as long as the conda_dependencies.yml files remains unchanged. You can then submit the experiment the same way as in the local example. Setting up the new environment might take up to 5 minutes the first time the command is run.
+Before submitting to a remote compute target, you will need to create a conda dependencies file with packages you need for the training script to complete. You can then ask the system to build a new conda environment and execute your scripts in it. The environment is built once and can be reused later as long as the conda_dependencies.yml files remains unchanged. You can then submit the experiment the same way as in the user-managed example. Setting up the new environment might take up to 5 minutes the first time the command is run.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -103,20 +104,35 @@ cd = CondaDependencies()
 cd.add_conda_package('scikit-learn')
 cd.save_to_file(project_dir = project_folder, conda_file_path = run_config.environment.python.conda_dependencies_file)
 ```
+Submit the script to run in the system-managed environment. The whole project folder is actually submitted for execution.
 
-## Azure Virtual Machines
+```python
+%%time 
+from azureml.core.run import Run
+
+run = Run.submit(project_object = project,
+                 run_config = run_config,
+                 script_to_run = 'train.py')
+
+# Shows output of the run on stdout.
+run.wait_for_completion(show_output = True)
+```
+
+## Train Experiment on Data Science Virtual Machine
 
 In some cases, resources available on your local machine may not be enough to train the desired model. In this situation, You can easily scale up or scale out your machine learning experiment by adding additional compute targets such as Ubuntu-based Data Science Virtual Machines (DSVM).
 
-### Create the Virtual Machine
+1. Create the Virtual Machine
 ```python
 from azureml.core.compute import DsvmCompute
 dsvm_config = DsvmCompute.provisioning_configuration(vm_size="Standard_D2_v2")
 dsvm_compute = DsvmCompute.create(ws, name="mydsvm", provisioning_configuration=dsvm_config)
 dsvm_compute.wait_for_provisioning(show_output=True)
 ```
-### Configure a Docker run with new conda environment on the VM
-You can execute in a Docker container in the VM. If you choose this route, you don't need to install anything on the VM yourself. Azure ML execution service will take care of it for you.
+1a. Attach Existing Virtual Machine
+ **TODO once MLC changes are finalized**
+ 
+2. Configure a Docker run with new conda environment on the VM. You do not have to install anything on this environment; we will take care of it for you.
 
 ```python
 from azureml.core.runconfig import RunConfiguration
@@ -152,10 +168,22 @@ cd.add_conda_package('scikit-learn')
 # overwrite the default conda_dependencies.yml file
 cd.save_to_file(project_dir = project_folder, file_name='conda_dependencies.yml')
 ```
+3. Submit the script to run in the docker environment on the Virtual Machine.
+```python
+%%time 
+from azureml.core.run import Run
 
-## Azure Batch AI
+run = Run.submit(project_object = project,
+                 run_config = run_config,
+                 script_to_run = 'train.py')
 
-The following example looks for an existing Batch AI compute, and creates a new one if it is not found. The `compute_target` object can be used to submit your project for training:
+# Shows output of the run on stdout.
+run.wait_for_completion(show_output = True)
+```
+
+## Create Azure Batch AI Compute
+
+The following example looks for an existing Batch AI compute, and creates a new one if it is not found. The `compute_target` object can be used to submit your project for training. You can use this method of searching for existing compute targets for Virtual Machines as well. 
 
 ```python
 # Create a new compute target to train on Azure Batch AI
@@ -190,7 +218,8 @@ except ComputeTargetException:
 
 For more information on using the BatchAiCompute object, see [tbd]. 
 
-## Azure Container Instances (ACI)
+## Create an Azure Container Instance (ACI)
+Azure Container Instances are isolated containers that have faster startup times and do not require the user to manage any Virtual Machines. They are good for scenarios that can operate in isolated containers, including simple applications, task automation, and build jobs. The following example shows how to Create an ACI compute target and a runconfig to execute the training script on. 
 ```python
 # Create a new compute target to train on Azure Container Instances (ACI)
 from azureml.core.runconfig import RunConfiguration
@@ -258,7 +287,7 @@ run_config = RunConfiguration.load(project_object = project, run_config_name = '
 run_config.prepare_environment = True
 ```
 
-# Provision Compute Using the CLI
+## Set up Compute Using the CLI
 You can also create and attach compute targets from the CLI. You can reference the CLI commands [here](). After you attach your project to the local folder, you can provision compute and submit a training script to the new targets.
 
 ## DSVM
@@ -394,7 +423,7 @@ dataReferences: {}
 -View results 
 ```az ml history last`
 
-# Provision Compute Using the Web Portal
+## Set up Compute Using the Web Portal
 
 ## Next steps
 * [What is Azure Machine Learning service](overview-what-is-azure-ml.md)
