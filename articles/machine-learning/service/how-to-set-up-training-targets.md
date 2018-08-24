@@ -60,32 +60,32 @@ In a user-managed environment, you are responsible for ensuring that all the nec
 
 1. Start by creating a local run config
 
-```python
-from azureml.core.runconfig import RunConfiguration
+  ```python
+  from azureml.core.runconfig import RunConfiguration
 
-# Editing a run configuration property on-fly.
-run_config = RunConfiguration.load(project_object = project, run_config_name = "local")
+  # Editing a run configuration property on-fly.
+  run_config = RunConfiguration.load(project_object = project, run_config_name = "local")
 
-run_config.environment.python.user_managed_dependencies = True
-run_config.prepare_environment = False
+  run_config.environment.python.user_managed_dependencies = True
+  run_config.prepare_environment = False
 
-# You can choose a specific Python environment by pointing to a Python path 
-#run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/pytho
-```
+  # You can choose a specific Python environment by pointing to a Python path 
+  #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/pytho
+  ```
 
 2. Submit the script to run in the user-managed environment. The whole project folder is actually submitted for execution.
 
-```python
-%%time 
-from azureml.core.run import Run
+  ```python
+  %%time 
+  from azureml.core.run import Run
 
-run = Run.submit(project_object = project,
-                 run_config = run_config,
-                 script_to_run = 'train.py')
+  run = Run.submit(project_object = project,
+                   run_config = run_config,
+                   script_to_run = 'train.py')
 
-# Shows output of the run on stdout.
-run.wait_for_completion(show_output = True)
-```
+  # Shows output of the run on stdout.
+  run.wait_for_completion(show_output = True)
+  ```
 ### System-Managed Environment
 Before submitting to a remote compute target, you will need to create a conda dependencies file with packages you need for the training script to complete. You can then ask the system to build a new conda environment and execute your scripts in it. The environment is built once and can be reused later as long as the conda_dependencies.yml files remains unchanged. You can then submit the experiment the same way as in the user-managed example. Setting up the new environment might take up to 5 minutes the first time the command is run.
 
@@ -125,63 +125,63 @@ run.wait_for_completion(show_output = True)
 In some cases, resources available on your local machine may not be enough to train the desired model. In this situation, You can easily scale up or scale out your machine learning experiment by adding additional compute targets such as Ubuntu-based Data Science Virtual Machines (DSVM).
 
 1. Create the Virtual Machine
-```python
-from azureml.core.compute import DsvmCompute
-dsvm_config = DsvmCompute.provisioning_configuration(vm_size="Standard_D2_v2")
-dsvm_compute = DsvmCompute.create(ws, name="mydsvm", provisioning_configuration=dsvm_config)
-dsvm_compute.wait_for_provisioning(show_output=True)
-```
+  ```python
+  from azureml.core.compute import DsvmCompute
+  dsvm_config = DsvmCompute.provisioning_configuration(vm_size="Standard_D2_v2")
+  dsvm_compute = DsvmCompute.create(ws, name="mydsvm", provisioning_configuration=dsvm_config)
+  dsvm_compute.wait_for_provisioning(show_output=True)
+  ```
 1a. Attach Existing Virtual Machine
  **TODO once MLC changes are finalized**
  
 2. Configure a Docker run with new conda environment on the VM. You do not have to install anything on this environment; we will take care of it for you.
 
-```python
-from azureml.core.runconfig import RunConfiguration
-from azureml.core.conda_dependencies import CondaDependencies
+  ```python
+  from azureml.core.runconfig import RunConfiguration
+  from azureml.core.conda_dependencies import CondaDependencies
 
-# Load the "cpu-dsvm.runconfig" file (created by the above attach operation) in memory
-run_config = RunConfiguration(project_object = project, 
-                              run_config_name = "cpu-dsvm",
-                              target = dsvm_compute.name, 
-                              framework = "python")
+  # Load the "cpu-dsvm.runconfig" file (created by the above attach operation) in memory
+  run_config = RunConfiguration(project_object = project, 
+                                run_config_name = "cpu-dsvm",
+                                target = dsvm_compute.name, 
+                                framework = "python")
 
-# Use Docker in the remote VM
-run_config.environment.docker.enabled = True
+  # Use Docker in the remote VM
+  run_config.environment.docker.enabled = True
 
-# Use the MMLSpark CPU based image.
-# https://hub.docker.com/r/microsoft/mmlspark/
-run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-#run_config.environment.docker.base_image = 'microsoft/mmlspark:plus-0.9.9'
-print('Base Docker image is:', run_config.environment.docker.base_image )
+  # Use the MMLSpark CPU based image.
+  # https://hub.docker.com/r/microsoft/mmlspark/
+  run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
+  #run_config.environment.docker.base_image = 'microsoft/mmlspark:plus-0.9.9'
+  print('Base Docker image is:', run_config.environment.docker.base_image )
 
-# Ask system to provision a new one based on the conda_dependencies.yml file
-run_config.environment.python.user_managed_dependencies = False
+  # Ask system to provision a new one based on the conda_dependencies.yml file
+  run_config.environment.python.user_managed_dependencies = False
 
-# Prepare the Docker and conda environment automatically when executingfor the first time.
-run_config.prepare_environment = True
+  # Prepare the Docker and conda environment automatically when executingfor the first time.
+  run_config.prepare_environment = True
 
-# create a new CondaDependencies obj
-cd = CondaDependencies()
+  # create a new CondaDependencies obj
+  cd = CondaDependencies()
 
-# add scikit-learn as a conda dependency
-cd.add_conda_package('scikit-learn')
+  # add scikit-learn as a conda dependency
+  cd.add_conda_package('scikit-learn')
 
-# overwrite the default conda_dependencies.yml file
-cd.save_to_file(project_dir = project_folder, file_name='conda_dependencies.yml')
-```
+  # overwrite the default conda_dependencies.yml file
+  cd.save_to_file(project_dir = project_folder, file_name='conda_dependencies.yml')
+  ```
 3. Submit the script to run in the docker environment on the Virtual Machine.
-```python
-%%time 
-from azureml.core.run import Run
+  ```python
+  %%time 
+  from azureml.core.run import Run
 
-run = Run.submit(project_object = project,
-                 run_config = run_config,
-                 script_to_run = 'train.py')
+  run = Run.submit(project_object = project,
+                   run_config = run_config,
+                   script_to_run = 'train.py')
 
-# Shows output of the run on stdout.
-run.wait_for_completion(show_output = True)
-```
+  # Shows output of the run on stdout.
+  run.wait_for_completion(show_output = True)
+  ```
 
 ## Create Azure Batch AI Compute
 
@@ -294,136 +294,136 @@ You can also create and attach compute targets from the CLI. You can reference t
 
 ## DSVM
 
-- Provision DSVM compute target
-```az ml computetarget setup dsvm -n mydsvm -w <workspacename> -g <resource-group>```
-- Prepare compute by creating a run config (This step can take a few minutes)
-```
-# create runconfiguration
-az ml runconfiguration create -n dsvmrun -t mydsvm
+1. Provision DSVM compute target
+  ```az ml computetarget setup dsvm -n mydsvm -w <workspacename> -g <resource-group>```
+2. Prepare compute by creating a run config (This step can take a few minutes)
+  ```
+  # create runconfiguration
+  az ml runconfiguration create -n dsvmrun -t mydsvm
 
-# prepare run
-#az ml experiment prepare -c dsvmrun -d aml_config/conda_dependencies.yml
-az ml run prepare -c dsvmrun -d aml_config/conda_dependencies.yml
-```
-- Run experiment against the DSVM
-```az ml run submit -c mydsvm train.py -w myws -g myrg```
--View results 
-```az ml history last```
+  # prepare run
+  #az ml experiment prepare -c dsvmrun -d aml_config/conda_dependencies.yml
+  az ml run prepare -c dsvmrun -d aml_config/conda_dependencies.yml
+  ```
+3. Run experiment against the DSVM
+  ```az ml run submit -c mydsvm train.py -w myws -g myrg```
+4. View results 
+  ```az ml history last```
 
 ## BatchAI
-- Provision BatchAI compute target
-```az ml computetarget setup batach -n mybaicluster -w <workspace-name> -g <resource-group> --autoscale-enables --autoscale-max-nodes 1 --autoscale-min-nodes 1 -s STANDARD_D2_V2```
-- Check the status of deployment
-```az ml computetarget show -n mybaicluster -w <workspace-name> -g <resource-group>```
-- Create a runconfig file based on this example. Be sure to change the target name and framework:
-```# The script to run.
-script: <train.py>
-# The arguments to the script file.
-arguments: []
-# The name of the compute target to use for this run.
-target: mybaicluster
-# Framework to execute inside. Allowed values are "Python" ,  "PySpark", "TensorFlowParameterServer" and "PythonMPI".
-framework: Python
-# Automatically prepare the run environment as part of the run itself.
-prepareEnvironment: true
-# Maximum allowed duration for the run.
-maxRunDurationSeconds:
-# Environment details.
-environment:
-# Environment variables set for the run.
-  environmentVariables:
-    EXAMPLE_ENV_VAR: EXAMPLE_VALUE
-# Python details.
-  python:
-# user_managed_dependencies=False indicates that the environment will be user managed. False indicates that AzureML will manage the user environment.
-    userManagedDependencies: false
-# The python interpreter path
-    interpreterPath: python
-# Path to conda dependencies file to be used by this run. If a project
-# contains multiple programs with different sets of dependencies, it may be
-# convenient to manage those environments with separate files.
-    condaDependenciesFile: aml_config/conda_dependencies.yml
-# Docker details.
-  docker:
-# Set True to perform this run inside a Docker container.
-    enabled: true
-# Base image used for Docker-based runs.
-    baseImage: continuumio/miniconda3:4.4.10
-# Set False if necessary to work around shared volume bugs.
-    sharedVolumes: true
-# Run with NVidia Docker extension to support GPUs.
-    gpuSupport: false
-# Extra arguments to the Docker run command.
-    arguments: []
-# Image registry that contains the base image.
-    baseImageRegistry:
-# DNS name or IP address of azure container registry(ACR).
-      address:
-# The username for ACR.
-      username:
-# The password for ACR.
-      password:
-# Spark details.
+1. Provision BatchAI compute target
+    ```az ml computetarget setup batach -n mybaicluster -w <workspace-name> -g <resource-group> --autoscale-enables --autoscale-max-nodes 1 --autoscale-min-nodes 1 -s STANDARD_D2_V2```
+2. Check the status of deployment 
+  ```az ml computetarget show -n mybaicluster -w <workspace-name> -g <resource-group>```
+3. Create a runconfig file based on this example. Be sure to change the target name and framework:
+  ```# The script to run.
+  script: <train.py>
+  # The arguments to the script file.
+  arguments: []
+  # The name of the compute target to use for this run.
+  target: mybaicluster
+  # Framework to execute inside. Allowed values are "Python" ,  "PySpark", "TensorFlowParameterServer" and "PythonMPI".
+  framework: Python
+  # Automatically prepare the run environment as part of the run itself.
+  prepareEnvironment: true
+  # Maximum allowed duration for the run.
+  maxRunDurationSeconds:
+  # Environment details.
+  environment:
+  # Environment variables set for the run.
+    environmentVariables:
+      EXAMPLE_ENV_VAR: EXAMPLE_VALUE
+  # Python details.
+    python:
+  # user_managed_dependencies=False indicates that the environment will be user managed. False indicates that AzureML will manage the user environment.
+      userManagedDependencies: false
+  # The python interpreter path
+      interpreterPath: python
+  # Path to conda dependencies file to be used by this run. If a project
+  # contains multiple programs with different sets of dependencies, it may be
+  # convenient to manage those environments with separate files.
+      condaDependenciesFile: aml_config/conda_dependencies.yml
+  # Docker details.
+    docker:
+  # Set True to perform this run inside a Docker container.
+      enabled: true
+  # Base image used for Docker-based runs.
+      baseImage: continuumio/miniconda3:4.4.10
+  # Set False if necessary to work around shared volume bugs.
+      sharedVolumes: true
+  # Run with NVidia Docker extension to support GPUs.
+      gpuSupport: false
+  # Extra arguments to the Docker run command.
+      arguments: []
+  # Image registry that contains the base image.
+      baseImageRegistry:
+  # DNS name or IP address of azure container registry(ACR).
+        address:
+  # The username for ACR.
+        username:
+  # The password for ACR.
+        password:
+  # Spark details.
+    spark:
+  # List of spark repositories.
+      repositories:
+      - https://mmlspark.azureedge.net/maven
+      - https://azuremldownloads.blob.core.windows.net/repo5qh91kdjs6
+      packages:
+      - group: com.microsoft.ml.spark
+        artifact: mmlspark_2.11
+        version: '0.12'
+      - group: com.microsoft
+        artifact: dprep_2.11
+        version: 0.18.0
+      - group: com.microsoft.sqlserver
+        artifact: mssql-jdbc
+        version: 6.2.1.jre8
+      precachePackages: true
+  # History details.
+  history:
+  # Enable history tracking -- this allows status, logs, metrics, and outputs
+  # to be collected for a run.
+    outputCollection: true
+  # whether to take snapshots for history.
+    snapshotProject: true
+  # Spark configuration details.
   spark:
-# List of spark repositories.
-    repositories:
-    - https://mmlspark.azureedge.net/maven
-    - https://azuremldownloads.blob.core.windows.net/repo5qh91kdjs6
-    packages:
-    - group: com.microsoft.ml.spark
-      artifact: mmlspark_2.11
-      version: '0.12'
-    - group: com.microsoft
-      artifact: dprep_2.11
-      version: 0.18.0
-    - group: com.microsoft.sqlserver
-      artifact: mssql-jdbc
-      version: 6.2.1.jre8
-    precachePackages: true
-# History details.
-history:
-# Enable history tracking -- this allows status, logs, metrics, and outputs
-# to be collected for a run.
-  outputCollection: true
-# whether to take snapshots for history.
-  snapshotProject: true
-# Spark configuration details.
-spark:
-  configuration:
-    spark.app.name: Azure ML Experiment
-    spark.yarn.maxAppAttempts: 1
-# HDI details.
-hdi:
-# Yarn deploy mode. Options are cluster and client.
-  yarnDeployMode: cluster
-# BatchAI details.
-batchai:
-# Number of nodes to use for running batchai jobs.
-  nodeCount: 1
-# Tensorflow details.
-tensorflow:
-  workerCount: 2
-  parameterServerCount: 1
-# Mpi details.
-mpi:
-  processCountPerNode: 1
-# Container instance details.
-containerInstance:
-# Number of cores to allocate for the container.
-  cpuCores: 1
-# Memory to allocate for the container in GB.
-  memoryGb: 4
-# Azure region for the container; defaults to the same as workspace.
-  region:
-# data reference configuration details
-dataReferences: {}
-```
-- Prepare Compute
-```az ml run prepare -c mybaicluster```
-- Run experiment against the DSVM
-```az ml run submit -c mybaicluster train.py```
--View results 
-```az ml history last`
+    configuration:
+      spark.app.name: Azure ML Experiment
+      spark.yarn.maxAppAttempts: 1
+  # HDI details.
+  hdi:
+  # Yarn deploy mode. Options are cluster and client.
+    yarnDeployMode: cluster
+  # BatchAI details.
+  batchai:
+  # Number of nodes to use for running batchai jobs.
+    nodeCount: 1
+  # Tensorflow details.
+  tensorflow:
+    workerCount: 2
+    parameterServerCount: 1
+  # Mpi details.
+  mpi:
+    processCountPerNode: 1
+  # Container instance details.
+  containerInstance:
+  # Number of cores to allocate for the container.
+    cpuCores: 1
+  # Memory to allocate for the container in GB.
+    memoryGb: 4
+  # Azure region for the container; defaults to the same as workspace.
+    region:
+  # data reference configuration details
+  dataReferences: {}
+  ```
+4. Prepare Compute
+  ```az ml run prepare -c mybaicluster```
+5. Run experiment against the DSVM
+  ```az ml run submit -c mybaicluster train.py```
+6. View results 
+  ```az ml history last```
 
 ## Set up Compute Using the Web Portal
 
