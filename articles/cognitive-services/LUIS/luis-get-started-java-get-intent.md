@@ -19,7 +19,7 @@ ms.author: diberry
 
 ## Prerequisites
 
-* [JDK SE)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)  (Java Development Kit, Standard Edition
+* [JDK SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)  (Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
@@ -38,15 +38,15 @@ ms.author: diberry
 
 You can use Java to access the same results you saw in the browser window in the previous step. 
 
-1. Copy the following code to create a class in your IDE:
+1. Copy the following code to create a class in a file named `LuisGetRequest.java`:
 
    [!code-java[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/java/call-endpoint.java)]
 
 2. Replace the value of the `YOUR-KEY` variable with your LUIS key.
 
-3. In your IDE, add references to `httpclient` and `httpcore` libraries. Compile the java program. 
+3. Compile the java program with `javac -cp ":lib/*" LuisGetRequest.java`. 
 
-4. Run the application. It displays the same JSON that you saw earlier in the browser window.
+4. Run the application with `java -cp ":lib/*" LuisGetRequest.java`. It displays the same JSON that you saw earlier in the browser window.
 
     ![Console window displays JSON result from LUIS](./media/luis-get-started-java-get-intent/console-turn-on.png)
     
