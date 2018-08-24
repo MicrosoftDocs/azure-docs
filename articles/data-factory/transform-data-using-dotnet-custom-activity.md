@@ -29,7 +29,7 @@ To move data to/from a data store that Data Factory does not support, or to tran
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [(Custom) DotNet Activity in Data Factory version 1](v1/data-factory-use-custom-activities.md).
- 
+
 
 See following articles if you are new to Azure Batch service:
 
@@ -108,6 +108,9 @@ The following table describes names and descriptions of properties that are spec
 | folderPath            | Path to the folder of the custom application and all its dependencies | No       |
 | referenceObjects      | An array of existing Linked Services and Datasets. The referenced Linked Services and Datasets are passed to the custom application in JSON format so your custom code can reference resources of the Data Factory | No       |
 | extendedProperties    | User-defined properties that can be passed to the custom application in JSON format so your custom code can reference additional properties | No       |
+
+> [!NOTE]
+> From September 1, 2018, linked service containing secrets/ secure strings are not recommended to be passed as referenced objects to the custom activity.  We will be allowing only [Azure Key Vault enabled linked services](store-credentials-in-key-vault) to be passed as referenced objects in the future. Please refer to a [Custom activity sample using AKV enabled linked service](https://github.com/nabhishek/customactivity_sample/tree/linkedservice). 
 
 ## Executing commands
 
@@ -212,6 +215,10 @@ namespace SampleApp
             // From LinkedServices
             dynamic linkedServices = JsonConvert.DeserializeObject(File.ReadAllText("linkedServices.json"));
             Console.WriteLine(linkedServices[0].properties.typeProperties.accountName);
+            
+            // Send an output to ADF to be consumed by donwstream activities - outputs.json
+            string someJSON = "{\"Name\":\"someName\",\"Value\":\"someValue\"}";
+            File.WriteAllText("outputs.json", someJSON );
         }
     }
 }
@@ -276,8 +283,16 @@ namespace SampleApp
   "outputs": [
     "https://shengcstorbatch.blob.core.windows.net/adfjobs/<GUID>/output/stdout.txt",
     "https://shengcstorbatch.blob.core.windows.net/adfjobs/<GUID>/output/stderr.txt"
-  ]
-  "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)"
+  ],
+    "customOutput": {
+        "Name": "someName",
+        "Value": "someValue"
+    },
+     "computeInformation": "{\"account\":\"abaccount\",\"poolName\":\"batch_pool\",\"vmSize\":\"standard_a1\"}",
+  "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)",
+   "executionDuration": 38486
+   
+  
   Activity Error section:
   "errorCode": ""
   "message": ""
@@ -285,6 +300,8 @@ namespace SampleApp
   "target": "MyCustomActivity"
   ```
 If you would like to consume the content of stdout.txt in downstream activities, you can get the path to the stdout.txt file in expression "\@activity('MyCustomActivity').output.outputs[0]". 
+
+To access the **custom output** from your custom code by writing the **outputs.json** file, use expression "\@activity('MyCustomActivity').output.customOutput". In above case, if you would like to access the 'Name' property from your custom output, then use "\@activity('MyCustomActivity').output.customOutput.Name".
 
   > [!IMPORTANT]
   > - The activity.json, linkedServices.json, and datasets.json are stored in the runtime folder of the Batch task. For this example, the activity.json, linkedServices.json, and datasets.json are stored in "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" path. If needed, you need to clean them up separately. 
