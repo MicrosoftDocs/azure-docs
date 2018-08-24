@@ -51,11 +51,11 @@ Your training script isn't tied to a specific compute target. You can train init
 ## Set up Compute Using the SDK
 The Azure Machine Learning SDK allows you to create and attach certain compute types to run experiments on. You can reference the SDK commands [here]().
 
-## Train Experiment on Local environment
+### Train Experiment on Local environment
 
 You can start training an experiment locally on small datasets and then scale up and out as they become more complex and require more compute power. You can run locally through user-managed and system-managed environments. 
 
-### User-Managed Environment
+#### User-Managed Environment
 In a user-managed environment, you are responsible for ensuring that all the necessary packages are available in the Python environment you choose to run the script in. 
 
 1. Start by creating a local run config
@@ -86,7 +86,7 @@ In a user-managed environment, you are responsible for ensuring that all the nec
   # Shows output of the run on stdout.
   run.wait_for_completion(show_output = True)
   ```
-### System-Managed Environment
+#### System-Managed Environment
 Before submitting to a remote compute target, you will need to create a conda dependencies file with packages you need for the training script to complete. You can then ask the system to build a new conda environment and execute your scripts in it. The environment is built once and can be reused later as long as the conda_dependencies.yml files remains unchanged. You can then submit the experiment the same way as in the user-managed example. Setting up the new environment might take up to 5 minutes the first time the command is run.
 
   ```python
@@ -120,7 +120,7 @@ Submit the script to run in the system-managed environment. The whole project fo
   run.wait_for_completion(show_output = True)
   ```
 
-## Train Experiment on Data Science Virtual Machine
+### Train Experiment on Data Science Virtual Machine
 
 In some cases, resources available on your local machine may not be enough to train the desired model. In this situation, You can easily scale up or scale out your machine learning experiment by adding additional compute targets such as Ubuntu-based Data Science Virtual Machines (DSVM).
 
@@ -183,7 +183,7 @@ In some cases, resources available on your local machine may not be enough to tr
   run.wait_for_completion(show_output = True)
   ```
 
-## Create Azure Batch AI Compute
+### Create Azure Batch AI Compute
 
 The following example looks for an existing Batch AI compute, and creates a new one if it is not found. The `compute_target` object can be used to submit your project for training. You can use this method of searching for existing compute targets for Virtual Machines as well. 
 
@@ -220,7 +220,7 @@ except ComputeTargetException:
 
 For more information on using the BatchAiCompute object, see [tbd]. 
 
-## Create an Azure Container Instance (ACI)
+### Create an Azure Container Instance (ACI)
 Azure Container Instances are isolated containers that have faster startup times and do not require the user to manage any Virtual Machines. They are good for scenarios that can operate in isolated containers, including simple applications, task automation, and build jobs. The following example shows how to Create an ACI compute target and a runconfig to execute the training script on. 
 
 ```python
@@ -265,7 +265,7 @@ cd.add_conda_package('scikit-learn')
 cd.save_to_file(project_dir = project_folder, conda_file_path = run_config.environment.python.conda_dependencies_file)
 ```
 
-## Attach an HDInsight Cluster
+### Attach an HDInsight Cluster using the SDK
 HDInsight is a popular platform for big-data analytics supporting Apache Spark. To use an HDInsight compute target:
 - Create a Spark for HDInsight cluster in Azure following [this](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) guide.  Make sure you use the Ubuntu version, __NOT__ CentOS.
 - Enter the IP address, username and password in the example below
@@ -293,7 +293,7 @@ HDInsight is a popular platform for big-data analytics supporting Apache Spark. 
 ## Set up Compute Using the CLI
 You can also create and attach compute targets from the CLI. You can reference the CLI commands [here](). After you attach your project to the local folder, you can provision compute and submit a training script to the new targets.
 
-## DSVM
+### Set Up DSVM Using the CLI
 
 1. Provision DSVM compute target
   ```az ml computetarget setup dsvm -n mydsvm -w <workspacename> -g <resource-group>```
@@ -311,14 +311,15 @@ You can also create and attach compute targets from the CLI. You can reference t
 4. View results 
   ```az ml history last```
 
-## BatchAI
+### Set up BatchAI Using the CLI
 1. Provision BatchAI compute target
     ```az ml computetarget setup batach -n mybaicluster -w <workspace-name> -g <resource-group> --autoscale-enables --autoscale-max-nodes 1 --autoscale-min-nodes 1 -s STANDARD_D2_V2```
 2. Check the status of deployment 
     ```az ml computetarget show -n mybaicluster -w <workspace-name> -g <resource-group>```
 3. Create a runconfig file based on this example. Be sure to change the target name and framework:
 
-    ```# The script to run.
+    ```
+        # The script to run.
         script: <train.py>
         # The arguments to the script file.
         arguments: []
@@ -427,7 +428,33 @@ You can also create and attach compute targets from the CLI. You can reference t
 6. View results 
   ```az ml history last```
 
-## Set up Compute Using the Web Portal
+## Set up Compute Using the Web Portal ***NEED IMAGES***
+
+### Create Compute 
+1. Visit the web portal and navigate to your workspace.
+2. Click on the Compute link under the Applications secion.
+3. Click the + sign to add compute
+4. Enter a name for the compute target.
+5. Select the type of compute to attach for Training. Batch AI and DSVM are currently supported in the portal.
+6. Select 'Create New' and fill out the required forms.
+7. You can view the status of the provisioning state by selecting the compute target from the list of Computes.
+8. Now you can submit a run against these targets.
+
+### Reuse existing compute in your workspace
+The Web Portal makes it easy to attach existing compute targets from your subscription. Please note, the SDK and CLI are limited to only showing computes at the workspace level.
+1. Visit the web portal and navigate to your workspace.
+2. Click on the Compute link under the Applications secion.
+3. Click the + sign to add compute
+4. Enter a name for the compute target.
+5. Select the type of compute to attach for Training. Batch AI and DSVM are currently supported in the portal.
+6. Select 'Use Existing'.
+    - When attaching Batch AI clusters, select the compute target from the dropdown and click Create.
+    - When attaching a DSVM, please enter the IP Address, Username/Password Combination, Private/Public Keys, and the Port and click Create.
+7. You can view the status of the provisioning state by selecting the compute target from the list of Computes.
+8. Now you can submit a run against these targets.
+
+### Reuse existing compute in the SDK
+
 
 ## Next steps
 * [What is Azure Machine Learning service](overview-what-is-azure-ml.md)
