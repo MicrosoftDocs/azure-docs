@@ -42,7 +42,7 @@ The following is a list of supported compute targets:
 The workflow for developing and deploying a model with Azure Machine Learning follows these steps:
 
 1. Develop machine learning training scripts in Python.
-1. Create and configure a compute target.
+1. Create and configure or attach an existing compute target.
 1. Submit the scripts to the compute target.
 1. Inspect the run history to find the best model.
 1. Register the model in the model registry.
