@@ -470,7 +470,7 @@ Virtual networks are necessary to support communications between virtual machine
 
 An Azure virtual network, by default, is accessible only to resources stored in Azure. Resources connected to the same virtual network can communicate with each other. You can associate virtual machine network interfaces and load balancers with a public IP address to make the virtual machine accessible over the Internet. You can help secure access to the publicly exposed resources by using a network security group.
 
-![Azure Virtual Network for a 2-tier Web Application](https://docs.microsoft.com/en-us/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
+![Azure Virtual Network for a 2-tier Web Application](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
 
 **Hybrid virtual networks**
 
@@ -482,7 +482,7 @@ There are several options for deploying a virtual network.
 - [Portal](../..//virtual-network/quick-create-portal.md)
 - [PowerShell](../../virtual-network/quick-create-powershell.md)
 - [Command-Line Interface (CLI)](../../virtual-network/quick-create-cli.md)
-- Azure Resource Manager (ARM) Templates
+- Azure Resource Manager Templates
 
 >**When to use**: Anytime you are working with VMs in Azure, you will work with virtual networks. This allows for segmenting your VMs into public-facing and private subnets similar on-premises datacenters. 
 
