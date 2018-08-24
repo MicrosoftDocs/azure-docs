@@ -15,23 +15,23 @@ ms.date: 08/25/2018
 
 # Monitor and manage Wunderlist by using Azure Logic Apps
 
-Wunderlist is a todo list and task manager to help users complete their tasks.  Whether you’re sharing a grocery list, working on a project, or planning a vacation, Wunderlist makes it easy to capture, share, and complete your list items. Wunderlist instantly syncs between your phone, tablet, and computer, so you can access all your tasks from anywhere.
-
 With Azure Logic Apps and the Wunderlist connector, 
 you can create automated tasks and workflows that monitor 
 and manage todo lists, tasks, reminders, and more in your 
-Wunderliest account, along with other actions, for example:
+Wunderlist account, along with other actions, for example:
 
 * Monitor when new tasks get created, when tasks are due, or reminders happen.
 * Create and manage lists, notes, tasks, subtasks, and more.
 * Set reminders.
 * Get lists, tasks, subtasks, reminders, files, notes, comments, and more.
 
-You can use triggers that get responses from your Wunderlist account and 
-make the output available to other actions. You can use actions that 
-perform tasks with your Wunderlist account. You can also have other actions 
-use the output from Wunderlist actions. For example, when new tasks are due, 
-you can send messages with the Slack connector. 
+[Wunderlist](https://www.wunderlist.com/) is a service that helps you 
+manage and finish your todo lists and tasks - on any device, anywhere. 
+You can use triggers that get responses from your Wunderlist account 
+and make the output available to other actions. You can use actions 
+that perform tasks with your Wunderlist account. You can also have 
+other actions use the output from Wunderlist actions. For example, 
+when new tasks are due, you can post messages with the Slack connector. 
 If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## Prerequisites
