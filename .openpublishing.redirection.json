@@ -27336,6 +27336,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/networking/networking-virtual-datacenter.md",
+            "redirect_url": "/azure/architecture/vdc/networking-virtual-datacenter",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/security-center/security-center-disk-encryption.md",
             "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
             "redirect_document_id": false
