@@ -55,7 +55,7 @@ You can create web apps, mobile app back ends, and API apps.
 
 Because all three app types share the App Service runtime, you can host a website, support mobile clients, and expose your APIs in Azure, all from the same project or solution. To learn more about App Service, see [What is Azure Web Apps](../../app-service/app-service-web-overview.md).
 
-App Service has been designed with DevOps in mind. It supports various tools for publishing and continuous integration deployments, including GitHub webhooks, Jenkins, Visual Studio Team Services, TeamCity, and others.
+App Service has been designed with DevOps in mind. It supports various tools for publishing and continuous integration deployments, including GitHub webhooks, Jenkins, Azure DevOps, TeamCity, and others.
 
 You can migrate your existing applications to App Service by using the [online migration tool](https://www.migratetoazure.net/).
 
@@ -183,7 +183,7 @@ With your application up and running in Azure, you need to be able to monitor pe
 
 ### DevOps integration
 
-Whether it's provisioning VMs or publishing your web apps with continuous integration, Azure integrates with most of the popular DevOps tools. With support for tools like Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, VSTS, and others, you can work with the tools that you already have and maximize your existing experience.
+Whether it's provisioning VMs or publishing your web apps with continuous integration, Azure integrates with most of the popular DevOps tools. With support for tools like Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, Azure DevOps, and others, you can work with the tools that you already have and maximize your existing experience.
 
 >**Try it now:** [Try out several of the DevOps integrations](https://azure.microsoft.com/try/devops/).
 

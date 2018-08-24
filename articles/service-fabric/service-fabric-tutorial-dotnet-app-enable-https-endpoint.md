@@ -37,7 +37,7 @@ In this tutorial series you learn how to:
 > * [Build a .NET Service Fabric application](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Add an HTTPS endpoint to an ASP.NET Core front-end service
-> * [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configure CI/CD using Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Prerequisites
@@ -438,7 +438,7 @@ In this part of the tutorial, you learned how to:
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> [Configure CI/CD using Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 [image1]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/SetupBatProperties.png
 [image2]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppLocal.png

@@ -27,13 +27,13 @@
       href: create-data-warehouse-portal.md
     - name: PowerShell
       href: create-data-warehouse-powershell.md
-  - name: Pause and resume compute
+  - name: Pause and resume
     items:
     - name: Portal
       href: pause-and-resume-compute-portal.md
     - name: PowerShell
       href: pause-and-resume-compute-powershell.md
-  - name: Scale compute
+  - name: Grow and shrink
     items:
     - name: Portal
       href: quickstart-scale-compute-portal.md
@@ -135,13 +135,13 @@
         href: sql-data-warehouse-develop-variable-assignment.md
       - name: Views
         href: sql-data-warehouse-develop-views.md
-  - name: Workload Management
+  - name: Workload management
     items:
     - name: Resource classes & workload management
       href: resource-classes-for-workload-management.md
     - name: Memory & concurrency limits
       href: memory-and-concurrency-limits.md
-  - name: Manageability & Monitoring
+  - name: Manageability & monitoring
     items:
     - name: Query Activity & Resource Utilization  
       href: sql-data-warehouse-manage-monitor.md
@@ -177,7 +177,7 @@
       href: sql-data-warehouse-encryption-tde-tsql.md
     - name: Threat detection
       href: sql-data-warehouse-security-threat-detection.md
-  - name: Load Data
+  - name: Load data
     items:
     - name: New York taxi cab data
       href: load-data-from-azure-blob-storage-using-polybase.md
@@ -207,11 +207,11 @@
       href: sql-data-warehouse-query-visual-studio.md
     - name: Install Visual studio
       href: sql-data-warehouse-install-visual-studio.md
-  - name: Tune Workload
+  - name: Manage workload
     items:
     - name: Analyze your workload
       href: analyze-your-workload.md    
-  - name: Manage and Monitor
+  - name: Monitor and tune
     items:
     - name: Restore - Portal
       href: sql-data-warehouse-restore-database-portal.md

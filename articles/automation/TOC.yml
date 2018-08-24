@@ -169,7 +169,7 @@
           href: automation-scenario-remove-resourcegroup.md
         - name: Source control integration with GitHub Enterprise
           href: automation-scenario-source-control-integration-with-github-ent.md
-        - name: Source control integration with VSTS
+        - name: Source control integration with Azure DevOps
           href: automation-scenario-source-control-integration-with-VSTS.md
         - name: Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
           href: automation-deploy-template-runbook.md

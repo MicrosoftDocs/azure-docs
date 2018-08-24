@@ -124,7 +124,7 @@ Run the following bash command to install Git on Linux (CentOS) machines:
 
 ### Generate public SSH key on Linux (CentOS) machines
 
-If you are using Linux (CentOS) machines to run the git commands, you need to add the public SSH key of your machine to your VSTS server, so that this machine is recognized by the VSTS server. First, you need to generate a public SSH key and add the key to SSH public keys in your VSTS security setting page. 
+If you are using Linux (CentOS) machines to run the git commands, you need to add the public SSH key of your machine to your Azure DevOps server, so that this machine is recognized by the Azure DevOps server. First, you need to generate a public SSH key and add the key to SSH public keys in your Azure DevOps security setting page. 
 
 - To generate the SSH key, run the following two commands: 
 
@@ -134,7 +134,7 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 ![](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Copy the entire ssh key including *ssh-rsa*. 
-- Log in to your VSTS server. 
+- Log in to your Azure DevOps server. 
 - Click **<Your Name\>** at the top right corner of the page and click **security**. 
 	
 	![](./media/platforms-and-tools/resources-2-user-setting.png)

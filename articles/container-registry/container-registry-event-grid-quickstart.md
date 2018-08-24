@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 08/23/2018
 ms.author: marsma
 # Customer intent: As a container registry owner, I want to send events to Event Grid
 # when container images are pushed to or deleted from my container registry so that
@@ -83,7 +83,7 @@ SITE_NAME=<your-site-name>
 
 az group deployment create \
     --resource-group $RESOURCE_GROUP_NAME \
-    --template-uri "https://raw.githubusercontent.com/dbarkol/azure-event-grid-viewer/master/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
 ```
 
