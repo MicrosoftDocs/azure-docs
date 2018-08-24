@@ -46,11 +46,13 @@ In [Use Notification Hubs to send breaking news], you built an app that used **t
 
 At a high level, templates are a way to specify how a specific device should receive a notification. The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end. In your case, you send a locale-agnostic message containing all supported languages:
 
-    {
-        "News_English": "...",
-        "News_French": "...",
-        "News_Mandarin": "..."
-    }
+```json
+{
+    "News_English": "...",
+    "News_French": "...",
+    "News_Mandarin": "..."
+}
+```
 
 Then you ensure that devices register with a template that refers to the correct property. For instance,  an iOS app that wants to register for French news registers using the following syntax:
 
@@ -67,7 +69,7 @@ For more information on templates, see [Templates](notification-hubs-templates-c
 ## Prerequisites
 
 - Complete the [Push notifications to specific iOS devices](notification-hubs-ios-xplat-segmented-apns-push-notification.md) tutorial and have the code available, because this tutorial builds directly upon that code.
-- Visual Studio 2012 or later is optional.
+- Visual Studio 2017 is optional.
 
 ## Update the app user interface
 
@@ -149,7 +151,7 @@ Then make sure to add an IBOutlet in your ViewController.h as shown in the follo
 2. Now that you modified the Notifications class, you have to make sure that the ViewController makes use of the new UISegmentControl. Add the following line in the *viewDidLoad* method to make sure to show the locale that is currently selected:
 
     ```objc
-        self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
+    self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
     ```
 
     Then, in your *subscribe* method, change your call to the *storeCategoriesAndSubscribe* to the following code:
@@ -187,70 +189,70 @@ Then make sure to add an IBOutlet in your ViewController.h as shown in the follo
 
 If you don't have access to Visual Studio, or want to just test sending the localized template notifications directly from the app on the device. You can add the localized template parameters to the `SendNotificationRESTAPI` method you defined in the previous tutorial.
 
-    ```objc
-    - (void)SendNotificationRESTAPI:(NSString*)categoryTag
-    {
-        NSURLSession* session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration
-                                    defaultSessionConfiguration] delegate:nil delegateQueue:nil];
+```objc
+- (void)SendNotificationRESTAPI:(NSString*)categoryTag
+{
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration
+                                defaultSessionConfiguration] delegate:nil delegateQueue:nil];
 
-        NSString *json;
+    NSString *json;
 
-        // Construct the messages REST endpoint
-        NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint,
-                                            HUBNAME, API_VERSION]];
+    // Construct the messages REST endpoint
+    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint,
+                                        HUBNAME, API_VERSION]];
 
-        // Generated the token to be used in the authorization header.
-        NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
+    // Generated the token to be used in the authorization header.
+    NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
 
-        //Create the request to add the template notification message to the hub
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-        [request setHTTPMethod:@"POST"];
+    //Create the request to add the template notification message to the hub
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"POST"];
 
-        // Add the category as a tag
-        [request setValue:categoryTag forHTTPHeaderField:@"ServiceBusNotification-Tags"];
+    // Add the category as a tag
+    [request setValue:categoryTag forHTTPHeaderField:@"ServiceBusNotification-Tags"];
 
-        // Template notification
-        json = [NSString stringWithFormat:@"{\"messageParam\":\"Breaking %@ News : %@\","
-                \"News_English\":\"Breaking %@ News in English : %@\","
-                \"News_French\":\"Breaking %@ News in French : %@\","
-                \"News_Mandarin\":\"Breaking %@ News in Mandarin : %@\","
-                categoryTag, self.notificationMessage.text,
-                categoryTag, self.notificationMessage.text,  // insert English localized news here
-                categoryTag, self.notificationMessage.text,  // insert French localized news here
-                categoryTag, self.notificationMessage.text]; // insert Mandarin localized news here
+    // Template notification
+    json = [NSString stringWithFormat:@"{\"messageParam\":\"Breaking %@ News : %@\","
+            \"News_English\":\"Breaking %@ News in English : %@\","
+            \"News_French\":\"Breaking %@ News in French : %@\","
+            \"News_Mandarin\":\"Breaking %@ News in Mandarin : %@\","
+            categoryTag, self.notificationMessage.text,
+            categoryTag, self.notificationMessage.text,  // insert English localized news here
+            categoryTag, self.notificationMessage.text,  // insert French localized news here
+            categoryTag, self.notificationMessage.text]; // insert Mandarin localized news here
 
-        // Signify template notification format
-        [request setValue:@"template" forHTTPHeaderField:@"ServiceBusNotification-Format"];
+    // Signify template notification format
+    [request setValue:@"template" forHTTPHeaderField:@"ServiceBusNotification-Format"];
 
-        // JSON Content-Type
-        [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    // JSON Content-Type
+    [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 
-        //Authenticate the notification message POST request with the SaS token
-        [request setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
+    //Authenticate the notification message POST request with the SaS token
+    [request setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
 
-        //Add the notification message body
-        [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
+    //Add the notification message body
+    [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
 
-        // Send the REST request
-        NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
-                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+    // Send the REST request
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
+                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+        {
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+            if (error || httpResponse.statusCode != 200)
             {
-            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-                if (error || httpResponse.statusCode != 200)
-                {
-                    NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
-                }
-                if (data != NULL)
-                {
-                    //xmlParser = [[NSXMLParser alloc] initWithData:data];
-                    //[xmlParser setDelegate:self];
-                    //[xmlParser parse];
-                }
-            }];
+                NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
+            }
+            if (data != NULL)
+            {
+                //xmlParser = [[NSXMLParser alloc] initWithData:data];
+                //[xmlParser setDelegate:self];
+                //[xmlParser parse];
+            }
+        }];
 
-        [dataTask resume];
-    }
-    ```
+    [dataTask resume];
+}
+```
 
 ## Next steps
 
