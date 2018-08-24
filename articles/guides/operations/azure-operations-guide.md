@@ -14,7 +14,7 @@ ms.devlang:
 ms.topic:
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 08/21/2018
+ms.date: 08/24/2018
 ms.author: mibender
 ---
 
@@ -464,44 +464,29 @@ If you need to allow users to have controlled access to your storage resources, 
 
 ## Azure Virtual Network
 
-
-Virtual networks are necessary to support communications between virtual machines. You can define subnets, custom IP address, DNS settings, security filtering, and load balancing. By using a VPN gateway or an ExpressRoute circuit, you can connect Azure virtual networks to your on-premises networks.
-
-### Use cases
-
-There are different use cases for Azure networking.
+Virtual networks are necessary to support communications between virtual machines. You can define subnets, custom IP address, DNS settings, security filtering, and load balancing. Azure supports different uses cases: cloud-only networks or hybrid virtual networks. 
 
 **Cloud-only virtual networks**
 
 An Azure virtual network, by default, is accessible only to resources stored in Azure. Resources connected to the same virtual network can communicate with each other. You can associate virtual machine network interfaces and load balancers with a public IP address to make the virtual machine accessible over the Internet. You can help secure access to the publicly exposed resources by using a network security group.
 
-**Cross-premises virtual networks**
+![Azure Virtual Network for a 2-tier Web Application](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
+
+**Hybrid virtual networks**
 
 You can connect an on-premises network to an Azure virtual network by using ExpressRoute or a site-to-site VPN connection. In this configuration, the Azure virtual network is essentially a cloud-based extension of your on-premises network.
+![Hybrid Virtual Network using VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 Because the Azure virtual network is connected to your on-premises network, cross-premises virtual networks must use a unique portion of the address space that your organization uses. In the same way that different corporate locations are assigned a specific IP subnet, Azure becomes another location as you extend your network.
-
-### Deploying a virtual network
-
 There are several options for deploying a virtual network.
+- [Portal](../..//virtual-network/quick-create-portal.md)
+- [PowerShell](../../virtual-network/quick-create-powershell.md)
+- [Command-Line Interface (CLI)](../../virtual-network/quick-create-cli.md)
+- Azure Resource Manager Templates
 
-**Portal**
+>**When to use**: Anytime you are working with VMs in Azure, you will work with virtual networks. This allows for segmenting your VMs into public-facing and private subnets similar on-premises datacenters. 
 
-Deploying an Azure virtual network by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new virtual network into a new or existing resource group. When you’re creating a new virtual machine from the portal, you can select an existing virtual network or create a new one. For more information, see [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
-
-In addition to deploying an Azure virtual network from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template, including any virtual network resources. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
-
-**PowerShell**
-
-Deploying an Azure virtual network by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Create a virtual network by using PowerShell](../../virtual-network/quick-create-powershell.md).
-
-In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
-
-**Command-line interface (CLI)**
-
-As with the PowerShell module, the Azure command-line interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **network vnet create** command to create a virtual network. For more information, see [Create a virtual network by using the Azure CLI](../../virtual-network/quick-create-cli.md).
-
-Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md).
+>**Get started**: Deploying an Azure virtual network by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new virtual network into a new or existing resource group. When you’re creating a new virtual machine from the portal, you can select an existing virtual network or create a new one. Get started and [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
 
 ### Access and security for virtual networks
 
