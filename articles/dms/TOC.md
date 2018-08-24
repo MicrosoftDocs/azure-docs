@@ -5,7 +5,8 @@
 ## [Create Service - Portal](quickstart-create-data-migration-service-portal.md)
 
 # Tutorials
-## [Migrate SQL Server to Azure SQL DB](tutorial-sql-server-to-azure-sql.md)
+## [Migrate SQL Server to Azure SQL DB offline](tutorial-sql-server-to-azure-sql.md)
+## [Migrate SQL Server to Azure SQL DB online](tutorial-sql-server-azure-sql-online.md)
 ## [Migrate SQL Server to Azure SQL DB Managed Instance](tutorial-sql-server-to-managed-instance.md)
 
 # How-to guides
