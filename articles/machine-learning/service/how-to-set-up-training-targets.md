@@ -264,14 +264,14 @@ You can also create and attach compute targets from the CLI. You can reference t
 ## DSVM
 
 - Provision DSVM compute target
-```az ml computetarget setup dsvm -n <computetarget name> -w <workspacename> -g <resource-group>```
+```az ml computetarget setup dsvm -n mydsvm -w <workspacename> -g <resource-group>```
 - Prepare compute by creating a run config (This step can take a few minutes)
 ```
 # create runconfiguration
-az ml runconfiguration create -n dsvmrun -t dsvm
+az ml runconfiguration create -n dsvmrun -t mydsvm
 
 # prepare run
-#az ml experiment prepare -c dsvm -d aml_config/conda_dependencies.yml
+#az ml experiment prepare -c dsvmrun -d aml_config/conda_dependencies.yml
 az ml run prepare -c dsvmrun -d aml_config/conda_dependencies.yml
 ```
 - Run experiment against the DSVM
@@ -284,9 +284,9 @@ az ml run prepare -c dsvmrun -d aml_config/conda_dependencies.yml
 ```az ml computetarget setup batach -n mybaicluster -w <workspace-name> -g <resource-group> --autoscale-enables --autoscale-max-nodes 1 --autoscale-min-nodes 1 -s STANDARD_D2_V2```
 - Check the status of deployment
 ```az ml computetarget show -n mybaicluster -w <workspace-name> -g <resource-group>```
-- Create a runconfig file based on this example. Be sure to change the target:
+- Create a runconfig file based on this example. Be sure to change the target name and framework:
 ```# The script to run.
-script: train.py
+script: <train.py>
 # The arguments to the script file.
 arguments: []
 # The name of the compute target to use for this run.
