@@ -1,5 +1,5 @@
 ---
-title: Automatically train a classification model with Azure Automated Machine Learning service
+title: "Tutorial: Automatically train a classification model with Azure Automated Machine Learning service"
 description: In this tutorial, you'll learn how to automatically generate a tuned machine learning model which can then be deployed with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
