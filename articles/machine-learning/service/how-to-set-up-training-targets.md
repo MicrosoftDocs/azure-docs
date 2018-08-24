@@ -89,36 +89,36 @@ In a user-managed environment, you are responsible for ensuring that all the nec
 ### System-Managed Environment
 Before submitting to a remote compute target, you will need to create a conda dependencies file with packages you need for the training script to complete. You can then ask the system to build a new conda environment and execute your scripts in it. The environment is built once and can be reused later as long as the conda_dependencies.yml files remains unchanged. You can then submit the experiment the same way as in the user-managed example. Setting up the new environment might take up to 5 minutes the first time the command is run.
 
-```python
-from azureml.core.conda_dependencies import CondaDependencies
+  ```python
+  from azureml.core.conda_dependencies import CondaDependencies
 
-# Editing a run configuration property on-fly.
-run_config = RunConfiguration.load(project_object = project, run_config_name = "local")
+  # Editing a run configuration property on-fly.
+  run_config = RunConfiguration.load(project_object = project, run_config_name = "local")
 
-# Use a new conda environment that is to be created from the conda_dependencies.yml file
-run_config.environment.python.user_managed_dependencies = False
+  # Use a new conda environment that is to be created from the conda_dependencies.yml file
+  run_config.environment.python.user_managed_dependencies = False
 
-# Automatically create the conda environment before the run
-run_config.prepare_environment = True
+  # Automatically create the conda environment before the run
+  run_config.prepare_environment = True
 
-# add scikit-learn to the conda_dependencies.yml file
-cd = CondaDependencies()
-cd.add_conda_package('scikit-learn')
-cd.save_to_file(project_dir = project_folder, conda_file_path = run_config.environment.python.conda_dependencies_file)
-```
+  # add scikit-learn to the conda_dependencies.yml file
+  cd = CondaDependencies()
+  cd.add_conda_package('scikit-learn')
+  cd.save_to_file(project_dir = project_folder, conda_file_path = run_config.environment.python.conda_dependencies_file)
+  ```
 Submit the script to run in the system-managed environment. The whole project folder is actually submitted for execution.
 
-```python
-%%time 
-from azureml.core.run import Run
+  ```python
+  %%time 
+  from azureml.core.run import Run
 
-run = Run.submit(project_object = project,
-                 run_config = run_config,
-                 script_to_run = 'train.py')
+  run = Run.submit(project_object = project,
+                   run_config = run_config,
+                   script_to_run = 'train.py')
 
-# Shows output of the run on stdout.
-run.wait_for_completion(show_output = True)
-```
+  # Shows output of the run on stdout.
+  run.wait_for_completion(show_output = True)
+  ```
 
 ## Train Experiment on Data Science Virtual Machine
 
@@ -222,6 +222,7 @@ For more information on using the BatchAiCompute object, see [tbd].
 
 ## Create an Azure Container Instance (ACI)
 Azure Container Instances are isolated containers that have faster startup times and do not require the user to manage any Virtual Machines. They are good for scenarios that can operate in isolated containers, including simple applications, task automation, and build jobs. The following example shows how to Create an ACI compute target and a runconfig to execute the training script on. 
+
 ```python
 # Create a new compute target to train on Azure Container Instances (ACI)
 from azureml.core.runconfig import RunConfiguration
@@ -268,26 +269,26 @@ cd.save_to_file(project_dir = project_folder, conda_file_path = run_config.envir
 HDInsight is a popular platform for big-data analytics supporting Apache Spark. To use an HDI compute target:
 - Create a Spark for HDI cluster in Azure following [this](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) guide.  Make sure you use the Ubuntu version, __NOT__ CentOS.
 - Enter the IP address, username and password in the example below
-```python
-from azureml.core.compute_target import HDIClusterTarget
+  ```python
+  from azureml.core.compute_target import HDIClusterTarget
 
-try:
-    # Attaches a HDI cluster as a compute target.
-    project.attach_legacy_compute_target(HDIClusterTarget(name = "myhdi",
-                                                          address = "<IP Address>", 
-                                                          username = "<username>", 
-                                                          password = "<pwd>"))
-except UserErrorException as e:
-    print("Caught = {}".format(e.message))
-    print("Compute config already attached.")
+  try:
+      # Attaches a HDI cluster as a compute target.
+      project.attach_legacy_compute_target(HDIClusterTarget(name = "myhdi",
+                                                            address = "<IP Address>", 
+                                                            username = "<username>", 
+                                                            password = "<pwd>"))
+  except UserErrorException as e:
+      print("Caught = {}".format(e.message))
+      print("Compute config already attached.")
 
-# Configure HDI run
-# load the runconfig object from the "myhdi.runconfig" file generated by the attach operaton above.
-run_config = RunConfiguration.load(project_object = project, run_config_name = 'myhdi')
+  # Configure HDI run
+  # load the runconfig object from the "myhdi.runconfig" file generated by the attach operaton above.
+  run_config = RunConfiguration.load(project_object = project, run_config_name = 'myhdi')
 
-# ask system to prepare the conda environment automatically when executed for the first time
-run_config.prepare_environment = True
-```
+  # ask system to prepare the conda environment automatically when executed for the first time
+  run_config.prepare_environment = True
+  ```
 
 ## Set up Compute Using the CLI
 You can also create and attach compute targets from the CLI. You can reference the CLI commands [here](). After you attach your project to the local folder, you can provision compute and submit a training script to the new targets.
