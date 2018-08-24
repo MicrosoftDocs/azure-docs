@@ -7,7 +7,7 @@ services: service-fabric-mesh
 keywords: Don’t add or edit keywords without consulting your SEO champ. 
 author: rwike77
 ms.author: ryanwi
-ms.date: 07/12/2018
+ms.date: 08/24/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt 
