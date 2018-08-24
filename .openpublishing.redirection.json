@@ -25617,6 +25617,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/data-lake-storage/index.md",
+            "redirect_url": "/azure/storage/data-lake-storage/introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/dev-spaces/index.md",
             "redirect_url": "/azure/dev-spaces/azure-dev-spaces",
             "redirect_document_id": false
