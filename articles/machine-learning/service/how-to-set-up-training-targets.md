@@ -317,7 +317,7 @@ You can also create and attach compute targets from the CLI. You can reference t
 2. Check the status of deployment 
     ```az ml computetarget show -n mybaicluster -w <workspace-name> -g <resource-group>```
 3. Create a runconfig file based on this example. Be sure to change the target name and framework:
-      ```# The script to run.
+  ```# The script to run.
       script: <train.py>
       # The arguments to the script file.
       arguments: []
