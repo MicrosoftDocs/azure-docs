@@ -93,7 +93,7 @@
       href: batch-task-dependencies.md
     - name: User accounts for running tasks
       href: batch-user-accounts.md
-    - name: Submit large numbers of tasks
+    - name: Submit a large number of tasks
       href: large-number-tasks.md
   - name: Persist job and task output
     href: batch-task-output.md
