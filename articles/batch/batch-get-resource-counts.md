@@ -57,14 +57,6 @@ The Get Task Counts operation returns task states in the system at a point in ti
 
 Batch Service API versions before 2018-08-01.7.0 also return a `validationStatus` property in the Get Task Counts response. This property indicates whether Batch checked the state counts against the states reported in the List Tasks API. A value of `validated` indicates only that the Batch service performed this consistency check. The Batch Service does not perform the consistency check if the job contains more than 200,000 tasks, and the `validationStatus` is always reported as `unvalidated` in this case. 
 
-### Consistency checking for task counts
-
-Batch provides additional validation for task state counts by performing consistency checks against multiple components of the system. In the unlikely event that the consistency check finds errors, Batch corrects the result of the Get Tasks Counts operation based on the results of the consistency check.
-
-The `validationStatus` property in the response indicates whether Batch performed the consistency check. If Batch hasn't checked state counts against the actual states held in the system, then the `validationStatus` property is set to `unvalidated`. For performance reasons, Batch doesn't perform the consistency check if the job includes more than 200,000 tasks, so the `validationStatus` property is set to `unvalidated` in this case. (The task count is not necessarily wrong in this case, as even a limited data loss is unlikely.) 
-
-When a task changes state, the aggregation pipeline processes the change within a few seconds. The Get Task Counts operation reflects the updated task counts within that period. However, if the aggregation pipeline misses a change in a task state, then that change is not registered until the next validation pass. During this time, task counts may be slightly inaccurate due to the missed event, but they are corrected on the next validation pass.
-
 ## Node state counts
 
 The List Pool Node Counts operation counts compute nodes by the following states in each pool. Separate aggregate counts are provided for dedicated nodes and low-priority nodes in each pool.
