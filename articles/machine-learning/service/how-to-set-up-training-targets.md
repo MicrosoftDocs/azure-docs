@@ -385,16 +385,14 @@ containerInstance:
 # Azure region for the container; defaults to the same as workspace.
   region:
 # data reference configuration details
-dataReferences: {}```
+dataReferences: {}
+```
 - Prepare Compute
 ```az ml run prepare -c mybaicluster```
 - Run experiment against the DSVM
 ```az ml run submit -c mybaicluster train.py```
 -View results 
 ```az ml history last`
-
-
-
 
 # Provision Compute Using the Web Portal
 
