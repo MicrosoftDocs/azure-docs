@@ -177,7 +177,7 @@ For information about how to use RBAC with Azure Stack, see the following articl
 Details about using Azure PowerShell to authenticate with Azure Stack can be found at [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md).
 
 ### Authenticate with Azure CLI
-For information about using Azure PowerShell to authenticate with Azure Stack, see [Install and configure Azure CLI for use with Azure Stack](/azure/azure-stack/user/azure-stack-connect-cli.md).
+For information about using Azure PowerShell to authenticate with Azure Stack, see [Install and configure Azure CLI for use with Azure Stack](/azure/azure-stack/user/azure-stack-connect-cli).
 
 ## Next steps
 - [Identity architecture](azure-stack-identity-architecture.md)   
