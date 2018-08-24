@@ -57,7 +57,7 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
     
     By default, Load Balancer uses a 5-tuple hash composed of source IP address, source port, destination IP address, destination port, and IP protocol number to map flows to available servers. You can choose to create affinity to a specific source IP address by opting into a 2- or 3-tuple hash for a given rule. All packets of the same packet flow arrive on the same instance behind the load-balanced front end. When the client initiates a new flow from the same source IP, the source port changes. As a result, the 5-tuple might cause the traffic to go to a different backend endpoint.
 
-    For more information, see [Load balancer distribution mode](load-balancer-distribution-mode.md). The following image displays the hash-based distribution:
+    For more information, see [Load Balancer distribution mode](load-balancer-distribution-mode.md). The following image displays the hash-based distribution:
 
     ![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
 
