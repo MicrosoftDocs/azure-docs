@@ -110,11 +110,11 @@ az ml history download
 ```
 
 ## Data preparation files
-Data preparation files are not portable to the new release since we don't have Workbench anymore. However, you can still prepare any size data set for modeling using the new Azure Data Prep SDK or use Azure Data Bricks for big data sets.
+Data preparation files are not portable to the new release since we don't have Workbench anymore. However, you can still prepare any size data set for modeling using the new Azure ML Data Prep SDK or use Azure Data Bricks for big data sets.
 
-### Azure Data Prep SDK download and installation Links
+### Azure ML Data Prep SDK download and installation Links
 
-- [Azure Data Prep SDK](https://dataprepdownloads.azureedge.net/pypi/privPreview/latest/)
+- [Azure ML Data Prep SDK](https://dataprepdownloads.azureedge.net/pypi/privPreview/latest/)
 
 ```    
 pip install --upgrade --extra-index-url https://dataprepdownloads.azureedge.net/pypi/privPreview/latest/ azureml-dataprep

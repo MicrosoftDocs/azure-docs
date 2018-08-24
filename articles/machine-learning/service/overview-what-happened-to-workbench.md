@@ -59,11 +59,11 @@ The older run histories will remain accessible for a while. When you ready to mo
 In the latest version of Azure Machine Learning service, you can still collect the run history of your models and explore them using the SDK and CLI as well as in the web portal.
 
 ## Can I still prepare data?
-Data preparation files are not portable to the latest release since we don't have Workbench anymore. However, you can still prepare your data for modeling.  With smaller data sets, you can use the Azure Data Prep SDK to quickly prepare your data prior to modeling. You can use this same SDK for larger data sets or use Azure Databricks to prepare big data sets.
+Data preparation files are not portable to the latest release since we don't have Workbench anymore. However, you can still prepare your data for modeling.  With smaller data sets, you can use the Azure ML Data Prep SDK to quickly prepare your data prior to modeling. You can use this same SDK for larger data sets or use Azure Databricks to prepare big data sets.
 
-### Azure Data Prep SDK download and installation Links
+### Azure ML Data Prep SDK download and installation Links
 
-- [Azure Data Prep SDK](https://dataprepdownloads.azureedge.net/pypi/privPreview/latest/)
+- [Azure ML Data Prep SDK](https://dataprepdownloads.azureedge.net/pypi/privPreview/latest/)
 
 ```    
 pip install --upgrade --extra-index-url https://dataprepdownloads.azureedge.net/pypi/privPreview/latest/ azureml-dataprep
