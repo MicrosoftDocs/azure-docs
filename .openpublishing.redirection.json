@@ -27329,6 +27329,11 @@
             "source_path": "articles/virtual-machines/linux/ansible-create-complete-vm.md",
             "redirect_url": "/azure/virtual-machines/linux/ansible-create-vm",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security-center/security-center-disk-encryption.md",
+            "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
+            "redirect_document_id": false
         }
     ]
 }

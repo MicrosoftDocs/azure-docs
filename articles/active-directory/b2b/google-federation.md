@@ -108,4 +108,4 @@ You can delete your Google federation setup. If you do so, Google guest users wh
     `Remove-AzureADMSIdentityProvider -Id Google-OAUTH`
 
    > [!NOTE]
-   > For more information about the Remove-AzureADMSIdentityProvider command, read the documentation here. 
+   > For more information, see [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/en-us/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
