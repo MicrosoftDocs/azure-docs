@@ -46,7 +46,6 @@ Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Ru
 Console.WriteLine("Task count in completed state: {0}", taskCounts.Completed);
 Console.WriteLine("Succeeded task count: {0}", taskCounts.Succeeded);
 Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
-Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
 ```
 
 You can use a similar pattern for REST and other supported languages to get task counts for a job. 
@@ -55,7 +54,7 @@ You can use a similar pattern for REST and other supported languages to get task
 
 The Get Task Counts operation returns counts of task states in the system at a point in time. When your job has a large number of tasks, the counts returned by Get Task Counts can lag the actual task states by up to a few seconds. Batch ensures eventual consistency between the results of Get Task Counts and the actual task states (which you can query via the List Tasks API). However, if your job has a very large number of tasks (>200,000), we recommend that you use the List Tasks API and a [filtered query](batch-efficient-list-queries.md) instead, which provides more up-to-date information. 
 
-Batch Service API versions before 2018-08-01.7.0 also return a `validationStatus` property in the Get Task Counts response. This property indicates whether Batch checked the state counts against the states reported in the List Tasks API. A value of `validated` indicates only that the Batch service performed this consistency check. The Batch Service does not perform the consistency check if the job contains more than 200,000 tasks, and the `validationStatus` is always reported as `unvalidated` in this case. 
+Batch Service API versions before 2018-08-01.7.0 also return a `validationStatus` property in the Get Task Counts response. This property indicates whether Batch checked the state counts for consistency with the states reported in the List Tasks API. A value of `validated` indicates only that Batch checked for consistency at least once for the job. The value of the `validationStatus` property does not indicate whether the counts that Get Task Counts returns are currently up-to-date.
 
 ## Node state counts
 
