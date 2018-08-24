@@ -28,7 +28,7 @@ You can use triggers that get responses from your Twitter account
 and make the output available to other actions. You can use actions 
 that perform tasks with your Twitter account. You can also have 
 other actions use the output from Twitter actions. For example, 
-when a new tweet with a specific hastag appears, you can send 
+when a new tweet with a specific hashtag appears, you can send 
 messages with the Slack connector. If you're new to logic apps, 
 review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
