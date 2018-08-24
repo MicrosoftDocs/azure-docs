@@ -11,15 +11,15 @@ ms.topic: tutorial
 ms.date: 7/10/2018
 --- 
 
-# Tutorial: Deploy an Azure Stream Analytics job with CI/CD using VSTS
-This tutorial describes how to set up continuous integration and deployment for an Azure Stream Analytics job using Azure DevOps. 
+# Tutorial: Deploy an Azure Stream Analytics job with CI/CD using Azure Pipelines
+This tutorial describes how to set up continuous integration and deployment for an Azure Stream Analytics job using Azure Pipelines. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Add source control to your project
-> * Create a build definition in Azure DevOps
-> * Create a release definition in Azure DevOps
+> * Create a build pipeline in Azure Pipelines
+> * Create a release pipeline in Azure Pipelines
 > * Automatically deploy and upgrade an application
 
 ## Prerequisites
@@ -42,25 +42,26 @@ Add **packages.config** to your project directory.
 </packages>
 ```
 
-## Share your Visual Studio solution to a new Azure DevOps Git repo
+## Share your Visual Studio solution to a new Azure Repos Git repo
+
 Share your application source files to a project in Azure DevOps so you can generate builds.  
 
 1. Create a new local Git repo for your project by selecting **Add to Source Control**, then **Git** on the status bar in the lower right-hand corner of Visual Studio. 
 
-2. In the **Synchronization** view in **Team Explorer**, select the **Publish Git Repo** button under **Push to Azure DevOps**.
+2. In the **Synchronization** view in **Team Explorer**, select the **Publish Git Repo** button under **Push to Azure DevOps Services**.
 
    ![Push Git Repo](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishgitrepo.png)
 
-3. Verify your email and select your account in the **Azure DevOps Domain** drop-down. Enter your repository name and select **Publish repository**.
+3. Verify your email and select your organization in the **Azure DevOps Services Domain** drop-down. Enter your repository name and select **Publish repository**.
 
    ![Push Git repo](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishcode.png)
 
-    Publishing the repo creates a new project in your account with the same name as the local repo. To create the repo in an existing project, click **Advanced** next to **Repository name**, and select a project. You can view your code in the browser by selecting **See it on the web**.
+    Publishing the repo creates a new project in your organization with the same name as the local repo. To create the repo in an existing project, click **Advanced** next to **Repository name**, and select a project. You can view your code in the browser by selecting **See it on the web**.
  
-## Configure continuous delivery with VSTS
-An Azure DevOps build definition describes a workflow comprised of build steps that are executed sequentially. Learn more about [Azure DevOps build definitions](https://www.visualstudio.com/docs/build/define/create). 
+## Configure continuous delivery with Azure DevOps
+An Azure Pipelines build pipeline describes a workflow comprised of build steps that are executed sequentially. Learn more about [Azure Pipelines build pipelines](https://docs.microsoft.com/en-us/vsts/pipelines/get-started-designer?view=vsts&tabs=new-nav). 
 
-An Azure DevOps release definition describes a workflow that deploys an application package to a cluster. When used together, the build definition and release definition execute the entire workflow starting with source files and ending with a running application in your cluster. Learn more about Azure DevOps [release definitions](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+An Azure Pipelines release pipeline describes a workflow that deploys an application package to a cluster. When used together, the build pipeline and release pipeline execute the entire workflow starting with source files and ending with a running application in your cluster. Learn more about Azure Pipelines [release pipelines](https://docs.microsoft.com/en-us/vsts/pipelines/release/define-multistage-release-process?view=vsts).
 
 ### Create a build definition
 Open a web browser and navigate to the project you just created in [Azure DevOps](https://app.vsaex.visualstudio.com/). 
@@ -130,7 +131,7 @@ You may receive errors for null deployment parameters if you did not override te
    ![Build process failed](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-process-failed.png)
 
 ### Commit and push changes to trigger a release
-Verify that the continuous integration pipeline is functioning by checking in some code changes to Azure Pipelines.    
+Verify that the continuous integration pipeline is functioning by checking in some code changes to Azure DevOps.    
 
 As you write your code, your changes are automatically tracked by Visual Studio. Commit changes to your local Git repository by selecting the pending changes icon from the status bar in the bottom right.
 
@@ -142,7 +143,7 @@ As you write your code, your changes are automatically tracked by Visual Studio.
 
     ![Commit and push changes](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-2.png)
 
-Pushing the changes to Azure DevOps automatically triggers a build.  When the build definition successfully completes, a release is automatically created and starts updating the job on the cluster.
+Pushing the changes to Azure DevOps Services automatically triggers a build.  When the build pipeline successfully completes, a release is automatically created and starts updating the job on the cluster.
 
 ## Clean up resources
 
