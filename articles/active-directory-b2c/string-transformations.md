@@ -440,6 +440,29 @@ The following example looks up the domain name in one of the inpuParameters coll
 - Output claims:
     - **outputClaim**:	c7026f88-4299-4cdb-965d-3f166464b8a9
 
+## NullClaim
+
+Clean the value of a given claim.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| OutputClaim | claim_to_null | string | The claim its value to be NULL. |
+
+Use this claim transformation to remove unnecessary data from the claims property bag. So, the session cookie will be smaller. The following example removes the value of the `TermsOfService` claim type.
+
+```XML
+<ClaimsTransformation Id="SetTOSToNull" TransformationMethod="NullClaim">
+  <OutputClaims>
+  <OutputClaim ClaimTypeReferenceId="TermsOfService" TransformationClaimType="claim_to_null" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+- Input claims:
+    - **outputClaim**: Welcome to Contoso App. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions...
+- Output claims:
+    - **outputClaim**: NULL
+
 ## ParseDomain
 
 Gets the domain portion of an email address.
