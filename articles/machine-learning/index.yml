@@ -63,7 +63,7 @@ sections:
         - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
       - title: Automatically generate and tune algorithms
         values:
-        - href: /azure/machine-learning/services/tutorial-deploy-models-with-aml
+        - href: /azure/machine-learning/services/tutorial-auto-train-models
         - href: 
       - title: Deploy your model as a web service
         values:
