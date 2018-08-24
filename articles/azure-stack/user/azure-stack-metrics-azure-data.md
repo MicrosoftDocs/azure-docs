@@ -1,5 +1,5 @@
 ---
-title: Azure monitor on Azure Stack | Microsoft Docs
+title: Azure Monitor on Azure Stack | Microsoft Docs
 description: Learn about Azure monitor on Azure Stack.
 services: azure-stack
 documentationcenter: ''
