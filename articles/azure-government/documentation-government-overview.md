@@ -75,7 +75,7 @@ Secure key management is essential for protecting data in the cloud. Customers s
 * Application code and templates should only contain URI references to the secrets (which means the actual secrets are not in code, configuration or source code repositories). This prevents key phishing attacks on internal or external repos, such as harvest-bots in GitHub.
 * Utilize strong RBAC controls within Key Vault. If a trusted operator leaves the company or transfers to a new group within the company, they should be prevented from being able to access the secrets.  
 
-For additional information please see [Key Vault for Azure Government](/azure-government/azure-government-tech-keyvault)
+For additional information please see [Azure Key Vault](/azure/key-vault/key-vault-get-started)
 
 ## Isolation to Restrict Data Access
 Isolation is all about using boundaries, segmentation, and containers to limit data access to only authorized users, services, and applications. For example, the separation between tenants is an essential security mechanism for multitenant cloud platforms such as Microsoft Azure. Logical isolation helps prevent one tenant from interfering with the operations of any other tenant.
@@ -88,7 +88,7 @@ Azure implements network access control and segregation through VLAN isolation, 
 
 Customers can further isolate their resources across subscriptions, resource groups, virtual networks, and subnets.
 
-For more information on isolation in Microsoft Azure see the [Isolation section of the Azure Security Guide](/azure-security-getting-started/#isolation).
+For more information on isolation in Microsoft Azure see the [Isolation section of the Azure Security Guide](/azure/security/azure-security-getting-started/).
 
 For supplemental information and updates please subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
