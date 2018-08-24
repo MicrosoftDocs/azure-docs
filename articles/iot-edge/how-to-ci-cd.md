@@ -290,7 +290,7 @@ In this section, you will create a build pipeline that is configured to run auto
 
     ![Install extension](./media/how-to-ci-cd/install-extension.png)
 
-1. In your Azure DevOps, open the **Build &amp; Release** hub and, in the **Builds** tab, choose **+ New definition**. Or, if you already have build pipeline, choose the **+ New** button. 
+1. In your Azure DevOps, open the **Build &amp; Release** hub and, in the **Builds** tab, choose **+ New definition**. Or, if you already have build pipelines, choose the **+ New** button. 
 
     ![New build](./media/how-to-ci-cd/add-new-build.png)
 
