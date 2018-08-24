@@ -26,7 +26,7 @@ The article shows how to manage CA certificates of an Azure API Management servi
 
 ![Add CA certificates](media/api-management-howto-ca-certificates/00.png)
 
-Follow the steps below to upload a new CA certificate. If you have not created an API Management service instance yet, see the tutorial [Create an API Management service instance][Create an API Management service instance].
+Follow the steps below to upload a new CA certificate. If you have not created an API Management service instance yet, see the tutorial [Create an API Management service instance](get-started-create-service-instance.md).
 
 1. Navigate to your Azure API Management service instance in the Azure portal.
 
@@ -53,7 +53,5 @@ To delete a certificate, click context menu **...** and select **Delete** beside
 
 ![Delete CA certificates](media/api-management-howto-ca-certificates/04.png)  
 
-
-[Get started with Azure API Management]: get-started-create-service-instance.md
 [Upload a CA certificate]: #step1
 [Delete a CA certificate]: #step1a
