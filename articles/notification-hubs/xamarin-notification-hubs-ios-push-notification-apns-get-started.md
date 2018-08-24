@@ -24,7 +24,7 @@ ms.author: dimazaid
 
 ## Overview
 
-This tutorial shows you how to use Azure Notification Hubs to send push notifications to an iOS application. You create a blank Xamarin.iOS app that receives push notifications by using the [Apple Push Notification Service (APNS)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html). 
+This tutorial shows you how to use Azure Notification Hubs to send push notifications to an iOS application. You create a blank Xamarin.iOS app that receives push notifications by using the [Apple Push Notification service (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html).
 
 When you're finished, you are able to use your notification hub to broadcast push notifications to all the devices running your app. The finished code is available in the [NotificationHubs app][GitHub] sample.
 
@@ -249,8 +249,9 @@ In this tutorial, you sent broadcast notifications to all your iOS devices regis
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Visual Studio for Mac]: https://visualstudio.microsoft.com/vs/mac/
 
-[Local and Push Notification Programming Guide]:https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
-[Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Local and Push Notification Programming Guide]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
+[Apple Push Notification Service]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
+[Apple Push Notification Service fwlink]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
 [Azure portal]: https://portal.azure.com
