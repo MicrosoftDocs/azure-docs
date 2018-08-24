@@ -83,10 +83,10 @@ For detailed step-by-step instructions, see [Group Manager tasks for a data scie
 
 ## Team Lead tasks
 
-The following tasks are completed by the Team Lead (or a designated team project administrator) to adopt the TDSP:
+The following tasks are completed by the Team Lead (or a designated project administrator) to adopt the TDSP:
 
-- If Azure DevOps is selected to be the code hosting platform for versioning and collaboration, create a **team project** on the group's Azure DevOps server. Otherwise, this task can be skipped.
-- Create the **team project template repository** under the team project, and seed it from the group project template repository set up by your group manager or the delegate of the manager. 
+- If Azure DevOps is selected to be the code hosting platform for versioning and collaboration, create a **project** on the group's Azure DevOps server. Otherwise, this task can be skipped.
+- Create the **project template repository** under the project, and seed it from the group project template repository set up by your group manager or the delegate of the manager. 
 - Create the **team utility repository**, and add the team-specific utilities to the repository. 
 - (Optional) Create **[Azure file storage](https://azure.microsoft.com/services/storage/files/)** to be used to store data assets that can be useful for the entire team. Other team members can mount this shared cloud file store on their analytics desktops.
 - (Optional) Mount the Azure file storage to the **Data Science Virtual Machine** (DSVM) of the team lead and add data assets on it.
@@ -99,7 +99,7 @@ For detailed step-by-step instructions, see [Team Lead tasks for a data science 
 
 The following tasks are completed by the Project Lead to adopt the TDSP:
 
-- Create a **project repository** under the team project, and seed it from the Team project template repository. 
+- Create a **project repository** under the project, and seed it from the project template repository. 
 - (Optional) Create **Azure file storage** to be used to store data assets of the project. 
 - (Optional) Mount the Azure file storage to the **Data Science Virtual Machine** (DSVM) of the Project Lead and add project data assets on it.
 - Set up the **security control** by adding project members and configure their privileges. 
