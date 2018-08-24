@@ -415,7 +415,7 @@ In this section, you test the device types you created in the previous sections 
 
 ### Run the device simulation microservice
 
-Open the **device-simulation-dotnet-master** folder you downloaded from GitHub in Visual Studio Code. Click any **Restore** buttons to fix any unresolved dependencies.
+Open the **device-simulation-dotnet-master** folder you downloaded from GitHub in a new instance of Visual Studio Code. Click any **Restore** buttons to fix any unresolved dependencies.
 
 Open the **.vscode/launch.json** file and assign your IoT Hub connection string to the **PCS_IOTHUB_CONNSTRING** environment variable.
 
@@ -433,7 +433,7 @@ To run the microservice locally, click **Debug > Start Debugging**.
 
 The **Terminal** window in Visual Studio Code shows output from the running microservice.
 
-Leave the storage adapter microservice running in this instance of Visual Studio Code while you complete the next steps.
+Leave the device simulation microservice running in this instance of Visual Studio Code while you complete the next steps.
 
 ### Set up a monitor for device events
 
