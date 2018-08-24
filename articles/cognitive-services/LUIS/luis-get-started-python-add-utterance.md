@@ -32,7 +32,7 @@ ms.author: diberry
 
 1. Copy the following code snippet into file named `add-utterances-3-6.py`:
 
-   [!code-python[Console app code that adds an utterance Python 3.6](~/samples-luis/documentation-samples/quickstarts/change-model/python/add-utterances-3-6.py)]
+   [!code-python[Console app code that adds an utterance Python 3.6](~/samples-luis/documentation-samples/quickstarts/change-model/python/3.x/add-utterances-3-6.py)]
 
 ## Run code
 Run the application from a command-line with Python 3.6.
