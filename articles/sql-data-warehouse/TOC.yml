@@ -6,7 +6,7 @@
     href: sql-data-warehouse-overview-what-is.md
   - name: SQL Data Warehouse architecture
     href: massively-parallel-processing-mpp-architecture.md
- - name: Data warehouse units
+  - name: Data warehouse units
     href: what-is-a-data-warehouse-unit-dwu-cdwu.md
   - name: Cheat sheet
     href: cheat-sheet.md
