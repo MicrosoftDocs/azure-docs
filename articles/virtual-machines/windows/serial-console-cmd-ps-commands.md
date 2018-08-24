@@ -88,6 +88,8 @@ or
 ### Set NIC to use DHCP
 `netsh interface ip set address name="<interface name>" source=dhcp`
 
+For more information about `netsh`, [click here](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts).
+
 Azure VMs should always be configured in the guest OS to use DHCP to obtain an IP address. The Azure static IP setting still uses DHCP to give the static IP to the VM.
 ### Ping
 `ping 8.8.8.8` 

@@ -23,7 +23,7 @@ from your database and make the output available for other actions.
 
 This article shows how you can create a logic app that performs 
 various database operations. If you're new to logic apps, review 
-[What is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+[What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
 
 ## Supported platforms and versions
 
@@ -72,9 +72,9 @@ which map to the corresponding actions in the connector:
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * The logic app where you want to access your DB2 database. 
-This connector doesn't provide any triggers, so you must use 
-a different trigger to start your logic app. In this article, 
-the examples use the **Recurrence** trigger.
+This connector provides only actions, so to start your logic app, 
+select a separate trigger, for example, the **Recurrence** trigger.
+The examples in this article use the **Recurrence** trigger.
 
 <a name="add-db2-action"></a>
 

@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/13/2017
+ms.date: 08/24/2018
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ---
@@ -47,7 +47,7 @@ In a terminal window, navigate to the root directory of the sample Node.js proje
 
 ## Run the app locally
 
-Run the application locally by opening a terminal window and using the `npm start` script to launch the built in Node.js HTTP server.
+Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window and use the `npm start` script to launch the built in Node.js HTTP server.
 
 ```bash
 npm start

@@ -25,7 +25,7 @@ you can send an email using Office 365.
 
 This article shows how you can build a logic app that creates a task 
 in Dynamics 365 whenever a new lead record is created in Dynamics 365.
-If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
 
 ## Prerequisites
 
