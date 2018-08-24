@@ -63,6 +63,8 @@ and open your logic app in Logic App Designer, if not open already.
    enter "Project Online" as your filter. 
    Under the triggers list, select the trigger you want. 
 
+     -or-
+
    * For existing logic apps, under the step where you want 
    to add an action, choose **New step**. In the search box, 
    enter "Project Online" as your filter. Under the actions list, 
