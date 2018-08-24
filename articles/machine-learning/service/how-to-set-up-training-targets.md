@@ -317,108 +317,109 @@ You can also create and attach compute targets from the CLI. You can reference t
 2. Check the status of deployment 
     ```az ml computetarget show -n mybaicluster -w <workspace-name> -g <resource-group>```
 3. Create a runconfig file based on this example. Be sure to change the target name and framework:
-  ```# The script to run.
-      script: <train.py>
-      # The arguments to the script file.
-      arguments: []
-      # The name of the compute target to use for this run.
-      target: mybaicluster
-      # Framework to execute inside. Allowed values are "Python" ,  "PySpark", "TensorFlowParameterServer" and "PythonMPI".
-      framework: Python
-      # Automatically prepare the run environment as part of the run itself.
-      prepareEnvironment: true
-      # Maximum allowed duration for the run.
-      maxRunDurationSeconds:
-      # Environment details.
-      environment:
-      # Environment variables set for the run.
-        environmentVariables:
-          EXAMPLE_ENV_VAR: EXAMPLE_VALUE
-      # Python details.
-        python:
-      # user_managed_dependencies=False indicates that the environment will be user managed. False indicates that AzureML will manage the user environment.
-          userManagedDependencies: false
-      # The python interpreter path
-          interpreterPath: python
-      # Path to conda dependencies file to be used by this run. If a project
-      # contains multiple programs with different sets of dependencies, it may be
-      # convenient to manage those environments with separate files.
-          condaDependenciesFile: aml_config/conda_dependencies.yml
-      # Docker details.
-        docker:
-      # Set True to perform this run inside a Docker container.
-          enabled: true
-      # Base image used for Docker-based runs.
-          baseImage: continuumio/miniconda3:4.4.10
-      # Set False if necessary to work around shared volume bugs.
-          sharedVolumes: true
-      # Run with NVidia Docker extension to support GPUs.
-          gpuSupport: false
-      # Extra arguments to the Docker run command.
-          arguments: []
-      # Image registry that contains the base image.
-          baseImageRegistry:
-      # DNS name or IP address of azure container registry(ACR).
-            address:
-      # The username for ACR.
-            username:
-      # The password for ACR.
-            password:
-      # Spark details.
+
+    ```# The script to run.
+        script: <train.py>
+        # The arguments to the script file.
+        arguments: []
+        # The name of the compute target to use for this run.
+        target: mybaicluster
+        # Framework to execute inside. Allowed values are "Python" ,  "PySpark", "TensorFlowParameterServer" and "PythonMPI".
+        framework: Python
+        # Automatically prepare the run environment as part of the run itself.
+        prepareEnvironment: true
+        # Maximum allowed duration for the run.
+        maxRunDurationSeconds:
+        # Environment details.
+        environment:
+        # Environment variables set for the run.
+          environmentVariables:
+            EXAMPLE_ENV_VAR: EXAMPLE_VALUE
+        # Python details.
+          python:
+        # user_managed_dependencies=False indicates that the environment will be user managed. False indicates that AzureML will manage the user environment.
+            userManagedDependencies: false
+        # The python interpreter path
+            interpreterPath: python
+        # Path to conda dependencies file to be used by this run. If a project
+        # contains multiple programs with different sets of dependencies, it may be
+        # convenient to manage those environments with separate files.
+            condaDependenciesFile: aml_config/conda_dependencies.yml
+        # Docker details.
+          docker:
+        # Set True to perform this run inside a Docker container.
+            enabled: true
+        # Base image used for Docker-based runs.
+            baseImage: continuumio/miniconda3:4.4.10
+        # Set False if necessary to work around shared volume bugs.
+            sharedVolumes: true
+        # Run with NVidia Docker extension to support GPUs.
+            gpuSupport: false
+        # Extra arguments to the Docker run command.
+            arguments: []
+        # Image registry that contains the base image.
+            baseImageRegistry:
+        # DNS name or IP address of azure container registry(ACR).
+              address:
+        # The username for ACR.
+              username:
+        # The password for ACR.
+              password:
+        # Spark details.
+          spark:
+        # List of spark repositories.
+            repositories:
+            - https://mmlspark.azureedge.net/maven
+            - https://azuremldownloads.blob.core.windows.net/repo5qh91kdjs6
+            packages:
+            - group: com.microsoft.ml.spark
+              artifact: mmlspark_2.11
+              version: '0.12'
+            - group: com.microsoft
+              artifact: dprep_2.11
+              version: 0.18.0
+            - group: com.microsoft.sqlserver
+              artifact: mssql-jdbc
+              version: 6.2.1.jre8
+            precachePackages: true
+        # History details.
+        history:
+        # Enable history tracking -- this allows status, logs, metrics, and outputs
+        # to be collected for a run.
+          outputCollection: true
+        # whether to take snapshots for history.
+          snapshotProject: true
+        # Spark configuration details.
         spark:
-      # List of spark repositories.
-          repositories:
-          - https://mmlspark.azureedge.net/maven
-          - https://azuremldownloads.blob.core.windows.net/repo5qh91kdjs6
-          packages:
-          - group: com.microsoft.ml.spark
-            artifact: mmlspark_2.11
-            version: '0.12'
-          - group: com.microsoft
-            artifact: dprep_2.11
-            version: 0.18.0
-          - group: com.microsoft.sqlserver
-            artifact: mssql-jdbc
-            version: 6.2.1.jre8
-          precachePackages: true
-      # History details.
-      history:
-      # Enable history tracking -- this allows status, logs, metrics, and outputs
-      # to be collected for a run.
-        outputCollection: true
-      # whether to take snapshots for history.
-        snapshotProject: true
-      # Spark configuration details.
-      spark:
-        configuration:
-          spark.app.name: Azure ML Experiment
-          spark.yarn.maxAppAttempts: 1
-      # HDI details.
-      hdi:
-      # Yarn deploy mode. Options are cluster and client.
-        yarnDeployMode: cluster
-      # BatchAI details.
-      batchai:
-      # Number of nodes to use for running batchai jobs.
-        nodeCount: 1
-      # Tensorflow details.
-      tensorflow:
-        workerCount: 2
-        parameterServerCount: 1
-      # Mpi details.
-      mpi:
-        processCountPerNode: 1
-      # Container instance details.
-      containerInstance:
-      # Number of cores to allocate for the container.
-        cpuCores: 1
-      # Memory to allocate for the container in GB.
-        memoryGb: 4
-      # Azure region for the container; defaults to the same as workspace.
-        region:
-      # data reference configuration details
-      dataReferences: {}
-      ```
+          configuration:
+            spark.app.name: Azure ML Experiment
+            spark.yarn.maxAppAttempts: 1
+        # HDI details.
+        hdi:
+        # Yarn deploy mode. Options are cluster and client.
+          yarnDeployMode: cluster
+        # BatchAI details.
+        batchai:
+        # Number of nodes to use for running batchai jobs.
+          nodeCount: 1
+        # Tensorflow details.
+        tensorflow:
+          workerCount: 2
+          parameterServerCount: 1
+        # Mpi details.
+        mpi:
+          processCountPerNode: 1
+        # Container instance details.
+        containerInstance:
+        # Number of cores to allocate for the container.
+          cpuCores: 1
+        # Memory to allocate for the container in GB.
+          memoryGb: 4
+        # Azure region for the container; defaults to the same as workspace.
+          region:
+        # data reference configuration details
+        dataReferences: {}
+        ```
 4. Prepare Compute
   ```az ml run prepare -c mybaicluster```
 5. Run experiment against the DSVM
