@@ -208,5 +208,3 @@ After the initial Full load is completed, the databases are marked **Ready to cu
 3.	Select **Confirm**, and the select **Apply**.
 4. When the database migration status shows **Completed**, connect your applications to the new target Azure SQL Database.
  
-### Additional resources
-- [Known issues and workarounds with Azure Database for MySQL online migrations](known-issues-azure-mysql-online.md).
