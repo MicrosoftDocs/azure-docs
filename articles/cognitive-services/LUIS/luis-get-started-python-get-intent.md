@@ -60,9 +60,9 @@ You can use Python to access the same results you saw in the browser window in t
 
 1. Copy one of the following code snippets:
 
-   [!code-python[Console app code that calls a LUIS endpoint for Python 2.7](~/samples-luis/documentation-samples/endpoint-api-samples/python/2.x/quickstart-call-endpoint-2-7.py)]
+   [!code-python[Console app code that calls a LUIS endpoint for Python 2.7](~/samples-luis/documentation-samples/quickstarts/analyze-text/python/2.x/quickstart-call-endpoint-2-7.py)]
 
-   [!code-python[Console app code that calls a LUIS endpoint for Python 3.6](~/samples-luis/documentation-samples/endpoint-api-samples/python/3.x/quickstart-call-endpoint-3-6.py)]
+   [!code-python[Console app code that calls a LUIS endpoint for Python 3.6](~/samples-luis/documentation-samples/quickstarts/analyze-text/python/3.x/quickstart-call-endpoint-3-6.py)]
 
 
 2. Replace the value of the `Ocp-Apim-Subscription-Key` field with your LUIS endpoint key.
