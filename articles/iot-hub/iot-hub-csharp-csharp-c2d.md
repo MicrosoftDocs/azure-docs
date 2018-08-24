@@ -12,15 +12,16 @@ ms.author: elioda
 ---
 
 # Send messages from the cloud to your device with IoT Hub (.NET)
+
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## Introduction
 
-Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end.  [Get started with IoT Hub](quickstart-send-telemetry-dotnet.md) shows how to create an IoT hub, provision a device identity in it, and code a device app that sends device-to-cloud messages.
+Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end . [Get started with IoT Hub](quickstart-send-telemetry-dotnet.md) shows how to create an IoT hub, provision a device identity in it, and code a device app that sends device-to-cloud messages.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This tutorial builds on [Get started with IoT Hub](quickstart-send-telemetry-dotnet.md). It shows you how to:
+This tutorial builds on [Get started with IoT Hub](quickstart-send-telemetry-dotnet.md). It shows you how to do the following steps:
 
 * From your solution back end, send cloud-to-device messages to a single device through IoT Hub.
 
@@ -28,7 +29,7 @@ This tutorial builds on [Get started with IoT Hub](quickstart-send-telemetry-dot
 
 * From your solution back end, request delivery acknowledgement (*feedback*) for messages sent to a device from IoT Hub.
 
-You can find more information on cloud-to-device messages in the [C2D section of the IoT Hub developer guide](iot-hub-devguide-messaging.md).
+You can find more information on cloud-to-device messages in [D2C and C2D Messaging with IoT Hub](iot-hub-devguide-messaging.md).
 
 At the end of this tutorial, you run two .NET console apps:
 
@@ -73,10 +74,12 @@ In this section, you'll modify the device app you created in [Get started with I
 
    The `ReceiveAsync` method asynchronously returns the received message at the time that it is received by the device. It returns *null* after a specifiable timeout period (in this case, the default of one minute is used). When the app receives a *null*, it should continue to wait for new messages. This requirement is the reason for the `if (receivedMessage == null) continue` line.
    
-    The call to `CompleteAsync()` notifies IoT Hub that the message has been successfully processed. The message can be safely removed from the device queue. If something happened that prevented the device app from completing the processing of the message, IoT Hub delivers it again. It is then important that message processing logic in the device app is *idempotent*, so that receiving the same message multiple times produces the same result. An application can also temporarily abandon a message, which results in IoT hub retaining the message in the queue for future consumption. Or, the application can reject a message, which permanently removes the message from the queue. For more information about the cloud-to-device message lifecycle, see the [C2D section of the IoT Hub developer guide](iot-hub-devguide-messaging.md).
+    The call to `CompleteAsync()` notifies IoT Hub that the message has been successfully processed. The message can be safely removed from the device queue. If something happened that prevented the device app from completing the processing of the message, IoT Hub delivers it again. It is then important that message processing logic in the device app is *idempotent*, so that receiving the same message multiple times produces the same result. 
+    
+    An application can also temporarily abandon a message, which results in IoT hub retaining the message in the queue for future consumption. Or, the application can reject a message, which permanently removes the message from the queue. For more information about the cloud-to-device message lifecycle, see [D2C and C2D messaging with IoT Hub](iot-hub-devguide-messaging.md).
    
    > [!NOTE]
-   > When using HTTPS instead of MQTT or AMQP as a transport, the `ReceiveAsync` method returns immediately. The supported pattern for cloud-to-device messages with HTTPS is intermittently connected devices that check for messages infrequently (less than every 25 minutes). Issuing more HTTPS receives results in IoT Hub throttling the requests. For more information about the differences between MQTT, AMQP and HTTPS support, and IoT Hub throttling, see the [C2D section of the IoT Hub developer guide](iot-hub-devguide-messaging.md).
+   > When using HTTPS instead of MQTT or AMQP as a transport, the `ReceiveAsync` method returns immediately. The supported pattern for cloud-to-device messages with HTTPS is intermittently connected devices that check for messages infrequently (less than every 25 minutes). Issuing more HTTPS receives results in IoT Hub throttling the requests. For more information about the differences between MQTT, AMQP and HTTPS support, and IoT Hub throttling, see [[D2C and C2D messaging with IoT Hub]](iot-hub-devguide-messaging.md).
    > 
    > 
 2. Add the following method in the **Main** method, right before the `Console.ReadLine()` line:
@@ -150,7 +153,7 @@ In this section, you write a .NET console app that sends cloud-to-device message
 
 ## Receive delivery feedback
 
-It is possible to request delivery (or expiration) acknowledgements from IoT Hub for each cloud-to-device message. This option enables the solution back end to easily inform retry or compensation logic. For more information about cloud-to-device feedback, see the [C2D section of the IoT Hub developer guide](iot-hub-devguide-messaging.md).
+It is possible to request delivery (or expiration) acknowledgements from IoT Hub for each cloud-to-device message. This option enables the solution back end to easily inform retry or compensation logic. For more information about cloud-to-device feedback, see [D2C and C2D Messaging with IoT Hub](iot-hub-devguide-messaging.md).
 
 In this section, you modify the **SendCloudToDevice** app to request feedback, and receive it from IoT Hub.
 
