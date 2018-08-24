@@ -31,7 +31,7 @@ If you are using the Cloud Shell, you are already logged in to your subscription
 Login-AzureRMAccount
 ```
 
-## Create resource group
+## Create a resource group
 
 You need a resource group to deploy an IoT hub. You can use an existing resource group or create a new one.
 
@@ -43,7 +43,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 ## Create an IoT hub
 
-To create an IoT hub in the resource group you created in the previous step, use [New-AzureRmIotHub](https://docs.microsoft.com/powershell/module/AzureRM.IotHub/New-AzureRmIotHub) command. This example creates an **S1** hub called **MyTestIoTHub** in the **East US** region:
+To create an IoT hub in the resource group you created in the previous step, use the [New-AzureRmIotHub](https://docs.microsoft.com/powershell/module/AzureRM.IotHub/New-AzureRmIotHub) command. This example creates an **S1** hub called **MyTestIoTHub** in the **East US** region:
 
 ```powershell
 New-AzureRmIotHub `
@@ -63,7 +63,7 @@ You can list all the IoT hubs in your subscription using the [Get-AzureRmIotHub]
 Get-AzureRmIotHub
 ```
 
-The previous example adds an S1 Standard IoT Hub for which you are billed. 
+This example shows the S1 Standard IoT Hub you created in the previous step. 
 
 You can delete the IoT hub using the [Remove-AzureRmIotHub](https://docs.microsoft.com/en-us/powershell/module/azurerm.iothub/remove-azurermiothub) command:
 
