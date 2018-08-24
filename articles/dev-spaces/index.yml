@@ -16,10 +16,12 @@ abstract:
   description: Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams. With minimal dev machine setup, you can iteratively run and debug containers directly in Azure Kubernetes Service (AKS). Develop on Windows, Mac, or Linux using familiar tools like Visual Studio, Visual Studio Code, or the command line.
   items:
   - type: markdown
-    text: "[!INCLUDE[](includes/get-started.md)]"
+    text: "> [!IMPORTANT]\r\n> Azure Dev Spaces is in currently in preview, and is supported only by AKS clusters in the **East US**,**Central US**, **West US 2**, **West Europe**, **Canada Central**, and **Canada East** regions. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA)."
 sections:
 - title: Get Started on Azure Dev Spaces
   items:
+  - type: markdown
+    text: "> [!IMPORTANT]\r\n> Azure Dev Spaces is in currently in preview, and is supported only by AKS clusters in the **East US**,**Central US**, **West US 2**, **West Europe**, **Canada Central**, and **Canada East** regions. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA)."
   - type: paragraph
     text: 'Please select a language-specific guide to get started:'
   - type: list
