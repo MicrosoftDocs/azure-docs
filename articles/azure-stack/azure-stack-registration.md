@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/24/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
 
@@ -81,14 +81,13 @@ Your Azure Stack deployment may be *connected* or *disconnected*.
 
  - **Connected**  
  Connected means you have deployed Azure Stack so that it can connect to the Internet and to Azure. You either have Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS) for your identity store. With a connected deployment, you can choose from two billing models: pay-as-you-use or capacity-based.
-    - [Register a connected Azure Stack with Azure using the **pay-as-you-use** billing model](#register-a-connected-azure-stack-with-azure-using-the-pay-as-you-use-billing-model)
-    - [Register a connected Azure Stack with Azure using the **capacity** billing model](#register-a-connected-azure-stack-with-azure-using-the-capacity-billing-model)
+    - [Register a connected Azure Stack with Azure using the **pay-as-you-use** billing model](#register-connected-with-pay-as-you-go-billing)
+    - [Register a connected Azure Stack with Azure using the **capacity** billing model](#register-connected-with-capacity-billing)
 
  - **Disconnected**  
  With the disconnected from Azure deployment option, you can deploy and use Azure Stack without a connection to the Internet. However, with a disconnected deployment, you are limited to an AD FS identity store and the capacity-based billing model.
     - [Register a disconnected Azure Stack using the **capacity** billing model
-](#register-a-disconnected-Azure-Stack-using-the-capacity-billing-model
-)
+](#register-disconnected-with-capacity-billing)
 
 ## Register connected with pay-as-you-go billing
 
@@ -216,7 +215,7 @@ If you are registering Azure Stack in a disconnected environment (with no intern
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    For more information on the Get-AzsRegistrationToken cmdlet, see [Registration reference](#registration-reference).
 
@@ -356,7 +355,7 @@ You have now completely unregistered in a disconnected scenario and must repeat 
 
 ### Disable or enable usage reporting
 
-For Azure Stack environments that use a capacity billing model, turn off usage reporting with the **EnableUsageReporting** parameter using either the **Set-AzsRegistration** or the **Get-AzsRegistrationToken** cmdlets. Azure Stack reports usage metrics by default. Operators with capacity uses or supporting a disconnected environment will need to turn off usage reporting.
+For Azure Stack environments that use a capacity billing model, turn off usage reporting with the **UsageReportingEnabled** parameter using either the **Set-AzsRegistration** or the **Get-AzsRegistrationToken** cmdlets. Azure Stack reports usage metrics by default. Operators with capacity uses or supporting a disconnected environment will need to turn off usage reporting.
 
 #### With a connected Azure Stack
 
@@ -376,7 +375,7 @@ For Azure Stack environments that use a capacity billing model, turn off usage r
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False
    $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 
