@@ -32,32 +32,32 @@ ms.author: diberry
 
 Add the dependencies to the file.
 
-   [!code-ruby[Ruby and LUIS Dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=1-28 "Ruby and LUIS Dependencies")]
+   [!code-ruby[Ruby and LUIS Dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=1-21 "Ruby and LUIS Dependencies")]
 
 Add the GET request used for training status.
 
-   [!code-ruby[SendGet](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=30-40 "SendGet")]
+   [!code-ruby[SendGet](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=23-33 "SendGet")]
 
 Add the POST request used to create utterances or start training. 
 
-   [!code-ruby[SendPost](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=42-54 "SendPost")]
+   [!code-ruby[SendPost](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=35-47 "SendPost")]
 
 Add the `AddUtterances` function.
 
-   [!code-ruby[AddUtterances method](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=56-61 "AddUtterances method")]
+   [!code-ruby[AddUtterances method](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=49-54 "AddUtterances method")]
 
 
 Add the `Train` function. 
 
-   [!code-ruby[Train](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=63-69 "Train")]
+   [!code-ruby[Train](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=56-62 "Train")]
 
 Add the `Status` function.
 
-   [!code-ruby[Status](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=71-75 "Status")]
+   [!code-ruby[Status](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=64-68 "Status")]
 
 To manage arguments, add the main code.
 
-   [!code-ruby[Main code](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=77-93 "Main code")]
+   [!code-ruby[Main code](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=70-72 "Main code")]
 
 ## Run code
 
@@ -65,9 +65,10 @@ Run the application from a command line with Ruby.
 
 ### Add an utterance from the command line
 
-Calling `add-utterances.rb` with only the utterance.json as an argument adds but does not train LUIS on the new utterances.
+Calling `add-utterances.rb` adds the utterances, trains, and gets training status.
+
 ````
-> ruby add-utterances.rb ./utterances.json
+> ruby add-utterances.rb 
 ````
 
 This result displays the results from calling the add utterances API. The `response` field is in this format for utterances that was added. The `hasError` is false, indicating the utterance was added.  
@@ -91,35 +92,7 @@ This result displays the results from calling the add utterances API. The `respo
     ]
 ```
 
-### Add an utterance and train from the command line
-Call add-utterance with the `-train` argument to send a request to train.
-
-````
-> ruby add-utterances.rb ./utterances.json -train
-````
-
-> [!NOTE]
-> Duplicate utterances aren't added again, but don't cause an error. The `response` contains the ID of the original utterance.
-
-The following shows the result of a successful request to train:
-```json
-{
-    "request": null,
-    "response": {
-        "statusId": 9,
-        "status": "Queued"
-    }
-}
-```
-
-After the request to train is queued, it can take a moment to complete training.
-
-### Get training status from the command line
-Call the sample with the `-status` argument to check the training status.
-
-````
-> ruby add-utterances.rb ./utterances.json -status
-````
+The next response show the training queued. Then the next response shows the status of each intent. 
 
 ```
 Requested training status.

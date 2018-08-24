@@ -67,9 +67,10 @@ Run the application from a command line with PHP.
 
 Run the application from a command line with PHP.
 
-Calling `add-utterances.php` with only the utterance.json as an argument adds but does not train LUIS on the new utterances.
+Calling `add-utterances.php` adds the utterances, trains, and gets training status.
+
 ````
-> php add-utterances.php ./utterances.json
+> php add-utterances.php 
 ````
 
 The following JSON is returned from the add utterances API call. The `response` field is in this format for utterances that was added. The `hasError` is false, indicating the utterance was added.  
@@ -93,17 +94,8 @@ The following JSON is returned from the add utterances API call. The `response` 
     ]
 ```
 
-### Add an utterance and train from the command line
-Call `add-utterance.php` with the `-train` argument to send a request to train. 
-
-````
-> php add-utterances.php ./utterances.json -train
-````
-
-> [!NOTE]
-> Duplicate utterances aren't added again, but don't cause an error. The `response` contains the ID of the original utterance.
-
 The following shows the result of a successful request to train:
+
 ```json
 {
     "request": null,
@@ -114,16 +106,8 @@ The following shows the result of a successful request to train:
 }
 ```
 
-After the request to train is queued, it can take a moment to complete training.
 
-### Get training status from the command line
-Call the app with the `-status` argument to check the training status and display status details.
-
-````
-> php add-utterances.php -status
-````
-
-```
+```JSON
 Requested training status.
 [
    {

@@ -89,9 +89,10 @@ On the command-line, from the directory that has the package.json, install depen
 
 Run the application from a command-line with Node.js.
 
-Calling add-utterance with no arguments adds an utterance to the app, without training it.
+Calling `npm start`adds the utterances, trains, and gets training status.
+
 ````
-> node add-utterances.js -train -status
+> npm start 
 ````
 
 This command-line displays the results of calling the add utterances API. 
