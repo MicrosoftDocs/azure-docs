@@ -15,36 +15,23 @@ ms.component: B2C
 
 # ClaimsProviders 
 
-Identity providers, attribute providers, attribute verifiers, directory providers, MFA providers, self-asserted, etc. are all modeled as **ClaimsProviders**. 
+A claims provider contains a set of [technical profiles](technicalprofiles.md). Every claims provider must have one or more technical profiles that determine the endpoints and the protocols needed to communicate with the claims provider. A claims provider can have multiple technical profiles. For example, multiple technical profiles may be defined because the claims provider supports multiple protocols, various endpoints with different capabilities, or releases different claims at different assurance levels. It may be acceptable to release sensitive claims in one user journey, but not in another.
 
 ```XML
-<TrustFrameworkPolicy 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" 
-  PolicySchemaVersion="0.3.0.0" 
-  TenantId="mytenant.onmicrosoft.com" 
-  PolicyId="B2C_1A_TrustFrameworkExtensions" 
-  PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions">
-  
-  <BasePolicy>
-    <TenantId>mytenant.onmicrosoft.com</TenantId>
-    <PolicyId>B2C_1A_TrustFrameworkBase</PolicyId>
-  </BasePolicy>
-
-  <ClaimsProviders>
-    <ClaimsProvider>
-      <Domain>Domain name</Domain>
-      <DisplayName>Display name</DisplayName>
-      <TechnicalProfiles>
-        </TechnicalProfile>
-          ...
-        </TechnicalProfile>
+<ClaimsProviders>
+  <ClaimsProvider>
+    <Domain>Domain name</Domain>
+    <DisplayName>Display name</DisplayName>
+    <TechnicalProfiles>
+      </TechnicalProfile>
         ...
-      </TechnicalProfiles>
-    </ClaimsProvider>
+      </TechnicalProfile>
+        ...
+    </TechnicalProfiles>
   </ClaimsProvider>
+</ClaimsProvider>
   ...
+</ClaimsProviders>
 ```
 
 The **ClaimsProviders** element contains the following element:
@@ -61,5 +48,59 @@ The **ClaimsProvider** element contains the following child elements:
 | ------- | ---------- | ----------- |
 | Domain | 0:1 | A string that contains the domain name for the claim provider. For example, if your claims provider includes the Facebook technical profile, the domain name is Facebook.com. This domain name is used for all technical profiles defined in the claims provider unless overridden by the technical profile. |
 | DisplayName | 0:1 | A string that contains the name of the claims provider that can be displayed to users. |
-| [TechnicalProfiles](technicalprofiles.md) | 0:1 | A set of technical profiles supported by the claim provider. Every claims provider must have one or more technical profiles that determine the endpoints and the protocols needed to communicate with the claims provider. A claims provider can have multiple technical profiles. For example, multiple technical profiles may be defined because the claims provider supports multiple protocols, various endpoints with different capabilities, or releases different claims at different assurance levels. It may be acceptable to release sensitive claims in one user journey, but not in another. |
+| [TechnicalProfiles](technicalprofiles.md) | 0:1 | A set of technical profiles supported by the claim provider |
+
+**ClaimsProvider** organizes your technical profiles relate to the claims provider. The following example shows the Azure Active Directory claims provider with the Azure Active Directory technical profiles: 
+
+```XML
+<ClaimsProvider>
+  <DisplayName>Azure Active Directory</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="AAD-Common">
+      ...
+    </TechnicalProfile>
+    <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
+      ...
+    </TechnicalProfile>
+    <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
+      ...
+    </TechnicalProfile>
+    <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">
+      ...
+    </TechnicalProfile>
+    <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
+      ...
+    </TechnicalProfile>
+      ...
+    <TechnicalProfile Id="AAD-UserWritePasswordUsingObjectId">
+      ...
+    </TechnicalProfile>
+    <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
+      ...    
+    </TechnicalProfile>
+    <TechnicalProfile Id="AAD-UserReadUsingObjectId">
+      ...
+    </TechnicalProfile>
+    <TechnicalProfile Id="AAD-UserWritePhoneNumberUsingObjectId">
+      ...
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
+
+The following example shows the Facebook claims provider with the **Facebook-OAUTH** technical profile.
+
+```XML
+<ClaimsProvider>
+  <Domain>facebook.com</Domain>
+  <DisplayName>Facebook</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="Facebook-OAUTH">
+      <DisplayName>Facebook</DisplayName>
+      <Protocol Name="OAuth2" />
+        ...
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
  
