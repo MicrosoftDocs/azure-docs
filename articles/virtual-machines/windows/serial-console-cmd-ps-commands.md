@@ -17,7 +17,7 @@ ms.date: 08/14/2018
 ms.author: alsin
 ---
 
-# Windows Commands - CMD 
+# Windows Commands - CMD and PowerShell
 
 This section includes example commands for performing common tasks in scenarios where you may need to use SAC to access your Windows VM, such as when you need to troubleshoot RDP connection failures.
 
