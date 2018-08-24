@@ -22,7 +22,8 @@ ms.custom: jenkins
 
 Continuous integration (CI) and continuous deployment (CD) form a pipeline by which you can build, release, and deploy your code. Azure DevOps Services provides a complete, fully featured set of CI/CD automation tools for deployment to Azure. Jenkins is a popular third-party CI/CD server-based tool that also provides CI/CD automation. You can use Azure DevOps Services and Jenkins together to customize how you deliver your cloud app or service.
 
-In this tutorial, you use Jenkins to build a Node.js web app. You then use Azure DevOps Services or Team Foundation Server to deploy it
+In this tutorial, you use Jenkins to build a Node.js web app. You then use Azure DevOps to deploy it
+
 to a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) that contains Linux virtual machines (VMs). You learn how to:
 
 > [!div class="checklist"]
@@ -32,7 +33,7 @@ to a [deployment group](https://www.visualstudio.com/docs/build/concepts/definit
 > * Configure Jenkins for Azure DevOps Services integration.
 > * Create a Jenkins service endpoint.
 > * Create a deployment group for the Azure virtual machines.
-> * Create a Azure DevOps Services release pipeline.
+> * Create a Azure Pipelines release pipeline.
 > * Execute manual and CI-triggered deployments.
 
 ## Before you begin
@@ -139,11 +140,11 @@ You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/d
 8. After the installation, you are prompted for deployment group tags. Accept the defaults.
 9. In Azure DevOps Services, check for your newly registered virtual machine in **Targets** under **Deployment Groups**.
 
-## Create a Azure DevOps Services release pipeline
+## Create a Azure Pipelines release pipeline
 
-A release pipeline specifies the process that Azure DevOps Services uses to deploy the app. In this example, you execute a shell script.
+A release pipeline specifies the process that Azure Pipelines uses to deploy the app. In this example, you execute a shell script.
 
-To create the release pipeline in Azure DevOps Services:
+To create the release pipeline in Azure Pipelines:
 
 1. Open the **Releases** tab of the **Build &amp; Release** hub, and select **Create release pipeline**. 
 2. Select the **Empty** template by choosing to start with an **Empty process**.
@@ -167,7 +168,7 @@ To create the release pipeline in Azure DevOps Services:
 5. In your browser, open the URL of one of the servers that you added to your deployment group. For example, enter **http://{your-server-ip-address}**.
 6. Go to the source Git repository and modify the contents of the **h1** heading in the file app/views/index.jade with some changed text.
 7. Commit your change.
-8. After a few minutes, you will see a new release created on the **Releases** page of Azure DevOps Services or Team Foundation Server. Open the release to see the deployment taking place. Congratulations!
+8. After a few minutes, you will see a new release created on the **Releases** page of Azure DevOps. Open the release to see the deployment taking place. Congratulations!
 
 ## Troubleshooting the Jenkins plugin
 
