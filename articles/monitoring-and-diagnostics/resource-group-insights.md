@@ -50,7 +50,6 @@ The resource group insights page provides several other tools scoped to help you
    | [**Metrics**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Visualize and explore your metric based data.    |
    | [**Activity logs**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Subscription level events that have occurred in Azure.  |
    | [**Application map**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Navigate your distributed application's topology to identify performance bottlenecks or failure hotspots. |
-    |[**Virtual machine map**](TBD) | TBD |
 
 ## Failures and Performance
 
