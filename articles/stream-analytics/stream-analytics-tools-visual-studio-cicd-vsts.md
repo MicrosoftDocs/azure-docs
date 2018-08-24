@@ -43,6 +43,7 @@ Add **packages.config** to your project directory.
 ```
 
 ## Share your Visual Studio solution to a new Azure Repos Git repo
+
 Share your application source files to a project in Azure DevOps so you can generate builds.  
 
 1. Create a new local Git repo for your project by selecting **Add to Source Control**, then **Git** on the status bar in the lower right-hand corner of Visual Studio. 
