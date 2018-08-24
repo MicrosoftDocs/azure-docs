@@ -34,7 +34,7 @@ This tutorial shows you how to use a system assigned identity for a Windows virt
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-- [Sign in to Azure portal]((https://portal.azure.com))
+- [Sign in to Azure portal](https://portal.azure.com)
 
 - [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
 

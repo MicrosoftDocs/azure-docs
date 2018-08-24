@@ -38,7 +38,7 @@ This tutorial shows you how to to use a system assigned identity for a Linux vir
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-- [Sign in to Azure portal]((https://portal.azure.com))
+- [Sign in to Azure portal](https://portal.azure.com)
 
 - [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
 

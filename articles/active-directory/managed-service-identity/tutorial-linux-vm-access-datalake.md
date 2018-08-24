@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-- [Sign in to Azure portal]((https://portal.azure.com))
+- [Sign in to Azure portal](https://portal.azure.com)
 
 - [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
 
