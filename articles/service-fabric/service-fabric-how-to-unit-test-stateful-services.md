@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/22/2018
-ms.author: ryanwi
+ms.author: 
 
 ---
 
