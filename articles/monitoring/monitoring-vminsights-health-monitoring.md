@@ -13,22 +13,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2018
+ms.date: 08/24/2018
 ms.author: magoedte
 ---
 
-# Understand the health of your virtual machines with Azure Monitor VM insights
+# Understand the health of your virtual machines with Azure Monitor VM Insights
+Viewing the health state of the operating system running on your Azure virtual machines can be observed in two ways with VM Insights, from a virtual machine directly or across all VMs in a subscription from Azure Monitor. This article will help you understand the experience between the two perspectives and how to quickly assess, investigate and resolve issues detected.
 
-Viewing the health state of the operating system running on your Azure virtual machines can be observed in two ways with VM insights, from a virtual machine directly or across all VMs in a subscription. This article will help you understand the experience between the two perspectives and how to quickly assess, investigate and resolve issues detected.
+For information about configuring VM Insights, see [Configuring solution in Azure](monitoring-vminsights-onboard.md).
 
 ## Sign in to the Azure portal
 Sign in to the [Azure portal](https://portal.azure.com). 
 
-## Single virtual machine perspective
+## View health directly from a virtual machine 
 
-To view the health of an Azure VM, select **Insights (preview)** from the left-hand pane of the virtual machine.  On the VM insights page, the **Health** tab to switch to the health view of the VM.  
+To view the health of an Azure VM, select **Insights (preview)** from the left-hand pane of the virtual machine.  On the VM Insights page, the **Health** tab to switch to the health view of the VM.  
 
-![VM insights of a selected Azure virtual machine](./media/monitoring-vminsights-health-monitoring/vminsights-health-page-01.png)
+![VM Insights of a selected Azure virtual machine](./media/monitoring-vminsights-health-monitoring/vminsights-health-page-01.png)
 
 On the **Health** tab, which is selected by default, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of alerts raised by an unhealthy component. Refer to [Alerting and an alert management](<link to section below>) for more details.  Selecting **View health diagnostics** opens a page showing all the components of the VM, associated health criteria, state changes and other significant issues encountered by monitoring objects related to the VM. Refer to the [Health diagnostics](<link to section>) for more details. 
 
@@ -118,7 +119,7 @@ Health diagnostics view gives the user the ability to view all the components of
 
 You can launch Health diagnostics in the following ways.
 
-1. By rollup health state for all VMs from the aggregate VM perspective in Azure Monitor.  On the VM insights health page, clicking on the icon for **Critical**, **Warning**, **Healthy**, or **Unknown** health state under the section **Guest VM health** and drill-down to the page that lists all the VMs matching that filtered category.  Clicking on the value in the **Health State** column will open Health Diagnostics scoped to that particular VM.     
+1. By rollup health state for all VMs from the aggregate VM perspective in Azure Monitor.  On the VM Insights health page, clicking on the icon for **Critical**, **Warning**, **Healthy**, or **Unknown** health state under the section **Guest VM health** and drill-down to the page that lists all the VMs matching that filtered category.  Clicking on the value in the **Health State** column will open Health Diagnostics scoped to that particular VM.     
 
     <Show image> 
 
@@ -126,7 +127,7 @@ You can launch Health diagnostics in the following ways.
 
     <Show image>
  
-4. From the guest VM on the VM insights health tab, by selecting **View health diagnostics** 
+4. From the guest VM on the VM Insights health tab, by selecting **View health diagnostics** 
 
     <Show image>
 
