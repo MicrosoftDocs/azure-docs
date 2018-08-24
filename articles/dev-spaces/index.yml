@@ -1,4 +1,6 @@
-p documentType: LandingData
+
+### YamlMime:YamlDocument
+documentType: LandingData
 title: Azure Dev Spaces
 metadata:
   title: Azure Dev Spaces | Microsoft Docs
