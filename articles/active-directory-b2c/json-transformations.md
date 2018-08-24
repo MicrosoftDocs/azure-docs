@@ -49,7 +49,8 @@ In the following example, the claims transformation extracted the `emailAddress`
     - **inputJson**: {"emailAddress": "emily@live.com", "displayName": "Emily Smith"}
 - Input parameter:
     - **claimToExtract**: emailAddress
-- Output claims: emily@live.com
+- Output claims: 
+    - **extractedClaim**: emily@live.com
 
 
 ## GetClaimsFromJsonArray
