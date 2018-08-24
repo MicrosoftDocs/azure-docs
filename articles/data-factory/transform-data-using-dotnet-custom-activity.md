@@ -30,7 +30,6 @@ To move data to/from a data store that Data Factory does not support, or to tran
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [(Custom) DotNet Activity in Data Factory version 1](v1/data-factory-use-custom-activities.md).
 
-
 See following articles if you are new to Azure Batch service:
 
 * [Azure Batch basics](../batch/batch-technical-overview.md) for an overview of the Azure Batch service.
