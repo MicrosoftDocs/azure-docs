@@ -153,8 +153,6 @@ In the self-hosted IR to be shared,
 
    ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
 
-
-
    ![](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
 
 2. Note the **Resource ID** of the self-hosted IR to be shared.
@@ -168,6 +166,20 @@ In the Data Factory to which the permissions were granted,
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
 
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+
+#### Monitoring 
+
+- **Shared IR**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+
+  ![](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+
+- **Linked IR**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
 
 #### Known limitations of self-hosted IR sharing
 
