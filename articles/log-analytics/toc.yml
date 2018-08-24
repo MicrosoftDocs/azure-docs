@@ -59,6 +59,8 @@
     items:
      - name: Use Azure portal
        href: log-analytics-quick-create-workspace.md  
+     - name: Use Azure CLI
+       href: log-analytics-quick-create-workspace-cli.md
   - name: Collect data
     items:
     - name: Connected sources
