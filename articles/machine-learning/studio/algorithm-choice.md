@@ -80,6 +80,6 @@ Here is a list of the Machine Learning Studio algorithms mentioned in the cheat 
 
 - For a list by category of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) in the Machine Learning Studio Algorithm and Module Help.
 
-- For a complete alphabetical list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index) in the Machine Learning Studio Algorithm and Module Help.
+- For a complete alphabetical list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help) in the Machine Learning Studio Algorithm and Module Help.
 
 - To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](studio-overview-diagram.md).
