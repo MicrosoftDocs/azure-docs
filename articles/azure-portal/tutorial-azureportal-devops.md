@@ -95,7 +95,7 @@ Next, make some changes to the code base and rapidly deploy those changes. You w
 4. In the console window, you can issue live commands for your app. Type the dir command and hit enter. Note that commands requiring elevated privileges do not work.
    
    ![image19][image19]
-5. Move back to the Develop category and choose Visual Studio Online. Note: Visual Studio Online is now named Azure DevOps.
+5. Move back to the Develop category and choose Visual Studio Online. Note: Visual Studio Online is now named Azure DevOps Services.
    
    ![image20][image20]
 6. Toggle on the in-browser editing experience for your App.
@@ -121,7 +121,7 @@ Next, make some changes to the code base and rapidly deploy those changes. You w
 12. Move back to the tools blade and under the Develop category, click on Performance Test.
     
     ![image28][image28]
-13. You need to set an Azure DevOps organization. See here for more details: [Create an Azure DevOps Organization](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
+13. You need to set an Azure DevOps Services organization. See here for more details: [Create an Azure DevOps Services Organization](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 14. Click on New to create a performance test.
     
     ![image29][image29]
