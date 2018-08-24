@@ -7,7 +7,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 08/24/2018
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the LUIS service, I want to programmatically add an example utterance to an intent and train the model using Ruby.
 ---
@@ -67,9 +67,9 @@ Run the application from a command line with Ruby.
 
 Calling `add-utterances.rb` adds the utterances, trains, and gets training status.
 
-````
+```CMD
 > ruby add-utterances.rb 
-````
+```
 
 This result displays the results from calling the add utterances API. The `response` field is in this format for utterances that was added. The `hasError` is false, indicating the utterance was added.  
 
