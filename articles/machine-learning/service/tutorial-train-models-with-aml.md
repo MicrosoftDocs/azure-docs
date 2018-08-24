@@ -445,7 +445,7 @@ In this Azure Machine Learning tutorial, you used Python to:
 > * Set up your development environment
 > * Access and examine the data
 > * Train a simple logistic regression locally using the popular scikit-learn machine learning library
-> * Train multiple models on a remote GPU cluster
+> * Train multiple models on a remote cluster
 > * Review training details and register the best model
 
 You are ready to deploy this registered model using the instructions in the next part of the tutorial series:
