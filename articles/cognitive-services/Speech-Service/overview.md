@@ -15,9 +15,9 @@ ms.author: v-jerkin
 
 The Speech service provides a powerful collection of related speech features in the Microsoft Azure cloud. These features were previously available via the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home), and [Custom Voice](http://customvoice.ai/) services. Now, one subscription gets you access to all of these Azure speech features.
 
-To simplify the development of speech-enabled applications, Microsoft created a unified [Speech SDK](speech-sdk.md) for use with the new Speech service. The SDK provides consistent native speech-to-text and speech translation APIs for C#, C++, and Java. If you're using one of these programming languages, the Speech SDK makes development easier by handling the network details for you.
+To simplify the development of speech-enabled applications, Microsoft created a unified [Speech SDK](speech-sdk.md) for use with the new Speech service. The SDK provides consistent native Speech to Text and Speech Translation APIs for C#, C++, and Java. If you're developing with one of these languages, the Speech SDK makes development easier by handling the network details for you.
 
-Microsoft also offers a [Speech Devices SDK](speech-devices-sdk.md), an integrated hardware/software platform for developers of speech-enabled devices. Our hardware partner provides reference designs and development units, while we provide a device-optimized SDK for the best possible results.
+Microsoft also offers a [Speech Devices SDK](speech-devices-sdk.md), an integrated hardware and software platform for developers of speech-enabled devices. Our hardware partner provides reference designs and development units, while we provide a device-optimized SDK for the best possible results.
 
 Like the other Azure speech services, the Speech service is powered by the proven speech technologies used in products like Cortana and Microsoft Office. You can count on the quality of the results and the reliability of the Azure cloud.
 
@@ -26,34 +26,29 @@ Like the other Azure speech services, the Speech service is powered by the prove
 
 ## Speech service functions
 
-The primary functions of the Speech service are speech-to-text (also called speech recognition or transcription), text-to-speech (speech synthesis), and speech translation.
+The primary functions of the Speech service are Speech to Text (also called speech recognition or transcription), Text to Speech (speech synthesis), and Speech Translation.
 
 |Function|Features|
 |-|-|
-|[Speech-to-text](speech-to-text.md)| <ul><li>Transcribes continuous real-time speech into text.<li>Can batch-transcribe speech from audio recordings. <li>Offers recognition modes for interactive, conversation, and dictation use cases.<li>Supports intermediate results, end-of-speech detection, automatic text formatting, and profanity masking. <li>Can call on [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from transcribed speech.\*|
-|[Text-to-speech](text-to-speech.md)| <ul><li>Converts text to natural-sounding speech. <li>Offers Multiple genders and/or dialects for many supported languages. <li>Supports plain text input or Speech Synthesis Markup Language (SSML). |
-|[Speech translation](speech-translation.md)| <ul><li>Translates streaming audio in near-real-time<li> Can also process recorded speech<li>Provides results as text or synthesized speech. |
+|[Speech to Text](speech-to-text.md)| <ul><li>Transcribes continuous real-time speech into text.<li>Can batch-transcribe speech from audio recordings. <li>Offers recognition modes for interactive, conversation, and dictation use cases.<li>Supports intermediate results, end-of-speech detection, automatic text formatting, and profanity masking. <li>Can call on [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from transcribed speech.\*|
+|[Text to Speech](text-to-speech.md)| <ul><li>Converts text to natural-sounding speech. <li>Offers Multiple genders and/or dialects for many supported languages. <li>Supports plain text input or Speech Synthesis Markup Language (SSML). |
+|[Speech Translation](speech-translation.md)| <ul><li>Translates streaming audio in near-real-time<li> Can also process recorded speech<li>Provides results as text or synthesized speech. |
 
 \* *Intent recognition requires a LUIS subscription.*
 
 
 ## Customizing Speech functions
 
-The Speech service lets you use your own data to train the models underlying both speech-to-text and text-to-speech. For speech-to-text, you can train three different models.
+The Speech service lets you use your own data to train the models underlying the Speech service's Speech to Text and Text to Speech features. 
 
-|Speech-to-text model|Purpose|
-|-|-|
-|[Acoustic model](how-to-customize-acoustic-models.md)|Helps transcribe particular speakers and environments (such as cars or factories)|
-|[Language model](how-to-customize-language-model.md)|Helps transcribe field-specific vocabulary and grammar (such as medical or IT jargon)|
-|[Pronunciation model](how-to-customize-pronunciation.md)|Helps transcribe abbreviations and acronyms (such as "IOU" for "i oh you") |
+|Feature|Model|Purpose|
+|-|-|-|
+|Speech to Text|[Acoustic model](how-to-customize-acoustic-models.md)|Helps transcribe particular speakers and environments, such as cars or factories|
+||[Language model](how-to-customize-language-model.md)|Helps transcribe field-specific vocabulary and grammar, such as medical or IT jargon|
+||[Pronunciation model](how-to-customize-pronunciation.md)|Helps transcribe abbreviations and acronyms, such as "IOU" for "i oh you" |
+|Text to Seech|[Voice font](how-to-customize-voice-font.md)|Gives your app a voice of its own by training the model on samples of human speech.|
 
-For text-to-speech, you can train the voice to sound like a different person.
-
-|Text-to-speech model|Purpose|
-|-|-|
-|[Voice font](how-to-customize-voice-font.md)|Gives your app a voice of its own by training the model on samples of human speech.|
-
-Once created, your custom models can be used anywhere you'd use the standard models in your app's speech-to-text or text-to-speech functionality.
+Once created, your custom models can be used anywhere you'd use the standard models in your app's Speech to Text or Text to Speech functionality.
 
 
 ## Using the Speech service in your applications
@@ -65,18 +60,7 @@ There are two ways for applications to use the Speech service. If you're using a
 |[Speech SDK](speech-sdk.md)|Yes|No|Yes|Native APIs for C#, C++, and Java to simplify development.|
 |[REST](rest-apis.md)|Yes|Yes|No|A simple HTTP-based API that makes it easy to add speech to your applications.|
 
-The Speech service provides WebSockets protocols for streaming speech-to-text and text translation. These protocols are used by the SDKs. We encourage you to use the SDK rather than trying to implement a WebSockets protocol yourself.
-
-
-## Migrating to the Speech service
-
-The older Azure speech services will be deprecated and eventually discontinued. New features will be added to the unified Speech service rather than to deprecated services. In fact, the Speech service already has features that its predecessors do not.
-
-At some point, then, developers using these older APIs must migrate their applications to the Speech service.
-
-It's straightforward to migrate. The Speech service's network endpoints are different, and you need a new subscription key. Otherwise, the Speech Service's REST and WebSockets APIs are compatible with the older services' APIs. Your existing code should need only minor modifications to work with the Speech service.
-
-As you continue development on your application, you might opt to switch to the Speech SDK to simplify your code and make maintenance easier.
+The Speech service provides WebSockets protocols for streaming Speech to Text and Speech Translation. The Speech SDKs use these protocols. We encourage you to use the Speech SDK rather than trying to implement your own WebSockets communication with the Speech service. However, if you already have code that uses Bing Speech or Translator Speech via WebSockets, it is straightforward to update it to use the Speech service. The WebSockets protocols are compatible; only the endpoints are different.
 
 
 ## Speech scenarios
@@ -92,7 +76,7 @@ A few example use cases for the Speech service are discussed briefly below.
 
 Voice input is a great way to make your app flexible, hands-free, and quick to use. In a voice-enabled app, users can just ask for the information they want rather than needing to navigate to it.
 
-If your app is intended for use by the general public, you can use the default speech recognition models. They do a good job of recognizing a wide variety of speakers in typical environments.
+If your app is intended for use by the general public, you can use the default speech recognition models. They do a good job of recognizing a wide variety of speakers in common environments.
 
 If your app will be used in a specific domain (for example, medicine or IT), you can create a [language model](how-to-customize-language-model.md) to teach the Speech service about the special terminology used by your app.
 
