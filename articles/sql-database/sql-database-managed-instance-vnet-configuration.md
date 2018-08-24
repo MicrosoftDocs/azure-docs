@@ -49,7 +49,7 @@ With introduction of _Network Intent Policy_ we allow you to add Network securit
 You could now use NSG to narrow down the IP ranges from which applications and users could query and manage the data by filtering network traffic that goes to port 1433.
 
 > [!IMPORTANT]
-> When configuring NSG rules that will restrain access to port 1433 you will also need to have the inbound rules in the table below included before any _Deny_ rules. Otherwise Network Intent Policy will block the change as non compliant.
+> When you are configuring the NSG rules that will restrain access to port 1433 you will also need to insert the highest priority inbound rules displayed in the table below. Otherwise Network Intent Policy will block the change as non compliant.
 
 | NAME       |PORT                        |PROTOCOL|SOURCE           |DESTINATION|ACTION|
 |------------|----------------------------|--------|-----------------|-----------|------|
@@ -61,9 +61,12 @@ We also improved routing experiance so in addition to 0.0.0.0/0 next hop type In
 
 ##  Determine the size of subnet for Managed Instances
 
-When you create a Managed Instance, Azure allocates a number of virtual machines depending on the tier size you select during provisioning. Because these virtual machines are associated with your subnet, they require IP addresses. To ensure high availability during regular operations and service maintenance, Azure may allocate additional virtual machines. As a result, the number of required IP addresses in a subnet is larger than the number of Managed Instances in that subnet. 
+When you create a Managed Instance, Azure allocates a number of virtual machines depending on the tier you selected during the provisioning. Because these virtual machines are associated with your subnet, they require IP addresses. To ensure high availability during regular operations and service maintenance, Azure may allocate additional virtual machines. As a result, the number of required IP addresses in a subnet is larger than the number of Managed Instances in that subnet. 
 
 By design, a Managed Instance needs a minimum of 16 IP addresses in a subnet and may use up to 256 IP addresses. As a result, you can use subnet masks /28 to /24 when defining your subnet IP ranges. 
+
+> [!IMPORTANT]
+> Subnet size with 16 IP addresses is the bare minimum with limited potential for the further Managed Instance scale out. Choosing subnet with the prefix /27 or below is highly recommended. 
 
 If you plan to deploy multiple Managed Instances inside the subnet and need to optimize on subnet size, use these parameters to form a calculation: 
 
@@ -72,6 +75,9 @@ If you plan to deploy multiple Managed Instances inside the subnet and need to o
 - Each Business Critical instance needs four addresses
 
 **Example**: You plan to have three General Purpose and two Business Critical Managed Instances. That means you need 5 + 3 * 2 + 2 * 4 = 19 IP addresses. As IP ranges are defined in power of 2, you need the IP range of 32 (2^5) IP addresses. Therefore, you need to reserve the subnet with subnet mask of /27. 
+
+> [!IMPORTANT]
+> Calculation displayed above will become obsolete with further improvements and for ease of use replaced with the online Managed Instance subnet size estimator. 
 
 ## Create a new virtual network for Managed Instance using Azure Resource Manager deployment
 
@@ -94,59 +100,6 @@ The easiest way to create and configure virtual network is to use Azure Resource
 
 You might change the names of VNet and subnets and adjust IP ranges associated to your networking resources. Once you press "Purchase" button, this form will create and configure your environment. If you don't need two subnets you can delete the default one. 
 
-## Create a new virtual network for Managed Instances using portal
-
-Creating an Azure virtual network is a prerequisite for creating a Managed Instance. You can use the Azure portal, [PowerShell](../virtual-network/quick-create-powershell.md), or [Azure CLI](../virtual-network/quick-create-cli.md). The following section shows the steps using the Azure portal. The details discussed here apply to each of these methods.
-
-1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
-2. Locate and then click **Virtual Network**, verify the **Resource Manager** is selected as the deployment mode, and then click **Create**.
-
-   ![virtual network create](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
-
-3. Fill out the virtual network form with the requested information, in a manner like the following screenshot:
-
-   ![virtual network create form](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
-
-4. Click **Create**.
-
-   The address space and subnet are specified in CIDR notation. 
-
-   > [!IMPORTANT]
-   > The default values create subnet that takes all the VNet address space. If you choose this option, you can not create any other resources inside the virtual network other than Managed Instance. 
-
-   The recommended approach would be the following: 
-   - Calculate subnet size by following [Determine the size of subnet for Managed Instance](#determine-the-size-of-subnet-for-managed-instances) section  
-   - Assess the needs for the rest of VNet 
-   - Fill in VNet and subnet address ranges accordingly 
-
-   Make sure that Service endpoints option stays **Disabled**. 
-
-   ![virtual network create form](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
-
-### Create the required route table and associate it
-
-1. Sign in to the Azure portal  
-2. Locate and then click **Route table**, and then click **Create** on the Route table page.
-
-   ![route table create form](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
-
-3. Create a 0.0.0.0/0 Next Hop Internet route, in a manner like the following screenshots:
-
-   ![route table add](./media/sql-database-managed-instance-tutorial/route-table-add.png)
-
-   ![route](./media/sql-database-managed-instance-tutorial/route.png)
-
-4. Associate this route with the subnet for the Managed Instance, in a manner like the following screenshots:
-
-    ![subnet](./media/sql-database-managed-instance-tutorial/subnet.png)
-
-    ![set route table](./media/sql-database-managed-instance-tutorial/set-route-table.png)
-
-    ![set route table-save](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
-
-
-Once your VNet has been created, you are ready to create your Managed Instance.  
-
 ## Modify an existing virtual network for Managed Instances 
 
 The questions and answers in this section show you how to add a Managed Instance to existing virtual network. 
@@ -160,14 +113,27 @@ You can only create a Managed Instance in Resource Manager virtual networks.
 If you would like to create new one: 
 
 - Calculate subnet size by following the guidelines in the [Determine the size of subnet for Managed Instances](#determine-the-size-of-subnet-for-managed-instances) section.
-- Follow steps in [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md). 
+- Follow the steps in [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md). 
 - Create a route table that contains single entry, **0.0.0.0/0**, as the next hop Internet and associate it with the subnet for the Managed Instance.  
 
-In case you would like to create a Managed Instance inside an existing subnet: 
-- Check if the subnet is empty - a Managed Instance cannot be created in a subnet that contains other resources including the Gateway subnet 
-- Calculate subnet size by following the guidelines in the [Determine the size of subnet for Managed Instances](#determine-the-size-of-subnet-for-managed-instances) section and verify that it is sized appropriately. 
-- Check that service endpoints are not enabled on the subnet.
-- Make sure that there are no network security groups associated with the subnet 
+In case you would like to create a Managed Instance inside an existing subnet we recommend you to use the PowerShell script below to prepare the subnet.
+```powershell
+$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/prepare-subnet'
+
+$parameters = @{
+    subscriptionId = '<subscriptionId>'
+    resourceGroupName = '<resourceGroupName>'
+    virtualNetworkName = '<virtualNetworkName>'
+    subnetName = '<subnetName>'
+    }
+
+Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepareSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
+```
+Subnet preparation is done in three simple steps:
+
+- Validate - Selected virtual netwok and subnet are validated for Managed Instance networking requirements
+- Confirm - User is shown a set of changes that need to be made to prepare subnet for Managed Instance deployment and asked for consent
+- Prepare - Virtual network and subnet are configured properly
 
 **Do you have custom DNS server configured?** 
 
