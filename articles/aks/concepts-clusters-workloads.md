@@ -109,13 +109,13 @@ spec:
         image: nginx:1.15.2
         ports:
         - containerPort: 80
-      resources:
-        requests:
-          cpu: 250m
-          memory: 64Mi
-        limits:
-          cpu: 500m
-          memory: 256Mi
+        resources:
+          requests:
+            cpu: 250m
+            memory: 64Mi
+          limits:
+            cpu: 500m
+            memory: 256Mi
 ```
 
 More complex applications can be created by also including services such as load balancers within the YAML manifest.

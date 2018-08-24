@@ -31,6 +31,8 @@
   items:
   - name: Clusters and workloads
     href: concepts-clusters-workloads.md
+  - name: Storage
+    href: concepts-storage.md
   - name: Scale
     href: concepts-scale.md
   - name: Quotas and regional limits
