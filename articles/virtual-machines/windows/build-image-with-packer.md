@@ -239,6 +239,6 @@ To see your VM, that includes the IIS install from the Packer provisioner, in ac
 
 
 ## Next steps
-In this example, you used Packer to create a VM image with IIS already installed. You can use this VM image alongside existing deployment workflows, such as to deploy your app to VMs created from the Image with Team Services, Ansible, Chef, or Puppet.
+In this example, you used Packer to create a VM image with IIS already installed. You can use this VM image alongside existing deployment workflows, such as to deploy your app to VMs created from the Image with Azure DevOps Services, Ansible, Chef, or Puppet.
 
 For additional example Packer templates for other Windows distros, see [this GitHub repo](https://github.com/hashicorp/packer/tree/master/examples/azure).

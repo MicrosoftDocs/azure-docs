@@ -41,7 +41,7 @@
     href: tutorial-azure-security.md
   - name: 13 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
-  - name: 14 - CI/CD with Team Services
+  - name: 14 - CI/CD with Azure Pipelines
     href: tutorial-build-deploy-jenkins.md
   - name: 15a - Create LAMP stack
     href: tutorial-lamp-stack.md
