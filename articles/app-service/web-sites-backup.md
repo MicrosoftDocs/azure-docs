@@ -55,6 +55,7 @@ The following database solutions are supported with backup feature:
 * Backups can be up to 10 GB of app and database content. If the backup size exceeds this limit, you get an error.
 * Backups of SSL enabled Azure Database for MySQL is not supported. If a backup is configured, you will get failed backups.
 * Backups of SSL enabled Azure Database for PostgreSQL is not supported. If a backup is configured, you will get failed backups.
+* In-app MySQL databases are automatically backed up without any configuration. If you make manually settings for in-app MySQL databases, such as adding connection strings, the backups may not work correctly.
 * Using a firewall enabled storage account as the destination for your backups is not supported. If a backup is configured, you will get failed backups.
 
 
