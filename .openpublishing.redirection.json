@@ -165,6 +165,12 @@
             "redirect_url": "/azure/iot-fundamentals/iot-introduction",
             "redirect_document_id": false
         },
+
+        {
+            "source_path": "articles/iot-hub/iot-hub-create-using-cli-nodejs.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-create-using-cli",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-tutorial-analytics.md",
             "redirect_url": "/azure/cognitive-services/custom-decision-service",
@@ -25652,6 +25658,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/data-lake-storage/index.md",
+            "redirect_url": "/azure/storage/data-lake-storage/introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/dev-spaces/index.md",
             "redirect_url": "/azure/dev-spaces/azure-dev-spaces",
             "redirect_document_id": false
@@ -26494,6 +26505,26 @@
         {
             "source_path": "articles/azure-stack/user/azure-stack-powershell-download.md",
             "redirect_url": "/azure/azure-stack/azure-stack-powershell-download",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-extension-host-prepare.md",
+            "redirect_url": "/azure/azure-stack",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-metrics-azure-data.md",
+            "redirect_url": "/azure/azure-stack",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-metrics-monitor.md",
+            "redirect_url": "/azure/azure-stack",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-metrics-supported.md",
+            "redirect_url": "/azure/azure-stack",
             "redirect_document_id": false
         },
         {
@@ -27363,6 +27394,11 @@
         {
             "source_path": "articles/virtual-machines/linux/ansible-create-complete-vm.md",
             "redirect_url": "/azure/virtual-machines/linux/ansible-create-vm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/networking/networking-virtual-datacenter.md",
+            "redirect_url": "/azure/architecture/vdc/networking-virtual-datacenter",
             "redirect_document_id": true
         },
         {
