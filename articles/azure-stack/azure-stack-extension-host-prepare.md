@@ -1,6 +1,6 @@
 ---
 title: Prepare for extension host for Azure Stack | Microsoft Docs
-description: Learn to prepare for extension host which is automatically enabled via a future Azure Stack Update package.
+description: Learn to prepare for extension host, which is automatically enabled via a future Azure Stack Update package.
 services: azure-stack
 keywords: 
 author: mattbriggs
