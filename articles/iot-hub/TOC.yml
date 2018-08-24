@@ -224,8 +224,6 @@
         href: iot-hub-create-using-powershell.md
       - name: Use Azure CLI
         href: iot-hub-create-using-cli.md
-      - name: Use CLI
-        href: iot-hub-create-using-cli-nodejs.md
       - name: Use the REST API
         href: iot-hub-rm-rest.md
       - name: Use a template from Azure PowerShell
