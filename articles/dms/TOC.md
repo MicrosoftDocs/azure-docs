@@ -11,6 +11,7 @@
 # How-to guides
 ## [Use PowerShell to migrate SQL Server to Azure SQL DB](howto-sql-server-to-azure-sql-powershell.md)
 ## [Use PowerShell to migrate SQL Server to Azure SQL DB MI](howto-sql-server-to-azure-sql-mi-powershell.md)
+## [Monitor migration activity](how-to-monitor-migration-activity.md)
 
 # Resources
 ## [User Voice Feedback](https://feedback.azure.com/forums/906100-azure-database-migration-service)
