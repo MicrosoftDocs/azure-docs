@@ -39,13 +39,38 @@ ms.author: diberry
 
 You can use Ruby to access the same results you saw in the browser window in the previous step. 
 
-1. Copy the code that follows and save it into an HTML file:
+1. Copy the code that follows and save it into a file named `endpoint-call.rb`:
 
    [!code-ruby[Ruby code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/ruby/endpoint-call.rb)]
 
 2. Replace `"YOUR-KEY"` with your endpoint key.
 
-3. Run the Ruby application. It displays the same JSON that you saw earlier in the browser window.
+3. Run the Ruby application at the command-line with `ruby endpoint-call.rb`. It displays the same JSON that you saw earlier in the browser window.
+
+    ```
+    LUIS query: turn on the left light
+    
+    Request URI: https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn+on+the+left+light&timezoneOffset=0&verbose=false&spellCheck=false&staging=false
+    
+    JSON Response:
+    
+    {
+      "query": "turn on the left light",
+      "topScoringIntent": {
+        "intent": "HomeAutomation.TurnOn",
+        "score": 0.933549
+      },
+      "entities": [
+        {
+          "entity": "left",
+          "type": "HomeAutomation.Room",
+          "startIndex": 12,
+          "endIndex": 15,
+          "score": 0.540835142
+        }
+      ]
+    }
+```
 
 ## Clean up resources
 
