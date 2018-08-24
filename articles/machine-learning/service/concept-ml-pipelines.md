@@ -12,10 +12,10 @@ ms.date: 09/24/2018
 
 # Machine learning pipelines with Azure Machine Learning service
 
-The pipelines enable data scientists to create and manage multiple simple and complex workflows concurrently. A typical pipeline would have multiple tasks to prepare data, train, deploy, and evaluate models. Individual nodes in the pipeline, aka tasks, can make use of diverse compute options (for example: CPU for data preparation and GPU for training) and languages.
+What are ML pipelines in general? 
 
 
-Data management and reuse across pipelines and pipeline runs is simplified using named and strictly versioned data sources and named inputs and outputs for processing tasks. Pipelines enable collaboration across teams of data scientists by recording all intermediate tasks and data. New pipelines can be created de novo or by cloning and modifying existing runs.
+Share an image of how there is a pipeline layer over the data prep, experimentation/training pillar, and the deployment/model management pillar.
 
 ## Python-based SDK for pipelines
 In Azure, you can create ML pipelines in Python using the Azure Machine Learning SDK. The SDK offers imperative constructs for sequencing and parallelization of steps. With the use of declarative data dependencies, optimized execution of the tasks can be achieved. The SDK can be easily used from Jupyter Notebook or any other preferred IDE. The SDK includes a framework of pre-built modules for common tasks such as data transfer, provisioning, and model publishing. The framework can be extended by users to model their own conventions. A pipeline can be saved as a template for schedules runs for batch-scoring or retraining.
@@ -24,6 +24,8 @@ In Azure, you can create ML pipelines in Python using the Azure Machine Learning
 ## Why build pipelines with Azure Machine Learning
 
 Pipelines allow you to optimize for simplicity, speed, portability, and reuse. You can focus on machine learning rather than infrastructure.
+
+Do AML piplelines offer anything over other ML pipeline offerings?
 
 The key advantages to building pipelines for your machine learning workflows is:
 
