@@ -181,8 +181,8 @@ The following languages can be detected by the Detect method. Detect may detect 
 | Bulgarian |
 | Catalan |
 | Chinese |
-| Chinese_Simplified |
-| Chinese_Traditional |
+| Chinese (Simplified) |
+| Chinese (Traditional) |
 | Croatian |
 | Czech |
 | Danish |
@@ -195,7 +195,7 @@ The following languages can be detected by the Detect method. Detect may detect 
 | Galician |
 | German |
 | Greek |
-| Haitian_Creole |
+| Haitian Creole |
 | Hebrew |
 | Hindi |
 | Hungarian |
@@ -205,8 +205,8 @@ The following languages can be detected by the Detect method. Detect may detect 
 | Italian |
 | Japanese |
 | Korean |
-| Kurdish_Arabic |
-| Kurdish_Latin |
+| Kurdish (Arabic) |
+| Kurdish (Latin) |
 | Latin |
 | Latvian |
 | Lithuanian |
@@ -214,15 +214,15 @@ The following languages can be detected by the Detect method. Detect may detect 
 | Malay |
 | Maltese |
 | Norwegian |
-| Norwegian_Nynorsk |
+| Norwegian (Nynorsk) |
 | Pashto |
 | Persian |
 | Polish |
 | Portuguese |
 | Romanian |
 | Russian |
-| Serbian_Cyrillic |
-| Serbian_Latin |
+| Serbian (Cyrillic) |
+| Serbian (Latin) |
 | Slovak |
 | Slovenian |
 | Somali |
@@ -234,8 +234,8 @@ The following languages can be detected by the Detect method. Detect may detect 
 | Turkish |
 | Ukrainian |
 | Urdu |
-| Uzbek_Cyrillic |
-| Uzbek_Latin |
+| Uzbek (Cyrillic) |
+| Uzbek (Latin) |
 | Vietnamese |
 | Welsh |
 | Yiddish |

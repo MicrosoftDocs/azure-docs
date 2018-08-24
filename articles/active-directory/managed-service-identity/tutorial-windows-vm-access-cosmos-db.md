@@ -20,10 +20,9 @@ ms.author: daveba
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to create and use a Windows VM Managed Service Identity to access Cosmos DB. You learn how to:
+This tutorial shows you how to use a system assigned identity for a Windows virtual machine (VM) to access Cosmos DB. You learn how to:
 
 > [!div class="checklist"]
-> * Create a Managed Service Identity enabled Windows VM 
 > * Create a Cosmos DB account
 > * Grant Windows VM Managed Service Identity access to the Cosmos DB account access keys
 > * Get an access token using the Windows VM's Managed Service Identity to call Azure Resource Manager
@@ -35,33 +34,11 @@ This tutorial shows you how to create and use a Windows VM Managed Service Ident
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
+- [Sign in to Azure portal](https://portal.azure.com)
 
-## Sign in to Azure
+- [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-
-## Create a Windows virtual machine in a new resource group
-
-For this tutorial, we create a new Windows VM.  You can also enable Managed Service Identity on an existing VM.
-
-1. Click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
-2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
-3. Enter the virtual machine information. The **Username** and **Password** created here is the credentials you use to login to the virtual machine.
-4. Choose the proper **Subscription** for the virtual machine in the dropdown.
-5. To select a new **Resource Group** in which to create your virtual machine, choose **Create New**. When complete, click **OK**.
-6. Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the Settings page, keep the defaults, and click **OK**.
-
-   ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## Enable Managed Service Identity on your VM 
-
-A Virtual Machine Managed Service Identity enables you to get access tokens from Azure AD without needing to put credentials into your code. Under the covers, enabling Managed Service Identity on a Virtual Machine via the Azure portal does two things: it registers your VM with Azure AD to create a managed identity and configures the identity on the VM.
-
-1. Select the **Virtual Machine** that you want to enable Managed Service Identity on.  
-2. On the left navigation bar click **Configuration**. 
-3. You see **Managed Service Identity**. To register and enable the Managed Service Identity, select **Yes**, if you wish to disable it, choose No. 
-4. Ensure you click **Save** to save the configuration.  
-   ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Create a Cosmos DB account 
 
