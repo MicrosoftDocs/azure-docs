@@ -32,7 +32,7 @@ ms.author: diberry
 
 1. Add the Java dependencies to the file.
 
-   [!code-java[Java Dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=31-34 "Java Dependencies")]
+   [!code-java[Java Dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=23-26 "Java Dependencies")]
 
 2. Create `AddUtterances` class. This class contains all code snippets that follow.
 
@@ -44,27 +44,23 @@ ms.author: diberry
 
 3. Add the LUIS constants to the class. Copy the following code and change to your authoring key, application ID, and version ID.
 
-   [!code-java[LUIS-based IDs](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=41-53 "LUIS-based IDs")]
+   [!code-java[LUIS-based IDs](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=33-44 "LUIS-based IDs")]
 
 4. Add the method to call into the LUIS API. 
 
-   [!code-java[HTTP request to LUIS](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=55-178 "HTTP request to LUIS")]
+   [!code-java[HTTP request to LUIS](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=46-168 "HTTP request to LUIS")]
 
 5. Add the method for the HTTP response from the LUIS API.
 
-   [!code-java[HTTP response from LUIS](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=180-226 "HTTP response from LUIS")]
+   [!code-java[HTTP response from LUIS](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=170-202 "HTTP response from LUIS")]
 
 6. Add exception handling. 
 
-   [!code-java[Exception Handling](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=228-256 "Exception Handling")]
+   [!code-java[Exception Handling](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=205-243 "Exception Handling")]
 
-7. Add output/print handling.
+7. Add the main function.
 
-   [!code-java[Add output handling](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=258-267 "Add configuration information for adding utterance")]
-
-8. Add the main function.
-
-   [!code-java[Add main function](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=269-345 "Add main function")]
+   [!code-java[Add main function](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=245-278 "Add main function")]
 
 ## Build code
 
