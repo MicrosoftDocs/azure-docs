@@ -144,7 +144,7 @@ For more information about our native support for Tableau, see [Azure AD Applica
 
 ---
 
-## New support to add Google as an identity provider for B2B guest users in Azure Active Directory (preview)
+### New support to add Google as an identity provider for B2B guest users in Azure Active Directory (preview)
 
 **Type:** New feature  
 **Service category:** B2B  
