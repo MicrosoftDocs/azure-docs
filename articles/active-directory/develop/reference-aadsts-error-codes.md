@@ -26,8 +26,6 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 > [!NOTE]
 > This information is preliminary and subject to change. Have a question or can't find what you're looking for? Create a GitHub issue or see [Support and help options for developers](active-directory-develop-help-support.md) to learn about other ways you can get help and support.
 
-## AADSTS error codes
-
 | Error | Description |
 |---|---|
 | AADSTS16000 | SelectUserAccount - This is an interrupt thrown by Azure AD, which results in UI that allows the user to select from among multiple valid SSO sessions. This error is fairly common and may be returned to the application if prompt=none is specified. |
@@ -156,10 +154,10 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS75008 | RequestDeniedError - The request from the app was denied since the SAML request had an unexpected destination. |
 | AADSTS75011 | NoMatchedAuthnContextInOutputClaims - The authentication method by which the user authenticated with the service doesn't match requested authentication method. |
 | AADSTS75016 | Saml2AuthenticationRequestInvalidNameIDPolicy - SAML2 Authentication Request has invalid NameIdPolicy. |
-| AADSTS80001 | OnPremiseStoreIsNotAvailable - The Authentication Agent is unable to connect to Active Directory. Make sure the authentication agent is installed on a domain-joined machine that has line of sight to a DC that can serve the user's login request. |
-| AADSTS80002 | OnPremisePasswordValidatorRequestTimedout - Internal error. Password validation request timed out. We were unable to either send the authentication request to the internal Hybrid Identity Service. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) to get more details on the error. |
-| AADSTS80005 | OnPremisePasswordValidatorUnpredictableWebException - An unknown error occurred while processing the response from the Authentication Agent. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) to get more details on the error. |
-| AADSTS80007 | OnPremisePasswordValidatorErrorOccurredOnPrem - The Authentication Agent is unable to validate user's password. |
+| AADSTS80001 | OnPremiseStoreIsNotAvailable - The Authentication Agent is unable to connect to Active Directory. Make sure that agent servers are members of the same AD forest as the users whose passwords need to be validated and they are able to connect to Active Directory. |
+| AADSTS80002 | OnPremisePasswordValidatorRequestTimedout - Password validation request timed out. Make sure that Active Directory is available and responding to requests from the agents. |
+| AADSTS80005 | OnPremisePasswordValidatorUnpredictableWebException - An unknown error occurred while processing the response from the Authentication Agent. Retry the request. If it continues to fail, [open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) to get more details on the error. |
+| AADSTS80007 | OnPremisePasswordValidatorErrorOccurredOnPrem - The Authentication Agent is unable to validate user's password. Check the agent logs for more info and verify that Active Directory is operating as expected. |
 | AADSTS80010 | OnPremisePasswordValidationEncryptionException - The Authentication Agent is unable to decrypt password. |
 | AADSTS80012 | OnPremisePasswordValidationAccountLogonInvalidHours - The users attempted to log on outside of the allowed hours (this is specified in AD). |
 | AADSTS80013 | OnPremisePasswordValidationTimeSkew - The authentication attempt could not be completed due to time skew between the machine running the authentication agent and AD. Fix time sync issues. |
@@ -258,3 +256,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS900000 | WebWatsonEnvironmentError |
 | AADSTS1000000 | UserNotBoundError |
 | AADSTS1000002 | BindCompleteInterruptError |
+
+## Next steps
+
+* Have a question or can't find what you're looking for? Create a GitHub issue or see [Support and help options for developers](active-directory-develop-help-support.md) to learn about other ways you can get help and support.
