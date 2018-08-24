@@ -50,7 +50,7 @@ To enable the system assigned identity on a virtual machine scale set that was o
 
 2. Navigate to the desired virtual machine scale set.
 
-3. Enable the system assigned identity on the VM by selecting "Yes" under "Managed service identity" and then click **Save**. This operation can take 60 seconds or more to complete:
+3. Under **System assigned**, **Status**, select **On** and then click **Save**:
 
    [![Configuration page screenshot](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
@@ -62,7 +62,7 @@ If you have a virtual machine scale set that no longer needs a system assigned i
 
 2. Navigate to the desired virtual machine scale set.
 
-3. Disable the system assigned identity on the VM by selecting "No" under "Managed service identity", then click Save. This operation can take 60 seconds or more to complete:
+3. Under **System assigned**, **Status**, select **Off** and then click **Save**:
 
    ![Configuration page screenshot](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
 
