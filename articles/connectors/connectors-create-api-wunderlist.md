@@ -25,8 +25,8 @@ Wunderlist account, along with other actions, for example:
 * Set reminders.
 * Get lists, tasks, subtasks, reminders, files, notes, comments, and more.
 
-[Wunderlist](https://www.wunderlist.com/) is a service that helps you 
-manage and finish your todo lists and tasks - on any device, anywhere. 
+[Wunderlist](https://www.wunderlist.com/) is a service that helps you plan, 
+manage, and finish your projects, todo lists, and tasks - on any device, anywhere. 
 You can use triggers that get responses from your Wunderlist account 
 and make the output available to other actions. You can use actions 
 that perform tasks with your Wunderlist account. You can also have 
