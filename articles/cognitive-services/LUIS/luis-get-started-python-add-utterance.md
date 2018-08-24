@@ -37,7 +37,7 @@ ms.author: diberry
 ## Run code
 Run the application from a command-line with Python 3.6.
 
-### Add an utterance from the command-line
+### Add utterances from the command-line
 
 Calling add-utterance with no arguments adds an utterance to the app, without training it.
 
@@ -45,7 +45,7 @@ Calling add-utterance with no arguments adds an utterance to the app, without tr
 > python add-utterances-3-6.py
 ````
 
-This sample creates a file with the `results.json` that contains the results from calling the add utterances API. The `response` field is in this format for utterances that was added. The `hasError` is false, indicating the utterance was added.  
+The following response returns when the utterances are added to the model.  
 
 ```json
     "response": [
@@ -66,19 +66,8 @@ This sample creates a file with the `results.json` that contains the results fro
     ]
 ```
 
-### Add an utterance and train from the command-line
-Call add-utterance with the `-train` argument to send a request to train, and subsequently request training status. The status is queued immediately after training begins. Status details are written to a file.
-
-````
-> python add-utterances-3-6.py -train
-````
-
-> [!NOTE]
-> Duplicate utterances aren't added again, but don't cause an error. The `response` contains the ID of the original utterance.
-
-When you call the sample with the `-train` argument, it creates a `training-results.json` file indicating the request to train the LUIS app was successfully queued. 
-
 The following shows the result of a successful request to train:
+
 ```json
 {
     "request": null,
@@ -89,14 +78,101 @@ The following shows the result of a successful request to train:
 }
 ```
 
-After the request to train is queued, it can take a moment to complete training.
-
-### Get training status from the command line
-Call the sample with the `-status` argument to check the training status and write status details to a file.
-
-````
-> python add-utterances-3-6.py -status
-````
+```JSON
+Requested training status.
+[
+   {
+      "modelId": "eb2f117c-e10a-463e-90ea-1a0176660acc",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "c1bdfbfc-e110-402e-b0cc-2af4112289fb",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "863023ec-2c96-4d68-9c44-34c1cbde8bc9",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "82702162-73ba-4ae9-a6f6-517b5244c555",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "37121f4c-4853-467f-a9f3-6dfc8cad2763",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "de421482-753e-42f5-a765-ad0a60f50d69",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "80f58a45-86f2-4e18-be3d-b60a2c88312e",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "c9eb9772-3b18-4d5f-a1e6-e0c31f91b390",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "2afec2ff-7c01-4423-bb0e-e5f6935afae8",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "95a81c87-0d7b-4251-8e07-f28d180886a1",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   }
+]
+```
 
 ## Clean up resources
 When you are done with the quickstart, remove all the files created in this quickstart. 

@@ -63,25 +63,7 @@ Add the **main** code that chooses which action.
 
 Create `package.json` file with the following text:
 
-```JSON
-{
-  "name": "node",
-  "version": "1.0.0",
-  "description": "",
-  "main": "add-single-utterance.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "fs-extra": "^5.0.0",
-    "request": "^2.83.0",
-    "request-promise": "^4.2.2"
-  }
-}
-
-```
+   [!code-json[Package.json](~/samples-luis/documentation-samples/quickstarts/change-model/node/package.json "Package.json")]
 
 On the command-line, from the directory that has the package.json, install dependencies with NPM: `npm install`.
 

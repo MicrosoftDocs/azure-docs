@@ -19,7 +19,7 @@ ms.author: diberry
 ## Prerequisites
 
 [!include[Quickstart prerequisites for endpoint](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
-* [JDK SE)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)  (Java Development Kit, Standard Edition)
+* [JDK SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)  (Java Development Kit, Standard Edition)
 * [Google's GSON JSON library](https://github.com/google/gson).
 
 [!include[Quickstart note about code repository](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
@@ -30,7 +30,7 @@ ms.author: diberry
 
 ## Create quickstart code
 
-1. Add the Java dependencies to the file.
+1. Add the Java dependencies to the file named `AddUtterances.java`.
 
    [!code-java[Java Dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=23-26 "Java Dependencies")]
 
@@ -46,19 +46,19 @@ ms.author: diberry
 
    [!code-java[LUIS-based IDs](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=33-44 "LUIS-based IDs")]
 
-4. Add the method to call into the LUIS API. 
+4. Add the method to call into the LUIS API to the AddUtterances class. 
 
    [!code-java[HTTP request to LUIS](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=46-168 "HTTP request to LUIS")]
 
-5. Add the method for the HTTP response from the LUIS API.
+5. Add the method for the HTTP response from the LUIS API to the AddUtterances class.
 
    [!code-java[HTTP response from LUIS](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=170-202 "HTTP response from LUIS")]
 
-6. Add exception handling. 
+6. Add exception handling to the AddUtterances class. 
 
    [!code-java[Exception Handling](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=205-243 "Exception Handling")]
 
-7. Add the main function.
+7. Add the main function to the AddUtterances class.
 
    [!code-java[Add main function](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=245-278 "Add main function")]
 
