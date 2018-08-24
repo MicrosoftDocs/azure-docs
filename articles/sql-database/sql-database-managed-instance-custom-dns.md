@@ -17,10 +17,10 @@ ms.reviewer: bonova, carlrab
 An Azure SQL Database Managed Instance (preview) must be deployed within an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). There are a few scenarios (i.e. linked servers to other SQL instances in your cloud or hybrid environment) that require private host names to be resolved from the Managed Instance. In this case, you need to configure a custom DNS inside Azure. Since Managed Instance uses the same DNS for its inner workings, the virtual network DNS configuration needs to be compatible with Managed Instance. 
 
 To make a custom DNS configuration is compatible with the Managed Instance, you need to: 
-- configure custom DNS server so it is able to resolve public domain names 
-- put Azure Recursive Resolver DNS IP address 168.63.129.16 at the end of virtual network DNS list 
+- Configure custom DNS server so it is able to resolve public domain names 
+- Put Azure Recursive Resolver DNS IP address 168.63.129.16 at the end of the virtual network DNS list 
  
-## Setting up supported custom DNS servers configuration
+## Setting up custom DNS servers configuration
 
 1. In the Azure portal, find custom DNS option for your VNet.
 
