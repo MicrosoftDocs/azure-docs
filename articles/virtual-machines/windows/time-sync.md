@@ -17,7 +17,7 @@ ms.date: 08/21/2018
 ms.author: cynthn
 ---
 
-# Time sync for Windows VMs in Azure|
+# Time sync for Windows VMs in Azure
 
 
 

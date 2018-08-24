@@ -27,6 +27,13 @@ Azure is now backed by infrastructure running Windows Server 2016. Windows Serve
 > For more details about time sync in Windows Server 2016, see [Accurate time for Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/accurate-time). 
 
 
+-----------------------
+-----------------------
+
+
+
+
+
 
 ## Allowing Linux VMs to use host
 
@@ -49,14 +56,15 @@ If you are creating your own images for deployment in Azure and are not starting
 	or
 	- Disabling the NTP daemon
 
-In this configuration, the Time Server parameter is this host.  Its Polling Frequency is 5 seconds and the Clock Update Frequency is also 5 seconds.
+In this configuration, the Time Server parameter is the host.  Its Polling Frequency is 5 seconds and the Clock Update Frequency is also 5 seconds.
 
 For older distributions, that do not support TimeSync version 4:
 
 - Synchronize exclusively over NTP. 
 - Disable the TimeSync integration service in the VM.
 
-
+On older distributions, such as Red Hat Enterprise Linux and CentOS 6.x, PTP is not supported, so either NTP or TimeSync can be used as a time source. Enable TimeSync by disabling your NTP service, then running as root:
+echo Y > /sys/module/hv_utils/parameters/timesync_mode
 
 
 By default the operating system (OS) only reads the hardware clock provided by the host on boot. After that, the clock is maintained by the interrupt timer with the Linux kernel. In such setup clock would drift over time. With Red Hat Enterprise Linux 7.x, CentOS 7.x, Ubuntu 16.04 and 18.04, SUSE Linux Enterprise Server (SLES) 12 Service Pack 3 or SLES 15, and similar versions of the latest Linux distributions, host time sync is available to query the host on a regular basis for clock updates.
@@ -75,14 +83,28 @@ cat /sys/class/ptp/ptp0/clock_name
 ```
 
 This should return **hyperv**.
- 
-On Red Hat Enterprise Linux and CentOS 7.x, the Linux time tool chrony can be configured to use this clock as a source, which is disabled by default. ntpd doesn’t support PTP sources, so using chronyd is recommended. To switch to the host clock when using chronyd, enable TimeSync as a source in /etc/chrony.conf:
-refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 
-There is more discussion on Red Hat NTP here: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp and more on chrony here: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony
-If both chrony and TimeSync sources are enabled simultaneously, one could marked as “prefer” which sets the other source as a backup source. It is not recommended to disable the host time sync service but it is not required to be the preferred source. Because NTP services do not update the clock for large skews except after a long period, the host time sync will recover the clock from paused VM events far more quickly than NTP-based tools alone.
-On Ubuntu the timesync service is configured via systemd and there are many choices for configuring a network time sycnhronization service, described on "https://help.ubuntu.com/lts/serverguide/NTP.html"
-SLES can be configured via multiple methods as well. See Section 4.5.8 of "https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement"
-On older distributions, such as Red Hat Enterprise Linux and CentOS 6.x, PTP is not supported, so either NTP or TimeSync can be used as a time source. Enable TimeSync by disabling your NTP service, then running as root:
-echo Y > /sys/module/hv_utils/parameters/timesync_mode
-On very old distributions (which are not supported in Azure) Red Hat Enterprise Linux and CentOS 5.x, only the core Time Synchronization is available, where the hardware clock is synchronized on boot and shutdown.
+## Red Hat  
+On Red Hat Enterprise Linux and CentOS 7.x, **chrony** can be used to configure the OS to use the PTP source clock. The Network Time Protocol daemon (ntpd) doesn’t support PTP sources, so using **chronyd** is recommended. To switch to the host clock, enable TimeSync as a source in **/etc/chrony.conf**.
+
+```bash
+refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
+```
+
+For more information on Red Hat and NTP, see [Configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp). 
+
+For more information on chrony, see [Using chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
+
+If both chrony and TimeSync sources are enabled simultaneously, you can mark one as **prefer** which sets the other source as a backup. Having the host time sync service set to **prefer** is not required. Because NTP services do not update the clock for large skews except after a long period, the host time sync will recover the clock from paused VM events far more quickly than NTP-based tools alone.
+
+## Ubuntu 
+
+On Ubuntu the timesync service is configured using **systemd**. For more information, see [Time Synchronization](https://help.ubuntu.com/lts/serverguide/NTP.html).
+
+## SLES 
+
+SLES can be configured using multiple methods. See Section 4.5.8 in [SUSE Linux Enterprise Server 12 SP3 Release Notes](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
+
+
+
+
