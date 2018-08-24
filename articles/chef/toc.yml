@@ -42,7 +42,7 @@
       href: https://blog.chef.io/
 - name: Tools
   items:
-  - name: Chef Azure DevOps extension
+  - name: Chef Azure DevOps Services extension
     href: https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-chef-tasks
-  - name: Habitat Azure DevOps Extension
+  - name: Habitat Azure DevOps Services Extension
     href: https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-habitat-tasks
