@@ -123,6 +123,7 @@ conf_mx = confusion_matrix(y_test, y_hat)
 print(conf_mx)
 print('Overall accuracy:', np.average(y_hat == y_test))
 ```
+The output shows the confusion matrix:
 
     [[ 960    0    1    2    1    5    6    3    1    1]
      [   0 1112    3    1    0    1    5    1   12    0]
@@ -135,7 +136,7 @@ print('Overall accuracy:', np.average(y_hat == y_test))
      [  10   15    5   21   15   27    7   11  851   12]
      [   7    8    2   13   32   13    0   24   12  898]]
     Overall accuracy: 0.9204
-    
+   
 
 Use `matplotlib` to display the confusion matrix as a graph. In this graph, the X axis represents the actual values, and the Y axis represents the predicted values. The color in each grid represents the error rate. The lighter the color, the higher the error rate is. For example, many 5's are mis-classified as 3's. Hence you see a bright grid at (5,3).
 
@@ -163,7 +164,7 @@ plt.show()
 
 ## Deploy as web service
 
-Once you've tested the model and are satisfied with the results, you can deploy the model as a web service hosted in ACI. 
+Once you've tested the model and are satisfied with the results, deploy the model as a web service hosted in ACI. 
 
 To build the correct environment for ACI, provide the following:
 * A scoring script to show how to use the model
@@ -224,7 +225,7 @@ dependencies:
 
 ### Create configuration file
 
-Next, create a deployment configuration file and specify the number of CPUs and gigabyte of RAM needed for your ACI container. While it depends on your model, the default of 1 core and 1 gigabyte of RAM is usually sufficient for typical models. If you feel you need more later, you would have to recreate the image and redeploy the service.
+Create a deployment configuration file and specify the number of CPUs and gigabyte of RAM needed for your ACI container. While it depends on your model, the default of 1 core and 1 gigabyte of RAM is usually sufficient for typical models. If you feel you need more later, you would have to recreate the image and redeploy the service.
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -236,8 +237,9 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 ```
 
 ### Deploy in ACI
+Estimated time to complete: **about 7-8 minutes**
 
-Once your environment is set up, you can deploy. The following code goes through these steps:
+Configure the image and deploy. The following code goes through these steps:
 
 1. Build an image using:
    * The scoring file (`score.py`)
@@ -248,7 +250,6 @@ Once your environment is set up, you can deploy. The following code goes through
 1. Start up a container in ACI using the image.
 1. Get the web service HTTP endpoint.
 
-It takes **about 7-8 minutes** to run this code.
 
 ```python
 %%time
