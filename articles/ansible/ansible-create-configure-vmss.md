@@ -29,7 +29,7 @@ This section presents a sample Ansible playbook that defines the following resou
 - **Resource group** into which all of your resources will be deployed
 - **Virtual network** in the 10.0.0.0/16 address space
 - **Subnet** within the virtual network
-- **Public IP address** that wllows you to access resources across the Internet
+- **Public IP address** that allows you to access resources across the Internet
 - **Network security group** that controls the flow of network traffic in and out of your virtual machine scale set
 - **Load balancer** that distributes traffic across a set of defined VMs using load balancer rules
 - **Virtual machine scale set** that uses all the created resources
@@ -179,7 +179,7 @@ The created virtual machine scale set has two instances. If you navigate to the 
   az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
   ```
 
-The output should be similar to the following:
+You see results similar to the following output:
 
   ```bash
   {
@@ -264,7 +264,7 @@ If navigate to the virtual machine scale set you configured in the Azure portal,
   az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
   ```
 
-The results of running the command in Cloud Shell shows that three instances now exist. 
+The result of running the command in Cloud Shell shows that three instances now exist. 
 
   ```bash
   {
