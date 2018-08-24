@@ -23,8 +23,8 @@ You can use Azure PowerShell cmdlets to create and manage Azure IoT hubs. This t
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. <br/>If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* [Azure PowerShell cmdlets][lnk-powershell-install].
+* An active Azure account. <br/>If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+* [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
 ## Connect to your Azure subscription
 In a PowerShell command prompt, enter the following command to sign in to your Azure subscription:
@@ -105,25 +105,15 @@ Remove-AzureRmResourceGroup -Name MyIoTRG1
 
 Now you have deployed an IoT hub using a PowerShell cmdlet, you may want to explore further:
 
-* Discover other [PowerShell cmdlets for working with your IoT hub][lnk-iothub-cmdlets].
-* Read about the capabilities of the [IoT Hub resource provider REST API][lnk-rest-api].
+* [PowerShell cmdlets for working with your IoT hub](https://docs.microsoft.com/powershell/module/azurerm.iothub/).
+
+* [IoT Hub resource provider REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource).
 
 To learn more about developing for IoT Hub, see the following articles:
 
-* [Introduction to C SDK][lnk-c-sdk]
-* [Azure IoT SDKs][lnk-sdks]
+* [Introduction to C SDK](iot-hub-device-sdk-c-intro.md)
+* [Azure IoT SDKs](iot-hub-devguide-sdks.md)
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
-
-<!-- Links -->
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
-[lnk-iothub-cmdlets]: https://docs.microsoft.com/powershell/module/azurerm.iothub/
-[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-
-[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
