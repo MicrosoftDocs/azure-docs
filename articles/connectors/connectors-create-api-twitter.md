@@ -91,10 +91,9 @@ or action and continue building your logic app's workflow.
 ### Twitter trigger: When a new tweet is posted
 
 This trigger starts a logic app workflow when the trigger detects 
-when a new tweet appears, for example, with the hastag, #Seattle. 
-So for example, when such tweets are found, you can add a file with 
-the tweets' contents to storage, such as a Dropbox account by using 
-the Dropbox connector. 
+a new tweet, for example, with the hashtag, #Seattle. So for example, 
+when these tweets are found, you can add a file with the tweets' 
+contents to storage, such as a Dropbox account by using the Dropbox connector. 
 
 Optionally, you can include a condition that eligible tweets 
 must come from users with at least a specified number of followers.
