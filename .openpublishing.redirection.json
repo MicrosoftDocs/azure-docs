@@ -14754,11 +14754,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/develop/index.md",
-            "redirect_url": "/azure/active-directory/develop/active-directory-developers-guide",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-mobileanddesktopapp-android-intro.md",
             "redirect_url": "active-directory-android",
             "redirect_document_id": false
