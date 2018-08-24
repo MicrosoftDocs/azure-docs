@@ -26467,22 +26467,22 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-stack/azure-stack-extension-host-prepare",
+            "source_path": "articles/azure-stack/azure-stack-extension-host-prepare.md",
             "redirect_url": "/azure/azure-stack",
             "redirect_document_id": false
         },
         {
-            "source_path": "rticles/azure-stack/user/azure-stack-metrics-azure-data",
+            "source_path": "rticles/azure-stack/user/azure-stack-metrics-azure-data.md",
             "redirect_url": "/azure/azure-stack",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-stack/user/azure-stack-metrics-monitor",
+            "source_path": "articles/azure-stack/user/azure-stack-metrics-monitor.md",
             "redirect_url": "/azure/azure-stack",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-stack/user/azure-stack-metrics-supported",
+            "source_path": "articles/azure-stack/user/azure-stack-metrics-supported.md",
             "redirect_url": "/azure/azure-stack",
             "redirect_document_id": false
         },
