@@ -106,7 +106,7 @@ For single databases, the following tables show the resources available for a si
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data size (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
-|Max log size|307|307|460|1024|1024|1024|1024|1024|
+|Max log size|307|307|461|1024|1024|1024|1024|1024|
 |TempDB size(GB)|64|128|256|384|384|384|384|384|
 |Target IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
