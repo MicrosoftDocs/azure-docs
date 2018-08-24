@@ -25,7 +25,7 @@ The platform components of App Service, including Azure VMs, storage, network co
 
 - Your app resources are [secured](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) from the other customers' Azure resources.
 - [VM instances and runtime software are regularly updated](app-service-patch-os-runtime.md) to address newly discovered vulnerabilities. 
-- Communication of secrets (such as connection strings) between your app and other Azure resources (such as [SQL Database](/services/sql-database/)) stays within Azure and doesn't cross any network boundaries. Secrets are always encrypted when stored.
+- Communication of secrets (such as connection strings) between your app and other Azure resources (such as [SQL Database](https://azure.microsoft.com/services/sql-database/)) stays within Azure and doesn't cross any network boundaries. Secrets are always encrypted when stored.
 - All communication over the App Service connectivity features, such as [hybrid connection](app-service-hybrid-connections.md), is encrypted. 
 - Connections with remote management tools like Azure PowerShell, Azure CLI, Azure SDKs, REST APIs, are all encrypted.
 - 24-hour threat management protects the infrastructure and platform against malware, distributed denial-of-service (DDoS), man-in-the-middle (MITM), and other threats.
@@ -65,7 +65,7 @@ App Service authentication and authorization support multiple authentication pro
 
 When authenticating against a back-end service, App Service provides two different mechanisms depending on your need:
 
-- **Service identity** - Sign in to the remote resource using the identity of the app itself. App Service lets you easily create a [managed service identity](app-service-managed-service-identity.md), which you can use to authenticate with other services, such as [Azure SQL Database](/azure/sql-database/) or [Azure Key Vault](/azure/key-vault/). For an end-to-end tutorial of this approach, see [Secure Azure SQL Database connection from App Service using managed service identity](app-service-web-tutorial-connect-msi.md).
+- **Service identity** - Sign in to the remote resource using the identity of the app itself. App Service lets you easily create a [managed service identity](app-service-managed-service-identity.md), which you can use to authenticate with other services, such as [Azure SQL Database](https://azure.microsoft.com/azure/sql-database/) or [Azure Key Vault](/azure/key-vault/). For an end-to-end tutorial of this approach, see [Secure Azure SQL Database connection from App Service using managed service identity](app-service-web-tutorial-connect-msi.md).
 - **On-behalf-of (OBO)** - Make delegated access to remote resources on behalf of the user. With Azure Active Directory as the authentication provider, your App Service app can perform delegated sign-in to a remote service, such as [Azure Active Directory Graph API](../active-directory/develop/active-directory-graph-api.md) or a remote API app in App Service. For an end-to-end tutorial of this approach, see [Authenticate and authorize users end-to-end in Azure App Service](app-service-web-tutorial-auth-aad.md).
 
 ## Connectivity to remote resources
