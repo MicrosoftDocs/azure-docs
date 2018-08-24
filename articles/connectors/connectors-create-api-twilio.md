@@ -13,7 +13,7 @@ tags: connectors
 ms.date: 08/25/2018
 ---
 
-# Manage messages in Twilio by using Azure Logic Apps
+# Manage messages in Twilio with Azure Logic Apps
 
 With Azure Logic Apps and the Twilio connector, 
 you can create automated tasks and workflows 
@@ -33,7 +33,7 @@ review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 * From [Twilio](https://www.twilio.com/): 
 
-  * Your Twiliio account ID and 
+  * Your Twilio account ID and 
   [authentication token](https://support.twilio.com/hc/en-us/articles/223136027-Auth-Tokens-and-How-to-Change-Them), 
   which you can find on your Twilio dashboard
 
