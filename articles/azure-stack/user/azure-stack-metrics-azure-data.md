@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor on Azure Stack | Microsoft Docs
-description: Learn about Azure monitor on Azure Stack.
+description: Learn about Azure Monitor on Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
