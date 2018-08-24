@@ -30,6 +30,9 @@ For detailed terms and descriptions of your invoice and detailed daily usage fil
 
 For details on the cost management reports, see [Azure portal cost management](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
+> [!div class="nextstepaction"]
+> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+
 ## <a name="charges"></a>How do I make sure that the charges in my invoice are correct?
 
 >[!VIDEO https://www.youtube.com/embed/3YegFD769Pk]
