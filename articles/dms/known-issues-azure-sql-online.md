@@ -15,6 +15,8 @@ ms.date: 08/24/2018
 
 # Known issues/migration limitations with online migrations to Azure SQL DB
 
+Known issues and limitations associated with online migrations from SQL Server to Azure SQL Database are described below.
+
 - Migration of temporal tables not supported
 
     **Symptom**

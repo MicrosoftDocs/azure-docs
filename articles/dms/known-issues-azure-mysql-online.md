@@ -15,6 +15,8 @@ ms.date: 08/24/2018
 
 # Known issues/migration limitations with online migrations to Azure DB for MySQL
 
+Known issues and limitations associated with online migrations from MySQL to Azure Database for MySQL are described in the following sections. 
+
 ## Online migration configuration
 - The source MySQL Server version must be version 5.6.35, 5.7.18 or later
 - Azure Database for MySQL supports:
