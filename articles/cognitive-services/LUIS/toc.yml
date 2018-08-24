@@ -290,9 +290,9 @@
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: SDKs
     items:
-    - name: .Net Authoring
+    - name: .NET Authoring
       href: https://aka.ms/luis-sdk-dotnet-authoring
-    - name: .Net Runtime
+    - name: .NET Runtime
       href: https://aka.ms/luis-sdk-dotnet-runtime
     - name: Android
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
