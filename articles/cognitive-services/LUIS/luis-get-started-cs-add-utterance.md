@@ -21,6 +21,7 @@ ms.author: diberry
 [!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/).
 * C# programming language installed.
+* [JsonFormatterPlus](https://www.nuget.org/packages/JsonFormatterPlus) and [CommandLine](https://www.nuget.org/packages/CommandLineParser/) NuGet packages
 
 [!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
@@ -39,6 +40,13 @@ In Visual Studio, create a new **Windows Classic Desktop Console** app using the
 The Visual Studio project needs **System.Web**. In the Solution Explorer, right-click on **References** and select **Add Reference**.
 
 ![Add System.web reference](./media/luis-quickstart-cs-add-utterance/system.web.png)
+
+### Add other dependencies
+
+The Visual Studio project needs **JsonFormatterPlus** and **CommandLineParser**. In the Solution Explorer, right-click on **References** and select **Manage NuGet Packages...**. Search for and add each of the two packages. 
+
+![Add 3rd party dependencies](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
+
 
 ### Write the C# code
 The **Program.cs** file should be:
