@@ -106,15 +106,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Comeet Recruiting Software Domain and URLs single sign-on information](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_url1.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<DOMAINNAME>.comeet.co/adfs_auth/acs/<UNIQUEID>/`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.comeet.co/adfs_auth/acs/<UNIQUEID>/`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<DOMAINNAME>.comeet.co/adfs_auth/acs/<UNIQUEID>/`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.comeet.co/adfs_auth/acs/<UNIQUEID>/`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Comeet Recruiting Software Domain and URLs single sign-on information](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_url2.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<DOMAINNAME>.comeet.co`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.comeet.co`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Comeet Recruiting Software Client support team](mailto:support@comeet.co) to get these values.
@@ -149,11 +149,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/comeetrecruitingsoftware-tutorial/tutorial_general_400.png)
 
-9. On the **Comeet Recruiting Software Configuration** section, click **Configure Comeet Recruiting Software** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
-
-	![Comeet Recruiting Software Configuration](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_configure.png) 
-
-10. To configure single sign-on on **Comeet Recruiting Software** side, you need to send the downloaded **Metadata XML** and **SAML Single Sign-On Service URL** to [Comeet Recruiting Software Client support team](mailto:support@comeet.co). They will configure your Versal organization to have the SAML SSO connection set properly on both sides.
+9. To configure single sign-on on **Comeet Recruiting Software** side, you need to send the downloaded **Metadata XML** to [Comeet Recruiting Software Client support team](mailto:support@comeet.co). They will configure your Comeet Recruiting Software organization to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
