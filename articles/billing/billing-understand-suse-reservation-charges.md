@@ -35,57 +35,81 @@ The ratio for 5 or more vCPU is 2.6. So a reservation for SUSE with a VM with 5 
 
 ## SUSE Linux Enterprise Server for HPC Priority
 
-Name in Azure portal marketplace:
+Azure portal marketplace name:
 
-|Meter/VM Name |  MeterId | Ratio| Example VM size|
-| ------- | ------------------------| --- |--- |
-|SLES for HPC (1-2 vCPU)|e275a668-ce79-44e2-a659-f43443265e98|1||
-|SLES for HPC (3-4 vCPU)|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2||
-|SLES for HPC (5+ vCPU)|4edcd5a5-8510-49a8-a9fc-c9721f501913|2.6||
+- SLES 12 SP3 for HPC (Priority)
+
+|EA: MeterSubCategory | MeterName |  MeterId | Ratio| Example VM size|
+| ------- | --- | ------------------------| --- |--- |
+|SLES for HPC (1-2 cores)|1-2 vCPU VM Support|e275a668-ce79-44e2-a659-f43443265e98|1|D2s_v3|
+|SLES for HPC (3-4 cores)|3-4 vCPU VM Support|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2|D4s_v3|
+|SLES for HPC (5+ cores)|5+ vCPU VM Support|4edcd5a5-8510-49a8-a9fc-c9721f501913|2.6|D8s_v3|
 
 ### SUSE Linux Enterprise Server for HPC Standard
 
-|Meter/VM Name |  MeterId | Ratio|
-| ------- | ------------------------| --- |
-|SLES for HPC (1-2 vCPU)|8c94ad45-b93b-4772-aab1-ff92fcec6610|1|
-|SLES for HPC (3-4 vCPU)|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1.92308|
-|SLES for HPC (5+ vCPU)|907a85de-024f-4dd6-969c-347d47a1bdff|2.92308|
+Azure portal marketplace name:
+
+- SLES 12 SP3 for HPC
+
+|EA: MeterSubCategory |  MeterName| MeterId | Ratio|Example VM size|
+| ------- | --- | ------------------------| --- | --- |
+|SLES for HPC (1-2 cores)| 1-2 vCPU VM Support|8c94ad45-b93b-4772-aab1-ff92fcec6610|1|D2s_v3|
+|SLES for HPC (3-4 cores)|3-4 vCPU VM Support|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1.92308|D4s_v3|
+|SLES for HPC (5+ cores)|5+ vCPU VM Support|907a85de-024f-4dd6-969c-347d47a1bdff|2.92308|D8s_v3|
 
 ## SUSE Linux Enterprise Server for SAP Priority
 
-|Meter/VM Name |  MeterId | Ratio|
-| ------- | ------------------------| --- |
-|SLES for SAP Priority (1-2 vCPU)|497fe0b6-fa3c-4e3d-a66b-836097244142|1|
-|SLES for SAP Priority (3-4 vCPU)|847887de-68ce-4adc-8a33-7a3f4133312f|2|
-|SLES for SAP Priority (5+ vCPU)|18ae79cd-dfce-48c9-897b-ebd3053c6058|2.41176|
+Azure portal marketplace names:
+
+- SLES for SAP 15 (Priority)
+- SLES for SAP 12 SP3 (Priority)
+- SLES for SAP 12 SP2 (Priority)
+
+|EA: MeterSubCategory| MeterName| MeterId | Ratio|Example VM size|
+| ------- | --- |------------------------| --- | --- |
+|SLES for SAP Priority (1-2 cores)| 1-2 vCPU VM Support|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
+|SLES for SAP Priority (3-4 cores)|3-4 vCPU VM Support|847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
+|SLES for SAP Priority (5+ cores)|5+ vCPU VM Support|18ae79cd-dfce-48c9-897b-ebd3053c6058|2.41176|D8s_v3|
 
 ## SUSE Linux Enterprise Server Priority
 
-|Meter/VM Name |  MeterId | Ratio|
-| ------- | ------------------------| --- |
-|SLES (1vCPU)|462cd632-ec6b-4663-b79f-39715f4e8b38|1|
-|SLES (2vCPU)|924bee71-5eb8-424f-83ed-a58823c33908|2|
-|SLES (4vCPU)|60b3ae9d-e77a-46b2-9cdf-92fa87407969|2|
-|SLES (6 vCPU)|e8862232-6131-4dbe-bde4-e2ae383afc6f|3|
-|SLES (8 vCPU)|e11331a8-fd32-4e71-b60e-4de2a818c67a|3.2|
-|SLES (12 vCPU)|a5afd00d-d3ef-4bcd-8b42-f158b2799782|3.2|
-|SLES (16 vCPU)|bb21066f-fe46-46d3-8006-b326b1663e52|3.2|
-|SLES (20 vCPU)|c5228804-1de6-4bd4-a61c-501d9003acc8|3.2|
-|SLES (24 vCPU)|085dc9ee-005d-4075-ac11-822ccde9e8f6|3.2|
-|SLES (32 vCPU)|180c1a0a-b0a5-4de3-a032-f92925a4bf90|3.2|
-|SLES (40 vCPU)|a161d3d3-0592-4956-9b64-6829678b6506|3.2|
-|SLES (64 vCPU)|7f5a36ed-d5b5-4732-b6bb-837dbf0fb9d8|3.2|
-|SLES (72 vCPU)|93329a72-24d7-4faa-93d9-203f367ed334|3.2|
-|SLES (96 vCPU)|2018c3a8-ff13-41f8-b64d-9558c5206547|3.2|
-|SLES (128 vCPU)|ac27e4d7-44b5-4fee-bc1a-78ac5b4abaf7|3.2|
+Azure portal marketplace name:
+
+- SLES 15 (PRIORITY)
+- SLES 12 SP3 (Priority)
+- SLES 11 SP4 (Priority)
+
+|EA: MeterSubCategory | MeterName| MeterId | Ratio|Example VM size|
+| ------- | --- |------------------------| --- |--- |
+|XS SLES|1 vCPU VM Support|462cd632-ec6b-4663-b79f-39715f4e8b38|1|B1ms|
+|M SLES|2-4 vCPU VM Support|924bee71-5eb8-424f-83ed-a58823c33908|2|D4s_v3|
+|L SLES|2-4 vCPU VM Support|60b3ae9d-e77a-46b2-9cdf-92fa87407969|2|D4s_v3|
+|SLES (6 core)|6 vCPU VM Support|e8862232-6131-4dbe-bde4-e2ae383afc6f|3||
+|XL SLES|8+ vCPU VM Support|e11331a8-fd32-4e71-b60e-4de2a818c67a|3.2|D8s_v3|
+|SLES (12 core)|8+ vCPU VM Support|a5afd00d-d3ef-4bcd-8b42-f158b2799782|3.2||
+|SLES (16 cores)|8+ vCPU VM Support|bb21066f-fe46-46d3-8006-b326b1663e52|3.2| D16s_v3|
+|SLES (20 core)|8+ vCPU VM Support|c5228804-1de6-4bd4-a61c-501d9003acc8|3.2| |
+|SLES (24 cores)|8+ vCPU VM Support|-005d-4075-ac11-822ccde9e8f6|3.2| ND24s|
+|SLES (32 cores)|8+ vCPU VM Support|180c1a0a-b0a5-4de3-a032-f92925a4bf90|3.2| D32s_v3|
+|SLES (40 cores)|8+ vCPU VM Support|a161d3d3-0592-4956-9b64-6829678b6506|3.2||
+|SLES (64 cores)|8+ vCPU VM Support|7f5a36ed-d5b5-4732-b6bb-837dbf0fb9d8|3.2| D64s_v3|
+|SLES (72 cores)|8+ vCPU VM Support|93329a72-24d7-4faa-93d9-203f367ed334|3.2|F72s_v2|
+|SLES (96 cores)|8+ vCPU VM Support|2018c3a8-ff13-41f8-b64d-9558c5206547|3.2||
+|SLES (128 cores)|8+ vCPU VM Support|ac27e4d7-44b5-4fee-bc1a-78ac5b4abaf7|3.2| M128ms|
 
 ## SUSE Linux Enterprise Server Standard
 
-|Meter/VM Name |  MeterId | Ratio|
-| ------- | ------------------------| --- |
-|SLES (1-2 vCPU)|4b2fecfc-b110-4312-8f9d-807db1cb79ae|1|
-|SLES (3-4 vCPU)|0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|
-|SLES (5+ vCPU)|7b349b65-d906-42e5-833f-b2af38513468|2.30769|
+Azure portal marketplace name:
+
+- SLES 15
+- SLES 15 (Standard)
+- SLES 12 SP3 (Standard)
+
+|EA: MeterSubCategory | MeterName | MeterId | Ratio|Example VM size|
+| ------- | --- |------------------------| --- |--- |
+|SLES (1-2 cores)|1-2 vCPU VM Support|4b2fecfc-b110-4312-8f9d-807db1cb79ae|1|D2s_v3|
+|SLES (3-4 cores)|3-4 vCPU VM Support|0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|
+|SLES (5+ cores)|5+ vCPU VM Support|7b349b65-d906-42e5-833f-b2af38513468|2.30769| D8s_v3|
 
 ## Next steps
 
