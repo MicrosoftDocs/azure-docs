@@ -42,8 +42,6 @@ Register the **Microsoft.insights** resource provider on your subscription's off
 4. Select **Resource providers** under **Settings.** 
 5. Find **Microsoft.Insights** in the list and verify that the status is **Registered.**.
 
-`Is there any existing guides on how Azure user should perform this kind of the ops?`
-
 ## Overview
 
 Like Azure Monitor on Azure, Azure Monitor on Azure Stack provides base-level infrastructure metrics and logs for most services.
@@ -52,9 +50,9 @@ Like Azure Monitor on Azure, Azure Monitor on Azure Stack provides base-level in
 
 ![Azure monitor sources -compute subset](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
 
-The *Microsoft.Compute resource provider in Azure Stack includes:
+The **Microsoft.Compute** resource provider in Azure Stack includes:
  - Virtual Machines 
- - Virtual Machines scale sets `strike out if not available yet.`
+ - Virtual Machines scale sets
 
 ### Application - Diagnostics logs, Application logs, and Metrics
 
@@ -75,7 +73,7 @@ The types of measures include:
 
 ### Host and Guest VM metrics
 
-The previously listed compute resources have a dedicated host VM and guest OS. The host VM and guest OS are the equivalent of root VM and guest VM in Hyper-V hypervisor. You can collect metrics for both the host VM and the guest OS. In addition, you can collect diagnostics logs for the guest OS. `Vita: although we can have guest Agent to collect metrics/logs, Azure will do differently, they will VM guest metrics into MDM and OBO.` A list of collectable metrics for Host and Guest VM metrics on Azure Stack are available at [Supported metrics with Azure Monitor on Azure Stack](azure-stack-metrics-supported.md). 
+The previously listed compute resources have a dedicated host VM and guest OS. The host VM and guest OS are the equivalent of root VM and guest VM in Hyper-V hypervisor. You can collect metrics for both the host VM and the guest OS. In addition, you can collect diagnostics logs for the guest OS. A list of collectible metrics for Host and Guest VM metrics on Azure Stack are available at [Supported metrics with Azure Monitor on Azure Stack](azure-stack-metrics-supported.md). 
 
 ### Activity log
 
@@ -101,8 +99,8 @@ The activity log is the same for compute resources.
 Some monitoring data is already stored and available in Azure Monitor for a set amount of time. 
  - Metrics are stored for 90 days. 
  - Activity log entries are stored for 90 days. 
- - Diagnostics logs are not stored. `Vita: this is confused, should be store upon resource diagnostic setting, and we don't have any resource supports this yet.`
- - Archive the data to storage account longer `Vita: shorter is not supported neither) than the time period listed above is not support yet on Azure Stack.` 
+ - Diagnostics logs are not stored.
+ - Archive the data to a storage account for longer retention.
 
 **Query**  
 
