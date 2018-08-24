@@ -18,9 +18,9 @@ ms.custom: jenkins
 #Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use services like VSTS and Jenkins to build and deploy my applications automatically.
 ---
 
-# Tutorial: Deploy your app to Linux virtual machines in Azure with using Jenkins and Azure DevOps
+# Tutorial: Deploy your app to Linux virtual machines in Azure with using Jenkins and Azure DevOps Services
 
-Continuous integration (CI) and continuous deployment (CD) form a pipeline by which you can build, release, and deploy your code. Azure DevOps provides a complete, fully featured set of CI/CD automation tools for deployment to Azure. Jenkins is a popular third-party CI/CD server-based tool that also provides CI/CD automation. You can use Azure DevOps and Jenkins together to customize how you deliver your cloud app or service.
+Continuous integration (CI) and continuous deployment (CD) form a pipeline by which you can build, release, and deploy your code. Azure DevOps Services provides a complete, fully featured set of CI/CD automation tools for deployment to Azure. Jenkins is a popular third-party CI/CD server-based tool that also provides CI/CD automation. You can use Azure DevOps and Jenkins together to customize how you deliver your cloud app or service.
 
 In this tutorial, you use Jenkins to build a Node.js web app. You then use Azure DevOps Services or Team Foundation Server to deploy it
 to a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) that contains Linux virtual machines (VMs). You learn how to:
