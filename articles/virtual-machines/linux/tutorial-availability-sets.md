@@ -77,6 +77,8 @@ for i in `seq 1 2`; do
      --name myVM$i \
      --availability-set myAvailabilitySet \
      --size Standard_DS1_v2  \
+     --vnet-name myVnet \
+     --subnet mySubnet \
      --image UbuntuLTS \
      --admin-username azureuser \
      --generate-ssh-keys \
