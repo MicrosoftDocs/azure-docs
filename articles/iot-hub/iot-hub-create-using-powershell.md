@@ -65,7 +65,7 @@ Get-AzureRmIotHub
 
 This example shows the S1 Standard IoT Hub you created in the previous step. 
 
-You can delete the IoT hub using the [Remove-AzureRmIotHub](https://docs.microsoft.com/en-us/powershell/module/azurerm.iothub/remove-azurermiothub) command:
+You can delete the IoT hub using the [Remove-AzureRmIotHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/remove-azurermiothub) command:
 
 ```powershell
 Remove-AzureRmIotHub `
@@ -73,7 +73,7 @@ Remove-AzureRmIotHub `
     -Name MyTestIoTHub
 ```
 
-Alternatively, you can remove a resource group and all the resources it contains using the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Resources/Remove-AzureRmResourceGroup) command:
+Alternatively, you can remove a resource group and all the resources it contains using the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Remove-AzureRmResourceGroup) command:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name MyIoTRG1
