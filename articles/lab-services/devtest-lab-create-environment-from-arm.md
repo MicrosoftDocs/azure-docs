@@ -33,10 +33,11 @@ Learn more about the many [benefits of using Resource Manager templates](https:/
 > [!NOTE]
 > When you use a Resource Manager template as a basis to create more lab VMs, there are some differences to keep in mind whether you are creating Multi-VMs or single-VMs. [Use a virtual machine's Azure Resource Manager template](devtest-lab-use-resource-manager-template.md) explains these differences in greater detail.
 >
->
 
-## Configure Azure Resource Manager template repositories
+## DevTest Lab public environments
+Azure DevTest Labs has a [public repository of Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/Environments) that you can use to create environments without having to connect to an external GitHub source by yourself. This repository includes frequently used templates such as Azure Web Apps, Service Fabric Cluster, and development SharePoint Farm environment. This feature is similar to the public repository of artifacts that is included for every lab that you create. The environment repository allows you to quickly get started with pre-authored environment templates with minimum input parameters to provide you with a smooth getting started experience for PaaS resources within labs. For more information, see [Configure and use public environments in DevTest Labs](devtest-lab-configure-use-public-environments.md).
 
+## Configure your own template repositories
 As one of the best practices with infrastructure-as-code and configuration-as-code, environment templates should be managed in source control. Azure DevTest Labs follows this practice and loads all Azure Resource Manager templates directly from your GitHub or VSTS Git repositories. As a result, Resource Manager templates can be used across the entire release cycle, from the test environment to the production environment.
 
 Check out the templates created by the DevTest Labs team in the [public GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments). In this public repository, you can view templates shared by others that you can use directly or customize them to suit your needs. After you create your template, store it in this repository to share it with others. You can also set up your own Git repository with templates that can be used to set up environments in the cloud. 
