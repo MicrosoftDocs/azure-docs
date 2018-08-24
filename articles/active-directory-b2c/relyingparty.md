@@ -17,7 +17,7 @@ ms.component: B2C
 
 The **RelyingParty** element specifies the user journey to enforce for the current request to Azure Active Directory (Azure AD) B2C. It also specifies the list of claims that the relying party (RP) application needs as part of the issued token. An RP application, such as a web, mobile, or desktop application, calls the RP policy file. The RP policy file executes a specific task, such as signing in, resetting a password, or editing a profile. Multiple applications can use the same RP policy and a single application can use multiple policies. All RP applications receive the same token with claims, and the user goes through the same user journey.
 
-The following example shows a **RelyingParty** element in the *B2C_1_signup_signin* policy file:
+The following example shows a **RelyingParty** element in the *B2C_1A_signup_signin* policy file:
 
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -78,7 +78,7 @@ The optional **RelyingParty** element contains the following elements:
 
 The `DefaultUserJourney` element specifies a reference to the identifier of the user journey that is usually defined in the Base or Extensions policy. The following examples show the sign-up or sign-in user journey specified in the **RelyingParty** element:
 
-*B2C_1_signup_signin* policy:
+*B2C_1A_signup_signin* policy:
 
 ```XML
 <RelyingParty>
@@ -86,7 +86,7 @@ The `DefaultUserJourney` element specifies a reference to the identifier of the 
   ...
 ```
 
-*B2C_1_TrustFrameWorkBase* or *B2C_1_TrustFrameworkExtensionPolicy*:
+*B2C_1A_TrustFrameWorkBase* or *B2C_1A_TrustFrameworkExtensionPolicy*:
 
 ```XML
 <UserJourneys>

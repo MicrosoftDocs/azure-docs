@@ -91,19 +91,30 @@ The **BasePolicy** element contains the following elements:
 The following example shows how to specify a base policy. This **B2C_1A_TrustFrameworkExtensions** policy is derived from the **B2C_1A_TrustFrameworkBase** policy. 
 
 ``` XML
-<BasePolicy>
-  <TenantId>yourtenant.onmicrosoft.com</TenantId>
-  <PolicyId>B2C_1A_TrustFrameworkBase</PolicyId>
-</BasePolicy>
+<TrustFrameworkPolicy
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
+   PolicySchemaVersion="0.3.0.0"
+   TenantId="mytenant.onmicrosoft.com"
+   PolicyId="B2C_1A_TrustFrameworkExtensions"
+   PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions">
+
+  <BasePolicy>
+    <TenantId>yourtenant.onmicrosoft.com</TenantId>
+    <PolicyId>B2C_1A_TrustFrameworkBase</PolicyId>
+  </BasePolicy>
+  ...
+</TrustFrameworkPolicy>
 ```
 
 ## Policy execution
 
-A relying party application, such as a web, mobile, or desktop application, calls the **relying party (RP)** policy. The RP policy file executes a specific task, such as signing in, resetting a password, or editing a profile. The RP policy configures the list of claims the relying party application receives as part of the token that is issued. Multiple applications can use the same policy. All applications receive the same token with claims and the user goes through the same user journey. A single application can use multiple policies.
+A relying party application, such as a web, mobile, or desktop application, calls the [relying party (RP) policy](relyingparty.md). The RP policy file executes a specific task, such as signing in, resetting a password, or editing a profile. The RP policy configures the list of claims the relying party application receives as part of the token that is issued. Multiple applications can use the same policy. All applications receive the same token with claims and the user goes through the same user journey. A single application can use multiple policies.
 
-Inside the RP policy file, you specify the **DefaultUserJourney** element, which points to the **UserJourney**. The user journey usually is defined in the Base or Extensions policy.
+Inside the RP policy file, you specify the **DefaultUserJourney** element, which points to the [UserJourney](userjourneys.md). The user journey usually is defined in the Base or Extensions policy.
 
-B2C_1_signup_signin policy:
+B2C_1A_signup_signin policy:
 
 ```XML
 <RelyingParty>
@@ -111,7 +122,7 @@ B2C_1_signup_signin policy:
   ...
 ```
 
-B2C_1_TrustFrameWorkBase or B2C_1_TrustFrameworkExtensionPolicy:
+B2C_1A_TrustFrameWorkBase or B2C_1A_TrustFrameworkExtensionPolicy:
 
 ```XML
 <UserJourneys>
@@ -121,12 +132,11 @@ B2C_1_TrustFrameWorkBase or B2C_1_TrustFrameworkExtensionPolicy:
 
 A user journey defines the business logic of what a user goes through. Each user journey is a set of orchestration steps that performs a series of actions, in sequence in terms of authentication and information collection. 
 
-The **SocialAndLocalAccounts** policy file in the starter pack contains the SignUpOrSignIn, ProfileEdit, PasswordReset user journeys. You can add more user journeys for another scenarios, such as changing an email address or resetting a password. 
+The **SocialAndLocalAccounts** policy file in the [starter pack](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contains the SignUpOrSignIn, ProfileEdit, PasswordReset user journeys. You can add more user journeys for another scenarios, such as changing an email address, link and unlink a social account, or resetting a password. 
 
-The orchestration steps may call a **Technical Profile**. A technical profile provides a framework with a built-in mechanism to communicate with different types of parties. For example, a technical profile can perform these actions among others:
+The orchestration steps may call a [Technical Profile](technicalprofiles.md). A technical profile provides a framework with a built-in mechanism to communicate with different types of parties. For example, a technical profile can perform these actions among others:
 
 - Render a user experience.
-- Define the endpoints and the protocols needed to communicate with an identity provider.
 - Allow users to sign in with social or an enterprise account, such as Facebook, Microsoft account, Google, Salesforce or any other identity provider.
 - Set up phone verification for MFA.
 - Read and write data to and from an Azure AD B2C identity store.
@@ -138,3 +148,7 @@ The orchestration steps may call a **Technical Profile**. A technical profile pr
 
 - BasePolicy as specified above
 - [BuildingBlocks](buildingblocks.md)
+- [ClaimsProviders](claimsproviders.md)
+- [UserJourneys](userjourneys.md)
+- [RelyingParty](relyingparty.md)
+
