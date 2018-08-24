@@ -4,7 +4,7 @@ description: Provides an overview of the Collector appliance and how to configur
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 08/25/2018
 ms.author: ruturajd
 services: azure-migrate
 ---
@@ -66,6 +66,7 @@ If the proxy server you use to connect to the internet is an intercepting proxy,
 5. On the Certificate Import Wizard, for Store Location, choose **Local Machine**. **Click Next**.
     ![Certificate store location](./media/concepts-intercepting-proxy/certificate-store-location.png)
 6. Choose the option to **Place all certificates in the following store**. Click **Browse** and select **Trusted Publishers** from the list of certificates that come up. Click **Next**.
+
     ![Certificates store](./media/concepts-intercepting-proxy/certificate-store.png)
 7. Click **Finish**. This will import the certificate. 
 8. Optionally, you can verify the certificate is imported by opening the Certificates tool as in step 1 and 2 above.
