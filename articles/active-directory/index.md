@@ -114,8 +114,8 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                         <h3>Devices</h3>
                         <p>
                         <a href="/azure/active-directory/device-management-introduction">Device management</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-registered-devices-windows10-setup">Windows 10 devices</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-joined-devices-setup">Joined devices</a>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">Windows 10 devices</a><br/>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">Joined devices</a>
                         </p>
                     </div>
                 </div>
