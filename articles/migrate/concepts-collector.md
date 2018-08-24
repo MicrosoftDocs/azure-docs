@@ -61,16 +61,15 @@ If the proxy server you use to connect to the internet is an intercepting proxy,
 1. In the collector VM, go to **Start Menu** and find and open **Manage computer certificates**.
 2. In the Certificates tool, on the left pane, under **Certificates - Local Computer**, find **Trusted Publishers**. Under **Trusted Publishers**, click **Certificates** to see the list of certificates in the pane on the right.
     ![Certificates tool](./media/concepts-intercepting-proxy/certificates-tool.png)
-3. If your proxy certificate is not listed here, continue with the following steps in this section to import the certificate.
-4. Copy your proxy certificate on to the collector VM. You may have to reach out to the network administrator team in your organization to obtain this certificate.
-5. Double click on the certificate to open it. Click **Install Certificate**. This will take you to the Certificate Import wizard.
-6. On the Certificate Import Wizard, for Store Location, choose **Local Machine**. **Click Next**.
+3. Copy your proxy certificate on to the collector VM. You may have to reach out to the network administrator team in your organization to obtain this certificate.
+4. Double click on the certificate to open it. Click **Install Certificate**. This will take you to the Certificate Import wizard.
+5. On the Certificate Import Wizard, for Store Location, choose **Local Machine**. **Click Next**.
     ![Certificate store location](./media/concepts-intercepting-proxy/certificate-store-location.png)
-7. Choose the option to **Place all certificates in the following store**. Click **Browse** and select **Trusted Publishers** from the list of certificates that come up. Click **Next**.
+6. Choose the option to **Place all certificates in the following store**. Click **Browse** and select **Trusted Publishers** from the list of certificates that come up. Click **Next**.
     ![Certificates store](./media/concepts-intercepting-proxy/certificate-store.png)
-8. Click **Finish**. This will import the certificate. 
-9. Optionally, you can verify the certificate is imported by opening the Certificates tool as in step 1 and 2 above.
-10. On the Azure Migrate collector app, verify the internet connectivity prerequisite check is successful.
+7. Click **Finish**. This will import the certificate. 
+8. Optionally, you can verify the certificate is imported by opening the Certificates tool as in step 1 and 2 above.
+9. On the Azure Migrate collector app, verify the internet connectivity prerequisite check is successful.
 
 
 #### Whitelisting URLs for internet connection

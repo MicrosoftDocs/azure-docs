@@ -47,6 +47,7 @@ If you are using any URL-based firewall proxy to control outbound connectivity, 
 *.oneget.org | Required to download the powershell based vCenter PowerCLI module.
 
 **The collector can't connect to the internet because of a certificate validation failure**
+
 This can happen if you are using an intercepting proxy to connect to the Internet, and if you have not imported the proxy certificate on to the collector VM. You can import the proxy certificate using the steps detailed [here](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
 
 **The collector can't connect to the project using the project ID and key I copied from the portal.**
