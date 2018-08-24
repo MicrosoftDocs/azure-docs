@@ -62,9 +62,9 @@ Most resource types will open a gallery of Azure Monitor Workbook templates. Eac
 
 ### Investigate Failures
 
-To test out the Failures tab select **Failures** under investigate in the left-hand menu.
+To test out the Failures tab select **Failures** under **Investigate** in the left-hand menu.
 
-You will notice that your left-side menu bar changes after your selection to offer you new options.
+You will notice that your left-side menu bar changes after your selection is made, offering you new options.
 
 ![Screenshot of Resource Group Insights Overview pane](.\media\resource-group-insights\004-failures.png)
 
@@ -82,7 +82,7 @@ Each of the rows can be selected. The selection is displayed in a graphical deta
 
 Workbooks abstract away the difficult work of creating custom reports and visualizations into an easily consumable format. While some users may only want to adjust the prebuilt parameters, workbooks are completely customizable.
 
-To get a sense of how the workbook functions internally select **Edit** in the top bar.
+To get a sense of how this workbook functions internally, select **Edit** in the top bar.
 
 ![Screenshot of Resource Group Insights Overview pane](.\media\resource-group-insights\008-failure-edit.png)
 
@@ -102,7 +102,7 @@ Performance offers its owns gallery of workbooks. For App Service the prebuilt A
 
  ![Screenshot of Resource Group Insights Overview pane](.\media\resource-group-insights\011-performance.png)
 
-In this case if you select edit as before you will find that this set of visualizations is powered by Azure Monitor Metrics.
+In this case if you select edit you will find that this set of visualizations is powered by Azure Monitor Metrics.
 
  ![Screenshot of Resource Group Insights Overview pane](.\media\resource-group-insights\012-performance-metrics.png)
 
