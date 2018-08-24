@@ -22,7 +22,7 @@ A compute target is the compute resource used to execute your training script or
 The following is a list of supported compute targets:
 
 * Your local computer
-* Data Science Virtual Machines (DSVM) and Deep Learning Virtual Machines (DLVMs)
+* Data Science Virtual Machines (DSVM)
 * Azure Batch AI clusters
 * Linux Based Container instances in Azure Container Instances (ACI)
 * HDInsight 
@@ -31,10 +31,11 @@ The following is a list of supported compute targets:
 
 |Compute target|Key differentiators|
 |----|-----|
-|Local computer|Local|
-|DSVM/ DLVM|Train models on a customized VM image on Microsoft’s Azure cloud built specifically for doing data science|
-|Azure Batch AI|Train models at scale across GPU and CPU clusters with multiple CPUs or GPUs per model, running experiments in parallel, and having shared storage for training data, logs, and model outputs|
-|Azure Container Instance| Operate in isolated containers without having to manage any virtual machines and with faster startup times. Good for any scenario that can operate in isolated containers, including simple applications, task automation, and build jobs|
+|Local computer|Run directly on your own machine.|
+|DSVM|Train models on a customized VM image on Microsoft’s Azure cloud built specifically for doing data science.|
+|Azure Batch AI|Train models at scale across GPU and CPU clusters with multiple CPUs or GPUs per model, running experiments in parallel, and having shared storage for training data, logs, and model outputs.|
+|Azure Container Instance| Operate in isolated containers without having to manage any virtual machines and with faster startup times. Good for any scenario that can operate in isolated containers, including simple applications, task automation, and build job.s|
+|HDInsight|  A popular platform for big-data analytics supporting Apache Spark.| 
 
 ## Workflow
 
@@ -105,7 +106,7 @@ cd.save_to_file(project_dir = project_folder, conda_file_path = run_config.envir
 
 ## Azure Virtual Machines
 
-Virtual Machines are 
+In some cases, resources available on your local machine may not be enough to train the desired model. In this situation, You can easily scale up or scale out your machine learning experiment by adding additional compute targets such as Ubuntu-based Data Science Virtual Machines (DSVM).
 
 ### Create the Virtual Machine
 ```python
@@ -235,8 +236,8 @@ cd.save_to_file(project_dir = project_folder, conda_file_path = run_config.envir
 ```
 
 ## Attach an HDI Cluster
-To use an HDI compute target:
-- Create a Spark for HDI cluster in Azure following [this](https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/how-to-create-dsvm-hdi) guide.  Make sure you use the Ubuntu version, __NOT__ CentOS.
+HDInsight is a popular platform for big-data analytics supporting Apache Spark. To use an HDI compute target:
+- Create a Spark for HDI cluster in Azure following [this](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) guide.  Make sure you use the Ubuntu version, __NOT__ CentOS.
 - Enter the IP address, username and password in the example below
 ```python
 from azureml.core.compute_target import HDIClusterTarget
