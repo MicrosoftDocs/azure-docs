@@ -55,9 +55,9 @@ You could now use NSG to narrow down the IP ranges from which applications and u
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|Any     |Any              |Any        |Allow |
 |mi_subnet   |Any                         |Any     |MI SUBNET        |Any        |Allow |
-|health_probe|Any                         |Any     |AzureLoadBalancer|           |Allow |
+|health_probe|Any                         |Any     |AzureLoadBalancer|Any        |Allow |
 
-We also improved routing experiance so in addition to 0.0.0.0/0 next hop type Internet UDR you could now add UDR to route traffic towards your on-premises private IP ranges through Virtual network gateway or Virtual appliance.
+We also improved routing experiance so in addition to 0.0.0.0/0 next hop type Internet route you could now add UDR to route traffic towards your on-premises private IP ranges through virtual network gateway or virtual network appliance (NVA).
 
 ##  Determine the size of subnet for Managed Instances
 
