@@ -34,7 +34,7 @@ Plan how you deploy a Managed Instance in virtual network using your answers to 
 ## Requirements
 
 For Managed Instance creation you need to dedicate a subnet inside the VNet that conforms to the following requirements:
-- **Be empty**: The subnet must not contain any other cloud service associated to it, and it must not be Gateway subnet. You won’t be able to create Managed Instance in subnet that contains resources other than managed instance or add other resources inside the subnet later.
+- **Dedicated subnet**: The subnet must not contain any other cloud service associated to it, and it must not be Gateway subnet. You won’t be able to create Managed Instance in subnet that contains resources other than managed instance or add other resources inside the subnet later.
 - **No NSG**: The subnet must not have a Network Security Group associated with it.
 - **Have specific route table**: The subnet must have a User Route Table (UDR) with 0.0.0.0/0 Next Hop Internet as the only route assigned to it. For more information, see [Create the required route table and associate it](#create-the-required-route-table-and-associate-it)
 3. **Optional custom DNS**: If custom DNS is specified on the VNet, Azure's recursive resolvers IP address (such as 168.63.129.16) must be added to the list. For more information, see [Configuring Custom DNS](sql-database-managed-instance-custom-dns.md).
@@ -43,6 +43,21 @@ For Managed Instance creation you need to dedicate a subnet inside the VNet that
 
 > [!IMPORTANT]
 > You won’t be able to deploy new Managed Instance if the destination subnet is not compatible with all of the preceding requirements. The destination Vnet and the subnet must be kept in accordance with these Managed Instance requirements (before and after deployment), as any violation may cause instance to enter faulty state and become unavailable. Recovering from that state requires you to create new instance in a VNet with the compliant networking policies, recreate instance level data, and restore your databases. This introduces significant downtime for your applications.
+
+With introduction of Network Intent Policy we allow you to add Network security group (NSG) on Managed Instance subnet after the Managed Instance is created.
+
+You could now use NSG to narrow down the IP ranges from which applications and users could query and manage the data by filtering network traffic that goes to port 1433.
+
+> [!IMPORTANT]
+> When configuring NSG rules that will restrain access to port 1433 you will also need to make sure to have the following inbound rules allowed:
+| NAME       |PORT                        |PROTOCOL|SOURCE           |DESTINATION|
+|------------|----------------------------|--------|-----------------|-----------|
+|management  |9000, 9003, 1438, 1440, 1452|Any     |Any              |Any        |
+|mi_subnet   |Any                         |Any     |MI SUBNET        |Any        |
+|health_probe|Any                         |Any     |AzureLoadBalancer|           |
+Otherwise Network Intent Policy will block the change as non compliant.
+
+We also improved routing experiance so in addition to 0.0.0.0/0 next hop type Internet you could now add UDR to route traffic that goes to your on-premises network to Virtual network gateway or Virtual appliance.
 
 ##  Determine the size of subnet for Managed Instances
 
