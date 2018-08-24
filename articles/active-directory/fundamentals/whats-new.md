@@ -144,6 +144,18 @@ For more information about our native support for Tableau, see [Azure AD Applica
 
 ---
 
+## New support to add Google as an identity provider for B2B guest users in Azure Active Directory (preview)
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+
+By setting up federation with Google in your organization, you can let invited Gmail users sign-in to your shared apps and resources using their existing Google account, without having to create a personal Microsoft Account (MSAs) or an Azure AD account.
+
+This is an opt-in public preview. For more information about Google federation, see [Add Google as an identity provider for B2B guest users](https://docs.microsoft.com/en-us/azure/active-directory/b2b/google-federation).
+
+---
+
 ## July 2018
 
 ### Improvements to Azure Active Directory email notifications
