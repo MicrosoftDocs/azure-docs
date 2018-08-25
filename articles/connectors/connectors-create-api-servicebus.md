@@ -10,7 +10,7 @@ ms.reviewer: klam, LADocs
 ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.topic: article
 tags: connectors
-ms.date: 02/06/2018
+ms.date: 08/25/2018
 ---
 
 # Exchange messages in the cloud with Azure Service Bus and Azure Logic Apps
