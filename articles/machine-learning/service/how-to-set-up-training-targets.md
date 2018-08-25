@@ -249,7 +249,7 @@ For more information on using the BatchAiCompute object, see [tbd].
     ```az ml computetarget show -n mybaicluster -w <workspace-name> -g <resource-group>```
 3. Create a runconfig file based on this example. Be sure to change the target name and framework:
 
-    ```python
+        ```python
         # The script to run.
         script: <train.py>
         # The arguments to the script file.
