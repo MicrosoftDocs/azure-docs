@@ -85,6 +85,7 @@ In a user-managed environment, you are responsible for ensuring that all the nec
   # Shows output of the run on stdout.
   run.wait_for_completion(show_output = True)
   ```
+  
 #### System-Managed Environment
 Before submitting to a remote compute target, you will need to create a conda dependencies file with packages you need for the training script to complete. You can then ask the system to build a new conda environment and execute your scripts in it. The environment is built once and can be reused later as long as the conda_dependencies.yml files remains unchanged. You can then submit the experiment the same way as in the user-managed example. Setting up the new environment might take up to 5 minutes the first time the command is run.
 
@@ -248,7 +249,7 @@ For more information on using the BatchAiCompute object, see [tbd].
     ```az ml computetarget show -n mybaicluster -w <workspace-name> -g <resource-group>```
 3. Create a runconfig file based on this example. Be sure to change the target name and framework:
 
-    ```
+    ```python
         # The script to run.
         script: <train.py>
         # The arguments to the script file.
