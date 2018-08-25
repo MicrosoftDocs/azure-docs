@@ -2,22 +2,14 @@
 title: Get started with a sample
 description: In this article, we'll introduce you to the Power BI Workspace Collections get started sample.
 services: power-bi-embedded
-
 author: markingmyname
-manager: kfile
-
-
-
 ROBOTS: NOINDEX
 ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
-
 ms.topic: article
-
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-
 ---
 # Get started with Power BI Workspace Collections sample
 

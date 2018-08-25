@@ -2,22 +2,14 @@
 title: Common Microsoft Power BI Workspace Collection scenarios
 description: Common Microsoft Power BI Embedded scenarios
 services: power-bi-embedded
-
 author: markingmyname
-manager: kfile
-
-
-
 ROBOTS: NOINDEX
 ms.assetid: 0bf9706c-11bd-432a-bab3-89c04bc4dd1f
 ms.service: power-bi-embedded
-
 ms.topic: article
-
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-
 ---
 # Common Power BI Workspace Collection scenarios
 

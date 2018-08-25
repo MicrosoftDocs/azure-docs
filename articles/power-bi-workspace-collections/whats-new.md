@@ -2,18 +2,11 @@
 title: What's new in Power BI Workspace Collections
 description: Get the latest info on what's new in Power BI Workspace Collections
 services: power-bi-embedded
-
 author: markingmyname
-manager: kfile
-
-
-
 ROBOTS: NOINDEX
 ms.assetid: 2794ae98-b9a7-45df-b6e1-962a395b91fa
 ms.service: power-bi-embedded
-
 ms.topic: article
-
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan

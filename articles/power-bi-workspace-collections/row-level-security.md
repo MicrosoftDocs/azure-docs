@@ -2,17 +2,10 @@
 title: Row level security with Power BI Workspace Collections
 description: Details about row-level security with Power BI Workspace Collections
 services: power-bi-embedded
-
 author: markingmyname
-manager: kfile
-
-
-
 ROBOTS: NOINDEX
 ms.service: power-bi-embedded
-
 ms.topic: article
-
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan

@@ -2,22 +2,14 @@
 title: Connecting to a data source in Power BI Workspace Collections | Microsoft Docs
 description: Learn how to connect to a data source within Power BI Workspace Collections.
 services: power-bi-embedded
-
 author: markingmyname
-manager: kfile
-
-
-
 ROBOTS: NOINDEX
 ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
 ms.service: power-bi-embedded
-
 ms.topic: article
-
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-
 ---
 # Connect to a data source
 
