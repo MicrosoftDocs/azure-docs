@@ -4,7 +4,7 @@ description: Learn how to install Jupyter notebook locally on your computer and 
 services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
