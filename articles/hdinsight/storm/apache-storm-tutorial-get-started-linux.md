@@ -5,7 +5,7 @@ keywords: storm-starter, apache storm example
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: get-started-article
 ms.date: 02/27/2018
