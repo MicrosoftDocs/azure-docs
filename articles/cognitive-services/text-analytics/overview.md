@@ -28,7 +28,7 @@ Automatically [extract key phrases](how-tos/text-analytics-how-to-keyword-extrac
 
 For up to 120 languages, [detect](how-tos/text-analytics-how-to-language-detection.md) which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score.
 
-## Idenfity linked entities (Preview)
+## Identify linked entities (Preview)
 
 [Identify](how-tos/text-analytics-how-to-entity-linking.md) well-known entities in your text and link to more information on the web. Entity linking recognizes and disambiguates when a term is used as one of separately distinguishable entities, verbs, and other word forms.
 
@@ -40,13 +40,13 @@ The workflow is simple: you submit data for analysis and handle outputs in your 
 
 2. [Create a request](how-tos/text-analytics-how-to-call-api.md#json-schema) in JSON that contains your data as raw unstructured text.
 
-3. Post the request to the endpoint established during sign-up, appending the desired resource: sentiment analysis, key phrase extraction, language detection, or entity identification.
+3. Post the request to the endpoint established during sign-up, appending the desired API: sentiment analysis, key phrase extraction, language detection, or entity identification.
 
 4. Stream or store the response locally. Depending on the request, results are either a sentiment score, a collection of extracted key phrases, or a language code.
 
 Output is returned as a single JSON document, with results for each text document you posted, based on ID. You can subsequently analyze, visualize, or categorize the results into actionable insights.
 
-Data is not stored in your account. Operations performed by the Text Analytics service are stateless, which means the text you provide is processed and results are returned immediately.
+Operations performed by the Text Analytics service are stateless. Data is not stored in your account.
 
 <a name="data-limits"></a>
 
@@ -54,7 +54,7 @@ Data is not stored in your account. Operations performed by the Text Analytics s
 
 ### Supported languages
 
-Please see [Supported languages in Text Analytics](text-analytics-supported-languages.md).
+See [Supported languages in Text Analytics](text-analytics-supported-languages.md).
 
 ### Data limits
 
@@ -70,7 +70,7 @@ The rate limit is 100 calls per minute. Note you can submit a large quantity of 
 
 ### Unicode encoding
 
-The Text Analytics API uses Unicode encoding for text representation and character count calculations. Requests can be submitted in both UTF-8 and UTF-16 with no measurable differences in the character count. Unicode codepoints are used as the heuristic for character length and are considered equivalent for the purposes of text analytics data limits. If you use `String.Length` to get the character count, you are using the same method we use to measure data size.
+The Text Analytics service uses Unicode encoding for text representation and character count calculations. You can submit requests in either UTF-8 or UTF-16, with no measurable differences in the character count. If you use `String.Length` to get the character count, you are using the same method we use to measure data size.
 
 ## Next steps
 
