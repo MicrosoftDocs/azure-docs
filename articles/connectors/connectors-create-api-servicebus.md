@@ -112,8 +112,7 @@ Under the triggers list, select the trigger you want.
    ![Select Service Bus trigger](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
    > [!NOTE]
-   > Some triggers can return one or messages, 
-   > for example, the selected trigger in this example, 
+   > Some triggers can return one or messages, for example, the trigger, 
    > **When one or more messages arrive in a queue (auto-complete)**. 
    > When these triggers fire, they return between one 
    > and the number of messages specified by the 
