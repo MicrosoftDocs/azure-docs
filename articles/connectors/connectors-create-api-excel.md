@@ -17,19 +17,18 @@ ms.date: 08/23/2018
 With Azure Logic Apps and the Excel Online connector, 
 you can create automated tasks and workflows based 
 on your data in Excel Online for Business or OneDrive. 
-Your workflows can perform these actions and others with 
-your data, for example:
+This connector provides actions that help you work with 
+your data and manage spreadsheets, for example: 
 
 * Create new worksheets and tables.
 * Get and manage worksheets, tables, and rows.
 * Add single rows and key columns.
 
-You can include actions in your logic apps that use the output 
-from Excel Online actions. This connector provides only actions, 
-so to start your logic app, use a separate trigger, such as 
-a **Recurrence** trigger. For example, if you create worksheets 
-each week, you can send email about those new worksheets using 
-the Office 365 Outlook connector.
+You can then use the outputs from these actions with 
+actions for other services. For example, 
+if you use an action that creates worksheets each week, 
+you can use another action that sends confirmation email 
+by using the Office 365 Outlook connector.
 
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
