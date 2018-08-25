@@ -26,8 +26,8 @@ In part three of the series, you learn how to:
 
 > [!div class="checklist"]
 > * Add source control to your project
-> * Create a build definition in Azure DevOps
-> * Create a release definition in Azure DevOps
+> * Create a build pipeline in Azure DevOps
+> * Create a release pipeline in Azure DevOps
 > * Automatically deploy and upgrade an application
 
 In this tutorial series you learn how to:
@@ -82,11 +82,11 @@ Publishing the repo creates a new project in your account with the same name as 
 
 ## Configure Continuous Delivery with Azure DevOps
 
-A Azure DevOps build definition describes a workflow that is composed of a set of build steps that are executed sequentially. Create a build definition that produces a Service Fabric application package, and other artifacts, to deploy to a Service Fabric cluster. Learn more about [Azure DevOps build definitions](https://www.visualstudio.com/docs/build/define/create). 
+A Azure DevOps build pipeline describes a workflow that is composed of a set of build steps that are executed sequentially. Create a build pipeline that produces a Service Fabric application package, and other artifacts, to deploy to a Service Fabric cluster. Learn more about [Azure DevOps build pipelines](https://www.visualstudio.com/docs/build/define/create). 
 
-A Azure DevOps release definition describes a workflow that deploys an application package to a cluster. When used together, the build definition and release definition execute the entire workflow starting with source files to ending with a running application in your cluster. Learn more about Azure DevOps [release definitions](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+A Azure DevOps release pipeline describes a workflow that deploys an application package to a cluster. When used together, the build pipeline and release pipeline execute the entire workflow starting with source files to ending with a running application in your cluster. Learn more about Azure DevOps [release pipelines](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
-### Create a build definition
+### Create a build pipeline
 
 Open a web browser and navigate to your new project at: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
@@ -110,9 +110,9 @@ In the **Save build pipeline and queue dialog**, click **Save & queue**.
 
 ![Select triggers][save-and-queue2]
 
-Builds also trigger upon push or check-in. To check your build progress, switch to the **Builds** tab.  Once you verify that the build executes successfully, define a release definition that deploys your application to a cluster.
+Builds also trigger upon push or check-in. To check your build progress, switch to the **Builds** tab.  Once you verify that the build executes successfully, define a release pipeline that deploys your application to a cluster.
 
-### Create a release definition
+### Create a release pipeline
 
 Select the **Build & Release** tab, then **Releases**, then **+ New pipeline**.  In **Select a template**, select the **Azure Service Fabric Deployment** template from the list and then **Apply**.
 
@@ -130,11 +130,11 @@ For Azure Active Directory credentials, add the **Server certificate thumbprint*
 
 Click **Add** to save the cluster connection.
 
-Next, add a build artifact to the pipeline so the release definition can find the output from the build. Select **Pipeline** and **Artifacts**->**+Add**.  In **Source (Build definition)**, select the build definition you created previously.  Click **Add** to save the build artifact.
+Next, add a build artifact to the pipeline so the release pipeline can find the output from the build. Select **Pipeline** and **Artifacts**->**+Add**.  In **Source (Build definition)**, select the build pipeline you created previously.  Click **Add** to save the build artifact.
 
 ![Add artifact][add-artifact]
 
-Enable a continuous deployment trigger so that a release is automatically created when the build completes. Click the lightning icon in the artifact, enable the trigger, and click **Save** to save the release definition.
+Enable a continuous deployment trigger so that a release is automatically created when the build completes. Click the lightning icon in the artifact, enable the trigger, and click **Save** to save the release pipeline.
 
 ![Enable trigger][enable-trigger]
 
@@ -156,9 +156,9 @@ Select the unpublished changes status bar icon (![Unpublished changes][unpublish
 
 ![Push changes][push]
 
-Pushing the changes to Azure DevOps automatically triggers a build.  When the build definition successfully completes, a release is automatically created and starts upgrading the application on the cluster.
+Pushing the changes to Azure DevOps automatically triggers a build.  When the build pipeline successfully completes, a release is automatically created and starts upgrading the application on the cluster.
 
-To check your build progress, switch to the **Builds** tab in **Team Explorer** in Visual Studio.  Once you verify that the build executes successfully, define a release definition that deploys your application to a cluster.
+To check your build progress, switch to the **Builds** tab in **Team Explorer** in Visual Studio.  Once you verify that the build executes successfully, define a release pipeline that deploys your application to a cluster.
 
 Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Note the application version, in this example it is "1.0.0.20170815.3".
 
@@ -182,8 +182,8 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Add source control to your project
-> * Create a build definition
-> * Create a release definition
+> * Create a build pipeline
+> * Create a release pipeline
 > * Automatically deploy and upgrade an application
 
 Advance to the next tutorial:
