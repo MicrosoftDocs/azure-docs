@@ -36,32 +36,32 @@ sections:
       - href: /azure/active-directory/develop/authentication-scenarios
         html: <p>Learn the basic concepts of authentication in Azure AD as well as the app model and API.</p>
         image:
-          src: /media/common/i_get-started.svg
+          src: ./media/index/i_get-started.svg
         title: Authentication basics
       - href: /azure/active-directory/develop/v2-app-types/
         html: <p>Learn about the primary application types supported by Azure AD and understand the basics on protocol flows, registering, and token expiration based on the application type.</p>
         image:
-          src: /media/common/i_web-apps.svg
+          src: ./media/index/i_web-apps.svg
         title: Application types
       - href: 
         html: <p>Confused about which Azure AD endpoint to use? Start here to understand the endpoint capabilities and get our recommendation on which endpoint to use based on the scenario you want to enable.</p>
         image:
-          src: /media/common/i_forks.svg
+          src: ./media/index/i_forks.svg
         title: Endpoints and libraries
       - href: /azure/active-directory/develop/v2-id-and-access-tokens/
         html: <p>Learn about the types of security tokens emitted by Azure AD, format, security characteristics, and contents of each type of token.</p>
         image:
-          src: /media/common/i_data-collection.svg
+          src: ./media/index/i_data-collection.svg
         title: ID and access tokens
       - href: /azure/active-directory/develop/sample-v2-code/
         html: <p>Find out the installation and setup requirements, and download code samples that show you how to add authentication and authorization to your app.</p>
         image:
-          src: /media/common/i_code-samples.svg
+          src: ./media/index/i_code-samples.svg
         title: v2.0 code samples by scenario
       - href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
         html: <p>Using other Azure services and need to manage the credentials in your code for authenticating to cloud services? Learn how Managed Service Identity for Azure resources can keep these credentials secure.</p>
         image:
-          src: /media/common/i_account-management.svg
+          src: ./media/index/i_account-management.svg
         title: Managed Service Identity for Azure resources
    
   - title: Quickstarts
@@ -74,16 +74,16 @@ sections:
       style: dataMatrix
       columns:
         - image:
-            src: /media/logos/logo_ios.svg
+            src: ./media/index/logo_ios.svg
           title: iOS
         - image:
-            src: /media/logos/logo_android.svg
+            src: ./media/index/logo_android.svg
           title: Android
         - image:
-            src: /media/logos/logo_Windows.svg
+            src: ./media/index/logo_Windows.svg
           title: Windows Desktop .NET
         - image:
-            src: /media/logos/logo_Windows.svg
+            src: ./media/index/logo_Windows.svg
           title: Universal Windows Platform
       rows:
         - title: v2.0
@@ -104,16 +104,16 @@ sections:
       style: dataMatrix
       columns:
         - image:
-            src: /media/logos/logo_NET.svg
+            src: ./media/index/logo_NET.svg
           title: ASP .NET
         - image:
-            src: /media/logos/logo_nodejs.svg
+            src: ./media/index/logo_nodejs.svg
           title: NodeJS
         - image:
-            src: /media/logos/logo_java.svg
+            src: ./media/index/logo_java.svg
           title: Java
         - image:
-            src: /media/logos/logo_python.svg
+            src: ./media/index/logo_python.svg
           title: Python
       rows:
         - title: v2.0
@@ -137,7 +137,7 @@ sections:
             src: ./media/index/angularjs-shield.svg
           title: AngularJS
         - image:
-            src: /media/logos/logo_js.svg
+            src: ./media/index/logo_js.svg
           title: JavaScript
       rows:
         - title: v2.0
@@ -154,13 +154,13 @@ sections:
       style: dataMatrix
       columns:
         - image:
-            src: /media/logos/logo_NET.svg
+            src: ./media/index/logo_NET.svg
           title: ASP .NET
         - image:
-            src: /media/logos/logo_NETcore.svg
+            src: ./media/index/logo_NETcore.svg
           title: ASP .NET Core       
         - image:
-            src: /media/logos/logo_nodejs.svg
+            src: ./media/index/logo_nodejs.svg
           title: NodeJS
       rows:
         - title: v2.0
@@ -179,7 +179,7 @@ sections:
       style: dataMatrix
       columns:
         - image:
-            src: /media/logos/logo_NET.svg
+            src: ./media/index/logo_NET.svg
           title: .NET
       rows:
         - title: v2.0
@@ -219,32 +219,32 @@ sections:
       - href: /azure/active-directory/develop/reference-app-manifest
         title: Application manifest
         image:
-          src: /media/common/i_form.svg
+          src: ./media/index/i_form.svg
       - href: /azure/active-directory/develop/reference-v2-libraries
         title: v2. 0 authentication libraries
         image:
-          src: /media/common/i_library.svg
+          src: ./media/index/i_library.svg
       - href: /azure/active-directory/develop/active-directory-authentication-libraries
         title: v1. 0 authentication libraries
         image:
-          src: /media/common/i_library.svg
+          src: ./media/index/i_library.svg
       - href: 
         title: Application object API
         image:
-          src: /media/common/i_api-reference.svg
+          src: ./media/index/i_api-reference.svg
       - href: 
         title: Service Principal API
         image:
-          src: /media/common/i_api-reference.svg
+          src: ./media/index/i_api-reference.svg
       - href: 
         title: Claims in Azure AD security tokens
         image:
-          src: /media/common/i_code-edit.svg
+          src: ./media/index/i_code-edit.svg
       - href: 
         title: Azure AD APIs in Microsoft Graph
         image:
-          src: /media/common/i_queries.svg
+          src: ./media/index/i_queries.svg
       - href: /azure/active-directory/develop/reference-aadsts-error-codes
         title: Authentication and authorization error codes
         image:
-          src: /media/common/i_debug.svg
+          src: ./media/index/i_debug.svg

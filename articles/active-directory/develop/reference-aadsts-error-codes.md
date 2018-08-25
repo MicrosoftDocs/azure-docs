@@ -26,6 +26,8 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 > [!NOTE]
 > This information is preliminary and subject to change. Have a question or can't find what you're looking for? Create a GitHub issue or see [Support and help options for developers](active-directory-develop-help-support.md) to learn about other ways you can get help and support.
 
+## AADSTS error codes
+
 | Error | Description |
 |---|---|
 | AADSTS16000 | SelectUserAccount - This is an interrupt thrown by Azure AD, which results in UI that allows the user to select from among multiple valid SSO sessions. This error is fairly common and may be returned to the application if prompt=none is specified. |
