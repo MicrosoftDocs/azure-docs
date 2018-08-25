@@ -4,7 +4,7 @@ description: Run a PowerShell script to deploy a Windows HPC Pack 2012 R2 cluste
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,hpc-pack
 

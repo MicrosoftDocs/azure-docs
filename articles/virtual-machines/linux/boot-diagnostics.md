@@ -4,7 +4,7 @@ description: Overview of the two debugging features for Linux virtual machines i
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: Deland-Han
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -40,15 +40,20 @@ Both of these features are supported for Azure Virtual Machines in all regions. 
 - [FSTAB errors](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## Enable diagnostics on a new virtual machine
-1. When creating a new Virtual Machine from the Preview Portal, select the **Azure Resource Manager** from the deployment model dropdown:
+1. When creating a new virtual machine from the Azure portal, select the **Azure Resource Manager** from the deployment model dropdown:
  
     ![Resource Manager](./media/boot-diagnostics/screenshot3.jpg)
 
-2. Configure the Monitoring option to select the storage account where you would like to place these diagnostic files.
+2. In **Settings**, enable the **Boot diagnostics**, and then select a storage account that you would like to place these diagnostic files.
  
-    ![Create VM](./media/boot-diagnostics/screenshot4.jpg)
+    ![Create VM](./media/boot-diagnostics/create-storage-account.png)
 
-3. If you are deploying from an Azure Resource Manager template, navigate to your Virtual Machine resource and append the diagnostics profile section. Remember to use the “2015-06-15” API version header.
+    > [!NOTE]
+    > The Boot diagnostics feature does not support premium storage account. If you use the premium storage account for Boot diagnostics, you might receive the StorageAccountTypeNotSupported error when you start the VM. 
+    >
+    > 
+
+3. If you are deploying from an Azure Resource Manager template, navigate to your virtual machine resource and append the diagnostics profile section. Remember to use the “2015-06-15” API version header.
 
     ```json
     {
@@ -70,11 +75,19 @@ Both of these features are supported for Azure Virtual Machines in all regions. 
         }
     ```
 
-## Update an existing virtual machine
+To deploy a sample virtual machine with boot diagnostics enabled, check out our repo here.
 
-To enable boot diagnostics through the portal, you can also update an existing virtual machine through the portal. Select the Boot Diagnostics option and Save. Restart the VM to take effect.
+## Enable Boot diagnostics on existing virtual machine 
 
-![Update Existing VM](./media/boot-diagnostics/screenshot5.png)
+To enable Boot diagnostics on an existing virtual machine, follow these steps:
+
+1. Log in to the [Azure portal](https://portal.azure.com), and then select the virtual machine.
+2. In **Support + troubleshooting**, select **Boot diagnostics** > **Settings**, change the status to **On**, and then select a storage account. 
+4. Make sure that the Boot diagnostics option is selected and then save the change.
+
+    ![Update Existing VM](./media/boot-diagnostics/enable-for-existing-vm.png)
+
+3. Restart the VM to take effect.
 
 ## Next steps
 

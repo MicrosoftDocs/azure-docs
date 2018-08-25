@@ -1,13 +1,13 @@
 ---
 title: Secure access to an application's data in the cloud with Azure Storage | Microsoft Docs 
-description: Use SAS tokens, encryption and HTTPS to secure your application's data in the cloud
+description: Use SAS tokens, encryption and HTTPS to secure your application's data in the cloud.
 services: storage
 author: tamram
-manager: jeconnoc
+
 
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/06/2018
+ms.date: 05/30/2018
 ms.author: tamram
 ms.custom: mvc
 ---
@@ -31,7 +31,7 @@ To complete this tutorial you must have completed the previous Storage tutorial:
 
 ## Set container public access
 
-In this part of the tutorial series, SAS tokens are used for accessing the thumbnails. In this step, you set the public access of the _thumbs_ container to `off`.
+In this part of the tutorial series, SAS tokens are used for accessing the thumbnails. In this step, you set the public access of the _thumbnails_ container to `off`.
 
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -39,7 +39,7 @@ blobStorageAccount=<blob_storage_account>
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
-az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbs  \
+az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbnails  \
 --public-access off
 ``` 
 
@@ -77,9 +77,6 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
     // Get reference to the container
     CloudBlobContainer container = blobClient.GetContainerReference(_storageConfig.ThumbnailContainer);
-
-    // Set the permission of the container to public
-    await container.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
     BlobContinuationToken continuationToken = null;
 

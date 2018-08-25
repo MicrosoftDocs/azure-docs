@@ -4,7 +4,7 @@ description: Describes Azure Compute, Storage, and Networking services with Linu
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
@@ -19,12 +19,12 @@ ms.custom: H1Hack27Feb2017, mvc
 ---
 
 # Azure and Linux
-Microsoft Azure is a growing collection of integrated public cloud services including analytics, Virtual Machines, databases, mobile, networking, storage, and web&mdash;ideal for hosting your solutions.  Microsoft Azure provides a scalable computing platform that allows you to only pay for what you use, when you want it - without having to invest in on-premises hardware.  Azure is ready when you are to scale your solutions up and out to whatever scale you require to service the needs of your clients.
+Microsoft Azure is a growing collection of integrated public cloud services including analytics, virtual machines, databases, mobile, networking, storage, and web&mdash;ideal for hosting your solutions.  Microsoft Azure provides a scalable computing platform that allows you to only pay for what you use, when you want it - without having to invest in on-premises hardware.  Azure is ready when you are to scale your solutions up and out to whatever scale you require to service the needs of your clients.
 
 If you are familiar with the various features of Amazon's AWS, you can examine the Azure vs AWS [definition mapping document](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/).
 
 ## Regions
-Microsoft Azure resources are distributed across multiple geographical regions around the world.  A "region" represents multiple data centers in a single geographical area. Azure currently (as of November 2017) has 36 regions generally available around the world with an additional 6 regions announced. An updated list of existing and newly announced regions can be found in the following page:
+Microsoft Azure resources are distributed across multiple geographical regions around the world.  A "region" represents multiple data centers in a single geographical area. Azure currently (as of August 2018) has 42 regions generally available around the world with an additional 12 regions announced - more global regions than any other cloud provider. An updated list of existing and newly announced regions can be found in the following page:
 
 * [Azure Regions](https://azure.microsoft.com/regions/)
 
@@ -55,7 +55,7 @@ To achieve a proper DevOps culture, all infrastructure must be code.  When all t
 * [Azure Templates](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure is rolling out support for [cloud-init](http://cloud-init.io/) across most Linux Distros that support it.  Currently Canonical's Ubuntu VMs are deployed with cloud-init enabled by default.  Red Hat's RHEL, CentOS, and Fedora support cloud-init, however the Azure images maintained by RedHat do not currently have cloud-init installed.  To use cloud-init on a RedHat family OS, you must create a custom image with cloud-init installed.
+Azure is rolling out support for [cloud-init](http://cloud-init.io/) across most Linux Distros that support it.  Currently Canonical's Ubuntu VMs are deployed with cloud-init enabled by default.  Red Hat's RHEL, CentOS, and Fedora support cloud-init, however the Azure images maintained by Red Hat do not currently have cloud-init installed.  To use cloud-init on a Red Hat family OS, you must create a custom image with cloud-init installed.
 
 * [Using cloud-init on Azure Linux VMs](using-cloud-init.md)
 
@@ -69,7 +69,7 @@ Microsoft works closely with partners to ensure the images available are updated
 
 * Linux on Azure - [Endorsed Distributions](endorsed-distros.md)
 * SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
-* Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
+* Red Hat - [Azure Marketplace - Red Hat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 * Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure Marketplace - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
 * FreeBSD - [Azure Marketplace - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)

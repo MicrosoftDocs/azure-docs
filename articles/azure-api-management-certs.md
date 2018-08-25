@@ -27,7 +27,7 @@ Management certificates allow you to authenticate with the classic deployment mo
 
 If you'd like more information about Azure certificates (including creating a self-signed certificate), see [Certificates overview for Azure Cloud Services](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
-You can also use [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) to authenticate client-code for automation purposes.
+You can also use [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) to authenticate client-code for automation purposes.
 
 **Note:** You must be a Co-administrator on the subscription to perform any operations under Management Certificates. [Learn More](https://go.microsoft.com/fwlink/?linkid=849300) on how to Add or Remove Co-Admins from new Azure Portal 
 

@@ -6,12 +6,17 @@ manager: craigg
 author: ddove
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
-ms.date: 10/24/2016
+ms.topic: conceptual
+ms.date: 06/14/2018
 ms.author: sstein
 
 ---
 # Installing Elastic Database jobs overview
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
+
 [**Elastic Database jobs**](sql-database-elastic-jobs-overview.md) can be installed via PowerShell or through the Azure portal.You can gain access to create and manage jobs using the PowerShell API only if you install the PowerShell package. Additionally, the PowerShell APIs provide significantly more functionality than the portal at this point in time.
 
 If you have already installed **Elastic Database jobs** through the Portal from an existing **elastic pool**, the latest Powershell preview includes scripts to upgrade your existing installation. It is highly recommended to upgrade your installation to the latest **Elastic Database jobs** components in order to take advantage of new functionality exposed via the PowerShell APIs.

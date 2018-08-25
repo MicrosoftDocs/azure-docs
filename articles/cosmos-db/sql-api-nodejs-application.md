@@ -3,25 +3,22 @@ title: Build a Node.js web app for Azure Cosmos DB | Microsoft Docs
 description: This Node.js tutorial explores how to use Microsoft Azure Cosmos DB to store and access data from a Node.js Express web application hosted on Azure Websites.
 keywords: Application development, database tutorial, learn node.js, node.js tutorial
 services: cosmos-db
-documentationcenter: nodejs
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+author: SnehaGunda
+manager: kfile
 
-ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/23/2018
-ms.author: mimig
+ms.author: sngun
 
 ---
 # <a name="_Toc395783175"></a>Build a Node.js web application using Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js - v2.0 Preview](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
 > * [Python](sql-api-python-application.md)
 > 
@@ -63,15 +60,21 @@ Now let's learn to create a basic Hello World Node.js project using the [Express
 1. Open your favorite terminal, such as the Node.js command prompt.
 2. Navigate to the directory in which you'd like to store the new application.
 3. Use the express generator to generate a new application called **todo**.
-   
-        express todo
+
+   ```bash
+   express todo
+   ```
 4. Open your new **todo** directory and install dependencies.
-   
-        cd todo
-        npm install
+
+   ```bash
+    cd todo
+    npm install
+   ```
 5. Run your new application.
-   
-        npm start
+
+   ```bash
+   npm start
+   ```
 6. You can view your new application by navigating your browser to [http://localhost:3000](http://localhost:3000).
    
     ![Learn Node.js - Screenshot of the Hello World application in a browser window](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
@@ -82,11 +85,15 @@ Now let's learn to create a basic Hello World Node.js project using the [Express
 The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. Later, when you deploy this application to Azure Websites, this file is used to determine which modules need to be installed on Azure to support your application. We still need to install two more packages for this tutorial.
 
 1. Back in the terminal, install the **async** module via npm.
-   
-        npm install async --save
+
+   ```bash
+   npm install async --save
+   ```
 2. Install the **documentdb** module via npm. This is the module where all the Azure Cosmos DB magic happens.
-   
-        npm install documentdb --save
+
+   ```bash
+   npm install documentdb --save
+   ```
 
 ## <a name="_Toc395783180"></a>Step 4: Using the Azure Cosmos DB service in a node application
 That takes care of all the initial setup and configuration, now let’s get down to why we’re here, and that’s to write some code using Azure Cosmos DB.
@@ -378,7 +385,7 @@ That takes care of all the initial setup and configuration, now let’s get down
     var DocumentDBClient = require('documentdb').DocumentClient;
     var config = require('./config');
     var TaskList = require('./routes/tasklist');
-    var TaskModel = require('./models/taskModel');
+    var TaskModel = require('./models/task-model');
     ```
 3. This code defines the config file to be used, and proceeds to read values out of this file into some variables we will use soon.
 4. Replace the following two lines in **app.js** file:

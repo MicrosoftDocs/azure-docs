@@ -1,0 +1,184 @@
+- name: Application Gateway Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About application gateways
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Manage web traffic - Portal
+    href: quick-create-portal.md
+  - name: Manage web traffic - PowerShell
+    href: quick-create-powershell.md
+  - name: Manage web traffic - Azure CLI
+    href: quick-create-cli.md
+- name: Tutorials
+  items:
+  - name: Manage web traffic
+    href: tutorial-manage-web-traffic-cli.md
+  - name: Enable web application firewall
+    href: tutorial-restrict-web-traffic-cli.md
+  - name: Secure with SSL
+    href: tutorial-ssl-cli.md
+  - name: Host multiple sites
+    href: tutorial-multiple-sites-cli.md
+  - name: Route by URL
+    href: tutorial-url-route-cli.md
+  - name: Redirect web traffic
+    href: tutorial-url-redirect-cli.md
+- name: Samples
+  items:
+  - name: Azure PowerShell
+    href: powershell-samples.md
+  - name: Azure CLI
+    href: cli-samples.md
+- name: Concepts
+  items:
+  - name: SSL termination
+    href: ssl-overview.md
+  - name: SSL policy overview
+    href: application-gateway-ssl-policy-overview.md
+  - name: Web application firewall
+    href: waf-overview.md
+  - name: URL routing
+    href: url-route-overview.md
+  - name: Multiple site hosting
+    href: multiple-site-overview.md
+  - name: Redirection support
+    href: redirect-overview.md
+  - name: Multi-tenant support
+    href: application-gateway-web-app-overview.md
+  - name: Health monitoring
+    href: application-gateway-probe-overview.md
+  - name: WebSocket support
+    href: application-gateway-websocket.md
+- name: How-to guides
+  items:
+  - name: Manage web traffic
+    items:
+    - name: Azure PowerShell
+      href: tutorial-manage-web-traffic-powershell.md
+    - name: Template
+      href: create-vmss-template.md
+  - name: Configure internal load balancer
+    items:
+    - name: Azure PowerShell
+      href: application-gateway-ilb-arm.md
+  - name: Configure SSL termination
+    items:
+    - name: SSL termination using the Azure portal
+      href: create-ssl-portal.md
+    - name: SSL termination using Azure PowerShell
+      href: tutorial-ssl-powershell.md
+    - name: End-to-end SSL termination using Azure PowerShell
+      href: application-gateway-end-to-end-ssl-powershell.md
+    - name: Renew certificates
+      href: renew-certificates.md
+    - name: Configure SSL policy
+      href: application-gateway-configure-ssl-policy-powershell.md
+  - name: Configure Web Application Firewall
+    items:
+    - name: Azure portal
+      href: application-gateway-web-application-firewall-portal.md
+    - name: Azure PowerShell
+      href: tutorial-restrict-web-traffic-powershell.md
+  - name: Customize WAF rules
+    items:
+    - name: Azure portal
+      href: application-gateway-customize-waf-rules-portal.md
+    - name: Azure PowerShell
+      href: application-gateway-customize-waf-rules-powershell.md
+    - name: Azure CLI
+      href: application-gateway-customize-waf-rules-cli.md
+  - name: Route by URL
+    items:
+    - name: Azure portal
+      href: create-url-route-portal.md
+    - name: Azure PowerShell
+      href: tutorial-url-route-powershell.md
+  - name: Host multiple sites
+    items:
+    - name: Azure portal
+      href: create-multiple-sites-portal.md
+    - name: Azure PowerShell
+      href: tutorial-multiple-sites-powershell.md
+  - name: Redirect traffic
+    items:
+    - name: External traffic
+      items:
+      - name: Azure PowerShell
+        href: redirect-external-site-powershell.md
+      - name: Azure CLI
+        href: redirect-external-site-cli.md
+    items:
+    - name: HTTP to HTTPS
+      items:
+      - name: Azure PowerShell
+        href: redirect-http-to-https-powershell.md
+      - name: Azure CLI
+        href: redirect-http-to-https-cli.md
+    - name: Redirect internal traffic
+      items: 
+      - name: Azure PowerShell
+        href: redirect-internal-site-powershell.md
+      - name: Azure CLI
+        href: redirect-internal-site-cli.md
+  - name: Multi-tenant support
+    items:
+    - name: Configure multi-tenant support
+      href: create-web-app.md
+  - name: Redirect web traffic using Azure PowerShell
+    href: tutorial-url-redirect-powershell.md
+  - name: Create a zone redundant application gateway
+    href: create-zone-redundant.md
+  - name: Custom probes
+    items:
+      - name: Portal
+        href: application-gateway-create-probe-portal.md
+      - name: Classic PowerShell
+        href: application-gateway-create-probe-classic-ps.md
+      - name: Resource Manager PowerShell
+        href: application-gateway-create-probe-ps.md
+  - name: Troubleshoot
+    items:
+      - name: Troubleshoot Bad Gateway (502) errors
+        href: application-gateway-troubleshooting-502.md
+      - name: Diagnostics
+        href: application-gateway-diagnostics.md
+- name: Reference
+  items:
+  - name: CRS rules
+    href: application-gateway-crs-rulegroups-rules.md
+  - name: Azure CLI
+    href: /cli/azure/network/application-gateway
+  - name: Azure PowerShell
+    href: /powershell/azure/overview
+  - name: .NET
+    href: /dotnet/api
+  - name: Java
+    href: /java/api
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/applicationgateway
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/resource-group-overview.md
+- name: Resources
+  items:
+  - name: Author templates
+    href: ../azure-resource-manager/resource-group-authoring-templates.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Community templates
+    href: https://azure.microsoft.com/documentation/templates
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-application-gateway
+  - name: FAQ
+    href: application-gateway-faq.md

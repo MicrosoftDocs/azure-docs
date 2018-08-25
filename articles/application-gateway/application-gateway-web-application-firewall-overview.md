@@ -7,13 +7,12 @@ author: amsriva
 manager: rossort
 editor: amsriva
 
-ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 4/16/2018
 ms.author: amsriva
 
 ---
@@ -52,13 +51,13 @@ The following are the core benefits that Application Gateway and web application
 
 Web application firewall comes preconfigured with CRS 3.0 by default or you can choose to use 2.2.9. CRS 3.0 offers reduced false positives over 2.2.9. The ability to [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md) is provided. Some of the common web vulnerabilities which web application firewall protects against includes:
 
-* SQL injection protection
-* Cross site scripting protection
-* Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
-* Protection against HTTP protocol violations
-* Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
-* Prevention against bots, crawlers, and scanners
-* Detection of common application misconfigurations (i.e. Apache, IIS, etc.)
+* SQL injection protection
+* Cross site scripting protection
+* Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
+* Protection against HTTP protocol violations
+* Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
+* Prevention against bots, crawlers, and scanners
+* Detection of common application misconfigurations (for example, Apache, IIS, and so on.)
 
 For a more detailed list of rules and their protections see the following [Core rule sets](#core-rule-sets).
 
@@ -72,9 +71,7 @@ The 3.0 core rule set provided has 13 rule groups as shown in the following tabl
 
 |RuleGroup|Description|
 |---|---|
-|**[REQUEST-910-IP-REPUTATION](application-gateway-crs-rulegroups-rules.md#crs910)**|Contains rules to protect against known spammers or malicious activity.|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Contains rules to lock down methods (PUT, PATCH< ..)|
-|**[REQUEST-912-DOS-PROTECTION](application-gateway-crs-rulegroups-rules.md#crs912)**| Contains rules to protect against Denial of Service (DoS) attacks.|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| Contains rules to protect against port and environment scanners.|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Contains rules to protect against protocol and encoding issues.|
 |**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|Contains rules to protect against header injection, request smuggling, and response splitting|
@@ -164,7 +161,6 @@ Application Gateway WAF provides detailed reporting on each threat it detects. L
 
 Web application firewall is available under a new a WAF SKU. This SKU is available only in Azure Resource Manager provisioning model and not under the classic deployment model. Additionally WAF SKU comes only in medium and large application gateway instance sizes. All the limits for application gateway also apply to the WAF SKU. Pricing is based on per hour gateway instance charge and data processing charge. Per hour gateway pricing for WAF SKU is different from Standard SKU charges and can be found at [Application Gateway pricing details](https://azure.microsoft.com/pricing/details/application-gateway/). Data processing charges remain the same. There is no per rule or rule group charges. You can protect multiple web applications behind the same web application firewall and there are no additional charges for supporting multiple applications. 
 
-Billing for WAF starts effectively 5/5/2017, until then the WAF SKU gateways continues to be charged at standard rates.
 
 ## Next steps
 

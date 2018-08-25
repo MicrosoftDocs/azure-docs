@@ -6,8 +6,8 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
-ms.date: 10/20/2016
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: sashan
 ms.reviewer: carlrab
 

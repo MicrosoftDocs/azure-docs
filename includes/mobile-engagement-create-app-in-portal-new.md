@@ -1,5 +1,5 @@
 
-1. Log on to the [Azure Portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 2. Click **Create a resource**, then **Web + Mobile**, and then **Mobile Engagement**.
    
     ![](./media/mobile-engagement-create-app-in-portal-new/browse-azme-extension.png)

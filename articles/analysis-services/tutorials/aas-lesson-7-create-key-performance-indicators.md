@@ -1,21 +1,14 @@
 ---
 title: "Azure Analysis Services tutorial lesson 7: Create Key Performance Indicators | Microsoft Docs"
 description: Describes how to create Key Performance Indicators in the Azure Analysis Services tutorial project. 
-services: analysis-services
-documentationcenter: ''
-author: Minewiskan
+author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: owend
+ms.reviewer: minewiskan
+
 ---
 # Create Key Performance Indicators
 

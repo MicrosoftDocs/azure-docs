@@ -18,8 +18,6 @@ ms.author: alkohli
 
 ---
 # StorSimple 8000 Series Update 2.2 release notes
-> [!NOTE]
-> The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. For any questions regarding the move, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
 
 ## Overview
 The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 2.2. They also contain a list of the StorSimple software updates included in this release.

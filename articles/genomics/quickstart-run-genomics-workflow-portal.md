@@ -55,7 +55,9 @@ Users need to install both Python and the Microsoft Genomics Python client in th
 
 ### Install Python
 
-The Microsoft Genomics Python client is compatible with Python 2.7. We recommend using version 2.7.12 or later; 2.7.14 is the suggested version. You can find the download [here](https://www.python.org/downloads/). 
+The Microsoft Genomics Python client is compatible with Python 2.7. 12 or later 2.7.xx version; 2.7.15 is the latest version at the time of this writing; 2.7.14 is the suggested version. You can find the download [here](https://www.python.org/downloads/). 
+
+NOTE: Python 3.x isn't compatible with Python 2.7.xx.  MSGen is a Python 2.7 application. When running MSGen, make sure that your active Python environment is using a 2.7.xx version of Python. You may get errors when trying to use MSGen with a 3.x version of Python.
 
 
 ### Install the Microsoft Genomics client
@@ -175,4 +177,4 @@ Once your workflow completes, you can view the output files in your Azure Storag
 
 
 ## Next steps
-In this article, you uploaded sample input data into Azure Storage and submitted a workflow to the Microsoft Genomics service through the `msgen` Python client. To learn more about other input file types that can be used with the Microsoft Genomics service, see the following pages: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md) 
+In this article, you uploaded sample input data into Azure Storage and submitted a workflow to the Microsoft Genomics service through the `msgen` Python client. To learn more about other input file types that can be used with the Microsoft Genomics service, see the following pages: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md). You can also explore this tutorial using our [Azure notebook tutorial.](http://aka.ms/genomicsnotebook)

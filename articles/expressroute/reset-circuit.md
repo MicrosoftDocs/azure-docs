@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Reset a failed Azure ExpressRoute circuit: PowerShell | Microsoft Docs'
 description: This article helps you reset an ExpressRoute circuit that is in a failed state.
 documentationcenter: na
@@ -29,7 +29,7 @@ When an operation on an ExpressRoute circuit does not complete successfully, the
 2. Open your PowerShell console with elevated privileges, and connect to your account. Use the following example to help you connect:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 3. If you have multiple Azure subscriptions, check the subscriptions for the account.
 

@@ -1,20 +1,22 @@
 ---
-title: Web search SDK C# quickstart | Microsoft Docs
+title: "Quickstart: Use the Bing Web Search SDK for C#"
 description: Setup for Web search SDK C# console application.
 titleSuffix: Azure cognitive services Web search SDK C# quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: v-gedod
+ms.date: 08/16/2018
+ms.author: v-gedod, erhopf
 ---
 
-# Web Search SDK C# quickstart
+# Quickstart: Use the Bing Web Search SDK for C#
 
 The Bing Web Search SDK contains the functionality of the REST API for web requests and parsing results.
+
+The [source code for C# Bing Web Search SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/BingSearchv7/BingWebSearch/WebSearchSamples.cs) is available on GitHub.
 
 ## Application dependencies
 

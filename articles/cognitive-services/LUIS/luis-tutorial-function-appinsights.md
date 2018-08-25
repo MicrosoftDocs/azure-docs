@@ -1,16 +1,15 @@
 ---
-title: Add LUIS data to Application Insights using Node.js | Microsoft Docs 
+title: Add LUIS data to Application Insights using Node.js | Microsoft Docs
 titleSuffix: Azure
 description: Build a bot integrated with a LUIS application and Application Insights using Node.js.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
-
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 01/18/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Add LUIS results to Application Insights from a web app bot
@@ -156,4 +155,4 @@ Other information you may want to add to the application insights data includes 
 If you are using the same endpoint subscription for more than one LUIS app, you should also include the subscription ID and a property stating that it is a shared key. 
 
 > [!div class="nextstepaction"]
-> [Learn more about example utterances](Add-example-utterances.md)
+> [Learn more about example utterances](luis-how-to-add-example-utterances.md)

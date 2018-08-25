@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc 
 ---
@@ -17,8 +17,6 @@ ms.custom: mvc
 
 This article describes the architecture used when you replicate, fail over, and recover Azure virtual machines (VMs) between Azure regions, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
->[!NOTE]
->Azure VM replication with the Site Recovery service is currently in preview.
 
 
 
@@ -43,7 +41,7 @@ When you enable Azure VM replication, the following resources are automatically 
 
 **Resource** | **Details**
 --- | ---
-**Target resource group** | The resource group to which replicated VMs belong after failover.
+**Target resource group** | The resource group to which replicated VMs belong after failover. The location of this resource group can be in any Azure region except the Azure region in which the source virtual machines are hosted.
 **Target virtual network** | The virtual network in which replicated VMs are located after failover. A network mapping is created between source and target virtual networks, and vice versa.
 **Cache storage accounts** | Before source VM changes are replicated to a target storage account, they are tracked and sent to the cache storage account in source location. This step ensures minimal impact on production applications running on the VM.
 **Target storage accounts (If source VM does not use managed disks)**  | Storage accounts in the target location to which the data is replicated.

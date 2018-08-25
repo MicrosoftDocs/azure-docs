@@ -4,9 +4,8 @@ description: Use the Similarity method to calculate the academic similarity of t
 services: cognitive-services
 author: alch-msft
 manager: kuansanw
-
 ms.service: cognitive-services
-ms.technology: academic-knowledge
+ms.component: academic-knowledge
 ms.topic: article
 ms.date: 01/18/2017
 ms.author: alch

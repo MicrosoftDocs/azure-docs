@@ -2,7 +2,7 @@
 title: Custom connector topic links - Azure Logic Apps | Microsoft Docs
 description: Links to topics about how to create, use, share, and certify custom connectors
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: 
 services: logic-apps
 documentationcenter: 

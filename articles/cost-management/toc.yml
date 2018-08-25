@@ -43,6 +43,10 @@
     href: storage-accounts.md
   - name: Use Cost Management reports
     href: use-reports.md
+  - name: Use dashboards
+    href: dashboards.md
+  - name: Manage budgets
+    href: manage-budgets.md
 - name: Resources
   items:
   - name: Cost Management videos
@@ -55,3 +59,5 @@
     href: https://azure.microsoft.com/en-us/regions/services/
   - name: FAQ
     href: cost-mgt-faq.md
+  - name: Contact support
+    href: support-request-cost-management.md

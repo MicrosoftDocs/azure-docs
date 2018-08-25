@@ -3,17 +3,13 @@ title: Monitoring and debugging with metrics in Azure Cosmos DB | Microsoft Docs
 description: Use metrics in Azure Cosmos DB to debug common issues and monitor the database.
 keywords: metrics
 services: cosmos-db
-author: gnot
-manager: jhubbard
+author: kanshiG
+manager: kfile
 editor: ''
-documentationcenter: ''
 
-ms.assetid: 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
 
@@ -34,13 +30,13 @@ This article walks through common use cases and how Azure Cosmos DB metrics can 
 
 To get started, head to the [Azure portal](https://portal.azure.com) and navigate to the **Metrics** blade. In the blade, find the **Number of requests exceeded capacity per 1 minute** chart. This chart shows a minute by minute total requests segmented by the status code. For more information about HTTP status codes, see [HTTP Status Codes for Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
-The most common error status code is 429 (throttling), which means that requests to Azure Cosmos DB are exceeding the provisioned throughput. The most common solution to this is to [scale up the RUs](./set-throughput.md) for the given collection.
+The most common error status code is 429 (rate limiting/throttling), which means that requests to Azure Cosmos DB are exceeding the provisioned throughput. The most common solution to this is to [scale up the RUs](./set-throughput.md) for the given collection.
 
 ![Number of requests per minute](media/use-metrics/metrics-12.png)
 
 ## Determining the throughput distribution across partitions
 
-Having a good cardinality of your partition keys is essential for any scalable application. To determine the throughput distribution of any partitioned collection broken down by partitions, navigate to the **Metrics blade** in the [Azure portal](https://portal.azure.com). In the **Throughput** tab, the storage breakdown is shown in the **Max consumed RU/second by each physical partition** chart. The following graphic illustrates an example of a poor distribution of data as evidenced by the skewed partition on the far left. 
+Having a good cardinality of your partition keys is essential for any scalable application. To determine the throughput distribution of any partitioned container broken down by partitions, navigate to the **Metrics blade** in the [Azure portal](https://portal.azure.com). In the **Throughput** tab, the storage breakdown is shown in the **Max consumed RU/second by each physical partition** chart. The following graphic illustrates an example of a poor distribution of data as evidenced by the skewed partition on the far left. 
 
 ![Single partition seeing heavy usage at 3:05 PM](media/use-metrics/metrics-17.png)
 
@@ -48,7 +44,7 @@ An uneven throughput distribution may cause *hot* partitions, which can result i
 
 ## Determining the storage distribution across partitions
 
-Having a good cardinality of your partition is essential for any scalable application. To determine the throughput distribution of any partitioned collection broken down by partitions, head to the Metrics blade in the [Azure portal](https://portal.azure.com). In the Throughput tab, the storage breakdown is shown in the Max consumed RU/second by each physical partition chart. The following graphic illustrates a poor distribution of data as evidenced by the skewed partition on the far left. 
+Having a good cardinality of your partition is essential for any scalable application. To determine the throughput distribution of any partitioned container broken down by partitions, head to the Metrics blade in the [Azure portal](https://portal.azure.com). In the Throughput tab, the storage breakdown is shown in the Max consumed RU/second by each physical partition chart. The following graphic illustrates a poor distribution of data as evidenced by the skewed partition on the far left. 
 
 ![Example of poor data distribution](media/use-metrics/metrics-07.png)
 
@@ -56,7 +52,7 @@ You can root cause which partition key is skewing the distribution by clicking o
 
 ![Partition key is skewing the distribution](media/use-metrics/metrics-05.png)
 
-After identifying which partition key is causing the skew in distribution, you may have to repartition your collection with a more distributed partition key. For more information about partitioning in Azure Cosmos DB, see [Partition and scale in Azure Cosmos DB](./partition-data.md).
+After identifying which partition key is causing the skew in distribution, you may have to repartition your container with a more distributed partition key. For more information about partitioning in Azure Cosmos DB, see [Partition and scale in Azure Cosmos DB](./partition-data.md).
 
 ## Comparing data size against index size
 

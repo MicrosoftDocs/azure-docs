@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/30/2017
+ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: mvc
 ---
@@ -37,7 +37,7 @@ You can follow the steps in this article using a Mac, Windows, or Linux machine.
 To complete this quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
-* <a href="https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.6-sdk-download.md" target="_blank">Install .NET Core SDK 1.1</a>
+* <a href="https://www.microsoft.com/net/core/" target="_blank">Install .NET Core</a>
 
 ## Create the app locally
 
@@ -55,6 +55,8 @@ dotnet new web
 ```
 
 ## Run the app locally
+
+Run the application locally so that you see how it should look when you deploy it to Azure. 
 
 Restore the NuGet packages and run the app.
 

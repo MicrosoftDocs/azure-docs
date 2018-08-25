@@ -1,24 +1,26 @@
 ---
-title: Web Search SDK Python quickstart | Microsoft Docs
+title: "Quickstart: Use the Bing Web Search SDK for Python"
 description: Setup for Web Search SDK console application.
 titleSuffix: Azure Cognitive Services Web search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
-ms.date: 02/14/2018
-ms.author: v-gedod
+ms.date: 08/16/2018
+ms.author: v-gedod, erhopf
 ---
-# Web Search SDK Python quickstart
+# Quickstart: Use the Bing Web Search SDK for Python
 
-The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
+The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results.
+
+The [source code for Python Bing Web Search SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/web_search_samples.py) is available on GitHub.
 
 ## Application dependencies
 If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.
 
-The general recommendation for Python development is to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html). 
+The general recommendation for Python development is to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html).
 Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). You must install virtualenv for Python 2.7.
 ```
 python -m venv mytestenv
@@ -29,7 +31,7 @@ cd mytestenv
 python -m pip install azure-cognitiveservices-search-websearch
 ```
 ## Web Search client
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
+Get a [Cognitive Services subscription key](https://azure.microsoft.com/try/cognitive-services/) under *Search*.
 Add imports, and create an instance of the `CognitiveServicesCredentials`:
 ```
 from azure.cognitiveservices.search.websearch import WebSearchAPI
@@ -72,7 +74,7 @@ if web_data.images.value:
 
 else:
     print("Didn't see any Image..")
-        
+
 # News
 if web_data.news.value:
 
@@ -84,7 +86,7 @@ if web_data.news.value:
 
 else:
     print("Didn't see any News..")
-            
+
 # Videos
 if web_data.videos.value:
 
@@ -182,5 +184,3 @@ def web_search_with_answer_count_promote_and_safe_search(subscription_key):
 ## Next steps
 
 [Cognitive Services Python SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
-
-

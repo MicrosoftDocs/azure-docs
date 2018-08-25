@@ -1,24 +1,24 @@
 ---
-title: Getting started guide for Azure IT operators | Microsoft Docs
-description: Getting started guide for Azure IT operators 
-services: 
-documentationcenter: 
-author: neilpeterson
+title: Get started guide for Azure IT operators | Microsoft Docs
+description: Get started guide for Azure IT operators
+services:
+documentationcenter:
+author: themichaelbender-ms
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid:
 ms.service: azure
-ms.devlang: 
-ms.topic: 
-ms.tgt_pltfrm: 
+ms.devlang:
+ms.topic:
+ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 06/12/2017
-ms.author: nepeters
+ms.date: 08/24/2018
+ms.author: mibender
 ---
 
-# Introduction to cloud computing and Microsoft Azure
+# Get started for Azure IT operators
 
 This guide introduces core concepts related to the deployment and management of a Microsoft Azure infrastructure. If you are new to cloud computing, or Azure itself, this guide helps quickly get you started with concepts, deployment, and management details. Many sections of this guide discuss an operation such as deploying a virtual machine, and then provide a link for in-depth technical detail.
 
@@ -49,27 +49,33 @@ For small businesses, Azure allows for a low-cost entry point, with the ability 
 
 For more information on the available Azure regions, see [Azure regions](https://azure.microsoft.com/regions/).
 
-### Cloud computing is classified into three categories: SaaS, PaaS, and IaaS.
+### Cloud computing model
 
-#### SaaS: Software as a service
-
-SaaS is software that is centrally hosted and managed. It’s usually based on a multitenant architecture—a single version of the application is used for all customers. It can be scaled out to multiple instances to ensure the best performance in all locations. SaaS software typically is licensed through a monthly or annual subscription.
-
-Microsoft Office 365 is a good example of a SaaS offering. Subscribers pay a monthly or annual subscription fee, and they get Microsoft Exchange, Microsoft OneDrive, and the rest of the Microsoft Office suite as a service. Subscribers always get the most recent version and the Exchange server is managed for you. Compared to installing and upgrading Office every year, this is less expensive and requires less effort.
-
-#### PaaS: Platform as a service 
-
-With PaaS, you deploy your application into an environment that the cloud service vendor provides. The vendor does all of the infrastructure management so you can  focus on application development.
-
-Azure provides several PaaS compute offerings, including the Web Apps feature of Azure App Service and Azure Cloud Services (web and worker roles). In either case, developers have multiple ways to deploy their application without knowing anything about the nuts and bolts that support it. Developers don’t have to create virtual machines (VMs), use Remote Desktop Protocol (RDP) to sign in to each one, or install the application. They just hit a button (or close to it), and the tools provided by Microsoft provision the VMs and then deploy and install the application on them.
+Azure uses a cloud computing model based on categories of service provided to customers. The three categories of service include Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). Vendors share some or all of the responsiblity for components in the computing stack in each of these categories. Let's take a look at each of the categories for cloud computing.
+![Cloud Computing Stack Comparison](./media/cloud-computing-comparison.png)
 
 #### IaaS: Infrastructure as a service
 
-An IaaS cloud vendor runs and manages all physical compute resources and the required software to enable computer virtualization. A customer of this service deploys virtual machines in these hosted datacenters. Although the virtual machines are located in an offsite datacenter, the IaaS consumer has control over the configuration and management of them.
+An IaaS cloud vendor runs and manages all physical compute resources and the required software to enable computer virtualization. A customer of this service deploys virtual machines in these hosted datacenters. Although the virtual machines are located in an offsite datacenter, the IaaS consumer has control over the configuration and management of the operating system leaving the underlying infrastructure to the cloud vendor.
 
 Azure includes several IaaS solutions including virtual machines, virtual machine scale sets, and the related networking infrastructure. Virtual machines are a popular choice for initially migrating services to Azure because it enables a “lift and shift” migration model. You can configure a VM like the infrastructure currently running your services in your datacenter, and then migrate your software to the new VM. You might need to make configuration updates, such as URLs to other services or storage, but you can migrate many applications in this way.
 
 Virtual machine scale sets are built on top of Azure Virtual Machines and provide an easy way to deploy clusters of identical VMs. Virtual machine scale sets also support autoscaling so that new VMs can be deployed automatically when required. This makes virtual machine scale sets an ideal platform to host higher-level microservice compute clusters, such as Azure Service Fabric and Azure Container Service.
+
+#### PaaS: Platform as a service
+
+With PaaS, you deploy your application into an environment that the cloud service vendor provides. The vendor does all of the infrastructure management so you can  focus on application development and data managment.
+
+Azure provides several PaaS compute offerings, including the Web Apps feature of Azure App Service and Azure Cloud Services (web and worker roles). In either case, developers have multiple ways to deploy their application without knowing anything about the nuts and bolts that support it. Developers don’t have to create virtual machines (VMs), use Remote Desktop Protocol (RDP) to sign in to each one, or install the application. They just hit a button (or close to it), and the tools provided by Microsoft provision the VMs and then deploy and install the application on them.
+
+#### SaaS: Software as a service
+
+SaaS is software that is centrally hosted and managed. It’s usually based on a multitenant architecture—a single version of the application is used for all customers. It can be scaled out to multiple instances to ensure the best performance in all locations. SaaS software typically is licensed through a monthly or annual subscription. SaaS software typically is licensed through a monthly or annual subscription. SaaS software vendors are responsible for all components of the software stack so all you manage is the services provided.
+
+Microsoft Office 365 is a good example of a SaaS offering. Subscribers pay a monthly or annual subscription fee, and they get Microsoft Exchange, Microsoft OneDrive, and the rest of the Microsoft Office suite as a service. Subscribers always get the most recent version and the Exchange server is managed for you. Compared to installing and upgrading Office every year, this is less expensive and requires less effort.
+
+
+
 
 ## Azure services
 
@@ -137,13 +143,11 @@ For detailed documentation on Azure services, see [Azure service documentation](
 
 ### Datacenters and regions
 
-
 Azure is a global cloud platform that is generally available in many regions around the world. When you provision a service, application, or VM in Azure, you are asked to select a region. The selected region represents a speciﬁc datacenter where your application runs. For more information, see [Azure regions](https://azure.microsoft.com/regions/).
 
 One of the beneﬁts of using Azure is that you can deploy your applications into various datacenters around the globe. The region you choose can aﬀect the performance of your application. It’s optimal to choose a region that is closer to most your customers, to reduce latency in network requests. You might also select a region to meet the legal requirements for distributing your app in certain countries.
 
 ### Azure portal
-
 
 The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at https://portal.azure.com. It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) and [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
@@ -161,7 +165,6 @@ An Azure Resource Manager template is a JavaScript Object Notation (JSON) file t
 
 ### Automation
 
-
 In addition to creating, managing, and deleting resources by using the Azure portal, you can automate these activities by using PowerShell or the Azure command-line interface (CLI).
 
 **Azure PowerShell**
@@ -175,9 +178,10 @@ The Azure command-line interface is a tool that you can use to create, manage, a
 **REST APIs**
 Azure is built on a set of REST APIs that support the Azure portal UI. Most of these REST APIs are also supported to let you programmatically provision and manage your Azure resources and apps from any Internet-enabled device. For more information, see the [Azure REST SDK Reference](https://docs.microsoft.com/rest/api/index).
 
+### Azure Cloud Shell
 
+Administrators can access Azure PowerShell and Azure CLI through a browser-accessible experience called Azure Cloud Shell. This interactive interface provides a flexible tool for Linux and Windows administrators to use their command-line interface of choice, either Bash or PowerShell. Azure Cloud Shell can be access through the portal ,as a stand-alone web interface at [shell.azure.com](https://shell.azure.com), or from a number of other access points. For more information, see [Overview of Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
 ## Azure subscriptions
-
 
 A subscription is a logical grouping of Azure services that is linked to an Azure account. A singe Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an account administrator, who has full control over the subscription, and a service administrator, who has control over all services in the subscription. In addition to administrators, individual accounts can be granted detailed control of Azure resources through RBAC.
 
@@ -197,10 +201,7 @@ If you exceed the credit amount, your service are disabled until the next month 
 
 **Enterprise agreements**: With an enterprise agreement, you commit to using a certain number of services in Azure over the next year, and you pay that amount ahead of time. The commitment that you make is consumed throughout the year. If you exceed the commitment amount, you can pay the overage in arrears. Depending on the amount of the commitment, you get a discount on the services in Azure.
 
-
-
 ### Grant administrative access to an Azure subscription
-
 
 Multiple account administrator roles are available and can be changed at any time. Two key roles are:
 
@@ -212,13 +213,11 @@ For more information, see [How to add or change Azure administrator roles](../..
 
 ### View billing information in the Azure portal
 
-
 An important component of using Azure is the ability to view billing information. The Azure portal provides detailed insight into Azure billing information.
 
 For more information, see [How to download your Azure billing invoice and daily usage data](../../billing/billing-download-azure-invoice-daily-usage-date.md).
 
 ### Get billing information from billing APIs
-
 
 In addition to viewing the billing in the portal, you can access the billing information by using a script or program through the Azure Billing REST APIs:
 
@@ -259,7 +258,6 @@ Resource Manager provides several benefits:
 -   You can clarify your organization’s billing by viewing costs for a group of resources that share the same tag.
 
 ### Tips for creating resource groups
-
 
 When you’re making decisions about your resource groups, consider these tips:
 
@@ -321,7 +319,7 @@ Here are a few example roles built into Azure:
 
 -   **Storage account contributor**: A user with this role can manage storage accounts but cannot manage access to the storage accounts.
 
-For more information, see [Use role assignments to manage access to your Azure subscription resources](../../active-directory/role-based-access-control-configure.md).
+For more information, see [Use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
 ## Azure Virtual Machines
 
@@ -345,7 +343,6 @@ Deploying a virtual machine by using the Azure portal requires only an active Az
 
 In addition to deploying a virtual machine from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
-
 **PowerShell**
 
 Deploying an Azure virtual machine by using PowerShell allows for complete deployment automation of all related virtual machine resources, including storage and networking. For more information, see [Create a Windows VM using Resource Manager and PowerShell](../../virtual-machines/windows/quick-create-powershell.md).
@@ -364,6 +361,7 @@ Accessing a virtual machine from the Internet requires the associated network in
 
 You manage access to the virtual machine over the public IP address by using a network security group (NSG) resource. An NSG acts like a firewall and allows or denies traffic across the network interface or subnet on a set of defined ports. For instance, to create a Remote Desktop session with an Azure VM, you need to configure the NSG to allow inbound traffic on port 3389. For more information, see [Opening ports to a VM in Azure using the Azure portal](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
+
 Finally, as with the management of any computer system, you should provide security for an Azure virtual machine at the operating system by using security credentials and software firewalls.
 
 ## Azure Storage
@@ -378,11 +376,11 @@ Azure storage accounts can be configured with different levels of redundancy:
 
 -   **Read-access geo-redundant storage** is geo-redundant storage plus the ability to read the data in the secondary region. This ability makes it suitable for partial disaster recovery. If there’s a problem with the primary region, you can change your application to have read-only access to the paired region.
 
-### Use cases 
+### Use cases
 
 Each storage type has a different use case.
 
-**Blob storage** 
+**Blob storage**
 
 The word *blob* is an acronym for *binary large object*. Blobs are unstructured files like those that you store on your computer. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage. Azure Blob storage also holds Azure Virtual Machines data disks.
 
@@ -424,7 +422,7 @@ There are several options for deploying a storage account.
 
 **Portal**
 
-Deploying a storage account by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new storage account into a new or existing resource group. After you’ve created the storage account, you can create a blob container or file share by using the portal. You can create Table and Queue storage entities programmatically. For more information, see [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Deploying a storage account by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new storage account into a new or existing resource group. After you’ve created the storage account, you can create a blob container or file share by using the portal. You can create Table and Queue storage entities programmatically. For more information, see [Create a storage account](../../storage/common/storage-quickstart-create-account.md).
 
 In addition to deploying a storage account from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template, including any storage accounts. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
@@ -442,7 +440,7 @@ Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template
 
 ### Access and security for Azure Storage
 
-Azure Storage is accessed in various ways, including though the Azure portal, during VM creation and operation, and from Storage client libraries. 
+Azure Storage is accessed in various ways, including though the Azure portal, during VM creation and operation, and from Storage client libraries.
 
 **Virtual machine disks**
 
@@ -466,48 +464,33 @@ If you need to allow users to have controlled access to your storage resources, 
 
 ## Azure Virtual Network
 
-
-Virtual networks are necessary to support communications between virtual machines. You can define subnets, custom IP address, DNS settings, security filtering, and load balancing. By using a VPN gateway or an ExpressRoute circuit, you can connect Azure virtual networks to your on-premises networks.
-
-### Use cases
-
-There are different use cases for Azure networking.
+Virtual networks are necessary to support communications between virtual machines. You can define subnets, custom IP address, DNS settings, security filtering, and load balancing. Azure supports different uses cases: cloud-only networks or hybrid virtual networks. 
 
 **Cloud-only virtual networks**
 
 An Azure virtual network, by default, is accessible only to resources stored in Azure. Resources connected to the same virtual network can communicate with each other. You can associate virtual machine network interfaces and load balancers with a public IP address to make the virtual machine accessible over the Internet. You can help secure access to the publicly exposed resources by using a network security group.
 
-**Cross-premises virtual networks**
+![Azure Virtual Network for a 2-tier Web Application](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
+
+**Hybrid virtual networks**
 
 You can connect an on-premises network to an Azure virtual network by using ExpressRoute or a site-to-site VPN connection. In this configuration, the Azure virtual network is essentially a cloud-based extension of your on-premises network.
+![Hybrid Virtual Network using VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 Because the Azure virtual network is connected to your on-premises network, cross-premises virtual networks must use a unique portion of the address space that your organization uses. In the same way that different corporate locations are assigned a specific IP subnet, Azure becomes another location as you extend your network.
-
-### Deploying a virtual network
-
 There are several options for deploying a virtual network.
+- [Portal](../..//virtual-network/quick-create-portal.md)
+- [PowerShell](../../virtual-network/quick-create-powershell.md)
+- [Command-Line Interface (CLI)](../../virtual-network/quick-create-cli.md)
+- Azure Resource Manager Templates
 
-**Portal**
+>**When to use**: Anytime you are working with VMs in Azure, you will work with virtual networks. This allows for segmenting your VMs into public-facing and private subnets similar on-premises datacenters. 
 
-Deploying an Azure virtual network by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new virtual network into a new or existing resource group. When you’re creating a new virtual machine from the portal, you can select an existing virtual network or create a new one. For more information, see [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
-
-In addition to deploying an Azure virtual network from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template, including any virtual network resources. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
-
-**PowerShell**
-
-Deploying an Azure virtual network by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Create a virtual network by using PowerShell](../../virtual-network/quick-create-powershell.md).
-
-In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
-
-**Command-line interface (CLI)**
-
-As with the PowerShell module, the Azure command-line interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **network vnet create** command to create a virtual network. For more information, see [Create a virtual network by using the Azure CLI](../../virtual-network/quick-create-cli.md).
-
-Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md).
+>**Get started**: Deploying an Azure virtual network by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new virtual network into a new or existing resource group. When you’re creating a new virtual machine from the portal, you can select an existing virtual network or create a new one. Get started and [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
 
 ### Access and security for virtual networks
 
-You can help secure Azure virtual networks by using a network security group. NSGs contain a list of access control list (ACL) rules that allow or deny network traffic to your VM instances in a virtual network. You can associate NSGs with either subnets or individual VM instances within that subnet. When you associate an NSG with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, you can further restrict traffic to an individual VM by associating an NSG directly with that VM. For more information, see [Filter network traffic with network security groups](../../virtual-network/virtual-networks-nsg.md).
+You can help secure Azure virtual networks by using a network security group. NSGs contain a list of access control list (ACL) rules that allow or deny network traffic to your VM instances in a virtual network. You can associate NSGs with either subnets or individual VM instances within that subnet. When you associate an NSG with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, you can further restrict traffic to an individual VM by associating an NSG directly with that VM. For more information, see [Filter network traffic with network security groups](../../virtual-network/security-overview.md).
 
 ## Next steps
 

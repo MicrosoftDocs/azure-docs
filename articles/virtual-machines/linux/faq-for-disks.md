@@ -4,7 +4,7 @@ description: Frequently asked questions about Azure IaaS Linux VM disks and prem
 services: virtual-machines-linux
 documentationcenter: ''
 author: roygara
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 
 ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91

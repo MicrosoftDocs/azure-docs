@@ -4,9 +4,8 @@ description: Preview API is now discontinued, replaced by the Recommendations So
 services: cognitive-services
 author: LuisCabrer
 manager: mwinkle
-
 ms.service: cognitive-services
-ms.technology: recommendations
+ms.component: recommendations
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: luisca

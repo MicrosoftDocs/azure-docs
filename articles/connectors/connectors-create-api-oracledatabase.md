@@ -1,23 +1,21 @@
 ---
-title: Add the Oracle Database connector in your Azure Logic Apps | Microsoft Docs
-description: Use the Oracle Database connector in a logic app
-services: ''
-documentationcenter: ''
+# required metadata
+title: Connect to Oracle Database - Azure Logic Apps | Microsoft Docs
+description: Insert and manage records with Oracle Database REST APIs and Azure Logic Apps 
 author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: 
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+manager: jeconnoc
+ms.author: estfan
 ms.date: 03/29/2017
-ms.author: estfan; ladocs
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
+
 # Get started with the Oracle Database connector
 
 Using the Oracle Database connector, you create organizational workflows that use data in your existing database. This connector can connect to an on-premises Oracle Database, or an Azure virtual machine with Oracle Database installed. With this connector, you can:

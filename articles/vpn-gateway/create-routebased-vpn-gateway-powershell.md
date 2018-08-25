@@ -1,10 +1,10 @@
----
+﻿---
 title: 'Create a route-based Azure VPN gateway: PowerShell | Microsoft Docs'
 description: Quickly create a route-based VPN Gateway using PowerShell
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/04/2018
 ms.author: cherylmc
 ---
 
@@ -26,7 +26,7 @@ The steps in this article will create a VNet, a subnet, a gateway subnet, and a 
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.3.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.3.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -91,7 +91,7 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 A VPN gateway must have a dynamically allocated public IP address. When you create a connection to a VPN gateway, this is the IP address that you specify. Use the following example to request a public IP address:
 
 ```azurepowershell-interactive
-$gwpip= New-AzureRmPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
+$gwpip= New-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
 ## <a name="GatewayIPConfig"></a>Create the gateway IP address configuration
@@ -142,7 +142,7 @@ IpConfigurations       : [
                              },
                              "PublicIpAddress": {
                                "Id": "/subscriptions/<subscription ID>/resourceGroups/Te
-                         stRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWPIP"
+                         stRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP"
                              },
                              "Name": "default",
                              "Etag": "W/\"0952d-9da8-4d7d-a8ed-28c8ca0413\"",
@@ -171,17 +171,17 @@ BgpSettings            : {
 To view the public IP address for your VPN gateway, use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/Get-AzureRmPublicIpAddress) cmdlet.
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1
+Get-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1
 ```
 
 In the example response, the IpAddress value is the public IP address.
 
 ```
-Name                     : VNet1GWPIP
+Name                     : VNet1GWIP
 ResourceGroupName        : TestRG1
 Location                 : eastus
 Id                       : /subscriptions/<subscription ID>/resourceGroups/TestRG1/provi
-                           ders/Microsoft.Network/publicIPAddresses/VNet1GWPIP
+                           ders/Microsoft.Network/publicIPAddresses/VNet1GWIP
 Etag                     : W/"5001666a-bc2a-484b-bcf5-ad488dabd8ca"
 ResourceGuid             : 3c7c481e-9828-4dae-abdc-f95b383
 ProvisioningState        : Succeeded

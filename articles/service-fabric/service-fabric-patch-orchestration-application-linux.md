@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/22/2018
+ms.date: 5/22/2018
 ms.author: nachandr
 
 ---
@@ -59,9 +59,9 @@ The patch orchestration app is composed of the following subcomponents:
 ### Ensure that your Azure VMs are running Ubuntu 16.04
 At the time of writing this document, Ubuntu 16.04 (`Xenial Xerus`) is the only supported version.
 
-### Ensure that the service fabric linux cluster is version 6.1.x and above
+### Ensure that the service fabric linux cluster is version 6.2.x and above
 
-Patch orchestration app linux uses certain features of runtime that are only available in service fabric runtime version 6.1.x and above.
+Patch orchestration app linux uses certain features of runtime that are only available in service fabric runtime version 6.2.x and above.
 
 ### Enable the repair manager service (if it's not running already)
 
@@ -116,7 +116,9 @@ For Ubuntu [unattended-upgrades](https://help.ubuntu.com/community/AutomaticSecu
 
 ## Download the app package
 
-Download the application from the [download link](https://go.microsoft.com/fwlink/?linkid=867984).
+Application along with installation scripts can be downloaded from [Archive link](https://go.microsoft.com/fwlink/?linkid=867984).
+
+Application in sfpkg format can be downloaded from [sfpkg link](https://aka.ms/POA/POA_v2.0.2.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
 ## Configure the app
 
@@ -320,6 +322,10 @@ Q. **Post upgrade does patch orchestration app do the cleanup of unused packages
 
 A. Yes, cleanup happens as part of post-installation steps. 
 
+Q. **Can Patch Orchestration app be used to patch my dev cluster (one-node cluster) ?**
+
+A. No, Patch orchestration app cannot be used to patch one-node cluster. This limitation is by design, as [service fabric system services](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) or any customer apps will face downtime and hence any repair job for patching would never get approved by repair manager.
+
 ## Troubleshooting
 
 ### A node is not coming back to up state
@@ -361,5 +367,11 @@ The patch orchestration app collects telemetry to track usage and performance. T
 ### Version 0.1.0
 - Private preview release
 
-### Version 2.0.0 (Latest)
+### Version 2.0.0
 - Public release
+
+### Version 2.0.1
+- Recompiled the app using latest Service Fabric SDK
+
+### Version 2.0.2 (Latest)
+- Fixed an issue with health warning getting left behind during restart.

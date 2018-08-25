@@ -3,18 +3,19 @@ title: Overview of Azure PIM Resource RBAC | Microsoft Docs
 description: Get an overview of the RBAC feature in PIM including Terminology and notifications
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: rolyon
 manager: mtillman
 editor: ''
 
 ms.assetid:
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: pim
 ms.date: 03/30/2018
-ms.author: billmath
+ms.author: rolyon
 
 ---
 # PIM for Azure resources
@@ -40,7 +41,7 @@ Azure AD PIM can manage the built-in Azure Resource roles, as well as custom (RB
 - Security Manager, and more
 
 >[!NOTE]
-Users or members of a group assigned to the Owner or User Access Administrator roles, and Global Administrators that enable subscription management in Azure AD are Resource Administrators. These administrators may assign roles, configure role settings, and review access using PIM for Azure Resources. View the list of [built-in roles for Azure resources](../role-based-access-built-in-roles.md).
+Users or members of a group assigned to the Owner or User Access Administrator roles, and Global Administrators that enable subscription management in Azure AD are Resource Administrators. These administrators may assign roles, configure role settings, and review access using PIM for Azure Resources. View the list of [built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
 
 ## Tasks
 
@@ -54,7 +55,7 @@ My roles contain a list of your active and eligible role assignments for Azure A
 
 ## Activate roles
 
-Activating roles for Azure Resources introduces a new experience that allows eligible role members to schedule activation for a future date/time and select a specific activation duration within the maximum (configured by administrators). Learn about [activating Azure AD roles here](../active-directory-privileged-identity-management-how-to-activate-role.md).
+Activating roles for Azure Resources introduces a new experience that allows eligible role members to schedule activation for a future date/time and select a specific activation duration within the maximum (configured by administrators). Learn about [activating Azure AD roles here](pim-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -151,7 +152,7 @@ Select Review from the action bar to view existing access reviews and select Add
 
 ![](media/azure-pim-resource-rbac/owner.png)
 
-[Learn more about access reviews](../active-directory-privileged-identity-management-how-to-perform-security-review.md)
+[Learn more about access reviews](pim-how-to-perform-security-review.md)
 
 >[!NOTE]
 Reviews are only supported for Subscription resource types at this time.
@@ -191,6 +192,6 @@ Select My roles from the left navigation menu and choose the appropriate role to
 
 ## Next steps
 
-- [Built-in roles for Azure resources](../role-based-access-built-in-roles.md)
-- Learn about [activating Azure AD roles here](../active-directory-privileged-identity-management-how-to-activate-role.md)
+- [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md)
+- Learn about [activating Azure AD roles here](pim-how-to-activate-role.md)
 - [PIM approval workflows](azure-ad-pim-approval-workflow.md)

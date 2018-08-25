@@ -52,7 +52,7 @@ For instructions and a link to the latest version, see [How to Install and Confi
 ### Set your Azure account and subscription
 If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-Open an Azure PowerShell command prompt and log on to Azure with this command.
+Open an Azure PowerShell command prompt and sign in to Azure with this command.
 
     Add-AzureAccount
 

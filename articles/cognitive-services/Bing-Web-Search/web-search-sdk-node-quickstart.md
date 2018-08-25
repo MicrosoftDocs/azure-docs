@@ -1,27 +1,29 @@
 ---
-title: Web search SDK Node quickstart | Microsoft Docs
+title: "Quickstart: Use the Bing Web Search SDK for Node.js"  
 description: Setup for Web search SDK console application.
 titleSuffix: Azure cognitive services
 services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
-ms.date: 02/12/2018
-ms.author: v-gedod
+ms.date: 08/16/2018
+ms.author: v-gedod, erhopf
 ---
 
-# Web Search SDK Node quickstart
+# Quickstart: Use the Bing Web Search SDK for Node.js
 
-The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
+The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results.
+
+The [source code for Node Bing Web Search SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/webSearch.js) is available on GitHub.
 
 ## Application dependencies
 
 To set up a console application using the Bing Web Search SDK, run `npm install azure-cognitiveservices-websearch` in your development environment.
 
 ## Web Search client
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:
+Get a [Cognitive Services subscription key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
@@ -53,7 +55,9 @@ The code prints `result.value` items to the console without parsing any text.  T
 - _type: 'WebPage'
 - _type: 'VideoObjectElementType'
 
+<!-- Remove until this can be replaced with a sanitized version.
 ![Video results](media/web-search-sdk-node-results.png)
+-->
 
 ## Next steps
 

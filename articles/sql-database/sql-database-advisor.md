@@ -2,13 +2,14 @@
 title: Performance recommendations - Azure SQL Database | Microsoft Docs
 description: Azure SQL Database provides recommendations for your SQL databases that can improve current query performance.
 services: sql-database
-author: stevestein
+author: danimir
 manager: craigg 
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
-ms.date: 09/20/2017
-ms.author: sstein
+ms.topic: conceptual
+ms.date: 04/01/2018
+ms.author: v-daljep
+ms.reviewer: carlrab
 
 ---
 # Performance recommendations for SQL Database

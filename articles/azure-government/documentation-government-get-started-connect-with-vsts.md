@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect to Azure Government from Visual Studio Team Services | Microsoft Docs
 description: Information on configuring continuous deployment to your applications hosted with a subscription in Azure Government by connecting from Visual Studio Team Services
 services: azure-government
@@ -7,41 +7,31 @@ documentationcenter: ''
 author: yujhongmicrosoft
 manager: zakramer
 
-ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 1/8/2018
+ms.date: 08/10/2018
 ms.author: yujhong
-
 ---
-# Connecting from Visual Studio Team Services
 
-The tutorial below will help you set up continuous deployment to your web app running in Azure Government using Visual Studio Team Services (VSTS).
-Continuous deployment (CD) means starting an automated deployment process whenever a code change is made to your application or whenever a new successful build is available. 
-Visual Studio Team Services is used by teams to configure continuous deployment for their applications hosted in their Azure subscriptions.
-Refer to [CI/CD for newbies](https://www.visualstudio.com/en-us/docs/build/get-started/ci-cd-part-1) for an overview of CI/CD with Team Services.
+# Develop with Visual Studio Team Services
 
- 
+This article demonstrates how to set up continuous deployment to your web app running in Azure Government using Visual Studio Team Services (VSTS). Continuous deployment (CD) means starting an automated deployment process whenever a code change is made to your application or whenever a new successful build is available. Visual Studio Team Services is used by teams to configure continuous deployment for their applications hosted in their Azure subscriptions. Refer to [CI/CD for newbies](https://www.visualstudio.com/en-us/docs/build/get-started/ci-cd-part-1) for an overview of CI/CD with Team Services.
+
 [Release Management in Visual Studio Team Services](https://docs.microsoft.com/vsts/build-release/overview) is a service that enables continuous deployment for various applications. We can use this service for applications running in Azure Government by defining [service endpoints](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints) for Azure Government. 
 
-> [!NOTE]
-> Visual Studio Team Services itself is not available in Azure Government Clouds. When CD is configured using Team Services to deploy apps to Azure Government clouds, artifact storage, build, and (or) deployment orchestration for the app would execute outside the government cloud.   
-> 
-> 
+Visual Studio Team Services itself is not available in Azure Government Clouds. When CD is configured using Team Services to deploy apps to Azure Government clouds, artifact storage, build, and (or) deployment orchestration for the app would execute outside the government cloud. To learn more about Visual Studio Team Services, click [here](https://docs.microsoft.com/vsts/index). 
 
-
-To learn more about Visual Studio Team Services, click [here](https://docs.microsoft.com/vsts/index). 
+If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 
 ## Prerequisites
 
-Before starting this tutorial, you must have the following:
-+ An active Azure Government subscription.
-If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
+* Review [Guidance for developers](documentation-government-developer-guide.md).<br/> This article discusses Azure Government's unique URLs and endpoints for managing your environment. You must know about these endpoints in order to connect to Azure Government. 
+* Review [Compare Azure Government and global Azure](compare-azure-government-global-azure.md) and click on a service of interest to see variations between Azure Government and global Azure.
 + Have a [VSTS account](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) and [Team Project](https://docs.microsoft.com/vsts/accounts/create-team-project?tabs=vsts)
-+ Installed and set up [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1)
++ Install and set up [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1)
 
 ## Create Azure Government app service 
 
@@ -69,7 +59,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 4. Navigate to the directory that has the edited script above. 
 5. Edit the following command with the name of your script and run:
     `./<name of script file you saved> `
-6. The "subscriptionName" parameter can be found by logging into your Azure Government subscription with `Login-AzureRmAccount -EnvironmentName AzureUSGovernment` and then running `Get-AzureSubscription`. 
+6. The "subscriptionName" parameter can be found by logging into your Azure Government subscription with `Connect-AzureRmAccount -EnvironmentName AzureUSGovernment` and then running `Get-AzureSubscription`. 
 7. When prompted for the "password" parameter, you can enter your desired password. 
 
     ![ps2](./media/documentation-government-vsts-img9.png)
@@ -81,7 +71,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
     > 
 
     ![ps3](./media/documentation-government-vsts-img10.png)
-9. After the script has run you should see your service connection values. Copy these values as we will need them when setting up our endpoint. 
+9. After the script has run, you should see your service connection values. Copy these values as we will need them when setting up our endpoint. 
 
     ![ps4](./media/documentation-government-vsts-img11.png)
 
@@ -131,7 +121,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 	
 6. Edit the name of the release definition, choose Save, and choose OK. The default environment is named Environment1, which you can edit by clicking directly on the name.
 	
-Now that your pipeline has been constructed, you can [deploy changes](https://docs.microsoft.com/en-us/vsts/build-release/) to your applications in Azure Government. 
+Now that your pipeline has been constructed, you can [deploy changes](https://docs.microsoft.com/vsts/build-release/) to your applications in Azure Government. 
 
 ## Q&A
 * Do I need a build agent?
@@ -139,7 +129,12 @@ You need at least one [agent](https://www.visualstudio.com/en-us/docs/build/conc
 * I use Team Foundation Server on-premises. Can I configure CD on my TFS Server to target Azure Government?
 Currently, Team Foundation Server cannot be used to deploy to an Azure Government Cloud. This capability will be added in the next update of TFS 2017.
 
-## Next steps
+## Get help and provide feedback
+
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
 * Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)
+
+## Next steps
+
+[Develop with Visual Studio](documentation-government-get-started-connect-with-vs.md)

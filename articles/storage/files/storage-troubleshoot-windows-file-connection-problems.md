@@ -2,20 +2,13 @@
 title: Troubleshoot Azure Files problems in Windows | Microsoft Docs
 description: Troubleshooting Azure Files problems in Windows
 services: storage
-documentationcenter: ''
-author: genlin
-manager: willchen
-editor: na
+author: jeffpatt24
 tags: storage
-
 ms.service: storage
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
-ms.author: genli
-
+ms.date: 05/11/2018
+ms.author: jeffpatt
+ms.component: files
 ---
 # Troubleshoot Azure Files problems in Windows
 
@@ -33,7 +26,7 @@ When you try to mount a file share from on-premises or from a different datacent
 
 ### Cause 1: Unencrypted communication channel
 
-For security reasons, connections to Azure file shares are blocked if the communication channel isn’t encrypted and if the connection attempt isn't made from the same datacenter where the Azure file shares reside. Communication channel encryption is provided only if the user’s client OS supports SMB encryption.
+For security reasons, connections to Azure file shares are blocked if the communication channel isn't encrypted and if the connection attempt isn't made from the same datacenter where the Azure file shares reside. Communication channel encryption is provided only if the user's client OS supports SMB encryption.
 
 Windows 8, Windows Server 2012, and later versions of each system negotiate requests that include SMB 3.0, which supports encryption.
 
@@ -79,7 +72,7 @@ Revert the **LmCompatibilityLevel** value to the default value of 3 in the follo
   **HKLM\SYSTEM\CurrentControlSet\Control\Lsa**
 
 <a id="error1816"></a>
-## Error 1816 “Not enough quota is available to process this command” when you copy to an Azure file share
+## Error 1816 "Not enough quota is available to process this command" when you copy to an Azure file share
 
 ### Cause
 
@@ -94,8 +87,8 @@ Reduce the number of concurrent open handles by closing some handles, and then r
 
 You might see slow performance when you try to transfer files to the Azure File service.
 
-- If you don’t have a specific minimum I/O size requirement, we recommend that you use 1 MB as the I/O size for optimal performance.
--	If you know the final size of a file that you are extending with writes, and your software doesn’t have compatibility problems when the unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
+- If you don't have a specific minimum I/O size requirement, we recommend that you use 1 MiB as the I/O size for optimal performance.
+-	If you know the final size of a file that you are extending with writes, and your software doesn't have compatibility problems when the unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
 -	Use the right copy method:
     -	Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for any transfer between two file shares.
     -	Use [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) between file shares on an on-premises computer.

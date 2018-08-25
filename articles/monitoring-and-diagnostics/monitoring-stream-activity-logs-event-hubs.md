@@ -1,21 +1,13 @@
 ---
-title: Stream the Azure Activity Log to Event Hubs | Microsoft Docs
+title: Stream the Azure Activity Log to Event Hubs
 description: Learn how to stream the Azure Activity Log to Event Hubs.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: ec4c2d2c-8907-484f-a910-712403a06829
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/02/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 07/25/2018
 ms.author: johnkem
-
+ms.component: activitylog
 ---
 # Stream the Azure Activity Log to Event Hubs
 You can stream the [Azure Activity Log](monitoring-overview-activity-logs.md) in near real time to any application by either:
@@ -36,7 +28,7 @@ If you don't have an Event Hubs namespace, you first need to create one. If you 
 
 The shared access policy defines the permissions that the streaming mechanism has. Today, streaming to Event Hubs requires **Manage**, **Send**, and **Listen** permissions. You can create or modify shared access policies for the Event Hubs namespace in the Azure portal under the **Configure** tab for your Event Hubs namespace. 
 
-To update the Activity Log log profile to include streaming, the user who's making the change must have the ListKey permission on that Event Hubs authorization rule. The Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+To update the Activity Log log profile to include streaming, the user who's making the change must have the ListKey permission on that Event Hubs authorization rule. The Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions and both subscriptions are in the same AAD tenant.
 
 ### Via the Azure portal
 1. Browse to the **Activity Log** section by using the **All services** search on the left side of the portal.
@@ -53,38 +45,49 @@ To update the Activity Log log profile to include streaming, the user who's maki
 
    > [!WARNING]  
    > If you select anything other than **All regions**, you'll miss key events that you expect to receive. The Activity Log is a global (non-regional) log, so most events do not have a region associated with them. 
-   > 
+   >
 
-4. Select **Save** to save these settings. The settings are immediately applied to your subscription.
-5. If you have several subscriptions, repeat this action and send all the data to the same event hub.
+4. Click the **Azure Event Hubs** option, and select an event hubs namespace to which logs should be sent, then click **OK**.
+5. Select **Save** to save these settings. The settings are immediately applied to your subscription.
+6. If you have several subscriptions, repeat this action and send all the data to the same event hub.
 
 ### Via PowerShell cmdlets
-If a log profile already exists, you first need to remove that profile.
+If a log profile already exists, you first need to remove the existing log profile and then create a new log profile.
 
-1. Use `Get-AzureRmLogProfile` to identify if a log profile exists.
-2. If so, use `Remove-AzureRmLogProfile` to remove it.
-3. Use `Set-AzureRmLogProfile` to create a profile:
+1. Use `Get-AzureRmLogProfile` to identify if a log profile exists.  If a log profile does exist, locate the *name* property.
+2. Use `Remove-AzureRmLogProfile` to remove the log profile using the value from the *name* property.
+
+    ```powershell
+    # For example, if the log profile name is 'default'
+    Remove-AzureRmLogProfile -Name "default"
+    ```
+3. Use `Add-AzureRmLogProfile` to create a new log profile:
 
    ```powershell
+   # Settings needed for the new log profile
+   $logProfileName = "default"
+   $locations = (Get-AzureRmLocation).Location
+   $locations += "global"
+   $subscriptionId = "<your Azure subscription Id>"
+   $resourceGroupName = "<resource group name your event hub belongs to>"
+   $eventHubNamespace = "<event hub namespace>"
 
-   Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+   # Build the service bus rule Id from the settings above
+   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespace/authorizationrules/RootManageSharedAccessKey"
 
+   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
-
-The Service Bus rule ID is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`. 
 
 ### Via Azure CLI
-If a log profile already exists, you first need to remove that profile.
+If a log profile already exists, you first need to remove the existing log profile and then create a new log profile.
 
-1. Use `azure insights logprofile list` to identify if a log profile exists.
-2. If so, use `azure insights logprofile delete` to remove it.
-3. Use `azure insights logprofile add` to create a profile:
+1. Use `az monitor log-profiles list` to identify if a log profile exists.
+2. Use `az monitor log-profiles delete --name "<log profile name>` to remove the log profile using the value from the *name* property.
+3. Use `az monitor log-profiles create` to create a new log profile:
 
    ```azurecli-interactive
-   azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
+   az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
-
-The Service Bus rule ID is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`.
 
 ## Consume the log data from Event Hubs
 The schema for the Activity Log is available in [Monitor subscription activity with the Azure Activity Log](monitoring-overview-activity-logs.md). Each event is in an array of JSON blobs called *records*.

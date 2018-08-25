@@ -61,6 +61,6 @@ If you plan to enable Dynamics 365 on ExpressRoute, review the following documen
 * Find an ExpressRoute connectivity provider. See [ExpressRoute partners and peering locations](expressroute-locations.md).
 * Refer to requirements for [Routing](expressroute-routing.md), [NAT](expressroute-nat.md), and [QoS](expressroute-qos.md).
 * Configure your ExpressRoute connection.
-  * [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-  * [Configure routing](expressroute-howto-routing-classic.md)
-  * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+  * [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md)
+  * [Configure routing](expressroute-howto-routing-arm.md)
+  * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)

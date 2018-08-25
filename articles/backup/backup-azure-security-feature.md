@@ -1,21 +1,13 @@
 ---
-title: Security features to help protect hybrid backups that use Azure Backup | Microsoft Docs
+title: Security features to help protect hybrid backups that use Azure Backup
 description: Learn how to use security features in Azure Backup to make backups more secure
 services: backup
-documentationcenter: ''
-author: JPallavi
+author: trinadhk
 manager: vijayts
-editor: ''
-
-ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/08/2017
-ms.author: pajosh
-
+ms.author: trinadhk
 ---
 # Security features to help protect hybrid backups that use Azure Backup
 Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect hybrid backups. This article covers how to enable and use these features, by using an Azure Recovery Services agent and Azure Backup Server. These features include:
@@ -52,7 +44,7 @@ If you are creating a Recovery Services vault, you can use all the security feat
     ![Screenshot of Recovery Services vault properties](./media/backup-azure-security-feature/security-settings-update.png)
 
     The update link opens the **Security Settings** blade, which provides a summary of the features and lets you enable them.
-5. From the drop-down list **Have you configured Azure Multi-Factor Authentication?**, select a value to confirm if you have enabled [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). If it is enabled, you are asked to authenticate from another device (for example, a mobile phone) while signing in to the Azure portal.
+5. From the drop-down list **Have you configured Azure Multi-Factor Authentication?**, select a value to confirm if you have enabled [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). If it is enabled, you are asked to authenticate from another device (for example, a mobile phone) while signing in to the Azure portal.
 
    When you perform critical operations in Backup, you have to enter a security PIN, available on the Azure portal. Enabling Azure Multi-Factor Authentication adds a layer of security. Only authorized users with valid Azure credentials, and authenticated from a second device, can access the Azure portal.
 6. To save security settings, select **Enable** and click **Save**. You can select **Enable** only after you select a value from the **Have you configured Azure Multi-Factor Authentication?** list in the previous step.
@@ -82,6 +74,10 @@ Checks have been added to make sure only valid users can perform various operati
 
 ### Authentication to perform critical operations
 As part of adding an extra layer of authentication for critical operations, you are prompted to enter a security PIN when you perform **Stop Protection with Delete data** and **Change Passphrase** operations.
+
+> [!NOTE]
+
+> Currently, security pin is not supported for **Stop Protection with Delete data** for DPM and MABS. 
 
 To receive this PIN:
 

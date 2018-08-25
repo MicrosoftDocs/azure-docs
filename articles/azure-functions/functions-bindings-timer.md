@@ -3,8 +3,8 @@ title: Timer trigger for Azure Functions
 description: Understand how to use timer triggers in Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
+author: ggailey777
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
@@ -15,8 +15,8 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
-ms.author: tdykstra
+ms.date: 08/08/2018
+ms.author: glenga
 
 ms.custom: 
 
@@ -28,9 +28,15 @@ A timer trigger lets you run a function on a schedule.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Packages
+## Packages - Functions 1.x
 
-The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub repository.
+The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) GitHub repository.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+## Packages - Functions 2.x
+
+The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub repository.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -42,6 +48,7 @@ See the language-specific example:
 * [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### C# example
 
@@ -143,6 +150,21 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+### Java example
+
+The following example function triggers and executes every five minutes. The `@TimerTrigger` annotation on the function defines the schedule using the same string format as [CRON expressions](http://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 ## Attributes
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
@@ -171,7 +193,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a | The name of the variable that represents the timer object in function code. | 
 |**schedule**|**ScheduleExpression**|A [CRON expression](#cron-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%". |
-|**runOnStartup**|**RunOnStartup**|If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. So **runOnStartup** should rarely if ever be set to `true`, as it will make code execute at highly unpredictable times. If you need to trigger the function outside of the timer schedule, you can create a second function with a different trigger type and share the code between the two functions. For example, to trigger on deployment you can [customize your deployment](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) to invoke the second function by making an HTTP request when the deployment completes.|
+|**runOnStartup**|**RunOnStartup**|If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. So **runOnStartup** should rarely if ever be set to `true`, as it will make code execute at highly unpredictable times.|
 |**useMonitor**|**UseMonitor**|Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than 1 minute. For schedules that trigger more than once per minute, the default is `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -199,7 +221,7 @@ The `IsPastDue` property is `true` when the current function invocation is later
 
 ## CRON expressions 
 
-A CRON expression for the Azure Functions timer trigger includes six fields: 
+Azure Functions uses the [NCronTab](https://github.com/atifaziz/NCrontab) library to interpret CRON expressions. A CRON expression includes six fields:
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -213,19 +235,26 @@ Each field can have one of the following types of values:
 |A set of values (`,` operator)|<nobr>"5,8,10 * * * * *"</nobr>|at hh:mm:05,hh:mm:08, and hh:mm:10 where hh:mm is every minute of every hour (3 times a minute)|
 |An interval value (`/` operator)|<nobr>"0 */5 * * * *"</nobr>|at hh:05:00, hh:10:00, hh:15:00, and so on through hh:55:00 where hh is every hour (12 times an hour)|
 
+To specify months or days you can use numeric values, names, or abbreviations of names:
+
+* For days, the numeric values are 0 to 6 where 0 starts with Sunday.
+* Names are in English. For example: `Monday`, `January`.
+* Names are case-insensitive.
+* Names can be abbreviated. Three letters is the recommended abbreviation length.  For example: `Mon`, `Jan`. 
+
 ### CRON examples
 
 Here are some examples of CRON expressions you can use for the timer trigger in Azure Functions.
 
 |Example|When triggered  |
 |---------|---------|
-|"0 */5 * * * *"|once every five minutes|
-|"0 0 * * * *"|once at the top of every hour|
-|"0 0 */2 * * *"|once every two hours|
-|"0 0 9-17 * * *"|once every hour from 9 AM to 5 PM|
-|"0 30 9 * * *"|at 9:30 AM every day|
-|"0 30 9 * * 1-5"|at 9:30 AM every weekday|
-
+|`"0 */5 * * * *"`|once every five minutes|
+|`"0 0 * * * *"`|once at the top of every hour|
+|`"0 0 */2 * * *"`|once every two hours|
+|`"0 0 9-17 * * *"`|once every hour from 9 AM to 5 PM|
+|`"0 30 9 * * *"`|at 9:30 AM every day|
+|`"0 30 9 * * 1-5"`|at 9:30 AM every weekday|
+|`"0 30 9 * Jan Mon"`|at 9:30 AM every Monday in January|
 >[!NOTE]   
 >You can find CRON expression examples online, but many of them omit the `{second}` field. If you copy from one of them, add the missing `{second}` field. Usually you'll want a zero in that field, not an asterisk.
 
@@ -238,14 +267,16 @@ The default time zone used with the CRON expressions is Coordinated Universal Ti
 For example, *Eastern Standard Time* is UTC-05:00. To have your timer trigger fire at 10:00 AM EST every day, use the following CRON expression that accounts for UTC time zone:
 
 ```json
-"schedule": "0 0 15 * * *",
+"schedule": "0 0 15 * * *"
 ```	
 
 Or create an app setting for your function app named `WEBSITE_TIME_ZONE` and set the value to **Eastern Standard Time**.  Then uses the following CRON expression: 
 
 ```json
-"schedule": "0 0 10 * * *",
+"schedule": "0 0 10 * * *"
 ```	
+
+When you use `WEBSITE_TIME_ZONE`, the time is adjusted for time changes in the specific timezone, such as daylight savings time. 
 
 ## TimeSpan
 
@@ -271,7 +302,11 @@ If you share a Storage account across multiple function apps, make sure that eac
 
 ## Retry behavior
 
-Unlike the queue trigger, the timer trigger doesn't retry after a function fails. When a function fails, it is't called again until the next time on the schedule.
+Unlike the queue trigger, the timer trigger doesn't retry after a function fails. When a function fails, it isn't called again until the next time on the schedule.
+
+## Troubleshooting
+
+For information about what to do when the timer trigger doesn't work as expected, see [Investigating and reporting issues with timer triggered functions not firing](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
 ## Next steps
 

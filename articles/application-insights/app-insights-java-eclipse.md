@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2016
 ms.author: mbullwin
 
@@ -25,10 +25,12 @@ Currently the plug-in works for Maven projects and Dynamic Web Projects in Eclip
 
 You'll need:
 
-* Oracle JRE 1.6 or later
+* JRE 1.7 or 1.8
 * A subscription to [Microsoft Azure](https://azure.microsoft.com/).
 * [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/), Indigo or later.
 * Windows 7 or later, or Windows Server 2008 or later
+
+If you prefer the Spring framework try the [configure a Spring Boot initializer app to use Application Insights guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## Install the SDK on Eclipse (one time)
 You only have to do this one time per machine. This step installs a toolkit which can then add the SDK to each Dynamic Web Project.
