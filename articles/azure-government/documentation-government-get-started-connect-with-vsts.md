@@ -101,14 +101,14 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 ## Define a Release Process
 
 1. After you have completed the steps above, we can now define the release process for our build.
-2. Choose the link to the completed build (for example, Build 1634). In the build's Summary tab under Deployments, choose "Create release". This starts a new release definition that's automatically linked to the build definition.
+2. Choose the link to the completed build (for example, Build 1634). In the build's Summary tab under Deployments, choose "Create release". This starts a new release pipeline that's automatically linked to the build pipeline.
 
     ![azuredevops6](./media/documentation-government-vsts-img17.png)
 3. Select the Azure App Service Deployment template and choose Next.
 
     ![azuredevops7](./media/documentation-government-vsts-img18.png)
 
-	In "Source..." make sure your CI build definition for the Web deploy package is selected as the artifact source.
+	In "Source..." make sure your CI build pipeline for the Web deploy package is selected as the artifact source.
 4. Select the Continuous deployment check box, and then choose Create.
 5. Select the Deploy Azure App Service task and configure it as follows:
  	- Azure Subscription: Select the endpoint configured earlier
@@ -119,7 +119,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 	- Advanced: Take App Offline: If you run into locked .DLL problems when you test the release, as explained below, try selecting this check box.
 		
 	
-6. Edit the name of the release definition, choose Save, and choose OK. The default environment is named Environment1, which you can edit by clicking directly on the name.
+6. Edit the name of the release pipeline, choose Save, and choose OK. The default environment is named Environment1, which you can edit by clicking directly on the name.
 	
 Now that your pipeline has been constructed, you can [deploy changes](https://docs.microsoft.com/vsts/build-release/) to your applications in Azure Government. 
 

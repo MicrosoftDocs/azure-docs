@@ -89,19 +89,19 @@ The last steps before getting into the CI/CD pipeline are to configure external 
 
 All the configuration is done now. In the next steps, you create the CI/CD pipeline that builds and deploys the application to the Docker Swarm cluster. 
 
-## Step 2: Create the build definition
+## Step 2: Create the build pipeline
 
-In this step, you set up a build definition for your Azure DevOps project and define the build workflow for your container images
+In this step, you set up a build pipeline for your Azure DevOps project and define the build workflow for your container images
 
-### Initial definition setup
+### Initial pipeline setup
 
-1. To create a build definition, connect to your Azure DevOps project and click **Build & Release**. In the **Build definitions** section, click **+ New**. 
+1. To create a build pipeline, connect to your Azure DevOps project and click **Build & Release**. In the **Build definitions** section, click **+ New**. 
 
-    ![Azure DevOps - New Build Definition](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-build-vsts.PNG)
+    ![Azure DevOps - New Build Pipeline](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-build-vsts.PNG)
 
 2. Select the **Empty process**.
 
-    ![Azure DevOps - New Empty Build Definition](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-empty-build-vsts.PNG)
+    ![Azure DevOps - New Empty Build Pipeline](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-empty-build-vsts.PNG)
 
 4. Then, click the **Variables** tab and create two new variables: **RegistryURL** and **AgentURL**. Paste the values of your Registry and Cluster Agents DNS.
 
@@ -174,7 +174,7 @@ You need two Docker steps for each image, one to build the image, and one to pus
 
          ![Azure DevOps - Publish Compose file](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
-5. Click **Save & queue** to test your build definition.
+5. Click **Save & queue** to test your build pipeline.
 
    ![Azure DevOps - Save and queue](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-save.png) 
 
@@ -184,7 +184,7 @@ You need two Docker steps for each image, one to build the image, and one to pus
 
   ![Azure DevOps - Build succeeded](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
-## Step 3: Create the release definition
+## Step 3: Create the release pipeline
 
 Azure DevOps allows you to [manage releases across environments](https://www.visualstudio.com/team-services/release-management/). You can enable continuous deployment to make sure that your application is deployed on your different environments (such as dev, test, pre-production, and production) in a smooth way. You can create an environment that represents your Azure Container Service Docker Swarm Mode cluster.
 
@@ -192,9 +192,9 @@ Azure DevOps allows you to [manage releases across environments](https://www.vis
 
 ### Initial release setup
 
-1. To create a release definition, click **Releases** > **+ Release**
+1. To create a release pipeline, click **Releases** > **+ Release**
 
-2. To configure the artifact source, Click **Artifacts** > **Link an artifact source**. Here, link this new release definition to the build that you defined in the previous step. After that, the docker-compose.yml file is available in the release process.
+2. To configure the artifact source, Click **Artifacts** > **Link an artifact source**. Here, link this new release pipeline to the build that you defined in the previous step. After that, the docker-compose.yml file is available in the release process.
 
     ![Azure DevOps - Release Artifacts](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-artefacts.png) 
 
@@ -236,7 +236,7 @@ The release workflow is composed of two tasks that you add.
     >[!IMPORTANT]
     > As shown on the previous screen, leave the **Fail on STDERR** checkbox unchecked. This setting allows us to complete the release process due to `docker-compose` prints several diagnostic messages, such as containers are stopping or being deleted, on the standard error output. If you check the checkbox, Azure DevOps reports that errors occurred during the release, even if all goes well.
     >
-3. Save this new release definition.
+3. Save this new release pipeline.
 
 ## Step 4: Test the CI/CD pipeline
 

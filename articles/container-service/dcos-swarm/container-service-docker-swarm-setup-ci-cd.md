@@ -102,21 +102,21 @@ The last steps before getting into the CI/CD pipeline are to configure external 
 
 All the configuration is done now. In the next steps, you create the CI/CD pipeline that builds and deploys the application to the Docker Swarm cluster. 
 
-## Step 2: Create the build definition
+## Step 2: Create the build pipeline
 
-In this step, you set up a build definition for your Azure DevOps project and define the build workflow for your container images
+In this step, you set up a build pipeline for your Azure DevOps project and define the build workflow for your container images
 
-### Initial definition setup
+### Initial pipeline setup
 
-1. To create a build definition, connect to your Azure DevOps project and click **Build & Release**. 
+1. To create a build pipeline, connect to your Azure DevOps project and click **Build & Release**. 
 
 1. In the **Build definitions** section, click **+ New**. Select the **Empty** template.
 
-    ![Azure DevOps - New Build Definition](./media/container-service-docker-swarm-setup-ci-cd/create-build-vsts.png)
+    ![Azure DevOps - New Build Dipeline](./media/container-service-docker-swarm-setup-ci-cd/create-build-vsts.png)
 
-1. Configure the new build with a GitHub repository source, check **Continuous integration**, and select the agent queue where you registered your Linux agent. Click **Create** to create the build definition.
+1. Configure the new build with a GitHub repository source, check **Continuous integration**, and select the agent queue where you registered your Linux agent. Click **Create** to create the build pipeline.
 
-    ![Azure DevOps - Create Build Definition](./media/container-service-docker-swarm-setup-ci-cd/vsts-create-build-github.png)
+    ![Azure DevOps - Create Build Pipeline](./media/container-service-docker-swarm-setup-ci-cd/vsts-create-build-github.png)
 
 1. On the **Build Definitions** page, first open the **Repository** tab and configure the build to use the fork of the MyShop project that you created in the prerequisites. Make sure that you select *acs-docs* as the **Default branch**.
 
@@ -165,9 +165,9 @@ You need to add two Docker steps for each image, one to build the image, and one
 
     ![Azure DevOps - Publish Compose file](./media/container-service-docker-swarm-setup-ci-cd/vsts-publish-compose.png) 
 
-1. Click **Save** and name your build definition.
+1. Click **Save** and name your build pipeline.
 
-## Step 3: Create the release definition
+## Step 3: Create the release pipeline
 
 Azure DevOps allows you to [manage releases across environments](https://www.visualstudio.com/team-services/release-management/). You can enable continuous deployment to make sure that your application is deployed on your different environments (such as dev, test, pre-production, and production) in a smooth way. You can create a new environment that represents your Azure Container Service Docker Swarm cluster.
 
@@ -175,9 +175,9 @@ Azure DevOps allows you to [manage releases across environments](https://www.vis
 
 ### Initial release setup
 
-1. To create a release definition, click **Releases** > **+ Release**
+1. To create a release pipeline, click **Releases** > **+ Release**
 
-1. To configure the artifact source, Click **Artifacts** > **Link an artifact source**. Here, link this new release definition to the build that you defined in the previous step. By doing this, the docker-compose.yml file is available in the release process.
+1. To configure the artifact source, Click **Artifacts** > **Link an artifact source**. Here, link this new release pipeline to the build that you defined in the previous step. By doing this, the docker-compose.yml file is available in the release process.
 
     ![Azure DevOps - Release Artifacts](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-artefacts.png) 
 
@@ -207,7 +207,7 @@ The release workflow is composed of two tasks that you add.
     >[!IMPORTANT]
     > As shown on the preceding screen, leave the **Fail on STDERR** checkbox unchecked. This is an important setting, because `docker-compose` prints several diagnostic messages, such as containers are stopping or being deleted, on the standard error output. If you check the checkbox, Azure DevOps reports that errors occurred during the release, even if all goes well.
     >
-1. Save this new release definition.
+1. Save this new release pipeline.
 
 
 >[!NOTE]
