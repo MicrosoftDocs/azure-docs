@@ -21,9 +21,6 @@ Azure Monitor is a service that helps you monitor your applications and the reso
 
 All data collected by Azure Monitor fits into one of two fundamental types, [metrics](#metrics) and [logs](#logs). Metrics are numerical values that describe some aspect of a system at a particular point in time. They are lightweight and capable of supporting near real-time scenarios. Logs contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces are stored as logs in addition to performance data so that it can all be combined for analysis.
 
-![Azure Monitor overview](../monitoring/media/monitoring-data-collection/metrics-logs-overview.png)
-
-
 ## Metrics
 Metrics are numerical values that describe some aspect of a system at a particular time. They are collected at regular intervals whether or not the value changes. For example, you might collect processor utilization from a virtual machine every minute or the number of users logged in to your application every 10 minutes.
 
@@ -42,8 +39,6 @@ For example, a certain number of users on your application at a given time might
 
 ### Sources of metric data
 There are three fundamental sources of metrics collected by Azure Monitor. All of these metrics are available in the metric store where they can be evaluated together regardless of their source.
-
-![Metrics input](media/monitoring-data-collection/metrics-input.png)
 
 #### Platform metrics
 Platform metrics are created by Azure resources. Each type of resource creates a [distinct set of metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md) without any configuration required. These metrics have the following characteristics:
@@ -64,14 +59,7 @@ Custom metrics are metrics that you define and can be created using the followin
 - Publish custom metrics from your Linux virtual machines using [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/).
 - Write custom metrics from any REST client using the custom metrics API.
 
-
-
-### Viewing metrics
-Metrics in Azure are collected in the Azure Monitor metrics store. This is a time series database optimized for quick retrieval. You can access 93 days of history for each metric. Copy metrics to Log Analytics for long term analysis and trending.
-
-Metric data is used in a variety of ways as described in the next section. Use [Metrics explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) to directly analyze the data in your metric store and chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
-
-![Metrics Explorer](media/monitoring-data-collection/metrics-explorer.png)
+![Metrics overview](media/monitoring-data-collection/metrics-overview.png)
 
 ### What can you do with metrics?
 Metrics enable you to do the following tasks:
@@ -84,7 +72,17 @@ Metrics enable you to do the following tasks:
 - [Archive](../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) the performance or health history of your resource for compliance, auditing, or offline reporting purposes.
 - Query metrics by using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) or [REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
-  ![Metrics output](media//monitoring-data-collection/metrics-output.png)
+
+
+
+### Viewing metrics
+Metrics in Azure are collected in the Azure Monitor metrics store. This is a time series database optimized for quick retrieval. You can access 93 days of history for each metric. Copy metrics to Log Analytics for long term analysis and trending.
+
+Metric data is used in a variety of ways as described in the next section. Use [Metrics explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) to directly analyze the data in your metric store and chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+
+![Metrics Explorer](media/monitoring-data-collection/metrics-explorer.png)
+
+
 
 
 
@@ -120,10 +118,7 @@ Log Analytics can collect data from a variety of sources both within Azure and f
 ![Log Analytics components](media/monitoring-data-collection/logs-overview.png)
 
 
-### Viewing log data
-All data from Log Analytics is retrieved using a log query that specifies a particular set of data. Queries are written using the [Log Analytics query language](../log-analytics/query-language/get-started-queries.md) which is a rich query language to quickly retrieve, consolidate, and analyze collected data. Use the [Log Analytics page](../log-analytics/log-analytics-log-search-portals.md) to  directly analyze the data in your metric store and chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
-![Logs](media/monitoring-data-collection/logs.png)
 
 ### What can you do with logs?
 Logs enable you to do the following tasks:
@@ -133,6 +128,11 @@ Logs enable you to do the following tasks:
 - Build a workflow based on data in Log Analytics using [Logic Apps]().
 - Export the results of a query to [Power BI](../log-analytics/log-analytics-powerbi.md) to use different visualizations and share with users outside of Azure.
 - Query metrics by using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) or [REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+
+### Viewing log data
+All data from Log Analytics is retrieved using a log query that specifies a particular set of data. Queries are written using the [Log Analytics query language](../log-analytics/query-language/get-started-queries.md) which is a rich query language to quickly retrieve, consolidate, and analyze collected data. Use the [Log Analytics page](../log-analytics/log-analytics-log-search-portals.md) to  directly analyze the data in your metric store and chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+
+![Logs](media/monitoring-data-collection/logs.png)
 
 ## Transferring monitoring data
 
