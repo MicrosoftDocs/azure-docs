@@ -278,12 +278,13 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
                 "workspaceKey": "<Primary key value>”
             }' 
 
-	   - When installing on a Windows VM:
+	  - When installing on a Windows VM:
 	    
              Set-AzureRmVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
 	
 	
-	   - When installing on a Linux VM:
+
+	  - When installing on a Linux VM:
 	    
 	          Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
