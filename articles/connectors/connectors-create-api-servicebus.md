@@ -94,10 +94,6 @@ You need this string when you enter your connection information in your logic ap
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-When you add a Service bus trigger or action for the first time, 
-you're prompted to create a connection between your logic app 
-to your Service Bus namespace.
-
 1. Sign in to the [Azure portal](https://portal.azure.com), 
 and open your logic app in Logic App Designer, if not open already.
 
@@ -143,45 +139,49 @@ Under the triggers list, select the trigger you want.
 
       ![Select Service Bus action](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
-1. When you're prompted to create a connection, 
-provide your connection information. 
+1. If you're connecting your logic app to your Service 
+Bus namespace for the first time, the Logic App Designer 
+now prompts you for your connection information. 
 
-   1. Give your connection a name, and select your service bus namespace.
+   1. Provide a name for your connection, and select your Service Bus namespace.
 
       ![Create Service Bus connection, part 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
 
-      Or, to manually enter the connection string, 
+      To manually enter the connection string instead, 
       choose **Manually enter connection information**. 
-      Learn [how to find your connection string](#permissions-connection-string).
+      If you don't have your connection string, learn 
+      [how to find your connection string](#permissions-connection-string).
 
-   1. Now select the Service Bus policy to use, and choose **Create**.
+   1. Now select your Service Bus policy, and then choose **Create**.
 
       ![Create Service Bus connection, part 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-2.png)
 
-1. For this example, select the messaging entity you want to use. 
-This example selects a Service Bus queue. 
+1. For this example, select the messaging entity you want, 
+such as a queue or topic. In this example, select your Service Bus queue. 
    
    ![Select Service Bus queue](./media/connectors-create-api-azure-service-bus/service-bus-select-queue.png)
 
 1. Provide the necessary details for your trigger or action. 
-For this example, choose either step: 
+For this example, follow the relevant steps for your trigger or action: 
 
-   * **For your trigger**: Set the polling interval and 
+   * **For the sample trigger**: Set the polling interval and 
    frequency for checking the queue.
 
      ![Set up polling interval](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
-     When you're done, continue building your logic app's workflow. 
-     For example, add an action that sends email when a new message arrives.
-     Now, when your trigger checks the selected queue and finds a new message, 
-     your logic app runs the actions for the found message.
+     When you're done, continue building your logic app's workflow 
+     by adding the actions you want. For example, you can add an 
+     action that sends email when a new message arrives.
+     When your trigger checks your queue and finds a new message, 
+     your logic app runs your selected actions for the found message.
 
-   * **For your action**: Enter the message content and any other details. 
+   * **For the sample action**: Enter the message content and any other details. 
 
-     ![Provide message details](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
+     ![Provide message content and details](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
-     When you're done, continue building your logic app's workflow. For example, 
-     add an action that sends email confirmation that your message was sent.
+     When you're done, continue building your logic app's workflow 
+     by adding any other actions you want. For example, you can add 
+     an action that sends email confirming your message was sent.
 
 1. Save your logic app. On the designer toolbar, choose **Save**.
 
