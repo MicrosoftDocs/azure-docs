@@ -234,10 +234,8 @@
         href: ../connectors/connectors-create-api-sendgrid.md
       - name: SFTP
         href: ../connectors/connectors-create-api-sftp.md  
-      - name: SharePoint Online
+      - name: SharePoint
         href: ../connectors/connectors-create-api-sharepointonline.md
-      - name: SharePoint Server
-        href: ../connectors/connectors-create-api-sharepointserver.md
       - name: Slack
         href: ../connectors/connectors-create-api-slack.md
       - name: SMTP

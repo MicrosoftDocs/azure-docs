@@ -16,23 +16,22 @@ ms.date: 08/25/2018
 # Monitor and manage SharePoint with Azure Logic Apps
 
 With Azure Logic Apps and the SharePoint connector, 
-you can create automated tasks and workflows that monitor 
-and manage resources, such as files, folders, lists, items, 
-persons, and so on in SharePoint Online in the cloud or 
-SharePoint Server on premises, for example:
+you can create automated tasks and workflows that 
+monitor and manage resources, such as files, folders, 
+lists, items, persons, and so on, in SharePoint 
+Online or in SharePoint Server on premises, for example:
 
 * Monitor when files or items are created, changed, or deleted.
+* Create, get, update, or delete items.
+* Add, get, or delete attachments. Get the content from attachments.
 * Create, copy, update, or delete files. 
-* Get a file's content, metatadata, or properties. 
-* Update a file's properties.
+* Update file properties. Get the content, metadata, or properties for a file.
+* List or extract folders.
+* Get lists or list views.
 * Set content approval status.
-* Create, get, update, and delete an item.
-* Add, get, or delete attachments. Get an attachment's content.
-* Get lists and list views.
-* List and extract folders.
 * Resolve persons.
 * Send HTTP requests to SharePoint.
-* Get entity values
+* Get entity values.
 
 You can use triggers that get responses from SharePoint and 
 make the output available to other actions. You can use actions 
