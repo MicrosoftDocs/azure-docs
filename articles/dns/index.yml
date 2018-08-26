@@ -64,7 +64,7 @@ sections:
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://go.microsoft.com/fwlink/?linkid=2012824
-    - title: Microsoft Azure Administration for AWS Administrators
+    - title: Azure Administration for AWS Administrators
       href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg

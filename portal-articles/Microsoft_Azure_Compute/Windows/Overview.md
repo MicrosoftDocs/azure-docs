@@ -42,7 +42,7 @@ Learn how to deploy, manage, and monitor Windows VMs on Azure.
 
 ## Free Pluralsight Video Training
 
-- [Azure Administrator](https://go.microsoft.com/fwlink/?linkid=20128272)
+- [Azure Administrator](https://go.microsoft.com/fwlink/?linkid=2012827)
 
 ## Samples
 

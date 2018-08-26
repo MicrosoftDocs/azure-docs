@@ -63,7 +63,7 @@ sections:
       title: Create a private Docker registry in Azure Container Registry
       image:
         src: /azure/media/index/container-registry.svg
-- title: Free Pluralsight video training for Azure and containers
+- title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards
