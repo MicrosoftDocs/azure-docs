@@ -15,8 +15,6 @@ ms.date: 08/25/2018
 
 # Monitor and manage Slack with Azure Logic Apps
 
-Slack is a team communication tool, that brings together all of your team communications in one place, instantly searchable and available wherever you go. 
-
 With Azure Logic Apps and the Slack connector, 
 you can create automated tasks and workflows that monitor 
 your Slack files and manage your Slack channels, messages, 
@@ -42,8 +40,8 @@ review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 * Your [Slack](https://slack.com/) account and user credentials
 
-   Your credentials authorize your logic app to create 
-   a connection and access your Slack account.
+  Your credentials authorize your logic app to create 
+  a connection and access your Slack account.
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)

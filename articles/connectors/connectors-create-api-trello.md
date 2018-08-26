@@ -43,8 +43,8 @@ review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 * Your Trello account and user credentials
 
-   Your credentials authorize your logic app to create 
-   a connection and access your Trello account.
+  Your credentials authorize your logic app to create 
+  a connection and access your Trello account.
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
