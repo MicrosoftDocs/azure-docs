@@ -235,7 +235,7 @@
       - name: SFTP
         href: ../connectors/connectors-create-api-sftp.md  
       - name: SharePoint
-        href: ../connectors/connectors-create-api-sharepointonline.md
+        href: ../connectors/connectors-create-api-sharepoint.md
       - name: Slack
         href: ../connectors/connectors-create-api-slack.md
       - name: SMTP
