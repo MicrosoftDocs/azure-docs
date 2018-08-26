@@ -1,10 +1,10 @@
 ---
-title: Create your first function in Azure using Visual Studio Code | Microsoft Docs
-description: Create and publish a simple HTTP triggered function to Azure by using Azure Functions extension to Visual Studio Code. 
+title: Create your first function in Azure using Visual Studio Code
+description: Create and publish to Azure a simple HTTP triggered function by using Azure Functions extension in Visual Studio Code. 
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, compute, serverless architecture
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/03/2018
+ms.date: 08/25/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
 
@@ -29,32 +29,13 @@ In this article, you learn how to use the [Azure Functions extension for Visual 
 
 ## Prerequisites
 
-To complete this tutorial:
+To complete this quickstart:
 
-* Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). This article was developed and tested on a device running macOS (High Sierra).    
+* Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). This article was developed and tested on a device running macOS (High Sierra).
 
-* Install the following components, which are required by the [Azure Functions Core Tools]: 
+* Install [version 2.x of the Core Tools](functions-run-local.md#version-2x-runtime), which is still in preview.
 
-    * [Node.js 8.5 or a later version](https://docs.npmjs.com/getting-started/installing-node), which includes npm. 
-
-    * [.NET Core 2.0 or a later version](https://www.microsoft.com/net/core)
-
-* Use the following command to install the [Core Tools][Azure Functions Core Tools]: 
-
-    ```bash
-    npm install -g azure-functions-core-tools@core
-    ``` 
-    
-     When installing on Ubuntu, you may need to use `sudo`. On macOS and Linux, you may need to use the `unsafe-perm` flag, as follows:
-    
-    ```bash
-    sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
-    ```
-        
-    This [version of the Core Tools](functions-run-local.md#version-2x-runtime) uses the Azure Functions version 2.x runtime and .NET Core and is still in preview. 
-
-    
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Install the extension
 
@@ -62,51 +43,53 @@ The Azure Functions extension is used to create, test, and deploy functions to A
 
 1. In VS Code, open **Extensions** and search for `azure functions`, or [open this link in VS Code](vscode:extension/ms-azuretools.vscode-azurefunctions).
 
-2. Select **Install** to install the extension to VS Code. 
+1. Select **Install** to install the extension to VS Code. 
 
     ![Install the VS Code extension for Azure Functions](./media/functions-create-first-function-vs-code/vscode-install-extension.png)
 
-3. Restart VS Code. You should see a new Azure Functions area in the **Explorer**.
+1. Restart VS Code and select the Azure icon on the Activity bar. You should see an Azure Functions area in the Side Bar.
 
-    ![Azure Functions area in the Explorer](./media/functions-create-first-function-vs-code/azure-functions-window-vscode.png)
+    ![Azure Functions area in the Side Bar](./media/functions-create-first-function-vs-code/azure-functions-window-vscode.png)
 
 The Azure Functions extension for VS Code is in preview. To learn more, see [Azure Functions extension for Visual Studio Code].
 
 ## Create an Azure Functions project
 
-The Azure Functions project template in Visual Studio creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources. 
+The Azure Functions project template in Visual Studio creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources.
 
-1. In VS Code, open the **Explorer**, locate and expand the **Azure Functions** area, and then select the create project icon. This area may be located at the bottom of the **Explorer**.
+1. In VS Code, select the Azure logo to display the display the **Azure: Functions** area, and then select the Create New Project icon.
 
     ![Create a function app project](./media/functions-create-first-function-vs-code/create-function-app-project.png)
 
-2. Choose a location for your project workspace and choose **Select**.
+1. Choose a location for your project workspace and choose **Select**.
 
-    >[!NOTE]
-    >This article was designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace. 
+    > [!NOTE]
+    > This article was designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.
 
-3. Select the language for your function app project.
+1. Select the language for your function app project. In this article, JavaScript is used.
     ![Choose project language](./media/functions-create-first-function-vs-code/create-function-app-project-language.png)
 
-Visual Studio creates the function app project. This project contains [host.json](functions-host-json.md) and a [local.settings.json](functions-run-local.md#local-settings-file) configuration files.
+Visual Studio creates the function app project. This project contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files, as well as any language-specific project files. A new Git repository is also created in the project folder.
 
-## Create the function
+## Create an HTTP triggered function
 
-1. From **Azure Functions** in the **Explorer**, choose the create function icon. 
+1. From **Azure: Functions**, choose the Create Function icon.
 
     ![Create a function](./media/functions-create-first-function-vs-code/create-function.png)
 
-2. Select the folder containing your function app project, select the **HTTP trigger** function template. 
+1. Select the folder containing your function app project and select the **HTTP trigger** function template.
 
     ![Choose the HTTP trigger template](./media/functions-create-first-function-vs-code/create-function-choose-template.png)
 
-3. Type a function name and press Enter, then select **Anonymous** authentication. 
+1. Type `HTTPTriggerJS` for the function name and press Enter, then select **Anonymous** authentication.
 
     ![Choose anonymous authentication](./media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
 
     A function is created in your chosen language using the template for an HTTP triggered function. 
 
     ![HTTP triggered function template in VS Code](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
+
+You can add input and output bindings to your function by modifying the function.json file. For more information, see  [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 Now that you have created your function project and an HTTP-triggered function, you can test it on your local computer.
 
@@ -116,15 +99,15 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 1. To test your function, press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
-2. In the **Terminal** panel, copy the URL endpoint of your HTTP triggered function. 
+1. In the **Terminal** panel, copy the URL endpoint of your HTTP triggered function. 
 
-    ![Azure local output](./media/functions-create-first-function-vs-code/functions-vscode-f5.png)
+    ![Azure local output](./media/functions-create-first-function-vs-code/functions-vscode-f1.png)
 
-3. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request: 
+1. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request: 
 
     ![Function localhost response in the browser](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
 
-4. To stop debugging, press Shift + F5.
+1. To stop debugging, press Shift + F1.
 
 After you have verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
@@ -132,51 +115,51 @@ After you have verified that the function runs correctly on your local computer,
 
 Before you can publish your app, you must sign in to Azure. 
 
-1. In **Azure Functions** in the **Explorer**, click **Sign in to Azure...**.
+1. In the **Azure: Functions** area, choose **Sign in to Azure...**. If you don't already have one, you can **Create a free Azure account**.
 
     ![Function localhost response in the browser](./media/functions-create-first-function-vs-code/functions-sign-into-azure.png)
 
-2.  When prompted, select **Copy & Open**, or copy the displayed code and open <https://aka.ms/devicelogin> in your browser. 
+1. When prompted, select **Copy & Open**, or copy the displayed code and open <https://aka.ms/devicelogin> in your browser.
 
-3. Paste the copied code in the **Device Login** page, verify the sign-in is for VS Code, then select **Continue**.  
+1. Paste the copied code in the **Device Login** page, verify the sign-in for VS Code, then select **Continue**.  
 
-4. Complete the sign-in using your Azure account credentials. After you have successfully signed in, you can close the browser. 
+1. Complete the sign-in using your Azure account credentials. After you have successfully signed in, you can close the browser.
 
 ## Publish the project to Azure
 
-VS Code lets you publish your Azure Functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The project is then deployed to the new function app in Azure. 
+VS Code lets you publish your Azure Functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The project is then packaged and deployed to the new function app in Azure.
 
-1. In the **Azure Functions** area of the **Explorer**, select the publish icon.
+1. In the **Azure: Functions** area, select the Deploy to Function App icon.
 
     ![Function app settings](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
 
-2. Choose the project folder, which is your current workspace. 
+1. Choose the project folder, which is your current workspace.
 
-2. Choose your subscription, then choose **+ Create New Function App**. 
+1. If you have more than one subscription, choose the one you want to host your function app, then choose **+ Create New Function App**.
 
-3. Type a globally unique name that identifies your function app and press Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`.
+1. Type a globally unique name that identifies your function app and press Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`.
 
-4. Choose **+ Create New Resource Group**, type a resource group name, like `myResourceGroup`, and press enter. You can also use an existing resource group.
+1. Choose **+ Create New Resource Group**, type a resource group name, like `myResourceGroup`, and press enter. You can also use an existing resource group.
 
-5. Choose a location in a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access.
+1. Choose **+Create New Storage Account**, type a globally unique name of the new storage account used by your function app and press Enter. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account.
 
-6. Choose **+Create New Storage Account**, type a globally unique name of the new storage account used by your function app and press Enter. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account.
+1. Choose a location in a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access.
 
-    Function app creation starts after you choose your Storage account.
+    Function app creation starts after you choose your location. Notifications are displayed after your function app is created and after the project files are deployed.
 
-7. Choose **Yes** when prompted about overwriting existing deployments. There are not deployments in the newly created function app. 
+1. Select **View Logs** in the notifications to view the creation and deployment results, including the Azure resources that you created.
 
-    The output panel shows the Azure resources that you created in a resource group in your subscription. 
+    ![Function app creation output](./media/functions-create-first-function-vs-code/function-create-notifications.png)
+
+1. Make a note of the URL of the new function app in Azure. You use this to test your function after the project is published to Azure.
 
     ![Function app creation output](./media/functions-create-first-function-vs-code/function-create-output.png)
 
-7. Make a note of the URL of the new function app in Azure. You use this to test your function after the project is published to Azure.
-
-8. Back in the **Azure Functions** area of the **Explorer**, you see the new function app displayed under your subscription. When you expand this node, you see the application settings and functions in the function app.
+1. Back in the **Azure: Functions** area, you see the new function app displayed under your subscription. When you expand this node, you see the functions in the function app, as well as  application settings and and function proxies.
 
     ![Function app settings](./media/functions-create-first-function-vs-code/function-app-project-settings.png)
 
-    From your function app node, type Ctrl and click to choose to perform various management and configuration tasks against the function app in Azure. You can also choose to view the function app in the Azure portal. 
+    From your function app node, type Ctrl and click (right-click) to choose to perform various management and configuration tasks against the function app in Azure. You can also choose to view the function app in the Azure portal.
 
 ## Test your function in Azure
 
@@ -186,19 +169,18 @@ VS Code lets you publish your Azure Functions project directly to Azure. In the 
 
         http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
 
-2. Paste this new URL for the HTTP request into your browser's address bar. The following shows the response in the browser to the remote GET request returned by the function: 
+1. Paste this new URL for the HTTP request into your browser's address bar. The following shows the response in the browser to the remote GET request returned by the function: 
 
-    ![Function response in the browser](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)   
+    ![Function response in the browser](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
 
 ## Next steps
 
-You have used VS Code to create a function app with a simple HTTP triggered function. To learn more about developing functions in a specific language, see the language reference guides for [JavaScript](functions-reference-node.md), [.NET](functions-dotnet-class-library.md), or [Java](functions-reference-java.md).   
+You have used VS Code to create a function app with a simple HTTP triggered function. To learn more about developing functions in a specific language, see the language reference guides for [JavaScript](functions-reference-node.md), [.NET](functions-dotnet-class-library.md), or [Java](functions-reference-java.md).
+
 Next you may want to learn more about local testing and debugging from the Terminal or command prompt using the Azure Functions Core Tools.
 
 > [!div class="nextstepaction"]
 > [Code and test locally](functions-run-local.md).
- 
-
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
