@@ -121,7 +121,7 @@ Log Analytics can collect data from a variety of sources both within Azure and f
 
 
 ### Viewing log data
-All data from Log Analytics is retrieved using a log query that specifies a particular set of data. Queries are written using the [Log Analytics query language](../query-language/get-started-queries.md) which is a rich query language to quickly retrieve, consolidate, and analyze collected data. Use the [Log Analytics page](../log-analytics/log-analytics-log-search-portals.md) to  directly analyze the data in your metric store and chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+All data from Log Analytics is retrieved using a log query that specifies a particular set of data. Queries are written using the [Log Analytics query language](../log-analytics/query-language/get-started-queries.md) which is a rich query language to quickly retrieve, consolidate, and analyze collected data. Use the [Log Analytics page](../log-analytics/log-analytics-log-search-portals.md) to  directly analyze the data in your metric store and chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 ![Logs](media/monitoring-data-collection/logs.png)
 
