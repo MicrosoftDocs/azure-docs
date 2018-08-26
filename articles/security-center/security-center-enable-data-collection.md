@@ -222,7 +222,7 @@ When auto provisioning is disabled (turned off), the default workspace configura
 
 If you switch off auto provision after it was previously on:
 -	Agents will not be provisioned on new VMs.
--	Security Center stops collecting data from the default workspace
+-	Security Center stops collecting data from the default workspace.
  
 > [!NOTE]
 >  Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Security Center](security-center-faq.md#remove-oms).
@@ -263,7 +263,7 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
     
         ![Set log analytics][11]
 
-    2. Copy the values out of **WorkspaceID** and **Primary key**
+    2. Copy the values out of **WorkspaceID** and **Primary key**.
   
        ![Copy values][12]
 
@@ -283,7 +283,7 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
              Set-AzureRmVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
 	
 	
-	    - When installing on a Linux VM:
+	   - When installing on a Linux VM:
 	    
 	          Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
