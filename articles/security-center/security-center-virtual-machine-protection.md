@@ -52,7 +52,7 @@ This section shows the total number of VMs and computers that were initialized f
 
 **Monitoring agent health issues** opens. VMs and computers that Security Center is unable to successfully monitor are listed. Select a VM or computer for detailed information. **MONITORING STATE** provides a reason why Security Center is unable to monitor. See the [Security Center troubleshooting guide](security-center-troubleshooting-guide.md) for a list of **MONITORING STATE** values, descriptions, and resolution steps.
 
-### Unmonitored VMs and computers <a name="#unmonitored-vms-and-computers"></a>
+### Unmonitored VMs and computers <a name="unmonitored-vms-and-computers"></a>
 A VM or computer is unmonitored by Security Center if the machine is not running the Microsoft Monitoring Agent extension. A machine may have a local agent already installed, for example the OMS direct agent or the SCOM agent. Machines with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Microsoft Monitoring Agent extension is required.
 
 You can install the extension on the unmonitored VM or computer in addition to the already installed local agent. Configure both agents the same, connecting them to the same workspace. This enables Security Center to interact with the Microsoft Monitoring Agent extension and collect data. See [Enable the VM extension](../log-analytics/log-analytics-quick-collect-azurevm.md) for instructions on how to install the Microsoft Monitoring Agent extension.
