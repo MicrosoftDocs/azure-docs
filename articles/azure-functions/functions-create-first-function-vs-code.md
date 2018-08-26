@@ -23,7 +23,7 @@ ms.custom: mvc, devcenter
 
 Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/overview/serverless-computing/) environment without having to first create a VM or publish a web application.
 
-In this article, you learn how to use the [Azure Functions extension for Visual Studio Code] to locally create and test a "hello world" function. You then publish the function code to Azure. The extension uses the [Azure Functions Core Tools] for local debugging. 
+In this article, you learn how to use the [Azure Functions extension for Visual Studio Code] to locally create and test a "hello world" function. You then publish the function code to Azure. The extension uses the [Azure Functions Core Tools] for local debugging.
 
 ![Azure Functions code in a Visual Studio project](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
@@ -33,7 +33,7 @@ To complete this quickstart:
 
 * Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). This article was developed and tested on a device running macOS (High Sierra).
 
-* Install [version 2.x of the Core Tools](functions-run-local.md#version-2x-runtime), which is still in preview.
+* Install [version 2.x of the Core Tools](functions-run-local.md#v2), which is still in preview.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -99,9 +99,9 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 1. To test your function, press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
-1. In the **Terminal** panel, copy the URL endpoint of your HTTP triggered function. 
+1. In the **Terminal** panel, copy the URL endpoint of your HTTP triggered function.
 
-    ![Azure local output](./media/functions-create-first-function-vs-code/functions-vscode-f1.png)
+    ![Azure local output](./media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
 1. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request: 
 
