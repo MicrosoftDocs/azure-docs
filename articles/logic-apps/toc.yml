@@ -240,6 +240,8 @@
         href: ../connectors/connectors-create-api-sharepointserver.md
       - name: Slack
         href: ../connectors/connectors-create-api-slack.md
+      - name: SMTP
+        href: ../connectors/connectors-create-api-smtp.md
       - name: SQL Server
         href: ../connectors/connectors-create-api-sqlazure.md
       - name: Transform XML
