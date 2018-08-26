@@ -132,12 +132,13 @@ In this section, you write a .NET console app that receives file upload notifica
             if (fileUploadNotification == null) continue;
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Received file upload noticiation: {0}", string.Join(", ", fileUploadNotification.BlobName));
+            Console.WriteLine("Received file upload notification: {0}", 
+              string.Join(", ", fileUploadNotification.BlobName));
             Console.ResetColor();
 
             await notificationReceiver.CompleteAsync(fileUploadNotification);
         }
-    }
+    }   
     ```
 
     Note this receive pattern is the same one used to receive cloud-to-device messages from the device app.

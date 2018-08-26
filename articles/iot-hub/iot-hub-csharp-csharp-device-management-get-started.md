@@ -132,18 +132,18 @@ In this section, you do the following:
     
 4. Add the following `using` statements at the top of the **Program.cs** file:
    
-   ```csharp
-        using Microsoft.Azure.Devices.Client;
-        using Microsoft.Azure.Devices.Shared;
-   ```
+    ```csharp
+    using Microsoft.Azure.Devices.Client;
+    using Microsoft.Azure.Devices.Shared;
+    ```
 
 5. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section.
 
-   ```csharp
-        static string DeviceConnectionString = 
-          "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
-        static DeviceClient Client = null;
-   ```
+    ```csharp
+    static string DeviceConnectionString = 
+      "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+    static DeviceClient Client = null;
+    ```
 6. Add the following to implement the direct method on the device:
 
    ```csharp
