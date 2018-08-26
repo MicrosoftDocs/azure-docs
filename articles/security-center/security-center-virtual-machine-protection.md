@@ -57,7 +57,7 @@ A VM or computer is unmonitored by Security Center if the machine is not running
 
 You can install the extension on the unmonitored VM or computer in addition to the already installed local agent. Configure both agents the same, connecting them to the same workspace. This enables Security Center to interact with the Microsoft Monitoring Agent extension and collect data. See [Enable the VM extension](../log-analytics/log-analytics-quick-collect-azurevm.md) for instructions on how to install the Microsoft Monitoring Agent extension.
 
-See [Monitoring agent health issues](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) to learn more about the reasons Security Center is unable to successfully monitor VMs and computers initialized for automatic provisioning.
+See [Monitoring agent health issues](security-center-troubleshooting-guide.md#mon-agent) to learn more about the reasons Security Center is unable to successfully monitor VMs and computers initialized for automatic provisioning.
 
 ### Recommendations
 This section has a set of recommendations for each VM and computer, web and worker roles, Azure App Service Web Apps, and Azure App Service Environment that Security Center monitors. The first column lists the recommendation. The second column shows the total number of resources that are affected by that recommendation. The third column shows the severity of the issue as illustrated in the following screenshot:
