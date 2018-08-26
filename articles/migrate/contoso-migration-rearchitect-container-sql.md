@@ -394,8 +394,8 @@ Contoso admins will convert the app to a container using isual Studio and the SD
 3. In **Add Container Orchestra Support**, they select **Service Fabric**.
 
     ![Container](./media/contoso-migration-rearchitect-container-sql/container3.png)
-
-4.They repeat the process for SmartHotel.Registration.WCF app.
+    
+4. They repeat the process for SmartHotel.Registration.WCF app.
 5. Now, they check how the solution has changed.
 
     - The new app is **SmartHotel.RegistrationApplication/**
