@@ -23,7 +23,7 @@ ms.custom: mvc, devcenter
 
 Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/overview/serverless-computing/) environment without having to first create a VM or publish a web application.
 
-In this article, you learn how to use the [Azure Functions extension for Visual Studio Code] to locally create and test a "hello world" function. You then publish the function code to Azure. The extension uses the [Azure Functions Core Tools] for local debugging.
+In this article, you learn how to use the [Azure Functions extension for Visual Studio Code] to create and test a "hello world" function on your local computer. You then publish the function code to Azure.
 
 ![Azure Functions code in a Visual Studio project](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
@@ -57,7 +57,7 @@ The Azure Functions extension for VS Code is in preview. To learn more, see [Azu
 
 The Azure Functions project template in Visual Studio creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources.
 
-1. In VS Code, select the Azure logo to display the display the **Azure: Functions** area, and then select the Create New Project icon.
+1. In VS Code, select the Azure logo to display the **Azure: Functions** area, and then select the Create New Project icon.
 
     ![Create a function app project](./media/functions-create-first-function-vs-code/create-function-app-project.png)
 
@@ -69,7 +69,7 @@ The Azure Functions project template in Visual Studio creates a project that can
 1. Select the language for your function app project. In this article, JavaScript is used.
     ![Choose project language](./media/functions-create-first-function-vs-code/create-function-app-project-language.png)
 
-Visual Studio creates the function app project. This project contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files, as well as any language-specific project files. A new Git repository is also created in the project folder.
+Visual Studio creates the function app project. This project contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. You also get a new Git repository in the project folder.
 
 ## Create an HTTP triggered function
 
@@ -77,7 +77,7 @@ Visual Studio creates the function app project. This project contains the [host.
 
     ![Create a function](./media/functions-create-first-function-vs-code/create-function.png)
 
-1. Select the folder containing your function app project and select the **HTTP trigger** function template.
+1. Select the folder with your function app project and select the **HTTP trigger** function template.
 
     ![Choose the HTTP trigger template](./media/functions-create-first-function-vs-code/create-function-choose-template.png)
 
@@ -91,11 +91,11 @@ Visual Studio creates the function app project. This project contains the [host.
 
 You can add input and output bindings to your function by modifying the function.json file. For more information, see  [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-Now that you have created your function project and an HTTP-triggered function, you can test it on your local computer.
+Now that you've created your function project and an HTTP-triggered function, you can test it on your local computer.
 
 ## Test the function locally
 
-Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You are prompted to install these tools the first time you start a function from Visual Studio.  
+Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio.  
 
 1. To test your function, press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
@@ -109,7 +109,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 1. To stop debugging, press Shift + F1.
 
-After you have verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
+After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
 ## Sign in to Azure
 
@@ -121,7 +121,8 @@ Before you can publish your app, you must sign in to Azure.
 
 1. When prompted, select **Copy & Open**, or copy the displayed code and open <https://aka.ms/devicelogin> in your browser.
 
-1. Paste the copied code in the **Device Login** page, verify the sign-in for VS Code, then select **Continue**.  
+1. Paste the copied code 
+1. ]]]]]]]]]]]x         in the **Device Login** page, verify the sign-in for VS Code, then select **Continue**.  
 
 1. Complete the sign-in using your Azure account credentials. After you have successfully signed in, you can close the browser.
 
