@@ -18,18 +18,17 @@ ms.author: rkarlin
 
 ---
 # Data collection in Azure Security Center
-Security Center collects data from your Azure virtual machines (VMs) and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, logged in user, and tenant ID. The Microsoft Monitoring Agent also copies crash dump files to your workspace.
+Security Center collects data from your Azure virtual machines (VMs) and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user. The Microsoft Monitoring Agent also copies crash dump files to your workspace.
 
 Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection enablement, and health and threat detections. 
 
-This article provides instructions to make sure you have these prerequisites that enable data collection: 
-
-- A workspace for the collected data 
-
-- Microsoft Monitoring Agent installed on the machine 
+This article provides guidance on how to install a Microsoft Monitoring Agent and set a Log Analytics workspace in which to store the collected data. Both operations are required to enable data collection. 
 
 > [!NOTE]
-> Data collection is only needed for Compute resources (VMs and non-Azure computers). You can benefit from Azure Security Center even if you don’t provision agents; however, you will have limited security and the capabilities listed above are not supported.  
+> - Data collection is only needed for Compute resources (VMs and non-Azure computers). You can benefit from Azure Security Center even if you don’t provision agents; however, you will have limited security and the capabilities listed above are not supported.  
+> - For the list of supported platforms, see [Supported platforms in Azure Security Center](security-center-os-coverage.md).
+> - Data collection for Virtual machine scale set is not currently supported.
+
 
 ## Enable automatic provisioning of Microsoft Monitoring Agent     
 To collect the data from the machines you should have the Microsoft Monitoring Agent installed.  Installation of the agent can be automatically (recommended) or you may choose to install the agent manually.  
@@ -56,13 +55,15 @@ To enable automatic provisioning of the Microsoft Monitoring Agent:
 
 >[!NOTE]
 > - For instructions on how to provision a pre-existing installation, see [Automatic provisioning in cases of a preexisting agent installation](#preexisting).
-> - For instructions on manuall provisioning, see [Install the Microsoft Monitoring Agent extension manually](#manualagent).
+> - For instructions on manual provisioning, see [Install the Microsoft Monitoring Agent extension manually](#manualagent).
 > - For instructions on turning off automatic provisioning, see [Turn off automatic provisioning](#offprovisioning)
 >
 
 
 ## Workspace configuration
 Data collected by Security Center is stored in Log Analytics workspace(s).  You can select to have data collected from Azure VMs stored in workspaces created by Security Center or in an existing workspace you created. 
+
+Workspace configuration is set per subscription, and many subscriptions may use the same workspace.
 
 ### Using a workspace created by Security Center
 
@@ -142,11 +143,6 @@ To select an existing Log Analytics workspace:
 When you select a workspace in which to store your data, all the workspaces across all your subscriptions are available. Cross-subscription workspace selection allows you to collect data from virtual machines running in different subscriptions and store it in the workspace of your choice. This selection is useful if you are using a centralized workspace in your organization and want to use it for security data collection. For more information on how to manage workspaces, see [Manage workspace access](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) .
 
 
-> [!NOTE]
-> Cross subscription workspace selection is part of Azure Security Center’s Free Tier.
->
->
-
 ## Data collection tier
 Security Center can reduce the volume of events while maintaining enough events for investigation, auditing, and threat detection. You can choose the right filtering policy for your subscriptions and workspaces from four sets of events to be collected by the agent.
 
@@ -198,14 +194,16 @@ To choose your filtering policy:
 The following use cases specify how automatic provision works in cases when there is already an agent or extension installed. 
 
 - Microsoft Monitoring Agent is installed on the machine, but not as an extension<br>
-If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center does not install the Microsoft Monitoring Agent. You can turn on auto provisioning and select the relevant user workspace in Security Center's auto provisioning configuration. If you choose the same workspace the VM is already connected to the existing agent will be wrapped with an OMS extension. 
+If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center does not install the Microsoft Monitoring Agent. You can turn on auto provisioning and select the relevant user workspace in Security Center's auto provisioning configuration. If you choose the same workspace the VM is already connected to the existing agent will be wrapped with a Microsoft Monitoring Agent extension. 
 
 > [!NOTE]
 > If SCOM agent version 2012 is installed, DO NOT turn automatic provisioning ON. 
 
+For more information, see [What happens if a SCOM or OMS direct agent is already installed on my VM?](security-center-faq.md#scomomsinstalled)
+
 -	A pre-existing VM extension is present<br>
     - Security center supports existing extension installations, and does not override existing connections. Security Center stores security data from the VM in the workspace already connected and provides protection based on the solutions enabled on the workspace.   
-    - To see to which workspace the existing extension is sending data to, run the test to [Validate connectivity with Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Alternatively, you can open Log analytics, select a workspace, select the VM, and look at the OMS connection. 
+    - To see to which workspace the existing extension is sending data to, run the test to [Validate connectivity with Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Alternatively, you can open Log analytics, select a workspace, select the VM, and look at the Microsoft Monitoring Agent connection. 
     - If you have an environment where the Microsoft Monitoring Agent is installed on client workstations and reporting to an existing Log Analytics workspace, review the list of [operating systems supported by Azure Security Center](security-center-os-coverage.md) to make sure your operating system is supported, and see [Existing Log Analytics customers](security-center-faq.md#existingloganalyticscust) for more information.
  
 ### Turn off automatic provisioning <a name="offprovisioning"></a>
@@ -231,17 +229,17 @@ If you switch off auto provision after it was previously on:
 	
 ## Manual agent provisioning <a name="manualagent"></a>
  
-It is not recommended to install agents manually, however there are several ways to install the Microsoft Monitoring Agent manually. When installing manually, make sure you disable auto provisioning.
+There are several ways to install the Microsoft Monitoring Agent manually. When installing manually, make sure you disable auto provisioning.
 
 ### Operations Management Suite VM extension deployment 
 
 You can manually install the Microsoft Monitoring Agent, so Security Center can collect security data from your VMs and provide recommendations and alerts.
 1.	Select Auto provision – OFF.
-2.	Create a workspace and set the pricing tier for the desired workspace you intend to set the Microsoft Monitoring agent:
+2.	Create a workspace and set the pricing tier for the workspace you intend to set the Microsoft Monitoring agent:
 
     a.  In the Security Center main menu, select **Security policy**.
      
-    b.	Select the desired Workspace in which you intend to connect the agent.
+    b.	Select the Workspace in which you intend to connect the agent. Make sure the workspace is in the same subscription you use in Security Center and that you have read/write permissions on the workspace.
         ![Select workspace][8]
 3. Set the pricing tier.
    ![Select pricing tier][9] 
@@ -295,8 +293,10 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
 
 -	To identify automatic provision installation issues, see [Monitoring agent health issues](security-center-troubleshooting-guide.md#monitoring-agent-health-issues).
 
+-  To identify monitoring agent network requirements, see [Troubleshooting monitoring agent network requirements](security-center-troubleshooting-guide.md#mon-network-req).
 -	To identify manual onboarding issues, see [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)
 
+- To identify Unmonitored VMs and computers issues, see [Unmonitored VMs and computers](security-center-virtual-machine-protection#unmonitored-vms-and-computers)
 
 ## Next steps
 This article showed you how data collection and automatic provisioning in Security Center works. To learn more about Security Center, see the following:

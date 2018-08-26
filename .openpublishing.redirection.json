@@ -21102,8 +21102,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/security-center/security-center-platform-migration.md",
+            "redirect_url": "/azure/security-center-enable-data-collection.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-platform-migration-faq.md",
+            "redirect_url": "/azure/security-center-enable-data-collection.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
-            "redirect_url": "/azure/security-center",
+            "redirect_url": "/azure/security-center-faq.md",
             "redirect_document_id": false
         },
         {
