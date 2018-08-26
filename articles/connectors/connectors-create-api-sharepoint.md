@@ -13,7 +13,7 @@ tags: connectors
 ms.date: 08/25/2018
 ---
 
-# Monitor and manage SharePoint with Azure Logic Apps
+# Monitor and manage SharePoint resources with Azure Logic Apps
 
 With Azure Logic Apps and the SharePoint connector, 
 you can create automated tasks and workflows that 
