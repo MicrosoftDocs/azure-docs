@@ -297,7 +297,7 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
 -  To identify monitoring agent network requirements, see [Troubleshooting monitoring agent network requirements](security-center-troubleshooting-guide.md#mon-network-req).
 -	To identify manual onboarding issues, see [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)
 
-- To identify Unmonitored VMs and computers issues, see [Unmonitored VMs and computers](security-center-virtual-machine-protection#unmonitored-vms-and-computers)
+- To identify Unmonitored VMs and computers issues, see [Unmonitored VMs and computers](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers)
 
 ## Next steps
 This article showed you how data collection and automatic provisioning in Security Center works. To learn more about Security Center, see the following:

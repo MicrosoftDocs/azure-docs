@@ -47,7 +47,7 @@ Use Security Center’s confidence score to prioritize alert triage in your envi
 
 
 ## Next steps
-This article showed you how data collection and automatic provisioning in Security Center works. To learn more about Security Center, see the following:
+This article explained how to use the confidence score to prioritize alert investigation. To learn more about Security Center, see the following:
 
 * [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
