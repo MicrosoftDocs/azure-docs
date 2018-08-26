@@ -94,7 +94,7 @@ In this section, you create a .NET console app that creates a device identity an
 
     The AddModuleAsync() method creates a module identity with ID **myFirstModule** under device **myFirstDevice**. (If that module ID already exists in the identity registry, the code simply retrieves the existing module information.) The app then displays the primary key for that identity. You use this key in the simulated module app to connect to your IoT hub.
 
-[!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
+   [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 7. Run this application, and make a note of the device key and module key.
 
