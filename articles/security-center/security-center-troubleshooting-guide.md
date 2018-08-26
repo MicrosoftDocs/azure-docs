@@ -60,7 +60,7 @@ There are two installation scenarios that can produce different results when ins
 > To avoid the behavior explained in the second scenario, make sure you download the latest version of the agent.
 >
 
-## Monitoring agent health issues
+## Monitoring agent health issues <a name="mon-agent"></a>
 **Monitoring state** defines the reason Security Center is unable to successfully monitor VMs and computers initialized for automatic provisioning. The following table shows the **Monitoring state** values, descriptions, and resolution steps.
 
 | Monitoring state | Description | Resolution steps |

@@ -56,7 +56,7 @@ To enable automatic provisioning of the Microsoft Monitoring Agent:
 >[!NOTE]
 > - For instructions on how to provision a pre-existing installation, see [Automatic provisioning in cases of a preexisting agent installation](#preexisting).
 > - For instructions on manual provisioning, see [Install the Microsoft Monitoring Agent extension manually](#manualagent).
-> - For instructions on turning off automatic provisioning, see [Turn off automatic provisioning](#offprovisioning)
+> - For instructions on turning off automatic provisioning, see [Turn off automatic provisioning](#offprovisioning).
 >
 
 
@@ -71,7 +71,7 @@ Security center can automatically create a default workspace in which to store t
 
 To select a workspace created by Security Center:
 
-1.	Under **Default workspace configuration**, select Use workspace(s) created by Security center .
+1.	Under **Default workspace configuration**, select Use workspace(s) created by Security center.
    ![Select pricing tier][10] 
 
 2. Click **Save**.<br>
@@ -140,7 +140,7 @@ To select an existing Log Analytics workspace:
    >If the workspace already has a **Security** or **SecurityCenterFree** solution enabled, the pricing will be set automatically. 
 
 ## Cross-subscription workspace selection
-When you select a workspace in which to store your data, all the workspaces across all your subscriptions are available. Cross-subscription workspace selection allows you to collect data from virtual machines running in different subscriptions and store it in the workspace of your choice. This selection is useful if you are using a centralized workspace in your organization and want to use it for security data collection. For more information on how to manage workspaces, see [Manage workspace access](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) .
+When you select a workspace in which to store your data, all the workspaces across all your subscriptions are available. Cross-subscription workspace selection allows you to collect data from virtual machines running in different subscriptions and store it in the workspace of your choice. This selection is useful if you are using a centralized workspace in your organization and want to use it for security data collection. For more information on how to manage workspaces, see [Manage workspace access](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access).
 
 
 ## Data collection tier
@@ -253,7 +253,7 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
     a.	[Install the OMS virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md)
     
     b.	[Install the OMS virtual machine extension for Linux](../virtual-machines/extensions/oms-linux.md)
-5.	To deploy the extensions on existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../log-analytics/log-analytics-quick-collect-azurevm.md)
+5.	To deploy the extensions on existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../log-analytics/log-analytics-quick-collect-azurevm.md).
 
   > [!NOTE]
   > The section **Collect event and performance data** is optional.
@@ -292,7 +292,7 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
 
 ## Troubleshooting
 
--	To identify automatic provision installation issues, see [Monitoring agent health issues](security-center-troubleshooting-guide.md#monitoring-agent-health-issues).
+-	To identify automatic provision installation issues, see [Monitoring agent health issues](security-center-troubleshooting-guide.md#mon-agent).
 
 -  To identify monitoring agent network requirements, see [Troubleshooting monitoring agent network requirements](security-center-troubleshooting-guide.md#mon-network-req).
 -	To identify manual onboarding issues, see [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)
