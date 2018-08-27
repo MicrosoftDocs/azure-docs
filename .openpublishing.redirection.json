@@ -27382,8 +27382,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/luis/luis-reference-gdpr.md",
-            "redirect_url": "/azure/cognitive-services/luis/luis-user-privacy",
+            "source_path": "articles/cognitive-services/LUIS/luis-reference-gdpr.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-user-privacy",
             "redirect_document_id": true
         }
     ]
