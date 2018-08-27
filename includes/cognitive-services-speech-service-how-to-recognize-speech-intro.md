@@ -20,4 +20,4 @@ The [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) pro
 
 See the code snippets below for speech recognition scenarios using the Speech SDK.
 
-[!include[Get a Subscription Key](cognitive-services-speech-service-get-subscription-key.md)]
+[!INCLUDE [Get a Subscription Key](cognitive-services-speech-service-get-subscription-key.md)]
