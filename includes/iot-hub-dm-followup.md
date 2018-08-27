@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: iot-hub
+ ms.service: iot-hub
+ author: dominicbetts
+ ms.service: iot-hub
+ ms.topic: include
+ ms.date: 05/17/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 ## Customize and extend the device management actions
 
 Your IoT solutions can expand the defined set of device management patterns or enable custom patterns by using the device twin and cloud-to-device method primitives. Other examples of device management actions include factory reset, firmware update, software update, power management, network and connectivity management, and data encryption.
