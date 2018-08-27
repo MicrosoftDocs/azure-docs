@@ -410,7 +410,10 @@ cd.save_to_file(project_dir = project_folder, conda_file_path = run_config.envir
 
 
 ## Attach an HDInsight cluster 
-HDInsight is a popular platform for big-data analytics supporting Apache Spark. To use an HDInsight compute target Create a Spark for HDInsight cluster in Azure following [this](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) guide.  [!Important] Make sure you use the Ubuntu version, __not__ CentOS.
+HDInsight is a popular platform for big-data analytics supporting Apache Spark. To use an HDInsight compute target Create a Spark for HDInsight cluster in Azure following [this](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) guide.
+
+> [!Important]
+> Make sure you use the Ubuntu version, __not__ CentOS.
 
 ### Using the SDK
 - Enter the IP address, username and password in the example below
