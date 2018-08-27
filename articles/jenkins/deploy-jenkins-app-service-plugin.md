@@ -6,7 +6,7 @@ keywords: jenkins, azure, devops, app service
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/31/2018
 ---
 
