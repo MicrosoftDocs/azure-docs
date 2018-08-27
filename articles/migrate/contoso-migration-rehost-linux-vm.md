@@ -466,7 +466,7 @@ The Contoso security team review the OSTICKETWEB and OSTICKETMYSQLVMs to determi
 For business continuity and disaster recovery, Contoso takes the following actions:
 
 - **Keep data safe**: Contoso backs up the data on the VMs using the Azure Backup service. [Learn more](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-- **Keep apps up and running**: Contoso replicates the app VMs in Azure to a secondary region using Site Recovery. [Learn more](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-quickstart).
+- **Keep apps up and running**: Contoso replicates the app VMs in Azure to a secondary region using Site Recovery. [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
 
 ### Licensing and cost optimization
 
