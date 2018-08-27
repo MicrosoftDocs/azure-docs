@@ -29,6 +29,8 @@
     href: tutorial-kubernetes-upgrade-cluster.md
 - name: Concepts
   items:
+  - name: Networking
+    href: concepts-network.md
   - name: Quotas and regional limits
     href: container-service-quotas.md
   - name: Migrate from ACS to AKS
