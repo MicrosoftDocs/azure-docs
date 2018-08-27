@@ -31,7 +31,7 @@ The key advantages to building pipelines for your machine learning workflows is:
 
 |Advantage|Description|
 |:-------:|-----------|
-|**Unattended execution**|Schedule a few scripts to run in parallel or in sequence in a reliable and unattended manner. Since the tasks for preparing data and modeling can last days or even weeks, you can focus on other tasks while you run your pipeline. |
+|**Unattended&nbsp;execution**|Schedule a few scripts to run in parallel or in sequence in a reliable and unattended manner. Since the tasks for preparing data and modeling can last days or even weeks, you can focus on other tasks while you run your pipeline. |
 |**Agility**|Use Python methods to build and run your pipelines, even automatically retrying after errors.|
 |**Mixed and diverse compute**|You can have multiple pipelines that can be reliably orchestrated across heterogeneous and scalable computes and storages. Individual pipeline steps can be run on different compute targets (for example, HDInsights, GPU Data Science VMs, Databricks, and so on) to efficiently use of available compute options.|
 |**Reusability**|Pipelines can be templatized for scenarios such as retraining and batch scoring so they can be triggered from external systems via a simple REST call.|
