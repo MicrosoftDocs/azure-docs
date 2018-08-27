@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/21/2018
 ms.author: carlrab
 
 ---
@@ -41,7 +41,6 @@ The [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid
 
 ## Are there dual-use rights with Azure Hybrid Benefit for SQL Server?
 You have 180 days of dual use rights of the license to ensure migrations are running seamlessly. After that 180-day period, the SQL Server license can only be used in the cloud in SQL Database, and does not have dual use rights on-premises and in the cloud.
-
 
 ## How does Azure Hybrid Benefit for SQL Server differ from license mobility?
 Today, we offer license mobility benefits to SQL Server customers with Software Assurance that allows re-assignment of their licenses to third-party shared servers. This benefit can be used on Azure IaaS and AWS EC2.
@@ -163,7 +162,10 @@ Auditing is built into the SQL Database service at no extra cost and is availabl
 In the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**.
 
 ## How do I manage databases and logins?
-See [Managing databases and logins](sql-database-manage-logins.md).
+See [Managing databases and logins](sql-database-manage-logins.md). 
+
+> [!NOTE]
+> You cannot change the name of the server admin account after it is created.
 
 ## How do I make sure only authorized IP addresses are allowed to access a server?
 See [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md).

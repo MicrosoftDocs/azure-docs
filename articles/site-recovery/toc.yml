@@ -93,6 +93,8 @@
     items:
     - name: Replication to Azure
       items:
+      - name: Common questions for Hyper-V to Azure replication
+        href: hyper-v-azure-common-questions.md
       - name: Hyper-V to Azure support matrix
         href: hyper-v-azure-support-matrix.md
       - name: Hyper-V to Azure architecture
@@ -133,6 +135,8 @@
         href: azure-to-azure-network-mapping.md
       - name: Set up IP addressing for failover
         href: site-recovery-retain-ip-azure-vm-failover.md
+      - name: Accelerated Networking with Azure VM disaster recovery
+        href: azure-vm-disaster-recovery-with-accelerated-networking.md
       - name: ExpressRoute with Azure VM disaster recovery
         href: azure-vm-disaster-recovery-with-expressroute.md
     - name: Disaster recovery

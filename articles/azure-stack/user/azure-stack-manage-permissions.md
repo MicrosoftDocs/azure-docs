@@ -3,7 +3,7 @@ title: Manage permissions to resources per user in Azure Stack | Microsoft Docs
 description: As a service administrator or tenant, learn how to manage RBAC permissions.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: PatAltimore
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: patricka
 ms.reviewer: 
 
 ---

@@ -129,5 +129,5 @@ Capture a simultaneous network trace on the source VM, the NVA, and the destinat
 
 If you do not see the packets incoming to the backend VM trace, there is likely an NSG or UDR interfering or the NVA routing tables are incorrect.
 
-If you do see the packets coming in but no response, then you may need to address a VM application or a firewall issue. For either of these issues, [contact the NVA vendor for assistance as needed](Let's link customer to 3rd party vendor again here: https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+If you do see the packets coming in but no response, then you may need to address a VM application or a firewall issue. For either of these issues, [contact the NVA vendor for assistance as needed](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 

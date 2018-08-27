@@ -96,6 +96,8 @@ items:
           href: database-encryption-at-rest.md
         - name: Securing access to data
           href: secure-access-to-data.md
+        - name: Key Vault to store secrets
+          href: access-secrets-from-keyvault.md
     - name: Use cases
       href: use-cases.md
       items:
@@ -356,6 +358,8 @@ items:
         items:
         - name: Graph partitioning
           href: graph-partitioning.md
+        - name: Import graph data with BulkExecutor
+          href: bulk-executor-graph-dotnet.md
       - name: Resources
         items:
         - name: Visual Studio Code extension
