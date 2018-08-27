@@ -144,7 +144,7 @@
     - name: Scale, pause, resume
       href: sql-data-warehouse-manage-compute-overview.md
     - name: Resource utilization & query activity 
-      href: sql-data-warehouse-concept-resource-utilization-query-activity.md
+      href: sql-data-warehouse-concept-resource-utilization-query-activity.md 
     - name: Data protection
       href: backup-and-restore.md
     - name: Recommendations 
