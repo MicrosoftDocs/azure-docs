@@ -3,7 +3,7 @@ title: Enable heap dumps for Hadoop services on HDInsight - Azure
 description: Enable heap dumps for Hadoop services from Linux-based HDInsight clusters for debugging and analysis.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
