@@ -211,7 +211,7 @@ deploy a replica of your production environment, run your tests, and then shut d
 
 For more information, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
-### Deployment
+## Deployment
 
 * To deploy API Management, Logic Apps, Event Grid, and Service Bus, 
 use the [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). 
@@ -223,7 +223,7 @@ By using separate templates, you can store the resources in source control syste
 You can then deploy these templates together or individually as part of a 
 continuous integration/continuous deployment (CI/CD) process.
 
-### Diagnostics and monitoring
+## Diagnostics and monitoring
 
 Like API Management and Logic Apps, you can monitor Service Bus by using Azure Monitor, 
 which is enabled by default. Azure Monitor provides information based on the metrics 
