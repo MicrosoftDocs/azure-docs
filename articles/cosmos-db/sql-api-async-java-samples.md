@@ -26,7 +26,7 @@ ms.author: sngun
 > 
 > 
 
-The latest sample applications that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-comsosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub repository. This article provides:
+The latest sample applications that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub repository. This article provides:
 
 * Links to the tasks in each of the example Async Java project files. 
 * Links to the related API reference content.
