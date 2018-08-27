@@ -34,7 +34,7 @@ The detailed certificate requirements can be found in the [Azure Stack public ke
 The Azure Stack Readiness Checker Tool provides the ability to create a certificate signing request for the two new, required SSL certificates. Follow the steps in the article [Azure Stack certificates signing request generation](azure-stack-get-pki-certs.md).
 
 > [!Note]  
-> You may skip this step depending on how your request your SSL certificates.
+> You may skip this step depending on how you requested your SSL certificates.
 
 ## Validate new certificates
 
