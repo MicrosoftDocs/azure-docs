@@ -111,7 +111,7 @@ In this section, you write a .NET console app that receives file upload notifica
     using Microsoft.Azure.Devices;
     ```
 
-5. Add the following fields to the **Program** class. Substitute the placeholder value with the IoT hub connection string from [Get started with IoT Hub]:
+5. Add the following fields to the **Program** class. Substitute the placeholder value with the IoT hub connection string from [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md):
 
     ```csharp
     static ServiceClient serviceClient;
