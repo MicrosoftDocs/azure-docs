@@ -23,7 +23,7 @@ Code scenarios are documented under the following headings:
 
 ## Prerequisites
 
-* A Cognitive Services API key is required to authenticate SDK calls. Sign up for a [free trial key]((https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7)). The trial key is good for seven days with one call per second. For production scenarios, [buy an access key](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). See also [pricing information](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* A Cognitive Services API key is required to authenticate SDK calls. Sign up for a [free trial key](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). The trial key is good for seven days with one call per second. For production scenarios, [buy an access key](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). See also [pricing information](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
 
 ## Application dependencies
 
