@@ -46,7 +46,6 @@ In this quickstart, you'll learn how a ASP.NET Web App can sign in personal acco
 > 1. To register an application for this code sample, go to the [Azure portal - Application Registration](https://aka.ms/registeredappsprod) and select **New registration**.
 > 1. Enter a name for your application, add `https://localhost:44368/` in **Reply URL**, and click **Register**.
 
-
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
 > For the code sample for this quickstart to work, you need to add a reply URL as `http://localhost:44368/`.
