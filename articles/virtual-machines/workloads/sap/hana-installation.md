@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 08/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -37,6 +37,9 @@ The installation of SAP HANA is your responsibility and you can start the activi
 > Per SAP policy, the installation of SAP HANA must be performed by a person certified to perform SAP HANA installations. A person, who has passed the Certified SAP Technology Associate exam, SAP HANA Installation certification exam, or by an SAP-certified system integrator (SI).
 
 Check again, especially when planning to install HANA 2.0, [SAP Support Note #2235581 - SAP HANA: Supported Operating Systems](https://launchpad.support.sap.com/#/notes/2235581/E) in order to make sure that the OS is supported with the SAP HANA release you decided to install. You realize that the supported OS for HANA 2.0 is more restricted than the OS supported for HANA 1.0. 
+
+> [!IMPORTANT] 
+> For Type II units only the SLES 12 SP2 OS version is supported at this point. 
 
 ## First steps after receiving the HANA Large Instance Unit(s)
 
@@ -140,6 +143,9 @@ With SAP HANA 2.0, the hdbparam framework has been deprecated. As a result the p
 Refer [HLI supported scenarios](hana-supported-scenario.md) to learn storage layout for your architecture.
 
 ## Operating system
+
+> [!IMPORTANT] 
+> For Type II units only the SLES 12 SP2 OS version is supported at this point. 
 
 Swap space of the delivered OS image is set to 2 GB according to the [SAP Support Note #1999997 - FAQ: SAP HANA Memory](https://launchpad.support.sap.com/#/notes/1999997/E). Any different setting desired needs to be set by you as a customer.
 

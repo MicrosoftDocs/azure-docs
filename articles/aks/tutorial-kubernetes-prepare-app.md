@@ -94,7 +94,7 @@ To see the running application, enter http://localhost:8080 in a local web brows
 
 ## Clean up resources
 
-Now that application functionality has been validated, the running containers can be stopped and removed. Do not delete the container images - in the next tutorial, the *azure-vote-front* image is uploaded to an Azure Container Registry instance
+Now that the application's functionality has been validated, the running containers can be stopped and removed. Do not delete the container images - in the next tutorial, the *azure-vote-front* image is uploaded to an Azure Container Registry instance.
 
 Stop and remove the container instances and resources with the [docker-compose down][docker-compose-down] command:
 

@@ -134,7 +134,7 @@ Learn more on [Azure RBAC built-in roles](../role-based-access-control/built-in-
 3. In **Source location**, select the source Azure region where your VMs are currently running.
 4. Select the **Azure virtual machine deployment model** for VMs: **Resource Manager** or
    **Classic**.
-5. Select the **Source subscription** where the virtual machines are running.
+5. Select the **Source subscription** where the virtual machines are running. This can be any subscription within the same Azure Active Directory tenant where your recovery services vault exists.
 6. Select the **Source resource group** for Resource Manager VMs, or **cloud service** for classic
       VMs.
 7. Click **OK** to save the settings.
@@ -157,7 +157,7 @@ your requirements.
   ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
-- **Target subscription**: The target subscription used for disaster recovery. By default, the target subscription will be same as the source subscription. Click 'Customize' to select a different target subscription.
+- **Target subscription**: The target subscription used for disaster recovery. By default, the target subscription will be same as the source subscription. Click 'Customize' to select a different target subscription within the same Azure Active Directory tenant.
 
 - **Target location**: The target region used for disaster recovery. We recommend that the target
   location matches the location of the Site Recovery vault.
