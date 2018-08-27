@@ -87,7 +87,7 @@ Visual Studio creates the function app project. This project contains the [host.
 
     A function is created in your chosen language using the template for an HTTP triggered function. 
 
-    ![HTTP triggered function template in VS Code](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
+    ![HTTP triggered function template in VS Code](./media/functions-create-first-function-vs-code/new-function-full.png)
 
 You can add input and output bindings to your function by modifying the function.json file. For more information, see  [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
