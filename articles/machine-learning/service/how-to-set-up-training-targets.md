@@ -129,10 +129,11 @@ In some cases, resources available on your local machine may not be enough to tr
 1. Create or attach a Virtual Machine
     1. Create a Virtual Machine
     ```python
-      from azureml.core.compute import DsvmCompute
-      dsvm_config = DsvmCompute.provisioning_configuration(vm_size="Standard_D2_v2")
-      dsvm_compute = DsvmCompute.create(ws, name="mydsvm", provisioning_configuration=dsvm_config)
-      dsvm_compute.wait_for_provisioning(show_output=True)
+    
+        from azureml.core.compute import DsvmCompute
+        dsvm_config = DsvmCompute.provisioning_configuration(vm_size="Standard_D2_v2")
+        dsvm_compute = DsvmCompute.create(ws, name="mydsvm", provisioning_configuration=dsvm_config)
+        dsvm_compute.wait_for_provisioning(show_output=True)
     ```
     2. Attach a Virtual Machine
 
@@ -186,8 +187,7 @@ In some cases, resources available on your local machine may not be enough to tr
   
 ### Using the CLI
 
-1. Provision DSVM compute target
-  ```az ml computetarget setup dsvm -n mydsvm -w <workspacename> -g <resource-group>```
+1. Provision DSVM compute target ```az ml computetarget setup dsvm -n mydsvm -w <workspacename> -g <resource-group>```
 2. Prepare compute by creating a run config (This step can take a few minutes)
   ```
   # create runconfiguration
@@ -248,7 +248,8 @@ For more information on using the BatchAiCompute object, see [tbd].
     ```az ml computetarget show -n mybaicluster -w <workspace-name> -g <resource-group>```
 3. Create a runconfig file based on this example. Be sure to change the target name and framework:
 
-        ```python
+     ```python
+     
         # The script to run.
         script: <train.py>
         # The arguments to the script file.
@@ -350,7 +351,8 @@ For more information on using the BatchAiCompute object, see [tbd].
           region:
         # data reference configuration details
         dataReferences: {}
-        ```
+      ```
+      
 4. Prepare Compute
   ```az ml run prepare -c mybaicluster```
 5. Run experiment against the DSVM
