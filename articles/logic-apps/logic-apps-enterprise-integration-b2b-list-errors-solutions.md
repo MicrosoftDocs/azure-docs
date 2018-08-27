@@ -1,26 +1,19 @@
 ---
-title: 'Logic Apps B2B list of errors and solutions: Azure App Service | Microsoft Docs'
-description: Logic Apps B2B list of errors and solutions
+title: Errors and solutions for B2B scenarios - Azure Logic Apps | Microsoft Docs
+description: Find errors and solutions for B2B scenarios in Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: LADocs; padmavc
-
 ---
 
-# Logic Apps B2B list of errors and solutions  
-This article helps you troubleshoot errors that might happen in Logic Apps B2B scenarios and suggests appropriate actions for correcting those errors.
+# B2B errors and solutions for Azure Logic Apps
 
+This article helps you troubleshoot errors that might happen in Logic Apps B2B scenarios and suggests appropriate actions for correcting those errors.
 
 ## Agreement Resolution
 
