@@ -18,12 +18,11 @@ In this quickstart, you'll use the Azure portal to get started with [Azure Machi
 You'll learn how to:
 
 1. Create a workspace in your Azure subscription. The workspace is used by one or more users to store their compute resources, models, deployments, and run histories in the cloud.
-1. Attach a project to your workspace.   A project is a local folder that contains the scripts and configuration files needed to solve your machine learning problem.  
-1. Run a Python script in your project that logs some values across multiple iterations.
-1. View the logged values in the run history of your workspace.
+1. Create a configuration file with the details needed to communicate with your workspace.  
+1. Try it out with a Python script that logs some values across multiple iterations, then view the logged values in your workspace.
 
-> [!NOTE]
-> For your convenience, the following Azure resources are added automatically to your workspace when regionally available:  [container registry](https://azure.microsoft.com/services/container-registry/), [storage](https://azure.microsoft.com/services/storage/), [application insights](https://azure.microsoft.com/services/application-insights/), and [key vault](https://azure.microsoft.com/services/key-vault/).
+
+For your convenience, the following Azure resources are added automatically to your workspace when regionally available:  [container registry](https://azure.microsoft.com/services/container-registry/), [storage](https://azure.microsoft.com/services/storage/), [application insights](https://azure.microsoft.com/services/application-insights/), and [key vault](https://azure.microsoft.com/services/key-vault/).
 
 The resources you create can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles.
 
@@ -32,12 +31,8 @@ The resources you create can be used as prerequisites to other Azure Machine Lea
 Make sure you have the following prerequisites before starting the quickstart steps:
 
 + An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-+ [Python 3.5 or higher](https://www.python.org/) installed.
 + A package manager installed, such as [Continuum Anaconda](https://anaconda.org/anaconda/continuum-docs) or [Miniconda](https://conda.io/miniconda.html).
 
-## Install the SDK
-
-[!INCLUDE [aml-install-sdk](../../../includes/aml-install-sdk.md)]
 
 ## Create a workspace 
 
@@ -49,19 +44,16 @@ On the workspace page, click on `Explore your Azure Machine Learning Workspace`
 
 In a moment, you will use this page.  For now, leave the browser open and move on to configure a project.
 
-## Configure a project
 
-In a command-line window, create a folder and subfolder on your local machine for your Azure Machine Learning project.
+## Create a configuration file
 
-   ```sh
-   mkdir docs-prj
-   cd docs-prj
-   mkdir aml_config
-   ```
+Create a configuration file with the connection details needed to communicate with your workspace.  
 
-Create a configuration file for the project. Create a file called **config.json** in the **aml_config** folder.  
+On the workspace page, click on `Explore your Azure Machine Learning Workspace`
 
-Go back to the portal page on your browser to find the configuration code for your workspace and copy it into the file.  It will look something like:
+ ![explore workspace](./media/quickstart-get-started/explore_aml.png)
+
+In the middle of the page is the configuration code for your workspace. It will look something like:
 
 ```json
 {
@@ -71,13 +63,28 @@ Go back to the portal page on your browser to find the configuration code for yo
 }
 ```
 
-## Create a Python script
+Copy this code into a file named **config.json**.  Put this file into a directory named **aml_config**.
+
+## Try it out
+
+Now see how the workspace displays results from your Python code.  In this section you:
+
+* Install the Azure Machine Learning SDK
+* Create a Python script that includes `log_row` to log values you want to track
+* Run the script
+* View the logged values in your workspace
+
+### Install the Azure Machine Learning SDK
+
+[!INCLUDE [aml-install-sdk](../../../includes/aml-install-sdk.md)]
+
+### Create a Python script
 
 [!INCLUDE [aml-create-script-pi](../../../includes/aml-create-script-pi.md)]
 
-## Run the script
+### Run the script
 
-Attach the project to your workspace and run the script with this Python code:
+Run the script with this Python code, also placed in the same directory as the **aml_config/config.json** configuration file.  In this code, `Workspace.from_config()` reads the configuration file to find your workspace.
 
 ```python
 from azureml.core import Workspace, Project, Run
@@ -91,11 +98,9 @@ proj = Project.attach(workspace_object = ws,
 run = Run.submit(project_object = proj,
                     run_config = "local",
                     script_to_run = "pi.py")
-
-
 ```
 
-## View history
+### View logged values in workspace
 
 Go back to the portal page in your browser and refresh the page.
 
@@ -103,7 +108,7 @@ Click again on  `Explore your Azure Machine Learning Workspace`
 
  ![explore workspace](./media/quickstart-get-started/explore_aml.png)
 
-This time you will see a list of history items for the workspace.
+This time you will see a list of experiments for the workspace.
 
 Click on the `myhistory` link, then on the `pi.py` entry on the left. Finally, scroll down the page to find the table of runs and click on the run number link.
 

@@ -11,7 +11,7 @@ ms.topic: "include"
 ms.date: 07/27/2018
 ---
 
-In your local project directory, create a script and name it `pi.py`.
+In the same directory as **aml_config/config.json**, create a script and name it **pi.py**.
 
 Copy the following code into that script:
     
@@ -37,3 +37,5 @@ Copy the following code into that script:
            run.log_row("Pi estimate",iteration=i,pi_value=pi_value)
            run.log_row("Error",iteration=i,error=error)
    ```
+
+Notice the `log_row` calls at the end.  After running this script, you will see these values in your workspace.
