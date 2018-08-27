@@ -36,15 +36,16 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-1. An Azure Machine Learning Workspace and its accompanying  **aml_config\config.json** file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart (Estimated time to complete: 5 minutes).
-1. A development environment [configured to run Azure Machine Learning service in Jupyter notebooks](how-to-configure-environment.md) (Estimated time to complete: 2 minutes).  In step 4 the new packages you need are matplotlib and scikit-learn:
 
+## Prerequisites
+
+* A development environment [configured to run Azure Machine Learning service in Jupyter notebooks](how-to-configure-environment.md) (approximately 2 minutes).  In step 4 the new packages you need are matplotlib and scikit-learn:
    ```
    conda install -y matplotlib scikit-learn
    ``` 
+* An Azure Machine Learning Workspace and its accompanying  **aml_config** directory created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart (approximately 3 minutes).
 
-
-1. The file [utils.py](https://aka.ms/aml-file-utils-py) downloaded into the same directory as **aml_config**.
+* The file [utils.py](https://aka.ms/aml-file-utils-py) downloaded into the same directory as **aml_config**.
 
 ### Start the notebook
 
@@ -80,7 +81,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### Load workspace
 
-Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **aml_config\config.json** and load the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
 
 ```python
 ws = Workspace.from_config()

@@ -31,18 +31,17 @@ You'll learn how to:
 > * Review training results
 > * Register the best model
 
-
-
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
 ## Prerequisites
 
-1. A development environment [configured to run Azure Machine Learning service in Jupyter notebooks](how-to-configure-environment.md) (approximately 2 minutes).  In step 4 the new packages you need are matplotlib, scikit-learn, and pandas:
+* A development environment [configured to run Azure Machine Learning service in Jupyter notebooks](how-to-configure-environment.md) (approximately 2 minutes).  In step 4 the new packages you need are matplotlib, scikit-learn, and pandas:
    ```
    conda install -y matplotlib scikit-learn pandas
    ``` 
-1. An Azure Machine Learning Workspace and its accompanying  **aml_config\config.json** file created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart (approximately 3 minutes).
+* An Azure Machine Learning Workspace and its accompanying  **aml_config** directory created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart (approximately 3 minutes).
 
 
 ### Start the notebook
@@ -82,7 +81,7 @@ import numpy as np
 
 ### Configure workspace
 
-Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **aml_config\config.json** and load the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
 
 Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace. The history of all runs is recorded under the specified run history.
 
