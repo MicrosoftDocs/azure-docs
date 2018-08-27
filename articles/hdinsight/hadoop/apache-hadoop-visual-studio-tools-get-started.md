@@ -8,7 +8,7 @@ ms.author: jasonh
 editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive, hdiseo17may2017
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/16/2018
 ---
 # Use Data Lake Tools for Visual Studio to connect to Azure HDInsight and run Hive queries
