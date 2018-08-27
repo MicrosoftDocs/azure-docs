@@ -5,8 +5,8 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
 ms.author: yanacai
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ---
