@@ -94,7 +94,7 @@ Use the following steps to configure files tracking on Windows computers:
 
 ## Wildcard, recursion, and environment settings
 
-Recursion allows you to specify wildcards or environment variables to simplify tracking of files. If you want to use recursion path must use a wild card
+Recursion allows you to specify wildcards or environment variables to simplify tracking of files. The following is a list of common information you should know when configuring recursion:
 
 * Wildcards are required for tracking multiple files
 * If using wildcards, they can only be used in the last segment of a path. (such as C:\folder\\**file** or /etc/*.conf)
