@@ -4,7 +4,7 @@ description: Introduction to using Ansible to automates cloud provisioning, conf
 ms.service: ansible
 keywords: ansible, azure, devops, overview, cloud provision, configuration management, application deployment, ansible modules, ansible playbooks
 author: tomarcher
-manager: routlaw
+manager: jeconnoc
 ms.author: tarcher
 ms.date: 01/19/2018
 ms.topic: article
