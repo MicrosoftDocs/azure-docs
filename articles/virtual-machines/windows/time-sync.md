@@ -19,6 +19,14 @@ ms.author: cynthn
 
 # Time sync for Windows VMs in Azure
 
+Azure is now backed by infrastructure running Windows Server 2016. Windows Server 2016 has improved algorithms used to correct time and condition the local clock to synchronize with UTC.  Windows Server 2016 also improved the VMICTimeSync service that governs how VMs sync with the host for accurate time. Improvements include more accurate initial time on VM start or VM restore and interrupt latency correction for samples provided to Windows Time (W32time). 
+
+>[!NOTE]
+>For a quick overview of Windows Time service, take a look at this [high-level overview video](https://aka.ms/WS2016TimeVideo).
+>
+> For more details about time sync in Windows Server 2016, see [Accurate time for Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/accurate-time). 
+
+## Configuration options
 
 There are three options for configuring time sync for your Windows VMs hosted in Azure:
 
@@ -27,7 +35,7 @@ There are three options for configuring time sync for your Windows VMs hosted in
 - Use another, external time server.
 
 
-## Use the default
+### Use the default
 
 By default Windows OS VM images are configured for w32time to sync from two sources: 
 
@@ -41,13 +49,13 @@ w32time would prefer the time provider in the following order of priority: strat
 For domain joined machines the domain itself establishes time sync hierarchy, but the forest root still need to take time from somewhere and the following considerations would still hold true.
 
 
-## Host-only 
+### Host-only 
 
 Because time.windows.com is public a NTP server that requires sending traffic over the internet, varying packet delays can negatively affect quality of the time sync. Removing time.windows.com by switching to host-only sync can sometimes improve your time sync results.
 
 Switching to host-only time sync makes sense if you experience time sync issues using the default configuration. Try out the host-only sync to see if that would improve the time sync on VM. 
 
-## External time server
+### External time server
 
 If you have specific time sync requirements, there is also an option of using external time servers. Such time servers can provide specific time, for example for test scenarios or for time uniformity with machines hosted in not-MS datacenters or if you need to handle leap seconds in a special way.
 
