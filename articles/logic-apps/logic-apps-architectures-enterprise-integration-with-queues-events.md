@@ -1,6 +1,6 @@
 ---
 title: Enterprise integration architecture pattern - Azure Integration Services
-description: This architecture reference shows how you can implement an enterprise integration pattern by using Logic Apps, API Management, Service Bus, and Event Grid.
+description: This architecture reference shows how you can implement an enterprise integration pattern with Azure Logic Apps, Azure API Management, Azure Service Bus, and Azure Event Grid
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -96,8 +96,8 @@ In the portal, developers, who are either
 internal to your organization, external, or both,  
 can integrate calls to these APIs into applications.
 
-* Composite APIs are built by using logic apps and by 
-orchestrating calls to software as a service (SaaS) systems, 
+* Composite APIs are built by using logic apps, 
+which orchestrate calls to software as a service (SaaS) systems, 
 Azure services, and any APIs that are published to API Management. 
 Logic apps are also [published through the API Management Developer portal](../api-management/import-logic-app-as-api.md).
 
@@ -105,11 +105,11 @@ Logic apps are also [published through the API Management Developer portal](../a
 [acquiring an OAuth 2.0 security token](../api-management/api-management-howto-protect-backend-with-aad.md) 
 that's required to gain access to an API.
 
-* API Management [validates the security token](../api-management/api-management-howto-protect-backend-with-aad.md) 
+* Azure API Management [validates the security token](../api-management/api-management-howto-protect-backend-with-aad.md) 
 and then passes the request to the back-end API or logic app.
 
-* Service Bus queues are used for [decoupling](../service-bus-messaging/service-bus-messaging-overview.md) 
-application activity and for [smoothing spikes in load](../architecture/patterns/queue-based-load-leveling.md). 
+* Azure Service Bus queues are used for [decoupling](../service-bus-messaging/service-bus-messaging-overview.md) 
+application activity and for [smoothing spikes in load](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling). 
 Messages are added to queues by logic apps, third-party apps, 
 or (not shown) by publishing the queue as an HTTP API through API Management.
 
@@ -178,8 +178,8 @@ For more information about scaling Service Bus, see
 
 * For Basic, Standard, and Premium tiers, the service level 
 agreement (SLA) for Azure API Management is currently 99.9%. 
-The SLA for premium tier configurations that have a deployment 
-with at least one unit in two or more regions is 99.95%.
+For premium tier configurations with a deployment that has 
+least one unit in two or more regions, the SLA is 99.95%.
 
 * The SLA for Azure Logic Apps is currently 99.9%.
 
@@ -200,8 +200,8 @@ consider these factors:
 
 * **Lifecycle**: In general, put resources that have the same lifecycle in the same resource group.
 
-* **Access**: You can use [role-based access control (RBAC)](../role-based-access-control/overview.md) 
-to apply access policies to the resources in a group.
+* **Access**: To apply access policies to the resources in a group, 
+you can use [role-based access control (RBAC)](../role-based-access-control/overview.md).
 
 * **Billing**: You can view rollup costs for the resource group.
 
