@@ -23,10 +23,10 @@
         href: luis-get-started-js-get-intent.md
       - name: Node.js
         href: luis-get-started-node-get-intent.md
-      - name: Python
-        href: luis-get-started-python-get-intent.md
       - name: PHP
         href: luis-get-started-php-get-intent.md
+      - name: Python
+        href: luis-get-started-python-get-intent.md
       - name: Ruby
         href: luis-get-started-ruby-get-intent.md
     - name: Add utterance to intent and train app
@@ -41,10 +41,10 @@
         href: luis-get-started-javascript-add-utterance.md
       - name: Node.js
         href: luis-get-started-node-add-utterance.md
-      - name: Python
-        href: luis-get-started-python-add-utterance.md
       - name: PHP
         href: luis-get-started-php-add-utterance.md
+      - name: Python
+        href: luis-get-started-python-add-utterance.md
       - name: Ruby
         href: luis-get-started-ruby-add-utterance.md
 - name: Tutorials
@@ -290,22 +290,22 @@
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: SDKs
     items:
+    - name: .NET Authoring
+      href: https://aka.ms/luis-sdk-dotnet-authoring
+    - name: .NET Runtime
+      href: https://aka.ms/luis-sdk-dotnet-runtime
     - name: Android
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
-    - name: Node.js Authoring
-      href: http://aka.ms/luis-sdk-node-authoring
-    - name: Node.js Endpoint
-      href: http://aka.ms/luis-sdk-node-endpoint
     - name: Go 
       href: https://aka.ms/luis-sdk-go
     - name: Java
       href: https://aka.ms/luis-java-sdk
+    - name: Node.js Authoring
+      href: http://aka.ms/luis-sdk-node-authoring
+    - name: Node.js Runtime
+      href: http://aka.ms/luis-sdk-node-endpoint
     - name: Python
       href: https://aka.ms/luis-python-sdk
-    - name: .Net Endpoint
-      href: https://aka.ms/luis-endpoint-sdk
-    - name: .Net Authoring
-      href: https://aka.ms/luis-authoring-sdk
 - name: Related
   items: 
   - name: Azure Bot Service

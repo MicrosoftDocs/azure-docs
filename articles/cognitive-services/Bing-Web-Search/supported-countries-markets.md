@@ -1,5 +1,5 @@
 ---
-title: Supported countries/regions and languages for Bing Web Search API on Azure | Microsoft Docs
+title: Countries, regions, and languages supported by the Bing Web Search API
 description: Find out which countries/regions and languages are supported by the Bing Web Search API.
 services: cognitive-services
 author: v-jerkin
@@ -7,18 +7,19 @@ manager: jhubbard
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 10/06/2017
-ms.author: v-jerkin
+ms.date: 8/16/2018
+ms.author: erhopf
 ---
-# Bing Web Search countries/regions and languages
 
-The Bing Web Search API supports more than three dozen countries/regions, many with more than one language. Specifying a country/region with a query serves primarily to refine search results based on interests in that country/region. Additionally, the results may contain links to Bing, and these links may localize the Bing user experience according to the specified country/region or language.
+# Countries, regions, and languages supported by the Bing Web Search API
 
-You can specify a country/region using the `cc` query parameter. If you specify a country/region, you must also specify one or more language codes using the `Accept-Language` HTTP header. The supported languages vary by country/region; they are given for each country/region in the Markets table.
+The Bing Web Search API supports over three dozen countries or regions, many with more than one language. Specifying a country or region with a query helps refine search results based on that country or regions interests. The results may include links to Bing, and these links may localize the Bing user experience according to the specified country/region or language.
 
-Alternatively, you may specify the market using the `mkt` query parameter and a code from the **Markets** table. Specifying a market simultaneously specifies a country/region and a preferred language. The `setLang` query parameter may be set to a language code in this case; usually this is the same language specified by `mkt` unless the user prefers to see Bing in another language.
+You can specify a country or region using the `cc` query parameter. When a country or region is specified, you must specify one or more language codes with the [`Accept-Language` header](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers). Use the [Markets table](#Markets) for a list of languages supported in each market.
 
-## Countries
+Alternatively, you can specify the market with the `mkt` query parameter, and a code from the **Markets** table. Specifying a market simultaneously specifies a country or region and a preferred language. You can explicitly set the language with the `setLang` query parameter.
+
+## Countries/regions
 
 |Country/region|Code|
 |-------|----|
@@ -58,7 +59,6 @@ Alternatively, you may specify the market using the `mkt` query parameter and a 
 |Turkey|TR|
 |United Kingdom|GB|
 |United States|US|
-
 
 ## Markets
 

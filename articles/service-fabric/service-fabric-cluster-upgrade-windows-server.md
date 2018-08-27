@@ -159,7 +159,7 @@ For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade](http
     Register-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file>
 
     ###### Here is a filled-out example
-    Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
+    Register-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab
 
      ```
 6. Start a cluster upgrade to an available version.
