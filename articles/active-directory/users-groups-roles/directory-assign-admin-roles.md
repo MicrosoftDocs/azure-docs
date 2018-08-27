@@ -614,6 +614,8 @@ Can manage all aspects of the Intune product.
 ### License Administrator
 Can assign licenses to users.
 
+| **Actions** | **Description** |
+| --- | --- |
 | microsoft.aad.directory/users/assignLicense        | &nbsp; |
 | microsoft.aad.directory/users/usageLocation/update | &nbsp; |
 | microsoft.azure.accessService/allEntities/allTasks | &nbsp; |
