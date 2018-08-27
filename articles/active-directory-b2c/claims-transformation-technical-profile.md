@@ -76,6 +76,23 @@ TransformationClaimType="collection" />
 </TechnicalProfile>
 ```
 
+The claims transformation technical profile enables you to execute a claims transformation from any user journey's orchestration step. In the following example, the orchestration step calls one of the unlink technical profiles, such as **UnLink-Facebook-OAUTH**. This technical profile calls the claims transformation technical profile **RemoveAlternativeSecurityIdByIdentityProvider**, which generates  a new **AlternativeSecurityIds2** claim that contains the list of user social identities, while removing the Facebook identity from the collections.
+
+```XML
+<UserJourney Id="AccountUnLink">
+  <OrchestrationSteps>    
+    ...
+    <OrchestrationStep Order="8" Type="ClaimsExchange">
+      <ClaimsExchanges>
+        <ClaimsExchange Id="UnLinkFacebookExchange" TechnicalProfileReferenceId="UnLink-Facebook-OAUTH" />
+        <ClaimsExchange Id="UnLinkMicrosoftExchange" TechnicalProfileReferenceId="UnLink-Microsoft-OAUTH" />
+        <ClaimsExchange Id="UnLinkGitHubExchange" TechnicalProfileReferenceId="UnLink-GitHub-OAUTH" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    ...
+  </OrchestrationSteps>
+</UserJourney>
+```
 
 
 ## Use a validation technical profile

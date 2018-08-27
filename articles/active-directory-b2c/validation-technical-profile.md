@@ -25,7 +25,14 @@ A validation technical profile is an ordinary technical profile from any protoco
 }
 ```
 
+Claims that are retuned from a validation technical profile are added back to the claims bag. You can use those claims in the next validation technical profiles.
+
+Validation technical profiles are executed in the sequence that they appear in the **ValidationTechnicalProfiles** element. You can configure in a validation technical profile whether the execution of any subsequent validation technical profiles should continue if the validation technical profile raises an error or is successful.  
+
+A validation technical profile can be conditionally executed based on preconditions defined in the **ValidationTechnicalProfile** element. For example, you can check whether a specific claims exists, or if a claim is equal or not to the specified value.
+
 A self-asserted technical profile may define a validation technical profile to be used for validating some or all of its output claims. All of the input claims of the referenced technical profile must appear in the output claims of the referencing validation technical profile.
+
 
 ## ValidationTechnicalProfiles
 
