@@ -1,8 +1,8 @@
 ---
-title: Azure CycleCloud pogo Configuration | Microsoft Docs
-description: Configure Azure CycleCloud's pogo tool.
+title: Azure CycleCloud Template File Reference | Microsoft Docs
+description: Parameter reference for CycleCloud Template Files.
 services: azure cyclecloud
-author: mirequa
+author: mvrequa
 ms.prod: cyclecloud
 ms.devlang: na
 ms.topic: reference
@@ -67,7 +67,7 @@ AwaitInstallation | Boolean | Once a vm is started, wait for jetpack to report i
 JetpackPlatform | String | Jetpack installer platform to use: centos-7, centos-6, ubuntu-14, ubuntu-16, windows
 ImageOs | String | Either `windows` or `linux` to inform CycleCloud how to structure the os extension.
 IsReturnProxy | boolean | Establish reverse channel proxy to this node. Only one node per cluster may have this setting as true.
-KeyPairLocation | Integer | Where CycleCloud will find a ssh keypair on the local filesystem 
+KeyPairLocation | Integer | Where CycleCloud will find a ssh keypair on the local filesystem
 ReturnPath.Hostname | Hostname | Hostname where node can reach CycleCloud.
 ReturnPath.WebserverPort | Integer | Webserver port where node can reach CycleCloud.
 ReturnPath.BrokerPort | Integer | Broker where node can reach CycleCloud.
@@ -94,7 +94,7 @@ Attribute | Type | Definition
 ------ | ----- | ----------
 Size | String | (Required) Size of disk in GB
 VolumeId | String | Resource id for existing Azure Disk.
-SSD | Boolean | If true use premium disk sku otherwise use standard disk. Default is false. 
+SSD | Boolean | If true use premium disk sku otherwise use standard disk. Default is false.
 Azure.Lun | Integer | Override the auto-assigned LUN ID.
 Mount | String | Name of mount construct, described in `configuration` object
 Azure.Caching | String | None, readonly, readwrite. Default is none.
@@ -133,14 +133,14 @@ Attribute | Type | Definition
 ------ | ----- | ----------
 PublicPort | Integer | Port on public interface to allow to all traffic.  Starting value for VMSS will increment for each VM added.
 PrivatePort | Integer | Port to receive public port redirection for VMSS load balancer.
-Protocol | String | Tcp or udp. Default is tcp. 
+Protocol | String | Tcp or udp. Default is tcp.
 
 ## `[[[configuration <name>]]]`
 
-Configurable properties of CycleCloud Project Specs.  See [Cluster Reference](./cluster-reference.md)
+Configurable properties of CycleCloud Project Specs (see [Cluster Reference](~/cluster-references/cluster-reference.md)).
 
 Attribute | Type | Definition
 ------ | ----- | ----------
 PublicPort | Integer | Port on public interface to allow to all traffic.  Starting value for VMSS will increment for each VM added.
 PrivatePort | Integer | Port to receive public port redirection for VMSS load balancer.
-Protocol | String | Tcp or udp. Default is tcp. 
+Protocol | String | Tcp or udp. Default is tcp.
