@@ -14,7 +14,6 @@ ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
-ms.technology: vs-azure
 ms.workload: azure-vs
 ms.date: 05/22/2018
 ms.author: glenga

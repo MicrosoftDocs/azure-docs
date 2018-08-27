@@ -35,6 +35,8 @@
     href: expressroute-workflows.md
   - name: Routing requirements
     href: expressroute-routing.md
+  - name: BFD over ExpressRoute
+    href: expressroute-bfd.md
   - name: QoS requirements
     href: expressroute-qos.md
   - name: About moving circuits from classic to Resource Manager

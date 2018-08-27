@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 02/14/2017
+ms.date: 08/21/2018
 ms.author: rolyon
 ms.custom: pim
 ---
@@ -26,24 +26,47 @@ This article is for admins who need to activate their role in Azure AD Privilege
 Use the Azure AD Privileged Identity Management application in the [Azure portal](https://portal.azure.com/) to request a role activation, even if you're going to operate in another portal or PowerShell. If you don't have the Azure AD Privileged Identity Management application on your Azure portal, follow these steps to get started.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select your username in the upper right-hand corner of the Azure portal, and select the directory where you will you be operating.
-3. Select **All services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.
-4. Check **Pin to dashboard** and then click **Create**. The Privileged Identity Management application opens.
+
+1. Select your username in the upper right-hand corner of the Azure portal, and select the directory where you will you be operating.
+
+1. Select **All services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.
+
+1. Check **Pin to dashboard** and then click **Create**. The Privileged Identity Management application opens.
 
 ## Activate a role
 When you need to take on a role, you can request activation by selecting the **My Roles** navigation option in the Azure AD Privileged Identity Management application's left navigation column.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select the Azure AD Privileged Identity Management tile.
-2. Select **My Roles**. A list of your assigned eligible roles appear in the grouping at the top of the page.
-3. Select a role to activate.
-4. Select **Activate**. The **Request role activation** blade appears.
-5. Some roles require Multi-Factor Authentication (MFA) before you can activate the role. You only have to authenticate once per session.
-   
+
+1. Select **My Roles**. A list of your assigned eligible roles appear in the grouping at the top of the page.
+
+1. Select a role to activate.
+
+1. Select **Activate**. The **Request role activation** blade appears.
+
+1. Some roles require Multi-Factor Authentication (MFA) before you can activate the role. You only have to authenticate once per session.
+
     ![Verify with MFA before role activation - screenshot](./media/pim-how-to-activate-role/PIM_activation_MFA.png)
-6. Enter the reason for the activation request in the text field.  Some roles require you to supply a trouble ticket number.
-7. Select **OK**.  If the role does not require approval, it is now activated, and the role appears in the list of active roles (directly below the list of eligible role assignments). If the [role requires approval](./azure-ad-pim-approval-workflow.md) to activate, a toast notification will briefly appear in the upper right-hand corner of your browser informing you the request is pending approval.
+
+1. Enter the reason for the activation request in the text field.  Some roles require you to supply a trouble ticket number.
+
+1. Select **OK**.  If the role does not require approval, it is now activated, and the role appears in the list of active roles (directly below the list of eligible role assignments). If the [role requires approval](./azure-ad-pim-approval-workflow.md) to activate, a toast notification will briefly appear in the upper right-hand corner of your browser informing you the request is pending approval.
 
     ![Request pending notification - screenshot](./media/pim-how-to-activate-role/PIM_Request_Pending_Toast2.png)
+
+## Use a role immediately after activation
+
+Because of caching, activations do not occur immediately in the Azure portal without a refresh. If you need to reduce the possibility of delays after activating a role, you can use the **Application access** page in the portal. Applications accessed from this page check for new role assignments immediately.
+
+1. Open Azure AD Privileged Identity Management.
+
+1. Click the **Application access** page.
+
+    ![PIM Application access - screenshot](./media/pim-how-to-activate-role/pim-application-access.png)
+
+1. Click **Azure Active Directory** to reopen the portal on the **All Users** page.
+
+    When you click this link, you force a refresh and there is a check for new Azure AD role assignments.
 
 ## Deactivate a role
 Once a role has been activated, it automatically deactivates when its time limit (eligible duration) is reached.
@@ -54,10 +77,14 @@ If you complete your admin tasks early, you can also deactivate a role manually 
 In the event you do not require activation of a role that requires approval, you may cancel a pending request at any time. Simply select the **My Roles** navigation option in the Azure AD Privileged Identity Management application's left navigation column.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select the Azure AD Privileged Identity Management tile.
-2. Select **My Roles**. A list of your assigned eligible roles appear in the grouping at the top of the page.
-3. Select a role.
-4. Select the **Activation is pending approval** banner on the role activation details blade.
-5. Select **Cancel** at the top of the **Pending approval** blade.
+
+1. Select **My Roles**. A list of your assigned eligible roles appear in the grouping at the top of the page.
+
+1. Select a role.
+
+1. Select the **Activation is pending approval** banner on the role activation details blade.
+
+1. Select **Cancel** at the top of the **Pending approval** blade.
 
    ![Cancel pending request screenshot](./media/pim-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png)
 

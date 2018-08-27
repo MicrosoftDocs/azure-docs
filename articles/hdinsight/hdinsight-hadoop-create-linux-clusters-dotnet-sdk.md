@@ -3,7 +3,7 @@ title: Create Hadoop clusters using .NET - Azure HDInsight
 description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using the HDInsight .NET SDK.
 services: hdinsight
 author: mamccrea
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
@@ -27,7 +27,7 @@ Learn how to create a Hadoop cluster in Azure HDInsight cluster using the .NET S
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **An Azure storage account**. See [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* **An Azure storage account**. See [Create a storage account](../storage/common/storage-quickstart-create-account.md).
 * **Visual Studio 2013, Visual Studio 2015 or Visual Studio 2017**.
 
 ## Create clusters
