@@ -5,7 +5,7 @@ keywords: hiveql,what is hive,hadoop hiveql,how to use hive,learn hive,what is h
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
