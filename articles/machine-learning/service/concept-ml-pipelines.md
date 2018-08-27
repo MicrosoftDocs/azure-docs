@@ -10,9 +10,10 @@ author: sanpil
 ms.date: 09/24/2018
 ---
 
-# Machine learning pipelines with Azure Machine Learning service
+# ML pipelines with Azure Machine Learning service
 
 Machine learning pipelines are great for reproducible machine learning tasks.
+What are ML pipelines in general? 
 
 ## Python-based SDK for pipelines
 In Azure, you can create ML pipelines in Python using the Azure Machine Learning SDK. The SDK offers imperative constructs for sequencing and parallelizing steps. With the use of declarative data dependencies, optimized execution of the tasks can be achieved. The SDK can be easily used from Jupyter Notebook or any other preferred IDE. The SDK includes a framework of pre-built modules for common tasks such as data transfer, provisioning, and model publishing. The framework can be extended by users to model their own conventions. A pipeline can be saved as a template for schedules runs for batch-scoring or retraining.
