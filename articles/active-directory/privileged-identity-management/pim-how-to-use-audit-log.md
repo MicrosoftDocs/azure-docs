@@ -16,7 +16,7 @@ ms.author: rolyon
 ms.custom: pim
 
 ---
-# Using the audit log in PIM
+# View audit history for Azure AD directory roles in PIM
 You can use the Privileged Identity Management (PIM) audit log to see all the user assignments and activations within a given time period. If you want to see the full audit history of activity in your tenant, including administrator, end user, and synchronization activity, you can use the [Azure Active Directory access and usage reports.](../reports-monitoring/overview-reports.md)
 
 ## Navigate to the audit log
