@@ -4,7 +4,7 @@ description: An introduction to Apache HBase in HDInsight, a NoSQL database buil
 keywords: bigtable,nosql,what is hbase,apache hbase,hbase,habase overview,
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017

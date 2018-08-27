@@ -53,8 +53,6 @@
         items:
         - name: Publish endpoints
           href: azure-stack-integrate-endpoints.md
-        - name: Extension host
-          href: azure-stack-extension-host-prepare.md
     - name: Identity integration
       items:    
       - name: Choose an identity provider
