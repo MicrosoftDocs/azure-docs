@@ -43,6 +43,8 @@
         href: billing-understand-vm-reservation-charges.md
       - name: SQL Database reserved capacity
         href: billing-understand-reservation-charges.md
+        name: SUSE Linux Enterprise software reservation
+        href: billing-understand-suse-reservation-charges.md
     - name: Software costs not included
       href: billing-reserved-instance-windows-software-costs.md
     - name: Usage for Pay-As-You-Go
