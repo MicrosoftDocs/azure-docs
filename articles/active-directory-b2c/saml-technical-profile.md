@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Define a SAML technical profile in an Azure Active Directory B2C custom policy
 
-Azure Active Directory (Azure AD) B2C provides support for the SAML 2.0 identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol.
+Azure Active Directory (Azure AD) B2C provides support for the SAML 2.0 identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With SAML technical profile you can federate with a SAML based identity provider, such as AD-FS and Salesforce, allowing you users to sign-in with their existing social or enterprise identities.
 
 ## Metadata exchange
 

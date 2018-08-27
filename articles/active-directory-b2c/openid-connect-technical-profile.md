@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Define a OpenId Connect technical profile in an Azure Active Directory B2C custom policy
 
-Azure Active Directory (Azure AD) B2C provides support for the [OpenId Connect](http://openid.net/2015/04/17/openid-connect-certification-program/) protocol identity provider. OpenID Connect 1.0 defines an identity layer on top of OAuth 2.0 and represents the state of the art in modern authentication protocols.
+Azure Active Directory (Azure AD) B2C provides support for the [OpenId Connect](http://openid.net/2015/04/17/openid-connect-certification-program/) protocol identity provider. OpenID Connect 1.0 defines an identity layer on top of OAuth 2.0 and represents the state of the art in modern authentication protocols.  With OpenId Connect technical profile you can federate with an OpenId Connect based identity provider, such as Azure AD, allowing you users to sign-in with their existing social or enterprise identities.
 
 ## Protocol
 
@@ -30,7 +30,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `OpenIdCon
 
 ## Input claims
 
-The **InputClaims** element is not required. But you may want to send additional parameters to your identity provider. The following example adds the **domain_hint** query string parameter with the value of `contoso.com` to the authorization request.
+The **InputClaims** and **InputClaimsTransformations** elements are not required. But you may want to send additional parameters to your identity provider. The following example adds the **domain_hint** query string parameter with the value of `contoso.com` to the authorization request.
 
 ```XML
 <InputClaims>
@@ -48,7 +48,7 @@ The following example shows the claims returned by the Microsoft Account identit
 
 - The **sub** claim that is mapped to the **socialIdpUserId** claim.
 - The **name** claim that is mapped to the **displayName** claim.
-- The **email** claim that is not mapped to another claim. Azure AD B2C uses the **email** claim.
+- The **email** without name mapping.
 
 The technical profile also returns claims that aren't returned by the identity provider:
 

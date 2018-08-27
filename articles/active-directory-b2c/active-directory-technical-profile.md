@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Define an Azure Active Directory technical profile in an Azure Active Directory B2C custom policy
 
-Azure Active Directory (Azure AD) B2C provides support for the Azure Active Directory identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol.
+Azure Active Directory (Azure AD) B2C provides support for the Azure Active Directory user management. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol.
 
 ## Protocol
 
@@ -61,7 +61,7 @@ The **InputClaimsTransformations** element may contain a collection of **InputCl
 
 ## Output claims
 
-The **OutputClaims** element contains a list of claims returned by the Azure AD technical profile. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider, as long as you set the `DefaultValue` attribute.
+The **OutputClaims** element contains a list of claims returned by the Azure AD technical profile. You may need to map the name of the claim defined in your policy to the name defined in Azure Active Directory. You can also include claims that aren't returned by the Azure Active Directory, as long as you set the `DefaultValue` attribute.
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
@@ -85,7 +85,7 @@ For example, the **AAD-UserWriteUsingLogonEmail** technical profile creates a lo
 
 ## PersistedClaims
 
-The **PersistedClaims** element contains all of the values that should be persisted by Azure AD with possible mapping information between a claim type already defined in the ClaimsSchema section in the policy and the Azure AD claim type. 
+The **PersistedClaims** element contains all of the values that should be persisted by Azure AD with possible mapping information between a claim type already defined in the ClaimsSchema section in the policy and the Azure AD attribute name. 
 
 The **AAD-UserWriteUsingLogonEmail** technical profile, which creates new local account, persists following claims:
 
@@ -249,9 +249,9 @@ The following technical profile deletes a social user account using **alternativ
 | --------- | -------- | ----------- |
 | Operation | Yes | The operation to be performed. Possible values: `Read`, `Write`, `DeleteClaims`, or `DeleteClaimsPrincipal`. | 
 | RaiseErrorIfClaimsPrincipalDoesNotExist | No | Raise an error if the user object does not exist in the directory. Possible values: `true` or `false`. | 
-| UserMessageIfClaimsPrincipalDoesNotExist | No | If an error is to be raised (see the RaiseErrorIfClaimsPrincipalDoesNotExist attribute description), specify the message to show to the user if user object does not exist. | 
+| UserMessageIfClaimsPrincipalDoesNotExist | No | If an error is to be raised (see the RaiseErrorIfClaimsPrincipalDoesNotExist attribute description), specify the message to show to the user if user object does not exist. The value can be [localized](localization.md).| 
 | RaiseErrorIfClaimsPrincipalAlreadyExists | No | Raise an error if the user object already exists. Possible values: `true` or `false`.| 
-| UserMessageIfClaimsPrincipalAlreadyExists | No | If an error is to be raised (see RaiseErrorIfClaimsPrincipalAlreadyExists attribute description), specify the message to show to the user if user object already exists. | 
+| UserMessageIfClaimsPrincipalAlreadyExists | No | If an error is to be raised (see RaiseErrorIfClaimsPrincipalAlreadyExists attribute description), specify the message to show to the user if user object already exists. The value can be [localized](localization.md).| 
 | ApplicationObjectId | No | The application object identifier for extension attributes. Value: ObjectId of an application. For more information, see [Use custom attributes in a custom profile edit policy](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
 | ClientId | No | The client identifier for accessing the tenant as a third party. For more information, see [Use custom attributes in a custom profile edit policy](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) | 
 

@@ -47,7 +47,7 @@ The following example shows the use of some of the user interface elements in th
 
 ![Sign-up or sign-in page UX elements](./media/localization-string-ids/localization-susi.png)
 
-The ID of the identity providers is configured in the **ClaimsExchange** element. To localize the title of the identity provider, the **ElementType** is set to `ClaimsProvider`, while the **StringId** is set to the ID of the `ClaimsExchange`.
+The ID of the identity providers is configured in the user journey  **ClaimsExchange** element. To localize the title of the identity provider, the **ElementType** is set to `ClaimsProvider`, while the **StringId** is set to the ID of the `ClaimsExchange`.
 
 ```XML
 <OrchestrationStep Order="2" Type="ClaimsExchange">

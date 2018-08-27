@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Define a OAuth2 technical profile in an Azure Active Directory B2C custom policy
 
-Azure Active Directory (Azure AD) B2C provides support for the OAuth2 protocol identity provider. This is the primary protocol for authorization and delegated authentication. When an application uses OAuth 2.0, it can access a resource by impersonating a user or users in an organization with consent from the resource owner, which could be the end user or the administrator user. For more information, see the [RFC 6749 The OAuth 2.0 Authorization Framework](http://tools.ietf.org/html/rfc6749) and [RFC 6750 The OAuth 2.0 Authorization Framework: Bearer Token Usage](http://tools.ietf.org/html/rfc6750).
+Azure Active Directory (Azure AD) B2C provides support for the OAuth2 protocol identity provider. This is the primary protocol for authorization and delegated authentication. For more information, see the [RFC 6749 The OAuth 2.0 Authorization Framework](http://tools.ietf.org/html/rfc6749). With OAuth2 technical profile you can federate with an OAuth2 based identity provider, such as Facebook and Live.com, allowing you users to sign-in with their existing social or enterprise identities.
 
 ## Protocol
 
@@ -30,11 +30,17 @@ The **Name** attribute of the **Protocol** element needs to be set to `OAuth2`. 
 
 ## Input claims
 
-The **InputClaims** and **InputClaimsTransformations**  elements are empty or absent.
+The **InputClaims** and **InputClaimsTransformations** elements are not required. But you may want to send additional parameters to your identity provider. The following example adds the **domain_hint** query string parameter with the value of `contoso.com` to the authorization request.
+
+```XML
+<InputClaims>
+  <InputClaim ClaimTypeReferenceId="domain_hint" DefaultValue="contoso.com" />
+</InputClaims>
+```
 
 ## Output claims
 
-The **OutputClaims** element contains a list of claims returned by the OpenId Connect identity provider. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider as long as the you set the `DefaultValue` attribute.
+The **OutputClaims** element contains a list of claims returned by the OAuth2 identity provider. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider as long as the you set the `DefaultValue` attribute.
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
@@ -42,8 +48,8 @@ The following example shows the claims returned by the Facebook identity provide
 
 - The **first_name** claim is mapped to the **givenName** claim.
 - The **last_name** claim is mapped to the **surname** claim.
-- The **displayName** claim that is not mapped to another claim. Azure AD B2C uses the **name** claim.
-- The **email** claim that is not mapped to another claim. Azure AD B2C uses the **email** claim.
+- The **displayName** claim without name mapping..
+- The **email** claim without name mapping.
 
 The technical profile also returns claims that aren't returned by the identity provider: 
 
@@ -77,7 +83,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | ClaimsEndpointFormatName | No | The name of the format query string parameter. For example, you can set the name as `format` in this LinkedIn claims endpoint `https://api.linkedin.com/v1/people/~?format=json`. | 
 | ClaimsEndpointFormat | No | The value of the format query string parameter. For example, you can set the value as `json` in this LinkedIn claims endpoint `https://api.linkedin.com/v1/people/~?format=json`. | 
 | ProviderName | No | The name of the identity provider. |
-| scope | No | The scope of the access request defined according to the OpenID Connect Core 1.0 specification. Such as `openid`, `profile`, and `email`. |
+| scope | No | The scope of the access request defined according to the OAuth2 identity provider specification. Such as `openid`, `profile`, and `email`. |
 | HttpBinding | No | The expected HTTP binding to the access token and claims token endpoints. Possible values: `GET` or `POST`.  |
 | ResponseErrorCodeParamName | No | The name of the parameter that contains the error message returned over HTTP 200 (Ok). |
 | ExtraParamsInAccessTokenEndpointResponse | No | Contains the extra parameters that can be returned in the response from **AccessTokenEndpoint** by some identity providers. For example, the response from **AccessTokenEndpoint** contains an extra parameter such as `openid`, which is a mandatory parameter besides the access_token in a **ClaimsEndpoint** request query string. Multiple parameter names should be escaped and separated by the comma ',' delimiter. |

@@ -15,9 +15,11 @@ ms.component: B2C
 
 # ContentDefinitions 
 
-You can customize the look and feel of any self-asserted technical profile. Azure Active Directory (Azure AD) B2C runs code in your customer's browser and uses a modern approach called Cross-Origin Resource Sharing (CORS). 
+You can customize the look and feel of any [self-asserted technical profile](self-asserted-technical-profile.md). Azure Active Directory (Azure AD) B2C runs code in your customer's browser and uses a modern approach called Cross-Origin Resource Sharing (CORS). 
 
 To customize the user interface, you specify a URL in the **ContentDefinition** element with customized HTML content. In the self-asserted technical profile or **OrchestrationStep**, you point to that content definition identifier. The content definition may contain a **LocalizedResourcesReferences** element that specifies a list of localized resources to load. Azure AD B2C merges user interface elements with the HTML content that's loaded from your URL and then displays the page to the user.
+
+The **ContentDefinitions** element contains URLs to HTML5 templates that can be used in a user journey. The HTML5 page URI is used for a specified user interface step. For example, the sign-in or sign-up, password reset, or error pages. You can modify the look and feel by overriding the LoadUri for the HTML5 file. You can create new content definitions according to your needs. This element may contain a localized resources reference, to the localization identifier specified in the [Localization](localization.md) element.
 
 The following example shows the content definition identifier and the definition of localized resources:
 
@@ -35,21 +37,19 @@ The following example shows the content definition identifier and the definition
     ...
 ```
 
-The metadata of the **TechnicalProfile** element contains the content definition identifier:
+The metadata of the **LocalAccountSignUpWithLogonEmail** self-asserted technical profile contains the content definition identifier **ContentDefinitionReferenceId** set to `api.localaccountsignup`
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
-  <Protocol Name="Proprietary" />
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <Metadata>
-    <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
     <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
-    <Item Key="language.button_continue">Create</Item>
+    ...
   </Metadata>
   ...
 ```
 
-The **ContentDefinitions** element contains URLs to HTML5 templates that can be used in a user journey. The HTML5 page URI is used for a specified user interface step. For example, the sign-in or sign-up, password reset, or error pages. You can modify the look and feel by overriding the LoadUri for the HTML5 file. You can create new content definitions according to your needs. This element may contain a localized resources reference, to the localization identifier specified in the [Localization](localization.md) element.
 
 ## ContentDefinition
 
@@ -63,11 +63,11 @@ The **ContentDefinition** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| LoadUri | 1:1 | A string that contains the relative URL of the cshtml page or HTML5/CSS page for the content definition. |
-| RecoveryUri | 0:1 | A string that contains the relative URL of the HTML page for displaying an error relating to the content definition. | 
-| DataUri | 1:1 | A string that contains the relative URL of an HTML file that provides the user experience to invoke for the step. | 
+| LoadUri | 1:1 | A string that contains the URL of the HTML5 page for the content definition. |
+| RecoveryUri | 0:1 | A string that contains the URL of the HTML page for displaying an error relating to the content definition. | 
+| DataUri | 1:1 | A string that contains the relative URL of an HTML file that provides the user experience to invoke for the step. |  
 | Metadata | 1:1 | A collection of key/value pairs that contains the metadata utilized by the content definition. | 
-| LocalizedResourcesReferences | 0:1 | A collection of localized resources references. Use this element to customize the localization of a user interface and a claim attribute. |
+| LocalizedResourcesReferences | 0:1 | A collection of localized resources references. Use this element to customize the localization of a user interface and claims attribute. |
 
 ### LocalizedResourcesReferences
 

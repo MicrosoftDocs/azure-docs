@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Define a validation technical profile in an Azure Active Directory B2C custom policy
  
-A validation technical profile is an ordinary technical profile from any protocol, such as OpenId Connect or a REST API. The validation technical profile returns output claims or returns an HTTP 409 error message (Conflict response status code), with the following data:
+A validation technical profile is an ordinary technical profile from any protocol, such as [Azure Active Directory](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md). The validation technical profile returns output claims or returns an HTTP 409 error message (Conflict response status code), with the following data:
 
 ```JSON
 {
@@ -25,9 +25,7 @@ A validation technical profile is an ordinary technical profile from any protoco
 }
 ```
 
-For more information, [Define a REST API technical profile in an Azure Active Directory B2C custom policy](restful-technical-profile.md)
-
-A self-asserted technical profile may define a technical profile to be used for validating some or all of its output claims. All of the input claims of the referenced technical profile must appear in the output claims of the referencing technical profile.
+A self-asserted technical profile may define a validation technical profile to be used for validating some or all of its output claims. All of the input claims of the referenced technical profile must appear in the output claims of the referencing validation technical profile.
 
 ## ValidationTechnicalProfiles
 
@@ -37,23 +35,19 @@ The **ValidationTechnicalProfiles** element contains the following elements:
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | A technical profile to be used for validating some or all of the output claims of the referencing technical profile. |
 
-### ValidationTechnicalProfile
-
 The **ValidationTechnicalProfile** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ReferenceId | Yes | An identifier of a technical profile already defined in the policy or parent policy. |
-
-#### Preconditions
+|ContinueOnError|No| Indicating whether validation of any subsequent validation technical profiles should continue if this validaiton technical profile raises an error. Posible values: `ture` or `false` (default,  processing of further validation profiles will stop and an error returned). 
+|ContinueOnSuccess | No | Indicating whether validation of any subsequent validation profiles should continue if this validation technical profile succeeds. Posible values: `ture` or `false`. The default is `true`, meaning that the processing of further validation profiles will continue. |
 
 The **ValidationTechnicalProfile** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Preconditions | 0:1 | A list of preconditions that must be satisfied for the validation technical profile to execute. |
-
-##### Precondition
 
 The **Precondition** element contains the following attribute:
 
