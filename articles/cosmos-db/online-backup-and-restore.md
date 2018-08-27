@@ -69,7 +69,7 @@ When restore is done for this kind of scenarios - data is restored to another ac
 
 
 > [!NOTE]
-> if you restore the data for fixing corruption issue or just for testing, please plan to remove them soon as your task is done as restored containers or a database will cost extra - based on provisioned throughput. 
+> If you restore the data for fixing corruption issue or just for testing, please plan to remove them soon as your task is done as restored containers or a database will cost extra - based on provisioned throughput. 
 ## Next steps
 
 To replicate your database in multiple data centers, see [distribute your data globally with Cosmos DB](distribute-data-globally.md). 
