@@ -153,6 +153,8 @@ In the self-hosted IR to be shared,
 
    ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
 
+   ![](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+
 2. Note the **Resource ID** of the self-hosted IR to be shared.
 
    ![](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
@@ -164,6 +166,20 @@ In the Data Factory to which the permissions were granted,
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
 
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+
+#### Monitoring 
+
+- **Shared IR**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+
+  ![](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+
+- **Linked IR**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
 
 #### Known limitations of self-hosted IR sharing
 
@@ -182,6 +198,8 @@ created implicitly, however, data factories created with Azure Resource Manager 
 
 6. The Azure PowerShell which support this feature is version >= 6.6.0
 (AzureRM.DataFactoryV2 >= 0.5.7)
+
+7. To Grant permission, the user will require "Owner" role or inherited "Owner" role in the Data Factory where the Shared IR exists. 
 
   > [!NOTE]
   > This feature is only available in Azure Data Factory version 2 

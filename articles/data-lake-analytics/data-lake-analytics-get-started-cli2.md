@@ -5,9 +5,9 @@ ms.service: data-lake-analytics
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
-ms.topic: get-started-article
+
+ms.reviewer: jasonwhowell
+ms.topic: conceptual
 ms.date: 06/18/2017
 ---
 # Get started with Azure Data Lake Analytics using Azure CLI 2.0
