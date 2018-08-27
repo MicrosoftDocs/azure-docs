@@ -113,8 +113,6 @@
     items:
     - name: Language documentation
       items:
-      - name: Transition from legacy language
-        href: log-analytics-log-search-transition.md
       - name: Language reference
         href: https://docs.loganalytics.io
       - name: Get started
