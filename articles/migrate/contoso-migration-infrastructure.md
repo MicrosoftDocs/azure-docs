@@ -55,7 +55,7 @@ Before Contoso can migrate to Azure, it's critical to prepare an Azure infrastru
 Before we start looking at the infrastructure, you might want to read some background information about the Azure capabilities we discuss in this article:
 
 - There are a number of options available for purchasing Azure access, including Pay-As-You-Go, Enterprise Agreements (EA), or Open Licensing from Microsoft resellers, or from Microsoft Partners know as Cloud Solution Providers (CSPs). Learn about [purchase options](https://azure.microsoft.com/pricing/purchase-options/), and read about how [Azure subscriptions are organized](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise/).
-- Get an overview of Azure [identity and access management](https://www.microsoft.com/en-us/trustcenter/security/identity). In particular, learn about [Azure AD and extending on-premises AD to the cloud](https://docs.microsoft.com/azure/active-directory/identity-fundamentals). There's a useful downloadable e-book about [identity and access management (IAM) in a hybrid environment](https://azure.microsoft.com/resources/hybrid-cloud-identity/).
+- Get an overview of Azure [identity and access management](https://www.microsoft.com/trustcenter/security/identity). In particular, learn about [Azure AD and extending on-premises AD to the cloud](https://docs.microsoft.com/azure/active-directory/identity-fundamentals). There's a useful downloadable e-book about [identity and access management (IAM) in a hybrid environment](https://azure.microsoft.com/resources/hybrid-cloud-identity/).
 - Azure provides a robust networking infrastructure with options for hybrid connectivity. Get an overview of [networking and network access control](https://docs.microsoft.com/azure/security/security-network-overview).
 - Get an introduction to [Azure Security](https://docs.microsoft.com/azure/security/azure-security), and read about creating a plan for [governance](https://docs.microsoft.com/azure/security/governance-in-azure).
 
@@ -93,7 +93,7 @@ Contoso is going with an [Enterprise Agreement (EA)](https://azure.microsoft.com
 After paying for Azure, Contoso needs to figure out how to manage Azure subscriptions. Contoso has an EA, and thus no limit on the number of Azure subscriptions it can set up.
 
 - An Azure Enterprise Enrollment defines how a company shape and uses Azure services, and defines a core governance structure.
-- As a first step, Contoso has determined a structure (known as an enterprise scaffold for Enterprise Enrollment. Contoso used [this article](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance) to help understand and design a scaffold.
+- As a first step, Contoso has determined a structure (known as an enterprise scaffold for Enterprise Enrollment. Contoso used [this article](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance) to help understand and design a scaffold.
 - For now, Contoso has decided to use a functional approach to manage subscriptions.
     - Inside the enterprise it  will use a single IT department that controls the Azure budget. This will be the only group with subscriptions.
     - Contoso will extend this model in the future, so that other corporate groups can join as departments in the Enterprise Enrollment.
