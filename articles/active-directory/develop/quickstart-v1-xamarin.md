@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 # Azure AD Xamarin getting started
 
-[!INCLUDE [active-directory-develop-applies-to-v1](../../../includes/active-directory-develop-applies-to-v1.md)]
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 With Xamarin, you can write mobile apps in C# that can run on iOS, Android, and Windows (mobile devices and PCs). If you're building an app using Xamarin, Azure Active Directory (Azure AD) makes it simple to authenticate users with their Azure AD accounts. The app can also securely consume any web API that's protected by Azure AD, such as the Office 365 APIs or the Azure API.
 

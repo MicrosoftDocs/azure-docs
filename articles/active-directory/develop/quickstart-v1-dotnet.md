@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 # Azure AD .NET Desktop (WPF) getting started
 
-[!INCLUDE [active-directory-develop-applies-to-v1](../../../includes/active-directory-develop-applies-to-v1.md)]
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 If you're developing a desktop application, Azure AD makes it simple and straightforward for you to authenticate your users with their Active Directory accounts. It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
 
