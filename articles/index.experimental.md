@@ -774,7 +774,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <li>
                                             <a href="https://www.visualstudio.com/docs/overview">
                                                 <img src="media/index/VisualStudioTeamServices.svg" alt="" />
-                                                <p>Visual Studio Team Services</p>
+                                                <p>Azure DevOps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2735,7 +2735,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Team Services</h3>
+                                                    <h3>Azure DevOps</h3>
                                                     <p>Services for teams to share code, track work, and ship software</p>
                                                 </div>
                                             </div>
@@ -3433,7 +3433,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Download for Visual Studio Code</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Download for Team Services</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Download for Azure DevOps</a>
                                                 </p>
                                             </div>
                                         </div>
