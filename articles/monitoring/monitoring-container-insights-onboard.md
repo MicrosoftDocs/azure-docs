@@ -325,4 +325,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
   }
 ```
 ## Next steps
-With monitoring enabled to capture health metrics for both the cluster nodes and pods, these health metrics are available in the Azure portal. For more information on Container Insights monitoring, see [View Azure Kubernetes Service health](monitoring-container-insights-analyze.md).
+
+* If you experience issues while attempting to onboard the solution, review the [troubleshooting guide](monitoring-container-insights-troubleshoot.md)
+
+* With monitoring enabled to capture health metrics for both the cluster nodes and pods, these health metrics are available in the Azure portal. For more information on Container Insights monitoring, see [View Azure Kubernetes Service health](monitoring-container-insights-analyze.md).
