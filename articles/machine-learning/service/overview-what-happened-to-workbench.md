@@ -54,7 +54,7 @@ While you can still use the older features, you'll be able to find that document
 
 ## What about run histories?
 
-The older run histories will remain accessible for a while. When you ready to move to the updated version of Azure Machine Learning service, you can export these run histories if you want to keep a copy. 
+The older run histories will remain accessible for a while. When you are ready to move to the updated version of Azure Machine Learning service, you can export these run histories if you want to keep a copy. 
 
 In the latest version of Azure Machine Learning service, you can still collect the run history of your models and explore them using the SDK and CLI as well as in the web portal.
 
