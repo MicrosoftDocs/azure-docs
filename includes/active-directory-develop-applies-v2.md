@@ -18,5 +18,5 @@ ms.author: andret
 ms.custom: include file 
 
 ---
-> [!NOTE]
-> This article applies to the **v2 endpoint** and/ or **Microsoft Authentication Library (MSAL)**.
+> **Applies to:**
+> * Azure AD v2.0 endpoint

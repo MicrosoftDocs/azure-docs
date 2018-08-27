@@ -19,4 +19,5 @@ ms.custom: include file
 
 ---
 > **Applies to:**
-> * Azure AD v1.0 endpoint
+> * Azure AD v2.0 endpoint
+> * Microsoft Authentication Library (MSAL)

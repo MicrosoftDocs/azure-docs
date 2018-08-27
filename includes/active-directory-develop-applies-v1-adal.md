@@ -20,3 +20,4 @@ ms.custom: include file
 ---
 > **Applies to:**
 > * Azure AD v1.0 endpoint
+> * Azure Active Directory Authentication Library (ADAL)

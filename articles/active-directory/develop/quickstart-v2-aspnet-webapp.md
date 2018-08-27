@@ -19,7 +19,9 @@ ms.custom: aaddev
 
 ---
 
-# Add sign-in with Microsoft to an ASP.NET web app
+# Quickstart: Add sign-in with Microsoft to an ASP.NET web app
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 In this quickstart, you'll learn how a ASP.NET Web App can sign in personal accounts (hotmail.com, outlook.com, others) and work and school accounts from any Azure Active Directory instance.
 

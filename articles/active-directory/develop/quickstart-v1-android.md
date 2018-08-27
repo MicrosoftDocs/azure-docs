@@ -20,9 +20,9 @@ ms.reviewer: dadobali
 ms.custom: aaddev
 ---
 
-# Azure AD Android getting started
+# Quickstart: Sign in users and call the Microsoft Graph API from an Android app
 
-[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+[!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
 If you're developing an Android application, Microsoft makes it simple and straightforward to sign in Azure Active Directory (Azure AD) users. Azure AD enables your application to access user data through the Microsoft Graph or your own protected web API. 
 
