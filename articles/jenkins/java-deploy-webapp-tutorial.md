@@ -1,12 +1,12 @@
 ---
 title: Use Jenkins to deploy your web apps to Azure
 description: Set up continuous integration from GitHub to Azure App Service for your Java web apps using Jenkins and Docker.
-ms.topic: tutorial
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, app service, continuous integration, ci, continuous deployment, cd
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
 ---
 
