@@ -113,7 +113,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Sign in to Azure
 
-Before you can publish your app, you must sign in to Azure. 
+Before you can publish your app, you must sign in to Azure.
 
 1. In the **Azure: Functions** area, choose **Sign in to Azure...**. If you don't already have one, you can **Create a free Azure account**.
 
@@ -121,14 +121,13 @@ Before you can publish your app, you must sign in to Azure.
 
 1. When prompted, select **Copy & Open**, or copy the displayed code and open <https://aka.ms/devicelogin> in your browser.
 
-1. Paste the copied code 
-1. ]]]]]]]]]]]x         in the **Device Login** page, verify the sign-in for VS Code, then select **Continue**.  
+1. Paste the copied code in the **Device Login** page, verify the sign-in for VS Code, then select **Continue**.  
 
 1. Complete the sign-in using your Azure account credentials. After you have successfully signed in, you can close the browser.
 
 ## Publish the project to Azure
 
-VS Code lets you publish your Azure Functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The project is then packaged and deployed to the new function app in Azure.
+VS Code lets you publish your functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription.
 
 1. In the **Azure: Functions** area, select the Deploy to Function App icon.
 
