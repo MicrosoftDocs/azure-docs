@@ -40,9 +40,11 @@ The Azure Stack Readiness Checker Tool provides the ability to create a certific
 
 1. Open PowerShell with elevated permission on the hardware lifecycle host or the Azure Stack management workstation.
 2. Run the following cmdlet to install the Azure Stack Readiness Checker tool.
+
     ```PowerShell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
+
 3. Run the following script to create the required folder structure:
 
     ```PowerShell  
