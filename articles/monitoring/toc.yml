@@ -54,10 +54,11 @@
     items:
     - name: Monitoring Containers overview
       href: monitoring-container-overview.md
-    - name: AKS Container Insights overview
-      href: monitoring-container-insights-overview.md
+    - name: AKS Container Insights 
       items:
-       - name Onboard 
+       - name: Overview
+         href: monitoring-container-insights-overview.md
+       - name: Onboard 
          href: monitoring-container-insights-onboard.md
        - name: Analyze 
          href: monitoring-container-insights-analyze.md
