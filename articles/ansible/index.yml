@@ -6,7 +6,7 @@ metadata:
   meta.description: Learn how to use Ansible to automate cloud provisioning, configuration management, and application deployments.
   services: terraform
   author: tomarcher
-  manager: routlaw
+  manager: jeconnoc
   ms.service: ansible
   ms.tgt_pltfrm: na
   ms.devlang: devops
