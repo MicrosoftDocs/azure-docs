@@ -46,7 +46,7 @@ sections:
     style: unordered
     items:
     - html: <a href="tutorial-train-models-with-aml">Train your own machine learning model</a>
-    - html: <a href="../desktop-workbench/tutorial-bikeshare-dataprep">Let us auto-generate and auto-tune a model for you</a>
+    - html: <a href="tutorial-auto-train-models">Let us auto-generate and auto-tune a model for you</a>
     - html: <a href="tutorial-deploy-models-with-aml">Deploy a model as a web service</a>
 
 - title: Reference
