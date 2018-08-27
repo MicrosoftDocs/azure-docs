@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure Active Directory authentication over SMB for Azure Files (Preview) | Microsoft Docs
-description: Learn how to use Azure Active Directory (Azure AD) authentication over SMB for Azure Files. Your Azure VMs can use Azure AD credentials to access Azure file shares, directories, or files.
+title: Overview of Azure Active Directory authentication over SMB for Azure Files (preview) - Azure Storage
+description: Azure Files supports identity-based authentication over SMB (Server Message Block) (preview) through Azure Active Directory (Azure AD) Domain Services. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares using Azure AD credentials. 
 services: storage
 author: tamram
 
@@ -10,7 +10,7 @@ ms.date: 08/22/2018
 ms.author: tamram
 ---
 
-# Overview of Azure Active Directory authentication over SMB for Azure Files (Preview)
+# Overview of Azure Active Directory authentication over SMB for Azure Files (preview)
 
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
@@ -63,7 +63,7 @@ Azure Files uses Azure AD Domain Services to support Kerberos authentication wit
 
 When an identity associated with an application running on a VM attempts to access data in Azure Files, the request is sent to Azure AD Domain Services to authenticate the identity. If authentication is successful, Azure AD Domain Services returns a Kerberos token. The application sends a request that includes the Kerberos token, and Azure Files uses that token to authorize the request. Azure Files receives the token only and does not persist Azure AD credentials.
 
-![Screenshot showing diagram of Azure AD authentication over SMB](media/storage-files-active-directory-overview/files-aad-overview.png)
+![Screenshot showing diagram of Azure AD authentication over SMB](media/storage-files-active-directory-overview/azure-active-directory-over-smb-for-files-overview.png)
 
 ### Enable Azure AD authentication over SMB
 

@@ -1,6 +1,6 @@
 ---
-title: Enable Azure Active Directory authentication over SMB for Azure Files (Preview) | Microsoft Docs
-description: Learn how to authenticate access to Azure Files over SMB with Azure AD credentials from a domain-joined Azure virtual machine.
+title: Enable Azure Active Directory authentication over SMB for Azure Files (preview) - Azure Storage
+description: Learn how to enable identity-based authentication over SMB (Server Message Block) (preview) for Azure Files through Azure Active Directory (Azure AD) Domain Services. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares using Azure AD credentials. 
 services: storage
 author: tamram
 
@@ -10,7 +10,7 @@ ms.date: 08/22/2018
 ms.author: tamram
 ---
 
-# Enable Azure Active Directory authentication over SMB for Azure Files (Preview)
+# Enable Azure Active Directory authentication over SMB for Azure Files (preview)
 
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
@@ -29,7 +29,7 @@ Next, grant access to Azure Files resources with Azure AD credentials by followi
 
 The diagram below illustrates the end-to-end workflow for enabling Azure AD authentication over SMB for Azure Files. 
 
-![Azure AD authentication workflow](media/storage-files-active-directory-enable/aad-workflow.png)
+![Diagram showing Azure AD over SMB for Azure Files workflow](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
 ## Prerequisites 
 
@@ -233,7 +233,7 @@ For more information on how to use icacls to set NTFS permissions and on the dif
 
 Now you are ready to verify that you've completed the steps above successfully by using your Azure AD credentials to access an Azure file share from a domain-joined VM. First, sign in to the VM using the Azure AD identity to which you have granted permissions, as shown in the following image.
 
-![Screenshot showing sign-in screen](media/storage-files-active-directory-enable/aad-auth-screen.png)
+![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-active-directory-enable/azure-active-directory-authentication-dialog.png)
 
 Next, use the following command to mount the Azure file share. Remember to replace the placeholder values with your own values. Because you have already been authenticated, you do not need to provide the storage account key or the Azure AD user name and password. Azure AD over SMB supports a single sign-on experience using Azure AD credentials.
 
