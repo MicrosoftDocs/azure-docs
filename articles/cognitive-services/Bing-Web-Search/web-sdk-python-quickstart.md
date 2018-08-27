@@ -31,21 +31,6 @@ The Bing Web Search SDK is compatible with Python 2.7, 3.3, 3.4, 3.5, and 3.6. W
 
 The instructions to set up and configure a virtual environment are different for Python 2.x and Python 3.x. Follow the steps below to create and initialize your virtual environment.
 
-### Python 3.x
-
-Create a virtual environment with `venv` for Python 3.x:
-
-```console
-python -m venv mytestenv
-```
-
-Install Bing Web Search SDK dependencies:
-
-```console
-cd mytestenv
-python -m pip install azure-cognitiveservices-search-websearch
-```
-
 ### Python 2.x
 
 Create a virtual environment with `virtualenv` for Python 2.7:
@@ -67,9 +52,24 @@ Install Bing Web Search SDK dependencies:
 python -m pip install azure-cognitiveservices-search-websearch
 ```
 
+### Python 3.x
+
+Create a virtual environment with `venv` for Python 3.x:
+
+```console
+python -m venv mytestenv
+```
+
+Install Bing Web Search SDK dependencies:
+
+```console
+cd mytestenv
+python -m pip install azure-cognitiveservices-search-websearch
+```
+
 ## Create a client and print your first results
 
-Now that you've set up your virtual environment and installed dependencies, let's create a client. The client will handle requests to and responses from Bing Web Search.
+Now that you've set up your virtual environment and installed dependencies, let's create a client. The client will handle requests to and responses from the Bing Web Search API.
 
 If the response contains web pages, images, news, or videos, the first result for each is printed.
 
