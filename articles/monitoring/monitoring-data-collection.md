@@ -17,7 +17,7 @@ ms.author: bwren
 ---
 
 # Data collected by Azure Monitor
-[Azure Monitor](overview.md) is a service that helps you monitor your applications and the resources they rely on. Central to this  function is collection of telemetry and other data from monitored resources. This article provides a complete description of each of these types of data and how they are used by Azure Monitor.
+[Azure Monitor](../azure-monitor/overview.md) is a service that helps you monitor your applications and the resources they rely on. Central to this  function is collection of telemetry and other data from monitored resources. This article provides a complete description of each of these types of data and how they are used by Azure Monitor.
 
 All data collected by Azure Monitor fits into one of two fundamental types, [metrics](#metrics) and [logs](#logs). Metrics are numerical values that describe some aspect of a system at a particular point in time. They are lightweight and capable of supporting near real-time scenarios. Logs contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces are stored as logs in addition to performance data so that it can all be combined for analysis.
 
