@@ -34,8 +34,6 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
-## Prerequisites
-
 
 ## Prerequisites
 
