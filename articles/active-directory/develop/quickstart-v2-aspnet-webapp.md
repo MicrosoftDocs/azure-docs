@@ -162,6 +162,6 @@ Try out the ASP.NET tutorial for a complete step-by-step guide on building appli
 ### Learn the steps to create the application used in this Quickstart
 
 > [!div class="nextstepaction"]
-> [Sign-in Tutorial](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp)
+> [Sign-in Tutorial](.\tutorial-v2-asp-webapp.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
