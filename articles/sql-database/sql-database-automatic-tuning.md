@@ -14,9 +14,9 @@ ms.reviewer: carlrab
 ---
 # Automatic tuning in Azure SQL Database
 
-Azure SQL Database Automatic tuning provides peak performance and stable workloads through continuous performance tuning utilizing Artificial Intelligence.
+Azure SQL Database Automatic tuning provides peak performance and stable workloads through continuous performance tuning based on AI and machine learning.
 
-Automatic tuning is a fully managed intelligent performance service that uses built-in intelligence to continuously monitor queries executed on a database and it automatically improves their performance. This is achieved through dynamically adapting database to the changing workloads and applying tuning recommendations. Automatic tuning learns horizontally from all databases on Azure through Artificial Intelligence and it dynamically improves its tuning actions. The longer an Azure SQL Database runs with automatic tuning on, the better it performs.
+Automatic tuning is a fully managed intelligent performance service that uses built-in intelligence to continuously monitor queries executed on a database, and it automatically improves their performance. This is achieved through dynamically adapting database to the changing workloads and applying tuning recommendations. Automatic tuning learns horizontally from all databases on Azure through Artificial Intelligence and it dynamically improves its tuning actions. The longer an Azure SQL Database runs with automatic tuning on, the better it performs.
 
 Azure SQL Database Automatic tuning might be one of the most important features that you can enable to provide stable and peak performing database workloads.
 
@@ -31,11 +31,11 @@ Azure SQL Database Automatic tuning might be one of the most important features 
 - Scale out capability on hundreds of thousands of databases
 - Positive impact to DevOps resources and the total cost of ownership
 
-## Safe, Reliable and Proven
+## Safe, Reliable, and Proven
 
 Tuning operations applied to Azure SQL Databases are fully safe for the performance of your most intense workloads. The system has been designed with care not to interfere with the user workloads. Automated tuning recommendations are applied only at the times of a low utilization. The system can also temporarily disable automatic tuning operations to protect the workload performance. In such case, “Disabled by the system” message will be shown in Azure portal. Automatic tuning regards workloads with the highest resource priority.
 
-Automatic tuning mechanisms are mature and have been perfected on hundreds of thousands of databases running on Azure. Automated tuning operations applied are verified automatically to ensure there is a positive improvement to the workload performance. Regressed performance recommendations are dynamically detected and promptly reverted. Please note that in case of queries affected by tuning recommendations that are not executed very frequently, the validation phase can take up to 72 hrs by design. Through the tuning history recorded, there exists a clear trace of tuning improvements made to each Azure SQL Database. 
+Automatic tuning mechanisms are mature and have been perfected on several million databases running on Azure. Automated tuning operations applied are verified automatically to ensure there is a positive improvement to the workload performance. Regressed performance recommendations are dynamically detected and promptly reverted. In case of queries affected by tuning recommendations that are not executed frequently, the validation phase can take up to 72 hrs by design. Through the tuning history recorded, there exists a clear trace of tuning improvements made to each Azure SQL Database. 
 
 ![How does automatic tuning work](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
@@ -59,12 +59,12 @@ For an overview of how automatic tuning works and for typical usage scenarios, s
 
 Automatic tuning options available in Azure SQL Database are:
  1. **CREATE INDEX** - identifies indexes that may improve performance of your workload, creates indexes, and automatically verifies that performance of queries has improved.
- 2. **DROP INDEX** - identifies redundant and duplicate indexes daily, and indexes that were not used for a very long time (>90 days). Please note that this option is not compatible with applications using partition switching and index hints.
+ 2. **DROP INDEX** - identifies redundant and duplicate indexes daily, and indexes that were not used for a long time (>90 days). Note that this option is not compatible with applications using partition switching and index hints.
  3. **FORCE LAST GOOD PLAN** - identifies SQL queries using execution plan that is slower than the previous good plan, and queries using the last known good plan instead of the regressed plan.
 
 Automatic tuning identifies **CREATE INDEX**, **DROP INDEX**, and **FORCE LAST GOOD PLAN** recommendations that can optimize your database performance and shows them in [Azure portal](sql-database-advisor-portal.md), and exposes them through [T-SQL](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) and [REST API](https://docs.microsoft.com/en-us/rest/api/sql/serverautomatictuning).
 
-You can either manually apply tuning recommendations using the portal or you can let Automatic tuning autonomously apply tuning recommendations for you. The benefit of letting the system autonomously apply tuning recommendations for you is that in such case it automatically validates there exists a positive gain to the workload performance, or otherwise if a regression is detected it will automatically revert the tuning recommendation. In case you are manually applying tuning recommendations, the automatic performance validation and reversal mechanisms are not available.
+You can either manually apply tuning recommendations using the portal or you can let Automatic tuning autonomously apply tuning recommendations for you. The benefits of letting the system autonomously apply tuning recommendations for you is that in such case it automatically validates there exists a positive gain to the workload performance, or otherwise if a regression is detected it will automatically revert the tuning recommendation. In case you are manually applying tuning recommendations, the automatic performance validation, and reversal mechanisms are not available.
 
 Automatic tuning options can be independently enabled or disabled per database, or they can be configured on logical servers and applied on every database that inherits settings from the server. Logical servers can inherit Azure defaults for Automatic tuning settings. Azure defaults at this time are set to FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is enabled, and DROP_INDEX is disabled.
 
