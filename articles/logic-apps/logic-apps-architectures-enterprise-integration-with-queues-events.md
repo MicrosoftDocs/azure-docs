@@ -1,5 +1,5 @@
 ---
-title: Enterprise integration pattern architecture reference - Azure Integration Services
+title: Enterprise integration architecture pattern - Azure Integration Services
 description: This architecture reference shows how you can implement an enterprise integration pattern by using Logic Apps, API Management, Service Bus, and Event Grid.
 services: logic-apps
 ms.service: logic-apps
@@ -11,12 +11,13 @@ ms.topic: article
 ms.date: 06/15/2018
 ---
 
-# Architecture reference: Enterprise integration with queues and events
+# Enterprise integration architecture with queues and events
 
-This article describes an architecture that shows proven practices you can 
-apply to an integration application that uses Azure Integration Services. 
-You can use this architecture as the basis for many different application 
-patterns that require HTTP APIs, workflow, and orchestration.
+This article describes an enterprise integration architecture that 
+uses proven practices you can apply to an integration application 
+when using Azure Integration Services. You can use this architecture 
+as the basis for many different application patterns that require 
+HTTP APIs, workflow, and orchestration.
 
 ![Architecture diagram - Enterprise integration with queues and events](media/logic-apps-architectures-enterprise-integration-with-queues-events/integr_queues_events_arch_diagram.png)
 
@@ -212,21 +213,39 @@ For more information, see [Azure Resource Manager overview](../azure-resource-ma
 
 ### Deployment
 
-We recommend that you use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) to deploy API Management, Logic Apps, Event Grid, and Service Bus. Templates make it easier to automate deployments via PowerShell or the Azure CLI.
+* To deploy API Management, Logic Apps, Event Grid, and Service Bus, 
+use the [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). 
+Templates make automating deployments easier by using PowerShell or the Azure CLI.
 
-We recommend putting API Management, any individual logic apps, Event Grid topics, and Service Bus namespaces in their own, separate Resource Manager templates. When you use separate templates, you can store the resources in source control systems. You can then deploy these templates together or individually as part of a continuous integration/continuous deployment (CI/CD) process.
+* Put API Management, any individual logic apps, Event Grid topics, 
+and Service Bus namespaces in their own separate Resource Manager templates. 
+By using separate templates, you can store the resources in source control systems. 
+You can then deploy these templates together or individually as part of a 
+continuous integration/continuous deployment (CI/CD) process.
 
 ### Diagnostics and monitoring
 
-Like API Management and Logic Apps, you can monitor Service Bus by using Azure Monitor. Azure Monitor provides information based on the metrics that are configured for each service. Azure Monitor is enabled by default.
+Like API Management and Logic Apps, you can monitor Service Bus by using Azure Monitor, 
+which is enabled by default. Azure Monitor provides information based on the metrics 
+that are configured for each service. 
 
 ## Security
 
-Secure Service Bus by using an SAS. You can use [SAS authentication](../service-bus-messaging/service-bus-sas.md) to grant a user access to Service Bus resources with specific rights. For more information, see [Service Bus authentication and authorization](../service-bus-messaging/service-bus-authentication-and-authorization.md).
+To secure Service Bus, use shared access signature (SAS). 
+For example, you can grant a user access to Service Bus 
+resources with specific rights by using [SAS authentication](../service-bus-messaging/service-bus-sas.md). 
+For more information, see [Service Bus authentication and authorization](../service-bus-messaging/service-bus-authentication-and-authorization.md).
 
-If a Service Bus queue needs to be exposed as an HTTP endpoint (for posting new messages), you should use API Management to secure it by fronting the endpoint. The endpoint can then be secured with certificates or OAuth as appropriate. The easiest way to secure an endpoint is by using a logic app with a request/response HTTP trigger as an intermediary.
+If you need to expose a Service Bus queue as an HTTP endpoint, 
+for example, to post new messages, use API Management to secure 
+the queue by fronting the endpoint. You can then secure the 
+endpoint with certificates or OAuth authentication as appropriate. 
+The easiest way you can secure an endpoint is using a logic app 
+with an HTTP request/response trigger as an intermediary.
 
-Event Grid secures event delivery through a validation code. If you use Logic Apps to consume the event, validation is performed automatically. For more information, see [Event Grid security and authentication](../event-grid/security-authentication.md).
+The Event Grid service secures event delivery through a validation code. 
+If you use Logic Apps to consume the event, validation is automatically performed. 
+For more information, see [Event Grid security and authentication](../event-grid/security-authentication.md).
 
 ## Next steps
 
