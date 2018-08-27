@@ -1,7 +1,6 @@
 ---
 title: "Quickstart: Use the Bing Web Search SDK for Java"
-description: Setup for Web Search SDK console application.
-titleSuffix: Azure Cognitive Services
+description: Learn to use the Bing Web Search SDK for Java.
 services: cognitive-services
 author: erhopf
 manager: cgronlun

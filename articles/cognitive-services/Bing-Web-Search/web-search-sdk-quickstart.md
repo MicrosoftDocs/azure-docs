@@ -1,15 +1,14 @@
 ---
 title: "Quickstart: Use the Bing Web Search SDK for C#"
-description: Setup for Web search SDK C# console application.
-titleSuffix: Azure cognitive services Web search SDK C# quickstart
+description: Learn to use the Bing Web Search SDK for C#.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
-ms.author: v-gedod, erhopf
+ms.author: erhopf
 ---
 
 # Quickstart: Use the Bing Web Search SDK for C#
@@ -405,4 +404,5 @@ When you're done with this project, make sure to remove your subscription key fr
 
 ## Next steps
 
-[Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+> [!div class="nextstepaction"]
+> [Cognitive Services Node.js SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)

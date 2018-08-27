@@ -1,8 +1,6 @@
 ---
 title: "Quickstart: Use the Bing Web Search SDK for Python"
-description: Setup for Web Search SDK console application.
-titleSuffix: Azure Cognitive Services Web search SDK Python quickstart
-services: cognitive-services
+description: Learn how to use the Bing Web Search SDK for Python.services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services

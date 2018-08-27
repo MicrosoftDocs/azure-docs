@@ -6,7 +6,6 @@ documentationcenter: na
 author: cawa
 manager: paulyuk
 editor: ''
-
 ms.assetid:
 ms.service: storage
 ms.devlang: multiple

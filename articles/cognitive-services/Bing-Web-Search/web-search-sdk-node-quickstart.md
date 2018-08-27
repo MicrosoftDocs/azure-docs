@@ -1,7 +1,6 @@
 ---
 title: "Quickstart: Use the Bing Web Search SDK for Node.js"  
-description: Setup for Web search SDK console application.
-titleSuffix: Azure cognitive services
+description: Learn to use the Bing Web Search SDK for Node.js.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
