@@ -27,11 +27,10 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-* Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
+* Install [Visual Studio 2017](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
+* Install the latest version of [Git](https://git-scm.com/download/).
 
-* Latest version of [Git](https://git-scm.com/download/) installed.
-
-## Prepare a development environment for the Azure IoT C SDK
+## Prepare the development environment
 
 In this section, you will prepare a development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) which includes the sample code for this article.
 
@@ -61,7 +60,7 @@ In this section, you will prepare a development environment used to build the [A
     cd cmake
     ```
 
-4. Run the following command which builds a version of the SDK specific to your development client platform. A Visual Studio solution for the simulated device will be generated in the `cmake` directory. 
+4. Run the following command that builds a version of the SDK specific to your development client platform. A Visual Studio solution for the simulated device will be generated in the `cmake` directory. 
 
     ```cmd
     cmake ..
@@ -125,7 +124,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## Send simulated telemetry
 
-The simulated device application connects to a device-specific endpoint on your IoT hub and sends simulated temperature and humidity telemetry.
+The simulated device application connects to a device-specific endpoint on your IoT hub and sends a string as simulated telemetry.
 
 1. Using a text editor, open the iothub_convenience_sample.c source file. The file is located in the following location:
 
@@ -147,7 +146,7 @@ The simulated device application connects to a device-specific endpoint on your 
     cd /azure-iot-sdk-c/cmake/iothub_client/samples/iothub_convenience_sample
     ```
 
-4. Run CMake using the following command-line to build the sample with your updated `connectionString` value:
+4. Run CMake using the following command line to build the sample with your updated `connectionString` value:
 
     ```cmd/sh
     cmake --build . --target iothub_convenience_sample --config Debug
