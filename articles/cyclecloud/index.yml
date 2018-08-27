@@ -71,3 +71,4 @@ sections:
       - html: <a href="download-cluster-templates">CycleCloud Cluster Templates</a>
       - html: <a href="https://github.com/CycleCloudCommunity">CycleCloud Community GitHub</a>
       - html: <a href="https://social.msdn.microsoft.com/Forums/en-US/home">Azure Forums</a>
+      - html: <a href="https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request">Create an Azure Support Request</a>

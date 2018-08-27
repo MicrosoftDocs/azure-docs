@@ -1,6 +1,6 @@
 ---
-title: Azure CycleCloud Cluster Reference | Microsoft Docs
-description: Using Clusters with Azure CycleCloud
+title: Azure CycleCloud Cluster Template Reference | Microsoft Docs
+description: Parameter reference for cluster templates for use with Azure CycleCloud
 services: azure cyclecloud
 author: KimliW
 ms.prod: cyclecloud
@@ -14,7 +14,7 @@ ms.author: a-kiwels
 
 ## Creating Clusters
 
-As stated above, clusters can be defined in a template file and created using the command line interface. Another option is to create a new cluster using the web interface. To create a new cluster, click the large **+** in the bottom left corner of the page. You will be prompted to select your cluster type from the list of Cycle-supported clusters. Once selected, you will need to enter or select a number of variables for your cluster, starting with your Cloud Provider, credentials, and region. Click **Next** to continue, or save/cancel your cluster.
+Clusters can be defined in a template file and created using the command line interface. Another option is to create a new cluster using the web interface. To create a new cluster, click the large **+** in the bottom left corner of the page. You will be prompted to select your cluster type from the list of Cycle-supported clusters. Once selected, you will need to enter or select a number of variables for your cluster, starting with your Cloud Provider, credentials, and region. Click **Next** to continue, or save/cancel your cluster.
 
 On the Cluster Software screen, you will select the OS of the manager and execute region for your cluster. Use the file picker to select the Cluster-Init specification file(s) to be used. You can have more than one spec file. Enter the path of the local keypair to allow CycleCloud the access required to run your job(s).
 
