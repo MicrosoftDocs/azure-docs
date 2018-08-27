@@ -52,6 +52,6 @@ Using the Azure AD portal, you can continue to add and remove members from group
 
 - [Search for and view your groups and associated members from the Azure AD portal](active-directory-groups-view-azure-portal.md)
 - Modify or delete a group - New, need to create
-- [Manage group and membership settings](active-directory-groups-settings-azure-portal.md)
+- [Edit your group settings](active-directory-groups-settings-azure-portal.md)
 - [Manage access to resources using groups](active-directory-manage-groups.md)
 - [Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

@@ -54,8 +54,18 @@ Using the Azure AD portal, you can edit a group's settings, including updating i
 ## Next steps
 These articles provide additional information on Azure Active Directory.
 
-* [See existing groups](active-directory-groups-view-azure-portal.md)
-* [Create a new group and adding members](active-directory-groups-create-azure-portal.md)
-* [Manage members of a group](active-directory-groups-members-azure-portal.md)
-* [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
-* [Manage dynamic rules for users in a group](../users-groups-roles/groups-dynamic-membership.md)
+- [View your groups and assigned members](active-directory-groups-view-azure-portal.md)
+
+- [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
+
+- [How to add or remove members from a group](active-directory-groups-members-azure-portal.md)
+
+- [Manage dynamic rules for users in a group](../users-groups-roles/groups-dynamic-membership.md)
+
+- Modify or delete a group - New, need to create
+
+- [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
+
+- [Manage access to resources using groups](active-directory-manage-groups.md)
+
+- [Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

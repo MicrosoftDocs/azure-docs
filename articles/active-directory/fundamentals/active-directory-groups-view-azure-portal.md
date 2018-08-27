@@ -40,8 +40,20 @@ You can search for a specific group, or see all of your groups, and view the ass
 
 ## Next steps
 
-- [Add or remove members from a group using the Azure AD portal](active-directory-groups-members-azure-portal.md)
+- [View your groups and assigned members](active-directory-groups-view-azure-portal.md)
+
+- [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
+
+- [How to add or remove members from a group](active-directory-groups-members-azure-portal.md)
+
 - Modify or delete a group - New, need to create
-- [Manage group and membership settings](active-directory-groups-settings-azure-portal.md)
+
+- [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
+
+- [Manage dynamic rules for users in a group](../users-groups-roles/groups-dynamic-membership.md)
+
+- [Edit your group settings](active-directory-groups-settings-azure-portal.md)
+
 - [Manage access to resources using groups](active-directory-manage-groups.md)
+
 - [Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
