@@ -126,13 +126,8 @@ Use the following steps to configure registry key tracking on Windows computers:
 
 The Change Tracking solution does not currently support the following items:
 
-* Folders (directories) for Windows file tracking
-* Recursion for Windows file tracking
-* Wild cards for Windows file tracking
 * Recursion for Windows registry tracking
-* Path variables
 * Network file systems
-* File Content
 
 Other limitations:
 
