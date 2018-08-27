@@ -16,7 +16,7 @@ ms.reviewer: carlrab
 
 Azure SQL Database Automatic tuning provides peak performance and stable workloads through continuous performance tuning based on AI and machine learning.
 
-Automatic tuning is a fully managed intelligent performance service that uses built-in intelligence to continuously monitor queries executed on a database, and it automatically improves their performance. This is achieved through dynamically adapting database to the changing workloads and applying tuning recommendations. Automatic tuning learns horizontally from all databases on Azure through Artificial Intelligence and it dynamically improves its tuning actions. The longer an Azure SQL Database runs with automatic tuning on, the better it performs.
+Automatic tuning is a fully managed intelligent performance service that uses built-in intelligence to continuously monitor queries executed on a database, and it automatically improves their performance. This is achieved through dynamically adapting database to the changing workloads and applying tuning recommendations. Automatic tuning learns horizontally from all databases on Azure through AI and it dynamically improves its tuning actions. The longer an Azure SQL Database runs with automatic tuning on, the better it performs.
 
 Azure SQL Database Automatic tuning might be one of the most important features that you can enable to provide stable and peak performing database workloads.
 
