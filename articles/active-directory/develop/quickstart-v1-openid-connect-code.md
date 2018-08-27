@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 # Azure AD Node.js web app getting started
 
-[!INCLUDE [active-directory-develop-applies-to-v1](../../../includes/active-directory-develop-applies-to-v1.md)]
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 Here we use Passport to:
 
