@@ -7,7 +7,7 @@ author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: erhopf
 ---
@@ -16,7 +16,7 @@ ms.author: erhopf
 
 The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Java application. In this quickstart, you'll learn how to send a request, receive a JSON response, and filter and parse the results.
 
-Want to see the code right now? The [Bing Web Search SDK for Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) are available on GitHub.
+Want to see the code right now? The [Bing Web Search SDK for Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/) are available on GitHub.
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
@@ -120,7 +120,7 @@ import com.microsoft.azure.cognitiveservices.search.websearch.models.VideoObject
 import com.microsoft.azure.cognitiveservices.search.websearch.models.WebPage;
 ```
 
-If you created the project with Maven, your package should already be declared. If not, declare the package now. For example:
+If you created the project with Maven, the package should already be declared. Otherwise, declare the package now. For example:
 
 ```java
 package com.bingwebsearch.app
@@ -128,7 +128,7 @@ package com.bingwebsearch.app
 
 ## Declare the BingWebSearchSample class
 
-Declare the `BingWebSearchSample` class. It will include most of the code we review in this quickstart including the `main` method.  
+Declare the `BingWebSearchSample` class. It will include most of our code including the `main` method.  
 
 ```java
 public class BingWebSearchSample {
@@ -140,7 +140,7 @@ public class BingWebSearchSample {
 
 ## Construct a request
 
-The `runSample` method, which lives in the `BingWebSearchSample` class, instantiates the client and constructs a request. Copy this code into your application:
+The `runSample` method, which lives in the `BingWebSearchSample` class, constructs the request. Copy this code into your application:
 
 ```java
 public static boolean runSample(BingWebSearchAPI client) {
@@ -169,7 +169,7 @@ public static boolean runSample(BingWebSearchAPI client) {
 
 ## Handle the response
 
-Next, let's add some code to parse the response and print the results. The `name` and `url` for the first web page, image, news article, and video are printed if present in the response object.
+Next, let's add some code to parse the response and print the results. The `name` and `url` for the first web page, image, news article, and video are printed when included in the response object.
 
 ```java
 /*
@@ -256,7 +256,7 @@ if (webData != null && webData.videos() != null && webData.videos().value() != n
 
 ## Declare the main method
 
-This method is required and is the first method invoked when the program is started. In this application, it includes code that instantiates the client, validates the `subscriptionKey`, and calls `runSample` to make a request and print the search results. Make sure that you enter a valid subscription key for your Azure account before continuing.
+In this application, the main method includes code that instantiates the client, validates the `subscriptionKey`, and calls `runSample`. Make sure that you enter a valid subscription key for your Azure account before continuing.
 
 ```java
 public static void main(String[] args) {

@@ -7,7 +7,7 @@ author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: erhopf
 ---
@@ -45,7 +45,7 @@ Let's start by setting up the development environment for our Node.js project.
     npm install --save ms-rest-azure
     ```
 
-Now you're ready to start coding.
+Now you're ready to get started.
 
 ## Create a project and declare required modules
 
