@@ -228,9 +228,9 @@ No change in the client project/service is required. Building client projects wi
 3. This step is optional. Use the V2 listener attribute, and then upgrade the V2 service.
 This step makes sure that the service is listening only on the V2 Listener.
 
-```csharp
-[assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2, RemotingClientVersion = RemotingClientVersion.V2)]
-```
+    ```csharp
+    [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2, RemotingClientVersion = RemotingClientVersion.V2)]
+    ```
 
 
 ## Use the remoting V2 (interface compatible) stack
@@ -350,10 +350,10 @@ No change in the client project/service is required. Building client projects wi
 3. This step is optional. Remove the V1 listener version from the attribute, and then upgrade the V2 service.
 This step makes sure that the service is listening only on the V2 listener.
 
-```csharp
-[assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1, RemotingClientVersion = RemotingClientVersion.V2_1)]
-```
-
+    ```csharp
+    [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1, RemotingClientVersion = RemotingClientVersion.V2_1)]
+    ```
+  
 ### Use custom serialization with a remoting wrapped message
 
 For a remoting wrapped message, we create a single wrapped object with all the parameters as a field in it.
@@ -539,13 +539,13 @@ Follow these steps:
 
 3. Override the default serialization provider with `JsonSerializationProvider` for a remoting client factory.
 
-```csharp
-var proxyFactory = new ServiceProxyFactory((c) =>
-{
-    return new FabricTransportServiceRemotingClientFactory(
-    serializationProvider: new ServiceRemotingJsonSerializationProvider());
-  });
-  ```
+    ```csharp
+    var proxyFactory = new ServiceProxyFactory((c) =>
+    {
+        return new FabricTransportServiceRemotingClientFactory(
+        serializationProvider: new ServiceRemotingJsonSerializationProvider());
+      });
+      ```
 
 ## Next steps
 
