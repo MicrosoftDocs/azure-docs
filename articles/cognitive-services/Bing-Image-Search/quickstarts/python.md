@@ -27,7 +27,7 @@ Additionally, the source code for this sample is available [on GitHub](https://g
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## Running the walkthrough
+## Running the quickstart
 
 To get started, set `subscription_key` to a valid subscription key for the Bing API service.
 

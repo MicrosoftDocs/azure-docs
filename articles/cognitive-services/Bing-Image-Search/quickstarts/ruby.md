@@ -12,13 +12,13 @@ ms.author: aahi
 ---
 # Quickstart: Send search queries using the REST API and Ruby
 
-Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. The simple application in this article sends a search query and displays the raw results.
+Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Ruby application sends a search query to the API and displays the raw results.
 
-While this application is written in PHP, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON.
+While this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
-* [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/).
+* [The latest version of Ruby](https://www.ruby-lang.org/en/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -31,37 +31,29 @@ To run this application, follow these steps.
 3. Replace `accessKey` with a valid subscription key.
 4. Run the program.
 
+1. import the following packages into your code file, and replace 
+
 ```ruby
 require 'net/https'
 require 'uri'
 require 'json'
+```
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+2. Create variables for the API endpoint, image API search path, your subscription key, and search term.
 
-# Replace the accessKey string value with your valid access key.
-accessKey = "enter key here"
-
-# Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-# search APIs.  In the future, regional endpoints may be available.  If you
-# encounter unexpected authorization errors, double-check this value against
-# the endpoint for your Bing Search instance in your Azure dashboard.
-
+```ruby
 uri  = "https://api.cognitive.microsoft.com"
 path = "/bing/v7.0/images/search"
-
 term = "puppies"
+```
 
-if accessKey.length != 32 then
-    puts "Invalid Bing Search API subscription key!"
-    puts "Please paste yours into the source code."
-    abort
-end
+## Format and make an API request
 
+3. Use the variables from the last step to format a search URL for the API request. Then send the request.
+
+```ruby
 uri = URI(uri + path + "?q=" + URI.escape(term))
 
-puts "Searching images for: " + term
 
 request = Net::HTTP::Get.new(uri)
 request['Ocp-Apim-Subscription-Key'] = accessKey
@@ -69,10 +61,15 @@ request['Ocp-Apim-Subscription-Key'] = accessKey
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
     http.request(request)
 end
+```
 
-puts "\nRelevant Headers:\n\n"
+## Process and print the JSON 
+
+1. After the response is received, you can print the JSON's headers, and body.
+
+```ruby
 response.each_header do |key, value|
-    # header names are coerced to lowercase
+    # header names are lowercased
     if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
         puts key + ": " + value
     end
@@ -82,7 +79,7 @@ puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-## JSON response
+## Sample JSON response
 
 Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result.
 

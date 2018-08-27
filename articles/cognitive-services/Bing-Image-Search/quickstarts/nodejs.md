@@ -23,7 +23,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 * The latest version of [Node.js](https://nodejs.org/en/download/).
 
-* The [JavaScript Request Library]
+* The [JavaScript Request Library](https://github.com/request/request)
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Create and initialize the application

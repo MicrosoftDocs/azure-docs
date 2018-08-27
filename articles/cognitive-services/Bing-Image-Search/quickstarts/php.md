@@ -30,7 +30,7 @@ To run this application, follow these steps.
 
 1. Make sure secure HTTP support is enabled in your `php.ini` file. On Windows, this file is located in `C:\windows`.
 2. Create a new PHP project in your favorite IDE or editor.
-3. Store the API endpoint, your subscription key, and search term.
+3. define the API endpoint, your subscription key, and search term.
 
     ```php
     $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
@@ -40,7 +40,7 @@ To run this application, follow these steps.
     ```
 ## Construct and perform a HTTP request
 
-1. Use the information from the last step to prepare a HTTP request to the Image Search API.
+1. Use the variables from the last step to prepare a HTTP request to the Image Search API.
 
     ```php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
