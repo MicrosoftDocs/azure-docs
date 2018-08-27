@@ -185,7 +185,7 @@ If you need help upgrading to a newer version of Azure AD Connect, open a suppor
 ## Troubleshooting
 **Q: How can I get help with Azure AD Connect?**
 
-[Search the Microsoft Knowledge Base (KB)](https://www.microsoft.com/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
+[Search the Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/search/result.aspx?q=azure+active+directory+connect)
 
 * Search the KB for technical solutions to common break-fix issues about support for Azure AD Connect.
 
