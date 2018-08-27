@@ -32,14 +32,16 @@ For serial console documentation for Windows VMs, [click here](../windows/serial
 ## Prerequisites 
 
 * You must be using the resource management deployment model. Classic deployments are not supported. 
-* Virtual machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled 
+* Your virtual machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled - see screenshot below.
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-* The account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
+* The Azure account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
+* The virtual machine for which you are acessing serial console must also have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functionality of the VM access extension - see the screenshot below.
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 * For settings specific to Linux distros, see [Access the serial console for Linux](#access-serial-console-for-linux)
 
 
 
-## Open the Serial Console
+## Get started with Serial Console
 Serial console for virtual machines is only accessible via [Azure portal](https://portal.azure.com). Below are the steps to access serial console for virtual machines via portal 
 
   1. Open the Azure portal

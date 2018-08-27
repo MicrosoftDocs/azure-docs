@@ -90,7 +90,7 @@ The following table shows how to the versions of Windows and of the language run
 | Python version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `python --version` |  
 
 > [!NOTE]  
-> Access to registry location `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, where information on ["KB" patches]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)) is stored, is locked down.
+> Access to registry location `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, where information on ["KB" patches](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) is stored, is locked down.
 >
 >
 

@@ -1,19 +1,12 @@
 ---
-title: How to secure access to Azure Data Catalog | Microsoft Docs
+title: How to secure access to Azure Data Catalog
 description: This article explain how to secure data catalog and its data assets.
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
-ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.date: 01/18/2018
 ms.author: maroche
-
+ms.service: data-catalog
+ms.topic: conceptual
+ms.date: 01/18/2018
 ---
 # How to secure access to data catalog and data assets
 > [!IMPORTANT]
