@@ -193,7 +193,7 @@ These steps change the template code to use the V2 stack by using explicit V2 cl
 
 ## Upgrade from remoting V1 to remoting V2
 
-To upgrade from V1 to V2, two-step upgrades are required. Follow the steps in the sequence as listed.
+To upgrade from V1 to V2, two-step upgrades are required. Follow the steps in this sequence.
 
 1. Upgrade the V1 service to V2 service by using this attribute.
 This change makes sure that the service listens on the V1 and V2 listener.
@@ -226,7 +226,7 @@ This step makes sure the client uses the V2 stack.
 No change in the client project/service is required. Building client projects with updated interface assembly is sufficient.
 
 3. This step is optional. Use the V2 listener attribute, and then upgrade the V2 service.
-This step makes sure that the service is listening only on the V2 Listener.
+This step makes sure that the service is listening only on the V2 listener.
 
     ```csharp
     [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2, RemotingClientVersion = RemotingClientVersion.V2)]
@@ -315,7 +315,7 @@ Follow these steps:
 
 ## Upgrade from remoting V1 to remoting V2 (interface compatible)
 
-To upgrade from V1 to V2 (interface compatible, known as V2_1), two-step upgrades are required. Follow the steps in the sequence as listed.
+To upgrade from V1 to V2 (interface compatible, known as V2_1), two-step upgrades are required. Follow the steps in this sequence.
 
 1. Upgrade the V1 service to V2_1 service by using the following attribute.
 This change makes sure that the service is listening on the V1 and the V2_1 listener.

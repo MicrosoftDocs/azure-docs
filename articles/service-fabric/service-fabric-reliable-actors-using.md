@@ -166,7 +166,7 @@ The following changes are required to use the remoting V2_1 stack:
 
 ### Actor service upgrade to remoting V2 (interface compatible) stack without affecting service availability
 
-This change is a two-step upgrade. Follow the steps in the sequence as listed.
+This change is a two-step upgrade. Follow the steps in this sequence.
 
 1. Add the following assembly attribute on actor interfaces. This attribute starts two listeners for the actor service, V1 (existing) and the V2_1 listener. Upgrade the actor service with this change.
 
@@ -199,7 +199,7 @@ The following changes are required to use the remoting V2 stack.
 
 ### Upgrade the actor service to the remoting V2 stack without affecting service availability
 
-This change is a two-step upgrade. Follow the steps in the same sequence as listed.
+This change is a two-step upgrade. Follow the steps in this sequence.
 
 1. Add the following assembly attribute on actor interfaces. This attribute starts two listeners for the actor service, V1 (existing) and the V2 listener. Upgrade the actor service with this change.
 
