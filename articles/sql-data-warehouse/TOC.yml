@@ -211,7 +211,7 @@
       href: analyze-your-workload.md    
   - name: Monitor and tune
     items:
-    - name: Monitor your data warehouse workload with DMVs
+    - name: Monitor your workload
       href: sql-data-warehouse-manage-monitor.md
     - name: Restore - Portal
       href: sql-data-warehouse-restore-database-portal.md
