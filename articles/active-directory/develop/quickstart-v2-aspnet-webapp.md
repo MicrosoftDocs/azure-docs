@@ -21,7 +21,8 @@ ms.custom: aaddev
 
 # Quickstart: Add sign-in with Microsoft to an ASP.NET web app
 
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+> [!div renderon="docs"]
+> [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 In this quickstart, you'll learn how a ASP.NET Web App can sign in personal accounts (hotmail.com, outlook.com, others) and work and school accounts from any Azure Active Directory instance.
 
@@ -48,7 +49,7 @@ In this quickstart, you'll learn how a ASP.NET Web App can sign in personal acco
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
-> For the code sample for this quickstart to work, you need to add a reply URL as `http<span/>://localhost:44368/`.
+> For the code sample for this quickstart to work, you need to add a reply URL as `http://localhost:44368/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
