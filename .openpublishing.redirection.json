@@ -165,6 +165,12 @@
             "redirect_url": "/azure/iot-fundamentals/iot-introduction",
             "redirect_document_id": false
         },
+
+        {
+            "source_path": "articles/iot-hub/iot-hub-create-using-cli-nodejs.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-create-using-cli",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-tutorial-analytics.md",
             "redirect_url": "/azure/cognitive-services/custom-decision-service",
@@ -2734,6 +2740,16 @@
             "source_path": "articles/logic-apps/logic-apps-deploy-from-vs.md",
             "redirect_url": "/azure/logic-apps/logic-apps-create-deploy-template",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/connectors/connectors-create-api-sharepointserver.md",
+            "redirect_url": "/azure/connectors/connectors-create-api-sharepoint",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/connectors/connectors-create-api-sharepointonline.md",
+            "redirect_url": "/azure/connectors/connectors-create-api-sharepoint",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/logic-apps/custom-connector-build-web-api-app-tutorial.md",
@@ -26464,6 +26480,26 @@
         {
             "source_path": "articles/azure-stack/user/azure-stack-powershell-download.md",
             "redirect_url": "/azure/azure-stack/azure-stack-powershell-download",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-extension-host-prepare.md",
+            "redirect_url": "/azure/azure-stack",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-metrics-azure-data.md",
+            "redirect_url": "/azure/azure-stack",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-metrics-monitor.md",
+            "redirect_url": "/azure/azure-stack",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-metrics-supported.md",
+            "redirect_url": "/azure/azure-stack",
             "redirect_document_id": false
         },
         {

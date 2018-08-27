@@ -33,6 +33,10 @@ This article explains how to work with [Azure Cosmos DB](..\cosmos-db\serverless
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+## Supported APIs
+
+[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
+
 ## Packages - Functions 1.x
 
 The Azure Cosmos DB bindings for Functions version 1.x are provided in the [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet package, version 1.x. Source code for the bindings is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) GitHub repository.
@@ -212,10 +216,7 @@ The trigger doesn't indicate whether a document was updated or inserted, it just
 
 ## Input
 
-The Azure Cosmos DB input binding retrieves one or more Azure Cosmos DB documents and passes them to the input parameter of the function. The document ID or query parameters can be determined based on the trigger that invokes the function. 
-
->[!NOTE]
-> Don't use Azure Cosmos DB input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible.
+The Azure Cosmos DB input binding uses the SQL API to retrieve one or more Azure Cosmos DB documents and passes them to the input parameter of the function. The document ID or query parameters can be determined based on the trigger that invokes the function.
 
 ## Input - examples
 
@@ -1182,10 +1183,7 @@ In JavaScript functions, updates are not made automatically upon function exit. 
 
 ## Output
 
-The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database. 
-
->[!NOTE]
-> Don't use Azure Cosmos DB input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible.
+The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database using the SQL API. 
 
 ## Output - examples
 
