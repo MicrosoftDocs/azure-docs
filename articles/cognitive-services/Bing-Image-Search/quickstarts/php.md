@@ -24,7 +24,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## Create and initialize a project
+## Create and initialize the application
 
 To run this application, follow these steps.
 

@@ -14,7 +14,7 @@ ms.author: aahi
 
 Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Ruby application sends a search query to the API and displays the raw results.
 
-While this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
+While this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -22,16 +22,9 @@ While this application is written in PHP, the API is a RESTful Web service compa
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## Running the application
+## Create and initialize the application
 
-To run this application, follow these steps.
-
-1. Create a new Ruby project in your favorite IDE or editor.
-2. Add the provided code.
-3. Replace `accessKey` with a valid subscription key.
-4. Run the program.
-
-1. import the following packages into your code file, and replace 
+1. import the following packages into your code file.
 
 ```ruby
 require 'net/https'
