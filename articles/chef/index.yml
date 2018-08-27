@@ -3,16 +3,14 @@ documentType: LandingData
 title: Chef Software on Azure Documentation
 metadata:
   title: Chef Software on Azure Documentation - Tutorials, samples, reference, and resources
-  meta.description: Chef Software provides a DevOps automation platform for Linux and Windows that enables the management of both physical and virtual server configurations. Learn how to use Chef Software products to automate infrastructure as code (IaC) recipes and manage and deploy virtual machines on Azure with quickstarts and tutorials.
-  services: chef
+  description: Chef Software provides a DevOps automation platform for Linux and Windows that enables the management of both physical and virtual server configurations. Learn how to use Chef Software products to automate infrastructure as code (IaC) recipes and manage and deploy virtual machines on Azure with quickstarts and tutorials.
+  ms.service: chef
+  keywords: chef, azure, devops, tutorials, samples, reference
   author: tomarcher
   manager: jeconnoc
-  ms.service: chef
-  ms.tgt_pltfrm: na
-  ms.devlang: devops
-  ms.topic: landing page
-  ms.date: 05/15/2018
   ms.author: tarcher
+  ms.topic: landing page
+  ms.date: 08/27/2018
 abstract:
   description: Chef Software provides a DevOps automation platform for Linux and Windows that enables the management of both physical and virtual server configurations. Learn how to use Chef Software products to automate infrastructure as code (IaC) recipes and manage and deploy virtual machines on Azure with quickstarts and tutorials.
   aside: 
