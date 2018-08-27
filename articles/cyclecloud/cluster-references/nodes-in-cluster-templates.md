@@ -64,10 +64,10 @@ There are a minimum of 4 required attributes to successfully start a node:
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-`MachineType` | String | The Azure VM Size
-`SubnetId` | String | Subnet definition in the form `${rg}/${vnet}/${subnet}`
-`Credentials` | String | Name of the Cloud Provider account.
-`ImageName` | String | Cycle-supported image name.  cycle.image.[win2016, win2012, centos7, centos6, ubuntu16, ubuntu14]
+MachineType | String | The Azure VM Size
+SubnetId | String | Subnet definition in the form `${rg}/${vnet}/${subnet}`
+Credentials | String | Name of the Cloud Provider account.
+ImageName | String | Cycle-supported image name.  cycle.image.[win2016, win2012, centos7, centos6, ubuntu16, ubuntu14]
 
 ### Image Attributes
 
@@ -75,25 +75,25 @@ The VM image is also a required setting to launch a virtual machine. There are t
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-`Azure.Publisher` | String | Publisher of VM Marketplace image
-`Azure.Offer` | String | Offer for VM Marketplace image
-`Azure.Sku` | String | Sku of VM Marketplace image
-`Azure.ImageVersion` | String | Image Version of Marketplace image.
+Azure.Publisher | String | Publisher of VM Marketplace image
+Azure.Offer | String | Offer for VM Marketplace image
+Azure.Sku | String | Sku of VM Marketplace image
+Azure.ImageVersion | String | Image Version of Marketplace image.
 
 Alternatively, the resource ID of a VM image in the Credential subscription can be used:
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-`ImageId` | String | Resource ID of vm image, requires `Azure.SinglePlacementGroup`
+ImageId | String | Resource ID of vm image, requires `Azure.SinglePlacementGroup`
 
 These two variations need a few additional settings to properly configure the CycleCloud OS extension:
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-`InstallJetpack` | Boolean | CycleCloud will install jetpack with os extension.
-`AwaitInstallation` | Boolean | Once a vm is started, wait for jetpack to report installation details.
-`JetpackPlatform` | String | Jetpack installer platform to use: centos-7, centos-6, ubuntu-14, ubuntu-16, windows
-`ImageOs` | String | Either `windows` or `linux` to inform CycleCloud how to structure the os extension.
+InstallJetpack | Boolean | CycleCloud will install jetpack with os extension.
+AwaitInstallation | Boolean | Once a vm is started, wait for jetpack to report installation details.
+JetpackPlatform | String | Jetpack installer platform to use: centos-7, centos-6, ubuntu-14, ubuntu-16, windows
+ImageOs | String | Either `windows` or `linux` to inform CycleCloud how to structure the os extension.
 
 ### Alternative Image Sample
 
@@ -134,11 +134,11 @@ Here is a sample template using the three alternate image constructs for the nod
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-`IsReturnProxy` | boolean | Establish reverse channel proxy to this node. Only one node per cluster may have this setting as true.
-`KeyPairLocation` | Integer | Where CycleCloud will find a ssh keypair on the local filesystem
-`ReturnPath.Hostname` | Hostname | Hostname where node can reach CycleCloud.
-`ReturnPath.WebserverPort` | Integer | Webserver port where node can reach CycleCloud.
-`ReturnPath.BrokerPort` | Integer | Broker where node can reach CycleCloud.
+IsReturnProxy | boolean | Establish reverse channel proxy to this node. Only one node per cluster may have this setting as true.
+KeyPairLocation | Integer | Where CycleCloud will find a ssh keypair on the local filesystem
+ReturnPath.Hostname | Hostname | Hostname where node can reach CycleCloud.
+ReturnPath.WebserverPort | Integer | Webserver port where node can reach CycleCloud.
+ReturnPath.BrokerPort | Integer | Broker where node can reach CycleCloud.
 
 ### Tags
 
@@ -156,12 +156,12 @@ elastic resource so additional attributes are available.
 
 Attribute | String | Definition
 ------ | ----- | ----------
-`Azure.AllocationMethod`  | String | Set this to `StandAlone` to manage single VMs or leave undefined to use VM ScaleSets
-`Azure.SinglePlacementGroup`  | Boolean | Use a single placement group for all VMSS, required by `ImageId`
-`InitialCount` | Integer | Number of nodes to start when cluster starts.
-`MaxCount` | Integer | To ensure that the cluster never exceeds 10 nodes you would specify a value of 10. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
-`InitialCoreCount` | Integer | Number of cores to start when cluster starts.
-`MaxCoreCount` | Integer | To ensure that the cluster never exceeds 100 cores you would specify a value of 100. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
+Azure.AllocationMethod  | String | Set this to `StandAlone` to manage single VMs or leave undefined to use VM ScaleSets
+Azure.SinglePlacementGroup  | Boolean | Use a single placement group for all VMSS, required by `ImageId`
+InitialCount | Integer | Number of nodes to start when cluster starts.
+MaxCount | Integer | To ensure that the cluster never exceeds 10 nodes you would specify a value of 10. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
+InitialCoreCount | Integer | Number of cores to start when cluster starts.
+MaxCoreCount | Integer | To ensure that the cluster never exceeds 100 cores you would specify a value of 100. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
 
 ## Subordinate Objects
 

@@ -38,8 +38,8 @@ The `$` is a reference to a parameter name.
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-`AssociatePublicIpAddress` | Integer | Associate a public ip address with the NIC.
-`EnableIpForwarding` | Boolean | If true, allow ip forwarding.
-`PrivateIp` | IP Address | Assign a specific private ip address (node only)
-`NetworkInterfaceId` | String | Specify an existing NIC by resource ID.
-`ApplicationSecurityGroups` | String (list) | List of Application Security Groups by Resource ID and separated by comma
+AssociatePublicIpAddress | Integer | Associate a public ip address with the NIC.
+EnableIpForwarding | Boolean | If true, allow ip forwarding.
+PrivateIp | IP Address | Assign a specific private ip address (node only)
+NetworkInterfaceId | String | Specify an existing NIC by resource ID.
+ApplicationSecurityGroups | String (list) | List of Application Security Groups by Resource ID and separated by comma

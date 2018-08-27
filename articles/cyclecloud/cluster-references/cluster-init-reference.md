@@ -48,7 +48,7 @@ comes from the node defaults, followed by `myproject:x.y.x`, and finally `my-pro
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-`Project` | String | Name of CycleCloud Project.
-`Version` | String | Version of CycleCloud project spec.
-`Spec` | String | Name of CycleCloud Project spec.
-`Locker` | String | Name of locker from which to download project spec.
+Project | String | Name of CycleCloud Project.
+Version | String | Version of CycleCloud project spec.
+Spec | String | Name of CycleCloud Project spec.
+Locker | String | Name of locker from which to download project spec.

@@ -43,13 +43,13 @@ The `$` is a reference to a parameter name.
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-`Size` | String | (Required) Size of disk in GB
-`VolumeId` | String | Resource id for existing Azure Disk.
-`SSD` | Boolean | If true use premium disk sku otherwise use standard disk. Default is false.  Planned obsolescence in favor of `Azure.StorageSkuTier` or `Azure.StorageSkuName`
-`Azure.Lun` | Integer | Override the auto-assigned LUN ID.
-`Mount` | String | Name of mount construct, described in `configuration` object
-`Azure.Caching` | String | None, readonly, readwrite. Default is none.
-`Persistent` | Boolean | If false, disk will be deleted with vm is deleted. Default is false.
+Size | String | (Required) Size of disk in GB
+VolumeId | String | Resource id for existing Azure Disk.
+SSD | Boolean | If true use premium disk sku otherwise use standard disk. Default is false.  Planned obsolescence in favor of `Azure.StorageSkuTier` or `Azure.StorageSkuName`
+Azure.Lun | Integer | Override the auto-assigned LUN ID.
+Mount | String | Name of mount construct, described in `configuration` object
+Azure.Caching | String | None, readonly, readwrite. Default is none.
+Persistent | Boolean | If false, disk will be deleted with vm is deleted. Default is false.
 
 ### Boot Volume
 
