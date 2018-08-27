@@ -1,5 +1,5 @@
 ---
-title: 1. Create an app to learn what an intent is - Azure Cognitive Services | Microsoft Docs
+title: Tutorial - 1. Create an app with two intents to learn how to  determine user intentions - Azure Cognitive Services | Microsoft Docs
 description: In this tutorial, create a custom Human Resources (HR) app that predicts a user's intention based on the utterance (text). When you're finished, you have a LUIS endpoint running in the cloud. This app is the simplest type of LUIS app because it doesn't extract various data elements from the utterance text such as email addresses or dates. It only determines the user's overall intention of the utterance.
 services: cognitive-services
 author: diberry
@@ -7,12 +7,12 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/17/2018
+ms.date: 08/27/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to create a Human Resources app, so that I can analyze user text in that subject domain.
 ---
 
-# Tutorial: 1. Build custom LUIS app
+# Tutorial: 1. Build custom app to determine user intentions
 
 <!-- clean up -->
 
@@ -37,17 +37,13 @@ LUIS doesn't provide answers to user utterances, it only identifies what type of
 
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-
-
 ## Scenario
 
-The purpose of the app is to determine the intention of conversational, natural language text. These intentions are categorized into **Intents**. This app has a few intents. The first intent, **`GetJobInformation`**, identifies when a user wants information about jobs available inside a company. The second intent, **`None`**, is used for any utterances from the user that are outside the _domain_ (scope) of this app. Later, a third intent, **`ApplyForJob`**, is added for any utterances about applying for a job. This third intent is different from `GetJobInformation` because the job information should already be known when someone applies for the job. However, depending on the word choice, determining which intent may be tricky as they both are about a job.
-
-Use [https://www.luis.ai](https://www.luis.ai) as the LUIS portal with applications in the `en-us` culture, and use the free starter key as the publishing key. 
+The purpose of the app is to determine the intention of conversational, natural language text. These intentions are categorized into **Intents**. This app has a few intents. The first intent, **`GetJobInformation`**, identifies when a user wants information about jobs available inside a company. The second intent, **`None`**, is used for any utterances from the user that are outside the _domain_ (scope) of this app. Later, a third intent, **`ApplyForJob`**, is added for any utterances about applying for a job. This third intent is different from `GetJobInformation` because the job information should already be known when someone applies for the job. However, depending on the word choice, determining which intent may be tricky because both are about a job.
 
 ## Create a new app
 
-1. Log in to the LUIS portal. 
+1. Log in to the LUIS portal with the URL of [https://www.luis.ai](https://www.luis.ai). 
 
 2. Select **Create new app**.  
 
@@ -114,7 +110,7 @@ These example utterances, outside the subject domain, are grouped into the **Non
 
 2. Go to the end of the URL in the address bar and enter `I'm looking for a job with Natural Language Processing`. The last query string parameter is `q`, the utterance **query**. This utterance is not the same as any of the example utterances. It is a good test and should return the `GetJobInformation` intent as the top scoring intent. 
 
-    ```
+    ```JSON
     {
       "query": "I'm looking for a job with Natural Language Processing",
       "topScoringIntent": {
@@ -178,7 +174,7 @@ Return to the LUIS website and create a new intent to determine if the user utte
 
 2. In the new browser window, enter `Can I submit my resume for job 235986` at the end of the URL. 
 
-    ```
+    ```JSON
     {
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {
@@ -207,7 +203,7 @@ Return to the LUIS website and create a new intent to determine if the user utte
 
 ## What has this LUIS app accomplished?
 
-This app, with just a few intents, identified a conversational, natural language query from a user. The query is for the same intent, ApplyForJob, but worded differently than any of the example utterances.  
+This app, with just a few intents, identified a conversational, natural language query from a user. 
 
 ## Clean up resources
 
