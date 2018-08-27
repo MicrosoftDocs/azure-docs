@@ -80,7 +80,7 @@ Use a computer that can connect to the Azure Stack privileged endpoint for the n
 3. Import the certificate for hosting endpoint. Adjust the script to match your environment.
 
     ```PowerShell  
-    $CertPassword = ConvertTo-SecureString "***" -AsPlainText -Force
+    $CertPassword = read-host -AsSecureString -prompt "Certificate Password" 
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
 
