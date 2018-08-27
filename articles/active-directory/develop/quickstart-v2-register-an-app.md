@@ -20,11 +20,10 @@ ms.custom: aaddev
 ---
 
 # How to register an app with the v2.0 endpoint
+
+[!INCLUDE [active-directory-develop-applies-to-v2](../../../includes/active-directory-develop-applies-to-v2.md)]
+
 To build an app that accepts both personal Microsoft account (MSA) & work or school account (Azure AD) sign-in, you'll first need to register an app with Microsoft. At this time, you won't be able to use any existing apps you may have with Azure AD or MSA - you'll need to create a brand new one.
-
-> [!NOTE]
-> Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about the [v2.0 limitations](active-directory-v2-limitations.md).
-
 
 ## Visit the Microsoft app registration portal
 First, navigate to the Microsoft app registration portal at [https://apps.dev.microsoft.com/](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList). 
