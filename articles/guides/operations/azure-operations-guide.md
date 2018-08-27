@@ -50,7 +50,7 @@ For more information on the available Azure regions, see [Azure regions](https:/
 
 ### Cloud computing model
 
-Azure uses a cloud computing model based on categories of service provided to customers. The three categories of service include Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). Vendors share some or all of the responsiblity for components in the computing stack in each of these categories. Let's take a look at each of the categories for cloud computing.
+Azure uses a cloud computing model based on categories of service provided to customers. The three categories of service include Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). Vendors share some or all of the responsibility for components in the computing stack in each of these categories. Let's take a look at each of the categories for cloud computing.
 ![Cloud Computing Stack Comparison](./media/cloud-computing-comparison.png)
 
 #### IaaS: Infrastructure as a service
@@ -63,7 +63,7 @@ Virtual machine scale sets are built on top of Azure Virtual Machines and provid
 
 #### PaaS: Platform as a service
 
-With PaaS, you deploy your application into an environment that the cloud service vendor provides. The vendor does all of the infrastructure management so you can  focus on application development and data managment.
+With PaaS, you deploy your application into an environment that the cloud service vendor provides. The vendor does all of the infrastructure management so you can  focus on application development and data management.
 
 Azure provides several PaaS compute offerings, including the Web Apps feature of Azure App Service and Azure Cloud Services (web and worker roles). In either case, developers have multiple ways to deploy their application without knowing anything about the nuts and bolts that support it. Developers don’t have to create virtual machines (VMs), use Remote Desktop Protocol (RDP) to sign in to each one, or install the application. They just hit a button (or close to it), and the tools provided by Microsoft provision the VMs and then deploy and install the application on them.
 
@@ -149,7 +149,7 @@ The Azure portal is a web-based application that can be used to create, manage, 
 
 ### Resources
 
-Azure resources are individual compute, networking, data, or app hosting services that have been deployed into an Azure subscription. Some common resources are virtual machines, storage accounts, or SQL databases. Azure services often consist of several related Azure resources. For instance, an Azure virtual machine might include a VM, storage account, network adapter, and public IP address. These resourcres can be created, managed, and deleted individually or as a group. Azure resources are covered in more detail later in this guide.
+Azure resources are individual compute, networking, data, or app hosting services that have been deployed into an Azure subscription. Some common resources are virtual machines, storage accounts, or SQL databases. Azure services often consist of several related Azure resources. For instance, an Azure virtual machine might include a VM, storage account, network adapter, and public IP address. These resources can be created, managed, and deleted individually or as a group. Azure resources are covered in more detail later in this guide.
 
 ### Resource groups
 
@@ -281,7 +281,7 @@ A Resource Manager template consists of four sections:
 
 - **Variables**: These are used to hold values that are used throughout the deployment. Unlike parameters, a variable value is not provided at deployment time. Instead, it’s hard coded or dynamically generated.
 
--   **Resources**: This section of the template defines the resources to be deployed, such as virtual machines, storage accounts, and virtual networks.
+- **Resources**: This section of the template defines the resources to be deployed, such as virtual machines, storage accounts, and virtual networks.
 
 - **Output**: After a deployment has finished, Resource Manager can return data such as dynamically generated connection strings.
 
