@@ -1,18 +1,28 @@
-# Configuration
+---
+title: Azure CycleCloud Cluster Template Reference | Microsoft Docs
+description: Configuration reference for cluster templates for use with Azure CycleCloud
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
 
-Configuration objects are rank 3 and subordinate to `node`.
-The configuration object define the configurable properties for the
-configuration code which runs on the nodes; CycleCloud Project Configurations.
+# Cluster Configuration
+
+Configuration objects are rank 3, and subordinate to `node`. The configuration object define the configurable properties for the configuration code that runs on the nodes and CycleCloud Project configurations.
 
 ## Object Attributes
 
-Configuration object attributes behave like other objects but are extended
-to provide nested definitions. Internally the configuration sections are merged,
+Configuration object attributes behave like other objects, but are extended
+to provide nested definitions. Internally, the configuration sections are merged,
 so there can be an arbitrary number of sections.
 
 No quotes are necessary for strings or for boolean expressions, true or false.
 
-```ini
+``` ini
 [[[configuraton my-project]]]
 Attribute1 = Value1
 Attribute2 = Value2
@@ -45,12 +55,12 @@ CycleCloud supports the parameterized configuration of many system services.
 
 ### `[[[configuration cyclecloud.mounts]]]`
 
-A significant subdomain of the cyclecloud configuration is mounts. Each named 
+A significant subdomain of the cyclecloud configuration is mounts. Each named
 mount section corresponds to an entry in `/etc/fstab`.
 
 An example of a mount section named `primary`.
 
-```ini
+``` ini
   [[[configuration cyclecloud.mounts.primary]]]
     type = nfs
     mountpoint = /usr/share/lsf
@@ -59,8 +69,8 @@ An example of a mount section named `primary`.
     address = 10.0.0.14
 ```
 
-*The mount section name correlates to the `mount` attribute of a `[[[volume]]]` object.*
-
+> [!NOTE]
+> The mount section name correlates to the `mount` attribute of a `[[[volume]]]` object.
 
 | Attribute | Type          | Description                                                                                                                                                    |
 | ------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -84,10 +94,10 @@ An example of a mount section named `primary`.
 
 ### `[[[configuration cyclecloud.exports]]]`
 
-Similar to mounts cyclecloud nodes can be configured as nfs servers. If the server
-recipe is enabled.  Export section corresponds to /etc/exports entry.
+Similar to mounts, CycleCloud nodes can be configured as NFS servers if the server
+recipe is enabled. Export section corresponds to /etc/exports entry.
 
-An example of using exports with an export object name `nfs_data`.
+An example of using exports with an export object name `nfs_data`:
 
 ``` ini
 [[[configuration cyclecloud.exports.nfs_data]]]
@@ -95,7 +105,6 @@ type = nfs
 export_path = /mnt/exports/nfs_data
 writable = false
 ```
-
 
 | Attribute | Type          | Description                                                                                                                                                    |
 | ---------| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -108,4 +117,3 @@ writable = false
 | sync      | Boolean   | Synchronous/asynchronous export option.  Defaults to `true`.                                                                                            |
 | writable    | Boolean  | The ro/rw export option for the filesystem. Defaults to `true`.                                                                                         |
 | options     | String     | Any non-default options to use when exporting the filesystem.                                                                                           |
-

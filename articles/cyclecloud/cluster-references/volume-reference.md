@@ -1,13 +1,24 @@
-# Volume
+---
+title: Azure CycleCloud Cluster Template Reference | Microsoft Docs
+description: Volume reference for cluster templates for use with Azure CycleCloud
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
 
-Volume objects are subordinate in rank to `node`.
-Volume represents an Azure Disk.
+# Volumes
+
+Volume objects are subordinate in rank to `node`. Volume represents an Azure Disk.
 
 ## Example
 
 Adding a `[[[volume]]]` section to a node will create an Azure Disk and attach it to the vm.
 
-```ini
+``` ini
 [cluster my-cluster]
   [[node my-node]]
     Credentials = $Credentials
@@ -25,6 +36,7 @@ Adding a `[[[volume]]]` section to a node will create an Azure Disk and attach i
     [[[volume data]]]
       VolumeId = /subscriptions/8FADA0F6-602B-4BC6-82F8-EF4701B65C87/resourceGroups/my-rg/providers/Microsoft.Compute/disks/datadisk
 ```
+
 The `$` is a reference to a parameter name.
 
 ## Attribute Reference
@@ -41,10 +53,10 @@ Attribute | Type | Definition
 
 ### Boot Volume
 
-For each node, the volume named `boot` exposes some available configuration 
+For each node, the volume named `boot` exposes some available configuration
 of the OS boot volume.
 
-```ini
+``` ini
   [[node scheduler]]
     [[[volume boot]]]
       Size = 100

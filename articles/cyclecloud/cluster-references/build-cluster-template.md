@@ -1,13 +1,24 @@
-# Cluster
+---
+title: Azure CycleCloud Cluster Reference Docs | Microsoft Docs
+description: Build a new cluster template file and fill in the desired attributes with the parameters shown here.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
 
-A Cluster Template file must have at least one `[cluster]` section with an inline name attribute.  It is the only required section of the file.
+# Build a New Cluster Template
 
+A Cluster Template file must have at least one `[cluster]` section with an inline name attribute.  This is the only required section of the file.
 
 ## Examples
 
 Conventional cluster template files have a single cluster declaration.  
 
-```ini
+``` ini
 [cluster my-cluster]
     FormLayout = selectionpanel
     Category = My Templates
@@ -18,7 +29,6 @@ Conventional cluster template files have a single cluster declaration.
     [[node defaults]]
         Credentials = $Credentials
 ```
-
 
 ## Attribute Reference
 
@@ -39,4 +49,3 @@ _None of the cluster attributes are required_
 ## Subordinate Objects
 
 The cluster object has either `[[node]]` or `[[nodearray]]` as subordinate objects.
-

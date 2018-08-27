@@ -1,15 +1,27 @@
-# Parameter
+---
+title: Azure CycleCloud Cluster Template Reference | Microsoft Docs
+description: Parameter reference for cluster templates for use with Azure CycleCloud
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
 
-Parameter(s) are a multirank object 1, 2 ... n as it can be subordinate
+# Cluster Parameters
+
+Parameter(s) are a multirank object 1, 2 ... n that can be subordinate
 to `[parameters]`.
 
 `[parameter]`, singular is a parameter object and can be referenced by other objects.
 `[parameters]`, plural, is a section.  
 
-```ini
+``` ini
 [parameters main]
   [[parameters sub-main]]
-    [[[parameters sub-sub-main]]] 
+    [[[parameters sub-sub-main]]]
       [[[[parameter my-parameter]]]]
 ```
 
@@ -17,14 +29,14 @@ The nested parameter structure are exclusively for the purpose of rendering the
 parameter selection menus. Do not mix parameter ranks in a single template or UI
 rendering will be adversely affected.
 
-# Examples
+## Examples
 
 Many of the attributes for parameters are dedicated to support selection of
 parameter values in the UI. CycleCloud maintains a list of Azure Subnets in the
 managed subscription and we have a special parameter attribute for selecting from
 that list.
 
-```ini
+``` ini
 [cluster scheduler]
 Autoscale = $Autoscale
   [[node defaults]]
@@ -43,8 +55,6 @@ Autoscale = $Autoscale
   Widget.Label = Start and stop execute instances automatically
 ```
 The `$` is a reference to a parameter name.
-
-
 
 ## Attribute Reference
 
@@ -76,17 +86,16 @@ ParamterType | Definition
 Boolean | Boolean checkbox selector
 String | String parameter field
 StringList | String list builder
-Password | Entering a password with obfuscation. 
+Password | Entering a password with obfuscation.
 Cloud.Region | Supported and available Azure Location. *Recommended for all Cluster Templates.*
 Cloud.Credentials | CycleCloud Provider Account. *Recommended for all Cluster Templates.*
 Cloud.ClusterInitSpecs | Cluster-Init Project selector.
-Azure.LiveStorageAccount | 
-Azure.LiveStorageContainer | 
-Azure.Location | 
-Azure.StorageAccount | 
+Azure.LiveStorageAccount |
+Azure.LiveStorageContainer |
+Azure.Location |
+Azure.StorageAccount |
 Azure.Environment | Azure deployments existing in subscription selector
 Azure.ResourceGroup | Azure Resource Group selector
 Azure.MachineType | Azure VM size selector
 Azure.ManagedIdentity | Azure Managed Identity selector
 Azure.Subnet | Azure Subnet selector
-

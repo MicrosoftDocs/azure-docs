@@ -1,15 +1,26 @@
+---
+title: Azure CycleCloud Cluster Template Reference | Microsoft Docs
+description: Network Interface reference for cluster templates for use with Azure CycleCloud
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Network-Interface
 
-Network-interface objects are rank 3 and subordinate to `node` or `nodearray`.
-Network-interface represents an Azure Network Interface.
+Network-interface objects are rank 3 and subordinate to `node` or `nodearray`. Network-interface represents an Azure Network Interface.
 
 ## Example
 
-Adding a `[[[network-interface]]]` section to a node adds controls to the default NIC or can add additional NICs and attach them to a VM.
+Adding a `[[[network-interface]]]` section to a node adds controls to the default NIC. or can add additional NICs and attach them to a VM.
 
-In this example we attach a pre-existing NIC to a vm.
+In this example, we attach a pre-existing NIC to a VM:
 
-```ini
+``` ini
 [cluster my-cluster]
   [[node my-node]]
     Credentials = $Credentials

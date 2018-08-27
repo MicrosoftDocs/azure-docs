@@ -1,6 +1,6 @@
 ---
-title: Azure CycleCloud pogo Configuration | Microsoft Docs
-description: Configure Azure CycleCloud's pogo tool.
+title: Azure CycleCloud Cluster Template Reference | Microsoft Docs
+description: Parameter reference for cluster templates for use with Azure CycleCloud
 services: azure cyclecloud
 author: KimliW
 ms.prod: cyclecloud
@@ -12,17 +12,13 @@ ms.author: a-kiwels
 
 # Cluster-Init
 
-Cluster-init objects are subordinate in rank to `node`.
-The cluster-init object defines the CycleCloud project specs to run on a node.
+Cluster-init objects are subordinate in rank to `node`. The cluster-init object defines the CycleCloud project specs to run on a node.
 
-## Example
+Adding a `[[[cluster-init]]]` section to a node will include a project spec. Cluster-init definition can also be written in short-hand notation:
 
-Adding a `[[[cluster-init]]]` section to a node will include a project spec.
-Cluster-init definition can also be written in short-hand notation.
-
-```ini
+``` ini
 [cluster my-cluster]
-  
+
   [[node defaults]]
     [[[cluster-init my-proj:default:versionA]]]
 
@@ -44,10 +40,9 @@ Cluster-init definition can also be written in short-hand notation.
 
 The `$` is a reference to a parameter name.
 
-The order of the Project specs is also important and respected as provided
-in the Cluster Template File.  In this case `my-proj:default` will run first as it 
-comes from the node defaults, followed by `myproject:x.y.x` and finally `my-proj:my-spec`
-
+The order of the Project specs is important, and respected as provided
+in the Cluster Template File. In this case `my-proj:default` will run first as it
+comes from the node defaults, followed by `myproject:x.y.x`, and finally `my-proj:my-spec`
 
 ## Attribute Reference
 

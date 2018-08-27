@@ -21,7 +21,7 @@
   - name: Deploy a Custom Application
     href: ~/tutorials/deploy-custom-application.md
 - name: Concepts
-  items: 
+  items:
   - name: Clusters and Nodes
     href: clusters.md
   - name: Auto Scale
@@ -76,32 +76,6 @@
     items:
     - name: User Authentication
       href: user-authentication.md
-    - name: Cluster Users
-      href:
-- name: Cluster Configuration
-  items:
-  - name: Cluster Template File
-    href: ~/cluster-template-reference/cluster-template.md
-  - name: Cluster
-    href: ~/cluster-template-reference/cluster.md
-  - name: Node
-    href: ~/cluster-template-reference/node.md
-  - name: Volume
-    href: ~/cluster-template-reference/volume.md
-  - name: Network-Interface
-    href: ~/cluster-template-reference/network-interface.md
-  - name: Cluster-Init
-    href: ~/cluster-template-reference/cluster-init.md
-  - name: Input-Endpoint
-    href: ~/cluster-template-reference/input-endpoint.md
-  - name: Configuration
-    href: ~/cluster-template-reference/configuration.md
-  - name: Parameter
-    href: ~/cluster-template-reference/parameter.md
-  - name: (Beta) Environment
-    href: ~/cluster-template-reference/environment.md
-  - name: (Beta) NodeRef
-    href: ~/cluster-template-reference/noderef.md
 - name: How-To
   items:
   - name: Install CycleCloud Manually
@@ -135,9 +109,29 @@
 - name: Reference
   items:
   - name: Cluster Reference
-    href: cluster-reference.md
-  - name: Cluster Template Reference
-    href: cluster-template-reference.md
+    items:
+      - name: Clusters
+        href: ~/cluster-references/cluster-reference.md
+      - name: Cluster Template Files
+        href: ~/cluster-references/cluster-template-files.md
+      - name: Build a Cluster Template
+        href: ~/cluster-references/build-cluster-template.md
+      - name: Cluster Configuration
+        href: ~/cluster-references/cluster-configuration.md
+      - name: Node and Nodearray Parameters
+        href: ~/cluster-references/nodes-in-cluster-templates.md
+      - name: Volumes
+        href: ~/cluster-references/volume-reference.md
+      - name: Network Interface
+        href: ~/cluster-references/network-interface.md
+      - name: Cluster-Init
+        href: ~/cluster-references/cluster-init-reference.md
+      - name: Input-Endpoint
+        href: ~/cluster-references/input-endpoint.md
+      - name: Parameters
+        href: ~/cluster-references/parameter-reference.md
+      - name: Existing Cluster Templates
+        href: cluster-template-reference.md
   - name: Jetpack
     href: jetpack.md
   - name: Common Cookbook Reference
