@@ -1,59 +1,77 @@
 ---
 title: Connect to file systems on premises - Azure Logic Apps | Microsoft Docs
-description: Connect to on-premises file systems from logic app workflows through the on-premises data gateway and File System connector
-keywords: file systems, on premises
+description: Automate tasks and workflows that connect to on-premises file systems with the File System connector through the on-premises data gateway in Azure Logic Apps
 services: logic-apps
-author: derek1ee
-manager: jeconnoc
-documentationcenter: ''
-
-ms.assetid:
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam, estfan, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/18/2017
-ms.author: LADocs; deli
 ---
 
-# Connect to on-premises file systems from logic apps with the File System connector
+# Connect to on-premises file systems with Azure Logic Apps
 
-To manage data and securely access on-premises resources, 
-your logic apps can use the on-premises data gateway. 
-This article shows how you can connect to a file system on premises 
-through this basic example scenario: copy a file that's uploaded to Dropbox to a file share, 
-then send an email.
+With the File System connector and Azure Logic Apps, 
+you can create automated tasks and workflows that 
+create and manage files on an on-premises file share, 
+for example:  
+
+- Create, get, append, update, and delete files
+- List files in folders or root folders.
+- Get file content and metadata.
+
+This article shows how you can connect to an on-premises 
+file system as described by this example scenario: 
+copy a file that's uploaded to Dropbox to a file share, 
+and then send an email. To securely connect and access on-premises systems, 
+logic apps use the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). 
+If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## Prerequisites
 
-* Download the latest [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127).
+* An Azure subscription. If you don't have an Azure subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
-* Install and set up the latest on-premises data gateway, version 1.15.6150.1 or above. 
-For the steps, see [Connect to data sources on premises](http://aka.ms/logicapps-gateway). 
-You must install the gateway on an on-premises machine 
-before you can continue with these steps.
+* Before you can connect logic apps to on-premises 
+systems such as your file system server, you need to 
+[install and set up an on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). 
+That way, you can specify to use your gateway installation when 
+you create the file system connection from your logic app.
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* A [Drobox account](https://www.dropbox.com/) and your user credentials
 
-## Add trigger and actions for connecting to your file system
+  Your credentials authorize your logic app to create 
+  a connection and access your Drobox account. 
 
-1. Create a blank logic app. Add this trigger as the first step: **Dropbox - When a file is created** 
+* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+For this example, you need a blank logic app.
 
-2. Under the trigger, choose **+ Next step** > **Add an action**. 
+## Add trigger and actions
 
-3. In the search box, enter "file system" as your filter. 
-When you see all the actions for the File System connector, 
-choose the **File System - Create file** action. 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-   ![Search for file connector](media/logic-apps-using-file-connector/search-file-connector.png)
+1. Sign in to the [Azure portal](https://portal.azure.com), 
+and open your logic app in Logic App Designer, if not open already.
 
-4. If you don't already have a connection to your file system, 
+1. In the search box, enter "dropbox" as your filter. 
+From the triggers list, select this trigger: 
+**When a file is created** 
+
+1. Under the trigger, choose **Next step**. 
+In the search box, enter "file system" as your filter. 
+From the actions list, select this action: 
+**Create file - File System**
+
+   ![Find File System connector](media/logic-apps-using-file-connector/search-file-connector.png)
+
+1. If you don't already have a connection to your file system, 
 you're prompted to create a connection. 
 
-5. Select **Connect via on-premises data gateway**. 
-When the connection properties appear, 
-set up your connection as specified in the table.
+1. When you're prompted to sign in, 
+select **Connect via on-premise data gateway** 
+and provide the necessary connection information.
 
    ![Configure connection](media/logic-apps-using-file-connector/create-file.png)
 
@@ -66,7 +84,7 @@ set up your connection as specified in the table.
    | **Gateway** | Select your previously installed gateway. | 
    ||| 
 
-6. After you provide all the connection details, choose **Create**. 
+1. When you're done, choose **Create**. 
 
    Logic Apps configures and tests your connection, 
    making sure that the connection works properly. 
@@ -74,44 +92,31 @@ set up your connection as specified in the table.
    options appear for the action that you previously selected. 
    The file system connector is now ready for use.
 
-7. Set up the **Create file** action for copying files from Dropbox 
-to the root folder for your on-premises file share.
+1. In the **Create file** action, provide the necessary details
+for copying files from Dropbox to the root folder in your 
+on-premises file share.
 
    ![Create file action](media/logic-apps-using-file-connector/create-file-filled.png)
 
-8. After this action for copying the file, 
-add an Outlook action that sends an email 
-so that relevant users know about the new file. 
+1. Now, add an Outlook action that sends an email 
+so that the appropriate users know about the new file. 
 Enter the recipients, title, and body of the email. 
 
-   In the **Dynamic content** list, you can choose data outputs 
+   From the dynamic content list, you can choose data outputs 
    from the file connector so you can add more details to the email.
 
    ![Send email action](media/logic-apps-using-file-connector/send-email.png)
 
-9. Save your logic app. Test your app by uploading a file to Dropbox. 
-The file should get copied to the on-premises file share, 
-and you should receive an email about the operation.
+1. Save your logic app. Test your app by uploading a file to Dropbox. 
 
-Congratulations, you now have a working logic app that 
-can connect to your on-premises file system. 
+   The file should get copied to the on-premises file share, 
+   and you should receive an email about the operation.
 
-Try exploring other functionalities that the connector offers, for example:
+## Connector reference
 
-- Create file
-- List files in folder
-- Append file
-- Delete file
-- Get file content
-- Get file content using path
-- Get file metadata
-- Get file metadata using path
-- List files in root folder
-- Update file
-
-## View the swagger
-
-See the [swagger details](/connectors/fileconnector/). 
+For technical details about triggers, actions, and limits, which are 
+described by the connector's OpenAPI (formerly Swagger) description, 
+review the connector's [reference page](/connectors/fileconnector/).
 
 ## Get support
 
@@ -124,5 +129,5 @@ See the [swagger details](/connectors/fileconnector/).
 ## Next steps
 
 * [Connect to on-premises data](../logic-apps/logic-apps-gateway-connection.md) 
-* [Monitor your logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
 * [Enterprise integration for B2B scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md)
