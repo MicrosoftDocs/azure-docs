@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 An example of this scenario is an inventory assortment update for multiple retail stores. In this scenario, each store, or set of stores, gets messages intended for them to update their assortments. This tutorial shows how to implement this scenario using subscriptions and filters. First, you create a topic with 3 subscriptions, add some rules and filters, and then send and receive messages from the topic and subscriptions.
 
-![queue](./media/service-bus-quickstart-powershell/quick-start-queue.png)
+![topic](./media/service-bus-tutorial-topics-subscriptions-powershell/about-service-bus-topic.png)
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
 
