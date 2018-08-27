@@ -222,10 +222,7 @@ You can use [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemN
 1. In the **Shared access policies** pane, click the **iothubowner policy**, and write down the Connection string of your IoT hub.
     ![Azure IoT Hub connection string](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-portal-conn-string.png)
 
-1. In Visual Studio Code, expand **AZURE IOT HUB DEVICES** on the bottom left corner.
-    ![Azure IoT Hub devices](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-toolkit-devices.png)
-
-1. Click Set **IoT Hub Connection String** in context menu.
+1. In Visual Studio Code, expand **AZURE IOT HUB DEVICES** on the bottom left corner, click **Set IoT Hub Connection String**.
     ![Set Azure IoT Hub connection string](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-toolkit-conn-string.png)
 
 1. Click **IoT: Start monitoring D2C message** in context menu.
