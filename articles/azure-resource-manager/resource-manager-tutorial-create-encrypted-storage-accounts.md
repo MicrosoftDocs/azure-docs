@@ -135,7 +135,7 @@ Refer to the [Deploy the template](./resource-manager-quickstart-create-template
 
 The following screenshot shows the CLI command for listing the newly created storage account, which indicates encryption has been enabled for the blob storage.
 
-    ![Azure Resource Manager encrypted storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
+![Azure Resource Manager encrypted storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
 
 ## Clean up resources
 
