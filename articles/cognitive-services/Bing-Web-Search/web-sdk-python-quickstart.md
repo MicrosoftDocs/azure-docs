@@ -69,7 +69,7 @@ python -m pip install azure-cognitiveservices-search-websearch
 
 ## Create a client and print your first results
 
-Now that you've set up your virtual environment and have the necessary dependencies, let's create a client to send a request to and receive a response from Bing Web Search.
+Now that you've set up your virtual environment and installed dependencies, let's create a client. The client will handle requests to and responses from Bing Web Search.
 
 If the response contains web pages, images, news, or videos, the first result for each is printed.
 
@@ -272,7 +272,7 @@ This sample uses the `answer_count`, `promote`, and `safe_search` parameters to 
 
             '''
             If results are available, print the # of responses, and the first result returned.
-            '''    
+            '''
             if web_data.web_pages.value:
 
                 print("Webpage Results#{}".format(len(web_data.web_pages.value)))
