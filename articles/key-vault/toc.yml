@@ -85,8 +85,6 @@
     href: /rest/api/keyvault
   - name: Develop
     items:
-    - name: Developer quick start video
-      href: http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start
     - name: Key Vault developer's guide
       href: key-vault-developers-guide.md
     - name: Service limits
