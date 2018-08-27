@@ -1,0 +1,97 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Kusto Documentation
+metadata:
+  title: Kusto Documentation - Quickstarts, tutorials, and language and API references | Microsoft Docs
+  description: Kusto is a log analytics cloud platform optimized for ad-hoc big data queries.
+  author: mgblythe
+  manager: kfile
+  ms.service: kusto
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/24/2018
+  ms.author: mblythe
+abstract:
+  description: Kusto is a log analytics cloud platform optimized for ad-hoc big data queries.</p>
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: /azure/kusto/media/index/kusto-video.png
+      width: 250  
+    title: Introduction to Kusto (0:00:00)
+    href: /azure/kusto/
+    width: 250
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to provision and use Kusto:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/kusto/media/index/portal.svg
+      text: Create a cluster and database
+      href: /azure/kusto/
+    - image: 
+        src: /azure/kusto/media/index/portal.svg
+      text: Ingest data with Event Hub
+      href: /azure/kusto/
+    - image: 
+        src: /azure/kusto/media/index/logo-python.svg
+      text: Ingest data with Python
+      href: /azure/kusto/
+    - image: 
+        src: /azure/kusto/media/index/portal.svg
+      text: Query data with web explorer
+      href: /azure/kusto/
+    - image: 
+        src: /azure/kusto/media/index/logo-powerbi.svg
+      text: Visualize data with Power BI
+      href: /azure/kusto/
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to build and manage end-to-end data solutions:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/kusto/">Build a batch ingestion pipeline</a>
+    - html: <a href="/azure/kusto/">Build a streaming ingestion pipeline</a>
+    - html: <a href="/azure/kusto/">Detect anomalies using time series analysis</a>
+    - html: <a href="/azure/kusto/">Detect anomalies using time series analysis</a>
+- title: Free Pluralsight Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Kusto Query Language (KQL)
+      href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
+      image: 
+        src: /azure/kusto/media/index/logo-pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
+- title: Samples
+  items:
+  - type: paragraph
+    text: Find scripts to manage common tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: Azure PowerShell [Remove?]
+    - html: Azure CLI  [Remove?]
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p>Azure PowerShell [Remove?]</p><p>Azure CLI [Remove?]</p>
+    - title: Languages
+      html: <p><a href="https://review.docs.microsoft.com/kusto/query/query-essentials/readme">Kusto Query Language (KQL)</a><p><a href="https://kusdoc2.azurewebsites.net/docs/controlCommands/controlcommands.html">Control commands</a></p><p><a href="https://kusdoc2.azurewebsites.net/docs/api/getting_the_kusto_client_libraries.html">.NET Framework</a></p><p><a href="https://kusdoc2.azurewebsites.net/docs/api/python/kusto_python_client_library.html">Python</a></p><p><a href="https://kusdoc2.azurewebsites.net/docs/api/javascript/kusto_javascript_intellisense.html">JavaScript</a></p>
+    - title: REST
+      html: <p><a href="https://kusdoc2.azurewebsites.net/docs/api/rest/api_rest.html">REST API Reference</a></p>
