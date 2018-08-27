@@ -61,6 +61,6 @@ If this template did not include the `[[[network-interface]]]`, the `[[[input-en
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-`PublicPort` | Integer | Port on public interface to allow to all traffic.  Starting value for VMSS will increment for each VM added.
-`PrivatePort` | Integer | Port to receive public port redirection for VMSS load balancer.
-`Protocol` | String | Tcp or udp. Default is tcp.
+PublicPort | Integer | Port on public interface to allow to all traffic.  Starting value for VMSS will increment for each VM added.
+PrivatePort | Integer | Port to receive public port redirection for VMSS load balancer.
+Protocol | String | Tcp or udp. Default is tcp.

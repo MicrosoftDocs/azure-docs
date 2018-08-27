@@ -12,7 +12,7 @@ ms.author: a-kiwels
 
 # Cluster Configuration
 
-Configuration objects are rank 3, and subordinate to `node`. The configuration object define the configurable properties for the configuration code that runs on the nodes and CycleCloud Project configurations.
+Configuration objects are rank 3, and subordinate to `node`. The configuration object define the configurable properties for the configuration code that runs on the [nodes](nodes-in-cluster-templates.md) and [CycleCloud Project](~/projects.md) configurations.
 
 ## Object Attributes
 

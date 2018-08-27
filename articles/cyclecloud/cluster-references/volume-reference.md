@@ -12,7 +12,7 @@ ms.author: a-kiwels
 
 # Volumes
 
-Volume objects are subordinate in rank to `node`. Volume represents an Azure Disk.
+[Volume](~/storage-mount-volumes.md) objects are subordinate in rank to `node`. Volume represents an Azure Disk.
 
 ## Example
 
