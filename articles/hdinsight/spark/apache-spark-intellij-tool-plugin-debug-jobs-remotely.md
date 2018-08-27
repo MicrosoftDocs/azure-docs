@@ -4,7 +4,7 @@ description: Learn how use HDInsight Tools in Azure Toolkit for IntelliJ to remo
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
