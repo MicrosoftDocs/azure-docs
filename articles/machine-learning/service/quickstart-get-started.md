@@ -13,7 +13,9 @@ ms.date: 09/24/2018
 
 # Quickstart: Get started with Azure Machine Learning service
 
-In this quickstart, you'll use the Azure portal to create a Azure Machine Learning workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying ML models with Azure Machine Learning service (Preview). In this tutorial, you will:
+In this quickstart, you'll use the Azure portal to create a Azure Machine Learning workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying ML models with Azure Machine Learning service (Preview). 
+
+In this tutorial, you will:
 
 * Create a workspace in your Azure subscription
 * Create a configuration file with the details needed to communicate with your workspace
@@ -99,7 +101,7 @@ run = Run.submit(project_object = proj,
                     script_to_run = "pi.py")
 ```
 
-## View logged values in workspace
+## View logged values
 
 Go back to the portal page in your browser and refresh the page.
 
