@@ -1,6 +1,6 @@
 ---
 title: Implement features in Azure Service Fabric actors | Microsoft Docs
-description: Describes how to write your own actor service that implements service-level features the same way you would when inheriting StatefulService.
+description: Describes how to write your own actor service that implements service-level features in the same way as when you inherit StatefulService.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -48,7 +48,7 @@ CompletableFuture<?> MyActorMethod()
 }
 ```
 
-Like all Reliable Services, the actor service must be registered with a service type in the Service Fabric runtime. For the actor service to run your actor instances, your actor type also must be registered with the actor service. The `ActorRuntime` registration method performs this work for actors. In the simplest case, you can register your actor type, and the actor service then uses the default settings:
+Like all Reliable Services, the actor service must be registered with a service type in the Service Fabric runtime. For the actor service to run your actor instances, your actor type also must be registered with the actor service. The `ActorRuntime` registration method performs this work for actors. In the simplest case, you can register your actor type, and the actor service then uses the default settings.
 
 ```csharp
 static class Program
@@ -185,7 +185,7 @@ This step makes sure that the actor proxy uses the remoting V2_1 stack.
 
 ## Actor that uses the remoting V2 stack
 
-With the version 2.8 NuGet package, users can now use the remoting V2 stack, which performs better and provides features like custom serialization. Remoting V2 is not backward compatible with the existing remoting stack (we now call it the V1 remoting stack).
+With the version 2.8 NuGet package, users can now use the remoting V2 stack, which performs better and provides features like custom serialization. Remoting V2 is not backward compatible with the existing remoting stack (now called the V1 remoting stack).
 
 The following changes are required to use the remoting V2 stack.
 
