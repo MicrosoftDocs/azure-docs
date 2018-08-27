@@ -133,7 +133,7 @@
       - name: Parameters
         href: ~/cluster-references/parameter-reference.md
       - name: Download Existing Cluster Templates
-        href: cluster-template-reference.md
+        href: download-cluster-templates.md
   - name: Jetpack
     href: jetpack.md
   - name: Common Cookbook Reference
