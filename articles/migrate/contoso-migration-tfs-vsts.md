@@ -149,7 +149,7 @@ Contoso runs the TFS Migration Tool against the ContosoDev collection database t
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection1.png)
 
-2. They run the tool to perform the validation, by specifying the URL of the team project collection:
+2. They run the tool to perform the validation, by specifying the URL of the project collection:
 
         **TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev**
 
@@ -389,11 +389,11 @@ Contoso start with a dry run migration, to make sure everything's working as exp
 
      ![Dry run](./media/contoso-migration-tfs-vsts/test7.png)
 
-12. After the migration finishes a Contoso Dev Leads signs into Azure DevOps Services to check that the dry run worked properly. After authentication, Azure DevOps needs a few details to confirm the organization.
+12. After the migration finishes a Contoso Dev Leads signs into Azure DevOps Services to check that the dry run worked properly. After authentication, Azure DevOps Services needs a few details to confirm the organization.
 
     ![Dry run](./media/contoso-migration-tfs-vsts/test8.png)
 
-13. In Azure DevOps, the Dev Lead can see that the projects have been migrated to Azure DevOps Services. There's a notice that the organization will be deleted in 15 days.
+13. In Azure DevOps Services, the Dev Lead can see that the projects have been migrated to Azure DevOps Services. There's a notice that the organization will be deleted in 15 days.
 
     ![Dry run](./media/contoso-migration-tfs-vsts/test9.png)
 

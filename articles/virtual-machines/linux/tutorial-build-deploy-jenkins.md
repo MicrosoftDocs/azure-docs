@@ -97,14 +97,14 @@ First, you must configure two Jenkins plug-ins: **NodeJS** and **VS Team Service
  
 1.  Create a PAT in your Azure DevOps Services organization if you don't already have one. Jenkins requires this information to access your Azure DevOps Services organization. Be sure to store the token information for upcoming steps in this section.
   
-    To learn how to generate a token, read [How do I create a personal access token for Azure DevOps?](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
+    To learn how to generate a token, read [How do I create a personal access token for Azure DevOps Services?](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
 2. In the **Post-build Actions** tab, select **Add post-build action**. Select **Archive the artifacts**.
 3. For **Files to archive**, enter `**/*` to include all files.
 4. To create another action, select **Add post-build action**.
 5. Select **Trigger release in TFS/Team Services**. Enter the URI for your Azure DevOps Services organization, such as **https://{your-organization-name}.visualstudio.com**.
-6. Enter the **Team Project** name.
-7. Choose a name for the release pipeline. (You create this release pipeline later in Azure Pipelines.)
-8. Choose credentials to connect to your Azure DevOps environment:
+6. Enter the **Project** name.
+7. Choose a name for the release pipeline. (You create this release pipeline later in Azure DevOps Services.)
+8. Choose credentials to connect to your Azure DevOps Services or Team Foundation Server environment:
    - Leave **Username** blank if you are using Azure DevOps Services. 
    - Enter a username and password if you are using an on-premises version of Team Foundation Server.    
    ![Configuring Jenkins post-build actions](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)

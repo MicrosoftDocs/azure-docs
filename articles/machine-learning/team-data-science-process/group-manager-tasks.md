@@ -28,10 +28,10 @@ The **Group Manager** is the manager of the entire data science unit in an enter
 ![0](./media/group-manager-tasks/tdsp-group-manager.png)
 
 
->[AZURE.NOTE] We outline the steps needed to set up a TDSP group environment using Azure DevOps in the instructions that follow. We specify how to accomplish these tasks with Azure DevOps because that is how we implement TDSP at Microsoft. If another code hosting platform is used for your group, the tasks that need to be completed by the group manager generally do not change. But the way to complete these tasks is going to be different.
+>[AZURE.NOTE] We outline the steps needed to set up a TDSP group environment using Azure DevOps Services in the instructions that follow. We specify how to accomplish these tasks with Azure DevOps Services because that is how we implement TDSP at Microsoft. If another code hosting platform is used for your group, the tasks that need to be completed by the group manager generally do not change. But the way to complete these tasks is going to be different.
 
 1. Set up **Azure DevOps server** for the group.
-2. Create a **group team project** on Azure DevOps server (for Azure DevOps users)
+2. Create a **group project** on Azure DevOps server (for Azure DevOps Services users)
 3. Create the **GroupProjectTemplate** repository
 4. Create the **GroupUtilities** repository
 5. Seed the **GroupProjectTemplate** and **GroupUtilities** repositories for the Azure DevOps server with content from the TDSP repositories.
@@ -101,7 +101,7 @@ Fill in the information for the Azure DevOps server that you want to create in t
 
 Click **Continue**. 
 
-## 2. GroupCommon Team Project
+## 2. GroupCommon Project
 
 The **GroupCommon** page (*https://\<servername\>.visualstudio.com/GroupCommon*) opens after your Azure DevOps server is created.
 							
@@ -111,7 +111,7 @@ The **GroupCommon** page (*https://\<servername\>.visualstudio.com/GroupCommon*)
 
 To create the **GroupUtilities** (R2) repository under Azure DevOps server:
 
-- To open the **Create a new repository** wizard, click **New repository** on the **Version Control** tab of your team project. 
+- To open the **Create a new repository** wizard, click **New repository** on the **Version Control** tab of your project. 
 
 ![7](./media/group-manager-tasks/create-grouputilities-repo-1.png) 
 
@@ -129,7 +129,7 @@ Now you should see two Git repositories **GroupProjectTemplate** and **GroupUtil
 The setup of the repositories for the Azure DevOps group server consists of two tasks:
 
 - Rename the default **GroupCommon** repository***GroupProjectTemplate***.
-- Create the **GroupUtilities** repository on the Azure DevOps server under team project **GroupCommon**. 
+- Create the **GroupUtilities** repository on the Azure DevOps server under project **GroupCommon**. 
 
 Instructions for the first task are contained in this section after remarks on naming conventions or our repositories and directories. The instructions for the second task are contained in the following section for step 4.
 
@@ -137,12 +137,12 @@ Instructions for the first task are contained in this section after remarks on n
 
 To rename the default **GroupCommon** repository as *GroupProjectTemplate* (referred as **R1** in this tutorial):
 	
-- Click **Collaborate on code** on the **GroupCommon** team project page. This takes you to the default Git repository page of the team project **GroupCommon**. Currently, this Git repository is empty. 
+- Click **Collaborate on code** on the **GroupCommon** project page. This takes you to the default Git repository page of the project **GroupCommon**. Currently, this Git repository is empty. 
 
 ![10](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
 		
 - Click **GroupCommon** on the top left corner (highlighted with a red box in the following figure) on the Git repository page of **GroupCommon** and select **Manage repositories** (highlighted with a green box in the following figure). This  procedure brings up the **CONTROL PANEL**. 
-- Select the **Version Control** tab of your team project. 
+- Select the **Version Control** tab of your project. 
 
 ![11](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
 
@@ -196,7 +196,7 @@ In this step, you clone the Team Data Science Process (TDSP) ProjectTemplate rep
 
 In this step, you clone the GroupProjectTemplate repository (R1) and GroupUtilities repository (R2) on local directories (referred as LR1 and LR2, respectively) under **GitRepos\GroupCommon** on your DSVM.
 
-- To get the URLs of the R1 and R2 repositories, go to your **GroupCommon** home page on Azure DevOps. This usually has the URL *https://\<Your Azure DevOps Server Name\>.visualstudio.com/GroupCommon*. 
+- To get the URLs of the R1 and R2 repositories, go to your **GroupCommon** home page on Azure DevOps Services. This usually has the URL *https://\<Your Azure DevOps Server Name\>.visualstudio.com/GroupCommon*. 
 - Click **CODE**. 
 - Choose the **GroupProjectTemplate** and **GroupUtilities** repositories. Copy and save each of the URLs (HTTPS for Windows; SSH for Linux) from the **Clone URL** element, in turn, for use in the following scripts:  
 
