@@ -22,6 +22,8 @@ ms.author: andret
 <!--start-intro-->
 # Add sign-in with Microsoft to an ASP.NET web app
 
+[!INCLUDE [active-directory-develop-applies-to-v1](../../../includes/active-directory-develop-applies-to-v1.md)]
+
 This guide demonstrates how to implement sign-in with Microsoft using an ASP.NET MVC solution with a traditional web browser-based application using OpenID Connect. 
 
 At the end of this guide, your application will accept sign ins of work and school accounts from organizations that have integrated with Azure Active Directory.
