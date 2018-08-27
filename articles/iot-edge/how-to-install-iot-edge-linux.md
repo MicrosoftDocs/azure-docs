@@ -13,7 +13,7 @@ ms.author: kgremban
 ---
 # Install the Azure IoT Edge runtime on Linux (x64)
 
-The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as Raspberry Pis or as large as industrial servers. Once a device is configured with the IoT Edge runtime, it can start receiving code deployments from the cloud. 
+The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. 
 
 To learn more about how the IoT Edge runtime works and what components are included, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
@@ -28,7 +28,7 @@ Depending on your operating system, choose the appropriate scripts to prepare yo
 
 ### Ubuntu 16.04
 
-```cmd/sh
+```bash
 # Install repository configuration
 curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
 sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
@@ -40,7 +40,7 @@ sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 
 ### Ubuntu 18.04
 
-```cmd/sh
+```bash
 # Install repository configuration
 curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
 sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
@@ -130,7 +130,7 @@ Save and close the file.
 
    `CTRL + X`, `Y`, `Enter`
 
-After entering the provisioning information in the configuration, restart the daemon:
+After entering the provisioning information in the configuration file, restart the daemon:
 
 ```bash
 sudo systemctl restart iotedge
@@ -164,7 +164,7 @@ Save and close the file.
 
    `CTRL + X`, `Y`, `Enter`
 
-After entering the provisioning information in the configuration, restart the daemon:
+After entering the provisioning information in the configuration file, restart the daemon:
 
 ```bash
 sudo systemctl restart iotedge
@@ -176,21 +176,27 @@ If you used the **manual configuration** steps in the previous section, the IoT 
 
 You can check the status of the IoT Edge Daemon using:
 
-```cmd/sh
+```bash
 systemctl status iotedge
 ```
 
 Examine daemon logs using:
 
-```cmd/sh
+```bash
 journalctl -u iotedge --no-pager --no-full
 ```
 
 And, list running modules with:
 
-```cmd/sh
+```bash
 sudo iotedge list
 ```
+
+## Tips and suggestions
+
+You need elevated privileges to run `iotedge` commands. After installing the runtime, sign out of your machine and sign back in to update your permissions automatically. Until then, use **sudo** in front of any `iotedge` the commands.
+
+On resource constrained devices, it is highly recommended that you set the *OptimizeForPerformance* environment variable to *false* as per instructions in the [troubleshooting guide][lnk-trouble].
 
 ## Next steps
 

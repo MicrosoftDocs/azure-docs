@@ -13,7 +13,7 @@ ms.author: kgremban
 ---
 # Install Azure IoT Edge runtime on Windows to use with Windows containers
 
-The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as Raspberry Pis or as large as industrial servers. Once a device is configured with the IoT Edge runtime, it can start receiving code deployments from the cloud. 
+The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. 
 
 To learn more about how the IoT Edge runtime works and what components are included, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 

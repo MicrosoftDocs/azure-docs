@@ -13,7 +13,7 @@ ms.author: kgremban
 ---
 # Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)
 
-The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as Raspberry Pis or as large as industrial servers. Once a device is configured with the IoT Edge runtime, it can start receiving code deployments from the cloud. 
+The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. 
 
 To learn more about how the IoT Edge runtime works and what components are included, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
@@ -100,7 +100,7 @@ Save and close the file.
 
    `CTRL + X`, `Y`, `Enter`
 
-After entering the provisioning information in the configuration, restart the daemon:
+After entering the provisioning information in the configuration file, restart the daemon:
 
 ```bash
 sudo systemctl restart iotedge
@@ -108,7 +108,7 @@ sudo systemctl restart iotedge
 
 ### Option 2: Automatic provisioning
 
-To automatically provision a device, [set up Device Provisioning Service and retrieve your device registration ID][lnk-dps] (DPS). Automatic provisioning only works with devices that have a Trusted Platform Module (TPM) chip. For example, Raspberry Pi devices do not come with TPM by default. 
+To automatically provision a device, [set up Device Provisioning Service and retrieve your device registration ID][lnk-dps]. Automatic provisioning only works with devices that have a Trusted Platform Module (TPM) chip. For example, Raspberry Pi devices do not come with TPM by default. 
 
 Open the configuration file. 
 
@@ -116,7 +116,7 @@ Open the configuration file.
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Find the provisioning section of the file and uncomment the **dps** provisioning mode. Update the values of **scope_id** and **registration_id** with the values from your IoT Hub Device Provisioning Service and your IoT Edge device with TPM. 
+Find the provisioning section of the file and uncomment the **dps** provisioning mode. Update the values of **scope_id** and **registration_id** with the values from your IoT Hub Device Provisioning service and your IoT Edge device with TPM. 
 
    ```yaml
    # provisioning:
@@ -134,7 +134,7 @@ Save and close the file.
 
    `CTRL + X`, `Y`, `Enter`
 
-After entering the provisioning information in the configuration, restart the daemon:
+After entering the provisioning information in the configuration file, restart the daemon:
 
 ```bash
 sudo systemctl restart iotedge
@@ -147,28 +147,27 @@ If you used the **manual configuration** steps in the previous section, the IoT 
 
 You can check the status of the IoT Edge Daemon using:
 
-```cmd/sh
+```bash
 systemctl status iotedge
 ```
 
 Examine daemon logs using:
 
-```cmd/sh
+```bash
 journalctl -u iotedge --no-pager --no-full
 ```
 
 And, list running modules with:
 
-```cmd/sh
+```bash
 sudo iotedge list
 ```
-
 
 ## Tips and suggestions
 
 You need elevated privileges to run `iotedge` commands. After installing the runtime, sign out of your machine and sign back in to update your permissions automatically. Until then, use **sudo** in front of any `iotedge` the commands.
 
-On resource constrained devices, it is highly recommended that *OptimizeForPerformance* environment variable is set to *false* as per instructions in the [troubleshooting guide][lnk-trouble].
+On resource constrained devices, it is highly recommended that you set the *OptimizeForPerformance* environment variable to *false* as per instructions in the [troubleshooting guide][lnk-trouble].
 
 ## Next steps
 
