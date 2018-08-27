@@ -20,7 +20,7 @@ Learn how to use the Azure HDInsight Tools for Visual Studio Code (VS Code) to c
 
 The following items are required for completing the steps in this article:
 
-- A HDInsight cluster. To create a cluster, see [Get started with HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
+- A HDInsight cluster. To create a cluster, see [Get started with HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono is only required for Linux and macOS.
 

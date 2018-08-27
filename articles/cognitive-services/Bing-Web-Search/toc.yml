@@ -24,9 +24,9 @@
     - name: Ruby
       href: quickstarts/ruby.md
   - name: SDKs
-    items: 
+    items:
     - name: Samples overview
-      href: sdk.md 
+      href: sdk.md
     - name: C#
       href: web-search-sdk-quickstart.md
     - name: Java
@@ -64,7 +64,7 @@
 - name: Concepts
   items:
   - name: Autosuggest search terms
-    href: autosuggest-and-use-bing-search-terms.md
+    href: autosuggest-bing-search-terms.md
   - name: Search responses
     href: search-responses.md
   - name: Throttling requests
@@ -76,8 +76,8 @@
   - name: Bing Web Search API v5
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
   - name: Azure CLI
-    href: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
-  - name: Azure Powershell
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: Azure PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
 - name: Resources
   items:
@@ -97,7 +97,7 @@
     href: supported-countries-markets.md
   - name: Analytics for Bing Web Search API
     href: bing-web-stats.md
-  - name: Support 
+  - name: Support
     items:
     - name: User Voice Forum
       href: https://cognitive.uservoice.com/forums/555907-bing-web-search-api

@@ -18,7 +18,7 @@ The Bing Web Search SDK contains the functionality of the REST API for web reque
 
 [!INCLUDE [quickstart-signup](../includes/quickstart-signup.md)]
 
-The [source code for C# Bing Web Search SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/BingSearchv7/BingWebSearch/WebSearchSamples.cs) is available on Git Hub.
+The [source code for C# Bing Web Search SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/BingSearchv7/BingWebSearch/WebSearchSamples.cs) is available on GitHub.
 
 ## Application dependencies
 

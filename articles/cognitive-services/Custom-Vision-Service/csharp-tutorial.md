@@ -16,9 +16,15 @@ Learn how to use the Custom Vision Service from a C# application. After it's cre
 
 ## Prerequisites
 
-* Any edition of Visual Studio 2015 or 2017 for Windows.
+* Any edition of Visual Studio 2017 for Windows.
 
-* The [Custom Vision Service SDK](http://github.com/Microsoft/Cognitive-CustomVision-Windows/). This includes the sample and images used in this document.
+## Get the Custom Vision SDK and samples
+To build this example, you need the Custom Vision SDK NuGet Packages:
+
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
+
+You can download the images along with the [C# Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
 
 ## Get the training and prediction keys
 

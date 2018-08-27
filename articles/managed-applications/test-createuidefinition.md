@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/10/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
 
 ---
@@ -19,7 +19,7 @@ After [creating the createUiDefinition.json file](create-uidefinition-overview.m
 
 ## Prerequisites
 
-* A **createUiDefinition.json** file. If you don't have this file, copy the [sample file](https://github.com/Azure/azure-quickstart-templates/blob/master/test/template-validation-tests/sample-template/createUIDefinition.json) and save it locally.
+* A **createUiDefinition.json** file. If you don't have this file, copy the [sample file](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json) and save it locally.
 
 * An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -32,16 +32,16 @@ To test your interface in the portal, copy one of the following scripts to your 
 
 ## Run script
 
-To see your interface file in the portal, run your downloaded script. The script creates a storage account in your Azure subscription, and uploads your createUiDefinition.json file to the storage account. Then, it opens the portal and loads your file from the storage account.
+To see your interface file in the portal, run your downloaded script. The script creates a storage account in your Azure subscription, and uploads your createUiDefinition.json file to the storage account. The storage account is created the first time you run the script or if the storage account has been deleted. If the storage account already exists in your Azure subscription, the script reuses it. The script opens the portal and loads your file from the storage account.
 
-Provide a location for the storage account, and specify the folder that has your createUiDefinition.json file. You only need to provide the storage account location the first time you run the script or if the storage account has been deleted.
+Provide a location for the storage account, and specify the folder that has your createUiDefinition.json file.
 
 For PowerShell, use:
 
 ```powershell
 .\SideLoad-CreateUIDefinition.ps1 `
   -StorageResourceGroupLocation southcentralus `
-  -ArtifactsStagingDirectory <path-to-folder-with-createuidefinition>
+  -ArtifactsStagingDirectory .\100-Marketplace-Sample
 ```
 
 For Azure CLI, use:
@@ -49,7 +49,21 @@ For Azure CLI, use:
 ```azurecli
 ./sideload-createuidef.sh \
   -l southcentralus \
-  -a <path-to-folder-with-createuidefinition>
+  -a .\100-Marketplace-Sample
+```
+
+If your createUiDefinition.json file is in the same folder as the script, and you've already created the storage account, you don't need to provide those parameters.
+
+For PowerShell, use:
+
+```powershell
+.\SideLoad-CreateUIDefinition.ps1
+```
+
+For Azure CLI, use:
+
+```azurecli
+./sideload-createuidef.sh
 ```
 
 ## Test your interface
@@ -69,6 +83,18 @@ If your interface definition has an error, you see the description in the consol
 Provide values for the fields. When finished, you see the values that are passed to the template.
 
 ![Show values](./media/test-createuidefinition/show-json.png)
+
+You can use these values as the parameter file for testing your deployment template.
+
+## Troubleshooting the interface
+
+Some common errors you might see are:
+
+* The portal doesn't load your interface. Instead, it shows an icon of a cloud with tear drop. Usually, you see this icon when there's a syntax error in your file. Open the file in VS Code (or other JSON editor that has schema validation) and look for syntax errors.
+
+* The portal hangs at the summary screen. Usually, this interruption happens when there's a bug in the output section. For example, you may have referenced a control that doesn't exist.
+
+* A parameter in the output is empty. The parameter might be referencing a property that doesn't exist. For example, the reference to the control is valid, but the property reference isn't valid.
 
 ## Test your solution files
 

@@ -165,6 +165,12 @@
             "redirect_url": "/azure/iot-fundamentals/iot-introduction",
             "redirect_document_id": false
         },
+
+        {
+            "source_path": "articles/iot-hub/iot-hub-create-using-cli-nodejs.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-create-using-cli",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-tutorial-analytics.md",
             "redirect_url": "/azure/cognitive-services/custom-decision-service",
@@ -2877,7 +2883,27 @@
         },
         {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
-            "redirect_url": "/azure/automation/automation-create-runas-account",
+            "redirect_url": "/azure/automation/manage-runas-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-create-runas-account.md",
+            "redirect_url": "/azure/automation/manage-runas-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-manage-account.md",
+            "redirect_url": "/azure/automation/manage-runas-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-create-aduser-account.md",
+            "redirect_url": "/azure/automation/automation-credentials",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-verify-runas-authentication.md",
+            "redirect_url": "/azure/automation/manage-runas-account",
             "redirect_document_id": false
         },
         {
@@ -8378,6 +8404,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/access-control.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/documentdb/documentdb-automation-resource-manager-cli-nodejs.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/cli-samples",
             "redirect_document_id": false
@@ -8394,7 +8425,7 @@
         },
         {
             "source_path": "articles/documentdb/table-powershell.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/azure/cosmos-db/table-introduction",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/table-introduction",
             "redirect_document_id": false
         },
         {
@@ -12841,6 +12872,11 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-microsoft-authenticator.md",
             "redirect_url": "./end-user/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-get-started-standalone-cluster.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-for-windows-server",
             "redirect_document_id": false
         },
         {
@@ -23982,6 +24018,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/network-watcher/prepare-flow-log.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-nsg-flow-logging-overview",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/network-watcher/network-watcher-nsg-flow-logging-cli-nodejs.md",
             "redirect_url": "/azure/network-watcher/network-watcher-nsg-flow-logging-cli",
             "redirect_document_id": true
@@ -25582,6 +25623,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/data-lake-storage/index.md",
+            "redirect_url": "/azure/storage/data-lake-storage/introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/dev-spaces/index.md",
             "redirect_url": "/azure/dev-spaces/azure-dev-spaces",
             "redirect_document_id": false
@@ -26422,6 +26468,31 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/user/azure-stack-powershell-download.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-powershell-download",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-extension-host-prepare.md",
+            "redirect_url": "/azure/azure-stack",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-metrics-azure-data.md",
+            "redirect_url": "/azure/azure-stack",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-metrics-monitor.md",
+            "redirect_url": "/azure/azure-stack",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-metrics-supported.md",
+            "redirect_url": "/azure/azure-stack",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/application-proxy-teams.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-teams",
             "redirect_document_id": true
@@ -26992,6 +27063,21 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup.md",
+            "redirect_url": "/azure/active-directory/user-help/user-help-register-device-on-network",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/user-help/device-management-azuread-joined-devices-setup.md",
+            "redirect_url": "/azure/active-directory/user-help/user-help-join-device-on-network",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/hdinsight/kafka/apache-kafka-azure-functions.md",
             "redirect_url": "/azure/hdinsight/kafka/apache-kafka-introduction",
             "redirect_document_id": false
@@ -27249,7 +27335,41 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-no-modern-authentication.md",
             "redirect_url": "/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo",
             "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/cognitive-services/speech-service/speech-scenarios.md",
+            "redirect_url": "/azure/cognitive-services/speech-service/overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/aks/aks-ssh.md",
+            "redirect_url": "/azure/aks/ssh",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/cognitive-services/luis/Home.md",
+            "redirect_url": "/azure/cognitive-services/luis/what-is-luis",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/data-factory/data-factory-monitor-oms.md",
+            "redirect_url": "/azure/data-factory/monitor-using-azure-monitor",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/ansible-create-complete-vm.md",
+            "redirect_url": "/azure/virtual-machines/linux/ansible-create-vm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/networking/networking-virtual-datacenter.md",
+            "redirect_url": "/azure/architecture/vdc/networking-virtual-datacenter",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security-center/security-center-disk-encryption.md",
+            "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
+            "redirect_document_id": false
         }
-
     ]
 }

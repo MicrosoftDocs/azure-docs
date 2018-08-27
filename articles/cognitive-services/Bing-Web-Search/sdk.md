@@ -1,11 +1,11 @@
 ---
-title: Bing Web Search SDK samples 
+title: Bing Web Search SDK samples
 titleSuffix: Microsoft Cognitive Services
 description: Bing Web Search SDK for applications that search the web.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
-ms.assetid: 
+ms.assetid:
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
@@ -17,10 +17,10 @@ ms.author: v-gedod, erhopf
 
 The Bing Web Search SDK samples include scenarios that:
 
-1. Query a single word and print the name and URL of the first web page, image, news article, and video included in the response.
-2. Query on a phrase, verify the number of results, and print out the name and URL of first result.
-3. Query on search term with response filters set to `news` and print the details of news results.
-4. Query on a search term with `answerCount` and `promote` parameters, then print details of results.
+* Query a single word and print the name and URL of the first web page, image, news article, and video included in the response.
+* Query on a phrase, verify the number of results, and print out the name and URL of first result.
+* Query on search term with response filters set to `news` and print the details of news results.
+* Query on a search term with `answerCount` and `promote` parameters, then print details of results.
 
 The Bing Web Search SDK is available in Python, Node.js, C#, and Java.
 

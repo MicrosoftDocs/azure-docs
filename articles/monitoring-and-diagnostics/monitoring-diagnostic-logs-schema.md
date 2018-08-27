@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 7/18/2018
+ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: logs
 ---
@@ -23,7 +23,7 @@ A combination of the resource type (available in the `resourceId` property) and 
 | resourceId | Required | The resource ID of the resource that emitted the event. For tenant services, this is of the form /tenants/tenant-id/providers/provider-name. |
 | tenantId | Required for tenant logs | The tenant ID of the Active Directory tenant that this event is tied to. This property is only used for tenant-level logs, it does not appear in resource-level logs. |
 | operationName | Required | The name of the operation represented by this event. If the event represents an RBAC operation, this is the RBAC operation name (eg. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Typically modeled in the form of a Resource Manager operation, even if they are not actual documented Resource Manager operations (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
-| operationVersion | Optional | The api-version associated with the operation, if the operationName was performed using an API (eg. http://myservice.windowsazure.net/object?api-version=2016-06-01). If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
+| operationVersion | Optional | The api-version associated with the operation, if the operationName was performed using an API (eg. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
 | category | Required | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. Typical log categories are “Audit” “Operational” “Execution” and “Request.” |
 | resultType | Optional | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
 | resultSignature | Optional | The sub status of the event. If this operation corresponds to a REST API call, this is the HTTP status code of the corresponding REST call. |
@@ -47,6 +47,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Application Gateways |[Diagnostics Logging for Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log analytics for Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch diagnostic logging](../batch/batch-diagnostics.md) |
+| Cognitive Services | Schema not available. |
 | Content Delivery Network | [Azure Diagnostic Logs for CDN](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB Logging](../cosmos-db/logging.md) |
 | Data Factory | [Monitor Data Factories using Azure Monitor](../data-factory/monitor-using-azure-monitor.md) |
@@ -55,13 +56,14 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | DB for PostgreSQL |  Schema not available. |
 | Event Hubs |[Azure Event Hubs diagnostic logs](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schema not available. |
+| Azure Firewall | Schema not available. |
 | IoT Hub | [IoT Hub Operations](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Key Vault Logging](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B custom tracking schema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Network Security Groups |[Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS Protection | [Manage Azure DDoS Protection Standard](../virtual-network/manage-ddos-protection.md) |
-| PowerBI Dedicated | Schema not available. |
+| PowerBI Dedicated | [Diagnostic logging for PowerBI Embedded in Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Data Model for Azure Backup](../backup/backup-azure-reports-data-model.md)|
 | Search |[Enabling and using Search Traffic Analytics](../search/search-traffic-analytics.md) |
 | Service Bus |[Azure Service Bus diagnostic logs](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -82,6 +84,12 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc Node Status|
 |Microsoft.Batch/batchAccounts|ServiceLog|Service Logs|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|
+|Microsoft.ClassicNetwork/networksecuritygroups|Network Security Group Rule Flow Event|Network Security Group Rule Flow Event|
+|Microsoft.CognitiveServices/accounts|Audit|Audit|
+|Microsoft.ContainerService/managedClusters|kube-apiserver|Kubernetes API Server|
+|Microsoft.ContainerService/managedClusters|kube-controller-manager|Kubernetes Controller Manager|
+|Microsoft.ContainerService/managedClusters|kube-scheduler|Kubernetes Scheduler|
+|Microsoft.ContainerService/managedClusters|guard|Authentication Webhook|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|Pipeline activity runs log|
 |Microsoft.DataFactory/factories|PipelineRuns|Pipeline runs log|
@@ -91,7 +99,6 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.DataLakeStore/accounts|Audit|Audit Logs|
 |Microsoft.DataLakeStore/accounts|Requests|Request Logs|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL Server Logs|
-|Microsoft.DBforPostgreSQL/servers|PostgreSQLBackupEvents|PostgreSQL Backup Events|
 |Microsoft.Devices/IotHubs|Connections|Connections|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Device Telemetry|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D Commands|
@@ -104,6 +111,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.Devices/IotHubs|JobsOperations|Jobs Operations|
 |Microsoft.Devices/IotHubs|DirectMethods|Direct Methods|
 |Microsoft.Devices/IotHubs|E2EDiagnostics|E2E Diagnostics (Preview)|
+|Microsoft.Devices/IotHubs|Configurations|Configurations|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Device Operations|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Service Operations|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -124,13 +132,17 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway Access Log|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
+|Microsoft.Network/securegateways|AzureFirewallApplicationRule|Azure Firewall Application Rule|
+|Microsoft.Network/securegateways|AzureFirewallNetworkRule|Azure Firewall Network Rule|
+|Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Azure Firewall Application Rule|
+|Microsoft.Network/azurefirewalls|AzureFirewallNetworkRule|Azure Firewall Network Rule|
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Gateway Diagnostic Logs|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Tunnel Diagnostic Logs|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Route Diagnostic Logs|
 |Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|IKE Diagnostic Logs|
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2S Diagnostic Logs|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager Probe Health Results Event|
-|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Table of GWM counters|
+|Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Peering Route Table Logs|
 |Microsoft.PowerBIDedicated/capacities|Engine|Engine|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup Reporting Data|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery Jobs|
@@ -142,15 +154,19 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery Protected Disk Data Churn|
 |Microsoft.Search/searchServices|OperationLogs|Operation Logs|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operational Logs|
+|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|AutomaticTuning|Automatic tuning|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Query Store Wait Statistics|
 |Microsoft.Sql/servers/databases|Errors|Errors|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Database Wait Statistics|
 |Microsoft.Sql/servers/databases|Timeouts|Timeouts|
 |Microsoft.Sql/servers/databases|Blocks|Blocks|
-|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|Deadlocks|Deadlocks|
 |Microsoft.Sql/servers/databases|Audit|Audit Logs|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|SQL Security Audit Event|
+|Microsoft.Sql/servers/databases|SqlDw_Requests|SQL DW Requests|
+|Microsoft.Sql/servers/databases|SqlDw_RequestSteps|SQL DW Request Steps|
 |Microsoft.StreamAnalytics/streamingjobs|Execution|Execution|
 |Microsoft.StreamAnalytics/streamingjobs|Authoring|Authoring|
 
