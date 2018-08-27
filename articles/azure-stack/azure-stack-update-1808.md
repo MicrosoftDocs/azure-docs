@@ -30,7 +30,7 @@ This article describes the contents of the 1808 update package. The update packa
 
 ## Build reference
 
-The Azure Stack 1808 update build number is **1.1808.0.78**.  
+The Azure Stack 1808 update build number is **1.1808.0.95**.  
 
 ### New features
 
