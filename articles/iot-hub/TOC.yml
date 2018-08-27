@@ -8,6 +8,8 @@
     href: about-iot-hub.md
 - name: Quickstarts
   items:
+  - name: Send telemetry (C)
+    href: quickstart-send-telemetry-c.md
   - name: Send telemetry (Node.js)
     href: quickstart-send-telemetry-node.md
   - name: Send telemetry (.NET)
