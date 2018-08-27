@@ -17,7 +17,7 @@ The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Pyt
 
 Want to see the code right now? The [Bing Web Search SDK for Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) are available on GitHub.
 
-[!INCLUDE [quickstart-signup](includes/quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Prerequisites
 

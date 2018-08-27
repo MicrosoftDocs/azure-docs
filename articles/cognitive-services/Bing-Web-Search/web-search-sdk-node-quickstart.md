@@ -18,7 +18,7 @@ The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Nod
 
 Want to see the code right now? The [Bing Web Search SDK for Node.js samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) are available on GitHub.
 
-[!INCLUDE [quickstart-signup](includes/quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Prerequisites
 

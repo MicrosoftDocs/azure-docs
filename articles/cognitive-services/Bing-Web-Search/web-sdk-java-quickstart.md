@@ -18,7 +18,7 @@ The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Jav
 
 Want to see the code right now? The [Bing Web Search SDK for Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) are available on GitHub.
 
-[!INCLUDE [quickstart-signup](includes/quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Prerequisites
 

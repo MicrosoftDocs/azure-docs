@@ -14,9 +14,9 @@ ms.author: v-gedod, erhopf
 
 # Quickstart: Use the Bing Web Search SDK for C#
 
-The Bing Web Search SDK contains the functionality of the REST API for web requests and parsing results. 
+The Bing Web Search SDK contains the functionality of the REST API for web requests and parsing results.
 
-[!INCLUDE [quickstart-signup](../includes/quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 The [source code for C# Bing Web Search SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/BingSearchv7/BingWebSearch/WebSearchSamples.cs) is available on GitHub.
 
