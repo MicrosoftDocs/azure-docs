@@ -20,7 +20,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: media/index/video-featured.png
+      src: ./media/index/video-featured.png
       width: 250  
     title: Building web app solutions with authentication (9:31)
     href: https://www.youtube.com/watch?v=QWh5HZK9vRA
@@ -74,16 +74,16 @@ sections:
       style: dataMatrix
       columns:
         - image:
-            src: ./media/index/logo_ios.svg
+            src: ./media/logos/logo_ios.svg
           title: iOS
         - image:
-            src: ./media/index/logo_android.svg
+            src: ./media/logos/logo_android.svg
           title: Android
         - image:
-            src: ./media/index/logo_Windows.svg
+            src: ./media/logos/logo_Windows.svg
           title: Windows Desktop .NET
         - image:
-            src: ./media/index/logo_Windows.svg
+            src: ./media/logos/logo_Windows.svg
           title: Universal Windows Platform
       rows:
         - title: v2.0
@@ -104,16 +104,16 @@ sections:
       style: dataMatrix
       columns:
         - image:
-            src: ./media/index/logo_NET.svg
+            src: ./media/logos/logo_NET.svg
           title: ASP .NET
         - image:
-            src: ./media/index/logo_nodejs.svg
+            src: ./media/logos/logo_nodejs.svg
           title: NodeJS
         - image:
-            src: ./media/index/logo_java.svg
+            src: ./media/logos/logo_java.svg
           title: Java
         - image:
-            src: ./media/index/logo_python.svg
+            src: ./media/logos/logo_python.svg
           title: Python
       rows:
         - title: v2.0
@@ -137,7 +137,7 @@ sections:
             src: ./media/index/angularjs-shield.svg
           title: AngularJS
         - image:
-            src: ./media/index/logo_js.svg
+            src: ./media/logos/logo_js.svg
           title: JavaScript
       rows:
         - title: v2.0
@@ -154,13 +154,13 @@ sections:
       style: dataMatrix
       columns:
         - image:
-            src: ./media/index/logo_NET.svg
+            src: ./media/logos/logo_NET.svg
           title: ASP .NET
         - image:
-            src: ./media/index/logo_NETcore.svg
+            src: ./media/logos/logo_NETcore.svg
           title: ASP .NET Core       
         - image:
-            src: ./media/index/logo_nodejs.svg
+            src: ./media/logos/logo_nodejs.svg
           title: NodeJS
       rows:
         - title: v2.0
@@ -179,7 +179,7 @@ sections:
       style: dataMatrix
       columns:
         - image:
-            src: ./media/index/logo_NET.svg
+            src: ./media/logos/logo_NET.svg
           title: .NET
       rows:
         - title: v2.0
