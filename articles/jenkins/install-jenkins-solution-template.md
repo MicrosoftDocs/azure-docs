@@ -70,7 +70,7 @@ Select the **Build** tab, then select **Add build step**, **Invoke Gradle script
 
 ![Use the Gradle wrapper to build](./media/install-jenkins-solution-template/jenkins-job-gradle-config.png) 
 
-Select **Advanced..** and then enter `complete` in the **Root Build script** field. Select **Save**.
+Select **Advanced** and then enter `complete` in the **Root Build script** field. Select **Save**.
 
 ![Set advanced settings in the Gradle wrapper build step](./media/install-jenkins-solution-template/jenkins-job-gradle-advances.png) 
 

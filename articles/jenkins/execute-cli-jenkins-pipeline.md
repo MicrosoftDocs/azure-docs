@@ -46,7 +46,7 @@ Ensure you have version 1.2 or later:
 * Within the Jenkins dashboard, click **Manage Jenkins -> Plugin Manager ->** and search for **Azure Credential**. 
 * Update the plugin if the version is earlier than 1.2.
 
-Java JDK and Maven are also required in the Jenkins master. To install, log in to Jenkins master using SSH and run the following commands:
+Java JDK and Maven are also required in the Jenkins master. To install, sign in to Jenkins master using SSH and run the following commands:
 ```bash
 sudo apt-get install -y openjdk-7-jdk
 sudo apt-get install -y maven
