@@ -164,4 +164,4 @@ Try out the ASP.NET tutorial for a complete step-by-step guide on building appli
 > [!div class="nextstepaction"]
 > [Sign-in Tutorial](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp)
 
-[!INCLUDE [Help and support](../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
