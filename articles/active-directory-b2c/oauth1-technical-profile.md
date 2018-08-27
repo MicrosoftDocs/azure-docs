@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Define a OAuth1 technical profile in an Azure Active Directory B2C custom policy
 
-Azure Active Directory (Azure AD) B2C provides support for the [OAuth 1.0 protocol](http://tools.ietf.org/html/rfc5849) identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol.
+Azure Active Directory (Azure AD) B2C provides support for the [OAuth 1.0 protocol](http://tools.ietf.org/html/rfc5849) identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With OAuth1 technical profile you can federate with an OAuth1 based identity provider, such as Twitter, allowing you users to sign-in with their existing social or enterprise identities.
 
 ## Protocol
 
@@ -34,7 +34,7 @@ The **InputClaims** and **InputClaimsTransformations**  elements are empty or ab
 
 ## Output claims
 
-The **OutputClaims** element contains a list of claims returned by the OpenId Connect identity provider. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider as long as you set the **DefaultValue** attribute.
+The **OutputClaims** element contains a list of claims returned by the OAuth1 identity provider. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider as long as you set the **DefaultValue** attribute.
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
@@ -42,7 +42,7 @@ The following example shows the claims returned by the Twitter identity provider
 
 - The **user_id** claim that is mapped to the **socialIdpUserId** claim.
 - The **screen_name** claim that is mapped to the **displayName** claim.
-- The **email** claim that is not mapped to another claim. Azure AD B2C uses the **email** claim.
+- The **email** claim without name mapping.
 
 The technical profile also returns claims that aren't returned by the identity provider: 
 
@@ -69,7 +69,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | authorization_endpoint | Yes | The URL of the authorization endpoint as per RFC 5849. |
 | access_token_endpoint | Yes | The URL of the token endpoint as per RFC 5849. |
 | ClaimsEndpoint | No | The URL of the user information endpoint. | 
-| ClaimsResponseFormat | No | The claims response format. |
+| ClaimsResponseFormat | No | The claims response format.|
 
 ## Cryptographic keys
 
@@ -77,7 +77,7 @@ The **CryptographicKeys** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| client_secret | Yes | The client secret of the identity provider application. The cryptographic key is required only if the **response_types** metadata is set to `code`. In this case, Azure AD B2C makes another call to exchange the authorization code for an access token. If the metadata is set to `id_token` you can omit the cryptographic key.  | 
+| client_secret | Yes | The client secret of the identity provider application.   | 
 
 ## Redirect URI
 

@@ -61,9 +61,9 @@ The **OutputClaims** element contains a list of claims returned by the REST API.
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
-The following example shows the claim returned by the Facebook identity provider:
+The following example shows the claim returned by the REST API:
 
-- The **MembershipId** claim that is mapped to the **loyaltyNumber** claim.
+- The **MembershipId** claim that is mapped to the **loyaltyNumber** claim name.
 
 The technical profile also returns claims, that aren't returned by the identity provider: 
 
@@ -190,6 +190,12 @@ public class ResponseContent
   public string moreInfo { get; set; }
 }
 ```
+
+## Examples:
+- [Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input](active-directory-b2c-custom-rest-api-netfw.md) 
+- [Secure your RESTful services by using HTTP basic authentication](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+- [Secure your RESTful service by using client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+- [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input](active-directory-b2c-rest-api-validation-custom.md)
 
  
 

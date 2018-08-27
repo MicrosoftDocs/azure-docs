@@ -48,19 +48,19 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 ```XML
 <ClaimsTransformations>
-    <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider" 
-                          TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">
-        <InputClaims>
-            <InputClaim ClaimTypeReferenceId="IdentityProvider2"
-                        TransformationClaimType="identityProvider" />
-            <InputClaim ClaimTypeReferenceId="AlternativeSecurityIds" 
-                        TransformationClaimType="collection" />
-        </InputClaims>
-        <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="AlternativeSecurityIds" 
-                         TransformationClaimType="collection" />
-        </OutputClaims>
-    </ClaimsTransformation>
+  <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider" 
+TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">
+    <InputClaims>
+      <InputClaim ClaimTypeReferenceId="IdentityProvider2"
+TransformationClaimType="identityProvider" />
+      <InputClaim ClaimTypeReferenceId="AlternativeSecurityIds" 
+TransformationClaimType="collection" />
+    </InputClaims>
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="AlternativeSecurityIds" 
+TransformationClaimType="collection" />
+    </OutputClaims>
+  </ClaimsTransformation>
 </ClaimsTransformations>
 ...
 <TechnicalProfile Id="Facebook-OAUTH-UnLink">
@@ -75,6 +75,8 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
     <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
 </TechnicalProfile>
 ```
+
+
 
 ## Use a validation technical profile
 

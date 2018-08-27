@@ -19,19 +19,19 @@ User journeys specify explicit paths through which a policy allows a relying par
 
 These user journeys can be considered as templates available to satisfy the core need of the various replying parties of the community of interest. User journeys facilitate the definition the relying party part of a policy. A policy can define multiple user journeys. Each user journey is a sequence of orchestration steps.
 
-To define the user journeys supported by the policy, a **UserJourneys** element is added under the top-level element of the policy file. This element is optional.
+To define the user journeys supported by the policy, a **UserJourneys** element is added under the top-level element of the policy file. 
 
 The **UserJourneys** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| UserJourney | 0:n | A user journey that defines all of the constructs necessary for a complete user flow. | 
+| UserJourney | 1:n | A user journey that defines all of the constructs necessary for a complete user flow. | 
 
 The **UserJourney** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Id | Yes | An identifier of a user journey that can be used to reference it from other elements in the policy file. |
+| Id | Yes | An identifier of a user journey that can be used to reference it from other elements in the policy. The **DefaultUserJourney** element of the [relying party policy](relyingparty.md) points to this attribute. |
 
 The **UserJourney** element contains the following elements:
 
@@ -42,6 +42,9 @@ The **UserJourney** element contains the following elements:
 ## OrchestrationSteps
 
 A user journey is represented as an orchestration sequence that must be followed through for a successful transaction. If any step fails, the transaction fails. These orchestration steps reference both the building blocks and the claims providers allowed in the policy file. Any orchestration step that is responsible to show or render a user experience also has a reference to the corresponding content definition identifier.
+
+Orchestration steps can be conditionaly ecxetuted, based on preconditions defined in the orchestration step element. For examle you can check to perform an orchestration step only if a specific claims exists, or if a claim is equal or not to the specified value. 
+
 
 To specify the ordered list of orchestration steps, an **OrchestrationSteps** element is added as part of the policy. This element is required.
 

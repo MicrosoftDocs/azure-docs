@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Predicates and PredicateValidations
 
-The **Predicates** and **PredicateValidationsInput** elements enable you to perform a validation process to ensure that only properly formed data is entered into your Azure Active Directory (Azure AD) B2C tenant.  
+The **Predicates** and **PredicateValidations** elements enable you to perform a validation process to ensure that only properly formed data is entered into your Azure Active Directory (Azure AD) B2C tenant.  
 
 The following diagram shows the relationship between the elements:  
 
@@ -49,7 +49,7 @@ The **Parameters** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Parameter | 1:1 | The parameters for the method type of the string validation. | 
+| Parameter | 1:n | The parameters for the method type of the string validation. | 
 
 The **Parameter** element contains the following attributes:
 
@@ -106,6 +106,24 @@ The following example shows a `IsDateRange` method with the parameters `Minimum`
 
 While the predicates define the validation to check against a claim type, the **PredicateValidations** group a set of predicates to form a user input validation that can be applied to a claim type. Each **PredicateValidation** element contains a set of **PredicateGroup** elements that contain a set of **PredicateReference** elements that points to a **Predicate**. To pass the validation, the value of the claim should pass all of the tests of any predicate under all of the **PredicateGroup** with their set of **PredicateReference** elements.
 
+```XML
+<PredicateValidations>
+  <PredicateValidation Id="">
+    <PredicateGroups>
+      <PredicateGroup Id="">
+        <UserHelpText></UserHelpText>
+        <PredicateReferences MatchAtLeast="">
+          <PredicateReference Id="" />
+          ...
+        </PredicateReferences>
+      </PredicateGroup>
+      ...
+    </PredicateGroups>
+  </PredicateValidation>
+...
+</PredicateValidations>
+```
+
 The **PredicateValidations** element contains the following element:
 
 | Element | Occurrences | Description |
@@ -124,11 +142,10 @@ The **PredicateValidation** element contains the following element:
 | ------- | ----------- | ----------- |
 | PredicateGroups | 1:n | A list of predicate groups. | 
 
-The **PredicateGroups** element contains the following elements:
+The **PredicateGroups** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 |  A description of the predicate that can be helpful for users to know what value they should type. | 
 | PredicateGroup | 1:n | A list of predicates. | 
 
 The **PredicateGroup** element contains the following attribute:
@@ -141,14 +158,14 @@ The **PredicateGroup** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
+| UserHelpText | 1:1 |  A description of the predicate that can be helpful for users to know what value they should type. | 
 | PredicateReferences | 1:n | A list of  predicate references. | 
 
 The **PredicateReferences** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| MatchAtLeast | Yes | Specifies that the value must match at least that many predicate definitions for the input to be accepted. |
-| HelpText | Yes | The help text used in case of an error. | 
+| MatchAtLeast | No | Specifies that the value must match at least that many predicate definitions for the input to be accepted. |
 
 The **PredicateReferences** element contains the following elements:
 
@@ -156,11 +173,11 @@ The **PredicateReferences** element contains the following elements:
 | ------- | ----------- | ----------- |
 | PredicateReference | 1:n | A reference to a predicate. | 
 
-The **PredicateValidation** element contains the following attributes:
+The **PredicateReference** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Id | Yes | An identifier that's used for the predicate group.  |
+| Id | Yes | An identifier that's used for the predicate validation.  |
 
 
 ## Configure password complexity
@@ -329,7 +346,7 @@ The following shows how the elements are organized when Azure AD B2C displays th
 
  ## Configure a date range
 
-With the **Predicates** and **PredicateValidationsInput** elements you can control the minimum and maximum date values of the **UserInputType** by using a `DateTimeDropdown`. To do this, create a **Predicate** with the `IsDateRange` method and provide the minimum and maximum parameters.
+With the **Predicates** and **PredicateValidations** elements you can control the minimum and maximum date values of the **UserInputType** by using a `DateTimeDropdown`. To do this, create a **Predicate** with the `IsDateRange` method and provide the minimum and maximum parameters.
 
 ```XML
 <Predicates>

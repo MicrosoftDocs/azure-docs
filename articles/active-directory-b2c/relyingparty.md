@@ -98,7 +98,7 @@ The **DefaultUserJourney** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | An identifier of the user journey in the RP policy file. |
+| ReferenceId | Yes | An identifier of the user journey in the policy. For more informaiton, see [user journeys](userjourneys.md) |
 
 ## UserJourneyBehaviors
 
@@ -129,7 +129,7 @@ The **JourneyInsights** element contains the following attributes:
 | TelemetryEngine | Yes | The value must be `ApplicationInsights`. | 
 | InstrumentationKey | Yes | The string that contains the instrumentation key for the application insights element. |
 | DeveloperMode | Yes | Possible values: `true` or `false`. If `true`, Application Insights expedites the telemetry through the processing pipeline. This setting is good for development, but constrained at high volumes The detailed activity logs are designed only to aid in development of custom policies. Do not use development mode in production. Logs collect all claims sent to and from the identity providers during development. If used in production, the developer assumes responsibility for PII (Privately Identifiable Information) collected in the App Insights log that they own. These detailed logs are only collected when this value is set to `true`.|
-| ClientEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the Application Insights client-side script for tracking page view and client-side errors (not needed). | 
+| ClientEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the Application Insights client-side script for tracking page view and client-side errors. | 
 | ServerEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the existing UserJourneyRecorder JSON as a custom event to Application Insights. | 
 | TelemetryVersion | Yes | The value must be `1.0.0`. | 
 
