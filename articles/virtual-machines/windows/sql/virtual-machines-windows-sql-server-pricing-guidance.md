@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/02/2018
+ms.date: 08/09/2018
 ms.author: jroth
 ---
 # Pricing guidance for SQL Server Azure VMs
@@ -84,9 +84,12 @@ To create a SQL Server 2017 Azure VM with one of these pay-per-usage images, see
 >
 >It does not include additional SQL Server licensing costs for Web, Standard, and Enterprise editions. To get the most accurate pricing estimate, select your operating system and SQL Server edition on the pricing page for [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) or [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## Bring your own license (BYOL)
+## <a id="byol"></a> Bring your own license (BYOL)
 
 **Bringing your own SQL Server license through License Mobility**, also referred to as **BYOL**, means using an existing SQL Server Volume License with Software Assurance in an Azure VM. A SQL Server VM using BYOL only charges for the cost of running the VM, not for SQL Server licensing, given that you have already acquired licenses and Software Assurance through a Volume Licensing program.
+
+> [!IMPORTANT]
+> BYOL images require an Enterprise Agreement with Software Assurance. They are not available as a part of the Azure Cloud Solution Partner (CSP) at this time.
 
 > [!NOTE]
 > The BYOL images are currently only available for Windows virtual machines. However, you can manually install SQL Server on a Linux-only VM. See the guidelines in the [Linux SQL VM FAQ](../../linux/sql/sql-server-linux-faq.md).

@@ -172,7 +172,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
                             	<a class="barLink" href="/azure/security/azure-threat-detection">Azure advanced threat detection</a>
                             </li>
 			                <li style="list-style: none;">
-                            	<a class="barLink" href="/azure/security/azure-network-security">Azure network security</a>
+                            	<a class="barLink" href="/azure/security/abstract-azure-network-security">Azure network security</a>
                             </li>
                         </ul>
                     </div>
@@ -439,7 +439,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/information-protection/understand-explore/what-is-information-protection">
+        <a href="/azure/information-protection/what-is-information-protection">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">

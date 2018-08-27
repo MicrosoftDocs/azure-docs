@@ -3,13 +3,13 @@ title: Azure Event Hubs FAQ | Microsoft Docs
 description: Azure Event Hubs frequently asked questions (FAQ)
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
 ms.topic: article
-ms.date: 06/07/2018
-ms.author: sethm
+ms.date: 08/07/2018
+ms.author: shvija
 
 ---
 

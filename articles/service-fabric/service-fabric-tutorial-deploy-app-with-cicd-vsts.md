@@ -90,7 +90,13 @@ A Team Services release definition describes a workflow that deploys an applicat
 
 Open a web browser and navigate to your new team project at: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-Select the **Build & Release** tab, then **Builds**, then **+ New definition**.  In **Select a template**, select the **Azure Service Fabric Application** template and click **Apply**.
+Select the **Build and release** tab, then **Builds**, then click **New Pipeline**.
+
+![New Pipeline][new-pipeline]
+
+Select **VSTS Git** as source, **Voting** Team project, **Voting** Repository, and **master** Default branch or manual and scheduled builds.  Then click **Continue**.
+
+In **Select a template**, select the **Azure Service Fabric application** template and click **Apply**.
 
 ![Choose build template][select-build-template]
 
@@ -98,7 +104,9 @@ In **Tasks**, enter "Hosted VS2017" as the **Agent queue**.
 
 ![Select tasks][save-and-queue]
 
-Under **Triggers**, enable continuous integration by setting **Trigger status**.  Select **Save and queue** to manually start a build.
+Under **Triggers**, enable continuous integration by checking **Enable continuous integration**. Within **Branch filters**, click **+ Add**, and the **Branch specification** will default to **master**. Select **Save and queue** to manually start a build.
+
+In the **Save build pipeline and queue dialog**, click **Save & queue**.
 
 ![Select triggers][save-and-queue2]
 
@@ -106,7 +114,7 @@ Builds also trigger upon push or check-in. To check your build progress, switch 
 
 ### Create a release definition
 
-Select the **Build & Release** tab, then **Releases**, then **+ New definition**.  In **Select a template**, select the **Azure Service Fabric Deployment** template from the list and then **Apply**.
+Select the **Build & Release** tab, then **Releases**, then **+ New pipeline**.  In **Select a template**, select the **Azure Service Fabric Deployment** template from the list and then **Apply**.
 
 ![Choose release template][select-release-template]
 
@@ -130,7 +138,9 @@ Enable a continuous deployment trigger so that a release is automatically create
 
 ![Enable trigger][enable-trigger]
 
-Select **+Release** -> **Create Release** -> **Create** to manually create a release.  Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Note the application version, in this example it is "1.0.0.20170616.3".
+Select **+ Release** -> **Create a Release** -> **Create** to manually create a release. You can monitor the release progress in the **Releases** tab.
+
+Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Note the application version, in this example it is "1.0.0.20170616.3".
 
 ## Commit and push changes, trigger a release
 
@@ -184,6 +194,7 @@ Advance to the next tutorial:
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
+[new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

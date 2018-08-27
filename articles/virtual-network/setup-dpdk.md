@@ -58,19 +58,19 @@ Accelerated networking must be enabled on a Linux virtual machine. The virtual m
 
 ## Install DPDK dependencies
 
-### Ubuntu 18.04
+### Ubuntu 16.04
 
 ```bash
 sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
 sudo apt-get update
-sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev
+sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
 ```
 
-### Ubuntu 16.04
+### Ubuntu 18.04
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev
+sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
 ```
 
 ### RHEL7.5/CentOS 7.5
@@ -78,7 +78,7 @@ sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev
 ```bash
 yum -y groupinstall "Infiniband Support"
 sudo dracut --add-drivers "mlx4_en mlx4_ib mlx5_ib" -f
-yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel
+yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel libmnl-devel
 ```
 
 ### SLES 15
@@ -104,11 +104,10 @@ zypper \
 ## Setup virtual machine environment (once)
 
 1. [Download the latest DPDK](https://core.dpdk.org/download). Version 18.02 or higher is required for Azure.
-2. Install the *libnuma-dev* package with `sudo apt-get install libnuma-dev`.
-3. First build the default config with `make config T=x86_64-native-linuxapp-gcc`.
-4. Enable Mellanox PMDs in the generated config with `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
-5. Compile with `make`.
-6. Install with `make install DESTDIR=<output folder>`.
+2. First build the default config with `make config T=x86_64-native-linuxapp-gcc`.
+3. Enable Mellanox PMDs in the generated config with `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
+4. Compile with `make`.
+5. Install with `make install DESTDIR=<output folder>`.
 
 # Configure runtime environment
 
@@ -130,14 +129,14 @@ Run the following commands once, after rebooting:
      > [!NOTE]
      > There is a way to modify the grub file so that huge pages are reserved on boot by following the [instructions](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) for DPDK. The instruction is at the bottom of the page. When running in an Azure Linux virtual machine, modify files under /etc/config/grub.d instead, to reserve hugepages across reboots.
 
-2. MAC & IP addresses: Use `ifconfig –a` to view the MAC and IP address of the network interfaces. The *VF* network interface and *NETVSC* network interface have the same MAC address, but only the *NETVSC* network interface has an IP address.
+2. MAC & IP addresses: Use `ifconfig –a` to view the MAC and IP address of the network interfaces. The *VF* network interface and *NETVSC* network interface have the same MAC address, but only the *NETVSC* network interface has an IP address. VF interfaces are running as slave interfaces of NETVSC interfaces.
 
 3. PCI addresses
 
    * Find out which PCI address to use for *VF* with `ethtool -i <vf interface name>`.
    * Ensure that testpmd doesn’t accidentally take over the VF pci device for *eth0*, if *eth0* has accelerated networking enabled. If DPDK application has accidentally taken over the management network interface and causes loss of your SSH connection, use the serial console to kill DPDK application, or to stop or start the virtual machine.
 
-4. Load *ibuverbs* on each reboot with `modprobe -a ib_uverbs`. For SLES 15 only, load *mlx4_ib* with 'modprobe -a mlx4_ib'.
+4. Load *ibuverbs* on each reboot with `modprobe -a ib_uverbs`. For SLES 15 only, also load *mlx4_ib* with `modprobe -a mlx4_ib`.
 
 ## Failsafe PMD
 
@@ -149,23 +148,23 @@ Use `sudo` before the *testpmd* command to run in root mode.
 
 ### Basic: Sanity check, failsafe adapter initialization
 
-1. Run the following commands to start a single port application:
+1. Run the following commands to start a single port testpmd application:
 
    ```bash
    testpmd -w <pci address from previous step> \
      --vdev="net_vdev_netvsc0,iface=eth1" \
-     -i \
+     -- -i \
      --port-topology=chained
     ```
 
-2. Run the following commands to start a dual port application:
+2. Run the following commands to start a dual port testpmd application:
 
    ```bash
    testpmd -w <pci address nic1> \
    -w <pci address nic2> \
    --vdev="net_vdev_netvsc0,iface=eth1" \
    --vdev="net_vdev_netvsc1,iface=eth2" \
-   -i
+   -- -i
    ```
 
    If running with more than 2 NICs, the `--vdev` argument follows this pattern: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
@@ -182,30 +181,30 @@ The following commands periodically print the packets per second statistics:
 1. On the TX side, run the following command:
 
    ```bash
-   Testpmd \
-     –l <core-mask> \
+   testpmd \
+     -l <core-list> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev=”net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --port-topology=chained \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
+     -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=txonly \
-     –eth-peer=<port id>,<peer MAC address> \
+     --eth-peer=<port id>,<receiver peer MAC address> \
      --stats-period <display interval in seconds>
    ```
 
 2. On the RX side, run the following command:
 
    ```bash
-   Testpmd \
-     –l <core-mask> \
+   testpmd \
+     -l <core-list> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --port-topology=chained \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
+     -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=rxonly \
-     –eth-peer=<port id>,<peer MAC address> \
+     --eth-peer=<port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>
    ```
 
@@ -217,31 +216,31 @@ The following commands periodically print the packets per second statistics:
 1. On the TX side, run the following command:
 
    ```bash
-   Testpmd \
-     –l <core-mask> \
+   testpmd \
+     -l <core-list> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --port-topology=chained \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
+     -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=txonly \
-     –eth-peer=<port id>,<peer MAC address> \
+     --eth-peer=<port id>,<receiver peer MAC address> \
      --stats-period <display interval in seconds>
     ```
 
 2. On the FWD side, run the following command:
 
    ```bash
-   Testpmd \
-     –l <core-mask> \
+   testpmd \
+     -l <core-list> \
      -n <num of mem channels> \
      -w <pci address NIC1> \
      -w <pci address NIC2> \
-     --vdev=”net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --vdev=”net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>” (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
-     --nb-cores <number of cores to use for test pmd> \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
+     --vdev="net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>" (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
+     -- --nb-cores <number of cores to use for test pmd> \
      --forward-mode=io \
-     –eth-peer=<recv port id>,<peer MAC address> \
+     --eth-peer=<recv port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>
     ```
 
