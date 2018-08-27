@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 06/24/2018
+ms.date: 09/17/2018
 ms.author: giladm
 
 ---
@@ -69,32 +69,32 @@ The following section describes the configuration of auditing using the Azure po
     If server auditing is enabled, the database-configured audit will exist side-by-side with the server audit.
 
     ![Navigation pane][3]
-5. To open the **Audit Logs Storage** blade, select **Storage Details**. Select the Azure storage account where logs will be saved, and then select the retention period. The old logs will be deleted. Then click **OK**.
+5. You now have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to an OMS workspace for consumption by Log Analytics, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
+    ![storage options](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
-    <a id="storage-screenshot"></a>
-    ![Navigation pane][4]
-6. If you want to customize the audited events, you can do this via [PowerShell cmdlets](#subheading-7) or the [REST API](#subheading-9).
-7. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
-8. Click **Save**.
+6. To configure writing audit logs to a storage account, select **Storage** and open **Storage details**. Select the Azure storage account where logs will be saved, and then select the retention period. The old logs will be deleted. Then click **OK**.
+    ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+7. To configure writing audit logs to an OMS workspace, select **Log Analytics (Preview)** and open **Log Analytics details**. Select or create the OMS workspace where logs will be written and then click **OK**.
+    ![OMS](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+8. To configure writing audit logs to an event hub, select **Event Hub (Preview)** and open **Event Hub details** blade. Select the event hub where logs will be written and then click **OK**. Be sure that the event hub is in the same region as your database and server.
+    ![Event hub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+9. If you want to customize the audited events, you can do this via [PowerShell cmdlets](#subheading-7) or the [REST API](#subheading-9).
+10. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
+11. Click **Save**.
 
 
 
 
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
-Audit logs are aggregated in the Azure storage account you chose during setup. You can explore audit logs by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
-
-Blob auditing logs are saved as a collection of blob files within a container named **sqldbauditlogs**.
-
-For further details about the hierarchy of the storage folder, naming conventions, and log format, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
-
 There are several methods you can use to view blob auditing logs:
+- If you chose to write audit logs to an Azure storage account, the logs are aggregated in the account you chose during setup. You can explore audit logs by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/). In Azure storage, auditing logs are saved as a collection of blob files within a container named **sqldbauditlogs**. For further details about the hierarchy of the storage folder, naming conventions, and log format, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
 
-* Use the [Azure portal](https://portal.azure.com).  Open the relevant database. At the top of the database's **Auditing & Threat detection** blade, click **View audit logs**.
+- Use the [Azure portal](https://portal.azure.com).  Open the relevant database. At the top of the database's **Auditing & Threat detection** blade, click **View audit logs**.
 
     ![Navigation pane][7]
 
-    An **Audit records** blade opens, from which you'll be able to view the logs.
+    **Audit records** opens, from which you'll be able to view the logs.
 
     - You can view specific dates by clicking **Filter** at the top of the **Audit records** blade.
     - You can switch between audit records that were created by the *server audit policy* and the *database audit policy* by toggling **Audit Source**.
@@ -102,10 +102,10 @@ There are several methods you can use to view blob auditing logs:
 
        ![Navigation pane][8]
 
-* Use the system function **sys.fn_get_audit_file** (T-SQL) to return the audit log data in tabular format. For more information on using this function, see the [sys.fn_get_audit_file documentation](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+- Use the system function **sys.fn_get_audit_file** (T-SQL) to return the audit log data in tabular format. For more information on using this function, see the [sys.fn_get_audit_file documentation](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 
-* Use **Merge Audit Files** in SQL Server Management Studio (starting with SSMS 17):
+- Use **Merge Audit Files** in SQL Server Management Studio (starting with SSMS 17):
     1. From the SSMS menu, select **File** > **Open** > **Merge Audit Files**.
 
         ![Navigation pane][9]
@@ -116,11 +116,13 @@ There are several methods you can use to view blob auditing logs:
 
     4. The merged file opens in SSMS, where you can view and analyze it, as well as export it to an XEL or CSV file or to a table.
 
-* Use the [sync application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) that we have created. It runs in Azure and utilizes Log Analytics public APIs to push SQL audit logs into Log Analytics. The sync application pushes SQL audit logs into Log Analytics for consumption via the Log Analytics dashboard.
+- To view audit logs in Log Analytics, open your Log Analytics workspace and under Search and analyze logs, click on view logs. In the Log Search view, you can start by clicking on All collected data.
+    ![OMS log search](./media/sql-database-auditing-get-started/oms_log_search.png)
 
-* Use Power BI. You can view and analyze audit log data in Power BI. Learn more about [Power BI, and access a downloadable template](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
-
-* Download log files from your Azure Storage blob container via the portal or by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
+   From here, you can use [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-log-search.md/)  to run advanced searches on your audit log data. Log Analytics gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all of your workloads and servers. For additional useful information about OMS Log Analytics search language and commands, see [Log Analytics search reference]((../log-analytics/log-analytics-log-search.md/)).
+- To consume audit logs data from Event Hub, you will need to set up a stream to consume events and write them to a target. Take a look at the [Azure Event Hubs Documentation](https://docs.microsoft.com/azure/event-hubs/) to get started.
+- Use Power BI. You can view and analyze audit log data in Power BI. Learn more about [Power BI, and access a downloadable template](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+- Download log files from your Azure Storage blob container via the portal or by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
     * After you have downloaded a log file locally, you can double-click the file to open, view, and analyze the logs in SSMS.
     * You can also download multiple files simultaneously via Azure Storage Explorer. Right-click a specific subfolder and select **Save as** to save in a local folder.
 
@@ -152,7 +154,7 @@ With geo-replicated databases, when you enable auditing on the primary database 
 <br>
 
 ### <a id="subheading-6">Storage key regeneration</a>
-In production, you are likely to refresh your storage keys periodically. When refreshing your keys, you need to resave the auditing policy. The process is as follows:
+In production, you are likely to refresh your storage keys periodically. When writing audit logs to Azure storage, you need to resave your auditing policy when refreshing your keys. The process is as follows:
 
 1. Open the **Storage Details** blade. In the **Storage Access Key** box, select **Secondary**, and click **OK**. Then click **Save** at the top of the auditing configuration blade.
 
