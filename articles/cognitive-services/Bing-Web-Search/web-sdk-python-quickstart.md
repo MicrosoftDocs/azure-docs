@@ -1,6 +1,7 @@
 ---
 title: "Quickstart: Use the Bing Web Search SDK for Python"
-description: Learn how to use the Bing Web Search SDK for Python.services: cognitive-services
+description: Learn how to use the Bing Web Search SDK for Python.
+services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
