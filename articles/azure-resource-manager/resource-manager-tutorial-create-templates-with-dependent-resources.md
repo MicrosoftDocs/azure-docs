@@ -56,8 +56,8 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
 When you explore the template in this section, try to answer these questions:
 
 - How many Azure resources defined in this template?
-- One of the resources is an Azure storage account.  Does the schema look like the one used in the last tutorial?
-- Can you find the schema reference for the resources defined in this template?
+- One of the resources is an Azure storage account.  Does the definition look like the one used in the last tutorial?
+- Can you find the template references for the resources defined in this template?
 - Can you find the dependencies of the resources?
 
 1. From Visual Studio Code, collapse the elements until you only see the first-level elements and the second-level elements inside **resources**:
@@ -65,9 +65,9 @@ When you explore the template in this section, try to answer these questions:
     ![Visual Studio Code Azure Resource Manager templates](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     There are five resources defined by the template.
-2. Expand the first resource. It is a storage account. The schema shall be identical to the one used in the last tutorial.
-3. Expand the second resource. The resource type is **Microsoft.Network/publicIPAddresses**. To find the template reference, browse to [template reference](https://docs.microsoft.com/en-us/azure/templates/), enter **public ip address** or **public ip addresses** in the **Filter by title** field.
-4. Repeat the last step to find the template reference for the other resources defined in this schema.  Compare the resource definition to the reference.
+2. Expand the first resource. It is a storage account. The definition shall be identical to the one used at the begining of the last tutorial.
+3. Expand the second resource. The resource type is **Microsoft.Network/publicIPAddresses**. To find the template reference, browse to [template reference](https://docs.microsoft.com/en-us/azure/templates/), enter **public ip address** or **public ip addresses** in the **Filter by title** field. Compare the resource definition to the template reference.
+4. Repeat the last step to find the template references for the other resources defined in this template.  Compare the resource definitions to the references.
 5. Expand the fourth resource:
 
     ![Visual Studio Code Azure Resource Manager templates dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
