@@ -619,7 +619,7 @@ You've seen how Visual Studio makes it easy to view logs created by an Azure web
 ### Azure web app troubleshooting
 For more information about troubleshooting web apps in Azure App Service, see the following resources:
 
-* [How to monitor web apps](https://azure.microsoft.com/manage/services/web-sites/how-to-monitor-websites/)
+* [How to monitor web apps](web-sites-monitor.md)
 * [Investigating Memory Leaks in Azure Web Apps with Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Microsoft ALM blog post about Visual Studio features for analyzing managed memory issues.
 * [Azure web apps online tools you should know about](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Blog post by Amit Apple.
 
