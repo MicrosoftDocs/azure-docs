@@ -47,16 +47,57 @@ Under the triggers list, select this trigger:
 
    ![Select trigger](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
-   You can optionally specify a JSON schema to use 
-   with the queue message by using a tool like 
-   [jsonschema.net](http://jsonschema.net). 
-   JSON schemas help the Logic App Designer understand 
-   the structure of the data and makes properties easier 
-   for you to select throughout the workflow. 
-   To specify a schema, paste the schema in 
-   the **Request Body JSON Schema** box, for example: 
+1. For the **Request** trigger, you can optionally 
+enter a JSON schema for use with the queue message. 
+JSON schemas help the Logic App Designer understand 
+the structure of the input data and makes outputs 
+easier for you to select throughout the workflow. 
+
+   To specify a schema, enter the schema in the 
+   **Request Body JSON Schema** box, for example: 
 
    ![Specify JSON schema](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger-schema.png)
+
+   If you don't have a schema, but you have a sample payload in JSON format, 
+   you can generate a schema from that payload.
+
+   1. In the Request trigger, choose 
+   **Use sample payload to generate schema**.
+
+   1. Under **Enter or paste a sample JSON payload**, 
+   enter your sample payload, and then choose **Done**.
+      
+      ![Enter sample payload](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
+
+   This sample payload generates this schema that appears in the trigger:
+
+   ```json
+   {
+      "type": "object",
+      "properties": {
+         "address": {
+            "type": "object",
+            "properties": {
+               "number": {
+                  "type": "integer"
+               },
+               "street": {
+                  "type": "string"
+               },
+               "city": {
+                  "type": "string"
+               },
+               "postalCode": {
+                  "type": "integer"
+               },
+               "country": {
+                  "type": "string"
+               }
+            }
+         }
+      }
+   }
+   ```
 
 1. Add any other actions you want to happen after receiving the queue message. 
 
