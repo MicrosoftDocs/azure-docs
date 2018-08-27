@@ -19,7 +19,7 @@ ms.custom: pim
 
 
 
-# Extend and review roles in Azure resources by using Privileged Identity Management
+# Extend or renew Azure resource roles in PIM
 
 Privileged Identity Management (PIM) for Azure resources introduces new controls to manage the access and assignment lifecycle for Azure resources. Administrators can assign membership using start and end date-time properties. When the assignment end approaches, PIM sends email notifications to the affected users or groups. It also sends email notifications to administrators of the resource to ensure that appropriate access is maintained. Assignments might be renewed and remain visible in an expired state for up to 30 days, even if access is not extended.
 

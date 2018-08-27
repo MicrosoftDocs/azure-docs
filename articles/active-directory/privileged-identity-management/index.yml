@@ -17,7 +17,7 @@ metadata:
 abstract:
   description: Azure Active Directory (Azure AD) Privileged Identity Management (PIM) enables you to limit standing administrator access to privileged roles, discover who has access, and review privileged access.
 sections:
-  - title: How to use PIM
+  - title: Use PIM
     items:
     - type: table
       style: dataMatrix
@@ -33,7 +33,7 @@ sections:
           values:
             - href: /azure/active-directory/privileged-identity-management/pim-how-to-activate-role
             - href: /azure/active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles
-  - title: How to manage PIM
+  - title: Manage roles
     items:
     - type: table
       style: dataMatrix

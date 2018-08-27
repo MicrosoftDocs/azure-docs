@@ -18,7 +18,7 @@ ms.custom: pim
 ---
 
 
-# Eligible assignments and resource visibility with Privileged Identity Management
+# Eligible assignments and resource visibility in PIM
 
 Privileged Identity Management (PIM) for Azure resource roles provides enhanced security for organizations that have critical Azure resources. Resource administrators can use PIM to assign members as eligible for resource roles. Learn more about the different assignment types and assignment states for Azure resource roles in the following sections. 
 

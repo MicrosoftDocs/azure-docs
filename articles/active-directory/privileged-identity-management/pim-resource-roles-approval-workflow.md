@@ -16,7 +16,7 @@ ms.author: rolyon
 ms.custom: pim
 ---
 
-# Approval workflow for Azure resource roles in Privileged Identity Management
+# Approve or deny requests for Azure resource roles in PIM
 
 With the approval workflow in Privileged Identity Management (PIM) for Azure resource roles, administrators can further protect or restrict access to critical resources. That is, administrators can require approval to activate role assignments. 
 

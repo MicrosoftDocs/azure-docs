@@ -17,7 +17,7 @@ ms.custom: pim
 ---
 
 
-# Perform access reviews in Azure resources by using Privileged Identity Management
+# Start an access review for Azure resource roles in PIM
 Role assignments become "stale" when users have privileged access that they don't need anymore. To reduce the risk that's associated with these stale role assignments, privileged role administrators should regularly review roles. This document covers the steps for starting an access review in Privileged Identity Management (PIM) for Azure resources.
 
 From the PIM application main page, go to:

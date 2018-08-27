@@ -18,7 +18,7 @@ ms.custom: pim
 ---
 
 
-# Perform an access review in PIM, according to resource role
+# Perform an access review of my Azure resource roles in PIM
 Privileged Identity Management (PIM) for Azure resources simplifies how enterprises manage privileged access to resources in Azure. 
 
 If you are assigned to an administrative role, your organization's privileged role administrator might ask you to regularly confirm that you still need that role for your job. You might get an email that includes a link, or you can go straight to the [Azure portal](https://portal.azure.com). Follow the steps in this article to perform a self-review of your assigned roles.

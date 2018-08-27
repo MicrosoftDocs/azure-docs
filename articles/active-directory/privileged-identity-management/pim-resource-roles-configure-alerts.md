@@ -16,7 +16,7 @@ ms.author: rolyon
 ms.custom: pim
 ---
 
-# Manage security alerts for Azure resources by using Privileged Identity Management
+# Configure security alerts for Azure resource roles in PIM
 Privileged Identity Management (PIM) for Azure Resources generates alerts when there is suspicious or unsafe activity in your environment. When an alert is triggered, it shows up on the Alerts page. 
 
 ![Alerts page](media/azure-pim-resource-rbac/RBAC-alerts-home.png)

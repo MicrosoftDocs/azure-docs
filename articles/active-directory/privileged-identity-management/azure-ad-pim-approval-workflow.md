@@ -18,9 +18,7 @@ ms.author: rolyon
 ms.custom: pim
 ---
 
-# Approvals
-
-## Overview
+# Approve or deny requests for Azure AD directory roles in PIM
 
 With Approvals for Privileged Identity Management, you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers. Keep reading to learn how to configure roles and select approvers.
 

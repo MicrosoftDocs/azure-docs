@@ -17,7 +17,7 @@ ms.author: rolyon
 ms.custom: pim
 ---
 
-# Enforce Azure Multi-Factor Authentication in Azure resources by using Privileged Identity Management
+# Require multi-factor authentication for Azure resource roles in PIM
 
 Privileged Identity Management (PIM) for Azure resource roles enables resource administrators and identity administrators to protect critical Azure infrastructure with time-bound membership and just-in-time access. In addition, PIM provides optional enforcement of Azure Multi-Factor Authentication for two distinct scenarios.
 

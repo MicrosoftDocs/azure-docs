@@ -15,7 +15,7 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ---
-# How to require MFA in Azure AD Privileged Identity Management
+# Require multi-factor authentication for Azure AD directory roles in PIM
 We recommend that you require multi-factor authentication (MFA) for all of your administrators. This reduces the risk of an attack due to a compromised password.
 
 You can require that users complete an MFA challenge when they sign in. The blog post [MFA for Office 365 and MFA for Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) compares what is included in Office and Azure subscriptions, with the features contained in the Microsoft Azure Multi-Factor Authentication offering.

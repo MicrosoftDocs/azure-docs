@@ -16,7 +16,7 @@ ms.author: rolyon
 ms.custom: pim
 ---
 
-# Assign roles for Azure resources by using Privileged Identity Management
+# Assign Azure resource roles in PIM
 
 ## Assign roles
 

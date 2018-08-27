@@ -16,7 +16,7 @@ ms.author: rolyon
 ms.custom: pim
 ---
 
-# Audit resource roles for Azure resources by using Privileged Identity Management 
+# View audit history for Azure resource roles in PIM
 
 Resource audit gives you a view of all role activity for the resource. You can filter the information using a predefined date or custom range.
 ![Filter information](media/azure-pim-resource-rbac/rbac-resource-audit.png)

@@ -19,7 +19,7 @@ ms.custom: pim
 
 ---
 
-# Azure Active Directory Privileged Identity Management subscription requirements
+# Subscription requirements to use PIM
 
 Azure AD Privileged Identity Management is available as part of the Premium P2 edition of Azure AD. For more information on the other features of P2 and how it compares to Premium P1, see [Azure Active Directory editions](../active-directory-editions.md).
 

@@ -18,7 +18,7 @@ ms.date: 03/30/2018
 ms.author: rolyon
 
 ---
-# PIM for Azure resources
+# View who has Azure resource roles in PIM
 
 With Azure Active Directory Privileged Identity Management (PIM), you can now manage, control, and monitor access to Azure Resources within your organization. This includes Subscriptions, Resource Groups, and even Virtual Machines. Any resource within the Azure portal that leverages the Azure Role Based Access Control (RBAC) functionality can take advantage of all the great security and lifecycle management capabilities Azure AD PIM has to offer, and some great new features we plan to bring to Azure AD roles soon. 
 

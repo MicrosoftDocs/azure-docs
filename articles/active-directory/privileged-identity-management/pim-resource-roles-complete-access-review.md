@@ -16,7 +16,7 @@ ms.author: rolyon
 ms.custom: pim
 ---
 
-# Complete an access review for Azure resources by using Privileged Identity Management
+# Complete an access review for Azure resource roles in PIM
 Privileged role administrators can review privileged access after an [access review has been started](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) for Azure resources automatically sends an email that prompts users to review their access. If a user doesn't receive an email, you can send them the instructions for [how to perform an access review](pim-resource-roles-perform-access-review.md).
 
 After the access review period is over, or after all the users have finished their self-review, follow the steps in this article to manage the review and see the results.

@@ -15,7 +15,7 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ---
-# How to manage role activation settings in Azure AD Privileged Identity Management
+# Configure Azure AD directory role settings in PIM
 A privileged role administrator can customize Azure AD Privileged Identity Management (PIM) in their organization, including changing the experience for a user who is activating an eligible role assignment.
 
 ## Manage the role activation settings

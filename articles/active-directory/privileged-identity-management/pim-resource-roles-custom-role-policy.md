@@ -15,7 +15,7 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ---
 
-# Use custom roles to target Privileged Identity Management settings
+# Use custom roles for Azure resources in PIM
 
 You might need to apply strict Privileged Identity Management (PIM) settings to some members of a role, while providing greater autonomy for others. Consider a scenario in which your organization hires several contract associates to assist in the development of an application that will run in an Azure subscription.
 

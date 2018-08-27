@@ -17,7 +17,7 @@ ms.reviewer: hanki
 ms.custom: pim
 ---
 
-# Email notifications in Azure AD PIM
+# Email notifications in PIM
 
 When key events occur in Azure AD Privileged Identity Management (PIM), email notifications are sent to the relevant administrator or user. For example, PIM sends emails for the following events:
 

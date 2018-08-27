@@ -16,7 +16,7 @@ ms.author: rolyon
 ms.custom: pim
 ---
 
-# Configure role settings by using for Azure resources by using Privileged Identity Management 
+# Configure Azure resource role settings in PIM
 
 When you configure role settings, you define the default settings that are applied to assignments in the Privileged Identity Management (PIM) environment. To define these settings for your resource, select the **Role Settings** tab from the left pane. You can also select the role settings button from the action bar (in any role) to view the current options.
 

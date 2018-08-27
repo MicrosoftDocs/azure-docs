@@ -15,7 +15,7 @@ ms.date: 09/17/2017
 ms.author: rolyon
 ms.custom: pim  
 ---
-# Start using Azure AD Privileged Identity Management
+# Start using PIM
 
 With Azure Active Directory (AD) Privileged Identity Management, you can manage, control, and monitor access within your organization. This scope includes access to Azure resources, Azure AD and other Microsoft online services like Office 365 or Microsoft Intune.
 
