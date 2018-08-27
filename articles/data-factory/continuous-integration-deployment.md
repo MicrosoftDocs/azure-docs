@@ -109,9 +109,9 @@ Here are the steps to set up a Azure DevOps Release so you can automate the depl
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-1.  Save the release definition.
+1.  Save the release pipeline.
 
-1.  Create a new release from this release definition.
+1.  Create a new release from this release pipeline.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 

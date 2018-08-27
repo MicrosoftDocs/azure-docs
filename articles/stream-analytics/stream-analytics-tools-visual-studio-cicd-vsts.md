@@ -63,14 +63,14 @@ An Azure Pipelines build pipeline describes a workflow comprised of build steps 
 
 An Azure Pipelines release pipeline describes a workflow that deploys an application package to a cluster. When used together, the build pipeline and release pipeline execute the entire workflow starting with source files and ending with a running application in your cluster. Learn more about Azure Pipelines [release pipelines](https://docs.microsoft.com/en-us/vsts/pipelines/release/define-multistage-release-process?view=vsts).
 
-### Create a build definition
+### Create a build pipeline
 Open a web browser and navigate to the project you just created in [Azure DevOps](https://app.vsaex.visualstudio.com/). 
 
 1. Under the **Build & Release** tab, select **Builds**, and then **+New**.  Select **VSTS Git** and **Continue**.
     
     ![Select source](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source.png)
 
-2. In **Select a template**, click **Empty Process** to start with an empty definition.
+2. In **Select a template**, click **Empty Process** to start with an empty pipeline.
     
     ![Choose build template](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template.png)
 
@@ -78,7 +78,7 @@ Open a web browser and navigate to the project you just created in [Azure DevOps
     
     ![Trigger status](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger.png)
 
-4. Builds are also triggered upon push or check-in. To check your build progress, switch to the **Builds** tab.  Once you verify that the build executes successfully, you must define a release definition that deploys your application to a cluster. Right click on the ellipses next to your build definition and select **Edit**.
+4. Builds are also triggered upon push or check-in. To check your build progress, switch to the **Builds** tab.  Once you verify that the build executes successfully, you must define a release pipeline that deploys your application to a cluster. Right click on the ellipses next to your build pipeline and select **Edit**.
 
 5.  In **Tasks**, enter "Hosted" as the **Agent queue**.
     
@@ -121,12 +121,12 @@ Open a web browser and navigate to the project you just created in [Azure DevOps
     
     ![Set properties](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy-2.png)
 
-12. Click **Save & Queue** to test the build definition.
+12. Click **Save & Queue** to test the build pipeline.
     
     ![Set override parameters](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-queue.png)
 
 ### Failed build process
-You may receive errors for null deployment parameters if you did not override template parameters in the **Azure Resource Group Deployment** task of your build definition. Return to the build definition and override the null parameters to resolve the error.
+You may receive errors for null deployment parameters if you did not override template parameters in the **Azure Resource Group Deployment** task of your build pipeline. Return to the build pipeline and override the null parameters to resolve the error.
 
    ![Build process failed](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-process-failed.png)
 

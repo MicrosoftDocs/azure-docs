@@ -137,7 +137,7 @@ Use the following steps to set up and run code testing and an automated build by
 	
        ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
-	g. Select **Save & queue** to finish the build definition process.
+	g. Select **Save & queue** to finish the build pipeline process.
 
        !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 

@@ -229,11 +229,11 @@ There's an example script on GitHub under the
 ## Azure DevOps Release Management
 
 A common scenario for deploying and managing an environment is to use a tool like Release Management in Azure DevOps,
-with a logic app deployment template. Azure DevOps includes a [Deploy Azure Resource Group](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) task that you can add to any build or release pipeline. You need to have a [service principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) for authorization to deploy, and then you can generate the release definition.
+with a logic app deployment template. Azure DevOps includes a [Deploy Azure Resource Group](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) task that you can add to any build or release pipeline. You need to have a [service principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) for authorization to deploy, and then you can generate the release pipeline.
 
-1. In Release Management, select **Empty** so that you create an empty definition.
+1. In Release Management, select **Empty** so that you create an empty pipeline.
 
-    ![Create empty definition][1]
+    ![Create empty pipeline][1]
 
 2. Choose any resources you need for this, most likely including the logic app template
 that is generated manually or as part of the build process.
