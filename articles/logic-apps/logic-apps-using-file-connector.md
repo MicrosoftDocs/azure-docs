@@ -8,7 +8,7 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 08/25/2018
 ---
 
 # Connect to on-premises file systems with Azure Logic Apps
@@ -48,7 +48,7 @@ you create the file system connection from your logic app.
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 For this example, you need a blank logic app.
 
-## Add trigger and actions
+## Add trigger
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
@@ -59,29 +59,37 @@ and open your logic app in Logic App Designer, if not open already.
 From the triggers list, select this trigger: 
 **When a file is created** 
 
+   ![Select Dropbox trigger](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
+
+1. Sign in with your Dropbox account credentials, 
+and authorize access to your Dropbox data for Azure Logic Apps. 
+
+1. Provide the required information for your trigger.
+
+   ![Dropbox trigger](media/logic-apps-using-file-connector/dropbox-trigger.png)
+
+## Add actions
+
 1. Under the trigger, choose **Next step**. 
 In the search box, enter "file system" as your filter. 
 From the actions list, select this action: 
 **Create file - File System**
 
-   ![Find File System connector](media/logic-apps-using-file-connector/search-file-connector.png)
+   ![Find File System connector](media/logic-apps-using-file-connector/find-file-system-action.png)
 
 1. If you don't already have a connection to your file system, 
-you're prompted to create a connection. 
+you're prompted to create a connection.
 
-1. When you're prompted to sign in, 
-select **Connect via on-premise data gateway** 
-and provide the necessary connection information.
+   ![Create connection](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   ![Configure connection](media/logic-apps-using-file-connector/create-file.png)
-
-   | Setting | Description |
-   | ------- | ----------- |
-   | **Root folder** | Specify the root folder for your file system. You can specify a local folder on the machine where the on-premises data gateway is installed, or the folder can be a network share that the machine can access. <p>**Tip:** The root folder is the main parent folder, which is used for relative paths for all file-related actions. | 
-   | **Authentication type** | The type of authentication that's used by your file system | 
-   | **Username** | Provide your username {*domain*\\*username*} for your previously installed gateway. | 
-   | **Password** | Provide your password for your previously installed gateway. | 
-   | **Gateway** | Select your previously installed gateway. | 
+   | Property | Required | Value | Description | 
+   | -------- | -------- | ----- | ----------- | 
+   | **Connection Name** | Yes | <*connection-name*> | The name you want for your connection | 
+   | **Root folder** | Yes | <*root-folder-name*> | The root folder for your file system, such as a local folder on the computer where the on-premises data gateway is installed, or the folder for a network share that the computer can access. <p>For example: `\\PublicShare\\DropboxFiles` <p>The root folder is the main parent folder, which is used for relative paths for all file-related actions. | 
+   | **Authentication Type** | No | <*auth-type*> | The type of authentication that your file system uses, for example, **Windows** | 
+   | **Username** | Yes | <*domain*>\\<*username*> | The username for your previously installed data gateway | 
+   | **Password** | Yes | <*your-password*> | The password for your previously installed data gateway | 
+   | **gateway** | Yes | <*installed-gateway-name*> | The name for your previously installed gateway | 
    ||| 
 
 1. When you're done, choose **Create**. 
@@ -90,27 +98,26 @@ and provide the necessary connection information.
    making sure that the connection works properly. 
    If the connection is set up correctly, 
    options appear for the action that you previously selected. 
-   The file system connector is now ready for use.
 
-1. In the **Create file** action, provide the necessary details
+1. In the **Create file** action, provide the details
 for copying files from Dropbox to the root folder in your 
-on-premises file share.
+on-premises file share. To add outputs from previous steps, 
+click inside the boxes, and select from available fields 
+when the dynamic content list appears.
 
    ![Create file action](media/logic-apps-using-file-connector/create-file-filled.png)
 
 1. Now, add an Outlook action that sends an email 
-so that the appropriate users know about the new file. 
+so the appropriate users know about the new file. 
 Enter the recipients, title, and body of the email. 
-
-   From the dynamic content list, you can choose data outputs 
-   from the file connector so you can add more details to the email.
+For testing, you can use your own email address.
 
    ![Send email action](media/logic-apps-using-file-connector/send-email.png)
 
 1. Save your logic app. Test your app by uploading a file to Dropbox. 
 
-   The file should get copied to the on-premises file share, 
-   and you should receive an email about the operation.
+   Your logic app should copy the file to your on-premises file share, 
+   and send the recipients an email about the copied file.
 
 ## Connector reference
 
@@ -128,6 +135,5 @@ review the connector's [reference page](/connectors/fileconnector/).
 
 ## Next steps
 
-* [Connect to on-premises data](../logic-apps/logic-apps-gateway-connection.md) 
+* Learn how to [connect to on-premises data](../logic-apps/logic-apps-gateway-connection.md) 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
-* [Enterprise integration for B2B scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md)
