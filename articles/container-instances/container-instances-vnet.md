@@ -6,7 +6,7 @@ author: mmacy
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 08/28/2018
 ms.author: marsma
 ---
 
@@ -16,33 +16,24 @@ Azure Virtual Network provides secure, private networking including filtering, r
 
 Container groups deployed into an Azure virtual network enable scenarios like the following:
 
-* Direct communication between container groups in the same subnet
-* Container group communication with other Azure resources using service endpoints
+* Direct communication betweem container groups in the same subnet
 * Communicate with virtual machines in another subnet within the same virtual network
-* Container group communication with an on-premises application or database
-
-## Deploy to a virtual network
-
-You can deploy container groups to a new or existing Azure virtual network. Depending on the configuration of the virtual network, your containers can communicate with other Azure resources in the same virtual network, resources in another Azure virtual network, or resources on the public internet.
-
-To deploy container groups into a virtual network, you need the following Azure resources:
-
-* **Virtual network** - The virtual network defines the address space in which you create subnets. You deploy resources (like container groups) into subnets.
-* **Delegated subnet** - You "delegate" a subnet to Azure Container Instances so it can create container groups in the subnet.
-* **Container group network profile** - The network profile of a container group specifies the subnet it should be deployed to, and the container group's network policies.
-* **Container group** - The container group is deployed to the subnet specified by the network profile, and is governed by the network policies defined in the profile.
+* Execute code in a container instance that accesses an on-premises application or database
+* Container group communication with other Azure resources using service endpoints
 
 ## Deploy to new virtual network
 
-At a high level, the process for deploying a container group to a new virtual network is:
+You can deploy container groups to a new or existing Azure virtual network. Depending on the configuration of the virtual network, your containers can communicate with other Azure resources in the same virtual network, resources in another Azure virtual network, or resources on the public internet.
 
-1. Create a virtual network
-1. Create a subnet
-1. Delegate the subnet to Azure Container Instances
-1. Create a network profile
-1. Deploy a container group, specifying the network profile
+### Network profile
+
+### Delegated subnet
 
 ## Deploy to existing virtual network
+
+1. thing
+1. thing2
+1. thing3
 
 ## Connect to network resources
 
