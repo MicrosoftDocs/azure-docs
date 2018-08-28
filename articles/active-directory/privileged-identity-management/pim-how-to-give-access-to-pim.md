@@ -1,6 +1,6 @@
 ---
-title: How to give access to Privileged Identity Management - Azure | Microsoft Docs
-description: Learn how to add roles to users with the Azure Active Directory Privileged Identity Management extension so they can manage PIM.
+title: Grant access to other administrators to manage PIM | Microsoft Docs
+description: Learn how to grant access to other administrations to manage Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

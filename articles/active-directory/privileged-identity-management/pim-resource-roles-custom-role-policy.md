@@ -1,6 +1,6 @@
 ---
-title: Use custom roles to target Privileged Identity Management settings for Azure resources | Microsoft Docs
-description: Describes how to use custom roles for Azure resources with PIM.
+title: Use custom roles for Azure resources in PIM | Microsoft Docs
+description: Learn how to use custom roles for Azure resources in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

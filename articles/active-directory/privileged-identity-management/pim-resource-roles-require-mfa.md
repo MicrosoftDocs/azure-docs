@@ -1,6 +1,6 @@
 ---
-title: Enforce Azure Multi-Factor Authentication in Azure resources by using Privileged Identity Management | Microsoft Docs
-description: This document describes how to enable multi-factor authentication for PIM resources.
+title: Require multi-factor authentication for Azure resource roles in PIM | Microsoft Docs
+description: Learn how to require multi-factor authentication (MFA) for Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

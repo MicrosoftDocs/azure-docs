@@ -1,6 +1,6 @@
 ---
-title: How to configure security alerts | Microsoft Docs
-description: Learn how to configure security alerts for Azure Privileged Identity Management extension.
+title: Configure security alerts for Azure AD directory roles in PIM | Microsoft Docs
+description: Learn how to configure security alerts for Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

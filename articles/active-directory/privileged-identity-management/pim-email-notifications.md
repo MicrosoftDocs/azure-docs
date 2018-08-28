@@ -1,6 +1,6 @@
 ---
-title: Email notifications in Azure AD PIM | Microsoft Docs
-description: Describes email notifications in Azure AD Privileged Identity Management (PIM)
+title: Email notifications in PIM | Microsoft Docs
+description: Describes email notifications in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

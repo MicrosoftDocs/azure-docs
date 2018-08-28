@@ -1,6 +1,6 @@
 ---
-title: How to start an access review | Microsoft Docs
-description: Learn how to create an access review for privileged identities with the Azure Privileged Identity Management application.
+title: Start an access review for Azure AD directory roles in PIM | Microsoft Docs
+description: Learn how to start an access review for for Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

@@ -1,6 +1,6 @@
 ---
-title: Assign directory roles to users using Azure AD PIM | Microsoft Docs
-description: Learn how to assign directory roles to users using Azure Active Directory Privileged Identity Management and the Azure portal.
+title: Assign Azure AD directory roles in PIM | Microsoft Docs
+description: Learn how to assign Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

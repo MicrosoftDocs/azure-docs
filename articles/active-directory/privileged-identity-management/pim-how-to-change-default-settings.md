@@ -1,6 +1,6 @@
 ---
-title: How to manage role activation settings | Microsoft Docs
-description: Learn how to change the default settings for privileged identities with the Azure Active Directory Privileged Identity Management extension.
+title: Configure Azure AD directory role settings in PIM | Microsoft Docs
+description: Learn how to configure Azure AD directory role settings in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

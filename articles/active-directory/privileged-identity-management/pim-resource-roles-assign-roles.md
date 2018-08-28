@@ -1,6 +1,6 @@
 ---
-title:  Assign roles for Azure resources by using Privileged Identity Management | Microsoft Docs
-description: Describes how to assign roles in PIM.
+title: Assign Azure resource roles in PIM | Microsoft Docs
+description: Learn how to assign Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

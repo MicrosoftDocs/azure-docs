@@ -1,6 +1,6 @@
 ---
-title: 'Overview: Perform an access review in Privileged Identity Management for Azure resources | Microsoft Docs'
-description: This document describes how to perform an access review in PIM for Azure resources.
+title: Use a resource dashboard to perform an access review | Microsoft Docs
+description: Describes how to use a resource dashboard to perform an access review in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

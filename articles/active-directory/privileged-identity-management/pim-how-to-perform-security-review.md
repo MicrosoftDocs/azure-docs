@@ -1,6 +1,6 @@
 ---
-title: How to perform an access review | Microsoft Docs
-description: Learn how to perform a review with the Azure Privileged Identity Management application.
+title: Perform an access review of my Azure AD directory roles in PIM | Microsoft Docs
+description: Learn how to perform an access review of your Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

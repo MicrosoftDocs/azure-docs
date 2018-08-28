@@ -1,6 +1,6 @@
 ---
-title: Perform an access review in Privileged Identity Management for Azure resources | Microsoft Docs
-description: This document describes how to perform an access review in PIM for Azure resources, according to resource role.
+title: Perform an access review of my Azure resource roles in PIM | Microsoft Docs
+description: Learn how to perform an access review of your Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

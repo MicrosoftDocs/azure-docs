@@ -1,6 +1,6 @@
 ---
-title: How to complete an access review | Microsoft Docs
-description: After you started an access review in Azure AD Privileged Identity Management, learn how to complete it and view the results
+title: Complete an access review for Azure AD directory roles in PIM | Microsoft Docs
+description: Learn how to complete an access review for Azure AD directory roles in Azure AD Privileged Identity Management (PIM) and view the results
 services: active-directory
 documentationcenter: ''
 author: rolyon

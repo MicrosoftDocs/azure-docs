@@ -1,6 +1,6 @@
 ---
-title: How to use the audit log in Azure AD Privileged Identity Management | Microsoft Docs
-description: Learn how to use the audit log in the Azure Privileged Identity Management extension.
+title: View audit history for Azure AD directory roles in PIM | Microsoft Docs
+description: Learn how to view the audit history for Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

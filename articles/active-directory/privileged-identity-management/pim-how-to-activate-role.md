@@ -1,6 +1,6 @@
 ---
-title: How to activate or deactivate a role | Microsoft Docs
-description: Learn how to activate roles for privileged identities with the Azure Privileged Identity Management application.
+title: Activate my Azure AD directory roles in PIM | Microsoft Docs
+description: Learn how to activate Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

@@ -1,6 +1,6 @@
 ﻿---
-title: Azure Privileged Identity Management Approval workflows | Microsoft Docs
-description: Learn about approval workflows in Privileged Identity Management (PIM)
+title: Approve or deny requests for Azure AD directory roles in PIM | Microsoft Docs
+description: Learn how to approve or deny requests for Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

@@ -1,6 +1,6 @@
 ---
-title: How to require multi-factor authentication | Microsoft Docs
-description: Learn how to require multi-factor authentication (MFA) for privileged identities with the Azure Active Directory Privileged Identity Management extension.
+title: Require multi-factor authentication for Azure AD directory roles in PIM | Microsoft Docs
+description: Learn how to require multi-factor authentication (MFA) for Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

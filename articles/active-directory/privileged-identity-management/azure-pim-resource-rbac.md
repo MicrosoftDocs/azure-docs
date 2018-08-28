@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure PIM Resource RBAC | Microsoft Docs
-description: Get an overview of the RBAC feature in PIM including Terminology and notifications
+title: View who has Azure resource roles in PIM | Microsoft Docs
+description: View who has Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

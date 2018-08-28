@@ -1,6 +1,6 @@
 ---
-title: The Azure AD Privileged Identity Management security wizard
-description: The first time you use the Azure Active Directory Privileged Identity Management extension, you will be presented with a security wizard. This article describes the steps for using the wizard.
+title: Security wizard in PIM | Microsoft Docs
+description: Describes the security wizard that appears the first time you use Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

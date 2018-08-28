@@ -1,6 +1,6 @@
 ---
-title: Extend and review roles in Azure resources by using Privileged Identity Management | Microsoft Docs
-description: This document describes how to extend and renew Azure resource roles for PIM resources.
+title: Extend or renew Azure resource roles in PIM | Microsoft Docs
+description: Learn how to extend or renew Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon

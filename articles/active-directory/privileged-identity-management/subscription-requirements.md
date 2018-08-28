@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management subscriptions - Azure| Microsoft Docs
-description: Explains the subscription and licensing requirements for managing and using Azure AD Privileged Identity Management in your tenant
+title: Subscription requirements to use PIM | Microsoft Docs
+description: Describes the subscription and licensing requirements to use Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
