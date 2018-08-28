@@ -54,6 +54,8 @@ The **Legend** option in the upper right-hand corner describes the symbols and r
 
 The **Connections** pane displays standard connectivity metrics for the selected connection from the VM over the TCP port. The metrics include response time, requests per minute, traffic throughput, and links.  
 
+![Network connectivity charts pane example](./media/monitoring-vminsights-maps/map-group-network-conn-pane-01.png)  
+
 ### Role icons
 Certain processes serve particular roles on virtual machines: web servers, application servers, database, and so on. VM Insights Map annotates process and VMs with role icons to help identify at a glance the role a process or server plays. The following table describes the role icons.  
 
