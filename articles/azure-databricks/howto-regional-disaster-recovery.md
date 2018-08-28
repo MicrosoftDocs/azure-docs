@@ -13,13 +13,19 @@ ms.date: 08/27/2018
 
 This article describes a disaster recovery architecture useful for Azure Databricks clusters, and the steps to accomplish that design.
 
-## Control plan architecture
+## Overview
+
+Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics service. For a big data pipeline, the data (raw or structured) is ingested into Azure through Azure Data Factory in batches, or streamed near real-time using Kafka,Event Hub, or IoT Hub. This data lands in a data lake for long term persisted storage, in Azure Blob Storage or Azure Data Lake Storage. As part of your analytics workflow, use Azure Databricks to read data from multiple data sources such as [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml), or [Azure SQL Data Warehouse](../sql-data-warehouse/index.md) and turn it into breakthrough insights using Spark.
+
+![Databricks pipeline](media/howto-regional-disaster-recovery/databricks-pipeline.png)
+
+## Azure Databricks architecture
 
 At a high level, when you create an Azure Databricks workspace from the Azure portal, a [managed appliance](../managed-applications/overview.md) is deployed as an Azure resource in your subscription, in the chose Azure region (for example, West US). This appliance is deployed in an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with a [Network Security Group](../virtual-network/manage-network-security-group.md) and an Azure Storage account, available in your subscription. The virtual network provides perimeter level security to the Databricks workspace and is protected via network security group. Within the workspace, you can create Databricks cluster(s) by providing the worker and driver VM type and Databricks runtime version. The persisted data is available in your storage account, which can be Azure Blob Storage or Azure Data Lake Store. Once the cluster is created, you can run jobs via notebooks, REST APIs, ODBC/JDBC endpoints by attaching them to a specific cluster.
 
 The Databricks control plane manages and monitors the Databricks workspace environment. Any management operation such as create cluster will be initiated from the Control Plane. All metadata, such as scheduled jobs, is stored in an Azure Database with geo-replication for fault tolerance.
 
-![Databricks control plane architecture](media/howto-regional-disaster-recovery/databricks-control-plane.png)
+![Databricks architecture](media/howto-regional-disaster-recovery/databricks-architecture.png)
 
 One of the advantages of this architecture is that users can connect Azure Databricks to any storage resource in their account. A key benefit is that both compute (Azure Databricks) and storage can be scaled independently of each other.
 
