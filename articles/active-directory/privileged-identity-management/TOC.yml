@@ -23,10 +23,10 @@
 - name: How-to guides
   expanded: true
   items:
-  - name: Use PIM
+  - name: Start using PIM
+    href: pim-getting-started.md
+  - name: Activate roles
     items:
-    - name: Start using PIM
-      href: pim-getting-started.md
     - name: Activate my directory roles
       href: pim-how-to-activate-role.md
     - name: Activate my resource roles
