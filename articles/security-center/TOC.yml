@@ -61,8 +61,10 @@
     href: security-center-monitoring.md
     items:
     - name: Compute & apps security
-      href: security-center-virtual-machine-recommendations.md
+      href: security-center-virtual-machine-protection.md
       items:
+      - name: Virtual machine recommendations
+        href: security-center-virtual-machine-recommendations.md
       - name: Apply disk encryption
         href: security-center-apply-disk-encryption.md
       - name: Apply system updates

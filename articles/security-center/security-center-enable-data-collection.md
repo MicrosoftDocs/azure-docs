@@ -198,7 +198,7 @@ The following use cases specify how automatic provision works in cases when ther
 If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center does not install the Microsoft Monitoring Agent. You can turn on auto provisioning and select the relevant user workspace in Security Center's auto provisioning configuration. If you choose the same workspace the VM is already connected to the existing agent will be wrapped with a Microsoft Monitoring Agent extension. 
 
 > [!NOTE]
-> If SCOM agent version 2012 is installed, DO NOT turn automatic provisioning ON. 
+> If SCOM agent version 2012 is installed, **do not** turn automatic provisioning On. 
 
 For more information, see [What happens if a SCOM or OMS direct agent is already installed on my VM?](security-center-faq.md#scomomsinstalled)
 
@@ -248,7 +248,7 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
    >If the workspace already has a **Security** or **SecurityCenterFree** solution enabled, the pricing will be set automatically. 
    > 
 
-4.	If  you want to deploy the agents on new VMs using ARM template, install the OMS virtual machine extension:
+4.	If  you want to deploy the agents on new VMs using a Resource Manager template, install the OMS virtual machine extension:
 
     a.	[Install the OMS virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md)
     
@@ -282,8 +282,6 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
 	    
              Set-AzureRmVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
 	
-	
-
 	   - When installing on a Linux VM:
 	    
 	         Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
