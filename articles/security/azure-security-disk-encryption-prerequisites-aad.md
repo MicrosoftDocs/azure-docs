@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na 
 ms.workload: na
-ms.date: 08/24/2018
+ms.date: 08/28/2018
 ms.author: mstewart
 ---
 # Azure Disk Encryption prerequisites (previous release)
@@ -260,7 +260,7 @@ Your Azure AD application needs rights to access the keys or secrets in the vaul
      ```
 
 ### <a name="bkmk_KVAPCLI"></a> Set the key vault access policy for the Azure AD app with Azure CLI
-Use [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault.md#az-keyvault-set-policy) to set the access policy. For more information, see [Manage Key Vault using CLI 2.0](../key-vault/key-vault-manage-with-cli2.md#authorize-the-application-to-use-the-key-or-secret).
+Use [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault.md#az-keyvault-set-policy) to set the access policy. For more information, see [Manage Key Vault using CLI 2.0](../key-vault/key-vault-manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
 
 1. If needed, [connect to your Azure subscription](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
 2. Give the service principal you created via the Azure CLI access to get secrets and wrap keys with the following command:
