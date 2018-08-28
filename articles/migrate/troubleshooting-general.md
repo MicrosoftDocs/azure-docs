@@ -36,7 +36,7 @@ To enable collection of disk and network performance data, change the statistics
 
 This could happen if the OVA is partially downloaded or due to the browser if you are using vSphere web client to deploy the OVA. Ensure that the download is complete and try deploying the OVA with a different browser.
 
-### Collector is not able to connect to the Internet
+### Collector is not able to connect to the internet
 
 This can happen when the machine you are using is behind a proxy. Make sure you provide the authorization credentials if the proxy needs one.
 If you are using any URL-based firewall proxy to control outbound connectivity, be sure to whitelist these required URLs:
