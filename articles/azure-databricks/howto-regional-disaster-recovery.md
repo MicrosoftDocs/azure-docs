@@ -261,5 +261,5 @@ To create your own regional disaster recovery topology, follow these requirement
 
    If you do use the Access Control feature, manually reapply the access control to the resources (Notebooks, Clusters, Jobs, Tables).
 
-## Next Steps
+## Next steps
 For more information, see [Azure Databricks documentation](https://docs.azuredatabricks.net/user-guide/index.html).
