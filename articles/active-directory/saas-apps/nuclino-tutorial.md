@@ -122,33 +122,56 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> This value is not real. Update this value with the actual Sign-On URL. Contact [Nuclino Client support team](mailto:contact@nuclino.com) to get this value.
 
-5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+5. Nuclino application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
+
+	![Configure Single Sign-On](./media/Nuclino-tutorial/tutorial_attribute.png)
+
+6. Click **View and edit all other user attributes** checkbox in the **User Attributes** section to expand the attributes. Perform the following steps on each of the displayed attributes-
+
+	| Attribute Name | Attribute Value |
+	| ---------------| --------------- |
+	| first_name | user.givenname |
+	| last_name | user.surname |
+
+	a. Click **Add attribute** to open the **Add Attribute** dialog.
+
+	![Configure Single Sign-On](./media/nuclino-tutorial/tutorial_attribute_04.png)
+
+	![Configure Single Sign-On](./media/nuclino-tutorial/tutorial_attribute_05.png)
+
+	b. In the **Name** textbox, type the **attribute name** shown for that row.
+
+	c. From the **Value** list, type the attribute value shown for that row.
+
+	d. Click **Ok**.
+
+7. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/nuclino-tutorial/tutorial_nuclino_certificate.png)
 
-6. Click **Save** button.
+8. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/nuclino-tutorial/tutorial_general_400.png)
 
-7. On the **Nuclino Configuration** section, click **Configure Nuclino** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+9. On the **Nuclino Configuration** section, click **Configure Nuclino** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Nuclino Configuration](./media/nuclino-tutorial/tutorial_nuclino_configure.png)
 
-8. In a different web browser window, sign in to your Nuclino company site as an administrator.
+10. In a different web browser window, sign in to your Nuclino company site as an administrator.
 
-9. Click on the **ICON**.
+11. Click on the **ICON**.
 
 	![Nuclino Configuration](./media/nuclino-tutorial/configure1.png)
 
-10. Click on the **Azure AD SSO** and select **Team settings** from the dropdown.
+12. Click on the **Azure AD SSO** and select **Team settings** from the dropdown.
 
 	![Nuclino Configuration](./media/nuclino-tutorial/configure2.png)
 
-11. Select **Authentication** from left navigation pane.
+13. Select **Authentication** from left navigation pane.
 
 	![Nuclino Configuration](./media/nuclino-tutorial/configure3.png)
 
-12. In the **Authentication** section, perform the following steps:
+14. In the **Authentication** section, perform the following steps:
 
 	![Nuclino Configuration](./media/nuclino-tutorial/configure4.png)
 
