@@ -149,8 +149,6 @@ If you want to see additional ESXi host VM creation data, click an ESXi host nam
 #### Common search queries
 The solution includes other useful queries that can help you manage your ESXi hosts, such as high storage space, storage latency, and path failure.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
-
 ![queries](./media/log-analytics-vmware/queries.png)
 
 
