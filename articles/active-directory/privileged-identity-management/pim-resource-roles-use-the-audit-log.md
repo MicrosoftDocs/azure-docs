@@ -26,12 +26,12 @@ Resource audit also provides quick access to a user’s activity detail. Under *
 
 ![More activity detail](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
-# My audit
+## My audit
 
 My audit gives you a view of a user's personal role activity. You can filter the information using a predefined date or custom range.
 ![Personal role activity](media/azure-pim-resource-rbac/my-audit-time.png)
 
-## View activation and Azure Resource activity
+## View activation and Azure resource activity
 
 To see what actions a specific user took in various resources, you can review the Azure resource activity that's associated with a given activation period. Start by selecting a user from the **Members** view or from the list of members in a specific role. The result displays a graphical view of the user’s actions in Azure resources by date. It also shows the recent role activations over that same time period.
 
