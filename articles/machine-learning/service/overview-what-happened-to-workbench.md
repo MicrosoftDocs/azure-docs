@@ -20,13 +20,13 @@ In this article, you'll learn about what changed and how it affects your pre-exi
 
 The latest release of Azure Machine Learning includes:
 + A [simplified Azure resources model](concept-azure-machine-learning-architecture.md)
-+ New portal UI for managing and sharing run histories and compute targets
++ New portal UI for managing and sharing experiments and compute targets
 + A new, more comprehensive [Python SDK](reference-azure-machine-learning-sdk.md)
 + An updated and expanded [Azure CLI extension](reference-azure-machine-learning-sdk.md)
 
-The [architecture](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-azure-machine-learning-architecture.md).  You can quickly create workspaces in the [Azure portal](quickstart-get-started.md) or with [the CLI](quickstart-get-started-with-cli.md).  A workspace can be used by multiple users to store training and deployment compute targets, model run histories, Docker images, deployed models, and so on. 
+The [architecture](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-azure-machine-learning-architecture.md).  You can quickly create workspaces in the [Azure portal](quickstart-get-started.md) or with [the CLI](quickstart-get-started-with-cli.md).  A workspace can be used by multiple users to store training and deployment compute targets, model experiments, Docker images, deployed models, and so on. 
 
-While there are improved CLI and SDK clients, the desktop Workbench application was deprecated. You can still monitor your run histories, but now you'll do so in the Azure portal online. In the online workspace dashboard, you can run history reports, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
+While there are improved CLI and SDK clients, the desktop Workbench application was deprecated. You can still monitor your experiments, but now you'll do so in the Azure portal online. In the online workspace dashboard, you can run history reports, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
 
 [!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
@@ -56,7 +56,7 @@ While you can still use the older features, you'll be able to find that document
 
 The older run histories will remain accessible for a while. When you are ready to move to the updated version of Azure Machine Learning service, you can export these run histories if you want to keep a copy. 
 
-In the latest version of Azure Machine Learning service, you can still collect the run history of your models and explore them using the SDK and CLI as well as in the web portal.
+In the latest version of Azure Machine Learning service, run histories are now called *experiments*. You can collect your model's experiments and explore them using the SDK and CLI as well as in the web portal.
 
 ## Can I still prepare data?
 Data preparation files are not portable to the latest release since we don't have Workbench anymore. However, you can still prepare your data for modeling.  With smaller data sets, you can use the Azure ML Data Prep SDK to quickly prepare your data prior to modeling. You can use this same SDK for larger data sets or use Azure Databricks to prepare big data sets.
