@@ -21,4 +21,4 @@ The SDK provides the full functionality of the service. The basic process for pe
 
 See the following code snippets for speech translation scenarios that use the Speech SDK.
 
-[!include[Get a subscription key](cognitive-services-speech-service-get-subscription-key.md)]
+[!INCLUDE [Get a subscription key](cognitive-services-speech-service-get-subscription-key.md)]
