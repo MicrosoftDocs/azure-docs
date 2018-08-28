@@ -45,9 +45,9 @@ This tutorial requires that you run the latest version of Azure PowerShell. If y
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Log in to Azure
+## Sign in to Azure
 
-Issue the following commands to log on to Azure. These steps are not necessary if you're running PowerShell commands in Cloud Shell: 
+Issue the following commands to sign in to Azure. These steps are not necessary if you're running PowerShell commands in Cloud Shell: 
 
 1. Install the Service Bus PowerShell module:
 
@@ -55,7 +55,7 @@ Issue the following commands to log on to Azure. These steps are not necessary i
    Install-Module AzureRM.ServiceBus
    ```
 
-2. Run the following command to log in to Azure:
+2. Run the following command to sign in to Azure:
 
    ```azurepowershell-interactive
    Login-AzureRmAccount
@@ -70,7 +70,7 @@ Issue the following commands to log on to Azure. These steps are not necessary i
 
 ## Provision resources
 
-After logging in to Azure, issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
+After signing in to Azure, issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
 
 ```azurepowershell-interactive
 # Create a resource group 
