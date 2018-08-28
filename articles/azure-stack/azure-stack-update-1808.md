@@ -56,6 +56,8 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2494144- IS, ASDK --> The issue the prevented some F-series virtual machine sizes from appearing when selecting a VM size for deployment is now resolved. 
 
+- <!-- IS, ASDK --> Improvements for performance when creating virtual machines, and more optimized sue of underlying storage.
+
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
 
@@ -64,7 +66,7 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2515955   | IS ,ASDK--> *All services* replaces *More services* in the Azure Stack admin and user portals. You can now use *All services* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals.
 
-- <!--  TBD – IS, ASDK --> *Basic A* virtual machine sizes are retired for [creating virtual machine scale sets](azure-stack-compute-add-scalesets) (VMSS) through the portal. To create a VMSS with this size, use PowerShell or a template.  
+- <!--  TBD – IS, ASDK --> *Basic A* virtual machine sizes are retired for [creating virtual machine scale sets](azure-stack-compute-add-scalesets.md) (VMSS) through the portal. To create a VMSS with this size, use PowerShell or a template.  
 
 ### Common Vulnerabilities and Exposures
 
@@ -185,6 +187,8 @@ The following are post-installation known issues for this build version.
 - <!--  2795678 – IS, ASDK --> When you use the portal to create virtual machines (VM) in a premium VM size (DS,Ds_v2,FS,FSv2), the VM is created in a standard storage account. Creation in a standard storage account does not affect functionally, IOPs, or billing. 
 
    You can safely ignore the warning that says: *You've chosen to use a standard disk on a size that supports premium disks. This could impact operating system performance and is not recommended. Consider using premium storage (SSD) instead.*
+
+- <!-- 2967447 - IS, ASDK --> The virtual machine scale set (VMSS) create experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another OS for your deployment or use an ARM template specifying another CentOS image which has been downloaded prior to deployment from the marketplace by the operator.  
 
 - <!-- 2724873 - IS --> When using the PowerShell cmdlets **Start-AzsScaleUnitNode** or  **Stop-AzsScaleunitNode** to manage scale units, the first attempt to start or stop the scale unit might fail. If the cmdlet fails on the first run, run the cmdlet a second time. The second run should succeed to complete the operation. 
 
