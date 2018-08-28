@@ -11,7 +11,7 @@
     href: luis-get-started-create-app.md
   - name: Use APIs
     items: 
-    - name: Get intent
+    - name: Get intent 
       items:
       - name: C#
         href: luis-get-started-cs-get-intent.md
