@@ -41,8 +41,6 @@
     href: tutorial-bing-web-search-single-page-app.md
   - name: Single-page web app (source code)
     href: tutorial-bing-web-search-single-page-app-source.md
-  - name: Visual Search mobile app
-    href: computer-vision-web-search-tutorial.md
 - name: Samples
   items:
   - name: Code samples
