@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/28/2018
 ms.author: raynew
 
 ---
@@ -67,7 +67,7 @@ After pinning down goals and requirements, Contoso designs and review a deployme
 - The VMware environment is managed by vCenter Server 6.5 (**vcenter.contoso.com**), running on a VM.
 - Contoso has an on-premises datacenter (**contoso-datacenter**), with an on-premises domain controller (**contosodc1**)
 
-## Proposed architecture
+### Proposed architecture
 
 - Since the app is a production workload, the VMs in Azure will reside in the production resource group **ContosoRG**.
 - The VMs will be migrated to the primary region (East US 2) and placed in the production network (VNET-PROD-EUS2):
@@ -83,7 +83,7 @@ Contoso evaluates the proposed design by putting together a pros and cons list.
 
 **Consideration** | **Details**
 --- | ---
-**Pros** | Both the app VMs will be moved to Azure without changes, making the migration simple.<br/><br/> Since Contoso is using lift-and-shift for both app VMs, no special configuration or migration tools are needed for the app database.<br/><br/> Contoso will retain full control of the app VMs in Azure. <br/><br/> SQL Database has built-in fault tolerance that Contoso doesn't need to set up. This ensures that the data tier is no longer a single point of failover.</br>/br> The app VMs are running Ubuntu 16.04-TLS, which is a endorsed Linux distribution. [Learn more](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+**Pros** | Both the app VMs will be moved to Azure without changes, making the migration simple.<br/><br/> Since Contoso is using lift-and-shift for both app VMs, no special configuration or migration tools are needed for the app database.<br/><br/> Contoso will retain full control of the app VMs in Azure. </br>/br> The app VMs are running Ubuntu 16.04-TLS, which is a endorsed Linux distribution. [Learn more](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 **Cons** | The web and data tier of the app will remain a single point of failover. <br/><br/> Contoso will need to continue supporting the app as Azure VMs rather than moving to a managed service such as Azure App Service and Azure Database for MySQL.<br/><br/> Contoso is aware that by keeping things simple with a lift-and-shift VM migration, they're not taking full advantage of the features provided by [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) (built-in high availability, predictable performance, simple scaling, automatic backups and built-in security).
 
 ### Migration process
