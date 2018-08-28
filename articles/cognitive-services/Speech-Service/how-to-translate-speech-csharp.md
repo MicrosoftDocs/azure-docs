@@ -14,7 +14,7 @@ ms.author: wolfma
 
 # Translate speech with the Cognitive Services Speech SDK for C#
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-how-to-translate-speech-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-how-to-translate-speech-selector.md)]
 
 [!include[Introduction](../../../includes/cognitive-services-speech-service-how-to-translate-speech-intro.md)]
 
