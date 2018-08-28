@@ -40,6 +40,9 @@ Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
 
+###### **September xxxxxxx, 2018**
+The August Guest OS has released.
+
 ###### **August 3, 2018**
 The July Guest OS has released.
 
@@ -87,18 +90,19 @@ October Guest OS has released.
 > The RDP Password for OS Family 5 must be a minimum of 10 characters.
 >
 
-| Configuration String | Release date | Disable date | Expired date |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-5.21_201807-02 |August 3, 2018 |Post 5.23 |TBD |
-| WA-GUEST-OS-5.20_201806-01 |July 3, 2018 |Post 5.22 |TBD |
-|~~WA-GUEST-OS-5.19_201805-01~~ |June 1, 2018 |August 3, 2018 |TBD |
-|~~WA-GUEST-OS-5.18_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
-|~~WA-GUEST-OS-5.17_201803-01~~ |April 6, 2018 |June 1, 2018|TBD |
-|~~WA-GUEST-OS-5.16_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
-|~~WA-GUEST-OS-5.15_201801-01~~ |January 4, 2018 |April 6, 2018 |TBD |
-|~~WA-GUEST-OS-5.14_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
-|~~WA-GUEST-OS-5.13_201711-01~~ |December 14, 2017 |January 4, 2018|TBD |
-|~~WA-GUEST-OS-5.12_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
+| Configuration String | Release date | Disable date |
+| --- | --- | --- |
+| WA-GUEST-OS-5.22_201808-01 |September xxxxxxxxx, 2018 |Post 5.24 |
+| WA-GUEST-OS-5.21_201807-02 |August 3, 2018 |Post 5.23 |
+|~~WA-GUEST-OS-5.20_201806-01~~ |July 3, 2018 |September xxxxxxxxx |
+|~~WA-GUEST-OS-5.19_201805-01~~ |June 1, 2018 |August 3, 2018 |
+|~~WA-GUEST-OS-5.18_201804-01~~ |May 4, 2018 |July 3, 2018 |
+|~~WA-GUEST-OS-5.17_201803-01~~ |April 6, 2018 |June 1, 2018|
+|~~WA-GUEST-OS-5.16_201802-01~~ |March 12, 2018 |May 4, 2018 |
+|~~WA-GUEST-OS-5.15_201801-01~~ |January 4, 2018 |April 6, 2018 |
+|~~WA-GUEST-OS-5.14_201712-01~~ |January 4, 2018 |March 12, 2018 |
+|~~WA-GUEST-OS-5.13_201711-01~~ |December 14, 2017 |January 4, 2018|
+|~~WA-GUEST-OS-5.12_201710-02~~ |November 8, 2017 |January 4, 2018 |
 
 
 ## Family 4 releases
@@ -111,18 +115,19 @@ October Guest OS has released.
 >
 >
 
-| Configuration String | Release date | Disable date | Expired date |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-4.56_201807-02 |August 3, 2018 |Post 4.58 |TBD |
-| WA-GUEST-OS-4.55_201806-01 |July 3, 2018 |Post 4.57 |TBD |
-|~~WA-GUEST-OS-4.54_201805-01~~ |June 1, 2018 |August 3, 2018 |TBD |
-|~~WA-GUEST-OS-4.53_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
-|~~WA-GUEST-OS-4.52_201803-01~~ |April 6, 2018 |June 1, 2018 |TBD |
-|~~WA-GUEST-OS-4.51_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
-|~~WA-GUEST-OS-4.50_201801-01~~ |January 4, 2018 |April 6, 2018 |TBD |
-|~~WA-GUEST-OS-4.49_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
-|~~WA-GUEST-OS-4.48_201711-01~~ |December 14, 2017 |January 4, 2018 |TBD |
-|~~WA-GUEST-OS-4.47_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
+| Configuration String | Release date | Disable date |
+| --- | --- | --- |
+| WA-GUEST-OS-4.57_201808-01 |September xxxxxxxxx, 2018 |Post 4.59 |
+| WA-GUEST-OS-4.56_201807-02 |August 3, 2018 |Post 4.58 |
+|~~WA-GUEST-OS-4.55_201806-01~~ |July 3, 2018 |September XXXXXXXXXX |
+|~~WA-GUEST-OS-4.54_201805-01~~ |June 1, 2018 |August 3, 2018 |
+|~~WA-GUEST-OS-4.53_201804-01~~ |May 4, 2018 |July 3, 2018 |
+|~~WA-GUEST-OS-4.52_201803-01~~ |April 6, 2018 |June 1, 2018 |
+|~~WA-GUEST-OS-4.51_201802-01~~ |March 12, 2018 |May 4, 2018 |
+|~~WA-GUEST-OS-4.50_201801-01~~ |January 4, 2018 |April 6, 2018 |
+|~~WA-GUEST-OS-4.49_201712-01~~ |January 4, 2018 |March 12, 2018 |
+|~~WA-GUEST-OS-4.48_201711-01~~ |December 14, 2017 |January 4, 2018 |
+|~~WA-GUEST-OS-4.47_201710-02~~ |November 8, 2017 |January 4, 2018 |
 
 
 ## Family 3 releases
@@ -135,18 +140,19 @@ October Guest OS has released.
 >
 >
 
-| Configuration String | Release date | Disable date | Expired date |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-3.63_201807-02 |August 3, 2018 |Post 3.65 |TBD |
-| WA-GUEST-OS-3.62_201806-01 |July 3, 2018 |Post 3.64 |TBD |
-|~~WA-GUEST-OS-3.61_201805-01~~ |June 1, 2018 |August 3, 2018 |TBD |
-|~~WA-GUEST-OS-3.60_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
-|~~WA-GUEST-OS-3.59_201803-01~~ |April 6, 2018 |June 1, 2018 |TBD |
-|~~WA-GUEST-OS-3.58_201802-01~~ |March 19, 2018 |May 4, 2018 |TBD |
-|~~WA-GUEST-OS-3.57_201801-01~~ |January 29, 2018 |April 6, 2018 |TBD |
-|~~WA-GUEST-OS-3.56_201712-01~~ |January 4, 2018 |March 19, 2018 |TBD |
-|~~WA-GUEST-OS-3.55_201711-01~~ |December 14, 2017 |January 29, 2018 |TBD |
-|~~WA-GUEST-OS-3.54_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
+| Configuration String | Release date | Disable date |
+| --- | --- | --- |
+| WA-GUEST-OS-3.64_201808-01 |September xxxxxxxxx, 2018 |Post 3.66 |
+| WA-GUEST-OS-3.63_201807-02 |August 3, 2018 |Post 3.65 |
+|~~WA-GUEST-OS-3.62_201806-01~~ |July 3, 2018 |September xxxxxxxxx |
+|~~WA-GUEST-OS-3.61_201805-01~~ |June 1, 2018 |August 3, 2018 |
+|~~WA-GUEST-OS-3.60_201804-01~~ |May 4, 2018 |July 3, 2018 |
+|~~WA-GUEST-OS-3.59_201803-01~~ |April 6, 2018 |June 1, 2018 |
+|~~WA-GUEST-OS-3.58_201802-01~~ |March 19, 2018 |May 4, 2018 |
+|~~WA-GUEST-OS-3.57_201801-01~~ |January 29, 2018 |April 6, 2018 |
+|~~WA-GUEST-OS-3.56_201712-01~~ |January 4, 2018 |March 19, 2018 |
+|~~WA-GUEST-OS-3.55_201711-01~~ |December 14, 2017 |January 29, 2018 |
+|~~WA-GUEST-OS-3.54_201710-02~~ |November 8, 2017 |January 4, 2018 |
 
 
 ## Family 2 releases
@@ -159,20 +165,21 @@ October Guest OS has released.
 >
 >
 
-| Configuration String | Release date | Disable date | Expired date |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-2.76_201807-02 |August 3, 2018 |Post 2.78 |TBD |
-| WA-GUEST-OS-2.75_201806-01 |July 3, 2018 |Post 2.77 |TBD |
-|~~WA-GUEST-OS-2.74_201805-01~~ |June 1, 2018 |August 3, 2018|TBD |
-|~~WA-GUEST-OS-2.73_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
-|~~WA-GUEST-OS-2.72_201803-01~~ |April 6, 2018 |June 1, 2018 |TBD |
-|~~WA-GUEST-OS-2.71_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
-|~~WA-GUEST-OS-2.70_201801-01~~ |January 29, 2018 |April 6, 2018 |TBD |
-|~~WA-GUEST-OS-2.69_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
-|~~WA-GUEST-OS-2.68_201711-01~~ |December 14, 2017 |January 29, 2018 |TBD |
-|~~WA-GUEST-OS-2.67_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
-|~~WA-GUEST-OS-2.66_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
-|~~WA-GUEST-OS-2.65_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
+| Configuration String | Release date | Disable date |
+| --- | --- | --- |
+| WA-GUEST-OS-2.77_201808-01 |September xxxxxxxxx, 2018 |Post 2.79 |
+| WA-GUEST-OS-2.76_201807-02 |August 3, 2018 |Post 2.78 |
+|~~WA-GUEST-OS-2.75_201806-01~~ |July 3, 2018 |September xxxxxxxxx |
+|~~WA-GUEST-OS-2.74_201805-01~~ |June 1, 2018 |August 3, 2018|
+|~~WA-GUEST-OS-2.73_201804-01~~ |May 4, 2018 |July 3, 2018 |
+|~~WA-GUEST-OS-2.72_201803-01~~ |April 6, 2018 |June 1, 2018 |
+|~~WA-GUEST-OS-2.71_201802-01~~ |March 12, 2018 |May 4, 2018 |
+|~~WA-GUEST-OS-2.70_201801-01~~ |January 29, 2018 |April 6, 2018 |
+|~~WA-GUEST-OS-2.69_201712-01~~ |January 4, 2018 |March 12, 2018 |
+|~~WA-GUEST-OS-2.68_201711-01~~ |December 14, 2017 |January 29, 2018 |
+|~~WA-GUEST-OS-2.67_201710-02~~ |November 8, 2017 |January 4, 2018 |
+|~~WA-GUEST-OS-2.66_201709-01~~ |October 6, 2017 |December 14, 2017 |
+|~~WA-GUEST-OS-2.65_201708-01~~ |August 24, 2017 |December 14, 2017 |
 
 
 ## MSRC patch updates
