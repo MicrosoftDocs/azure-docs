@@ -75,7 +75,7 @@
       href: sql-api-resources.md
     - name: Global distribution
       href: distribute-data-globally.md
-    - name: Throughput and request units
+    - name: Throughput
       href: request-units.md
     - name: Partitioning
       href: partition-data.md
@@ -86,11 +86,12 @@
     - name: Multi-master
       href: multi-region-writers.md
     - name: Change feed
+      href: change-feed.md
       items:
-      - name: About change feed 
-        href: change-feed.md
-      - name: change feed Ecommerce solution
+      - name: Change feed Ecommerce solution
         href: changefeed-ecommerce-solution.md
+    - name: Time to live
+      href: time-to-live.md
     - name: Unique keys
       href: unique-keys.md
     - name: Security
@@ -100,6 +101,12 @@
           href: database-encryption-at-rest.md
         - name: Secure access to data
           href: secure-access-to-data.md
+        - name: Firewall support
+          href: firewall-support.md
+        - name: Setup virtual network service endpoint
+          href: vnet-service-endpoint.md
+        - name: Key Vault to store secrets
+          href: access-secrets-from-keyvault.md
   - name: Multi-model APIs
     expanded: true
     items:
@@ -369,22 +376,12 @@
         href: manage-account.md
       - name: Get and set throughput
         href: set-throughput.md
-      - name: Time to live
-        href: time-to-live.md
     - name : Logging
       items:
       - name: Diagnostic logging
         href: logging.md
       - name: Application logging with Logic Apps
         href: https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json
-    - name : Secure data
-      items:
-      - name: Firewall support
-        href: firewall-support.md
-      - name: Setup virtual network service endpoint
-        href: vnet-service-endpoint.md
-      - name: Key Vault to store secrets
-        href: access-secrets-from-keyvault.md
     - name : Monitor
       items:
       - name: Monitor with metrics
