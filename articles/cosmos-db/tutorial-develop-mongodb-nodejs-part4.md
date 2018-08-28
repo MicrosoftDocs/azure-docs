@@ -11,7 +11,7 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: john.papa
+ms.author: jopapa
 ms.custom: mvc
 
 ---
@@ -46,7 +46,7 @@ In this tutorial section, you can either use the Azure Cloud Shell (in your inte
 
 ## Create an Azure Cosmos DB account
 
-Create an Azure Cosmos DB account with the [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create) command.
+Create an Azure Cosmos DB account with the [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create) command.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB

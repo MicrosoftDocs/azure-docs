@@ -1,22 +1,15 @@
 ---
-title: 'Azure Toolkit for IntelliJ: Debug Spark applications remotely through SSH | Microsoft Docs'
+title: 'Azure Toolkit for IntelliJ: Debug Spark applications remotely through SSH '
 description: Step-by-step guidance on how to use HDInsight Tools in Azure Toolkit for IntelliJ to debug applications remotely on HDInsight clusters through SSH
 keywords: debug remotely intellij, remote debugging intellij, ssh, intellij, hdinsight, debug intellij, debugging
 services: hdinsight
-documentationcenter: ''
-author: jejiang
-manager: DJ
-editor: Jenny Jiang
-tags: azure-portal
-
-ms.assetid: 
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: 
-ms.topic: article
-ms.date: 11/25/2017
+author: jejiang
 ms.author: jejiang
-
+ms.reviewer: jasonh
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.topic: conceptual
+ms.date: 11/25/2017
 ---
 # Debug Spark applications locally or remotely on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH
 
@@ -54,7 +47,7 @@ This article provides step-by-step guidance on how to use HDInsight Tools in Azu
 
    d. Select **Next**.     
  
-2. In the next **New Project** window, do the following:
+1. In the next **New Project** window, do the following:
 
    ![Select the Spark SDK](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-new-project.png)
 
@@ -66,7 +59,7 @@ This article provides step-by-step guidance on how to use HDInsight Tools in Azu
 
    d. Select **Finish**.
 
-3. Select **src** > **main** > **scala** to open your code in the project. This example uses the **SparkCore_wasbloTest** script.
+1. Select **src** > **main** > **scala** to open your code in the project. This example uses the **SparkCore_wasbloTest** script.
 
 ### Prerequisite for windows
 While you're running the local Spark Scala application on a Windows computer, you might get an exception, as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). The exception occurs because WinUtils.exe is missing on Windows. 
@@ -75,20 +68,20 @@ To resolve this error, [download the executable](http://public-repo-1.hortonwork
 
 ### Scenario 2: Perform local run
 1. Open the **SparkCore_wasbloTest** script, right-click the script editor, and then select the option **Run '[Spark Job]XXX'** to perform local run.
-2. Once local run completed, you can see the output file save to your current project explorer **data** > **__default__**.
+1. Once local run completed, you can see the output file save to your current project explorer **data** > **__default__**.
 
     ![Local run result](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
-3. Our tools have set the default local run configuration automatically when you perform the local run and local debug. Open the configuration **[Spark Job] XXX** on the upper right corner, you can see the **[Spark Job]XXX** already created under **Azure HDInsight Spark Job**. Switch to **Locally Run** tab.
+1. Our tools have set the default local run configuration automatically when you perform the local run and local debug. Open the configuration **[Spark Job] XXX** on the upper right corner, you can see the **[Spark Job]XXX** already created under **Azure HDInsight Spark Job**. Switch to **Locally Run** tab.
 
     ![Local run configuration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
     - [Environment variables](#prerequisite-for-windows): If you already set the system environment variable **HADOOP_HOME** to **C:\WinUtils**, it can auto detect that no need to manually add.
     - [WinUtils.exe Location](#prerequisite-for-windows): If you have not set the system environment variable, you can find the location by clicking its button.
     - Just choose either of two options and, they are not needed on MacOS and Linux.
-4. You can also set the configuration manually before performing local run and local debug. In the preceding screenshot, select the plus sign (**+**). Then select the **Azure HDInsight Spark Job** option. Enter information for **Name**, **Main class name** to save, then click the local run button.
+1. You can also set the configuration manually before performing local run and local debug. In the preceding screenshot, select the plus sign (**+**). Then select the **Azure HDInsight Spark Job** option. Enter information for **Name**, **Main class name** to save, then click the local run button.
 
 ### Scenario 3: Perform local debugging
 1. Open the **SparkCore_wasbloTest** script, set breakpoints.
-2. Right-click the script editor, and then select the option **Debug '[Spark Job]XXX'** to perform local debugging.   
+1. Right-click the script editor, and then select the option **Debug '[Spark Job]XXX'** to perform local debugging.   
 
 
 
@@ -99,24 +92,24 @@ To resolve this error, [download the executable](http://public-repo-1.hortonwork
 
    ![Edit configurations](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
 
-2. In the **Run/Debug Configurations** dialog box, select the plus sign (**+**). Then select the **Azure HDInsight Spark Job** option.
+1. In the **Run/Debug Configurations** dialog box, select the plus sign (**+**). Then select the **Azure HDInsight Spark Job** option.
 
    ![Add new configuration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
-3. Switch to **Remotely Run in Cluster** tab. Enter information for **Name**, **Spark cluster**, and **Main class name**. Then select **Advanced configuration**. Our tools support debug with **Executors**. The **numExectors**, the default value is 5. You'd better not set higher than 3.
+1. Switch to **Remotely Run in Cluster** tab. Enter information for **Name**, **Spark cluster**, and **Main class name**. Then select **Advanced configuration**. Our tools support debug with **Executors**. The **numExectors**, the default value is 5. You'd better not set higher than 3.
 
    ![Run debug configurations](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
-4. In the **Spark Submission Advanced Configuration** dialog box, select **Enable Spark remote debug**. Enter the SSH username, and then enter a password or use a private key file. To save the configuration, select **OK**. If you want to perform remote debug, you need to set it. There is no need to set it if you just want to use remote run.
+1. In the **Spark Submission Advanced Configuration** dialog box, select **Enable Spark remote debug**. Enter the SSH username, and then enter a password or use a private key file. To save the configuration, select **OK**. If you want to perform remote debug, you need to set it. There is no need to set it if you just want to use remote run.
 
    ![Enable Spark remote debug](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 
-5. The configuration is now saved with the name you provided. To view the configuration details, select the configuration name. To make changes, select **Edit Configurations**. 
+1. The configuration is now saved with the name you provided. To view the configuration details, select the configuration name. To make changes, select **Edit Configurations**. 
 
-6. After you complete the configurations settings, you can run the project against the remote cluster or perform remote debugging.
+1. After you complete the configurations settings, you can run the project against the remote cluster or perform remote debugging.
    
    ![Remote run button](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
 
-7. Click the **Disconnect** button that the submission logs not appear in the left panel. However, it is still running on the backend.
+1. Click the **Disconnect** button that the submission logs not appear in the left panel. However, it is still running on the backend.
 
    ![Remote run button](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
 
@@ -127,30 +120,30 @@ To resolve this error, [download the executable](http://public-repo-1.hortonwork
 
    ![Select the debug icon](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-icon.png)
 
-2. When the program execution reaches the breaking point, you see a **Driver** tab and two **Executor** tabs in the **Debugger** pane. Select the **Resume Program** icon to continue running the code, which then reaches the next breakpoint. You need to switch to the correct **Executor** tab to find the target executor to debug. You can view the execution logs on the corresponding **Console** tab.
+1. When the program execution reaches the breaking point, you see a **Driver** tab and two **Executor** tabs in the **Debugger** pane. Select the **Resume Program** icon to continue running the code, which then reaches the next breakpoint. You need to switch to the correct **Executor** tab to find the target executor to debug. You can view the execution logs on the corresponding **Console** tab.
 
    ![Debugging tab](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debugger-tab.png)
 
 ### Scenario 3: Perform remote debugging and bug fixing
 1. Set up two breaking points, and then select the **Debug** icon to start the remote debugging process.
 
-2. The code stops at the first breaking point, and the parameter and variable information are shown in the **Variables** pane. 
+1. The code stops at the first breaking point, and the parameter and variable information are shown in the **Variables** pane. 
 
-3. Select the **Resume Program** icon to continue. The code stops at the second point. The exception is caught as expected.
+1. Select the **Resume Program** icon to continue. The code stops at the second point. The exception is caught as expected.
 
    ![Throw error](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-throw-error.png) 
 
-4. Select the **Resume Program** icon again. The **HDInsight Spark Submission** window displays a "job run failed" error.
+1. Select the **Resume Program** icon again. The **HDInsight Spark Submission** window displays a "job run failed" error.
 
    ![Error submission](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-error-submission.png) 
 
-5. To dynamically update the variable value by using the IntelliJ debugging capability, select **Debug** again. The **Variables** pane appears again. 
+1. To dynamically update the variable value by using the IntelliJ debugging capability, select **Debug** again. The **Variables** pane appears again. 
 
-6. Right-click the target on the **Debug** tab, and then select **Set Value**. Next, enter a new value for the variable. Then select **Enter** to save the value. 
+1. Right-click the target on the **Debug** tab, and then select **Set Value**. Next, enter a new value for the variable. Then select **Enter** to save the value. 
 
    ![Set value](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
 
-7. Select the **Resume Program** icon to continue to run the program. This time, no exception is caught. You can see that the project runs successfully without any exceptions.
+1. Select the **Resume Program** icon to continue to run the program. This time, no exception is caught. You can see that the project runs successfully without any exceptions.
 
    ![Debug without exception](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png)
 

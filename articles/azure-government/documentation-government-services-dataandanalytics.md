@@ -35,7 +35,6 @@ For secured virtual networks, you will want to allow Network Security Groups (NS
 | Region | Allowed IP addresses | Allowed port |
 | ---- | ---- | ---- | ---- |
 | USGov Iowa | 13.72.184.124</br>13.72.190.110 | 443 |
-| USGov Texas | 52.238.116.212</br>52.238.112.86 | 443 |
 | USGov Virginia | 13.72.49.126</br>13.72.55.55 | 443 |
 
 For more information, see [HDInsight public documentation](../hdinsight/hadoop/apache-hadoop-introduction.md).

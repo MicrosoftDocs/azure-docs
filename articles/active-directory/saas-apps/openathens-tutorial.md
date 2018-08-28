@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with OpenAthens | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and OpenAthens.
 services: active-directory
@@ -47,7 +47,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding OpenAthens from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding OpenAthens from the gallery
 To configure the integration of OpenAthens into Azure AD, you need to add OpenAthens from the gallery to your list of managed SaaS apps.
@@ -58,15 +58,15 @@ To configure the integration of OpenAthens into Azure AD, you need to add OpenAt
 
 	![The Azure Active Directory button][1]
 
-2. Browse to **Enterprise applications**, and then go to **All applications**.
+1. Browse to **Enterprise applications**, and then go to **All applications**.
 
 	![The Enterprise applications pane][2]
 	
-3. To add new application, select the **New application** button on the top of the dialog box.
+1. To add new application, select the **New application** button on the top of the dialog box.
 
 	![The New application button][3]
 
-4. In the search box, type **OpenAthens**, select **OpenAthens** from the results panel, and then select the **Add** button.
+1. In the search box, type **OpenAthens**, select **OpenAthens** from the results panel, and then select the **Add** button.
 
 	![OpenAthens in the results list](./media/openathens-tutorial/tutorial_openathens_addfromgallery.png)
 
@@ -81,10 +81,10 @@ In OpenAthens, assign the value of the **user name** in Azure AD as the value of
 To configure and test Azure AD single sign-on with OpenAthens, you need to complete the following building blocks:
 
 1. [Configure Azure AD single sign-On](#configure-azure-ad-single-sign-on), to enable your users to use this feature.
-2. [Create an Azure AD test user](#create-an-azure-ad-test-user), to test Azure AD single sign-on with Britta Simon.
-3. [Create an OpenAthens test user](#create-a-openathens-test-user), to have a counterpart of Britta Simon in OpenAthens that is linked to the Azure AD representation of the user.
-4. [Assign the Azure AD test user](#assign-the-azure-ad-test-user), to enable Britta Simon to use Azure AD single sign-on.
-5. [Test single sign-on](#test-single-sign-on), to verify whether the configuration works.
+1. [Create an Azure AD test user](#create-an-azure-ad-test-user), to test Azure AD single sign-on with Britta Simon.
+1. [Create an OpenAthens test user](#create-a-openathens-test-user), to have a counterpart of Britta Simon in OpenAthens that is linked to the Azure AD representation of the user.
+1. [Assign the Azure AD test user](#assign-the-azure-ad-test-user), to enable Britta Simon to use Azure AD single sign-on.
+1. [Test single sign-on](#test-single-sign-on), to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -96,37 +96,37 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure the single sign-on link][4]
 
-2. To enable single sign-on, in the **Single sign-on** dialog box, select **SAML-based Sign-on** as the **Mode**.
+1. To enable single sign-on, in the **Single sign-on** dialog box, select **SAML-based Sign-on** as the **Mode**.
  
 	![Single sign-on dialog box](./media/openathens-tutorial/tutorial_openathens_samlbase.png)
 
-3. In the **OpenAthens Domain and URLs** section, enter the value `https://login.openathens.net/saml/2/metadata-sp` in the **Identifier** text box.
+1. In the **OpenAthens Domain and URLs** section, enter the value `https://login.openathens.net/saml/2/metadata-sp` in the **Identifier** text box.
 
 	![OpenAthens domain and URLs single sign-on information](./media/openathens-tutorial/tutorial_openathens_url.png)
 
-4. In the **SAML Signing Certificate** section, select **Metadata XML**, and then save the metadata file on your computer.
+1. In the **SAML Signing Certificate** section, select **Metadata XML**, and then save the metadata file on your computer.
 
 	![The AMSL Signing Certificate download link](./media/openathens-tutorial/tutorial_openathens_certificate.png) 
 
-5. Select the **Save** button.
+1. Select the **Save** button.
 
 	![The single sign-on Save button](./media/openathens-tutorial/tutorial_general_400.png)
 
-6. In a different web browser window, log in to your OpenAthens company site as an administrator.
+1. In a different web browser window, log in to your OpenAthens company site as an administrator.
 
-7. Select **Connections** from the list under the **Management** tab. 
+1. Select **Connections** from the list under the **Management** tab. 
 
 	![Configure single sign-on](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
-8. Select **SAML 1.1/2.0**, and then select the **Configure** button.
+1. Select **SAML 1.1/2.0**, and then select the **Configure** button.
 
 	![Configure single sign-on](./media/openathens-tutorial/tutorial_openathens_application2.png)
 	
-9. To add the configuration, select the **Browse** button to upload the metadata .xml file that you downloaded from the Azure portal, and then select **Add**.
+1. To add the configuration, select the **Browse** button to upload the metadata .xml file that you downloaded from the Azure portal, and then select **Add**.
 
 	![Configure single sign-on](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
-10. Perform the following steps under the **Details** tab.
+1. Perform the following steps under the **Details** tab.
 
 	![Configure single sign-on](./media/openathens-tutorial/tutorial_openathens_application4.png)
 
@@ -159,15 +159,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/openathens-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then select **All users**.
+1. To display the list of users, go to **Users and groups**, and then select **All users**.
 
     ![The "Users and groups" and "All users" links](./media/openathens-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, select **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, select **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/openathens-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/openathens-tutorial/create_aaduser_04.png)
 
@@ -195,23 +195,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the **Applications** list, select **OpenAthens**.
+1. In the **Applications** list, select **OpenAthens**.
 
 	![The OpenAthens link in the Applications list](./media/openathens-tutorial/tutorial_openathens_app.png)  
 
-3. In the menu on the left, select **Users and groups**.
+1. In the menu on the left, select **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Select the **Add** button. Then select **Users and groups** in the **Add Assignment** pane.
+1. Select the **Add** button. Then select **Users and groups** in the **Add Assignment** pane.
 
 	![The Add Assignment pane][203]
 
-5. In the **Users and groups** list, select **Britta Simon**.
+1. In the **Users and groups** list, select **Britta Simon**.
 
-6. Select the **Select** button in the **Users and groups** list.
+1. Select the **Select** button in the **Users and groups** list.
 
-7. Select the **Assign** button in the **Add Assignment** pane.
+1. Select the **Assign** button in the **Add Assignment** pane.
 	
 ### Test single sign-on
 

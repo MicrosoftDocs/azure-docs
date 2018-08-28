@@ -17,11 +17,11 @@ ms.custom: mvc
 
 # How to manage connectivity and reliable messaging using Azure IoT Hub device SDKs
 
-This guide provides high-level guidance for designing resilient device applications, by taking advantage of the connectivity and reliable messaging features in Azure IoT device SDKs. The goal of this article is to help answer questions and handle these scenarios :
+This guide provides high-level guidance for designing resilient device applications, by taking advantage of the connectivity and reliable messaging features in Azure IoT device SDKs. The goal of this article is to help answer questions and handle these scenarios:
 
-- managing a dropped network connection
-- managing switching between different network connections
-- managing reconnection due to service transient connection errors
+- Managing a dropped network connection
+- Managing switching between different network connections
+- Managing reconnection due to service transient connection errors
 
 Implementation details may vary by language, see linked API documentation or specific SDK for more details.
 
@@ -112,3 +112,4 @@ For other languages, review the implementation documentation below.  Samples dem
 - [Use the IoT device SDK for C](.\iot-hub-device-sdk-c-intro.md)
 - [Develop for constrained devices](.\iot-hub-devguide-develop-for-constrained-devices.md)
 - [Develop for mobile devices](.\iot-hub-how-to-develop-for-mobile-devices.md)
+- [Troubleshoot device disconnects](iot-hub-troubleshoot-connectivity.md)

@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: 
-ms.date: 06/07/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -26,7 +26,7 @@ In this article, you learn how to redeploy the Azure Stack Development Kit (ASDK
 > Upgrading the ASDK to a new version isn't supported. You have to redeploy the ASDK on the development kit host computer each time you want to evaluate a newer version of Azure Stack.
 
 ## Remove Azure registration 
-If you have previously registered your ASDK installation with Azure, you should remove the registration resource before redeploying the ASDK. Re-register the ASDK to enable marketplace syndication when you redeploy the ASDK. If you have not previously registered the ASDK with your Azure subscription, you can skip this section.
+If you have previously registered your ASDK installation with Azure, you should remove the registration resource before redeploying the ASDK. Re-register the ASDK to enable the availability of items in the marketplace when you redeploy the ASDK. If you have not previously registered the ASDK with your Azure subscription, you can skip this section.
 
 To remove the registration resource, use the **Remove-AzsRegistration** cmdlet to unregister Azure Stack. Then, use the **Remove-AzureRMRsourceGroup** cmdlet to delete the Azure Stack resource group from your Azure subscription:
 

@@ -3,19 +3,13 @@ title: 'Azure PowerShell script sample - Configure point-to-site VPN with native
 description: Configure point-to-site VPN with native Azure certificate authentication using self-signed certificates. This article uses PowerShell.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: cherylmc
-manager: jpconnock
-editor: ''
-tags: 
+author: anzaman
 
-ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
 ms.date: 04/17/2018
-ms.author: anzaman
+ms.author: alzam
 
 ---
 
@@ -88,7 +82,7 @@ $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
 $p2srootcert = New-AzureRmVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
 Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName `
  -VirtualNetworkGatewayname "VNet1GW" `
- -ResourceGroupName "TestRG" -PublicCertData $CertBase64
+ -ResourceGroupName "TestRG1" -PublicCertData $CertBase64
 
 ```
 

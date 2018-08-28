@@ -4,12 +4,9 @@ description: Learn how to use Azure Virtual Network to connect HDInsight to othe
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.workload: big-data
 ms.date: 07/26/2018
 ---
 # Extend Azure HDInsight using an Azure Virtual Network

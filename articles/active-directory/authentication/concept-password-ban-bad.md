@@ -51,11 +51,10 @@ Each time a user resets or changes their Azure AD password it flows through this
 
 ## License requirements
 
-The benefits of the global banned password list apply to all users of Azure Active Directory (Azure AD).
-
-The custom banned password list requires Azure AD Basic licenses.
-
-Azure AD password protection for Windows Server Active Directory requires Azure AD Premium licenses. 
+|   | Azure AD password protection with global banned password list | Azure AD password protection with custom banned password list|
+| --- | --- | --- |
+| Cloud-only users | Azure AD Free | Azure AD Basic |
+| Users synchronized from on-premises Windows Server Active Directory | Azure AD Premium P1 or P2 | Azure AD Premium P1 or P2 |
 
 Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 

@@ -180,7 +180,7 @@ For more information, see [Deploying Azure AD integrated applications to users](
 
 For more information, see:
 
-* [Authentication Scenarios for Azure AD](../develop/active-directory-authentication-scenarios.md)
+* [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md)
 * [Active Directory authentication protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 * [How does single sign-on with Azure Active Directory work?](../manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
 
@@ -208,4 +208,4 @@ For more information, see [Automate user provisioning and deprovisioning to SaaS
 - - -
 **Q:  Can I set up a secure LDAP connection with Azure AD?**
 
-**A:**  No. Azure AD does not support the LDAP protocol.
+**A:**  No. Azure AD does not support the LDAP protocol. However, you can configure secure LDAP with Azure AD Domain Services.

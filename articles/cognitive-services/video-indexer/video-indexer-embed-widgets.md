@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 08/25/2018
 ms.author: juliako
 
 ---
@@ -91,7 +91,7 @@ This section shows how to achieve interaction between two Video Indexer widgets 
 
 Now when a user clicks the insight control on your application, the player jumps to the relevant moment.
 
-For more information, see [this demo](https://api-portal.videoindexer.ai/demo-all-widgets).
+For more information, see [this demo](https://codepen.io/videoindexer/pen/NzJeOb).
 
 ### Embed the Cognitive Insights widget and use Azure Media Player to play the content
 
@@ -149,7 +149,7 @@ This section shows how to achieve interaction between a **Cognitive Insights** w
 
 You should be able now to communicate with your Azure Media Player.
 
-For more information, see [this demo](https://api-portal.videoindexer.ai/demo-your-amp).
+For more information, see [this demo](https://codepen.io/videoindexer/pen/rYONrO).
 
 ### Embed Video Indexer Cognitive Insights widget and use your own player (could be any player)
 
@@ -197,7 +197,7 @@ If you use your own player, you have to take care of manipulating your player yo
 		</script>
 
 
-For more information, see [this demo](https://api-portal.videoindexer.ai/demo-your-player).
+For more information, see [this demo](https://codepen.io/videoindexer/pen/YEyPLd).
 
 ## Adding subtitles
 
@@ -240,6 +240,4 @@ Auto play – by default the player will start playing the video. you can choose
 
 For information about how to view and edit Video Indexer insights, see [this](video-indexer-view-edit.md) article.
 
-## See also
-
-[Video Indexer overview](video-indexer-overview.md)
+Also, check out [Video indexer codepen](https://codepen.io/videoindexer/pen/eGxebZ).

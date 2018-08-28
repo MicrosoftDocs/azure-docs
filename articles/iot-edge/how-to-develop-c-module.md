@@ -70,7 +70,7 @@ There are four items within the solution:
 
 ## Develop your module
 
-The default Azure Function code that comes with the solution is located at **modules** > **\<your module name\>** > **main.c**. The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the tempSensor module that simulates data) and pipe it to IoT Hub. 
+The default C module code that comes with the solution is located at **modules** > **\<your module name\>** > **main.c**. The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the tempSensor module that simulates data) and pipe it to IoT Hub. 
 
 When you're ready to customize the C template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability. 
 
@@ -78,9 +78,15 @@ When you're ready to customize the C template with your own code, use the [Azure
 
 In each module folder, there are several Docker files for different container types. Use any of these files that end with the extension **.debug** to build your module for testing. Currently, C modules support debugging only in Linux amd64 containers.
 
-1. In VS Code, navigate to the `deployment.template.json` file. Update your function image URL by adding **.debug** to the end.
+1. In VS Code, navigate to the `deployment.template.json` file. Update your module image URL by adding **.debug** to the end.
 
-   ![Add **.debug** to your image name](./media/how-to-develop-c-module/image-debug.png)
+    ![Add **.debug** to your image name](./media/how-to-develop-c-module/image-debug.png)
+
+2. Replace the Node.js module createOptions in **deployment.template.json** with below content and save this file: 
+    
+    ```json
+    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
+    ```
 
 2. In the VS Code command palette, enter and run the command **Edge: Build IoT Edge solution**.
 3. Select the `deployment.template.json` file for your solution from the command palette. 
@@ -104,8 +110,7 @@ VS Code keeps debugging configuration information in a `launch.json` file locate
 
 4. In VS Code Debug view, you'll see the variables in the left panel. 
 
-> [!NOTE]
-> This example shows how to debug .NET Core IoT Edge modules on containers. It's based on the debug version of `Dockerfile.debug`, which includes the .NET Core command-line debugger VSDBG in your container image while building it. After you debug your C# modules, we recommend that you directly use or customize `Dockerfile` without VSDBG for production-ready IoT Edge modules.
+The preceding example shows how to debug C IoT Edge modules on containers. It added exposed ports in your module container createOptions. After you finish debugging your Node.js modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.
 
 ## Next steps
 

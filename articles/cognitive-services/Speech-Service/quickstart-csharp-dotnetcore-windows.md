@@ -14,7 +14,7 @@ ms.author: wolfma
 
 # Quickstart: Recognize speech in C# under .NET Core on Windows using the Speech SDK
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you learn how to create a C# console application for .NET Core on Windows using the Cognitive Services Speech SDK to transcribe speech to text.
 The application is built with the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
@@ -45,13 +45,13 @@ The application is built with the [Microsoft Cognitive Services Speech SDK NuGet
 
     ![Install Microsoft.CognitiveServices.Speech NuGet Package](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-0.5.0.png "Install Nuget package")
 
-1. Accept the license in the dialog that appears.
+1. Accept the displayed license.
 
     ![Accept the license](media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "Accept the license")
 
 ## Add the sample code
 
-1. Open `Program.cs` in your Visual Studio project and replace all the code in this file with the following.
+1. Open `Program.cs` and replace all the code in it with the following.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore-windows/helloworld/Program.cs#code)]
 
@@ -75,7 +75,7 @@ The application is built with the [Microsoft Cognitive Services Speech SDK NuGet
 
     ![Console output after successful recognition](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Console output after successful recognition")
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/csharp-dotnetcore-windows` folder.
 
 ## Next steps

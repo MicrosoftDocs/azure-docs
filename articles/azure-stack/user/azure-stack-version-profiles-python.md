@@ -3,7 +3,7 @@ title: Using API version profiles with Python in Azure Stack | Microsoft Docs
 description: Learn about using API version profiles with Python in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 
 ms.service: azure-stack
@@ -11,8 +11,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
 ---
@@ -118,7 +118,7 @@ The examples are not necessarily in the order shown in the above list.
 
 6.  Set the following variables and export these environment variables into your current shell. 
 
-    ````bash
+    ```bash
     export AZURE_TENANT_ID={your tenant id}
     export AZURE_CLIENT_ID={your client id}
     export AZURE_CLIENT_SECRET={your client secret}

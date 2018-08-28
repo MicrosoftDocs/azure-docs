@@ -42,7 +42,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 2. [Collect data](#collect)
 3. [Mitigate the issue](#mitigate)
 
-[App Service Web Apps](/services/app-service/web/) gives you various options at each step.
+[App Service Web Apps](app-service-web-overview.md) gives you various options at each step.
 
 <a name="observe" />
 
@@ -87,7 +87,7 @@ Each App Service web app provides an extensible management end point that allows
 - Source code editors like [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Management tools for connected resources such as a MySQL database connected to a web app.
 
-[Azure Application Insights](/services/application-insights/) is a performance monitoring site extension that's also available. To use Application Insights, you rebuild your code with an SDK. You can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail. For more information, see [Monitor performance in web applications](../application-insights/app-insights-web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is a performance monitoring site extension that's also available. To use Application Insights, you rebuild your code with an SDK. You can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail. For more information, see [Monitor performance in web applications](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 
