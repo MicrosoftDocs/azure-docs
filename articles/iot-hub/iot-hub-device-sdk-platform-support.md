@@ -71,6 +71,7 @@ In addition, a list of partners has ported our C SDK on to more platforms and th
 | Windows Server 2016 | X64  | Java 8       |
 
 ## Partner supported platforms
+Customers can extend our platform support by porting the Azure IoT C SDK, specifically, creating the platform abstraction layer (PAL) of the SDK.  Microsoft works with partners to provide extended support.  A list of partners has ported the C SDK on to more platforms and maintaining the PAL.
 | Partner             | Devices                            | Link                     | Support |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
