@@ -7,11 +7,11 @@ manager: douge
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev
+ms.custom: aaddev, vs-azure
 ---
 # What happened to my WebAPI project (Visual Studio Azure Active Directory connected service)
 

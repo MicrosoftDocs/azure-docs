@@ -361,6 +361,7 @@ The **Dashboard** page displays KPIs in the **System KPIs** panel. These KPIs ar
 
       ...
     });
+    ```
 
 1. Include the new **warningAlarmsChange** KPI in the state data used to render the UI:
 

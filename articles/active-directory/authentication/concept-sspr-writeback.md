@@ -22,7 +22,7 @@ Password writeback is supported in environments that use:
 
 * [Active Directory Federation Services](../connect/active-directory-aadconnect-federation-management.md)
 * [Password hash synchronization](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-* [Pass-through authentication](/../connect/active-directory-aadconnect-pass-through-authentication.md)
+* [Pass-through authentication](../connect/active-directory-aadconnect-pass-through-authentication.md)
 
 Password writeback provides:
 

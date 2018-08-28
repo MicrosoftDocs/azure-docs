@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 07/31/2018
+ms.date: 08/22/2018
 ms.author: rolyon
 
 ---
@@ -119,6 +119,8 @@ The following screen shows how Terms of use looks on mobile devices.
 
 ![Audit Event](media/active-directory-tou/mobile-tou.png)
 
+Users are only required to accept the Terms of use once and they will not see the Terms of use again on subsequent sign ins.
+
 ### How users can review their Terms of use
 Users can review and see the Terms of use that they have accepted by using the following procedure.
 
@@ -158,7 +160,7 @@ The following procedure describes how to add a Terms of use language.
 
 1. Select the Terms of use you want to edit.
 
-1. In the the details pane, click the **Languages** tab.
+1. In the details pane, click the **Languages** tab.
 
     ![Add TOU](media/active-directory-tou/languages-tou.png)
 

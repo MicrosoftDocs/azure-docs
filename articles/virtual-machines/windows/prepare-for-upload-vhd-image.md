@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 08/01/2018
+ms.date: 08/23/2018
 ms.author: genli
 
 ---
@@ -63,7 +63,7 @@ On the VM that you plan to upload to Azure, run all commands in the following st
 1. Remove any static persistent route on the routing table:
    
    * To view the route table, run `route print` at the command prompt.
-   * Check the **Persistence Routes** sections. If there is a persistent route, use [route delete](https://technet.microsoft.com/library/cc739598.apx) to remove it.
+   * Check the **Persistence Routes** sections. If there is a persistent route, use the **route delete** command to remove it.
 2. Remove the WinHTTP proxy:
    
     ```PowerShell
@@ -86,7 +86,7 @@ On the VM that you plan to upload to Azure, run all commands in the following st
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" 1 -Type DWord
 
-    Set-Service -Name w32time -StartupType Auto
+    Set-Service -Name w32time -StartupType Automatic
     ```
 5. Set the power profile to the **High Performance**:
 
@@ -98,17 +98,17 @@ On the VM that you plan to upload to Azure, run all commands in the following st
 Make sure that each of the following Windows services is set to the **Windows default values**. These are the minimum numbers of services that must be set up to make sure that the VM has connectivity. To reset the startup settings, run the following commands:
    
 ```PowerShell
-Set-Service -Name bfe -StartupType Auto
-Set-Service -Name dhcp -StartupType Auto
-Set-Service -Name dnscache -StartupType Auto
-Set-Service -Name IKEEXT -StartupType Auto
-Set-Service -Name iphlpsvc -StartupType Auto
+Set-Service -Name bfe -StartupType Automatic
+Set-Service -Name dhcp -StartupType Automatic
+Set-Service -Name dnscache -StartupType Automatic
+Set-Service -Name IKEEXT -StartupType Automatic
+Set-Service -Name iphlpsvc -StartupType Automatic
 Set-Service -Name netlogon -StartupType Manual
 Set-Service -Name netman -StartupType Manual
-Set-Service -Name nsi -StartupType Auto
+Set-Service -Name nsi -StartupType Automatic
 Set-Service -Name termService -StartupType Manual
-Set-Service -Name MpsSvc -StartupType Auto
-Set-Service -Name RemoteRegistry -StartupType Auto
+Set-Service -Name MpsSvc -StartupType Automatic
+Set-Service -Name RemoteRegistry -StartupType Automatic
 ```
 
 ## Update Remote Desktop registry settings
@@ -303,11 +303,22 @@ Make sure that the following settings are configured correctly for remote deskto
     - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Deny log on through Remote Desktop Services
 
 
-9. Restart the VM to make sure that Windows is still healthy can be reached by using the RDP connection. At this point, you may want to create a VM in your local Hyper-V to make sure the VM is starting completely and then test whether it is RDP reachable.
+9. Check the following AD policy to make sure that you are not removing any of the following the required access accounts:
 
-10. Remove any extra Transport Driver Interface filters, such as software that analyzes TCP packets or extra firewalls. You can also review this on a later stage after the VM is deployed in Azure if needed.
+    - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Access this compute from the network
 
-11. Uninstall any other third-party software and driver that is related to physical components or any other virtualization technology.
+    The following groups should be listed on this policy:
+
+    - Administrators
+    - Backup Operators
+    - Everyone
+    - Users
+
+10. Restart the VM to make sure that Windows is still healthy can be reached by using the RDP connection. At this point, you may want to create a VM in your local Hyper-V to make sure the VM is starting completely and then test whether it is RDP reachable.
+
+11. Remove any extra Transport Driver Interface filters, such as software that analyzes TCP packets or extra firewalls. You can also review this on a later stage after the VM is deployed in Azure if needed.
+
+12. Uninstall any other third-party software and driver that is related to physical components or any other virtualization technology.
 
 ### Install Windows Updates
 The ideal configuration is to **have the patch level of the machine at the latest**. If this is not possible, make sure that the following updates are installed:
