@@ -9244,6 +9244,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/log-analytics/log-analytics-log-search-transition.md",
+            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/machine-learning-apps-text-analytics.md",
             "redirect_url": "/azure/cognitive-services/cognitive-services-text-analytics-quick-start",
             "redirect_document_id": false
