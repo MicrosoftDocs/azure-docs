@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: diberry;
+ms.author: diberry
 ---
 
 # How to add Patterns to improve prediction accuracy

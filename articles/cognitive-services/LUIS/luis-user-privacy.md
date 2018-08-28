@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 05/23/2018
-ms.author: v-geberr;
+ms.author: diberry
 ---
 
 # Export and delete your customer data in Language Understanding (LUIS) in Cognitive Services
