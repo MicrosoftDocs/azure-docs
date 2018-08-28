@@ -36,8 +36,10 @@ For serial console documentation for Linux VMs, [click here](../linux/serial-con
 * Virtual machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 * The account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
+* The virtual machine for which you are acessing serial console must also have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functionality of the VM access extension - see the screenshot below.
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-## Open the Serial Console
+## Get started with Serial Console
 Serial console for virtual machines is only accessible via [Azure portal](https://portal.azure.com). Below are the steps to access the serial console for virtual machines via portal 
 
   1. Open the Azure portal
@@ -47,7 +49,7 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-## Access Serial Console for Windows 
+## Configure Serial Console for Windows 
 Newer Windows Server images on Azure will have [Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but is not available on client versions (for example, Windows 10, Windows 8, or Windows 7). 
 To enable Serial console for Windows virtual machines created with using Feb2018 or lower images please use the following steps: 
 
