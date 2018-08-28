@@ -1,12 +1,12 @@
 ---
 title: Scale Jenkins deployments with Azure VM agents. 
 description: Add additional capacity to your Jenkins pipelines using Azure virtual machines with the Jenkins Azure VM Agent plug-in.
-ms.topic: tutorial
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, virtual machine, agents
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
 ---
 
@@ -113,7 +113,7 @@ In the **Image Configuration** section of the plugin configuration, select **Ubu
 
 ![Configure VM OS and tools](./media/jenkins-azure-vm-agents/jenkins-os-config.png)
 
-Select **Add** next to **Admin Credentials**, then select **Jenkins**. Enter a username and password used to log in to the agents, making sure they satisfy the [username and password policy](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm) for administrative accounts on Azure VMs.
+Select **Add** next to **Admin Credentials**, then select **Jenkins**. Enter a username and password used to sign in to the agents, making sure they satisfy the [username and password policy](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm) for administrative accounts on Azure VMs.
 
 Select **Verify Template** to verify the configuration and then select **Save** to save your changes and return to the Jenkins dashboard.
 
