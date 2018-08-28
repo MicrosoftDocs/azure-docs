@@ -47,16 +47,20 @@ The following example creates a VM named *myVMFromImage*, in the *myResourceGrou
 
 
 ```azurepowershell-interactive
-New-AzureRmVm `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myVMfromImage" `
-	-ImageName "myImage" `
-    -Location "East US" `
-    -VirtualNetworkName "myImageVnet" `
-    -SubnetName "myImageSubnet" `
-    -SecurityGroupName "myImageNSG" `
-    -PublicIpAddressName "myImagePIP" `
-    -OpenPorts 3389
+$newVmArgs = @{
+    ResourceGroupName = "myResourceGroup"
+    UserAssignedIdentity = $true
+    Name = "myVMfromImage"
+    ImageName = "myImage"
+    Location = "East US"
+    VirtualNetworkName = "myImageVnet"
+    SubnetName = "myImageSubnet"
+    SecurityGroupName = "myImageNSG"
+    PublicIpAddressName = "myImagePIP"
+    OpenPorts = 3389
+}
+
+New-AzureRmVm @newVmArgs
 ```
 
 
