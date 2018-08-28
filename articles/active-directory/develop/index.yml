@@ -20,7 +20,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: media/index/video-featured.png
+      src: ./media/index/video-featured.png
       width: 250  
     title: Building web app solutions with authentication (9:31)
     href: https://www.youtube.com/watch?v=QWh5HZK9vRA
