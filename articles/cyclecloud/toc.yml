@@ -116,8 +116,6 @@
         href: ~/cluster-references/build-cluster-template.md
       - name: Cluster Template File Reference
         href: ~/cluster-references/cluster-template-files.md
-      - name: Cluster Template Reference
-        href: ~/cluster-references/cluster-template-reference.md
       - name: Cluster Configuration
         href: ~/cluster-references/cluster-configuration.md
       - name: Node and Nodearray Parameters
@@ -132,6 +130,8 @@
         href: ~/cluster-references/input-endpoint.md
       - name: Parameters
         href: ~/cluster-references/parameter-reference.md
+      - name: Cluster Template Reference
+        href: ~/cluster-references/cluster-template-reference.md
       - name: Download Existing Cluster Templates
         href: download-cluster-templates.md
   - name: Jetpack
@@ -171,7 +171,7 @@
     - name: Current Release
       href: release-notes.md
     - name: v7.5.1
-      href: ~/release-notes/7-5-1.md  
+      href: ~/release-notes/7-5-1.md
     - name: v7.5.0
       href: ~/release-notes/7-5-0.md
   - name: Service Policy

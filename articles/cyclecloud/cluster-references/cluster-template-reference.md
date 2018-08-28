@@ -134,13 +134,3 @@ Attribute | Type | Definition
 PublicPort | Integer | Port on public interface to allow to all traffic.  Starting value for VMSS will increment for each VM added.
 PrivatePort | Integer | Port to receive public port redirection for VMSS load balancer.
 Protocol | String | Tcp or udp. Default is tcp.
-
-## `[[[configuration <name>]]]`
-
-Configurable properties of CycleCloud Project Specs (see [Cluster Reference](~/cluster-references/cluster-reference.md)).
-
-Attribute | Type | Definition
------- | ----- | ----------
-PublicPort | Integer | Port on public interface to allow to all traffic.  Starting value for VMSS will increment for each VM added.
-PrivatePort | Integer | Port to receive public port redirection for VMSS load balancer.
-Protocol | String | Tcp or udp. Default is tcp.
