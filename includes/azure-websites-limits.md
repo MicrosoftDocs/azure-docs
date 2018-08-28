@@ -1,7 +1,7 @@
-| Resource | Free | Shared (Preview) | Basic | Standard | Premium </th> |
-| --- | --- | --- | --- | --- | --- |
-| [Web, mobile, or API apps](https://azure.microsoft.com/services/app-service/) per [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |
-| [Logic apps](https://azure.microsoft.com/services/app-service/logic/) per [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)</a><sup>1</sup> |10 |10 |10 |20 per core |20 per core |
+| Resource | Free | Shared (Preview) | Basic | Standard | Premium | Isolated </th> |
+| --- | --- | --- | --- | --- | --- | --- |
+| [Web, mobile, or API apps](https://azure.microsoft.com/services/app-service/) per [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited|
+| [Logic apps](https://azure.microsoft.com/services/app-service/logic/) per [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)</a><sup>1</sup> |10 |10 |10 |20 per core |20 per core | |
 | [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |1 per region |10 per resource group |100 per resource group |100 per resource group |100 per resource group |
 | Compute instance type |Shared |Shared |Dedicated<sup>3</sup> |Dedicated<sup>3</sup> |Dedicated<sup>3</sup></p> |
 | [Scale-Out](../articles/app-service/web-sites-scale.md) (max instances) |1 shared |1 shared |3 dedicated<sup>3</sup> |10 dedicated<sup>3</sup> |20 dedicated (50 in ASE)<sup>3,4</sup> |
