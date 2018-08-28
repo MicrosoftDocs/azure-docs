@@ -1,5 +1,5 @@
 ---
-title: Use a resource dashboard to perform an access review | Microsoft Docs
+title: Use a resource dashboard to perform an access review - Azure | Microsoft Docs
 description: Describes how to use a resource dashboard to perform an access review in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Grant access to other administrators to manage PIM | Microsoft Docs
+title: Grant access to other administrators to manage PIM - Azure | Microsoft Docs
 description: Learn how to grant access to other administrations to manage Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''

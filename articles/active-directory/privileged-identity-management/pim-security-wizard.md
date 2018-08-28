@@ -1,5 +1,5 @@
 ---
-title: Security wizard in PIM | Microsoft Docs
+title: Security wizard in PIM - Azure | Microsoft Docs
 description: Describes the security wizard that appears the first time you use Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''

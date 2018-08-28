@@ -1,5 +1,5 @@
 ---
-title: Start using PIM | Microsoft Docs
+title: Start using PIM - Azure | Microsoft Docs
 description: Learn how to start using Azure AD Privileged Identity Management (PIM) in the Azure portal.
 services: active-directory
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Enable subscription management in your tenant | Microsoft Docs
+title: Enable subscription management in your tenant - Azure | Microsoft Docs
 description: Learn how to enable enable subscription management in your tenant when using Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
