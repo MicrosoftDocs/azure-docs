@@ -19,7 +19,7 @@ ms.custom: mvc
 ---
 # Create a Python web app in Azure App Service on Linux
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quick-start shows how to deploy a Python app to App Service on Linux using the [Azure CLI](/cli/azure/install-azure-cli).
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Python app to App Service on Linux using the [Azure CLI](/cli/azure/install-azure-cli).
 
 You can follow the steps in this article using a Mac, Windows, or Linux machine.
 
@@ -36,7 +36,7 @@ To complete this quickstart:
 
 ## Download the sample
 
-In a terminal window, run the following commands to clone the sample application to your local machine, and navigate to the directory containing the sample code.
+In a terminal window, run the following commands to clone the sample application to your local machine, and navigate to the directory with the sample code.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
@@ -46,7 +46,7 @@ git pull origin built-in
 
 ## Run the app locally
 
-Run the application locally by opening a terminal window and calling the commands below to install the required dependencies and launch the built-in development server. 
+Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window and use the commands below to install the required dependencies and launch the built-in development server. 
 
 ```bash
 pip install -r requirements.txt
