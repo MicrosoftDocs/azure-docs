@@ -131,6 +131,10 @@
       href: vs-computer-vision-connected-service.md
 - name: Reference
   items: 
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: Azure PowerShell
+    href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Computer Vision API v2.0
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
   - name: Computer Vision API v1.0

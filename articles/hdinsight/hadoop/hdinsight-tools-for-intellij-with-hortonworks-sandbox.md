@@ -4,7 +4,7 @@ description: Learn how to use HDInsight Tools in Azure Toolkit for IntelliJ with
 keywords: hadoop tools,hive query,intellij,hortonworks sandbox,azure toolkit for intellij
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
