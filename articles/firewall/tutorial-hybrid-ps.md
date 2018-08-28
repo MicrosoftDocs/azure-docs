@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Declare the variables
 The following example declares the variables using the values for this tutorial. In most cases, you should replace the values with your own. However, you can use these variables if you are running through the steps to become familiar with this type of configuration. Modify the variables if needed, then copy and paste them into your PowerShell console.
 
-```azurepowewrshell
+```azurepowershell
 $RG1 = "FW-Hybrid-Test"
 $Location1 = "East US"
 
@@ -76,7 +76,7 @@ $SNname-GW = "GatewaySubnet"
 
 ## Set up the network environment
 
-First, you create all the required network infrastructure.
+First, create all the required network infrastructure.
 
 ### Create a resource group
 Create a resource group to contain all the resources required for this tutorial:
@@ -101,7 +101,7 @@ $VNet-Hub = New-AzureRmVirtualNetwork -Name $VNetname-hub -ResourceGroupName $RG
 ```
 Request a public IP address to be allocated to the gateway you will create for your VNet. Notice that the *AllocationMethod* is **Dynamic**. You cannot specify the IP address that you want to use. It's dynamically allocated to your gateway. 
 
-  ```powershell
+  ```azurepowershell
   $gwpip1 = New-AzureRmPublicIpAddress -Name $GW-hub-pip-name -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
 ```
@@ -275,7 +275,7 @@ Set-AzureRmFirewall -AzureFirewall $Azfw
 
 ## Create routes
 
-Next, you create a couple routes: 
+Next, create a couple routes: 
 - A route from the hub gateway subnet to the spoke subnet through the firewall IP address
 - A default route from the spoke subnet through the firewall IP address
 
