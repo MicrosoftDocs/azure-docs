@@ -49,7 +49,7 @@ cd php-docs-hello-world
 
 ## Run the app locally
 
-Run the application locally by opening a terminal window and using the `php` command to launch the built-in PHP web server.
+Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window and use the `php` command to launch the built-in PHP web server.
 
 ```bash
 php -S localhost:8080

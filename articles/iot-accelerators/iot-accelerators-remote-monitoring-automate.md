@@ -1,16 +1,16 @@
 ---
-title: Detect device issues in an Azure-based remote monitoring solution | Microsoft Docs
+title: Detect device issues in an Azure-based remote monitoring solution tutorial | Microsoft Docs
 description: This tutorial shows you how to use rules and actions to automatically detect threshold-based device issues in the Remote Monitoring solution.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/08/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
 
-#As an operator of an IoT monitoring solution, I need to know how to detect issues with my devices. 
+# As an operator of an IoT monitoring solution, I want to use an online solution to detect issues with my devices. 
 ---
 
 # Tutorial: Detect issues with devices connected to your monitoring solution
@@ -30,29 +30,19 @@ In this tutorial, you:
 > * Edit an existing rule
 > * Switch rules on and off
 
-## Prerequisites
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To follow this tutorial, you need a deployed instance of the Remote Monitoring solution accelerator in your Azure subscription.
+[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
-If you haven't deployed the Remote Monitoring solution accelerator yet, you should complete the [Deploy a cloud-based remote monitoring solution](quickstart-remote-monitoring-deploy.md) quickstart.
-
-## View the existing rules
+## Review the existing rules
 
 The **Rules** page in the solution accelerator displays a list of all the current rules:
 
 [![Rules page](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-expanded.png#lightbox)
 
-To view only the rules that apply to chiller devices, apply a filter:
-
-[![Filter the list of rules](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-expanded.png#lightbox)
-
-You can view more information about a rule and edit it when you select it in the list:
+To view only the rules that apply to chiller devices, apply a filter. You can view more information about a rule and edit it when you select it in the list:
 
 [![View rule details](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-expanded.png#lightbox)
-
-To disable or enable one or more rules, select one or more rules in the list:
-
-[![Select multiple rules](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-expanded.png#lightbox)
 
 ## Create a rule
 
@@ -77,7 +67,7 @@ You can see when the rule is triggered on the **Rules** page or on the **Dashboa
 
 [![Warning rule triggered](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
 
-## Create a rule with multiple conditions
+## Create an advanced rule
 
 To create a rule with multiple conditions that generates a critical alert when, over the last five minutes for a chiller device, the average humidity is greater than 80% and the average temperature is greater than 75 degrees fahrenheit, click **New rule**. Use the following values to create the rule:
 
@@ -119,29 +109,25 @@ To make a change to an existing rule, select it in the list of rules, and click 
 
 ## Disable a rule
 
-To temporarily switch off a rule, you can disable it in the list of rules. Choose the rule to disable, and then choose **Disable**. The **Status** of the rule in the list changes to indicate the rule is now disabled. You can re-enable a rule that you previously disabled using the same procedure.
+To temporarily switch off a rule, you can disable it in the list of rules. Select the rule to disable, and then choose **Disable**. The **Status** of the rule in the list changes to indicate the rule is now disabled. You can re-enable a rule that you previously disabled using the same procedure.
 
 [![Disable rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
 
 You can enable and disable multiple rules at the same time by selecting multiple rules in the list.
 
-<!-- ## Delete a rule
+## Delete a rule
 
-To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
+To permanently delete a rule, you can delete it in the list of rules. Select the rule to delete, and then choose **Delete**.
 
-You can delete multiple rules at the same time if you select multiple rules in the list.-->
+[![Delete rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
 
-## Clean up resources
+After you confirm that you want to delete the rule, you are given the opportunity to delete any alerts associated with the rule from the **Maintenance** page.
 
-If you plan to move on to the next tutorial, leave the Remote Monitoring solution accelerator deployed. To reduce the costs of running the solution accelerator while you're not using it, you can stop the simulated devices in the settings panel:
+[![Delete rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-expanded.png#lightbox)
 
-[![Pause telemetry](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-expanded.png#lightbox)
+You can only delete one rule at a time.
 
-You can restart the simulated devices when you're ready to start the next tutorial.
-
-If you no longer need the solution accelerator, delete it from the [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) page:
-
-![Delete solution](media/iot-accelerators-remote-monitoring-automate/deletesolution.png)
+[!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## Next steps
 

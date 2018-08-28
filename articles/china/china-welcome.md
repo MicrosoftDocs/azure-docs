@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 07/31/2018
 ms.author: v-wimarc
 
 ---
@@ -24,7 +24,7 @@ The services are based on the same Azure, Microsoft Office 365, and Microsoft Po
 
 As the first foreign public cloud service provider offered in China in compliance with government regulations, [Azure China 21Vianet](/azure/china/china-overview-operations) provides world-class security as discussed on the [Trust Center](https://www.trustcenter.cn/compliance/), required by Chinese regulations for all systems and applications built on its architecture. Azure includes the core components of infrastructure as a service (IaaS), platform as a service (PaaS), and software as a service (SaaS). These components include network, storage, data management, identity management, and many other services.
 
-Azure China 21Vianet supports most of the same great [services](/azure/china/china-get-started-service-availability) that global Azure has, such as geosynchronous data replication and autoscaling. Even if you already use global Azure services, to operate in China, you may need to [rehost](/azure/china/china-how-to-rehost) or [refactor](/azure/china/china-how-to-refactor) some or all of your applications or services. 
+Azure China 21Vianet supports most of the same great [services](https://www.azure.cn/home/features/products-by-region) that global Azure has, such as geosynchronous data replication and autoscaling. Even if you already use global Azure services, to operate in China, you may need to [rehost](/azure/china/china-how-to-rehost) or [refactor](/azure/china/china-how-to-refactor) some or all of your applications or services. 
 
 This documentation includes the following topics:
 - [Regulatory considerations](/azure/china/china-overview-policies) for organizations looking to set up services in China with its unique Internet environment and policies
@@ -33,10 +33,10 @@ This documentation includes the following topics:
 - [Partners](/azure/china/china-resources-partners) with Azure solution offerings
 
 ## Operations
-According to the China [Telecommunication Regulation](http://www.miit.gov.cn/n11293472/n11293877/n11301753/n11496139/11537485.html) (in Chinese), providers of cloud services (IaaS and PaaS) must have value-added telecom permits. Only locally-registered companies with less than 50-percent foreign investment qualify for these permits. To comply with this regulation, the Azure service in China is operated by 21Vianet, based on the technologies licensed from Microsoft. 
+According to the China [Telecommunication Regulation](http://www.miit.gov.cn/n1146295/n1146557/n1146619/c4860613/content.html) (in Chinese), providers of cloud services (IaaS and PaaS) must have value-added telecom permits. Only locally-registered companies with less than 50-percent foreign investment qualify for these permits. To comply with this regulation, the Azure service in China is operated by 21Vianet, based on the technologies licensed from Microsoft. 
 
 ## Next steps
-- [Services and features in Microsoft Azure China 21Vianet](/azure/china/china-get-started-service-availability)
+- [Services and features in Microsoft Azure China 21Vianet](https://www.azure.cn/home/features/products-by-region)
 - [Azure Global Connection Center](http://aka.ms/azcc)
 - [Azure case studies](https://www.azure.cn/partnerancasestudy/case-studies/) (in Chinese)
 - [Global Connection Toolkit on GitHub](https://github.com/Azure/AzureGlobalConnectionToolkit)

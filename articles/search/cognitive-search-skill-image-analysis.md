@@ -43,6 +43,7 @@ Parameters are case-sensitive.
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+    "context": "/document/normalized_images/*",
     "visualFeatures": [
         "Tags",
         "Faces",

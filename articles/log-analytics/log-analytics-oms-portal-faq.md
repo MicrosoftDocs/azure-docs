@@ -11,15 +11,19 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/07/2018
+ms.topic: conceptual
+ms.date: 07/17/2018
 ms.author: bwren
-
+ms.component: na
 ---
+
 # Common questions for transition from OMS portal to Azure portal for Log Analytics users
 Log Analytics initially used its own portal called the OMS portal to manage its configuration and analyze collected data.  All functionality from this portal has been moved to the Azure portal where it will continue to be developed.
 
 This article answers common questions for users making this transition.  If you used Log Analytics in the OMS portal, then you can find answers here for how you can perform the same tasks in the Azure portal.
+
+## Do I need to migrate anything?
+No. There are no changes being made to Log Analytics itself, so there is nothing that needs to be migrated. The only thing that's changing is the interface that you use to access it. In fact, you can use the Azure portal now to access the same workspaces, solutions, views, and log searches that you use in the OMS portal today.
 
 ## Where do I find Log Analytics in Azure?
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).  Click **All services**, and in the list of resources, type **Log Analytics**. Select **Log Analytics** and then select your workspace. The summary page for the workspace is displayed.

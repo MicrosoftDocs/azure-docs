@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 08/27/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
 ---
 # Disaster recovery strategies for applications using SQL Database elastic pools
-Over the years we have learned that cloud services are not foolproof and catastrophic incidents happen. SQL Database provides several capabilities to provide for the business continuity of your application when these incidents occur. [Elastic pools](sql-database-elastic-pool.md) and single databases support the same kind of disaster recovery capabilities. This article describes several DR strategies for elastic pools that leverage these SQL Database business continuity features.
+Over the years we have learned that cloud services are not foolproof and catastrophic incidents happen. SQL Database provides several capabilities to provide for the business continuity of your application when these incidents occur. [Elastic pools](sql-database-elastic-pool.md) and single databases support the same kind of disaster recovery (DR) capabilities. This article describes several DR strategies for elastic pools that leverage these SQL Database business continuity features.
 
 This article uses the following canonical SaaS ISV application pattern:
 
@@ -22,12 +22,12 @@ This article uses the following canonical SaaS ISV application pattern:
 This article discusses DR strategies covering a range of scenarios from cost sensitive startup applications to ones with stringent availability requirements.
 
 > [!NOTE]
-> If you are using Premium or Business Critical (preview) databases and elastic pools, you can make them resilient to regional outages by converting them to zone redundant deployment configuration (currently in preview). See [Zone-redundant databases](sql-database-high-availability.md).
+> If you are using Premium or Business Critical databases and elastic pools, you can make them resilient to regional outages by converting them to zone redundant deployment configuration. See [Zone-redundant databases](sql-database-high-availability.md).
 
 ## Scenario 1. Cost sensitive startup
 <i>I am a startup business and am extremely cost sensitive.  I want to simplify deployment and management of the application and I can have a limited SLA for individual customers. But I want to ensure the application as a whole is never offline.</i>
 
-To satisfy the simplicity requirement, deploy all tenant databases into one elastic pool in the Azure region of your choice and deploy management databases as geo-replicated single databases. For the disaster recovery of tenants, use geo-restore, which comes at no additional cost. To ensure the availability of the management databases, geo-replicate them to another region using an auto-failover group (in-preview) (step 1). The ongoing cost of the disaster recovery configuration in this scenario is equal to the total cost of the secondary databases. This configuration is illustrated on the next diagram.
+To satisfy the simplicity requirement, deploy all tenant databases into one elastic pool in the Azure region of your choice and deploy management databases as geo-replicated single databases. For the disaster recovery of tenants, use geo-restore, which comes at no additional cost. To ensure the availability of the management databases, geo-replicate them to another region using an auto-failover group (step 1). The ongoing cost of the disaster recovery configuration in this scenario is equal to the total cost of the secondary databases. This configuration is illustrated on the next diagram.
 
 ![Figure 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 

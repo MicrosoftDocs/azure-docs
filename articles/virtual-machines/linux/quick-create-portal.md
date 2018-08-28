@@ -3,7 +3,7 @@ title: Quickstart - Create a Linux VM in the Azure portal | Microsoft Docs
 description: In this quickstart, you learn how to use the Azure portal to create a Linux virtual machine
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/24/2018
-ms.author: iainfou
+ms.date: 07/03/2018
+ms.author: cynthn
 ms.custom: mvc
 ---
 
@@ -49,7 +49,7 @@ Log in to the Azure portal at http://portal.azure.com
 
 3. Provide a VM name, such as *myVM*, leave the disk type as *SSD*, then provide a username, such as *azureuser*.
 
-4. . For **Authentication type**, select **SSH public key**, then paste your public key into the text box. Take care to remove any leading or trailing white space in your public key.
+4. For **Authentication type**, select **SSH public key**, then paste your public key into the text box. Take care to remove any leading or trailing white space in your public key.
 
     ![Enter basic information about your VM in the portal blade](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 
@@ -59,7 +59,7 @@ Log in to the Azure portal at http://portal.azure.com
 
     ![Screenshot that shows VM sizes](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
 
-5. Under **Settings**, leave the defaults and select **OK**.
+5. On the **Settings** page, in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **SSH (22)**. Leave the rest of the defaults and select **OK**.
 
 6. On the summary page, select **Create** to start the VM deployment.
 
@@ -95,14 +95,6 @@ sudo apt-get -y install nginx
 
 When done, `exit` the SSH session and return to the VM properties in the Azure portal.
 
-## Open port 80 for web traffic
-
-A Network Security Group (NSG) secures inbound and outbound traffic. When a VM is created from the Azure portal, an inbound rule is created on port 22 for SSH connections. Because this VM hosts a web server, an NSG rule needs to be created for port 80.
-
-1. On the VM overview page, select **Networking**.
-2. The list of existing inbound and outbound rules are shown. Choose to **Add inbound port rule**.
-3. Select the **Basic** option across the top, then choose *HTTP* from the list of available services. Port 80, a priority, and name, are provided for you.
-4. To create the rule, select **Add**.
 
 ## View the web server in action
 

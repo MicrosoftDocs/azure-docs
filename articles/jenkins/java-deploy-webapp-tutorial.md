@@ -1,16 +1,13 @@
 ---
-title: Use Jenkins to deploy your web apps to Azure | Microsoft Docs
+title: Use Jenkins to deploy your web apps to Azure
 description: Set up continuous integration from GitHub to Azure App Service for your Java web apps using Jenkins and Docker.
-author: rloutlaw
-manager: douge
 ms.service: jenkins
-ms.search.scope:
-ms.devlang: java
-ms.topic: article
-ms.workload: web
-ms.date: 08/02/2017
-ms.author: routlaw
-ms.custom: Jenkins, devcenter
+keywords: jenkins, azure, devops, app service, continuous integration, ci, continuous deployment, cd
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
+ms.date: 07/31/2018
 ---
 
 # Set up continuous integration and deployment to Azure App Service with Jenkins
@@ -31,7 +28,7 @@ You will perform the following tasks in this tutorial:
 
 To complete this tutorial, you need:
 
-* [Jenkins](https://jenkins.io/) with JDK and Maven tools configured . If you don't have a Jenkins system, create one now in Azure from the [Jenkins solution template](/azure/jenkins/install-jenkins-solution-template).
+* [Jenkins](https://jenkins.io/) with JDK and Maven tools configured. If you don't have a Jenkins system, create one now in Azure from the [Jenkins solution template](/azure/jenkins/install-jenkins-solution-template).
 * A [GitHub](https://github.com) account.
 * [Azure CLI 2.0](/cli/azure), either from your local command line or in the [Azure Cloud Shell](/azure/cloud-shell/overview)
 
@@ -100,7 +97,7 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
 ## Configure the Azure App Service Jenkins plug-in
 
 1. In the Jenkins web console, select the **MyJavaApp** job you created and then select **Configure** on the left hand of the page.
-2. Scroll down to **Post-build Actions**, then select **Add post-build action** and choose **Publish an Azure Web App**.
+2. Scroll down to **Post-build Actions**, select **Add post-build action**, and choose **Publish an Azure Web App**.
 3. Under **Azure Profile Configuration**, select **Add** next to **Azure Credentials** and choose **Jenkins**.
 4. In the **Add Credentials** dialog, select **Microsoft Azure Service Principal** from the **Kind** drop-down.
 5. Create an Active Directory Service principal from the Azure CLI or [Cloud Shell](/azure/cloud-shell/overview).
@@ -162,7 +159,7 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
 ## Deploy the app from GitHub
 
 1. From the Jenkins project, select **Build Now** to deploy the sample app to Azure.
-2. Once the build completes, your app is live on Azure at it's publishing URL , for example http://myjavaapp.azurewebsites.net.   
+2. Once the build completes, your app is live on Azure at its publishing URL, for example http://myjavaapp.azurewebsites.net.   
    ![View your deployed app on Azure](media/jenkins-java-quickstart/hello_docker_world_unedited.png)
 
 ## Push changes and redeploy
@@ -175,9 +172,12 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
     ```
 3. A new build starts in Jenkins, triggered by the new commit on the `master` branch of the repo. Once it completes, reload your app on Azure.     
       ![View your deployed app on Azure](media/jenkins-java-quickstart/hello_docker_world.png)
-  
+
+## Troubleshooting the Jenkins plugin
+
+If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
+
 ## Next steps
 
-- [Use Azure VMs as build agents](/azure/jenkins/jenkins-azure-vm-agents)
-- [Manage resources in jobs and pipelines with the Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline)
- 
+> [!div class="nextstepaction"]
+> [Use Azure VMs as build agents](/azure/jenkins/jenkins-azure-vm-agents)

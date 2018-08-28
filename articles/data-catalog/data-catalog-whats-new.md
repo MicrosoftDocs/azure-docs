@@ -1,20 +1,13 @@
 ---
-title: What's New in Azure Data Catalog | Microsoft Docs
+title: What's New in Azure Data Catalog
 description: This article provides an overview of new capabilities added to Azure Data Catalog.
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
+ms.author: maroche
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-
 ---
 # What's new in Azure Data Catalog
 Updates to **Azure Data Catalog** are released regularly. Not every release includes new user-facing features, as some releases are focused on back-end service capabilities. This page highlights new user-facing capabilities added to the Azure Data Catalog service.
@@ -23,7 +16,7 @@ Updates to **Azure Data Catalog** are released regularly. Not every release incl
 As of November 2017, the following capabilities have been added to Azure Data Catalog:
 
 * Support for linking directly to specific business glossary terms in the Data Catalog portal. Users can copy links from the business glossary and embed them in documents, emails, reports, or other locations to link directly to the glossary term definition.
-* Support for Azure Active Directory service principals. Data Catalog administrators can authorize client applications using service principals to access the catalog, and can grant those applications specific permissions just as they can grant permissions to users and security groups. For additional information see [Application and service principal objects in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+* Support for Azure Active Directory service principals. Data Catalog administrators can authorize client applications using service principals to access the catalog, and can grant those applications specific permissions just as they can grant permissions to users and security groups. For additional information see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 * Support for Azure Active Directory authentication when connecting to Azure SQL Database and Azure SQL Data Warehouse data sources using the Data Catalog data source registration tool. For additional information see [Use Azure Active Directory Authentication for authentication with SQL Database or SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
 
 
@@ -89,7 +82,7 @@ As of February 2017, the following capabilities have been added to Azure Data Ca
 
 ## What's new for January 2017 
 As of January 2017, the following capabilities have been added to Azure Data Catalog:
-*	Azure Data Catalog is now [CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-certification) compliant.
+*	Azure Data Catalog is now [CSA STAR](https://www.microsoft.com/en-us/trustcenter/compliance/csa-star-certification) compliant.
 *	Integration with [Get & Transform in Excel 2016 and Power Query for Excel](https://support.office.com/article/Introduction-to-Microsoft-Power-Query-for-Excel-6E92E2F4-2079-4E1F-BAD5-89F6269CD605). Excel users can share queries and discover queries using Azure Data Catalog from inside Excel. This functionality is available to users with Power BI Pro licenses.
 
 ## What's new for December 2016
@@ -101,7 +94,7 @@ As of December 2016, the following capabilities have been added to Azure Data Ca
 
 ## What's new for November 2016
 As of November 2016, the following capabilities have been added to Azure Data Catalog:
-*	Azure Data Catalog is now [ISO/IEC 27001](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001) and [ISO/IEC 27018](https://www.microsoft.com/TrustCenter/Compliance/iso-iec-27018) compliant.
+*	Azure Data Catalog is now [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/compliance/iso-iec-27001) and [ISO/IEC 27018](https://www.microsoft.com/en-us/TrustCenter/Compliance/iso-iec-27018) compliant.
 *	Support for the manual registration of ODBC data sources using the Data Catalog portal and REST API.
 
 ## What's new for September 2016

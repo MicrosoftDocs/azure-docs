@@ -9,7 +9,7 @@ ms.date: 06/04/2018
 ms.topic: article
 ---
 
-# Use Terraform to create an Azure virtual machine scale
+# Use Terraform to create an Azure virtual machine scale set
 
 [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets) allow you to create and manage a group of identical, load balanced virtual machines where the number of virtual machine instances can automatically increase, or decrease in response to demand or a defined schedule. 
 

@@ -4,7 +4,7 @@ description: This article provides an overview of the architecture for replicati
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ---
 
@@ -32,8 +32,8 @@ The following table and graphic provide a high-level view of the components used
 
 1. When initial replication is triggered, a [Hyper-V VM snapshot](https://technet.microsoft.com/library/dd560637.aspx) snapshot is taken.
 2. Virtual hard disks on the VM are replicated one by one, to the secondary location.
-3. If disk changes occur while initial replication is in progress, 
-4. When the initial replication finishes, delta replication begins. The Hyper-V Replica Replication Tracker tracks the changes as Hyper-V replication logs (.hrl). These log files are located in the same folder as the disks. Each disk has an associated .hrl file that's sent to the secondary location. The snapshot and log files consume disk resources while initial replication is in progress.
+3. If disk changes occur while initial replication is in progress, the Hyper-V Replica Replication Tracker tracks the changes as Hyper-V replication logs (.hrl). These log files are located in the same folder as the disks. Each disk has an associated .hrl file that's sent to the secondary location. The snapshot and log files consume disk resources while initial replication is in progress.
+4. When the initial replication finishes, the VM snapshot is deleted, and delta replication begins.
 5. Delta disk changes in the log are synchronized and merged to the parent disk.
 
 

@@ -50,6 +50,12 @@ In the sign-in page, or the navigation bar, or any other location of your web ap
 
 When the user clicks on one of the links, the respective sign-in page opens to sign in the user.
 
+To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_url` query string parameter (not to be confused with the Redirect URI in your identity provider configuration). For example, to navigate the user to `/Home/Index` after sign-in, use the following HTML code:
+
+```HTML
+<a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
+
 ## Access user claims
 
 App Service passes user claims to your application by using special headers. External requests aren't allowed to set these headers, so they are present only if set by App Service. Some example headers include:

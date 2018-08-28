@@ -1,6 +1,6 @@
 ---
-title: Performance best practices for SQL Server in Azure | Microsoft Docs
-description: Provides best practices for optimizing SQL Server performance in Microsoft Azure VMs.
+title: Performance guidelines for SQL Server in Azure | Microsoft Docs
+description: Provides guidelines for optimizing SQL Server performance in Microsoft Azure VMs.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/19/2018
+ms.date: 08/24/2018
 ms.author: jroth
 
 ---
-# Performance best practices for SQL Server in Azure Virtual Machines
+# Performance guidelines for SQL Server in Azure Virtual Machines
 
 ## Overview
 
@@ -34,7 +34,7 @@ The following is a quick check list for optimal performance of SQL Server on Azu
 
 | Area | Optimizations |
 | --- | --- |
-| [VM size](#vm-size-guidance) |[DS3](../sizes-general.md) or higher for SQL Enterprise edition.<br/><br/>[DS2](../sizes-general.md) or higher for SQL Standard and Web editions. |
+| [VM size](#vm-size-guidance) |[DS3_v2](../sizes-general.md) or higher for SQL Enterprise edition.<br/><br/>[DS2_v2](../sizes-general.md) or higher for SQL Standard and Web editions. |
 | [Storage](#storage-guidance) |Use [Premium Storage](../premium-storage.md). Standard storage is only recommended for dev/test.<br/><br/>Keep the [storage account](../../../storage/common/storage-create-storage-account.md) and SQL Server VM in the same region.<br/><br/>Disable Azure [geo-redundant storage](../../../storage/common/storage-redundancy.md) (geo-replication) on the storage account. |
 | [Disks](#disks-guidance) |Use a minimum of 2 [P30 disks](../premium-storage.md#scalability-and-performance-targets) (1 for log files and 1 for data files and TempDB; or stripe two or more disks and store all files in a single volume).<br/><br/>Avoid using operating system or temporary disks for database storage or logging.<br/><br/>Enable read caching on the disk(s) hosting the data files and TempDB data files.<br/><br/>Do not enable caching on disk(s) hosting the log file.<br/><br/>Important: Stop the SQL Server service when changing the cache settings for an Azure VM disk.<br/><br/>Stripe multiple Azure data disks to get increased IO throughput.<br/><br/>Format with documented allocation sizes. |
 | [I/O](#io-guidance) |Enable database page compression.<br/><br/>Enable instant file initialization for data files.<br/><br/>Limit autogrowing on the database.<br/><br/>Disable autoshrink on the database.<br/><br/>Move all databases to data disks, including system databases.<br/><br/>Move SQL Server error log and trace file directories to data disks.<br/><br/>Setup default backup and database file locations.<br/><br/>Enable locked pages.<br/><br/>Apply SQL Server performance fixes. |
@@ -44,10 +44,12 @@ For more information on *how* and *why* to make these optimizations, please revi
 
 ## VM size guidance
 
-For performance sensitive applications, it’s recommended that you use the following [virtual machines sizes](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json):
+For performance sensitive applications, it’s recommended that you use the following [virtual machines sizes](../sizes.md):
 
-* **SQL Server Enterprise Edition**: DS3 or higher
-* **SQL Server Standard and Web Editions**: DS2 or higher
+* **SQL Server Enterprise Edition**: DS3_v2 or higher
+* **SQL Server Standard and Web Editions**: DS2_v2 or higher
+
+[DSv2-series](../sizes-general.md#dsv2-series) VMs support premium storage, which is recommended for the best performance. The sizes recommended here are baselines, but the actual machine size you select depends on your workload demands. DSv2-series VMs are general purpose VMs that are good for a variety of workloads, whereas other machines sizes are optimized for specific workload types. For example, the [M-series](../sizes-memory.md#m-series) offers the highest vCPU count and memory for the largest SQL Server workloads. The [GS-series](../sizes-memory.md#gs-series) and [DSv2-series 11-15](../sizes-memory.md#dsv2-series-11-15) are optimized for large memory requirements. Both of those series are also available in [constrained core sizes](../../windows/constrained-vcpu.md), which saves money for workloads with lower compute demands. The [Ls-series](../sizes-storage.md) machines are optimized for high disk throughput and IO. It is important to consider your specific SQL Server workload and apply this to your selection of a VM series and size.
 
 ## Storage guidance
 

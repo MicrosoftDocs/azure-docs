@@ -7,7 +7,7 @@ ms.component: change-inventory-management
 keywords: change, tracking, automation
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 02/28/2018
+ms.date: 08/27/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
@@ -110,7 +110,9 @@ In the **Workspace Configuration** window, add the Windows Registry keys, Window
 |Enabled     | Determines if the setting is applied        |
 |Item Name     | Friendly name of the file to be tracked        |
 |Group     | A group name for logically grouping files        |
-|Enter Path     | The path to check for the file For example: "c:\temp\myfile.txt"       |
+|Enter Path     | The path to check for the file For example: "c:\temp\\\*.txt"<br>You can also use environment variables such as "%winDir%\System32\\\*.*"         |
+|Recursion     | Determines if recursion is used when looking for the item to be tracked.        |
+|Upload file content for all settings| Turns on or off file content upload on tracked changes. Available options: **True** or **False**.|
 
 ### Add a Linux file
 
@@ -128,8 +130,9 @@ In the **Workspace Configuration** window, add the Windows Registry keys, Window
 |Recursion     | Determines if recursion is used when looking for the item to be tracked.        |
 |Use Sudo     | This setting determines if sudo is used when checking for the item.         |
 |Links     | This setting determines how symbolic links dealt with when traversing directories.<br> **Ignore** - Ignores symbolic links and does not include the files/directories referenced<br>**Follow** - Follows the symbolic links during recursion and also includes the files/directories referenced<br>**Manage** - Follows the symbolic links and allows alter the treatment of returned content      |
+|Upload file content for all settings| Turns on or off file content upload on tracked changes. Available options: **True** or **False**.|
 
-   > [!NOTE]   
+   > [!NOTE]
    > The "Manage" links option is not recommended. File content retrieval is not supported.
 
 ## Enable Activity log connection

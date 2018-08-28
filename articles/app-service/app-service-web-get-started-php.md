@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/13/2017
+ms.date: 08/24/2018
 ms.author: cephalin;cfowler
 ms.custom: mvc
 ---
@@ -40,7 +40,7 @@ To complete this quickstart:
 
 ## Download the sample locally
 
-In a terminal window, run the following commands. This will clone the sample application to your local machine, and navigate to the directory containing the sample code.
+In a terminal window, run the following commands. This will clone the sample application to your local machine, and navigate to the directory containing the sample code. 
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
@@ -49,7 +49,7 @@ cd php-docs-hello-world
 
 ## Run the app locally
 
-Run the application locally by opening a terminal window and using the `php` command to launch the built-in PHP web server.
+Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window and use the `php` command to launch the built-in PHP web server.
 
 ```bash
 php -S localhost:8080
@@ -73,9 +73,9 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 ## Create a web app
 
-In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. 
+In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. 
 
-In the following example, replace `<app_name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.0`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
+In the following example, replace `<app_name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.0`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
 
 ```azurecli-interactive
 # Bash
@@ -87,6 +87,7 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
 When the web app has been created, the Azure CLI shows output similar to the following example:
 
 ```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -99,6 +100,11 @@ When the web app has been created, the Azure CLI shows output similar to the fol
   < JSON data removed for brevity. >
 }
 ```
+You’ve created an empty new web app, with git deployment enabled.
+
+> [!NOTE]
+> The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Save this URL as you need it later.
+>
 
 Browse to your newly created web app. Replace _&lt;app name>_ with your unique app name created in the prior step.
 

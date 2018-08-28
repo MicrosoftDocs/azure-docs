@@ -270,7 +270,7 @@ If you want to run the local agent from a different computer than it is currentl
 
 3. Use the new agent's UI to submit the new agent key.
 
-4. Wait while the client agent downloads the list of on-premise databases that were registered earlier.
+4. Wait while the client agent downloads the list of on-premises databases that were registered earlier.
 
 5. Provide database credentials for all databases that display as unreachable. These databases must be reachable from the new computer on which the agent is installed.
 

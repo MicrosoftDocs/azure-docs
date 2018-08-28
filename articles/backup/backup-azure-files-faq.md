@@ -63,7 +63,7 @@ Backup for Azure File shares is currently in Preview and is available only in th
 Write to [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) if you need to use it in a specific geo that is not listed above.
 
 ### How many Azure file shares can I protect in a Vault?<br/>
-During the preview, you can protect Azure file shares from up to 25 Storage Accounts per Vault. You can also protect up to 200 Azure file shares in a single vault.
+During the preview, you can protect Azure file shares from up to 50 Storage Accounts per Vault. You can also protect up to 200 Azure file shares in a single vault.
 
 ### Can I protect two different file shares from the same Storage Account to different Vaults?
 No. All file shares in a Storage Account can be protected only by the same Vault.

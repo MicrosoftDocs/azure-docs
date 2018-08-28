@@ -3,13 +3,13 @@ title: Add example utterances in LUIS apps | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to add utterances in Language Understanding (LUIS) applications.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Add example utterances and label with entities
@@ -189,7 +189,7 @@ Fix this - moved to luis-how-to-add-intents.md - how ?
 
 -->
 ## Train your app after changing model with utterances
-After you add, edit, or remove utterances, [train](luis-how-to-train.md) and [publish](PublishApp.md) your app for your changes to affect endpoint queries. 
+After you add, edit, or remove utterances, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries. 
 
 ## Next steps
 

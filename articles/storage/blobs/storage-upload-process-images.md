@@ -4,11 +4,10 @@ description: Use Azure blob storage with a web app to store application data
 services: storage
 documentationcenter: 
 author: tamram
-manager: jeconnoc
+
 
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram

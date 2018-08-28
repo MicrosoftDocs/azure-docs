@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Create a Windows VM NLB | Microsoft Docs
 description: Azure PowerShell Script Sample - Create a Windows VM NLB
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
 ---
 
@@ -31,7 +31,7 @@ This script sample creates everything needed to run several Windows Server 2016 
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.ps1 "Create VM NLB")]
 
-## Clean up deployment 
+## Clean up deployment
 
 Run the following command to remove the resource group, VM, and all related resources.
 

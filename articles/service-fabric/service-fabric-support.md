@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/14/2018
+ms.date: 7/13/2018
 ms.author: pkc
 
 ---
@@ -76,7 +76,8 @@ Here are the list of the Service Fabric versions that are supported and their su
 | 5.7.* | 5.4.164.* |Less than or equal to version  2.7 |December 15,2017  |
 | 6.0.* | 5.6.205.* |Less than or equal to version  2.8 |March 30,2018     | 
 | 6.1.* | 5.7.221.* |Less than or equal to version  3.0 |July 15,2018      |
-| 6.2.* | 6.0.232.* |Less than or equal to version  3.1 |Current version and so no end date |
+| 6.2.* | 6.0.232.* |Less than or equal to version  3.1 |September 15,2018 |
+| 6.3.* | 6.1.480.* |Less than or equal to version  3.2 |Current version and so no end date |
 
 ## Service Fabric Preview Versions - unsupported for production use.
 From time to time, we release versions that have significant features we want feedback on, which are released as previews. These preview versions should only be used for test purposes. Your production cluster should always be running a supported, stable, Service Fabric version. A preview version always begins with a major and minor version number of 255. For example, if you see a Service Fabric version 255.255.5703.949, that release version is only to be used in test clusters and is in preview. These preview releases are also announced on the [Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric) and will have details on the features included.

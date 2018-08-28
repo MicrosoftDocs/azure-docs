@@ -300,11 +300,11 @@ To resolve this problem, [reset Azure VPN gateway](vpn-gateway-resetgw-classic.m
 ## Error: "The revocation function was unable to check revocation because the revocation server was offline.(Error 0x80092013)"
 
 ### Causes
-This error message occurs if the client cannot access http://crl3.digicert.com/ssca-sha2-g1.crl and http://crl4.digicert.com/ssca-sha2-g1.cr.  The revocation check requires access to these two sites.  This problem typically happens on the client that has proxy server configured. In some environments,  if the requests are not going through the proxy server, it will be denied at the Edge Firewall.
+This error message occurs if the client cannot access http://crl3.digicert.com/ssca-sha2-g1.crl and http://crl4.digicert.com/ssca-sha2-g1.crl.  The revocation check requires access to these two sites.  This problem typically happens on the client that has proxy server configured. In some environments,  if the requests are not going through the proxy server, it will be denied at the Edge Firewall.
 
 ### Solution
 
-Check the proxy server settings, make sure that the client can access http://crl3.digicert.com/ssca-sha2-g1.crl and http://crl4.digicert.com/ssca-sha2-g1.cr.
+Check the proxy server settings, make sure that the client can access http://crl3.digicert.com/ssca-sha2-g1.crl and http://crl4.digicert.com/ssca-sha2-g1.crl.
 
 ## VPN Client Error: The connection was prevented because of a policy configured on your RAS/VPN server. (Error 812)
 

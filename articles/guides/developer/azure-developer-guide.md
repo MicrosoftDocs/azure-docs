@@ -159,7 +159,7 @@ It's crucial to not only know who is using your applications, but also to preven
 
 	>**When to use**: When you want to provide an SSO experience, work with Graph-based data, or authenticate domain-based users.
 
-    >**Get started**: To learn more, see the [Azure Active Directory developer's guide](../../active-directory/develop/active-directory-developers-guide.md).
+    >**Get started**: To learn more, see the [Azure Active Directory developer's guide](../../active-directory/develop/azure-ad-developers-guide.md).
 
 -   **App Service Authentication**: When you choose App Service to host your app, you also get built-in    authentication support for Azure AD, along with social identity providers—including Facebook, Google, Microsoft, and Twitter.
 
@@ -265,7 +265,7 @@ To be able to create or work with an Azure subscription, you must have an Azure 
 
 Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. To learn more, see [How Azure subscriptions are associated with Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-In addition to defining individual Azure account identities, also called *users*, you can also define *groups* in Azure AD. Creating user groups is a good way to manage access to resources in a subscription by using role-based access control (RBAC). To learn how to create groups, see [Create a group in Azure Active Directory preview](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). You can also create and manage groups by [using PowerShell](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+In addition to defining individual Azure account identities, also called *users*, you can also define *groups* in Azure AD. Creating user groups is a good way to manage access to resources in a subscription by using role-based access control (RBAC). To learn how to create groups, see [Create a group in Azure Active Directory preview](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). You can also create and manage groups by [using PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
 
 ### Manage your subscriptions
 

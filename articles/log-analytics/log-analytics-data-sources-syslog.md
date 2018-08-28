@@ -10,13 +10,14 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte;bwren
-
+ms.component: na
 ---
+
 # Syslog data sources in Log Analytics
 Syslog is an event logging protocol that is common to Linux.  Applications will send messages that may be stored on the local machine or delivered to a Syslog collector.  When the OMS Agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent.  The agent then sends the message to Log Analytics where a corresponding record is created in the OMS repository.  
 

@@ -18,7 +18,7 @@ Azure is ubiquitous - it has a global footprint across 50+ geographical regions 
 [Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides turnkey global distribution, [elastic scaling of throughput and storage](../cosmos-db/partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency models](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [automatically indexes all your data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema or index management. It is a multi-model service and supports document, key-value, graph, and column-family data models. As a natively born in the cloud service, Azure Cosmos DB is carefully engineered with multi-tenancy and global distribution from the ground up.
 
 
-![Azure Cosmos DB collection partitioned and distributed across three regions](./media/distribute-data-globally/global-apps.png)
+![Azure Cosmos DB container partitioned and distributed across three regions](./media/distribute-data-globally/global-apps.png)
 
 **A single Azure Cosmos DB container partitioned and distributed across multiple Azure regions**
 
@@ -183,7 +183,7 @@ Since the implementation of a specific consistency model depends on the choice o
 ## <a id="ThroughputGuarantees"></a>Throughput guarantees 
 Azure Cosmos DB allows you to scale throughput (as well as, storage), elastically across any number of regions depending on your needs or demand. 
 
-![Azure Cosmos DB distributed and partitioned collections](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
+![Azure Cosmos DB distributed and partitioned containers](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
 
 **A single Azure Cosmos DB container horizontally partitioned (across three resource partitions within a region) and then globally distributed across three Azure regions**
 

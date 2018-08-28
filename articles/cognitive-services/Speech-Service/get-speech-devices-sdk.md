@@ -1,10 +1,9 @@
 ---
-title: Get the Speech Devices SDK | Microsoft Docs
+title: Get the Speech Devices SDK
 description: Learn how to get access to the Speech Devices SDK.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.technology: speech

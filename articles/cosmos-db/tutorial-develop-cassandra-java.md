@@ -224,7 +224,7 @@ In this quickstart, you've learned how to do the following:
 > * Query data
 > * Reivew SLAs
 
-You can now import additional data into your Azure Cosmos DB collection. 
+You can now import additional data into your Azure Cosmos DB container. 
 
 > [!div class="nextstepaction"]
 > [Import Cassandra data into Azure Cosmos DB](cassandra-import-data.md)

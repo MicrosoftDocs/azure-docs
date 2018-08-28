@@ -64,7 +64,7 @@ These command-line tools provide the same functionality as the Batch service and
 Here are some additional tools that may be helpful for building and debugging your Batch applications and services:
 
 * [Azure portal][portal]: You can create, monitor, and delete Batch pools, jobs, and tasks in the Azure portal. You can view the status information for these and other resources while you run your jobs, and even download files from the compute nodes in your pools. For example, you can download a failed task's `stderr.txt` while troubleshooting. You can also download Remote Desktop (RDP) files that you can use to log in to compute nodes.
-* [Azure BatchLabs][batch_labs]: BatchLabs is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. Download an [installation package](https://azure.github.io/BatchLabs/) for Mac, Linux, or Windows.
+* [Azure Batch Explorer][batch_labs]: Batch Explorer (formerly called BatchLabs) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. Download an [installation package](https://azure.github.io/BatchExplorer/) for Mac, Linux, or Windows.
 * [Microsoft Azure Storage Explorer][storage_explorer]: While not strictly an Azure Batch tool, the Storage Explorer is another valuable tool to have while you are developing and debugging your Batch solutions.
 
 ## Additional resources
@@ -80,7 +80,7 @@ Here are some additional tools that may be helpful for building and debugging yo
 
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[api_java]: /java/api/overview/azure/batch/clientlibrary:
+[api_java]: /java/api/overview/azure/batch
 [api_java_mgmt]: /java/api/overview/azure/batch/managementapi
 [api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
@@ -105,6 +105,6 @@ Here are some additional tools that may be helpful for building and debugging yo
 [free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [storage_explorer]: http://storageexplorer.com/
 [portal]: https://portal.azure.com

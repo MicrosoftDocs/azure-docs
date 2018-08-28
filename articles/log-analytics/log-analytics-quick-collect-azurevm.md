@@ -3,7 +3,7 @@ title: Collect data about Azure Virtual Machines | Microsoft Docs
 description: Learn how to enable the OMS Agent VM Extension and enable collection of data from your Azure VMs with Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 
@@ -15,6 +15,7 @@ ms.topic: quickstart
 ms.date: 06/26/2018
 ms.author: magoedte
 ms.custom: mvc
+ms.component: na
 ---
 
 # Collect data about Azure Virtual Machines

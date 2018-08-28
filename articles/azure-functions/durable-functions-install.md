@@ -45,7 +45,7 @@ Follow the same directions as for starting with the sample, but do the following
 
 1. Create a Function App project.
 2. Search for the following NuGet package reference using *Manage NuGet Packages* and add it to the project: 
-Microsoft.Azure.WebJobs.Extensions.DurableTask v1.4.0
+Microsoft.Azure.WebJobs.Extensions.DurableTask v1.5.0
    
 ## Visual Studio Code
 
@@ -75,7 +75,7 @@ Visual Studio Code provides a local development experience covering all major pl
 3. Install Azure Functions Durable Extension by running the following in a command prompt / terminal window:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
 4. Install Azure Functions Twilio Extension by running the following in a command prompt / terminal window:
 
@@ -97,7 +97,7 @@ Visual Studio Code provides a local development experience covering all major pl
 3. Install Azure Functions Durable Extension by running the following in a command prompt / terminal window:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
 4. Restore the npm packages by running the following in a command prompt / terminal window:
     
@@ -118,7 +118,7 @@ Visual Studio Code provides a local development experience covering all major pl
 2. Install the Azure Functions Durable Extension by running the following in a command prompt / terminal window:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
 3. Create a Function App project by running the following command:
 
@@ -142,14 +142,14 @@ Visual Studio Code provides a local development experience covering all major pl
 
 ## Azure portal
 
-If you prefer, you can use the Azure portal for Durable Functions development.
+If you prefer, you can use the [Azure portal](https://portal.azure.com) for Durable Functions development.
 
    > [!NOTE]
    > Durable Functions in JavaScript are not yet available in the portal.
 
 ### Create an orchestrator function
 
-1. Create a new function app at [functions.azure.com](https://functions.azure.com/signin).
+1. Create a new function app in the portal, as shown in the [Functions quickstart article](functions-create-first-azure-function.md#create-a-function-app).
 
 2. Configure the function app to [use the 2.0 runtime version](set-runtime-version.md).
 

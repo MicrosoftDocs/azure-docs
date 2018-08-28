@@ -4,8 +4,8 @@ description: This article describes how to use the Azure .Net SDK to write apps 
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonwhowell
 ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
 ms.topic: conceptual
@@ -326,22 +326,27 @@ IEnumerable<USqlTableColumn> columns = tbl.ColumnList;
 
 foreach (USqlTableColumn utc in columns)
 {
-  string scriptPath = "/Samples/Scripts/SearchResults_Wikipedia_Script.txt";
-  Stream scriptStrm = adlsFileSystemClient.FileSystem.Open(_adlsAccountName, scriptPath);
-  string scriptTxt = string.Empty;
-  using (StreamReader sr = new StreamReader(scriptStrm))
-  {
-      scriptTxt = sr.ReadToEnd();
-  }
-
-  var jobName = "SR_Wikipedia";
-  var jobId = Guid.NewGuid();
-  var properties = new USqlJobProperties(scriptTxt);
-  var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1, degreeOfParallelism: 1, jobId: jobId);
-  var jobInfo = adlaJobClient.Job.Create(adla, jobId, parameters);
-  Console.WriteLine($"Job {jobName} submitted.");
-
+  Console.WriteLine($"\t{utc.Name}");
 }
+```
+
+### Submit a U-SQL job
+The following code shows how to use a Data Lake Analytics Job management client to submit a job.
+``` csharp
+string scriptPath = "/Samples/Scripts/SearchResults_Wikipedia_Script.txt";
+Stream scriptStrm = adlsFileSystemClient.FileSystem.Open(_adlsAccountName, scriptPath);
+string scriptTxt = string.Empty;
+using (StreamReader sr = new StreamReader(scriptStrm))
+{
+    scriptTxt = sr.ReadToEnd();
+}
+
+var jobName = "SR_Wikipedia";
+var jobId = Guid.NewGuid();
+var properties = new USqlJobProperties(scriptTxt);
+var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1, degreeOfParallelism: 1, jobId: jobId);
+var jobInfo = adlaJobClient.Job.Create(adla, jobId, parameters);
+Console.WriteLine($"Job {jobName} submitted.");
 ```
 
 ### List failed jobs

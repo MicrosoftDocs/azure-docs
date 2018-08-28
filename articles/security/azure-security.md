@@ -1,4 +1,4 @@
-﻿---
+---
 title: Introduction to Azure Security | Microsoft Docs
 description: Learn about Azure Security, its services, and how it works.
 services: security
@@ -110,7 +110,7 @@ The section provides additional information regarding key features in applicatio
 One of the easiest ways to get started with testing for vulnerabilities on your [App Service app](https://docs.microsoft.com/azure/app-service/app-service-web-overview) is to use the [integration with Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) to perform one-click vulnerability scanning on your app. You can view the test results in an easy-to-understand report, and learn how to fix each vulnerability with step-by-step instructions.
 
 ### Penetration Testing
-If you prefer to perform your own penetration tests or want to use another scanner suite or provider, you must follow the [Azure penetration testing approval process](https://security-forms.azure.com/penetration-testing/terms) and obtain prior approval to perform the desired penetration tests.
+If you prefer to perform your own penetration tests or want to use another scanner suite or provider, you must follow the [Azure penetration testing approval process](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) and obtain prior approval to perform the desired penetration tests.
 
 ### Web Application firewall
 The web application firewall (WAF) in [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) helps protect web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacking. It comes preconfigured with protection from threats identified by the [Open Web Application Security Project (OWASP) as the top 10 common vulnerabilities](https://msdn.microsoft.com/library/).

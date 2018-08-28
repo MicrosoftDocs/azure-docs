@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -29,9 +29,9 @@ The following diagram shows a conceptual view of the behavior and data flow with
 
 ![Update Management process flow](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-After a computer performs a scan for update compliance, the agent forwards the information in bulk to Azure Log Analytics. On a Windows computer, the compliance scan is performed every 12 hours by default. 
+After a computer performs a scan for update compliance, the agent forwards the information in bulk to Azure Log Analytics. On a Windows computer, the compliance scan is performed every 12 hours by default.
 
-In addition to the scan schedule, the scan for update compliance is initiated within 15 minutes if the MMA is restarted, before update installation, and after update installation. 
+In addition to the scan schedule, the scan for update compliance is initiated within 15 minutes if the MMA is restarted, before update installation, and after update installation.
 
 For a Linux computer, the compliance scan is performed every 3 hours by default. If the MMA agent is restarted, a compliance scan is initiated within 15 minutes.
 
@@ -80,7 +80,7 @@ Windows agents must be configured to communicate with a WSUS server or they must
 
 #### Linux
 
-For Linux, the machine must have access to an update repository. The update repository can be private or public. An Operations Management Suite (OMS) Agent for Linux that's configured to report to multiple Log Analytics workspaces isn't supported with this solution.
+For Linux, the machine must have access to an update repository. The update repository can be private or public. TLS 1.1 or TLS 1.2 is required to interact with Update Management. An Operations Management Suite (OMS) Agent for Linux that's configured to report to multiple Log Analytics workspaces isn't supported with this solution.
 
 For information about how to install the OMS Agent for Linux and to download the latest version, see [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux). For information about how to install the OMS Agent for Windows, see [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agent.md).
 
@@ -109,6 +109,9 @@ If your System Center Operations Manager management group is connected to a Log 
 * Update Deployment MP
 
 For more information about how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
+
+> [!NOTE]
+> For systems with the Operations Manger Agent, to be able to be fully managed by Update Management, the agent needs to be updated to the Microsoft Monitoring Agent. To learn how to update the agent, see [How to upgrade an Operations Manager agent](/system-center/scom/deploy-upgrade-agents.md).
 
 ### Confirm that non-Azure machines are onboarded
 
@@ -200,16 +203,18 @@ Select the **Update Deployments** tab to view the list of existing update deploy
 
 ## Create or edit an update deployment
 
-To create a new update deployment, select **Schedule update deployment**. The **New Update Deployment** pane opens. Enter values for the properties described in the following table:
+To create a new update deployment, select **Schedule update deployment**. The **New Update Deployment** pane opens. Enter values for the properties described in the following table and then click **Create**:
 
 | Property | Description |
 | --- | --- |
-|Name |Unique name to identify the update deployment. |
-|Operating System| Select **Linux** or **Windows**.|
-|Machines to update |Select a saved search, or select **Machine** from the drop-down list, and then select individual machines. |
-|Update classifications|Select all the update classifications that you need. CentOS does not support this out of the box.|
-|Updates to exclude|Enter the updates to exclude. For Windows, enter the KB article without the **KB** prefix. For Linux, enter the package name or use a wildcard character.  |
-|Schedule settings|Select the time to start, and then select either **Once** or **Recurring** for the recurrence.|| Maintenance window |Number of minutes set for updates. The value can't be less than 30 minutes or more than 6 hours. |
+| Name |Unique name to identify the update deployment. |
+|Operating System| Linux or Windows|
+| Machines to update |Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.</br> To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+|Update classifications|Select all the update classifications that you need|
+|Updates to exclude|Enter the updates to exclude. For  Windows enter the KB without the 'KB' prefix. For Linux, enter the package name or use a wildcard.  |
+|Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
+| Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
+| Reboot control| Detemines how reboots should be handled.</br>Available options are:</br>Reboot if required (Default)</br>Always reboot</br>Never reboot</br>Only reboot - will not install updates|
 
 ## Update classifications
 
@@ -254,6 +259,8 @@ The following addresses are required specifically for Update Management. Communi
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
 For more information about ports that the Hybrid Runbook Worker requires, see [Hybrid Worker role ports](automation-hybrid-runbook-worker.md#hybrid-worker-role).
+
+It is recommended to use the addresses listed when defining exceptions. For IP addresses you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and reflects the currently deployed ranges and any upcoming changes to the IP ranges.
 
 ## Search logs
 

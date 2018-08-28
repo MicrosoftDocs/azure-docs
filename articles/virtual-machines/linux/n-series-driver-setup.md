@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/11/2018
+ms.date: 07/30/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -22,7 +22,9 @@ ms.custom: H1Hack27Feb2017
 
 # Install NVIDIA GPU drivers on N-series VMs running Linux
 
-To take advantage of the GPU capabilities of Azure N-series VMs running Linux, NVIDIA graphics drivers must be installed. This article provides driver setup steps after you deploy an N-series VM. Driver setup information is also available for [Windows VMs](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To take advantage of the GPU capabilities of Azure N-series VMs running Linux, NVIDIA GPU drivers must be installed. The [NVIDIA GPU Driver Extension](../extensions/hpccompute-gpu-linux.md) installs appropriate NVIDIA CUDA or GRID drivers on an N-series VM. Install or manage the extension using the Azure portal or tools such as the Azure CLI or Azure Resource Manager templates. See the [NVIDIA GPU Driver Extension documentation](../extensions/hpccompute-gpu-linux.md) for supported distributions and deployment steps.
+
+If you choose to install GPU drivers manually, this article provides supported distributions, drivers, and installation and verification steps. Manual driver setup information is also available for [Windows VMs](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 For N-series VM specs, storage capacities, and disk details, see [GPU Linux VM sizes](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -220,7 +222,7 @@ To install NVIDIA GRID drivers on NV-series VMs, make an SSH connection to each 
 8. Add the following to `/etc/nvidia/gridd.conf`:
  
   ```
-  IgnoreSP=TRUE
+  IgnoreSP=FALSE
   ```
 9. Reboot the VM and proceed to verify the installation.
 
@@ -284,7 +286,7 @@ To install NVIDIA GRID drivers on NV-series VMs, make an SSH connection to each 
 8. Add the following to `/etc/nvidia/gridd.conf`:
  
   ```
-  IgnoreSP=TRUE
+  IgnoreSP=FALSE
   ```
 9. Reboot the VM and proceed to verify the installation.
 

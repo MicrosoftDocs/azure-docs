@@ -7,10 +7,10 @@ author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ---
@@ -22,7 +22,7 @@ Learn how to discover and manage Azure resources when you use Privileged Identit
 When you first set up PIM for Azure resources, you need to discover and select resources to protect with PIM. There's no limit to the number of resources that you can manage with PIM. However, we recommend starting with your most critical (production) resources.
 
 > [!NOTE]
-> You can only search for and select subscription resources to manage by using PIM. When you manage a subscription in PIM, you can also manage child resources in the subscription.
+> You can only search for and select management group or subscription resources to manage using PIM. When you manage a management group or a subscription in PIM, you can also manage its child resources.
 
 ## Discover resources
 

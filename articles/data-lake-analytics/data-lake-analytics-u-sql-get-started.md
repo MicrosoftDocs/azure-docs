@@ -4,8 +4,8 @@ description: Learn the basics of the U-SQL language in Azure Data Lake Analytics
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
@@ -217,7 +217,7 @@ The U-SQL HAVING clause can be used to restrict the output to groups that satisf
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-For advanced aggregation scenarios, see the The U-SQL reference documentation for [aggregate, analytic, and reference functions](https://msdn.microsoft.com/library/azure/mt621335.aspx)
+For advanced aggregation scenarios, see the U-SQL reference documentation for [aggregate, analytic, and reference functions](https://msdn.microsoft.com/library/azure/mt621335.aspx)
 
 ## Next steps
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

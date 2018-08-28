@@ -1,20 +1,16 @@
 ---
-title: Apache Storm with Python comopnents - Azure HDInsight | Microsoft Docs
+title: Apache Storm with Python comopnents - Azure HDInsight 
 description: Learn how to create an Apache Storm topology that uses Python components.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 keywords: apache storm python
 
-ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Develop Apache Storm topologies using Python on HDInsight
@@ -93,7 +89,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 ```
 
 > [!NOTE]
-> This command requires a local Storm development environment. For more information, see [Setting up a development environment](http://storm.apache.org/releases/1.0.6/Setting-up-development-environment.html)
+> This command requires a local Storm development environment. For more information, see [Setting up a development environment](http://storm.apache.org/releases/current/Setting-up-development-environment.html)
 
 Once the topology starts, it emits information to the local console similar to the following text:
 

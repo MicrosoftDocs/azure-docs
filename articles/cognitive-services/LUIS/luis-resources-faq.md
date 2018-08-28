@@ -1,14 +1,14 @@
 ---
 title: Language Understanding (LUIS) in Azure frequently asked questions | Microsoft Docs
 description: Get answers to frequently asked questions about Language Understanding (LUIS)
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-geberr
+ms.date: 07/26/2018
+ms.author: diberry
 ---
 # Language Understanding FAQ
 
@@ -47,21 +47,25 @@ See [entities](luis-concept-entity-types.md) and [data extraction](luis-concept-
 ### Should variations of an example utterance include punctuation? 
 Either add the different variations as example utterances to the intent or add the pattern of the example utterance with the [syntax to ignore](luis-concept-patterns.md#pattern-syntax) the punctuation. 
 
+### Does LUIS currently support Cortana?
+
+Cortana prebuilt apps were deprecated in 2017. They are no longer supported. 
+
 ## LUIS endpoint
 
 ### Why does LUIS add spaces to the query around or in the middle of words?
 LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-supported-languages.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### How do I create and assign a LUIS endpoint key?
-[Create the endpoint key](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](Manage-keys.md#assign-endpoint-key) on the **[Publish](publishapp.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
+[Create the endpoint key](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](luis-how-to-manage-keys.md#assign-endpoint-key) on the **[Publish](luis-how-to-publish-app.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### How do I interpret LUIS scores? 
 Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 (less than 50%) does not necessarily mean that LUIS has low confidence. Providing more training data can help increase the score of the most-likely intent.
 
 ### Why don't I see my endpoint hits in my app's Dashboard?
-The total endpoint hits in your app's Dashboard are updated periodically, but the metrics associated with your LUIS Subscription key in the Azure portal are updated more frequently. 
+The total endpoint hits in your app's Dashboard are updated periodically, but the metrics associated with your LUIS endpoint key in the Azure portal are updated more frequently. 
 
-If you don't see updated endpoint hits in the Dashboard, log in to the Azure portal, and find the resource associated with your LUIS subscription key, and open **Metrics** to select the **Total Calls** metric. If the subscription key is used for more than one LUIS app, the metric in the Azure portal shows the aggregate number of calls from all LUIS apps that use it.
+If you don't see updated endpoint hits in the Dashboard, log in to the Azure portal, and find the resource associated with your LUIS endpoint key, and open **Metrics** to select the **Total Calls** metric. If the endpoint key is used for more than one LUIS app, the metric in the Azure portal shows the aggregate number of calls from all LUIS apps that use it.
 
 ### My LUIS app was working yesterday but today I'm getting 403 errors. I didn't change the app. How do I fix it? 
 Following the [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) in the next FAQ to create a LUIS endpoint key and assign it to the app. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -109,8 +113,9 @@ In Azure, a tenant represents the client or organization that's associated with 
 
 ![Tenant ID in the Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
-### Why are there more subscription keys on my app's publish page than I assigned to the app? 
-Each LUIS app has the authoring/starter key. LUIS subscription keys created during the GA time frame are visible on your publish page, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS subscription keys do not appear on the publish page. 
+<a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+### Why are there more endpoint keys on my app's publish page than I assigned to the app? 
+Each LUIS app has the authoring/starter key. LUIS endpoint keys created during the GA time frame are visible on your publish page, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS endpoint keys do not appear on the publish page. 
 
 ## App management
 
@@ -136,6 +141,12 @@ If you are using your log for prediction analysis, do not capture test utterance
 * You can delete utterances from the list of user utterances that LUIS suggests in the **Review endpoint utterances** page. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
 * If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained on the servers for 60 days before it is deleted permanently.
 
+### Does Microsoft access my LUIS app data for its own purposes, for example, to enhance LUIS or Microsoft in general? 
+
+No. The LUIS app’s data model is not used by LUIS to enhance LUIS as a platform or used by Microsoft in any way. Each app’s data is separate and owned only by the user and collaborators. 
+
+Learn more about [user privacy](luis-user-privacy.md), [additional security compliance](luis-concept-security.md#security-compliance), and [data storage](luis-concept-data-storage.md).
+
 ## Language and translation support 
 
 ### I have an app in one language and want to create a parallel app in another language. What is the easiest way to do so?
@@ -147,7 +158,7 @@ If you are using your log for prediction analysis, do not capture test utterance
 ## App notification
 
 ### Why did I get an email saying I'm almost out of quota?
-Your authoring/starter key is only allowed 1000 endpoint queries a month. Create a LUIS subscription key (free or paid) and use that key when making endpoint queries. If you are making endpoint queries from a bot or another client application, you need to change the LUIS endpoint key there. 
+Your authoring/starter key is only allowed 1000 endpoint queries a month. Create a LUIS endpoint key (free or paid) and use that key when making endpoint queries. If you are making endpoint queries from a bot or another client application, you need to change the LUIS endpoint key there. 
 
 ## Integrating LUIS
 
@@ -161,23 +172,9 @@ If you select a LUIS template, and select the **Select** button in the template 
 
 ## LUIS service 
 
-### Is LUIS available on-premise or in private cloud?
+### Is LUIS available on-premises or in private cloud?
 No. 
 
-## Changes to the Docs
-
-### Where did the tutorials go? 
-The articles that were previously in the Tutorial section are now in the How-to section of the documents. 
-
-|Tutorial|
-|--|
-|Integrate LUIS with a bot with [C#](luis-csharp-tutorial-build-bot-framework-sample.md) and [Node.js](luis-nodejs-tutorial-build-bot-framework-sample.md)|
-|Add Application Insights to a Bot with [C#](luis-tutorial-bot-csharp-appinsights.md) and [Node.js](luis-tutorial-function-appinsights.md)|
-|Build a LUIS app programmatically using [Node.js](luis-tutorial-node-import-utterances-csv.md)|
-|Use [composite entity](luis-tutorial-composite-entity.md) to extract grouped data|
-|Add [list entity](luis-tutorial-list-entity.md) for increased entity detection using Node.js|
-|Improve prediction accuracy with a [phrase list](luis-tutorial-interchangeable-phrase-list.md), [patterns](luis-tutorial-pattern.md), and [batch testing](luis-tutorial-batch-testing.md)|
-|[Correct spelling](luis-tutorial-batch-testing.md) with Bing Spell Check API v7
 
 ### At the Build 2018 Conference, I heard about a Language Understanding feature or demo but I don't remember what it was called? 
 
@@ -187,7 +184,7 @@ The following features were released at the Build 2018 Conference:
 |--|--|
 |Enhancements|[Regular expression](luis-concept-data-extraction.md##regular-expression-entity-data) entity and [Key phrase](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) entity
 |Patterns|Patterns [concept](luis-concept-patterns.md), [tutorial](luis-tutorial-pattern.md), [how-to](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) entity concept including [Explicit list](luis-concept-patterns.md#explicit-lists) for exceptions<br>[Roles](luis-concept-roles.md) concept|
-|Integrations|[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) integration of [sentiment analysis](publishapp.md#enable-sentiment-analysis)<br>[Speech](https://docs.microsoft.com/azure/cognitive-services/speech) integration of [speech priming](publishapp.md#enable-speech-priming) in conjunction with [Speech SDK](https://aka.ms/SpeechSDK)|
+|Integrations|[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) integration of [sentiment analysis](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Speech](https://docs.microsoft.com/azure/cognitive-services/speech) integration of speech priming in conjunction with [Speech SDK](https://aka.ms/SpeechSDK)|
 |Dispatch tool|Part of [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), Dispatch command line [tool](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) to combine multiple LUIS and QnA Maker apps into single LUIS app for better intent recognition in a Bot
 
 Additional authoring [API routes](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) were included. 
@@ -206,5 +203,3 @@ Projects:
 To learn more about LUIS, see the following resources:
 * [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [MSDN Language Understanding Intelligent Services (LUIS) Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

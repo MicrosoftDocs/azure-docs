@@ -1,18 +1,14 @@
 ---
-# required metadata
 title: Connectors for Azure Logic Apps | Microsoft Docs
-description: Automate workflows with built-in, managed API, on-premises, integration account, and enterprise connectors for Azure Logic Apps
+description: Automate workflows with connectors for Azure Logic Apps, including built-in, managed, on-premises, integration account, and enterprise connectors
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 06/29/2018
-
-# optional metadata
 ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.topic: article
+ms.date: 08/23/2018
 ---
 
 # Connectors for Azure Logic Apps
@@ -20,10 +16,16 @@ ms.suite: integration
 Connectors play an integral part when you create automated workflows with Azure Logic Apps. 
 By using connectors in your logic apps, you expand the capabilities for your on-premises 
 and cloud apps to perform tasks with the data that you create and already have. 
-While Logic Apps offers ~200+ connectors, this article describes popular and 
-more commonly used connectors that are successfully used by thousands of apps 
-and millions of executions for processing data and information.
+
+While Logic Apps offers [~200+ connectors](https://docs.microsoft.com/connectors), 
+this article describes popular and more commonly used connectors that are successfully 
+used by thousands of apps and millions of executions for processing data and information. 
 Connectors are available as either built-ins or managed connectors. 
+
+> [!NOTE]
+> For the full list of connectors and each connector's reference information, 
+> such as actions, any triggers, and limits, you can find the full list 
+> under the [Connectors overview](https://docs.microsoft.com/connectors).
 
 * [**Built-ins**](#built-ins): These built-in actions and triggers help you 
 create logic apps that run on custom schedules, communicate with other endpoints, 
@@ -51,11 +53,13 @@ Managed connectors are organized into these groups:
   You can then extend or perform BizTalk-like operations in your logic apps by 
   using the [integration account connectors](#integration-account-connectors). 
 
-For technical information about each connector's triggers and actions, 
-which are defined by a Swagger description, plus any limits, see 
-[Connector details](/connectors/). For cost information, see 
-[Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/) 
-and [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md). 
+> [!NOTE] 
+> For the full list of connectors and each connector's reference information, 
+> such as actions and any triggers, which are defined by a Swagger description, 
+> plus any limits, you can find the full list under the 
+> [Connectors overview](/connectors/). For pricing information, see 
+> [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/) 
+> and the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md). 
 
 <a name="built-ins"></a>
 
@@ -217,6 +221,7 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 
 ## Next steps
 
+* Find the [connectors' full list](https://docs.microsoft.com/connectors)
 * [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Create custom connectors for logic apps](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Create custom APIs for logic apps](../logic-apps/logic-apps-create-api-app.md)
@@ -316,7 +321,6 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 [azure-app-services-icon]: ./media/apis-list/azure-app-services.png
 [azure-functions-icon]: ./media/apis-list/azure-functions.png
 [azure-logic-apps-icon]: ./media/apis-list/azure-logic-apps.png
-[azure-service-bus-icon]: ./media/apis-list/azure-service-bus.png
 [batch-icon]: ./media/apis-list/batch.png
 [condition-icon]: ./media/apis-list/condition.png
 [data-operations-icon]: ./media/apis-list/data-operations.png
@@ -326,7 +330,7 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 [http-request-icon]: ./media/apis-list/request.png
 [http-response-icon]: ./media/apis-list/response.png
 [http-swagger-icon]: ./media/apis-list/http-swagger.png
-[http-webhook-icon]: ./media/apis-list/webhook.png
+[http-webhook-icon]: ./media/apis-list/http-webhook.png
 [schedule-icon]: ./media/apis-list/recurrence.png
 [scope-icon]: ./media/apis-list/scope.png
 [switch-icon]: ./media/apis-list/switch.png
@@ -339,13 +343,16 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 [asana-icon]: ./media/apis-list/asana.png
 [azure-automation-icon]: ./media/apis-list/azure-automation.png
 [azure-blob-storage-icon]: ./media/apis-list/azure-blob-storage.png
-[azure-cognitive-services-text-analytics-icon]: ./media/apis-list/cognitiveservicestextanalytics.png
+[azure-cognitive-services-text-analytics-icon]: ./media/apis-list/azure-cognitive-services-text-analytics.png
 [azure-data-lake-icon]: ./media/apis-list/azure-data-lake.png
+[azure-document-db-icon]: ./media/apis-list/azure-document-db.png
 [azure-event-grid-icon]: ./media/apis-list/azure-event-grid.png
+[azure-event-grid-publish-icon]: ./media/apis-list/azure-event-grid-publish.png
 [azure-event-hubs-icon]: ./media/apis-list/azure-event-hubs.png
-[azure-ml-icon]: ./media/apis-list/azureml.png
-[azure-resource-manager-icon]: ./media/apis-list/azure-resource-manager.png
+[azure-ml-icon]: ./media/apis-list/azure-ml.png
 [azure-queues-icon]: ./media/apis-list/azure-queues.png
+[azure-resource-manager-icon]: ./media/apis-list/azure-resource-manager.png
+[azure-service-bus-icon]: ./media/apis-list/azure-service-bus.png
 [basecamp-3-icon]: ./media/apis-list/basecamp.png
 [bitbucket-icon]: ./media/apis-list/bitbucket.png
 [bitly-icon]: ./media/apis-list/bitly.png
@@ -353,7 +360,7 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 [blogger-icon]: ./media/apis-list/blogger.png
 [box-icon]: ./media/apis-list/box.png
 [campfire-icon]: ./media/apis-list/campfire.png
-[common-data-service-icon]: ./media/apis-list/runtimeservice.png
+[common-data-service-icon]: ./media/apis-list/common-data-service.png
 [dropbox-icon]: ./media/apis-list/dropbox.png
 [dynamics-365-icon]: ./media/apis-list/dynamics-crm-online.png
 [dynamics-365-financials-icon]: ./media/apis-list/dynamics-365-financials.png
@@ -363,10 +370,10 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 [file-system-icon]: ./media/apis-list/file-system.png
 [ftp-icon]: ./media/apis-list/ftp.png
 [github-icon]: ./media/apis-list/github.png
-[google-calendar-icon]: ./media/apis-list/googlecalendar.png
-[google-drive-icon]: ./media/apis-list/googledrive.png
-[google-sheets-icon]: ./media/apis-list/googlesheet.png
-[google-tasks-icon]: ./media/apis-list/googletasks.png
+[google-calendar-icon]: ./media/apis-list/google-calendar.png
+[google-drive-icon]: ./media/apis-list/google-drive.png
+[google-sheets-icon]: ./media/apis-list/google-sheet.png
+[google-tasks-icon]: ./media/apis-list/google-tasks.png
 [hipchat-icon]: ./media/apis-list/hipchat.png
 [ibm-db2-icon]: ./media/apis-list/ibm-db2.png
 [ibm-informix-icon]: ./media/apis-list/ibm-informix.png
@@ -377,19 +384,19 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 [jira-icon]: ./media/apis-list/jira.png
 [mailchimp-icon]: ./media/apis-list/mailchimp.png
 [mandrill-icon]: ./media/apis-list/mandrill.png
-[microsoft-translator-icon]: ./media/apis-list/microsofttranslator.png
+[microsoft-translator-icon]: ./media/apis-list/microsoft-translator.png
 [mysql-icon]: ./media/apis-list/mysql.png
 [office-365-outlook-icon]: ./media/apis-list/office-365.png
-[office-365-users-icon]: ./media/apis-list/office365users.png
-[office-365-video-icon]: ./media/apis-list/office365video.png
-[onedrive-for-Business-icon]: ./media/apis-list/onedriveforbusiness.png
+[office-365-users-icon]: ./media/apis-list/office-365-users.png
+[office-365-video-icon]: ./media/apis-list/office-365-video.png
 [onedrive-icon]: ./media/apis-list/onedrive.png
+[onedrive-for-business-icon]: ./media/apis-list/onedrive-business.png
 [oracle-db-icon]: ./media/apis-list/oracle-db.png
 [outlook.com-icon]: ./media/apis-list/outlook.png
 [pagerduty-icon]: ./media/apis-list/pagerduty.png
 [pinterest-icon]: ./media/apis-list/pinterest.png
 [postgre-sql-icon]: ./media/apis-list/postgre-sql.png
-[project-online-icon]: ./media/apis-list/projectonline.png
+[project-online-icon]: ./media/apis-list/projecton-line.png
 [redmine-icon]: ./media/apis-list/redmine.png
 [rss-icon]: ./media/apis-list/rss.png
 [salesforce-icon]: ./media/apis-list/salesforce.png
@@ -409,7 +416,7 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 [twilio-icon]: ./media/apis-list/twilio.png
 [twitter-icon]: ./media/apis-list/twitter.png
 [vimeo-icon]: ./media/apis-list/vimeo.png
-[visual-studio-team-services-icon]: ./media/apis-list/visualstudioteamservices.png
+[visual-studio-team-services-icon]: ./media/apis-list/visual-studio-team-services.png
 [wordpress-icon]: ./media/apis-list/wordpress.png
 [wunderlist-icon]: ./media/apis-list/wunderlist.png
 [yammer-icon]: ./media/apis-list/yammer.png

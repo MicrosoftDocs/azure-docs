@@ -2,13 +2,13 @@
 title: Glossary for the Language Understanding (LUIS) API Service | Microsoft Docs
 description: The glossary explains terms that you might encounter as you work with the LUIS API Service.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Glossary
@@ -67,7 +67,7 @@ In the LUIS context, a **domain** is an area of knowledge. Your domain is specif
 
 ## <a name="endpoint"></a>Endpoint
 
-The [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL is where you submit LUIS queries after the [LUIS app](#luis-app) is authored and published. The endpoint URL contains the region of the published app as well as the app ID. You can find the endpoint on the **[Publish](publishapp.md)** page of your app, in the Resources and Keys table or you can get the endpoint URL from the [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+The [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL is where you submit LUIS queries after the [LUIS app](#luis-app) is authored and published. The endpoint URL contains the region of the published app as well as the app ID. You can find the endpoint on the **[Publish](luis-how-to-publish-app.md)** page of your app, in the Resources and Keys table or you can get the endpoint URL from the [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 An example endpoint looks like:
 
@@ -77,7 +77,7 @@ An example endpoint looks like:
 |--|--|
 |region| [published region](luis-reference-regions.md#publishing-regions) |
 |appID | LUIS app ID |
-|subscriptionID | LUIS subscription key created in Azure portal |
+|subscriptionID | LUIS endpoint (subscription) key created in Azure portal |
 |q | utterance |
 |timezoneOffset| minutes|
 
@@ -87,15 +87,15 @@ An example endpoint looks like:
 
 ## <a name="f-measure"></a>F-measure
 
-In [batch testing][batch-testing], a measure of the test's accuracy.
+In [batch testing](luis-interactive-test.md#batch-testing), a measure of the test's accuracy.
 
 ## <a name="false-negative"></a>False negative (TN)
 
-In [batch testing][batch-testing], the data points represent utterances in which your app incorrectly predicted the absence of the target intent/entity.
+In [batch testing](luis-interactive-test.md#batch-testing), the data points represent utterances in which your app incorrectly predicted the absence of the target intent/entity.
 
 ## <a name="false-positive"></a>False positive (TP)
 
-In [batch testing][batch-testing], the data points represent utterances in which your app incorrectly predicted the existence of the target intent/entity.
+In [batch testing](luis-interactive-test.md#batch-testing), the data points represent utterances in which your app incorrectly predicted the existence of the target intent/entity.
 
 ## <a name="features"></a>Features
 
@@ -130,10 +130,10 @@ A [prebuilt domain](luis-how-to-use-prebuilt-domains.md) is a LUIS app configure
 
 ## <a name="prebuilt-entity"></a>Prebuilt entity
 
-A [prebuilt entity](pre-builtentities.md) is an entity LUIS provides for common types of information such as number, URL, and email. You choose to add a prebuilt entity to your application. 
+A [prebuilt entity](luis-prebuilt-entities.md) is an entity LUIS provides for common types of information such as number, URL, and email. You choose to add a prebuilt entity to your application. 
 
 ## <a name="precision"></a>Precision
-In [batch testing][batch-testing], precision (also called positive predictive value) is the fraction of relevant utterances among the retrieved utterances.
+In [batch testing](luis-interactive-test.md#batch-testing), precision (also called positive predictive value) is the fraction of relevant utterances among the retrieved utterances.
 
 ## <a name="programmatic-key"></a>Programmatic key
 
@@ -148,7 +148,7 @@ Publishing means making a LUIS [active version](#active-version) available on ei
 LUIS quota is the limitation of the [Azure subscription tier](https://aka.ms/luis-price-tier). The LUIS quota can be limited by both requests per second (HTTP Status 429) and total requests in a month (HTTP Status 403). 
 
 ## <a name="recall"></a>Recall
-In [batch testing][batch-testing], recall (also known as sensitivity), is the ability for LUIS to generalize. 
+In [batch testing](luis-interactive-test.md#batch-testing), recall (also known as sensitivity), is the ability for LUIS to generalize. 
 
 ## <a name="semantic-dictionary"></a>Semantic dictionary
 A semantic dictionary is provided on the List entity page as well as the Phrase list page. The semantic dictionary provides suggestions of words based on the current scope.
@@ -158,12 +158,11 @@ Sentiment analysis provides positive or negative values of the utterances provid
 
 ## <a name="speech-priming"></a>Speech priming
 
-Speech priming allows your speech service to be primed with your LUIS model. See [Enable speech priming
-](publishapp.md#enable-speech-priming).
+Speech priming allows your speech service to be primed with your LUIS model. 
 
 ## <a name="spelling-correction"></a>Spelling correction
 
-On the Publish page, enable [Bing spell checker](publishapp.md#enable-bing-spell-checker) to correct misspelled words in the utterances before prediction. 
+On the Publish page, enable [Bing spell checker](luis-how-to-publish-app.md#enable-bing-spell-checker) to correct misspelled words in the utterances before prediction. 
 
 ## <a name="starter-key"></a>Starter key
 
@@ -171,11 +170,11 @@ Same as [programmatic key](#programmatic-key), renamed to Authoring key.
 
 ## <a name="subscription-key"></a>Subscription key
 
-The subscription key is the key associated with the LUIS service [you created in Azure](luis-how-to-azure-subscription.md). This key is not the [authoring key](#programmatic-key). If you have a subscription key, it should be used for any endpoint requests instead of the authoring key. You can see your current subscription key inside the endpoint URL at the bottom of [**Publish App** page](publishapp.md) in [LUIS](luis-reference-regions.md) website. It is the value of **subscription-key** name/value pair. 
+The subscription key is the **endpoint** key associated with the LUIS service [you created in Azure](luis-how-to-azure-subscription.md). This key is not the [authoring key](#programmatic-key). If you have an endpoint key, it should be used for any endpoint requests instead of the authoring key. You can see your current endpoint key inside the endpoint URL at the bottom of [**Publish App** page](luis-how-to-publish-app.md) in [LUIS](luis-reference-regions.md) website. It is the value of **subscription-key** name/value pair. 
 
 ## <a name="test"></a>Test
 
-[Testing](interactive-test.md#test-your-app) a LUIS app means passing an utterance to LUIS and viewing the JSON results.
+[Testing](luis-interactive-test.md#test-your-app) a LUIS app means passing an utterance to LUIS and viewing the JSON results.
 
 ## <a name="timezoneoffset"></a>Timezone offset
 
@@ -192,11 +191,11 @@ Training is the process of teaching LUIS about any changes to the [active versio
 
 ## <a name="true-negative"></a>True negative (TN)
 
-In [batch testing][batch-testing], the data points represent utterances in which your app correctly predicted the absence of the target intent/entity.
+In [batch testing](luis-interactive-test.md#batch-testing), the data points represent utterances in which your app correctly predicted the absence of the target intent/entity.
 
 ## <a name="true-positive"></a>True positive (TP)
 
-In [batch testing][batch-testing], the data points represent utterances in which your app correctly predicted the existence of the target intent/entity.
+In [batch testing](luis-interactive-test.md#batch-testing), the data points represent utterances in which your app correctly predicted the existence of the target intent/entity.
 
 ## <a name="utterance"></a>Utterance
 
@@ -205,5 +204,3 @@ An utterance is a natural language phrase such as "book 2 tickets to Seattle nex
 ## <a name="version"></a>Version
 
 A LUIS [version](luis-how-to-manage-versions.md) is a specific data model associated with a LUIS app ID and the published endpoint. Every LUIS app has at least one version.
-
-[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing

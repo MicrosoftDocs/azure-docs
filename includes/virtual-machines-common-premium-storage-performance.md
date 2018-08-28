@@ -1,4 +1,4 @@
-# Azure Premium Storage: Design for High Performance
+﻿# Azure Premium Storage: Design for High Performance
 
 This article provides guidelines for building high performance applications using Azure Premium Storage. You can use the instructions provided in this document combined with performance best practices applicable to technologies used by your application. To illustrate the guidelines, we have used SQL Server running on Premium Storage as an example throughout this document.
 
@@ -196,13 +196,13 @@ With Azure Premium Storage, you get the same level of Performance for VMs runnin
 When running Linux with Premium Storage, check the latest updates about required drivers to ensure high performance.
 
 ## Premium Storage Disk Sizes
-Azure Premium Storage offers seven disk sizes currently. Each disk size has a different scale limit for IOPS, Bandwidth and Storage. Choose the right Premium Storage Disk size depending on the application requirements and the high scale VM size. The table below shows the seven disks sizes and their capabilities. P4 and P6 sizes are currently only supported for Managed Disks.
+Azure Premium Storage offers eight disk sizes currently. Each disk size has a different scale limit for IOPS, Bandwidth and Storage. Choose the right Premium Storage Disk size depending on the application requirements and the high scale VM size. The table below shows the eight disks sizes and their capabilities. P4, P6, and P15 sizes are currently only supported for Managed Disks.
 
-| Premium Disks Type  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Disk size           | 32 GB | 64 GB | 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS per disk       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Throughput per disk | 25 MB per second  | 50 MB per second  | 100 MB per second | 150 MB per second | 200 MB per second | 250 MB per second | 250 MB per second | 
+| Premium Disks Type  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Disk size           | 32 GB | 64 GB | 128 GB| 256 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS per disk       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 
+| Throughput per disk | 25 MB per second  | 50 MB per second  | 100 MB per second |125 MB per second | 150 MB per second | 200 MB per second | 250 MB per second | 250 MB per second | 
 
 
 How many disks you choose depends on the disk size chosen. You could use a single P50 disk or multiple P10 disks to meet your application requirement. Take into account considerations listed below when making the choice.
@@ -253,7 +253,7 @@ Following are the recommended disk cache settings for data disks,
 By configuring ReadOnly caching on Premium Storage data disks, you can achieve low Read latency and get very high Read IOPS and Throughput for your application. This is due two reasons,
 
 1. Reads performed from cache, which is on the VM memory and local SSD, are much faster than reads from the data disk, which is on the Azure blob storage.  
-2. Premium Storage does not count the Reads served from cache, towards the disk IOPS and Throughput. Therefore, your application is able to achieve higher total IOPS and Throughput.
+1. Premium Storage does not count the Reads served from cache, towards the disk IOPS and Throughput. Therefore, your application is able to achieve higher total IOPS and Throughput.
 
 *ReadWrite*  
 By default, the OS disks have ReadWrite caching enabled. We have recently added support for ReadWrite caching on data disks as well. If you are using ReadWrite caching, you must have a proper way to write the data from cache to persistent disks. For example, SQL Server handles writing cached data to the persistent storage disks on its own. Using ReadWrite cache with an application that does not handle persisting the required data can lead to data loss, if the VM crashes.
@@ -263,7 +263,7 @@ As an example, you can apply these guidelines to SQL Server running on Premium S
 1. Configure "ReadOnly" cache on premium storage disks hosting data files.  
    a.  The fast reads from cache lower the SQL Server query time since data pages are retrieved much faster from the cache compared to directly from the data disks.  
    b.  Serving reads from cache, means there is additional Throughput available from premium data disks. SQL Server can use this additional Throughput towards retrieving more data pages and other operations like backup/restore, batch loads, and index rebuilds.  
-2. Configure "None" cache on premium storage disks hosting the log files.  
+1. Configure "None" cache on premium storage disks hosting the log files.  
    a.  Log files have primarily write-heavy operations. Therefore, they do not benefit from the ReadOnly cache.
 
 ## Disk Striping
@@ -381,12 +381,12 @@ Perform the steps below to warm up cache
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1MB |100 |0 |
    | RandomReads\_1MB |1MB |100 |100 |
-2. Run the Iometer test for initializing cache disk with following parameters. Use three worker threads for the target volume and a queue depth of 128. Set the "Run time" duration of the test to 2hrs on the "Test Setup" tab.
+1. Run the Iometer test for initializing cache disk with following parameters. Use three worker threads for the target volume and a queue depth of 128. Set the "Run time" duration of the test to 2hrs on the "Test Setup" tab.
 
    | Scenario | Target Volume | Name | Duration |
    | --- | --- | --- | --- |
    | Initialize Cache Disk |CacheReads |RandomWrites\_1MB |2hrs |
-3. Run the Iometer test for warming up cache disk with following parameters. Use three worker threads for the target volume and a queue depth of 128. Set the "Run time" duration of the test to 2hrs on the "Test Setup" tab.
+1. Run the Iometer test for warming up cache disk with following parameters. Use three worker threads for the target volume and a queue depth of 128. Set the "Run time" duration of the test to 2hrs on the "Test Setup" tab.
 
    | Scenario | Target Volume | Name | Duration |
    | --- | --- | --- | --- |

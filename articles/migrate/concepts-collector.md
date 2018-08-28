@@ -4,7 +4,7 @@ description: Provides an overview of the Collector appliance and how to configur
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 08/25/2018
 ms.author: ruturajd
 services: azure-migrate
 ---
@@ -53,6 +53,30 @@ The collector appliance needs to be connected to the internet to send the discov
 
 > [!NOTE]
 > HTTPS-based proxy servers are not supported by the collector.
+
+#### Internet connectivity with intercepting proxy
+
+If the proxy server you use to connect to the internet is an intercepting proxy, you are required to import the proxy certificate into your collector VM. Following are steps on how you can import the certificate into the collector VM.
+
+1. In the collector VM, go to **Start Menu** and find and open **Manage computer certificates**.
+2. In the Certificates tool, on the left pane, under **Certificates - Local Computer**, find **Trusted Publishers**. Under **Trusted Publishers**, click **Certificates** to see the list of certificates in the pane on the right.
+
+    ![Certificates tool](./media/concepts-intercepting-proxy/certificates-tool.png)
+
+3. Copy your proxy certificate on to the collector VM. You may have to reach out to the network administrator team in your organization to obtain this certificate.
+4. Double click on the certificate to open it. Click **Install Certificate**. This will take you to the Certificate Import wizard.
+5. On the Certificate Import Wizard, for Store Location, choose **Local Machine**. **Click Next**.
+
+    ![Certificate store location](./media/concepts-intercepting-proxy/certificate-store-location.png)
+
+6. Choose the option to **Place all certificates in the following store**. Click **Browse** and select **Trusted Publishers** from the list of certificates that come up. Click **Next**.
+
+    ![Certificates store](./media/concepts-intercepting-proxy/certificate-store.png)
+    
+7. Click **Finish**. This will import the certificate. 
+8. Optionally, you can verify the certificate is imported by opening the Certificates tool as in step 1 and 2 above.
+9. On the Azure Migrate collector app, verify the internet connectivity prerequisite check is successful.
+
 
 #### Whitelisting URLs for internet connection
 
@@ -171,7 +195,7 @@ The Collector only discovers the machine data and sends it to the project. The p
 Based on the number of virtual machines in the selected scope, it takes upto 15 minutes to send the static metadata to the project. Once the static metadata is available on the portal, you can see the list of machines in the portal and start creating groups. A assessment cannot be created until the collection job completes and the project has processed the data. Once the collection job completed on the Collector, it can take upto one hour for the performance data to be available on the portal, based on the number of virtual machines in the selected scope.
 
 ## Locking down the collector appliance
-We recommend running continuous Windows updates on the collector appliance. If a collector is not updated for 45 days, the collector will start auto-shutting down the machine. If a discovery is running, the machine will not be turned off, even if it is past its 45 day period. Post the discovery job completes, the machine will be turned off. If you are using the collector for more than 45 days, we recommend keeping the machine updated at all times by running Windows update.
+We recommend running continuous Windows updates on the collector appliance. If a collector is not updated for 60 days, the collector will start auto-shutting down the machine. If a discovery is running, the machine will not be turned off, even if it is past its 60 day period. Post the discovery job completes, the machine will be turned off. If you are using the collector for more than 45 days, we recommend keeping the machine updated at all times by running Windows update.
 
 We also recommend the following steps to secure your appliance
 1. Do not share or misplace administrator passwords with unauthorized parties.
@@ -183,7 +207,7 @@ We also recommend the following steps to secure your appliance
 
 You can upgrade the Collector to the latest version without downloading the OVA once again.
 
-1. Download the latest [upgrade package](https://aka.ms/migrate/col/upgrade_9_11) (version 1.0.9.11).
+1. Download the latest [upgrade package](https://aka.ms/migrate/col/upgrade_9_13) (version 1.0.9.13).
 2. To ensure that the downloaded hotfix is secure, open Administrator command window and run the following command to generate the hash for the ZIP file. The generated hash should match with the hash mentioned against the specific version:
 
 	```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
@@ -194,6 +218,16 @@ You can upgrade the Collector to the latest version without downloading the OVA 
 5. Right-click on Setup.ps1 and select Run with PowerShell and follow the instructions on screen to install the update.
 
 ### List of updates
+
+#### Upgrade to version 1.0.9.13
+
+Hash values for upgrade [package 1.0.9.13](https://aka.ms/migrate/col/upgrade_9_13)
+
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
+SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
+SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
 #### Upgrade to version 1.0.9.11
 

@@ -117,7 +117,7 @@ This step is optional. If you're interested in learning how the database resourc
     client.batch(queries, { prepare: true}, next);
     ```
 
-* Query to get get all key values.
+* Query to get all key values.
 
     ```nodejs
    var query = 'SELECT * FROM uprofile.user';
@@ -212,7 +212,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and run an app. You can now import additional data to your Cosmos DB account. 
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a container using the Data Explorer, and run an app. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
 > [Import Cassandra data into Azure Cosmos DB](cassandra-import-data.md)

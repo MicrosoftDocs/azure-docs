@@ -72,8 +72,6 @@
       href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
     - name: ASP.NET Core
       href: https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp
-    - name: Node.js
-      href: active-directory-b2c-devquickstarts-web-node.md
   - name: Single page apps
     items:
     - name: Overview
@@ -157,6 +155,8 @@
         href: b2clogin.md
       - name: Using age gating
         href: basic-age-gating.md
+      - name: Direct sign-in
+        href: direct-signin.md
   - name: Identity Experience Framework
     items:
     - name: Custom policies
@@ -187,7 +187,7 @@
           href: active-directory-b2c-setup-sf-app-custom.md
       - name: Integrate RESTful APIs
         items:
-        - name: Vaildate user input
+        - name: Validate user input
           href: active-directory-b2c-rest-api-validation-custom.md
         - name: Obtain additional claims
           href: active-directory-b2c-rest-api-step-custom.md
@@ -261,6 +261,8 @@
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Frequently asked questions
     href: active-directory-b2c-faqs.md
+  - name: Getting help
+    href: /azure/active-directory/develop/developer-support-help-options
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/active-directory-b2c/
   - name: Pricing calculator

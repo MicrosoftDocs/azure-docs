@@ -1,21 +1,13 @@
 ---
-title: Deploy to Azure App Service by using the Jenkins plugin | Microsoft Docs
+title: Deploy to Azure App Service by using the Jenkins plugin
 description: Learn how to use the Azure App Service Jenkins plugin to deploy a Java web app to Azure in Jenkins
-services: app-service\web
-documentationcenter: ''
-author: mlearned
-manager: douge
-editor: ''
-
-ms.assetid: 
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 7/24/2017
-ms.author: mlearned
-ms.custom: Jenkins
+ms.service: jenkins
+keywords: jenkins, azure, devops, app service
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
+ms.date: 07/31/2018
 ---
 
 # Deploy to Azure App Service by using the Jenkins plugin 
@@ -43,7 +35,7 @@ You can use the Jenkins plugin to deploy a web app in any language that is suppo
 > [!NOTE]
 > The Java JDK and Maven are required to build the Java project. Install these components on the Jenkins Master, or on the VM agent if you use the agent for continuous integration. 
 
-To install the components, log in to the Jenkins instance with SSH and run the following commands:
+To install the components, sign in to the Jenkins instance with SSH and run the following commands:
 
 ```bash
 sudo apt-get install -y openjdk-7-jdk
@@ -69,7 +61,7 @@ To deploy your project to Web Apps, you can upload your build artifacts (for exa
 Before you set up the job in Jenkins, you need an Azure App Service plan and a web app to run the Java app.
 
 
-1. Create an Azure App Service plan with the **FREE** pricing tier by using the `az appservice plan create` [Azure CLI command](/cli/azure/appservice/plan#az_appservice_plan_create). The App Service plan defines the physical resources that are used to host your apps. All applications that are assigned to an App Service plan share these resources. Shared resources help you to save on costs when hosting multiple apps.
+1. Create an Azure App Service plan with the **FREE** pricing tier by using the `az appservice plan create` [Azure CLI command](/cli/azure/appservice/plan#az-appservice-plan-create). The App Service plan defines the physical resources that are used to host your apps. All applications that are assigned to an App Service plan share these resources. Shared resources help you to save on costs when hosting multiple apps.
 2. Create a web app. You can use the [Azure portal](/azure/app-service-web/web-sites-configure) or the following `az` Azure CLI command:
     ```azurecli-interactive	
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
@@ -136,7 +128,7 @@ Web Apps on Linux also supports traditional deployment methods, like Git and FTP
 Before setting up the job in Jenkins, you need a web app on Linux. You also need a container registry to store and manage your private Docker container images. You can use DockerHub to create the container registry. In this example, we use Azure Container Registry.
 
 * [Create your web app on Linux](../app-service/containers/quickstart-nodejs.md).
-* Azure Container Registry is a managed [Docker Registry](https://docs.docker.com/registry/) service that is based on the open source Docker Registry version 2.0. [Create an Azure container registry](/azure/container-registry/container-registry-get-started-azure-cli). You can also use DockerHub.
+* Azure Container Registry is a managed [Docker Registry](https://docs.docker.com/registry/) service that is based on the open-source Docker Registry version 2.0. [Create an Azure container registry](/azure/container-registry/container-registry-get-started-azure-cli). You can also use DockerHub.
 
 ### Set up the Jenkins job for Docker
 
@@ -226,6 +218,10 @@ For the **Docker registry URL** value, supply the URL by using the format https:
 
 3. Go to http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Replace &lt;x> and &lt;y> with any numbers to get the sum of x + y.
     
+## Troubleshooting the Jenkins plugin
+
+If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
+
 ## Next steps
 
 In this tutorial, you used the Azure App Service Jenkins plugin to deploy to Azure.

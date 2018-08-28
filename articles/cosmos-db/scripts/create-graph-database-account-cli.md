@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Create an Azure Cosmos DB Gremlin API account, database, and collection | Microsoft Docs
-description: Azure CLI Script Sample - Create an Azure Cosmos DB Gremlin API account, database, and collection
+title: Azure CLI Script-Create an Azure Cosmos DB Gremlin API account, database, and graph | Microsoft Docs
+description: Azure CLI Script Sample - Create an Azure Cosmos DB Gremlin API account, database, and graph
 services: cosmos-db
 documentationcenter: cosmosdb
 author: SnehaGunda
@@ -20,7 +20,7 @@ ms.author: sngun
 
 # Azure Cosmos DB: Create a Gremlin API account using the Azure CLI
 
-This sample CLI script creates an Azure Cosmos DB Gremlin API account, database, and collection. 
+This sample CLI script creates an Azure Cosmos DB Gremlin API account, database, and graph. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -28,7 +28,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-gremlin-account/create-cosmosdb-gremlin-account.sh?highlight=15-35 "Create an Azure Cosmos DB Gremlin API account, database, and collection")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-gremlin-account/create-cosmosdb-gremlin-account.sh?highlight=15-35 "Create an Azure Cosmos DB Gremlin API account, database, and graph")]
 
 ## Clean up deployment
 
@@ -44,9 +44,9 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Creates an Azure Cosmos DB account. |
-| [az group delete](/cli/azure/resource#az_resource_delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
+| [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

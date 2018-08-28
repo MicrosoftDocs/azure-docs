@@ -17,7 +17,7 @@ ms.author: apimpm
 
 ---
 # How to manage user accounts in Azure API Management
-In API Management, developers are the users of the APIs that you expose using API Management. This guide shows to how to create and invite developers to use the APIs and products that you make available to them with your API Management instance. For information on managing user accounts programmatically, see the [User entity](https://msdn.microsoft.com/library/azure/dn776330.aspx) documentation in the [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) reference.
+In API Management, developers are the users of the APIs that you expose using API Management. This guide shows to how to create and invite developers to use the APIs and products that you make available to them with your API Management instance. For information on managing user accounts programmatically, see the [User entity](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) documentation in the [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) reference.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ To block a user, follow the following steps.
 
 ## Reset a user password
 
-To programmatically work with user accounts, see the [User entity](https://msdn.microsoft.com/library/azure/dn776330.aspx) documentation in the [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) reference. To reset a user account password to a specific value, you can use the [Update a user](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser) operation and specify the desired password.
+To programmatically work with user accounts, see the [User entity](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) documentation in the [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) reference. To reset a user account password to a specific value, you can use the [Update a user](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) operation and specify the desired password.
 
 ## <a name="next-steps"> </a>Next steps
 Once a developer account is created, you can associate it with roles and subscribe it to products and APIs. For more information, see [How to create and use groups][How to create and use groups].
