@@ -54,6 +54,16 @@ When you need to take on a role, you can request activation by selecting the **M
 
     ![Request pending notification - screenshot](./media/pim-how-to-activate-role/PIM_Request_Pending_Toast2.png)
 
+## View the status of your request to activate
+
+Viewing the status of a pending request to activate must be accessed from the
+new navigation. From the left navigation bar, select the “My Requests” tab:
+
+![](media/azure-ad-pim-approval-workflow/image041.png)
+
+The request state defaults to “Pending”, but you can toggle to see all or denied
+requests.
+
 ## Use a role immediately after activation
 
 Because of caching, activations do not occur immediately in the Azure portal without a refresh. If you need to reduce the possibility of delays after activating a role, you can use the **Application access** page in the portal. Applications accessed from this page check for new role assignments immediately.
@@ -67,6 +77,13 @@ Because of caching, activations do not occur immediately in the Azure portal wit
 1. Click **Azure Active Directory** to reopen the portal on the **All Users** page.
 
     When you click this link, you force a refresh and there is a check for new Azure AD role assignments.
+
+## Complete your task in Azure AD if activation was approved
+
+Once the request is approved, the role is active and you may proceed with any
+work that requires this role.
+
+![](media/azure-ad-pim-approval-workflow/image043.png)
 
 ## Deactivate a role
 Once a role has been activated, it automatically deactivates when its time limit (eligible duration) is reached.

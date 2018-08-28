@@ -46,6 +46,37 @@ In Azure AD, Azure AD Privileged Identity Management can manage the users assign
 
 Historically, you could assign a user to an admin role through the Azure portal, other Microsoft Online Services portals, or the Azure AD cmdlets in Windows PowerShell. As a result, that user becomes a **permanent admin**, always active in the assigned role. Azure AD Privileged Identity Management introduces the concept of an **eligible admin**. Eligible admins should be users that need privileged access now and then, but not all-day, every day. The role is inactive until the user needs access, then they complete an activation process and become an active admin for a predetermined amount of time. More and more organizations are choosing to use this approach for reducing or eliminating “standing admin access” to privileged roles.
 
+
+## Terminology
+
+*Eligible role user* – An eligible role user is a user within your organization
+that’s been assigned to an Azure AD role as eligible (role requires activation).
+
+*Delegated approver* – A delegated approver is one or multiple individuals or
+groups within your Azure AD responsible for approving requests to activate roles.
+
+## Scenarios
+
+Privileged Identity Management supports the following scenarios:
+
+**As a Privileged Role Administrator you can:**
+
+- Enable approval for specific roles
+- Specify approver users and/or groups to approve requests
+- View request and approval history for all privileged roles
+
+**As a designated approver, you can:**
+
+- View pending approvals (requests)
+- Approve or reject requests for role elevation (single and/or bulk)
+- Provide justification for my approval/rejection 
+
+**As an eligible role user you can:**
+
+- Request activation of a role that requires approval
+- View the status of your request to activate
+- Complete your task in Azure AD if activation was approved
+
 ## Enable Privileged Identity Management for your directory
 
 You can start using Azure AD Privileged Identity Management in the [Azure portal](https://portal.azure.com/).
