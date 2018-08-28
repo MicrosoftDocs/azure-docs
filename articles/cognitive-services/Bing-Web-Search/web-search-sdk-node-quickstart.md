@@ -32,18 +32,20 @@ Let's start by setting up the development environment for our Node.js project.
 
 1. Create a new directory for your project:
 
-    ```console
+    ```
     mkdir YOUR_PROJECT
     ```
-1. Create a new package file:
 
-    ```console
+2. Create a new package file:
+
+    ```
     cd YOUR_PROJECT
     npm init
     ```
-1. Now, let's install some azure modules and add them to the `package.json`:
 
-    ```console
+3. Now, let's install some azure modules and add them to the `package.json`:
+
+    ```
     npm install --save azure-cognitiveservices-websearch
     npm install --save ms-rest-azure
     ```
