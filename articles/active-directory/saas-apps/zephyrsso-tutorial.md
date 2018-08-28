@@ -106,16 +106,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![ZephyrSSO Domain and URLs single sign-on information](./media/zephyrsso-tutorial/tutorial_zephyrsso_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://sts.windows.net/d03e86f3-dac0-4b2e-97d8-d5831fc59627/`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.yourzephyr.com/Zephyrsso`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://cokeustest.yourzephyr.com/flex/saml/sso`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.yourzephyr.com/flex/saml/sso`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [ZephyrSSO support team](https://support.getzephyr.com) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/zephyrsso-tutorial/tutorial_zephyrsso_certificate.png) 
+	![The Certificate download link](./media/zephyrsso-tutorial/tutorial_zephyrsso_certificate.png)
 
 5. Click **Save** button.
 
