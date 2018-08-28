@@ -105,7 +105,7 @@
           href: firewall-support.md
         - name: Setup virtual network service endpoint
           href: vnet-service-endpoint.md
-        - name: Key Vault to store secrets
+        - name: Key vault to store secrets
           href: access-secrets-from-keyvault.md
   - name: Multi-model APIs
     expanded: true
