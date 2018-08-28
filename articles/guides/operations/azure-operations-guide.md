@@ -169,7 +169,7 @@ Azure PowerShell is a set of modules that provide cmdlets for managing Azure. Yo
 
 #### Azure command-line interface
 
-The Azure command-line interface is a tool that you can use to create, manage, and remove Azure resources from the command line. The Azure CLI is available for Linux, Mac OS X, and Windows. For more information and technical details, see [Install the Azure CLI](/cli/azure/install-azure-cli.md).
+The Azure command-line interface is a tool that you can use to create, manage, and remove Azure resources from the command line. The Azure CLI is available for Linux, Mac OS X, and Windows. For more information and technical details, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 #### REST APIs
 
@@ -495,5 +495,5 @@ You can help secure Azure virtual networks by using a network security group. NS
 
 ## Next steps
 
-- [Create a Windows VM](/virtual-machines/windows/quick-create-portal.md)
+- [Create a Windows VM](../../virtual-machines/windows/quick-create-portal.md)
 - [Create a Linux VM](../../virtual-machines/linux/quick-create-portal.md)
