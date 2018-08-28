@@ -14,7 +14,7 @@ ms.author: fmegen
 
 # Quickstart: Recognize speech in Java on Android using the Speech SDK
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you'll learn how to create a Java application for Android using the Cognitive Services Speech SDK to transcribe speech to text.
 The application is based on the Microsoft Cognitive Services Speech SDK Maven Package, version 0.6.0, and Android Studio 3.1.
@@ -57,7 +57,7 @@ After running for a while, your newly created Android Studio project should come
 
 ## Configure your project for the Speech SDK
 
-[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 The current version of the Cognitive Services Speech SDK is `0.6.0`.
 
@@ -150,7 +150,7 @@ The text and graphical version of your UI should now look similar to this:
 
 This screenshot concludes the Android Quickstart. The full project sample code can be downloaded from the samples repository.
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/java-android` folder.
 
 ## Next steps

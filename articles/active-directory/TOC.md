@@ -54,6 +54,7 @@
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
 #### [Information workers adding B2B users](b2b/add-users-information-worker.md)
 #### [API and customization](b2b/customize-invitation-api.md)
+#### [Google federation](b2b/google-federation.md)
 #### [Code and Azure PowerShell samples](b2b/code-samples.md)
 #### [Self-service sign-up portal sample](b2b/self-service-portal.md)
 #### [Invitation email](b2b/invitation-email-elements.md)
@@ -126,31 +127,6 @@
 #### [Reset or change your password](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Register for self-service password reset](user-help/active-directory-passwords-reset-register.md)
 
-
-## Manage devices
-### [Overview](devices/overview.md)
-
-### Quickstarts
-#### [Set up Azure AD registered Windows 10 devices](user-help/device-management-azuread-registered-devices-windows10-setup.md)
-#### [Set up Azure AD joined devices](user-help/device-management-azuread-joined-devices-setup.md)
-
-### Tutorials
-#### [Configure hybrid Azure AD join for managed domains](devices/hybrid-azuread-join-managed-domains.md)
-#### [Configure hybrid Azure AD join for federated domains](devices/hybrid-azuread-join-federated-domains.md)
-#### [Configure hybrid Azure AD join manually](devices/hybrid-azuread-join-manual-steps.md)
-#### [Configure Azure AD join during Windows 10 first-run experience](devices/azuread-joined-devices-frx.md)
-
-### How-to-guides
-#### [Plan Azure AD join](devices/azureadjoin-plan.md)
-#### [Plan your hybrid Azure AD join implementation](devices/hybrid-azuread-join-plan.md)
-#### [Control the hybrid Azure AD join of your devices](devices/hybrid-azuread-join-control.md)
-#### [Assign local admins to Azure AD joined devices](devices/assign-local-admin.md)
-#### [Troubleshoot hybrid Azure AD joined Windows current devices](devices/troubleshoot-hybrid-join-windows-current.md)
-#### [Troubleshoot hybrid Azure AD joined legacy Windows devices](devices/troubleshoot-hybrid-join-windows-legacy.md)
-
-### Concepts
-#### [Manage devices using the Azure portal](devices/device-management-azure-portal.md)
-#### [FAQs](devices/faq.md)
 
 ## Manage apps
 ### [Overview](manage-apps/what-is-application-management.md)

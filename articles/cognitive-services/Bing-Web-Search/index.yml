@@ -60,7 +60,7 @@ sections:
     style: unordered
     items:
     - html: <a href="tutorial-bing-web-search-single-page-app">Single-page web app</a> &#124; <a href="tutorial-bing-web-search-single-page-app-source">Source code</a>
-    - html: <a href="computer-vision-web-search-tutorial.md">Visual Search mobile app</a> &#124; <a href="https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/">Download Visual Studio solution</a>
+    - html: <a href="computer-vision-web-search-tutorial.md">Visual Search mobile app</a>
 - title: Reference
   items:
   - type: list

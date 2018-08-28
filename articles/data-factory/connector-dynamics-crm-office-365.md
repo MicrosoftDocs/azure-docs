@@ -329,7 +329,7 @@ Configure the corresponding Data Factory data type in a dataset structure based 
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | ✓ (with single type associated) |
+| AttributeType.Lookup | Guid | ✓ | ✓ (with single target associated) |
 | AttributeType.ManagedProperty | Boolean | ✓ | |
 | AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
