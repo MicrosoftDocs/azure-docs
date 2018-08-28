@@ -150,7 +150,7 @@ Below are the few steps we need to do
     Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
 
 - Create a deployment user
-    After the previous command is completed you can add add an Azure remote to your local Git repository. Replace <url> with the URL of the Git remote that you got from Enable Git for your app.
+    After the previous command is completed you can add an Azure remote to your local Git repository. Replace <url> with the URL of the Git remote that you got from Enable Git for your app.
 
     ```
     git remote add azure <url>
