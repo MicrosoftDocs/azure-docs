@@ -32,7 +32,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2437250  | IS  ASDK --> **Managed Disks are supported.** You can now use Managed Disks in Azure Stack virtual machines and virtual machine scale sets. For more information, see [Azure Stack Managed Disks: Differences and considerations](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
  
-- <!-- TBD  | IS  ASDK -->  **Azure Monitor**. Like Azure Monitor on Azure, Azure Monitor on Azure Stack provides base-level infrastructure metrics and logs for most services. For more information, see [Azure Monitor on Azure Stack](/azure/azure-stack/user/azure-stack-metrics-azure-data).
+- <!-- 2563799  | IS  ASDK -->  **Azure Monitor**. Like Azure Monitor on Azure, Azure Monitor on Azure Stack provides base-level infrastructure metrics and logs for most services. For more information, see [Azure Monitor on Azure Stack](/azure/azure-stack/user/azure-stack-metrics-azure-data).
 
 
 ### Fixed issues
