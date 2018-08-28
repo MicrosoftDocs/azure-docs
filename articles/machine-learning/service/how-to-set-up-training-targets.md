@@ -53,9 +53,6 @@ The workflow for developing and deploying a model with Azure Machine Learning fo
 
 When training locally, you use the SDK to submit the training operation. You can train using a user-managed or system-managed environment.
 
-> [!IMPORTANT]
-> When moving from a local compute target to a remote one (such as Azure Batch AI) you must first create a system-managed environment. The system-managed environment creates a dependencies file, which is used to configure remote training environments.
-
 ### User-managed environment
 
 In a user-managed environment, you are responsible for ensuring that all the necessary packages are available in the Python environment you choose to run the script in.
@@ -129,6 +126,9 @@ run.wait_for_completion(show_output = True)
 
 Your local machine may not have the compute or GPU resources required to train the model. In this situation, You can scale up or scale out your machine learning experiment by adding additional compute targets such as a Ubuntu-based Data Science Virtual Machines (DSVM).
 
+> [!WARNING]
+> Azure Machine Learning does not support CentOS. When creating a virtual machine or selecting an existing one, you must select one that uses Ubuntu.
+
 ### Using the SDK
 
 1. Create or attach a Virtual Machine
@@ -143,9 +143,6 @@ Your local machine may not have the compute or GPU resources required to train t
         ```
 
     * To attach an existing DSVM:
-
-        > [!WARNING]
-        > The SDK does not support CentOS. When selecting an existing DSVM, you must select one that uses Ubuntu.
 
 2. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on DSVM:
 
