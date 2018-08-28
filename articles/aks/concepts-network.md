@@ -61,7 +61,7 @@ Basic networking provides the following features:
 
 Nodes in an AKS cluster configured for advanced networking use the [Azure Container Networking Interface (CNI)][cni-networking] Kubernetes plugin.
 
-![Diagram showing two nodes with bridges connecting each to a single Azure VNet][advanced-networking-diagram-01]
+![Diagram showing two nodes with bridges connecting each to a single Azure VNet][advanced-networking-diagram]
 
 Advanced networking provides the following features over basic networking:
 
@@ -90,6 +90,9 @@ By default, pods can send and receive traffic from any source. There are no rest
 Separate to a NetworkPolicy, Azure includes a higher-level resource called network security groups. A network security group isn't specific to AKS clusters, and filters traffic for VMs, such as the Kubernetes nodes. As you create Services, such as a LoadBalancer, the Azure platform automatically configures any network security group rules that are needed. Don't manually configure network security group rules to filter traffic for pods in an AKS cluster. Network security groups can add complexity in troubleshooting scenarios if traffic is filtered in multiple places. Instead, use the Kubernetes approach of network policies.
 
 ## Next steps
+
+<!-- IMAGES -->
+[advanced-networking-diagram]: ./media/concepts-network/advanced-networking-diagram.png
 
 <!-- LINKS - External -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
