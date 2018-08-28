@@ -2543,7 +2543,8 @@ And returns these results:
 
 ### lastIndexOf
 
-Return the starting position for the last occurrence of a substring. 
+Return the starting position or index value
+for the last occurrence of a substring. 
 This function is not case-sensitive, 
 and indexes start with the number 0.
 
