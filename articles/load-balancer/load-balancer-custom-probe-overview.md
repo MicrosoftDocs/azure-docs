@@ -178,7 +178,7 @@ If all probes for all instances in a backend pool fail, existing UDP flows will 
 
 ## <a name="probesource"></a>Probe source IP address
 
-All Load Balancer health probes originate from the IP address 168.63.129.16 as their source.  When you bring your own IP addresses to Azure's Virtual Network, this health probe source IP address is guaranteed to be unique as it is globally reserved for Microsoft.  This address is the same in all regions and does not change. It should not be considered a security risk because only the internal Azure platform can source a packet from this IP address. 
+Load Balancer uses a distributed probing services on which the health model is based. Each host where VMs reside can be programmed to generate health probes per the customer's configuration. All Load Balancer health probes originate from the IP address 168.63.129.16 as their source.  When you bring your own IP addresses to Azure's Virtual Network, this health probe source IP address is guaranteed to be unique as it is globally reserved for Microsoft.  This address is the same in all regions and does not change. It should not be considered a security risk because only the internal Azure platform can source a packet from this IP address. 
 
 In addition to Load Balancer health probes, the following operations use this IP address:
 
