@@ -27,6 +27,7 @@ The Databricks control plane manages and monitors the Databricks workspace envir
 
 ![Databricks architecture](media/howto-regional-disaster-recovery/databricks-architecture.png)
 
+
 One of the advantages of this architecture is that users can connect Azure Databricks to any storage resource in their account. A key benefit is that both compute (Azure Databricks) and storage can be scaled independently of each other.
 
 ## How to create a regional disaster recovery topology
