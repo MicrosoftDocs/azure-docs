@@ -14,34 +14,29 @@ ms.author: marsma
 
 Azure Virtual Network provides secure, private networking including filtering, routing, and peering for your Azure and on-premises resources. By deploying container groups into an Azure virtual network, your containers can communicate securely with not only other resources in the virtual network, but also resources you have on-premises or in other Azure virtual networks.
 
-Container groups deployed into an Azure virtual network enable scenarios like the following:
+Container groups deployed into an Azure virtual network support scenarios like the following:
 
-* Direct communication betweem container groups in the same subnet
-* Communicate with virtual machines in another subnet within the same virtual network
-* Execute code in a container instance that accesses an on-premises application or database
-* Container group communication with other Azure resources using service endpoints
+* Execute code in a container instance that accesses an on-premises application or database.
+* Comm w/other DB in VNet using service endpoints
+* Direct comm between ACI container groups in same subnet
+* Comm w/VM in another subnet in same VNet
 
-## Deploy to new virtual network
+## Deploy to a virtual network
 
 You can deploy container groups to a new or existing Azure virtual network. Depending on the configuration of the virtual network, your containers can communicate with other Azure resources in the same virtual network, resources in another Azure virtual network, or resources on the public internet.
 
-### Network profile
+### New virtual network
 
-### Delegated subnet
+Explain the new network resources (see Word doc):
 
-## Deploy to existing virtual network
+* Network profile
+* Delegate subnet
 
-1. thing
-1. thing2
-1. thing3
+### Existing virtual network
 
-## Connect to network resources
+## Intra-virtual network communication
 
-### Container group communication
-
-### Azure service endpoints
-
-### On-premises resources
+## Container to on-premises communication
 
 ## Next steps
 
