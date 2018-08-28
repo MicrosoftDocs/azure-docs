@@ -76,7 +76,11 @@ Click anywhere else on the update to open the **Log Search** pane for the select
 
 ## Configure alerts
 
-In this step, you set an alert to let you know when updates have been successfully deployed. The alert you create is based on a Log Analytics query. You can write a custom query for additional alerts to cover many different scenarios. In the Azure portal, go to **Monitor**, and then select **Create Alert**. 
+In this step, you set an alert to let you know when updates have been successfully deployed or failed to deploy.
+
+### Log Analytics query alert
+
+For successful deployments, you can create an alert based on a Log Analytics query. For failed deployments you can use the [Runbook alert](#runbook-alert) steps to alert when the master runbook that orchestrators update deployments fails. You can write a custom query for additional alerts to cover many different scenarios. In the Azure portal, go to **Monitor**, and then select **Create Alert**.
 
 Under **Create rule**, under **1. Define alert condition**, select **Select target**. Under **Filter by resource type**, select **Log Analytics**. Select your Log Analytics workspace, and then select **Done**.
 
@@ -97,6 +101,14 @@ This query returns the computers and the update run name that completed in the s
 Under **Alert logic**, for **Threshold**, enter **1**. When you're finished, select **Done**.
 
 ![Configure signal logic](./media/automation-tutorial-update-management/signal-logic.png)
+
+### Runbook alerts
+
+Under **1. Define alert condition**, select **Select target**. Under **Filter by resource type**, select **Automation Accounts**. Select your Automation Account, and then select **Done**.
+
+For **Runbook Name**, click the **\+** sign and enter **Patch-MicrosoftOMSComputers** as a custom name. For **Status**, choose **Failed** or click the **\+** sign to enter **Failed**.
+
+![Configure signal logic for runbooks](./media/automation-tutorial-update-management/signal-logic-runbook.png)
 
 Under **2. Define alert details**, enter a name and description for the alert. Set **Severity** to **Informational(Sev 2)** because the alert is for a successful run.
 
