@@ -1,5 +1,4 @@
 - name: Privileged Identity Management documentation
-  href: index.yml
   items:
 - name: Overview
   items:
