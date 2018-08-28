@@ -5,7 +5,7 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
+
 layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017

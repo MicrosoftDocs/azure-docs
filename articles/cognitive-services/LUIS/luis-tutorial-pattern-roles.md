@@ -50,7 +50,7 @@ In this tutorial, the Human Resources app detects utterances about moving new em
 |[Hierarchical (no roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
 |This tutorial (with roles)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
 
-You can't use the hierarchical entity in the pattern because only hierarchical parents are used in parents. In order to return the named locations of origin and destination, you muse use a pattern.
+You can't use the hierarchical entity in the pattern because only hierarchical parents are used in patterns. In order to return the named locations of origin and destination, you muse use a pattern.
 
 ### Simple entity for new employee name
 The name of the new employee, Billy Patterson, is not part of the list entity **Employee** yet. The new employee name is extracted first, in order to send the name to an external system to create the company credentials. After the company credentials are created, the employee credentials are added to the list entity **Employee**.

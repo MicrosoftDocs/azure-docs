@@ -4,7 +4,7 @@ description: Step-by-step instructions on how to use Zeppelin notebooks with Apa
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
