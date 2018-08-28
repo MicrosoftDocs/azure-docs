@@ -37,7 +37,7 @@ To create your own regional disaster recovery topology, follow these requirement
 
 ## Detailed migration steps
 
-1. Set up the Databricks command-line interface on your computer
+1. **Set up the Databricks command-line interface on your computer**
 
    This article shows a number of code examples that use the command-line interface for most of the automated steps, since it is an easy-to-user wrapper over Azure Databricks REST API.
 
@@ -50,7 +50,9 @@ To create your own regional disaster recovery topology, follow these requirement
    > [!NOTE]
    > Any python scripts provided in this article are expected to work with Python 2.7+ < 3.x.
 
-2. Configure two profiles. One for the primary workspace, and another one for the secondary workspace:
+**2. Configure two profiles.** 
+   
+   Configure one for the primary workspace, and another one for the secondary workspace:
 
    ```bash
    databricks configure --profile primary
@@ -69,11 +71,11 @@ To create your own regional disaster recovery topology, follow these requirement
    databricks workspace ls --profile secondary
    ```
 
-3. Migrate Azure Active Directory users
+**3. Migrate Azure Active Directory users**
 
    Manually add the same Azure Active Directory users to the secondary workspace that exist in primary workspace.
 
-4. Migrate the user folders and notebooks
+**4. Migrate the user folders and notebooks**
 
    Use the following python code to migrate the sandboxed user environments, which include the nested folder structure and notebooks per user.
 
@@ -114,7 +116,7 @@ To create your own regional disaster recovery topology, follow these requirement
    print "All done"
    ```
 
-5. Migrate cluster configuration
+**5. Migrate the cluster configurations**
 
    Once notebooks have been migrated, you can optionally migrate the cluster configurations to the new workspace. It's almost a fully automated step using databricks-cli, unless you would like to do selective cluster config migration rather than for all.
 
@@ -167,7 +169,7 @@ To create your own regional disaster recovery topology, follow these requirement
    print "All done"
    ```
 
-6. Migrate jobs configuration
+**6. Migrate the jobs configuration**
 
    If you migrated cluster configurations in the previous step, you can opt to migrate job configurations to the new workspace. It is a fully automated step using databricks-cli, unless you would like to do selective job config migration rather than doing it for all jobs.
 
@@ -231,15 +233,15 @@ To create your own regional disaster recovery topology, follow these requirement
    print "All done"
    ```
 
-7. Migrate libraries
+**7. Migrate libraries**
 
    There's currently no straightforward way to migrate libraries from one workspace to another. Reinstall those libraries into the new workspace. Hence this step is mostly manual. This is possible to automate  using combination of [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples) to upload custom libraries to the workspace and [Libraries CLI](https://github.com/databricks/databricks-cli#libraries-cli).
 
-8. Migrate Azure blob storage and Azure Data Lake Store Mounts
+**8. Migrate Azure blob storage and Azure Data Lake Store mounts**
 
    Manually remount all [Azure Blob storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) and [Azure Data Lake Store (Gen 1)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html) mount points using a notebook-based solution. The storage resources would have been mounted in the primary workspace, and that has to be repeated in the secondary workspace. There is no external API for mounts.
 
-9. Migrate cluster init scripts
+**9. Migrate cluster init scripts**
 
    Any cluster initialization scripts can be migrated from old to new workspace using the [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples). First, copy the needed scripts from "dbfs:/dat abricks/init/.." to your local desktop or virtual machine. Next, copy those scripts into the new workspace at the same path.
 
@@ -251,7 +253,7 @@ To create your own regional disaster recovery topology, follow these requirement
    dbfs cp -r old-ws-init-scripts dbfs:/databricks/init --profile secondary
    ```
 
-1. Manually reconfigure and reapply access control.
+**1. Manually reconfigure and reapply access control.**
 
    If your existing primary workspace is configured to use the Premium tier (SKU), it's likely you also are using the [Access Control feature](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
 
