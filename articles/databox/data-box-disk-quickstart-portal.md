@@ -68,7 +68,7 @@ This step takes roughly 5 minutes.
 
     1. In the Azure portal, go to **General > Device Details** and get the passkey.
     2. Download and extract Data Box Disk unlock tool on the computer used to copy the data to disks. 
-    3. Run *DataBoxDiskUnlock.exe* and supply the passkey. Use this unlock tool for any disk reinserts. **Do not use the BitLocker dialog to unlock the disk.** 
+    3. Run *DataBoxDiskUnlock.exe* and supply the passkey. For any disk reinserts, run the unlock tool again and provide the passkey. **Do not use the BitLocker dialog or the BitLocker key to unlock the disk.** 
     4. The drive letter assigned to the disk is displayed by the tool. Make a note of the disk drive letter. This is used in the subsequent steps.
 
 ## Copy data and verify
