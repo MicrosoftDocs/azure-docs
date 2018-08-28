@@ -1,6 +1,6 @@
 ---
 title: How to view app dependencies with Azure Monitor VM Insights | Microsoft Docs
-description: Maps is feature of the Azure Monitor VM Insights solution that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use it in a variety of scenarios.
+description: Maps is a feature of the Azure Monitor VM Insights solution that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use it in a variety of scenarios.
 services:  log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -26,13 +26,13 @@ This article will help you understand the experience between the two perspective
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## View Map directly from a virtual machine 
-To open VM Insights directly from a virtual machine, perform the following.
+To access VM Insights directly from a virtual machine, perform the following.
 
 1. In the Azure portal, select **Virtual Machines**. 
 2. From the list, choose a VM and in the **Monitoring** section choose **Insights (preview)**.  
 3. Select the **Map** tab.
 
-Map visualizes the VMs dependencies, that is running process groups and processes with active network connections, over a specified time range.  By default, the map shows the last 30 minutes.  Using the **TimeRange** pill in the upper left-hand corner, you can query for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred).  
+Maps visualizes the VMs dependencies, that is running process groups and processes with active network connections, over a specified time range.  By default, the map shows the last 30 minutes.  Using the **TimeRange** selector in the upper left-hand corner, you can query for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred).  
 
 ![Direct VM map overview](./media/monitoring-vminsights-maps/map-direct-vm-01.png)
 
@@ -54,6 +54,15 @@ Close *Log search** and return to the **Properties** pane and select **Alerts** 
 
 The **Legend** option in the upper right-hand corner describes the symbols and roles on a map.  To zoom in for a closer look at your map and move the it around, the Zoom controls at the bottom right-hand side of the page sets the zoom level and fit the page to the size of the current page.  
 
-## View Map from Azure Monitor
-The Map feature when launched from Azure Monitor will show 
-When you open VM Insights from Azure Monitor by selecting **Virtual Machines (preview)** from the left and then , selecting the **Map** tab
+## View Maps from Azure Monitor
+From Azure Monitor, the Maps feature provides a global view of your virtual machines and their dependencies.  To access VM Insights from Azure Monitor, perform the following. 
+
+1. In the Azure portal, select **Monitor**. 
+2. Choose **Virtual Machines (preview)** in the **Solutions** section.
+3. Select the **Map** tab.
+
+From the **Workspace** selector at the top of the page, if you have more than one Log Analytics workspace, choose the one that is integrated with the solution and has virtual machines reporting to it.  You then select from the **Group** selector, a subscription or resource group to view a set of VMs and their dependencies matching the group, over a specified period of time.  By default, the map shows the last 30 minutes.  Using the **TimeRange** selector, you can query for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred).   
+
+
+
+
