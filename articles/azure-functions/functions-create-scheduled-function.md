@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc
+ms.custom: mvc, cc996988-fb4f-47
 ---
 # Create a function in Azure that is triggered by a timer
 
-Learn how to use Azure Functions to create a function that runs based a schedule that you define.
+Learn how to use Azure Functions to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function that runs based a schedule that you define.
 
 ![Create function app in the Azure portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
@@ -29,8 +29,6 @@ Learn how to use Azure Functions to create a function that runs based a schedule
 To complete this tutorial:
 
 + If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## Create an Azure Function app
 
@@ -59,7 +57,7 @@ Next, you create a function in the new function app.
     | Setting | Suggested value | Description |
     |---|---|---|
     | **Name** | Default | Defines the name of your timer triggered function. |
-    | **[Schedule](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | A six field [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that schedules your function to run every minute. |
+    | **Schedule** | 0 \*/1 \* \* \* \* | A six field [CRON expression](functions-bindings-timer.md#cron-expressions) that schedules your function to run every minute. |
 
 2. Click **Create**. A function is created in your chosen language that runs every minute.
 
@@ -67,13 +65,13 @@ Next, you create a function in the new function app.
 
     ![Functions log viewer in the Azure portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-Now, you can change the function's schedule so that it runs less often, such as once every hour. 
+Now, you change the function's schedule so that it runs once every hour instead of every minute. 
 
 ## Update the timer schedule
 
 1. Expand your function and click **Integrate**. This is where you define input and output bindings for your function and also set the schedule. 
 
-2. Enter a new **Schedule** value of `0 0 */1 * * *`, and then click **Save**.  
+2. Enter a new hourly **Schedule** value of `0 0 */1 * * *` and then click **Save**.  
 
 ![Functions update timer schedule in the Azure portal.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 

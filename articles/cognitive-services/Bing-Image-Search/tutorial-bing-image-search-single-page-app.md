@@ -2,11 +2,10 @@
 title: Bing Image Search single-page Web app | Microsoft Docs
 description: Shows how to use the Bing Image Search API in a single-page Web application.
 services: cognitive-services
-author: jerrykindall
+author: v-jerkin
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-image-search
+ms.component: bing-image-search
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: v-jerkin
@@ -15,7 +14,9 @@ ms.author: v-jerkin
 
 The Bing Image Search API lets you search the Web and obtain image results relevant to the search query. In this tutorial, we build a single-page Web application that uses the Bing Image Search API to display search results right in the page. The application includes HTML, CSS, and JavaScript components.
 
+<!-- Remove until we can sanitize images
 ![[Single-page Bing Image Search app]](media/cognitive-services-bing-images-api/image-search-spa-demo.png)
+-->
 
 > [!NOTE]
 > The JSON and HTTP headings at the bottom of the page reveal the JSON response and HTTP request information when clicked. These details are useful when exploring the service.
@@ -406,5 +407,5 @@ Leave the command window open while you use the tutorial app; closing the window
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-image-api-v7-reference)
+> [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
 

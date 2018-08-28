@@ -2,18 +2,16 @@
 title: How to Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio | Microsoft Docs
 description: Learn how to migrate and publish your web application to an Azure cloud service by using Visual Studio
 services: visual-studio-online
-documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: ''
+author: ghogen
+manager: douge
 ms.assetid: 9394adfd-a645-4664-9354-dd5df08e8c91
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
 ms.date: 11/10/2017
-ms.author: kraigb
+ms.author: ghogen
 
 ---
 # How to: Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio
@@ -25,7 +23,7 @@ To take advantage of the hosting services and scaling ability of Azure, you migh
 
 ## Migrate a project to cloud services
 
-1. Right-click the web application project and select **Convert > Convert to Microsoft Azure Cloud Service Project**. (That this command does not appear if you already have a web role project in the solution.)
+1. Right-click the web application project and select **Convert > Convert to Microsoft Azure Cloud Service Project**. (Note that this command does not appear if you already have a web role project in the solution.)
 1. Visual Studio creates a cloud service project in the solution that contains the required web role. The name of this project is the same as your application project with plus the suffix `.Azure`.
 1. Visual Studio also sets the **Copy Local** property to true for any assemblies that are required for MVC 2, MVC 3, MVC 4, and Silverlight Business Applications. This property adds these assemblies to the service package that is used for deployment.
 

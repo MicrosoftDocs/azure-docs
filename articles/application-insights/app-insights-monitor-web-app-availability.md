@@ -3,7 +3,7 @@ title: Monitor availability and responsiveness of any web site | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 services: application-insights
 documentationcenter: ''
-author: SoubhagyaDash
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
@@ -11,9 +11,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 12/14/2017
-ms.author: sdash
+ms.topic: conceptual
+ms.date: 02/09/2018
+ms.reviewer: sdash
+ms.author: mbullwin
 
 ---
 # Monitor availability and responsiveness of any web site
@@ -28,11 +29,17 @@ There are two types of availability tests:
 
 You can create up to 100 availability tests per application resource.
 
+
+> [!NOTE] 
+> * The availability test locations have moved to Azure datacenters recently. This move allows us to add  locations with the growing network of Azure datacenters.  
+> * You do not need to update tests. All tests are migrated, and are running from the new locations. 
+>* Please refer to the [service update](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/01/24/application-insights-availability-monitoring-test-locations-updated/) for more information.
+
 ## <a name="create"></a>Open a resource for your availability test reports
 
 **If you have already configured Application Insights** for your web app, open its Application Insights resource in the [Azure portal](https://portal.azure.com).
 
-**Or, if you want to see your reports in a new resource,** sign up to [Microsoft Azure](http://azure.com), go to the [Azure portal](https://portal.azure.com), and create an Application Insights resource.
+**Or, if you want to see your reports in a new resource,** go to the [Azure portal](https://portal.azure.com), and create an Application Insights resource.
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
@@ -47,9 +54,13 @@ Open the Availability blade and add a test.
 * **Parse dependent requests**: If this option is checked, the test requests images, scripts, style files, and other files that are part of the web page under test. The recorded response time includes the time taken to get these files. The test fails if all these resources cannot be successfully downloaded within the timeout for the whole test. 
 
     If the option is not checked, the test only requests the file at the URL you specified.
+
 * **Enable retries**:  If this option is checked, when the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. We recommend this option. On average, about 80% of failures disappear on retry.
-* **Test frequency**: Sets how often the test is run from each test location. With a frequency of five minutes and five test locations, your site is tested on average every minute.
+
+* **Test frequency**: Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.
+
 * **Test locations** are the places from where our servers send web requests to your URL. Choose more than one so that you can distinguish problems in your website from network issues. You can select up to 16 locations.
+
 * **Success criteria**:
 
     **Test timeout**: Decrease this value to be alerted about slow responses. The test is counted as a failure if the responses from your site have not been received within this period. If you selected **Parse dependent requests**, then all the images, style files, scripts, and other dependent resources must have been received within this period.
@@ -106,6 +117,11 @@ From an availability test result, you can:
 *Looks OK but reported as a failure?* 
 See [FAQ](#qna) for ways to reduce noise.
 
+
+> [!TIP]
+> We recommend testing from at least 2 locations for reliable monitoring.
+>
+
 ## Multi-step web tests
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.
 
@@ -116,7 +132,8 @@ You can monitor a scenario that involves a sequence of URLs. For example, if you
 To create a multi-step test, you record the scenario by using Visual Studio Enterprise, and then upload the recording to Application Insights. Application Insights replays the scenario at intervals and verifies the responses.
 
 > [!NOTE]
-> You can't use coded functions or loops in your tests. The test must be contained completely in the .webtest script. However, you can use standard plugins.
+> * You can't use coded functions or loops in your tests. The test must be contained completely in the .webtest script. However, you can use standard plugins.
+> * Only English characters are supported in the multi-step web tests. If you use Visual Studio in other languages, please update the web test definition file to translate/exclude non-English characters.
 >
 
 #### 1. Record a scenario
@@ -162,7 +179,9 @@ Use Visual Studio Enterprise to record a web session.
 
 View your test results and any failures in the same way as single-url tests.
 
-In addition, you can download the test results to view them in Visual Studio.
+You can also download the test results to view them in Visual Studio.
+
+To download the test results. Navigate to the Availability test summary, click on a result in the graph to open the Availability test result window, and then click on **Open in Visual Studio** to download the test result.
 
 #### Too many failures?
 

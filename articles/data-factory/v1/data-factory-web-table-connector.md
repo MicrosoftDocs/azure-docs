@@ -4,27 +4,27 @@ description: Learn about how to move data from a table in a Web page using Azure
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/01/2017
+ms.topic: conceptual
+ms.date: 01/05/2018
 ms.author: jingwang
 
 robots: noindex
 ---
 # Move data from a Web table source using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-web-table-connector.md)
-> * [Version 2 - Preview](../connector-web-table.md)
+> * [Version 1](data-factory-web-table-connector.md)
+> * [Version 2 (current version)](../connector-web-table.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Web table connector in V2](../connector-web-table.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Web table connector in V2](../connector-web-table.md).
 
 This article outlines how to use the Copy Activity in Azure Data Factory to move data from a table in a Web page to a supported sink data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article that presents a general overview of data movement with copy activity and the list of data stores supported as sources/sinks.
 
@@ -32,6 +32,23 @@ Data factory currently supports only moving data from a Web table to other data 
 
 > [!IMPORTANT]
 > This Web connector currently supports only extracting table content from an HTML page. To retrieve data from a HTTP/s endpoint, use [HTTP connector](data-factory-http-connector.md) instead.
+
+## Prerequisites
+
+To use this Web table connector, you need to set up a Self-hosted Integration Runtime (aka Data Management Gateway) and configure the `gatewayName` property in the sink linked service. For example, to copy from Web table to Azure Blob storage, configure the Azure Storage linked service as the following:
+
+```json
+{
+  "name": "AzureStorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>",
+      "gatewayName": "<gateway name>"
+    }
+  }
+}
+```
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs. 
@@ -154,7 +171,8 @@ This example uses the Web linked service with anonymous authentication. See [Web
   "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>",
+      "gatewayName": "<gateway name>"
     }
   }
 }

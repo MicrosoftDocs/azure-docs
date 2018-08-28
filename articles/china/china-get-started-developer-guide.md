@@ -1,4 +1,4 @@
----
+﻿---
 title: Developer guide for Azure China 21Vianet | Microsoft Docs
 description: Microsoft provides tools to help developers create and deploy cloud applications to global Azure and to Azure China 21Vianet. Learn which services and features are available on both global Azure and Azure china, and also which features may not be available in China.
 services: china
@@ -18,7 +18,7 @@ ms.author: v-wimarc
 
 ---
 # Developer guide for Azure China 21Vianet
-Microsoft provides tools to help developers create and deploy cloud applications to the global Microsoft Azure services ("global Azure") and Microsoft Azure operated by 21Vianet (Azure China 21Vianet). Most of the currently available technical content, such as the [Azure Documentation Center](https://azure.microsoft.com/documentation/), assumes that applications are being developed for global Azure, so it’s important to learn which [services and features](/azure/china/china-get-started-service-availability) are available in Microsoft Azure China 21Vianet.
+Microsoft provides tools to help developers create and deploy cloud applications to the global Microsoft Azure services ("global Azure") and Microsoft Azure operated by 21Vianet (Azure China 21Vianet). Most of the currently available technical content, such as the [Azure Documentation Center](https://azure.microsoft.com/documentation/), assumes that applications are being developed for global Azure, so it’s important to learn which [services and features](https://www.azure.cn/home/features/products-by-region) are available in Microsoft Azure China 21Vianet.
 
 When referring to publicly available content for global Azure services, make sure to adapt the steps or customize any sample code that specifies settings for global Azure services. For example, customize the [Azure service endpoints](#Check-endpoints-in-Azure).
 
@@ -72,7 +72,7 @@ See also:
 | Azure AD logon                        | [https://login.windows.net](https://login.windows.net/)                                                                 | [https://login.chinacloudapi.cn](https://login.chinacloudapi.cn/)                                                                                     |
 | Azure AD Graph API                    | [https://graph.windows.net](https://graph.windows.net/)                                                                 | [https://graph.chinacloudapi.cn](https://graph.chinacloudapi.cn/)                                                                                     |
 | Cognitive Services                    | <https://api.projectoxford.ai/face/v1.0>                                                                                | <https://api.cognitive.azure.cn/face/v1.0>                                                                                                            |
-| Logon with PowerShell: <br>- Classic Azure <br>- Azure Resource Manager  <br>- Azure AD|    - Add-AzureAccount<br>- Add-AzureRmAccount <br> - Connect-msolservice                                                                                                                       |  - Add-AzureAccount -Environment AzureChinaCloud  <br> - Add-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |               |                                                                                                                         |
+| Logon with PowerShell: <br>- Classic Azure <br>- Azure Resource Manager  <br>- Azure AD|    - Add-AzureAccount<br>- Connect-AzureRmAccount <br> - Connect-msolservice                                                                                                                       |  - Add-AzureAccount -Environment AzureChinaCloud  <br> - Connect-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |               |                                                                                                                         |
  |
 
 

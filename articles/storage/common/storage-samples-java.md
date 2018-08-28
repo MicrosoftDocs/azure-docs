@@ -2,20 +2,13 @@
 title: Azure Storage samples using Java | Microsoft Docs
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the Java storage client libraries.
 services: storage
-documentationcenter: na
 author: seguler
-manager: jahogg
-editor: tysonn
-
-ms.assetid: 
 ms.service: storage
 ms.devlang: java
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-
+ms.component: common
 ---
 # Azure Storage samples using Java
 
@@ -202,14 +195,14 @@ To view the complete sample library, go to the [Azure Code Samples](https://azur
 
 Check out the following guides if you are looking for instructions on how to install and get started with the Azure Storage Client Libraries.
 
-* [Getting Started with Azure Blob Service in Java](../blobs/storage-java-how-to-use-blob-storage.md)
-* [Getting Started with Azure Queue Service in Java](../storage-java-how-to-use-queue-storage.md)
+* [Getting Started with Azure Blob Service in Java](../blobs/storage-quickstart-blobs-java.md)
+* [Getting Started with Azure Queue Service in Java](../queues/storage-java-how-to-use-queue-storage.md)
 * [Getting Started with Azure Table Service in Java](../../cosmos-db/table-storage-how-to-use-java.md)
-* [Getting Started with Azure File Service in Java](../storage-java-how-to-use-file-storage.md)
+* [Getting Started with Azure File Service in Java](../files/storage-java-how-to-use-file-storage.md)
 
 ## Next steps
 
 For information on samples for other languages:
 
-* .NET: [Azure Storage samples using .NET](../storage-samples-dotnet.md)
-* All other languages: [Azure Storage samples](../storage-samples.md)
+* .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md)
+* All other languages: [Azure Storage samples](storage-samples.md)

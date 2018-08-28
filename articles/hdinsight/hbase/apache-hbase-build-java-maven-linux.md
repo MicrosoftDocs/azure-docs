@@ -1,21 +1,15 @@
 ---
-title: Java HBase client - Azure HDInsight | Microsoft Docs
+title: Java HBase client - Azure HDInsight 
 description: Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to HBase on Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: ''
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/03/2017
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 04/30/2018
+ms.author: jasonh
 
 ---
 # Build Java applications for Apache HBase
@@ -40,9 +34,6 @@ The steps in this document use [Maven](http://maven.apache.org/) to create and b
 * [Maven](http://maven.apache.org/)
 
 * [A Linux-based Azure HDInsight cluster with HBase](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
-
-  > [!NOTE]
-  > The steps in this document have been tested with HDInsight cluster versions 3.4 and 3.5. The default values provided in examples are for a HDInsight 3.5 cluster.
 
 ## Create the project
 
@@ -573,7 +564,7 @@ The following steps use Azure PowerShell to upload the JAR to the default storag
         $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
         if(-not($sub))
         {
-            throw "No active Azure subscription found! If you have a subscription, use the Login-AzureRmAccount cmdlet to login to your subscription."
+            throw "No active Azure subscription found! If you have a subscription, use the Connect-AzureRmAccount cmdlet to login to your subscription."
         }
     }
 
@@ -639,7 +630,7 @@ The following steps use Azure PowerShell to upload the JAR to the default storag
     Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
     ```
 
-    Replace `hdinsightclustername` with the name of your cluster. The command uploads the `hbaseapp-1.0-SNAPSHOT.jar` to the `example/jars` location in the primary storage for your cluster.
+    Replace `hdinsightclustername` with the name of your cluster. When prompted, enter the cluster login (admin) name and password. The command uploads the `hbaseapp-1.0-SNAPSHOT.jar` to the `example/jars` location in the primary storage for your cluster.
 
 5. To create a table using the `hbaseapp`, use the following command:
 
@@ -647,7 +638,7 @@ The following steps use Azure PowerShell to upload the JAR to the default storag
     Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
     ```
 
-    Replace `hdinsightclustername` with the name of your cluster.
+    Replace `hdinsightclustername` with the name of your cluster. When prompted, enter the cluster login (admin) name and password.
 
     This command creates a table named **people** in HBase on your HDInsight cluster. This command does not show any output in the console window.
 
@@ -657,7 +648,7 @@ The following steps use Azure PowerShell to upload the JAR to the default storag
     Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com
     ```
 
-    Replace `hdinsightclustername` with the name of your cluster.
+    Replace `hdinsightclustername` with the name of your cluster. When prompted, enter the cluster login (admin) name and password.
 
     This command uses the `SearchByEmail` class to search for any rows where the `contactinformation` column family and the `email` column, contains the string `contoso.com`. You should receive the following results:
 

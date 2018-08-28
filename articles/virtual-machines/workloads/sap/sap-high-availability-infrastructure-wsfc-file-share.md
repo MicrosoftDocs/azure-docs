@@ -4,7 +4,7 @@ description: Azure infrastructure preparation for SAP high availability using a 
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -210,7 +210,7 @@ This article describes the Azure infrastructure preparation steps that are neede
 
 Before you start the installation, review the following article:
 
-* [Architecture guide: Cluster SAP ASCS/SCS instances on a Windows failover cluster by using file share][sap-high-availability-guide-wsfc-shared-disk]
+* [Architecture guide: Cluster SAP ASCS/SCS instances on a Windows failover cluster by using file share][sap-high-availability-guide-wsfc-file-share]
 
 
 ## Host names and IP addresses

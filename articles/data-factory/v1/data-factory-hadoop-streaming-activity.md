@@ -4,16 +4,16 @@ description: Learn how you can use the Hadoop Streaming Activity in an Azure dat
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 4c3ff8f2-2c00-434e-a416-06dfca2c41ec
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/15/2017
+ms.topic: conceptual
+ms.date: 01/10/2018
 ms.author: shlo
 
 robots: noindex
@@ -32,7 +32,7 @@ robots: noindex
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [transform data using Hadoop streaming activity in Data Factory version 2](../transform-data-using-hadoop-streaming.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [transform data using Hadoop streaming activity in Data Factory](../transform-data-using-hadoop-streaming.md).
 
 
 You can use the HDInsightStreamingActivity Activity invoke a Hadoop Streaming job from an Azure Data Factory pipeline. The following JSON snippet shows the syntax for using the HDInsightStreamingActivity in a pipeline JSON file. 

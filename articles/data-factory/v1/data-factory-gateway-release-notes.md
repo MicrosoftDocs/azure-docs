@@ -3,22 +3,22 @@ title: Release notes for Data Management Gateway | Microsoft Docs
 description: Data Management Gateway tory release notes
 services: data-factory
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/15/2017
+ms.topic: conceptual
+ms.date: 01/10/2018
 ms.author: abnarain
 
 robots: noindex
 ---
 # Release notes for Data Management Gateway
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [self-hosted integration runtime in V2](../create-self-hosted-integration-runtime.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [self-hosted integration runtime in V2](../create-self-hosted-integration-runtime.md).
 
 One of the challenges for modern data integration is to move data to and from on-premises to cloud. Data Factory makes this integration with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
 
@@ -123,12 +123,12 @@ We no more maintain the Release notes here. Get latest release notes [here](http
 
     *  Reorganized and simplified controls.
 
-	*  You can copy data from a storage using the [code-free copy preview tool](data-factory-copy-data-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general.
+	*  You can copy data from a storage using the [code-free copy tool](data-factory-copy-data-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general.
 *  You can use Data Management Gateway to ingress data directly from an on-premises SQL Server database into Azure Machine Learning.
 
 *  Performance improvements
 
-    * Improve performance on viewing Schema/Preview against SQL Server in code-free copy preview tool.
+    * Improve performance on viewing Schema/Preview against SQL Server in code-free copy tool.
 
 ## 1.12.5953.1
 

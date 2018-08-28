@@ -1,20 +1,14 @@
 ---
-title: Develop U-SQL with Python, R, and C# for Azure Data Lake Analytics in Visual Studio Code | Microsoft Docs
-description: 'Learn how to use code behind with Python, R and C# to submit job in Azure Data Lake.'
+title: Develop U-SQL with Python, R, and C# for Azure Data Lake Analytics in Visual Studio Code
+description: Learn how to use code behind with Python, R and C# to submit job in Azure Data Lake.
 services: data-lake-analytics
-documentationcenter: ''
-author: jejiang
-manager: 
-editor: 
-
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/22/2017
+author: jejiang
 ms.author: jejiang
 
+ms.reviewer: jasonwhowell
+ms.topic: conceptual
+ms.date: 11/22/2017
 ---
 # Develop U-SQL with Python, R, and C# for Azure Data Lake Analytics in Visual Studio Code
 Learn how to use Visual Studio Code (VSCode) to write Python, R and C# code behind with U-SQL and submit jobs to Azure Data Lake service. For more information about Azure Data Lake Tools for VSCode, see [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -182,7 +176,6 @@ A code-behind file is a C# file associated with a single U-SQL script. You can d
 ## Next steps
 * [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 * [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
-* [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md)
 * [Get started with Data Lake Analytics using PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Get started with Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md)
 * [Use Data Lake Tools for Visual Studio for developing U-SQL applications](data-lake-analytics-data-lake-tools-get-started.md)

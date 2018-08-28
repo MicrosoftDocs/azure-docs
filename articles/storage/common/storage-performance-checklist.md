@@ -2,20 +2,12 @@
 title: Azure Storage performance and scalability checklist | Microsoft Docs
 description: A checklist of proven practices for use with Azure Storage in developing performant applications.
 services: storage
-documentationcenter: ''
-author: tamram
-manager: timlt
-editor: tysonn
-
-ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
+author: roygara
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: tamram
-
+ms.author: rogarana
+ms.component: common
 ---
 # Microsoft Azure Storage Performance and Scalability Checklist
 ## Overview
@@ -142,7 +134,7 @@ Sometimes, an application needs to serve the same content to many users (e.g. a 
 For more information about Azure CDN, see [Azure CDN](https://azure.microsoft.com/services/cdn/).  
 
 ### <a name="subheading6"></a>Using SAS and CORS
-When you need to authorize code such as JavaScript in a user's web browser or a mobile phone app to access data in Azure Storage, one approach is to use an application in web role as a proxy: the user's device authenticates with the web role, which in turn authenticates with the storage service. In this way, you can avoid exposing your storage account keys on insecure devices. However, this places a big overhead on the web role because all the data transferred between the user's device and the storage service must pass through the web role. You can avoid using a web role as a proxy for the storage service by using Shared Access Signatures (SAS), sometimes in conjunction with Cross-Origin Resource Sharing headers (CORS). Using SAS, you can allow your user's device to make requests directly to a storage service by means of a limited access token. For example, if a user wants to upload a photo to your application, your web role can generate and send to the user's device a SAS token that grants permission to write to a specific blob or container for the next 30 minutes (after which the SAS token expires).
+When you need to authorize code such as JavaScript in a user's web browser or a mobile phone app to access data in Azure Storage, one approach is to use an application in web role as a proxy: the user's device authenticates with the web role, which in turn authorizes access to storage resources. In this way, you can avoid exposing your storage account keys on insecure devices. However, this places a big overhead on the web role because all the data transferred between the user's device and the storage service must pass through the web role. You can avoid using a web role as a proxy for the storage service by using Shared Access Signatures (SAS), sometimes in conjunction with Cross-Origin Resource Sharing headers (CORS). Using SAS, you can allow your user's device to make requests directly to a storage service by means of a limited access token. For example, if a user wants to upload a photo to your application, your web role can generate and send to the user's device a SAS token that grants permission to write to a specific blob or container for the next 30 minutes (after which the SAS token expires).
 
 Normally, a browser will not allow JavaScript in a page hosted by a website on one domain to perform specific operations such as a "PUT" to another domain. For example, if you host a web role at "contosomarketing.cloudapp.net," and want to use client side JavaScript to upload a blob to your storage account at "contosoproducts.blob.core.windows.net," the browser's "same origin policy" will forbid this operation. CORS is a browser feature that allows the target domain (in this case the storage account) to communicate to the browser that it trusts requests originating in the source domain (in this case the web role).  
 

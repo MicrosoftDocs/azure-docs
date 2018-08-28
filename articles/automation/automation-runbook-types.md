@@ -1,21 +1,14 @@
 ---
-title: Azure Automation Runbook Types | Microsoft Docs
+title: Azure Automation Runbook Types
 description: 'Describes the different types of runbooks that you can use in Azure Automation and considerations that you should take into account when determining which type to use. '
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: jwhit
-editor: tysonn
-
-ms.assetid: 9265c975-4281-4819-a84f-d86641277f36
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/01/2017
-ms.author: bwren
-
+ms.component: process-automation
+author: georgewallace
+ms.author: gwallace
+ms.date: 06/29/2018
+ms.topic: conceptual
+manager: carmonm
 ---
 # Azure Automation runbook types
 Azure Automation supports several types of runbooks that are  briefly described in the following table.  The sections below provide further information about each type including considerations on when to use each.
@@ -45,7 +38,7 @@ Azure Automation supports several types of runbooks that are  briefly described 
 * Can't view or directly edit the PowerShell code that is created by the graphical workflow. Note that you can view the code you create in any Code activities.
 
 ## PowerShell runbooks
-PowerShell runbooks are based on Windows PowerShell.  You directly edit the code of the runbook using the text editor in the Azure portal.  You can also use any offline text editor and [import the runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) into Azure Automation.
+PowerShell runbooks are based on Windows PowerShell.  You directly edit the code of the runbook using the text editor in the Azure portal.  You can also use any offline text editor and [import the runbook](automation-creating-importing-runbook.md) into Azure Automation.
 
 ### Advantages
 * Implement all complex logic with PowerShell code without the additional complexities of PowerShell Workflow. 
@@ -66,7 +59,7 @@ Following are current known issues with PowerShell runbooks.
 * A PowerShell runbook may fail if it attempts to write a very large amount of data to the output stream at once.   You can typically work around this issue by outputting just the information you need when working with large objects.  For example, instead of outputting something like *Get-Process*, you can output just the required fields with *Get-Process | Select ProcessName, CPU*.
 
 ## PowerShell Workflow runbooks
-PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Workflow](automation-powershell-workflow.md).  You directly edit the code of the runbook using the text editor in the Azure portal.  You can also use any offline text editor and [import the runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) into Azure Automation.
+PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Workflow](automation-powershell-workflow.md).  You directly edit the code of the runbook using the text editor in the Azure portal.  You can also use any offline text editor and [import the runbook](automation-creating-importing-runbook.md) into Azure Automation.
 
 ### Advantages
 * Implement all complex logic with PowerShell Workflow code.
@@ -81,7 +74,7 @@ PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Work
 * PowerShell runbooks can only be included as child runbooks by using the Start-AzureAutomationRunbook cmdlet which creates a new job.
 
 ## Python runbooks
-Python runbooks compile under Python 2.  You can directly edit the code of the runbook using the text editor in the Azure portal, or you can use any offline text editor and [import the runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) into Azure Automation.
+Python runbooks compile under Python 2.  You can directly edit the code of the runbook using the text editor in the Azure portal, or you can use any offline text editor and [import the runbook](automation-creating-importing-runbook.md) into Azure Automation.
 
 ### Advantages
 * Utilize the robust standard library of Python.

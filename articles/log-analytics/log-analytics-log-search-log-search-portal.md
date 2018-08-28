@@ -11,17 +11,13 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/23/2017
+ms.topic: conceptual
+ms.date: 08/15/2018
 ms.author: bwren
-
+ms.component: na
 ---
-# Create log searches in Azure Log Analytics using the Log Search portal
 
-> [!NOTE]
-> This article describes the Log Search portal in Azure Log Analytics using the new query language.  You can learn more about the new language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to new log search](log-analytics-log-search-upgrade.md).  
->
-> If your workspace hasn't been upgraded to the new query language, you should refer to [Find data using log searches in Log Analytics](log-analytics-log-searches.md) for information on the current version of the Log Search portal.
+# Create log searches in Azure Log Analytics using the Log search portal
 
 This article includes a tutorial that describes how to create log searches and analyze data stored in your Log Analytics workspace using the Log Search portal.  The tutorial includes running some simple queries to return different types of data and analyzing results.  It focuses on features in the Log Search portal for modifying the query rather than modifying it directly.  For details on directly editing the query, see the [Query Language reference](https://go.microsoft.com/fwlink/?linkid=856079).
 
@@ -34,11 +30,11 @@ This tutorial assumes that you already have a Log Analytics workspace with at le
 - Connect least one [Windows agent](log-analytics-windows-agent.md) or one [Linux agent](log-analytics-linux-agents.md) to the workspace.  
 
 ## Open the Log Search portal
-Start by opening the Log Search portal.  You can access it in either the Azure portal or the OMS portal.
+Start by opening the Log Search portal. 
 
 1. Open the Azure portal.
 2. Navigate to Log Analytics and select your workspace.
-3. Either select **Log Search** to stay in the Azure portal or launch the OMS portal by selecting **OMS Portal** and then clicking the Log Search button.
+3. Select **Log Search**.
 
 ![Log Search button](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
@@ -95,7 +91,7 @@ You only have the **Filter** option for properties with their name in blue.  The
 
 ![Filter menu](media/log-analytics-log-search-log-search-portal/log-search-portal-01a.png)
 
-You can group the results on a single property by selecting the **Group by** option in the record menu.  This will add a [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) operator to your query that displays the results in a chart.  You can group on more than one property, but you would need to edit the query directly.  Select the record menu next the the **Computer** property and select **Group by 'Computer'**.  
+You can group the results on a single property by selecting the **Group by** option in the record menu.  This will add a [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) operator to your query that displays the results in a chart.  You can group on more than one property, but you would need to edit the query directly.  Select the record menu next the **Computer** property and select **Group by 'Computer'**.  
 
 ![Group by computer](media/log-analytics-log-search-log-search-portal/log-search-portal-10.png)
 

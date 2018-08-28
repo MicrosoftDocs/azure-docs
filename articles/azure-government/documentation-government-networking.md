@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 01/24/2017
+ms.date: 03/30/2018
 ms.author: jawalte
 
 ---
 # Azure Government Networking
 ## ExpressRoute (Private Connectivity)
-ExpressRoute is generally available in Azure Government. For more information (including partners and peering locations), see the [ExpressRoute public documentation](../expressroute/index.md).
+ExpressRoute is generally available in Azure Government. For more information (including partners and peering locations), see the [ExpressRoute public documentation](../expressroute/index.yml).
 
 ### Variations
 ExpressRoute is generally available (GA) in Azure Government. 
@@ -64,17 +64,21 @@ If you are connecting to Microsoft through ExpressRoute at any one peering locat
 
 For example, if you connected to Microsoft in Washington D.C. through ExpressRoute, you will have access to all Microsoft cloud services hosted in AzureGov.
 
-Refer to the "Overview" tab on [ExpressRoute public documentation](../expressroute/index.md) for details on locations and partners, and a detailed list of ExpressRoute for AzureGov peering locations.
+Refer to the "Overview" tab on [ExpressRoute public documentation](../expressroute/index.yml) for details on locations and partners, and a detailed list of ExpressRoute for AzureGov peering locations.
 
 You can purchase more than one ExpressRoute circuit. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause sub-optimal routing decisions to be made within your network. As a result, you may experience sub-optimal connectivity experiences to different services. 
 
-Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers.  For additional details, refer to the "Get started" tab on [ExpressRoute public documentation](../expressroute/index.md) and click on "Optimize routing."
+Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers.  For additional details, refer to the "How-to guides > Best practices" tab on [ExpressRoute public documentation](../expressroute/index.yml) and click on "Optimize routing."
 
 | **National Clouds Azure Region**| **BGP community value** |
 | --- | --- |
 | **US Government** |  |
+| US Gov Arizona | 12076:51106 |
 | US Gov Iowa | 12076:51109 |
 | US Gov Virginia | 12076:51105 |
+| US Gov Texas | 12076:51108 |
+| US DoD Central | 12076:51209 |
+| US DoD East | 12076:51205 |
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 
@@ -86,7 +90,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype For Business Online |12076:5130 |
-| CRM Online |12076:5140 |
+| Dynamics 365 |12076:5140 |
 | Other Office 365 Online services |12076:5200 |
 
 > [!NOTE]
@@ -98,8 +102,16 @@ Virtual Network is generally available in Azure Government. For more information
 ## Support for Load Balancer
 Load Balancer is generally available in Azure Government. For more information, see the [Load Balancer public documentation](../load-balancer/load-balancer-overview.md). 
 
+### Variations
+* Azure Load Balancer Standard is not available in Azure Government. > [Vote for this](https://feedback.azure.com/forums/558487-azure-government/suggestions/33417523-azure-load-balancer-standard-in-azure-government)
+
+## Support for DNS
+DNS is generally available in Azure Government. For more information, see the [DNS public documentation](../dns/dns-overview.md). 
+
 ## Support for Traffic Manager
-Traffic Manager is generally available in Azure Government. For more information, see the [Traffic Manager public documentation](../traffic-manager/traffic-manager-overview.md). 
+Traffic Manager is generally available in Azure Government. For more information, see the [Traffic Manager public documentation](../traffic-manager/traffic-manager-overview.md).
+
+The **IP addresses for Azure Government from which Traffic Manager health checks can originate are [here](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure-gov/probe-ip-ranges.json)**. Review the IPs listed in the JSON file to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
 
 ## Support for VNet Peering 
 VNet Peering is generally available in Azure Government. For more information, see the [VNet Peering public documentation](../virtual-network/virtual-network-peering-overview.md). 
@@ -111,7 +123,7 @@ VPN Gateway is generally available in Azure Government. For more information, se
 Application Gateway is generally available in Azure Government. For more information, see the [Application Gateway public documentation](../application-gateway/application-gateway-introduction.md). 
 
 ## Support for Network Watcher
-Network Watcher is available through Preview in Azure Government. For more information, see the [Network Watcher public documentation](../network-watcher/index.md). 
+Network Watcher is generally available in Azure Government. For more information, see the [Network Watcher public documentation](../network-watcher/network-watcher-monitoring-overview.md). 
 
 ## Support for Service Bus
 Service Bus is generally available in Azure Government. For more information, see the [Service Bus public documentation](../service-bus/index.md).

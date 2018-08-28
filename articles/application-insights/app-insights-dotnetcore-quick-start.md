@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/15/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
@@ -28,7 +28,7 @@ To complete this quickstart:
 - [Install .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
 - You will need an Azure subscription and an existing .NET Core web application.
 
-If you don't have a ASP.NET Core web application, you can create one by following the [Create an ASP.NET Core Web App Guide](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
+If you don't have a ASP.NET Core web application, you can use our step-by-step guide to [create a ASP.NET Core app and add Application Insights.](app-insights-asp-net-core.md)
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -40,11 +40,11 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 Application Insights can gather telemetry data from any internet-connected application, regardless of whether it's running on-premises or in the cloud. Use the following steps to start viewing this data.
 
-1. Select **New** > **Monitoring + Management** > **Application Insights**.
+1. Select **Create a resource** > **Monitoring + Management** > **Application Insights**.
 
    ![Adding Application Insights Resource](./media/app-insights-dotnetcore-quick-start/0001-dc.png)
 
-    A configuration box will appear, use the table below to fill out the input fields.
+    A configuration box appears; use the following table to fill out the input fields.
 
     | Settings        |  Value           | Description  |
    | ------------- |:-------------|:-----|
@@ -72,25 +72,25 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. You can now reopen the Application Insights **Overview** page in the Azure portal by selecting **Project** > **Application Insights** > **Open Application Insights Portal**, to view details about your currently running application.
 
-   ![Application Insights Overview Menu](./media/app-insights-dotnetcore-quick-start/004-Black.png)
+   ![Application Insights Overview Menu](./media/app-insights-dotnetcore-quick-start/overview-001.png)
 
-2. Click **App map** for a visual layout of the dependency relationships between your application components. Each component shows KPIs such as load, performance, failures, and alerts.
+2. Click **Application map** for a visual layout of the dependency relationships between your application components. Each component shows KPIs such as load, performance, failures, and alerts.
 
-   ![Application Map](./media/app-insights-dotnetcore-quick-start/0002-dc.png)
+   ![Application Map](./media/app-insights-dotnetcore-quick-start/application-map.png)
 
 3. Click on the **App Analytics** icon ![Application Map icon](./media/app-insights-dotnetcore-quick-start/006.png).  This opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
 
    ![Analytics graph of user requests over a period of time](./media/app-insights-dotnetcore-quick-start/0007-dc.png)
 
-4. Return to the **Overview** page and examine the **Health Overview timeline**.  This dashboard provides statistics about your application health, including the number of incoming requests, the duration of those requests, and any failures that occur. 
+4. Return to the **Overview** page and examine the KPI Dashobards.  This dashboard provides statistics about your application health, including the number of incoming requests, the duration of those requests, and any failures that occur. 
 
-   ![Health Overview timeline graphs](./media/app-insights-dotnetcore-quick-start/0008-dc.png)
+   ![Health Overview timeline graphs](./media/app-insights-dotnetcore-quick-start/overview-graphs.png)
 
    To enable the **Page View Load Time** chart to populate with **client-side telemetry** data, add this script to each page that you want to track:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

@@ -1,0 +1,42 @@
+- name: Azure IoT Fundamentals
+  href: index.yml
+- name: Overview
+  items:
+  - name: Introduction
+    href: iot-introduction.md
+  - name: Azure IoT services and technologies
+    href: iot-services-and-technologies.md    
+- name: Solutions
+  items:
+  - name: IoT solution accelerators
+    href: /azure/iot-suite
+  - name: IoT Central
+    href: https://docs.microsoft.com/microsoft-iot-central/
+- name: Platform services
+  items:
+  - name: IoT Hub
+    href: /azure/iot-hub
+  - name: IoT Hub Device Provisioning Service
+    href: /azure/iot-dps
+  - name: Azure Maps
+    href: /azure/azure-maps
+  - name: Service SDKs
+    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+  - name: Time Series Insights
+    href: /azure/time-series-insights
+- name: Edge
+  items:
+  - name: IoT Edge
+    href: /azure/iot-edge
+  - name: IoT Device SDKs
+    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks 
+- name: Security
+  items:
+  - name: Security architecture
+    href: iot-security-architecture.md
+  - name: Security best practices
+    href: iot-security-best-practices.md    
+  - name: Secure deployment
+    href: iot-security-deployment.md 
+  - name: Security from the ground up
+    href: iot-security-ground-up.md  

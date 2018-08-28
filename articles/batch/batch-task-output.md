@@ -2,18 +2,18 @@
 title: Persist results or logs from completed jobs and tasks to a data store - Azure Batch | Microsoft Docs
 description: Learn about different options for persisting output data from Batch tasks and jobs. You can persist data to Azure Storage, or to another data store.
 services: batch
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 06/16/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -117,9 +117,10 @@ You can also implement your own complete file movement solution. Use this approa
 ## Next steps
 
 - Explore using the new features in the Batch service API to persist task data in [Persist task data to Azure Storage with the Batch service API](batch-task-output-files.md).
-- Learn about using the Batch File Conventions library for .NET in [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist ](batch-task-output-file-conventions.md).
+- Learn about using the Batch File Conventions library for .NET in [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET](batch-task-output-file-conventions.md).
 - See the [PersistOutputs][github_persistoutputs] sample project on GitHub, which demonstrates how to use both the Batch client library for .NET and the File Conventions library for .NET to persist task output to durable storage.
 
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [portal]: https://portal.azure.com
 [storage_explorer]: http://storageexplorer.com/
+[github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs 

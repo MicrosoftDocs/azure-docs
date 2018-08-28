@@ -102,7 +102,7 @@ You can click on a run to view its **History Details**, including the whole resp
    ![][job-history-details]
 
 ### Users
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure Scheduler. To learn how to use the Users tab, refer to [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
+Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure Scheduler. To learn how to use the Users tab, refer to [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md)
 
 ## See also
  [What is Scheduler?](scheduler-intro.md)

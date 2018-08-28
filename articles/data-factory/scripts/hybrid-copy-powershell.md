@@ -2,8 +2,8 @@
 title: "PowerShell script: Copy data from on-premises to Azure by using Data Factory | Microsoft Docs"
 description: This PowerShell script copies data from an on-premises SQL Server database to another an Azure Blob Storage. 
 services: data-factory
-author: spelluru
-manager: jhubbard
+author: linda33wj
+manager: craigg
 editor: ''
 
 ms.service: data-factory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
-ms.author: spelluru
+ms.author: jingwang
 ---
 
 # Use PowerShell to create a data factory pipeline to copy data from on-premises to Azure
@@ -24,7 +24,7 @@ This sample PowerShell script creates a pipeline in Azure Data Factory that copi
 ## Prerequisites
 
 - **SQL Server**. You use an on-premises SQL Server database as a **source** data store in this sample.
-- **Azure Storage account**. You use Azure blob storage as a **destination/sink** data store in this sample. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
+- **Azure Storage account**. You use Azure blob storage as a **destination/sink** data store in this sample. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-quickstart-create-account.md) article for steps to create one.
 - **Self-hosted integration runtime**. Download MSI file from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) and run it to install a self-hosted integration runtime on your machine.  
 
 ### Create sample database in SQL Server

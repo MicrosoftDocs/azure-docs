@@ -4,7 +4,7 @@ description: How to use the AS2 encoder in the Enterprise Integration Pack for A
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3
@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 08/08/2018
 ms.author: LADocs; padmavc
 
 ---
@@ -38,7 +38,7 @@ that's already defined in your integration account
 
 ## Encode AS2 messages
 
-1. [Create a logic app](logic-apps-create-a-logic-app.md).
+1. [Create a logic app](quickstart-create-first-logic-app-workflow.md).
 
 2. The Encode AS2 message connector doesn't have triggers, 
 so you must add a trigger for starting your logic app, like a Request trigger. 
@@ -82,6 +82,14 @@ The Encode AS2 connector performs these tasks:
 * Signs outgoing messages (if configured)
 * Encrypts outgoing messages (if configured)
 * Compresses the message (if configured)
+* Transmit file name in MIME header (if configured)
+
+
+  > [!NOTE]
+  > If you use Azure Key Vault for certificate management, make sure that you configure the keys to permit the **Encrypt** operation.
+  > Otherwise, the AS2 Encode will fail.
+  >
+  > ![Keyvault decrypts](media/logic-apps-enterprise-integration-as2-encode/keyvault1.png)
 
 ## Try this sample
 

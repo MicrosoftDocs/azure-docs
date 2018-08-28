@@ -4,10 +4,9 @@ description: Shows how to get started using the Bing Entities Search API.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: B206A254-B7E9-49FF-AFD5-87B1E4D6D30B
 ms.service: cognitive-services
-ms.technology: bing-entities-search
+ms.component: bing-entity-search
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: scottwhi

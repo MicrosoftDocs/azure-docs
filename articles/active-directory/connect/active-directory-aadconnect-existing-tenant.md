@@ -3,7 +3,7 @@ title: 'Azure AD Connect: When you already have Azure AD | Microsoft Docs'
 description: This topic describes how to use Connect when you have an existing Azure AD tenant.
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 
@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 ---
 
@@ -44,6 +45,9 @@ The previous section and warning must be considered in your planning. If you hav
 
 If you matched your objects with a soft-match, then the **sourceAnchor** is added to the object in Azure AD so a hard match can be used later.
 
+>[!IMPORTANT]
+> Microsoft strongly recommends against synchronizing on-premises accounts with pre-existing administrative accounts in Azure Active Directory.
+
 ### Hard-match vs Soft-match
 For a new installation of Connect, there is no practical difference between a soft- and a hard-match. The difference is in a disaster recovery situation. If you have lost your server with Azure AD Connect, you can reinstall a new instance without losing any data. An object with a sourceAnchor is sent to Connect during initial install. The match can then be evaluated by the client (Azure AD Connect), which is a lot faster than doing the same in Azure AD. A hard match is evaluated both by Connect and by Azure AD. A soft match is only evaluated by Azure AD.
 
@@ -53,7 +57,7 @@ For mail-enabled groups and contacts, you can soft-match based on proxyAddresses
 ## Create a new on-premises Active Directory from data in Azure AD
 Some customers start with a cloud-only solution with Azure AD and they do not have an on-premises AD. Later they want to consume on-premises resources and want to build an on-premises AD based on Azure AD data. Azure AD Connect cannot help you for this scenario. It does not create users on-premises and it does not have any ability to set the password on-premises to the same as in Azure AD.
 
-If the only reason why you plan to add on-premises AD is to support LOBs (Line-of-Business apps), then maybe you should consider to use [Azure AD domain services](../../active-directory-domain-services/index.md) instead.
+If the only reason why you plan to add on-premises AD is to support LOBs (Line-of-Business apps), then maybe you should consider to use [Azure AD domain services](../../active-directory-domain-services/index.yml) instead.
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

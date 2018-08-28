@@ -2,18 +2,10 @@
 title: What workloads can you protect with Azure Site Recovery? | Microsoft Docs
 description: Describes the workloads that can be protected using disaster recovery with the Azure Site Recovery service. 
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: ''
-
-ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.topic: conceptual
+ms.date: 07/22/2018
 ms.author: raynew
 
 ---
@@ -39,7 +31,7 @@ Site Recovery contributes to application-level protection and recovery as follow
 * Near-synchronous replication, with RPOs as low as 30 seconds to meet the needs of most critical business apps.
 * App-consistent snapshots, for single or multi-tier applications.
 * Integration with SQL Server AlwaysOn, and partnership with other application-level replication technologies, including AD replication, SQL AlwaysOn, Exchange Database Availability Groups (DAGs) and Oracle Data Guard.
-* Flexible recovery plans, that enable you to recover an entire application stack with a single click, and include to include external scripts and manual actions in the plan.
+* Flexible recovery plans, that enable you to recover an entire application stack with a single click, and to include external scripts and manual actions in the plan.
 * Advanced network management in Site Recovery and Azure to simplify app network requirements, including the ability to reserve IP addresses, configure load-balancing, and integration with Azure Traffic Manager, for low RTO network switchovers.
 * A rich automation library that provides production-ready, application-specific scripts that can be downloaded and integrated with recovery plans.
 
@@ -57,7 +49,6 @@ Site Recovery can replicate any app running on a supported machine. In addition,
 | Remote Desktop/VDI |Y |Y |Y |Y |Y|
 | Linux (operating system and apps) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft)|
 | Dynamics AX |Y |Y |Y |Y |Y|
-| Oracle |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft)|
 | Windows File Server |Y |Y |Y |Y |Y|
 | Citrix XenApp and XenDesktop |Y|N/A |Y |N/A |Y |
 
@@ -111,7 +102,7 @@ Remote Desktop Services (RDS) enables virtual desktop infrastructure (VDI), sess
 | **Pooled Virtual Desktop (managed and without UPD)** |No|Yes |No |Yes |No |Yes |No |
 | **Remote applications and Desktop sessions (without UPD)** |Yes|Yes |Yes |Yes |Yes |Yes |Yes |
 
-[Set up disaster recovery for RDS using Azure Site Recovery](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
+[Set up disaster recovery for RDS using Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 [Learn more](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) about protecting RDS.
 

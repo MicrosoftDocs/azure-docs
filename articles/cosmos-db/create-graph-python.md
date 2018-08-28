@@ -2,19 +2,15 @@
 title: 'Quickstart: Graph API with Python - Azure Cosmos DB | Microsoft Docs'
 description: This quickstart shows how to use the Azure Cosmos DB Graph API to create a console application with the Azure portal and Python
 services: cosmos-db
-documentationcenter: python
 author: luisbosquez
-manager: jhubbard
-editor: ''
+manager: kfile
 
-ms.assetid: 383a51c5-7857-440d-ab54-1efb1c0c7079
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: 
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/22/2018
 ms.author: lbosq
 
 ---
@@ -25,7 +21,7 @@ This quickstart shows how to use Python and the Azure Cosmos DB [Graph API](grap
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.  
 
 > [!NOTE]
-> This quickstart requires a graph database account created after November 27th, 2017. Existing accounts will support Python once they’re migrated to general availability.
+> This quickstart requires a graph database account created after December 20th, 2017. Existing accounts will support Python once they’re migrated to general availability.
 
 ## Prerequisites
 
@@ -45,24 +41,7 @@ Before you can create a graph database, you need to create a Gremlin (Graph) dat
 
 ## Add a graph
 
-You can now use the Data Explorer tool in the Azure portal to create a graph database. 
-
-1. Click **Data Explorer** > **New Graph**.
-
-    The **Add Graph** area is displayed on the far right, you may need to scroll right to see it.
-
-    ![The Azure portal Data Explorer, Add Graph page](./media/create-graph-python/azure-cosmosdb-data-explorer-graph.png)
-
-2. In the **Add graph** page, enter the settings for the new graph.
-
-    Setting|Suggested value|Description
-    ---|---|---
-    Database ID|sample-database|Enter *sample-database* as the name for the new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
-    Graph ID|sample-graph|Enter *sample-graph* as the name for your new collection. Graph names have the same character requirements as database IDs.
-    Storage Capacity|Fixed (10 GB)|Leave the default value of **Fixed (10 GB)**. This value is the storage capacity of the database.
-    Throughput|400 RUs|Change the throughput to 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.
-
-3. Once the form is filled out, click **OK**.
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## Clone the sample application
 
@@ -88,13 +67,13 @@ Now let's switch to working with code. Let's clone a Graph API app from GitHub, 
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `connect.py` file in the C:\git-samples\azure-cosmos-db-graph-python-getting-started\ folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-information). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the connect.py file in the C:\git-samples\azure-cosmos-db-graph-python-getting-started\ folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-information). 
 
 * The Gremlin `client` is initialized in line 104 in `connect.py`:
 
     ```python
     ...
-    client = client.Client('wss://<YOUR_ENDPOINT>.graphs.azure.com:443/','g', 
+    client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ...
@@ -119,7 +98,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 2. Open the connect.py file and in line 104 paste the URI value over `<YOUR_ENDPOINT>` in here:
 
     ```python
-    client = client.Client('wss://<YOUR_ENDPOINT>.graphs.azure.com:443/','g', 
+    client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ```
@@ -127,7 +106,7 @@ Now go back to the Azure portal to get your connection information and copy it i
     The URI portion of the client object should now look similar to this code:
 
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ```
@@ -139,7 +118,7 @@ Now go back to the Azure portal to get your connection information and copy it i
     The entire `client` object should now look like this code:
 
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="<YOUR_PASSWORD>")
     ```
@@ -148,12 +127,12 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     The entire `client` object definition should now look like this code:
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="asdb13Fadsf14FASc22Ggkr662ifxz2Mg==")
     ```
 
-5. Save the `connect.py` file.
+6. Save the `connect.py` file.
 
 ## Run the console app
 

@@ -176,7 +176,7 @@ $ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
 
 ## Clean up resources
 
-Use the [az group delete](/cli/azure/group#delete) command to remove the resource group, OpenShift cluster, and all related resources when they're no longer needed.
+Use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, OpenShift cluster, and all related resources when they're no longer needed.
 
 ```azurecli 
 az group delete --name myResourceGroup

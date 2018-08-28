@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 03/21/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
 ### <a name="noconnection"></a>To modify local network gateway IP address prefixes - no gateway connection
 
 If you don't have a gateway connection and you want to add or remove IP address prefixes, you use the same command that you use to create the local network gateway, [az network local-gateway create](https://docs.microsoft.com/cli/azure/network/local-gateway#az_network_local_gateway_create). You can also use this command to update the gateway IP address for the VPN device. To overwrite the current settings, use the existing name of your local network gateway. If you use a different name, you create a new local network gateway, instead of overwriting the existing one.

@@ -3,8 +3,8 @@ title: Specifying DNS Settings in a service configuration file | Microsoft Docs
 description: specifying custom DNS settings using service configuration file for virtual network
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genlin
+manager: cshepard
 editor: tysonn
 
 ms.assetid: 467a4b99-8691-40b3-b640-e25e49675c71
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2016
-ms.author: jdial
+ms.author: genli
 
 ---
 # Specifying DNS Settings in a Service Configuration File

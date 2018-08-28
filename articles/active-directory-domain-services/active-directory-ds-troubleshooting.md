@@ -8,12 +8,13 @@ manager: mtillman
 editor: curtand
 
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/07/2017
+ms.topic: conceptual
+ms.date: 01/08/2018
 ms.author: maheshu
 
 ---
@@ -119,6 +120,7 @@ Check to see if you have disabled an application with the identifier 00000002-00
 
 To resolve this error, enable this application and then try to enable Domain Services for your Azure AD tenant.
 
+
 ## Users are unable to sign in to the Azure AD Domain Services managed domain
 If one or more users in your Azure AD tenant are unable to sign in to the newly created managed domain, perform the following troubleshooting steps:
 
@@ -133,7 +135,7 @@ If one or more users in your Azure AD tenant are unable to sign in to the newly 
 * **External accounts:** Ensure that the affected user account is not an external account in the Azure AD tenant. Examples of external accounts include Microsoft accounts (for example, 'joe@live.com') or user accounts from an external Azure AD directory. Since Azure AD Domain Services does not have credentials for such user accounts, these users cannot sign in to the managed domain.
 * **Synced accounts:** If the affected user accounts are synchronized from an on-premises directory, verify that:
 
-  * You have deployed or updated to the [latest recommended release of Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+  * You have deployed or updated to the [latest recommended release of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
   * You have configured Azure AD Connect to [perform a full synchronization](active-directory-ds-getting-started-password-sync.md).
   * Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in Azure AD Domain Services. Ensure you wait long enough before retrying authentication.
   * If the issue persists after verifying the preceding steps, try restarting the Microsoft Azure AD Sync Service. From your sync machine, launch a command prompt and execute the following commands:
@@ -142,6 +144,10 @@ If one or more users in your Azure AD tenant are unable to sign in to the newly 
     2. net start 'Microsoft Azure AD Sync'
 * **Cloud-only accounts**: If the affected user account is a cloud-only user account, ensure that the user has changed their password after you enabled Azure AD Domain Services. This step causes the credential hashes required for Azure AD Domain Services to be generated.
 
+## There are one or more alerts on your managed domain
+
+See how to resolve alerts on your managed domain by visiting the [Troubleshoot Alerts](active-directory-ds-troubleshoot-alerts.md) article.
+
 ## Users removed from your Azure AD tenant are not removed from your managed domain
 Azure AD protects you from accidental deletion of user objects. When you delete a user account from your Azure AD tenant, the corresponding user object is moved to the Recycle Bin. When this delete operation is synchronized to your managed domain, it causes the corresponding user account to be marked disabled. This feature helps you recover or undelete the user account later.
 
@@ -149,5 +155,6 @@ The user account remains in the disabled state in your managed domain, even if y
 
 To remove the user account fully from your managed domain, delete the user permanently from your Azure AD tenant. Use the `Remove-MsolUser` PowerShell cmdlet with the `-RemoveFromRecycleBin` option, as described in this [MSDN article](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
-## Contact Us
+
+## Contact us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).

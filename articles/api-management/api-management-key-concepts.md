@@ -21,13 +21,7 @@ ms.custom: mvc
 
 API Management (APIM) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. You can use Azure API Management to take any backend and launch a full-fledged API program based on it.
 
-Watch the following video for an overview of Azure API Management and learn how to use API Management to add many features to your API, including access control, rate limiting, monitoring, event logging, and response caching, with minimal work on your part.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-API-Management-Overview/player]
-> 
-> 
-
-This topic provides an overview of common scenarios that involve APIM.  It also gives a brief overview of the APIM system's main components. The topic, then, gives a more detailed overview of each component.
+This article provides an overview of common scenarios that involve APIM.  It also gives a brief overview of the APIM system's main components. The article, then, gives a more detailed overview of each component.
 
 ## Overview
 
@@ -47,14 +41,14 @@ The system is made up of the following components:
   * Transforms your API on the fly without code modifications.
   * Caches backend responses where set up.
   * Logs call metadata for analytics purposes.
-* The **publisher portal** is the administrative interface where you set up your API program. Use it to:
+* The **Azure portal** is the administrative interface where you set up your API program. Use it to:
   
   * Define or import API schema.
   * Package APIs into products.
   * Set up policies like quotas or transformations on the APIs.
   * Get insights from analytics.
   * Manage users.
-* The **developer portal** serves as the main web presence for developers, where they can:
+* The **Developer portal** serves as the main web presence for developers, where they can:
   
   * Read API documentation.
   * Try out an API via the interactive console.
@@ -89,19 +83,19 @@ Groups are used to manage the visibility of products to developers. API Manageme
 * **Developers** - Authenticated developer portal users fall into this group. Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
-In addition to these system groups, administrators can create custom groups or [leverage external groups in associated Azure Active Directory tenants](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group). Custom and external groups can be used alongside system groups in giving developers visibility and access to API products. For example, you could create one custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only. A user can be a member of more than one group.
+In addition to these system groups, administrators can create custom groups or [leverage external groups in associated Azure Active Directory tenants](api-management-howto-aad.md). Custom and external groups can be used alongside system groups in giving developers visibility and access to API products. For example, you could create one custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only. A user can be a member of more than one group.
 
 For more information, see  [How to create and use groups][How to create and use groups].
 
 ## <a name="developers"> </a> Developers
-Developers represent the user accounts in an API Management service instance. Developers can be created or invited to join by administrators, or they can sign up from the [Developer portal][Developer portal]. Each developer is a member of one or more groups, and can be subscribe to the products that grant visibility to those groups.
+Developers represent the user accounts in an API Management service instance. Developers can be created or invited to join by administrators, or they can sign up from the [Developer portal][Developer portal]. Each developer is a member of one or more groups, and can subscribe to the products that grant visibility to those groups.
 
-When developers subscribe to a product they are granted the primary and secondary key for the product. This key is used when making calls into the product's APIs.
+When developers subscribe to a product, they are granted the primary and secondary key for the product. This key is used when making calls into the product's APIs.
 
 For more information, see [How to create or invite developers][How to create or invite developers] and [How to associate groups with developers][How to associate groups with developers].
 
 ## <a name="policies"> </a> Policies
-Policies are a powerful capability of API Management that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call rate limiting to restrict the number of incoming calls from a developer, and many other policies are available.
+Policies are a powerful capability of API Management that allow the Azure portal to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call rate limiting to restrict the number of incoming calls from a developer, and many other policies are available.
 
 Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) and [Set variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) policies are based on policy expressions. For more information, see [Advanced policies](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) and [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx).
 

@@ -3,7 +3,7 @@ title: JavaScript developer reference for Azure Functions | Microsoft Docs
 description: Understand how to develop functions by using JavaScript.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,12 +15,11 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
-ms.author: tdykstra
+ms.date: 03/04/2018
+ms.author: glenga
 
 ---
 # Azure Functions JavaScript developer guide
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 The JavaScript experience for Azure Functions makes it easy to export a function, which is passed as a `context` object for communicating with the runtime and for receiving and sending data via bindings.
 
@@ -91,7 +90,9 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-Informs the runtime that your code has finished. You must call `context.done`, or else the runtime never knows that your function is complete, and the execution will time out. 
+Informs the runtime that your code has finished. If your function uses the `async function` declaration (available using Node 8+ in Functions version 2.x), you do not need to use `context.done()`. The `context.done` callback is implicitly called.
+
+If your function is not an async function, **you must call `context.done`** to inform the runtime that your function is complete. The execution will time out if it is missing.
 
 The `context.done` method allows you to pass back both a user-defined error to the runtime and a property bag of properties that overwrite the properties on the `context.bindings` object.
 
@@ -262,7 +263,15 @@ When you work with HTTP triggers, you can access the HTTP request and response o
     ```  
 
 ## Node version and package management
-The node version is currently locked at `6.5.0`. We're investigating adding support for more versions and making it configurable.
+
+The following table shows the Node.js version used by each major version of the Functions runtime:
+
+| Functions version | Node.js version | 
+|---|---|
+| 1.x | 6.11.2 (locked by the runtime) |
+| 2.x  | _Active LTS_ and _Current_ Node.js versions (8.11.1 and 10.6.0 recommended). Set the version by using the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings).|
+
+You can see the current version that the runtime is using by printing `process.version` from any function.
 
 The following steps let you include packages in your function app: 
 
@@ -292,7 +301,7 @@ module.exports = function(context) {
 You should define a `package.json` file at the root of your function app. Defining the file lets all functions in the app share the same cached packages, which gives the best performance. If a version conflict arises, you can resolve it by adding a `package.json` file in the folder of a specific function.  
 
 ## Environment variables
-To get an environment variable or an app setting value, use `process.env`, as shown in the following code example:
+To get an environment variable or an app setting value, use `process.env`, as shown here in the `GetEnvironmentVariable` function:
 
 ```javascript
 module.exports = function (context, myTimer) {

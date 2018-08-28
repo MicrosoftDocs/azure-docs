@@ -2,8 +2,8 @@
 title: "PowerShell script: Copy data in the cloud by using Azure Data Factory | Microsoft Docs"
 description: This PowerShell script copies data from one location in an Azure Blob Storage to another location in the same Blob Storage. 
 services: data-factory
-author: spelluru
-manager: jhubbard
+author: linda33wj
+manager: craigg
 editor: ''
 
 ms.service: data-factory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: spelluru
+ms.author: jingwang
 ---
 
 # Use PowerShell to create a data factory pipeline to copy data in the cloud
@@ -22,7 +22,7 @@ This sample PowerShell script creates a pipeline in Azure Data Factory that copi
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Prerequisites
-* **Azure Storage account**. You use the blob storage as both the **source** and **sink** data stores. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account) on creating one. 
+* **Azure Storage account**. You use the blob storage as both the **source** and **sink** data stores. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-quickstart-create-account.md) on creating one. 
 * Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. You can use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file.
 
 ## Sample script

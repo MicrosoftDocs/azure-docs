@@ -1,23 +1,24 @@
 ---
-title: Cortana Intelligence Gallery competitions | Microsoft Docs
-description: Discover competitions in the Cortana Intelligence Gallery.
+title: Azure AI Gallery competitions | Microsoft Docs
+description: Discover competitions in the Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: ef74f411-bce4-4b02-aa34-902fc8d7b519
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
 
 ---
-# Discover competitions in the Cortana Intelligence Gallery
+# Discover competitions in the Azure AI Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Cortana Intelligence Competitions
@@ -27,17 +28,14 @@ provide an exciting opportunity to compete with the community of data scientists
 For answers to frequently-asked questions about Competitions, see [Microsoft Cortana Intelligence Competitions FAQ](competition-faq.md).
 
 ## Discover
-  To browse for
- competitions
-  in the Gallery, open the [Gallery](http://gallery.cortanaintelligence.com), point your mouse to **More** at the top of the Gallery home page, and select
-**Competitions**.
+The
+**[Competitions](https://gallery.cortanaintelligence.com/competitions)**
+ page ([aka.ms/CIComp](http://aka.ms/CIComp)) displays a list of the most popular
+competitions.
 
 ![Select Competitions from the Gallery home page](./media/gallery-competitions/select-competitions-in-gallery.png)
 
- The
-**[Competitions](https://gallery.cortanaintelligence.com/competitions)**
- page displays a list of the most popular
-competitions.
+ 
  Click **See all** to view all
 competitions.
  From this page, you can browse all the

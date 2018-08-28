@@ -1,0 +1,64 @@
+- name: Conditional Access Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is conditional access?
+    href: overview.md
+- name: Quickstarts
+  items:
+  - name: Require MFA for specific apps
+    href: app-based-mfa.md
+  - name: Require terms of use to be accepted
+    href: require-tou.md
+  - name: Block access when a session risk is detected
+    href: app-sign-in-risk.md
+- name: Tutorials
+  items:
+  - name: Migrate classic MFA policies
+    href: policy-migration-mfa.md
+- name: Concepts
+  expanded: false
+  items:
+  - name: Baseline Protection
+    href: baseline-protection.md
+  - name: Conditions
+    href: conditions.md
+  - name: Location conditions
+    href: location-condition.md
+  - name: Controls
+    href: controls.md
+  - name: What if tool
+    href: what-if-tool.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Best practices
+    href: best-practices.md
+  - name: Require MFA for access attempts from untrusted networks
+    href: untrusted-networks.md
+  - name: Require managed devices
+    href: require-managed-devices.md
+  - name: Require approved client apps
+    href: app-based-conditional-access.md
+  - name: Control access to Exchange Online and SharePoint Online
+    href: conditional-access-for-exo-and-spo.md
+  - name: Migrate classic policies
+    href: policy-migration.md
+- name: Reference
+  items:
+  - name: Technical reference
+    href: technical-reference.md
+- name: Resources
+  items:
+  - name: Azure feedback forum
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/active-directory/
+  - name: Service updates
+    href: ../fundamentals/whats-new.md
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory

@@ -3,8 +3,8 @@ title: Key features and concepts in Azure Stack | Microsoft Docs
 description: Learn about the key features and concepts in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: Heathl17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid: 09ca32b7-0e81-4a27-a6cc-0ba90441d097
@@ -13,14 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
+ms.date: 05/10/2018
+ms.author: jeffgilb
+ms.reviewer:
 
 ---
 # Key features and concepts in Azure Stack
-
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
 If you’re new to Microsoft Azure Stack, these terms and feature descriptions might be helpful.
 
 ## Personas
@@ -85,13 +83,15 @@ A subscription is how tenants buy your offers. A subscription is a combination o
 
 Subscriptions help providers organize and access cloud resources and services.
 
-For the administrator, a Default Provider Subscription is created during deployment. This subscription can be used to manage Azure Stack, deploy further resource providers, and create plans and offers for tenants. It should not be used to run customer workloads and applications. 
+For the administrator, a Default Provider Subscription is created during deployment. This subscription can be used to manage Azure Stack, deploy further resource providers, and create plans and offers for tenants. It should not be used to run customer workloads and applications. Beginning with version 1804, two additional subscriptions supplement the Default Provider subscription; a Metering subscription, and a Consumption subscription. These additions facilitate separating the management of core infrastructure, additional resource providers, and workloads.  
 
 ## Azure Resource Manager
 By using Azure Resource Manager, you can work with your infrastructure resources in a template-based, declarative model.   It provides a single interface that you can use to deploy and manage your solution components. For full information and guidance, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 ### Resource groups
 Resource groups are collections of resources, services, and applications—and each resource has a type, such as virtual machines, virtual networks, public IPs, storage accounts, and websites. Each resource must be in a resource group and so resource groups help logically organize resources, such as by workload or location.  In Microsoft Azure Stack, resources such as plans and offers are also managed in resource groups.
+
+Unlike [Azure](../azure-resource-manager/resource-group-move-resources.md), you cannot move resources between resource groups. When you view the properties of a resource or resource group in the Azure Stack admin portal, the *Move* button is grayed-out and unavailable. 
  
 ### Azure Resource Manager templates
 With Azure Resource Manager, you can create a template (in JSON format) that defines deployment and configuration of your application. This template is known as an Azure Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state.
@@ -99,7 +99,7 @@ With Azure Resource Manager, you can create a template (in JSON format) that def
 ## Resource providers (RPs)
 Resource providers are web services that form the foundation for all Azure-based IaaS and PaaS services. Azure Resource Manager relies on different RPs to provide access to services.
 
-There are four foundational RPs: Network, Storage, Compute and KeyVault. Each of these RPs helps you configure and control its respective resources. Service administrators can also add new custom resource providers.
+There are four foundational RPs: Network, Storage, Compute, and KeyVault. Each of these RPs helps you configure and control its respective resources. Service administrators can also add new custom resource providers.
 
 ### Compute RP
 The Compute Resource Provider (CRP) allows Azure Stack tenants to create their own virtual machines. The CRP includes the ability to create virtual machines as well as Virtual Machine extensions. The Virtual Machine extension service helps provide IaaS capabilities for Windows and Linux virtual machines.  As an example, you can use the CRP to provision a Linux virtual machine and run Bash scripts during deployment to configure the VM.
@@ -113,7 +113,7 @@ The Storage RP delivers four Azure-consistent storage services: blob, table, que
 #### Blob storage
 Blob storage stores any data set. A blob can be any type of text or binary data, such as a document, media file, or application installer. Table storage stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data. Queue storage provides reliable messaging for workflow processing and for communication between components of cloud services.
 
-Every blob is organized under a container. Containers also provide a useful way to assign security policies to groups of objects. A storage account can contain any number of containers, and a container can contain any number of blobs, up to the 500 TB capacity limit of the storage account. Blob storage offers three types of blobs, block blobs, append blobs, and page blobs (disks). Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc. Append blobs are similar to block blobs, but are optimized for append operations. An append blob can be updated only by adding a new block to the end. Append blobs are a good choice for scenarios such as logging, where new data needs to be written only to the end of the blob. Page blobs are optimized for representing IaaS disks and supporting random writes, and may be up to 1 TB. An Azure virtual machine network attached IaaS disk is a VHD stored as a page blob.
+Every blob is organized under a container. Containers also provide a useful way to assign security policies to groups of objects. A storage account can contain any number of containers, and a container can contain any number of blobs, up to the 500-TB capacity limit of the storage account. Blob storage offers three types of blobs, block blobs, append blobs, and page blobs (disks). Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc. Append blobs are similar to block blobs, but are optimized for append operations. An append blob can be updated only by adding a new block to the end. Append blobs are a good choice for scenarios such as logging, where new data needs to be written only to the end of the blob. Page blobs are optimized for representing IaaS disks and supporting random writes, and may be up to 1 TB. An Azure virtual machine network attached IaaS disk is a VHD stored as a page blob.
 
 #### Table storage
 Table storage is Microsoft’s NoSQL key/attribute store – it has a design without schemas, making it different from traditional relational databases. Since data stores lack schemas, it's easy to adapt your data as the needs of your application evolve. Table storage is easy to use, so developers can create applications quickly. Table storage is a key-attribute store, meaning that every value in a table is stored with a typed property name. The property name can be used for filtering and specifying selection criteria. A collection of properties and their values comprise an entity. Since Table storage lack schemas, two entities in the same table can contain different collections of properties, and those properties can be of different types. You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.
@@ -123,6 +123,25 @@ Azure Queue storage provides cloud messaging between application components. In 
 
 ### KeyVault
 The KeyVault RP provides management and auditing of secrets, such as passwords and certificates. As an example, a tenant can use the KeyVault RP to provide administrator passwords or keys during VM deployment.
+
+## High availability for Azure Stack
+*Applies to: Azure Stack 1802 or higher versions*
+
+To achieve high availability of a multi-VM production system in Azure, VMs are placed in an availability set that spreads them across multiple fault domains and update domains. In this way, [VMs deployed in availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) are physically isolated from each other on separate server racks to allow for failure resiliency as shown in the following diagram:
+
+  ![Azure Stack high availability](media/azure-stack-key-features/high-availability.png)
+
+### Availability sets in Azure Stack
+While the infrastructure of Azure Stack is already resilient to failures, the underlying technology (failover clustering) still incurs some downtime for VMs on an impacted physical server if there is a hardware failure. Azure Stack supports having an availability set with a maximum of three fault domains to be consistent with Azure.
+
+- **Fault domains**. VMs placed in an availability set will be physically isolated from each other by spreading them as evenly as possible over multiple fault domains (Azure Stack nodes). If there is a hardware failure, VMs from the failed fault domain will be restarted in other fault domains, but, if possible, kept in separate fault domains from the other VMs in the same availability set. When the hardware comes back online, VMs will be rebalanced to maintain high availability. 
+ 
+- **Update domains**. Update domains are another Azure concept that provides high availability in availability sets. An update domain is a logical group of underlying hardware that can undergo maintenance at the same time. VMs located in the same update domain will be restarted together during planned maintenance. As tenants create VMs within an availability set, the Azure platform automatically distributes VMs across these update domains. In Azure Stack, VMs are live migrated across the other online hosts in the cluster before their underlying host is updated. Since there is no tenant downtime during a host update, the update domain feature on Azure Stack only exists for template compatibility with Azure. 
+
+### Upgrade scenarios 
+VMs in availability sets that were created before Azure Stack version 1802 are given a default number of fault and update domains (1 and 1 respectively). To achieve high availability for VMs in these pre-existing availability sets, you must first delete the existing VMs and then redeploy them into a new availability set with the correct fault and update domain counts as described in [Change the availability set for a Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
+
+For virtual machine scale sets, an availability set is created internally with a default fault domain and update domain count (3 and 5 respectively). Any virtual machine scale sets created before the 1802 update will be placed in an availability set with the default fault and update domain counts (1 and 1 respectively). To update these virtual machine scale set instances to achieve the newer spread, scale out the virtual machine scale sets by the number of instances that were present before the 1802 update and then delete the older instances of the virtual machine scale sets. 
 
 ## Role Based Access Control (RBAC)
 You can use RBAC to grant system access to authorized users, groups, and services by assigning them roles at a subscription, resource group, or individual resource level. Each role defines the access level a user, group, or service has over Microsoft Azure Stack resources.
@@ -141,5 +160,5 @@ In-development builds will provide the following benefits:
 - Other improvements
 
 ## Next steps
-[Azure Stack deployment prerequisites](azure-stack-deploy.md)
+[Evaluate the Azure Stack Development Kit](azure-stack-deploy-overview.md)
 

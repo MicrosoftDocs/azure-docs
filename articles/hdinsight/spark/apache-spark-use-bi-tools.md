@@ -1,41 +1,40 @@
 ---
-title: Spark BI using data visualization tools on Azure HDInsight | Microsoft Docs
-description: Use data visualization tools for analytics using Apache Spark BI on HDInsight clusters  
-keywords: apache spark bi,spark bi, spark data visualization, spark business intelligence
+title: 'Tutorial: Analyze Apache Spark data using Power BI in Azure HDInsight '
+description: Use Microsoft Power BI to visualize Spark data stored HDInsight clusters  
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 
-ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.author: jgao
+ms.custom: hdinsightactive,mvc
+ms.topic: tutorial
+ms.date: 05/07/2018
 
+#custom intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to virtualize Spark data in BI tools.
 ---
-# Apache Spark BI using data visualization tools with Azure HDInsight
 
-Learn how to use [Microsoft Power BI](http://powerbi.microsoft.com) and [Tableau](http://www.tableau.com) to visualize data in Apache Spark cluster on Azure HDInsight.
+# Tutorial: Analyze Spark data using Power BI in HDInsight 
+
+Learn how to use Microsoft Power BI to visualize data in Apache Spark cluster in Azure HDInsight.
+
+In this tutorial, you learn how to:
+> [!div class="checklist"]
+> * Visualize Spark data using Power BI
+
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-* **Complete [Run interactive queries on Spark clusters in HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Complete the article [Tutorial: Load data and run queries on an Apache Spark cluster in Azure HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) and [Power BI trial subscription](https://app.powerbi.com/signupredirect?pbi_source=web) (optional).
-* **Tableau**: [Tableau Desktop](http://www.tableau.com/products/desktop) and [Microsoft Spark ODBC driver](http://go.microsoft.com/fwlink/?LinkId=616229).
 
 
-## <a name="hivetable"></a>Verify the data
+## Verify the data
 
 The Jupyter notebook that you created in the [previous tutorial](apache-spark-load-data-run-query.md) includes code to create an `hvac` table. This table is based on the CSV file available on all HDInsight Spark clusters at **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Use the following procedure to verify the data.
 
-1. From the Jupyter notebook, paste the following code, and then press **SHIFT + ENTER**. The code verifies that the existence of the tables.
+1. From the Jupyter notebook, paste the following code, and then press **SHIFT + ENTER**. The code verifies the existence of the tables.
 
     ```PySpark
     %%sql
@@ -46,8 +45,7 @@ The Jupyter notebook that you created in the [previous tutorial](apache-spark-lo
 
     ![Show tables in Spark](./media/apache-spark-use-bi-tools/show-tables.png)
 
-    If you closed the notebook before starting this tutorial, `hvactemptable` is cleaned up, so it's not included in the output.
-    Only Hive tables that are stored in the metastore (indicated by **False** under the **isTemporary** column) can be accessed from the BI tools. In this tutorial, you connect to the **hvac** table that you created.
+    If you closed the notebook before starting this tutorial, `hvactemptable` is cleaned up, so it's not included in the output.  Only Hive tables that are stored in the metastore (indicated by **False** under the **isTemporary** column) can be accessed from the BI tools. In this tutorial, you connect to the **hvac** table that you created.
 
 2. Paste the following code in an empty cell, and then press **SHIFT + ENTER**. The code verifies the data in the table.
 
@@ -62,21 +60,7 @@ The Jupyter notebook that you created in the [previous tutorial](apache-spark-lo
 
 3. From the **File** menu on the notebook, click **Close and Halt**. Shut down the notebook to release the resources. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## <a name="powerbi"></a>Use Power BI
+## Visualize the data
 
 In this section, you use Power BI to create visualizations, reports, and dashboards from the Spark cluster data. 
 
@@ -106,7 +90,7 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
 
     ![Spark cluster user name and password](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Spark cluster user name and password")
 
-    Power BI Desktop has the information it needs to connect to the Spark cluster and load data from the `hvac` table. The table and its columns are displayed in the **Fields** pane.  See the following screenshot.
+    Power BI Desktop has the information it needs to connect to the Spark cluster and load data from the `hvac` table. The table and its columns are displayed in the **Fields** pane.  See the following screenshot:
 
 6. Visualize the variance between target temperature and actual temperature for each building: 
 
@@ -180,6 +164,7 @@ The Power BI service allows you to share reports and dashboards across your orga
 
 Your visual is pinned to the dashboard - you can add other visuals to the report and pin them to the same dashboard. For more information about reports and dashboards, see [Reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)and [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
+<!--
 ## <a name="tableau"></a>Use Tableau Desktop 
 
 > [!NOTE]
@@ -209,11 +194,11 @@ Your visual is pinned to the dashboard - you can add other visuals to the report
 6. Click the **Sheet1** tab at the bottom left. Make a visualization that shows the average target and actual temperatures for all buildings for each date. Drag **Date** and **Building ID** to **Columns** and **Actual Temp**/**Target Temp** to **Rows**. Under **Marks**, select **Area** to use an area map for Spark data visualization.
 
      ![Add fields for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Add fields for Spark data visualization")
-7. By default, the temperature fields are shown as aggregate. If you want to show the average temperatures instead, you can do so from the drop-down, as shown in the following screenshot.
+7. By default, the temperature fields are shown as aggregate. If you want to show the average temperatures instead, you can do so from the drop-down, as shown in the following screenshot:
 
     ![Take average of temperature for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "Take average of temperature for Spark data visualization")
 
-8. You can also super-impose one temperature map over the other to get a better feel of difference between target and actual temperatures. Move the mouse to the corner of the lower area map till you see the handle shape highlighted in a red circle. Drag the map to the other map on the top and release the mouse when you see the shape highlighted in red rectangle.
+8. You can also super-impose one temperature map over the other to get a better feel of difference between target and actual temperatures. Move the mouse to the corner of the lower area map until you see the handle shape highlighted in a red circle. Drag the map to the other map on the top and release the mouse when you see the shape highlighted in red rectangle.
 
     ![Merge maps for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "Merge maps for Spark data visualization")
 
@@ -221,11 +206,15 @@ Your visual is pinned to the dashboard - you can add other visuals to the report
 
     ![Tableau output for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau output for Spark data visualization")
 9. Click **Save** to save the worksheet. You can create dashboards and add one or more sheets to it.
+-->
 
 ## Next steps
 
-So far you learned how to create a cluster, create Spark data frames to query data, and then access that data from BI tools. You can now look at instructions on how to manage the cluster resources and debug jobs that are running in an HDInsight Spark cluster.
+In this tutorial, you learned how to:
 
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)
+- Visualize Spark data using Power BI.
+
+Advance to the next article to see how the data you registered in Spark can be pulled into a BI analytics tool such as Power BI. 
+> [!div class="nextstepaction"]
+> [Run a Spark streaming job](apache-spark-eventhub-streaming.md)
 

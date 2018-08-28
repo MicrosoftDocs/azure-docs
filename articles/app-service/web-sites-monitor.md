@@ -32,6 +32,8 @@ Applications hosted in App Service are subject to certain *limits* on the
 resources they can use. The limits are defined by the **App Service plan**
 associated with the app.
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 If the application is hosted in a **Free** or **Shared** plan, then the limits
 on the resources the app can use are defined by **Quotas**.
 
@@ -168,7 +170,7 @@ review: (1) the quotas name, (2) its reset interval, (3) its current limit,
 and (4) current value.
 
 ![][metrics]
-**Metrics** can be access directly from the resource page. You can also
+**Metrics** can be accessed directly from the resource page. You can also
 customize the chart by: (1) **click** on it, and select (2) **edit chart**.
 From here you can change the (3) **time range**, (4) **chart type**, and
 (5) **metrics** to display.  

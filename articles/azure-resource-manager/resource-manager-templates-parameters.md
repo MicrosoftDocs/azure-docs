@@ -9,17 +9,17 @@ editor: tysonn
 
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 05/18/2018
 ms.author: tomfitz
 
 ---
 # Parameters section of Azure Resource Manager templates
 In the parameters section of the template, you specify which values you can input when deploying the resources. These parameter values enable you to customize the deployment by providing values that are tailored for a particular environment (such as dev, test, and production). You do not have to provide parameters in your template, but without parameters your template would always deploy the same resources with the same names, locations, and properties.
 
-You are limited to 255 parameters in a template. You can reduce the number of parameters by using objects that contain multiple properties, as show in this article.
+You are limited to 255 parameters in a template. You can reduce the number of parameters by using objects that contain multiple properties, as shown in this article.
 
 ## Define and use a parameter
 
@@ -82,13 +82,13 @@ The preceding example showed only some of the properties you can use in the para
 | Element name | Required | Description |
 |:--- |:--- |:--- |
 | parameterName |Yes |Name of the parameter. Must be a valid JavaScript identifier. |
-| type |Yes |Type of the parameter value. The allowed types and values are **string**, **secureString**, **int**, **bool**, **object**, **secureObject**, and **array**. |
+| type |Yes |Type of the parameter value. The allowed types and values are **string**, **securestring**, **int**, **bool**, **object**, **secureObject**, and **array**. |
 | defaultValue |No |Default value for the parameter, if no value is provided for the parameter. |
 | allowedValues |No |Array of allowed values for the parameter to make sure that the right value is provided. |
 | minValue |No |The minimum value for int type parameters, this value is inclusive. |
 | maxValue |No |The maximum value for int type parameters, this value is inclusive. |
-| minLength |No |The minimum length for string, secureString, and array type parameters, this value is inclusive. |
-| maxLength |No |The maximum length for string, secureString, and array type parameters, this value is inclusive. |
+| minLength |No |The minimum length for string, securestring, and array type parameters, this value is inclusive. |
+| maxLength |No |The maximum length for string, securestring, and array type parameters, this value is inclusive. |
 | description |No |Description of the parameter that is displayed to users through the portal. |
 
 ## Template functions with parameters
@@ -128,6 +128,7 @@ Define the parameter in your template and specify a JSON object instead of a sin
     "type": "object",
     "defaultValue": {
       "name": "VNet1",
+      "location": "eastus",
       "addressPrefixes": [
         {
           "name": "firstPrefix",
@@ -157,7 +158,7 @@ Then, reference the subproperties of the parameter by using the dot operator.
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[parameters('VNetSettings').name]",
-    "location":"[resourceGroup().location]",
+    "location": "[parameters('VNetSettings').location]",
     "properties": {
       "addressSpace":{
         "addressPrefixes": [
@@ -221,7 +222,7 @@ The following information can be helpful when you work with parameters:
    }
    ```
 
-* Use **SecureString** for all passwords and secrets. If you pass sensitive data in a JSON object, use the **secureObject** type. Template parameters with secureString or secureObject types cannot be read after resource deployment. 
+* Use **securestring** for all passwords and secrets. If you pass sensitive data in a JSON object, use the **secureObject** type. Template parameters with securestring or secureObject types cannot be read after resource deployment. 
    
    ```json
    "parameters": {
@@ -234,7 +235,7 @@ The following information can be helpful when you work with parameters:
    }
    ```
 
-* Whenever possible, don't use a parameter to specify location. Instead, use the **location** property of the resource group. By using the **resourceGroup().location** expression for all your resources, resources in the template are deployed in the same location as the resource group:
+* Use a parameter to specify location, and share that parameter value as much as possible with resources that are likely to be in the same location. This approach minimizes the number of times users are asked to provide location information. If a resource type is supported in only a limited number of locations, you might want to specify a valid location directly in the template, or add another location parameter. When an organization limits the allowed regions for its users, the **resourceGroup().location** expression might prevent a user from being able to deploy the template. For example, one user creates a resource group in a region. A second user must deploy to that resource group but does not have access to the region. 
    
    ```json
    "resources": [
@@ -242,13 +243,12 @@ The following information can be helpful when you work with parameters:
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
          "apiVersion": "2016-01-01",
-         "location": "[resourceGroup().location]",
+         "location": "[parameters('location')]",
          ...
      }
    ]
    ```
-   
-   If a resource type is supported in only a limited number of locations, you might want to specify a valid location directly in the template. If you must use a **location** parameter, share that parameter value as much as possible with resources that are likely to be in the same location. This approach minimizes the number of times users are asked to provide location information.
+    
 * Avoid using a parameter or variable for the API version for a resource type. Resource properties and values can vary by version number. IntelliSense in a code editor cannot determine the correct schema when the API version is set to a parameter or variable. Instead, hard-code the API version in the template.
 * Avoid specifying a parameter name in your template that matches a parameter in the deployment command. Resource Manager resolves this naming conflict by adding the postfix **FromTemplate** to the template parameter. For example, if you include a parameter named **ResourceGroupName** in your template, it conflicts with the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. During deployment, you are prompted to provide a value for **ResourceGroupNameFromTemplate**.
 

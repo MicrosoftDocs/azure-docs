@@ -4,7 +4,7 @@ description: Create an OpenAPI definition that enables other apps and services t
 services: functions
 keywords: OpenAPI, Swagger, cloud apps, cloud services,
 documentationcenter: ''
-author: mgblythe
+author: ggailey777
 manager: cfowler
 editor: ''
 
@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/15/2017
-ms.author: mblythe; glenga
-ms.custom: mvc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: mvc, cc996988-fb4f-47
 ---
 
 # Create an OpenAPI definition for a function
@@ -38,8 +39,6 @@ You must have a function app to host the execution of your functions. A function
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
-
 
 ## Create the function
 
@@ -59,7 +58,7 @@ This tutorial uses an HTTP triggered function that takes two parameters: the est
 
 1. Replace the contents of the run.csx file with the following code, then click **Save**:
 
-    ```c#
+    ```csharp
     using System.Net;
 
     const double revenuePerkW = 0.12; 

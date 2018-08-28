@@ -1,22 +1,15 @@
 ---
-title: Create Hadoop clusters using PowerShell - Azure HDInsight | Microsoft Docs
+title: Create Hadoop clusters using PowerShell - Azure HDInsight 
 description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight by using Azure PowerShell.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 4208deca-d64a-45e1-8948-2673d5d7678c
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/28/2017
-ms.author: nitinme
+ms.topic: conceptual
+ms.date: 02/21/2018
+ms.author: jasonh
 
 ---
 # Create Linux-based clusters in HDInsight using Azure PowerShell
@@ -116,5 +109,4 @@ Now that you have successfully created an HDInsight cluster, use the following r
 * [Run jobs remotely on a Spark cluster using Livy](spark/apache-spark-livy-rest-interface.md)
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](spark/apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](spark/apache-spark-eventhub-streaming.md)
 

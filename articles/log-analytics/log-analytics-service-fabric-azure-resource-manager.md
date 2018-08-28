@@ -12,11 +12,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/05/2017
+ms.topic: conceptual
+ms.date: 01/19/2018
 ms.author: nini
-
+ms.component: na
 ---
+
 # Assess Service Fabric applications and micro-services with the Azure portal
 
 > [!div class="op_single_selector"]
@@ -34,15 +35,15 @@ The Service Fabric solution uses Azure Diagnostics data from your Service Fabric
 To get started with the solution, you need to connect your Service Fabric cluster to a Log Analytics workspace. Here are three scenarios to consider:
 
 1. If you have not deployed your Service Fabric cluster, use the steps in ***Deploy a Service Fabric Cluster connected to a Log Analytics workspace*** to deploy a new cluster and have it configured to report to Log Analytics.
-2. If you need to collect performance counters from your hosts to use other OMS solutions such as Security on your Service Fabric Cluster, follow the steps in ***Deploy a Service Fabric Cluster connected to a Log Analytics workspace with VM Extension installed.***
-3. If you have already deployed your Service Fabric cluster and want to connect it to Log Analytics, follow the steps in ***Adding an existing storage account to Log Analytics.***
+1. If you need to collect performance counters from your hosts to use other management solutions such as Security on your Service Fabric Cluster, follow the steps in ***Deploy a Service Fabric Cluster connected to a Log Analytics workspace with VM Extension installed.***
+1. If you have already deployed your Service Fabric cluster and want to connect it to Log Analytics, follow the steps in ***Adding an existing storage account to Log Analytics.***
 
 ## Deploy a Service Fabric Cluster connected to a Log Analytics workspace.
 This template does the following:
 
 1. Deploys an Azure Service Fabric cluster already connected to a Log Analytics workspace. You have the option to create a new workspace while deploying the template, or input the name of an already existing Log Analytics workspace.
-2. Adds the diagnostic storage account to the Log Analytics workspace.
-3. Enables the Service Fabric solution in your Log Analytics workspace.
+1. Adds the diagnostic storage account to the Log Analytics workspace.
+1. Enables the Service Fabric solution in your Log Analytics workspace.
 
 [![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-oms%2F%2Fazuredeploy.json)
 
@@ -61,9 +62,9 @@ Accept the legal terms and click **Create** to start the deployment. Once the de
 This template does the following:
 
 1. Deploys an Azure Service Fabric cluster already connected to a Log Analytics workspace. You can create a new workspace or use an existing one.
-2. Adds the diagnostic storage accounts to the Log Analytics workspace.
-3. Enables the Service Fabric solution in the Log Analytics workspace.
-4. Installs the MMA agent extension in each virtual machine scale set in your Service Fabric cluster. With the MMA agent installed, you are able to view performance metrics about your nodes.
+1. Adds the diagnostic storage accounts to the Log Analytics workspace.
+1. Enables the Service Fabric solution in the Log Analytics workspace.
+1. Installs the MMA agent extension in each virtual machine scale set in your Service Fabric cluster. With the MMA agent installed, you are able to view performance metrics about your nodes.
 
 [![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-vmss-oms%2F%2Fazuredeploy.json)
 
@@ -76,7 +77,7 @@ Following the same steps above, input the necessary parameters, and kick off a d
 To view Perf Data from your nodes:
 
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 - Launch the Log Analytics workspace from the Azure portal.
   ![Service Fabric](./media/log-analytics-service-fabric/6.png)

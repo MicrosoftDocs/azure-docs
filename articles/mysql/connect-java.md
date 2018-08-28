@@ -1,16 +1,16 @@
 ---
-title: 'Connect to Azure Database for MySQL using Java | Microsoft Docs'
+title: 'Connect to Azure Database for MySQL using Java'
 description: This quickstart provides a Java code sample you can use to connect and query data from a Azure Database for MySQL database.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ---
 
 # Azure Database for MySQL: Use Java to connect and query data
@@ -33,11 +33,10 @@ There are numerous other examples and sample code at the [MySQL Connector exampl
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. In the left pane, click **All resources**, and then search for the server you have created (for example, **myserver4demo**).
+2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Click the server name.
-4. Select the server's **Properties** page, and then make a note of the **Server name** and **Server admin login name**.
- ![Azure Database for MySQL server name](./media/connect-java/1_server-properties-name-login.png)
-5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name, and if necessary reset the password.
+4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
+ ![Azure Database for MySQL server name](./media/connect-java/1_server-overview-name-login.png)
 
 ## Connect, create table, and insert data
 Use the following code to connect and load the data using the function with an **INSERT** SQL statement. The [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) method is used to connect to MySQL. Methods [createStatement()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-statements.html) and execute() are used to drop and create the table. The prepareStatement object is used to build the insert commands, with setString() and setInt() to bind the parameter values. Method executeUpdate() runs the command for each set of parameters to insert the values. 
@@ -53,9 +52,9 @@ public class CreateTableInsertRows {
 	public static void main (String[] args)  throws Exception
 	{
 		// Initialize connection variables.	
-		String host = "myserver4demo.mysql.database.azure.com";
+		String host = "mydemoserver.mysql.database.azure.com";
 		String database = "quickstartdb";
-		String user = "myadmin@myserver4demo";
+		String user = "myadmin@mydemoserver";
 		String password = "<server_admin_password>";
 
 		// check that the driver is installed
@@ -155,9 +154,9 @@ public class ReadTable {
 	public static void main (String[] args)  throws Exception
 	{
 		// Initialize connection variables.
-		String host = "myserver4demo.mysql.database.azure.com";
+		String host = "mydemoserver.mysql.database.azure.com";
 		String database = "quickstartdb";
-		String user = "myadmin@myserver4demo";
+		String user = "myadmin@mydemoserver";
 		String password = "<server_admin_password>";
 
 		// check that the driver is installed
@@ -241,9 +240,9 @@ public class UpdateTable {
 	public static void main (String[] args)  throws Exception
 	{
 		// Initialize connection variables.	
-		String host = "myserver4demo.mysql.database.azure.com";
+		String host = "mydemoserver.mysql.database.azure.com";
 		String database = "quickstartdb";
-		String user = "myadmin@myserver4demo";
+		String user = "myadmin@mydemoserver";
 		String password = "<server_admin_password>";
 
 		// check that the driver is installed
@@ -322,9 +321,9 @@ public class DeleteTable {
 	public static void main (String[] args)  throws Exception
 	{
 		// Initialize connection variables.
-		String host = "myserver4demo.mysql.database.azure.com";
+		String host = "mydemoserver.mysql.database.azure.com";
 		String database = "quickstartdb";
-		String user = "myadmin@myserver4demo";
+		String user = "myadmin@mydemoserver";
 		String password = "<server_admin_password>";
 		
 		// check that the driver is installed

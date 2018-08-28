@@ -1,20 +1,16 @@
----
+﻿---
 title: Create a VM and storage account for a scalable application in Azure | Microsoft Docs 
 description: Learn how to deploy a VM to be used to run a scalable application using Azure blob storage
 services: storage
-documentationcenter: 
-author: georgewallace
-manager: jeconnoc
-editor: ''
+author: roygara
 
 ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: rogarana
 ms.custom: mvc
+ms.component: blobs
 ---
 
 # Create a virtual machine and storage account for a scalable application
@@ -32,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -114,7 +110,7 @@ For this tutorial, there are pre-requisites that must be installed on the virtua
 Run the following cmdlet to finalize configuration of the virtual machine. This step takes 5-15 minutes to complete.
 
 ```azurepowershell-interactive
-# Start a CustomScript extension to use a simple PowerShell script to instal .NET core, dependancies, and pre-create the files to upload.
+# Start a CustomScript extension to use a simple PowerShell script to install .NET core, dependencies, and pre-create the files to upload.
 Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `
     -Location EastUS `

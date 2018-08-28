@@ -4,27 +4,27 @@ description: Learn about how to move data from Sybase Database using Azure Data 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: b379ee10-0ff5-4974-8c87-c95f82f1c5c6
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/01/2017
+ms.topic: conceptual
+ms.date: 02/02/2018
 ms.author: jingwang
 
 robots: noindex
 ---
 # Move data from Sybase using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-onprem-sybase-connector.md)
-> * [Version 2 - Preview](../connector-sybase.md)
+> * [Version 1](data-factory-onprem-sybase-connector.md)
+> * [Version 2 (current version)](../connector-sybase.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Sybase connector in V2](../connector-sybase.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Sybase connector in V2](../connector-sybase.md).
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises Sybase database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
@@ -39,7 +39,9 @@ Gateway is required even if the Sybase database is hosted in an Azure IaaS VM. Y
 > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
 
 ## Supported versions and installation
-For Data Management Gateway to connect to the Sybase Database, you need to install the [data provider for Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 or above on the same system as the Data Management Gateway. Sybase version 16 and above is supported.
+For Data Management Gateway to connect to the Sybase Database, you need to install the [data provider for Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 or above on the same system as the Data Management Gateway. 
+
+SAP Sybase SQL Anywhere (ASA) version 16 and above is supported; IQ and ASE are not supported.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs. 

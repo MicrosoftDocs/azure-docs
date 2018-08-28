@@ -1,22 +1,15 @@
 ---
-title: Use C# with MapReduce on Hadoop in HDInsight - Azure | Microsoft Docs
+title: Use C# with MapReduce on Hadoop in HDInsight - Azure 
 description: Learn how to use C# to create MapReduce solutions with Hadoop in Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: d83def76-12ad-4538-bb8e-3ba3542b7211
 ms.custom: hdinsightactive
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: article
-ms.date: 12/05/2017
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 02/27/2018
+ms.author: jasonh
 
 ---
 # Use C# with MapReduce streaming on Hadoop in HDInsight
@@ -30,7 +23,7 @@ Hadoop streaming is a utility that allows you to run MapReduce jobs using a scri
 
 ## .NET on HDInsight
 
-__Linux-based HDInsight__ clusters use [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.5. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](../hdinsight-component-versioning.md). To use a specific version of Mono, see the [Install or update Mono](../hdinsight-hadoop-install-mono.md) document.
+__Linux-based HDInsight__ clusters use [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.6. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](../hdinsight-component-versioning.md). To use a specific version of Mono, see the [Install or update Mono](../hdinsight-hadoop-install-mono.md) document.
 
 For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -44,7 +37,7 @@ The basic process used for streaming in this document is as follows:
 4. The reducer reads the tab-delimited key/value pairs, processes the data, and then emits the result as tab-delimited key/value pairs on STDOUT.
 5. The output is read by Hadoop and written to the output directory.
 
-For more information on streaming, see [Hadoop Streaming (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
+For more information on streaming, see [Hadoop Streaming](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
 ## Prerequisites
 

@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 07/24/2018
 ms.author: juluk
 ---
 # Overview of Azure Cloud Shell
 Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources.
-It gives you the flexibility of choosing the shell experience that best suits the way you work.
+It provides the flexibility of choosing the shell experience that best suits the way you work.
 Linux users can opt for a Bash experience, while Windows users can opt for PowerShell.
 
-Try from shell.azure.com using this button.
+Try from shell.azure.com by clicking below.
 
 [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
@@ -44,13 +44,18 @@ Linux users can use Bash in Cloud Shell, while Windows users can use PowerShell 
 ### Authenticated and configured Azure workstation
 Cloud Shell is managed by Microsoft so it comes with popular command-line tools and language support. Cloud Shell also securely authenticates automatically for instant access to your resources through the Azure CLI 2.0 or Azure PowerShell cmdlets.
 
-View the full tooling list for the [Bash experience](features.md#tools) and [PowerShell (Preview) experience.](features-powershell.md#tools)
+View the full [list of tools installed in Cloud Shell.](features.md#tools)
+
+### Integrated Cloud Shell editor
+Cloud Shell offers an integrated graphical text editor based on the open-source Monaco Editor. Simply create and edit configuration files by running `code .` for seamless deployment through Azure CLI 2.0 or Azure PowerShell.
+
+[Learn more about the Cloud Shell editor](using-cloud-shell-editor.md).
 
 ### Multiple access points
 Cloud Shell is a flexible tool that can be used from:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Azure CLI 2.0 "Try It" documentation](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+* [Azure CLI 2.0 "Try It" documentation](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
 * [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [VS Code Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
@@ -79,7 +84,7 @@ An advanced option is provided to associate existing resources to Cloud Shell.
 At the storage setup prompt, click "Show advanced settings" to show additional options.
 
 > [!Note]
-> Dropdowns are filtered for your pre-assigned Cloud Shell region and LRS/GRS storage accounts.
+> Dropdowns are filtered for your pre-assigned Cloud Shell region and LRS/GRS/ZRS storage accounts.
 
 [Learn about Cloud Shell storage, updating Azure file shares, and uploading/downloading files.](persisting-shell-storage.md)
 
@@ -89,7 +94,7 @@ At the storage setup prompt, click "Show advanced settings" to show additional o
 * Cloud Shell requires an Azure file share to be mounted
 * Cloud Shell uses the same Azure file share for both Bash and PowerShell
 * Cloud Shell is assigned one machine per user account
-* Bash persists $Home using a 5-GB image held in your file share
+* Cloud Shell persists $Home using a 5-GB image held in your file share
 * Permissions are set as a regular Linux user in Bash
 
 Learn more about features in [Bash in Cloud Shell](features.md) and [PowerShell in Cloud Shell (Preview)](features-powershell.md).
