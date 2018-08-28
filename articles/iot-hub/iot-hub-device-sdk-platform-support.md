@@ -19,7 +19,7 @@ Microsoft supports a variety of operating systems/platforms/frameworks and can b
     - Provide installation guide or packages if applicable
     - Full support on GitHub
 
-In addition, a list of partners has ported our C SDK on to more platforms and they are maintaining the platform abstraction layer (PAL).  [Azure Certified for IoT Device Catalog](https://catalog.azureiotsolutions.com/) also features a list of OS platforms the various SDKs have been tested against.  In addition, the SDKs also regularly build on these platforms, with limited testing and support:
+In addition, a list of partners has ported our C SDK on to more platforms and they are maintaining the platform abstraction layer (PAL).  [Azure Certified for IoT Device Catalog](https://catalog.azureiotsolutions.com/) also features a list of OS platforms the various SDKs have been tested against.  The SDKs also regularly build on these platforms, with limited testing and support:
 - MBED2
 - Arduino
 - Windows CE 2013 (deprecate in October 2018)
