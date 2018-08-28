@@ -231,7 +231,7 @@ The Snapshot Collector is implemented as an [Application Insights Telemetry Proc
 Each time your application calls [TrackException](app-insights-asp-net-exceptions.md#exceptions), the Snapshot Collector computes a Problem ID from the type of exception being thrown and the throwing method.
 Each time your application calls TrackException, a counter is incremented for the appropriate Problem ID. When the counter reaches the `ThresholdForSnapshotting` value, the Problem ID is added to a Collection Plan.
 
-The Snapshot Collector also monitors exceptions as they are thrown by subscribing to the [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) event. When that event fires, the Problem ID of the exception is computed and compared against the Problem IDs in the Collection Plan.
+The Snapshot Collector also monitors exceptions as they're thrown by subscribing to the [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) event. When that event fires, the Problem ID of the exception is computed and compared against the Problem IDs in the Collection Plan.
 If there's a match, then a snapshot of the running process is created. The snapshot is assigned a unique identifier and the exception is stamped with that identifier. After the FirstChanceException handler returns, the thrown exception is processed as normal. Eventually, the exception reaches the TrackException method again where it, along with the snapshot identifier, is reported to Application Insights.
 
 The main process continues to run and serve traffic to users with little interruption. Meanwhile, the snapshot is handed off to the Snapshot Uploader process. The Snapshot Uploader creates a minidump and uploads it to Application Insights along with any relevant symbol (.pdb) files.
@@ -247,7 +247,8 @@ The main process continues to run and serve traffic to users with little interru
 ## Current limitations
 
 ### Publish symbols
-The Snapshot Debugger requires symbol files on the production server to decode variables and to provide a debugging experience in Visual Studio. The 15.2 release of Visual Studio 2017 publishes symbols for release builds by default when it publishes to App Service. In prior versions, you need to add the following line to your publish profile `.pubxml` file so that symbols are published in release mode:
+The Snapshot Debugger requires symbol files on the production server to decode variables and to provide a debugging experience in Visual Studio.
+Version 15.2 (or above) of Visual Studio 2017 publishes symbols for release builds by default when it publishes to App Service. In prior versions, you need to add the following line to your publish profile `.pubxml` file so that symbols are published in release mode:
 
 ```xml
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
@@ -401,15 +402,15 @@ Follow these steps to configure your Cloud Service role with a dedicated local r
 ### Overriding the Shadow Copy folder
 
 When the Snapshot Collector starts up, it tries to find a folder on disk that is suitable for running the Snapshot Uploader process.
-The Snapshot Collector checks a few well-known locations (e.g. environment variables LOCALAPPDATA, APPDATA and TEMP), making sure it has permissions to copy the Snapshot Uploader binaries. The chosen folder is known as the Shadow Copy folder.
+The Snapshot Collector checks a few well-known locations (environment variables LOCALAPPDATA, APPDATA, and TEMP, among others), making sure it has permissions to copy the Snapshot Uploader binaries. The chosen folder is known as the Shadow Copy folder.
 
-If a suitable folder cannot be found, Snapshot Collector reports an error saying _"Could not find a suitable shadow copy folder."_
+If a suitable folder can't be found, Snapshot Collector reports an error saying _"Could not find a suitable shadow copy folder."_
 
 If the copy fails, Snapshot Collector reports a `ShadowCopyFailed` error.
 
-If the uploader cannot be launched, Snapshot Collector reports an `UploaderCannotStartFromShadowCopy` error, possibly with a `System.UnauthorizedAccessException` in the body of the message. This is usually because the application is running under an account with reduced permissions. The account has permission to write to the shadow copy folder, but it doesn't have permission to execute code.
+If the uploader can't be launched, Snapshot Collector reports an `UploaderCannotStartFromShadowCopy` error. The body of the message often contains `System.UnauthorizedAccessException`. This error usually occurs because the application is running under an account with reduced permissions. The account has permission to write to the shadow copy folder, but it doesn't have permission to execute code.
 
-Since these errors usually happen during startup, they will usually be followed by an `ExceptionDuringConnect` error saying _"Uploader failed to start."_
+Since these errors usually happen during startup, they'll usually be followed by an `ExceptionDuringConnect` error saying _"Uploader failed to start."_
 
 To work around these errors, you can specify the shadow copy folder manually via the `ShadowCopyFolder` configuration option. For example, using ApplicationInsights.config:
 
@@ -423,7 +424,7 @@ To work around these errors, you can specify the shadow copy folder manually via
    </TelemetryProcessors>
    ```
 
-Or, if you are using appsettings.json with a .NET Core application:
+Or, if you're using appsettings.json with a .NET Core application:
 
    ```json
    {
