@@ -51,7 +51,7 @@
 #### [Backup virtual machines](../../virtual-machines/windows/tutorial-backup-vms.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Monitor virtual machines](../../virtual-machines/windows/tutorial-monitoring.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Manage VM security](../../virtual-machines/windows/tutorial-azure-security.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Team Services CI/CD](../../virtual-machines/windows/tutorial-vsts-iis-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Azure Pipelines CI/CD](../../virtual-machines/windows/tutorial-vsts-iis-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ### Quickly create a Linux VM
 #### [Using Azure CLI](../../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

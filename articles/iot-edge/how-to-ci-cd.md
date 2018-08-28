@@ -276,7 +276,7 @@ In this section, you will create a sample IoT Edge solution containing unit test
     
 
 > [!NOTE]
-> For more information about using Azure DevOps code repositories, see [Share your code with Visual Studio and Azure DevOps Git](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts).
+> For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts).
 
 
 ## Configure continuous integration
