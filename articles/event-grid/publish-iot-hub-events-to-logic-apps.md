@@ -195,7 +195,7 @@ Once you've added a few devices to your IoT hub, check your email to see which o
 
 ## Use the Azure CLI
 
-Instead of using the Azure portal, you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) and [creating an IoT device](https://docs.microsoft.com/cli/azure/iot/device)
+Instead of using the Azure portal, you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) and [creating an IoT device](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-using-cli)
 
 ## Clean up resources
 
