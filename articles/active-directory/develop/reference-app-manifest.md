@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/13/2018
+ms.date: 08/27/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: sureshja
+ms.reviewer: sureshja, justhu
 ---
 
 # Azure Active Directory app manifest
