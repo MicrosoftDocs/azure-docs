@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/20/2018
+ms.date: 08/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
@@ -49,7 +49,6 @@ This step takes roughly 5 minutes.
 
 Once the order is created, the disks are prepared for shipment. 
 
-
 ## Unpack
 
 This step takes roughly 5 minutes.
@@ -59,7 +58,6 @@ The Data Box Disk are mailed in a UPS Express Box. Open the box and check that t
 - 1 to 5 bubble-wrapped USB disks.
 - A connecting cable per disk. 
 - A shipping label for return shipment.
- 
 
 ## Connect and unlock
 
@@ -70,10 +68,8 @@ This step takes roughly 5 minutes.
 
     1. In the Azure portal, go to **General > Device Details** and get the passkey.
     2. Download and extract Data Box Disk unlock tool on the computer used to copy the data to disks. 
-    3. Run *DataBoxDiskUnlock.exe* and supply the passkey. Repeat the step for any disk reinserts.
+    3. Run *DataBoxDiskUnlock.exe* and supply the passkey. For any disk reinserts, run the unlock tool again and provide the passkey. **Do not use the BitLocker dialog or the BitLocker key to unlock the disk.** 
     4. The drive letter assigned to the disk is displayed by the tool. Make a note of the disk drive letter. This is used in the subsequent steps.
-
-
 
 ## Copy data and verify
 
@@ -111,7 +107,6 @@ The time to complete this operation depends upon your data size.
     1. Check error logs for any failures and take appropriate actions.
     2. Verify that your data is in the storage account(s) before you delete it from the source.
 
-
 ## Clean up resources
 
 This step takes 2-3 minutes to complete.
@@ -126,7 +121,7 @@ To clean up, you can cancel the Data Box order and then delete it.
 
     To delete the order, go to **Overview** and click **Delete** from the command bar.
 
-## Next step
+## Next steps
 
 In this quickstart, you’ve deployed Azure Data Box Disk to help import your data into Azure. To learn more about Azure Data Box Disk management, advance to the following tutorial: 
 
