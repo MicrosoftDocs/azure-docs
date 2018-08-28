@@ -267,7 +267,7 @@ except ComputeTargetException:
     print(compute_target.status.serialize())
 ```
 
-For more information on using the BatchAiCompute object, see [tbd]. 
+For more information on using the BatchAiCompute object, see the reference documentation. 
 
 ### Using the CLI
 
