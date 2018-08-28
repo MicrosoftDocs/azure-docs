@@ -35,7 +35,7 @@ For serial console documentation for Windows VMs, [click here](../windows/serial
 * Your virtual machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled - see screenshot below.
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-    
+
 * The Azure account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
 * The virtual machine for which you are acessing serial console must also have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functionality of the VM access extension - see the screenshot below.
 
@@ -121,14 +121,14 @@ This means that the user who gets disconnected will not be logged out! The abili
 The serial console functionality can be deactivated for specific VMs by disabling that VM's boot diagnostics setting.
 
 ## Common scenarios for accessing serial console 
-Scenario          | Actions in serial console                |  OS Applicability 
-:------------------|:-----------------------------------------|:------------------
-Broken FSTAB file | `Enter` key to continue and fix fstab file using a text editor. You may need to be in single user mode for this. See [how to fix fstab issues](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) and [Using Serial Console to access GRUB and Single User Mode](serial-console-grub-single-user-mode.md) to get started. | Linux 
-Incorrect firewall rules | Access serial console and fix iptables or Windows firewall rules. | Linux/Windows 
-Filesystem corruption/check | Access serial console and recover filesystem. | Linux/Windows 
-SSH/RDP configuration issues | Access serial console and change settings. | Linux/Windows 
-Network lock down system| Access serial console via portal to manage system. | Linux/Windows 
-Interacting with bootloader | Access GRUB/BCD via the serial console. Go to [Using Serial Console to access GRUB and Single User Mode](serial-console-grub-single-user-mode.md) to get started. | Linux/Windows 
+Scenario          | Actions in serial console                
+:------------------|:-----------------------------------------
+Broken FSTAB file | `Enter` key to continue and fix fstab file using a text editor. You may need to be in single user mode for this. See [how to fix fstab issues](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) and [Using Serial Console to access GRUB and Single User Mode](serial-console-grub-single-user-mode.md) to get started.
+Incorrect firewall rules | Access serial console and fix iptables. 
+Filesystem corruption/check | Access serial console and recover filesystem. 
+SSH/RDP configuration issues | Access serial console and change settings. 
+Network lock down system| Access serial console via portal to manage system. 
+Interacting with bootloader | Access GRUB via the serial console. Go to [Using Serial Console to access GRUB and Single User Mode](serial-console-grub-single-user-mode.md) to get started. 
 
 ## Access Serial Console for Linux
 In order for serial console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) have the serial console configured by default. Simply clicking the Serial Console section in the Azure portal will provide access to the console. 
