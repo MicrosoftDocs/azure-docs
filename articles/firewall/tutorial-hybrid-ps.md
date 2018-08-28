@@ -9,7 +9,7 @@ ms.date: 9/25/2018
 ms.author: victorh
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall in a hybrid network so that I can control access from an on-premise newtork to an Azure VNet.
 ---
-# Tutorial: Deploy and configure Azure Firewall in a hybid network using Azure PowerShell
+# Tutorial: Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell
 
 
 In this tutorial, you learn how to:
@@ -20,10 +20,6 @@ In this tutorial, you learn how to:
 > * Create the routes
 > * Create the virtual machines
 > * Test the firewall
-
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-The examples in the Azure Firewall articles assume that you have already enabled the Azure Firewall public preview. For more information, see [Enable the Azure Firewall public preview](public-preview.md).
 
 For this tutorial, you create three VNets:
 - **VNet-FW** - the firewall is in this Vnet.
@@ -345,7 +341,7 @@ Now create the spoke workload and on-prem virtual machines, and place them in th
 
 ### Create the workload VM
 Create a VM in the spoke VNet, running IIS, with no public IP address, and allows pings in.
-When prompted, type a user name and passoword for the virtual machine.
+When prompted, type a user name and password for the virtual machine.
 
 ```azurepowershell
 # Create an inbound network security group rule for port 3389
@@ -396,7 +392,7 @@ Set-AzureRmVMExtension `
 ```
 
 ### Create the on-prem virtual machine
-A simple vitual machine that you can connect to using the public IP, and then connect to the on-prem server through the firewall. When prompted, type user name and passoword for the virtual machine.
+A simple virtual machine that you can connect to using the public IP, and then connect to the on-prem server through the firewall. When prompted, type user name and password for the virtual machine.
 ```azurepowershell
 New-AzureRmVm `
     -ResourceGroupName $RG1 `
@@ -425,7 +421,7 @@ $NIC.IpConfigurations.privateipaddress
 
 3. From **VM-Onprem**, open a remote desktop to **VM-spoke-01** at the private IP address.
 
-   You connection should succeed, and you should be able to logon using your chosen  usename and password.
+   You connection should succeed, and you should be able to log on using your chosen  username and password.
 
 Change the firewall network rule collection action to deny, to verify that the firewall rules work as expected. Run the following Azure PowerShell to change the network rule collection action to **Deny**.
 
@@ -439,7 +435,7 @@ $rcApp.action.type = "Deny"
 
 Set-AzureRmFirewall -AzureFirewall $fw
 ```
-Now run the the tests again. They should all fail this time. Close any existing remote desktops before testing the changed rules.
+Now run the tests again. They should all fail this time. Close any existing remote desktops before testing the changed rules.
 
 So now you have verified that the firewall rules are working:
 
