@@ -32,16 +32,12 @@
       href: pim-how-to-activate-role.md
     - name: Activate my resource roles
       href: pim-resource-roles-activate-your-roles.md
-    - name: Review my directory role access
-      href: pim-how-to-perform-security-review.md
-    - name: Review my resource role access
-      href: pim-resource-roles-perform-access-review.md
   - name: Configure PIM
     items:
-    - name: Grant access to others to manage PIM
-      href: pim-how-to-give-access-to-pim.md
     - name: Discover Azure resources
       href: pim-resource-roles-discover-resources.md
+    - name: Grant access to others to manage PIM
+      href: pim-how-to-give-access-to-pim.md
     - name: Enable subscription management
       href: pim-resource-roles-enable-subscription-management.md
   - name: Manage directory roles
@@ -56,10 +52,6 @@
       href: pim-how-to-configure-security-alerts.md
     - name: Approve requests
       href: azure-ad-pim-approval-workflow.md
-    - name: Start an access review
-      href: pim-how-to-start-security-review.md
-    - name: Complete an access review
-      href: pim-how-to-complete-review.md
     - name: View audit history
       href: pim-how-to-use-audit-log.md
   - name: Manage resource roles
@@ -78,11 +70,25 @@
       href: pim-resource-roles-approval-workflow.md
     - name: Extend or renew roles
       href: pim-resource-roles-renew-extend.md
-    - name: Start an access review
-      href: pim-resource-roles-start-access-review.md
-    - name: Complete an access review
-      href: pim-resource-roles-complete-access-review.md
     - name: View audit history
       href: pim-resource-roles-use-the-audit-log.md
     - name: Use custom roles
       href: pim-resource-roles-custom-role-policy.md
+  - name: Review access
+    items:
+    - name: Directory roles
+      items:
+      - name: Start an access review
+        href: pim-how-to-start-security-review.md
+      - name: Complete an access review
+        href: pim-how-to-complete-review.md
+      - name: Review my directory roles
+        href: pim-how-to-perform-security-review.md
+    - name: Resource roles
+      items:
+      - name: Start an access review
+        href: pim-resource-roles-start-access-review.md
+      - name: Complete an access review
+        href: pim-resource-roles-complete-access-review.md
+      - name: Review my resource roles
+        href: pim-resource-roles-perform-access-review.md
