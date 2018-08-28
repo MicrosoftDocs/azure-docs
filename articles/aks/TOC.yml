@@ -68,18 +68,18 @@
       href: azure-files-volume.md
   - name: Configure networking
     items:
-    - name: Networking overview
-      href: networking-overview.md
-    - name: Static IP address
-      href: static-ip.md
-    - name: Internal load balancer
-      href: internal-lb.md
-    - name: Ingress and TLS
-      href: ingress.md
-    - name: Egress traffic
-      href: egress.md
-    - name: HTTP application routing
+    - name: Create or use existing virtual network
+      href: configure-advanced-networking.md
+    - name: Configure Ingress HTTP application routing
       href: http-application-routing.md
+    - name: Create Ingress and TLS
+      href: ingress.md
+    - name: Create an internal load balancer
+      href: internal-lb.md
+    - name: Use a static IP addresses
+      href: static-ip.md
+    - name: Manage Egress traffic
+      href: egress.md
   - name: Security and authentication
     items:
     - name: Create service principal
