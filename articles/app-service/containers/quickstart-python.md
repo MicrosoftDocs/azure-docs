@@ -17,9 +17,9 @@ ms.date: 08/20/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Create a Python web app in Azure App Service on Linux
+# Create a Python web app in Azure App Service on Linux (Preview)
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Python app to App Service on Linux using the [Azure CLI](/cli/azure/install-azure-cli).
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Python app on top of the built-in Python image (Preview) in App Service on Linux using the [Azure CLI](/cli/azure/install-azure-cli).
 
 You can follow the steps in this article using a Mac, Windows, or Linux machine.
 
@@ -49,6 +49,8 @@ git pull origin built-in
 Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window and use the commands below to install the required dependencies and launch the built-in development server. 
 
 ```bash
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 FLASK_APP=application.py flask run
 ```
@@ -104,7 +106,7 @@ remote: Running post deployment command(s)...
 remote: Deployment successful.
 remote: App container will begin restart within 10 seconds.
 To https://user2234@cephalin-python.scm.azurewebsites.net/cephalin-python.git
- * [new branch]      built-in -> master
+ * [new branch]      master -> master
  ```
 
 ## Browse to the app
@@ -126,7 +128,7 @@ The Python sample code is running in a web app with built-in image.
 In the local repository, open the `application.py` file, and make a small change to the text in the last line:
 
 ```python
-return "Hello World!"
+return "Hello Azure!"
 ```
 
 Commit your changes in Git, and then push the code changes to Azure.
@@ -157,6 +159,8 @@ The left menu provides different pages for configuring your app.
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
+
+The built-in Python image in App Service on Linux is currently in Preview. You can create production Python apps using a custom container instead.
 
 > [!div class="nextstepaction"]
 > [Python with PostgreSQL in a custom container](tutorial-docker-python-postgresql-app.md)
