@@ -101,7 +101,7 @@ Contoso evaluates the proposed design by putting together a pros and cons list.
 
 ### Migration process
 
-Contoso will migrate the app frontend and database VMs to Azure VMs using Site Recovery:
+Contoso will migrate the app frontend and database VMs to Azure VMs with Site Recovery:
 
 - As a first step, Contoso prepares and sets up Azure components for Site Recovery, and prepares the on-premises VMware infrastructure.
 - They already have the [Azure infrastructure](contoso-migration-infrastructure.md) in place, so Contoso just needs to add a couple of Azure components specifically for Site Recovery.
