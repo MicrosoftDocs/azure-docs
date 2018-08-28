@@ -25,7 +25,7 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 * The [Node.js Azure Rest](https://www.npmjs.com/package/ms-rest-azure) module
     * Install using `npm install ms-rest-azure`
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Create and initialize the application
 

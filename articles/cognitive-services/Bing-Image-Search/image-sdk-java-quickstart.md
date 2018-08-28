@@ -34,7 +34,7 @@ Install the Bing Image Search SDK dependencies by using Maven, Gradle, or anothe
  </dependencies> 
 ```
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Create and initialize the application
 

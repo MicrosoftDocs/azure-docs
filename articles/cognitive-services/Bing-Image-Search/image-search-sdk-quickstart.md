@@ -24,6 +24,9 @@ Use this quickstart to make your first image search using the Bing Image Search 
 
 To install the Bing Image Search SDK in visual studio, use the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.
 
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+
 ## Create and initialize the application
 
 First, create a new C# console application in Visual Studio. Then add the following packages to your project.

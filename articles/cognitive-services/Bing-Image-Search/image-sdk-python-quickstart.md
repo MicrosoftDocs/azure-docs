@@ -24,7 +24,7 @@ The source code for this sample is available [on Github](https://github.com/Azur
 * The [Azure Image Search SDK](https://pypi.org/project/azure-cognitiveservices-search-imagesearch/) for Python
     * Install using `python -m pip install azure-cognitiveservices-search-imagesearch`
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Create and initialize the application
 
