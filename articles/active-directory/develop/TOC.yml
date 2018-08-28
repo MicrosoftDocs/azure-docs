@@ -176,7 +176,7 @@
     - name: Application objects and service principals
       href: app-objects-and-service-principals.md
     - name: Single tenant and multi-tenant apps
-      href: 
+      href: single-and-multi-tenant-apps.md
     - name: ID and access tokens
       href: 
     - name: Permissions and consent
@@ -190,16 +190,8 @@
       href: 
 - name: How-to guides
   items:
-  - name: Bring an app to market
-    items:
-    - name: Publish to App Source
-      href: howto-get-appsource-certified.md
-    - name: Publish an Office Add-in
-      href: 
-    - name: Publish to Azure AD App Gallery
-      href: howto-app-gallery-listing.md
-    - name: Publish to the Office 365 Seller Dashboard
-      href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store   
+  - name: Convert a single-tenant app to a multi-tenant app
+    href: howto-convert-app-to-be-multi-tenant.md
   - name: Customize app experiences
     items:
     - name: Branding guidelines
@@ -228,6 +220,16 @@
       href: vs-active-directory-webapi-what-happened.md
     - name: Error during authentication detection
       href: vs-active-directory-error.md
+  - name: Bring an app to market
+    items:
+    - name: Publish to App Source
+      href: howto-get-appsource-certified.md
+    - name: Publish an Office Add-in
+      href: 
+    - name: Publish to Azure AD App Gallery
+      href: howto-app-gallery-listing.md
+    - name: Publish to the Office 365 Seller Dashboard
+      href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store   
 - name: References
   items:
   - name: Application manifest
