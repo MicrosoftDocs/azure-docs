@@ -423,7 +423,13 @@ $NIC.IpConfigurations.privateipaddress
 
    You connection should succeed, and you should be able to log on using your chosen  username and password.
 
-Change the firewall network rule collection action to deny, to verify that the firewall rules work as expected. Run the following Azure PowerShell to change the network rule collection action to **Deny**.
+So now you have verified that the firewall rules are working:
+
+- You can ping the server on the spoke VNet.
+- You can browse web server on the spoke VNet.
+- You can connect to the server on the spoke VNet using RDP.
+
+Now change the firewall network rule collection action to **deny**, to verify that the firewall rules work as expected. Run the following Azure PowerShell to change the network rule collection action to **Deny**.
 
 ```azurepowershell
 $fw = Get-AzureRmFirewall -ResourceGroupName $RG1 -Name $Azfw
@@ -436,12 +442,6 @@ $rcApp.action.type = "Deny"
 Set-AzureRmFirewall -AzureFirewall $fw
 ```
 Now run the tests again. They should all fail this time. Close any existing remote desktops before testing the changed rules.
-
-So now you have verified that the firewall rules are working:
-
-- You can ping the server on the spoke VNet.
-- You can browse web server on the spoke VNet.
-- You can connect to the server on the spoke VNet using RDP.
 
 ## Clean up resources
 
