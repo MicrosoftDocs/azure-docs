@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 08/25/2018
 ---
 
 # Migrate logic apps to latest schema version
