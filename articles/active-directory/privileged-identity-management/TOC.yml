@@ -78,17 +78,17 @@
     items:
     - name: Directory roles
       items:
+      - name: Review my directory roles
+        href: pim-how-to-perform-security-review.md
       - name: Start an access review
         href: pim-how-to-start-security-review.md
       - name: Complete an access review
         href: pim-how-to-complete-review.md
-      - name: Review my directory roles
-        href: pim-how-to-perform-security-review.md
     - name: Resource roles
       items:
+      - name: Review my resource roles
+        href: pim-resource-roles-perform-access-review.md
       - name: Start an access review
         href: pim-resource-roles-start-access-review.md
       - name: Complete an access review
         href: pim-resource-roles-complete-access-review.md
-      - name: Review my resource roles
-        href: pim-resource-roles-perform-access-review.md
