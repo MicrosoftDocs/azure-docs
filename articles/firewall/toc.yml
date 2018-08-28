@@ -7,9 +7,11 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: 1. Deploy and configure
+  - name: Deploy and configure
     href: tutorial-firewall-deploy-portal.md
-  - name: 2. Monitor diagnostic logs
+  - name: Deploy in hybrid network
+    href: tutorial-hybrid-ps.md
+  - name: Monitor diagnostic logs
     href: tutorial-diagnostics.md
 - name: Samples
   items:
