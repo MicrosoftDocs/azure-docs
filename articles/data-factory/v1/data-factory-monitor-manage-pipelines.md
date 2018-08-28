@@ -286,7 +286,7 @@ In case the slice has failed validation because of a policy failure (for example
 ![Fix errors and validate](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### Use Azure PowerShell
-You can rerun failures by using the **Set-AzureRmDataFactorySliceStatus** cmdlet. See the [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) topic for syntax and other details about the cmdlet.
+You can rerun failures by using the **Set-AzureRmDataFactorySliceStatus** cmdlet. See the [Set-AzureRmDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus) topic for syntax and other details about the cmdlet.
 
 **Example:**
 

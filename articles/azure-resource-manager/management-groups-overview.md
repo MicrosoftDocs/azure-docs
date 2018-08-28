@@ -78,7 +78,7 @@ The following chart shows the list of roles and the supported actions on managem
 
 | RBAC Role Name             | Create | Rename | Move | Delete | Assign Access | Assign Policy | Read  |
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
-|Owner                       | X      | X      | X    | X      | X             |               | X     |
+|Owner                       | X      | X      | X    | X      | X             | X             | X     |
 |Contributor                 | X      | X      | X    | X      |               |               | X     |
 |MG Contributor*             | X      | X      | X    | X      |               |               | X     |
 |Reader                      |        |        |      |        |               |               | X     |

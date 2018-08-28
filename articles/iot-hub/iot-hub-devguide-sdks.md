@@ -61,6 +61,7 @@ Azure IoT Hub device SDK for iOS:
 
 ### OS platform and hardware compatibility
 
+Supported platforms for the SDKs can be found in this [document](iot-hub-device-sdk-platform-support.md).
 For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog][lnk-certified] or individual repository.
 
 ## Azure IoT service SDKs
@@ -112,6 +113,7 @@ Other reference topics in this IoT Hub developer guide include:
 * [Quotas and throttling][lnk-devguide-quotas]
 * [IoT Hub MQTT support][lnk-devguide-mqtt]
 * [IoT Hub REST API reference][lnk-rest-ref]
+* [Auzre IoT SDK platform support](iot-hub-device-sdk-platform-support.md)
 
 <!-- Links and images -->
 
@@ -137,7 +139,7 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-npm-service]: https://www.npmjs.com/package/azure-iothub
 [lnk-nuget-csharp-device]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-nuget-csharp-service]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[lnk-c-package]: https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md
+[lnk-c-package]: https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md
 [lnk-pip-device]: https://pypi.python.org/pypi/azure-iothub-device-client/
 [lnk-pip-service]: https://pypi.python.org/pypi/azure-iothub-service-client/
 

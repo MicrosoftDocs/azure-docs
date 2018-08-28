@@ -279,7 +279,7 @@ Instead of setting the sampling parameter in the .config file, you can programma
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
     ...
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.UseSampling(10.0); // percentage
 
     // If you have other telemetry processors:
@@ -324,9 +324,12 @@ If the conditions to use the other forms of sampling do not apply, we recommend 
 ## How do I know whether sampling is in operation?
 To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](app-insights-analytics.md) such as this:
 
-    requests | where timestamp > ago(1d)
-    | summarize 100/avg(itemCount) by bin(timestamp, 1h) 
-    | render areachart 
+```
+union * 
+| where timestamp > ago(1d)
+| summarize 100/avg(itemCount) by bin(timestamp, 1h), itemType
+| render timechart 
+```
 
 In each retained record, `itemCount` indicates the number of original records that it represents, equal to 1 + the number of previous discarded records. 
 

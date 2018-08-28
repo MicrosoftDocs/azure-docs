@@ -15,6 +15,8 @@
     href: sql-database-get-started-cli.md
   - name: Create DB - Azure PowerShell
     href: sql-database-get-started-powershell.md
+  - name: Create Managed Instance
+    href: sql-database-managed-instance-get-started.md
   - name: Connect and query
     href: sql-database-connect-query.md
     items:
@@ -83,7 +85,9 @@
     - name: DTU model
       href: sql-database-service-tiers-dtu.md
     - name: Resource limits
-      href: sql-database-resource-limits.md  
+      href: sql-database-resource-limits.md
+    - name: Prepay for reserved capacity
+      href: sql-database-reserved-capacity.md
   - name: Logical servers
     items: 
     - name: Create and manage
@@ -124,6 +128,8 @@
       href: sql-database-managed-instance-custom-dns.md
     - name: Sync network configuration
       href: sql-database-managed-instance-sync-network-configuration.md
+    - name: Connectivity architecture
+      href: sql-database-managed-instance-connectivity-architecture.md
     - name: Connect applications
       href: sql-database-managed-instance-connect-app.md
     - name: T-SQL differences
@@ -140,7 +146,7 @@
       items:
       - name: Long-term backup retention
         href: sql-database-long-term-retention.md
-      - name: Configure using Axure blob storage
+      - name: Configure using Azure blob storage
         href: sql-database-long-term-backup-retention-configure.md
       - name: Configure using Azure vault (deprecated)
         href: sql-database-long-term-backup-retention-configure-vault.md
@@ -230,6 +236,18 @@
         href: sql-database-always-encrypted.md
       - name: Use the Azure key vault
         href: sql-database-always-encrypted-azure-key-vault.md
+    - name: TDE with Azure SQL
+      items:
+      - name: TDE with Azure SQL  
+        href: transparent-data-encryption-azure-sql.md
+      - name: TDE with Bring Your Own Key
+        href: transparent-data-encryption-byok-azure-sql.md
+      - name: Configure TDE with BYOK
+        href: transparent-data-encryption-byok-azure-sql-configure.md
+      - name: Rotate TDE BYOK keys
+        href: transparent-data-encryption-byok-azure-sql-key-rotation.md
+      - name: Remove TDE protector
+        href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
   - name: Elastic scalability
     items:
     - name: Resource scalability
@@ -288,6 +306,12 @@
       href: sql-database-single-database-monitor.md
     - name: Perf recommendations
       href: sql-database-advisor.md
+    - name: Intelligent query processing
+      items:
+      - name: Intelligent query processing
+        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+      - name: Adaptive query processing
+        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
     - name: Automatic tuning
       items:
       - name: Automatic tuning
@@ -458,7 +482,7 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
-  - name: Multi-tenant SaaS reference architecture
+  - name: Multi-tenant SaaS sample application
     items:
     - name: Wingtip Tickets sample
       href: saas-tenancy-welcome-wingtip-tickets-app.md

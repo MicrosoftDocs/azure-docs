@@ -4,7 +4,7 @@ description: Describes how to assess large numbers of on-premises machines by us
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/25/2018
 ms.author: raynew
 ---
 
@@ -19,7 +19,7 @@ Azure Migrate has a limit of 1500 machines per project, this article describes h
 - **VMware**: The VMs that you plan to migrate must be managed by vCenter Server version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.0 or later to deploy the collector VM.
 - **vCenter account**: You need a read-only account to access vCenter Server. Azure Migrate uses this account to discover the on-premises VMs.
 - **Permissions**: In vCenter Server, you need permissions to create a VM by importing a file in OVA format.
-- **Statistics settings**: The statistics settings for vCenter Server should be set to level 3 before you start deployment. If the level is lower than 3, the assessment will work, but performance data for storage and network won't be collected. The size recommendations in this case will be based on performance data for CPU and memory, and configuration data for disk and network adapters.
+- **Statistics settings**: The statistics settings for vCenter Server should be set to level 3 before you start deployment. The statistics level is to be set to 3 for each of the day, week, and month collection intervals. If the level is lower than 3 for any of the three collection intervals, the assessment will work, but the performance data for storage and network won't be collected. The size recommendations will then be based on performance data for CPU and memory, and configuration data for disk and network adapters.
 
 
 ### Set up permissions
@@ -72,7 +72,7 @@ If you have multiple vCenter Servers in your environment, and the total number o
 
 ### Multiple vCenter Servers with more than 1500 VMs
 
-If you have multiple vCenter Servers with less than 1500 virtual machines per vCenter Server, but more than 1500 VMs across all vCenter Serves, you need to create multiple migration projects (one migration project can hold only 1500 VMs). You can achieve this by creating a migration project per vCenter Server and splitting the discoveries. You can use a single collector to discover each vCenter Server (one after another). If you want the discoveries to start at the same time, you can also deploy multiple appliances and run the discoveries in parallel.
+If you have multiple vCenter Servers with less than 1500 virtual machines per vCenter Server, but more than 1500 VMs across all vCenter Servers, you need to create multiple migration projects (one migration project can hold only 1500 VMs). You can achieve this by creating a migration project per vCenter Server and splitting the discoveries. You can use a single collector to discover each vCenter Server (one after another). If you want the discoveries to start at the same time, you can also deploy multiple appliances and run the discoveries in parallel.
 
 ### More than 1500 machines in a single vCenter Server
 
@@ -91,7 +91,7 @@ Once you are ready with your plan, you can then start discovery of the on-premis
 Create an Azure Migrate project in accordance with your requirements:
 
 1. In the Azure portal, select **Create a resource**.
-2. Search for **Azure Migrate**, and select the service **Azure Migrate (preview)** in the search results. Then select **Create**.
+2. Search for **Azure Migrate**, and select the service **Azure Migrate** in the search results. Then select **Create**.
 3. Specify a project name and the Azure subscription for the project.
 4. Create a new resource group.
 5. Specify the location in which you want to create the project, and then select **Create**. Note that you can still assess your VMs for a different target location. The location specified for the project is used to store the metadata gathered from on-premises VMs.

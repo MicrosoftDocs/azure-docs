@@ -4,7 +4,7 @@ description: Use a simulated device on your Windows machine to test automatic de
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -53,6 +53,8 @@ After creating the individual enrollment, save the value of the **Registration I
 
 ## Install the IoT Edge runtime
 
+After completing the previous section, you should see your new device listed as an IoT Edge device in your IoT Hub. Now, you need to install the IoT Edge runtime on your device. 
+
 The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge. On devices running Windows, you can choose to either use Windows containers or Linux containers. Choose the type of containers that you want to use, and follow the steps. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning. 
 
 Follow the instructions to install the IoT Edge runtime on the device that is running the simulated TPM from the previous section. 
@@ -62,30 +64,9 @@ Know your DPS **ID Scope** and device **Registration ID** before beginning these
 * [Windows containers](how-to-install-iot-edge-windows-with-windows.md)
 * [Linux containers](how-to-install-iot-edge-windows-with-linux.md)
 
-## Create a TPM environment variable
-
-On the machine running your simulated device, modify the **iotedge** service registry to set an environment variable.
-
-1. From the **Start** menu, open **regedit**. 
-2. Navigate to **Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\iotedge**. 
-3. Select **Edit** > **New** > **Multi-String Value**. 
-4. Enter the name **Environment**. 
-5. Double-click the new variable and set the value data to **IOTEDGE_USE_TPM_DEVICE=ON**. 
-6. Click **OK** to save your changes. 
-
-## Restart the IoT Edge runtime
-
-Restart the IoT Edge runtime so that it picks up all the configuration changes that you made on the device. 
-
-```powershell
-Stop-Service iotedge -NoWait
-sleep 5
-Start-Service iotedge
-```
-
 ## Verify successful installation
 
-If the runtime started successfully, you can go into your IoT Hub and see that your new device was automatically provisioned and is ready to run IoT Edge modules. 
+If the runtime started successfully, you can go into your IoT Hub and start deploying IoT Edge modules to your device. Use the following commands on your device to verify that the runtime installed and started successfully.  
 
 Check the status of the IoT Edge service.
 

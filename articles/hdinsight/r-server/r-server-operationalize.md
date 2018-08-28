@@ -1,19 +1,14 @@
-﻿---
-title: Operationalize ML Services on HDInsight - Azure | Microsoft Docs
+---
+title: Operationalize ML Services on HDInsight - Azure 
 description: Learn how to operationalize ML Services in Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-
 ---
 # Operationalize ML Services cluster on Azure HDInsight
 
@@ -120,7 +115,7 @@ If your cluster is not set up on vnet or if you are having troubles with connect
 
 	ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-Once your SSH session is active, the traffic from your machine’s port 12800 is forwarded to the edge node’s port 12800 through SSH session. Make sure you use `127.0.0.1:12800` in your `remoteLogin()` method. This logs into the edge node’s operationalization through port forwarding.
+Once your SSH session is active, the traffic from your local machine's port 12800 is forwarded to the edge node's port 12800 through SSH session. Make sure you use `127.0.0.1:12800` in your `remoteLogin()` method. This logs into the edge node's operationalization through port forwarding.
 
 
 	library(mrsdeploy)

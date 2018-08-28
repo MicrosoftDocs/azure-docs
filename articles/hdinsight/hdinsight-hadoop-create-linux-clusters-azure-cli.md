@@ -1,20 +1,15 @@
 ---
-title: Create Hadoop clusters using the command-line - Azure HDInsight | Microsoft Docs
+title: Create Hadoop clusters using the command-line - Azure HDInsight 
 description: Learn how to create HDInsight clusters using the cross-platform Azure CLI 1.0.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 50b01483-455c-4d87-b754-2229005a8ab9
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Create HDInsight clusters using the Azure CLI

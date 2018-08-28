@@ -33,6 +33,22 @@ After reading this article, you'll be able to answer the following questions:
 * How do I make changes to a collection’s indexing policy?
 * How do I compare storage and performance of different indexing policies?
 
+## <a id="Indexing"></a> Cosmos DB indexing
+
+The purpose of database indexes is to serve queries in their various forms and shapes with minimum resource consumption (like CPU and input/output) while providing good throughput and low latency. Often, the choice of the right index for querying a database requires much planning and experimentation. This approach poses a challenge for schema-less databases where the data doesn’t conform to a strict schema and evolves rapidly. 
+
+Therefore, when we designed the Cosmos DB indexing subsystem, we set the following goals:
+
+* Index documents without requiring schema: The indexing subsystem does not require any schema information or make any assumptions about schema of the documents.  
+
+* Support for efficient, rich hierarchical, and relational queries: The index supports the Cosmos DB query language efficiently, including support for hierarchical and relational projections.  
+
+* Support for consistent queries in face of a sustained volume of writes: For high write throughput workloads with consistent queries, the index is updated incrementally, efficiently, and online in the face of a sustained volume of writes. The consistent index update is crucial to serve the queries at the consistency level in which the user configured the document service.  
+
+* Support for multi-tenancy: Given the reservation-based model for resource governance across tenants, index updates are performed within the budget of system resources (CPU, memory, and input/output operations per second) allocated per replica.  
+
+* Storage efficiency: For cost effectiveness, the on-disk storage overhead of the index is bounded and predictable. This is crucial because Cosmos DB allows the developer to make cost-based tradeoffs between index overhead in relation to the query performance.  
+
 ## Customize the indexing policy of a collection <a id="CustomizingIndexingPolicy"></a>  
 You can customize the trade-offs between storage, write and query performance, and query consistency by overriding the default indexing policy on an Azure Cosmos DB collection. You can configure the following aspects:
 
@@ -320,9 +336,9 @@ In Azure Cosmos DB, you can make changes to the indexing policy of a collection 
 
 ![How indexing works – Azure Cosmos DB online index transformations](./media/indexing-policies/index-transformations.png)
 
-Index transformations are made online. This means that the documents indexed per the old policy are efficiently transformed per the new policy *without affecting the write availability or the provisioned throughput* of the collection. The consistency of read and write operations made by using the REST API, SDKs, or from within stored procedures and triggers is not affected during index transformation. There's no performance degradation or downtime to your apps when you make an indexing policy change.
+Index transformations are made online. This means that the documents indexed per the old policy are efficiently transformed per the new policy *without affecting the write availability or the provisioned throughput* of the collection. The consistency of read and write operations made by using the REST API, SDKs, or from within stored procedures and triggers is not affected during index transformation. 
 
-However, during the time that index transformation is progress, queries are eventually consistent regardless of the indexing mode configuration (Consistent or Lazy). This also applies to queries from all interfaces: REST API, SDKs, and from within stored procedures and triggers. Just like with Lazy indexing, index transformation is performed asynchronously in the background on the replicas by using the spare resources that are available for a specific replica. 
+Changing indexing policy is an asynchronous process and the time to complete the operation depends on the number of documents, provisioned RUs, and size of documents. While re-indexing is in progress, your query may not return all matching results if the query uses the index that is being modified and queries will not return any errors/failures. While re-indexing is in progress, queries are eventually consistent regardless of the indexing mode configuration(Consistent or Lazy). After the index transformation is complete, you will continue to see consistent results. This also applies to queries from all interfaces: REST API, SDKs, and from within stored procedures and triggers. Just like with Lazy indexing, index transformation is performed asynchronously in the background on the replicas by using the spare resources that are available for a specific replica. 
 
 Index transformations are also made in place. Azure Cosmos DB doesn't maintain two copies of the index and swap out the old index with the new one. This means that no additional disk space is required or consumed in your collections while index transformations occur.
 
