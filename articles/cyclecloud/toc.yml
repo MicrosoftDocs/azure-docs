@@ -110,17 +110,15 @@
   items:
   - name: Cluster Reference
     items:
-      - name: Clusters
-        href: ~/cluster-references/cluster-reference.md
-      - name: Build a Cluster Template
-        href: ~/cluster-references/build-cluster-template.md
-      - name: Cluster Template File Reference
+      - name: Cluster Parameters
+        href: ~/cluster-references/cluster-template-reference.md
+      - name: Cluster Template File
         href: ~/cluster-references/cluster-template-files.md
-      - name: Cluster Configuration
-        href: ~/cluster-references/cluster-configuration.md
-      - name: Node and Nodearray Parameters
+      - name: Cluster
+        href: ~/cluster-references/build-cluster-template.md
+      - name: Node and Nodearray
         href: ~/cluster-references/nodes-in-cluster-templates.md
-      - name: Volumes
+      - name: Volume
         href: ~/cluster-references/volume-reference.md
       - name: Network Interface
         href: ~/cluster-references/network-interface.md
@@ -128,10 +126,10 @@
         href: ~/cluster-references/cluster-init-reference.md
       - name: Input-Endpoint
         href: ~/cluster-references/input-endpoint.md
-      - name: Parameters
+      - name: Cluster Configuration
+        href: ~/cluster-references/cluster-configuration.md
+      - name: Cluster Parameters
         href: ~/cluster-references/parameter-reference.md
-      - name: Cluster Template Reference
-        href: ~/cluster-references/cluster-template-reference.md
       - name: Download Existing Cluster Templates
         href: download-cluster-templates.md
   - name: Jetpack
