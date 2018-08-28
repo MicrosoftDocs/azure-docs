@@ -26,7 +26,7 @@ This article covers registering as a cloud marketplace publisher. Depending on y
 |  | Registration step | Duration | Details |  
 |:--- |:--- |:--- |:--- |  
 | 1 | Register in Microsoft Partner Network | 15 min | [Register in Microsoft Partner Network](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
-| 2 | Create a Microsoft Account <ul>(required for Azure Marketplace transact offers; recommended for others)</ul> | 15 minutes | [Create a Microsoft ID](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 2 | Create a Microsoft Account <ul>(required for Azure Marketplace transact offers; recommended for others)</ul> | 15 min | [Create a Microsoft ID](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
 | 3 | Submit the marketplace registration form | 15 min | [Submit the marketplace nomination form](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
 | 4 |  Sign into Cloud Partner Portal | 1-3 days | [Sign into Cloud Partner Portal](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
 | 5 | Register in Microsoft Developer Center (Dev Center) (for Azure Marketplace transact offers) | 5-10 days | [Register in Dev Center](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
@@ -71,7 +71,7 @@ You will be asked to include the following information:
 
 ---  
 ## 4. Sign into Cloud Partner Portal
-| 1-3 days|
+| 1-3 days | <br>
 Our Marketplace Onboarding Team will review and validate the marketplace registration details provided in step 3. Once approved, you will receive a welcome email with account credentials and guidance on signing-in to the [Cloud Partner Portal](https://cloudpartner.azure.com).
 
 You will use the [Cloud Partner Portal](https://cloudpartner.azure.com) to create, publish, and manage marketplace offers. Once you receive the approval welcome email, you can immediately log into the [Cloud Partner Portal](https://cloudpartner.azure.com) with your Microsoft account to access additional technical information about publishing to marketplace and creating your offer. 
