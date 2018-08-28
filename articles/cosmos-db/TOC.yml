@@ -436,15 +436,12 @@
         href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
       - name: Use Spring Boot Starter
         href: https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json
-
-
     - name: Visualize data
       items: 
           - name: Visualize using Power BI connector
             href: powerbi-visualize.md
           - name: Visualize using ODBC driver 
             href: odbc-driver.md
-
     - name : Backup and restore
       href: online-backup-and-restore.md
     - name : High availability
