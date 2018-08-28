@@ -29,7 +29,7 @@ As you notice in the preceding architecture description, there are a number of c
 
 To create your own regional disaster recovery topology, follow these requirements:
 
-   1. Provision multiple Azure Databricks workspaces in a separate Azure region. For example, create the primary Azure Databricks workspace in East US2. Create the secondary disaster-recovery Azure Databricks workspace in a separate region, such as West US.
+   1. Provision multiple Azure Databricks workspaces in separate Azure regions. For example, create the primary Azure Databricks workspace in East US2. Create the secondary disaster-recovery Azure Databricks workspace in a separate region, such as West US.
 
    2. Use [Geo-redundant storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage). The data associated Azure Databricks is stored by default in Azure Storage. The results from Databricks jobs are also stored in Azure Blob Storage, so that the processed data is durable and remains highly available after cluster is terminated. As the Storage and Databricks cluster are co-located, you must use Geo-redundant storage so that data can be accessed in secondary region if primary region is no longer accessible.
 
@@ -52,7 +52,7 @@ To create your own regional disaster recovery topology, follow these requirement
 
 2. Configure two profiles. One for the primary workspace, and another one for the secondary workspace:
 
-   ```python
+   ```bash
    databricks configure --profile primary
    databricks configure --profile secondary
    ```
@@ -64,7 +64,7 @@ To create your own regional disaster recovery topology, follow these requirement
    ```
 
    You can manually switch at the command line if needed:
-   ```python
+   ```bash
    databricks workspace ls --profile primary
    databricks workspace ls --profile secondary
    ```
