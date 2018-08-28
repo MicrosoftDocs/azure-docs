@@ -25,7 +25,7 @@ You can create a Ubuntu Server 16.04 LTS virtual machine by using the Azure Stac
 * Clean up your resources.
 
 > [!NOTE]  
-> The screen images in this article are updated to match the user inferface that is introduced with Azure Stack version 1808. 1808 adds support for using managed disk in addition to unmanaged disks. If you use an earlier version, some images like disk selection, will be different than what is displayed in this article.  
+> The screen images in this article are updated to match changes introduced with Azure Stack version 1808. 1808 adds support for using *managed disks* in addition to unmanaged disks. If you use an earlier version, some images for tasks like disk selection will be different than what is displayed in this article.  
 
 
 ## Prerequisites
@@ -81,9 +81,9 @@ Sign in to the Azure Stack portal. The address of the Azure Stack portal depends
 
    ![Size panel - Choose a virtual machine size](media/azure-stack-quick-linux-portal/linux-02.PNG)
 
-6. On the **Settings** page, make any sesired changes to the defaults.
+6. On the **Settings** page, make any desired changes to the defaults.
    
-    - Begining with Azure Stack version 1808, for **Storage** you can use *managed disks*. Prior to version 1808 only unmanaged disks can be used.  
+    - Beginning with Azure Stack version 1808, you can configure **Storage** where you can choose to use *managed disks*. Prior to version 1808 only unmanaged disks can be used.    
       ![Configure storage for managed disks](media/azure-stack-quick-linux-portal/linux-03.PNG)
     
     When your configurations are ready, select **OK** to continue.
