@@ -52,6 +52,8 @@
 ### [Restore a deleted user](fundamentals/active-directory-users-restore.md)
 ### [Add guest users from another directory (B2B)](b2b/what-is-b2b.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
+#### [Tutorials](b2b/tutorial-bulk-invite.md)
+##### [Bulk invite B2B guest users](b2b/tutorial-bulk-invite.md)
 #### [Information workers adding B2B users](b2b/add-users-information-worker.md)
 #### [API and customization](b2b/customize-invitation-api.md)
 #### [Code and Azure PowerShell samples](b2b/code-samples.md)
