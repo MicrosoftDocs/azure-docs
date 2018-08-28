@@ -37,7 +37,7 @@ Before you begin, make sure that:
     - Run a [Supported operating system](data-box-disk-system-requirements.md).
     - Have [Windows PowerShell 4 installed](https://www.microsoft.com/download/details.aspx?id=40855).
     - Have [.NET Framework 4.5.1 installed](https://www.microsoft.com/download/details.aspx?id=30653).
-    - Have BitLocker enabled. For more information, see how to [Enable BitLocker on Windows 2012 R2 systems](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
+    - Have BitLocker enabled. For more information, see how to [Enable BitLocker on Windows 2012 R2 systems](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-how-to-deploy-on-windows-server).
 
 ## Unpack your disks
 
