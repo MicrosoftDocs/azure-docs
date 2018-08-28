@@ -21,7 +21,7 @@ This article helps you to add and remove a group from another group using the Az
 If you're trying to delete the parent group, see [How to update or delete a group and its members](active-directory-groups-delete-group-and-members.md).
 
 ## Add a group as a member to another group
-You can add an existing group to another existing group, creating a member group (sub-group) and an assigned-to (parent) group. The member group inherits the attributes and properties of the assigned-to group, saving you configuration time.
+You can add an existing group to another existing group, creating a member group (subgroup) and an assigned-to (parent) group. The member group inherits the attributes and properties of the assigned-to group, saving you configuration time.
 
 ### To add a group as a member to another group
 
@@ -36,7 +36,7 @@ You can add an existing group to another existing group, creating a member group
 
     ![Groups - All groups blade with MDM policy - West group selected](media/active-directory-groups-membership-azure-portal/group-all-groups-screen.png)
 
-4. On the **MDM policy - West - Group memberships** blade, select **Group memberships**, select **Add**, search for and select the group you want your group to be a member of, and then choose **Select**. For this exercise, we're using the **MDM policy - All org** group.
+4. On the **MDM policy - West - Group memberships** blade, select **Group memberships**, select **Add**, locate the group you want your group to be a member of, and then choose **Select**. For this exercise, we're using the **MDM policy - All org** group.
 
     The **MDM policy - West** group is now a member of the **MDM policy - All org** group, inheriting all the properties and configuration of the MDM policy - All org group.
 
