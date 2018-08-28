@@ -19,7 +19,7 @@ ms.custom: pim
 
 A privileged role administrator can customize Azure AD Privileged Identity Management (PIM) in their organization, including changing the experience for a user who is activating an eligible role assignment.
 
-## Open the role settings
+## Open role settings
 
 1. Open **Azure AD Privileged Identity Management**.
 

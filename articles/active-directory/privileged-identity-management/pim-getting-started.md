@@ -23,7 +23,7 @@ This article tells you how to add the Azure AD PIM app to your Azure portal dash
 
 ## First person to use PIM
 
-If you're the first person to use PIM in your directory, you are automatically assigned the [Security administrator](../users-groups-roles/directory-assign-admin-roles#security-administrator) and [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles#privileged-role-administrator) roles in the directory. Only privileged role administrators can manage Azure AD directory role assignments of users. In addition, you may choose to run the [security wizard.](pim-security-wizard.md) that walks you through the initial discovery and assignment experience.
+If you're the first person to use PIM in your directory, you are automatically assigned the [Security administrator](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) and [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) roles in the directory. Only privileged role administrators can manage Azure AD directory role assignments of users. In addition, you may choose to run the [security wizard.](pim-security-wizard.md) that walks you through the initial discovery and assignment experience.
 
 ## Add PIM tile to the dashboard
 
