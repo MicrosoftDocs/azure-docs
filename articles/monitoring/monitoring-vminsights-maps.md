@@ -26,7 +26,13 @@ This article will help you understand the experience between the two perspective
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## View Map directly from a virtual machine 
-When you open VM Insights directly from a virtual machine, selecting the **Map** tab visualizes its dependencies, that is running process groups and processes with active network connections, over a specified time range.  By default, the map shows the last 30 minutes.  Using the **TimeRange** pill in the upper left-hand corner, you can query for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred).  
+To open VM Insights directly from a virtual machine, perform the following.
+
+1. In the Azure portal, select **Virtual Machines**. 
+2. From the list, choose a VM and in the **Monitoring** section choose **Insights (preview)**.  
+3. Select the **Map** tab.
+
+Map visualizes the VMs dependencies, that is running process groups and processes with active network connections, over a specified time range.  By default, the map shows the last 30 minutes.  Using the **TimeRange** pill in the upper left-hand corner, you can query for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred).  
 
 ![Direct VM map overview](./media/monitoring-vminsights-maps/map-direct-vm-01.png)
 
@@ -44,3 +50,10 @@ On the right-side of the pane, click on the **Log Events** icon to switch focus 
 
 Close *Log search** and return to the **Properties** pane and select **Alerts** to view alerts that alerts raised for the VM from health criteria.  
 
+![Machine alerts in Properties pane](./media/monitoring-vminsights-maps/properties-pane-alerts-01.png)
+
+The **Legend** option in the upper right-hand corner describes the symbols and roles on a map.  To zoom in for a closer look at your map and move the it around, the Zoom controls at the bottom right-hand side of the page sets the zoom level and fit the page to the size of the current page.  
+
+## View Map from Azure Monitor
+The Map feature when launched from Azure Monitor will show 
+When you open VM Insights from Azure Monitor by selecting **Virtual Machines (preview)** from the left and then , selecting the **Map** tab
