@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 08/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -322,6 +322,10 @@ This list assembles requirements for running SAP HANA on Azure (Larger Instances
 For the support matrix of the different SAP HANA versions with the different Linux versions, see [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
 For the compatibility matrix of the operating system and HLI firmware/driver versions, refer [OS Upgrade for HLI](os-upgrade-hana-large-instance.md).
+
+
+> [!IMPORTANT] 
+> For Type II units only the SLES 12 SP2 OS version is supported at this point. 
 
 
 **Database**

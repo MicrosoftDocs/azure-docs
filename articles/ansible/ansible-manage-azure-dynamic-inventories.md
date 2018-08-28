@@ -4,7 +4,7 @@ description: Learn how to use Ansible to manage your Azure dynamic inventories
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 author: tomarcher
-manager: routlaw
+manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: article

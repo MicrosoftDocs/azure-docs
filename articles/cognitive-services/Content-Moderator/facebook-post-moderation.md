@@ -62,7 +62,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 | App Setting | Description   | 
 | -------------------- |-------------|
 | cm:TeamId   | Your Content Moderator TeamId  | 
-| cm:SubscriptionKey | Your Content Moderator subscription key - See [Credentials](/review-tool-user-guide/credentials.md) | 
+| cm:SubscriptionKey | Your Content Moderator subscription key - See [Credentials](review-tool-user-guide/credentials.md) | 
 | cm:Region | Your Content Moderator region name, without the spaces. See preceding note. |
 | cm:ImageWorkflow | Name of the workflow to run on Images |
 | cm:TextWorkflow | Name of the workflow to run on Text |
