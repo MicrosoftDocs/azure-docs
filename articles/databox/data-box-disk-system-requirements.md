@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2018
+ms.date: 08/28/2018
 ms.author: alkohli
 ---
 # Azure Data Box Disk system requirements (Preview)
@@ -35,7 +35,8 @@ Here is a list of the supported operating systems for the disk unlock and data c
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
 | Windows |7, 8, 10 |
 | Windows PowerShell |4.0 |
-| .NET Framework |4.5 |
+| .NET Framework |4.5.1 |
+| Windows Management Framework |4.0|
 
 > [!NOTE] 
 > BitLocker needs to be enabled on the clients that run the disk unlock tool and are used to copy the data.
