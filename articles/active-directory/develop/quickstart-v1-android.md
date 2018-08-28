@@ -28,7 +28,7 @@ If you're developing an Android application, Microsoft makes it simple and strai
 The Azure AD Authentication Library (ADAL) Android library gives your app the ability to begin using the
 [Microsoft Azure Cloud](https://cloud.microsoft.com) & [Microsoft Graph API](https://graph.microsoft.io) by supporting [Microsoft Azure Active Directory accounts](https://azure.microsoft.com/services/active-directory/) using industry standard OAuth 2.0 and OpenID Connect.
 
-In this quickstart, you'll go through all the normal lifecycles your application should experience. These are:
+In this quickstart, we'll show you how to:
 
 * Get a token for the Microsoft Graph
 * Refresh a token

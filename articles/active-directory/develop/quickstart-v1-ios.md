@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) provides the Active Directory Authentication L
 * Gets access tokens for calling the Azure AD Graph API by using the OAuth 2.0 authentication protocol
 * Searches a directory for users with a given alias
 
-To build the complete working application, you need to:
+In this quickstart, we'll show you how to:
 
 1. Register your application with Azure AD.
 1. Install and configure ADAL.
@@ -36,10 +36,10 @@ To build the complete working application, you need to:
 
 ## Prerequisites
 
-To get started, complete these requirements:
+To get started, complete these prerequisites:
 
-1. [Download the app skeleton](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).
-1. Have an Azure AD tenant in which you can create users and register an application. If you don't already have a tenant, [learn how to get one](quickstart-create-new-tenant.md).
+* [Download the app skeleton](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).
+* Have an Azure AD tenant in which you can create users and register an application. If you don't already have a tenant, [learn how to get one](quickstart-create-new-tenant.md).
 
 > [!TIP]
 > Try the [developer portal](https://identity.microsoft.com/Docs/iOS) to get up and running with Azure AD in just a few minutes. The developer portal guides you through the process of registering an app and integrating Azure AD into your code. When you’re finished, you'll have a simple application that can authenticate users in your tenant, and a back end that can accept tokens and perform validation.
