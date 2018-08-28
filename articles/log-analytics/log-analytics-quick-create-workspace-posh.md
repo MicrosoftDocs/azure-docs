@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptal
-ms.date: 08/23/2018
+ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: na
 ---
@@ -107,6 +107,7 @@ The following parameters set a default value:
        ]
     }
     ```
+
 2. Edit the template to meet your requirements.  Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.   
 4. You are ready to deploy this template. Use the following commands from the folder containing the template:
