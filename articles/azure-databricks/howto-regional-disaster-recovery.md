@@ -13,7 +13,7 @@ ms.date: 08/27/2018
 
 This article describes a disaster recovery architecture useful for Azure Databricks clusters, and the steps to accomplish that design.
 
-## Azure Databricks Overview
+## Azure Databricks overview
 
 Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics service. For a big data pipeline, the data (raw or structured) is ingested into Azure through Azure Data Factory in batches, or streamed near real-time using Kafka, Event Hub, or IoT Hub. This data lands in a data lake for long term persisted storage, in Azure Blob Storage or Azure Data Lake Storage. As part of your analytics workflow, use Azure Databricks to read data from multiple data sources such as [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml), or [Azure SQL Data Warehouse](../sql-data-warehouse/index.md) and turn it into breakthrough insights using Spark.
 
