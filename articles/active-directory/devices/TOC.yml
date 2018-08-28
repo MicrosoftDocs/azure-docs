@@ -15,14 +15,11 @@
     href: hybrid-azuread-join-manual-steps.md
   - name: Configure Azure AD join during Windows 10 first-run experience
     href: azuread-joined-devices-frx.md
-- name: Concepts
-  expanded: false
-  items:
-  - name: Manage devices using the Azure portal
-    href: device-management-azure-portal.md
 - name: How-to guides
   expanded: true
   items:
+  - name: Manage devices using the Azure portal
+    href: device-management-azure-portal.md
   - name: Plan Azure AD join
     href: azureadjoin-plan.md
   - name: Plan your hybrid Azure AD join implementation
