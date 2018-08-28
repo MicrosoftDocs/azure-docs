@@ -177,7 +177,7 @@ Azure is built on a set of REST APIs that support the Azure portal UI. Most of t
 
 ### Azure Cloud Shell
 
-Administrators can access Azure PowerShell and Azure CLI through a browser-accessible experience called Azure Cloud Shell. This interactive interface provides a flexible tool for Linux and Windows administrators to use their command-line interface of choice, either Bash or PowerShell. Azure Cloud Shell can be access through the portal ,as a stand-alone web interface at [shell.azure.com](https://shell.azure.com), or from a number of other access points. For more information, see [Overview of Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+Administrators can access Azure PowerShell and Azure CLI through a browser-accessible experience called Azure Cloud Shell. This interactive interface provides a flexible tool for Linux and Windows administrators to use their command-line interface of choice, either Bash or PowerShell. Azure Cloud Shell can be access through the portal ,as a stand-alone web interface at [shell.azure.com](https://shell.azure.com), or from a number of other access points. For more information, see [Overview of Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ## Azure subscriptions
 
@@ -187,17 +187,17 @@ A subscription is a logical grouping of Azure services that is linked to an Azur
 
 Before you can work with Azure services, you need a subscription. Several subscription types are available.
 
-#### Free accounts: The link to sign up for a free account is on the [Azure website](https://azure.microsoft.com/). This gives you a credit over the course of 30 days to try any combination of resources in Azure. If you exceed your credit amount, your account is suspended. At the end of the trial, your services are decommissioned and will no longer work. You can upgrade to a pay-as-you-go subscription at any time.
+**Free accounts**: The link to sign up for a free account is on the [Azure website](https://azure.microsoft.com/). This gives you a credit over the course of 30 days to try any combination of resources in Azure. If you exceed your credit amount, your account is suspended. At the end of the trial, your services are decommissioned and will no longer work. You can upgrade to a pay-as-you-go subscription at any time.
 
-#### MSDN subscriptions: If you have an MSDN subscription, you get a specific amount in Azure credit each month. For example, if you have a Microsoft Visual Studio Enterprise with MSDN subscription, you get \$150 per month in Azure credit.
+**MSDN subscriptions**: If you have an MSDN subscription, you get a specific amount in Azure credit each month. For example, if you have a Microsoft Visual Studio Enterprise with MSDN subscription, you get \$150 per month in Azure credit.
 
 If you exceed the credit amount, your service are disabled until the next month starts. You can turn off the spending limit and add a credit card to be used for the additional costs. Some of these costs are discounted for MSDN accounts. For example, you pay the Linux price for VMs running Windows Server, and there is no additional charge for Microsoft servers such as Microsoft SQL Server. This makes MSDN accounts ideal for development and test scenarios.
 
-#### BizSpark accounts: The Microsoft BizSpark program provides many benefits to startups. One of those benefits is access to all the Microsoft software for development and test environments for up to five MSDN accounts. You get $150 in Azure credit for each of those five MSDN accounts, and you pay reduced rates for several of the Azure services, such as Virtual Machines.
+**BizSpark accounts**: The Microsoft BizSpark program provides many benefits to startups. One of those benefits is access to all the Microsoft software for development and test environments for up to five MSDN accounts. You get $150 in Azure credit for each of those five MSDN accounts, and you pay reduced rates for several of the Azure services, such as Virtual Machines.
 
-#### Pay-as-you-go: With this subscription, you pay for what you use by attaching a credit card or debit card to the account. If you are an organization, you can also be approved for invoicing.
+**Pay-as-you-go**: With this subscription, you pay for what you use by attaching a credit card or debit card to the account. If you are an organization, you can also be approved for invoicing.
 
-#### Enterprise agreements: With an enterprise agreement, you commit to using a certain number of services in Azure over the next year, and you pay that amount ahead of time. The commitment that you make is consumed throughout the year. If you exceed the commitment amount, you can pay the overage in arrears. Depending on the amount of the commitment, you get a discount on the services in Azure.
+**Enterprise agreements**: With an enterprise agreement, you commit to using a certain number of services in Azure over the next year, and you pay that amount ahead of time. The commitment that you make is consumed throughout the year. If you exceed the commitment amount, you can pay the overage in arrears. Depending on the amount of the commitment, you get a discount on the services in Azure.
 
 ### Grant administrative access to an Azure subscription
 
@@ -461,7 +461,7 @@ If you need to allow users to have controlled access to your storage resources, 
 
 ## Azure Virtual Network
 
-Virtual networks are necessary to support communications between virtual machines. You can define subnets, custom IP address, DNS settings, security filtering, and load balancing. Azure supports different uses cases: cloud-only networks or hybrid virtual networks. 
+Virtual networks are necessary to support communications between virtual machines. You can define subnets, custom IP address, DNS settings, security filtering, and load balancing. Azure supports different uses cases: cloud-only networks or hybrid virtual networks.
 
 ### Cloud-only virtual networks
 
@@ -485,7 +485,7 @@ There are several options for deploying a virtual network.
 
 - Azure Resource Manager Templates
 
->**When to use**: Anytime you are working with VMs in Azure, you will work with virtual networks. This allows for segmenting your VMs into public-facing and private subnets similar on-premises datacenters. 
+>**When to use**: Anytime you are working with VMs in Azure, you will work with virtual networks. This allows for segmenting your VMs into public-facing and private subnets similar on-premises datacenters.
 
 >**Get started**: Deploying an Azure virtual network by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new virtual network into a new or existing resource group. When you’re creating a new virtual machine from the portal, you can select an existing virtual network or create a new one. Get started and [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
 
