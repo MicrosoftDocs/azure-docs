@@ -22,9 +22,9 @@ In this tutorial, you learn how to:
 > * Test the firewall
 
 For this tutorial, you create three VNets:
-- **VNet-FW** - the firewall is in this Vnet.
-- **VNet-Workload** - the workload VNet represents the workload located on Azure.
-- **VNet-On-prem** - The On-prem VNet represents an on-premise network. In an actual deployment, it can be connected by either a VPN or Express Route connection. For simplicity, this tutorial uses a VPN connection, and an Azure-located VNet is used to represent on on-premise network.
+- **VNet-Hub** - the firewall is in this Vnet.
+- **VNet-Spoke** - the spoke VNet represents the workload located on Azure.
+- **VNet-Onprem** - The On-prem VNet represents an on-premise network. In an actual deployment, it can be connected by either a VPN or Express Route connection. For simplicity, this tutorial uses a VPN connection, and an Azure-located VNet is used to represent an on-premise network.
 
 <!-- Network diagram here -->
 
