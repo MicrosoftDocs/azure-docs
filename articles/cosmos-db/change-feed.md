@@ -510,7 +510,7 @@ Java library to read change feed is available in [Github repository](https://git
 
 _etag format is internal and you should not depend on it (do not parse it) because it can change anytime.
 _ts is modification or creation time stamp. You can use _ts for chronological comparison.
-_lsn is is a batch id that is added only for change feed, it represents the transaction id from the store.. Many documents may have same _lsn.
+_lsn is a batch id that is added only for change feed, it represents the transaction id from the store.. Many documents may have same _lsn.
 One more thing to note, ETag on FeedResponse is different than the _etag you see on the document. _etag is an internal identifier and used to concurrency, it tells about the version of the document and ETag is used for sequencing the feed.
 
 ### Does reading change feed add any additional cost ?
