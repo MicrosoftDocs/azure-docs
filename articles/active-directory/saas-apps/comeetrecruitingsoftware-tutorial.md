@@ -106,14 +106,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
 
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Identifier, Reply URL. You will get these values from the Comeet portal as shown in the [support page](https://support.comeet.co/knowledgebase/adfs-single-sign-on/).
+
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Comeet Domain and URLs single sign-on information](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_url2.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.comeet.co`
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Comeet Client support team](https://support.comeet.co/knowledgebase/adfs-single-sign-on/) to get these values.
+    In the **Sign-on URL** textbox, type the URL: `https://app.comeet.co`
 
 5. Comeet application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **User Identifier** is **user.userprincipalname** but **Comeet** expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
@@ -145,7 +145,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/comeetrecruitingsoftware-tutorial/tutorial_general_400.png)
 
-9. To configure single sign-on on **Comeet** side, paste the content of the downloaded Metadata XML into Comeet, as shown in the [Support Page](https://support.comeet.co/knowledgebase/adfs-single-sign-on/). They will configure your Comeet organization to have the SAML SSO connection set properly on both sides.
+9. To configure single sign-on on **Comeet** side, paste the content of the downloaded Metadata XML into Comeet, as shown in the [Support Page](https://support.comeet.co/knowledgebase/adfs-single-sign-on/).
 
 ### Create an Azure AD test user
 
@@ -181,7 +181,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Create a Comeet test user
 
-In this section, you create a user called Britta Simon in Comeet. Work with [Comeet support team](https://support.comeet.co/knowledgebase/adfs-single-sign-on/) to add the users in the Comeet platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Comeet. Work with [Comeet support team](mailto:support@comeet.co) to add the users in the Comeet platform. Users must be created and activated before you use single sign-on.
 
 ### Assign the Azure AD test user
 
