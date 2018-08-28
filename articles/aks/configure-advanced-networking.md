@@ -15,7 +15,7 @@ ms.author: marsma
 
 By default, AKS clusters use *basic* networking, which creates and configures a virtual network and subnet for use with the cluster. For additional control of these networking options, such as the IP ranges, you can instead use *advanced* networking. With advanced networking, you can also create an AKS cluster in an existing virtual network and subnet. This existing virtual network often provides connectivity to an on-premises network using Azure ExpressRoute or Site-to-Site VPN.
 
-This article shows you how to use advanced networking to create and use a virtual network with an AKS cluster.
+This article shows you how to use advanced networking to create and use a virtual network with an AKS cluster. For more general information on networking, see [Network concepts for Kubernetes and AKS][aks-network-concepts].
 
 ## Prerequisites
 
@@ -161,3 +161,4 @@ Kubernetes clusters created with ACS Engine support both the [kubenet][kubenet] 
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: ssh.md
 [ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
+[aks-network-concepts]: concepts-network.md
