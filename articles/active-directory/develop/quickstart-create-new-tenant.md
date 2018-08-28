@@ -1,6 +1,6 @@
 ---
-title: Get an Azure Active Directory tenant | Microsoft Docs
-description: How to get an Azure Active Directory tenant for registering and building applications.
+title: Create an Azure Active Directory tenant | Microsoft Docs
+description: Learn how to create an Azure AD tenant to use for registering and building applications.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
+ms.reviewer: dadobali
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how I can get an Azure Active Directory tenant.
+#Customer intent: As an application developer, I need to create an Azure Active Directory tenant so I can use it to register applications.
 ---
 
-# Quickstart: Get an Azure Active Directory tenant
+# Quickstart: Create an Azure Active Directory tenant
 
 In Azure Active Directory (Azure AD), a [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#Anchor_0) is representative of an organization. It's a dedicated instance of the Azure AD service that an organization receives and owns when the organization creates a relationship with Microsoft--such as by signing up for a Microsoft cloud service like Azure, Microsoft Intune, or Office 365. Each Azure AD tenant is distinct and separate from other Azure AD tenants.
 

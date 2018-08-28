@@ -14,10 +14,10 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: quickstart
-ms.date: 04/30/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: jmprieur
+ms.reviewer: brandwe
 #Customer intent: As an application developer, I want to build an iOS application that integrates with Azure AD for sign-in and calls Azure AD protected APIs using OAuth 2.0.
 ---
 
