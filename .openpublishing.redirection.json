@@ -27377,6 +27377,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/aks/networking-overview.md",
+            "redirect_url": "/azure/aks/configure-advanced-networking.md",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/security-center/security-center-disk-encryption.md",
             "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
             "redirect_document_id": false
