@@ -511,7 +511,8 @@ run_config.prepare_environment = True
 
 The Web Portal makes it easy to attach existing compute targets from your subscription.
 
-> [!NOTE] The SDK and CLI are limited to only showing compute targets that are associated with the workspace.
+> [!NOTE]
+> The SDK and CLI are limited to only showing compute targets that are associated with the workspace.
 
 1. Visit the web portal and navigate to your workspace.
 2. Click on the **Compute** link under the Applications section.
