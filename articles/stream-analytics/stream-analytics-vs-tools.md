@@ -83,5 +83,5 @@ The **Test Connection** results are displayed in the **Output** window.
 
 * [Monitor and manage Azure Stream Analytics jobs using Visual Studio](stream-analytics-monitor-jobs-use-vs.md)
 * [Quickstart: Create a Stream Analytics job using Visual Studio](stream-analytics-quick-create-vs.md)
-* [Tutorial: Deploy an Azure Stream Analytics job with CI/CD using VSTS](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Tutorial: Deploy an Azure Stream Analytics job with CI/CD using Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Continuously integrate and develop with Stream Analytics tools](stream-analytics-tools-for-visual-studio-cicd.md)

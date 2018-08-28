@@ -77,9 +77,9 @@ If you're sharing the project with a team, then, it's best to clear the option i
 
 ### Deploying from a build server with Visual Studio 2017 version 15.5 and later
 
-You can deploy a cloud service project from a build server (for example, with Visual Studio Team Services) on which Visual Studio 2017 version 15.5 or later is installed in the build agent. With this arrangement, deployment happens from the same computer on which the encryption certificate is available.
+You can deploy a cloud service project from a build server (for example, with Azure DevOps Services) on which Visual Studio 2017 version 15.5 or later is installed in the build agent. With this arrangement, deployment happens from the same computer on which the encryption certificate is available.
 
-To use the RDP extension from Visual Studio Team Services, include the following details in your build definition:
+To use the RDP extension from Azure DevOps Services, include the following details in your build definition:
 
 1. Include `/p:ForceRDPExtensionOverPlugin=true` in your MSBuild arguments to make sure the deployment works with the RDP extension rather than the RDP plugin. For example:
 

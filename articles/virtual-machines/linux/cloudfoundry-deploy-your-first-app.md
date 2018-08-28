@@ -141,7 +141,7 @@ Running the `cf app` command on the application shows that Cloud Foundry is crea
 ## Next steps
 
 - [Read the Cloud Foundry documentation][cloudfoundry-docs]
-- [Set up the Visual Studio Team Services plugin for Cloud Foundry][vsts-plugin]
+- [Set up the Azure DevOps Services plugin for Cloud Foundry][vsts-plugin]
 - [Configure the Microsoft Log Analytics Nozzle for Cloud Foundry][loganalytics-nozzle]
 
 <!-- LINKS -->
