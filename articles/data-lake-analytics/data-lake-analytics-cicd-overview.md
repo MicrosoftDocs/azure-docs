@@ -1,21 +1,15 @@
 ---
-title: How to set up a CI/CD pipeline for Azure Data Lake Analytics | Microsoft Docs
-description: 'Learn how to set up continuous integration and continuous deployment for Azure Data Lake Analytics.'
+title: How to set up a CI/CD pipeline for Azure Data Lake Analytics
+description: Learn how to set up continuous integration and continuous deployment for Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager:  
-editor: 
-
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.author: yanacai
-
 ---
 # How to set up a CI/CD pipeline for Azure Data Lake Analytics  
 
@@ -436,16 +430,16 @@ Take the following steps to set up a database deployment task in Visual Studio T
         PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -AzureSDKPath <azure sdk path> -Interactive
         ```
 
-    * Use **secret** authentication to deploy a U-SQL database to an Azure Data Lake Analytics account:
+    * Use **secrete** authentication to deploy a U-SQL database to an Azure Data Lake Analytics account:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete>
         ```
 
     * Use **certFile** authentication to deploy a U-SQL database to an Azure Data Lake Analytics account:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret> -CertFile <certFile>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete> -CertFile <certFile>
         ```
 
 ### PackageDeploymentTool.exe parameter descriptions
@@ -476,9 +470,9 @@ Take the following steps to set up a database deployment task in Visual Studio T
 |AzureSDKPath|The path to search dependent assemblies in the Azure SDK.|null|true|
 |Interactive|Whether or not to use interactive mode for authentication.|false|false|
 |ClientId|The Azure AD application ID required for non-interactive authentication.|null|Required for non-interactive authentication.|
-|Secret|The secret or password for non-interactive authentication. It should be used only in a trusted and secure environment.|null|Required for non-interactive authentication, or else use SecretFile.|
-|SecretFile|The file saves the secret or password for non-interactive authentication. Make sure to keep it readable only by the current user.|null|Required for non-interactive authentication, or else use Secret.|
-|CertFile|The file saves X.509 certification for non-interactive authentication. The default is to use client secret authentication.|null|false|
+|Secrete|The secrete or password for non-interactive authentication. It should be used only in a trusted and secure environment.|null|Required for non-interactive authentication, or else use SecreteFile.|
+|SecreteFile|The file saves the secrete or password for non-interactive authentication. Make sure to keep it readable only by the current user.|null|Required for non-interactive authentication, or else use Secrete.|
+|CertFile|The file saves X.509 certification for non-interactive authentication. The default is to use client secrete authentication.|null|false|
 | JobPrefix | The prefix for database deployment of a U-SQL DDL job. | Deploy_ + DateTime.Now | false |
 
 ## Next steps
