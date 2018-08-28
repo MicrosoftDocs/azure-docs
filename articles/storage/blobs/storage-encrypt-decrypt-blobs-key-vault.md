@@ -7,7 +7,7 @@ author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: adhurwit
+ms.author: tamram
 ms.component: blobs
 ---
 

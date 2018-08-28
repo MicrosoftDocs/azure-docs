@@ -104,8 +104,6 @@
       href: groups-self-service-management.md
   - name: Assign licenses
     items:
-    - name: Assign licenses to users    
-      href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Assign licenses to a group    
       href: licensing-groups-assign.md
     - name: Resolve group license problems   

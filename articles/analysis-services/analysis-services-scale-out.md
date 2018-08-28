@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -32,19 +32,7 @@ When processing operations are completed, a synchronization must be performed be
 
 ## Region limits
 
-The number of query replicas you can configure are limited by the region your server is in. The following limits apply:
-
-|Region  |Max number of replicas  |
-|---------|---------|
-|East US 2    |    7     |
-|West Central US     |    7     |
-|West Europe     |    7     |
-|West US     |     7    |
-|Central US     |     3    |
-|Southeast Asia    |     3    |
-|All other regions  |   1    |
-
-
+The number of query replicas you can configure are limited by the region your server is in. To learn more, see [Availability by region](analysis-services-overview.md#availability-by-region).
 
 ## Monitor QPU usage
 
