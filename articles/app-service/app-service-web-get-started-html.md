@@ -89,7 +89,7 @@ This command may take a few minutes to run. While running, it displays informati
   "location": "westeurope",
   "name": "<app_name>",
   "os": "Windows",
-  "resourcegroup": "appsvc_rg_Windows_westeurope ",
+  "resourcegroup": "appsvc_rg_Windows_westeurope",
   "serverfarm": "appsvc_asp_Windows_westeurope",
   "sku": "FREE",
   "src_path": "/home/<username>/quickstart/html-docs-hello-world ",
@@ -146,7 +146,7 @@ The left menu provides different pages for configuring your app.
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell. Remember that the resource group name was automatically generated for you in the [create a web app](#create-a-web-app) step.
 
 ```bash
-az group delete --name appsvc_rg_Windows_CentralUS
+az group delete --name appsvc_rg_Windows_westeurope
 ```
 
 This command may take a minute to run.
