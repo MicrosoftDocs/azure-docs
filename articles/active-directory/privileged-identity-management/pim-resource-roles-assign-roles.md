@@ -18,6 +18,17 @@ ms.custom: pim
 
 # Assign Azure resource roles in PIM
 
+Azure AD PIM can manage the built-in Azure resource roles, as well as custom roles, including (but not limited to):
+
+- Owner
+- User Access Administrator
+- Contributor
+- Security Admin
+- Security Manager, and more
+
+>[!NOTE]
+Users or members of a group assigned to the Owner or User Access Administrator roles, and Global Administrators that enable subscription management in Azure AD are Resource Administrators. These administrators may assign roles, configure role settings, and review access using PIM for Azure Resources. View the list of [built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
+
 ## Assign roles
 
 To assign a user or group to a role when you're viewing the **Roles** pane, select the role, and then select **Add user**. 
