@@ -23339,8 +23339,8 @@
         },
         {
             "source_path": "articles/cognitive-services/Bing-Web-Search/sdk.md",
-            "redirect_url": "azure/cognitive-services/bing-web-search/sdk-samples",
-            "redirect_document_id": false
+            "redirect_url": "/azure/cognitive-services/bing-web-search/sdk-samples",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-understanding-resource-access.md",
