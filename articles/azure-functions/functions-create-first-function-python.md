@@ -1,118 +1,207 @@
 ---
-title: Create your first Python function from the Azure CLI (preview) | Microsoft Docs 
-description: Learn how to create your first Python function in Azure using the Azure CLI.
+title: Create your first Python function from the command line 
+description: Learn how to create your first Python function in Azure using the Azure Functions Core Tools and the Azure CLI.
 services: functions 
 keywords: 
 author: ggailey777
 ms.author: glenga
-ms.date: 04/21/2018
+ms.date: 08/27/2018
 ms.topic: quickstart
 ms.service: functions
 ms.custom: mvc
 ms.devlang: python
-manager: cfowler
+manager: jeconnoc
 ---
 
-# Create your first Python function using the Azure CLI (preview)
+# Create your first Python function using Core Tools and the Azure CLI (preview)
 
-Azure Functions supports Python for you to create, publish and run your Python functions in Azure. This functionality is currently in preview and requires [the Functions 2.0 runtime](functions-versions.md), which is also in preview.
+Azure Functions supports Python for you to create, publish and run your Python functions in Azure. This functionality is currently in preview and requires [the Functions 2.0 runtime](functions-versions.md).
 
-This quickstart topic walks you through how to use Azure Functions with the Azure CLI to create your first Python function app on Linux hosted on the default App Service container. The function code is created locally from a template and deployed to Azure using the [Azure Functions Core Tools](functions-run-local.md).   
+This quickstart topic walks you through how to use Azure Functions with the Azure CLI to create your first [serverless](https://azure.microsoft.com/overview/serverless-computing/) Python function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md).
 
-The following steps are supported on a Mac, Windows, or Linux computer. 
+The following steps are supported on a Mac, Windows, or Linux computer.
 
 ## Prerequisites 
 
 To complete this tutorial:
 
-+ Install [Python 3.6.4](https://www.python.org/downloads/) or a later version.
++ Install [Python 3.6.4](https://www.python.org/downloads/) or a later version of Python 3.x.
 
 + Install [Azure Core Tools version 2.x](functions-run-local.md#v2).
+
++ Install the [Azure CLI]( /cli/azure/install-azure-cli). This topic requires the Azure CLI version 2.0.21 or later. Run `az --version` to find the version you have.
 
 + You need an active Azure subscription.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create a Python virtual environment 
+## Create and activate a Python virtual environment
 
-
+You need a virtual environment to create a Python function app project locally using the Core Tools. The following command creates a virtual environment named `env`.
 
 ```bash
-python -m venv myenv
+python -m venv env
 ```
+
+You must active your environment using one of the following commands, depending on your operating system:
+
++ Terminal
+
+    ```bash
+    source env/bin/activate
+    ```
+
++ Command prompt
+
+    ```cmd
+    env\Scripts\activate.bat
+    ````
++ Powershell
+
+    ```powershell
+    .\env\Scripts\activate.ps1
+    ```
 
 ## Create the local function app project
 
+Run the following command in your `myenv` environment to create a Python function app project in the `MyFunctionProj` folder of the current local directory. A GitHub repo is also created in `MyFunctionProj`.
+
 ```bash
-func init MyFunctionProj --language Python
+func init MyFunctionProj --worker-runtime python
+```
+
+When the command executes, you see output like the following:
+
+```output
+Installing wheel package
+Installing azure-functions package
+Installing azure-functions-worker package
+Running pip freeze
+Writing .gitignore
+Writing host.json
+Writing local.settings.json
+Writing C:\functions\MyFunctionProj\.vscode\extensions.json
 ```
 
 ## Create a function
 
-
+The following command navigates to the new project and creates an HTTP triggered function named `MyHtpTrigger` using the  Python-specific `HTTP Trigger` template.
 
 ```bash
-func new --name HttpTriggerPython --template HttpTrigger --language Python
+cd MyFunctionProj
+func new --name MyHttpTrigger --template "Http Trigger"
 ```
 
+When the command executes, you see output like the following:
+
+```output
+Select a language: Select a template: Http Trigger
+Function name: [HttpTrigger] 
+Writing C:\functions\MyFunctionProj\HttpTrigger\sample.dat
+Writing C:\functions\MyFunctionProj\HttpTrigger\__init__.py
+Writing C:\functions\MyFunctionProj\HttpTrigger\function.json
+```
 
 ## Run the function locally
+
+The following command starts the function app. The app runs using the same Azure Functions runtime that is in Azure.
 
 ```bash
 func host start
 ```
 
-Now that you have run your function locally, you can create the resources in Azure 
+When the Functions host starts, it outputs like the following, which has been truncated for readability:
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+```output
 
-If you choose to install and use the CLI locally, this topic requires the Azure CLI version 2.0.21 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+                  %%%%%%
+                 %%%%%%
+            @   %%%%%%    @
+          @@   %%%%%%      @@
+       @@@    %%%%%%%%%%%    @@@
+     @@      %%%%%%%%%%        @@
+       @@         %%%%       @@
+         @@      %%%       @@
+           @@    %%      @@
+                %%
+                %
 
+Azure Functions Core Tools (2.0.1-beta.35)
+Function Runtime Version: 2.0.11960.0
+Hosting environment: Production
+Content root path: C:\functions\MyFunctionProj
+Now listening on: http://0.0.0.0:7071
+Application started. Press Ctrl+C to shut down.
 
+...
+
+Http Functions:
+
+        HttpTrigger: http://localhost:7071/api/HttpTrigger
+
+[8/27/2018 10:38:27 PM] Host started (29486ms)
+[8/27/2018 10:38:27 PM] Job host started
+```
+
+Copy the URL of your `HTTPTrigger` function from the runtime output and paste it into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request returned by the local function:
+
+![test](./media/functions-create-first-function-python/function-test-local-browser.png)
+
+Now that you have run your function locally, you can create the function app and other required resources in Azure.
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## Create a Linux App Service plan
+## Create a Linux function app in Azure
 
-Linux hosting for Functions is currently only supported on an App Service plan. Consumption plan hosting is not yet supported. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md). 
+You must have a function app to host the execution of your functions on Linux. The function app provides a serverless environment for executing your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a Python function app running on Linux by using the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command.
 
-[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+In the following command, substitute a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure.
 
-## Create a function app on Linux
-
-You must have a function app to host the execution of your functions on Linux. The function app provides an environment for execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command with a Linux App Service plan. 
-
-In the following command, substitute a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. The _deployment-source-url_ parameter is a sample repository in GitHub that contains a "Hello World" HTTP triggered function.
-
-```azurecli-interactive
+```azurecli
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---plan myAppServicePlan 
+--runtime python --is-linux
 ```
-After the function app has been created and deployed, the Azure CLI shows information similar to the following example:
+
+> [!NOTE]
+> If you have an existing resource group named `myResourceGroup` that has any non-Linux App Service apps, you must use a different resource group. You can't host both Windows and Linux functions apps in the same resource group.  
+
+<!--- Output goes here:
+
+After the function app has been created, the Azure CLI shows information similar to the following example:
 
 ```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 1536,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "quickstart.azurewebsites.net",
-  "enabled": true,
-  "enabledHostNames": [
-    "quickstart.azurewebsites.net",
-    "quickstart.scm.azurewebsites.net"
-  ],
-   ....
-    // Remaining output has been truncated for readability.
-}
+
 ```
 
-Because `myAppServicePlan` is a Linux plan, the built-in docker image is used to create the container that runs the function app on Linux. 
+--->
 
+## Generate the requirements.txt file
+
+To ensure that all dependencies are deployed with your function app, generate a requirement file for your project using the command below.
+
+```bash
+pip freeze > requirements.txt
+```
+
+## Deploy the function app project to Azure
+
+The following Core Tools command deploys the function app project to the new function app in Azure. Replace the `<app_name>` placeholder with the function app name from the previous step.
+
+```bash
+$ func azure functionapp publish <app_name>
+```
+
+<!--- Ouput goes here.
+
+When deployment completes, you see output like the following:
+
+```output
+
+```
+
+--->
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]

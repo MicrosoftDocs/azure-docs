@@ -90,6 +90,8 @@
       href: functions-reference-node.md   
     - name: Java
       href: functions-reference-java.md 
+    - name: Python
+      href: functions-reference-python.md
   - name: Diagnostics
     href: ../app-service/app-service-diagnostics.md
   - name: Performance considerations
