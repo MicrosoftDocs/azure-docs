@@ -15,9 +15,9 @@ manager: jeconnoc
 
 # Create your first Python function using Core Tools and the Azure CLI (preview)
 
-Azure Functions supports Python for you to create, publish and run your Python functions in Azure. This functionality is currently in preview and requires [the Functions 2.0 runtime](functions-versions.md).
+Azure Functions supports Python for you to create, publish, and run your Python functions in Azure. This functionality is currently in preview and requires [the Functions 2.0 runtime](functions-versions.md).
 
-This quickstart topic walks you through how to use Azure Functions with the Azure CLI to create your first [serverless](https://azure.microsoft.com/overview/serverless-computing/) Python function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md).
+This quickstart article walks you through how to use Azure Functions with the Azure CLI to create your first [serverless](https://azure.microsoft.com/overview/serverless-computing/) Python function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md).
 
 The following steps are supported on a Mac, Windows, or Linux computer.
 
@@ -29,7 +29,7 @@ To complete this tutorial:
 
 + Install [Azure Core Tools version 2.x](functions-run-local.md#v2).
 
-+ Install the [Azure CLI]( /cli/azure/install-azure-cli). This topic requires the Azure CLI version 2.0.21 or later. Run `az --version` to find the version you have.
++ Install the [Azure CLI]( /cli/azure/install-azure-cli). This article requires the Azure CLI version 2.0.21 or later. Run `az --version` to find the version you have.
 
 + You need an active Azure subscription.
 
@@ -43,7 +43,7 @@ You need a virtual environment to create a Python function app project locally u
 python -m venv env
 ```
 
-You must active your environment using one of the following commands, depending on your operating system:
+You must activate your environment using one of the following commands, depending on your operating system:
 
 + Terminal
 
@@ -157,7 +157,7 @@ Now that you have run your function locally, you can create the function app and
 
 You must have a function app to host the execution of your functions on Linux. The function app provides a serverless environment for executing your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a Python function app running on Linux by using the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command.
 
-In the following command, substitute a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure.
+In the following command, use a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is also the default DNS domain for the function app. This name needs to be unique across all apps in Azure.
 
 ```azurecli
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
@@ -179,7 +179,7 @@ After the function app has been created, the Azure CLI shows information similar
 
 ## Generate the requirements.txt file
 
-To ensure that all dependencies are deployed with your function app, generate a requirement file for your project using the command below.
+Use the following Python command to generate a requirement file for your project. This file makes sure that all dependencies are deployed along with your function app.
 
 ```bash
 pip freeze > requirements.txt
@@ -187,7 +187,7 @@ pip freeze > requirements.txt
 
 ## Deploy the function app project to Azure
 
-The following Core Tools command deploys the function app project to the new function app in Azure. Replace the `<app_name>` placeholder with the function app name from the previous step.
+The following Core Tools command deploys your project to the new function app in Azure. Replace `<app_name>` with the function app name from the previous step.
 
 ```bash
 $ func azure functionapp publish <app_name>
