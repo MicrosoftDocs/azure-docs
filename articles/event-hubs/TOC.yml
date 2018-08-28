@@ -23,9 +23,8 @@
   items:
   - name: Visualize data anomalies on Event Hubs data streams
     href: event-hubs-tutorial-visualize-anomalies.md
-  - name: Stream big data into a data warehouse
-    href: ../event-grid/event-grid-event-hubs-integration.md
-    maintainContext: true    
+  - name: Store captured data in a SQL Data Warehouse
+    href: store-captured-data-data-warehouse.md
   - name: Stream data into Azure Databricks using Event Hubs
     href: ../azure-databricks/databricks-stream-from-eventhubs.md
     maintainContext: true        
