@@ -219,7 +219,7 @@
       href: sql-data-warehouse-restore-database-powershell.md
     - name: Restore - REST API
       href: sql-data-warehouse-restore-database-rest-api.md
-    - name: Upgrade your Gen1 data warehouse
+    - name: Upgrade to Gen2
       href: upgrade-to-latest-generation.md
     - name: Automate performance levels
       href: manage-compute-with-azure-functions.md
