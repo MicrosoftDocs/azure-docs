@@ -21,7 +21,8 @@ ms.custom: aaddev
 ---
 
 # Azure AD .NET Web API getting started
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 If you’re building an application that provides access to protected resources, you need to know how to prevent unwarranted access to those resources.
 Azure Active Directory (Azure AD) makes it simple and straightforward to help protect a web API by using OAuth 2.0 bearer access tokens with only a few lines of code.

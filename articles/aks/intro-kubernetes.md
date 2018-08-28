@@ -50,7 +50,7 @@ For more information, see [Upgrade an Azure Kubernetes Service (AKS) cluster][ak
 
 ## HTTP application routing
 
-The HTTP Application Routing solution makes it easy to access applications deployed to your AKS cluster. When enabled, the HTTP application routing solution configures an ingress controller in your AKS cluster. As applications are deployed, publically accessible DNS names are auto configured.
+The HTTP Application Routing solution makes it easy to access applications deployed to your AKS cluster. When enabled, the HTTP application routing solution configures an ingress controller in your AKS cluster. As applications are deployed, publicly accessible DNS names are auto configured.
 
 For more information, see [HTTP application routing][aks-http-routing].
 

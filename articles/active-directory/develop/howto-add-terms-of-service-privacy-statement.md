@@ -10,10 +10,10 @@ editor: ''
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
@@ -56,6 +56,7 @@ When the terms of service and privacy statement are ready, you can add links to 
 * [Using the MSGraph beta REST API](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>If you registered your app in the Azure portal
+
 Follow these steps if you registered your app in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -67,6 +68,7 @@ Follow these steps if you registered your app in the Azure portal.
 ![App properties section with terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="registered-in-app-reg-portal"></a>If you registered your app in the Application Registration Portal
+
 Follow these steps if you registered your app in the Application Registration Portal or Dev Center.
 
 1. Sign in to the [Application Registration Portal](https://apps.dev.microsoft.com/).
@@ -77,6 +79,7 @@ Follow these steps if you registered your app in the Application Registration Po
 ![App profile section with terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Using the app object JSON
+
 If you prefer to modify the app object JSON directly, you can use the manifest editor in the Azure portal or Application Registration Portal to include links to your app's terms of service and privacy statement.
 
 ```json
@@ -87,6 +90,7 @@ If you prefer to modify the app object JSON directly, you can use the manifest e
 ```
 
 ### <a name="msgraph-beta-rest-api"></a>Using the MSGraph beta REST API
+
 To programmatically update all your apps, you can use the MSGraph beta REST API to update all your apps to include links to the terms of service and privacy statement documents.
 
 ```

@@ -171,9 +171,13 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 
 A [Deployment manifest](module-composition.md) declares which modules the IoT Edge runtime will install on your IoT Edge device. You added the code to make a customized Function module in the previous section, but the SQL Server module is already built. You just need to tell the IoT Edge runtime to include it, then configure it on your device. 
 
-1. In the Visual Studio Code explorer, open the **deployment.template.json** file. 
+1. In the Visual Studio Code explorer, open the **deployment.template.json** file.
 2. Find the **moduleContent.$edgeAgent.properties.desired.modules** section. There should be two modules listed: **tempSensor**, which generates simulated data, and your **sqlFunction** module.
-3. Add the following code to declare a third module:
+3. If you're on a Windows machine, modify the **sqlFunction.settings.image** section.
+    ```json
+    "image": "${MODULES.sqlFunction.windows-amd64}"
+    ```
+1. Add the following code to declare a third module:
 
    ```json
    "sql": {
@@ -188,7 +192,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
    }
    ```
 
-4. Depending on the operating system of your IoT Edge device, update the **sql.settings** parameters with the following code:
+5. Depending on the operating system of your IoT Edge device, update the **sql.settings** parameters with the following code:
 
    * Windows:
 
@@ -207,7 +211,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
    >[!Tip]
    >Any time that you create a SQL Server container in a production environment, you should [change the default system administrator password](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
-5. Save the **deployment.template.json** file. 
+6. Save the **deployment.template.json** file. 
 
 ## Build your IoT Edge solution
 
@@ -261,13 +265,39 @@ On your IoT Edge device, run the following command to see the status of the modu
    iotedge list
    ```
 
+## Pull SQL Container Image from Docker
+
+Before you connect to your database, if you don't already have a container image of SQL Server Container, you can run this command to pull it from the Docker Hub. Since we are using the SQL container in this tutorial, we can't connect to the database unless we have this component present and running. Otherwise, Docker will not find a SQL container to connect to. Make sure if you're on Windows, Docker is using Windows containers, and for Linux, use Linux containers.
+
+    ```PowerShell
+    docker pull microsoft/mssql-server-windows-developer:latest
+    ```
+
+    ```bash
+    sudo docker pull microsoft/mssql-server-linux:2017-latest
+    ```
+
+Afterwards, we need to run the container image with Docker.
+
+    ```PowerShell
+    docker run -d -p 1433:1433 -e sa_password=<SA_PASSWORD> -e ACCEPT_EULA=Y microsoft/mssql-server-windows-developer
+    ```
+
+    ```bash
+    sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=<YourStrong!Passw0rd>' \
+   -p 1433:1433 --name sql \
+   -d microsoft/mssql-server-linux:2017-latest
+    ```
+
+Run `iotedge list`, you should see the sql component now running with the other modules. If not, it helps to re-run the [IoT Edge runtime](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-windows-with-windows).
+
 ## Create the SQL database
 
-When you apply the deployment manifest to your device, you get three modules running. The tempSensor module generates simulated environment data. The sqlFunction module takes the data and formats it for a database. 
+When you apply the deployment manifest to your device, you get three modules running. The tempSensor module generates simulated environment data. The sqlFunction module takes the data and formats it for a database.
 
-This section guides you through setting up the SQL database to store the temperature data. 
+This section guides you through setting up the SQL database to store the temperature data.
 
-1. In a command-line too, connect to your database. 
+1. In a command-line tool, connect to your database. 
    * Windows container:
    
       ```cmd
