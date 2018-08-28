@@ -13,7 +13,7 @@ ms.author: v-deken
 ---
 # What is Computer Vision?
 
-The cloud-based Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. Computer Vision works with popular image formats, such as JPEG and PNG. To analyze an image, you can either upload an image or specify an image URL. Computer Vision algorithms can analyze the content of an image in different ways based on your inputs and choices, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult or racy content, or find all the faces in an image.
+The cloud-based Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. Computer Vision works with popular image formats, such as JPEG and PNG. To analyze an image, you can either upload an image or specify an image URL. Computer Vision algorithms can analyze the content of an image in different ways, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult or racy content, or find all the faces in an image.
 
 You can use Computer Vision in your application, by either using our [client libraries](quickstarts-sdk/csharp-analyze-sdk.md) to invoke the service, or invoking the [REST API](vision-api-how-to-topics/howtocallvisionapi.md) directly, to:
 
@@ -23,20 +23,20 @@ You can use Computer Vision in your application, by either using our [client lib
 
 ## Analyzing images for insight
 
-You can analyze images using Computer Vision to detect and provide insight about the visual features and characteristics of your images. You can analyze either a local image, by uploading the contents of the image at the time of analysis, or a remote image, by specifying the URL to an image to be analyzed.
+You can analyze images using Computer Vision to detect and provide insight about the visual features and characteristics of your images. You can either upload the contents of an image to analyze local images, or you can specify the URL of an image to analyze remote images.
 
-Computer Vision can perform the following actions when analyzing an image:
+Computer Vision can do the following actions when analyzing an image:
 
 | Action | Description |
 | ------ | ----------- |
 |**[Tag visual features](quickstarts/csharp-analyze.md)**|Identify and tag visual features in an image, based on more than 2,000 recognizable objects, living beings, scenery, and actions. When tags are ambiguous or not common knowledge, the response provides 'hints' to clarify the meaning of the tag in the context of a known setting. Tagging isn't limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets, and so on.|
 |**[Categorize an image](quickstarts/csharp-analyze.md)**|Identify and categorize an entire image, using on a [category taxonomy](Category-Taxonomy.md) with parent/child hereditary hierarchies. Categories can be used alone, or with our new tagging models.<br/>Currently, English is the only supported language for tagging and categorizing images.|
-|**[Describe an image](quickstarts/csharp-analyze.md)**|Generate a description of an entire image in human-readable language, using complete sentences. Computer Vision's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. An example of a bot that uses this technology to generate image captions can be found [here](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).|
-|**[Detect faces](quickstarts/csharp-analyze.md)** |Detect and analyze faces in an image, providing information about each detected face. Computer Vision returns the face coordinates, the rectangle for the face, gender, and age for each detected face. Computer Vision provides a subset of the functionality that can be found in [Face](/azure/cognitive-services/face/), and you can use the Face service for more detailed analysis, such as facial identification and pose detection.|
+|**[Describe an image](quickstarts/csharp-analyze.md)**|Generate a description of an entire image in human-readable language, using complete sentences. Computer Vision's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest.<br/>An example of a bot that uses this technology to generate image captions can be found [on GitHub](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).|
+|**[Detect faces](quickstarts/csharp-analyze.md)** |Detect faces in an image and provide information about each detected face. Computer Vision returns the coordinates, rectangle, gender, and age for each detected face.<br/>Computer Vision provides a subset of the functionality that can be found in [Face](/azure/cognitive-services/face/), and you can use the Face service for more detailed analysis, such as facial identification and pose detection.|
 |**[Detect image types](quickstarts/csharp-analyze.md)**|Detect characteristics about an image, such as whether an image is a line drawing or the likelihood of whether an image is clip art.|
-|**[Detect domain-specific content](quickstarts/python-domain.md)**|Use domain models to detect and identify domain-specific content, such as celebrities and landmarks, depending on the categorization of an image's content. For example, if an image contains people, Computer Vision can use a domain model for celebrities included with the service to determine if the people detected in the image match known celebrities.|
+|**[Detect domain-specific content](quickstarts/python-domain.md)**|Use domain models to detect and identify domain-specific content in an image, such as celebrities and landmarks. For example, if an image contains people, Computer Vision can use a domain model for celebrities included with the service to determine if the people detected in the image match known celebrities.|
 |**[Detect the color scheme](quickstarts/csharp-analyze.md)**|Analyze color usage within an image. Computer Vision can determine whether an image is black & white or color and, for color images, identify the dominant and accent colors.|
-|**[Generate a thumbnail](quickstarts/csharp-thumb.md)**|Analyze the contents of an image to provide a useful, contextual thumbnail for an image. Computer Vision first generates a high-quality thumbnail and then analyzes the objects within the image to determine the `region of interest` (ROI). Computer Vision then crops the image to fit the requirements of the region of interest. The generated thumbnail can be presented using an aspect ratio that is different from the aspect ratio of the original image, depending on your needs.|
+|**[Generate a thumbnail](quickstarts/csharp-thumb.md)**|Analyze the contents of an image to generate an appropriate thumbnail for that image. Computer Vision first generates a high-quality thumbnail and then analyzes the objects within the image to determine the `region of interest` (ROI). Computer Vision then crops the image to fit the requirements of the region of interest. The generated thumbnail can be presented using an aspect ratio that is different from the aspect ratio of the original image, depending on your needs.|
 
 ## Extracting text from images
 
@@ -55,7 +55,7 @@ Computer Vision can analyze images that meet the following requirements:
 - The image must be presented in JPEG, PNG, GIF, or BMP format
 - The file size of the image must be less than 4 megabytes (MB)
 - The dimensions of the image must be greater than 50 x 50 pixels  
-  For OCR, the dimensions of the image must be between 40 x 40 and 3200 x 3200 pixels, and the image cannot be bigger than 10 megapixels.
+  For OCR, the dimensions of the image must be between 40 x 40 and 3200 x 3200 pixels, and the image can't be bigger than 10 megapixels.
 
 ## Next steps
 
