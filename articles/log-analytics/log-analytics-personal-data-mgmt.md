@@ -117,4 +117,4 @@ Once the Azure Resource Manager role has been assigned, two new API paths are av
 
 ## Next steps
 - To learn more about how Log Analytics data is collected, processed, and secured, see [Log Analytics data security](log-analytics-data-security.md).
-- To learn more about how Application Insights data is collected, processed, and secured, see [Application Insights data security](app-insights-data-retention-privacy.md).
+- To learn more about how Application Insights data is collected, processed, and secured, see [Application Insights data security](../application-insights/app-insights-data-retention-privacy.md).
