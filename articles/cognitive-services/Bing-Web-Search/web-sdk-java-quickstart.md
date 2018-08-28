@@ -292,4 +292,4 @@ When you're done with this project, make sure to remove your subscription key fr
 
 ## See also
 
-* [Azure Node SDK reference](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch)
+* [Azure Java SDK reference](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch)
