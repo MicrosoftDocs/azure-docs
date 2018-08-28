@@ -185,6 +185,8 @@
         href: vmware-azure-set-up-process-server-scale.md
     - name: Disaster recovery
       items:
+      - name: Replicate VMware virtual machines to Azure using PowerShell
+        href: vmware-azure-disaster-recovery-powershell.md
       - name: Set up the source environment for VMware VMs
         href: vmware-azure-set-up-source.md
       - name: Deploy the configuration server for VMware replication
@@ -197,8 +199,6 @@
         href: vmware-azure-enable-replication.md
       - name: Exclude disks from replication
         href: vmware-azure-exclude-disk.md
-      - name: Replicate VMware virtual machines to Azure using PowerShell
-        href: vmware-azure-disaster-recovery-powershell.md
       - name: Multi-tenancy with CSP for VMWare VMs
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
       - name: Set up the source environment for physical servers
