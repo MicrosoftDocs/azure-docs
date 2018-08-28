@@ -4,14 +4,12 @@ description: Set up Hadoop, Kafka, Spark, HBase, ML Services, or Storm clusters 
 keywords: hadoop cluster setup, kafka cluster setup, spark cluster setup, what is cluster in hadoop
 services: hdinsight
 author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-
+ms.date: 08/27/2018
 ---
 # Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more
 
@@ -136,10 +134,18 @@ To increase performance when using Oozie, use a custom metastore. A metastore ca
 > [!IMPORTANT]
 > You cannot reuse a custom Oozie metastore. To use a custom Oozie metastore, you must provide an empty Azure SQL Database when creating the HDInsight cluster.
 
+
+## Custom cluster setup
+Custom cluster setup builds on the Quick create settings, and adds the following options:
+- [HDInsight applications](#install-hdinsight-applications-on-clusters)
+- [Cluster size](#configure-cluster-size)
+- [Script actions](#advanced-settings-script-actions)
+- [Virtual network](#advanced-settings-extend-clusters-with-a-virtual-network)
+
+
 ## Configure cluster size
 
 You are billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can’t be de-allocated or put on hold.
-
 
 ### Number of nodes for each cluster type
 Each cluster type has its own number of nodes, terminology for nodes, and default VM size. In the following table, the number of nodes for each node type is in parentheses.
@@ -187,14 +193,6 @@ To find out what value you should use to specify a VM size while creating a clus
 >
 
 For more information, see [Sizes for virtual machines](../virtual-machines/windows/sizes.md). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).   
-
-## Custom cluster setup
-Custom cluster setup builds on the Quick create settings, and adds the following options:
-- [HDInsight applications](#hdinsight-applications)
-- [Cluster size](#cluster-size)
-- Advanced settings
-  - [Script actions](#customize-clusters-using-script-action)
-  - [Virtual network](#use-virtual-network)
 
 ## Install HDInsight applications on clusters
 
