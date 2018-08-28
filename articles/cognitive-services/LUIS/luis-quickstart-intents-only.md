@@ -1,5 +1,5 @@
 ---
-title: Tutorial - 1. Create an app with two intents to learn how to  determine user intentions - Azure Cognitive Services | Microsoft Docs
+title: Tutorial - 1 - Create an app with two intents to learn how to  determine user intentions - Azure Cognitive Services | Microsoft Docs
 description: In this tutorial, create a custom Human Resources (HR) app that predicts a user's intention based on the utterance (text). When you're finished, you have a LUIS endpoint running in the cloud. This app is the simplest type of LUIS app because it doesn't extract various data elements from the utterance text such as email addresses or dates. It only determines the user's overall intention of the utterance.
 services: cognitive-services
 author: diberry
@@ -14,15 +14,13 @@ ms.author: diberry
 
 # Tutorial: 1. Build custom app to determine user intentions
 
-<!-- clean up -->
-
 In this tutorial, you create a custom Human Resources (HR) app that predicts a user's intention based on the utterance (text). When you're finished, you have a LUIS endpoint running in the cloud.
 
 This app is the simplest type of LUIS app because it doesn't extract various data elements from the utterance text such as email addresses or dates. It only determines the user's overall intention of the utterance.
 
 By creating an intent, you are creating a category of information that you want to identify. Giving the category a name allows the client application to find an appropriate answer in the JSON response. 
 
-LUIS is done with this request. The client application, such as a chat bot, can take the **topScoringIntent** in the JSON response and either find information (not stored in LUIS) to answer the question or end the conversation. These are programmatic options for the client application. LUIS doesn't do that work. LUIS only determines what is the user's intention.
+After LUIS returns the JSON response, LUIS is done with this request. The client application, such as a chat bot, can take the **topScoringIntent** in the JSON response and either find information (not stored in LUIS) to answer the question or end the conversation. These are programmatic options for the client application. LUIS doesn't do that work. LUIS only determines what is the user's intention.
 
 LUIS doesn't provide answers to user utterances, it only identifies what type of information is being asked for in natural language. 
 
@@ -33,7 +31,7 @@ LUIS doesn't provide answers to user utterances, it only identifies what type of
 > * Add example utterances
 > * Train app
 > * Publish app
-> * Query endpoint of app to see LUIS JSON responses
+> * Query endpoints of app to see LUIS JSON responses
 
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
@@ -43,7 +41,7 @@ The purpose of the app is to determine the intention of conversational, natural 
 
 ## Create a new app
 
-1. Log in to the LUIS portal with the URL of [https://www.luis.ai](https://www.luis.ai). 
+1. Sign in to the LUIS portal with the URL of [https://www.luis.ai](https://www.luis.ai). 
 
 2. Select **Create new app**.  
 
@@ -55,9 +53,7 @@ The purpose of the app is to determine the intention of conversational, natural 
 
     Next, the app shows the **Intents** page with the **None** Intent.
 
-    [![](media/luis-quickstart-intents-only/list-of-intents-1.png "Screenshot of Language Understanding (LUIS) Intents list")](media/luis-quickstart-intents-only/list-of-intents-1.png#lightbox)
-
-## Create GetJobInformation intent
+## GetJobInformation intent
 
 1. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent is predicted any time a user wants information about open jobs in the company.
 
@@ -80,7 +76,7 @@ The purpose of the app is to determine the intention of conversational, natural 
     [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
 
-## Add example utterances to None intent 
+## None intent 
 The client application needs to know if an utterance is outside the subject domain of the application. If LUIS returns the **None** intent for an utterance, your client application can ask if the user wants to end the conversation. The client application can also give more directions for continuing the conversation if the user doesn't want to end it. 
 
 These example utterances, outside the subject domain, are grouped into the **None** intent. Do not leave it empty. 
@@ -96,15 +92,15 @@ These example utterances, outside the subject domain, are grouped into the **Non
     |Penguins in the ocean|
 
 
-## Train and publish the app
+## Train 
 
 [!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## Publish app to endpoint
+## Publish
 
 [!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
-## Query endpoint for GetJobInformation intent
+## Get intent
 
 1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -135,7 +131,7 @@ These example utterances, outside the subject domain, are grouped into the **Non
 
     The JSON result identifies the top scoring intent as **`topScoringIntent`** property. All scores are between 1 and 0, with the better score being close to 1. 
 
-## Create ApplyForJob intent
+## ApplyForJob intent
 Return to the LUIS website and create a new intent to determine if the user utterance is about applying for a job.
 
 1. Select **Build** from the top, right menu to return to app building.
@@ -160,15 +156,15 @@ Return to the LUIS website and create a new intent to determine if the user utte
 
     The labeled intent is outlined in red because LUIS is currently uncertain the intent is correct. Training the app tells LUIS the utterances are on the correct intent. 
 
-## Train and publish the app
+## Train again
 
 [!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## Publish app to endpoint
+## Publish again
 
 [!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
-## Query endpoint for ApplyForJob intent
+## Get intent again
 
 1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -200,10 +196,6 @@ Return to the LUIS website and create a new intent to determine if the user utte
     ```
 
     The results include the new intent **ApplyForJob** as well as the existing intents. 
-
-## What has this LUIS app accomplished?
-
-This app, with just a few intents, identified a conversational, natural language query from a user. 
 
 ## Clean up resources
 
