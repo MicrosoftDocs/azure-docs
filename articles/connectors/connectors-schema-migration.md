@@ -1,5 +1,5 @@
 ---
-title: Migrate logic apps to latest schema | Microsoft Docs
+title: Migrate apps to latest schema - Azure Logic Apps | Microsoft Docs
 description: How to migrate your logic apps to the latest schema version
 services: logic-apps
 ms.service: logic-apps
@@ -13,7 +13,8 @@ ms.date: 08/25/2018
 
 # Migrate logic apps to latest schema version
 
-To move your existing logic apps to the new schema, follow these steps: 
+To move your existing logic apps to the newest schema, 
+follow these steps: 
 
 1. In the [Azure portal](https://portal.azure.com), 
 open your logic app in the Logic App Designer.
