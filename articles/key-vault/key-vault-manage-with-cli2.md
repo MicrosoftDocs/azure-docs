@@ -39,6 +39,7 @@ Azure Key Vault is available in most regions. For more information, see the [Key
 >
 
 For an overview of Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -54,7 +55,7 @@ This article assumes that you're familiar with the command-line interface (Bash,
 
 The --help or -h parameter can be used to view help for specific commands. Alternately, The Azure help [command] [options] format can also be used too. When in doubt about the parameters needed by a command, refer to help. For example, the following commands all return the same information:
 
-```azurecli-interactive
+```azurecli
 az account set --help
 az account set -h
 ```
@@ -134,7 +135,7 @@ The output of this command shows properties of the key vault that you've created
 
 Your Azure account is now authorized to perform any operations on this key vault. As of yet, nobody else is authorized.
 
-## Add a key, secret, or certificate to the key vault
+## Adding a key, secret, or certificate to the key vault
 
 If you want Azure Key Vault to create a software-protected key for you, use the `az key create` command.
 
