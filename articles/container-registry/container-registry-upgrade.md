@@ -19,7 +19,9 @@ The Classic SKU is being deprecated, and will be unavailable after March 2019. T
 
 ## Why upgrade?
 
-Because of the limited capabilities of Classic unmanaged registries, we recommend all Classic registries be upgraded to Basic, Standard, or Premium managed registries. These higher-level SKUs more deeply integrate the registry into the capabilities of Azure.
+The Classic registry SKU is being **deprecated**, and will be unavailable from **March 2019**. All existing Classic registries should be upgrade prior to March 2019.
+
+Because of the planned deprecation and limited capabilities of Classic unmanaged registries, all Classic registries be upgraded to Basic, Standard, or Premium managed registries. These higher-level SKUs more deeply integrate the registry into the capabilities of Azure.
 
 Managed registries provide:
 
@@ -28,7 +30,7 @@ Managed registries provide:
 * [Geo-replication](container-registry-geo-replication.md)
 * [Webhooks](container-registry-webhook.md)
 
-Most of all, a Classic registry depends on the storage account that Azure automatically provisions in your Azure subscription when you create the registry. By contrast, the Basic, Standard, and Premium SKUs take advantage of Azure's [advanced storage features](container-registry-storage.md) by transparently handling the storage of your images for you. A separate storage account is not created in your own subscription.
+The Classic registry depends on the storage account that Azure automatically provisions in your Azure subscription when you create the registry. By contrast, the Basic, Standard, and Premium SKUs take advantage of Azure's [advanced storage features](container-registry-storage.md) by transparently handling the storage of your images for you. A separate storage account is not created in your own subscription.
 
 Managed registry storage provides the following benefits:
 
