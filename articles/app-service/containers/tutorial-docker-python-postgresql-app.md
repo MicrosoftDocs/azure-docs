@@ -165,7 +165,7 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
 
 In the Cloud Shell, run the following Azure CLI command to allow access to the database from all IP addresses. 
 > [!Note]
-> It is not advised to leave all ports open to your database, or to make your database internet-facing.  See other [Azure security articles](https://docs.microsoft.com/en-us/azure/security/) to properly secure your new database for production use.  
+> It is not advised to leave all ports open to your database, or to make your database internet-facing.  See other [Azure security articles](https://docs.microsoft.com/azure/security/) to properly secure your new database for production use.  
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs
