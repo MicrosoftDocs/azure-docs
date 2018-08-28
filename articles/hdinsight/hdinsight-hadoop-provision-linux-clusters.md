@@ -142,6 +142,11 @@ Custom cluster setup builds on the Quick create settings, and adds the following
 - [Script actions](#advanced-settings-script-actions)
 - [Virtual network](#advanced-settings-extend-clusters-with-a-virtual-network)
 
+## Install HDInsight applications on clusters
+
+An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. You can use applications provided by Microsoft, third parties, or that you develop yourself. For more information, see [Install third-party Hadoop applications on Azure HDInsight](hdinsight-apps-install-applications.md).
+
+Most of the HDInsight applications are installed on an empty edge node.  An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
 
 ## Configure cluster size
 
@@ -193,12 +198,6 @@ To find out what value you should use to specify a VM size while creating a clus
 >
 
 For more information, see [Sizes for virtual machines](../virtual-machines/windows/sizes.md). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).   
-
-## Install HDInsight applications on clusters
-
-An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. You can use applications provided by Microsoft, third parties, or that you develop yourself. For more information, see [Install third-party Hadoop applications on Azure HDInsight](hdinsight-apps-install-applications.md).
-
-Most of the HDInsight applications are installed on an empty edge node.  An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
 
 ## Advanced settings: Script actions
 
