@@ -41,8 +41,6 @@
     href: azure-stack-vaas-monitor-test.md
   - name: Validation configuration file
     href: azure-stack-vaas-parameters.md
-  - name: Test pass parameters
-    href: azure-stack-vaas-parameters-test.md
   - name: Troubleshoot validation as a service
     href: azure-stack-vaas-troubleshoot.md
 - name: Reference

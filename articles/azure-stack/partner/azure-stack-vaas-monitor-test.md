@@ -29,9 +29,9 @@ After scheduling tests against your Azure Stack solution, Validation as a Servic
 
     ![Workflow tiles](media/tile_all-workflows.png)
 
-1. Click **Manage** on the workflow tile. The next page lists the projects created for the selected solution.
+1. Click **Manage** on the workflow tile. The next page lists the workflows created for the selected solution.
 
-1. Click on the project name to open its test summary.
+1. Click on the workflow name to open its test summary.
 
 ## Modify workflow parameters
 

@@ -34,6 +34,22 @@ Before you follow this quickstart, you will need to have completed the following
 - (Recommended) [Deploy the local agent and test virtual machines](azure-stack-vaas-test-vm.md)
 - (Recommended) [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md)
 
+## Checks before starting the tests
+
+The tests perform remote operations. The machine that runs the tests must have access to the Azure Stack endpoints, otherwise the tests will not work. If you are using the VaaS local agent, use the machine where the agent will run. You can verify that your machine has access to the Azure Stack endpoints by running the following checks:
+
+1. Check that the Base URI can be reached. Open a CMD prompt or bash shell, and run the following command, replacing <EXTERNALFQDN> with the External FQDN of your environment:
+
+    ```bash  
+    nslookup adminmanagement.<EXTERNALFQDN>
+    ```
+
+2. Open a web browser and navigate to `https://adminportal.<EXTERNALFQDN>` in order to check that the MAS Portal can be reached.
+
+3. Sign in using the Azure AD service administrator name and password values provided when creating the test pass.
+
+4. Check the system's health by running the **Test-AzureStack** PowerShell cmdlet as described in [Run a validation test for Azure Stack](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-diagnostic-test). Fix any warnings and errors before launching any tests.
+
 ## Start a new Test Pass workflow
 
 1. Sign in to the [VaaS portal](https://azurestackvalidation.com).
