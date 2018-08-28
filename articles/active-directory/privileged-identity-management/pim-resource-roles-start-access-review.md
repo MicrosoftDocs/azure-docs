@@ -67,3 +67,8 @@ In the PIM Azure resources dashboard, you can track the progress as the reviewer
 
 Until the review period is over, you can remind users to complete their review, or stop the review early from the access reviews section.
 
+## Next steps
+
+- [Complete an access review for Azure resource roles in PIM](pim-resource-roles-complete-access-review.md)
+- [Perform an access review of my Azure resource roles in PIM](pim-resource-roles-perform-access-review.md)
+- [Start an access review for Azure AD directory roles in PIM](pim-how-to-start-security-review.md)

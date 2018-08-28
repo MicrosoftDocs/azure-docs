@@ -66,4 +66,4 @@ When you view a membership that's listed in **Active roles**, you can use the va
 
 ## Next steps
 
-[Assign roles in Privileged Identity Manager](pim-resource-roles-assign-roles.md)
+- [Assign Azure resource roles in PIM](pim-resource-roles-assign-roles.md)

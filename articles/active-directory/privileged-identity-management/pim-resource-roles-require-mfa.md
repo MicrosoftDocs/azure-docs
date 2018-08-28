@@ -54,9 +54,7 @@ From the same role setting details screen, check the box to **Require Multi-Fact
 
 ## Next steps
 
-[Require approval to activate](pim-resource-roles-approval-workflow.md)
-
-[Use the audit log](pim-resource-roles-use-the-audit-log.md)
-
+- [Configure Azure resource role settings in PIM](pim-resource-roles-configure-role-settings.md)
+- [Configure security alerts for Azure resource roles in PIM](pim-resource-roles-configure-alerts.md)
 
 

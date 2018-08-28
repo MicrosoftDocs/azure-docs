@@ -48,4 +48,6 @@ If you are not interested in the review any further, delete it. The **Delete** b
 > You will not get a warning before deletion occurs, so be sure that you want to delete that review. 
 
 ## Next steps
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Start an access review for Azure AD directory roles in PIM](pim-how-to-start-security-review.md)
+- [Perform an access review of my Azure AD directory roles in PIM](pim-how-to-perform-security-review.md)

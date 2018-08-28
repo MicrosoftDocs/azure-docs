@@ -61,5 +61,6 @@ For more information about using MFA with PIM see [How to Require MFA](pim-how-t
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [Require multi-factor authentication for Azure AD directory roles in PIM](pim-how-to-require-mfa.md)
+- [Configure security alerts for Azure AD directory roles in PIM](pim-how-to-configure-security-alerts.md)

@@ -192,6 +192,6 @@ Select My roles from the left navigation menu and choose the appropriate role to
 
 ## Next steps
 
-- [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md)
-- Learn about [activating Azure AD roles here](pim-how-to-activate-role.md)
-- [PIM approval workflows](azure-ad-pim-approval-workflow.md)
+- [Assign Azure resource roles in PIM](pim-resource-roles-assign-roles.md)
+- [Approve or deny requests for Azure resource roles in PIM](pim-resource-roles-approval-workflow.md)
+- [Built-in roles in Azure](../../role-based-access-control/built-in-roles.md)

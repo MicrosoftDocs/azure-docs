@@ -205,4 +205,4 @@ work that requires this role.
 
 ## Next steps
 
-Your feedback is valuable to us. Please feel free to share comments or feedback with us here!
+- [Approve or deny requests for Azure resource roles in PIM](pim-resource-roles-approval-workflow.md)

@@ -128,8 +128,5 @@ To view a list of all expired role assignments, on the **Members** screen, selec
 
 ## Next steps
 
-[Require approval to activate](pim-resource-roles-approval-workflow.md)
-
-[Activate a role](pim-resource-roles-use-the-audit-log.md)
-
-
+- [Approve or deny requests for Azure resource roles in PIM](pim-resource-roles-approval-workflow.md)
+- [Configure Azure resource role settings in PIM](pim-resource-roles-configure-role-settings.md)

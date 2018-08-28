@@ -41,5 +41,6 @@ Alternatively, if users authenticate on-premises you can have your identity prov
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [Configure Azure AD directory role settings in PIM](pim-how-to-change-default-settings.md)
+- [Configure security alerts for Azure AD directory roles in PIM](pim-how-to-configure-security-alerts.md)

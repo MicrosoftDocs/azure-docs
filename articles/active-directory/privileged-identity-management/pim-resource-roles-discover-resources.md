@@ -59,5 +59,5 @@ The selected resources are now managed by PIM. To close the discovery screen, in
 
 ## Next steps
 
-- [Configure role settings](pim-resource-roles-configure-role-settings.md)
-- [Assign roles in PIM](pim-resource-roles-assign-roles.md)
+- [Configure Azure resource role settings in PIM](pim-resource-roles-configure-role-settings.md)
+- [Assign Azure resource roles in PIM](pim-resource-roles-assign-roles.md)

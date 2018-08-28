@@ -35,4 +35,6 @@ To the right of the activations graph, two charts display the distribution of ro
 
 Below the charts, you see the number of users and groups with new role assignments over the last 30 days, and a list of roles sorted by total assignments (in descending order).
 
+## Next steps
 
+- [Start an access review for Azure resource roles in PIM](pim-resource-roles-start-access-review.md) 

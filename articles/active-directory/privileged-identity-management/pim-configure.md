@@ -151,4 +151,6 @@ If your organization does not renew Azure AD Premium P2 or your trial expires, t
 
 ## Next steps
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+- [Subscription requirements to use PIM](subscription-requirements.md)
+- [Azure AD directory roles you can manage in PIM](pim-roles.md)
+- [Securing privileged access for hybrid and cloud deployments in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

@@ -55,5 +55,7 @@ On the **Results** tab, view and download a list of your review results.
 View and add reviewers to your existing access review. Remind reviewers to complete their reviews.
 ![Add reviewers](media/azure-pim-resource-rbac/rbac-access-review-reviewers.png)
 
+## Next steps
 
-
+- [Start an access review for Azure resource roles in PIM](pim-resource-roles-start-access-review.md)
+- [Perform an access review of my Azure resource roles in PIM](pim-resource-roles-perform-access-review.md)

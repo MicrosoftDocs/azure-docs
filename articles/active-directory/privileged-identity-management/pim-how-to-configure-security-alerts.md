@@ -60,4 +60,6 @@ This alert triggers if a user goes a certain amount of time without activating a
 * **Number of days**: Specify the number of days, from 0 to 100, that a user can go without activating a role.
 
 ## Next steps
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Configure Azure AD directory role settings in PIM](pim-how-to-change-default-settings.md)
+- [Require multi-factor authentication for Azure AD directory roles in PIM](pim-how-to-require-mfa.md)

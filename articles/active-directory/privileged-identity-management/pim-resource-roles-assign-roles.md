@@ -71,3 +71,8 @@ If you have a role pending activation, a notification banner is displayed at the
 To modify existing assignments from the user/group detail view, select **Change settings** from the action bar. Change the assignment type to **Just in time** or **Direct**.
 
 !["User details" pane with the "Change settings" button](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+
+## Next steps
+
+- [Configure Azure resource role settings in PIM](pim-resource-roles-configure-role-settings.md)
+- [Assign Azure AD directory roles in PIM](pim-how-to-add-role-to-user.md)

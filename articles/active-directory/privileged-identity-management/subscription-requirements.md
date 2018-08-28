@@ -57,5 +57,5 @@ When an Azure AD Premium P2 subscription or EMS E5 subscription expires, or an o
 
 ## Next steps
 
-- [Get started with Azure AD Privileged Identity Management](pim-getting-started.md)
-- [Roles in Azure AD Privileged Identity Management](pim-roles.md)
+- [Start using PIM](pim-getting-started.md)
+- [Azure AD directory roles you can manage in PIM](pim-roles.md)

@@ -81,5 +81,7 @@ Access to Microsoft Online Services may require the user also be assigned a lice
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Start using PIM](pim-getting-started.md)
+- [Assign Azure AD directory roles in PIM](pim-how-to-add-role-to-user.md)
 

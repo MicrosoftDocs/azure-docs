@@ -53,5 +53,5 @@ Check or uncheck the **Role** checkbox next to each role to include or exclude i
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [View audit history for Azure resource roles in PIM](pim-resource-roles-use-the-audit-log.md)

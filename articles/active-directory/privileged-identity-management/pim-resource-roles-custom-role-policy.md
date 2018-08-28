@@ -44,4 +44,5 @@ Finally, [assign roles](pim-resource-roles-assign-roles.md) to the distinct grou
 
 ## Next steps
 
-[Review subscription owners and access](pim-resource-roles-perform-access-review.md)
+- [Configure Azure resource role settings in PIM](pim-resource-roles-configure-role-settings.md)
+- [Custom roles in Azure](../../role-based-access-control/custom-roles.md)

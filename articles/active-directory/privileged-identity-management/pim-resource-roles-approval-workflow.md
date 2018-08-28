@@ -99,4 +99,4 @@ Here are some facts about workflow notifications:
 
 ## Next steps
 
-[Apply PIM settings to unique groups of users](pim-resource-roles-custom-role-policy.md)
+- [Approve or deny requests for Azure AD directory roles in PIM](azure-ad-pim-approval-workflow.md)

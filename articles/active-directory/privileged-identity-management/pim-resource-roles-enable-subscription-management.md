@@ -74,14 +74,5 @@ Now that you have eligible assignments for the important subscriptions in your o
 
 ## Next steps
 
-[Discover resources](pim-resource-roles-discover-resources.md)
-
-[Configure role settings](pim-resource-roles-configure-role-settings.md)
-
-
-
-
-
-
-
-
+- [Discover Azure resources to manage in PIM](pim-resource-roles-discover-resources.md)
+- [Configure Azure resource role settings in PIM](pim-resource-roles-configure-role-settings.md)

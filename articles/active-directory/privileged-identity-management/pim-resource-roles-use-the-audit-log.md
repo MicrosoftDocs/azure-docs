@@ -41,3 +41,6 @@ Selecting a specific role activation shows the role activation details and corre
 
 ![Select role activation](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
+## Next steps
+
+- [View audit history for Azure AD directory roles in PIM](pim-how-to-use-audit-log.md)

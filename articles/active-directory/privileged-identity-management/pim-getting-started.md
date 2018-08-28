@@ -43,9 +43,9 @@ Once Azure AD Privileged Identity Management is set up, you see the navigation b
 - **Pending Requests (Preview)** displays any of your pending requests to activate eligible role assignments.
 - **Review Access** lists active access reviews you are assigned to complete, whether you're reviewing access for yourself or someone else.
 - **Azure AD directory roles** located under the manage section of the left navigation menu displays the dashboard for privileged role administrators to manage role assignments, change role activation settings, start access reviews, and more. This dashboard is disabled for anyone who isn't a privileged role administrator. These users have access to a special dashboard titled My view. The My view dashboard only displays information about the user accessing the dashboard, not the entire tenant.
-- **Azure Resource roles (Preview)** located under the manage section of the left navigation menu displays a list of subscription resources you have role assignments choose 
+- **Azure Resource roles (Preview)** located under the manage section of the left navigation menu displays a list of subscription resources you have role assignments choose.
 
 ## Next steps
-The [Azure AD Privileged Identity Management overview](pim-configure.md) includes more details on how you can manage administrative access in your organization.
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+- [Activate my Azure AD directory roles in PIM](pim-how-to-activate-role.md)
+- [Activate my Azure resource roles in PIM](pim-resource-roles-activate-your-roles.md)

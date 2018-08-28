@@ -42,4 +42,5 @@ Follow these steps to find and complete the access review:
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Perform an access review of my Azure resource roles in PIM](pim-resource-roles-perform-access-review.md)

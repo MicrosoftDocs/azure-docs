@@ -107,4 +107,6 @@ Follow these steps to remove a specific user from a directory role.
     The role assignment is removed.
 
 ## Next steps
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Configure Azure AD directory role settings in PIM](pim-how-to-change-default-settings.md)
+- [Assign Azure resource roles in PIM](pim-resource-roles-assign-roles.md)

@@ -49,4 +49,5 @@ Before you remove someone from the privileged role administrator role, always ma
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Enable subscription management in your tenant](pim-resource-roles-enable-subscription-management.md)

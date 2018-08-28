@@ -69,5 +69,5 @@ Previously, when a user was assigned a privileged role, the email looked like th
 
 ## Next steps
 
-- [How to manage role activation settings in Azure AD PIM](pim-how-to-change-default-settings.md)
-- [Approvals in Azure AD PIM](azure-ad-pim-approval-workflow.md)
+- [Configure Azure AD directory role settings in PIM](pim-how-to-change-default-settings.md)
+- [Approve or deny requests for Azure AD directory roles in PIM](azure-ad-pim-approval-workflow.md)

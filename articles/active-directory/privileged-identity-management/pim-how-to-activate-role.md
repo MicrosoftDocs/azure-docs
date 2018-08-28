@@ -89,6 +89,5 @@ In the event you do not require activation of a role that requires approval, you
    ![Cancel pending request screenshot](./media/pim-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png)
 
 ## Next steps
-If you're interested in learning more about Azure AD Privileged Identity Management, the following links have more information.
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+- [Activate my Azure resource roles in PIM](pim-resource-roles-activate-your-roles.md)

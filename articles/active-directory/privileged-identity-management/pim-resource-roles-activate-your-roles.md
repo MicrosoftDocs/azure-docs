@@ -59,3 +59,7 @@ From the search page, find the subordinate resource that you need to manage.
 Select **My roles** from the left pane and choose the appropriate role to activate. The assignment type is **Inherited** because the role was assigned at the subscription, rather than at the resource group.
 
 ![List of eligible role assignments, with the assignment type highlighted](media/azure-pim-resource-rbac/my-roles-02.png)
+
+## Next steps
+
+- [Activate my Azure AD directory roles in PIM](pim-how-to-activate-role.md)
