@@ -30,19 +30,19 @@ Here are a few things that you'll need before running this quickstart:
 
 Let's start by setting up the development environment for our Node.js project.
 
-1. Create a new directory for your project:
-    ```console
-    mkdir YOUR_PROJECT
-    ```
-2. Create a new package file for this project.
-    ```console
-    npm init
-    ```
-3. Now that the `package.json` file has been created, let's install some azure modules and add them to `package.json`:
-    ```console
-    npm install --save azure-cognitiveservices-websearch
-    npm install --save ms-rest-azure
-    ```
+1. Create a new directory for your project:  
+   ```console
+   mkdir YOUR_PROJECT
+   ```
+2. Create a new package file for this project.  
+   ```console
+   npm init
+   ```
+3. Now that the `package.json` file has been created, let's install some azure modules and add them to `package.json`:  
+   ```console
+   npm install --save azure-cognitiveservices-websearch
+   npm install --save ms-rest-azure
+   ```
 
 Now you're ready to get started.
 
