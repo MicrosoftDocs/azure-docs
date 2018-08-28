@@ -42,7 +42,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 * [JS Map control](https://codepen.io/azuremaps/pen/qyjbOM)
 
 ## Grayscale_Dark
-**Grayscale dark** is a dark version of the road map.
+**Grayscale dark** is a dark version of the road map style.
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
