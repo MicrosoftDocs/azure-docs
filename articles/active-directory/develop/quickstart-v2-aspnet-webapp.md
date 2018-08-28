@@ -157,7 +157,7 @@ public void SignIn()
 
 You can protect a controller or controller actions using the `[Authorize]` attribute. This attribute restricts access to the controller or actions by allowing only authenticated users to access the actions in the controller - which means that authentication challenge will happen automatically when an *non-authenticated* user tries to access one of the actions or controller decorated by the `[Authorize]` attribute.
 
-## What is next
+## Next steps
 
 Try out the ASP.NET tutorial for a complete step-by-step guide on building applications and building new features, including a full explanation of this quickstart:
 
