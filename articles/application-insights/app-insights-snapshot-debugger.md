@@ -161,7 +161,7 @@ The following environments are supported:
 
 ### Configure snapshot collection for other .NET applications
 
-1. If your application is not already instrumented with Application Insights, get started by [enabling Application Insights and setting the instrumentation key](app-insights-windows-desktop.md).
+1. If your application isn't already instrumented with Application Insights, get started by [enabling Application Insights and setting the instrumentation key](app-insights-windows-desktop.md).
 
 2. Add the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
@@ -254,7 +254,7 @@ Version 15.2 (or above) of Visual Studio 2017 publishes symbols for release buil
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
 ```
 
-For Azure Compute and other types, ensure that the symbol files are in the same folder of the main application .dll (typically, `wwwroot/bin`) or are available on the current path.
+For Azure Compute and other types, make sure that the symbol files are in the same folder of the main application .dll (typically, `wwwroot/bin`) or are available on the current path.
 
 ### Optimized builds
 In some cases, local variables can't be viewed in release builds because of optimizations that are applied by the JIT compiler.
@@ -345,14 +345,14 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
     DateTime=2018-03-09T01:47:19.4614027Z
 ```
 
-For applications that are _not_ hosted in App Service, the uploader logs are in the same folder as the minidumps: `%TEMP%\Dumps\<ikey>` (where `<ikey>` is your instrumentation key).
+For applications that _aren't_ hosted in App Service, the uploader logs are in the same folder as the minidumps: `%TEMP%\Dumps\<ikey>` (where `<ikey>` is your instrumentation key).
 
 ### Troubleshooting Cloud Services
 For roles in Cloud Services, the default temporary folder may be too small to hold the minidump files, leading to lost snapshots.
 The space needed depends on the total working set of your application and the number of concurrent snapshots.
 The working set of a 32-bit ASP.NET web role is typically between 200 MB and 500 MB.
 Allow for at least two concurrent snapshots.
-For example, if your application uses 1 GB of total working set, you should ensure that there is at least 2 GB of disk space to store snapshots.
+For example, if your application uses 1 GB of total working set, you should make sure that there is at least 2 GB of disk space to store snapshots.
 Follow these steps to configure your Cloud Service role with a dedicated local resource for snapshots.
 
 1. Add a new local resource to your Cloud Service by editing the Cloud Service definition (.csdef) file. The following example defines a resource called `SnapshotStore` with a size of 5 GB.
@@ -401,8 +401,13 @@ Follow these steps to configure your Cloud Service role with a dedicated local r
 
 ### Overriding the Shadow Copy folder
 
-When the Snapshot Collector starts up, it tries to find a folder on disk that is suitable for running the Snapshot Uploader process.
-The Snapshot Collector checks a few well-known locations (environment variables LOCALAPPDATA, APPDATA, and TEMP, among others), making sure it has permissions to copy the Snapshot Uploader binaries. The chosen folder is known as the Shadow Copy folder.
+When the Snapshot Collector starts up, it tries to find a folder on disk that is suitable for running the Snapshot Uploader process. The chosen folder is known as the Shadow Copy folder.
+
+The Snapshot Collector checks a few well-known locations, making sure it has permissions to copy the Snapshot Uploader binaries. The following environment variables are used:
+- Fabric_Folder_App_Temp
+- LOCALAPPDATA
+- APPDATA
+- TEMP
 
 If a suitable folder can't be found, Snapshot Collector reports an error saying _"Could not find a suitable shadow copy folder."_
 
