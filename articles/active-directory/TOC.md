@@ -50,6 +50,8 @@
 ### [Assign users to admin roles](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Restore a deleted user](fundamentals/active-directory-users-restore.md)
 ### [Add guest users from another directory (B2B)](b2b/what-is-b2b.md)
+#### [Quickstarts](b2b/b2b-quickstart-add-guest-users-portal.md)
+##### [Add guest users in the portal](b2b/b2b-quickstart-add-guest-users-portal.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
 #### [Information workers adding B2B users](b2b/add-users-information-worker.md)
 #### [API and customization](b2b/customize-invitation-api.md)
