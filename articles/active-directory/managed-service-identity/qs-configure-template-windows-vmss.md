@@ -318,7 +318,7 @@ If you have a virtual machine scale set that no longer needs a managed service i
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 
-2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. If you have a virtual machine scale set that only has user assigned identity, you can disable it by changing the the identity type to `None`.
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. If you have a virtual machine scale set that only has user assigned identity, you can disable it by changing the identity type to `None`.
 
    The following example shows you how remove all user assigned identities from a VM with no system assigned identities:
 
