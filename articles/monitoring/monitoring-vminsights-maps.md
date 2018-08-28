@@ -52,6 +52,8 @@ For more information about Azure Alerts and creating alert rules, see [Unified A
 
 The **Legend** option in the upper right-hand corner describes the symbols and roles on a map.  To zoom in for a closer look at your map and move the it around, the Zoom controls at the bottom right-hand side of the page sets the zoom level and fit the page to the size of the current page.  
 
+The **Connections** pane displays standard connectivity metrics for the selected connection from the VM over the TCP port. The metrics include response time, requests per minute, traffic throughput, and links.  
+
 ### Role icons
 Certain processes serve particular roles on virtual machines: web servers, application servers, database, and so on. VM Insights Map annotates process and VMs with role icons to help identify at a glance the role a process or server plays. The following table describes the role icons.  
 
@@ -105,23 +107,5 @@ From Azure Monitor, the Maps feature provides a global view of your virtual mach
 
 From the **Workspace** selector at the top of the page, if you have more than one Log Analytics workspace, choose the one that is integrated with the solution and has virtual machines reporting to it.  You then select from the **Group** selector, a subscription or resource group to view a set of VMs and their dependencies matching the group, over a specified period of time.  By default, the map shows the last 30 minutes.  Using the **TimeRange** selector, you can query for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred).   
 
-Maps visualizes the VMs dependencies, that is running process groups and processes with active network connections, over a specified time range.  When you expand a VM to show process details, only those processes that communicate with that VM are shown. The count of agentless front-end clients that connect into the virtual machine is indicated with the Port Group, along with other connections to the same port number.  Expand the Port Group to see the detailed list of servers connected over that port.   
 
-When you click on the virtual machine, the **Properties** pane is expanded on the right to show the properties of the item selected, such as system information reported by the operating system, properties of the Azure VM, and a doughnut summarizing the discovered connections. 
-
-![System properties of the computer](./media/monitoring-vminsights-maps/properties-pane-01.png)
-
-On the right-side of the pane, click on the **Log Events** icon to switch focus of the pane to show a list of tables that collected data from the VM has sent to Log Analytics and is available for querying.  Clicking on any one of the record types listed will open the **Log search** page to view the results for that type with a pre-configured query filtered against the specific virtual machine.  
-
-![Log search list in Properties pane](./media/monitoring-vminsights-maps/properties-pane-logs-01.png)
-
-Close *Log search** and return to the **Properties** pane and select **Alerts** to view alerts that alerts raised for the VM from health criteria. Maps integrates with Azure Alerts to show fired alerts for the selected server in the selected time range. The server displays an icon if there are current alerts, and the Machine Alerts pane lists the alerts. 
-
-![Machine alerts in Properties pane](./media/monitoring-vminsights-maps/properties-pane-alerts-01.png)
-
-To enable the Map feature to display relevant alerts, create an alert rule that fires for a specific computer. To create proper alerts:
-- Include a clause to group by computer (for example, **by Computer interval 1 minute**).
-- Choose to alert based on metric measurement.
-
-The **Legend** option in the upper right-hand corner describes the symbols and roles on a map.  To zoom in for a closer look at your map and move the it around, the Zoom controls at the bottom right-hand side of the page sets the zoom level and fit the page to the size of the current page.  
 
