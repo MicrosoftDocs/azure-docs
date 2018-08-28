@@ -398,6 +398,44 @@ Follow these steps to configure your Cloud Service role with a dedicated local r
    </TelemetryProcessors>
    ```
 
+### Overriding the Shadow Copy folder
+
+When the Snapshot Collector starts up, it tries to find a folder on disk that is suitable for running the Snapshot Uploader process.
+The Snapshot Collector checks a few well-known locations (e.g. environment variables LOCALAPPDATA, APPDATA and TEMP), making sure it has permissions to copy the Snapshot Uploader binaries. The chosen folder is known as the Shadow Copy folder.
+
+If a suitable folder cannot be found, Snapshot Collector reports an error saying _"Could not find a suitable shadow copy folder."_
+
+If the copy fails, Snapshot Collector reports a `ShadowCopyFailed` error.
+
+If the uploader cannot be launched, Snapshot Collector reports an `UploaderCannotStartFromShadowCopy` error, possibly with a `System.UnauthorizedAccessException` in the body of the message. This is usually because the application is running under an account with reduced permissions. The account has permission to write to the shadow copy folder, but it doesn't have permission to execute code.
+
+Since these errors usually happen during startup, they will usually be followed by an `ExceptionDuringConnect` error saying _"Uploader failed to start."_
+
+To work around these errors, you can specify the shadow copy folder manually via the `ShadowCopyFolder` configuration option. For example, using ApplicationInsights.config:
+
+   ```xml
+   <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Override the default shadow copy folder. -->
+      <ShadowCopyFolder>D:\SnapshotUploader</ShadowCopyFolder>
+      <!-- Other SnapshotCollector configuration options -->
+    </Add>
+   </TelemetryProcessors>
+   ```
+
+Or, if you are using appsettings.json with a .NET Core application:
+
+   ```json
+   {
+     "ApplicationInsights": {
+       "InstrumentationKey": "<your instrumentation key>"
+     },
+     "SnapshotCollectorConfiguration": {
+       "ShadowCopyFolder": "D:\\SnapshotUploader"
+     }
+   }
+   ```
+
 ### Use Application Insights search to find exceptions with snapshots
 
 When a snapshot is created, the throwing exception is tagged with a snapshot ID. That snapshot ID is included as a custom property when the exception telemetry is reported to Application Insights. Using **Search** in Application Insights, you can find all telemetry with the `ai.snapshot.id` custom property.
