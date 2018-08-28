@@ -8,10 +8,10 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/30/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: v-deken
 ---
-# Quickstart: Use a domain model with PHP
+# Quickstart: Use a domain model - REST, PHP
 
 In this quickstart, you use a domain model to identify landmarks or celebrities in an image using Computer Vision.
 
