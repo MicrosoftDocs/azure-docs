@@ -7,7 +7,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to create a Human Resources app, so that I can analyze user text in that subject domain.
 ---

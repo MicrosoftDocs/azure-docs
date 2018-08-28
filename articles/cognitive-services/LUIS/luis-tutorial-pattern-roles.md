@@ -10,7 +10,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/31/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern roles. 
 ---

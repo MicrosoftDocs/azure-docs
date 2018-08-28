@@ -8,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 08/13/2018
+ms.date: 08/30/2018
 ms.author: diberry
 --- 
 
