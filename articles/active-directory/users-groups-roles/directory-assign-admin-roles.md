@@ -611,16 +611,22 @@ Can manage all aspects of the Intune product.
 | microsoft.aad.supporttickets/AllEntities/AllActions | Create and manage Office 365 support tickets. |
 | microsoft.intune/AllEntities/AllActions | Manage all aspects of Intune. |
 
-### License Administrator
-Can assign licenses to users.
 
+### License Administrator
+Can manage product licenses on users and groups.
+ 
+  > [!NOTE]
+  > This role inherits additional permissions from the Directory Readers role.
+  >
+  >
+ 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/users/assignLicense        | &nbsp; |
-| microsoft.aad.directory/users/usageLocation/update | &nbsp; |
-| microsoft.azure.accessService/allEntities/allTasks | &nbsp; |
-| microsoft.azure.serviceHealth/allEntities/allTasks | &nbsp; |
-| microsoft.office365.serviceHealth/allEntities/allTasks | &nbsp; |
+| microsoft.aad.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
+| microsoft.aad.directory/users/usageLocation/update | Update users.usageLocation property in Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 
 ### Lync Service Administrator
 Can manage all aspects of the Skype for Business product.
