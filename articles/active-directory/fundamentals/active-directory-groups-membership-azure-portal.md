@@ -50,9 +50,6 @@ You can add an existing group to another existing group, creating a member group
 
     ![Group membership blade showing both the member and the group details](media/active-directory-groups-membership-azure-portal/group-membership-review.png)
 
-    >[!Note]
-    >If you added this group as a member by mistake, you can remove it by clicking **Remove** from the **MDM policy - West** blade, too. However, removing this membership also removes any inherited attributes and properties for your users.
-
 ## Remove a member group from another group
 You can remove an existing member group from another group. However, removing the membership also removes any inherited attributes and properties for your users.
 
@@ -63,15 +60,18 @@ You can remove an existing member group from another group. However, removing th
 
     ![MDM policy - West overview blade](media/active-directory-groups-membership-azure-portal/group-membership-overview.png)
 
-3. 
+3. Select the **MDM policy - All org** group from the **MDM policy - West - Group memberships** blade, and then select **Remove** from the **MDM policy - West** blade details.
 
+    ![Group membership blade showing both the member and the group details](media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
 
 
 ## Additional information
 These articles provide additional information on Azure Active Directory.
 
-* [See existing groups](active-directory-groups-view-azure-portal.md)
-* [Create a new group and adding members](active-directory-groups-create-azure-portal.md)
-* [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
-* [Manage members of a group](active-directory-groups-members-azure-portal.md)
-* [Manage dynamic rules for users in a group](../users-groups-roles/groups-dynamic-membership.md)
+- [View your groups and assigned members](active-directory-groups-view-azure-portal.md)
+
+- [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
+
+- [Add or remove members from a group](active-directory-groups-members-azure-portal.md)
+
+- [Edit your group settings](active-directory-groups-settings-azure-portal.md)
