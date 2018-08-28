@@ -8,8 +8,8 @@
 <sup>1</sup> This value can be customized through ARM template deployment. See examples [here][arm-deployment-example].<br />
 
 <!-- LINKS - Internal -->
-[basic-networking]: ../articles/aks/networking-overview.md#basic-networking
-[advanced-networking]: ../articles/aks/networking-overview.md#advanced-networking
+[basic-networking]: ../articles/aks/concepts-network.md#basic-networking
+[advanced-networking]: ../articles/aks/concepts-network.md#advanced-networking
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
