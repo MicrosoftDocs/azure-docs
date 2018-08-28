@@ -86,7 +86,7 @@ If you aren't a subscriber, you can [open an Azure account for free](https://azu
   - [Use Azure Portal to get started](quickstart-get-started.md)
   - [Use Azure CLI to get started](quickstart-get-started-with-cli.md)
 
-- Follow the full-length [tutorial](tutorial-train-models-with-aml.md) to learn how to train and deploy models with Azure Machine Learning service
+- Follow the full-length tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md), to learn how to train and deploy models with Azure Machine Learning service.
 
 - For information about allowing Azure Machine Learning to auto-generate and auto-tune your model, see [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md).
 
