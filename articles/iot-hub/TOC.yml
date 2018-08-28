@@ -148,6 +148,8 @@
         href: iot-hub-reliability-features-in-sdks.md
     - name: Query Avro data from a hub route
       href: iot-hub-query-avro-data.md
+    - name: Order device connection state events from Event Grid
+      href: iot-hub-how-to-order-connection-state-events.md
     - name: Send cloud-to-device messages
       items:
       - name: .NET
@@ -224,8 +226,6 @@
         href: iot-hub-create-using-powershell.md
       - name: Use Azure CLI
         href: iot-hub-create-using-cli.md
-      - name: Use CLI
-        href: iot-hub-create-using-cli-nodejs.md
       - name: Use the REST API
         href: iot-hub-rm-rest.md
       - name: Use a template from Azure PowerShell

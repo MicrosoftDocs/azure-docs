@@ -96,6 +96,8 @@ items:
           href: database-encryption-at-rest.md
         - name: Securing access to data
           href: secure-access-to-data.md
+        - name: Key Vault to store secrets
+          href: access-secrets-from-keyvault.md
     - name: Use cases
       href: use-cases.md
       items:
@@ -242,6 +244,10 @@ items:
             href: odbc-driver.md
           - name: Use Spring Boot Starter with SQL APIs
             href: https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json
+        - name: Build solutions
+          items: 
+          - name: Retail data analysis
+            href: changefeed-ecommerce-solution.md
       - name: Reference
         items:
         - name: Async Java
@@ -354,6 +360,8 @@ items:
         items:
         - name: Graph partitioning
           href: graph-partitioning.md
+        - name: Import graph data with BulkExecutor
+          href: bulk-executor-graph-dotnet.md
       - name: Resources
         items:
         - name: Visual Studio Code extension

@@ -11,7 +11,7 @@ manager: carmonm
 ---
 # Run PowerShell scripts in your Windows VM with Run Command
 
-Run Command uses the VM agent to run shell PowerShell scripts within an Azure Windows VM. These scripts can be used for general machine or application management, and can be used to quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
+Run Command uses the VM agent to run PowerShell scripts within an Azure Windows VM. These scripts can be used for general machine or application management, and can be used to quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 
 ## Benefits
 
@@ -57,7 +57,6 @@ This table shows the list of commands available for Windows VMs. The **RunPowerS
 |**EnableAdminAccount**|Checks if the local Administrator account is disabled, and if so enables it.|
 |**IPConfig**| Shows detailed information for the IP address, subnet mask and default gateway for each adapter bound to TCP/IP.|
 |**RDPSettings**|Checks registry settings and domain policy settings. Suggests policy actions if machine is part of a domain or modifies the settings to default values.|
-|**ResetAccountPassword**| Resets built-in Administrator account password.|
 |**ResetRDPCert**|Removes the SSL certificate tied to the RDP listener and restores the RDP listerner security to default. Use this script if you see any issues with the certificate.|
 |**SetRDPPort**|Sets the default or user specified port number for Remote Desktop connections. Enables firewall rule for inbound access to the port.|
 

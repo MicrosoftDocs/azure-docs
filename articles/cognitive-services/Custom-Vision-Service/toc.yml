@@ -21,6 +21,8 @@
       href: custom-vision-onnx-windows-ml.md
     - name: Run TensorFlow model in Python
       href: export-model-python.md
+    - name: Train a model using the REST API
+      href: rest-api-tutorial.md
   - name: Build apps
     items:
     - name: Image Classification
