@@ -21,7 +21,9 @@ ms.reviewer: brandwe
 #Customer intent: As an application developer, I want to build an iOS application that integrates with Azure AD for sign-in and calls Azure AD protected APIs using OAuth 2.0.
 ---
 
-# Quickstart: Build an iOS app that integrates with Azure AD for sign-in and calls protected APis using OAuth 2.0
+# Quickstart: Sign in users and call the Microsoft Graph API from an iOS app
+
+[!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
 Azure Active Directory (Azure AD) provides the Active Directory Authentication Library (ADAL) for iOS clients that need to access protected resources. ADAL simplifies the process that your app uses to obtain access tokens. To demonstrate how easy it is, we'll show you how to build an Objective C To-Do List application that:
 

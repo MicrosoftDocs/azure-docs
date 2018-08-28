@@ -21,9 +21,8 @@ ms.custom: aaddev
 ---
 
 # Azure AD Xamarin getting started
-[!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
 With Xamarin, you can write mobile apps in C# that can run on iOS, Android, and Windows (mobile devices and PCs). If you're building an app using Xamarin, Azure Active Directory (Azure AD) makes it simple to authenticate users with their Azure AD accounts. The app can also securely consume any web API that's protected by Azure AD, such as the Office 365 APIs or the Azure API.
 
@@ -34,6 +33,7 @@ For Xamarin apps that need to access protected resources, Azure AD provides the 
 * Search a directory for users with a given UPN.
 
 ## Before you get started
+
 * Download the [skeleton project](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip), or download the [completed sample](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Each download is a Visual Studio 2013 solution.
 * You also need an Azure AD tenant in which to create users and register the app. If you don't already have a tenant, [learn how to get one](quickstart-create-new-tenant.md).
 
