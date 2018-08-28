@@ -336,7 +336,7 @@
   - name: Correlate custom data sources
     href: app-insights-custom-data-correlation.md
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=application-insights
+    href: https://azure.microsoft.com/resources/samples/?service=application-insights
 - name: Resources
   items:
   - name: Azure Roadmap
