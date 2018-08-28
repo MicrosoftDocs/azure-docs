@@ -46,22 +46,22 @@ To visualize the current threat intelligence for your environment, you must firs
 
 1. Open the **Security Center** dashboard.
 
-2. In the left pane, under **Threat Protection** select **Threat intelligence**. A map opens.
+1. In the left pane, under **Threat Protection** select **Threat intelligence**. A map opens.
 
 	![Threat intelligence map](./media/security-center-threat-intel/security-center-threat-intel.png)
 
-3. At the top of the map, select **View classic threat intelligence**. The **Threat intelligence** dashboard opens.
+1. At the top of the map, select **View classic threat intelligence**. The **Threat intelligence** dashboard opens.
 
 	![Threat intelligence dashboard](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
 	> [!NOTE]
 	> If the far-right column shows **UPGRADE PLAN**, this workspace is using the free subscription. Upgrade to Standard to use this feature. If the far-right column shows **REQUIRES UPDATE**, update [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) to use this feature. For more information about the pricing plan, read Azure Security Center pricing.
 	>
-3. If you have more than one workspace to investigate, prioritize the investigation according to the **Malicious IP** column. It shows the current number of malicious IPs in this workspace. Select the workspace that you want to use, and the **Threat intelligence** dashboard appears.
+1. If you have more than one workspace to investigate, prioritize the investigation according to the **Malicious IP** column. It shows the current number of malicious IPs in this workspace. Select the workspace that you want to use, and the **Threat intelligence** dashboard appears.
 
 	![Threat intelligence information](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-4. The dashboard is divided into four tiles:
+1. The dashboard is divided into four tiles:
 
 	a.  **Threat types**. Summarizes the type of threats that were detected in the selected workspace.
 

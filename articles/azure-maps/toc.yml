@@ -40,6 +40,8 @@
     items:
     - name: Manage accounts and keys
       href: how-to-manage-account-keys.md
+    - name: View usage metrics
+      href: how-to-view-api-usage.md
   - name: Get map data from REST APIs
     items:
     - name: Search for an address
@@ -100,6 +102,8 @@
     items:
     - name: Map control
       href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
+    - name: Service module
+      href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
 - name: Related
   items:
   - name: Solutions

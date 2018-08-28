@@ -8,13 +8,15 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/05/2018
 ms.author: juliako
 
 ---
 # Create a Video Indexer account connected to Azure
 
-When using a Video Indexer free trial account, you're limited by the quota and number of videos you can index. This article shows how to create a Video Indexer account that's linked to an Azure subscription, which frees you from these limits and uses pay-as-you-go pricing.
+When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Indexer account that is connected to your Azure subscription and an Azure Media Services account. You pay for minutes indexed as well as the Media Account related charges. 
+
+This article shows how to create a Video Indexer account that's linked to an Azure subscription and an Azure Media Services account. 
 
 ## Prerequisites
 
@@ -37,6 +39,12 @@ When using a Video Indexer free trial account, you're limited by the quota and n
     *  Be a member in your Azure subscription with either an Owner role, or both Contributor and User Access Administrator roles. A user can be added twice, with 2 roles. Once with Contributor and once with user Access Administrator.
 
         ![access control](./media/create-account/access-control-iam.png)
+
+* Register the EventGrid resource provider using the Azure portal.
+
+    In the [Azure portal](https://portal.azure.com/), go to **Subscriptions** > [subscription] > **ResourceProviders** > **Microsoft.EventGrid**. If not in the "Registered" state, click **Register**. It takes a couple of minutes to register. 
+
+    ![EventGrid](./media/create-account/event-grid.png)
 
 ## Connect to Azure
 
@@ -84,19 +92,16 @@ The following Azure Media Services related considerations apply:
 
     You might need to adjust the type and number of media **Reserved Units**, according to your planned load. Keep in mind that if your load is high and you don’t have enough units or speed, videos processing can result in timeout failures.
 
-* If you connected to a new Media Services account, Video Indexer automatically starts a **Streaming Endpoint** in it:
+* If you connected to a new Media Services account, Video Indexer automatically starts the default **Streaming Endpoint** in it:
 
     ![Media Services streaming endpoint](./media/create-account/ams-streaming-endpoint.png)
 
-* If you connected to an existing Media Services account, Video Indexer does not change the streaming endpoints configuration. If there is no running **Streaming Endpoint**, you will not be able to watch videos from this Media Services account or in Video Indexer.
+* If you connected to an existing Media Services account, Video Indexer does not change the default Streaming Endpoint configuration. If there is no running **Streaming Endpoint**, you will not be able to watch videos from this Media Services account or in Video Indexer.
 
-## Use Video Indexer APIs v2
+## Next steps
 
 You can programmatically interact with your trial account and/or with your Video Indexer accounts that are connected to azure by following the instructions in: [Use APIs](video-indexer-use-apis.md).
 
 You should use the same Azure AD user you used when connecting to Azure.
 
-## Next steps
-
-[Examine details of the output JSON](video-indexer-output-json-v2.md).
 

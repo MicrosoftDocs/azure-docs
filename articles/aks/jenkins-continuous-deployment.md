@@ -301,9 +301,9 @@ At this point, a simple continuous deployment process has been completed. The st
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
-[az-acr-list]: /cli/azure/acr#az_acr_list
+[az-acr-list]: /cli/azure/acr#az-acr-list
 [acr-authentication]: ../container-registry/container-registry-auth-aks.md
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
-[aks-credentials]: /cli/azure/aks#az_aks_get_credentials
+[aks-credentials]: /cli/azure/aks#az-aks-get-credentials
 [aks-quickstart]: kubernetes-walkthrough.md
 [azure-cli-install]: /cli/azure/install-azure-cli

@@ -449,7 +449,7 @@ The following illustration shows the messages that Azure Active Directory sends 
   ````
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
-    Content-type: application/json
+    Content-type: application/scim+json
     {
       "schemas":
       [
@@ -551,7 +551,7 @@ The following illustration shows the messages that Azure Active Directory sends 
   ````
     PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
-    Content-type: application/json
+    Content-type: application/scim+json
     {
       "schemas": 
       [

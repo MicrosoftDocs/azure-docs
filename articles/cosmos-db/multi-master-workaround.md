@@ -2,14 +2,14 @@
 title: Perform multi-region writes and reads by choosing the right partitioning key | Microsoft Docs
 description: Learn about how to design application architectures with local reads and writes across multiple geographic regions with Azure Cosmos DB by choosing a partition key.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 06/6/2018
-ms.author: sngun
+ms.author: rimman
 ms.custom: H1Hack27Feb2017
 
 ---

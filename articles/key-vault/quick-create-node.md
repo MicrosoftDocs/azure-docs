@@ -1,6 +1,6 @@
 ---
-title: Configure an Azure web application to read a secret from Key vault tutorial | Microsoft Docs
-description: Tutorial Configure an ASP.Net core application to read a secret from Key vault
+title: Quickstart- Set and retrieve a secret from Azure Key Vault using a Node Web App | Microsoft Docs
+description: Quickstart- Set and retrieve a secret from Azure Key Vault using a Node Web App 
 services: key-vault
 documentationcenter: 
 author: prashanthyv
@@ -9,15 +9,15 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 07/30/2018
+ms.date: 08/08/2018
 ms.author: barclayn
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
 
-# QuickStart: How to set and read a secret from Key Vault in a .NET Web App
+# Quickstart: Set and retrieve a secret from Azure Key Vault using a Node Web App 
 
-This quickstart shows how to store a secret in Key Vault and how to retrieve it using a Web app. This web app may be  run locally or in Azure. The quickstart uses Node.js and Managed service identities (MSIs)
+This quickstart shows you how to store a secret in Key Vault and how to retrieve it using a Web app. To see the secret value you would have to run this on Azure. The quickstart uses Node.js and Managed service identities (MSIs)
 
 > [!div class="checklist"]
 > * Create a Key Vault.
@@ -28,6 +28,9 @@ This quickstart shows how to store a secret in Key Vault and how to retrieve it 
 > * Grant the required permissions for the web application to read data from Key vault.
 
 Before you proceed make sure that you are familiar with the [basic concepts](key-vault-whatis.md#basic-concepts).
+
+>[!NOTE]
+To understand why the below tutorial is the best practice we need to understand a few concepts. Key Vault is a central repository to store secrets programmatically. But to do so applications / users need to first authenticate to Key Vault i.e. present a secret. To follow security best practices this first secret needs to be rotated periodically as well. But with [Managed Service Identity](../active-directory/managed-service-identity/overview.md) applications that run in Azure are given an identity which is automatically managed by Azure. This helps solve the **Secret Introduction Problem** where users / applications can follow best practices and not have to worry about rotating the first secret
 
 ## Prerequisites
 
@@ -46,7 +49,7 @@ az login
 
 ## Create resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 Please select a Resource Group name and fill in the placeholder.
 The following example creates a resource group named *<YourResourceGroupName>* in the *eastus* location.
@@ -122,8 +125,6 @@ Below are the few steps we need to do
     ```
     # Bash
     az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
-    # PowerShell
-    az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
     ```
     When the web app has been created, the Azure CLI shows output similar to the following example:
     ```

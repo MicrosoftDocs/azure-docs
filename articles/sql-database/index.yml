@@ -7,7 +7,7 @@ metadata:
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
   author: CarlRabeler
-  manager: carigg
+  manager: craigg
   ms.service: sql-database
   ms.tgt_pltfrm: na
   ms.devlang:
@@ -107,10 +107,10 @@ sections:
           - href:
       - title: Create SQL Managed Instance
         values:
-          - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
+          - href: /azure/sql-database/sql-database-managed-instance-get-started
           - href: 
           - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
-          - href:
+          - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
       - title: Create SQL Elastic Pool
         values:
           - href: 

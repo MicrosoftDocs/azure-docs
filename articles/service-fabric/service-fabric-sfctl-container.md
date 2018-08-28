@@ -13,12 +13,12 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
 
 ---
 # sfctl container
-Run container-related commands on a cluster node.
+Run container related commands on a cluster node.
 
 ## Commands
 
@@ -37,7 +37,7 @@ Invoke container REST API.
 | --application-id           [Required] | Application identity. |
 | --code-package-instance-id [Required] | Code package instance ID, which can be retrieved by 'service code-package-list'. |
 | --code-package-name        [Required] | Code package name. |
-| --container-api-uri-path   [Required] | Container REST API URI path, use '{ID}' in place of container name/id. |
+| --container-api-uri-path   [Required] | Container REST API URI path, use '{id}' in place of container name/id. |
 | --node-name                [Required] | The name of the node. |
 | --service-manifest-name    [Required] | Service manifest name. |
 | --container-api-body | HTTP request body for container REST API. |
@@ -79,6 +79,7 @@ Retrieving container logs.
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
 | --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
+
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.

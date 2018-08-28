@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 08/07/2018
 ms.author: jingwang
 
 ---
@@ -26,7 +26,10 @@ You can copy data from any supported source data store to Data Lake Storage Gen2
 Specifically, this connector supports:
 
 - Copying data by using account key.
-- Copying files as is or parsing or generating files with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+- Copying files as-is or parsing or generating files with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+
+>[!TIP]
+>If you enable the hierarchical namespace, currently there is no interoperability of operations between Blob and ADLS Gen2 APIs. In case you hit the error of "ErrorCode=FilesystemNotFound" with detailed message as "The specified filesystem does not exist.", it's caused by the specified sink file system was created via Blob API instead of ADLS Gen2 API elsewhere. To fix the issue, please specify a new file system with a name that does not exist as the name of a Blob container, and ADF will automatically create that file system during data copy.
 
 ## Get started
 

@@ -111,7 +111,7 @@ If you don't have an Azure subscription yet,
   >
   > To use a Microsoft account that has a 
   > [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/), first 
-  > [create a directory (tenant) in Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md), 
+  > [create a directory (tenant) in Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md), 
   > or use the default directory, with your Microsoft account. 
   > Add a user with a password to the directory, 
   > then give that user access to your subscription. 

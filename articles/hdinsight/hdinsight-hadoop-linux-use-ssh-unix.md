@@ -1,22 +1,15 @@
 ---
-title: Use SSH with Hadoop - Azure HDInsight | Microsoft Docs
+title: Use SSH with Hadoop - Azure HDInsight 
 description: "You can access HDInsight using Secure Shell (SSH). This document provides information on connecting to HDInsight using the ssh and scp commands from Windows, Linux, Unix, or macOS clients."
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 keywords: hadoop commands in linux,hadoop linux commands,hadoop macos,ssh hadoop,ssh hadoop cluster
 
-ms.assetid: a6a16405-a4a7-4151-9bbf-ab26972216c5
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 04/26/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
@@ -140,7 +133,7 @@ You can also enable Kerberos Authentication on each domain joined node (e.g. hea
 ```bash
 sudo vi /etc/ssh/sshd_config
 ```
-uncommnet and change `KerberosAuthentication` to `yes`
+uncomment and change `KerberosAuthentication` to `yes`
 
 ```bash
 sudo service sshd restart

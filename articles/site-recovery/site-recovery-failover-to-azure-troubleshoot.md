@@ -46,26 +46,26 @@ Site Recovery was not able to create a failed over Classic virtual machine in Az
 If Connect button is grayed out and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, then,
 
 1. Go to **Virtual machine** > **Networking**, click on the name of required network interface.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-2. Navigate to **Ip Configurations**, then click on the name field of required IP configuration. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
-3. To enable Public IP address, click on **Enable**. ![Enable IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Click on **Configure required settings** > **Create new**. ![Create new](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
-5. Enter the name of public address, choose the default options for **SKU** and **assignment**, then click **OK**.
-6. Now, to save the changes made, click **Save**.
-7. Close the panels and navigate to **Overview** section of virtual machine to connect/RDP.
+1. Navigate to **Ip Configurations**, then click on the name field of required IP configuration. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+1. To enable Public IP address, click on **Enable**. ![Enable IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+1. Click on **Configure required settings** > **Create new**. ![Create new](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+1. Enter the name of public address, choose the default options for **SKU** and **assignment**, then click **OK**.
+1. Now, to save the changes made, click **Save**.
+1. Close the panels and navigate to **Overview** section of virtual machine to connect/RDP.
 
 ## Unable to connect/RDP/SSH to the failed over virtual machine even though Connect button is available (not grayed out) on the virtual machine
 
 Check **Boot diagnostics** on your Virtual Machine and check for errors as listed in this article.
 
 1. If the virtual machine has not started, try failing over to an older recovery point.
-2. If the application inside the virtual machine is not up, try failing over to an app-consistent recovery point.
-3. If the virtual machine is domain joined, then ensure that domain controller is functioning accurately. This can be done by following the below given steps.
+1. If the application inside the virtual machine is not up, try failing over to an app-consistent recovery point.
+1. If the virtual machine is domain joined, then ensure that domain controller is functioning accurately. This can be done by following the below given steps.
     a. create a new virtual machine in the same network
 
     b.  ensure that it is able to join to the same domain on which the failed over virtual machine is expected to come up.
 
     c. If the domain controller is **not** functioning accurately, then try logging into the failed over virtual machine using a local administrator account
-4. If you are using a custom DNS server, then ensure that it is reachable. This can be done by following the below given steps.
+1. If you are using a custom DNS server, then ensure that it is reachable. This can be done by following the below given steps.
     a. create a new virtual machine in the same network and 
     b. check if the virtual machine is able to do name resolution using the custom DNS Server
 
