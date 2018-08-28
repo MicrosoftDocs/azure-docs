@@ -88,13 +88,13 @@ Use the following steps to configure files tracking on Windows computers:
 |Enabled     | Determines if the setting is applied.        |
 |Item Name     | Friendly name of the file to be tracked.        |
 |Group     | A group name for logically grouping files.        |
-|Enter Path     | The path to check for the file For example: "c:\temp\\\*.txt"<br>You can also use environement variables such as "%winDir%\System32\\\*.*"       |
+|Enter Path     | The path to check for the file For example: "c:\temp\\\*.txt"<br>You can also use environment variables such as "%winDir%\System32\\\*.*"       |
 |Recursion     | Determines if recursion is used when looking for the item to be tracked.        |
 |Upload file content for all settings| Turns on or off file content upload on tracked changes. Available options: **True** or **False**.|
 
 ## Wildcard, recursion, and environment settings
 
-Recursion allows you to specify wildcards or environment variables to simplify tracking of files. The following is a list of common information you should know when configuring recursion:
+Recursion allows you to specify wildcards to simplify tracking across directories, and environment variables to allow you to track files across environments with multiple or dynamic drive names. The following is a list of common information you should know when configuring recursion:
 
 * Wildcards are required for tracking multiple files
 * If using wildcards, they can only be used in the last segment of a path. (such as C:\folder\\**file** or /etc/*.conf)

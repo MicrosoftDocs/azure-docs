@@ -110,7 +110,7 @@ In the **Workspace Configuration** window, add the Windows Registry keys, Window
 |Enabled     | Determines if the setting is applied        |
 |Item Name     | Friendly name of the file to be tracked        |
 |Group     | A group name for logically grouping files        |
-|Enter Path     | The path to check for the file For example: "c:\temp\\\*.txt"<br>You can also use environement variables such as "%winDir%\System32\\\*.*"         |
+|Enter Path     | The path to check for the file For example: "c:\temp\\\*.txt"<br>You can also use environment variables such as "%winDir%\System32\\\*.*"         |
 |Recursion     | Determines if recursion is used when looking for the item to be tracked.        |
 |Upload file content for all settings| Turns on or off file content upload on tracked changes. Available options: **True** or **False**.|
 
