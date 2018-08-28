@@ -43,3 +43,4 @@ Here are some facts about workflow notifications:
 ## Next steps
 
 - [Approve or deny requests for Azure AD directory roles in PIM](azure-ad-pim-approval-workflow.md)
+- [Email notifications in PIM](pim-email-notifications.md)

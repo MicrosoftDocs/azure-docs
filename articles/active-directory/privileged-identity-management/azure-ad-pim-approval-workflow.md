@@ -58,3 +58,4 @@ decision you made (in this example, the decision is approve):
 ## Next steps
 
 - [Approve or deny requests for Azure resource roles in PIM](pim-resource-roles-approval-workflow.md)
+- [Email notifications in PIM](pim-email-notifications.md)
