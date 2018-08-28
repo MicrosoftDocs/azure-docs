@@ -21153,8 +21153,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/security-center/security-center-platform-migration.md",
+            "redirect_url": "/azure/security-center/security-center-enable-data-collection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-platform-migration-faq.md",
+            "redirect_url": "/azure/security-center/security-center-enable-data-collection",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
-            "redirect_url": "/azure/security-center",
+            "redirect_url": "/azure/security-center-faq.md",
             "redirect_document_id": false
         },
         {
@@ -23351,6 +23361,11 @@
             "source_path": "articles/cognitive-services/Bing-Web-Search/search-the-web.md",
             "redirect_url": "/azure/cognitive-services/bing-web-search",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Web-Search/sdk.md",
+            "redirect_url": "/azure/cognitive-services/bing-web-search/sdk-samples",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-understanding-resource-access.md",
@@ -27365,6 +27380,11 @@
             "source_path": "articles/security-center/security-center-disk-encryption.md",
             "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-reference-gdpr.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-user-privacy",
+            "redirect_document_id": true
         }
     ]
 }
