@@ -1,18 +1,18 @@
 ---
-title: "Quickstart: Send search queries using the REST API for the Bing Image Search API using C#"
-description: Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response.
+title: "Quickstart: Send search queries using the Bing Image Search API and C#"
+description: Use this quickstart to search and find images on the web using the Bing Web Search API.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 8/9/2018
+ms.date: 8/28/2018
 ms.author: aahi
 ---
-# Quickstart: Send search queries using the REST API and C#
+# Quickstart: Send search queries using the Bing Image Search API and C#
 
-Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple C# application sends an image search query to the API, and displays the raw results.
+Use this quickstart to make your first call to the Bing Image Search API and view a search result from the JSON response. This simple C# application sends an image search query to the API, and displays the URL of the first image returned.
 
 While this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
 
