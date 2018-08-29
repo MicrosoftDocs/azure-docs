@@ -19,7 +19,7 @@ ms.author: wesmc
 
 IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this quickstart, you send telemetry from a simulated device application, through IoT Hub, to a back-end application for processing.
 
-The quickstart uses a C sample application from the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md) to send telemetry to an IoT hub. Before you run thethe sample, you will create an IoT hub and register the simulated device with that hub.
+The quickstart uses a C sample application from the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md) to send telemetry to an IoT hub. The Azure IoT device SDKs are written in [ANSI C (C99)](https://wikipedia.org/wiki/C99) for portability and broad platform compatibility. Before running the sample code, you will create an IoT hub and register the simulated device with that hub.
 
 This article written for Windows but you can complete this quickstart on Linux as well.
 
@@ -38,7 +38,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
 You can use the SDK by installing the packages and libraries for the following environments:
 
-* **Linux**: [Use apt-get with azure-iot-sdk-c].(https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md).
+* **Linux**: [Use apt-get with azure-iot-sdk-c](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md).
 * **mbed**: [Use the mebed library](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed).
 * **Arduino**: [Use the Arduino IDE library](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#arduino).
 * **Windows**: [Use the Nuget packages](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#nugetpackage).
