@@ -590,6 +590,24 @@
       items:
       - name: Azure SQL
         href: ../log-analytics/log-analytics-azure-sql.md?toc=/azure/monitoring/toc.json
+      - name: SQL Server
+        href: ../log-analytics/log-analytics-sql-assessment.md?toc=/azure/monitoring/toc.json
+    - name: Monitor networks
+      items:
+      - name: Networking Analytics
+        href: ../log-analytics/log-analytics-azure-networking-analytics.md
+      - name: Network Performance Monitor
+        items:
+        - name: Solution overview
+          href: ../log-analytics/log-analytics-network-performance-monitor.md
+        - name: Performance Monitor
+          href: ../log-analytics/log-analytics-network-performance-monitor-performance-monitor.md
+        - name: Service Endpoint
+          href: ../log-analytics/log-analytics-network-performance-monitor-service-endpoint.md
+        - name: ExpressRoute
+          href: ../log-analytics/log-analytics-network-performance-monitor-expressroute.md
+        - name: Pricing
+          href: ../log-analytics/log-analytics-network-performance-monitor-pricing-faq.md
     - name: Monitor virtual machines
       items:
       - name: Agent Health
