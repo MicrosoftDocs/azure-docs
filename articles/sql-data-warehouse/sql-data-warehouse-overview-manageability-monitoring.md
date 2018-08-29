@@ -20,7 +20,7 @@ Take a look through what's available to help you manage and monitor SQL Data War
 * [Understand what metrics and logs are available  in the Azure portal][resource utilization]
 * [Learn about  backup and restore capabilities][data protection]
 * [Learn about built-in intelligence and recommendations][recommendations]
-* [Learn about maintenance periods and what is available to minimise downtime of your data warehouse][maintenance]
+* [Learn about maintenance periods and what is available to minimize downtime of your data warehouse][maintenance]
 * [Find common troubleshooting guidance][troubleshoot]
 
 ## Next steps
