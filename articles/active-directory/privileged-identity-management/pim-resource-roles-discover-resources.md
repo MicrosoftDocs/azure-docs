@@ -1,6 +1,6 @@
 ---
-title: Discover and manage Azure resources by using Privileged Identity Management | Microsoft Docs
-description: Describes how to protect Azure resources by using PIM.
+title: Discover Azure resources to manage in PIM | Microsoft Docs
+description: Learn how to discover Azure resources to manage in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ---
 
-# Discover and manage Azure resources by using Privileged Identity Management
+# Discover Azure resources to manage in PIM
 
 Learn how to discover and manage Azure resources when you use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD). This information can be helpful to organizations that already use PIM to protect administrator resources, and to subscription owners who are looking to secure production resources.
 
 When you first set up PIM for Azure resources, you need to discover and select resources to protect with PIM. There's no limit to the number of resources that you can manage with PIM. However, we recommend starting with your most critical (production) resources.
 
 > [!NOTE]
-> You can only search for and select subscription resources to manage by using PIM. When you manage a subscription in PIM, you can also manage child resources in the subscription.
+> You can only search for and select management group or subscription resources to manage using PIM. When you manage a management group or a subscription in PIM, you can also manage its child resources.
 
 ## Discover resources
 
@@ -59,5 +59,5 @@ The selected resources are now managed by PIM. To close the discovery screen, in
 
 ## Next steps
 
-- [Configure role settings](pim-resource-roles-configure-role-settings.md)
-- [Assign roles in PIM](pim-resource-roles-assign-roles.md)
+- [Configure Azure resource role settings in PIM](pim-resource-roles-configure-role-settings.md)
+- [Assign Azure resource roles in PIM](pim-resource-roles-assign-roles.md)
