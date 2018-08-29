@@ -186,9 +186,10 @@ Here are some important things to know about Premium Storage scalability and per
 * **Cache hits**
 
     Cache hits are not limited by the allocated IOPS or throughput of the disk. For example, when you use a data disk with a **ReadOnly** cache setting on a VM that is supported by Premium Storage, 
-    reads that are served from the cache are not subject to the IOPS and throughput caps of the disk. If the workload of a disk is predominantly reads, you might get very high throughput. The cache is subject to separate IOPS and throughput limits at the VM level, based on the VM size. DS-series VMs have roughly 4,000 IOPS and 33-MB/s throughput per core for cache and local SSD I/Os. GS-series VMs have a limit of 5,000 IOPS and 50-MB/s throughput per core for cache and local SSD I/Os. 
+    reads that are served from the cache are not subject to the IOPS and throughput caps of the disk. If the workload of a disk is predominantly reads, you might get very high throughput. The cache is subject to separate IOPS and throughput limits at the VM level, based on the VM size. DS-series VMs have roughly 4,000 IOPS and 33-MB/s throughput per core for cache and local SSD I/Os. GS-series VMs have a limit of 5,000 IOPS and 50-MB/s throughput per core for cache and local SSD I/Os.
 
 ## Throttling
+
 Throttling might occur, if your application IOPS or throughput exceeds the allocated limits for a premium storage disk. Throttling also might occur if your total disk traffic across all disks on the VM exceeds the disk bandwidth limit available for the VM. To avoid throttling, we recommend that you limit the number of pending I/O requests for the disk. Use a limit based on scalability and performance targets for the disk you have provisioned, and on the disk bandwidth available to the VM.  
 
 Your application can achieve the lowest latency when it is designed to avoid throttling. However, if the number of pending I/O requests for the disk is too small, your application cannot take advantage of the maximum IOPS and throughput levels that are available to the disk.
@@ -196,12 +197,15 @@ Your application can achieve the lowest latency when it is designed to avoid thr
 The following examples demonstrate how to calculate throttling levels. All calculations are based on an I/O unit size of 256 KB.
 
 ### Example 1
+
 Your application has processed 495 I/O units of 16-KB size in one second on a P10 disk. The I/O units are counted as 495 IOPS. If you try a 2-MB I/O in the same second, the total of I/O units is equal to 495 + 8 IOPS. This is because 2 MB I/O = 2,048 KB / 256 KB = 8 I/O units, when the I/O unit size is 256 KB. Because the sum of 495 + 8 exceeds the 500 IOPS limit for the disk, throttling occurs.
 
 ### Example 2
+
 Your application has processed 400 I/O units of 256-KB size on a P10 disk. The total bandwidth consumed is (400 &#215; 256) / 1,024 KB = 100 MB/s. A P10 disk has a throughput limit of 100 MB/s. If your application tries to perform more I/O operations in that second, it is throttled because it exceeds the allocated limit.
 
 ### Example 3
+
 You have a DS4 VM with two P30 disks attached. Each P30 disk is capable of 200-MB/s throughput. However, a DS4 VM has a total disk bandwidth capacity of 256 MB/s. You cannot drive both attached disks to the maximum throughput on this DS4 VM at the same time. To resolve this, you can sustain traffic of 200 MB/s on one disk and 56 MB/s on the other disk. If the sum of your disk traffic goes over 256 MB/s, disk traffic is throttled.
 
 > [!NOTE]

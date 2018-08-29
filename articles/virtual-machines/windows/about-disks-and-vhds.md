@@ -37,7 +37,6 @@ A data disk is a VHD that's attached to a virtual machine to store application d
 
 > [!NOTE]
 > For more information about virtual machines capacities, see [Sizes for Windows virtual machines](sizes.md).
-> 
 
 Azure creates an operating system disk when you create a virtual machine from an image. If you use an image that includes data disks, Azure also creates the data disks when it creates the virtual machine. Otherwise, you add data disks after you create the virtual machine.
 
