@@ -30,6 +30,8 @@ Cloud-init also works across distributions. For example, you don't use **apt-get
 
 | Publisher | Offer | SKU | Version | cloud-init ready
 |:--- |:--- |:--- |:--- |:--- |:--- |
+|Canonical |UbuntuServer |18.04-LTS |latest |yes | 
+|Canonical |UbuntuServer |17.10 |latest |yes | 
 |Canonical |UbuntuServer |16.04-LTS |latest |yes | 
 |Canonical |UbuntuServer |14.04.5-LTS |latest |yes |
 |CoreOS |CoreOS |Stable |latest |yes |
