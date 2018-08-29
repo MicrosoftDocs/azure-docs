@@ -26,13 +26,32 @@ Azure is now backed by infrastructure running Windows Server 2016. Windows Serve
 >
 > For more details about time sync in Windows Server 2016, see [Accurate time for Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/accurate-time). 
 
+## Overview
+
+
+Time sync is important for security and event correlation. Sometimes it is used for distributed transactions implementation. Time accuracy between multiple computer systems is achieved through synchronization. Synchronization can be affected by multiple things, including reboots and network traffic between the time source and the computer fetching the time. 
+
+Accuracy for a computer clock is gauged  how close the computer clock is to UTC, the present time standard. The UTC itself is defined by multinational sample of very precise atomic clocks that can only be off by one second in 300 years, but reading UTC directly requires specialized hardware. Instead, time servers are synced to UTC and are accessed from other computers to provide scalability and robustness. Every computer has time synchronization service running that knows what time servers to use and periodically checks if computer clock needs to be corrected and adjusts time if needed. 
+
+In Azure, virtual machines can either depend on their host to synchronize with time.windows.com and pass the accurate time (*host time*) on to the VM, the VM can directly get time from a time server or a combination of both. 
+
+Virtual machine interactions with the host can also affect the clock. During [memory preserving maintenance](maintenance-and-updates.md#memory-preserving-maintenance) tasks, VMs are paused for up to 30 seconds. For example, before maintenance begins the VM clock shows 10:00:00 AM and lasts 28 seconds. After the VM resumes, the clock on the VM would still show 10:00:00 AM, which would be 28 seconds off. To correct for this, the time synchronization service uses integration services to monitor what is happening on the host and prompt changes to happen on the VMs to compensate.
+
+Without time synchronization working the clock on the VM would accumulate errors. When there is only one VM, the effect might not be that significant if the VM isn't running software that is highly dependent on an accurate clock. But in most cases we have multiple, interconnected VMs that use time to track transactions and the time needs to be consistent throughout the entire deployment. When time between VMs is different, you could see the following affects:
+
+- Authentication problems. Security protocols like Kerberos or certificate-dependent technology rely on time being consistent across the systems. Systems stop to trust each other if their time differs significantly. Login and access attempts can fail because of unsynchronized time.
+- Distributed event correlation problems. It's very hard or practically impossible to figure out what have happened in a system if logs (or other data) don't agree on time. The same event would be shown to occur on different times making event correlation a new problem.
+- There are number of distributed transactions algorithms that rely on precise time sync and they would not work if time drifts freely.
+- Billing intrinsically depends on the time sync. If clock is off the billing cycles would be calculated incorrectly.
+- Financial operations require precise time sync to resolve when each sell or buy did actually happen and consequently on what price.
+
 ## Configuration options
 
 There are three options for configuring time sync for your Windows VMs hosted in Azure:
 
 - Host time and time.windows.com. This is the default configuration used in Azure Marketplace images.
 - Host-only 
-- Use another, external time server.
+- Use another, external time server with or without using host time.
 
 
 ### Use the default
@@ -40,9 +59,7 @@ There are three options for configuring time sync for your Windows VMs hosted in
 By default Windows OS VM images are configured for w32time to sync from two sources: 
 
 - The NtpClient provider, which gets information from time.windows.com 
-- The VMICTimeSync service and VMICTimeProvider, gets time from the host. 
-
-VMICTimeProvider combined with running VMICTimeSync ensures that host and guest times are within a 5 second boundary and that time is corrected when VM is resumed after a pause. 
+- The VMICTimeSync service and VMICTimeProvider, used to communicate the host time to the VMs. 
 
 w32time would prefer the time provider in the following order of priority: stratum level, root delay, root dispersion, time offset. In most cases, w32time would prefer time.windows.com to the host because time.windows.com reports lower stratum. 
 
