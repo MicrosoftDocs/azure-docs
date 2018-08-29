@@ -1,5 +1,5 @@
 ---
-title: 'IoT DevKit to cloud: Connect IoT DevKit AZ3166 to Remote Monitoring IoT solution accelerator | Microsoft Docs'
+title: IoT DevKit to cloud -- Connect IoT DevKit AZ3166 to Remote Monitoring IoT solution accelerator | Microsoft Docs
 description: In this tutorial, learn how to send status of sensors on IoT DevKit AZ3166 to Remote Monitoring IoT solution accelerator for monitoring and visualization.
 author: isabelcabezasm
 manager: 
