@@ -230,21 +230,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	* Open your Base64 encoded certificate downloaded from Azure in notepad, copy the content of it into your clipboard, and then paste it to the **PEM Certificate** textbox.
 
-	f. Click **Submit**.
+	g. Click **Submit**.
 
-	g. In the navigation pane on the left side, click **Identity Providers**.
+	h. In the navigation pane on the left side, click **Identity Providers**.
 
 	![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configure single sign-on")
 
-	h. On the **Identity Providers** dialog, click **New**.
+	i. On the **Identity Providers** dialog, click **New**.
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694977.png "Configure single sign-on")
 
-	i. On the **Identity Providers** dialog, click **SAML2 Update1?**.
+	j. On the **Identity Providers** dialog, click **SAML2 Update1?**.
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694978.png "Configure single sign-on")
 
-	j. On the SAML2 Update1 Properties dialog, perform the following steps:
+	k. On the SAML2 Update1 Properties dialog, perform the following steps:
 
 	![Configure single sign-on](./media/servicenow-tutorial/idp.png "Configure single sign-on")
 
@@ -254,7 +254,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	* Click **Import**.
 
-	k. It reads the IdP metadata URL and populates all the fields information.
+	l. It reads the IdP metadata URL and populates all the fields information.
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694982.png "Configure single sign-on")
 
