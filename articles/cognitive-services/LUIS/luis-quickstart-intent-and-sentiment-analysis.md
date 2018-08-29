@@ -1,5 +1,5 @@
 ---
-title: Tutorial to create a LUIS app that returns sentiment analysis - Azure Cognitive Services| Microsoft Docs 
+title: Tutorial - 9 - sentiment analysis including positive, negative, and neutral- - Azure Cognitive Services| Microsoft Docs 
 description: In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
 services: cognitive-services
 author: diberry
@@ -17,22 +17,6 @@ ms.author: diberry
 # Tutorial: 9.  Add sentiment analysis
 In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Understand sentiment analysis
-> * Add sentiment analysis as publish setting
-> * Train app
-> * Publish app
-> * Query endpoint of app to see LUIS JSON response
-
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## Use existing app
-If you don't have the Human Resources app from the [previous](luis-quickstart-intent-and-key-phrase.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json) Github repository.
-
-If you want to keep the original Human Resources app, clone the version on the [Versions](luis-how-to-manage-versions.md#clone-a-version) page, and name it `sentiment`. Cloning is a great way to play with various LUIS features without affecting the original version. 
-
-## Sentiment analysis
 Sentiment analysis is the ability to determine if a user's utterance is positive, negative, or neutral. 
 
 The following utterances show examples of sentiment:
@@ -42,11 +26,33 @@ The following utterances show examples of sentiment:
 |positive|0.91 |John W. Smith did a great job on the presentation in Paris.|
 |positive|0.84 |jill-jones@mycompany.com did fabulous work on the Parker sales pitch.|
 
-Sentiment analysis is an publish setting that applies to every utterance. You do not have to find the words indicating sentiment in the utterance and label them because sentiment analysis applies to the entire utterance. 
+Sentiment analysis is a publish setting that applies to every utterance. You do not have to find the words indicating sentiment in the utterance and label them because sentiment analysis applies to the entire utterance. 
 
 Because it is a publish setting, you do not see it on the intents or entities pages. You can see it in the [interactive test](luis-interactive-test.md#view-sentiment-results) pane or when testing at the endpoint URL. 
 
-## Add EmployeeFeedback intent 
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Use existing tutorial app 
+> * Add sentiment analysis as publish setting
+> * Train
+> * Publish
+> * Get sentiment of utterance from endpoint
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## Use existing app
+
+Continue with the app created in the last tutorial, named **HumanResources**. 
+
+If you do not have the HumanResources app from the previous tutorial, use the following steps:
+
+1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
+
+2. Import the JSON into a new app.
+
+3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `sentiment`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
+
+## EmployeeFeedback intent 
 Add a new intent to capture employee feedback from members of the company. 
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
@@ -74,7 +80,7 @@ Add a new intent to capture employee feedback from members of the company.
 
     [ ![Screenshot of LUIS app with example utterances in EmployeeFeedback intent](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
-## Train the LUIS app
+## Train
 
 [!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -85,17 +91,17 @@ Add a new intent to capture employee feedback from members of the company.
 
     ![](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
-## Publish app to endpoint
+## Publish
 
 [!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## Query the endpoint with an utterance
+## Get sentiment of utterance from endpoint
 
 1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Go to the end of the URL in the address and enter `Jill Jones work with the media team on the public portal was amazing`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `EmployeeFeedback` intent with the sentiment analysis extracted.
     
-    ```
+    ```JSON
     {
       "query": "Jill Jones work with the media team on the public portal was amazing",
       "topScoringIntent": {
@@ -188,19 +194,12 @@ Add a new intent to capture employee feedback from members of the company.
 
     The sentimentAnalysis is positive with a score of 0.86. 
 
-## What has this LUIS app accomplished?
-This app, with sentiment analysis enabled, identified a natural language query intention and returned the extracted data including the overall sentiment as a score. 
-
-Your chat bot now has enough information to determine the next step in the conversation. 
-
-## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a bot, can take the topScoringIntent result and the sentiment data from the utterance to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
-
 ## Clean up resources
 
 [!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
+This tutorial adds sentiment analysis as a publish setting to extract sentiment values from the utterance as a whole.
 
 > [!div class="nextstepaction"] 
 > [Review endpoint utterances in the HR app](luis-tutorial-review-endpoint-utterances.md) 
