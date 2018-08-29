@@ -1,6 +1,6 @@
 ---
 title: Tutorial - 7 - simple entity - phrase list - extract data - Azure Cognitive Service | Microsoft Docs 
-description: In this tutorial, extract machine-learned data from an utterance using the Simple entity. To increase the extraction accuracy, add a phrase list of terms specific to the simple entity.
+description: In this tutorial, extract machine-learned data from an utterance using the Simple entity. To increase the extraction accuracy, add a phrase list of terms specific to the simple entity. This tutorial adds a new simple entity to extract the job name. The purpose of the simple entity in this LUIS app is to teach LUIS what a job name is and where it can be found in an utterance. The part of the utterance that is the job name can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of job names  across all intents that use job names.  
 services: cognitive-services
 author: diberry
 manager: cjgronlund 
@@ -16,6 +16,8 @@ ms.author: diberry
 # Tutorial: 7. Add simple entity and phrase list
 In this tutorial, extract machine-learned data of employment job name from an utterance using the **Simple** entity. To increase the extraction accuracy, add a phrase list of terms specific to the simple entity.
 
+This tutorial adds a new simple entity to extract the job name. The purpose of the simple entity in this LUIS app is to teach LUIS what a job name is and where it can be found in an utterance. The part of the utterance that is the job name can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of job names  across all intents that use job names.  
+
 Consider the following utterances from a chat bot:
 
 |Utterance|Extractable job name|
@@ -23,8 +25,6 @@ Consider the following utterances from a chat bot:
 |I want to apply for the new accounting job.|accounting|
 |Submit my resume for the engineering position.|engineering|
 |Fill out application for job 123456|123456|
-
-This tutorial adds a new simple entity to extract the job name. The purpose of the simple entity in this LUIS app is to teach LUIS what a job name is and where it can be found in an utterance. The part of the utterance that is the job name can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of job names  across all intents that use job names.  
 
 The job name is difficult to determine because a name can be a noun, verb, or a phrase of several words. For example:
 

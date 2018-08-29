@@ -1,5 +1,5 @@
 ---
-title: Tutorial create a LUIS app that returns key phrases - Azure Cognitive Services | Microsoft Docs 
+title: Tutorial - 8 - key phrase extraction - keyphrase entity - Azure Cognitive Services | Microsoft Docs 
 description: In this tutorial, use a keyPhrase prebuilt entity to extract key subject matter from utterances. You do not need to label any utterances with prebuilt entities. The entity is detected automatically.
 services: cognitive-services
 author: diberry
@@ -15,25 +15,7 @@ ms.author: diberry
 --- 
 
 # Tutorial: 8. Add keyPhrase entity 
-In this tutorial, use a keyPhrase prebuilt entity to extract key subject matter from utterances. You do not need to label any utterances with prebuilt entities. The entity is detected automatically.
-
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Understand keyPhrase entities 
-> * Add keyPhrase entity 
-> * Train app
-> * Publish app
-> * Query endpoint of app to see LUIS JSON response
-
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## Use existing app
-If you don't have the Human Resources app from the [previous](luis-quickstart-primary-and-secondary-data.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json) Github repository.
-
-If you want to keep the original Human Resources app, clone the version on the [Versions](luis-how-to-manage-versions.md#clone-a-version) page, and name it `keyphrase`. Cloning is a great way to play with various LUIS features without affecting the original version. 
-
-## keyPhrase entity extraction
-Key subject matter is provided by the prebuilt entity, **keyPhrase**. This entity returns key subject matter in the utterance.
+In this tutorial, use the prebuilt keyPhrase entity to extract key subject matter from utterances. You do not need to label any utterances with prebuilt entities. The entity is detected automatically.
 
 The following utterances show examples of key phrases:
 
@@ -44,40 +26,54 @@ The following utterances show examples of key phrases:
 
 Your client application can use these values, along with other extracted entities, to decide the next step in the conversation.
 
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Use existing tutorial app
+> * Add keyPhrase entity 
+> * Train
+> * Publish
+> * Get intents and entities from endpoint
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## Use existing app
+
+Continue with the app created in the last tutorial, named **HumanResources**. 
+
+If you do not have the HumanResources app from the previous tutorial, use the following steps:
+
+1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json).
+
+2. Import the JSON into a new app.
+
+3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `keyphrase`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
+
 ## Add keyPhrase entity 
 Add keyPhrase prebuilt entity to extract subject matter from utterances.
 
-1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
+[!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Entities** from the left menu.
 
-    [ ![Screenshot of Entities highlighted in left nav of Build section](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities-button.png#lightbox)
-
 3. Select **Manage prebuilt entities**.
-
-    [ ![Screenshot of Entities list pop-up dialog](./media/luis-quickstart-intent-and-key-phrase/hr-manage-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-manage-prebuilt-entities.png#lightbox)
 
 4. In the pop-up dialog, Select **keyPhrase**, then select **Done**. 
 
     [ ![Screenshot of Entities list pop-up dialog](./media/luis-quickstart-intent-and-key-phrase/hr-add-or-remove-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-add-or-remove-prebuilt-entities.png#lightbox)
 
-    <!-- TBD: asking Carol
-    You won't see these entities labeled in utterances on the intents pages. 
-    -->
 5. Select **Intents** from the left menu, then select the **Utilities.Confirm** intent. The keyPhrase entity is labeled in several utterances. 
 
     [ ![Screenshot of Utilities.Confirm intent with keyPhrases labeled in utterances](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
 
-## Train the LUIS app
+## Train
 
 [!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## Publish app to endpoint
+## Publish
 
 [!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-
-## Query the endpoint with an utterance
+## Get intent and entities from endpoint
 
 1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -172,19 +168,13 @@ Add keyPhrase prebuilt entity to extract subject matter from utterances.
 
     While searching for a form, the user provided more information than was necessary to find the form. The additional information is returned as **builtin.keyPhrase**. The client application can use this additional information for a follow-up question, such as "Would you like to talk to a Human Resource representative about new dental benefits" or provide a menu with more options including "More information about new dental benefits or medical plan."
 
-## What has this LUIS app accomplished?
-This app, with keyPhrase entity detection, identified a natural language query intention and returned the extracted data including the main subject matter. 
-
-Your chat bot now has enough information to determine the next step in the conversation. 
-
-## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a bot, can take the topScoringIntent result and the extracted data from the utterance to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
-
 ## Clean up resources
 
 [!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
+
+This tutorial added the prebuilt keyPhrase entity, quickly providing key phrases in utterances without having to label the utterances. 
 
 > [!div class="nextstepaction"]
 > [Add sentiment analysis to app](luis-quickstart-intent-and-sentiment-analysis.md)
