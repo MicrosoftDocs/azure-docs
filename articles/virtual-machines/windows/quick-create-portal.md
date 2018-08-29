@@ -33,23 +33,24 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. Choose **Create a resource** in the upper left-hand corner of the Azure portal.
 
-2. In the search box above the list of Azure Marketplace resources, search for and select **Windows Server 2016 Datacenter**, then choose **Create**.
+1. In the search box above the list of Azure Marketplace resources, search for and select **Windows Server 2016 Datacenter**, then choose **Create**.
 
-3. Provide a VM name, such as *myVM*, leave the disk type as *SSD*, then provide a username, such as *azureuser*. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type the *myResourceGroup* for the name. 
 
-    ![Enter basic information about your VM in the portal blade](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
 
-5. Choose to **Create new** resource group, then provide a name, such as *myResourceGroup*. Choose your **Location**, then select **OK**.
+1. Under **Instance details**, type *myVM* for the **Virtual machine name* and choose *East US* for your your **Location**. Leave the other defaults.
 
-4. Select a size for the VM. You can filter by *Compute type* or *Disk type*, for example. A suggested VM size is *D2s_v3*. Click **Select** after you have chosen a size.
+1. Under **Administrator account**,  provide a username, such as *azureuser* and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-    ![Screenshot that shows VM sizes](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
+    ![Enter your username and password](./media/quick-create-portal/username.png)
 
-5. On the **Settings** page, in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **RDP (3389)** from the drop-down. Leave the rest of the defaults and select **OK**.
+1. Under **Inbound port rules**, in the **Select inbound port rules** drop-down, unselect **No public inbound ports** and then select **RDP (3389)** and **HTTP**.
 
-6. On the summary page, select **Create** to start the VM deployment.
+	![Open ports for RDP and HTTP](./media/quick-create-portal/ports-3389-80.png)
 
-7. The VM is pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary automatically opens.
+1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
+
+There are lots of other settings on the other tabs, but this is all we need to create a basic Windows VM. 
 
 ## Connect to virtual machine
 
