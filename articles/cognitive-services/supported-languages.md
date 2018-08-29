@@ -1,47 +1,42 @@
 ---
-title: Language Support | Microsoft Docs
-description: A list of supported languages for Azure Cognitive Services.
+title: Supported Languages
+titleSuffix: Cognitive Services - Azure
+description: A list of supported human languages across Azure Cognitive Services.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/&nbsp;7/&nbsp;018
+ms.date: 08/29/2018
 ms.author: erhopf
 ms.reviewer:
 ---
 
 # Human languages supported by Azure Cognitive Services
 
-<< Something about this table cataloging language support across services.>> Additional language and specific locale support varies by service. For a complete list, use the links provided below.
-
-* Locale and language support vary by feature and sub-feature.
-
-## Sample 2
+This table provides a high-level mapping of human language support across Azure Cognitive Services. Additional languages and locale-specific availability vary by service, for more information, use the links provided. 
 
 This sample table displays most services in Ashly's PPT. It focuses on **Tier** 1 languages.
-          1      2          3          4       5        6         7          8         9
+
 |   | English | French | Italian | German | Spanish | Chinese | Japanese | Korean | Portuguese |
 |---|---------|--------|---------|--------|---------|---------|----------|--------|------------|
-| Computer Vision | :heavy_check_mark: |  |   |   |   | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| Content Moderator | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Video Indexer | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| Speech-to-Text | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| Text-to-Speech | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Bing Speech API | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Computer Vision](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/faq) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:  | :heavy_check_mark: | :heavy_check_mark:  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Content Moderator](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/text-moderation-api-languages) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Video Indexer](https://docs.microsoft.com/en-us/azure/cognitive-services/video-indexer/video-indexer-overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
+| [Speech-to-Text](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/supported-languages#speech-to-text) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
+| [Text-to-Speech](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/supported-languages#text-to-speech) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Speech Translation](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/supported-languages#speech-translation) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Bing Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/api-reference-rest/supportedlanguages) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Custom Speech Service | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | [Bing Spell Check](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Language Understanding (LUIS)](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-supported-languages) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Text Analytics | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-| Translator Text | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-| Web Language Model | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-| Custom Decision Service | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-| QnA Maker | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-| Bing Web Search | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-| Bing Image Search | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-| Bing News Search | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-| Bing Video Search | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-| Bing Autosuggest | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-| Bing Visual Search | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-| Bing Custom Search | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-| Bing Entity Search | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+| [Text Analytics](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/text-analytics-supported-languages) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Translator Text](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/languages) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Web Language Model](https://docs.microsoft.com/en-us/azure/cognitive-services/web-language-model/home) | :heavy_check_mark: |  |  |  |  |  |  |  |  |
+| [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/overview/languages-supported) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Bing Web Search](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/supported-countries-markets) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Bing Image Search](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/supported-countries-markets) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Bing News Search](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-news-search/supported-countries-markets) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Bing Autosuggest](https://docs.microsoft.com/en-us/azure/cognitive-services/Bing-Autosuggest/bing-autosuggest-supported-languages) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Bing Visual Search](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/supported-countries-markets) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Bing Custom Search ](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-custom-search/supported-countries-markets) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
