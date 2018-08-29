@@ -69,15 +69,17 @@ An example of commands that can be used to mount the data disks and create the n
     - [Install and configure Azure Powershell on macOS and Linux](/powershell/azure/install-azurermps-maclinux).
         -  Install PowerShell Core, Azure PowerShell for .NET Core, and load the AzureRM.Netcore module.
 
-2. Verify the installed versions of the modules.
-    -  The AzureRM module version needs to be 6.0.0 or higher. 
-    -  [Update the Azure PowerShell module](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module) if needed. Using the latest AzureRM module version is recommended. 
-      ```powershell
-      Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
-      ```
+2. Verify the installed versions of the AzureRM module. If needed, [update the Azure PowerShell module](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
+    -  The AzureRM module version needs to be 6.0.0 or higher.
+    - Using the latest AzureRM module version is recommended.
+
+     ```powershell
+     Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
+     ```
+
 3. Sign in to Azure using the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
      
-     ```powershell
+     ```azurepowershell-interactive
      Connect-AzureRmAccount
      # For specific instances of Azure, use the -Environment parameter.
      Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
