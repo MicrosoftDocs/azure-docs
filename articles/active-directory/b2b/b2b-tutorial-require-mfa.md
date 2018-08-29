@@ -74,13 +74,7 @@ To complete the scenario in this tutorial, you need:
 1.	Sign in to your [Azure portal](https://portal.azure.com/) as global administrator, security administrator, or a conditional access administrator.
 2.	In the Azure portal, select **Azure Active Directory**. 
 3.	On the **Azure Active Directory** page, in the **Security** section, select **Conditional access**.
-
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-2.png)
-
 4.	On the **Conditional Access** page, in the toolbar on the top, select **New policy**.
-
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-3.png)
-
 5.	On the **New** page, in the **Name** textbox, type **Require MFA for B2B portal access**.
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-4.png)
@@ -98,10 +92,7 @@ To complete the scenario in this tutorial, you need:
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-7.png)
 
 9.	On the **Users and groups** page, select **Done**.
-10.	Select **Cloud apps**.
-
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-9.png)
-
+10.	On the **New** page, in the **Assignments** section, select **Cloud apps**.
 11.	On the **Cloud apps** page, choose **Select apps**, and then choose **Select**.
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-10.png)
@@ -111,10 +102,7 @@ To complete the scenario in this tutorial, you need:
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
 13.	On the **Cloud apps** page, select **Done**.
-14.	In the **Access controls** section, select **Grant**.
-
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-12.png)
-
+14.	On the **New** page, in the **Access controls** section, select **Grant**.
 15.	On the **Grant** page, choose **Grant access**, select the **Require multi-factor authentication** check box, and then choose **Select**.
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-13.png)
@@ -159,14 +147,8 @@ When no longer needed, remove the test user and the test conditional access poli
 2.	In the left pane, select **Azure Active Directory**.
 3.	Under **Manage**, select **Users**.
 4.	Select the test user, and then select **Delete user**.
-
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-cleanup-1.png)
-
 5.	In the left pane, select **Azure Active Directory**.
 6.	Under **Security**, select **Conditional Access**.
 7.	In the **Policy Name** list, select the context menu (…) for your test policy, and then select **Delete**. Select **Yes** to confirm.
-
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-cleanup-2.png)
-
 ## Next steps
 In this tutorial, you’ve created a conditional access policy that requires guest users to use MFA when signing in to one of your cloud apps. To learn more about adding guest users for collaboration, see [Add Azure Active Directory B2B collaboration users in the Azure portal](add-users-administrator.md).
