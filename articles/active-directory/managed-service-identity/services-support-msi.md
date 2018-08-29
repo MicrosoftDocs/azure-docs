@@ -1,6 +1,6 @@
 ---
-title: Azure Services that support Managed Service Identity
-description: List of services that support Managed Service Identity and Azure AD authentication
+title: Azure Services that support managed identities for Azure resources
+description: List of services that support managed identities for Azure resources and Azure AD authentication
 services: active-directory
 author: daveba
 ms.author: daveba
@@ -11,13 +11,13 @@ ms.component: msi
 manager: mtillman
 ---
 
-# Services that support Managed Service Identity 
+# Services that support Managed identities for Azure resources
 
-Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. Using a managed identity, you can authenticate to any service that supports Azure AD authentication without having credentials in your code. We are in the process of integrating Managed Service Identity and Azure AD authentication across Azure. Check back often for updates.
+Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. Using a managed identity, you can authenticate to any service that supports Azure AD authentication without having credentials in your code. We are in the process of integrating managed identities for Azure resources and Azure AD authentication across Azure. Check back often for updates.
 
-## Azure services that support Managed Service Identity
+## Azure services that support managed identities for Azure resources
 
-The following Azure services support Managed Service Identity.
+The following Azure services support managed identities for Azure resources:
 
 | Service | System assigned status | User assigned status| Configure | Get a token |
 | ------- | ------ | ---- | --------- | ----------- |
@@ -31,7 +31,7 @@ The following Azure services support Managed Service Identity.
 
 ## Azure services that support Azure AD authentication
 
-The following services support Azure AD authentication, and have been tested with client services that use Managed Service Identity.
+The following services support Azure AD authentication, and have been tested with client services that use managed identities for Azure resources.
 
 | Service | Resource ID | Status | Date | Assign access |
 | ------- | ----------- | ------ | ---- | ------------- |

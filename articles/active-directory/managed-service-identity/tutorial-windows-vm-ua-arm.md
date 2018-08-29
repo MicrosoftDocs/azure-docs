@@ -1,6 +1,6 @@
 ---
-title: Use a Windows VM user assigned Managed Service Identity to access Azure Resource Manager
-description: A tutorial that walks you through the process of using a User Assigned Managed Service Identity on a Windows VM, to access Azure Resource Manager.
+title: Use a Windows VM user assigned managed identity to access Azure Resource Manager
+description: A tutorial that walks you through the process of using a user assigned managed identity on a Windows VM, to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -16,7 +16,7 @@ ms.date: 04/10/2018
 ms.author: daveba
 ---
 
-# Tutorial: Use a User Assigned Managed Service Identity on a Windows VM, to access Azure Resource Manager
+# Tutorial: Use a User Assigned Managed Identity on a Windows VM, to access Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -25,7 +25,7 @@ This tutorial explains how to create a user assigned identity, assign it to a Wi
 You learn how to:
 
 > [!div class="checklist"]
-> * Create a user assigned identity
+> * Create a user assigned managed identity
 > * Assign your user assigned identity to your Windows VM
 > * Grant the user assigned identity access to a Resource Group in Azure Resource Manager 
 > * Get an access token using the user assigned identity and use it to call Azure Resource Manager 
@@ -84,9 +84,9 @@ $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzureRmVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" -IdentityID "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
 ```
 
-## Grant your user assigned Managed Service Identity access to a Resource Group in Azure Resource Manager 
+## Grant your user assigned identity access to a Resource Group in Azure Resource Manager 
 
-Managed Service Identity Managed Service Identity provides identities that your code can use to request access tokens to authenticate to resource APIs that support Azure AD authentication. In this tutorial, your code will access the Azure Resource Manager API. 
+Managed identities for Azure resources provides identities that your code can use to request access tokens to authenticate to resource APIs that support Azure AD authentication. In this tutorial, your code will access the Azure Resource Manager API. 
 
 Before your code can access the API, you need to grant the identity access to a resource in Azure Resource Manager. In this case, the Resource Group in which the VM is contained. Update the value for `<SUBSCRIPTION ID>` as appropriate for your environment.
 
@@ -121,7 +121,7 @@ For the remainder of the tutorial, you will work from the VM we created earlier.
 
 4. Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session.
 
-5. Using PowerShell’s `Invoke-WebRequest`, make a request to the local Managed Service Identity endpoint to get an access token for Azure Resource Manager.  The `client_id` value is the value returned when you [created the user assigned managed identity](#create-a-user-assigned-identity).
+5. Using PowerShell’s `Invoke-WebRequest`, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Resource Manager.  The `client_id` value is the value returned when you [created the user assigned managed identity](#create-a-user-assigned-identity).
 
     ```azurepowershell
     $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=af825a31-b0e0-471f-baea-96de555632f9&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"}
