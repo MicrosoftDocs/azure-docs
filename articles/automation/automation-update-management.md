@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Update Management solution in Azure
 
-You can use the Update Management solution in Azure Automation to manage operating system updates for your Windows and Linux computers that are deployed in Azure, in on-premises environments, or in other cloud providers. Update Management can be used to natively onboard machines in multiple subscriptions in the same tenant. To manage machines in a different tenant you must [Non-Azure machines](automation-onboard-solutions-from-automation-account#onboard-a-non-azure-machine) You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
+You can use the Update Management solution in Azure Automation to manage operating system updates for your Windows and Linux computers that are deployed in Azure, in on-premises environments, or in other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
 
 You can enable Update Management for virtual machines directly from your Azure Automation account. To learn how to enable Update Management for virtual machines from your Automation account, see [Manage updates for multiple virtual machines](manage-update-multi.md). You can also enable Update Management for a single virtual machine from the virtual machine pane in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtual machines.
 
@@ -28,6 +28,8 @@ Computers that are managed by Update Management use the following configurations
 The following diagram shows a conceptual view of the behavior and data flow with how the solution assesses and applies security updates to all connected Windows Server and Linux computers in a workspace:
 
 ![Update Management process flow](media/automation-update-management/update-mgmt-updateworkflow.png)
+
+Update Management can be used to natively onboard machines in multiple subscriptions in the same tenant. To manage machines in a different tenant you must onboard them as [Non-Azure machines](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
 
 After a computer performs a scan for update compliance, the agent forwards the information in bulk to Azure Log Analytics. On a Windows computer, the compliance scan is performed every 12 hours by default.
 
