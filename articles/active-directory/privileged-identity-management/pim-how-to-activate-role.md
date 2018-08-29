@@ -25,7 +25,7 @@ This article is for administrators who need to activate their role in PIM.
 
 ## Activate a role
 
-When you need to take on a role, you can request activation by using the **My roles** navigation option in Azure AD Privileged Identity Management.
+When you need to take on a role, you can request activation by using the **My roles** navigation option in PIM.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -65,7 +65,7 @@ When you need to take on a role, you can request activation by using the **My ro
 
 1. Click **Activate**.
 
-    If the role does not require approval, it is now activated, and the role appears in the list of active roles (directly below the list of eligible role assignments). If the [role requires approval](./azure-ad-pim-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
+    If the role does not require approval, it is now activated, and the role appears in the list of active roles. If the [role requires approval](./azure-ad-pim-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
 
     ![Request pending notification](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
 
@@ -107,7 +107,7 @@ If you complete your administrator tasks early, you can also deactivate a role m
 
 1. Click **My roles**.
 
-1. Click **Active roles** to see the list of active roles.
+1. Click **Active roles** to see your list of active roles.
 
 1. Find the role you're done using and then click **Deactivate**.
 
