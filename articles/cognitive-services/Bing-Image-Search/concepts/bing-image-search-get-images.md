@@ -1,6 +1,6 @@
 ---
-title: Getting images from the web with the Bing Image Search API | Microsoft Docs
-description: Use the Bing Image Search API to search for, and get relevant images from the web.
+title: Get images from the web with the Bing Image Search API | Microsoft Docs
+description: Use the Bing Image Search API to search for and get relevant images from the web.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -12,9 +12,9 @@ ms.date: 8/8/2018
 ms.author: aahi
 ---
 
-# Getting images from the web with the Bing Image Search API
+# Get images from the web with the Bing Image Search API
 
-Using the Bing Image Search REST API, you can get images from the web that are related to the user's search term by sending the following GET request:
+When you use the Bing Image Search REST API, you can get images from the web that are related to your search term by sending the following GET request:
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies&mkt=en-us HTTP/1.1
@@ -30,7 +30,7 @@ Host: api.cognitive.microsoft.com
 > * If it's your first time calling any of the Bing search APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API that returned a client ID for the user and device combination.
 > * Images must be displayed in the order provided in the response.
 
-## Getting images from a specific web domain
+## Get images from a specific web domain
 
 To get images from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator.
 
@@ -39,7 +39,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghi
 ```
 
 > [!NOTE]
-> Responses to queries using the `site:` operator may include adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) setting. Only use `site:` if you are aware of the content on the domain.
+> Responses to queries using the `site:` operator might include adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) setting. Only use `site:` if you're aware of the content on the domain.
 
 The following example shows how to get small images from ContosoSailing.com that Bing has discovered in the past week.  
 
@@ -52,9 +52,9 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```
 
-## Filtering images
+## Filter images
 
- By default, the Image Search API will return all images that are relevant to the query. If you want to filter the images Bing returns (for example, to return only images with a transparant background or specific size), you can use the following query parameters:
+ By default, the Image Search API returns all images that are relevant to the query. If you want to filter the images that Bing returns (for example, to return only images with a transparent background or specific size), use the following query parameters:
 
 * [aspect](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#aspect)—Filter images by aspect ratio (for example, standard or wide screen images)
 * [color](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#color)—Filter images by dominant color or black and white
@@ -68,7 +68,7 @@ Host: api.cognitive.microsoft.com
 To get images from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator.
 
     > [!NOTE]
-    > Responses to queries using the `site:` operator may include adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) setting. Only use `site:` if you are aware of the content on the domain.
+    > Responses to queries using the `site:` operator might include adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) setting. Only use `site:` if you're aware of the content on the domain.
 
 The following example shows how to get small images from ContosoSailing.com that Bing has discovered in the past week.  
 
@@ -83,7 +83,7 @@ Host: api.cognitive.microsoft.com
 
 ## Bing Image Search response format
 
-The response message from Bing contains an [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) answer that contains a list of images that Azure cognitive services determined to be relevant to the query. Each [Image](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) object in the list includes the following information about the image: the URL, its size, its dimensions, its encoding format, a URL to a thumbnail of the image, and the thumbnail's dimensions.
+The response message from Bing contains an [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) answer that contains a list of images that Cognitive Services determined to be relevant to the query. Each [Image](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) object in the list includes the following information about the image: the URL, its size, its dimensions, its encoding format, a URL to a thumbnail of the image, and the thumbnail's dimensions.
 
 ```json
 {
@@ -112,7 +112,7 @@ The response message from Bing contains an [Images](https://docs.microsoft.com/r
 },
 ```
 
-When you call the Bing Image Search API, Bing returns a list of results. The list is a subset of the total number of results that are relevant to the query. The response's `totalEstimatedMatches` field contains an estimate of the number of images that are available to view. For details about how you'd page through the remaining images, see [Paging Images](../paging-images.md).
+When you call the Bing Image Search API, Bing returns a list of results. The list is a subset of the total number of results that are relevant to the query. The response's `totalEstimatedMatches` field contains an estimate of the number of images that are available to view. For details about how to page through the remaining images, see [Paging Images](../paging-images.md).
 
 ## Next steps
 
