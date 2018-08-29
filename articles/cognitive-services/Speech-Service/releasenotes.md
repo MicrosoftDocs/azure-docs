@@ -74,7 +74,7 @@ ms.author: wolfma
 
 * Fixed incorrect return values in result when `RecognizeAsync()` times out.
 * The dependency on media foundation libraries on Windows is removed. The SDK is now using Core Audio APIs.
-* Documentation fix: added a region page to describe what are the supported regions.
+* Documentation fix: added a [regions](regions.md) page to describe what are the supported regions.
 
 **Known issues**
 

@@ -14,7 +14,7 @@ ms.author: fmegen
 
 # Quickstart: Recognize speech in Java (Windows or Linux)
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 This document describes how to create a Java-based console application for the Java Run-Time Environment (JRE) that makes use of the Speech SDK.
 The application is based on the Microsoft Cognitive Services SDK Maven Package.
@@ -104,7 +104,7 @@ The next 15 seconds of speech input from your microphone will be recognized and 
 
 ![Console output after successful recognition](media/sdk/qs-java-jre-07-console-output.png)
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/java-jre` folder.
 
 ## Next steps
