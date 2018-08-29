@@ -12,7 +12,7 @@ services: iot-edge
 
 # Continuous integration and continuous deployment to Azure IoT Edge
 
-This article demonstrates how you can use the continuous integration and continuous deployment features of Azure DevOps and Microsoft Team Foundation Server (TFS) to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
+This article demonstrates how you can use the continuous integration and continuous deployment features of Azure DevOps Services and Microsoft Team Foundation Server (TFS) to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
 
 In this article, you will learn how to:
 * Create and check in a sample IoT Edge solution containing unit tests.
@@ -276,11 +276,11 @@ In this section, you will create a sample IoT Edge solution containing unit test
     
 
 > [!NOTE]
-> For more information about using Azure DevOps code repositories, see [Share your code with Visual Studio and Azure DevOps Git](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts).
+> For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts).
 
 
 ## Configure continuous integration
-In this section, you will create a build definition that is configured to run automatically when you check in any changes to the sample IoT Edge solution, and it will automatically execute the unit tests it contains.
+In this section, you will create a build pipeline that is configured to run automatically when you check in any changes to the sample IoT Edge solution, and it will automatically execute the unit tests it contains.
 
 1. Sign into your Azure DevOps organization (**https://**_your-account_**.visualstudio.com**) and open the project where you checked in the sample app.
 
@@ -290,7 +290,7 @@ In this section, you will create a build definition that is configured to run au
 
     ![Install extension](./media/how-to-ci-cd/install-extension.png)
 
-1. In your Azure DevOps, open the **Build &amp; Release** hub and, in the **Builds** tab, choose **+ New definition**. Or, if you already have build definitions, choose the **+ New** button. 
+1. In your Azure DevOps, open the **Build &amp; Release** hub and, in the **Builds** tab, choose **+ New pipeline**. Or, if you already have build pipelines, choose the **+ New** button. 
 
     ![New build](./media/how-to-ci-cd/add-new-build.png)
 
@@ -338,9 +338,9 @@ In this section, you will create a build definition that is configured to run au
 
     ![Trigger](./media/how-to-ci-cd/configure-trigger.png)
 
-1. Save the new build definition and queue a new build. Click the **Save & queue** button.
+1. Save the new build pipeline and queue a new build. Click the **Save & queue** button.
 
-1. Choose the link to the build in the message bar that appears. Or go to build definition to see the latest queued build job.
+1. Choose the link to the build in the message bar that appears. Or go to build pipeline to see the latest queued build job.
 
     ![Build](./media/how-to-ci-cd/build-def.png)
 

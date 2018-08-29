@@ -214,7 +214,7 @@ Contoso creates an Azure DevOps project, and configures a CI Build to create the
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts2.png)
     
-4. In **Build and Release**, they create a new definition using Azure DevOps Git as a source, from the imported **smarthotel** repository. 
+4. In **Build and Release**, they create a new pipeline using Azure Repos Git as a source, from the imported **smarthotel** repository. 
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts3.png)
 
@@ -222,7 +222,7 @@ Contoso creates an Azure DevOps project, and configures a CI Build to create the
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts4.png)  
 
-7. They select **Hosted Linux Preview** for the build definition.
+7. They select **Hosted Linux Preview** for the build pipeline.
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts5.png) 
  
@@ -250,7 +250,7 @@ Contoso creates an Azure DevOps project, and configures a CI Build to create the
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts11.png)
 
-12. With the Azure DevOps tasks configured, Contoso saves the build definition, and starts the build process.
+12. With the Azure DevOps tasks configured, Contoso saves the build pipeline, and starts the build process.
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts12.png)
 

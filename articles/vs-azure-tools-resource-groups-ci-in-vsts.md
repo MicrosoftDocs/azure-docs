@@ -35,18 +35,18 @@ Regardless of the scenario, if you have any artifacts that are needed for templa
 ### Nested Templates and Configuration Scripts
 When you use the templates provided by Visual Studio (or built with Visual Studio snippets), the PowerShell script not only stages the artifacts, it also parameterizes the URI for the resources for different deployments. The script then copies the artifacts to a secure container in Azure, creates a SaS token for that container, and then passes that information on to the template deployment. See [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx) to learn more about nested templates.  When using tasks in Azure DevOps Services, you must select the appropriate tasks for your template deployment and if necessary, pass parameter values from the staging step to the template deployment.
 
-## Set up continuous deployment in Azure DevOps Services
-To call the PowerShell script in Azure DevOps Services, you need to update your build pipeline. In brief, the steps are: 
+## Set up continuous deployment in Azure Pipelines
+To call the PowerShell script in Azure Pipelines, you need to update your build pipeline. In brief, the steps are: 
 
 1. Edit the build pipeline.
-2. Set up Azure authorization in Azure DevOps Services.
+2. Set up Azure authorization in Azure Pipelines.
 3. Add an Azure PowerShell build step that references the PowerShell script in the Azure Resource Group deployment project.
-4. Set the value of the *-ArtifactsStagingDirectory* parameter to work with a project built in Azure DevOps Services.
+4. Set the value of the *-ArtifactsStagingDirectory* parameter to work with a project built in Azure Pipelines.
 
 ### Detailed walkthrough for Option 1
 The following procedures walk you through the steps necessary to configure continuous deployment in Azure DevOps Services using a single task that runs the PowerShell script in your project. 
 
-1. Edit your Azure DevOps Services build pipeline and add an Azure PowerShell build step. Choose the build pipeline under the **Build definitions** category and then choose the **Edit** link.
+1. Edit your Azure DevOps Services build pipeline and add an Azure PowerShell build step. Choose the build pipeline under the **Build pipelines** category and then choose the **Edit** link.
    
    ![Edit build pipeline][0]
 2. Add a new **Azure PowerShell** build step to the build pipeline and then choose the **Add build step…** button.
@@ -60,6 +60,7 @@ The following procedures walk you through the steps necessary to configure conti
    1. If you already have an Azure service endpoint added to Azure DevOps Services, choose the subscription in the **Azure Subscription** drop-down list box and then skip to the next section. 
       
       If you don’t have an Azure service endpoint in Azure DevOps Services, you need to add one. This subsection takes you through the process. If your Azure account uses a Microsoft account (such as Hotmail), you must take the following steps to get a Service Principal authentication.
+
    2. Choose the **Manage** link next to the **Azure Subscription** drop-down list box.
       
       ![Manage Azure subscriptions][3]
@@ -77,6 +78,7 @@ The following procedures walk you through the steps necessary to configure conti
       * Service Principal Key
       * Tenant Id
    6. Add a name of your choice to the **Subscription** name box. This value appears later in the **Azure Subscription** drop-down list in Azure DevOps Services. 
+
    7. If you don’t know your Azure subscription ID, you can use one of the following commands to retrieve it.
       
       For PowerShell scripts, use:

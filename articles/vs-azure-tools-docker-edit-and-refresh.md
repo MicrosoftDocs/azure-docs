@@ -94,7 +94,7 @@ with the production realism of developing within a Docker container.
 [Troubleshooting Visual Studio Docker Development](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
 ## More about Docker with Visual Studio, Windows, and Azure
-* [Docker Tools for Visual Studio Team Services](http://aka.ms/dockertoolsforvsts) - Build and Deploy docker containers
+* [Docker Tools for Azure DevOps](http://aka.ms/dockertoolsforvsts) - Build and Deploy docker containers
 * [Docker Tools for Visual Studio Code](http://aka.ms/dockertoolsforvscode) - Language services for editing docker files, with more e2e scenarios coming
 * [Windows Container Information](http://aka.ms/containers)- Windows Server and Nano Server information
 * [Azure Container Service](https://azure.microsoft.com/services/container-service/) - [Azure Container Service Content](http://aka.ms/AzureContainerService)
