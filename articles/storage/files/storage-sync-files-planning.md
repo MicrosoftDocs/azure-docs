@@ -68,7 +68,7 @@ This section covers Azure File Sync agent system requirements and interoperabili
 ### Evaluation Tool
 Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an AzureRM PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. Note that its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
 
-**Download Instructions**  
+#### Download Instructions
 1. Make sure that you have the latest version of PackageManagement and PowerShellGet installed (this allows you to install preview modules)
     
     ```PowerShell
@@ -83,7 +83,7 @@ Before deploying Azure File Sync, you should evaluate whether it is compatible w
         Install-Module -Name AzureRM.StorageSync -AllowPrerelease
     ```
 
-**Usage**  
+#### Usage  
 You can invoke the evaluation tool in a few different ways: you can perform the system checks, the dataset checks, or both. To perform both the system and dataset checks: 
 
 ```PowerShell
