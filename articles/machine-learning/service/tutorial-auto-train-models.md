@@ -37,10 +37,12 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-* A development environment [configured to run Azure Machine Learning service in Jupyter notebooks](how-to-configure-environment.md) (approximately 2 minutes).  In step 4 the new packages you need are matplotlib, scikit-learn, and pandas:
-   ```
-   conda install -y matplotlib scikit-learn pandas
-   ``` 
+* A development environment [configured to run Azure Machine Learning service in Jupyter notebooks](how-to-configure-environment.md) (approximately 2 minutes).  
+        ```
+    * In step 4 the new packages you need are matplotlib, scikit-learn, pandas, and seaborn:
+        ```shell
+        conda install -y matplotlib scikit-learn pandas seaborn
+        ``` 
 * An Azure Machine Learning Workspace and its accompanying  **aml_config** directory created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart (approximately 3 minutes).
 
 
@@ -88,14 +90,14 @@ Once you have a workspace object, specify a name for the experiment and create a
 ```python
 ws = Workspace.from_config()
 # choose a name for the run history container in the workspace
-history_name = 'automl-classifier'
+experiment_name = 'automl-classifier'
 # project folder
 project_folder = './automl-classifier'
 
 import os
 from azureml.core.project import Project
 project = Project.attach(ws,
-                         history_name,
+                         experiment_name,
                          project_folder)
 
 output = {}
@@ -174,25 +176,21 @@ Define the experiment parameters and models settings for autogeneration and tuni
 |**concurrent_iterations**|5|Max number of iterations that would be executed in parallel. This number should be less than the number of cores on the DSVM. Used in remote training.|
 
 ```python
-from azureml.train.automl import AutoMLClassifier
+from azureml.train.automl import AutoMLConfig
+from azureml.core import RunConfiguration
 import time
 import logging
 
-automl_settings = {
-    "name": "AutoML_Demo_Experiment_{0}".format(time.time()),
-    "primary_metric": 'AUC_weighted',
-    "max_time_sec": 12000,
-    "iterations": 20,
-    "n_cross_validations": 5,
-    "preprocess": True,
-    "exit_score": 0.994,
-    "blacklist_algos": ['kNN','LinearSVM'],
-    "concurrent_iterations": 5,
-    "verbosity": logging.INFO
-}
-
-automl_classifier = AutoMLClassifier(project=project, **automl_settings)
-
+##Local compute 
+Automl_config = AutoMLConfig(task = 'classification',
+                             primary_metric = 'AUC_weighted',
+                             max_time_sec = 12000,
+                             iterations = 50,
+                             n_cross_validations = 3,
+                             blacklist_algos = ['kNN','LinearSVM'],
+                             X = X_digits,
+                             y = y_digits,
+                             path=project_folder)
 ```
 ### Run the automatic classifier
 
@@ -200,10 +198,9 @@ Start the experiment to run locally. Define the compute target as local and set 
 
 
 ```python
-local_run = automl_classifier.fit(X = X_digits, 
-                                  y = y_digits, 
-                                  compute_target = 'local', 
-                                  show_output = True)
+from azureml.core.experiment import Experiment
+experiment=Experiment(ws, experiment_name)
+local_run = experiment.submit(Automl_config, show_output=True)
 ```
 
 Output such as the following appears one line at a time as each iteration progresses.  You will see a new line every **10-15 seconds**.
