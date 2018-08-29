@@ -45,10 +45,9 @@ module.exports = function(context) {
 };
 ```
 
-Input and trigger bindings (bindings of `direction === "in"`) can be passed to the function as parameters. They are passed to the function in the same order that they are defined in *function.json*. They are also passed along as function arguments, which means that you can use [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) to dynamically handle inputs.
-For example, if you have `function(context, a, b)` and change it to `function(context, a)`, you can still get the value of `b` in function code by referring to `arguments[2]`.
+Input and trigger bindings (bindings of `direction === "in"`) can be passed to the function as parameters. They are passed to the function in the same order that they are defined in *function.json*. You can dynamically handle inputs using the JavaScript [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) object. For example, if you have `function(context, a, b)` and change it to `function(context, a)`, you can still get the value of `b` in function code by referring to `arguments[2]`.
 
-All bindings, regardless of direction, are also passed along on the `context` object (see following).
+All bindings, regardless of direction, are also passed along on the `context` object using the `context.bindings` property.
 
 ## context object
 The runtime uses a `context` object to pass data to and from your function and to let you communicate with the runtime.
