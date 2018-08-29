@@ -85,7 +85,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `composite`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
 
-## Create composite entity
+## Composite entity
 
 [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 

@@ -11,7 +11,6 @@ ms.topic: tutorial
 ms.date: 08/31/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
-
 --- 
 
 # Tutorial: 5. Extract contextually-related data
