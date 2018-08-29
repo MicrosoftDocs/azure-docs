@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2018
+ms.date: 08/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -36,7 +36,9 @@ Before you begin, make sure that:
 3. You have a host computer on which you can install the Data Box Disk unlock tool. Your host computer must
     - Run a [Supported operating system](data-box-disk-system-requirements.md).
     - Have [Windows PowerShell 4 installed](https://www.microsoft.com/download/details.aspx?id=40855).
-    - Have [.NET Framework 4.5 installed](https://www.microsoft.com/download/details.aspx?id=30653).
+    - Have [.NET Framework 4.5.1 installed](https://www.microsoft.com/download/details.aspx?id=30653).
+    - Have [BitLocker enabled](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-how-to-deploy-on-windows-server).
+    - Have [Windows Management Framework 4 installed](https://www.microsoft.com/en-us/download/details.aspx?id=40855). 
 
 ## Unpack your disks
 

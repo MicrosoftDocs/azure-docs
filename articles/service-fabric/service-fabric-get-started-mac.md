@@ -95,7 +95,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
 4. Now you can quickly start a local copy of Service Fabric, whenever you need it, by running:
 
     ```bash 
-    docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
     ```
 
     >[!TIP]
@@ -125,8 +125,6 @@ To set up a local Docker container and have a Service Fabric cluster running on 
  The following are known limitations of the local cluster running in a container for Mac's: 
  
  * DNS service does not run and is not supported [Issue #132](https://github.com/Microsoft/service-fabric/issues/132)
-
- * Container applications cannot be deployed to this local cluster currently
 
 ## Set up the Service Fabric CLI (sfctl) on your Mac
 

@@ -358,6 +358,8 @@ items:
         items:
         - name: Graph partitioning
           href: graph-partitioning.md
+        - name: Import graph data with BulkExecutor
+          href: bulk-executor-graph-dotnet.md
       - name: Resources
         items:
         - name: Visual Studio Code extension

@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/23/2018
 ms.author: juliako
 
 ---
@@ -49,7 +49,7 @@ If your account needs some adjustments, you will see relevant errors and warning
 
 The **Settings** page enables you to set the autoscaling of Media Reserved Units (RU). If the option is **On**, you can allocate the maximum number of RUs and be sure that Video Indexer stops/starts RUs automatically. With this option, you don't pay extra money for idle time but also do not wait for indexing jobs to complete a long time when the indexing load is high.
 
-Auto-scale does not scale below 1 RU or above the max allocation for the Media Services account. In order to increase the max RUs allocated, create a service request. For information about quotas and limitations and how to open a support ticket, see [Quotas and limitations](../../media-services/previous/media-services-quotas-and-limitations.md).
+Auto-scale does not scale below 1 RU or above the default limit of the Media Services account. In order to increase the limit, create a service request. For information about quotas and limitations and how to open a support ticket, see [Quotas and limitations](../../media-services/previous/media-services-quotas-and-limitations.md).
 
 ![Sign up](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
@@ -59,7 +59,7 @@ If your account needs some adjustments, you see relevant errors and warnings abo
 
 * Event Grid
 
-    You have to register the EventGrid resource provider using the Azure portal. In the [Azure portal](https://portal.azure.com/), go to **Subscriptions** > [subscription] > **ResourceProviders** > **Microsoft.EventGrid**. If not in the **Registered**"** state, click **Register**. It takes a couple of minutes to register. 
+    You have to register the EventGrid resource provider using the Azure portal. In the [Azure portal](https://portal.azure.com/), go to **Subscriptions** > [subscription] > **ResourceProviders** > **Microsoft.EventGrid**. If not in the **Registered** state, click **Register**. It takes a couple of minutes to register. 
 
 * Streaming Endpoint
 

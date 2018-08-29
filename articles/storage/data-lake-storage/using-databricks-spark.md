@@ -62,7 +62,7 @@ The next step is to create a [Databricks cluster](https://docs.azuredatabricks.n
     ```bash
     spark.conf.set("fs.azure.account.key.<account_name>.dfs.core.windows.net", "<account_key>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-    dbutils.fs.ls("abfs://<file_system>@<account_name>.dfs.core.windows.net/")
+    dbutils.fs.ls("abfss://<file_system>@<account_name>.dfs.core.windows.net/")
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
     ```
 

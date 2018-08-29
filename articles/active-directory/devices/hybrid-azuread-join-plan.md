@@ -128,6 +128,7 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
 
 - [Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md)
 
+
 - [Configure hybrid Azure Active Directory join for managed domains](hybrid-azuread-join-managed-domains.md)
 
 
