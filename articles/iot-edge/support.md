@@ -50,6 +50,8 @@ Tier 2 systems can be thought of as compatible with Azure IoT Edge and can be us
 | ---------------- | ----- | ----- |
 | Ubuntu 18.04 | Yes | No |
 | Ubuntu 16.04 | Yes | No |
+| CentOS 7.5 | Yes | No |
+| RHEL 7.5 | Yes | No |
 | Wind River 8 | Yes | No |
 | Yocto | Yes | No |
 | Debian | Yes | No |
