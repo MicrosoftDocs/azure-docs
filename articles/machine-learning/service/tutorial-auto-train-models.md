@@ -39,9 +39,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * A development environment [configured to run Azure Machine Learning service in Jupyter notebooks](how-to-configure-environment.md) (approximately 2 minutes).  
     * In step 4 the new packages you need are matplotlib, scikit-learn, pandas, and seaborn:
-        ```
+
+        ```shell
         conda install -y matplotlib scikit-learn pandas seaborn
         ``` 
+
 * An Azure Machine Learning Workspace and its accompanying  **aml_config** directory created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart (approximately 3 minutes).
 
 
