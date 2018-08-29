@@ -39,7 +39,7 @@ You can use the [Azure portal](#portal), the Azure [command-line interface](#cli
 ## <a name="portal"></a>Create peering - Azure portal
 
 If the virtual networks that you want to peer are in subscriptions that are associated to different Azure Active Directory tenants, complete the following steps before continuing:
- - Add the user from each Active Directory tenant as a [guest user](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in the opposite Azure Active Directory tenant.
+ - Add the user from each Azure Active Directory tenant as a [guest user](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in the opposite Azure Active Directory tenant.
  - Each user has to accept the guest user invitation from the opposite Active Directory tenant.
 
 The following steps use different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of the portal, and skip the steps for assigning another user permissions to the virtual networks.
@@ -100,7 +100,7 @@ The following steps use different accounts for each subscription. If you're usin
 
 This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of Azure, and remove the lines of script that create user role assignments. Replace UserA@azure.com and UserB@azure.com in all of the following scripts with the usernames you're using for UserA and UserB. If the virtual networks are in different subscriptions, and the subscriptions are associated to different Azure Active Directory tenants, complete the following steps before continuing:
  - Add the user from each Active Directory tenant as a [guest user](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in the opposite Azure Active Directory tenant.
- - Each user has to accept the guest user invitation from the opposite Active Directory tenant.
+ - Each user has to accept the guest user invitation from the opposite Azure Active Directory tenant.
 
 The following scripts:
 
@@ -182,7 +182,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
  - Add the user from each Active Directory tenant as a [guest user](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in the opposite Azure Active Directory tenant.
  - Each user has to accept the guest user invitation from the opposite Active Directory tenant.
 
-1. Confirm that you have version 6.5.0 or higher. We reccoment installing the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+1. Confirm that you have version 6.5.0 or higher. You can do this by running the `Get-Module -Name AzureRm` We recommend installing the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 2. Start a PowerShell session.
 3. In PowerShell, log in to Azure as UserA by entering the `Connect-AzureRmAccount` command. The account you log in with must have the necessary permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
 4. Create a resource group and virtual network A. Copy the following script to a text editor on your PC. Replace `<SubscriptionA-Id>` with the ID of SubscriptionA. If you don't know your subscription Id, enter the `Get-AzureRmSubscription` command to view it. The value for **Id** in the returned output is your subscription ID. To execute the script, copy the modified script, paste it in to PowerShell, and then press `Enter`.
