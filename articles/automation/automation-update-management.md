@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Update Management solution in Azure
 
-You can use the Update Management solution in Azure Automation to manage operating system updates for your Windows and Linux computers that are deployed in Azure, in on-premises environments, or in other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
+You can use the Update Management solution in Azure Automation to manage operating system updates for your Windows and Linux computers that are deployed in Azure, in on-premises environments, or in other cloud providers. Update Management can be used to natively onboard machines in multiple subscriptions in the same tenant. To manage machines in a different tenant you must [Non-Azure machines](automation-onboard-solutions-from-automation-account#onboard-a-non-azure-machine) You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
 
 You can enable Update Management for virtual machines directly from your Azure Automation account. To learn how to enable Update Management for virtual machines from your Automation account, see [Manage updates for multiple virtual machines](manage-update-multi.md). You can also enable Update Management for a single virtual machine from the virtual machine pane in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtual machines.
 
@@ -42,7 +42,7 @@ The solution reports how up-to-date the computer is based on what source you're 
 
 You can deploy and install software updates on computers that require the updates by creating a scheduled deployment. Updates classified as *Optional* aren't included in the deployment scope for Windows computers. Only required updates are included in the deployment scope. 
 
-The scheduled deployment defines what target computers receive the applicable updates, either by explicitly specifying computers or by selecting a [computer group](../log-analytics/log-analytics-computer-groups.md) that's based on log searches of a specific set of computers. You also specify a schedule to approve and designate a period of time during which updates can be installed. 
+The scheduled deployment defines what target computers receive the applicable updates, either by explicitly specifying computers or by selecting a [computer group](../log-analytics/log-analytics-computer-groups.md) that's based on log searches of a specific set of computers. You also specify a schedule to approve and designate a period of time during which updates can be installed.
 
 Updates are installed by runbooks in Azure Automation. You can't view these runbooks, and the runbooks don’t require any configuration. When an update deployment is created, the update deployment creates a schedule that starts a master update runbook at the specified time for the included computers. The master runbook starts a child runbook on each agent to perform installation of required updates.
 
