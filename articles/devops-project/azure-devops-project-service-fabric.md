@@ -48,7 +48,7 @@ The Azure DevOps Project creates a CI/CD pipeline.  You can create a **new Azure
 
 ## Configure Azure DevOps and an Azure subscription
 
-1. Create a **new** Azure DevOps organization or choose an **existing** organization.  Choose a **name** for your Azure DevOps Project.  
+1. Create a **new** Azure DevOps organization or choose an **existing** organization.  Choose a **name** for your Azure DevOps project.  
 
 1. Select your **Azure subscription**.
 
