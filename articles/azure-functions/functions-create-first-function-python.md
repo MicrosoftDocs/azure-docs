@@ -189,21 +189,20 @@ In the following command, use a unique function app name where you see the `<app
 
 ```azurecli
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---location "westeurope" --runtime python --is-linux
+--location "westus" --runtime python --is-linux
 ```
 
 > [!NOTE]
 > If you have an existing resource group named `myResourceGroup` with any non-Linux App Service apps, you must use a different resource group. You can't host both Windows and Linux apps in the same resource group.  
 
-<!--- Output goes here:
+After the function app has been created, you see the following message:
 
-After the function app has been created, the Azure CLI shows information similar to the following example:
-
-```json
-
+```output
+Your serverless Linux function app 'myfunctionapp' has been successfully created.
+To active this function app, publish your app content using Azure Functions Core Tools or the Azure portal.
 ```
 
---->
+Now, you can publish your python project to the new function app in Azure.
 
 ## Generate the requirements.txt file
 
@@ -239,4 +238,9 @@ Syncing triggers...
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-[!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]
+## Next steps
+
+Learn more about developing Azure Functions using Python.
+
+> [!div class="nextstepaction"]
+> [Azure Functions Python developer guide](functions-reference-python.md)
