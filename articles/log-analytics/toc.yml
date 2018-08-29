@@ -122,7 +122,7 @@
       - name: Get started
         items:
         - name: Get started with Log Search portal
-          href: query-language/log-analytics-log-search-log-search-portal.md
+          href: log-analytics-log-search-log-search-portal.md
         - name: Get started with Log Analytics page
           href: query-language/get-started-analytics-portal.md
         - name: Get started with queries
