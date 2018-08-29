@@ -22,15 +22,45 @@ This article describes how to set up VM Insights to monitor the operating system
 
 ## Prerequisites
 Before you start, make sure that you have the following as described in the sub-sections below.
+
+### Hybrid environment connected sources
+VM Insights Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. This means that a system must have the Log Analytics agent installed and configured with the Dependency agent.  The following table describes the connected sources that the Service Map solution supports in a hybrid environment.
+
+| Connected source | Supported | Description |
+|:--|:--|:--|
+| Windows agents | Yes | In addition to the [Log Analytics agent for Windows](../log-analytics/log-analytics-concept-hybrid.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| Linux agents | Yes | In addition to the [Log Analytics agent for Linux](../log-analytics/log-analytics-concept-hybrid.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| System Center Operations Manager management group | Yes | VM Insights Map analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](../log-analytics/log-analytics-om-agents.md). <br><br>A direct connection from the System Center Operations Manager agent computer to Log Analytics is required. |  
+
+On Windows, the Microsoft Monitoring Agent (MMA) is used by both System Center Operations Manager and Log Analytics to gather and send monitoring data. System Center Operations Manager and Log Analytics provide different out-of-the box versions of the MMA. These versions can each report to System Center Operations Manager, to Log Analytics, or to both.  
+
+On Linux, the Log Analytics agent for Linux gathers and sends monitoring data to Log Analytics. You can use Map on servers with Log Analytics agents connected directly to the service, or that are reporting to an Operations Manager management group integrated with Log Analytics.  
+
+If you are a System Center Operations Manager customer with a management group connected to Log Analytics:
+
+- If your System Center Operations Manager agents can access the Internet to connect to Log Analytics, no additional configuration is required.  
+- If your System Center Operations Manager agents cannot access Log Analytics over the Internet, you need to configure the OMS Gateway to work with System Center Operations Manager.
   
+If your Windows or Linux computers cannot directly connect to the service, you need to configure the Log Analytics agent to connect to Log Analytics using the OMS Gateway. For further information on how to deploy and configure the OMS Gateway, see [Connect computers without Internet access using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md).  
+
+### Dependency agent
+To monitor physical or virtual machines in a hybrid environment with VM Insights Map, you need to install the Dependency agent. The agent can be downloaded from the following location.
+
+| File | OS | Version | SHA-256 |
+|:--|:--|:--|:--|
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
+
 ### Log Analytics 
 
 1. A Log Analytics workspace in the following regions are currently supported:
 
    - West Central US 
    - East US 
-   - Southeast Asia  
-   - West Europe  
+   - West Europe
+   - Southeast Asia *
+
+    * This region does not support the Health feature of VM Insights and it will be made available at a later date.   
 
     If you do not have a workspace, you can you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).  
 
@@ -51,11 +81,18 @@ The following versions of the Windows and Linux operating systems are officially
 |RHEL 7, 6| X | X| X |  
 |Ubuntu 16.04, 14.04 | X | X| X |  
 |Cent OS Linux 7, 6 | X | X| X |  
-|SLES 12 | X | | X |  
+|SLES 12 | X | X | X |  
 |SLES 11 | X | X | X |  
 |Oracle Linux 7 | X | | X |  
 |Oracle Linux 6 | X | X | X |  
 |Debian 9.4, 8 | X | | X |  
+
+## Diagnostic and usage data
+Microsoft automatically collects usage and performance data through your use of the Azure Monitor service. Microsoft uses this data to provide and improve the quality, security, and integrity of the service. To provide accurate and efficient troubleshooting capabilities, data from the Map feature includes information about the configuration of your software, such as operating system and version, IP address, DNS name, and workstation name. Microsoft does not collect names, addresses, or other contact information.
+
+For more information about data collection and usage, see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## Enable from the Azure portal
 To enable monitoring of your Azure VM in the Azure portal, do the following:
@@ -216,5 +253,59 @@ Not running - start VM to configure: (0)
 
 Failed: (0)
 ```
+## Enable for Hybrid configuration
+This section explains how to onboard virtual machines or physical computers hosted in your datacenter or other cloud environment.  
+
+The VM Insights Map Dependency agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Map is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md) if your IT security policies do not allow computers on the network to connect to the Internet.
+
+Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../log-analytics/log-analytics-concept-hybrid.md).
+
+### Install the Dependency agent on Windows 
+The Dependency agent can be installed manually on Windows computers by running  `InstallDependencyAgent-Windows.exe`. If you run this executable file without any options, it starts a setup wizard that you can follow to install interactively.  
+
+>[!NOTE]
+>Administrator privileges are required to install or uninstall the agent.
+
+The following table highlights the specific parameters supported by setup for the agent from the command line.  
+
+| Parameter | Description |
+|:--|:--|
+| /? | Returns a list of the command-line options. |
+| /S | Perform a silent installation with no user interaction. |
+
+For example, to run the installation program with the `/?` parameter, type `InstallDependencyAgent-Windows.exe /?`
+
+Files for the Windows Dependency agent are installed in `C:\Program Files\Microsoft Dependency Agent` by default.  If the Dependency agent fails to start after setup is complete, check the logs for detailed error information. The log directory is `%Programfiles%\Microsoft Dependency Agent\logs`. 
+
+### Install the Dependency agent on Linux
+The Dependency agent is installed on Linux servers from `InstallDependencyAgent-Linux64.bin`, a shell script with a self-extracting binary. You can run the file by using `sh` or add execute permissions to the file itself.
+
+>[!NOTE]
+> Root access is required to install or configure the agent.
+
+1. Install the Linux Dependency agent as root by running the following command:
+    
+    `sh InstallDependencyAgent-Linux64.bin
+    
+    If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is /var/opt/microsoft/dependency-agent/log.
+
+| Parameter | Description |
+|:--|:--|
+| -help | Get a list of the command-line options. |
+| -s | Perform a silent installation with no user prompts. |
+| --check | Check permissions and the operating system but do not install the agent. |
+
+For example, to run the installation program with the `-help` parameter, type `InstallDependencyAgent-Linux64.bin -help`.
+
+Files for the Dependency agent are placed in the following directories:
+
+| Files | Location |
+|:--|:--|
+| Core files | /opt/microsoft/dependency-agent |
+| Log files | /var/opt/microsoft/dependency-agent/log |
+| Config files | /etc/opt/microsoft/dependency-agent/config |
+| Service executable files | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
+| Binary storage files | /var/opt/microsoft/dependency-agent/storage |
+
 
 ## Next steps
