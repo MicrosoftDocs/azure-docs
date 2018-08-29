@@ -21,7 +21,7 @@ ms.author: snavin
 
 # Create, change, or delete a public IP address prefix
 
-Learn about a public IP address prefix and how to create, change, and delete one. A public IP address prefix enables you to specify how many public IP addresses you require. Azure allocates a contiguous range of addresses to your subscription, based on how many you specify. The addresses aren't assigned to any other subscription. When you create a public IP address resource, you can assign a static public IP address from the prefix and associate it to virtual machines, load balancers or other resources to enable internet connectivity. If you're not familiar with public IP address prefixes, see [Public IP address prefix overview](public-ip-address-prefix.md)
+Learn about a public IP address prefix and how to create, change, and delete one. A public IP address prefix is an allocation of a contiguous range of addresses within your subscription based on the number of public IP addresses you require. The addresses aren't assigned to any other subscription. When you create a public IP address resource, you can assign a static public IP address from the prefix and associate it to virtual machines, load balancers or other resources to enable internet connectivity. If you're not familiar with public IP address prefixes, see [Public IP address prefix overview](public-ip-address-prefix.md)
 
 ## Before you begin
 
@@ -60,7 +60,7 @@ Public IP address prefixes have a charge. For details, see [pricing](https://azu
 |PowerShell|[New-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/new-azurermpublicipaddressprefix)|
 
 ## Create a static public IP address from a prefix
-Once you create a prefix, you must allocate static IP addresses from the prefix. In order to do this, follow steps below:
+Once you create a prefix, you must allocate a static IP address from the prefix. In order to do this, follow steps below:
 
 
 ## View, change settings for, or delete a prefix
