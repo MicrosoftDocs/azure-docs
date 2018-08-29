@@ -54,6 +54,8 @@
 #### [Overview](b2b/what-is-b2b.md)
 ##### [What is B2B guest user access?](b2b/what-is-b2b.md)
 ##### [Compare B2B with B2C](b2b/compare-with-b2c.md)
+#### [Quickstarts](b2b/b2b-quickstart-add-guest-users-portal.md)
+##### [Add guest users in the portal](b2b/b2b-quickstart-add-guest-users-portal.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
 #### [Tutorials](b2b/tutorial-bulk-invite.md)
 ##### [Bulk invite B2B guest users](b2b/tutorial-bulk-invite.md)
