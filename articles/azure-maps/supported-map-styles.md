@@ -22,7 +22,7 @@ A **road** map is a standard map that displays roads, natural and man-made featu
 **Applicable APIs:**
 * [Map image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-* [JS Map control](https://codepen.io/azuremaps/pen/qyjbOM)
+* JS map control
 
 ## Satellite 
 The **satellite** style is a combination of satellite and aerial imagery.
@@ -31,7 +31,7 @@ The **satellite** style is a combination of satellite and aerial imagery.
 
 **Applicable APIs:**
 * [Satellite tile](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
-* [JS Map control](https://codepen.io/azuremaps/pen/qyjbOM)
+* JS map control
 
 ## Satellite_Road_Labels
 This map style is a hybrid of roads and labels overlaid on top of satellite and aerial imagery.
@@ -39,7 +39,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 ![satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
 
 **Applicable APIs:**
-* [JS Map control](https://codepen.io/azuremaps/pen/qyjbOM)
+* JS map control
 
 ## Grayscale_Dark
 **Grayscale dark** is a dark version of the road map style.
@@ -47,4 +47,4 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **Applicable APIs:**
-* [JS Map control](https://codepen.io/azuremaps/pen/qyjbOM)
+* JS map control
