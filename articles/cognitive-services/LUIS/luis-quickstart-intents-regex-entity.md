@@ -13,7 +13,7 @@ ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
 --- 
 
-# Tutorial: 3. Add regular expression entity
+# Tutorial: 3. Extract well-formatted data
 In this tutorial, modify the Human Resources app to extract consistently-formatted data from an utterance using the **Regular Expression** entity.
 
 The purpose of an entity is to extract important data contained within the utterance. This app's use of the regular expression entity is to pull out formatted Human Resources (HR) form numbers from an utterance. While the utterance's intent is always determined with machine-learning, this specific entity type is not machine-learned. 
@@ -30,6 +30,10 @@ HRF-456098 title?
 ```
  
 The regular expression entity to match the form number is `hrf-[0-9]{6}`. This regular expression matches the literal characters `hrf-` but ignores case and culture variants. It matches digits 0-9, for 6 digits exactly.
+
+A regular expression is a good choice for this type of data when:
+
+* the data is well-formatted.
 
 HRF stands for `human resources form`.
 
@@ -59,7 +63,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
 ## FindForm intent
 
-1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
+1. [!include[LUIS Free account](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Create new intent**. 
 
