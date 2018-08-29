@@ -16,12 +16,15 @@ ms.reviewer: igorstan
 
 Take a look through what's available to help you manage and monitor SQL Data Warehouse. The following articles highlight ways to optimize performance and usage of your data warehouse.
 
+## Overview
+
 * [Learn about compute management and elasticity][manage compute]
 * [Understand what metrics and logs are available  in the Azure portal][resource utilization]
 * [Learn about  backup and restore capabilities][data protection]
 * [Learn about built-in intelligence and recommendations][recommendations]
 * [Learn about maintenance periods and what is available to minimize downtime of your data warehouse][maintenance]
 * [Find common troubleshooting guidance][troubleshoot]
+
 
 ## Next steps
 For How-to guides, see [Monitor and tune your data warehouse](sql-data-warehouse-manage-monitor.md).
