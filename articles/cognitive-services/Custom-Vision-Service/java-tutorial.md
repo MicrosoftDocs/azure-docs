@@ -34,7 +34,7 @@ You can install the Custom Vision SDK from maven central repository:
 
 ## Understand the code
 
-The full project, including images, is avalable from the [Custom Vision Azure samples for Java repository](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Vision/CustomVision/src/main/resources). 
+The full project, including images, is avalable from the [Custom Vision Azure samples for Java repository](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
 
 Use your favorite Java IDE to open the `Vision/CustomVision` project. 
 
@@ -48,31 +48,31 @@ The following code snippets implement the primary functionality of this example:
 > Set the `trainingApiKey` to the training key value you retrieved earlier.
 
 ```java
-    final String trainingApiKey = "insert your training key here";
-    TrainingApi trainClient = CustomVisionTrainingManager.authenticate(trainingApiKey);
+final String trainingApiKey = "insert your training key here";
+TrainingApi trainClient = CustomVisionTrainingManager.authenticate(trainingApiKey);
 
-    Trainings trainer = trainClient.trainings();
+Trainings trainer = trainClient.trainings();
 
-    System.out.println("Creating project...");
-    Project project = trainer.createProject()
-                .withName("Sample Java Project")
-                .execute();
+System.out.println("Creating project...");
+Project project = trainer.createProject()
+            .withName("Sample Java Project")
+            .execute();
 ```
 
 ## Add tags to your project
 
 ```java
-    // create hemlock tag
-    Tag hemlockTag = trainer.createTag()
-        .withProjectId(project.id())
-        .withName("Hemlock")
-        .execute();
+// create hemlock tag
+Tag hemlockTag = trainer.createTag()
+    .withProjectId(project.id())
+    .withName("Hemlock")
+    .execute();
 
-    // create cherry tag
-    Tag cherryTag = trainer.createTag()
-        .withProjectId(project.id())
-        .withName("Japanese Cherry")
-        .execute();
+// create cherry tag
+Tag cherryTag = trainer.createTag()
+    .withProjectId(project.id())
+    .withName("Japanese Cherry")
+    .execute();
 ```
 
 ## Upload images to the project
@@ -80,50 +80,50 @@ The following code snippets implement the primary functionality of this example:
 The sample is setup to include the images in the final package. Images are read from the resources section of the jar and uploaded to the service.
 
 ```java
-    System.out.println("Adding images...");
-    for (int i = 1; i <= 10; i++) {
-        String fileName = "hemlock_" + i + ".jpg";
-        byte[] contents = GetImage("/Hemlock", fileName);
-        AddImageToProject(trainer, project, fileName, contents, hemlockTag.id(), null);
-    }
+System.out.println("Adding images...");
+for (int i = 1; i <= 10; i++) {
+    String fileName = "hemlock_" + i + ".jpg";
+    byte[] contents = GetImage("/Hemlock", fileName);
+    AddImageToProject(trainer, project, fileName, contents, hemlockTag.id(), null);
+}
 
-    for (int i = 1; i <= 10; i++) {
-        String fileName = "japanese_cherry_" + i + ".jpg";
-        byte[] contents = GetImage("/Japanese Cherry", fileName);
-        AddImageToProject(trainer, project, fileName, contents, cherryTag.id(), null);
-    }
+for (int i = 1; i <= 10; i++) {
+    String fileName = "japanese_cherry_" + i + ".jpg";
+    byte[] contents = GetImage("/Japanese Cherry", fileName);
+    AddImageToProject(trainer, project, fileName, contents, cherryTag.id(), null);
+}
 ```
 
 The previous snippet code makes use of two helper functions that retreive the images as resource streams and upload them to the service.
 
 ```java
-    private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag)
-    {
-        System.out.println("Adding image: " + fileName);
+private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag)
+{
+    System.out.println("Adding image: " + fileName);
 
-        ImageFileCreateEntry file = new ImageFileCreateEntry()
-            .withName(fileName)
-            .withContents(contents);
+    ImageFileCreateEntry file = new ImageFileCreateEntry()
+        .withName(fileName)
+        .withContents(contents);
 
-        ImageFileCreateBatch batch = new ImageFileCreateBatch()
-            .withImages(Collections.singletonList(file));
+    ImageFileCreateBatch batch = new ImageFileCreateBatch()
+        .withImages(Collections.singletonList(file));
 
-        batch = batch.withTagIds(Collections.singletonList(tag));
+    batch = batch.withTagIds(Collections.singletonList(tag));
 
-        trainer.createImagesFromFiles(project.id(), batch);
+    trainer.createImagesFromFiles(project.id(), batch);
+}
+
+private static byte[] GetImage(String folder, String fileName)
+{
+    try {
+        return ByteStreams.toByteArray(CustomVisionSamples.class.getResourceAsStream(folder + "/" + fileName));
+    } catch (Exception e) {
+        System.out.println(e.getMessage());
+        e.printStackTrace();
     }
 
-    private static byte[] GetImage(String folder, String fileName)
-    {
-        try {
-            return ByteStreams.toByteArray(CustomVisionSamples.class.getResourceAsStream(folder + "/" + fileName));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
-
-        return null;
-    }
+    return null;
+}
 ```
 
 ## Train the project
@@ -131,18 +131,18 @@ The previous snippet code makes use of two helper functions that retreive the im
 This creates the first iteration in the project and marks this iteration as the default iteration. 
 
 ```java
-    System.out.println("Training...");
-    Iteration iteration = trainer.trainProject(project.id());
+System.out.println("Training...");
+Iteration iteration = trainer.trainProject(project.id());
 
-    while (iteration.status().equals("Training"))
-    {
-        System.out.println("Training Status: "+ iteration.status());
-        Thread.sleep(1000);
-        iteration = trainer.getIteration(project.id(), iteration.id());
-    }
-
+while (iteration.status().equals("Training"))
+{
     System.out.println("Training Status: "+ iteration.status());
-    trainer.updateIteration(project.id(), iteration.id(), iteration.withIsDefault(true));
+    Thread.sleep(1000);
+    iteration = trainer.getIteration(project.id(), iteration.id());
+}
+
+System.out.println("Training Status: "+ iteration.status());
+trainer.updateIteration(project.id(), iteration.id(), iteration.withIsDefault(true));
 ```
 
 ## Get and use the default prediction endpoint
@@ -151,29 +151,29 @@ This creates the first iteration in the project and marks this iteration as the 
 > Set the `predictionApiKey` to the prediction key value you retrieved earlier.
 
 ```java
-    final String predictionApiKey = "insert your prediction key here";
-    PredictionEndpoint predictClient = CustomVisionPredictionManager.authenticate(predictionApiKey);
+final String predictionApiKey = "insert your prediction key here";
+PredictionEndpoint predictClient = CustomVisionPredictionManager.authenticate(predictionApiKey);
 
-    // use below for url
-    // String url = "some url";
-    // ImagePrediction results = predictor.predictions().predictImage()
-    //                         .withProjectId(project.id())
-    //                         .withUrl(url)
-    //                         .execute();
+// Use below for predictions from a url
+// String url = "some url";
+// ImagePrediction results = predictor.predictions().predictImage()
+//                         .withProjectId(project.id())
+//                         .withUrl(url)
+//                         .execute();
 
-    // load test image
-    byte[] testImage = GetImage("/Test", "test_image.jpg");
+// load test image
+byte[] testImage = GetImage("/Test", "test_image.jpg");
 
-    // predict
-    ImagePrediction results = predictor.predictions().predictImage()
-        .withProjectId(project.id())
-        .withImageData(testImage)
-        .execute();
+// predict
+ImagePrediction results = predictor.predictions().predictImage()
+    .withProjectId(project.id())
+    .withImageData(testImage)
+    .execute();
 
-    for (Prediction prediction: results.predictions())
-    {
-        System.out.println(String.format("\t%s: %.2f%%", prediction.tagName(), prediction.probability() * 100.0f));
-    }
+for (Prediction prediction: results.predictions())
+{
+    System.out.println(String.format("\t%s: %.2f%%", prediction.tagName(), prediction.probability() * 100.0f));
+}
 ```
 
 ## Run the example
