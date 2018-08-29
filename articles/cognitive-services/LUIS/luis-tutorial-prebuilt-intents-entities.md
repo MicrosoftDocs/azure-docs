@@ -32,9 +32,9 @@ In this tutorial, you learn how to:
 ## Use existing app
 Continue with the app created in the last tutorial, named **HumanResources**. 
 
-If you do not have the HumanResources app from the previous tutorial, .
+If you do not have the HumanResources app from the previous tutorial, use the following steps:
 
-1.  Download and save [app JSON file]((https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json).
+1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json).
 
 2. Import the JSON into a new app.
 
