@@ -86,7 +86,7 @@ $RestoredDatabase.status
 > After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][Configure your database after recovery].
 >
 
-## Copy your data warehouse by restoring
+## Copy your data warehouse with user-defined restore points
 To restore a database from a user-defined restore point use the [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] PowerShell cmdlet.
 
 1. Open Windows PowerShell.
