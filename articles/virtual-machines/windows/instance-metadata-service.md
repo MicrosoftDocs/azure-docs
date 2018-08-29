@@ -34,10 +34,10 @@ The service is available in generally available Azure regions. Not all API versi
 
 Regions                                        | Availability?                                 | Supported Versions
 -----------------------------------------------|-----------------------------------------------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02,2017-08-01
-[Azure China](https://www.azure.cn/)                                                           | Generally Available | 2017-04-02,2017-08-01
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02,2017-08-01
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
+[Azure China](https://www.azure.cn/)                                                           | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 
 This table is updated when there are service updates and or new supported versions are available
 
@@ -46,7 +46,7 @@ To try out the Instance Metadata Service, create a VM from [Azure Resource Manag
 ## Usage
 
 ### Versioning
-The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2017-12-01`. Current supported versions are (2017-04-02, 2017-08-01,2017-12-01)
+The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2017-04-02`. Current supported versions are (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02)
 
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
@@ -297,6 +297,8 @@ subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
 tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) for your Virtual Machine  | 2017-08-01
 resourceGroupName | [Resource group](../../azure-resource-manager/resource-group-overview.md) for your Virtual Machine | 2017-08-01
 placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
+plan | [Plan] (https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in its a Azure Marketplace Image, contains name, product and publisher | 2017-04-02
+publicKeys | Collection of Public Keys[https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#sshpublickey] assigned to the VM and paths | 2017-04-02
 vmScaleSetName | [Virtual Machine ScaleSet Name](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) of your virtual machine scale set | 2017-12-01
 zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01 
 ipv4/privateIpAddress | Local IPv4 address of the VM | 2017-04-02
@@ -376,6 +378,42 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
     "vmSize": "Standard_DS2"
   }
 }
+```
+
+
+### Getting Azure Environment where the VM is running 
+
+Azure has various soverign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/)  , sometimes you need to to the Azure Environment to make some runtime decisions. Following sample will show you how you can achieve this
+
+**Request**
+
+> [!NOTE] 
+> Requires jq to be installed. 
+
+```
+  $metadataResponse = Invoke-WebRequest "http://169.254.169.254/metadata/instance/compute?api-version=2018-02-01" -H @{"Metadata"="true"} -UseBasicParsing
+  $metadata = ConvertFrom-Json ($metadataResponse.Content)
+ 
+  $endpointsResponse = Invoke-WebRequest "https://management.azure.com/metadata/endpoints?api-version=2017-12-01" -UseBasicParsing
+  $endpoints = ConvertFrom-Json ($endpointsResponse.Content)
+ 
+  foreach ($cloud in $endpoints.cloudEndpoint.PSObject.Properties) {
+    $matchingLocation = $cloud.Value.locations | Where-Object {$_ -match $metadata.location}
+    if ($matchingLocation) {
+      $cloudName = $cloud.name
+      break
+    }
+  }
+ 
+  $environment = "Unknown"
+  switch ($cloudName) {
+    "public" { $environment = "AzureCloud"}
+    "usGovCloud" { $environment = "AzureUSGovernment"}
+    "chinaCloud" { $environment = "AzureChinaCloud"}
+    "germanCloud" { $environment = "AzureGermanCloud"}
+  }
+ 
+  return $environment
 ```
 
 ### Examples of calling metadata service using different languages inside the VM 
