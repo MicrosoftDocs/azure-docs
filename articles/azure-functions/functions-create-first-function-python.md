@@ -1,11 +1,11 @@
 ---
-title: Create your first Python function from the command line 
+title: Create your first Python function in Azure 
 description: Learn how to create your first Python function in Azure using the Azure Functions Core Tools and the Azure CLI.
 services: functions 
 keywords: 
 author: ggailey777
 ms.author: glenga
-ms.date: 08/27/2018
+ms.date: 08/29/2018
 ms.topic: quickstart
 ms.service: functions
 ms.custom: mvc
