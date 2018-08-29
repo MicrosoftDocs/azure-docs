@@ -292,7 +292,7 @@
         items:
         - name: 1 - Query data
           href: tutorial-query-graph.md
-      - name: How To Guides
+      - name: How-to guides
         items:
         - name: Import graph data 
           href: bulk-executor-graph-dotnet.md
