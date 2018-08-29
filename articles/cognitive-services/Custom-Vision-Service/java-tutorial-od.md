@@ -178,6 +178,44 @@ For object detection project you need to upload image, regions, and tags. The re
 The previous snippet code makes use of two helper functions that retreive the images as resource streams and upload them to the service.
 
 ```java
+    private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag, double[] regionValues)
+    {
+        System.out.println("Adding image: " + fileName);
+        ImageFileCreateEntry file = new ImageFileCreateEntry()
+            .withName(fileName)
+            .withContents(contents);
+
+        ImageFileCreateBatch batch = new ImageFileCreateBatch()
+            .withImages(Collections.singletonList(file));
+
+        // If Optional region is specified, tack it on and place the tag there, otherwise
+        // add it to the batch.
+        if (regionValues != null)
+        {
+            Region region = new Region()
+                .withTagId(tag)
+                .withLeft(regionValues[0])
+                .withTop(regionValues[1])
+                .withWidth(regionValues[2])
+                .withHeight(regionValues[3]);
+            file = file.withRegions(Collections.singletonList(region));
+        } else {
+            batch = batch.withTagIds(Collections.singletonList(tag));
+        }
+
+        trainer.createImagesFromFiles(project.id(), batch);
+    }
+
+    private static byte[] GetImage(String folder, String fileName)
+    {
+        try {
+            return ByteStreams.toByteArray(CustomVisionSamples.class.getResourceAsStream(folder + "/" + fileName));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        return null;
+    }
 ```
 
 ## Train the project
