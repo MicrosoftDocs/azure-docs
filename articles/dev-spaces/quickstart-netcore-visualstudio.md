@@ -29,6 +29,9 @@ In this guide, you will learn how to:
 
   ![Be sure to enable Http Application Routing.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
+    > [!Note]
+    > To enable [Http Application Routing](/azure/aks/http-application-routing) on an existing cluster, use the command: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
+
 - Visual Studio 2017 with the Web Development workload installed. If you don't have it installed, download it [here](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ## Set up Azure Dev Spaces
