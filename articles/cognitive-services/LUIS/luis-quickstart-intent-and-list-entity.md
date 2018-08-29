@@ -26,7 +26,7 @@ In this tutorial, understand how to get data that matches a predefined list of i
 
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Before you begin
+## Use existing app
 If you don't have the Human Resources app from the [previous](luis-quickstart-intents-regex-entity.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [

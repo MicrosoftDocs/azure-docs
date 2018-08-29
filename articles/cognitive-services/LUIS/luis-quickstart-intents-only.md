@@ -24,14 +24,13 @@ After LUIS returns the JSON response, LUIS is done with this request. The client
 
 LUIS doesn't provide answers to user utterances, it only identifies what type of information is being asked for in natural language. 
 
-<!-- green checkmark -->
 > [!div class="checklist"]
-> * Create a new app for a Human Resources (HR) domain 
+> * Create a new app 
 > * Create intents
 > * Add example utterances
 > * Train app
 > * Publish app
-> * Query endpoints of app to see LUIS JSON responses
+> * Get intent from endpoint
 
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
