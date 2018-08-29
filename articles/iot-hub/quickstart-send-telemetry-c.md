@@ -19,7 +19,9 @@ ms.author: wesmc
 
 IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this quickstart, you send telemetry from a simulated device application, through IoT Hub, to a back-end application for processing.
 
-The quickstart uses two pre-written C applications, one to send the telemetry and one to read the telemetry from the hub. Before you run these two applications, you create an IoT hub and register a device with the hub.
+The quickstart uses a C sample application from the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md) to send telemetry to an IoT hub. Before you run thethe sample, you will create an IoT hub and register the simulated device with that hub.
+
+This article written for Windowss but you can complete this quickstart on Linux as well.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -32,7 +34,18 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prepare the development environment
 
-In this section, you will prepare a development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) which includes the sample code for this article.
+For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md). 
+
+You can use the SDK by installing the packages and libraries for the following environments:
+
+* **Linux**: [Use apt-get with azure-iot-sdk-c].(https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md).
+* **mbed**: [Use the mebed library](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed).
+* **Arduino**: [Use the Arduino IDE library](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#arduino).
+* **Windows**: [Use the Nuget packages](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#nugetpackage).
+* **iOS**: [Use AzureIoTHubClient on CocoaPods](https://cocoapods.org/pods/AzureIoTHubClient).
+
+However, in this quickstart, you will prepare a development environment used to clone and build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) from GitHub. The SDK on GitHub includes the sample code used in this quickstart. 
+
 
 1. Download the latest release version of the [CMake build system](https://cmake.org/download/). From that same site, look up the cryptographic hash for the version of the binary distribution you chose. Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
 
@@ -91,7 +104,7 @@ In this section, you will prepare a development environment used to build the [A
 
 ## Register a device
 
-A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure CLI to register a simulated device.
+A device must be registered with your IoT hub before it can connect. In this section, you will use the Azure CLI with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to register a simulated device.
 
 1. Add the IoT Hub CLI extension and create the device identity. Replace `{YourIoTHubName}` with the name you chose for your IoT hub:
 
@@ -110,23 +123,12 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     Make a note of the device connection string, which looks like `Hostname=...=`. You use this value later in the quickstart.
 
-3. You also need the _Event Hubs-compatible endpoint_, _Event Hubs-compatible path_, and _iothubowner primary key_ from your IoT hub to enable the back-end application to connect to your IoT hub and retrieve the messages. The following commands retrieve these values for your IoT hub:
-
-    ```azurecli-interactive
-    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
-
-    az iot hub show --query properties.eventHubEndpoints.events.path --name {YourIoTHubName}
-
-    az iot hub policy show --name iothubowner --query primaryKey --hub-name {your IoT Hub name}
-    ```
-
-    Make a note of these three values, which you use later in the quickstart.
 
 ## Send simulated telemetry
 
 The simulated device application connects to a device-specific endpoint on your IoT hub and sends a string as simulated telemetry.
 
-1. Using a text editor, open the iothub_convenience_sample.c source file. The file is located in the following location:
+1. Using a text editor, open the iothub_convenience_sample.c source file and review the sample code for sending telemetry. The file is located in the following location:
 
     ```
     \azure-iot-sdk-c\iothub_client\samples\iothub_convenience_sample\iothub_convenience_sample.c
@@ -152,27 +154,28 @@ The simulated device application connects to a device-specific endpoint on your 
     cmake --build . --target iothub_convenience_sample --config Debug
     ```
 
-4. In a command prompt, run the following command to run the simulated device applicationcle:
+5. In a command prompt, run the following command to run the simulated device application:
 
     ```cmd/sh
     Debug\iothub_convenience_sample.exe
     ```
 
-    The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
+    The following screenshot shows the output as the simulated device application sends telemetry to the IoT hub:
 
     ![Run the simulated device](media/quickstart-send-telemetry-c/simulated-device-app.png)
 
 ## Read the telemetry from your hub
 
-* The simulated device does not loop sending telemetry. So we've already missed the messages. 
 
-    **Run a message reader first, or update the sample in the SDK to loop as the other samples do.**
+In this section, you will use the Azure CLI with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to monitor the device messages that are sent by the simulated device.
 
-* Is there a C sample for reading device to cloud messages?
+1. Using the Azure CLI, run the following command to connect and read messages from your IoT hub:
 
-* Tested with Node.js...
+    ```azurecli-interactive
+    az iot hub monitor-events --hub-name {YourIoTHubName} --output table
+    ```
 
-    ![Run the device to cloud message reader](media/quickstart-send-telemetry-c/read-device-to-cloud-messages-app.png)
+    ![Read the device messages using the Azure CLI](media/quickstart-send-telemetry-c/read-device-to-cloud-messages-app.png)
 
     
 
@@ -182,7 +185,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 ## Next steps
 
-In this quickstart, you've setup an IoT hub, registered a device, sent simulated telemetry to the hub using a C application, and read the telemetry from the hub using a simple back-end application.
+In this quickstart, you've setup an IoT hub, registered a device, sent simulated telemetry to the hub using a C application, and read the telemetry from the hub using the Azure CLI.
 
 To learn how to control your simulated device from a back-end application, continue to the next quickstart.
 
