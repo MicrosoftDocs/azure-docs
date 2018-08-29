@@ -165,6 +165,8 @@ The left menu provides different pages for configuring your app.
 
 ## Video
 
+Watch the video to see this quickstart in action and then follow the steps yourself to publish your first Node.js app on Azure.
+
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]

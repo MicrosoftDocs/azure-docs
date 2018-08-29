@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/11/2018
+ms.date: 08/29/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter, vs-azure
 ---
@@ -25,9 +25,7 @@ ms.custom: mvc, devcenter, vs-azure
 
 [Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET Core web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
 
-> [!NOTE]
-> If you're looking for how to build and deploy an ASP.NET Framework Web App, that article is available [here](app-service-web-get-started-dotnet-framework.md). 
->
+![](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
