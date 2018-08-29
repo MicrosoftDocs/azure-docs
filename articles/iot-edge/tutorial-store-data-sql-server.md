@@ -173,7 +173,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 
 1. In the Visual Studio Code explorer, open the **deployment.template.json** file. 
 2. Find the **moduleContent.$edgeAgent.properties.desired.modules** section. There should be two modules listed: **tempSensor**, which generates simulated data, and your **sqlFunction** module.
-3. If you're on a Windows machine, modify the **sqlFunction.settings.image** section.
+3. If you're using Windows containers, modify the **sqlFunction.settings.image** section.
     ```json
     "image": "${MODULES.sqlFunction.windows-amd64}"
     ```
@@ -194,16 +194,16 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 
    Here's an example if there is any confusion with adding a JSON element. ![Add sql server container](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-5. Depending on the operating system of your IoT Edge device, update the **sql.settings** parameters with the following code:
+5. Depending on the type Docker containers you are using on your IoT Edge device, update the **sql.settings** parameters with the following code:
 
-   * Windows:
+   * Windows containers:
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
       "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-   * Linux:
+   * Linux containers:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
