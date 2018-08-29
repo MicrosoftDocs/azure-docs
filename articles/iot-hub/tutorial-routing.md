@@ -180,7 +180,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ### PowerShell instructions
 
-The easiest way to use this script is to open [PowerShell ISE](../scripting/core-powershell/ise/introducing-the-windows-powershell-ise.md), copy the script to the clipboard, and then paste the whole script into the script window. Then you can change the values for the resource names (if you wish), and run the entire script. 
+The easiest way to use this script is to open [PowerShell ISE](/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise.md), copy the script to the clipboard, and then paste the whole script into the script window. Then you can change the values for the resource names (if you wish), and run the entire script. 
 
 ```azurepowershell-interactive
 # Log into Azure account.
