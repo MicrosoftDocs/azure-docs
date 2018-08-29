@@ -45,7 +45,7 @@ You need a virtual environment to create a Python function app project locally u
 python -m venv env
 ```
 
-You must activate your environment using one of the following commands, depending on your operating system:
+Activate your environment using one of the following commands, depending on your operating system:
 
 + Terminal
 
@@ -72,7 +72,7 @@ Run the following command in your `myenv` environment to create a Python functio
 func init MyFunctionProj --worker-runtime python
 ```
 
-When the command executes, you see output like the following:
+When the command executes, you see something like the following output:
 
 ```output
 Installing wheel package
@@ -94,7 +94,7 @@ cd MyFunctionProj
 func new --name MyHttpTrigger --template "Http Trigger"
 ```
 
-When the command executes, you see output like the following:
+When the command executes, you see something like the following output:
 
 ```output
 Select a language: Select a template: Http Trigger
@@ -128,7 +128,7 @@ Go to the new function.json file for your function, open it in a text editor, up
   ]
 ```
 
-This lets you to call the function in Azure without having to supply the function key. The function key is never required when running locally.
+This change lets you call the function in Azure without having to supply the function key. The function key is never required when running locally.
 
 ## Run the function locally
 
@@ -138,7 +138,7 @@ The following command starts the function app. The app runs using the same Azure
 func host start
 ```
 
-When the Functions host starts, it outputs like the following, which has been truncated for readability:
+When the Functions host starts, it write something like the following output, which has been truncated for readability:
 
 ```output
 
@@ -221,7 +221,7 @@ The following Core Tools command deploys your project to the new function app in
 func azure functionapp publish <app_name>
 ```
 
-When deployment completes, you see output like the following, which as been truncated for readability:
+When deployment executes, you see something like the following output, which as been truncated for readability:
 
 ```output
 Getting site publishing info...
