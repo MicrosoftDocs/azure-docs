@@ -38,6 +38,8 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- IS, ASDK --> **Virtual Machine Scale Set scaling**.  You can use the portal to [scale a Virtual Machine Scale Set](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
 
+- <!-- 2489570 | IS ASDK--> **Support for custom IPSec/IKE policy configurations** for [VPN gateways in Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
+
 
 ### Fixed issues
 - <!-- IS ASDK--> We fixed the issue for creating an availability set in the portal which resulted in the set having a fault domain and update domain of 1.
@@ -102,7 +104,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!--  2966665 – IS, ASDK --> Attaching SSD data disks to premium size managed disk virtual machines  (DS, DSv2, Fs, Fs_V2) fails with an error:  *Failed to update disks for the virtual machine ‘vmname’ Error: Requested operation cannot be performed because storage account type ‘Premium_LRS’ is not supported for VM size ‘Standard_DS/Ds_V2/FS/Fs_v2)*
 
-   To work around this issue, use Standard_LRS data disks instead of Premium_LRS disks. This does not change IOPs or the billing cost. 
+   To work around this issue, use *Standard_LRS* data disks instead of *Premium_LRS disks*, Use of *Standard_LRS* data disks doesn't change IOPs or the billing cost.  
 
 - <!--  2795678 – IS, ASDK --> When you use the portal to create virtual machines (VM) in a premium VM size (DS,Ds_v2,FS,FSv2), the VM is created in a standard storage account. Creation in a standard storage account does not affect functionally, IOPs, or billing. 
 
