@@ -18,7 +18,7 @@ ms.author: luisca
 The **Text Merge** skill consolidates text from a collection of fields into a single field. 
 
 ## @odata.type  
-Microsoft.Skills.Util.TextMerger
+Microsoft.Skills.Text.MergeSkill
 
 ## Skill parameters
 
@@ -97,7 +97,7 @@ The following example skillset uses the OCR skill to extract text from images em
         ]
     },
     {
-      "@odata.type": "#Microsoft.Skills.Util.TextMerger",
+      "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
       "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
       "context": "/document",
       "insertPreTag": " ",
