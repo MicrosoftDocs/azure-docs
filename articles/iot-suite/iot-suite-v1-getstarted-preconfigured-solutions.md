@@ -1,23 +1,14 @@
 ---
 title: Get started with preconfigured solutions | Microsoft Docs
 description: Follow this tutorial to learn how to deploy an Azure IoT Suite preconfigured solution.
-services: ''
-suite: iot-suite
-documentationcenter: ''
-author: dominicbetts
-manager: timlt
-editor: ''
-
-ms.assetid: 6ab38d1a-b564-469e-8a87-e597aa51d0f7
+services: iot-suite
 ms.service: iot-suite
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
+author: dominicbetts
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dobett
-
 ---
+
 # Get started with the preconfigured solutions
 
 Azure IoT Suite [preconfigured solutions][lnk-preconfigured-solutions] combine multiple Azure IoT services to deliver end-to-end solutions that implement common IoT business scenarios. The *remote monitoring* preconfigured solution connects to and monitors your devices. You can use the solution to analyze the stream of data from your devices and to improve business outcomes by making processes respond automatically to that stream of data.
