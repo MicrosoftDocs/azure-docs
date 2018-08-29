@@ -41,6 +41,7 @@ The following Ids are used for a content definition with an ID of `api.signupors
 | **cancel_message** | The user has forgotten their password |
 | **button_signin** | Sign in |
 | **social_intro** | Sign in with your social account |
+  **remember_me** |Keep me signed in|
 | **unknown_error** | We are having trouble signing you in. Please try again later. |
 
 The following example shows the use of some of the user interface elements in the sign-up or sign-in page:
