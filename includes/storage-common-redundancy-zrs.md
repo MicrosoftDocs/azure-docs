@@ -22,6 +22,7 @@ ZRS currently supports standard [general-purpose v2 (GPv2)](../articles/storage/
 
 ZRS is generally available in the following regions:
 
+- US East
 - US East 2
 - US West 2
 - US Central
