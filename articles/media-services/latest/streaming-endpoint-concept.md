@@ -42,7 +42,7 @@ From a customer's perspective the CDN effectively has unlimited bandwidth. It do
  
 You also need to consider how adaptive streaming works. Each individual video fragment is cached as it's own entity. For example, if the first time a certain video is watched the person skips around watching only a few seconds here and there only the video fragments associated with what they watched will get cached in the CDN. With adaptive streaming, you typically have 5 to 7 different bitrates of video. If one person is watching one bandwidth and another person is watching a different bandwidth, then they are each cached separately in the CDN. Even if two people are watching the same bandwidth they could be streaming over different protocols.  Each protocol (HLS, MPEG-DASH, Smooth Streaming) is cached separately. So each bandwidth and protocol are cached separately and only those video fragments that have been requested are cached.
  
-## StreamingEndpoint Entity properties 
+## Streaming Endpoint entity properties 
 
 For examples of how to create a new streaming endpoint and descriptions of properties, see [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). This section gives more details about some properties.
 
