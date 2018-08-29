@@ -1,3 +1,4 @@
+---
 title: Rehost a Contoso on-premises app by migrating to Azure VMs and Azure SQL Database Managed Instance | Microsoft Docs
 description: Learn how Contoso rehosts an on-premises app on Azure VMs and by using Azure SQL Database Managed Instance.
 services: site-recovery
@@ -361,7 +362,7 @@ Contoso admins also need to check these items when they run a failover:
 - There should be no Windows updates pending on the VM when a failover is triggered. If Windows updates are pending, users Contoso can't sign in to the virtual machine until the update is finished.
 - After failover, admins should check **Boot diagnostics** to view a screenshot of the VM. If they can't view the boot diagnostics, they should check that the VM is running, and then review [troubleshooting tips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
-## Step 5: Replicate the on-premises VMs to Azure by using Site Recovery
+## Step 5: Replicate the on-premises VMs to Azure
 
 Before running a migration to Azure, Contoso admins need to set up and enable replication for the on-premises VM.
 
@@ -475,7 +476,7 @@ Now, Contoso admins can start replicating WebVM.
 
 You can read a full walkthrough of these steps in [Enable replication](https://docs.microsoft.com/azure/site-recovery/vmware-azure-enable-replication).
 
-## Step 6: Migrate the database by using the Database Migration Service
+## Step 6: Migrate the database 
 
 Contoso admins need to create a Database Migration Service project, and then migrate the database.
 
@@ -520,7 +521,7 @@ Contoso admins need to create a Database Migration Service project, and then mig
 
     ![Database Migration Service - Verify the database migration](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor2.png)
 
-## Step 7: Migrate the VM by using Site Recovery
+## Step 7: Migrate the VM
 
 Contoso admins run a quick test failover, and then migrate the VM.
 
