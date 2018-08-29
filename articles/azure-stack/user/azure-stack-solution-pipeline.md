@@ -295,14 +295,15 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [Az
 
 3. Confirm that the application code was checked into Azure DevOps Services.
 
-### Create the build definition
+### Create the build pipeline
 
-1. Sign in to Azure DevOps Services with an organization that can create a build definition.
+1. Sign in to Azure DevOps Services with an organization that can create a build pipeline.
+
 2. Navigate to the **Build Web Applicaiton** page for the project.
 
 3. In **Arguments**, add **-r win10-x64** code. This is required to trigger a self-contained deployment with .Net Core.
 
-    ![Add argument build definition](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![Add argument build pipeline](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
 
 4. Run the build. The [self-contained deployment build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) process will publish artifacts that can run on Azure and Azure Stack.
 
@@ -314,14 +315,14 @@ Using a hosted build agent in Azure DevOps Services is a convenient option for b
 
 Azure DevOps Services and Team Foundation Server (TFS) provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, quality assurance (QA), and production. This process can include requiring approvals at specific stages of the application life cycle.
 
-### Create release definition
+### Create release pipeline
 
-Creating a release definition is the final step in your application build process. This release definition is used to create a release and deploy a build.
+Creating a release pipeline is the final step in your application build process. This release pipeline is used to create a release and deploy a build.
 
 1. Sign in to Azure DevOps Services and navigate to **Azure Pipelines** for your project.
 2. On the **Releases** tab, select **\[ + ]**  and then pick **Create release definition**.
 
-   ![Create release definition](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![Create release pipeline](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
 
 3. On **Select a Template**, choose **Azure App Service Deployment**, and then select **Apply**.
 
@@ -408,11 +409,11 @@ Creating a release definition is the final step in your application build proces
 23. Save all your changes.
 
 > [!Note]
-> Some settings for release tasks may have been automatically defined as [environment variables](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) when you created a release definition from a template. These settings can't be modified in the task settings. However, you can edit these settings in the parent environment items.
+> Some settings for release tasks may have been automatically defined as [environment variables](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) when you created a release pipeline from a template. These settings can't be modified in the task settings. However, you can edit these settings in the parent environment items.
 
 ## Create a release
 
-Now that you have completed the modifications to the release definition, it's time to start the deployment. To do this, you create a release from the release definition. A release may be created automatically; for example, the continuous deployment trigger is set in the release definition. This means that modifying the source code will start a new build and, from that, a new release. However, in this section you will create a new release manually.
+Now that you have completed the modifications to the release pipeline, it's time to start the deployment. To do this, you create a release from the release pipeline. A release may be created automatically; for example, the continuous deployment trigger is set in the release pipeline. This means that modifying the source code will start a new build and, from that, a new release. However, in this section you will create a new release manually.
 
 1. On the **Pipeline** tab, open the **Release** drop-down list and choose **Create release**.
 
