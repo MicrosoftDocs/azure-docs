@@ -282,12 +282,7 @@ The Dependency agent is installed on Linux servers from `InstallDependencyAgent-
 
 >[!NOTE]
 > Root access is required to install or configure the agent.
-
-1. Install the Linux Dependency agent as root by running the following command:
-    
-    `sh InstallDependencyAgent-Linux64.bin
-    
-    If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is /var/opt/microsoft/dependency-agent/log.
+> 
 
 | Parameter | Description |
 |:--|:--|
@@ -296,6 +291,10 @@ The Dependency agent is installed on Linux servers from `InstallDependencyAgent-
 | --check | Check permissions and the operating system but do not install the agent. |
 
 For example, to run the installation program with the `-help` parameter, type `InstallDependencyAgent-Linux64.bin -help`.
+
+Install the Linux Dependency agent as root by running the following command, `sh InstallDependencyAgent-Linux64.bin`
+    
+If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is `/var/opt/microsoft/dependency-agent/log`.
 
 Files for the Dependency agent are placed in the following directories:
 
