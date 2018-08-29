@@ -27,10 +27,6 @@ Applications written for Azure Table storage can migrate to Azure Cosmos DB by u
 
 We recommend that you watch the following video, where Aravind Krishna explains how to get started with the Azure Cosmos DB Table API:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
-> 
-> 
-
 ## Table offerings
 If you currently use Azure Table Storage, you gain the following benefits by moving to the Azure Cosmos DB Table API:
 
