@@ -9,8 +9,6 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create function - portal
-    href: functions-create-first-azure-function.md
   - name: Create function - Visual Studio
     href: functions-create-your-first-function-visual-studio.md
   - name: Create function - Visual Studio Code
@@ -19,7 +17,9 @@
     href: functions-create-first-java-maven.md
   - name: Create function - Azure CLI
     href: functions-create-first-azure-function-azure-cli.md
-  - name: Create function - Linux
+  - name: Create function - portal
+    href: functions-create-first-azure-function.md
+- name: Create function - Linux
     href: functions-create-first-azure-function-azure-cli-linux.md
   - name: Triggers
     items:

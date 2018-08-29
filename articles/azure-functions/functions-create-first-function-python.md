@@ -21,7 +21,7 @@ This quickstart article walks you through how to use Azure Functions with the Az
 
 The following steps are supported on a Mac, Windows, or Linux computer.
 
-## Prerequisites 
+## Prerequisites
 
 To complete this tutorial:
 
@@ -29,7 +29,9 @@ To complete this tutorial:
 
 + Install [Azure Core Tools version 2.x](functions-run-local.md#v2).
 
-+ Install the [Azure CLI]( /cli/azure/install-azure-cli). This article requires the Azure CLI version 2.0.21 or later. Run `az --version` to find the version you have.
+<!---Verify the correct version of Azure CLI.--->
+
++ Install the [Azure CLI]( /cli/azure/install-azure-cli). This article requires the Azure CLI version 2.x or later. Run `az --version` to find the version you have.
 
 + You need an active Azure subscription.
 
@@ -102,6 +104,32 @@ Writing C:\functions\MyFunctionProj\HttpTrigger\__init__.py
 Writing C:\functions\MyFunctionProj\HttpTrigger\function.json
 ```
 
+## Edit the function
+
+Go to the new function.json file for your function, open it in a text editor, update the **authLevel** property in the **bindings.httpTrigger** to `anonymous`, and save your changes.
+
+```json
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+```
+
+This lets you to call the function in Azure without having to supply the function key. The function key is never required when running locally.
+
 ## Run the function locally
 
 The following command starts the function app. The app runs using the same Azure Functions runtime that is in Azure.
@@ -161,11 +189,11 @@ In the following command, use a unique function app name where you see the `<app
 
 ```azurecli
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---runtime python --is-linux
+--location "westeurope" --runtime python --is-linux
 ```
 
 > [!NOTE]
-> If you have an existing resource group named `myResourceGroup` that has any non-Linux App Service apps, you must use a different resource group. You can't host both Windows and Linux functions apps in the same resource group.  
+> If you have an existing resource group named `myResourceGroup` with any non-Linux App Service apps, you must use a different resource group. You can't host both Windows and Linux apps in the same resource group.  
 
 <!--- Output goes here:
 
@@ -190,18 +218,23 @@ pip freeze > requirements.txt
 The following Core Tools command deploys your project to the new function app in Azure. Replace `<app_name>` with the function app name from the previous step.
 
 ```bash
-$ func azure functionapp publish <app_name>
+func azure functionapp publish <app_name>
 ```
 
-<!--- Ouput goes here.
-
-When deployment completes, you see output like the following:
+When deployment completes, you see output like the following, which as been truncated for readability:
 
 ```output
+Getting site publishing info...
 
+...
+
+Preparing archive...
+Uploading content...
+Upload completed successfully.
+Deployment completed successfully.
+Syncing triggers...
 ```
 
---->
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
