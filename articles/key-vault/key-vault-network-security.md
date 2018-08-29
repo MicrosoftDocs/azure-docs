@@ -18,8 +18,8 @@ This guide describes step-by-step instructions to configure Key Vault firewalls 
 > [!IMPORTANT]
 > Once firewall and virtual network rules are in effect, all Key Vault [data plane](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) operations can ONLY be performed when caller  requests originate from allowed virtual network(s) or IPV4 address ranges. This also applies to accessing key vault from Azure portal. While a user can browser to a key vault from Azure portal, they may not be able to list keys/secrets/certificates if their client machine is not in the allowed list. This also affects the 'Key Vault Picker' by other Azure services. Users may be able to see list of key vaults but not list keys, if firewall rules prevent their client machine.
 
-
 ## Azure portal
+
 1. Navigate to the key vault you want to secure.
 2. Click on 'Firewalls and virtual networks'.
 3. Click on 'Selected networks' under 'Allow access from:'.
@@ -100,5 +100,6 @@ Update-AzureRmKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
 ```
 
 ## Next steps
+
 * [Virtual network service endpoints for Key Vault](key-vault-ovw-vnet-service-endpoints.md)
 * [Secure your key vault](key-vault-secure-your-key-vault.md)
