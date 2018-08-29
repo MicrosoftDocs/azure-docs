@@ -55,17 +55,23 @@
         href: algorithm-choice.md
       - name: Algorithm cheat sheet
         href: algorithm-cheat-sheet.md
+    - name: Use automated modeling	
+      items:
+      - name: Use remote compute targets
+        href: how-to-auto-train-remote.md
   - name: Track and evaluate models	
     items:    
     - name: Track run history and training metrics
   - name: Deploy models in production	
     items:    
-    - name: Prepare models for deployment
     - name: Where to deploy models
-    - name: Deploy to ACI
-      href: how-to-deploy-to-aci.md
-    - name: Deploy to AKS
-      href: how-to-deploy-to-aks.md
+      items:
+       - name: Deploy to ACI
+         href: how-to-deploy-to-aci.md
+       - name: Deploy to AKS
+         href: how-to-deploy-to-aks.md
+       - name: Deploy to FPGAs
+         href: how-to-deploy-fpga-web-service.md  
     - name: Consume a deployed model
       href: how-to-consume-web-services.md
 - name: Reference
@@ -163,8 +169,6 @@
         href: ../desktop-workbench/how-to-use-mmlspark.md
     - name: Deploy & consume models
       items:
-      - name: Deploy models to FPGAs
-        href: how-to-deploy-fpga-web-service.md
       - name: Set up Model Management
         href: ../desktop-workbench/deployment-setup-configuration.md
       - name: Scale clusters and services

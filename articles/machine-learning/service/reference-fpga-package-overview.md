@@ -11,6 +11,9 @@ ms.date: 05/07/2018
 ---
 # Azure Machine Learning Hardware Acceleration package
 
+>[!Note]
+>**This article is deprecated.** This FPGA package was deprecated. Support for this functionality was added to the Azure ML SDK. Support for this package will end incrementally. [View the support timeline](../articles/machine-learning/service/overview-what-happened-to-workbench.md#timeline). Learn about updated [FPGA support](concept-accelerate-with-fpgas.md).
+
 The Azure Machine Learning Hardware Acceleration package is a Python pip-installable extension for Azure Machine Learning that enables data scientists and AI developers to quickly:
 
 + Featurize images with a quantized version of ResNet 50
