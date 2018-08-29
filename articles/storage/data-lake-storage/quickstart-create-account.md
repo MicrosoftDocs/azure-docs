@@ -109,15 +109,6 @@ To remove a resource group using the Azure portal:
 2. Locate the resource group to delete, and right-click the **More** button (**...**) on the right side of the listing.
 3. Select **Delete resource group**, and confirm.
 
-
-## Upgrade your powershell module
-
-In order to interact with Data Lake Storage Gen2 through PowerShell, you will have to upgrade your module to the preview version.
-
-To do that, open an elevated PowerShell and enter the following command: `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
-
-Then restart your shell.
-
 ## Create an account using PowerShell
 
 Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions to authenticate.
@@ -125,6 +116,14 @@ Log in to your Azure subscription with the `Login-AzureRmAccount` command and fo
 ```powershell
 Login-AzureRmAccount
 ```
+
+### Upgrade your powershell module
+
+In order to interact with Data Lake Storage Gen2 through PowerShell, you will have to upgrade your module to the preview version.
+
+To do that, open an elevated PowerShell and enter the following command: `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
+
+Then restart your shell.
 
 ### Create a resource group
 
@@ -165,13 +164,7 @@ To remove the resource group and its associated resources, including the new sto
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## Upgrade your CLI module
-
-In order to interact with Data Lake Storage Gen2 through CLI, you will have to add the extension to your shell.
-
-To do that: using the Cloud Shell or a local shell, enter the following command to do that: `az extension add --name storage-preview`
-
-## Create an account using Azure CLI 
+## Create an account using Azure CLI
 
 To launch Azure Cloud Shell, log in to the [Azure portal](https://portal.azure.com).
 
@@ -181,9 +174,15 @@ To log into your local installation of the CLI, run the login command:
 az login
 ```
 
+### Upgrade your CLI module
+
+In order to interact with Data Lake Storage Gen2 through CLI, you will have to add the extension to your shell.
+
+To do that: enter the following command using either the Cloud Shell or a local shell: `az extension add --name storage-preview`
+
 ### Create a resource group
 
-To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group#az_group_create) command. 
+To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group#az_group_create) command.
 
 ```azurecli-interactive
 az group create \

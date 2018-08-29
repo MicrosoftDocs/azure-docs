@@ -34,6 +34,7 @@
 ### [Configure a server name alias](analysis-services-server-alias.md)
 ### [Configure scale-out](analysis-services-scale-out.md)
 ### [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)
+### [Use gateway for data sources on an Azure Virtual Network](analysis-services-vnet-gateway.md)
 ### [Manage a server](analysis-services-manage.md)
 ### [Monitor server metrics](analysis-services-monitor.md)
 ### [Setup diagnostic logging](analysis-services-logging.md)

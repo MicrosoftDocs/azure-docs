@@ -45,7 +45,7 @@ by using the Azure Logic Apps engine and all its connectors.
 You can build and manage B2B apps with the 
 Enterprise Integration Pack through the Logic App Designer 
 in the **Azure portal**. You can also manage your logic apps with 
-[PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Logic apps PowerShell topics").
+[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp "Logic apps PowerShell").
 
 Here are the high-level steps you must take before you can create apps in the Azure portal:
 

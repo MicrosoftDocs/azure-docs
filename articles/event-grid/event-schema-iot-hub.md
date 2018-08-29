@@ -9,13 +9,15 @@ editor: ''
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: kgremban
 ---
 
 # Azure Event Grid event schema for IoT Hub
 
 This article provides the properties and schema for Azure IoT Hub events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). 
+
+For a list of sample scripts and tutorials, see [IoT Hub event source](event-sources.md#iot-hub).
 
 ## Available event types
 

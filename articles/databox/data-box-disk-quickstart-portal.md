@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 08/20/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
@@ -87,7 +87,7 @@ The time to complete this operation depends upon your data size.
     > - All the containers and blobs should conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). If these rules are not followed, the data upload to Azure will fail.
     > - Ensure that files do not exceed ~4.7 TiB for block blobs and ~8 TiB for page blobs.
 
-2. (Optional) After the copy is complete, we recommend that you run the `AzureExpressDiskService.ps1` provided in the *AzureImportExport* folder to generate checksums for validation. Depending upon the data size, this step may take time. 
+2. (Optional) After the copy is complete, we recommend that you run the `AzureExpressDiskService.cmd` provided in the *AzureImportExport* folder to generate checksums for validation. Depending upon the data size, this step may take time. 
 3. Unplug the drive. 
 
 

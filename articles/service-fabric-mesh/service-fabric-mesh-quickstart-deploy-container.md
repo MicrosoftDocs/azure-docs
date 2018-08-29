@@ -46,14 +46,14 @@ Create your application in the resource group using the `az mesh deployment crea
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}" 
 ```
-The preceding command deploys a Linux using [mesh_rp.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). If you want to deploy a Windows application, use [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Windows container images are larger than Linux container images and may take more time to deploy.
+The preceding command deploys a Linux application using [mesh_rp.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). If you want to deploy a Windows application, use [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Windows container images are larger than Linux container images and may take more time to deploy.
 
 In a few minutes, the command returns:
 
 `helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
 
 ## Open the application
-Once the application successfully deploys, copy the public IP address for the service endpoint from the CLI output.  Open the IP address in a web browser. A web page with the Azure Service Fabric Mesh logo displays.
+Once the application successfully deploys, copy the public IP address for the service endpoint from the CLI output. Open the IP address in a web browser. A web page with the Azure Service Fabric Mesh logo displays.
 
 ## Check the application details
 You can check the application's status using the `az mesh app show` command. This command provides useful information that you can follow up on.

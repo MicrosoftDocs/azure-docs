@@ -223,7 +223,7 @@ This minimal data context populates some sample to-do items and provides access 
 
 ### Add a controller
 
-A default controller, which handles the HTPP requests and creates the HTTP response, was provided by the template when the **ToDoService** project was created. In the **Solution Explorer**, under **ToDoService**, open the **Controllers** folder to see the **ValuesController.cs** file. 
+A default controller, which handles the HTTP requests and creates the HTTP response, was provided by the template when the **ToDoService** project was created. In the **Solution Explorer**, under **ToDoService**, open the **Controllers** folder to see the **ValuesController.cs** file. 
 
 Right-click **ValuesController.cs** and then **Rename**. Rename the file to `ToDoController.cs`. If a prompt appears to rename all references, click **Yes**.
 
@@ -310,7 +310,7 @@ Replace the contents of the entire file with the following HTML that defines a s
 </div>
 ```
 
-Open the code for the Index page in the **Solution Explorer** by opening **Index.cshtml** and then opening **Index.cshtml.cs**. 
+Open the code for the Index page in the **Solution Explorer** by opening **Index.cshtml** and then opening **Index.cshtml.cs**.
 At the top of **Index.cshtml.cs**, add `using System.Net.Http;`
 
 Replace the contents of `public class IndexModel` with:
@@ -333,7 +333,7 @@ public class IndexModel : PageModel
         }
     }
 
-    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
     private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 }
 ```
@@ -343,7 +343,7 @@ public class IndexModel : PageModel
 The URL for the back-end service is required  to communicate with that service. For the purpose of this tutorial, the following code excerpt (which is defined above as part of the IndexModel) reads environment variables to compose the URL:
 
 ```csharp
-private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
 private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 ```
 

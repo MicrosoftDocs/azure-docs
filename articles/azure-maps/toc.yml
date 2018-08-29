@@ -102,6 +102,8 @@
     items:
     - name: Map control
       href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
+    - name: Service module
+      href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
 - name: Related
   items:
   - name: Solutions

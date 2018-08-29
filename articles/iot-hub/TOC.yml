@@ -54,6 +54,8 @@
     href: iot-hub-event-grid-routing-comparison.md
   - name: Device configuration best practices
     href: iot-hub-configuration-best-practices.md
+  - name: Azure IoT SDKs platform support
+    href: iot-hub-device-sdk-platform-support.md
   - name: Developer guide
     href: iot-hub-devguide.md
     items:
@@ -129,6 +131,8 @@
     - name: Use device and service SDKs
       href: iot-hub-devguide-sdks.md
       items:
+      - name: Azure IoT SDKs platform support
+        href: iot-hub-device-sdk-platform-support.md
       - name: Use the IoT device SDK for C
         href: iot-hub-device-sdk-c-intro.md
         items:

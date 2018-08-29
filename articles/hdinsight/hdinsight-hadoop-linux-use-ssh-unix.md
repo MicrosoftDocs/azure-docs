@@ -133,7 +133,7 @@ You can also enable Kerberos Authentication on each domain joined node (e.g. hea
 ```bash
 sudo vi /etc/ssh/sshd_config
 ```
-uncommnet and change `KerberosAuthentication` to `yes`
+uncomment and change `KerberosAuthentication` to `yes`
 
 ```bash
 sudo service sshd restart

@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/14/2018
 ms.author: kgremban
 ---
 # Install the Azure IoT Edge runtime on Linux (x64)
@@ -123,6 +123,9 @@ After entering the provisioning information in the configuration, restart the da
 ```cmd/sh
 sudo systemctl restart iotedge
 ```
+
+>[!TIP]
+>You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use **sudo** in front of the commands. 
 
 ## Verify successful installation
 

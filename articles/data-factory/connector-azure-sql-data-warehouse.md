@@ -68,6 +68,9 @@ For different authentication types, refer to the following sections on prerequis
 - Azure AD application token authentication: [Service principal](#service-principal-authentication)
 - Azure AD application token authentication: [Managed Service Identity](#managed-service-identity-authentication)
 
+>[!TIP]
+>If you hit error with error code as "UserErrorFailedToConnectToSqlServer" and message like "The session limit for the database is XXX and has been reached.", add `Pooling=false` to your connection string and try again.
+
 ### SQL authentication
 
 #### Linked service example that uses SQL authentication
@@ -393,7 +396,7 @@ SQL Data Warehouse PolyBase directly supports Azure Blob and Azure Data Lake Sto
 
 If the requirements aren't met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
-1. The **Source linked service** type is **AzureStorage** or **AzureDataLakeStore** with service principal authentication.
+1. The **Source linked service** type is Azure Blob storage (**AzureBLobStorage**/**AzureStorage**) with account key authentication or Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) with service principal authentication.
 1. The **input dataset** type is **AzureBlob** or **AzureDataLakeStoreFile**. The format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat**, with the following configurations:
 
    1. `rowDelimiter` must be **\n**.

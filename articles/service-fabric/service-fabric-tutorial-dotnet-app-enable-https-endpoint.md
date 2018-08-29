@@ -1,6 +1,6 @@
 ---
-title: Add an HTTPS endpoint to a Service Fabric app in Azure | Microsoft Docs
-description: In this tutorial, you learn how to add an HTTPS endpoint to an ASP.NET Core front-end web servcie and deploy the application to a cluster.
+title: Add an HTTPS endpoint using Kestrel to a Service Fabric app in Azure | Microsoft Docs
+description: In this tutorial, you learn how to add an HTTPS endpoint to an ASP.NET Core front-end web service using Kestrel and deploy the application to a cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -18,7 +18,7 @@ ms.author: ryanwi
 ms.custom: mvc
 
 ---
-# Tutorial: Add an HTTPS endpoint to an ASP.NET Core Web API front-end service
+# Tutorial: Add an HTTPS endpoint to an ASP.NET Core Web API front-end service using Kestrel
 
 This tutorial is part three of a series.  You will learn how to enable HTTPS in an ASP.NET Core service running on Service Fabric. When you're finished, you have a voting application with an HTTPS-enabled ASP.NET Core web front-end listening on port 443. If you don't want to manually create the voting application in [Build a .NET Service Fabric application](service-fabric-tutorial-deploy-app-to-party-cluster.md), you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application.
 
@@ -37,7 +37,7 @@ In this tutorial series you learn how to:
 > * [Build a .NET Service Fabric application](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Add an HTTPS endpoint to an ASP.NET Core front-end service
-> * [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configure CI/CD using Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Prerequisites
@@ -438,7 +438,7 @@ In this part of the tutorial, you learned how to:
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> [Configure CI/CD using Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 [image1]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/SetupBatProperties.png
 [image2]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppLocal.png

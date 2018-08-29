@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: robinsh
-ms.component: tables
+ms.component: cosmosdb-table
 ---
 
 # Perform Azure Table storage operations with Azure PowerShell 
