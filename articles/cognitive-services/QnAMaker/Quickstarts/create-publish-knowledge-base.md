@@ -44,11 +44,11 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 7. In step 5, select **Create your KB**.
 
-8. While the KB is created, a pop-up window appears. The extraction process takes a few minutes to read the HTML page and identify questions and answers.
+8. While the KB is being created, a pop-up window appears. The extraction process takes a few minutes to read the HTML page and identify questions and answers.
 
 9. After the KB is successfully created, the **Knowledge base** page opens. You can edit the contents of the KB on this page.
 
-10. In the upper right, select **Add QnA pair** to add a new row in the **Editorial** section of the KB. Under **Question**, enter "Hi." Under **Answer**, enter "Hello. Ask me bitlocker questions."
+10. In the upper right, select **Add QnA pair** to add a new row in the **Editorial** section of the KB. Under **Question**, enter **Hi.** Under **Answer**, enter **Hello. Ask me bitlocker questions.**
 
    ![Add a QnA pair](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
@@ -56,7 +56,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
    ![Save and train](../media/qnamaker-quickstart-kb/add-qna-pair2.png)
 
-12. In the upper right, select **Test** to test that the changes you made took effect. Type "hi there" in the box, and press Enter. You should see the answer you created as a response.
+12. In the upper right, select **Test** to test that the changes you made took effect. Enter **hi there** in the box, and select Enter. You should see the answer you created as a response.
 
 13. Select **Inspect** to examine the response in more detail. The test window is used to test your changes to the KB before they're published.
 
