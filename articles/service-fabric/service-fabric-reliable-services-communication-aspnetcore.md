@@ -97,7 +97,8 @@ HttpSys can be used in a Reliable Service by importing the **Microsoft.ServiceFa
 
 HttpSys is built on the [Windows HTTP Server API](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx). This uses the *http.sys* kernel driver used by IIS to process HTTP requests and route them to processes running web applications. This allows multiple processes on the same physical or virtual machine to host web applications on the same port, disambiguated by either a unique URL path or hostname. These features are useful in Service Fabric for hosting multiple websites in the same cluster.
 
-[!NOTE] HttpSys implementation works only on Windows platform.
+>[!NOTE]
+>HttpSys implementation works only on Windows platform.
 
 The following diagram illustrates how HttpSys uses the *http.sys* kernel driver on Windows for port sharing:
 
