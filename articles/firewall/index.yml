@@ -21,6 +21,7 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/firewall/tutorial-firewall-deploy-portal">Deploy and configure Azure Firewall using the Azure portal</a>
+    - html: <a href="/azure/firewall/tutorial-hybrid-ps">Deploy in a hybrid network</a>
     - html: <a href="/azure/firewall/tutorial-diagnostics">Monitor Azure Firewall logs</a>
 - title: Samples
   items:
