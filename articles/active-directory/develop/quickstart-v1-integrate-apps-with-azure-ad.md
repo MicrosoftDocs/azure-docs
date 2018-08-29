@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 08/28/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: luleon
+ms.reviewer: celested
 ---
 
 # Integrating applications with Azure Active Directory
@@ -91,12 +91,12 @@ The following steps show you how the consent experience works for both the appli
 
 5. After the user grants consent, an authorization code is returned to your application, which is redeemed to acquire an access token and refresh token. For more information about this flow, see the [web Application to web API section in Authentication Scenarios for Azure AD](authentication-scenarios.md#web-application-to-web-api).
 
-6. As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog from appearing for every user in the tenant, and can be done in the [Azure portal](https://portal.azure.com) by users with the administrator role. From the **Settings** page for your application, click **Required Permissions** and click on the **Grant Permissions** button. 
+6. As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog from appearing for every user in the tenant, and can be done in the [Azure portal](https://portal.azure.com) by users with the administrator role. From the **Settings** page for your application, click **Required permissions** and click on the **Grant permissions** button. 
 
   ![Grant permissions for explicit admin consent](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
     
   > [!NOTE]
-  > Granting explicit consent using the **Grant Permissions** button is currently required for single page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested. 
+  > Granting explicit consent using the **Grant permissions** button is currently required for single page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested. 
 
 ### Configure a client application to access web APIs
 In order for a web/confidential client application to be able to participate in an authorization grant flow that requires authentication (and obtain an access token), it must establish secure credentials. The default authentication method supported by the Azure portal is client ID + secret key. This section covers the configuration steps required to provide the secret key with your client's credentials.
@@ -108,7 +108,7 @@ Additionally, before a client can access a web API exposed by a resource applica
 - Delegated Permissions: Your client application needs to access the web API as the signed-in user, but with access limited by the selected permission. This type of permission can be granted by a user unless the permission requires administrator consent. 
 
   > [!NOTE]
-  > Adding a delegated permission to an application does not automatically grant consent to the users within the tenant. Users must still manually consent for the added delegated permissions at runtime, unless the administrator clicks the **Grant Permissions** button from the **Required Permissions** section of the application page in the Azure portal. 
+  > Adding a delegated permission to an application does not automatically grant consent to the users within the tenant. Users must still manually consent for the added delegated permissions at runtime, unless the administrator grants consent on behalf of all users.
 
 #### To add application credentials, or permissions to access web APIs
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -117,16 +117,18 @@ Additionally, before a client can access a web API exposed by a resource applica
 
    ![Update an application's registration](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
-4. You are taken to the application's main registration page, which opens up the **Settings** page for the application. To add a secret key for your web application's credentials:
+4. You are taken to the application's main registration page, which opens up the **Settings** page for the application. To add a credential for your web application:
   - Click the **Keys** section on the **Settings** page. 
-  - Add a description for your key.
-  - Select either a one or two year duration.
-  - Click **Save**. The right-most column will contain the key value, after you save the configuration changes. **Be sure to copy the key** for use in your client application code, as it is not accessible once you leave this page.
-
-  ![Update an application's registration - keys](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-keys.png)
+  - To add a certificate:
+    - Select **Upload Public Key**.
+    - Select the file you'd like to upload. It must be one of the following file types: .cer, .pem, .crt.
+  - To add a password:
+    - Add a description for your key.
+    - Select a duration.
+    - Click **Save**. The right-most column will contain the key value, after you save the configuration changes. **Be sure to copy the key** for use in your client application code, as it is not accessible once you leave this page.
 
 5. To add permission(s) to access resource APIs from your client
-  - Click the **Required Permissions** section on the **Settings** page. 
+  - Click the **Required permissions** section on the **Settings** page. 
   - Click the **Add** button.
   - Click **Select an API** to select the type of resources you want to pick from.
   - Browse through the list of available APIs or use the search box to select from the available resource applications in your directory that expose a web API. Click the resource you are interested in, then click **Select**.
@@ -137,11 +139,6 @@ Additionally, before a client can access a web API exposed by a resource applica
   ![Update an application's registration - permissions perms](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. When finished, click the **Select** button on **Enable Access** page, then the  **Done** button on the **Add API access** page. You are returned to the **Required permissions** page, where the new resource is added to the list of APIs.
-
-  > [!NOTE]
-  > Clicking the **Done** button also automatically sets the permissions for your application in your directory based on the permissions to other applications that you configured. You can view these application permissions by looking at the application **Settings** page.
-  > 
-  > 
 
 ### Configuring a resource application to expose web APIs
 
