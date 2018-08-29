@@ -98,7 +98,7 @@ ms.reviewer: jeffgo
 
 6. You can remove a Marketplace item by using the **Remove-AzureRMGalleryItem** cmdlet. Example:
    
-        Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+        Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
    
    > [!NOTE]
    > The Marketplace UI may show an error after you remove an item. To fix the error, click **Settings** in the portal. Then, select **Discard modifications** under **Portal customization**.

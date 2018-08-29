@@ -452,6 +452,9 @@ Agent\\Modules\\AADSyncAgent
 * Input: For "Directory Name", enter the AD Forest name, as entered in part \#2
 * Input: Admin username and password for Active Directory forest
 
+>[!TIP]
+> If you receive the error message "The relationship between the primary domain and the trusted domain failed", it is because the local machine is in an environment where multiple Active Directory forests or domains are configured, and at least one configured trust relationship is either failing or not operational. To resolve the issue, either correct or remove the broken trust relationship.
+
 **Command #3**
 
 > Add-ADSyncAgentAzureActiveDirectoryConfiguration
@@ -463,7 +466,6 @@ Agent\\Modules\\AADSyncAgent
 
 >[!IMPORTANT]
 >There is presently a known issue with global administrator credentials not working if they have multi-factor authentication enabled. As a workaround, disable multi-factor authentication for the global administrator.
-
 
 **Command #4**
 

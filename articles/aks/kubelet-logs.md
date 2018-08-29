@@ -57,5 +57,5 @@ I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname fr
 If you need additional troubleshooting information from the Kubernetes master, see [view Kubernetes master node logs in AKS][aks-master-logs].
 
 <!-- LINKS - internal -->
-[aks-ssh]: aks-ssh.md
+[aks-ssh]: ssh.md
 [aks-master-logs]: view-master-logs.md

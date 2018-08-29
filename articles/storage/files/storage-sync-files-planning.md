@@ -62,18 +62,25 @@ Cloud tiering is an optional feature of Azure File Sync in which infrequently us
 > [!Important]  
 > Cloud tiering is not supported for server endpoints on the Windows system volumes.
 
-## Azure File Sync interoperability 
-This section covers Azure File Sync interoperability with Windows Server features and roles and third-party solutions.
+## Azure File Sync system requirements and interoperability 
+This section covers Azure File Sync agent system requirements and interoperability with Windows Server features and roles and third-party solutions.
 
-### Supported versions of Windows Server
-Currently, the supported versions of Windows Server by Azure File Sync are:
+### System Requirements
+- A server running Windows Server 2012 R2 or Windows Server 2016 
 
-| Version | Supported SKUs | Supported deployment options |
-|---------|----------------|------------------------------|
-| Windows Server 2016 | Datacenter and Standard | Full (server with a UI) |
-| Windows Server 2012 R2 | Datacenter and Standard | Full (server with a UI) |
+    | Version | Supported SKUs | Supported deployment options |
+    |---------|----------------|------------------------------|
+    | Windows Server 2016 | Datacenter and Standard | Full (server with a UI) |
+    | Windows Server 2012 R2 | Datacenter and Standard | Full (server with a UI) |
 
-Future versions of Windows Server will be added as they are released. Earlier versions of Windows might be added based on user feedback.
+    Future versions of Windows Server will be added as they are released. Earlier versions of Windows might be added based on user feedback.
+
+- A server with a minimum of 2GB of memory
+
+    > [!Important]  
+    > If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048MB of memory.
+    
+- A locally attached volume formatted with the NTFS file system
 
 > [!Important]  
 > We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update. 
@@ -209,7 +216,7 @@ To support the failover integration between geo-redundant storage and Azure File
 
 | Primary region      | Paired region      |
 |---------------------|--------------------|
-| Australia East      | Australia Southest |
+| Australia East      | Australia Southeast |
 | Australia Southeast | Australia East     |
 | Canada Central      | Canada East        |
 | Canada East         | Canada Central     |

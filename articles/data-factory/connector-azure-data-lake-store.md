@@ -41,6 +41,9 @@ Specifically, this Azure Data Lake Store connector supports:
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
+>[!NOTE]
+>When you use Copy Data Tool to author copy pipeline or use ADF UI to perform testing connection/navigating folders during authoring, it requires the permission of service principal or MSI being granted at root level. While, copy activity execution can work as long as the permission is granted to the data to be copied. You may skip the authoring operations if you need limit the permission.
+
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Data lake Store.
 
 ## Linked service properties

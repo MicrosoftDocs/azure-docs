@@ -126,7 +126,7 @@
     - name: Common issues
       href: troubleshooting.md
     - name: SSH node access
-      href: aks-ssh.md
+      href: ssh.md
 - name: Reference
   items:
   - name: Azure CLI

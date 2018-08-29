@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: carlrab
 
 ---
@@ -150,7 +150,7 @@ For example:
 - If you create a Managed Instance in the General Purpose tier with 8 vCores, and then immediately upgrade it to 16 vCores, you’ll be charged at the 16 vCore rate for the first hour.
 
 > [!NOTE]
-> For a limited period through June 30th 2018, backup charges and IO charges are free of charge.
+> For a limited period, backup charges and IO charges are free of charge.
 
 ## How does the use of active geo-replication in an elastic pool show up on my bill?
 Unlike single databases, using [active geo-replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the resources provisioned for each of the pools (primary pool and secondary pool)

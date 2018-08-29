@@ -342,9 +342,7 @@
     - name: Java Reliable Actors application on Linux
       href: service-fabric-create-your-first-linux-application-with-java.md
     - name: Guest executable application on Windows
-      href: quickstart-guest-app.md
-    - name: Standalone cluster
-      href: service-fabric-get-started-standalone-cluster.md
+      href: quickstart-guest-app.md    
   - name: Build an application
     items:
     - name: Build a guest executable service
