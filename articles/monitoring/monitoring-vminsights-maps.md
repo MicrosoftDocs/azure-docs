@@ -25,7 +25,7 @@ This article will help you understand the experience between the two perspective
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
-## Introduction of Maps experience
+## Introduction to Maps experience
 Before diving into viewing Maps for a single virtual machine or group of VMs, it's important we provide a brief introduction to the feature so you understand how the information is presented and what the visualizations represent.  
 
 Whether you select VM Insights Map feature directly from a VM or from Azure Monitor, it presents a consistent experience.  The only difference is the ability to scope from the top - a subscription, down to a particular VM in a resource group, which is only available from Azure Monitor.  
