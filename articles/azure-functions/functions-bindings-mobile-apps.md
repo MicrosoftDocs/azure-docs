@@ -74,8 +74,7 @@ Here's the binding data in the *function.json* file:
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
     }
-],
-"disabled": false
+]
 }
 ```
 The [configuration](#input---configuration) section explains these properties.
@@ -120,8 +119,7 @@ Here's the binding data in the *function.json* file:
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
     }
-],
-"disabled": false
+]
 }
 ```
 The [configuration](#input---configuration) section explains these properties.
@@ -220,8 +218,7 @@ Here's the binding data in the *function.json* file:
     "apiKey": "My_MobileApp_Key",
     "direction": "out"
     }
-],
-"disabled": false
+]
 }
 ```
 
