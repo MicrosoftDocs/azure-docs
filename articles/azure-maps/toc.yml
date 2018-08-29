@@ -34,6 +34,8 @@
       href: routing-coverage.md
   - name: Supported languages
     href: supported-languages.md
+  - name: Supported Map styles
+    href: supported-map-styles.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts
