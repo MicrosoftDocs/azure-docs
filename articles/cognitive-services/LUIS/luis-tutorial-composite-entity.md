@@ -1,5 +1,5 @@
 ---
-title: Tutorial creating a composite entity to extract complex data - Azure Cognitive Services | Microsoft Docs 
+title: Tutorial - 6 - extract composite data - composite entity - Azure Cognitive Services | Microsoft Docs 
 description: In this tutorial, add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 services: cognitive-services
 author: diberry
@@ -12,27 +12,9 @@ ms.date: 08/31/2018
 ms.author: diberry
 --- 
 
-# Tutorial: 6. Add Composite entity 
+# Tutorial: 6. Combine and extract related data into group
 In this tutorial, add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 
-In this tutorial, you learn how to:
-
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Understand composite entities 
-> * Add composite entity 
-> * Train app
-> * Publish app
-> * Query endpoint of app to see LUIS JSON response
-
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## Use existing app
-If you don't have the Human Resources app from the [previous](luis-quickstart-intent-and-hier-entity.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github repository.
-
-If you want to keep the original Human Resources app, clone the version on the [Versions](luis-how-to-manage-versions.md#clone-a-version) page, and name it `composite`. Cloning is a great way to play with various LUIS features without affecting the original version.  
-
-## Composite entity is a logical grouping 
 The purpose of the composite entity is to group related entities into a parent category entity. The information exists as separate entities before a composite is created. It is similar to hierarchical entity but can contain different types of entities. 
 
 Create a composite entity when the separate entities can be logically grouped and this logical grouping is helpful to the client application. 
@@ -48,12 +30,64 @@ Example utterances in the **MoveEmployee** intent include:
 |Move John W . Smith to a-2345|
 |shift x12345 to h-1234 tomorrow|
  
-The move request should include at least the employee (using any synonym), and the final building and office location. The request can also include the originating office as well as a date the move should happen. 
+The move request should include the employee (using any synonym), and the final building and office location. The request can also include the originating office as well as a date the move should happen. 
 
-The extracted data from the endpoint should contain this information and return it in the `RequestEmployeeMove` composite entity. 
+The extracted data from the endpoint should contain this information and return it in the `RequestEmployeeMove` composite entity:
+
+```JSON
+"compositeEntities": [
+  {
+    "parentType": "RequestEmployeeMove",
+    "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+    "children": [
+      {
+        "type": "builtin.datetimeV2.datetime",
+        "value": "march 3 2 p.m"
+      },
+      {
+        "type": "Locations::Destination",
+        "value": "z - 2345"
+      },
+      {
+        "type": "Employee",
+        "value": "jill jones"
+      },
+      {
+        "type": "Locations::Origin",
+        "value": "a - 1234"
+      }
+    ]
+  }
+]
+```
+
+In this tutorial, you learn how to:
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Use existing tutorial app
+> * Add composite entity 
+> * Train
+> * Publish
+> * Get intents and entities from endpoint
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## Use existing app
+Continue with the app created in the last tutorial, named **HumanResources**. 
+
+If you do not have the HumanResources app from the previous tutorial, use the following steps:
+
+1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json).
+
+2. Import the JSON into a new app.
+
+3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `composite`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
+
 
 ## Create composite entity
-1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
+
+[!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. On the **Intents** page, select **MoveEmployee** intent. 
 
@@ -101,15 +135,15 @@ The extracted data from the endpoint should contain this information and return 
 
     [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Screenshot of LUIS on 'MoveEmployee' with all utterances labeled")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
-## Train the LUIS app
+## Train
 
 [!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## Publish the app to get the endpoint URL
+## Publish
 
 [!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## Query the endpoint 
+## Get intent and entities from endpoint 
 
 1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -250,7 +284,7 @@ The extracted data from the endpoint should contain this information and return 
         },
         {
           "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-          "type": "requestemployeemove",
+          "type": "RequestEmployeeMove",
           "startIndex": 5,
           "endIndex": 54,
           "score": 0.4027723
@@ -258,7 +292,7 @@ The extracted data from the endpoint should contain this information and return 
       ],
       "compositeEntities": [
         {
-          "parentType": "requestemployeemove",
+          "parentType": "RequestEmployeeMove",
           "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
           "children": [
             {
@@ -285,18 +319,13 @@ The extracted data from the endpoint should contain this information and return 
 
   This utterance returns a composite entities array. Each entity is given a type and value. To find more precision for each child entity, use the combination of type and value from the composite array item to find the corresponding item in the entities array.  
 
-## What has this LUIS app accomplished?
-This app identified a natural language intention and returned the extracted data as a composite group. 
-
-Your chat bot now has enough information to determine the primary action and the related details found in the utterance. 
-
-## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. 
-
 ## Clean up resources
 
 [!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
+
+This tutorial created a composite entity to encapsulate existing entities. This allows the client application to find a group of related data in different datatypes to continue the conversation. A client application for this Human Resources app could ask what day and time the move needs to begin and end. It could also ask about other logistics of the movesuch as a physical phone. 
+
 > [!div class="nextstepaction"] 
 > [Learn how to add a simple entity with a phrase list](luis-quickstart-primary-and-secondary-data.md)  

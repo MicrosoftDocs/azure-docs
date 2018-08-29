@@ -60,7 +60,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 ## Remove prebuilt number entity from app
 In order to see the entire utterance and mark the hierarchical children, temporarily remove the prebuilt number entity.
 
-1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
+[!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Entities** from the left menu.
 
