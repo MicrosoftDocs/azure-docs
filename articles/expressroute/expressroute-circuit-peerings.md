@@ -49,6 +49,20 @@ Connectivity to Microsoft online services (Office 365, Dynamics 365, and Azure P
 
 See the [FAQ page](expressroute-faqs.md) for more information on services supported, costs, and configuration details. See the [ExpressRoute Locations](expressroute-locations.md) page for information on the list of connectivity providers offering Microsoft peering support.
 
+### <a name="azure-public-peering"></a>Azure public peering (deprecated for new circuits)
+
+> [!IMPORTANT]
+> Azure public peering is not available for new circuits.  
+>   
+
+Services such as Azure Storage, SQL databases, and Websites are offered on public IP addresses. You can privately connect to services hosted on public IP addresses, including VIPs of your cloud services, through the public peering routing domain. You can connect the public peering domain to your DMZ and connect to all Azure services on their public IP addresses from your WAN without having to connect through the internet. 
+
+Connectivity is always initiated from your WAN to Microsoft Azure services. Microsoft Azure services will not be able to initiate connections into your network through this routing domain. Once public peering is enabled, you can connect to all Azure services. We do not allow you to selectively pick services for which we advertise routes to.
+
+You can define custom route filters within your network to consume only the routes you need. Refer to the [Routing](expressroute-routing.md) page for detailed information on routing configuration. 
+
+For more information about services supported through the public peering routing domain, see the [FAQ](expressroute-faqs.md).
+
 ## Routing domain comparison
 The following table compares the three routing domains:
 
@@ -60,20 +74,6 @@ The following table compares the three routing domains:
 | **IP protocols supported**| IPv4 | IPv4 | IPv4, IPv6 |
 | **Routing Interface IP addresses** |RFC1918 and public IP addresses |Public IP addresses registered to you in routing registries. |Public IP addresses registered to you in routing registries. |
 | **MD5 Hash support** |Yes |Yes |Yes |
-
-### Azure Public peering (deprecated for new circuits)
-
-> [!IMPORTANT]
-> Azure Public Peering is not available for new circuits.  
->   
-
-Services such as Azure Storage, SQL databases, and Websites are offered on public IP addresses. You can privately connect to services hosted on public IP addresses, including VIPs of your cloud services, through the public peering routing domain. You can connect the public peering domain to your DMZ and connect to all Azure services on their public IP addresses from your WAN without having to connect through the internet. 
-
-Connectivity is always initiated from your WAN to Microsoft Azure services. Microsoft Azure services will not be able to initiate connections into your network through this routing domain. Once public peering is enabled, you can connect to all Azure services. We do not allow you to selectively pick services for which we advertise routes to.
-
-You can define custom route filters within your network to consume only the routes you need. Refer to the [Routing](expressroute-routing.md) page for detailed information on routing configuration. 
-
-For more information about services supported through the public peering routing domain, see the [FAQ](expressroute-faqs.md).
 
 You can choose to enable one or more of the routing domains as part of your ExpressRoute circuit. You can choose to have all the routing domains put on the same VPN if you want to combine them into a single routing domain. You can also put them on different routing domains, similar to the diagram. The recommended configuration is that private peering is connected directly to the core network, and the public and Microsoft peering links are connected to your DMZ.
 
