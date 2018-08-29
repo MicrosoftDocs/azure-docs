@@ -89,7 +89,7 @@ Here's how Contoso will complete the migration:
 > [!div class="checklist"]
 > * **Step 1: Create an Azure storage account**: This storage account will be used during the migration process.
 > * **Step 2: Upgrade TFS**: Contoso will upgrade their deployment to TFS 2018 Upgrade 2. 
-> * **Step 3: Validate collection**: Contos will validate the TFS collection in preparation for migration.
+> * **Step 3: Validate collection**: Contoso will validate the TFS collection in preparation for migration.
 > * **Step 4: Build preparation file**: Contoso will create the migration files using the TFS Migration Tool. 
 
 
@@ -234,7 +234,7 @@ With the validation complete, Contoso admins can use the TFS Migration Tool to b
 
 With preparation in place, Contoso admins can now focus on the migration. After running the migration, they'll switch from using TFVC to Git for version control.
 
-Before they start, the admins scheduls downtime with the dev team, to take the collection offline for migration. These are the steps for the migration process:
+Before they start, the admins schedule downtime with the dev team, to take the collection offline for migration. These are the steps for the migration process:
 
 1. **Detach the collection**: They identity data for the collection resides in the TFS server configuration database while the collection is attached and online. When a collection is detached from the TFS server, it takes a copy of that identity data, and packages it with the collection for transport. Without this data, the identity portion of the import cannot be executed. It's recommended that the collection stay detached until the import has been completed, as there's no way to import the changes which occurred during the import.
 2. **Generate a backup**: The next step of the migration process is for them to generate a backup that can be imported into VSTS. Data-tier Application Component Packages (DACPAC), is a SQL Server feature that allows database changes to be packaged into a single file, and deployed to other instances of SQL. It can also be restored directly to VSTS, and is therefore used as the packaging method for getting collection data into the cloud. Contoso will use the SqlPackage.exe tool to generate the DACPAC. This tool is included in SQL Server Data Tools.
