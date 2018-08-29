@@ -212,28 +212,41 @@ The recovered database will be TDE-enabled if the source database is TDE-enabled
 2. Navigate to the SQL data warehouse that you want to create a restore point for.
 
 3. At the top of the Overview blade, select **+New Restore Point**.
+
     ![New Restore Point](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
+    
 4. Specify a name for your restore point.
+
     ![Name of Restore Point](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
 
 ### Restore an active or paused database
 1. Sign in to the [Azure portal][Azure portal].
 2. Navigate to the SQL data warehouse that you want to restore from.
 3. At the top of the Overview blade, select **Restore**.
+
     ![ Restore Overview](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)
+    
 4. Select either **Automatic Restore Points** or **User-Defined Restore Points**.
+
     ![Automatic Restore Points](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
+    
 5. For User-Defined Restore Points, **select a Restore point** or **Create a new user-defined restore point**.
+
     ![User-defined Restore Points](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
 ### Restore a deleted database
 1. Sign in to the [Azure portal][Azure portal].
 2. Navigate to the SQL server your deleted database was hosted on.
 3. Select the Deleted databases icon in the table of contents.
+
     ![Deleted Databases](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_0.png)
+    
 4. Select the deleted database that you want to restore.
+
     ![Select Deleted Databases](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_1.png)
+    
 5. Specify a new database name.
+
     ![Specify Database Name](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_2.png)
 
 <!--Image references-->
