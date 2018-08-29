@@ -148,6 +148,8 @@
         href: iot-hub-reliability-features-in-sdks.md
     - name: Query Avro data from a hub route
       href: iot-hub-query-avro-data.md
+    - name: Order device connection state events from Event Grid
+      href: iot-hub-how-to-order-connection-state-events.md
     - name: Send cloud-to-device messages
       items:
       - name: .NET
