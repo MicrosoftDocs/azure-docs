@@ -12,7 +12,7 @@ ms.author: kevin
 ms.reviewer: igorstan
 ---
 
-# Manageability and Monitoring with Azure SQL Data Warehouse
+# Manageability and monitoring with Azure SQL Data Warehouse
 
 Take a look through what's available to help you manage and monitor SQL Data Warehouse. The following articles highlight ways to optimize performance and usage of your data warehouse.
 
