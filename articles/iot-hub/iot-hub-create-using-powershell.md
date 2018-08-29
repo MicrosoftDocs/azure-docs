@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/24/2018
+ms.date: 08/29/2018
 ms.author: robinsh
 ---
 
@@ -37,7 +37,7 @@ You need a resource group to deploy an IoT hub. You can use an existing resource
 
 To create a resource group for your IoT hub, use the [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup) command. This example creates a resource group called **MyIoTRG1** in the **East US** region:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 ```
 
@@ -45,7 +45,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 To create an IoT hub in the resource group you created in the previous step, use the [New-AzureRmIotHub](https://docs.microsoft.com/powershell/module/AzureRM.IotHub/New-AzureRmIotHub) command. This example creates an **S1** hub called **MyTestIoTHub** in the **East US** region:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmIotHub `
     -ResourceGroupName MyIoTRG1 `
     -Name MyTestIoTHub `
@@ -59,15 +59,15 @@ The name of the IoT hub must be globally unique.
 
 You can list all the IoT hubs in your subscription using the [Get-AzureRmIotHub](https://docs.microsoft.com/powershell/module/AzureRM.IotHub/Get-AzureRmIotHub) command:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmIotHub
 ```
 
-This example shows the S1 Standard IoT Hub you created in the previous step. 
+This example shows the S1 Standard IoT Hub you created in the previous step.
 
 You can delete the IoT hub using the [Remove-AzureRmIotHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/remove-azurermiothub) command:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmIotHub `
     -ResourceGroupName MyIoTRG1 `
     -Name MyTestIoTHub
@@ -75,7 +75,7 @@ Remove-AzureRmIotHub `
 
 Alternatively, you can remove a resource group and all the resources it contains using the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Remove-AzureRmResourceGroup) command:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name MyIoTRG1
 ```
 
