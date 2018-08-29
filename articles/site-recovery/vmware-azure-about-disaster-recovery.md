@@ -94,19 +94,19 @@ After you have your Azure and on-premises infrastructure in place, you can set u
 
 *Need more help?*
 
-- For a quick walkthrough of these steps, you can try out our [VMware tutorial](vmware-azure-tutorial), and [physical server walkthrough](physical-azure-disaster-recovery.md).
+- For a quick walkthrough of these steps, you can try out our [VMware tutorial](vmware-azure-tutorial.md), and [physical server walkthrough](physical-azure-disaster-recovery.md).
 - [Learn more](vmware-azure-set-up-source.md) about setting up your source environment
 - [Learn about](vmware-azure-deploy-configuration-server.md) configuration server requirements, and setting up the configuration server with an OVF template for VMware replication. If for some reason you can't use a template, or you're replicating physical servers, [use these instructions](physical-azure-set-up-source.md#set-up-the-source-environment).
 - [Learn more](vmware-azure-set-up-target.md) about target settings.
 - [Get more information](vmware-azure-set-up-replication.md) about setting up a replication policy.
-- [Learn](vmware-azure-enable-replication.md) how to enable replication, and [exclude](vmware-azure-exclude-disk) disks from replication.
+- [Learn](vmware-azure-enable-replication.md) how to enable replication, and [exclude](vmware-azure-exclude-disk.md) disks from replication.
 
 
 ## Something went wrong, how do I troubleshoot?
 
 - As a first step, try [monitoring your deployment](site-recovery-monitor-and-troubleshoot.md) to verify the status of replicated items, jobs, and infrastructure issues, and identify any errors.
 - If you're unable to complete the initial replication, or ongoing replication isn't working as expected, [review this article](vmware-azure-troubleshoot-replication.md) for common errors and troubleshooting tips.
-- If you're having issues with the automatic installation of the Mobility service on machines you want to replicate, review common errors in [this article](vmware-azure-troubleshoot-push-install).
+- If you're having issues with the automatic installation of the Mobility service on machines you want to replicate, review common errors in [this article](vmware-azure-troubleshoot-push-install.md).
 - If failover isn't working as expected, check common errors in [this article](site-recovery-failover-to-azure-troubleshoot.md).
 - If failback isn't working, check whether your issue appears in [this article](vmware-azure-troubleshoot-failback-reprotect.md)
 
