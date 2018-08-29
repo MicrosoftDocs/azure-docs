@@ -49,7 +49,7 @@ Follow the steps below to create a new API from an Azure Function App.
 
     ![Add from Function App](./media/import-function-app-as-api/add-01.png)
 
-3. Select **Browse** to select Functions for import.
+3. Click **Browse** to select Functions for import.
 
     ![Add from Function App](./media/import-function-app-as-api/add-02.png)
 
@@ -68,7 +68,7 @@ Follow the steps below to create a new API from an Azure Function App.
     > [!NOTE]
     > You can import only Functions that are based off HTTP trigger and have the authorization level setting set to *Anonymous* or *Function*.
 
-7. Navigate between simplified and full views and edit the pre-populated fields to make sure your API's metadata is correct. Click **Create**.
+7. Edit the pre-populated fields if needed. Click **Create**.
 
     ![Add from Function App](./media/import-function-app-as-api/add-06.png)
 
@@ -80,15 +80,15 @@ Follow the steps below to append Azure Function App to an existing API.
 
 2. Choose an API you want to import an Azure Function App to. Click **...** and select **Import** from the context menu.
 
-    ![Append from Function App](./media/import-function-app-as-api/import-01.png)
+    ![Append from Function App](./media/import-function-app-as-api/append-01.png)
 
 3. Click on the **Function App** tile.
 
-    ![Append from Function App](./media/import-function-app-as-api/import-02.png)
+    ![Append from Function App](./media/import-function-app-as-api/append-02.png)
 
 4. In the pop-up window, click **Browse**.
 
-    ![Append from Function App](./media/import-function-app-as-api/import-03.png)
+    ![Append from Function App](./media/import-function-app-as-api/append-03.png)
 
 5. Click on the **Function App** section to choose from the list of available Function Apps.
 
@@ -104,7 +104,7 @@ Follow the steps below to append Azure Function App to an existing API.
 
 8. Click **Import**.
 
-    ![Append from Function App](./media/import-function-app-as-api/import-04.png)
+    ![Append from Function App](./media/import-function-app-as-api/append-04.png)
 
 ## <a name="function-app-import-keys"></a> Generated Azure Function App host key
 
@@ -112,7 +112,10 @@ Import of an Azure Function App automatically generates:
 * host key inside the Function App with the name apim-{*your Azure API Management service instance name*},
 * named value inside the Azure API Management instance with the name {*your Azure Function App instance name*}-key, which contains the created host key.
 
-Removing or changing value of either of the entries will break the communication between the Azure API Management instance and the Azure Function App.
+> [!WARNING]
+> Removing or changing value of either the Azure Function App host key or Azure API Management named value will break the communication between the services. The values do not sync automatically.
+>
+> If you need to rotate the host key, make sure the named value in Azure API Management is also modified.
 
 ### Access Azure Function App host key
 
@@ -167,8 +170,6 @@ You can also call operations from the developer portal to test APIs.
 6. Select **Send**.
     
     After an operation is invoked, the developer portal displays the **Response status**, the **Response headers**, and any **Response content**.
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
