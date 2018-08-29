@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 08/27/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -85,9 +85,9 @@ To get started, make sure you have the right permissions and that your Azure Sta
 
 Give the service principal access to your subscription so that the principal can create resources.
 
-1.  Sign in to the [Administration portal](https://adminportal.local.azurestack.external).
+1.  Sign in to the [Azure Stack portal](https://portal.local.azurestack.external/).
 
-1. Select **More services** > **User subscriptions** > **+ Add**.
+1. Select **More services** > **Subscriptions**.
 
 1. Select the subscription that you created.
 

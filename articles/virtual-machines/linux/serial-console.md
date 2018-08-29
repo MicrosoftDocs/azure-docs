@@ -32,14 +32,20 @@ For serial console documentation for Windows VMs, [click here](../windows/serial
 ## Prerequisites 
 
 * You must be using the resource management deployment model. Classic deployments are not supported. 
-* Virtual machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled 
+* Your virtual machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled - see screenshot below.
+
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-* The account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
+    
+* The Azure account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
+* The virtual machine for which you are acessing serial console must also have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functionality of the VM access extension - see the screenshot below.
+
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
+
 * For settings specific to Linux distros, see [Access the serial console for Linux](#access-serial-console-for-linux)
 
 
 
-## Open the Serial Console
+## Get started with Serial Console
 Serial console for virtual machines is only accessible via [Azure portal](https://portal.azure.com). Below are the steps to access serial console for virtual machines via portal 
 
   1. Open the Azure portal
@@ -153,7 +159,7 @@ As we are still in the preview stages for serial console access, we are working 
 Issue                           |   Mitigation 
 :---------------------------------|:--------------------------------------------|
 There is no option with virtual machine scale set instance serial console |  At the time of preview, access to the serial console for virtual machine scale set instances is not supported.
-Hitting enter after the connection banner does not show a log in prompt | [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
+Hitting enter after the connection banner does not show a log in prompt | Please see this page: [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This may happen if you are running a custom VM, hardened appliance, or GRUB config that causes Linux to fail to properly connect to the serial port.
 A 'Forbidden' response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics does not have an account firewall. An accessible boot diagnostic storage account is necessary for serial console to function.
 
 

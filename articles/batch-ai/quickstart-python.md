@@ -167,7 +167,7 @@ parameters = models.ClusterCreateParameters(
         ),
     ),
 )
-batchai_client.clusters.create(resource_group_name, cluster_name,
+batchai_client.clusters.create(resource_group_name, workspace_name, cluster_name,
                                parameters).result()
 ```
 

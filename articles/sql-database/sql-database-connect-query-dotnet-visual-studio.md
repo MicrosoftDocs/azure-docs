@@ -50,7 +50,7 @@ To complete this quickstart, make sure you have the following:
 3. Select **Console App** and enter *sqltest* for the project name.
 4. Click **OK** to create and open the new project in Visual Studio
 4. In Solution Explorer, right-click **sqltest** and click **Manage NuGet Packages**. 
-5. On the **Browse**, search for ```System.Data.SqlClient``` and, when found, select it.
+5. On the **Browse** tab, search for ```System.Data.SqlClient``` and, when found, select it.
 6. In the **System.Data.SqlClient** page, click **Install**.
 7. When the install completes, review the changes and then click **OK** to close the **Preview** window. 
 8. If a **License Acceptance** window appears, click **I Accept**.
