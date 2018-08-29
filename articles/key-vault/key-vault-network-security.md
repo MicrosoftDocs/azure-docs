@@ -8,7 +8,7 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 08/09/2018
+ms.date: 08/31/2018
 ms.author: ambapat
 ---
 # Configure Azure Key Vault Firewalls and Virtual Networks
