@@ -61,26 +61,36 @@ The following section describes the configuration of auditing using the Azure po
 
     <a id="auditing-screenshot"></a>
     ![Navigation pane][1]
+
 3. If you prefer to set up a server auditing policy, you can select the **View server settings** link on the database auditing page. You can then view or modify the server auditing settings. Server auditing policies  apply to all existing and newly created databases on this server.
 
     ![Navigation pane][2]
+
 4. If you prefer to enable auditing on the database level, switch **Auditing** to **ON**.
 
     If server auditing is enabled, the database-configured audit will exist side-by-side with the server audit.
 
     ![Navigation pane][3]
+
 5. **New** - You now have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to an OMS workspace for consumption by Log Analytics, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
+
     ![storage options](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
 6. To configure writing audit logs to a storage account, select **Storage** and open **Storage details**. Select the Azure storage account where logs will be saved, and then select the retention period. The old logs will be deleted. Then click **OK**.
+
     ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+
 7. To configure writing audit logs to an OMS workspace, select **Log Analytics (Preview)** and open **Log Analytics details**. Select or create the OMS workspace where logs will be written and then click **OK**.
+
     ![OMS](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+
 8. To configure writing audit logs to an event hub, select **Event Hub (Preview)** and open **Event Hub details**. Select the event hub where logs will be written and then click **OK**. Be sure that the event hub is in the same region as your database and server.
+
     ![Event hub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+
 9. If you want to customize the audited events, you can do this via [PowerShell cmdlets](#subheading-7) or the [REST API](#subheading-9).
-10. Click **Save**.
-11. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
+10. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
+11. Click **Save**.
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
 If you chose to write audit logs to an Azure storage account, there are several methods you can use to view the logs:
