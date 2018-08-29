@@ -175,7 +175,7 @@ Learn how to stream broadcast-quality video with Media Services, an extensible c
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/powershell-azure-resource-manager">PowerShell (Resource Manager)</a></p>
-                        <p><a href="/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0">PowerShell (Service Management)</a></p>
+                        <p><a href="https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0">PowerShell (Service Management)</a></p>
                     </div>
                 </div>
             </div>
