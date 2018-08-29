@@ -53,6 +53,10 @@
         href: algorithm-choice.md
       - name: Algorithm cheat sheet
         href: algorithm-cheat-sheet.md
+    - name: Use automated modeling	
+      items:
+      - name: Use remote compute targets
+        href: how-to-auto-train-remote.md
   - name: Track and evaluate models	
     items:    
     - name: Track run history and training metrics
