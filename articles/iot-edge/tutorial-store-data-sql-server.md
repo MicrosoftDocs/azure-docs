@@ -219,16 +219,14 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 
 In the previous sections, you created a solution with one module, and then added another to the deployment manifest template. Now, you need to build the solution, create container images for the modules, and push the images to your container registry. 
 
-1. In the .env file, give the IoT Edge runtime your registry credentials so that it can access your module images. Find the **moduleContent.$edgeAgent.properties.desired.runtime.settings** section and insert your credentials after the equals symbol: 
+1. In the .env file, give the IoT Edge runtime your registry credentials so that it can access your module images. Find the **CONTAINER_REGISTRY_USERNAME** and **CONTAINER_REGISTRY_PASSWORD** sections and insert your credentials after the equals symbol: 
 
    ```env
    CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
    CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
-
-2. Insert your registry credentials into the **username**, **password**, and **address** fields. Use the values that you copied when you created your Azure Container Registry at the beginning of the tutorial.
-3. Save the **deployment.template.json** file.
-4. Sign in your container registry in Visual Studio Code so that you can push your images to your registry. Use the same credentials that you just added to the deployment manifest. Enter the following command in the integrated terminal: 
+2. Save the .env file.
+3. Sign in your container registry in Visual Studio Code so that you can push your images to your registry. Use the same credentials that you just added to the deployment manifest. Enter the following command in the integrated terminal: 
 
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
@@ -240,7 +238,7 @@ In the previous sections, you created a solution with one module, and then added
     Login Succeeded
     ```
 
-5. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**. 
+4. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**. 
 
 ## Deploy the solution to a device
 
