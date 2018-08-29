@@ -20,7 +20,7 @@ In this article, you'll learn about the DSVM compute target and how to use it.
 
 ## How does remote differ from local?
 
-The [Automatically train a classification model](tutorial-auto-train-models) tutorial shows how to use a local target for training.  The same workflow applies to training on remote targets as well. 
+The [Automatically train a classification model](tutorial-auto-train-models.md) tutorial shows how to use a local target for training.  The same workflow applies to training on remote targets as well. 
 
 This article shows additional code necessary to perform automatic training on a DSVM instead of a local computer.  The workspace object, `ws`, from the tutorial is used throughout the code here.
 
