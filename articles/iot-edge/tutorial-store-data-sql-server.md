@@ -194,7 +194,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 
    Here's an example if there is any confusion with adding a JSON element. ![Add sql server container](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-5. Depending on the type Docker containers you are using on your IoT Edge device, update the **sql.settings** parameters with the following code:
+5. Depending on the type of Docker containers on your IoT Edge device, update the **sql.settings** parameters with the following code:
 
    * Windows containers:
 
@@ -226,7 +226,7 @@ In the previous sections, you created a solution with one module, and then added
    CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
 2. Save the .env file.
-3. Sign in your container registry in Visual Studio Code so that you can push your images to your registry. Use the same credentials that you just added to the deployment manifest. Enter the following command in the integrated terminal: 
+3. Sign in to your container registry in Visual Studio Code so that you can push your images to your registry. Use the same credentials that you added to the .env file. Enter the following command in the integrated terminal:
 
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
