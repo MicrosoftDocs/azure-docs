@@ -33,7 +33,7 @@
     href: concept-accelerate-with-fpgas.md  
   - name: Machine learning pipelines
     href: concept-ml-pipelines.md        
-  - name: ONNXj]
+  - name: ONNX
     href: concept-onnx.md        
 - name: How-to guides
   items:  
