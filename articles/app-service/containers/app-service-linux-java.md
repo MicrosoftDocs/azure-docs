@@ -17,9 +17,9 @@ ms.author: routlaw
 
 # Java developer's guide for App Service on Linux
 
-Azure App Service on Linux lets Java developers to quickly build, deploy, and scale their Tomcat or Java Standard Edition (SE) packaged web applications on a fully managed Linux-based service. Developers can deploy applications using from Maven plugins on the command line or through editors like IntelliJ, Eclipse, or VS Code.
+Azure App Service on Linux lets Java developers to quickly build, deploy, and scale their Tomcat or Java Standard Edition (SE) packaged web applications on a fully managed Linux-based service. Deploy applications with Maven plugins from the command line or in editors like IntelliJ, Eclipse, or Visual Studio Code.
 
-This guide covers how the Java runtimes in App Service for Linux are managed and provides steps for common development tasks when working with the service. If you've never used Azure App Service for Linux, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service for Linux that aren't specific to the Java runtimes are answered in the [App Service Linux FAQ](app-service-linux-faq.md)
+This guide provides key concepts and instructions for Java developers using in App Service for Linux. If you've never used Azure App Service for Linux, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service for Linux that aren't specific to the Java development are answered in the [App Service Linux FAQ](app-service-linux-faq.md).
 
 ## Java runtime support
 
@@ -50,7 +50,7 @@ Any major bug fixes or patches will be released as soon as they become available
 
 ### Local development support
 
-Developers can download the Azure-supported JDK for local development, but will  receive support only if they are developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a qualified Azure support plan.
+Developers can download the Azure-supported JDK for local development, but are only eligible for support if they are developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a qualified Azure support plan.
 
 
 ### Runtime deprecation
@@ -59,7 +59,7 @@ If a supported Java runtime will be retired, Azure developers using the affected
 
 ### Getting runtime support
 
-Developers can submit a ticket for issues with the App Service Linux Java runtime through Azure Support if they have a qualified Azure support plan.
+Developers can open an issue with the App Service Linux Java runtime through Azure Support if they have a qualified support plan.
 
 ## Debug apps
 
@@ -92,7 +92,7 @@ To set allocated memory or other JVM runtime options in both the Tomcat and Java
 
 In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` that includes the additional settings, such as `$JAVA_OPTS -Xms512m -Xmx1204m`.
 
-To configure the app setting from the the Azure App Service Linux Maven plugin, add setting/value tags in the Azure plugin section: 
+To configure the app setting from the Azure App Service Linux Maven plugin, add setting/value tags in the Azure plugin section: 
 
 ```xml
 <appSettings> 
@@ -103,7 +103,7 @@ To configure the app setting from the the Azure App Service Linux Maven plugin, 
 </appSettings> 
 ```
 
-Developers should check their app service configuration and plan tier to find the optimal allocation of memory for their Java applications. Consider service plan level, number of instances, number of deployment slots, and number of sites when making your calculations.
+Developers should check their app service configuration and plan tier to find the optimal allocation of memory for their Java applications. Weigh the service plan against the number of applications instances and deployment slots when making your calculations.
 
 Azure does not allow customers to set per-instance runtime memory limits directly in their app settings. Allocate more memory to your runtime instances by subscribing to a larger App Service Plan and then customizing the Java runtime using the steps above to use the additional memory. 
 
@@ -113,7 +113,7 @@ Developers can specify an optional startup file to configure your runtime when i
 
 ### Enabling web sockets
 
-Enable web socket support through the Azure portal from the **General settings** section in **Application settings** for the application. You must restart the application for the setting to take effect.
+Enable web socket support through the Azure portal from the **General settings** section in **Application settings** for the application. Restart the application for the setting to take effect.
 
 Turn on web socket support using the Azure CLI with the following command:
 
