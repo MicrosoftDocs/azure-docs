@@ -56,7 +56,7 @@ Note:
 * The DSVM name may not include any of the following characters: 
     <code>` ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \\\\ | ; : \' \\" , < > / ?.</code>
 * If creation fails with a message about Marketplace purchase eligibility:
-    1. Go to portal.azure.com
+    1. Go to the [Azure portal](https://portal.azure.com)
     1. Start creating a DSVM 
     1. Select "Want to create programmatically" to enable programmatic creation
     1. Exist without actually creating the VM
@@ -126,7 +126,7 @@ def get_data():
 
 ## Configure AutoML
 
-Now that the remote resource is ready, specify the settings for `AutoMLConfig`.  See a [full list of parameters]() and their possible values.
+Now that the remote resource is ready, specify the settings for `AutoMLConfig`.  (See a [full list of parameters]() and their possible values.)
 
 In the settings, `run_configuration` is set to the `run_config` object, which contains the settings and configuration for the DSVM.  
 
@@ -162,7 +162,7 @@ Now invoke the automatic training.   Call the `submit()` method with `automl_con
 ```python
 remote_run = experiment.submit(automl_config, show_output=True)
 ```
-Learn [more information about parameters]() for the `submit` method.
+(Learn [more information about parameters]() for the `submit` method.)
 
 ## Explore results
 
