@@ -163,7 +163,7 @@ If you have a virtual machine scale set that no longer needs a system assigned m
 In this section, you assign a user assigned managed identity to a virtual machine scale set using Azure Resource Manager template.
 
 > [!Note]
-> To create a user assigned managed identity using an Azure Resource Manager Template, see [Create a user assigned managed identity](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
+> To create a user assigned managed identity using an Azure Resource Manager Template, see [Create a user assigned managed identity](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
 ### Assign a user assigned managed identity to a virutal machine scale set
 

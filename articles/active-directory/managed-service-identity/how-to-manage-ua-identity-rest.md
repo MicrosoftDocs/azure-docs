@@ -71,6 +71,6 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 ## Next steps
 
-For information on how to assign a user assigned managed identity to an Azure VM/VMSS using CURL see, [Configure Managed identities for Azure resources on an Azure VM using REST API calls](qs-configure-rest-vm.md#user-assigned-identity) and [Configure Managed identities for Azure resources on a virtual machine scale set using REST API calls](qs-configure-rest-vmss.md#user-assigned-identity).
+For information on how to assign a user assigned managed identity to an Azure VM/VMSS using CURL see, [Configure Managed identities for Azure resources on an Azure VM using REST API calls](qs-configure-rest-vm.md#user-assigned-managed-identity) and [Configure Managed identities for Azure resources on a virtual machine scale set using REST API calls](qs-configure-rest-vmss.md#user-assigned-managed-identity).
 
 

@@ -202,7 +202,7 @@ The following example shows you how remove a system assigned managed identity fr
 In this section, you assign a user assigned managed identity to an Azure VM using Azure Resource Manager template.
 
 > [!Note]
-> To create a user assigned managed identity using an Azure Resource Manager Template, see [Create a user assigned managed identity](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
+> To create a user assigned managed identity using an Azure Resource Manager Template, see [Create a user assigned managed identity](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
  ### Assign a user assigned managed identity to an Azure VM
 
@@ -375,11 +375,7 @@ If you have a VM that no longer needs a user assigned managed identity:
  
    **Microsoft.Compute/virtualMachines API version 2017-12-01**
 
-<<<<<<< HEAD
    To remove a a single user assigned managed identity from a VM, remove it from the `identityIds` array.
-=======
-   To remove a single user assigned identity from a VM, remove it from the `identityIds` array.
->>>>>>> d40f07f2165e43a020a40d519be7cfa4beabdd54
 
    If you have a system assigned managed identity, keep it in the in the `type` value under the `identity` value.
    
