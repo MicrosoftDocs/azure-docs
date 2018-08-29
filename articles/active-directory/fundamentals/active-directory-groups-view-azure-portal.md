@@ -32,7 +32,7 @@ You can search for a specific group, or see all of your groups, and view the ass
 
     ![All groups blade, with search text in the Search box](media/active-directory-groups-view-azure-portal/search-for-specific-group.png)
 
-4. Select the group **MDM policy - West** and view the group info on the **Group Overview** blade, including the number of members of that group.
+4. Select the group **MDM policy - West**, and view the group info on the **MDM policy - West Overview** blade, including the number of members of that group.
 
     ![Group Overview blade with number and members and Member option highlighted](media/active-directory-groups-view-azure-portal/group-overview-blade.png)
 

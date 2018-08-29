@@ -1,6 +1,6 @@
 ---
-title: How to edit your group settings using the Azure AD portal | Microsoft Docs
-description: How to edit a group's settings using the Azure Active Directory portal.
+title: How to edit your group information using the Azure AD portal | Microsoft Docs
+description: How to edit a group's information using the Azure Active Directory portal.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -15,7 +15,7 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ---
 
-# How to: Edit your group settings using the Azure AD portal
+# How to: Edit your group information using the Azure AD portal
 
 Using the Azure AD portal, you can edit a group's settings, including updating its name, description, or membership type.
 
@@ -43,13 +43,12 @@ Using the Azure AD portal, you can edit a group's settings, including updating i
     - **Group name.** Edit the existing group name.
     
     - **Group description.** Edit the existing group description.
+
+    - **Group type.** You can't change the type of group after it's been created. To change the **Group type**, you must delete the group and create a new one.
     
     - **Membership type.** Change the membership type. For more info about the various available membership types, see [How to: Create a basic group and add members using the Azure Active Directory portal](active-directory-groups-create-azure-portal.md)
     
     - **Object ID.** You can't change the Object ID, but you can copy it to use in your PowerShell commands for the group. For more info about using PowerShell cmdlets, see [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md).
-
-    >[!Note]
-    >You can't change the type of group after it's been created. To change the **Group type**, you must delete the group and create a new one.
 
 ## Next steps
 These articles provide additional information on Azure Active Directory.

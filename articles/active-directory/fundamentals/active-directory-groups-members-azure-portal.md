@@ -28,15 +28,16 @@ Using the Azure AD portal, you can continue to add and remove members from group
 
     ![Groups-All groups blade, group name highlighted](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
 
-4. Select **Members** from the **Manage** area, and then select **Add members**.
+4. From the **MDM policy - West Overview** blade, select **Members** from the **Manage** area.
 
-    The **Add members** blade appears.
+    ![MDM policy - West Overview blade, with Members option highlighted](media/active-directory-groups-members-azure-portal/group-overview-blade.png)
+
+5. Select **Add members**, and then search and select each of the members you want to add to the group, and then choose **Select**.
+
+    You'll get a message that says the members were added successfully.
 
     ![Add members blade, with searched for member shown](media/active-directory-groups-members-azure-portal/update-members.png)
 
-5. Search for and select each of the members you want to include in your group, and then choose **Select**.
-
-    You'll get a message that says the members were added successfully.
 
 6. Refresh the screen to see all of the member names assigned to the group.
 
