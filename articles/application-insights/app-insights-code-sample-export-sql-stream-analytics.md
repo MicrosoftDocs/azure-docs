@@ -213,7 +213,7 @@ Replace the default query with:
       ,A.context.location.city as city
     INTO
       AIOutput
-    FROM AIinput A
+    FROM AlIinput A
     CROSS APPLY GetElements(A.[view]) as flat
 
 
