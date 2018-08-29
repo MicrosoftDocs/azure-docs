@@ -246,11 +246,11 @@
               href: tutorial-develop-mongodb-nodejs-part2.md
             - name: Part 3 - Add UI with Angular
               href: tutorial-develop-mongodb-nodejs-part3.md
-            - name: Part 4 - Create a Cosmos DB account
+            - name: Part 4 - Create an account
               href: tutorial-develop-mongodb-nodejs-part4.md
             - name: Part 5 - Connect to Cosmos DB
               href: tutorial-develop-mongodb-nodejs-part5.md
-            - name: Part 6 - Perform CRUD operation
+            - name: Part 6 - Perform CRUD operations
               href: tutorial-develop-mongodb-nodejs-part6.md
           - name: Node.js and React app
             href: tutorial-develop-mongodb-react.md
