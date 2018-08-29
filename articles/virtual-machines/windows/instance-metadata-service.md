@@ -387,9 +387,6 @@ Azure has various soverign clouds like [Azure Government](https://azure.microsof
 
 **Request**
 
-> [!NOTE] 
-> Requires jq to be installed. 
-
 ```
   $metadataResponse = Invoke-WebRequest "http://169.254.169.254/metadata/instance/compute?api-version=2018-02-01" -H @{"Metadata"="true"} -UseBasicParsing
   $metadata = ConvertFrom-Json ($metadataResponse.Content)
@@ -413,7 +410,7 @@ Azure has various soverign clouds like [Azure Government](https://azure.microsof
     "germanCloud" { $environment = "AzureGermanCloud"}
   }
  
-  return $environment
+  Write-Host $environment
 ```
 
 ### Examples of calling metadata service using different languages inside the VM 
