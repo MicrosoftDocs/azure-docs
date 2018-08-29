@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 08/29/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
@@ -19,7 +19,7 @@ ms.custom: it-pro
 In this article, you can learn how to enable or disable LinkedIn account connections for your tenant in the Azure Active Directory (Azure AD) admin center.
 
 > [!IMPORTANT]
-> LinkedIn account connections functionality is currently being rolled out to Azure AD tenants. It is not available for United States government customers or for organizations with Exchange Online mailboxes hosted in Australia, China, Germany, and South Africa. Support for these mailbox locations is coming soon. For an up-to-date view of rollout information,see the [Office 365 Roadmap](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) page.
+> LinkedIn account connections functionality is currently being rolled out to Azure AD tenants. When it is rolled out to your tenant, it is enabled by default (except for tenants in France and Germany, where it is off by default). It is not available for United States government customers or for organizations with Exchange Online mailboxes hosted in Australia, China, Germany, and South Africa. Support for these mailbox locations is coming soon. For an up-to-date view of rollout information,see the [Office 365 Roadmap](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) page.
 >
 > The integration works only if you have it enabled *and* if you allow users to consent to apps accessing company data on their behalf. For information about the consent setting, see [How to remove a user’s access to an application](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 
