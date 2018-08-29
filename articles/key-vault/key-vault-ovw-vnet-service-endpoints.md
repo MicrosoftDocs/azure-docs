@@ -57,7 +57,7 @@ Here is a list of trusted services that are allowed to access a key vault if 'Al
 |App Services|[Deploying Azure Web App Certificate through Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)|
 |Azure SQL|[Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql?view=sql-server-2017&viewFallbackFrom=azuresqldb-current)|
 |Azure Storage|[Storage Service Encryption using customer-managed keys in Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys)|
-|Azure Data Lake Store|[Encryption of date in Azure Data Lake Store](../data-lake-store/data-lake-store-encryption) with customer managed key|
+|Azure Data Lake Store|[Encryption of data in Azure Data Lake Store](../data-lake-store/data-lake-store-encryption) with customer managed key|
 
 
 
