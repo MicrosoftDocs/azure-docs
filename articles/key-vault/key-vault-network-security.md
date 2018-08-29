@@ -99,6 +99,11 @@ Update-AzureRmKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServic
 Update-AzureRmKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
 ```
 
+## References
+
+* Azure CLI 2.0 commands - [az keyvault network-rule](https://docs.microsoft.com/en-us/cli/azure/keyvault/network-rule?view=azure-cli-latest)
+* Azure PowerShell cmdlets - [Get-AzureRmKeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/get-azurermkeyvault), [Add-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/en-us/powershell/module/AzureRM.KeyVault/Add-AzureRmKeyVaultNetworkRule), [Remove-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/en-us/powershell/module/AzureRM.KeyVault/Remove-AzureRmKeyVaultNetworkRule), [Update-AzureRmKeyVaultNetworkRuleSet](https://docs.microsoft.com/en-us/powershell/module/AzureRM.KeyVault/Update-AzureRmKeyVaultNetworkRuleSet)
+
 ## Next steps
 
 * [Virtual network service endpoints for Key Vault](key-vault-ovw-vnet-service-endpoints.md)
