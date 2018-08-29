@@ -55,6 +55,10 @@ Here is a list of trusted services that are allowed to access a key vault if 'Al
 |Exchange Online & SharePoint Online|Allow access to customer key for Service Encryption with [Customer Key](https://support.office.com/en-us/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Allow access to tenant key for [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
 |App Services|[Deploying Azure Web App Certificate through Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)|
+|Azure SQL|[Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql?view=sql-server-2017&viewFallbackFrom=azuresqldb-current)|
+|Azure Storage|[Storage Service Encryption using customer-managed keys in Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys)|
+|Azure Data Lake Store|[Encryption of date in Azure Data Lake Store](../data-lake-store/data-lake-store-encryption) with customer managed key|
+
 
 
 > [!NOTE]
