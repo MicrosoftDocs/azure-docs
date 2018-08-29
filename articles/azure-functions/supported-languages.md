@@ -8,7 +8,13 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
+<<<<<<< HEAD
 ms.date: 08/02/2018
+=======
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 08/29/2018
+>>>>>>> 121bbf5c44e... starting v2 migrate docs
 ms.author: glenga
 
 ---

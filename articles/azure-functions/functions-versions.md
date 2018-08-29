@@ -14,25 +14,27 @@ ms.author: glenga
 ---
 # Azure Functions runtime versions overview
 
- There are two major versions of the Azure Functions runtime: 1.x and 2.x. Only 1.x is approved for production use. This article explains what's new in 2.x, which is in preview.
-
-| Runtime | Status |
-|---------|---------|
-|1.x|Generally Available (GA)|
-|2.x|Preview<sup>*</sup>|
-
-<sup>*</sup>To receive important updates on version 2.x, including breaking changes announcements, watch the [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues) repository.
+ There are two major versions of the Azure Functions runtime: 1.x and 2.x. The current version where new feature work and improvements are being made is 2.x, though both are supported for production scenarios.  The following details some of the differences between the two, how you can create each version, and upgrade from 1.x to 2.x.
 
 > [!NOTE] 
-> This article refers to the cloud service Azure Functions. For information about the product that lets you run Azure Functions on-premises, see the [Azure Functions Runtime Overview](functions-runtime-overview.md).
+> This article refers to the cloud service Azure Functions. For information about the preview product that lets you run Azure Functions on-premises, see the [Azure Functions Runtime Overview](functions-runtime-overview.md).
+
+## Creating 1.x apps
+
+New apps created in the Azure Portal are set to 2.x by default as this is the most current version and where new feature investments are being made.  However you can still create v1.x apps by doing the following.
+
+1. Create an Azure Function from the Azure Portal
+1. Open the created app, and while it is blank open up the **Function Settings**
+1. Change the version from ~2 to ~1.  *This toggle will be disabled if you have functions in your app*.
+1. Click save and restart the app.  All templates should now create and run in 1.x.
 
 ## Cross-platform development
 
-Runtime 1.x supports development and hosting only in the portal or on Windows. Runtime 2.x runs on .NET Core, which means it can run on all platforms supported by .NET Core, including macOS and Linux. This enables cross-platform development and hosting scenarios that aren't possible with 1.x.
+Runtime 1.x supports development and hosting only in the portal or on Windows. Runtime 2.x runs on .NET Core 2, which means it can run on all platforms supported by .NET Core, including macOS and Linux. This enables cross-platform development and hosting scenarios.
 
 ## Languages
 
-Runtime 2.x uses a new language extensibility model. Initially, JavaScript and Java are taking advantage of this new model. Azure Functions 1.x experimental languages haven't been updated to use the new model, so they are not supported in 2.x. The following table indicates which programming languages are supported in each runtime version.
+Runtime 2.x uses a new language extensibility model. In addition, to improve tooling and performance each app in 2.x is limited to only have functions in a single language. Currently supported languages in 2.x are C#, F#, JavaScript, Java, and Python. Azure Functions 1.x experimental languages haven't been updated to use the new model, so they are not supported in 2.x. The following table indicates which programming languages are supported in each runtime version.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 

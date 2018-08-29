@@ -46,9 +46,6 @@ npm install -g azure-functions-core-tools@v1
 ```
 ### <a name="v2"></a>Version 2.x
 
->[!NOTE]
-> Azure Functions runtime 2.0 is in preview, and currently not all features of Azure Functions are supported. For more information, see [Azure Functions versions](functions-versions.md) 
-
 Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux).
 
 #### <a name="windows-npm"></a>Windows
@@ -62,7 +59,7 @@ The following steps use npm to install Core Tools on Windows. You can also use [
 3. Install the Core Tools package:
 
     ```bash
-    npm install -g azure-functions-core-tools@core
+    npm install -g azure-functions-core-tools
     ```
 
 #### <a name="brew"></a>MacOS with Homebrew
@@ -111,6 +108,17 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
+
+
+### <a name="v1"></a>Version 1.x
+
+The original version of the tools uses the Functions 1.x runtime. This version uses the .NET Framework (4.7.1) and is only supported on Windows computers. Before you install the version 1.x tools, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm.
+
+Use the following command to install the version 1.x tools:
+
+```bash
+npm install -g azure-functions-core-tools@v1
+```
 
 ## Create a local Functions project
 
