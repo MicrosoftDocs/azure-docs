@@ -90,27 +90,22 @@ If your application uses Logback or Log4j for tracing, you can forward these tra
 
 To set allocated memory or other JVM runtime options in both the Tomcat and Java SE environments, set the JAVA_OPTS as shown below as an [application setting](/azure/app-service/web-sites-configure#app-settings). App Service Linux passes this setting as an environment variable to the Java runtime when it starts.
 
-For example, to set a minimum nursery heap size of 512 MB, and a max size of 1024 MB: 
-```
-JAVA_OPTS=%JAVA_OPTS% -Xms<size>m -Xmx<size>m 
-```
+In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` that includes the additional settings, such as `$JAVA_OPTS -Xms512m -Xmx1204m`.
 
-Developers have two options to set the environment variables 
+To configure the app setting from the the Azure App Service Linux Maven plugin, add setting/value tags in the Azure plugin section: 
 
-In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` with value `$JAVA_OPTS -Xms512m -Xmx1204m`
-
-Using the Maven plugin, add name/value tags in the Azure plugin section: 
-
+```xml
 <appSettings> 
     <property> 
         <name>JAVA_OPTS</name> 
         <value>$JAVA_OPTS -Xms512m -Xmx1204m</value> 
     </property> 
 </appSettings> 
+```
 
-Developers should check their app service configuration/tier to find  optimal memory allocations for their Java applications. Consider the service plan level, number of instances, number of deployment slots, and number of sites in the plan.
+Developers should check their app service configuration and plan tier to find the optimal allocation of memory for their Java applications. Consider service plan level, number of instances, number of deployment slots, and number of sites when making your calculations.
 
-Azure does not allow customers to set the runtime memory limits for a Java runtime instance in a plan directly in their app settings. You can allocate more memory to your runtime instances by subscribing to a larger App Service Plan. 
+Azure does not allow customers to set per-instance runtime memory limits directly in their app settings. Allocate more memory to your runtime instances by subscribing to a larger App Service Plan and then customizing the Java runtime using the steps above to use the additional memory. 
 
 ### Customizing startup
 
@@ -118,7 +113,9 @@ Developers can specify an optional startup file to configure your runtime when i
 
 ### Enabling web sockets
 
-Enable web socket support through the Azure portal from the **General settings** section in **Application settings** for the application. Turn on web socket support using the CLI with the following command:
+Enable web socket support through the Azure portal from the **General settings** section in **Application settings** for the application. You must restart the application for the setting to take effect.
+
+Turn on web socket support using the Azure CLI with the following command:
 
 ```azurecli-interactive
 az webapp config set -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME} --web-sockets-enabled true 
@@ -137,12 +134,14 @@ In the Azure portal, under **Application Settings** for the web app, create a ne
 
 Using the Maven plugin, add name/value tags in the Azure plugin section: 
 
+```xml
 <appSettings> 
     <property> 
         <name>JAVA_OPTS</name> 
         <value>$JAVA_OPTS -Dfile.encoding=UTF-8</value> 
     </property> 
 </appSettings> 
+```
 
 ## Tomcat customization
 
@@ -156,9 +155,7 @@ To configure your apps running on Tomcat to use managed connections to databases
 For application-level data sources: 
 
 1. Add a `context.xml` file if it does not exist to your web application and make sure it is added to the META-INF directory of your WAR file when the project is built.
-
 2. In this file, add a Context path entry to link the data source to a JNDI address:
-
 ```xml
 <Context>
     <Resource
@@ -169,7 +166,6 @@ For application-level data sources:
     />
 </Context>
 ```
-
 3. Update your application's `web.xml` to use the resource in your application.
 
 ```xml
@@ -178,6 +174,3 @@ For application-level data sources:
     <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
 </resource-env-ref>
 ```
-
-### Configure messaging resources
-
