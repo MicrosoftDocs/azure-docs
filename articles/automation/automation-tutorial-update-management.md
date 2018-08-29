@@ -76,9 +76,13 @@ Click anywhere else on the update to open the **Log Search** pane for the select
 
 ## Configure alerts
 
-In this step, you set an alert to let you know when updates have been successfully deployed or failed to deploy.
+In this step, you learn to setup an alert to let you know when updates have been successfully deployed through a Log Analytics query or by tracking the master runbook for Update Management for deployments that failed.
 
-### Log Analytics query alert
+### Alert conditions
+
+For each type of alert there are different alert conditions that need to be defined.
+
+#### Log Analytics query alert
 
 For successful deployments, you can create an alert based on a Log Analytics query. For failed deployments you can use the [Runbook alert](#runbook-alert) steps to alert when the master runbook that orchestrators update deployments fails. You can write a custom query for additional alerts to cover many different scenarios. In the Azure portal, go to **Monitor**, and then select **Create Alert**.
 
@@ -102,13 +106,17 @@ Under **Alert logic**, for **Threshold**, enter **1**. When you're finished, sel
 
 ![Configure signal logic](./media/automation-tutorial-update-management/signal-logic.png)
 
-### Runbook alerts
+#### Runbook alert
 
 Under **1. Define alert condition**, select **Select target**. Under **Filter by resource type**, select **Automation Accounts**. Select your Automation Account, and then select **Done**.
 
 For **Runbook Name**, click the **\+** sign and enter **Patch-MicrosoftOMSComputers** as a custom name. For **Status**, choose **Failed** or click the **\+** sign to enter **Failed**.
 
 ![Configure signal logic for runbooks](./media/automation-tutorial-update-management/signal-logic-runbook.png)
+
+Under **Alert logic**, for **Threshold**, enter **1**. When you're finished, select **Done**.
+
+### Alert details
 
 Under **2. Define alert details**, enter a name and description for the alert. Set **Severity** to **Informational(Sev 2)** because the alert is for a successful run.
 
