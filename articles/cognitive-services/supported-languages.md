@@ -16,7 +16,7 @@ ms.reviewer:
 
 Azure Cognitive Services allow you to build applications that see, hear, speak with, and understand your users. More than three dozen human languages are currently supported, allowing users to communicate with your application in natural ways.
 
-[ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) are used to specify supported languages. When applicable, country/region or market information may also be provided, and is represented as a locale appended to the language code. Language and locale availability vary by service.
+[ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) are used to specify supported languages and when applicable, country/region or market information may also be provided. Language and locale support vary by service.
 
 ## Language availability by service
 
