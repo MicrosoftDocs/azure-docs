@@ -28,6 +28,16 @@ For this tutorial, you create three VNets:
 
 <!-- Network diagram here -->
 
+## Key points
+
+There are three key points that are required for this scenario to work correctly:
+
+- A User Defined Route on the spoke subnet that points to the Azure Firewall as the default gateway. BGP route propagation must be **Disabled** on the route table.
+- A User Defined Route on the hub gateway subnet must point to the firewall as the next hop to the spoke networks.
+- No User Defined Route is required on the Azure Firewall subnet, as it learns routed via BGP.
+
+See the <a href=#routes>Create Routes</a> section in this tutorial to see how these routes are created.
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
@@ -277,7 +287,7 @@ Set-AzureRmFirewall -AzureFirewall $Azfw
 
 ```
 
-## Create routes
+## <a name="routes">Create routes</a>
 
 Next, create a couple routes: 
 - A route from the hub gateway subnet to the spoke subnet through the firewall IP address
