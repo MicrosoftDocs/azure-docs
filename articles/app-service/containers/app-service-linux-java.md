@@ -17,9 +17,9 @@ ms.author: routlaw
 
 # Java developer's guide for App Service on Linux
 
-Azure App Service on Linux lets Java developers to quickly build, deploy, and scale their Tomcat or Java Standard Edition (SE) packaged web applications on a fully-managed Linux-based service. Developers can deploy applications using from Maven plugins on the command line or through editors like IntelliJ, Eclipse, or VS Code.
+Azure App Service on Linux lets Java developers to quickly build, deploy, and scale their Tomcat or Java Standard Edition (SE) packaged web applications on a fully managed Linux-based service. Developers can deploy applications using from Maven plugins on the command line or through editors like IntelliJ, Eclipse, or VS Code.
 
-This guide covers how the App Service for Linux runtimes are managed, and provides basic information on how to do basic development tasks when working with the service. If you've never used Azure App Service for Linux, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service for Linux that aren't specific to the Java runtimes are answered in the [App Service Linux FAQ](app-service-linux-faq.md)
+This guide covers how the Java runtimes in App Service for Linux are managed and provides steps for common development tasks when working with the service. If you've never used Azure App Service for Linux, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service for Linux that aren't specific to the Java runtimes are answered in the [App Service Linux FAQ](app-service-linux-faq.md)
 
 ## Java runtime support
 
@@ -46,16 +46,16 @@ FROM zulu-openjdk:8u181-8.31.0.1
 
 ### Security updates
 
-Any major bugfixes or patches will be released as soon as they become available from Azul Systems. A "major" bugfix is defined by a high score on the [NIST Common Vulnerability Scoring System](https://nvd.nist.gov/cvss.cfm). 
+Any major bug fixes or patches will be released as soon as they become available from Azul Systems. A "major" bugfix is defined by a high score on the [NIST Common Vulnerability Scoring System](https://nvd.nist.gov/cvss.cfm). 
 
 ### Local development support
 
-Developers can download the Azure-supported JDK for local development, but will only receive support if they are developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a qualified Azure support plan. The supported downloads are:
+Developers can download the Azure-supported JDK for local development, but will  receive support only if they are developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a qualified Azure support plan.
 
 
 ### Runtime deprecation
 
-If a supported Java runtime will be retired, Azure developers will be given at least 6-months notice. (how? Through what channels?)
+If a supported Java runtime will be retired, Azure developers using the affected runtime will be given at least six months notice.
 
 ### Getting runtime support
 
@@ -65,7 +65,7 @@ Developers can submit a ticket for issues with the App Service Linux Java runtim
 
 ### SSH console access 
 
-Both web-based and local console based SSH connections to App Service Linux are supported. See [SSH support for Azure App Service on Linux](/azure/app-service/containers/app-service-linux-ssh-support) for full instructions.
+SSH connectivity to the Linux environment running your app is supported. See [SSH support for Azure App Service on Linux](/azure/app-service/containers/app-service-linux-ssh-support) for full instructions to connect via web browser or local terminal.
 
 ### Stream HTTP logs
 
@@ -75,11 +75,11 @@ For quick development debugging and testing, you can stream HTTP traffic logs to
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
 
-For more details, see [Streaming logs with the Azure CLI](/azure/app-service/web-sites-enable-diagnostic-log#streaming-with-azure-command-line-interface).
+For more information, see [Streaming logs with the Azure CLI](/azure/app-service/web-sites-enable-diagnostic-log#streaming-with-azure-command-line-interface).
 
 ### View application output
 
-Enable [application logging](/azure/app-service/web-sites-enable-diagnostic-log#enablediag) through the Azure Portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. A restart of the application is required for the setting to take effect. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, you will need to configure the setting to write to Blob storage.
+Enable [application logging](/azure/app-service/web-sites-enable-diagnostic-log#enablediag) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. A restart of the application is required for the setting to take effect. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, you will need to configure the setting to write to Blob storage.
 
 If your application uses Logback or Log4j for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
@@ -88,16 +88,16 @@ If your application uses Logback or Log4j for tracing, you can forward these tra
 
 ### Set JVM runtime options
 
-To set allocated memory or other JVM runtime options in both the Tomcat and Java SE environments, developers need to set the JAVA_OPTS as shown below as an [application setting](/azure/app-service/web-sites-configure#app-settings). This will be passed in as an environment variable to the Java runtime when it starts.
+To set allocated memory or other JVM runtime options in both the Tomcat and Java SE environments, set the JAVA_OPTS as shown below as an [application setting](/azure/app-service/web-sites-configure#app-settings). App Service Linux passes this setting as an environment variable to the Java runtime when it starts.
 
-For example, to set a minimum nursery heap size of 512MB, and a max size of 1024MB: 
+For example, to set a minimum nursery heap size of 512 MB, and a max size of 1024 MB: 
 ```
 JAVA_OPTS=%JAVA_OPTS% -Xms<size>m -Xmx<size>m 
 ```
 
 Developers have two options to set the environment variables 
 
-In the Azure Portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` with value `$JAVA_OPTS -Xms512m -Xmx1204m`
+In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` with value `$JAVA_OPTS -Xms512m -Xmx1204m`
 
 Using the Maven plugin, add name/value tags in the Azure plugin section: 
 
@@ -114,11 +114,11 @@ Azure does not allow customers to set the runtime memory limits for a Java runti
 
 ### Customizing startup
 
-Developers can specify an optional startup file to configure your runtime when it starts. The file can be specified in the Azure Portal under **Application Settings** for the deployed app. The start up file for a WAR deployment has format <X> and the Java SE JAR deployments have format <Y>.
+Developers can specify an optional startup file to configure your runtime when it starts. The file can be specified in the Azure portal under **Application Settings** for the deployed app. 
 
 ### Enabling web sockets
 
-Enable web socket support through the Azure Portal from the **General settings** section in **Application settings** for the application. Turn on web socket support using the CLI with the following command:
+Enable web socket support through the Azure portal from the **General settings** section in **Application settings** for the application. Turn on web socket support using the CLI with the following command:
 
 ```azurecli-interactive
 az webapp config set -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME} --web-sockets-enabled true 
@@ -133,7 +133,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 ### Set UTF-8 character encoding 
 
-In the Azure Portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` with value `$JAVA_OPTS -Dfile.encoding=UTF-8`.
+In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` with value `$JAVA_OPTS -Dfile.encoding=UTF-8`.
 
 Using the Maven plugin, add name/value tags in the Azure plugin section: 
 
@@ -149,7 +149,7 @@ Using the Maven plugin, add name/value tags in the Azure plugin section:
 ### Configure data sources
 
 >[!NOTE]
-> If your application uses the Spring Framework or Spring Boot, you can set database connection information for Spring Data JPA as environment variables in your application properties file. Then use [app settings](/azure/app-service/web-sites-configure#app-settings) to define these values for your application in the Azure Portal or CLI.
+> If your application uses the Spring Framework or Spring Boot, you can set database connection information for Spring Data JPA as environment variables in your application properties file. Then use [app settings](/azure/app-service/web-sites-configure#app-settings) to define these values for your application in the Azure portal or CLI.
 
 To configure your apps running on Tomcat to use managed connections to databases using Java Database Connectivity (JDBC) or the Java Persistence API (JPA), first determine if the data source needs to be made available just to one application or to all of the applications running on the App Service plan.
 
