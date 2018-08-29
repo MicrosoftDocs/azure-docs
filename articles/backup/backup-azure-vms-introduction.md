@@ -7,7 +7,7 @@ manager: carmonm
 keywords: backup vms, backup virtual machines
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/31/2018
+ms.date: 8/29/2018
 ms.author: markgal
 ---
 
@@ -100,19 +100,22 @@ A restore operation consists of two main tasks: copying data back from the vault
 * Data copy time - Data is copied from the vault to the customer storage account. Restore time depends on IOPS and throughput Azure Backup service gets on the selected customer storage account. To reduce the copying time during the restore process, select a storage account not loaded with other application writes and reads.
 
 ## Best practices
-We suggest following these practices while configuring backups for virtual machines with unmanaged disks:
 
-> [!Note]
-> The following practices that recommend changing or managing storage accounts, apply only VMs with unmanaged disks. If you use managed disks, Azure takes care of all management activities involving storage.
-> 
+We suggest following these practices while configuring backups for all virtual machines:
 
-* Don't schedule more than 10 classic VMs from the same cloud service to back up at the same time. If you want to back up multiple VMs from same cloud service, stagger the backup start times by an hour.
-* Do not schedule more than 100 VMs to back up at the same time from a single vault. 
+* Don't schedule backups for more than 10 classic VMs from the same cloud service, at the same time. If you want to back up multiple VMs from the same cloud service, stagger the backup start times by an hour.
+* Don't schedule backups for more than 100 VMs from one vault, at the same time.
 * Schedule VM backups during non-peak hours. This way the Backup service uses IOPS for transferring data from the customer storage account to the vault.
-* Make sure that a policy is applied on VMs spread across different storage accounts. We suggest no more than 20 total disks from a single storage account be protected by the same backup schedule. If you have greater than 20 disks in a storage account, spread those VMs across multiple policies to get the required IOPS during the transfer phase of the backup process.
-* Do not restore a VM running on Premium storage to same storage account. If the restore operation process coincides with the backup operation, it reduces the available IOPS for backup.
-* For Premium VM backup on VM backup stack V1, it is recommended that you allocate only 50% of the total storage account space so that Azure Backup service can copy the snapshot to storage account and transfer data from this copied location in storage account to the vault.
 * Make sure Linux VMs enabled for backup, have Python version 2.7 or greater.
+
+### Best practices for VMs with unmanaged disks
+
+The following recommendations apply only to VMs using unmanaged disks. If your VMs use managed disks, the Backup service handles all storage management activities.
+
+* Make sure to apply a backup policy to VMs spread across multiple storage accounts. No more than 20 total disks from a single storage account should be protected by the same backup schedule. If you have greater than 20 disks in a storage account, spread those VMs across multiple policies to get the required IOPS during the transfer phase of the backup process.
+* Do not restore a VM running on Premium storage to same storage account. If the restore operation process coincides with the backup operation, it reduces the available IOPS for backup.
+* For Premium VM backup on VM backup stack V1, you should allocate only 50% of the total storage account space so the Backup service can copy the snapshot to storage account, and transfer data from the storage account to the vault.
+
 
 ## Data encryption
 Azure Backup does not encrypt data as a part of the backup process. However, you can encrypt data within the VM and back up the protected data seamlessly (read more about [backup of encrypted data](backup-azure-vms-encryption.md)).
