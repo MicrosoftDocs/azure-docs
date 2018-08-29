@@ -1,23 +1,12 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Visualize your Azure IoT Central data in a Power BI dashboard | Microsoft Docs
 description: Use the Azure IoT Central Analytics Power BI solution template to visualize and analyze your IoT Central data.
 ms.service: iot-central
+services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 07/16/2018
-ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-ms.prod: microsoft-iot-central
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
-manager: peterpr
+ms.topic: conceptual
 ---
 
 # Visualize and analyze your Azure IoT Central data in a Power BI dashboard
