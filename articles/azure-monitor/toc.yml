@@ -353,9 +353,9 @@
       - name: Azure activity logs
         items:
         - name: Analytics
-          href: log-analytics-activity.md
+          href: ../log-analytics/log-analytics-activity.md?toc=/azure/azure-monitor/toc.json
         - name: Collect across subscriptions
-          href: log-analytics-activity-logs-subscriptions.md
+          href: ../log-analytics/log-analytics-activity-logs-subscriptions.md?toc=/azure/azure-monitor/toc.json
       - name: Service logs and metrics
         href: ../log-analytics/log-analytics-azure-storage.md?toc=/azure/azure-monitor/toc.json
       - name: Diagnostic or log data from Azure storage
@@ -575,10 +575,10 @@
       - name: Configure alerts on service notifications
         href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=/azure/azure-monitor/toc.json
     - name: IT Service Management Connector
-      href: log-analytics-itsmc-overview.md
+      href: ../log-analytics/log-analytics-itsmc-overview.md?toc=/azure/azure-monitor/toc.json
       items:
       - name: IT Service Management connections
-        href: log-analytics-itsmc-connections.md
+        href: ../log-analytics/log-analytics-itsmc-connections.md?toc=/azure/azure-monitor/toc.json
   - name: Gain insights
     items:
     - name: Monitor applications
