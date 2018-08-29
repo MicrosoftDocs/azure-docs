@@ -33,7 +33,7 @@ You can limit outbound HTTP/S traffic to a specified list of fully qualified dom
 
 ### FQDN tags
 
-FQDN tags make it easy for you to allow well known Azure service network traffic through your firewall. For example, say you want to allow Azure Backup network traffic through your firewall. You create an application rule and include the Azure Backup tag. Now network traffic from Azure Backup can flow through your firewall.
+FQDN tags make it easy for you to allow well known Azure service network traffic through your firewall. For example, say you want to allow Windows Update network traffic through your firewall. You create an application rule and include the Windows Update tag. Now network traffic from Windows Update can flow through your firewall.
 
 
 ### Network traffic filtering rules

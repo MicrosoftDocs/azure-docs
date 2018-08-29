@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 9/24/2018
+ms.date: 9/25/2018
 ms.author: victorh
 ---
 
@@ -30,4 +30,4 @@ The following table shows the current FQDN tags you can use. Microsoft maintains
 
 ## Next steps
 
-TBD
+To learn how to deploy an Azure Firewall, see [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md).
