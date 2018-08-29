@@ -3,7 +3,7 @@ title: Manage VM disks in Azure Stack | Microsoft Docs
 description: Provision disks for virtual machines in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/11/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: mabrigg
 ms.reviewer: jiahan
 ---
 

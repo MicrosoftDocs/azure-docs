@@ -47,11 +47,11 @@ sections:
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - title: Cloud Patterns and Architecture for Microsoft Azure Developers
-      href: https://www.pluralsight.com/courses/microsoft-azure-cloud-patterns-architecture?twoid=ed7474c5-bafe-4c41-91da-1eee9704d4dd&aid=7010a000001xDURAA2
+    - title: Azure Solution Architect
+      href: https://go.microsoft.com/fwlink/?linkid=2012824
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/microsoft-azure-cloud-patterns-architecture?twoid=ed7474c5-bafe-4c41-91da-1eee9704d4dd&aid=7010a000001xDURAA2
+        href: https://go.microsoft.com/fwlink/?linkid=2012824
 - title: Samples
   items:
   - type: paragraph

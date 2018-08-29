@@ -6,7 +6,7 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -70,7 +70,7 @@ To send data into a database, you need a module that can structure the data prop
 The following steps show you how to create an IoT Edge function using Visual Studio Code and the Azure IoT Edge extension.
 
 1. Open Visual Studio Code.
-2. Open the VS Code integrated terminal by selecting **View** > **Integrated Terminal**.
+2. Open the VS Code integrated terminal by selecting **View** > **Terminal**.
 3. Open the VS Code command palette by selecting **View** > **Command palette**.
 4. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you've already signed in, you can skip this step.
 3. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
@@ -250,15 +250,15 @@ You can set modules on a device through the IoT Hub, but you can also access you
 2. Follow the prompts to sign in to your Azure account. 
 3. In the command palette, select your Azure subscription then select your IoT Hub. 
 4. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
-5. Right-click on the device that you want to target with your deployment and select **Create deployment for IoT Edge device**. 
+5. Right-click on the device that you want to target with your deployment and select **Create deployment for single device**. 
 6. In the file explorer, navigate to the **config** folder inside your solution and choose **deployment.json**. Click **Select Edge deployment manifest**. 
 
 If the deployment is successful, and confirmation message is printed in the VS Code output. You can also check to see that all the modules are up and running on your device. 
 
 On your IoT Edge device, run the following command to see the status of the modules. It may take a few minutes.
 
-   ```bash
-   sudo iotedge list
+   ```PowerShell
+   iotedge list
    ```
 
 ## Create the SQL database

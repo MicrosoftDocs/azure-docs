@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/09/2017
+ms.date: 08/09/2018
 ms.author: kgremban
 ---
 
@@ -151,7 +151,7 @@ This category cannot catch errors that directly occur while the device is upload
 
 #### Cloud-to-device twin operations
 
-The cloud-to-device twin operations category tracks service-initiated events on device twins. These operations can include get twin, update reported properties, and subscribe to desired properties
+The cloud-to-device twin operations category tracks service-initiated events on device twins. These operations can include get twin, update or replace tags, and update or replace desired properties. 
 
 ```json
 {
@@ -168,7 +168,7 @@ The cloud-to-device twin operations category tracks service-initiated events on 
 
 #### Device-to-cloud twin operations
 
-The device-to-cloud twin operations category tracks device-initiated events on device twins. These operations can include get twin, update or replace tags, and update or replace desired properties. 
+The device-to-cloud twin operations category tracks device-initiated events on device twins. These operations can include get twin, update reported properties, and subscribe to desired properties.
 
 ```json
 {

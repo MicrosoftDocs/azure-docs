@@ -83,7 +83,7 @@ The following important considerations apply when administering a managed domain
 
 
 ## Next steps
-* [Enroll in the Azure CSP program](https://partnercenter.microsoft.com/partner/programs) and start creating business through Azure CSP.
+* [Enroll in the Azure CSP program](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program) and start creating business through Azure CSP.
 * Review the list of [Azure services available in Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
 * [Enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md)
 * [Get started with Azure AD Domain Services](active-directory-ds-getting-started.md)

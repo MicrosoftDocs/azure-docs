@@ -3,7 +3,7 @@ title: Install your own custom Hadoop applications on Azure HDInsight
 description: Learn how to install HDInsight applications on HDInsight applications.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive

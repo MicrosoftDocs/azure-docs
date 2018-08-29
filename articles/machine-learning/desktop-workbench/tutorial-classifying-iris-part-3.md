@@ -242,7 +242,7 @@ Now you're ready to create the real-time web service.
    >[!IMPORTANT]
    >The service name, which is also the new Docker image name, must be all lowercase. Otherwise, you get an error. 
 
-1. When you run the command, the model and the scoring files are uploaded to the storage account you created as part of the environment setup. The deployment process builds a Docker image with your model, schema, and scoring file in it, and then pushes it to the Azure container registry: **\<ACR_name\>.azureacr.io/\<imagename\>:\<version\>**. 
+1. When you run the command, the model and the scoring files are uploaded to the storage account you created as part of the environment setup. The deployment process builds a Docker image with your model, schema, and scoring file in it, and then pushes it to the Azure container registry: **\<ACR_name\>.azurecr.io/\<imagename\>:\<version\>**. 
 
    The command pulls down the image locally to your computer and then starts a Docker container based on that image. If your environment is configured in cluster mode, the Docker container is deployed into the Azure Cloud Services Kubernetes cluster instead.
 
@@ -308,7 +308,7 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
 1. To test the service, execute the returned service run command:
     
    ```azurecli
-   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d '{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}'
    ```
 
    The output is **"Iris-setosa"**, which is the predicted class. (Your result might be different.) 
