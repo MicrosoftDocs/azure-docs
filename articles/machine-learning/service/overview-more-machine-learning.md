@@ -31,14 +31,14 @@ Microsoft provides a variety of products and services to build, deploy, and mana
 
 ## Azure Machine Learning service
 
-[Azure Machine Learning service](overview-what-is-azure-ml.md) is a fully managed cloud service used to train, deploy, and manage ML models at scale. It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages. Rich tools are also available, such as Azure notebooks, [Jupyter notebooks](http://jupyter.org), or the [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) to make it easy to explore and transform data, and then train and deploy models. Azure Machine Learning service includes features that automate model generation and tuning with ease, efficiency, and accuracy.
+[Azure Machine Learning service](overview-what-is-azure-ml.md) is a fully managed cloud service used to train, deploy, and manage ML models at scale. It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages such as TensorFlow and scikit-learn. Rich tools are also available, such as Azure notebooks, [Jupyter notebooks](http://jupyter.org), or the [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) to make it easy to explore and transform data, and then train and deploy models. Azure Machine Learning service includes features that automate model generation and tuning with ease, efficiency, and accuracy.
 
 Use Azure Machine Learning service to train, deploy, and manage ML models using Python and CLI at cloud scale.
 
 ## Azure Machine Learning Studio
 
-[Azure Machine Learning Studio](../studio/what-is-ml-studio.md) gives you an interactive, visual workspace that you can use to easily and quickly build, test, and deploy models using pre-built machine learning algorithms. Machine Learning Studio publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel. There's no programming required, just visually connecting datasets and modules to construct your machine learning model and deploy it.
-Drag-and-drop predictive modeling, a large pallet of modules, and a library of starting templates make common machine learning tasks simple and quick.
+[Azure Machine Learning Studio](../studio/what-is-ml-studio.md) gives you an interactive, visual workspace that you can use to easily and quickly build, test, and deploy models using pre-built machine learning algorithms. Machine Learning Studio publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
+No programming is required - you construct your machine learning model by connecting datasets and analysis modules on an interactive canvas, and then deploy it with a couple clicks.
 
 Use Machine Learning Studio when you want to develop and deploy models with no code required.
 
