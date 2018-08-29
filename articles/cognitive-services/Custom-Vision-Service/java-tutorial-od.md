@@ -11,7 +11,7 @@ ms.date: 08/28/2018
 ms.author: areddish
 ---
 
-# Use Custom Vision API to build an object detection project with Python
+# Use Custom Vision API to build an object detection project with Java
 
 Explore a basic Java application that uses the Computer Vision API to create an object detection project. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app by using the Custom Vision API.
 
@@ -36,7 +36,7 @@ To get the keys used in this example, visit the [Custom Vision site](https://cus
 
 ## Understand the code
 
-The full project, including images, is avalable from the [Custom Vision Azure samples for Java repository](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
+The full project, including images, is available from the [Custom Vision Azure samples for Java repository](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
 
 Use your favorite Java IDE to open the `Vision/CustomVision` project. 
 
@@ -101,7 +101,7 @@ Tag scissorsTag = trainer.createTag()
 
 ## Upload images to the project
 
-For object detection project you need to upload image, regions, and tags. The region is in normalized coordiantes and specifies the location of the tagged object.
+For object detection project you need to upload image, regions, and tags. The region is in normalized coordinates and specifies the location of the tagged object.
 
 
 ```java
@@ -170,7 +170,7 @@ for (int i = 1; i <= 20; i++) {
 }
 ```
 
-The previous snippet code makes use of two helper functions that retreive the images as resource streams and upload them to the service.
+The previous snippet code makes use of two helper functions that retrieve the images as resource streams and upload them to the service.
 
 ```java
 private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag, double[] regionValues)

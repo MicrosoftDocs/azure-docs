@@ -34,7 +34,7 @@ You can install the Custom Vision SDK from maven central repository:
 
 ## Understand the code
 
-The full project, including images, is avalable from the [Custom Vision Azure samples for Java repository](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
+The full project, including images, is available from the [Custom Vision Azure samples for Java repository](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
 
 Use your favorite Java IDE to open the `Vision/CustomVision` project. 
 
@@ -94,7 +94,7 @@ for (int i = 1; i <= 10; i++) {
 }
 ```
 
-The previous snippet code makes use of two helper functions that retreive the images as resource streams and upload them to the service.
+The previous snippet code makes use of two helper functions that retrieve the images as resource streams and upload them to the service.
 
 ```java
 private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag)
