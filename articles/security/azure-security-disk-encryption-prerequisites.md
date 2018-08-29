@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na 
 ms.workload: na
-ms.date: 08/24/2018
+ms.date: 08/29/2018
 ms.author: mstewart
 ---
 # Azure Disk Encryption prerequisites 
@@ -68,20 +68,18 @@ An example of commands that can be used to mount the data disks and create the n
         - Install PowerShellGet, Azure PowerShell, and load the AzureRM module. 
     - [Install and configure Azure Powershell on macOS and Linux](/powershell/azure/install-azurermps-maclinux).
         -  Install PowerShell Core, Azure PowerShell for .NET Core, and load the AzureRM.Netcore module.
-2. Install the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module). 
+
+2. Verify the installed versions of the AzureRM module. If needed, [update the Azure PowerShell module](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
+    -  The AzureRM module version needs to be 6.0.0 or higher.
+    - Using the latest AzureRM module version is recommended.
 
      ```powershell
-     Install-Module AzureAD
+     Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
      ```
 
-3. Verify the installed versions of the modules.
-      ```powershell
-      Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
-      Get-Module AzureAD -ListAvailable | Select-Object -Property Name,Version,Path
-      ```
-4. Sign in to Azure using the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
+3. Sign in to Azure using the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
      
-     ```powershell
+     ```azurepowershell-interactive
      Connect-AzureRmAccount
      # For specific instances of Azure, use the -Environment parameter.
      Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
@@ -93,13 +91,7 @@ An example of commands that can be used to mount the data disks and create the n
      Set-AzureRmContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
      ```
 
-5.  Connect to Azure AD [Connect-AzureAD](/powershell/module/azuread/connect-azuread).
-     
-     ```powershell
-     Connect-AzureAD
-     ```
-
-6. Review [Getting started with Azure PowerShell](/powershell/azure/get-started-azureps) and [AzureAD](/powershell/module/azuread), if needed.
+4.  If needed, review [Getting started with Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## <a name="bkmk_CLI"></a> Install the Azure CLI for use on your local machine (optional)
 
