@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: erhopf
-ms.reviewer:
+ms.reviewer: ''
 ---
 
 # Human language supported for Azure Cognitive Services
