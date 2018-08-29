@@ -23,7 +23,7 @@ In this article, you can learn how to enable or disable LinkedIn account connect
 >
 > The integration works only if you have it enabled *and* if you allow users to consent to apps accessing company data on their behalf. For information about the consent setting, see [How to remove a user’s access to an application](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 
-## Enable or disable LinkedIn account connection for your tenant in the Azure portal
+## Enable or disable LinkedIn account connections for your tenant in the Azure portal
 
 You can enable or disable LinkedIn account connections for your entire tenant or for only selected users in your tenant.
 
@@ -37,7 +37,7 @@ You can enable or disable LinkedIn account connections for your entire tenant or
   ![Enabling LinkedIn account connections](./media/linkedin-integration/linkedin-integration.png)
 5. Save your settings when you're done by selecting **Save**.
 
-## Enable or disable LinkedIn account connections for your organization's Office 2016 apps using Group Policy
+## Enable or disable LinkedIn account connections for your tenant using Group Policy
 
 1. Download the [Office 2016 Administrative Template files (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
 2. Extract the **ADMX** files and copy them to your central store.
