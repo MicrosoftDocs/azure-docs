@@ -82,6 +82,7 @@ Before deploying Azure File Sync, you should evaluate whether it is compatible w
     ```PowerShell
         Install-Module -Name AzureRM.StorageSync -AllowPrerelease
     ```
+
 **Usage**  
 You can invoke the evaluation tool in a few different ways: you can perform the system checks, the dataset checks, or both. To perform both the system and dataset checks: 
 
