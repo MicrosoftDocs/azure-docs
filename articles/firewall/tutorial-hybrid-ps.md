@@ -393,7 +393,7 @@ Set-AzureRmVMExtension `
 ```
 
 ### Create the on-prem virtual machine
-This is a simple virtual machine that you can connect to using Remote Desktop to the public IP address.From there you can then connect to the on-prem server through the firewall. When prompted, type a user name and password for the virtual machine.
+This is a simple virtual machine that you can connect to using Remote Desktop to the public IP address. From there, you can then connect to the on-prem server through the firewall. When prompted, type a user name and password for the virtual machine.
 ```azurepowershell
 New-AzureRmVm `
     -ResourceGroupName $RG1 `
@@ -422,7 +422,7 @@ $NIC.IpConfigurations.privateipaddress
 
 3. From **VM-Onprem**, open a remote desktop to **VM-spoke-01** at the private IP address.
 
-   You connection should succeed, and you should be able to log on using your chosen username and password.
+   Your connection should succeed, and you should be able to sign in using your chosen username and password.
 
 So now you have verified that the firewall rules are working:
 
