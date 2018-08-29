@@ -14,7 +14,7 @@ ms.reviewer:
 
 # Human languages supported by Cognitive Services
 
-This table provides a high-level mapping of human language support across Cognitive Services. Additional languages and locale-specific availability vary by service. For more information, use the links provided.
+This table provides a high-level mapping of human languages supported across Microsoft Cognitive Services. Additional languages and locale-specific availability vary by service. For more information, use the links provided below.
 
 |   | English | French | Italian | German | Spanish | Chinese | Japanese | Korean | Portuguese |
 |---|---------|--------|---------|--------|---------|---------|----------|--------|------------|
