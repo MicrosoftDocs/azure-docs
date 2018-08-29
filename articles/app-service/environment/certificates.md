@@ -18,9 +18,11 @@ ms.author: ccompy
 
 # Certificates an the App Service Environment #
 
+The App Service Environment(ASE) is a deployment of the Azure App Service that runs within your Azure Virtual Network(VNet). It can be deployed with an internet accessible application endpoint or an application endpoint that is in your VNet. If you deploy it with an endpoint in your VNet, that deployment is called an ILB ASE. You can learn more about the ILB ASE from the [Create and use an ILB ASE](https://docs.microsoft.com/en-us/azure/app-service/environment/create-ilb-ase) document.
+
 There are multiple certificate related topics with the App Service Enviornment and the apps that run on it.  Those topics include:
 
-- ILB ASE certificate
+- ILB ASE certificates
 - application certificates
 - private client certificate 
 
@@ -30,16 +32,14 @@ If you are using an External ASE, then your apps are reached at [appname].[asena
 
 There are two options for configuring certificates with your ILB ASE.  You can either set a wildcard default certificate for the ILB ASE or set certificates on the individual web apps in the ASE.  Regardless of the choice you make, the following certificate attributes must be configured properly:
 
-Subject: This attribute must be set to *.[your-root-domain-here] for a wildcard ILB ASE certificate. If creating the certificate for your app then it should be [appname].[your-root-domain-here]
-Subject Alternative Name: This attribute must include both *.[your-root-domain-here] and *.scm.[your-root-domain-here] for the wildcard ILB ASE certificate. If creating the certificate for your app then it should be [appname].[your-root-domain-here] and [appname].scm.[your-root-domain-here].
+- **Subject:** This attribute must be set to *.[your-root-domain-here] for a wildcard ILB ASE certificate. If creating the certificate for your app then it should be [appname].[your-root-domain-here]
+- **Subject Alternative Name:** This attribute must include both *.[your-root-domain-here] and *.scm.[your-root-domain-here] for the wildcard ILB ASE certificate. If creating the certificate for your app then it should be [appname].[your-root-domain-here] and [appname].scm.[your-root-domain-here].
 
-As a third variant, you can create ILB ASE certificates that include all of your indvidual app names in the SAN of the certificate instead of using a wildcard reference. The problem with this method is that you need to know up front the names of the apps that you are putting in the ASE. 
+As a third variant, you can create an ILB ASE certificate that include all of your indvidual app names in the SAN of the certificate instead of using a wildcard reference. The problem with this method is that you need to know up front the names of the apps that you are putting in the ASE or you need to keep updating the ILB ASE certificate.
 
 ### Upload certificate to ILB ASE ###
 
 After an ILB ASE is created in the portal, the certificate must be set for the ILB ASE. Until this is done the ASE will show a banner that the certificate was not set.  
-
-![ILB ASE certificate upload][1]
 
 The certificate that you upload must be a .pfx file. After the certificate is uploaded, the ASE will perform a scale operation to set the certificate. 
 
