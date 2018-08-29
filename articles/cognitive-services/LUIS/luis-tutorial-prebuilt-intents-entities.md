@@ -8,12 +8,12 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 08/30/2018
+ms.date: 08/31/2018
 ms.author: diberry
 --- 
 
 # Tutorial: 2. Identify common utterances and data
-Add prebuilt intents and entities to the Human Resources tutorial app to quickly gain intent prediction and data extraction. You do not need to label any utterances with prebuilt entities. The entity is detected automatically.
+In this tutorial,  modify the Human Resources app. Add prebuilt intents and entities to the Human Resources tutorial app to quickly gain intent prediction and data extraction. You do not need to label any utterances with prebuilt entities. The entity is detected automatically.
 
 Prebuilt models include an entire subject domain, including intents with example utterances labeled with entities, just intents, or just entities. These prebuilt units of the model of common subject domains and data types help you build your model quickly as well as have an example of what a model looks like. 
 

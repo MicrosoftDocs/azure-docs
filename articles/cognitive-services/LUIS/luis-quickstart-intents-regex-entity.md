@@ -1,6 +1,6 @@
 ---
-title: Tutorial creating a LUIS app to get regular-expression matched data - Azure Cognitive Services| Microsoft Docs 
-description: In this tutorial, modify the Human Resources app to extract consistently-formatted data from an utterance using the Regular expression entity.
+title: Tutorial - 3 - Regular-expression matched data - extract well-formated data - Azure Cognitive Services| Microsoft Docs 
+description: In this tutorial, modify the Human Resources app to extract consistently-formatted data from an utterance using the Regular Expression entity. The purpose of an entity is to extract important data contained within the utterance. This app's use of the regular expression entity is to pull out formatted Human Resources (HR) form numbers from an utterance. While the utterance's intent is always determined with machine-learning, this specific entity type is not machine-learned. 
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -16,38 +16,14 @@ ms.author: diberry
 # Tutorial: 3. Add regular expression entity
 In this tutorial, modify the Human Resources app to extract consistently-formatted data from an utterance using the **Regular Expression** entity.
 
+The purpose of an entity is to extract important data contained within the utterance. This app's use of the regular expression entity is to pull out formatted Human Resources (HR) form numbers from an utterance. While the utterance's intent is always determined with machine-learning, this specific entity type is not machine-learned. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Understand regular expression entities 
-> * Add FindForm intent
-> * Add regular expression entity 
-> * Train app
-> * Publish app
-> * Query endpoint of app to see LUIS JSON response
-
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## Use existing app
-If you do not have the Human Resources app from the [previous](luis-tutorial-prebuilt-intents-entities.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github repository.
-
-If you want to keep the original Human Resources app, clone the version on the [Versions](luis-how-to-manage-versions.md#clone-a-version) page, and name it `regex`. Cloning is a great way to play with various LUIS features without affecting the original version. 
-
-
-## Purpose of the regular expression entity
-The purpose of an entity is to extract important data contained within the utterance. This app's use of the regular expression entity is to pull out formatted Human Resources (HR) Form numbers from an utterance. It is not machine-learned. 
-
-Simple example utterances include:
+Example utterances include:
 
 ```
 Where is HRF-123456?
 Who authored HRF-123234?
 HRF-456098 is published in French?
-```
-
-Abbreviated or slang versions of utterances include:
-
-```
 HRF-456098
 HRF-456098 date?
 HRF-456098 title?
@@ -55,13 +31,33 @@ HRF-456098 title?
  
 The regular expression entity to match the form number is `hrf-[0-9]{6}`. This regular expression matches the literal characters `hrf-` but ignores case and culture variants. It matches digits 0-9, for 6 digits exactly.
 
-HRF stands for human resources form.
+HRF stands for `human resources form`.
 
-### Tokenization with hyphens
 LUIS tokenizes the utterance when it is added to an intent. The tokenization for these utterances adds spaces before and after the hyphen, `Where is HRF - 123456?`  The regular expression is applied to the utterance in its raw form, before it is tokenized. Because it is applied to the _raw_ form, the regular expression doesn't have to deal with word boundaries. 
 
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Use existing tutorial app
+> * Add FindForm intent
+> * Add regular expression entity 
+> * Train
+> * Publish
+> * Get intents and entities from endpoint
 
-## Add FindForm intent
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## Use existing app
+Continue with the app created in the last tutorial, named **HumanResources**. 
+
+If you do not have the HumanResources app from the previous tutorial, use the following steps:
+
+1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
+
+2. Import the JSON into a new app.
+
+3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `regex`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL. 
+
+## FindForm intent
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
@@ -92,7 +88,7 @@ LUIS tokenizes the utterance when it is added to an intent. The tokenization for
 
     [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
-## Create an HRF-number regular expression entity 
+## Regular expression entity 
 Create a regular expression entity to tell LUIS what an HRF-number format is in the following steps:
 
 1. Select **Entities** in the left panel.
@@ -109,15 +105,15 @@ Create a regular expression entity to tell LUIS what an HRF-number format is in 
 
     Because the entity is not a machine-learned entity, the label is applied to the utterances and displayed in the LUIS website as soon as it is created.
 
-## Train the LUIS app
+## Train
 
 [!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## Publish the app to get the endpoint URL
+## Publish
 
 [!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## Query the endpoint with a different utterance
+## Get intent and entities from endpoint
 
 1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -221,19 +217,13 @@ Create a regular expression entity to tell LUIS what an HRF-number format is in 
 
     The numbers in the utterance are returned twice, once as the new entity `hrf-number`, and once as a prebuilt entity, `number`. An utterance can have more than one entity, and more than one of the same type of entity, as this example shows. By using a regular expression entity, LUIS extracts named data, which is more programmatically helpful to the client application receiving the JSON response.
 
-## What has this LUIS app accomplished?
-This app identified the intention and returned the extracted data. 
-
-Your chatbot now has enough information to determine the primary action, `FindForm`, and which form numbers were in the search. 
-
-## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the form numbers and search a third-party API. LUIS doesn't do that work. LUIS only determines what the user's intention is and extracts data about that intention. 
 
 ## Clean up resources
 
 [!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
+This tutorial created a new intent, added example utterances, then created a regular expression entity to extract well-formatted data from the utterances. After training, and publishing the app, a query to the endpoint identified the intention and returned the extracted data.
 
 > [!div class="nextstepaction"]
 > [Learn about the list entity](luis-quickstart-intent-and-list-entity.md)
