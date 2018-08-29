@@ -21,7 +21,7 @@ ms.author: anavin
 
 # Create, change, or delete a public IP address prefix
 
-Learn about a public IP address prefix and how to create, change, and delete one. A public IP address prefix is an allocation of a contiguous range of addresses within your subscription based on the number of public IP addresses you require. The addresses aren't assigned to any other subscription. When you create a public IP address resource, you can assign a static public IP address from the prefix and associate it to virtual machines, load balancers or other resources to enable internet connectivity. If you're not familiar with public IP address prefixes, see [Public IP address prefix overview](public-ip-address-prefix.md)
+Learn about a public IP address prefix and how to create, change, and delete one. A public IP address prefix is a contiguous range of addresses based on the number of public IP addresses you specify. The addresses are assigned to your subscription. When you create a public IP address resource, you can assign a static public IP address from the prefix and associate to virtual machines, load balancers or other resources to enable internet connectivity. If you're not familiar with public IP address prefixes, see [Public IP address prefix overview](public-ip-address-prefix.md)
 
 ## Before you begin
 
