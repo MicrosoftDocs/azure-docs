@@ -60,6 +60,7 @@
 #### [Tutorials](b2b/tutorial-bulk-invite.md)
 ##### [Bulk invite B2B guest users](b2b/tutorial-bulk-invite.md)
 #### [Information workers adding B2B users](b2b/add-users-information-worker.md)
+#### [Enforce multi-factor authentication](b2b/b2b-tutorial-require-mfa.md)
 #### [API and customization](b2b/customize-invitation-api.md)
 #### [Google federation](b2b/google-federation.md)
 #### [Code and Azure PowerShell samples](b2b/code-samples.md)
