@@ -3,7 +3,7 @@ title: Instead of ETL, design ELT for Azure SQL Data Warehouse | Microsoft Docs
 description: Instead of ETL, design an Extract, Load, and Transform (ELT) process for loading data or Azure SQL Data Warehouse.  
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
