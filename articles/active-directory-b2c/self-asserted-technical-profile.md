@@ -32,13 +32,7 @@ The following example shows a self-asserted technical profile for email sign-up:
  
 ## Input claims
 
-The **InputClaims** element can be empty, absent or may contain mapping information between a claim type already defined in the ClaimsSchema section in the policy and a partner claim type. The element may also contain a default value.
-
-The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before presenting to the user.
-
-### Use case
-
-In a self-asserted technical profile, you can use the **InputClaims** element to define the claims that appear on the self-asserted page. For example, in the edit profile policy, the user journey first reads the user profile from the Azure AD B2C directory service, then the self-asserted technical profile sets the input claims with the user data stored in the user profile. These claims are collected from the user profile and then presented to the user who can then edit the existing data.
+In a self-asserted technical profile, you can use the **InputClaims** and **InputClaimsTransformations** elements to prepopulate the value of the claims that appear on the self-asserted page (output claims). For example, in the edit profile policy, the user journey first reads the user profile from the Azure AD B2C directory service, then the self-asserted technical profile sets the input claims with the user data stored in the user profile. These claims are collected from the user profile and then presented to the user who can then edit the existing data.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
@@ -51,15 +45,14 @@ In a self-asserted technical profile, you can use the **InputClaims** element to
   </InputClaims>
 ```
 
+
 ## Output claims
 
-The **OutputClaims** element contains the mapping information between a claim type already defined in the ClaimsSchema section in the policy and a partner claim type. The element may also contain a default value.
+The **OutputClaims** element contains a list of claims to be presented to collect data from the user. To prepopulate the output claims with some values, use the input claims that were previously described. The element may also contain a default value. The order of the claims in **OutputClaims** controls the order that Azure AD B2C renders the claims on the screen. The **DefaultValue** attribute takes effect only if the claim has never been set before. But, if it has been set before in a previous orchestration step, even if the user leaves the value empty, the default value does not take effect. To force the use of a default value, set the **AlwaysUseDefaultValue** attribute to `true`. To force the user to provide a value for a specific output claim, set the **Required** attribute of the **OutputClaims** element to `true`.
+
+The **ClaimType** element in the **OutputClaims** collection needs to set the **UserInputType** element to any user input type supported by Azure AD B2C, such as `TextBox` or `DropdownSingleSelect`. Or the **OutputClaim** element must set a **DefaultValue**.  
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
-
-The **ClaimType** element in the **OutputClaims** collection needs to set the **UserInputType** element to any user input type supported by Azure AD B2C, such as `TextBox` or `DropdownSingleSelect`. Or the **OutputClaim** element must set a **DefaultValue**. The order the claims in **OutputClaims** controls the order that Azure AD B2C renders the claims on the screen. The **DefaultValue** attribute takes effect only if the claim has never been set before. But, if it has been set before in a previous orchestration step, even if the user leaves the value empty, the default value does not take effect. 
-
-To force the use of a default value, set the **AlwaysUseDefaultValue** attribute to `true`. To force the user to provide a value for a specific output claim, set the **Required** attribute of the **OutputClaims** element to `true`.
 
 The following output claim is always set to `live.com`:
 
