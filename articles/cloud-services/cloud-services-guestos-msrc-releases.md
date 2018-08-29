@@ -23,29 +23,29 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 ## August Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-| Rel 18-08 | [4343887] | Windows 10 Security | 5.22 | <date> |
-| Rel 18-08 | [4343899] | Windows Security only | 2.77 | <date> |
-| Rel 18-08 | [4343896] | Windows Security only | 3.64 | <date> |
-| Rel 18-08 | [4343888] | Windows Security only | 4.57 | <date> |
-| Rel 18-08 | [4344177], [4344173] | .NET 3.5, 4.5 Security | 2.77 | <date> |
-| Rel 18-08 | [4344175], [4344172] | .NET 3.5, 4.x Security | 3.64 | <date> |
-| Rel 18-08 | [4344178], [4344171] | .NET 3.5, 4.x Security | 4.57 | <date> |
-| Rel 18-08 | [4346742], [4346739] | .NET 3.5, 4.x OOB release | 3.64 | <date> |
-| Rel 18-08 | [4346745], [4346408] | .NET 3.5, 4.x OOB release | 4.57 | <date> |
-| Rel 18-08 | [4343902] | Flash | 3.64, 4.57, 5.22 | <date> |
-| Rel 18-08 | [4343206] | Internet Explorer | 2.77, 3.64, 4.57 | <date> |
-| N/A | [4338818] |July Non-Security rollup |2.77 | <date> |
-| N/A | [4019990] |D3D Compiler update for .NET |2.77 | <date> |
-| N/A | [4338830] |July Non-Security rollup |3.64 | <date> |
-| N/A | [4338421] |July Non-Security NET 3.5 rollup |3.64 | <date> |
-| N/A | [4338416] |July Non-Security NET 4x rollup |3.64 | <date> |
-| N/A | [4338815] |July Non-Security rollup |4.57 | <date> |
-| N/A | [4338424] |July Non-Security NET 3.5 rollup |3.64 | <date> |
-| N/A | [4338415] |July Non-Security NET 4x rollup |3.64 | <date> |
-| N/A | |NET 4.7.2 added to WS16 DB | 5.22 | <date> |
-| N/A | |No longer check WU for device drivers | | <date> |
-| N/A | |Microsoft-Hyper-V-Management-PowerShell feature added to Native SKUs | | <date> |
-| N/A | |TenantConfigId 6 added to native SKUs (Same as TCI 1 except NetworkDirect enabled, SmbDirect disabled) | | <date> |
+| Rel 18-08 | [4343887] | Windows 10 Security | 5.22 | ADD DATE |
+| Rel 18-08 | [4343899] | Windows Security only | 2.77 | ADD DATE |
+| Rel 18-08 | [4343896] | Windows Security only | 3.64 | ADD DATE |
+| Rel 18-08 | [4343888] | Windows Security only | 4.57 | ADD DATE |
+| Rel 18-08 | [4344177], [4344173] | .NET 3.5, 4.5 Security | 2.77 | ADD DATE |
+| Rel 18-08 | [4344175], [4344172] | .NET 3.5, 4.x Security | 3.64 | ADD DATE |
+| Rel 18-08 | [4344178], [4344171] | .NET 3.5, 4.x Security | 4.57 | ADD DATE |
+| Rel 18-08 | [4346742], [4346739] | .NET 3.5, 4.x OOB release | 3.64 | ADD DATE |
+| Rel 18-08 | [4346745], [4346408] | .NET 3.5, 4.x OOB release | 4.57 | ADD DATE |
+| Rel 18-08 | [4343902] | Flash | 3.64, 4.57, 5.22 | ADD DATE |
+| Rel 18-08 | [4343206] | Internet Explorer | 2.77, 3.64, 4.57 | ADD DATE |
+| N/A | [4338818] |July Non-Security rollup |2.77 | ADD DATE |
+| N/A | [4019990] |D3D Compiler update for .NET |2.77 | ADD DATE |
+| N/A | [4338830] |July Non-Security rollup |3.64 | ADD DATE |
+| N/A | [4338421] |July Non-Security NET 3.5 rollup |3.64 | ADD DATE |
+| N/A | [4338416] |July Non-Security NET 4x rollup |3.64 | ADD DATE |
+| N/A | [4338815] |July Non-Security rollup |4.57 | ADD DATE |
+| N/A | [4338424] |July Non-Security NET 3.5 rollup |3.64 | ADD DATE |
+| N/A | [4338415] |July Non-Security NET 4x rollup |3.64 | ADD DATE |
+| N/A | |NET 4.7.2 added to WS16 DB | 5.22 | ADD DATE |
+| N/A | |No longer check WU for device drivers | | ADD DATE |
+| N/A | |Microsoft-Hyper-V-Management-PowerShell feature added to Native SKUs | | ADD DATE |
+| N/A | |TenantConfigId 6 added to native SKUs (Same as TCI 1 except NetworkDirect enabled, SmbDirect disabled) | | ADD DATE |
 
 
 ## July Guest OS
