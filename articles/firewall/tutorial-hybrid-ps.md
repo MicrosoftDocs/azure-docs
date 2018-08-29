@@ -56,18 +56,18 @@ $ConnectionNameHub = "hub-to-Onprem"
 $VnetNameSpoke = "VNet-Spoke"
 $SNnameSpoke = "SN-Workload"
 $VNetSpokePrefix = "10.6.0.0/16"
-$SNSpokePrefix = "10.6.0.0/24
+$SNSpokePrefix = "10.6.0.0/24"
 $SNSpokeGWPrefix = "10.6.1.0/24"
 
 # Variables for the On-prem VNet
 
 $VNetnameOnprem = "Vnet-Onprem"
 $SNNameOnprem = "SN-Corp"
-$VNetOnpremPrefix = "192.168.1.0/16"
+$VNetOnpremPrefix = "192.168.0.0/16"
 $SNOnpremPrefix = "192.168.1.0/24"
 $SNGWOnpremPrefix = "192.168.2.0/24"
 $GWOnpremName = "GW-Onprem"
-$GWIPconfNameOnprem = ""GW-ipconf-Onprem"
+$GWIPconfNameOnprem = "GW-ipconf-Onprem"
 $ConnectionNameOnprem = "Onprem-to-hub"
 $GWOnprempipName = "VNet-Onprem-GW-pip"
 
@@ -96,7 +96,7 @@ $GWsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $S
 Now, create the firewall hub VNet:
 
 ```azurepowershell
-$VNet-Hub = New-AzureRmVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
+$VNetHub = New-AzureRmVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
 Request a public IP address to be allocated to the gateway you will create for your VNet. Notice that the *AllocationMethod* is **Dynamic**. You cannot specify the IP address that you want to use. It's dynamically allocated to your gateway. 
@@ -105,8 +105,9 @@ Request a public IP address to be allocated to the gateway you will create for y
   $gwpip1 = New-AzureRmPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
 ```
+### Create a gateway
 
-Create the gateway configuration. The gateway configuration defines the subnet and the public IP address to use. Use the example to create your gateway configuration.
+Create the gateway configuration. The gateway configuration defines the subnet and the public IP address to use.
 
   ```azurepowershell
   $vnet1 = Get-AzureRmVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1
@@ -115,7 +116,7 @@ Create the gateway configuration. The gateway configuration defines the subnet a
   -Subnet $subnet1 -PublicIpAddress $gwpip1
   ```
 
-Now you can create the virtual network gateway for firewall hub VNet. VNet-to-VNet configurations require a RouteBased VpnType. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
+Now create the virtual network gateway for the hub VNet. VNet-to-VNet configurations require a RouteBased VpnType. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1 `
@@ -128,25 +129,25 @@ Define the subnets to be included in the spoke VNet:
 
 ```azurepowershell
 $Spokesub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameSpoke -AddressPrefix $SNSpokePrefix
-$GWsub-spoke = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNSpokeGWPrefix
+$GWsubSpoke = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNSpokeGWPrefix
 ```
 
 Create the spoke VNet:
 
 ```azurepowershell
-$VNet-Spoke = New-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $RG1 `
--Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsub-spoke
+$VNetSpoke = New-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $RG1 `
+-Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsubSpoke
 ```
 ### Peer the hub and spoke VNets
 
-Now you can peer spoke and hub VNets.
+Now peer the spoke and hub VNets.
 
 ```azurepowershell
 # Peer hub to spoke
-Add-AzureRmVirtualNetworkPeering -Name HubtoSpoke -VirtualNetwork $VNet-Hub -RemoteVirtualNetworkId $VNet-Spoke.Id -AllowGatewayTransit
+Add-AzureRmVirtualNetworkPeering -Name HubtoSpoke -VirtualNetwork $VNetHub -RemoteVirtualNetworkId $VNetSpoke.Id -AllowGatewayTransit
 
 # Peer spoke to hub
-Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNet-Spoke -RemoteVirtualNetworkId $VNet-Hub.Id -AllowForwardedTraffic -UseRemoteGateways
+Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -RemoteVirtualNetworkId $VNetHub.Id -AllowForwardedTraffic -UseRemoteGateways
 ```
 
 ### Create and configure the on-prem VNet
@@ -161,26 +162,27 @@ $GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPre
 Now, create the on-prem VNet:
 
 ```azurepowershell
-$VNet-Hub = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
+$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
-Request a public IP address to be allocated to the gateway you will create for your VNet. Notice that the *AllocationMethod* is **Dynamic**. You cannot specify the IP address that you want to use. It's dynamically allocated to your gateway. 
+Request a public IP address to be allocated to the gateway you will create for the VNet. Notice that the *AllocationMethod* is **Dynamic**. You cannot specify the IP address that you want to use. It's dynamically allocated to your gateway. 
 
   ```azurepowershell
-  $gwOnprem-pip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
+  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
 ```
+### Create a gateway
 
-Create the gateway configuration. The gateway configuration defines the subnet and the public IP address to use. Use the example to create your gateway configuration.
+Create the gateway configuration. The gateway configuration defines the subnet and the public IP address to use.
 
   ```azurepowershell
 $vnet2 = Get-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
 $subnet2 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet2
 $gwipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfNameOnprem `
-  -Subnet $subnet2 -PublicIpAddress $gwOnprem-pip
+  -Subnet $subnet2 -PublicIpAddress $gwOnprempip
   ```
 
-Now you can create the virtual network gateway for spoke VNet. VNet-to-VNet configurations require a RouteBased VpnType. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
+Now create the virtual network gateway for the on-prem VNet. VNet-to-VNet configurations require a RouteBased VpnType. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1 `
@@ -193,23 +195,23 @@ Now you can create the VPN connections between the hub and on-prem gateways
 #### Get the gateways
 ```azurepowershell
 $vnetHubgw = Get-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1
-$vnetSpokegw = Get-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1
+$vnetOnpremgw = Get-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1
 ```
 
 #### Create the connections
 
-In this step, you create the connection from VNET-FW to Vnet-Onprem. You'll see a shared key referenced in the examples. You can use your own values for the shared key. The important thing is that the shared key must match for both connections. Creating a connection can take a short while to complete.
+In this step, you create the connection from the hub VNet to the On-prem VNet. You'll see a shared key referenced in the examples. You can use your own values for the shared key. The important thing is that the shared key must match for both connections. Creating a connection can take a short while to complete.
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupName $RG1 `
--VirtualNetworkGateway1 $vnetHubgw -VirtualNetworkGateway2 $vnetSpokegw -Location $Location1 `
+-VirtualNetworkGateway1 $vnetHubgw -VirtualNetworkGateway2 $vnetOnpremgw -Location $Location1 `
 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 ```
-Create the Vnet-Onprem to VNET-FW connection. This step is similar to the previous one, except you create the connection from Vnet-Onprem to VNET-FW. Make sure the shared keys match. The connection will be established after a few minutes.
+Create the On-prem to hub VNet connection. This step is similar to the previous one, except you create the connection from Vnet-Onprem to VNet-hub. Make sure the shared keys match. The connection will be established after a few minutes.
 
   ```azurepowershell
   New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameOnprem -ResourceGroupName $RG1 `
-  -VirtualNetworkGateway1 $vnetSpokegw -VirtualNetworkGateway2 $vnetHubgw -Location $Location1 `
+  -VirtualNetworkGateway1 $vnetOnpremgw -VirtualNetworkGateway2 $vnetHubgw -Location $Location1 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 #### Verify the connection
@@ -235,35 +237,37 @@ Now deploy the firewall into the hub VNet.
 
 ```azurepowershell
 # Get a Public IP for the firewall
-$fw-pip = New-AzureRmPublicIpAddress -Name fw-pip -ResourceGroupName $RG1 `
-  -Location $Location1 -AllocationMethod Dynamic -Sku Standard
+$FWpip = New-AzureRmPublicIpAddress -Name "fw-pip" -ResourceGroupName $RG1 `
+  -Location $Location1 -AllocationMethod Static -Sku Standard
 # Create the firewall
 $Azfw = New-AzureRmFirewall -Name AzFW01 -ResourceGroupName $RG1 -Location $Location1 -VirtualNetworkName $VNetnameHub -PublicIpName fw-pip
 
 #Save the firewall private IP address for future use
 
 $AzfwPrivateIP = $Azfw.IpConfigurations.privateipaddress
+$AzfwPrivateIP
+
 ```
 
 ### Configure network rules
 
 ```azurepowershell
 $Rule1 = New-AzureRmFirewallNetworkRule -Name "AllowWeb" -Protocol TCP -SourceAddress $SNOnpremPrefix `
-   -DestinationAddress 10.6.0.0/16 -DestinationPort 80
+   -DestinationAddress $VNetSpokePrefix -DestinationPort 80
 $Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
-   -DestinationAddress 10.6.0.0/16 -DestinationPort *
+   -DestinationAddress $VNetSpokePrefix -DestinationPort *
 $Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
-   -DestinationAddress 10.6.0.0/16 -DestinationPort 3389
+   -DestinationAddress $VNetSpokePrefix -DestinationPort 3389
 
 $NetRuleCollection = New-AzureRmFirewallNetworkRuleCollection -Name RCNet01 -Priority 100 `
    -Rule $Rule1,$Rule2,$Rule3 -ActionType "Allow"
 $Azfw.NetworkRuleCollections = $NetRuleCollection
 Set-AzureRmFirewall -AzureFirewall $Azfw
 ```
-### Configure application rule
+### Configure an application rule
 
 ```azurepowershell
-$Rule4 = New-AzureRmFirewallApplicationRule -Name "AllowBing" -Protocol "Http:80",Https:443" `
+$Rule4 = New-AzureRmFirewallApplicationRule -Name "AllowBing" -Protocol "Http:80","Https:443" `
    -SourceAddress $SNOnpremPrefix -TargetFqdn "bing.com"
 
 $AppRuleCollection = New-AzureRmFirewallApplicationRuleCollection -Name RCApp01 -Priority 100 `
@@ -281,7 +285,7 @@ Next, create a couple routes:
 
 ```azurepowershell
 #Create a route table
-$routeTableHub-Spoke = New-AzureRmRouteTable `
+$routeTableHubSpoke = New-AzureRmRouteTable `
   -Name 'UDR-Hub-Spoke' `
   -ResourceGroupName $RG1 `
   -location $Location1
@@ -300,10 +304,10 @@ Get-AzureRmRouteTable `
 #Associate the route table to the subnet
 
 Set-AzureRmVirtualNetworkSubnetConfig `
-  -VirtualNetwork $VNetnameHub `
+  -VirtualNetwork $VNetHub `
   -Name $SNnameGW `
   -AddressPrefix $SNGWHubPrefix `
-  -RouteTable $routeTableHub-Spoke | `
+  -RouteTable $routeTableHubSpoke | `
 Set-AzureRmVirtualNetwork
 
 #Now create the default route
@@ -318,7 +322,7 @@ $routeTableSpokeDG = New-AzureRmRouteTable `
 #Create a route
 Get-AzureRmRouteTable `
   -ResourceGroupName $RG1 `
-  -Name Spoke-DG `
+  -Name UDR-DG `
   | Add-AzureRmRouteConfig `
   -Name "ToSpoke" `
   -AddressPrefix 0.0.0.0/0 `
@@ -329,7 +333,7 @@ Get-AzureRmRouteTable `
 #Associate the route table to the subnet
 
 Set-AzureRmVirtualNetworkSubnetConfig `
-  -VirtualNetwork $VNetnameHub `
+  -VirtualNetwork $VNetSpoke `
   -Name $SNnameSpoke `
   -AddressPrefix $SNSpokePrefix `
   -RouteTable $routeTableSpokeDG | `
@@ -339,8 +343,8 @@ Set-AzureRmVirtualNetwork
 
 Now create the spoke workload and on-prem virtual machines, and place them in the appropriate subnets.
 
-### Create the workload VM
-Create a VM in the spoke VNet, running IIS, with no public IP address, and allows pings in.
+### Create the workload virtual machine
+Create a virtual machine in the spoke VNet, running IIS, with no public IP address, and allows pings in.
 When prompted, type a user name and password for the virtual machine.
 
 ```azurepowershell
@@ -353,11 +357,8 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name Allow-web  -Protocol Tc
 # Create a network security group
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $RG1 -Location $Location1 -Name NSG-Spoke02 -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 
-#Get the VNet
-$Vnet = Get-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $RG1
-
 #Create the NIC
-$NIC = New-AzureRmNetworkInterface -Name spoke-01 -ResourceGroupName $RG1 -Location $Location1 -SubnetId $Vnet.Subnets[0].Id -NetworkSecurityGroupId $nsg.Id
+$NIC = New-AzureRmNetworkInterface -Name spoke-01 -ResourceGroupName $RG1 -Location $Location1 -SubnetId $VnetSpoke.Subnets[0].Id -NetworkSecurityGroupId $nsg.Id
 
 #Define the virtual machine
 $VirtualMachine = New-AzureRmVMConfig -VMName VM-Spoke-01 -VMSize "Standard_DS2"
@@ -392,7 +393,7 @@ Set-AzureRmVMExtension `
 ```
 
 ### Create the on-prem virtual machine
-A simple virtual machine that you can connect to using the public IP, and then connect to the on-prem server through the firewall. When prompted, type user name and password for the virtual machine.
+This is a simple virtual machine that you can connect to using Remote Desktop to the public IP address.From there you can then connect to the on-prem server through the firewall. When prompted, type a user name and password for the virtual machine.
 ```azurepowershell
 New-AzureRmVm `
     -ResourceGroupName $RG1 `
@@ -421,7 +422,7 @@ $NIC.IpConfigurations.privateipaddress
 
 3. From **VM-Onprem**, open a remote desktop to **VM-spoke-01** at the private IP address.
 
-   You connection should succeed, and you should be able to log on using your chosen  username and password.
+   You connection should succeed, and you should be able to log on using your chosen username and password.
 
 So now you have verified that the firewall rules are working:
 
@@ -429,23 +430,22 @@ So now you have verified that the firewall rules are working:
 - You can browse web server on the spoke VNet.
 - You can connect to the server on the spoke VNet using RDP.
 
-Now change the firewall network rule collection action to **deny**, to verify that the firewall rules work as expected. Run the following Azure PowerShell to change the network rule collection action to **Deny**.
+Next, change the firewall network rule collection action to **Deny** to verify that the firewall rules work as expected. Run the following script to change the rule collections action to **Deny**.
 
 ```azurepowershell
-$fw = Get-AzureRmFirewall -ResourceGroupName $RG1 -Name $Azfw
-$rcNet = $fw.GetNetworkRuleCollectionByName("RCNet01")
+$rcNet = $azfw.GetNetworkRuleCollectionByName("RCNet01")
 $rcNet.action.type = "Deny"
 
-$rcApp = $fw.ApplicationRuleCollectionByName("RCApp01")
+$rcApp = $azfw.GetApplicationRuleCollectionByName("RCApp01")
 $rcApp.action.type = "Deny"
 
-Set-AzureRmFirewall -AzureFirewall $fw
+Set-AzureRmFirewall -AzureFirewall $azfw
 ```
 Now run the tests again. They should all fail this time. Close any existing remote desktops before testing the changed rules.
 
 ## Clean up resources
 
-You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **Test-FW-RG** resource group to delete all firewall-related resources.
+You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **FW-Hybrid-Test** resource group to delete all firewall-related resources.
 
 
 ## Next steps
