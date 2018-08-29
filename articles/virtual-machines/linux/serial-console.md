@@ -143,6 +143,15 @@ SUSE        | Newer SLES images available on Azure have console access enabled b
 Oracle Linux        | Oracle Linux images available on Azure have console access enabled by default.
 Custom Linux images     | To enable serial console for your custom Linux VM image, enable console access in /etc/inittab to run a terminal on ttyS0. Here is an example to add this in the inittab file: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. For more information on properly creating custom images see [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd).
 
+## Accessibility in the Azure Virtual Machine Serial Console
+Accessibility is a key focus for the Azure serial console. To that end, we have ensured that the serial console is accessible for those with visual and hearing impairments, as well as people who may not be able to use a mouse.
+
+### Keyboard navigation
+Use the `tab` key on your keyboard to navigate around the serial console interface within the Aure portal. Your location will be highlighted on screen. To leave the focus of the serial console blade, press `Ctrl + F6` on your keyboard.
+
+### Use serial console with a screen reader
+Serial console comes with screen reader support built in. Navigating around with a screen reader turned on will allow the alt text for the currently selected button to be read aloud by the screen reader.
+
 ## Errors
 Most errors are transient in nature and retrying the serial console connection often addresses these. The table below shows a list of errors and mitigations
 
