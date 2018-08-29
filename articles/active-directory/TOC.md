@@ -55,6 +55,8 @@
 ##### [What is B2B guest user access?](b2b/what-is-b2b.md)
 ##### [Compare B2B with B2C](b2b/compare-with-b2c.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
+#### [Tutorials](b2b/tutorial-bulk-invite.md)
+##### [Bulk invite B2B guest users](b2b/tutorial-bulk-invite.md)
 #### [Information workers adding B2B users](b2b/add-users-information-worker.md)
 #### [API and customization](b2b/customize-invitation-api.md)
 #### [Google federation](b2b/google-federation.md)
