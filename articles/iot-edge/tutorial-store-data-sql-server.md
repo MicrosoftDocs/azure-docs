@@ -171,7 +171,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 
 A [Deployment manifest](module-composition.md) declares which modules the IoT Edge runtime will install on your IoT Edge device. You added the code to make a customized Function module in the previous section, but the SQL Server module is already built. You just need to tell the IoT Edge runtime to include it, then configure it on your device. 
 
-1. In the Visual Studio Code explorer, open the **deployment.template.json** file.
+1. In the Visual Studio Code explorer, open the **deployment.template.json** file. 
 2. Find the **moduleContent.$edgeAgent.properties.desired.modules** section. There should be two modules listed: **tempSensor**, which generates simulated data, and your **sqlFunction** module.
 3. If you're on a Windows machine, modify the **sqlFunction.settings.image** section.
     ```json
@@ -263,11 +263,11 @@ On your IoT Edge device, run the following command to see the status of the modu
 
 ## Create the SQL database
 
-When you apply the deployment manifest to your device, you get three modules running. The tempSensor module generates simulated environment data. The sqlFunction module takes the data and formats it for a database.
+When you apply the deployment manifest to your device, you get three modules running. The tempSensor module generates simulated environment data. The sqlFunction module takes the data and formats it for a database. 
 
-This section guides you through setting up the SQL database to store the temperature data.
+This section guides you through setting up the SQL database to store the temperature data. 
 
-1. In a command-line tool, connect to your database. 
+1. In a command-line too, connect to your database. 
    * Windows container:
    
       ```cmd
