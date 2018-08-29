@@ -6,7 +6,7 @@ author: seanmck
 
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 08/23/2018
+ms.date: 08/28/2018
 ms.author: seanmck
 ---
 
@@ -19,10 +19,18 @@ There are several best practice that you should follow on your Kubernetes deploy
 
 The kube-advisor tool is a single container designed to be run on your cluster. It queries the Kubernetes API server for information about your deployments and returns a set of suggested improvements.
 
-To run the tool on a cluster that is configured for role-based access control (RBAC), use the following commands:
+To run the tool on a cluster that is configured for [role-based access control (RBAC)](aad-integration), use the following commands:
 
 ```bash
-kubectl run --rm -it kube-resource-checker --image=seanknox/kube-resource-checker:latest --restart=Never
+kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml?token=ABLLDrNcuHMro9jQ0xduCaEbpzLupzQUks5bh3RhwA%3D%3D
+
+kubectl run --rm -i -t kube-advisor --image=mcr.microsoft.com/kube-advisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }"
+```
+
+If you are not using RBAC, you can run the command as follows:
+
+```bash
+kubectl run --rm -i -t kube-advisor --image=mcr.microsoft.com/kube-advisor --restart=Never
 ```
 
 Within a few seconds, you should see a table describing potential improvements to your deployments.
@@ -36,6 +44,14 @@ The tool validates several Kubernetes best practices, each with their own sugges
 Kubernetes supports defining [resource requests and limits on pod specifications][kube-cpumem]. The request defines the minimum CPU and memory required to run the container, while the limit defines the maximum CPU and memory that should be allowed.
 
 By default, no requests or limits are set on pod specifications, which can lead to nodes being overscheduled and containers being starved. The kube-advisor tool highlights pods without requests and limits set.
+
+## Cleaning up
+
+If your cluster has RBAC enabled, you can clean up the `ClusterRoleBinding` after you've run the tool using the following command:
+
+```bash
+kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml?token=ABLLDrNcuHMro9jQ0xduCaEbpzLupzQUks5bh3RhwA%3D%3D
+```
 
 ## Next steps
 
