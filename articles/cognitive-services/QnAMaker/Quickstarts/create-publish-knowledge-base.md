@@ -35,7 +35,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
    ![Select a QnA service KB](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-5. In step 3, name your KB "My Sample QnA KB."
+5. In step 3, name your KB **My Sample QnA KB**.
 
 6. To add content to your KB, select three types of data sources. In step 4, under **Populate your KB**, add the 
 [BitLocker Recovery FAQ](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) URL in the **URL** box.
