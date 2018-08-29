@@ -46,7 +46,7 @@ SQL Data Discovery & Classification comes with a built-in set of sensitivity lab
 Definition and customization of your classification taxonomy is done in one central place for your entire Azure tenant. That location is in [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), as part of your Security Policy. Only someone with administrative rights on the Tenant root management group can perform this task.
 
 As part of the Information Protection policy management, you can define custom labels, rank them, and associate them with a selected set of information types. You can also add your own custom information types and configure them with string patterns, which are added to the discovery logic for identifying this type of data in your databases.
-Learn more about customizing and managing your policy in the [Information Protection policy how-to guide](../security-center/security-center-policies-overview.md).
+Learn more about customizing and managing your policy in the [Information Protection policy how-to guide](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
 
 Once the tenant-wide policy has been defined, you can continue with the classification of individual databases using your customized policy.
 
