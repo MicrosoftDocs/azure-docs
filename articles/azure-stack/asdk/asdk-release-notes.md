@@ -19,7 +19,7 @@ ms.reviewer: misainat
 ---
 
 # Azure Stack Development Kit release notes  
-These release notes provide information about improvements, fixes, and known issues in Azure Stack Development Kit. If you're not sure which version you're running, you can [use the portal to check](.\.\azure-stack-updates.md#determine-the-current-version).
+This article provides information about improvements, fixes, and known issues in Azure Stack Development Kit. If you're not sure which version you're running, you can [use the portal to check](.\.\azure-stack-updates.md#determine-the-current-version).
 
 > Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
@@ -37,6 +37,8 @@ This build includes the following improvements and fixes for Azure Stack.
 - <!-- ASDK --> **Gallery items for Virtual Machine Scale Sets are now built-in**.  Virtual Machine Scale Set gallery items are now made available in the user and administrator portals without having to download them. 
 
 - <!-- IS, ASDK --> **Virtual Machine Scale Set scaling**.  You can use the portal to [scale a Virtual Machine Scale Set](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
+
+- <!-- 2489570 | IS ASDK--> **Support for custom IPSec/IKE policy configurations** for [VPN gateways in Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 
 
 ### Fixed issues
@@ -102,7 +104,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!--  2966665 – IS, ASDK --> Attaching SSD data disks to premium size managed disk virtual machines  (DS, DSv2, Fs, Fs_V2) fails with an error:  *Failed to update disks for the virtual machine ‘vmname’ Error: Requested operation cannot be performed because storage account type ‘Premium_LRS’ is not supported for VM size ‘Standard_DS/Ds_V2/FS/Fs_v2)*
 
-   To work around this issue, use Standard_LRS data disks instead of Premium_LRS disks. This does not change IOPs or the billing cost. 
+   To work around this issue, use *Standard_LRS* data disks instead of *Premium_LRS disks*, Use of *Standard_LRS* data disks doesn't change IOPs or the billing cost.  
 
 - <!--  2795678 – IS, ASDK --> When you use the portal to create virtual machines (VM) in a premium VM size (DS,Ds_v2,FS,FSv2), the VM is created in a standard storage account. Creation in a standard storage account does not affect functionally, IOPs, or billing. 
 
@@ -360,14 +362,14 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2297790 - IS, ASDK --> **Azure Stack now includes a *Syslog* client** as a *preview feature*. This client allows the forwarding of audit and security logs related to the Azure Stack infrastructure to a Syslog server or security information and event management (SIEM) software that is external to Azure Stack. Currently, the Syslog client only supports unauthenticated UDP connections over default port 514. The payload of each Syslog message is formatted in Common Event Format (CEF).
 
-  To configure the Syslog client, use  the **Set-SyslogServer** cmdlet exposed in the Privileged Endpoint.
+  To configure the Syslog client, use  the **Set-SyslogServer** cmdlet on the Privileged Endpoint.
 
   With this preview, you might see the following three alerts. When presented by Azure Stack, these alerts include *descriptions* and *remediation* guidance.
   - TITLE: Code Integrity Off  
   - TITLE: Code Integrity in Audit Mode
   - TITLE: User Account Created
 
-  While this feature is in preview, it should not be relied upon in production environments.   
+  While this feature is in preview, it shouldn't be relied upon in production environments.   
 
 
 ### Fixed issues
@@ -438,7 +440,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
   In this version of Azure Stack, this alert can fire incorrectly. If tenant virtual machines continue to deploy successfully, you can safely ignore this alert. 
   
-  Alert #3 does not automatically close. If you close this alert Azure Stack will create the same alert within 15 minutes.  
+  Alert #3 won't automatically close. If you close this alert Azure Stack will create the same alert within 15 minutes.  
 
 - <!-- 2368581 - IS. ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
 
