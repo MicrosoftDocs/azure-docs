@@ -19,7 +19,7 @@ There are several best practice that you should follow on your Kubernetes deploy
 
 The kube-advisor tool is a single container designed to be run on your cluster. It queries the Kubernetes API server for information about your deployments and returns a set of suggested improvements.
 
-To run the tool on a cluster that is configured for [role-based access control (RBAC)](aad-integration), use the following commands:
+To run the tool on a cluster that is configured for [role-based access control (RBAC)](aad-integration.md), use the following commands:
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml?token=ABLLDrNcuHMro9jQ0xduCaEbpzLupzQUks5bh3RhwA%3D%3D
