@@ -69,7 +69,9 @@ The Azure Functions project template in Visual Studio creates a project that can
 1. Select the language for your function app project. In this article, JavaScript is used.
     ![Choose project language](./media/functions-create-first-function-vs-code/create-function-app-project-language.png)
 
-Visual Studio creates the function app project. This project contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. You also get a new Git repository in the project folder.
+1. When prompted, choose **Add to workspace**.
+
+Visual Studio creates the function app project in a new workspace. This project contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. You also get a new Git repository in the project folder.
 
 ## Create an HTTP triggered function
 
@@ -81,11 +83,11 @@ Visual Studio creates the function app project. This project contains the [host.
 
     ![Choose the HTTP trigger template](./media/functions-create-first-function-vs-code/create-function-choose-template.png)
 
-1. Type `HTTPTriggerJS` for the function name and press Enter, then select **Anonymous** authentication.
+1. Type `HTTPTrigger` for the function name and press Enter, then select **Anonymous** authentication.
 
     ![Choose anonymous authentication](./media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
 
-    A function is created in your chosen language using the template for an HTTP triggered function. 
+    A function is created in your chosen language using the template for an HTTP triggered function.
 
     ![HTTP triggered function template in VS Code](./media/functions-create-first-function-vs-code/new-function-full.png)
 
@@ -97,13 +99,17 @@ Now that you've created your function project and an HTTP-triggered function, yo
 
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio.  
 
-1. To test your function, press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To test your function, set a breakpoint in the function code and press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP triggered function.
 
     ![Azure local output](./media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-1. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request: 
+1. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. Execution is paused when the breakpoint is hit.
+
+    ![Function hitting breakpoint in VS Code](./media/functions-create-first-function-vs-code/function-debug-vscode-js.png)
+
+1. When you continue the execution, the following shows the response in the browser to the GET request:
 
     ![Function localhost response in the browser](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
 
