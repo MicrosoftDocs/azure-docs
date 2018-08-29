@@ -3,7 +3,7 @@ title: Azure Security Center Troubleshooting Guide | Microsoft Docs
 description: This document helps to troubleshoot issues in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2018
-ms.author: yurid
+ms.date: 08/26/2018
+ms.author: rkarlin
 
 ---
 # Azure Security Center Troubleshooting Guide
@@ -60,7 +60,7 @@ There are two installation scenarios that can produce different results when ins
 > To avoid the behavior explained in the second scenario, make sure you download the latest version of the agent.
 >
 
-## Monitoring agent health issues
+## Monitoring agent health issues <a name="mon-agent"></a>
 **Monitoring state** defines the reason Security Center is unable to successfully monitor VMs and computers initialized for automatic provisioning. The following table shows the **Monitoring state** values, descriptions, and resolution steps.
 
 | Monitoring state | Description | Resolution steps |
@@ -77,7 +77,7 @@ There are two installation scenarios that can produce different results when ins
 | Agent not installed | Data collection is disabled. | Turn on data collection in the security policy or manually install the Microsoft Monitoring Agent. |
 
 
-## Troubleshooting monitoring agent network requirements
+## Troubleshooting monitoring agent network requirements <a name="mon-network-req"></a>
 For agents to connect to and register with Security Center, they must have access to network resources, including the port numbers and domain URLs.
 
 - For proxy servers, you need to ensure that the appropriate proxy server resources are configured in agent settings. Read this article for more information on [how to change the proxy settings](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
