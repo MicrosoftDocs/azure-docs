@@ -14,9 +14,7 @@ ms.reviewer:
 
 # Human languages supported by Cognitive Services
 
-This table provides a high-level mapping of human language support across Cognitive Services. Additional languages and locale-specific availability vary by service, for more information, use the links provided.
-
-This sample table displays most services in Ashly's PPT. It focuses on **Tier** 1 languages.
+This table provides a high-level mapping of human language support across Cognitive Services. Additional languages and locale-specific availability vary by service. For more information, use the links provided.
 
 |   | English | French | Italian | German | Spanish | Chinese | Japanese | Korean | Portuguese |
 |---|---------|--------|---------|--------|---------|---------|----------|--------|------------|
