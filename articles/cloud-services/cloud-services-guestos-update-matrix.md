@@ -3,7 +3,7 @@ title: Learn about the latest Azure Guest OS Releases | Microsoft Docs
 description: The latest release news and SDK compatibility for Azure Cloud Services Guest OS.
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: v-ricsc
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/3/2018
-ms.author: raiye
+ms.author: v-ricsc
 
 ---
 # Azure Guest OS releases and SDK compatibility matrix
@@ -32,7 +32,7 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 >
 
 > [!IMPORTANT]
-> Starting from the November rollout, only the latest 2 versions of the Guest OS will be supported and available in the Azure portal.
+> Only the latest 2 versions of the Guest OS will be supported and available in the Azure portal.
 >
 >
 
@@ -85,8 +85,6 @@ October Guest OS has released.
 .NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
-> Dates with a * are subject to change.
->
 > The RDP Password for OS Family 5 must be a minimum of 10 characters.
 >
 
@@ -110,11 +108,6 @@ October Guest OS has released.
 
 .NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> Dates with a * are subject to change
->
->
-
 | Configuration String | Release date | Disable date |
 | --- | --- | --- |
 | WA-GUEST-OS-4.57_201808-01 |September xxxxxxxxx, 2018 |Post 4.59 |
@@ -135,11 +128,6 @@ October Guest OS has released.
 
 .NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> Dates with a * are subject to change
->
->
-
 | Configuration String | Release date | Disable date |
 | --- | --- | --- |
 | WA-GUEST-OS-3.64_201808-01 |September xxxxxxxxx, 2018 |Post 3.66 |
@@ -159,11 +147,6 @@ October Guest OS has released.
 **Windows Server 2008 R2 SP1**
 
 .NET Framework Installed: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
-
-> [!NOTE]
-> Dates with a * are subject to change
->
->
 
 | Configuration String | Release date | Disable date |
 | --- | --- | --- |
@@ -224,7 +207,7 @@ In the example below, 2 is the family, 12 is the version and "rel2" is the relea
 The configuration string for a Guest OS has this same information embedded in it, along with a date showing which MSRC patches were considered for that release. In this example, MSRC patches produced for Windows Server 2008 R2 up to and including August 2012 were considered for inclusion. Only patches specifically applying to that version of Windows Server are included. For example, if an MSRC patch applies to Microsoft Office, it will not be included because that product is not part of the Windows Server base image.
 
 ## Guest OS System Update Process
-This page includes information on upcoming Guest OS Releases. Customers have indicated that they want to know when a release occurs because their cloud service roles will reboot if they are set to "Automatic" update. Guest OS releases typically occur at least five (5) days after the MSRC update release that occurs on the second Tuesday of every month. New releases include all the relevant MSRC patches for each Guest OS family.
+This page includes information on upcoming Guest OS Releases. Customers have indicated that they want to know when a release occurs because their cloud service roles will reboot if they are set to "Automatic" update. Guest OS releases typically occur 2-3 weeks after the MSRC update release that occurs on the second Tuesday of every month. New releases include all the relevant MSRC patches for each Guest OS family.
 
 Microsoft Azure is constantly releasing updates. The Guest OS is only one such update in the pipeline. A release can be affected by many factors too numerous to list here. In addition, Azure runs on literally hundreds of thousands of machines. This means that it's impossible to give an exact date and time when your role(s) will reboot. We are working on a plan to limit or time reboots.
 
