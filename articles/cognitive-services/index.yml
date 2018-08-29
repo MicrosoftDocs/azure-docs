@@ -5,14 +5,14 @@ metadata:
   title: Cognitive Services Documentation - Tutorials, API Reference
   description: Learn how to build intelligent algorithms into apps, websites, and bots so they see, hear, speak, understand and interpret your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how to use the APIs.
   services: cognitive-services
-  author: cjgronlund
+  author: nitinme
   manager: cgronlun
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 05/29/2018
-  ms.author: cgronlun
+  ms.author: nitinme
 
 abstract:
   description: Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how.
@@ -99,15 +99,15 @@ sections:
   items: 
   - type: list
     style: cards
-    className: cardsD
+    className: cardsText
     items:
     - title: Vision
-      html: <p><a class="barLink" href="/azure/cognitive-services/computer-vision/"><img src="../media/index/API_Computer_Vision.svg" alt="" />Computer Vision</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/content-moderator/overview"><img src="../media/index/API_Content_Moderator.svg" alt="" />Content Moderator</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/Custom-Vision-Service/home"><img src="../media/index/API_Custom_Vision.svg" alt="" /><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/emotion/home"><img src="../media/index/API_Emotion.svg" alt="" /><span>Emotion API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/face/"><img src="../media/index/API_Face.svg" alt="" />Face API</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/video-indexer/video-indexer-overview"><img src="../media/index/API_VideoIndexer.svg" alt="" /><span>Video Indexer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>      
+      html: <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
+            <p><a href="/azure/cognitive-services/content-moderator/overview">Content Moderator</a></p>
+            <p><a href="/azure/cognitive-services/Custom-Vision-Service/home"><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+            <p><a href="/azure/cognitive-services/emotion/home"><span>Emotion API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+            <p><a href="/azure/cognitive-services/face/">Face API</a></p>
+            <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview"><span>Video Indexer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>      
     - title: Speech
       html: <p><a class="barLink" href="/azure/cognitive-services/speech-service"><img src="../media/index/API_Speech_Service.svg" alt="" />Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></a></p>
             <p><a class="barLink" href="/azure/cognitive-services/speech/home"><img src="../media/index/API_Bing_Speech.svg" alt="" />Bing Speech API</a></p>
