@@ -21,6 +21,9 @@ ms.custom: aaddev
 ---
 
 # Azure AD Node.js web app getting started
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
 Here we use Passport to:
 
 * Sign the user in to the app with Azure Active Directory (Azure AD).

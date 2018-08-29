@@ -20,6 +20,8 @@ ms.custom: aaddev
 
 # Azure AD Node.js web API getting started
 
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
 This article demonstrates how to secure a [Restify](http://restify.com/) API endpoint with [Passport](http://passportjs.org/) using the [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) module to handle communication with Azure Active Directory (AAD). 
 
 The scope of this tutorial covers the concerns regarding securing API endpoints. The concerns of signing in and retaining authentication tokens are not implemented here and are the responsibility of a client application. For details surrounding a client implementation, review [Node.js web app sign-in and sign-out with Azure AD](quickstart-v1-openid-connect-code.md).
