@@ -53,7 +53,7 @@ This article provides you with troubleshooting guidance on how to resolve potent
 
 - You can get multiple entries for a device on the user info tab because of a reinstallation of the operating system or a manual re-registration. 
 
-- Make sure [KB4284842](https://support.microsoft.com/en-us/help/4284842) is installed, in case of Windows 7 SP1 or Windows Server 2008 R2 SP1. This update prevents future authentication failures due to customer's access loss to protected keys after changing password.
+- Make sure [KB4284842](https://support.microsoft.com/help/4284842) is installed, in case of Windows 7 SP1 or Windows Server 2008 R2 SP1. This update prevents future authentication failures due to customer's access loss to protected keys after changing password.
 
 ## Step 1: Retrieve the registration status 
 

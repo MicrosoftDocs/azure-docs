@@ -3,13 +3,11 @@ title: Azure PowerShell script sample - Create Azure Firewall test environment
 description: Azure PowerShell script sample - Create Azure Firewall test enviroment.
 services: virtual-network
 author: vhorne
-
 ms.service: firewall
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 7/11/2018
+ms.date: 8/13/2018
 ms.author: victorh
-
 ---
 
 # Create an Azure Firewall test environment
@@ -78,10 +76,10 @@ This script uses the following commands to create a resource group, virtual netw
 | [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Creates a VM configuration. This configuration includes information such as VM name, operating system, and administrative credentials. The configuration is used during VM creation. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Create a virtual machine. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Removes a resource group and all resources contained within. |
-|New-AzureRmFirewall| Creates a new Azure Firewall.|
-|Get-AzureRmFirewall|Gets an Azure Firewall object.|
-|New-AzureRmFirewallApplicationRule|Creates a new Azure Firewall application rule.|
-|Set-AzureRmFirewall|Commits changes to the Azure Firewall object.|
+|[New-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/New-AzureRmFirewall.md)| Creates a new Azure Firewall.|
+|[Get-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/Get-AzureRmFirewall.md)|Gets an Azure Firewall object.|
+|[New-AzureRmFirewallApplicationRule](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/New-AzureRmFirewallApplicationRule.md)|Creates a new Azure Firewall application rule.|
+|[Set-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/Set-AzureRmFirewall.md)|Commits changes to the Azure Firewall object.|
 
 
 ## Next steps

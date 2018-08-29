@@ -101,7 +101,7 @@ All data collected by Application Insights is stored in Azure Log Analytics, whi
 9. Click **Analyze impact** to open Application Insights Analytics.  It's populated with several queries that provide details on failed requests such as impacted users, browsers, and regions.<br><br>![Analytics](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
 
 ## Add work item
-If you connect Application Insights to a tracking system such as Visual Studio Team Services or GitHub, you can create a work item directly from Application Insights.
+If you connect Application Insights to a tracking system such as Azure DevOps or GitHub, you can create a work item directly from Application Insights.
 
 1. Return to the **Exception Properties** panel in Application Insights.
 2. Click **New Work Item**.

@@ -84,4 +84,4 @@ When no longer needed, delete the resource group and this deletes the Key Vault 
 In this quickstart, you have created a Key Vault and stored a secret. To learn more about Key Vault and how you can use it with your applications continue to the tutorial for web applications working with Key Vault.
 
 > [!div class="nextstepaction"]
-> To learn how to read a secret from Key Vault from a web application using managed service identities, continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md).
+> To learn how to read a secret from Key Vault from a web application using managed service identities, continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](quick-create-net.md).

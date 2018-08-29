@@ -7,7 +7,7 @@ author: jasonwhowell
 ms.author: jasonh
 editor: jasonwhowell
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive, hdiseo17may2017
 ms.topic: get-started-article
 ms.date: 05/16/2018
 ---

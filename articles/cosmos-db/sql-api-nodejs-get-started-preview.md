@@ -325,7 +325,7 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 ## <a id="CreateContainer"></a>Step 6: Create a container
 
 > [!WARNING]
-> Calling the function**createContainer** will create a new container, which has pricing implications. For more details, visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
+> Calling the function **createContainer** will create a new container, which has pricing implications. For more details, visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 A container can be created by using either the [createIfNotExists](/javascript/api/%40azure/cosmos/containers) or [create](/javascript/api/%40azure/cosmos/containers) function from the **Containers** class. 
 
@@ -497,7 +497,7 @@ Congratulations! You have successfully created an Azure Cosmos DB item.
 
 
 ## <a id="Query"></a>Step 8: Query Azure Cosmos DB resources
-Azure Cosmos DB supports [rich queries](sql-api-sql-query.md) against JSON documents stored in each collection. The following sample code shows a query that you can run against the documents in your container.
+Azure Cosmos DB supports [rich queries](sql-api-sql-query.md) against JSON documents stored in each container. The following sample code shows a query that you can run against the documents in your container.
 
 Copy and paste the **queryContainer** function below the **createFamilyItem** function in the app.js file. Azure Cosmos DB supports SQL-like queries as shown below. For more information on building complex queries, check out the [Query Playground](https://www.documentdb.com/sql/demo) and the [query documentation](sql-api-sql-query.md).
 
@@ -527,7 +527,7 @@ async function queryContainer() {
 };
 ```
 
-Copy and paste the code below the calls to **createFamilyItem** to execute the **queryCollection** function.
+Copy and paste the code below the calls to **createFamilyItem** to execute the **queryContainer** function.
 
 ```nodejs
 createDatabase()
@@ -538,7 +538,7 @@ createDatabase()
     .then(() => createFamilyItem(config.items.Wakefield))
 
     // ADD THIS PART TO YOUR CODE
-    .then(() => queryCollection())
+    .then(() => queryContainer())
     // ENDS HERE
 
     .then(() => { exit(`Completed successfully`); })
@@ -622,7 +622,8 @@ createDatabase()
     .then(() => readContainer())
     .then(() => createFamilyItem(config.items.Andersen))
     .then(() => createFamilyItem(config.items.Wakefield))
-    .then(() => queryCollection())
+    .then(() => queryContainer
+    ())
     .then(() => replaceFamilyItem(config.items.Andersen))
     .then(() => queryContainer())
 
@@ -650,7 +651,7 @@ Copy and paste the **cleanup** function underneath the **deleteFamilyItem** func
 
 ```nodejs
 /**
- * Cleanup the database and collection on completion
+ * Cleanup the database and container on completion
  */
 async function cleanup() {
     await client.database(databaseId).delete();
@@ -672,7 +673,7 @@ createDatabase()
     .then(() => deleteFamilyItem(config.items.Andersen))
 
     // ADD THIS PART TO YOUR CODE
-    .then(() => cleanup()
+    .then(() => cleanup())
     // ENDS HERE
 
     .then(() => { exit(`Completed successfully`); })
@@ -793,7 +794,7 @@ async function deleteFamilyItem(itemBody) {
 };
 
 /**
- * Cleanup the database and collection on completion
+ * Cleanup the database and container on completion
  */
 async function cleanup() {
     await client.database(databaseId).delete();

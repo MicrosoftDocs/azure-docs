@@ -31,8 +31,8 @@ The Azure DevOps project does all the work for the initial configuration of a De
 You can use the Azure DevOps Project to:
 
 * Quickly deploy your application to Azure
-* Automate the setup of a VSTS CI/CD pipeline
-* Use the DevOps project as a template to view and understand how to properly set up CI/CD to Azure with VSTS
+* Automate the setup of an Azure CI/CD pipeline
+* Use the DevOps project as a template to view and understand how to properly set up CI/CD to Azure with Azure DevOps
 * Get started with CI/CD pipeline to Azure, and then further customize the release pipeline based on your specific scenarios
 
 ## How do I use the Azure DevOps Project?
@@ -45,16 +45,16 @@ You choose several configuration options as part of the initial setup.  These op
 * Select an App language
 * Choose an App framework based on language
 * Select an Azure service (deployment target)
-* VSTS account (new or existing)
+* Azure DevOps organization (new or existing)
 * Choose your Azure subscription
 * Pick the location of Azure services
 * Choose from various pricing tiers for Azure services
 
 After you use the Azure DevOps Project, you can also delete all of the resources from a single place from the Azure DevOps Project dashboard on the Azure portal.
 
-## Azure DevOps Project and VSTS integration
+## Azure DevOps Project and Azure DevOps integration
 
-DevOps Projects are powered by VSTS.  The DevOps project automates all of the work needed in VSTS to set up CI/CD to Azure.  A Git repository is created in a new or existing VSTS account.  The DevOps project commits a sample application or your existing code to a new Git repository.  The automation also establishes a CI trigger for the build so that every new code commit will initiate a build.  The DevOps project also creates a CD trigger and will deploy every new successful build to the Azure service of your choice.  The build and release definitions can be customized for additional scenarios.  You can also clone the build and release definitions for use in other projects.
+DevOps Projects are powered by Azure DevOps.  The DevOps project automates all of the work needed in Azure DevOps to set up CI/CD to Azure.  A Git repository is created in a new or existing Azure DevOps organization.  The DevOps project commits a sample application or your existing code to a new Git repository.  The automation also establishes a CI trigger for the build so that every new code commit will initiate a build.  The DevOps project also creates a CD trigger and will deploy every new successful build to the Azure service of your choice.  The build and release definitions can be customized for additional scenarios.  You can also clone the build and release definitions for use in other projects.
 
 After creating your DevOps Project, you can:
 

@@ -77,7 +77,7 @@ To sign in to password-based single sign-on, you must use the extension. After t
 - You can sign in to an app directly by using the app's **Sign-on URL**. When you use the app's URL, the extension detects the action and gives you the option of signing in from the extension.
 - You can launch any of your apps from the access panel by using the *quick search* feature of the extension. 
 - The extension shows you the last three applications that you launched in **Recently Used** section.
-- You can use internal company URLs while remote through [Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)
+- You can use internal company URLs while remote through [Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
 > Additional features are available only for Edge, Chrome, and Firefox.
@@ -95,8 +95,8 @@ If you are using a My Apps URL other than `https://myapps.microsoft.com`, config
 5. Select **Sign in to get started**.
 
 To use internal company URLs while remote using the extension, do the following:
-1. [Configure Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) on your tenant.
-2. [Publish the application](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) and URL through Application Proxy.
+1. [Configure Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) on your tenant.
+2. [Publish the application](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) and URL through Application Proxy.
 3. Install the extension, and sign in to it by selecting Sign in to get started.
 4. You can now browse to the internal company URL even while remote.
 

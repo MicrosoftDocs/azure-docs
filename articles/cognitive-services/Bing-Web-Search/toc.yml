@@ -41,9 +41,6 @@
     href: tutorial-bing-web-search-single-page-app-source.md
   - name: Visual Search mobile app
     href: computer-vision-web-search-tutorial.md
-  - name: Visual Search mobile app (Visual Studio solution)
-    href: https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/
-    maintainContext: true
 - name: Samples
   items:
     - name: Code samples

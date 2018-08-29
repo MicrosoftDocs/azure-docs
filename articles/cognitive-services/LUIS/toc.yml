@@ -3,9 +3,7 @@
 - name: Overview
   items: 
   - name: What is Language Understanding?
-    href: Home.md
-  - name: Supported languages
-    href: luis-supported-languages.md
+    href: what-is-luis.md
 - name: Quickstarts
   expanded: true
   items: 
@@ -246,6 +244,8 @@
     href: luis-reference-regions.md
   - name: Boundaries
     href: luis-boundaries.md
+  - name: Supported languages
+    href: luis-supported-languages.md
   - name: Prebuilt entity reference
     items:
     - name: Entities per culture
@@ -292,21 +292,23 @@
     items:
     - name: Android
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
-    - name: Node.js
-      href: https://github.com/Microsoft/Cognitive-LUIS-Node.js
+    - name: Node.js Authoring
+      href: http://aka.ms/luis-sdk-node-authoring
+    - name: Node.js Endpoint
+      href: http://aka.ms/luis-sdk-node-endpoint
     - name: Go 
       href: https://aka.ms/luis-sdk-go
     - name: Java
       href: https://aka.ms/luis-java-sdk
     - name: Python
-      href: https://github.com/Microsoft/Cognitive-LUIS-Python
+      href: https://aka.ms/luis-python-sdk
     - name: .Net Endpoint
       href: https://aka.ms/luis-endpoint-sdk
     - name: .Net Authoring
       href: https://aka.ms/luis-authoring-sdk
 - name: Related
   items: 
-  - name: Bot Framework
+  - name: Azure Bot Service
     href: https://dev.botframework.com/
   - name: Bot Builder 3.x SDK C#
     href: https://github.com/Microsoft/BotBuilder

@@ -14,16 +14,16 @@ monikerRange: 'vsts'
 
 # Tutorial:  Deploy your ASP.NET App to Azure Virtual Machines with the Azure DevOps Project
 
-The Azure DevOps Project presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.  The DevOps project automatically creates Azure resources such as a new Azure virtual machine, creates and configures a release pipeline in VSTS that includes a build definition for CI, sets up a release definition for CD, and then creates an Azure Application Insights resource for monitoring.
+The Azure DevOps Project presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.  The DevOps project automatically creates Azure resources such as a new Azure virtual machine, creates and configures a release pipeline in Azure DevOps that includes a build definition for CI, sets up a release definition for CD, and then creates an Azure Application Insights resource for monitoring.
 
 You will:
 
 > [!div class="checklist"]
 > * Create an Azure DevOps project for an ASP.NET App
-> * Configure VSTS and an Azure subscription 
-> * Examine the VSTS CI Build definition
-> * Examine the VSTS CD Release Management definition
-> * Commit changes to VSTS and automatically deploy to Azure
+> * Configure Azure DevOps and an Azure subscription 
+> * Examine the Azure DevOps CI Build definition
+> * Examine the Azure DevOps CD Release Management definition
+> * Commit changes to Azure DevOps and automatically deploy to Azure
 > * Configure Azure Application Insights monitoring
 > * Clean up resources
 
@@ -33,7 +33,7 @@ You will:
 
 ## Create an Azure DevOps project for an ASP.NET App
 
-The Azure DevOps Project creates a CI/CD pipeline in VSTS.  You can create a **new VSTS** account or use an **existing account**.  The Azure DevOps Project also creates **Azure resources** such as virtual machines in the **Azure subscription** of your choice.
+The Azure DevOps Project creates a CI/CD pipeline in Azure.  You can create a **new Azure DevOps** organization or use an **existing organization**.  The Azure DevOps Project also creates **Azure resources** such as virtual machines in the **Azure subscription** of your choice.
 
 1. Sign into the [Microsoft Azure portal](https://portal.azure.com).
 
@@ -47,51 +47,51 @@ The Azure DevOps Project creates a CI/CD pipeline in VSTS.  You can create a **n
 
 1. The application framework, which you chose on the previous steps, dictates the type of Azure service deployment target available here.  Select the **Virtual machine**, and then choose **Next**.
 
-## Configure VSTS and an Azure subscription
+## Configure Azure DevOps and an Azure subscription
 
-1. Create a **new** VSTS account or choose an **existing** account.  Choose a **name** for your VSTS project.  
+1. Create a **new** Azure DevOps organization or choose an **existing** organization.  Choose a **name** for your Azure DevOps project.  
 
 1. Select your **Azure subscription**.  You can optionally select the **Change** link, and then enter more configuration details such as changing the location of the Azure resources.
  
 1. Enter a **Virtual machine name**, **User name**, and **Password** for your new Azure virtual machine resource, and then choose **Done**.
 
-1. It will take several minutes for the Azure virtual machine to be ready.  A sample ASP.NET application is set up in a repository in your VSTS account, a build and release executes, and your application deploys to the newly created Azure VM.  
+1. It will take several minutes for the Azure virtual machine to be ready.  A sample ASP.NET application is set up in a repository in your Azure DevOps organization, a build and release executes, and your application deploys to the newly created Azure VM.  
 
 	Once complete, the Azure DevOps **project dashboard** loads in the Azure portal.  You can also navigate to the **Azure DevOps Project Dashboard** directly from **All resources** in the **Azure portal**.  
 
-	This dashboard provides visibility into your VSTS **code repository**, **VSTS CI/CD pipeline**, and your running **application in Azure**.    
+	This dashboard provides visibility into your Azure DevOps **code repository**, **Azure CI/CD pipeline**, and your running **application in Azure**.    
 
    	![Dashboard view](_img/azure-devops-project-vms/dashboardnopreview.png)
 
-1. The Azure DevOps project automatically configures a CI build and release trigger that automatically deploys any code changes to your repository.  You can further configure additional options in VSTS.  On the right side of the dashboard, select **Browse** to view your running application.
+1. The Azure DevOps project automatically configures a CI build and release trigger that automatically deploys any code changes to your repository.  You can further configure additional options in Azure DevOps.  On the right side of the dashboard, select **Browse** to view your running application.
 	
-## Examine the VSTS CI Build definition
+## Examine the Azure DevOps CI Build definition
 
-The Azure DevOps Project automatically configures a full VSTS CI/CD pipeline in your VSTS account.  You can explore and customize the pipeline.  Follow the steps below to familiarize yourself with the VSTS build definition.
+The Azure DevOps Project automatically configures a full Azure CI/CD pipeline in your Azure DevOps organization.  You can explore and customize the pipeline.  Follow the steps below to familiarize yourself with the Azure DevOps build definition.
 
-1. Select **Build Pipelines** from the **top** of the **Azure DevOps project dashboard**.  This link opens a browser tab and opens the VSTS build definition for your new project.
+1. Select **Build Pipelines** from the **top** of the **Azure DevOps project dashboard**.  This link opens a browser tab and opens the Azure DevOps build definition for your new project.
 
 1. Move the mouse cursor to the right of the build definition next to the **Status** field. Select the **ellipsis** that appears.  This action opens a menu where you can perform several activities such as **queue a new build**, **pause a build**, and **edit the build definition**.
 
 1. Select **Edit**.
 
-1. From this view, **examine the various tasks** for your build definition.  The build executes various tasks such as fetching sources from the VSTS Git repository, restoring dependencies, and publishing outputs used for deployments.
+1. From this view, **examine the various tasks** for your build definition.  The build executes various tasks such as fetching sources from the Azure DevOps Git repository, restoring dependencies, and publishing outputs used for deployments.
 
 1. At the top of the build definition, select the **build definition name**.
 
 1. Change the **name** of your build definition to something more descriptive.  Select **Save & queue**, then select **Save**.
 
-1. Under your build definition name, select **History**.  You see an audit trail of your recent changes for the build.  VSTS keeps track of any changes made to the build definition and allows you to compare versions.
+1. Under your build definition name, select **History**.  You see an audit trail of your recent changes for the build.  Azure DevOps keeps track of any changes made to the build definition and allows you to compare versions.
 
 1. Select **Triggers**.  The Azure DevOps project automatically created a CI trigger, and every commit to the repository starts a new build.  Optionally choose to include or exclude branches from the CI process.
 
 1. Select **Retention**.  Based on your scenario, you can specify policies to keep or remove a certain number of builds.
 
-## Examine the VSTS CD Release Management definition
+## Examine the Azure DevOps CD Release Management definition
 
-The Azure DevOps Project automatically creates and configures the necessary steps to deploy from your VSTS account to your Azure subscription.  These steps include configuring an Azure service connection to authenticate VSTS to your Azure subscription.  The automation also creates a VSTS Release Definition, and this provides the CD to the Azure virtual machine.  Follow the steps below to examine more about the VSTS Release Definition.
+The Azure DevOps Project automatically creates and configures the necessary steps to deploy from your Azure DevOps organization to your Azure subscription.  These steps include configuring an Azure service connection to authenticate Azure DevOps to your Azure subscription.  The automation also creates an Azure DevOps Release Definition, and this provides the CD to the Azure virtual machine.  Follow the steps below to examine more about the Azure DevOps Release Definition.
 
-1. Select **Build and Release**, then choose **Releases**.  The Azure DevOps project created a VSTS release definition to manage deployments to Azure.
+1. Select **Build and Release**, then choose **Releases**.  The Azure DevOps project created an Azure DevOps release definition to manage deployments to Azure.
 
 1. On the left-hand side of the browser, select the **ellipsis** next to your release definition, then choose **Edit**.
 
@@ -101,7 +101,7 @@ The Azure DevOps Project automatically creates and configures the necessary step
 
 1. On the left-hand side of the browser, select **Tasks**, and then choose your **environment**.  
 
-1. The tasks are the activities your deployment process executes, and they are grouped in **Phases**.  There are two **Phases** for this release definition.  The first phase contains an **Azure Resource Group Deployment** task that configures the VM for deployment and adds the new VM to a **VSTS Deployment Group**.  The VM deployment group in VSTS manages logical groups of **deployment target** machines.
+1. The tasks are the activities your deployment process executes, and they are grouped in **Phases**.  There are two **Phases** for this release definition.  The first phase contains an **Azure Resource Group Deployment** task that configures the VM for deployment and adds the new VM to an **Azure DevOps Deployment Group**.  The VM deployment group in Azure DevOps manages logical groups of **deployment target** machines.
 
 1. In this second phase, a **IIS Web App Manage** task was created to create an IIS Website on the VM.  A second **IIS Web App Deploy** task was created to deploy the site.
 
@@ -113,17 +113,17 @@ The Azure DevOps Project automatically creates and configures the necessary step
 
 1. Select **Logs**.  The logs contain useful information about the deployment process.  They can be viewed both during and after deployments.
 
-## Commit changes to VSTS and automatically deploy to Azure 
+## Commit changes to Azure DevOps and automatically deploy to Azure 
 
-You're now ready to collaborate with a team on your app with a CI/CD process that automatically deploys your latest work to your web site.  Each change to the VSTS git repo starts a build in VSTS, and a VSTS Release Management definition executes a deployment to your Azure VM.  Follow the steps below, or use other techniques to commit changes to your repository.  The code changes initiate the CI/CD process and automatically deploys your new changes to the IIS website on the Azure VM.
+You're now ready to collaborate with a team on your app with a CI/CD process that automatically deploys your latest work to your web site.  Each change to the Azure DevOps git repo starts a build in Azure DevOps, and an Azure DevOps Release Management definition executes a deployment to your Azure VM.  Follow the steps below, or use other techniques to commit changes to your repository.  The code changes initiate the CI/CD process and automatically deploys your new changes to the IIS website on the Azure VM.
 
-1. Select **Code** from the VSTS menu, and navigate to your repository.
+1. Select **Code** from the Azure DevOps menu, and navigate to your repository.
 
 1. Navigate to the **Views\Home** directory, then select the **ellipsis** next to the **Index.cshtml** file, and then choose **Edit**.
 
 1. Make a change to the file such as some text inside one of the **div tags**.  At the top right, select **Commit**.  Select **Commit** again to push your change. 
 
-1. In a few moments, a **build starts in VSTS**, and then a release executes to deploy the changes.  Monitor the **build status** with the DevOps project dashboard or in the browser with your VSTS account.
+1. In a few moments, a **build starts in Azure DevOps**, and then a release executes to deploy the changes.  Monitor the **build status** with the DevOps project dashboard or in the browser with your Azure DevOps organization.
 
 1. Once the release completes, **refresh your application** in the browser to verify you see your changes.
 
@@ -158,7 +158,7 @@ With Azure Application insights, you can easily monitor your application's perfo
  > [!NOTE]
  > The steps below will permanently delete resources.  Only use this functionality after carefully reading the prompts.
 
-If you are testing, you can clean up resources to avoid accruing billing charges.  When no longer needed, you can delete the Azure virtual machine and related resources created in this tutorial by using the **Delete** functionality on the Azure DevOps Project dashboard.  **Be careful**, as the delete functionality destroys the data created by the Azure DevOps Project in both Azure and VSTS, and you will not be able to retrieve it once its gone.
+If you are testing, you can clean up resources to avoid accruing billing charges.  When no longer needed, you can delete the Azure virtual machine and related resources created in this tutorial by using the **Delete** functionality on the Azure DevOps Project dashboard.  **Be careful**, as the delete functionality destroys the data created by the Azure DevOps Project in both Azure and Azure DevOps, and you will not be able to retrieve it once its gone.
 
 1. From the **Azure portal**, navigate to the **Azure DevOps Project**.
 2. On the **top right** side of the dashboard, select **Delete**.  After reading the prompt, select **Yes** to **permanently delete** the resources.
@@ -169,14 +169,14 @@ You can optionally modify these build and release definitions to meet the needs 
 
 > [!div class="checklist"]
 > * Create an Azure DevOps project for an ASP.NET App
-> * Configure VSTS and an Azure subscription 
-> * Examine the VSTS CI Build definition
-> * Examine the VSTS CD Release Management definition
-> * Commit changes to VSTS and automatically deploy to Azure
+> * Configure Azure DevOps and an Azure subscription 
+> * Examine the Azure DevOps CI Build definition
+> * Examine the Azure DevOps CD Release Management definition
+> * Commit changes to Azure DevOps and automatically deploy to Azure
 > * Configure Azure Application Insights monitoring
 > * Clean up resources
 
-To learn more about the VSTS pipeline see this tutorial:
+To learn more about the Azure pipeline see this tutorial:
 
 > [!div class="nextstepaction"]
 > [Customize CD process](https://docs.microsoft.com/vsts/pipelines/release/define-multistage-release-process?view=vsts)

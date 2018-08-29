@@ -92,7 +92,7 @@ The availability set distribution can be viewed in the portal by going to Resour
 
 ## Check for available VM sizes
 
-Additional VMs can be added to the availability set later, where VM sizes are available on the hardware. Use [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) to list all the available sizes on the hardware cluster for the availability set:
+Additional VMs can be added to the availability set later, where VM sizes are available on the hardware. Use [az vm availability-set list-sizes](/cli/azure/vm/availability-set#az-vm-availability-set-list-sizes) to list all the available sizes on the hardware cluster for the availability set:
 
 ```azurecli-interactive
 az vm availability-set list-sizes \

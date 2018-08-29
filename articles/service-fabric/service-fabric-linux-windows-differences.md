@@ -29,7 +29,7 @@ There are some features that are supported on Windows, but not yet on Linux. Eve
 * DNS service for Service Fabric services (DNS service is supported for containers on Linux)
 * CLI command equivalents of certain Powershell commands (list below, most of which apply only to standalone clusters)
 
-Development tooling is also different between Windows and Linux. Visual Studio, Powershell, VSTS, and ETW are used on Windows while Yeoman, Eclipse, Jenkins, and LTTng are used on Linux.
+Development tooling is also different between Windows and Linux. Visual Studio, Powershell, Azure DevOps, and ETW are used on Windows while Yeoman, Eclipse, Jenkins, and LTTng are used on Linux.
 
 ## Powershell cmdlets that do not work against a Linux Service Fabric cluster
 

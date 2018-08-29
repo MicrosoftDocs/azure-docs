@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/13/2018
 ms.author: raynew
 ---
 
@@ -28,7 +28,7 @@ Article 6: Rehost an app on Azure VMs and SQL Server Always On Availability Grou
 [Article 8: Rehost a Linux app on Azure VMs and Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Demonstrates how Contoso migrates the Linux osTicket app to Azure VMs using Site Recovery, and migrates the app database to an Azure MySQL Server instance using MySQL Workbench. | Available
 [Article 9: Refactor an app on Azure Web Apps and Azure SQL database](contoso-migration-refactor-web-app-sql.md) | Demonstrates how Contoso migrates the SmartHotel app to an Azure Web App, and migrates the app database to Azure SQL Server instance | Available
 [Article 10: Refactor a Linux app on Azure Web Apps and Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Shows how Contoso migrates the Linux osTicket app to Azure Web Apps in multiple sites, integrated with GitHub for continuous delivery. They migrate the app database to an Azure MySQL instance. | Available
-[Article 11: Refactor TFS on VSTS](contoso-migration-tfs-vsts.md) | Shows how Contoso migrates their on-premises Team Foundation Server (TFS) deployment by migrating it to Visual Studio Team Services (VSTS) in Azure. | Available
+[Article 11: Refactor TFS on Azure DevOps Services](contoso-migration-tfs-vsts.md) | Shows how Contoso migrates their on-premises Team Foundation Server (TFS) deployment by migrating it to Azure DevOps Services in Azure. | Available
 [Article 12: Rearchitect an app on Azure containers and Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Shows how Contoso migrates and rearchitects their SmartHotel app to Azure. They rearchitect the app web tier as a Windows container, and the app database in an Azure SQL Database. | Available
 [Article 13: Rebuild an app to Azure](contoso-migration-rebuild.md) | Shows how Contoso rebuild the SmartHotel app using a range of Azure capabilities and services, including App Services, Azure Kubernetes, Azure Functions, Cognitive services, and Cosmos DB. | Available
 
@@ -71,8 +71,8 @@ In this scenario:
 
 **Service** | **Description** | **Cost**
 --- | --- | ---
-[Database Management Service](https://docs.microsoft.com/azure/dms/dms-overview) | Contoso will migrate the app data tier using DMS. DMS will connect to the on-premises SQLVM machine across a site-to-site VPN, and migrate DMS enables seamless migrations from multiple database sources to Azure data platforms, with minimal downtime. | Learn about [supported regions](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) for DMS, and get [pricing details](https://azure.microsoft.com/pricing/details/database-migration/).
-[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Contoso will use Site Recovery for a lift-and-shift migration of the app frontend VM. Site Recovery orchestrates and manages migration and disaster recovery for Azure VMs, and on-premises VMs and physical servers.  | During replication to Azure, Azure Storage charges are incurred.  Azure VMs are created, and incur charges, when failover occurs. [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about charges and pricing.
+[Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) | DMS enables seamless migrations from multiple database sources to Azure data platforms, with minimal downtime. | Learn about [supported regions](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) for DMS, and get [pricing details](https://azure.microsoft.com/pricing/details/database-migration/).
+[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Site Recovery orchestrates and manages migration and disaster recovery for Azure VMs, and on-premises VMs and physical servers.  | During replication to Azure, Azure Storage charges are incurred.  Azure VMs are created, and incur charges, when failover occurs. [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about charges and pricing.
 
  
 
@@ -109,7 +109,7 @@ Here's how Contoso will run the migration:
 > [!div class="checklist"]
 > * **Step 1: Create the SQL Server VMs in Azure**: For high availability, Contoso want to deploy a clustered database in Azure. They deploy two SQL Server VMs, and an Azure internal load balancer.
 > * **Step 2: Deploy the cluster**: After deploying the SQL Server VMs, they prepare an Azure SQL Server cluster.  They'll migrate their database into this pre-created cluster.
-> * **Step 3: Prepare DMS**: To prepare DMS they register the Database Migration provider, create a DMS instance, and a project. They set up a shared access signature (SAS) Uniform Resource Identifier (URI). DMS uses the SA URI to access the storage account container to which the service uploads the SQL Server back-up files.
+> * **Step 3: Prepare DMS**: To prepare DMS they register the Database Migration provider, create a DMS instance, and a project. They set up a shared access signature (SAS) Uniform Resource Identifier (URI). DMS uses the SAS URI to access the storage account container to which the service uploads the SQL Server back-up files.
 > * **Step 4: Prepare Azure for Site Recovery**: They create an Azure storage account to hold replicated data, and a Recovery Services vault.
 > * **Step 5: Prepare on-premises VMware for Site Recovery**: They prepare accounts for VM discovery and agent installation, and prepare on-premises VMs so that they can connect to Azure VMs after failover.
 > * **Step 6: Replicate VMs**: They configure replication settings, and enable VM replication.

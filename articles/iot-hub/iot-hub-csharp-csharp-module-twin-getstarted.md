@@ -33,11 +33,9 @@ To complete this tutorial, you need the following:
 
 You have now created your IoT hub, and you have the host name and IoT Hub connection string that you need to complete the rest of this tutorial.
 
-<a id="DeviceIdentity_csharp"></a>
 [!INCLUDE [iot-hub-get-started-create-module-identity-csharp](../../includes/iot-hub-get-started-create-module-identity-csharp.md)]
 
 
-<a id="D2C_csharp"></a>
 ## Update the module twin using .NET device SDK
 
 In this section, you create a .NET console app on your simulated device that updates the module twin reported properties.

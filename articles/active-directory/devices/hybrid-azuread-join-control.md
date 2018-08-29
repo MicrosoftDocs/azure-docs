@@ -112,7 +112,7 @@ You need to link this client setting to a location of your choice. For example, 
 
 ## Control Windows down-level devices
 
-To register Windows down-level devices, you need to download and install Windows Installer package (.msi) from Download Center on the [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/en-us/download/details.aspx?id=53554) page.
+To register Windows down-level devices, you need to download and install Windows Installer package (.msi) from Download Center on the [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554) page.
 
 You can deploy the package by using a software distribution system like System Center Configuration Manager. The package supports the standard silent install options with the quiet parameter. [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) Current Branch offers additional benefits from earlier versions, like the ability to track completed registrations.
 

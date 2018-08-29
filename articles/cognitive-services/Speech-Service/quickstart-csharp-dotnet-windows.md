@@ -51,7 +51,7 @@ The application is built with the [Microsoft Cognitive Services Speech SDK NuGet
 1. The following output line appears in the Package Manager console.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 0.5.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 0.6.0' to helloworld
    ```
 
 ## Create a platform configuration matching your PC architecture

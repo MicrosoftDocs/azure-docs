@@ -93,6 +93,8 @@
       href: iot-accelerators-time-series-insights.md
     - name: Analyze telemetry with Data Lake
       href: iot-accelerators-integrate-data-lake.md
+    - name: Configure role-based access controls
+      href: iot-accelerators-remote-monitoring-rbac.md
 
   - name: Remote Monitoring (previous version)
     items:

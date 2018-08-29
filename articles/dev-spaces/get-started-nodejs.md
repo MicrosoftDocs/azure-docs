@@ -4,13 +4,13 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: "ghogen"
-ms.author: "ghogen"
+author: ghogen
+ms.author: ghogen
 ms.date: "07/09/2018"
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "douge"
+manager: douge
 ---
 # Get Started on Azure Dev Spaces with Node.js
 
@@ -28,7 +28,7 @@ Azure Dev Spaces requires minimal local machine setup. Most of your dev space's 
 Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!IMPORTANT]
-> If you already have the Azure CLI installed, make sure you are using version 2.0.38 or higher.
+> If you already have the Azure CLI installed, make sure you are using version 2.0.43 or higher.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 

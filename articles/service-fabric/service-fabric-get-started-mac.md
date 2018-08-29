@@ -114,7 +114,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
 
 
 
-6. When your done you can stop and cleanup the container with this command:
+6. When you are done, stop and cleanup the container with this command:
 
     ```bash 
     docker rm -f sftestcluster

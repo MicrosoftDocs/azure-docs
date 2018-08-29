@@ -4,7 +4,7 @@ description: Learn about running disaster recovery drill from on-premises to Azu
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 08/13/2018
 ms.author: raynew
 
 ---
@@ -27,7 +27,7 @@ In this tutorial, learn how to:
 > * Prepare to connect to the Azure VM after failover
 > * Run a test failover for a single machine
 
-This tutorial s
+
 
 ## Verify VM properties
 

@@ -24,7 +24,7 @@ This tutorial demonstrates how to restore a backup of a database stored in Azure
 
 ## Prerequisites
 
-This tutorial uses as its starting point the resources created in this tutorial: [Create an Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
+This tutorial uses as its starting point the resources created in this tutorial: [Create an Azure SQL Database Managed Instance](sql-database-managed-instance-get-started.md).
 
 ## Download the Wide World Importers - Standard backup file
 

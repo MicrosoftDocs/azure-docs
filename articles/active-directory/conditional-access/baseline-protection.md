@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/02/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -91,6 +91,9 @@ Baseline policies apply to legacy authentication flows like POP, IMAP, older Off
 
 ## Next steps
 
-If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
+For more information, see:
 
-If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 
+- [Five steps to securing your identity infrastructure](https://docs.microsoft.com/azure/security/azure-ad-secure-steps)
+
+- [What is conditional access in Azure Active Directory?](overview.md) 
+

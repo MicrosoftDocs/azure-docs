@@ -74,7 +74,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>
   The following services are NOT supported:
     * CDN
-    * Visual Studio Team Services Load Testing
+    * Azure DevOps Services Load Testing
     * Multi-factor Authentication
     * Traffic Manager
 
@@ -92,7 +92,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
   * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>
   The following services are NOT supported:
     * CDN
-    * Visual Studio Team Services Load Testing
+    * Azure DevOps Services Load Testing
     * Multi-factor Authentication
     * Traffic Manager
 

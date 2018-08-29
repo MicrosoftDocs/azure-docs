@@ -28,15 +28,17 @@ This tutorial demonstrates how to create an Azure SQL Database Managed Instance 
 > * Connect to virtual machine
 > * Install SSMS and connect to the Managed Instance
 
+> [!Note]
+> This tutorial explains how to configure network, subnets, instance, and virtual machine using Azure portal, which might be a longer process. If you need shorter a quick-start tutorial where the network and virtual machine used for access the instance are created using one-click on "Deploy to Azure" button, you might take a look at [Getting started tutorial](sql-database-managed-instance-get-started.md).
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 > [!IMPORTANT]
 > For a list of regions in which Managed Instance is currently available, see [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
  
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
+Sign in to the [Azure portal](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
 
 ## Whitelist your subscription
 
@@ -155,7 +157,7 @@ The following steps show you how to create your Managed Instance after your prev
 2. Locate **Managed Instance** and then select **Azure SQL Database Managed Instance (preview)**.
 3. Click **Create**.
 
-   ![managed instance create](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![create managed instance](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
 4. Select your subscription and verify that the preview terms show **Accepted**.
 
@@ -297,7 +299,7 @@ The following steps show you how to download and install SSMS, and then connect 
 8. When prompted, click **Install** to begin.
 9. When the installation completes, click **Close**.
 10. Open SSMS.
-11. In the **Connect to Server** dialog box, enter the **host name* for your Managed Instance in the **Server name** box, select **SQL Server Authentication**, provide your login and password, and then click **Connect**.
+11. In the **Connect to Server** dialog box, enter the **host name** for your Managed Instance in the **Server name** box, select **SQL Server Authentication**, provide your login and password, and then click **Connect**.
 
     ![ssms connect](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
 

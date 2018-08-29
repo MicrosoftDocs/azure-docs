@@ -6,13 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/09/2018
 ms.author: raynew
 
 ---
 # Support matrix for VMware and physical server replication to Azure
 
 This article summarizes supported components and settings for disaster recovery of VMware VMs to Azure by using [Azure Site Recovery](site-recovery-overview.md).
+
+To start using Azure Site Recovery with the simplest deployment scenario, visit our [tutorials](tutorial-prepare-azure.md). You can learn more about Azure Site Recovery architecture [here](vmware-azure-architecture.md).
 
 ## Replication scenario
 
@@ -236,12 +238,15 @@ Move vault across resource groups<br/><br/> Within and across subscriptions | No
 Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No
 
 
-## Mobility Service
+## Download latest Azure Site Recovery components
 
-**Name** | **Description** | **Latest version** | **Details**
+**Name** | **Description** | **Latest version download instructions** 
 --- | --- | --- | --- | ---
-Azure Site Recovery Unified Setup | Coordinates communications between on-premises VMware servers and Azure <br/><br/> Installed on on-premises VMware servers | 9.12.4653.1 (available from portal) | [Latest features and fixes](https://aka.ms/latest_asr_updates)
-Mobility Service | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate | 9.12.4653.1 (available from portal) | [Latest features and fixes](https://aka.ms/latest_asr_updates)
+Configuration server | Coordinates communications between on-premises VMware servers and Azure <br/><br/> Installed on on-premises VMware servers | For fresh installation, click [here](vmware-azure-deploy-configuration-server.md). For upgrading existing component to latest version, click [here](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Process server|Installed by default on the configuration server. It receives replication data; optimizes it with caching, compression, and encryption; and sends it to Azure Storage. As your deployment grows, you can add additional, separate process servers to handle larger volumes of replication traffic.| For fresh installation, click [here](vmware-azure-set-up-process-server-scale.md). For upgrading existing component to latest version, click [here](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+Mobility Service | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate | For fresh installation, click [here](vmware-azure-install-mobility-service.md). For upgrading existing component to latest version, click [here](vmware-azure-install-mobility-service.md#update-mobility-service).
+
+To learn about the latest features and fixes, click [here](https://aka.ms/latest_asr_updates).
 
 
 ## Next steps

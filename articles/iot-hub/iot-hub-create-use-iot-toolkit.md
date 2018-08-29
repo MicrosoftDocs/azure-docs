@@ -52,4 +52,5 @@ To complete this article, you need the following:
 Now you have deployed an IoT hub using Azure IoT Toolkit for Visual Studio Code, you may want to explore further:
 
 * [Use Azure IoT Toolkit extension for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+* [Use Azure IoT Toolkit extension for Visual Studio Code for Azure IoT Hub device management](iot-hub-device-management-iot-toolkit.md)
 * [Wiki page](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki) for Azure IoT Toolkit.
