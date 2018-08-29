@@ -55,10 +55,10 @@ To monitor physical or virtual machines in a hybrid environment with VM Insights
 
 1. A Log Analytics workspace in the following regions are currently supported:
 
-   - West Central US 
-   - East US 
+   - West Central US
+   - East US
    - West Europe
-   - Southeast Asia *
+   - Southeast Asia *  
 
     * This region does not support the Health feature of VM Insights and it will be made available at a later date.   
 
@@ -253,7 +253,7 @@ Not running - start VM to configure: (0)
 
 Failed: (0)
 ```
-## Enable for Hybrid configuration
+## Enable for Hybrid environment
 This section explains how to onboard virtual machines or physical computers hosted in your datacenter or other cloud environment.  
 
 The VM Insights Map Dependency agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Map is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md) if your IT security policies do not allow computers on the network to connect to the Internet.
