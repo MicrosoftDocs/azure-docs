@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 11/01/2017
+ms.date: 08/29/2018
 ms.author: vturecek
 ---
 
@@ -29,9 +29,7 @@ The rest of this article assumes you are already familiar with ASP.NET Core. If 
 
 ## ASP.NET Core in the Service Fabric environment
 
-While ASP.NET Core apps can run on .NET Core or on the full .NET Framework, Service Fabric services currently can only run on the full .NET Framework. This means when you build an ASP.NET  Core Service Fabric service, you must still target the full .NET Framework.
-
-ASP.NET Core can be used in two different ways in Service Fabric:
+Both ASP.NET Core and Service Fabric apps can run on .NET Core as well as full .NET Framework. ASP.NET Core can be used in two different ways in Service Fabric:
  - **Hosted as a guest executable**. This is primarily used to run existing ASP.NET Core applications on Service Fabric with no code changes.
  - **Run inside a Reliable Service**. This allows better integration with the Service Fabric runtime and allows stateful ASP.NET Core services.
 
@@ -98,6 +96,8 @@ Both Kestrel and HttpSys `ICommunicationListener` implementations use this mecha
 HttpSys can be used in a Reliable Service by importing the **Microsoft.ServiceFabric.AspNetCore.HttpSys** NuGet package. This package contains `HttpSysCommunicationListener`, an implementation of `ICommunicationListener`, that allows you to create an ASP.NET Core WebHost inside a Reliable Service using HttpSys as the web server.
 
 HttpSys is built on the [Windows HTTP Server API](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx). This uses the *http.sys* kernel driver used by IIS to process HTTP requests and route them to processes running web applications. This allows multiple processes on the same physical or virtual machine to host web applications on the same port, disambiguated by either a unique URL path or hostname. These features are useful in Service Fabric for hosting multiple websites in the same cluster.
+
+[!NOTE] HttpSys implementation works only on Windows platform.
 
 The following diagram illustrates how HttpSys uses the *http.sys* kernel driver on Windows for port sharing:
 
