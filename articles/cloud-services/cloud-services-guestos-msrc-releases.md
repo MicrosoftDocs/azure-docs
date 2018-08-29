@@ -3,7 +3,7 @@ title: List of updates applied to the Azure Guest OS | Microsoft Docs
 description: The list of updates applied to Guest OS releases
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: v-ricsc
 manager: timlt
 editor: ''
 
@@ -14,11 +14,38 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/3/2018
-ms.author: raiye
+ms.author: v-ricsc
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## August Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-08 | [4343887] | Windows 10 Security | 5.22 | <date> |
+| Rel 18-08 | [4343899] | Windows Security only | 2.77 | <date> |
+| Rel 18-08 | [4343896] | Windows Security only | 3.64 | <date> |
+| Rel 18-08 | [4343888] | Windows Security only | 4.57 | <date> |
+| Rel 18-08 | [4344177], [4344173] | .NET 3.5, 4.5 Security | 2.77 | <date> |
+| Rel 18-08 | [4344175], [4344172] | .NET 3.5, 4.x Security | 3.64 | <date> |
+| Rel 18-08 | [4344178], [4344171] | .NET 3.5, 4.x Security | 4.57 | <date> |
+| Rel 18-08 | [4346742], [4346739] | .NET 3.5, 4.x OOB release | 3.64 | <date> |
+| Rel 18-08 | [4346745], [4346408] | .NET 3.5, 4.x OOB release | 4.57 | <date> |
+| Rel 18-08 | [4343902] | Flash | 3.64, 4.57, 5.22 | <date> |
+| Rel 18-08 | [4343206] | Internet Explorer | 2.77, 3.64, 4.57 | <date> |
+| N/A | [4338818] |July Non-Security rollup |2.77 | <date> |
+| N/A | [4019990] |D3D Compiler update for .NET |2.77 | <date> |
+| N/A | [4338830] |July Non-Security rollup |3.64 | <date> |
+| N/A | [4338421] |July Non-Security NET 3.5 rollup |3.64 | <date> |
+| N/A | [4338416] |July Non-Security NET 4x rollup |3.64 | <date> |
+| N/A | [4338815] |July Non-Security rollup |4.57 | <date> |
+| N/A | [4338424] |July Non-Security NET 3.5 rollup |3.64 | <date> |
+| N/A | [4338415] |July Non-Security NET 4x rollup |3.64 | <date> |
+| N/A | |NET 4.7.2 added to WS16 DB | 5.22 | <date> |
+| N/A | |No longer check WU for device drivers | | <date> |
+| N/A | |Microsoft-Hyper-V-Management-PowerShell feature added to Native SKUs | | <date> |
+| N/A | |TenantConfigId 6 added to native SKUs (Same as TCI 1 except NetworkDirect enabled, SmbDirect disabled) | | <date> |
 
 
 ## July Guest OS
@@ -692,7 +719,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
 
-
+[4343887]: http://support.microsoft.com/kb/
 [4338814]: http://support.microsoft.com/kb/4338814
 [4338823]: http://support.microsoft.com/kb/4338823
 [4338820]: http://support.microsoft.com/kb/4338820
