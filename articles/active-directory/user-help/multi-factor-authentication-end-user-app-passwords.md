@@ -42,7 +42,7 @@ You're given an app password during your initial two-step verification registrat
 
 ## Manage app passwords with the MyApps portal
 
-You can also create and delete app passwords through the MyApps portal.
+You can create and delete app passwords through the MyApps portal.
 
 ### To create an app password using the MyApps portal
 
