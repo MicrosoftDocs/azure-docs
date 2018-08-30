@@ -1,7 +1,7 @@
 ---
 title: Tutorial using patterns to improve LUIS predictions - Azure Cognitive Services | Microsoft Docs 
 titleSuffix: Cognitive Services
-description: In this tutorial, use patterns to increase intent and entity prediction while providing fewer example utterances. The pattern is provided with a template utterance and entities and ignorable text.
+description: In this tutorial, use patterns to increase intent and entity prediction while providing fewer example utterances. The pattern is provided by way of a template utterance example, which includes syntax to identify entities and ignorable text. A pattern is a combination of expression matching and machine learning.  The template utterance example, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -17,7 +17,7 @@ ms.author: diberry
 
 # Tutorial: Improve app with patterns
 
-In this tutorial, use patterns to increase intent and entity prediction while providing fewer example utterances. The pattern is provided with a template utterance and entities and ignorable text.   
+In this tutorial, use patterns to increase intent and entity prediction while providing fewer example utterances. The pattern is provided by way of a template utterance example, which includes syntax to identify entities and ignorable text. A pattern is a combination of expression matching and machine learning.  The template utterance example, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent. 
 
 Because of the nature of the Human Resource domain, there are a few common ways of asking about employee relationships in organizations. For example:
 
@@ -34,8 +34,6 @@ Template utterance examples for this intent include:
 |--|--|
 |Who does {Employee} report to[?]|interchangeable {Employee}, ignore [?]}|
 |Who reports to {Employee}[?]|interchangeable {Employee}, ignore [?]}|
-
-The pattern is provided by way of a template utterance example, which includes syntax to identify entities and ignorable text. A pattern is a combination of expression matching and machine learning.  The template utterance example, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent. 
 
 The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. The optional syntax, `[?]`, marks words, or punctuation that are optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
 
