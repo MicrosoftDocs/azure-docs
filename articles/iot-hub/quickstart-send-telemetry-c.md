@@ -38,11 +38,15 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
 You can use the SDK by installing the packages and libraries for the following environments:
 
-* **Linux**: [Use apt-get with azure-iot-sdk-c](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md).
-* **mbed**: [Use the mebed library](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed).
-* **Arduino**: [Use the Arduino IDE library](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#arduino).
-* **Windows**: [Use the Nuget packages](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#nugetpackage).
-* **iOS**: [Use AzureIoTHubClient on CocoaPods](https://cocoapods.org/pods/AzureIoTHubClient).
+* **Linux**: apt-get packages are available for Ubuntu 14.04, 15.04, 15.10, 16.04 using the following CPU architectures amd64, arm64, armhf and i386. For more information, see [Using apt-get to create a C device client project on Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md).
+
+* **mbed**: For developers creating device applications on the mbed platform, we have published a library and samples that will get you started in minutes witH Azure IoT Hub. For more information, see [Use the mebed library](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed).
+
+* **Arduino**: If you are developing on Arduino, you can leverage the Azure IoT library available in the Arduino IDE library manager. For more information, see [The Azure IoT Hub library for Arduino](https://github.com/azure/azure-iot-arduino).
+
+* **Windows**: For Windows devices, you can leverage the NuGet packages manager in order to add new references to your projects. For more information, see [Using the Nuget packages for Windows devices](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#nugetpackage).
+
+* **iOS**: The IoT Hub Device SDK is available as CocoaPods for Mac and iOS device development. For more information, see [iOS Samples for Microsoft Azure IoT](https://cocoapods.org/pods/AzureIoTHubClient).
 
 However, in this quickstart, you will prepare a development environment used to clone and build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) from GitHub. The SDK on GitHub includes the sample code used in this quickstart. 
 
