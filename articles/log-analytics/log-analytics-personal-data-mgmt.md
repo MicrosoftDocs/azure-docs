@@ -111,6 +111,7 @@ Once the Azure Resource Manager role has been assigned, two new API paths are av
 
 * [POST purge](https://docs.microsoft.com/rest/api/application-insights/components/purge) - takes an object specifying parameters of data to delete and returns a reference GUID
 * GET purge status - the POST purge call will return an 'x-ms-status-location' header that will include a URL that you can call to determine the status of your purge API. For example:
+
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01
    ```
