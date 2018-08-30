@@ -48,6 +48,7 @@
     - name: Azure AD-enabled AKS
       href: aad-integration.md
     - name: Connect to Azure Container Instances (ACI)
+      items:
       - name: Azure CLI
         href: aci-connector-cli.md
       - name: Azure portal
