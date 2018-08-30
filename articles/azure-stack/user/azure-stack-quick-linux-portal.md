@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 08/29/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: 
 ms.custom: mvc
