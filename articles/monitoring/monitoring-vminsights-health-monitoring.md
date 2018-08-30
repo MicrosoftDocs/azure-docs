@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/29/2018
+ms.date: 08/30/2018
 ms.author: magoedte
 ---
 
@@ -135,8 +135,6 @@ Health diagnostics organizes health information into the following categories:
 
 * Availability
 * Performance
-* Configuration
-* Security 
  
 All health criteria defined for a selected target displays in the appropriate category. 
 

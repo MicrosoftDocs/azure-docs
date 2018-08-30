@@ -7,7 +7,7 @@ author: mgoedtel
 manager: carmonm
 editor: tysonn
 
-ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
+ms.assetid: 
 ms.service:  log-analytics
 ms.devlang: na
 ms.topic: article
