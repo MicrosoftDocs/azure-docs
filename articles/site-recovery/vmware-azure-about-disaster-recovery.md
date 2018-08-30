@@ -116,4 +116,4 @@ After you have your Azure and on-premises infrastructure in place, you can set u
 
 ## Next steps
 
-With replication now in place, you should [run a disaster recovery drill](tutorial-dr-drill-azure) to ensure that failover works as expected. 
+With replication now in place, you should [run a disaster recovery drill](tutorial-dr-drill-azure.md) to ensure that failover works as expected. 
