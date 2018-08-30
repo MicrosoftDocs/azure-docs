@@ -20,7 +20,7 @@ app, you can make informed choices to maintain and improve your application.
 
 This quickstart shows how to add Application Insights to an existing ASP.NET web application and start
 analyzing live statistics, which is just one of the various methods you can use to analyze your application. If you do not have a ASP.NET web application, you can create one following the
-[Create a ASP.NET Web App quickstart](../app-service/app-service-web-get-started-dotnet.md).
+[Create a ASP.NET Web App quickstart](../app-service/app-service-web-get-started-dotnet-framework.md).
 
 ## Prerequisites
 To complete this quickstart:
