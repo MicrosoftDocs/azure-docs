@@ -1,6 +1,6 @@
 ---
 title:  Azure Monitor Resource Group Insights | Microsoft Docs
-description: TBD.
+description: Understand the health and performance of your distributed applications and services at the Resource Group level with Azure Monitor
 services: azure-monitor
 author: NumberByColors
 manager: carmonm
@@ -26,7 +26,7 @@ Modern applications are often complex and highly distributed with many discrete 
 
 ![Screenshot of resource group insights overview page](.\media\resource-group-insights\0001-overview.png)
 
-## Find resources with active alerts and health issues
+## Resources with active alerts and health issues
 
 The overview page shows how many alerts have been fired and are still active, along with the current Azure Resource Health of each resource. Together, this information can help you quickly spot any resources that are experiencing issues. Alerts help you detect issues in your code and how you've configured your infrastructure. Azure Resource Health surfaces issue with the Azure platform itself, that aren't specific to your individual applications.
 
@@ -40,7 +40,7 @@ To display Azure Resource Health, check the **Show Azure Resource Health** box a
 
 By default, the resources are grouped by app layer and resource type. **App layer** is a simple categorization of resource types, that only exists within the context of the resource group insights overview page. There are resource types related to application code, compute infrastructure, networking, storage + databases. Management tools get their own app layers, and every other resource is categorized as belonging to the **Other** app layer. This grouping can help you see at-a-glance what subsystems of your application are healthy and unhealthy.
 
-## Diagnose issues with your resource group
+## Diagnose issues in your resource group
 
 The resource group insights page provides several other tools scoped to help you diagnose issues
 
@@ -107,6 +107,6 @@ In this case, if you select edit you will see that this set of visualizations is
 
 ## Next steps
 
-- [Azure Monitor Workbooks](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-usage-workbooks)
+- [Azure Monitor Workbooks](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 - [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Azure Monitor Alerts](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)
+- [Azure Monitor Alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)
