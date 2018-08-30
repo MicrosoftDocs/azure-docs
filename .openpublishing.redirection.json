@@ -7175,7 +7175,7 @@
         },
         {
             "source_path": "articles/cosmos-db/tutorial-develop-graph-dotnet.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet",
             "redirect_document_id": false
         },
         {
