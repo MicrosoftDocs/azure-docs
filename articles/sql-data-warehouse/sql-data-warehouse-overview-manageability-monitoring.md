@@ -3,7 +3,7 @@ title: SQL Data Warehouse Manageability and Monitoring - Overview | Microsoft Do
 description: Monitoring and manageability overview for resource utilization, log and query activity, recommendations, and data protection (backup and restore).
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
