@@ -3,7 +3,7 @@ title: Azure Security Center Quickstart - Onboard your Azure subscription to Sec
 description: This quickstart shows you how to upgrade to Security Center's Standard pricing tier for additional security.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2018
-ms.author: terrylan
+ms.date: 08/30/2018
+ms.author: rkarlin
 
 ---
 # Quickstart: Onboard your Azure subscription to Security Center Standard
@@ -72,11 +72,10 @@ When automatic provisioning is enabled, Security Center installs the Microsoft M
 To enable automatic provisioning of the Microsoft Monitoring Agent:
 
 1. Under the Security Center main menu, select **Security Policy**.
-2. Select the subscription.
-3. Under **Security policy**, select **Data Collection**.
-4. Under **Data Collection**, select **On** to enable automatic provisioning.
-5. Select **Save**.
-
+2. On the row of the subscription, select **Edit settings>**.
+3. In the **Data Collection** tab, set **Auto provisioning** to **On**.
+4. Select **Save**.
+****
   ![Enable automatic provisioning][6]
 
 With this new insight into your Azure VMs, Security Center can provide additional Recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional Security alerts.
@@ -87,16 +86,15 @@ With this new insight into your Azure VMs, Security Center can provide additiona
 Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the Standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
 
 1. Return to the Security Center main menu and select **Security Policy**.
-2. Select the subscription or policy that you want to return to Free. **Security policy** opens.
-3. Under **POLICY COMPONENTS**, select **Pricing tier**.
-4. Select **Free** to change subscription from Standard tier to Free tier.
+2. On the row of the subscription that you want to return to free, select **Edit settings>**.
+3. Select **Pricing tier** and select **Free** to change subscription from Standard tier to Free tier.
 5. Select **Save**.
 
 If you wish to disable automatic provisioning:
 
 1. Return to the Security Center main menu and select **Security policy**.
-2. Select the subscription that you wish to disable automatic provisioning.
-3. Under **Security policy – Data Collection**, select **Off** under **Onboarding** to disable automatic provisioning.
+2. On the row of the subscription you want to disable automatic provisioning, select **Edit settings>**.
+3. In the **Data Collection** tab, set **Auto provisioning** to **Off**.
 4. Select **Save**.
 
 >[!NOTE]

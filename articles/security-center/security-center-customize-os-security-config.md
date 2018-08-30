@@ -3,7 +3,7 @@ title: Customize OS security configurations in Azure Security Center (Preview) |
 description: This article demonstrates how to customize security center assessments
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2018
-ms.author: terrylan
+ms.date: 18/30/2018
+ms.author: rkarlin
 
 ---
 
@@ -50,19 +50,17 @@ To customize the default OS security configuration in Security Center, do the fo
 
 1.  Open the **Security Center** dashboard.
 
-2.  In the left pane, select **Security policy**.  
-    The **Security Center - Security policy** window opens.
+2.  In the left pane, select **Security policy**.      
 
-    ![Security Policy list](media/security-center-customize-os-security-config/open-security-policy.png)
+    ![Security Policy list](media/security-center-customize-os-security-config/mnaual-provisioning.png)
 
-3.  Select the subscription that you want to perform the customization for.
+3.  In the row of the subscription you want to customize, click **Edit settings**.
 
-4. Under **Policy Components**, select **Edit security configurations**.  
-    The **Edit security configurations** window opens.
-
+4. Select **Edit security configurations**.  
+    
     ![The "Edit security configurations" window](media/security-center-customize-os-security-config/blade.png)
 
-5. In the right pane, follow the steps for downloading, editing, and uploading the modified file.
+5. Follow the steps to download, edit, and upload the modified file.
 
    > [!NOTE]
    > By default, the configuration file that you download is in *json* format. For instructions about modifying this file, go to [Customize the configuration file](#customize-the-configuration-file).
@@ -71,8 +69,6 @@ To customize the default OS security configuration in Security Center, do the fo
    After you've successfully saved the file, the configuration is applied to all VMs and computers that are connected to all workspaces under the subscription. The process usually takes a few minutes but can take longer, depending on the infrastructure size.
 
 6. To commit the change, select **Save**. Otherwise, the policy is not stored.
-
-    ![The Save button](media/security-center-customize-os-security-config/save-successfully.png)
 
 At any point, you can reset the current policy configuration to its default state. To do so, in the **Edit OS security configuration rules** window, select **Reset**. Confirm this option by selecting **Yes** in the confirmation pop-up window.
 
