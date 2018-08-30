@@ -120,7 +120,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> These values are not real. You'll need to update these values from actual Sign-on URL and Identifier which is explained later in the tutorial.
 
-4. On the **SAML Signing Certificate** section, perform the following steps: 
+4. On the **SAML Signing Certificate** section, perform the following steps:
 
 	![The Certificate download link](./media/servicenow-tutorial/tutorial_servicenow_certificate.png)
 
@@ -148,9 +148,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Click the **Activate** button.
 
-8. There are two ways in which **ServiceNow** can be configured automatic and manual.
+8. There are two ways in which **ServiceNow** can be configured - Automatic and Manual.
 
-9. For configuring **ServiceNow** automatically follow the below steps
+9.  For configuring **ServiceNow** automatically, follow the below steps:
 
 	a. Return to the **ServiceNow** Single-Sign on page in the Azure portal.
 
@@ -185,8 +185,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	* Click **Save**.
 
 	* Click on **Activate** at the top right corner of the page.
+  
+	f. After completing the above steps please jump to step 11 and follow the instructions provided there from step 11 till 17th.
 
-10. For configuring **ServiceNow** manually follow the below steps:
+10. For configuring **ServiceNow** manually, follow the below steps:
 
 	a. Sign on to your ServiceNow application as an administrator.
 
