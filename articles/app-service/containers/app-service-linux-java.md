@@ -143,7 +143,13 @@ Using the Maven plugin, add name/value tags in the Azure plugin section:
 </appSettings> 
 ```
 
-## Tomcat customization
+## Security
+
+Set up app authentication in the Azure Portal with the  **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social logins like Facebook, Google, or GitHub.
+
+For more information, see [Configure your App Service app to use Azure Active Directory login](/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) and its related articles.
+
+## Tomcat configuration
 
 ### Configure data sources
 
@@ -155,7 +161,9 @@ To configure your apps running on Tomcat to use managed connections to databases
 For application-level data sources: 
 
 1. Add a `context.xml` file if it does not exist to your web application and make sure it is added to the META-INF directory of your WAR file when the project is built.
+
 2. In this file, add a Context path entry to link the data source to a JNDI address:
+
 ```xml
 <Context>
     <Resource
