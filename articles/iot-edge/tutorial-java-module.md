@@ -63,7 +63,7 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 6. Copy the values for **Login server**, **Username**, and **Password**. You use these values later in the tutorial to publish the Docker image to your registry and to add the registry credentials to the Azure IoT Edge runtime. 
 
 ## Create an IoT Edge module project
-The following steps create an IoT Edge module project that's based on the he Azure IoT Edge maven template package and Azure IoT Java device SDK by using Visual Studio Code and the Azure IoT Edge extension.
+The following steps create an IoT Edge module project that's based on the Azure IoT Edge maven template package and Azure IoT Java device SDK by using Visual Studio Code and the Azure IoT Edge extension.
 
 ### Create a new solution
 
@@ -83,7 +83,7 @@ Create a Java solution template that you can customize with your own code.
    6. Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like \<registry name\>.azurecr.io/javamodule.
 
 
-If it's the first time to create Java module, it might take several minutes to download maven pakcages. Then the VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial. The **modules** folder contains the Java code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. 
+If it's the first time to create Java module, it might take several minutes to download maven packages. Then the VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial. The **modules** folder contains the Java code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. 
 
 If you didn't specify a container registry when creating your solution, but accepted the default localhost:5000 value, you won't have a \.env file. 
 
@@ -123,7 +123,7 @@ The environment file stores the credentials for your container registry and shar
     private static AtomicLong tempThreshold = new AtomicLong(25);
     ```
 
-7. Replace the execute method of **MessageCallbackMqtt** with the following code. This method is called whenever the module receives a MQTT message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin.
+7. Replace the execute method of **MessageCallbackMqtt** with the following code. This method is called whenever the module receives an MQTT message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin.
 
     ```java
         private int counter = 0;
