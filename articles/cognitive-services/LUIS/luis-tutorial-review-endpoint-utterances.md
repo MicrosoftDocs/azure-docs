@@ -25,7 +25,7 @@ This review process is another way for LUIS to learn your app domain. LUIS selec
 
 By reviewing the endpoint utterances, you verify or correct the utterance's predicted intent. You also label custom entities that were not predicted or predicted incorrectly. 
 
-**In this tutorial, you learn how to: **
+**In this tutorial, you learn how to:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]

@@ -17,7 +17,7 @@ In this tutorial,  modify the Human Resources app. Add prebuilt intents and enti
 
 Prebuilt models include an entire subject domain, including intents with example utterances labeled with entities, just intents, or just entities. These prebuilt units of the model of common subject domains and data types help you build your model quickly as well as have an example of what a model looks like. 
 
-**In this tutorial, you learn how to: **
+**In this tutorial, you learn how to:**
 
 > [!div class="checklist"]
 > * Use existing tutorial app

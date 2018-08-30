@@ -61,7 +61,7 @@ The extracted data from the endpoint should contain this information and return 
 ]
 ```
 
-**In this tutorial, you learn how to: **
+**In this tutorial, you learn how to:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]

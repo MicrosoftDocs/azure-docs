@@ -30,7 +30,7 @@ Sentiment analysis is a publish setting that applies to every utterance. You do 
 
 Because it is a publish setting, you do not see it on the intents or entities pages. You can see it in the [interactive test](luis-interactive-test.md#view-sentiment-results) pane or when testing at the endpoint URL. 
 
-**In this tutorial, you learn how to: **
+**In this tutorial, you learn how to:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]

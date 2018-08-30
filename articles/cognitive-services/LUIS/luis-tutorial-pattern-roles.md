@@ -34,7 +34,7 @@ Because the example utterance `Move new employee Robert Williams from Sacramento
 
 If you have difficulty with simple entity detection because it is a name such as a city, consider adding a phrase list of similar values. This helps the detection of the city name by giving LUIS an additional signal about that type of word or phrase. Phrase lists only help the pattern by helping with entity detection, which is necessary for the pattern to match. 
 
-**In this tutorial, you learn how to: **
+**In this tutorial, you learn how to:**
 
 > [!div class="checklist"]
 > * Use existing tutorial app

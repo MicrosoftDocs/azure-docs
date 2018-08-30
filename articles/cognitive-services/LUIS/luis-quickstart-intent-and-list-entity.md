@@ -38,7 +38,7 @@ A list entity is a good choice for this type of data when:
 * The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
 * The text in the utterance is an exact match with a synonym or the canonical name. 
 
-**In this tutorial, you learn how to: **
+**In this tutorial, you learn how to:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
