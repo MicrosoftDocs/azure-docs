@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: 
 ms.custom: mvc
