@@ -1,32 +1,31 @@
 ---
 title: Diagnose an issue with Azure Time Series Insights | Microsoft Docs
-description: In this tutorial you learn how to monitor your IoT devices using the Remote Monitoring solution accelerator.
-author: dominicbetts
-manager: timlt
-ms.author: dobett
+description: In this tutorial you learn how to diagnose an issue with Time Series Insights.
+author: aditidugar
+ms.author: adugar
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 08/30/2018
 ms.topic: tutorial
 ms.custom: mvc
 
-# As an operator of an IoT monitoring solution, I need to monitor my connected devices, to understand the health of my fleet of devices.
+# As an operator of an IoT monitoring solution, I need to diagnose alerts on my fleet devices to understand why they are happening.
 ---
 
-# Tutorial: Monitor your IoT devices
+# Tutorial: Diagnose an issue with Azure Time Series Insights
 
-In this tutorial, you use the Remote Monitoring solution accelerator to monitor your connected IoT devices. You use the solution dashboard to view telemetry, device information, alerts, and KPIs.
+In this tutorial, you will learn how to use the Remote Monitoring solution accelerator to diagnose the root cause of an alert that is triggered using Azure Time Series Insights.
 
-The tutorial uses two simulated truck devices that send location, speed, and cargo temperature telemetry. The trucks are managed by an organization called Contoso and are connected to the Remote Monitoring solution accelerator. As a Contoso operator, you need to monitor the location and behavior of one of your trucks (truck-02) in the field.
+The tutorial uses two simulated truck devices that send location, altitude, speed, and cargo temperature telemetry. The trucks are managed by an organization called Contoso and are connected to the Remote Monitoring solution accelerator. As a Contoso operator, you need to understand why one of your trucks (truck-02) has logged a low temperature alert.
 
 In this tutorial, you:
 
 >[!div class="checklist"]
 > * Filter the devices in the dashboard
 > * View real-time telemetry
-> * View device details
-> * View alerts from your devices
-> * View the system KPIs
+> * Explore data in the Time Series Insights explorer
+> * Diagnose the alert
+> * Create a new rule based on your learnings
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,65 +35,64 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To select which connected devices display on the **Dashboard** page, use filters. To display only the **Truck** devices, choose the built-in **Trucks** filter in the filter drop-down:
 
-[![Filter for trucks on the dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
+[![Filter for trucks on the dashboard](./media/iot-accelerators-remote-monitoring-monitor/)](./media/iot-accelerators-remote-monitoring-monitor/#lightbox)
 
 When you apply a filter, only those devices that match the filter conditions are displayed on the map and in the telemetry panel on the **Dashboard** page. You can see that there are two trucks connected to the solution accelerator, including truck-02:
 
-[![Only trucks are displayed on the map](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
+[![Only trucks are displayed on the map](./media/iot-accelerators-remote-monitoring-/)](./media/iot-accelerators-remote-monitoring-/#lightbox)
 
 To create, edit, and delete filters, click **Manage device groups**.
 
 ## View real-time telemetry
 
-The solution accelerator plots real-time telemetry in the chart on the **Dashboard** page. The top of the telemetry chart shows available telemetry types for the devices, including truck-02, selected by the current filter. By default, the chart is showing the latitude of the trucks and truck-02 appears to be stationary:
+The solution accelerator plots real-time telemetry in the chart on the **Dashboard** page. The top of the telemetry chart shows available telemetry types for the devices, including truck-02, selected by the current filter. By default, the chart is showing the latitude of the trucks and both trucks appear to be moving:
 
-[![Truck telemetry types](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-expanded.png#lightbox)
+[![Truck telemetry types](./media/iot-accelerators-remote-monitoring-)](./media/iot-accelerators-remote-monitoring-/#lightbox)
 
-To view temperature telemetry for the trucks, click **Temperature**. You can see how the temperature for truck-02 has varied over the last hour:
+To view temperature telemetry for the trucks, click **Temperature**. You can see how the temperature for both trucks have varied over the last 15 minutes. You can also see that an alert for low temperature has been triggered for truck-02 in the alerts pane.
 
-[![Truck temperature telemetry plot](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-expanded.png#lightbox)
+[![Truck temperature telemetry plot](./media/iot-accelerators-remote-monitoring-)](./media/iot-accelerators-remote-monitoring-/#lightbox)
 
-## View the map
+## Explore data in the Time Series Insights explorer
+To get a deeper look at your data to try and understand what is causing the low temperature alarm, open your truck telemetry data in the Time Series Insights explorer by clicking any of the outgoing links:
 
-The map displays information about the simulated trucks selected by the current filter. You can zoom and pan the map to display locations in more or less detail. The color of a device icon on the map indicates whether any **Alerts** (dark blue) or **Warnings** (red) are active for the device. A summary of the number of **Alerts** and **Warnings** is displayed to the left of the map.
+[![RM dashboard with TSI links highlighted](./media/iot-accelerators-remote-monitoring-)](./media/iot-accelerators-remote-monitoring-/#lightbox)
 
-To view the details for truck-02, pan and zoom the map to locate it, then select the truck on the map. Then click on the device label to open the **Device details** panel. Device details include:
+On the left hand side panel, select **Measure > Temperature** and **Split By > TruckId**.
 
-* Recent telemetry values
-* Methods the device supports
-* Device properties
+[![TSI Explorer initial view](./media/iot-accelerators-remote-monitoring-)](./media/iot-accelerators-remote-monitoring-/#lightbox)
 
-[![View device details on the dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-expanded.png#lightbox)
+You will see the same view that you were looking at in the Remote Monitoring dashboard, and can zoom in closer to the time frame that the alert was triggered within.
 
-## View alerts
+[![TSI Explorer with temperature filter](./media/iot-accelerators-remote-monitoring-)](./media/iot-accelerators-remote-monitoring-/#lightbox)
 
-The **Alerts** panel displays detailed information about the most recent alerts from your devices. The alerts from truck-02 indicate higher than normal cargo temperature:
+You can also add in other telemetry streams coming from the trucks. Click the **Add** button in the top left hand corner. You will see a new pane appear.
 
-[![View device alerts on the dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-expanded.png#lightbox)
+[![TSI Explorer with new pane](./media/iot-accelerators-remote-monitoring-)](./media/iot-accelerators-remote-monitoring-/#lightbox)
 
-You can use a filter to adjust the time span for recent alerts. By default, the panel displays alerts from the last hour.
+In the new pane, select **Measure > Altitude** and **Split By > TruckId** to add the altitude telemetry into your view. You can also highlight only the telemetry coming from truck-02 by clicking on a specific TruckId.
 
-## View the system KPIs
+[![TSI Explorer with temperature and altitude](./media/iot-accelerators-remote-monitoring-)](./media/iot-accelerators-remote-monitoring-/#lightbox)
 
-The **Dashboard** page displays system KPIs calculated by the solution accelerator in the **Analytics** panel:
+## Diagnose the alert
+When looking at all of the streams in the current view, you notice that the altitude profiles for the two trucks are very different and the temperature drop in truck-02 happens when the truck reaches a high altitude. You are surprised by the finding, because the trucks were scheduled to take the same route. 
 
-[![Dashboard KPIs](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis-expanded.png#lightbox)
+To confirm your suspicion that the trucks took different journey paths, add in another pane to the side panel using the **Add** button and filter by **Measure > Latitude** and **Split By > TruckId**. You can see that the trucks were taking different journeys by looking at the difference in **Latitude** streams.
 
-The dashboard shows three KPIs for the alerts selected by the current device and timespan filters:
+[![TSI Explorer with temperature, altitude, and latitude](./media/iot-accelerators-remote-monitoring-)](./media/iot-accelerators-remote-monitoring-/#lightbox)
 
-* The number of active alerts for the rules that have triggered the most alerts.
-* The proportion of alerts by device type.
-* The percentage of alerts that are critical alerts.
+## Create a new rule based on your learnings
+While truck routes are generally optimized in advance, you realize that traffic pattern, weather, and other unpredictable events can cause delays and leave last minute route decisions to truck drivers based on their best judgement. However, since the temperature of your assets inside the vehicle is critical, you should set an additional rule back in your Remote Monitoring solution to make sure the average altitude range for each 1- minute interval stays below 300 m.
 
-For truck-02, all the alerts are warnings of higher than normal cargo temperature.
+[![Remote Monitoring rules tab set altitude rule](./media/iot-accelerators-remote-monitoring-)](./media/iot-accelerators-remote-monitoring-/#lightbox)
 
-The same filters that set the time span for alerts and control which devices are displayed determine how the KPIs are aggregated. By default, the panel displays KPIs aggregated over the last hour.
+To learn how to create and edit rules, check out the previous tutorial on [detecing device issues](iot-accelerators-remote-monitoring-automate.md).
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## Next steps
 
-This tutorial showed you how to use the **Dashboard** page in the Remote Monitoring solution accelerator to filter and monitor the simulated trucks. To learn how to use the solution accelerator to detect issues with your connected devices, continue to the next tutorial.
+This tutorial showed you how to use the Time Series Insights explorer with the Remote Monitoring solution accelerator to diagnose the root cause of an alert. To learn how to use the solution accelerator to identify and fix issues with your connected devices, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Detect issues with devices connected to your monitoring solution](iot-accelerators-remote-monitoring-automate.md)
+> [Use device alerts to identify and fix issues with devices connected to your monitoring solution](iot-accelerators-remote-monitoring-maintain.md)
