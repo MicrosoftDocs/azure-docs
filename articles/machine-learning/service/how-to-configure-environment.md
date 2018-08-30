@@ -58,7 +58,7 @@ Create a configuration file, so your code can interact with your workspace in th
 
 4. Be sure to save **config.json** into the same directory as the scripts or notebooks that reference it.
 
-## Install for Jupyter Notebooks on your own computer
+## Configure Jupyter Notebooks on your own computer
 
 1. Open a command-prompt or shell.
 
@@ -113,7 +113,7 @@ Create a configuration file, so your code can interact with your workspace in th
     azureml.core.VERSION
     ```
 
-## Install for Visual Studio Code
+## Configure Visual Studio Code
 
 1. Open a command-prompt or shell.
 
@@ -156,11 +156,11 @@ Create a configuration file, so your code can interact with your workspace in th
     azureml.core.VERSION
     ```
 
-## Install for code editor of your choice
+## Configure code editor of your choice
 
 To use a custom code editor with Azure Machine Learning SDK, first create conda environment as described above. Then follow the instructions for each editor to use the conda environment. For example, the instructions for PyCharm are located at [https://www.jetbrains.com/help/pycharm/2018.2/conda-support-creating-conda-virtual-environment.html](https://www.jetbrains.com/help/pycharm/2018.2/conda-support-creating-conda-virtual-environment.html).
 
-## Install for Azure Notebooks and Data Science Virtual Machine
+## Configure Azure Notebooks and Data Science Virtual Machine
 
 [!INCLUDE [aml-pre-installed](~/includes/aml-pre-installed.md)]
  
