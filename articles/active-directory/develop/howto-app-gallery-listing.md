@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/20/2018
+ms.date: 08/30/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
@@ -74,9 +74,9 @@ To list an application in the Azure AD app gallery, you first need to implement 
 
     * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-## Implementing the SSO using Password SSO
+## Implementing SSO using Password SSO
 
-**Password SSO**: Create a web application that has an HTML sign-in page to configure [password-based single sign-on](../manage-apps/what-is-single-sign-on.md). Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios in which several users need to share a single account, such as to your organization's social media app accounts.
+Create a web application that has an HTML sign-in page to configure [password-based single sign-on](../manage-apps/what-is-single-sign-on.md). Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios in which several users need to share a single account, such as to your organization's social media app accounts.
 
 ![TimeLine of listing Password SSO application into the gallery](./media/howto-app-gallery-listing/passwordsso.png)
 
