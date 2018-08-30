@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Extract handwritten text - REST, C#
+title: Extract handwritten text - REST, C#
 titleSuffix: "Computer Vision - Cognitive Services - Azure"
 description: In this quickstart, you extract handwritten text from an image using Computer Vision with C# in Cognitive Services.
 services: cognitive-services
