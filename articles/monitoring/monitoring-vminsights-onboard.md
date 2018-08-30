@@ -53,19 +53,19 @@ To monitor physical or virtual machines in a hybrid environment with VM Insights
 
 ### Log Analytics 
 
-1. A Log Analytics workspace in the following regions are currently supported:
+A Log Analytics workspace in the following regions are currently supported:
 
-   - West Central US
-   - East US
-   - West Europe
-   - Southeast Asia<sup>1</sup>  
+  - West Central US
+  - East US
+  - West Europe
+  - Southeast Asia<sup>1</sup>  
 
-    <sup>1</sup> 
-    This region does not support the Health feature of VM Insights and it will be available at a later date.   
+   <sup>1</sup> 
+   This region does not support the Health feature of VM Insights and it will be available at a later date.   
 
-    If you do not have a workspace, you can you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).  
+If you do not have a workspace, you can you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).  
 
-2. The Log Analytics contributor role, to enable the solution. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
+To enable the solution, you need to be a member of the Log Analytics contributor role. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
