@@ -15,8 +15,8 @@ This article provides an overview of disaster recovery for on-premises VMware VM
 
 A business continuity and disaster recovery (BCDR) strategy helps keep your business up and running. During planned downtime and unexpected outages, BCDR keeps data safe and available, and ensures that apps continue running. In addition to platform BCDR features such as regional pairing, and high availability storage, Azure provides Recovery Services as an integral part of your BCDR solution. Recovery services include: 
 
-[Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) backs up your on-premises and Azure VM data. You can back up a file and folders, specific workloads, or an entire VM. 
-Azure Site Recovery provides resilience and disaster recovery for apps and workloads running on on-premises machines, or Azure IaaS VMs. Site Recovery replicates machines to Azure storages. Then, when outages occur, you fail over to Azure.  Azure VMs are created from storage, and users can access apps in Azure, ensuring continuity. When you're up and running again, you fail back from Azure, and resume normal activities in the primary site.
+- [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) backs up your on-premises and Azure VM data. You can back up a file and folders, specific workloads, or an entire VM. 
+- [Azure Site Recovery](site-recovery-overview.md) provides resilience and disaster recovery for apps and workloads running on on-premises machines, or Azure IaaS VMs. Site Recovery replicates machines to Azure storages. Then, when outages occur, you fail over to Azure.  Azure VMs are created from storage, and users can access apps in Azure, ensuring continuity. When you're up and running again, you fail back from Azure, and resume normal activities in the primary site.
 
 ## How does Site Recovery do disaster recovery?
 
@@ -107,10 +107,10 @@ After you have your Azure and on-premises infrastructure in place, you can set u
 - If you're unable to complete the initial replication, or ongoing replication isn't working as expected, [review this article](vmware-azure-troubleshoot-replication.md) for common errors and troubleshooting tips.
 - If you're having issues with the automatic installation of the Mobility service on machines you want to replicate, review common errors in [this article](vmware-azure-troubleshoot-push-install.md).
 - If failover isn't working as expected, check common errors in [this article](site-recovery-failover-to-azure-troubleshoot.md).
-- If failback isn't working, check whether your issue appears in [this article](vmware-azure-troubleshoot-failback-reprotect.md)
+- If failback isn't working, check whether your issue appears in [this article](vmware-azure-troubleshoot-failback-reprotect.md).
 
 
 
 ## Next steps
 
-With replication now in place, you should run a disaster recovery drill to ensure that failover works as expected. Learn more  (link to failover conceptual doc)
+With replication now in place, you should run a disaster recovery drill to ensure that failover works as expected. 
