@@ -225,6 +225,7 @@ In the previous sections, you created a solution with one module, and then added
    CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
    CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
+
 2. Save the .env file.
 3. Sign in to your container registry in Visual Studio Code so that you can push your images to your registry. Use the same credentials that you added to the .env file. Enter the following command in the integrated terminal:
 
