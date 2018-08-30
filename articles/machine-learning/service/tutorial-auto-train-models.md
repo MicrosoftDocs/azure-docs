@@ -566,5 +566,5 @@ In this Azure Machine Learning tutorial, you used Python to:
 > * Review training results
 > * Register the best model
 
-Learn more about [how to configure settings for automatic training]() or [how to use automatic training on a remote resource]().  
+Learn more about [how to configure settings for automatic training]() or [how to use automatic training on a remote resource](how-to-auto-train-remote.md).  
 
