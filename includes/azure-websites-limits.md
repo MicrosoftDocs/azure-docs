@@ -1,9 +1,9 @@
 | Resource | Free | Shared (Preview) | Basic | Standard | Premium | Isolated </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Web, mobile, or API apps](https://azure.microsoft.com/services/app-service/) per [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited|
-| [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |1 per region |10 per resource group |100 per resource group |100 per resource group |100 per resource group |
+| [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |1 per region |10 per resource group |100 per resource group |100 per resource group |100 per resource group |***|
 | Compute instance type |Shared |Shared |Dedicated<sup>3</sup> |Dedicated<sup>3</sup> |Dedicated<sup>3</sup></p> |Dedicated<sup>3</sup>|
-| [Scale-Out](../articles/app-service/web-sites-scale.md) (max instances) |1 shared |1 shared |3 dedicated<sup>3</sup> |10 dedicated<sup>3</sup> |20 dedicated (50 in ASE)<sup>3,4</sup> |100 dedicated|
+| [Scale-Out](../articles/app-service/web-sites-scale.md) (max instances) |1 shared |1 shared |3 dedicated<sup>3</sup> |10 dedicated<sup>3</sup> |20 dedicated|100 dedicated|
 | Storage<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |500 GB<sup>4,5</sup></p> |1 TB|
 | CPU time (5 min)<sup>6</sup> |3 minutes |3 minutes |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard rates |Unlimited, pay at standard rates |Unlimited, pay at standard rates|
 | CPU time (day)<sup>6</sup> |60 minutes |240 minutes |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard rates |Unlimited, pay at standard rates |Unlimited, pay at standard rates |
@@ -23,8 +23,8 @@
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) support | |X |X |X |X |X |
 | [Endpoint monitoring](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Staging Slots](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |*** |
-| Custom domains per app</a> | |500 |500 |500 |500 |*** |
-| SLA | |<p> |99.9% |99.95%<sup>10</sup> |99.95%<sup>9</sup> |99.95|
+| Custom domains per app</a> | |500 |500 |500 |500 |500 |
+| SLA | |<p> |99.9% |99.95%<sup>10</sup> |99.95%<sup>9</sup> |99.95%|
 
 <sup>1</sup>Apps and storage quotas are per App Service plan unless noted otherwise.  
 <sup>2</sup>The actual number of apps that you can host on these machines depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
