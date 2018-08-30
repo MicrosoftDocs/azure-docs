@@ -3755,6 +3755,8 @@ And returns this string as an example result: `"http://feeds.reuters.com/reuters
 
 <a name="triggerMultipartBody"></a>
 
+### triggerMultipartBody
+
 Return the body for a specific part in a trigger's output that has multiple parts. 
 
 ```

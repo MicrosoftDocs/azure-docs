@@ -80,7 +80,7 @@ and open your logic app in Logic App Designer, if not open already.
        Under the actions list, select the action you want.
 
 1. If you're prompted to sign in to Yammer, sign in now 
-and allow access.
+sign in now so you can allow access.
 
 1. Provide the necessary details for your selected trigger 
 or action and continue building your logic app's workflow.

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/27/2018
 ms.author: brenduns
 ms.reviewer: misainat
 
@@ -103,6 +103,8 @@ This build includes the following improvements and fixes for Azure Stack.
 ### Known issues
 
 #### Portal  
+- <!-- 2931230 – IS  ASDK --> Plans that are added to a user subscription as an add-on plan cannot be deleted, even when you remove the plan from the user subscription. The plan will remain until the subscriptions that reference the add-on plan are also deleted. 
+
 - <!--2760466 – IS  ASDK --> When you install a new Azure Stack environment that runs this version, the alert that indicates *Activation Required* might not display. [Activation](.\.\azure-stack-registration.md) is required before you can use marketplace syndication. 
 
 - <!-- TBD - IS ASDK --> The two administrative subscription types that were [introduced with version 1804](.\.\azure-stack-update-1804.md#new-features) should not be used. The subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider subscription** type.
@@ -248,6 +250,8 @@ This build includes the following improvements and fixes for Azure Stack.
 ### Known issues
 
 #### Portal
+- <!-- 2931230 – IS  ASDK --> Plans that are added to a user subscription as an add-on plan cannot be deleted, even when you remove the plan from the user subscription. The plan will remain until the subscriptions that reference the add-on plan are also deleted. 
+
 - <!-- 2551834 - IS, ASDK --> When you select **Overview** for a storage account in either the admin or user portals, the information from the *Essentials* pane does not display.  The Essentials pane displays information about the account like its *Resource group*, *Location*, and *Subscription ID*.  Other options for Overview  are accessible, like *Services* and *Monitoring*, as well as options to *Open in Explorer* or to *Delete storage account*.  
 
   To view the unavailable information, use the [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) PowerShell cmdlet.

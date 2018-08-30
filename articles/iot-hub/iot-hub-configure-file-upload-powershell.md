@@ -129,4 +129,4 @@ To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide](iot-hub-devguide.md)
 * [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
-* [Secure your IoT solution from the ground up](/../iot-fundamentals/iot-security-ground-up.md)
+* [Secure your IoT solution from the ground up](../iot-fundamentals/iot-security-ground-up.md)

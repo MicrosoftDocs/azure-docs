@@ -31,6 +31,8 @@
         href: tutorial-python-module.md
       - name: Node.js
         href: tutorial-node-module.md
+      - name: Java
+        href: tutorial-java-module.md
       - name: C
         href: tutorial-c-module.md
   - name: Store data locally with SQL
