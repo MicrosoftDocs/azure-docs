@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 09/10/2018
 ms.author: giladm
 
 ---
@@ -88,9 +88,9 @@ The following section describes the configuration of auditing using the Azure po
 
     ![Event hub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
-9. If you want to customize the audited events, you can do this via [PowerShell cmdlets](#subheading-7) or the [REST API](#subheading-9).
-10. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
-11. Click **Save**.
+9. Click **Save**.
+10. If you want to customize the audited events, you can do this via [PowerShell cmdlets](#subheading-7) or the [REST API](#subheading-9).
+11. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md). 
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
 If you chose to write audit logs to an Azure storage account, there are several methods you can use to view the logs:
