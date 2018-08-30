@@ -71,16 +71,18 @@
       items:
       - name: Common questions for VMware to Azure replication
         href: vmware-azure-common-questions.md
-      - name: VMware/physical to Azure support matrix
+      - name: Support matrix
         href: vmware-physical-azure-support-matrix.md
       - name: VMware to Azure architecture
         href: vmware-azure-architecture.md
       - name: Physical to Azure architecture
         href: physical-azure-architecture.md
-      - name: Multi-tenant support for VMware replication to Azure
-        href: vmware-azure-multi-tenant-overview.md
-      - name: Failback location options
+      - name: About disaster recovery
+        href: vmware-azure-about-disaster-recovery.md
+      - name: About failback location options
         href: concepts-types-of-failback.md
+      - name: About multi-tenant support for VMware
+        href: vmware-azure-multi-tenant-overview.md
     - name: Replication to a secondary site
       items:
       - name: VMware/physical to secondary site support matrix
