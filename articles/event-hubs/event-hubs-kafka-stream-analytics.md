@@ -24,7 +24,7 @@ This article shows how to stream data into Kafka-enabled Event Hubs and process 
 2. Create a Kafka client that sends messages to the event hub.
 3. Create a Stream Analytics job that copies data from the event hub into an Azure blob storage. 
 
-You do not need to change your protocol clients or run your own clusters when you use the Kafka endpoint exposed by an event hub. Azure Event Hubs supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
+You do not need to change your protocol clients or run your own clusters when you use the Kafka endpoint exposed by an event hub. Azure Event Hubs supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html) and above. 
 
 
 ## Prerequisites
