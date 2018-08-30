@@ -21164,7 +21164,7 @@
         },
         {
             "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
-            "redirect_url": "/azure/security-center-faq.md",
+            "redirect_url": "/azure/security-center/security-center-faq",
             "redirect_document_id": false
         },
         {
