@@ -14,7 +14,7 @@ ms.author: diberry
 
 --- 
 
-# Tutorial: Review utterances with unsure predictions
+# Tutorial: 1. Fix unsure predictions
 In this tutorial, improve app predictions by verifying or correcting utterances received via the LUIS HTTPS endpoint that LUIS is unsure of. Some utterances may have to be verified for intent and others may need to be verified for entity. You should review endpoint utterances as a regular part of you scheduled LUIS maintenance. 
 
 This review process is another way for LUIS to learn your app domain. LUIS selected the utterances that appear in the review list. This list is:

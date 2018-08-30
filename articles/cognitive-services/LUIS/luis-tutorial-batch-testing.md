@@ -12,7 +12,7 @@ ms.date: 08/31/2018
 ms.author: diberry
 ---
 
-# Batch test with known data
+# Tutorial: # 2. Batch test datasets
 
 This tutorial demonstrates how to use batch testing to find utterance prediction issues in your app and fix them.  
 

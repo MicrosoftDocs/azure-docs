@@ -12,7 +12,7 @@ ms.date: 08/31/2018
 ms.author: diberry
 --- 
 
-# Tutorial: 6. Combine and extract related data into group
+# Tutorial: 6. Group and extract related data
 In this tutorial, add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 
 The purpose of the composite entity is to group related entities into a parent category entity. The information exists as separate entities before a composite is created. It is similar to hierarchical entity but can contain different types of entities. 
