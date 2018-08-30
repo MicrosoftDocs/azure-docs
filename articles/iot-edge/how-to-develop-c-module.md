@@ -82,7 +82,7 @@ In each module folder, there are several Docker files for different container ty
 
     ![Add **.debug** to your image name](./media/how-to-develop-c-module/image-debug.png)
 
-2. Replace the Node.js module createOptions in **deployment.template.json** with below content and save this file: 
+2. Replace the C module createOptions in **deployment.template.json** with below content and save this file: 
     
     ```json
     "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
@@ -110,7 +110,7 @@ VS Code keeps debugging configuration information in a `launch.json` file locate
 
 4. In VS Code Debug view, you'll see the variables in the left panel. 
 
-The preceding example shows how to debug C IoT Edge modules on containers. It added exposed ports in your module container createOptions. After you finish debugging your Node.js modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.
+The preceding example shows how to debug C IoT Edge modules on containers. It added exposed ports in your module container createOptions. After you finish debugging your C modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.
 
 ## Next steps
 
