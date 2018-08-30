@@ -56,14 +56,14 @@ Host: api.cognitive.microsoft.com
 
  By default, the Image Search API returns all images that are relevant to the query. If you want to filter the images that Bing returns (for example, to return only images with a transparent background or specific size), use the following query parameters:
 
-* [aspect](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#aspect)—Filter images by aspect ratio (for example, standard or wide screen images)
-* [color](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#color)—Filter images by dominant color or black and white
-* [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#freshness)—Filter images by age (for example, images discovered by Bing in the past week)
-* [height](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#height), [width](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#width)—Filter images by width and height
-* [imageContent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagecontent)—Filter images by content (for example, images that show only a person's face)
-* [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype)—Filter images by type (for example, clip art, animated GIFs, or transparent backgrounds)
-* [license](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license)—Filter images by the type of license associated with the site
-* [size](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#size)—Filter images by size, such as small images up to 200x200 pixels
+* [aspect](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#aspect)—Filter images by aspect ratio (for example, standard or wide screen images).
+* [color](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#color)—Filter images by dominant color or black and white.
+* [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#freshness)—Filter images by age (for example, images discovered by Bing in the past week).
+* [height](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#height), [width](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#width)—Filter images by width and height.
+* [imageContent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagecontent)—Filter images by content (for example, images that show only a person's face).
+* [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype)—Filter images by type (for example, clip art, animated GIFs, or transparent backgrounds).
+* [license](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license)—Filter images by the type of license associated with the site.
+* [size](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#size)—Filter images by size, such as small images up to 200x200 pixels.
 
 To get images from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator.
 
@@ -116,4 +116,4 @@ When you call the Bing Image Search API, Bing returns a list of results. The lis
 
 ## Next steps
 
-If you haven't tried the Bing Image Search API before, try a [quickstart](../quickstarts/csharp.md). If you're looking for something more complex, try the tutorial for creating a [single-page web app](../tutorial-bing-image-search-single-page-app.md).
+If you haven't tried the Bing Image Search API before, try a [quickstart](../quickstarts/csharp.md). If you're looking for something more complex, try the tutorial to create a [single-page web app](../tutorial-bing-image-search-single-page-app.md).
