@@ -4,8 +4,10 @@ description: Learn how to set up disaster recovery to Azure for Azure Stack VMs 
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
+ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 08/30/2018
+
 ms.author: raynew
 
 
@@ -291,9 +293,8 @@ Run a test failover for a VM as follows:
 2. For this walkthrough, we'll select to use the **Latest processed** recovery point. 
 3. In **Test Failover**, select the target Azure network.
 4. Click **OK** to begin the failover.
-5. Track progress by clicking on the VM to open its properties. Or, click the **Test Failover** job in *vault name* > **Settings** > **Jobs** >
-   **Site Recovery jobs**.
-6. After the failover finishes, the replica Azure VM appears in the Azure portal > ***Virtual Machines**. Check that the VM is the appropriate size, connected to the right network, and running.
+5. Track progress by clicking on the VM to open its properties. Or, click the **Test Failover** job in *vault name* > **Settings** > **Jobs** >**Site Recovery jobs**.
+6. After the failover finishes, the replica Azure VM appears in the Azure portal > **Virtual Machines**. Check that the VM is the appropriate size, connected to the right network, and running.
 7. You should now be able to connect to the replicated VM in Azure. [Learn more](https://docs.microsoft.com/azure/site-recovery/site-recovery-test-failover-to-azure#prepare-to-connect-to-azure-vms-after-failover).
 8. To delete Azure VMs created during the test failover, click **Cleanup test failover** on the VM. In **Notes**, save any observations associated with the test failover.
 
