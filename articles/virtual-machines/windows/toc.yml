@@ -220,9 +220,9 @@
       href: nested-virtualization.md
   - name: Manage costs
     items:
-    - name: Prepay for VMs - Azure reservations
+    - name: Prepay for VMs - Azure Reservations
       href: prepay-reserved-vm-instances.md
-    - name: What are Azure reservations?
+    - name: What are Azure Reservations?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: VM instance size flexibility
       href: reserved-vm-instance-size-flexibility.md
