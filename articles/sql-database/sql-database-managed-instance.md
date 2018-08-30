@@ -9,7 +9,7 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 08/30/2018
 ms.author: bonova
 ---
 
@@ -66,7 +66,7 @@ Managed Instance is available in two service tiers:
 - **General Purpose**: Designed for applications with typical performance and IO latency requirements.
 - **Business Critical**: Designed for applications with low IO latency requirements and minimal impact of underlying maintenance operations on the workload.
 
-Both service tiers guarantee 99.99% availability and enable you to independently select storage size and compute capacity. 
+Both service tiers guarantee 99.99% availability and enable you to independently select storage size and compute capacity. For more information on the high availability architecture of Azure SQL Database, see [High Availability and Azure SQL Database](sql-database-high-availability.md).
 
 > [!IMPORTANT]
 > Changing your service tier from General Purpose to Business Critical or vice versa is not supported in Public Preview. If you want to migrate your databases to an instance in different service tier, you can create new instance, restore databases with point in time restore from the original instance and then drop original instance if it is not needed anymore. 
@@ -92,7 +92,7 @@ The following list outlines the key characteristics of the General Purpose servi
 | Number of data files (ROWS) per the database | Multiple | 
 | Number of log files (LOG) per database | 1 | 
 | Managed automated backups | Yes |
-| HA | Based on remote storage and [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| HA | Data stored in Azure Storage and [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Built-in instance and database monitoring and metrics | Yes |
 | Automatic software patching | Yes |
 | VNet - Azure Resource Manager deployment | Yes |
@@ -126,7 +126,7 @@ The following list outlines the key characteristics of the Business Critical ser
 | Number of data files (ROWS) per the database | Multiple | 
 | Number of log files (LOG) per database | 1 | 
 | Managed automated backups | Yes |
-| HA | Based on [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) and [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| HA | Data stored in local SSD and use [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) and [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Built-in instance and database monitoring and metrics | Yes |
 | Automatic software patching | Yes |
 | VNet - Azure Resource Manager deployment | Yes |
