@@ -96,7 +96,7 @@ Customers can take a snapshot of their managed disks and then use the snapshot t
 
 Yes, both unmanaged and managed disks are supported. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
-**If I create a 128-GB disk and then increase the size to 130 GB, will I be charged for the next disk size (256 GB)?**
+**If I create a 128-GB disk and then increase the size to 130 GiB, will I be charged for the next disk size (256 GiB)?**
 
 Yes.
 
@@ -270,7 +270,7 @@ There is a fixed cost for each disk size, which comes provisioned with specific 
 
 **What are the limits for IOPS and throughput that I can get from the disk cache?**
 
-The combined limits for cache and local SSD for a DS series are 4,000 IOPS per core and 33 MB per second per core. The GS series offers 5,000 IOPS per core and 50 MB per second per core.
+The combined limits for cache and local SSD for a DS series are 4,000 IOPS per core and 33 MiB per second per core. The GS series offers 5,000 IOPS per core and 50 MiB per second per core.
 
 **Is the local SSD supported for a Managed Disks VM?**
 
@@ -294,7 +294,7 @@ The partition type that Azure supports for an operating system disk is the maste
 
 The largest page blob size that Azure supports is 8 TiB (8,191 GiB). The maximum page blog size when attached to a VM as data or operating system disks is 4 TiB (4,095 GiB).
 
-**Do I need to use a new version of Azure tools to create, attach, resize, and upload disks larger than 1 TB?**
+**Do I need to use a new version of Azure tools to create, attach, resize, and upload disks larger than 1 TiB?**
 
 You don't need to upgrade your existing Azure tools to create, attach, or resize disks larger than 1 TiB. To upload your VHD file from on-premises directly to Azure as a page blob or unmanaged disk, you need to use the latest tool sets listed below. We only support VHD uploads of up to 8 TiB.
 
@@ -325,15 +325,17 @@ New Managed Disk sizes 8 TiB, 16 TiB, and 32 TiB are currently in Preview. We do
 
 The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB.
 
-**What are the recommended VM sizes for large disk sizes (>4TB) for Standard SSD and Standard HDD disks to achieve optimized disk IOPS and Bandwidth?**
+**What are the recommended VM sizes for large disk sizes (>4TiB) for Standard SSD and Standard HDD disks to achieve optimized disk IOPS and Bandwidth?**
 
-To achieve the disk throughput of Standard SSD and Standard HDD large disk sizes (>4TB) beyond 500 IOPS and 60 MiB/s, we recommend you use one of the following VM sizes to optimize your performance: B-series, DSv2-series, Dsv3-Series, ESv3-Series, Fs-series, Fsv2-series, M-series, GS-series, NCv2-series, NCv3-series, or Ls-Series VMs.
+To achieve the disk throughput of Standard SSD and Standard HDD large disk sizes (>4TB) beyond 500 IOPS and 60 MiB/s, you should use one of the following VM sizes to optimize your performance: B-series, DSv2-series, Dsv3-Series, ESv3-Series, Fs-series, Fsv2-series, M-series, GS-series, NCv2-series, NCv3-series, or Ls-Series VMs.
 
 **What regions are the managed disk sizes larger than 4 TiB supported in?**
 
 At this time in the preview, the managed disk sizes are supported in West US Central only.
 
+**Do we support enabling Host Caching on the newer disk sizes?**
 
+We support Host Caching of ReadOnly and Read/Write on disk sizes less than 4TiB. For disk sizes more than 4 TiB, we don’t support setting caching option other than None. We recommend leveraging caching for smaller disk sizes where you can expect to observe better performance boost with data cached to the VM.
 
 ## What if my question isn't answered here?
 

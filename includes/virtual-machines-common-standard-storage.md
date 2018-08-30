@@ -21,7 +21,7 @@ This article focuses on the use of standard SSD and HDD disks. For more informat
 There are two ways to create standard disks for Azure VMs:
 
 **Unmanaged disks**:
-This type of disk is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. Unmanaged disks can be attached to any Azure VM size, including the VMs that primarily use Premium Storage, such as the DSv2 and GS series. Azure VMs support attaching several standard disks, allowing up to 256 TB of storage per VM.
+This type of disk is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. Unmanaged disks can be attached to any Azure VM size, including the VMs that primarily use Premium Storage, such as the DSv2 and GS series. Azure VMs support attaching several standard disks, allowing up to 256 PiB of storage per VM.
 
 [**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md):
 This feature manages the storage accounts used for the VM disks for you. You specify the type (Premium SSD, Standard SSD, or Standard HDD) and size of disk you need, and Azure creates and manages the disk for you. You don't have to worry about placing the disks across multiple storage accounts in order to ensure you stay within the scalability limits for the storage accounts -- Azure handles that for you.
@@ -79,11 +79,11 @@ Unlike Premium Disks, the input/output operations per second (IOPS) and throughp
 
 | **VM Tier**            | **Basic Tier VM** | **Standard Tier VM** |
 |------------------------|-------------------|----------------------|
-| Max Disk size          | 4095 GB           | 4095 GB              |
-| Max 8 KB IOPS per disk | Up to 300         | Up to 500            |
-| Max Bandwidth per disk | Up to 60 MB/s     | Up to 60 MB/s        |
+| Max Disk size          | 32,767 GiB           | 32,767 GiB        |
+| Max 8 KB IOPS per disk | Up to 2,000         | Up to 2,000        |
+| Max Bandwidth per disk | Up to 500 MB/s     | Up to 500 MB/s      |
 
-If your workload requires high-performance, low-latency disk support, you should consider using Premium Storage. To know more benefits of Premium Storage, visit [High-Performance Premium Storage and Azure VM Disks](../articles/virtual-machines/windows/premium-storage.md). 
+If your workload requires high-performance, low-latency disk support, you should consider using Premium Storage. To know more benefits of Premium Storage, visit [High-Performance Premium Storage and Azure VM Disks](../articles/virtual-machines/windows/premium-storage.md).
 
 ## Snapshots and copy blob
 
