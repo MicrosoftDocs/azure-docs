@@ -16,18 +16,20 @@ This article provides an overview of disaster recovery for on-premises VMware VM
 A business continuity and disaster recovery (BCDR) strategy helps keep your business up and running. During planned downtime and unexpected outages, BCDR keeps data safe and available, and ensures that apps continue running. In addition to platform BCDR features such as regional pairing, and high availability storage, Azure provides Recovery Services as an integral part of your BCDR solution. Recovery services include: 
 
 - [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) backs up your on-premises and Azure VM data. You can back up a file and folders, specific workloads, or an entire VM. 
-- [Azure Site Recovery](site-recovery-overview.md) provides resilience and disaster recovery for apps and workloads running on on-premises machines, or Azure IaaS VMs. Site Recovery replicates machines to Azure storages. Then, when outages occur, you fail over to Azure.  Azure VMs are created from storage, and users can access apps in Azure, ensuring continuity. When you're up and running again, you fail back from Azure, and resume normal activities in the primary site.
+- [Azure Site Recovery](site-recovery-overview.md) provides resilience and disaster recovery for apps and workloads running on on-premises machines, or Azure IaaS VMs. Site Recovery orchestrates replication, and failover to Azure when outages occur. It also handles recovery from Azure to your primary site. 
 
 ## How does Site Recovery do disaster recovery?
 
-1. After a number of initial steps to prepare Azure and your on-premises site, you set up and replication policy, and enable replication for your on-premises machines.
-2. Site Recovery orchestrates an initial replication of the machine, in accordance with your policy settings.
+1. After a number of initial steps to prepare Azure and your on-premises site, you set up and enable replication for your on-premises machines.
+2. Site Recovery orchestrates initial replication of the machine, in accordance with your policy settings.
 3. After the initial replication, Site Recovery replicates delta changes to Azure. Tracked changes for a machine are held in a log file.
-4. When everything's replicating as expected, you can run a disaster recovery drill. The drill performs a failover without impacting your production environment. It ensures that failover will work as expected when a real need arises. 
-5. When an outage occurs in future, you fail over to Azure. You can fail over a single machine, or you can create a recovery plan that fails over multiple machines at the same time.
+4. When everything's replicating as expected, you run a disaster recovery drill.
+    - The drill checks that failover will work as expected when a real need arises.
+    - The drill performs a test failover without impacting your production environment.
+5. When an outage occurs, you run a full failover to Azure. You can fail over a single machine, or you can create a recovery plan that fails over multiple machines at the same time.
 6. On failover, Azure VMs are created from the VM data in Azure Storage. Users can continue accessing apps and workloads from the Azure VM
-7. When your on-premises site is available again, you can fail back from Azure.
-8. After you fail back and are working from your primary site once more, you need to reenable replication to Azure for the on-premises VMs
+7. When your on-premises site is available again, you fail back from Azure.
+8. After you fail back and are working from your primary site once more, you start replicating on-premises VMs to Azure again.
 
 
 ## How do I know if my environment is suitable for disaster recovery to Azure?
