@@ -26,6 +26,8 @@ The following utterances show examples of key phrases:
 
 Your client application can use these values, along with other extracted entities, to decide the next step in the conversation.
 
+**In this tutorial, you learn how to: **
+
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Use existing tutorial app

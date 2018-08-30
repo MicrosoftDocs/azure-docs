@@ -60,6 +60,7 @@ OrgChartManager(employee){
 
 Remember that employees were created in the [list entity tutorial](luis-quickstart-intent-and-list-entity.md).
 
+**In this tutorial, you learn how to: **
 
 > [!div class="checklist"]
 > * Use existing tutorial app 

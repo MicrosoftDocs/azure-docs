@@ -47,6 +47,8 @@ The varying length includes words that may confuse LUIS about where the entity e
 |Who authored {FormName}[?]|
 |{FormName} is published in French[?]|
 
+**In this tutorial, you learn how to: **
+
 > [!div class="checklist"]
 > * Use existing tutorial app
 > * Add example utterances to existing entity

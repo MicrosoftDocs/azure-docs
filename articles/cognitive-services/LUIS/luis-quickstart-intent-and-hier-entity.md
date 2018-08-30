@@ -34,6 +34,8 @@ The utterance has two locations specified, `a-2349` and `b-1298`. Assume that th
  
 If only one child (origin or destination) of a hierarchical entity is present, it is still extracted. All children do not need to be found for just one, or some, to be extracted. 
 
+**In this tutorial, you learn how to: **
+
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Use existing tutorial app

@@ -26,7 +26,7 @@ Requirements for batch testing:
 
 When using an app other than this tutorial, do *not* use the example utterances already added to an intent. 
 
-In this tutorial, you learn how to:
+**In this tutorial, you learn how to: **
 
 <!-- green checkmark -->
 > [!div class="checklist"]

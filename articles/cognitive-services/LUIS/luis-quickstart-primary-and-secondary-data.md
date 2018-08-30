@@ -45,6 +45,8 @@ This LUIS app has job names in several intents. By labeling these words in all t
 
 Once the entities are marked in the example utterances, it is important to add a phrase list to boost the signal of the simple entity. A phrase list is **not** used as an exact match and does not need to be every possible value you expect. 
 
+**In this tutorial, you learn how to: **
+
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Use existing tutorial app

@@ -24,6 +24,8 @@ After LUIS returns the JSON response, LUIS is done with this request. The client
 
 LUIS doesn't provide answers to user utterances, it only identifies what type of information is being asked for in natural language. 
 
+**In this tutorial, you learn how to: **
+
 > [!div class="checklist"]
 > * Create a new app 
 > * Create intents
