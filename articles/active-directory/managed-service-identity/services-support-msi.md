@@ -11,7 +11,7 @@ ms.component: msi
 manager: mtillman
 ---
 
-# Services that support Managed identities for Azure resources
+# Services that support managed identities for Azure resources
 
 Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. Using a managed identity, you can authenticate to any service that supports Azure AD authentication without having credentials in your code. We are in the process of integrating managed identities for Azure resources and Azure AD authentication across Azure. Check back often for updates.
 

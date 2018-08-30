@@ -31,7 +31,7 @@ It is not possible to list and delete a user-assigned managed identity using an 
 - [Delete user-assigned managed identity](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
 ## Prerequisites
 
-- If you're unfamiliar with Managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - To perform the operations in this article, your account needs the following role assignment:
     - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create, read (list), update, and delete a user-assigned managed identity.
@@ -81,7 +81,7 @@ To create a user-assigned managed identity, use the following template. Replace 
 ```
 ## Next steps
 
-For information on how to assign a user-assigned managed identity to an Azure VM using an Azure Resource Manager template see, [Configure Managed identities for Azure resources on an Azure VM using a templates](qs-configure-template-windows-vm.md).
+For information on how to assign a user-assigned managed identity to an Azure VM using an Azure Resource Manager template see, [Configure managed identities for Azure resources on an Azure VM using a templates](qs-configure-template-windows-vm.md).
 
 
  

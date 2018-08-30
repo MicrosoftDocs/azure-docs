@@ -17,7 +17,7 @@ ms.date: 11/27/2017
 ms.author: daveba
 ---
 
-# Configure Managed identities for Azure resources on virtual machine scale sets using PowerShell
+# Configure managed identities for Azure resources on virtual machine scale sets using PowerShell
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 

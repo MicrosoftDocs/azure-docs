@@ -1,5 +1,5 @@
 ---
-title: Use an Azure SDK to configure a VM with Managed identities for Azure resources
+title: Use an Azure SDK to configure a VM with managed identities for Azure resources
 description: Step by step instructions for configuring and using managed identities for Azure resources on an Azure VM, using an Azure SDK.
 services: active-directory
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 09/28/2017
 ms.author: daveba
 ---
 
-# Configure a VM with Managed identities for Azure resources using an Azure SDK
+# Configure a VM with managed identities for Azure resources using an Azure SDK
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 

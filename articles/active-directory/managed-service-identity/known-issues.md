@@ -1,5 +1,5 @@
 ---
-title: FAQs and known issues with Managed identities for Azure resources
+title: FAQs and known issues with managed identities for Azure resources
 description: Known issues with managed identities for Azure resources.
 services: active-directory
 documentationcenter: 
@@ -17,7 +17,7 @@ ms.date: 12/12/2017
 ms.author: daveba
 ---
 
-# FAQs and known issues with Managed identities for Azure resources
+# FAQs and known issues with managed identities for Azure resources
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -29,7 +29,7 @@ No, there are no plans to support managed identities for Azure resources in Azur
 
 ### Does managed identities for Azure resources work with the Active Directory Authentication Library (ADAL) or the Microsoft Authentication Library (MSAL)?
 
-No, managed identities for Azure resources is not yet integrated with ADAL or MSAL. For details on acquiring a token for managed identities for Azure resources using the REST endpoint, see [How to use Managed identities for Azure resources on an Azure VM to acquire an access token ](how-to-use-vm-token.md).
+No, managed identities for Azure resources is not yet integrated with ADAL or MSAL. For details on acquiring a token for managed identities for Azure resources using the REST endpoint, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token ](how-to-use-vm-token.md).
 
 ### What is the security boundary of managed identities for Azure resources?
 
@@ -82,7 +82,7 @@ When managed identities for Azure resources is enabled on a VM, the following er
 
 ![Managed identities for Azure resources automation script export error](../managed-service-identity/media/msi-known-issues/automation-script-export-error.png)
 
-The managed identities for Azure resources VM extension does not currently support the ability to export its schema to a resource group template. As a result, the generated template does not show configuration parameters to enable managed identities for Azure resources on the resource. These sections can be added manually by following the examples in [Configure Managed identities for Azure resources on an Azure VM using a templates](qs-configure-template-windows-vm.md).
+The managed identities for Azure resources VM extension does not currently support the ability to export its schema to a resource group template. As a result, the generated template does not show configuration parameters to enable managed identities for Azure resources on the resource. These sections can be added manually by following the examples in [Configure managed identities for Azure resources on an Azure VM using a templates](qs-configure-template-windows-vm.md).
 
 When the schema export functionality becomes available for the managed identities for Azure resources VM extension, it will be listed in [Exporting Resource Groups that contain VM extensions](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 

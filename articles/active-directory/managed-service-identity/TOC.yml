@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Managed identities for Azure resources
+  - name: About managed identities for Azure resources
     href: overview.md
 - name: Quickstarts
   items:
@@ -124,7 +124,7 @@
   items:
   - name: FAQs and known issues
     href: known-issues.md
-  - name: Azure services that support Managed Identity
+  - name: Azure services that support managed identities for Azure resources
     href: services-support-msi.md
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-msi

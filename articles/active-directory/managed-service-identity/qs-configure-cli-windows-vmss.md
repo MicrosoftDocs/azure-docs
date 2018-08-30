@@ -17,7 +17,7 @@ ms.date: 02/15/2018
 ms.author: daveba
 ---
 
-# Configure Managed identities for Azure resources on a virtual machine scale set using Azure CLI
+# Configure managed identities for Azure resources on a virtual machine scale set using Azure CLI
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 

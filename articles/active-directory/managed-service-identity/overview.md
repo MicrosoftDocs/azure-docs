@@ -18,7 +18,7 @@ ms.author: daveba
 #As a developer, I'd like to securely manage the credentials that my application uses for authenticating to cloud services without having the credentials in my code or checked into source control.
 ---
 
-# What is Managed identities for Azure resources?
+# What is managed identities for Azure resources?
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 

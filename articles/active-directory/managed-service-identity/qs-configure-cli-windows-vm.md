@@ -17,7 +17,7 @@ ms.date: 09/14/2017
 ms.author: daveba
 ---
 
-# Configure Managed identities for Azure resources on an Azure VM using Azure CLI
+# Configure managed identities for Azure resources on an Azure VM using Azure CLI
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -212,7 +212,7 @@ If your VM has both system-assigned and user-assigned identities, you can remove
 az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.userAssignedIdentities=null 
 ```
 
-## Related content
+## Next steps
 - [Managed identities for Azure resources overview](overview.md)
 - For the full Azure VM creation Quickstarts, see: 
   - [Create a Windows virtual machine with CLI](../../virtual-machines/windows/quick-create-cli.md)  
