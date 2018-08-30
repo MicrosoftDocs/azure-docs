@@ -1,5 +1,5 @@
 ---
-title: Understand Azure reservation usage for Enterprise | Microsoft Docs
+title: Understand Azure Reservations usage for Enterprise | Microsoft Docs
 description: Learn how to read your usage to understand how the Azure reservation for your Enterprise enrollment is applied.
 services: 'billing'
 documentationcenter: ''
@@ -78,15 +78,15 @@ Your Azure reservation usage also shows up in usage summary section of Enterpris
 
 ## Next steps
 
-To learn more about Azure reservations, see the following articles:
+To learn more about Azure Reservations, see the following articles:
 
-- [What are Azure reservations?](billing-save-compute-costs-reservations.md)
+- [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md) 
-- [Manage Azure reservations](billing-manage-reserved-vm-instance.md)
+- [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Understand how the reservation discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
-- [Windows software costs not included with reservations](billing-reserved-instance-windows-software-costs.md)
+- [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)
 
 ## Need help? Contact support
 
