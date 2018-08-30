@@ -48,7 +48,10 @@
     - name: Azure AD-enabled AKS
       href: aad-integration.md
     - name: Connect to Azure Container Instances (ACI)
-      href: aci-connector-cli.md
+      - name: Azure CLI
+        href: aci-connector-cli.md
+      - name: Azure portal
+        href: aci-connector-portal.md
     - name: Use Virtual Kubelet
       href: virtual-kubelet.md
     - name: Use Cluster Autoscaler

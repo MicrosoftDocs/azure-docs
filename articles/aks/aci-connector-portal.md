@@ -108,20 +108,11 @@ The ACI connector is often one component of a scaling solution in AKS. For more 
 - [Use the Kubernetes cluster autoscaler][aks-cluster-autoscaler]
 
 <!-- LINKS - external -->
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->
-[azure-cli-install]: /cli/azure/install-azure-cli
-[az-group-create]: /cli/azure/group#az-group-create
-[az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
-[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-network-vnet-show]: /cli/azure/network/vnet#az-network-vnet-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az aks disable-addons]: /cli/azure/aks#az-aks-disable-addons
+[aks-network]: ./networking-overview.md
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: autoscaler.md
