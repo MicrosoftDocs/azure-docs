@@ -1074,7 +1074,7 @@ Here's the *function.json* file:
       "direction": "out"
     },
     {
-      "type": "documentDB",
+      "type": "cosmosDB",
       "name": "toDoItem",
       "databaseName": "ToDoItems",
       "collectionName": "Items",

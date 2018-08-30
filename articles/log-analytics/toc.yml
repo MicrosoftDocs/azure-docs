@@ -117,13 +117,13 @@
     items:
     - name: Language documentation
       items:
-      - name: Transition from legacy language
-        href: log-analytics-log-search-transition.md
       - name: Language reference
         href: https://docs.loganalytics.io
       - name: Get started
         items:
-        - name: Get started with Analytics portal
+        - name: Get started with Log Search portal
+          href: log-analytics-log-search-log-search-portal.md
+        - name: Get started with Log Analytics page
           href: query-language/get-started-analytics-portal.md
         - name: Get started with queries
           href: query-language/get-started-queries.md
