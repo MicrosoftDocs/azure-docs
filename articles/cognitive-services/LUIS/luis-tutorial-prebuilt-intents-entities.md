@@ -85,7 +85,7 @@ LUIS provides several prebuilt entities for common data extraction.
 
 2. Go to the end of the URL in the browser address bar and enter `I want to cancel on March 3`. The last query string parameter is `q`, the utterance **query**. 
 
-    ```
+    ```JSON
     {
       "query": "I want to cancel on March 3",
       "topScoringIntent": {

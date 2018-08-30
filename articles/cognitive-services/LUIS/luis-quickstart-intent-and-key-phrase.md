@@ -79,7 +79,7 @@ Add keyPhrase prebuilt entity to extract subject matter from utterances.
 
 2. Go to the end of the URL in the address and enter `does form hrf-123456 cover the new dental benefits and medical plan`. The last querystring parameter is `q`, the utterance **query**. 
     
-    ```
+    ```JSON
     {
       "query": "does form hrf-123456 cover the new dental benefits and medical plan",
       "topScoringIntent": {

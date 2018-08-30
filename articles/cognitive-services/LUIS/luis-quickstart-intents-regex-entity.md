@@ -123,7 +123,7 @@ Create a regular expression entity to tell LUIS what an HRF-number format is in 
 
 2. Go to the end of the URL in the address and enter `When were HRF-123456 and hrf-234567 published in the last year?`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `FindForm` intent with the two form numbers of `HRF-123456` and `hrf-234567`.
 
-    ```
+    ```JSON
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {
