@@ -52,6 +52,6 @@ Learn more about the classes and methods used in this article:
     
 For more code examples to add to your maps, see the following articles: 
 * [Choose a map style](choose-map-style.md)
-* [Add a popup](map-add-popup.md)
+* [Add map controls](map-add-controls.md)
     
 
