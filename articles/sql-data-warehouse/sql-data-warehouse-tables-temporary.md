@@ -3,7 +3,7 @@ title: Temporary tables in SQL Data Warehouse | Microsoft Docs
 description: Essential guidance for using temporary tables and highlights the principles of session level temporary tables. 
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
