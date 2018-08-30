@@ -26,27 +26,28 @@ The JavaScript experience for Azure Functions makes it easy to export a function
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
 
 ## Exporting a function
-All JavaScript functions must export a single `function` via `module.exports` for the runtime to find the function and run it. This function must always include a `context` object.
+Each JavaScript function must export a single `function` via `module.exports` for the runtime to find the function and run it. This function must always take a `context` object as the first parameter.
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(context) {
-    // Additional inputs can be accessed by the arguments property
-    if(arguments.length === 4) {
-        context.log('This function has 4 inputs');
-    }
-};
-// or you can include additional inputs in your arguments
+// You must include a context, other arguments are optional
 module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
+    context.done();
+};
+// You can also use 'arguments' to dynamically handle inputs
+module.exports = function(context) {
+    context.log('Number of inputs: ' + arguments.length);
+    // Iterates through trigger and input binding data
+    for (i = 1; i < arguments.length; i++){
+        context.log(arguments[i]);
+    }
+    context.done();
 };
 ```
 
-Bindings of `direction === "in"` are passed along as function arguments, which means that you can use [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) to dynamically handle new inputs (for example, by using `arguments.length` to iterate over all your inputs). This functionality is convenient when you have only a trigger and no additional inputs, because you can predictably access your trigger data without referencing your `context` object.
+Input and trigger bindings (bindings of `direction === "in"`) can be passed to the function as parameters. They are passed to the function in the same order that they are defined in *function.json*. You can dynamically handle inputs using the JavaScript [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) object. For example, if you have `function(context, a, b)` and change it to `function(context, a)`, you can still get the value of `b` in function code by referring to `arguments[2]`.
 
-The arguments are always passed along to the function in the order in which they occur in *function.json*, even if you don't specify them in your exports statement. For example, if you have `function(context, a, b)` and change it to `function(context, a)`, you can still get the value of `b` in function code by referring to `arguments[2]`.
-
-All bindings, regardless of direction, are also passed along on the `context` object (see the following script). 
+All bindings, regardless of direction, are also passed along on the `context` object using the `context.bindings` property.
 
 ## context object
 The runtime uses a `context` object to pass data to and from your function and to let you communicate with the runtime.
@@ -57,6 +58,7 @@ The `context` object is always the first parameter to a function and must be inc
 // You must include a context, but other arguments are optional
 module.exports = function(context) {
     // function logic goes here :)
+    context.done();
 };
 ```
 
