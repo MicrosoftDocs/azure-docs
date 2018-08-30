@@ -36,7 +36,7 @@ The following administrator roles are available:
 
 * **[Application Administrator](#application-administrator)**: Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings. This role also grants the ability to consent to delegated permissions, and application permissions excluding Microsoft Graph and Azure AD Graph. Members of this role are not added as owners when creating new application registrations or enterprise applications.
 
-* **[Application Developer](#application-developer)**: Users in this role can create application registrations when the "Users can register applications" setting is set to No. This role also allows members to consent on their own behalf when the “Users can consent to apps accessing company data on their behalf” setting is set to No. Members of this role are added as owners when creating new application registrations or enterprise applications.
+* **[Application Developer](#application-developer)**: Users in this role can create application registrations when the "Users can register applications" setting is set to No. This role also allows members to consent on their own behalf when the "Users can consent to apps accessing company data on their behalf" setting is set to No. Members of this role are added as owners when creating new application registrations or enterprise applications.
 
 * **[Billing Administrator](#billing-administrator)**: Makes purchases, manages subscriptions, manages support tickets, and monitors service health.
 
@@ -122,7 +122,7 @@ Users in this role can add, remove, and update license assignments on users, gro
   >
   >
 
-* **[User Account Administrator](#user-account-administrator)**: Users with this role can create and manage all aspects of users and groups. Additionally, this role includes the ability to manage support tickets and monitor service health. Some restrictions apply. For example, this role does not allow deleting a global administrator. User Account administrators can change passwords for users, Helpdesk administrators, and other User Account administrators only.
+* **[User Account Administrator](#user-account-administrator)**: Users with this role can create and manage all aspects of users and groups. Additionally, this role includes the ability to manage support tickets and monitor service health. Some restrictions apply. For example, this role does not allow deleting a global administrator. User Account Administrators can change passwords for users, Helpdesk administrators, and other User Account Administrators only.
 
 | Can do | Cannot do |
 | --- | --- |
