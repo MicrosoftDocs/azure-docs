@@ -47,6 +47,8 @@
       href: delete-cluster.md
     - name: Azure AD-enabled AKS
       href: aad-integration.md
+    - name: Connect to Azure Container Instances (ACI)
+      href: aci-connector-cli.md
     - name: Use Virtual Kubelet
       href: virtual-kubelet.md
     - name: Use Cluster Autoscaler
