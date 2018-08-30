@@ -58,7 +58,7 @@ To monitor physical or virtual machines in a hybrid environment with VM Insights
    - West Central US
    - East US
    - West Europe
-   - Southeast Asia <sup>1</sup>  
+   - Southeast Asia<sup>1</sup>  
 
     <sup>1</sup> 
     This region does not support the Health feature of VM Insights and it will be available at a later date.   
