@@ -59,3 +59,9 @@ For more information, see [Deploy to Azure IoT Edge](https://docs.microsoft.com/
 FPGAs make it possible to achieve low latency for real-time inferencing requests. Project Brainwave is an Azure offering that hosts your model on FPGAs in the Azure cloud.
 
 For more information, see the [Deploy to a FPGA](how-to-deploy-fpga-web-service.md) document.
+
+## Next steps
+
+* [Deploy a model to Azure Container Instances](how-to-deploy-to-aci.md)
+* [Deploy a model to Azure Kubernetes Service](how-to-deploy-to-aks.md)
+* [Deploy a model to Azure Kubernetes Service](how-to-deploy-to-aks.md)

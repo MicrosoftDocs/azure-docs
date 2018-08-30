@@ -65,7 +65,7 @@
   - name: Deploy models in production	
     items:    
     - name: Where to deploy models
-      href: where-to-deploy-models.md
+      href: deploy-models.md
       items:
        - name: Deploy to ACI
          href: how-to-deploy-to-aci.md
