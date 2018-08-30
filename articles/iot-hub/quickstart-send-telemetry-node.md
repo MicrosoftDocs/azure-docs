@@ -66,7 +66,6 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 1. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub in order to retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
-
     ```azurecli-interactive
     az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
     ```
