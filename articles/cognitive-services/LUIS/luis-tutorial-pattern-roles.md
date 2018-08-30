@@ -1,7 +1,7 @@
 ---
-title: Tutorial using pattern roles to improve LUIS predictions - Azure Cognitive Services | Microsoft Docs 
+title: Tutorial - pattern roles - improve LUIS predictions - Azure Cognitive Services | Microsoft Docs 
 titleSuffix: Cognitive Services
-description: In this tutorial, use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  When using patterns, fewer example utterances are needed for the intent.
+description: In this tutorial, use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  When using patterns, fewer example utterances are needed for the intent. The purpose of roles is to extract contextually-related entities in an utterance. In the utterance, `Move new employee Robert Williams from Sacramento and San Francisco`, the origin city, and destination city values are related to each other and use common language to denote each location.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
