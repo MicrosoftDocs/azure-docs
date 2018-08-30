@@ -32,6 +32,8 @@
     href: point-to-site-about.md
   - name: About Point-to-Site VPN routing
     href: vpn-gateway-about-point-to-site-routing.md
+  - name: About zone-redundant gateways for Availability Zones
+    href: about-zone-redundant-vnet-gateways.md
 - name: How-to guides
   items:
   - name: Configure Site-to-Site connections
