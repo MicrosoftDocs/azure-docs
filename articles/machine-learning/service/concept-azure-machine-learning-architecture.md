@@ -24,7 +24,7 @@ The workflow for developing and deploying a model with Azure Machine Learning ge
 1. Develop machine learning training scripts in __Python__ using __Jupyter Notebooks__, __Visual Studio Code__, or any other Python development environment of your choice.
 2. Provision and configure a __compute target__, which can be either local or cloud compute resources, to use when training the model.
 3. Submit the scripts to the configured __compute target__ to run in that environment.
-4. Query the __run history__ for logged metric from the current, and past runs, of your training job. If the metric does not indicate a desired outcome, loop back to step 1 and iterate on your scripts.
+4. Query the __experiment__ for logged metric from the current, and past runs, of your training job. If the metric does not indicate a desired outcome, loop back to step 1 and iterate on your scripts.
 5. Once a satisfactory run is found, register the persisted model in the __model registry__.
 6. Develop a scoring script.
 7. Create an Image and register it in the __image registry__. 
@@ -38,7 +38,7 @@ The workflow for developing and deploying a model with Azure Machine Learning ge
 
 ## Workspace
 
-The workspace provides a list of compute targets that can be used to train your model. It also keeps a history of the training runs, including logs, metrics, output, and a snapshot of your project. This information can be used to determine which training run produces the best model.
+The workspace provides a list of compute targets that can be used to train your model. It also keeps a history of the training runs, including logs, metrics, output, and a snapshot of your scripts. This information can be used to determine which training run produces the best model.
 
 Once you've determined the best model, you can register it with the workspace. From a registered model, coupled with scoring scripts, you can create a Docker image. The Docker image can then be deployed into Azure Container Instances or Azure Kubernetes Service as a REST-based HTTP endpoint.
 
@@ -62,15 +62,14 @@ The following diagram is a taxonomy of the workspace:
 
 [![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/taxonomy.png)](./media/concept-azure-machine-learning-architecture/taxonomy.png#lightbox)
 
-## Project
+## Scripts
 
-A project is a local folder that contains the files for your machine learning solution.
-To use a local folder with Azure Machine Learning service, you simply attach it to a workspace with a run history name. For an example of how to attach a project to a workspace, see one of the following documents:
+To train a model, you specify the directory that contains the training script and associated files. You also specify an experiment name, which is used to store information gathered during training. During training, the entire directory is copied to the training environment (compute target), and the script specified by the __run configuration__ is started. A snapshot of the directory is also stored under the experiment in the workspace.
+
+For an example of using scripts to train a model, see one of the following documents:
 
 * [Create a workspace with Python](quickstart-get-started.md)
 * [Create a workspace with Azure CLI](quickstart-get-started-with-cli.md)
-
-When you submit a project for training, the entire folder is copied to the compute target. The entry script is run in the Python environment configured through the __run configuration__. A snapshot of the copy is also stored in run history.
 
 ## Model
 
@@ -80,9 +79,9 @@ Azure Machine Learning is framework agnostic. You can use any popular machine le
 
 ## Image
 
-We use images to group all the assets for your deployment. We currently support only Docker images. A Docker image is created from your project, and registered with the workspace. It encapsulates:
+We use images to group all the assets for your deployment. We currently support only Docker images. A Docker image is created from your scripts, and registered with the workspace. It encapsulates:
 
-* A model file, or a folder of model files
+* A model file, or a directory of model files
 * A scoring script or application for device deployments
 * Any number of supporting library files (optional)
 * A Conda environment file listing Python package dependencies (optional)
@@ -116,25 +115,25 @@ A datastore is a storage abstraction over an Azure Storage Account. The datastor
 You can use the Python SDK API or Azure Machine Learning CLI to store and retrieve files from the datastore. 
 
 ## Run
-A run is an execution record stored in a run history under a workspace.
+A run is an execution record stored in an experiment under a workspace.
 It contains the following information:
 
 * Metadata about the run (timestamp, duration etc.)
 * Metrics logged by your script
-* Output files auto-collected by the run history service, or explicitly uploaded by you.
-* A snapshot of the project folder prior to the run is executed
+* Output files auto-collected by the experiment, or explicitly uploaded by you.
+* A snapshot of the directory that contains your scripts, prior to the run is executed
 
 A run can have zero or more child runs.
 
-## Run history
+## Experiment
 
-A run history is a logical grouping of many runs executed from a given project. It always belongs to a workspace. You can submit a run using an arbitrary run history name, and the submitted run is then listed under that run history.
+An experiment is a logical grouping of many runs executed from a given script. It always belongs to a workspace. You can submit a run using an arbitrary experiment name, and the submitted run is then listed under that experiment.
 
 ## Run configuration
 
 A run configuration is a set of instructions that defines how a script should be executed in a given compute target. It includes a wide set of behavior definitions, such as whether to use an existing Python environment or use a Conda environment built from specification.
 
-A run configuration can be persisted into a file inside your project, or can be constructed as an in-memory object and used to submit a run.
+A run configuration can be persisted into a file inside the directory that contains your training script, or can be constructed as an in-memory object and used to submit a run.
 
 ## Compute target
 
@@ -155,7 +154,7 @@ When developing your solution, you can use the Azure Machine Learning Python SDK
 
 ## Snapshots
 
-When submitting a project run, Azure Machine Learning compresses the project folder as a zip file and sends it to the compute target. The project is then expanded and executed there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
+When submitting a training run, Azure Machine Learning compresses the directory that contains the script as a zip file and sends it to the compute target. The zip is then expanded and the script is executed there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
 
 ## Task
 
