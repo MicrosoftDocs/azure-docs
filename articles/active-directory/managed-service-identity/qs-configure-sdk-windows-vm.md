@@ -1,5 +1,5 @@
 ---
-title: How to configure a Managed identities for Azure resources enabled Azure VM using an Azure SDK
+title: Use an Azure SDK to configure a VM with Managed identities for Azure resources
 description: Step by step instructions for configuring and using managed identities for Azure resources on an Azure VM, using an Azure SDK.
 services: active-directory
 documentationcenter: ''
@@ -35,11 +35,11 @@ Azure supports multiple programming platforms through a series of [Azure SDKs](h
 
 | SDK | Sample |
 | --- | ------ | 
-| .NET   | [Manage resource from a VM with managed identities for Azure resources enabled](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
-| Java   | [Manage storage from a managed identities for Azure resources enabled VM](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
-| Node.js| [Create a VM with system assigned managed identity enabled](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
-| Python | [Create a VM with system assigned managed identity enabled](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
-| Ruby   | [Create Azure VM with an system assigned identity enabled](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
+| .NET   | [Manage resource from a VM enabled with managed identities for Azure resources enabled](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
+| Java   | [Manage storage from a VM enabled with managed identities for Azure resources](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
+| Node.js| [Create a VM with system-assigned managed identity enabled](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
+| Python | [Create a VM with system-assigned managed identity enabled](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
+| Ruby   | [Create Azure VM with an system-assigned identity enabled](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 title: Configure Managed identities for Azure resources on a virtual machine scale set using a template
-description: Step-by-step instructions for configuring a managed identities for Azure resources on a virtual machine scale set, using an Azure Resource Manager template.
+description: Step-by-step instructions for configuring managed identities for Azure resources on a virtual machine scale set, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -24,17 +24,17 @@ ms.author: daveba
 Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
 In this article, you learn how to perform the following managed identities for Azure resources operations on an Azure virtual machine scale set, using Azure Resource Manager deployment template:
-- Enable and disable the system assigned managed identity on an Azure virtual machine scale set
-- Add and remove a user assigned managed identity on an Azure virtual machine scale set
+- Enable and disable the system-assigned managed identity on an Azure virtual machine scale set
+- Add and remove a user-assigned managed identity on an Azure virtual machine scale set
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system assigned and user assigned managed identity](overview.md#how-does-it-work)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - To perform the management operations in this article, your account needs the following role assignments:
-    - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system and/or user assigned managed identity from a virtual machine scale set.
-    - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create a user assigned managed identity.
-    - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to assign and remove a user assigned managed identity from and to a virtual machine scale set.
+    - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system and/or user-assigned managed identity from a virtual machine scale set.
+    - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create a user-assigned managed identity.
+    - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to assign and remove a user-assigned managed identity from and to a virtual machine scale set.
 
 ## Azure Resource Manager templates
 
@@ -47,15 +47,15 @@ As with the Azure portal and scripting, [Azure Resource Manager](../../azure-res
 
 Regardless of the option you choose, template syntax is the same during initial deployment and redeployment. Enabling managed identities for Azure resources on a new or existing VM is done in the same manner. Also, by default, Azure Resource Manager does an [incremental update](../../azure-resource-manager/deployment-modes.md) to deployments.
 
-## System assigned managed identity
+## System-assigned managed identity
 
-In this section, you will enable and disable the system assigned managed identity using an Azure Resource Manager template.
+In this section, you will enable and disable the system-assigned managed identity using an Azure Resource Manager template.
 
-### Enable system assigned managed identity during creation the creation of a virtual machines scale set or a existing virtual machine scale set
+### Enable system-assigned managed identity during creation the creation of a virtual machines scale set or a existing virtual machine scale set
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
    
-2. To enable the system assigned managed identity, load the template into an editor, locate the `Microsoft.Compute/virtualMachinesScaleSets` resource of interest within the resources section and add the `identity` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property. Use the following syntax:
+2. To enable the system-assigned managed identity, load the template into an editor, locate the `Microsoft.Compute/virtualMachinesScaleSets` resource of interest within the resources section and add the `identity` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property. Use the following syntax:
 
    ```JSON
    "identity": { 
@@ -126,25 +126,25 @@ In this section, you will enable and disable the system assigned managed identit
     ]
    ``` 
 
-### Disable a system assigned managed identity from an Azure virtual machine scale set
+### Disable a system-assigned managed identity from an Azure virtual machine scale set
 
-If you have a virtual machine scale set that no longer needs a system assigned managed identity:
+If you have a virtual machine scale set that no longer needs a system-assigned managed identity:
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 
-2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. If you have a VM that only has system assigned managed identity, you can disable it by changing the identity type to `None`.
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. If you have a VM that only has system-assigned managed identity, you can disable it by changing the identity type to `None`.
 
    **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
 
-   If your apiVersion is `2018-06-01` and your VM has both system and user assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the userAssignedIdentities dictionary values.
+   If your apiVersion is `2018-06-01` and your VM has both system and user-assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the userAssignedIdentities dictionary values.
 
    **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01 and earlier**
 
-   If your apiVersion is `2017-12-01` and your virtual machine scale set has both system and user assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user assigned managed identities. 
+   If your apiVersion is `2017-12-01` and your virtual machine scale set has both system and user-assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user-assigned managed identities. 
    
     
 
-   The following example shows you how remove a system assigned managed identity from a virtual machine scale set with no user assigned managed identities:
+   The following example shows you how remove a system-assigned managed identity from a virtual machine scale set with no user-assigned managed identities:
    
    ```json
    {
@@ -158,20 +158,20 @@ If you have a virtual machine scale set that no longer needs a system assigned m
    }
    ```
 
-## User assigned managed identity
+## User-assigned managed identity
 
-In this section, you assign a user assigned managed identity to a virtual machine scale set using Azure Resource Manager template.
+In this section, you assign a user-assigned managed identity to a virtual machine scale set using Azure Resource Manager template.
 
 > [!Note]
-> To create a user assigned managed identity using an Azure Resource Manager Template, see [Create a user assigned managed identity](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
+> To create a user-assigned managed identity using an Azure Resource Manager Template, see [Create a user-assigned managed identity](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
-### Assign a user assigned managed identity to a virutal machine scale set
+### Assign a user-assigned managed identity to a virutal machine scale set
 
-1. Under the `resources` element, add the following entry to assign a user assigned managed identity to your virtual machine scale set.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user assigned managed identity you created.
+1. Under the `resources` element, add the following entry to assign a user-assigned managed identity to your virtual machine scale set.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user-assigned managed identity you created.
    
    **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
 
-   If your apiVersion is `2018-06-01`, your user assigned managed identities are stored in the `userAssignedIdentities` dictionary format and the `<USERASSIGNEDIDENTITYNAME>` value must be stored in a variable defined in the `variables` section of your template.
+   If your apiVersion is `2018-06-01`, your user-assigned managed identities are stored in the `userAssignedIdentities` dictionary format and the `<USERASSIGNEDIDENTITYNAME>` value must be stored in a variable defined in the `variables` section of your template.
 
    ```json
    {
@@ -190,7 +190,7 @@ In this section, you assign a user assigned managed identity to a virtual machin
 
    **Microsoft.Compute/virtualMachineScaleSets API version 2017-12-01**
     
-   If your `apiVersion` is `2017-12-01` or earlier, your user assigned managed identities are stored in the `identityIds` array and the `<USERASSIGNEDIDENTITYNAME>` value must be stored in a variable defined in the variables section of your template.
+   If your `apiVersion` is `2017-12-01` or earlier, your user-assigned managed identities are stored in the `identityIds` array and the `<USERASSIGNEDIDENTITYNAME>` value must be stored in a variable defined in the variables section of your template.
 
    ```json
    {
@@ -312,15 +312,15 @@ In this section, you assign a user assigned managed identity to a virtual machin
         }
     ]
    ```
-### Remove user assigned managed identity from an Azure virtual machine scale set
+### Remove user-assigned managed identity from an Azure virtual machine scale set
 
-If you have a virtual machine scale set that no longer needs a user assigned managed identity:
+If you have a virtual machine scale set that no longer needs a user-assigned managed identity:
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 
-2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. If you have a virtual machine scale set that only has user assigned managed identity, you can disable it by changing the the identity type to `None`.
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. If you have a virtual machine scale set that only has user-assigned managed identity, you can disable it by changing the the identity type to `None`.
 
-   The following example shows you how remove all user assigned managed identities from a VM with no system assigned managed identities:
+   The following example shows you how remove all user-assigned managed identities from a VM with no system-assigned managed identities:
 
    ```json
    {
@@ -335,15 +335,15 @@ If you have a virtual machine scale set that no longer needs a user assigned man
    
    **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
     
-   To remove a a single user assigned managed identity from a virtual machine scale set, remove it from the `userAssignedIdentities` dictionary.
+   To remove a a single user-assigned managed identity from a virtual machine scale set, remove it from the `userAssignedIdentities` dictionary.
 
-   If you have a system assigned identity, keep it in the in the `type` value under the `identity` value.
+   If you have a system-assigned identity, keep it in the in the `type` value under the `identity` value.
 
    **Microsoft.Compute/virtualMachineScaleSets API version 2017-12-01**
 
-   To remove a single user assigned managed identity from a virtual machine scale set, remove it from the `identityIds` array.
+   To remove a single user-assigned managed identity from a virtual machine scale set, remove it from the `identityIds` array.
 
-   If you have a system assigned managed identity, keep it in the in the `type` value under the `identity` value.
+   If you have a system-assigned managed identity, keep it in the in the `type` value under the `identity` value.
    
 ## Next steps
 

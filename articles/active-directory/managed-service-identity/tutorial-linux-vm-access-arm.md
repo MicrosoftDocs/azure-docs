@@ -1,6 +1,6 @@
 ---
-title: Use a Linux VM system assigned managed identity to access Azure Resource Manager
-description: A quickstart that walks you through the process of using a Linux VM system assigned managed identity to access Azure Resource Manager.
+title: Use a Linux VM system-assigned managed identity to access Azure Resource Manager
+description: A quickstart that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -17,11 +17,11 @@ ms.date: 11/20/2017
 ms.author: daveba
 ---
 
-# Use a Linux VM system assigned managed identity to access Azure Resource Manager
+# Use a Linux VM system-assigned managed identity to access Azure Resource Manager
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This quickstart shows you how to use a system assigned identity for a Linux virtual machine (VM) to access the Azure Resource Manager API. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. 
+This quickstart shows you how to use a system-assigned identity for a Linux virtual machine (VM) to access the Azure Resource Manager API. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. 
 You learn how to:
 
 > [!div class="checklist"]
@@ -38,7 +38,7 @@ You learn how to:
 
 - [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
 
-- [Enable system assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Grant your VM access to a Resource Group in Azure Resource Manager 
 
@@ -54,7 +54,7 @@ Using managed identities for Azure resources, your code can get access tokens to
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
-## Get an access token using the VM's system assigned managed identity and use it to call Resource Manager 
+## Get an access token using the VM's system-assigned managed identity and use it to call Resource Manager 
 
 To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
@@ -102,7 +102,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
 
 ## Next steps
 
-In this quickstart, you learned how to use a system assigned managed identity to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
+In this quickstart, you learned how to use a system-assigned managed identity to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
 
 > [!div class="nextstepaction"]
 >[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

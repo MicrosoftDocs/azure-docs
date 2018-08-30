@@ -1,6 +1,6 @@
 ---
-title: Use a Windows VM system assigned managed identity to access Azure Resource Manager
-description: A tutorial that walks you through the process of using a Windows VM system assigned managed identity to access Azure Resource Manager.
+title: Use a Windows VM system-assigned managed identity to access Azure Resource Manager
+description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -17,11 +17,11 @@ ms.date: 11/20/2017
 ms.author: daveba
 ---
 
-# Use a Windows VM system assigned managed identity to access Resource Manager
+# Use a Windows VM system-assigned managed identity to access Resource Manager
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This quickstart shows you how to access the Azure Resource Manager API using a Windows virtual machine with system assigned managed identity enabled. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. You learn how to:
+This quickstart shows you how to access the Azure Resource Manager API using a Windows virtual machine with system-assigned managed identity enabled. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. You learn how to:
 
 > [!div class="checklist"] 
 > * Grant your VM access to a Resource Group in Azure Resource Manager 
@@ -37,10 +37,10 @@ This quickstart shows you how to access the Azure Resource Manager API using a W
 
 - [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
 
-- [Enable system assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Grant your VM access to a resource group in Resource Manager
-Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication.  The Azure Resource Manager supports Azure AD authentication.  First, we need to grant this VM’s system assigned managed identity access to a resource in Resource Manager, in this case the Resource Group in which the VM is contained.  
+Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication.  The Azure Resource Manager supports Azure AD authentication.  First, we need to grant this VM’s system-assigned managed identity access to a resource in Resource Manager, in this case the Resource Group in which the VM is contained.  
 
 1.	Navigate to the tab for **Resource Groups**. 
 2.	Select the specific **Resource Group** you created for your **Windows VM**. 
@@ -52,7 +52,7 @@ Using managed identities for Azure resources, your code can get access tokens to
 
     ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
 
-## Get an access token using the VM's system assigned managed identity and use it to call Azure Resource Manager 
+## Get an access token using the VM's system-assigned managed identity and use it to call Azure Resource Manager 
 
 You will need to use **PowerShell** in this portion.  If you don’t have **PowerShell** installed, download it [here](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1). 
 
@@ -95,7 +95,7 @@ You will need to use **PowerShell** in this portion.  If you don’t have **Powe
 
 ## Next steps
 
-In this quickstart, you learned how to use a system assigned managed identity to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
+In this quickstart, you learned how to use a system-assigned managed identity to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
 
 > [!div class="nextstepaction"]
 >[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

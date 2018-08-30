@@ -1,6 +1,6 @@
 ---
-title: Use a Linux VM system assigned managed identity to access Azure Data Lake Store
-description: A tutorial that shows you how to use a Linux VM system assigned managed identity to access Azure Data Lake Store.
+title: Use a Linux VM system-assigned managed identity to access Azure Data Lake Store
+description: A tutorial that shows you how to use a Linux VM system-assigned managed identity to access Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
 author: daveba
@@ -17,17 +17,17 @@ ms.date: 11/20/2017
 ms.author: daveba
 ---
 
-# Tutorial: Use a Linux VM system assigned managed identity to access Azure Data Lake Store
+# Tutorial: Use a Linux VM system-assigned managed identity to access Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to use a system assigned managed identity for a Linux virtual machine (VM) to access Cosmos DB. You learn how to: 
+This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to access Cosmos DB. You learn how to: 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Grant your VM access to Azure Data Lake Store.
-> * Get an access token by using the VM's system assigned managed identity to access Azure Data Lake Store.
+> * Get an access token by using the VM's system-assigned managed identity to access Azure Data Lake Store.
 
 ## Prerequisites
 
@@ -39,13 +39,13 @@ In this tutorial, you learn how to:
 
 - [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
 
-- [Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+- [Enable system-assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Grant your VM access to Azure Data Lake Store
 
 Now you can grant your VM access to files and folders in Azure Data Lake Store. For this step, you can use an existing Data Lake Store instance or create a new one. To create a Data Lake Store instance by using the Azure portal, follow the [Azure Data Lake Store quickstart](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). There are also quickstarts that use Azure CLI and Azure PowerShell in the [Azure Data Lake Store documentation](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
-In Data Lake Store, create a new folder and grant our Linux VM system assigned managed identity permission to read, write, and execute files in that folder:
+In Data Lake Store, create a new folder and grant our Linux VM system-assigned managed identity permission to read, write, and execute files in that folder:
 
 1. In the Azure portal, select **Data Lake Store** in the left pane.
 2. Select the Data Lake Store instance that you want to use.
@@ -155,7 +155,7 @@ By using other APIs for the Data Lake Store file system, you can append to files
 
 ## Next steps
 
-In this tutorial, you learned how to use a Linux VM system assigned managed identity to access an Azure Data Lake Store. To learn more about Azure Data Lake Store see:
+In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access an Azure Data Lake Store. To learn more about Azure Data Lake Store see:
 
 > [!div class="nextstepaction"]
 >[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)

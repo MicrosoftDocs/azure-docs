@@ -51,7 +51,7 @@ sections:
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql">Access Azure SQL</a>
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad">Access Azure Key Vault</a>
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-cosmos-db">Access Azure Cosmos DB</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-ua-arm">Access Azure Resource Manager with a user assigned identity</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-ua-arm">Access Azure Resource Manager with a user-assigned identity</a>
   - type: paragraph
     text: Linux VM/VMSS
   - type: list
@@ -61,7 +61,7 @@ sections:
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-access-key">Access Azure Storage using an access key</a>
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad">Access Azure Key Vault</a>
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-cosmos-db">Access Azure Cosmos DB</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm">Access Azure Resource Manager with a user assigned identity</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm">Access Azure Resource Manager with a user-assigned identity</a>
   
 - title: Reference
   items:

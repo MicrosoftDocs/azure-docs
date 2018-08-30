@@ -20,7 +20,7 @@ ms.author: daveba
 # How to use Managed identities for Azure resources on an Azure VM for sign in 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
-This article provides PowerShell and CLI script examples for sign-in using a managed identities for Azure resources service principal, and guidance on important topics such as error handling.
+This article provides PowerShell and CLI script examples for sign-in using managed identities for Azure resources service principal, and guidance on important topics such as error handling.
 
 ## Prerequisites
 
@@ -29,12 +29,12 @@ This article provides PowerShell and CLI script examples for sign-in using a man
 If you plan to use the Azure PowerShell or Azure CLI examples in this article, be sure to install the latest version of [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) or [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
-> - All sample script in this article assumes the command-line client is running on an managed identities for Azure resources enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling managed identities for Azure resources on a VM, see [Configure Managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
-> - To prevent errors during resource access, the VM's managed identity must be given at least "Reader" access at the appropriate scope (the VM or higher) to allow Azure Resource Manager operations on the VM. See [Assign a managed identities for Azure resources access to a resource using the Azure portal](howto-assign-access-portal.md) for details.
+> - All sample script in this article assumes the command-line client is running on a VM with managed identities for Azure resources enabled. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling managed identities for Azure resources on a VM, see [Configure Managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
+> - To prevent errors during resource access, the VM's managed identity must be given at least "Reader" access at the appropriate scope (the VM or higher) to allow Azure Resource Manager operations on the VM. See [Assign managed identities for Azure resources access to a resource using the Azure portal](howto-assign-access-portal.md) for details.
 
 ## Overview
 
-An managed identity for Azure resources provides a [service principal object](../develop/developer-glossary.md#service-principal-object) 
+Managed identities for Azure resources provides a [service principal object](../develop/developer-glossary.md#service-principal-object) 
 , which is [created upon enabling managed identities for Azure resources](overview.md#how-does-it-work) on the VM. The service principal can be given access to Azure resources, and used as an identity by script/command-line clients for sign in and resource access. Traditionally, in order to access secured resources under its own identity, a script client would need to:  
 
    - be registered and consented with Azure AD as a confidential/web client application
@@ -85,7 +85,7 @@ Responses such as the following may indicate that the VM's managed identity for 
 
 If you receive one of these errors, return to the Azure VM in the [Azure portal](https://portal.azure.com) and:
 
-- Go to the **Identity** page and ensure "System assigned" is set to "Yes."
+- Go to the **Identity** page and ensure **System assigned** is set to "Yes."
 - Go to the **Extensions** page and ensure the managed identities for Azure resources extension deployed successfully.
 
 If either is incorrect, you may need to redeploy the managed identities for Azure resources on your resource again, or troubleshoot the deployment failure. See [Configure Managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.
