@@ -231,7 +231,9 @@
   - name: Manage costs
     items:
     - name: Prepay for VMs - Azure Reservations
-      href: prepay-reserved-vm-instances.md
+      href: prepay-reserved-vm-instances.md       
+    - name: Prepay for SUSE software  
+      href: prepay-suse-software-charges.md 
     - name: What are Azure Reservations?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: VM instance size flexibility
