@@ -1,6 +1,6 @@
 ---
-title: Use a Linux VM Managed Identity to access Azure Storage
-description: A tutorial that walks you through the process of using a System-Assigned Managed Identity on a Linux VM, to access Azure Storage.
+title: Use a Linux VM system-assigned managed identity to access Azure Storage
+description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Storage.
 services: active-directory
 documentationcenter: 
 author: daveba
@@ -17,11 +17,11 @@ ms.date: 04/09/2018
 ms.author: daveba
 
 ---
-# Tutorial: Use a Linux VM's Managed Identity to access Azure Storage 
+# Tutorial: Use a Linux VM system-assigned managed identity to access Azure Storage 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to to use a system assigned identity for a Linux virtual machine (VM) to access Azure Storage. You learn how to:
+This tutorial shows you how to to use a system-assigned managed identity for a Linux virtual machine (VM) to access Azure Storage. You learn how to:
 
 > [!div class="checklist"]
 > * Create a storage account
@@ -42,7 +42,7 @@ This tutorial shows you how to to use a system assigned identity for a Linux vir
 
 - [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
 
-- [Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 To run the CLI script examples in this tutorial, you have two options:
 
@@ -121,7 +121,7 @@ To complete the following steps, you need to work from the VM created earlier an
 
 ## Next steps
 
-In this tutorial, you learned how enable a Linux virtual machine Managed Identity to access Azure Storage.  To learn more about Azure Storage see:
+In this tutorial, you learned how enable a Linux VM system-assigned managed identity to access Azure Storage.  To learn more about Azure Storage see:
 
 > [!div class="nextstepaction"]
 > [Azure Storage](/azure/storage/common/storage-introduction)
