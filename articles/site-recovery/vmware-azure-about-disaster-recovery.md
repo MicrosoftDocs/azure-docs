@@ -16,17 +16,17 @@ This article provides an overview of disaster recovery for on-premises VMware VM
 A business continuity and disaster recovery (BCDR) strategy helps keep your business up and running. During planned downtime and unexpected outages, BCDR keeps data safe and available, and ensures that apps continue running. In addition to platform BCDR features such as regional pairing, and high availability storage, Azure provides Recovery Services as an integral part of your BCDR solution. Recovery services include: 
 
 - [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) backs up your on-premises and Azure VM data. You can back up a file and folders, specific workloads, or an entire VM. 
-- [Azure Site Recovery](site-recovery-overview.md) provides resilience and disaster recovery for apps and workloads running on on-premises machines, or Azure IaaS VMs. Site Recovery orchestrates replication, and failover to Azure when outages occur. It also handles recovery from Azure to your primary site. 
+- [Azure Site Recovery](site-recovery-overview.md) provides resilience and disaster recovery for apps and workloads running on on-premises machines, or Azure IaaS VMs. Site Recovery orchestrates replication, and handles failover to Azure when outages occur. It also handles recovery from Azure to your primary site. 
 
 ## How does Site Recovery do disaster recovery?
 
-1. After a number of initial steps to prepare Azure and your on-premises site, you set up and enable replication for your on-premises machines.
+1. After preparing Azure and your on-premises site, you set up and enable replication for your on-premises machines.
 2. Site Recovery orchestrates initial replication of the machine, in accordance with your policy settings.
-3. After the initial replication, Site Recovery replicates delta changes to Azure. Tracked changes for a machine are held in a log file.
+3. After the initial replication, Site Recovery replicates delta changes to Azure. 
 4. When everything's replicating as expected, you run a disaster recovery drill.
-    - The drill checks that failover will work as expected when a real need arises.
+    - The drill helps ensure that failover will work as expected when a real need arises.
     - The drill performs a test failover without impacting your production environment.
-5. When an outage occurs, you run a full failover to Azure. You can fail over a single machine, or you can create a recovery plan that fails over multiple machines at the same time.
+5. If an outage occurs, you run a full failover to Azure. You can fail over a single machine, or you can create a recovery plan that fails over multiple machines at the same time.
 6. On failover, Azure VMs are created from the VM data in Azure Storage. Users can continue accessing apps and workloads from the Azure VM
 7. When your on-premises site is available again, you fail back from Azure.
 8. After you fail back and are working from your primary site once more, you start replicating on-premises VMs to Azure again.
@@ -37,7 +37,7 @@ A business continuity and disaster recovery (BCDR) strategy helps keep your busi
 Site Recovery can replicate any workload running on a supported VMware VM or physical server. Here are the things you need to check in your environment:
 
 - If you're replicating VMware VMs, are you running the right versions of VMware virtualization servers? [Check here](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers).
-- Are the machines you want to replicating running a supported operating system? [Check here](vmware-physical-azure-support-matrix.md#replicated-machines).
+- Are the machines you want to replicate running a supported operating system? [Check here](vmware-physical-azure-support-matrix.md#replicated-machines).
 - For Linux disaster recovery, are machines running a supported file system/guest storage? [Check here](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)
 - Do the machines you want to replicate comply with Azure requirements? [Check here](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
 - Is your network configuration supported? [Check here](vmware-physical-azure-support-matrix.md#network).
@@ -55,7 +55,8 @@ In Azure you need to prepare the following:
 
 *Need more help?*
 
-[Set up Azure](tutorial-prepare-azure.md) for disaster recovery of VMware VMs or physical servers.
+Learn how to set up Azure by [verifying your account](tutorial-prepare-azure.md#verify-account-permissions), creating a [storage account](tutorial-prepare-azure.md#create-a-storage-account) and [network](tutorial-prepare-azure.md#set-up-an-azure-network), and [setting up a vault](tutorial-prepare-azure.md#create-a-recovery-services-vault).
+
 
 
 ## What do I need to set up on-premises before I start?
@@ -68,7 +69,7 @@ On-premises here's what you need to do:
     - An account is needed to install the Site Recovery Mobility service agent on each physical machine or VM you want to replicate.
 
 2. You need to check the compatibility of your VMware infrastructure if you didn't previously do that.
-3. You need to prepare a couple of things so that you can connect to Azure VMs after a failover. These include setting up RDP on on-premises Windows machines, or setting up SSH on Linux machines.
+3. Ensure that you can connect to Azure VMs after a failover. You set up RDP on on-premises Windows machines, or SSH on Linux machines.
 
 *Need more help?*
 - Prepare accounts for [automatic discovery](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) and for [installation of the Mobility service](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-mobility-service-installation).
@@ -80,7 +81,7 @@ On-premises here's what you need to do:
 
 After you have your Azure and on-premises infrastructure in place, you can set up disaster recovery.
 
-1. To understand the components that you'll need to deploy, review the VMware to Azure architecture(vmware-azure-architecture.md), and the physical to Azure architecture(physical-azure-architecture). There are a number of components, so it's important to understand how they all fit together.
+1. To understand the components that you'll need to deploy, review the [VMware to Azure architecture](vmware-azure-architecture.md), and the [physical to Azure architecture](physical-azure-architecture.md). There are a number of components, so it's important to understand how they all fit together.
 2. **Source environment**: As a first step in deployment, you set up your replication source environment. You specify what you want to replicate, and where you want to replicate to.
 3. **Configuration server**: You need to set up a configuration server in your on-premises source environment:
     - The configuration server is a single on-premises machine. For VMware disaster recovery, we recommend that you deploy it as a VMware VM that can be deployed from a downloadable OVF template.
@@ -96,7 +97,7 @@ After you have your Azure and on-premises infrastructure in place, you can set u
 *Need more help?*
 
 - For a quick walkthrough of these steps, you can try out our [VMware tutorial](vmware-azure-tutorial.md), and [physical server walkthrough](physical-azure-disaster-recovery.md).
-- [Learn more](vmware-azure-set-up-source.md) about setting up your source environment
+- [Learn more](vmware-azure-set-up-source.md) about setting up your source environment.
 - [Learn about](vmware-azure-deploy-configuration-server.md) configuration server requirements, and setting up the configuration server with an OVF template for VMware replication. If for some reason you can't use a template, or you're replicating physical servers, [use these instructions](physical-azure-set-up-source.md#set-up-the-source-environment).
 - [Learn more](vmware-azure-set-up-target.md) about target settings.
 - [Get more information](vmware-azure-set-up-replication.md) about setting up a replication policy.
@@ -115,4 +116,4 @@ After you have your Azure and on-premises infrastructure in place, you can set u
 
 ## Next steps
 
-With replication now in place, you should run a disaster recovery drill to ensure that failover works as expected. 
+With replication now in place, you should [run a disaster recovery drill](tutorial-dr-drill-azure) to ensure that failover works as expected. 
