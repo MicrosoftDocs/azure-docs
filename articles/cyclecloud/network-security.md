@@ -134,14 +134,13 @@ You can connect to an internal server via the bastion server using agent forward
 ssh -A -t user@BASTION_SERVER_IP ssh -A root@TARGET_SERVER_IP
 ```
 
-This connects to the bastion and then immediately runs ssh again, so
-you get a terminal on the target instance. The default NAT ami uses
-ec2-user. You may need to specify a user other than root on the target
-instance if your cluster is configured differently. The -A argument
-forwards the agent connection so your private key on your local
-machine is used automatically. Note that agent forwarding is a chain, so the second ssh
-command also includes -A so that any subsequent SSH connections
-initiated from the target instance also use your local private key.
+This connects to the bastion and then immediately runs ssh again, so you get a
+terminal on the target instance. You may need to specify a user other than root
+on the target instance if your cluster is configured differently. The -A
+argument forwards the agent connection so your private key on your local machine
+is used automatically. Note that agent forwarding is a chain, so the second ssh
+command also includes -A so that any subsequent SSH connections initiated from
+the target instance also use your local private key.
 
 ### Connecting to Services on the Target Instance
 
