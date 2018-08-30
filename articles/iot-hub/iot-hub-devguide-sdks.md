@@ -139,7 +139,7 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-npm-service]: https://www.npmjs.com/package/azure-iothub
 [lnk-nuget-csharp-device]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-nuget-csharp-service]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[lnk-c-package]: https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md
+[lnk-c-package]: https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md
 [lnk-pip-device]: https://pypi.python.org/pypi/azure-iothub-device-client/
 [lnk-pip-service]: https://pypi.python.org/pypi/azure-iothub-service-client/
 

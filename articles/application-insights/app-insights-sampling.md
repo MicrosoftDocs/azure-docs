@@ -279,7 +279,7 @@ Instead of setting the sampling parameter in the .config file, you can programma
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
     ...
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.UseSampling(10.0); // percentage
 
     // If you have other telemetry processors:

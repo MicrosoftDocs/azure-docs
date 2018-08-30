@@ -37,7 +37,7 @@ Log Analytics collects data from a variety of sources.  Once collected, the data
 
 Methods for collecting data into Log Analytics include the following:
 
-- Configure Azure Monitor to copy [metrics and logs](../monitoring/monitoring-data-collection.md#types-of-monitoring-data) that it collects from Azure resources.
+- Configure Azure Monitor to copy [metrics and logs](../monitoring/monitoring-data-collection.md) that it collects from Azure resources.
 - Collect telemetry written to [Azure Storage](log-analytics-azure-storage-iis-table.md).
 - Agents on [Windows](log-analytics-windows-agent.md) and [Linux](log-analytics-linux-agents.md) virtual machines send telemetry from the guest operating system and applications to Log Analytics according to [Data Sources](log-analytics-data-sources.md) that you configure. Agents can be directly connected, connect through an [OMS Gateway](log-analytics-oms-gateway.md) when they don't have firewall access, or connect through a [System Center Operations Manager management group](log-analytics-om-agents.md).
 - Azure services such as [Application Insights](https://docs.microsoft.com/azure/application-insights/) and [Azure Security Center](https://docs.microsoft.com/azure/security-center/) store their data directly in Log Analytics without any configuration.

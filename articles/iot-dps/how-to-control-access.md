@@ -29,7 +29,7 @@ You can grant [permissions](#device-provisioning-service-permissions) in the fol
 
 * **Shared access authorization policies**. Shared access policies can grant any combination of [permissions](#device-provisioning-service-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [Device Provisioning Service REST APIs][lnk-resource-provider-apis]. A newly created provisioning service has the following default policy:
 
-   **provisioningserviceowner**: Policy with all permissions.
+* **provisioningserviceowner**: Policy with all permissions.
 
 > [!NOTE]
 > See [permissions](#device-provisioning-service-permissions) for detailed information.
