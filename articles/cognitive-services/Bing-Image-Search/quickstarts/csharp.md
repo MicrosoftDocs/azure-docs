@@ -73,7 +73,7 @@ Define a `SearchResult` struct to contain the image search results, and JSON hea
 
 ## Create a method to send search requests
 
-Create a method named `BingImageSearch` to perform the call to the API, and return the results as a SearchResult.
+Create a method named `BingImageSearch` to perform the call to the API, and set the return type to the `SearchResult` struct created earlier.
 
 ```csharp
 //...
@@ -130,15 +130,23 @@ In the `BingImageSearch` method, perform the following steps.
     return searchResult;
     ```
 
-## View the response
+## Process and view the response
 
-In the 
+1. In the main method, call `BingImageSearch()` and store the returned response. Then deserialize the JSON into an object.
 
-Write the resulting JSON to the console.
+    ```csharp
+    SearchResult result = BingImageSearch(searchTerm);
+    //deserialize the JSON response from the Bing Image Search API
+    dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result.jsonResult);
+    ```
 
-```csharp
-Console.WriteLine(result.jsonResult);
-```
+2. Get the first returned image from `jsonObj`, and print out the title and a URL to the image. 
+    ```
+    var firstJsonObj = jsonObj["value"][0];
+    Console.WriteLine("Title for the first image result: " + firstJsonObj["name"]+"\n");
+    //After running the application, copy the output URL into a browser to see the image. 
+    Console.WriteLine("URL for the first image result: " + firstJsonObj["webSearchUrl"]+"\n");
+    ```         
 
 ## JSON response
 
