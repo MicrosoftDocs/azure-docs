@@ -53,7 +53,7 @@ dpkg -i <filename.deb>
 ```
 
 > [!NOTE]
->You must have write permission to the /opt directory. The CycleCloud installer will create a cycle_server user and unix group, install into the /opt/cycle_server directory by default, and assign cycle_server:cycle_server ownership to the directory.
+>You must have write permission to the _/opt_ directory. The CycleCloud installer will create a `cycle_server` user and unix group, install into the */opt/cycle_server* directory by default, and assign `cycle_server:cycle_server` ownership to the directory.
 
 Once the installer has finished running, you will be provided a link to complete the installation from your browser. Copy the link provided into your web browser and follow the configuration steps.
 
