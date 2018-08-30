@@ -51,7 +51,7 @@ Azure AD over SMB for Azure Files offers several benefits over using Shared Key 
 
 -   **Enforce granular access control on Azure file shares**
 
-    With Azure AD authentication over SMB, you can grant permissions to a specific identity at the share, directory, or file level. For example, suppose that you have several teams using a single Azure file share that stores checkpoint data for high availability solutions. You can grant all teams access to non-sensitive directories, while limiting access to directories containing sensitive financial data to your Finance team only. 
+    With Azure AD authentication over SMB, you can grant permissions to a specific identity at the share, directory, or file level. For example, suppose that you have several teams using a single Azure file share for project collaboration. You can grant all teams access to non-sensitive directories, while limiting access to directories containing sensitive financial data to your Finance team only. 
 
 -   **Back up ACLs along with your data**
 

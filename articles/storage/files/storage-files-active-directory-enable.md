@@ -191,7 +191,7 @@ The following CLI 2.0 command creates a custom role and assigns the role to an A
 
 When running the following sample script, remember to replace placeholder values with your own values.
 
-```cli
+```azurecli
 #Create a custom role based on the sample templates above
 az role definition create --role-definition "<Custom-role-def-JSON-path>"
 #List the custom roles
@@ -210,6 +210,17 @@ Azure Files supports the full set of NTFS basic and advanced permissions. You ca
 > The preview release supports viewing permissions with Windows File Explorer only. Editing permissions is not yet supported.
 
 To configure NTFS permissions with superuser privileges, you must mount the share with your storage account key from your domain-joined VM. Follow the instructions in the next section to mount an Azure file share from the command prompt and configure NTFS permissions accordingly.
+
+The following sets of permissions are supported on the root directory of a file share:
+
+- BUILTIN\Administrators:(F)
+- BUILTIN\Administrators:(OI)(CI)(IO)(F)
+- NT AUTHORITY\SYSTEM:(F)
+- NT AUTHORITY\SYSTEM:(OI)(CI)(IO)(F)
+- NT AUTHORITY\Authenticated Users:(M)
+- NT AUTHORITY\Authenticated Users:(OI)(CI)(IO)(M)
+- BUILTIN\Users:(RX)
+- BUILTIN\Users:(OI)(CI)(IO)(GR,GE)
 
 #### Step 3.1 Mount an Azure file share from the command prompt
 
