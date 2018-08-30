@@ -48,7 +48,7 @@ Search the **Groups – All groups** blade to find the **MDM policy – West** g
 
     The search results appear under the **Search** box, including the _MDM policy - West_ group.
 
-    ![Groups – All groups blade with search box filled out](/media/active-directory-groups-view-azure-portal/search-for-specific-group.png)
+    ![Groups – All groups blade with search box filled out](media/active-directory-groups-view-azure-portal/search-for-specific-group.png)
 
 3. Select the group **MDM policy – West**.
 
