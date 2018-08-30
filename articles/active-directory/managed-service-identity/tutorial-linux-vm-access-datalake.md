@@ -21,12 +21,11 @@ ms.author: daveba
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to use Managed Service Identity for a Linux virtual machine (VM) to access Azure Data Lake Store. Azure automatically manages identities that you create through Managed Service Identity. You can use Managed Service Identity to authenticate to services that support Azure Active Directory (Azure AD) authentication, without needing to insert credentials into your code. 
+This tutorial shows you how to to use a system assigned identity for a Linux virtual machine (VM) to access Azure Data Lake Store. Azure automatically manages identities that you create through Managed Service Identity. You can use Managed Service Identity to authenticate to services that support Azure Active Directory (Azure AD) authentication, without needing to insert credentials into your code. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Enable Managed Service Identity on a Linux VM. 
 > * Grant your VM access to Azure Data Lake Store.
 > * Get an access token by using the VM identity and use it to access Azure Data Lake Store.
 
@@ -36,33 +35,11 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## Sign in to Azure
+- [Sign in to Azure portal](https://portal.azure.com)
 
-Sign in to the [Azure portal](https://portal.azure.com).
+- [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
 
-## Create a Linux virtual machine in a new resource group
-
-For this tutorial, we create a new Linux VM. You can also enable MSI on an existing VM.
-
-1. Select the **New** button in the upper-left corner of the Azure portal.
-2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
-3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
-
-   !["Basics" pane for creating a virtual machine](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. In the **Subscription** list, select a subscription for the virtual machine.
-5. To select a new resource group that you want the virtual machine to be created in, select **Resource group** > **Create new**. When you finish, select **OK**.
-6. Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. In the settings pane, keep the defaults and select **OK**.
-
-## Enable Managed Service Identity on your VM
-
-A VM Managed Service Identity enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling Managed Service Identity on a VM, does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM.
-
-1. For **Virtual Machine**, select the virtual machine that you want to enable Managed Service Identity on.
-2. In the left pane, select **Configuration**.
-3. You see **Managed service identity**. To register and enable Managed Service Identity, select **Yes**. If you want to disable it, select **No**.
-   !["Register with Azure Active Directory" selection](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-4. Select **Save**.
+- [Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Grant your VM access to Azure Data Lake Store
 

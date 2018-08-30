@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: compliance-reports
+ms.component: report-monitor
 ms.date: 11/14/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk

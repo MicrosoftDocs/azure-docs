@@ -34,7 +34,7 @@ When using app passwords, it's important to remember:
 
 You're given an app password during your initial two-step verification registration. If you need more than that one password, you can create additional passwords, based on how you use two-step verification:
 
-- **You use two-step verification with your Microsoft Azure account.** Create and delete your app passwords using the [Azure portal](https://portal.azure.com). For more info, see the [App passwords and two-step verification](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) article.
+- **You use two-step verification with your Microsoft Azure account.** Create and delete your app passwords using the [Azure portal](https://portal.azure.com). For more info, see the [App passwords and two-step verification](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) article.
 
 - **You use two-step verification with your personal Microsoft account.** Create and delete your app passwords using the [Security basics](https://account.microsoft.com/account/) page with your Microsoft account. For more info, see the [App passwords and two-step verification](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) article.
 

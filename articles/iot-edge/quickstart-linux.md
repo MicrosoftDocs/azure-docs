@@ -4,7 +4,7 @@ description: In this quickstart, learn how to deploy prebuilt code remotely to a
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 08/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -135,19 +135,19 @@ The steps in this section are for devices running **Ubuntu 16.04**. To access th
 
 The IoT Edge runtime is a set of containers, and the logic that you deploy to your IoT Edge device is packaged as containers. Prepare your device for these components by installing a container runtime.
 
-Update **apt-get**.
+1. Update **apt-get**.
 
    ```bash
    sudo apt-get update
    ```
 
-Install **Moby**, a container runtime.
+2. Install **Moby**, a container runtime.
 
    ```bash
    sudo apt-get install moby-engine
    ```
 
-Install the CLI commands for Moby. 
+3. Install the CLI commands for Moby. 
 
    ```bash
    sudo apt-get install moby-cli
@@ -176,11 +176,14 @@ The security daemon installs as a system service so that the IoT Edge runtime st
 
    `CTRL + X`, `Y`, `Enter`
 
-4. Restart the IoT Edge security daemon to apply your changes.
+5. Restart the IoT Edge security daemon to apply your changes.
 
    ```bash
    sudo systemctl restart iotedge
    ```
+
+>[!TIP]
+>You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use **sudo** in front of the commands. 
 
 ### View the IoT Edge runtime status
 
@@ -201,9 +204,6 @@ Verify that the runtime was successfully installed and configured.
    ```
 
 3. View the modules running on your device. 
-
-   >[!TIP]
-   >You need to use *sudo* to run `iotedge` commands at first. Sign out of your machine and sign back in to update permissions, then you can run `iotedge` commands without elevated privileges. 
 
    ```bash
    sudo iotedge list
@@ -287,7 +287,8 @@ Delete the containers that were created on your device by the IoT Edge runtime. 
 Remove the container runtime.
 
    ```bash
-   sudo apt-get remove --purge moby
+   sudo apt-get remove --purge moby-cli
+   sudo apt-get remove --purge moby-engine
    ```
 
 ## Next steps

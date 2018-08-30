@@ -24,6 +24,9 @@ The Meter Sub-category and Product fields in the usage data doesn't distinguish 
 
 Reserved VM Instances are available for most VM sizes with some exceptions:
 
+- Classic VMs and Cloud services dont get the reservation discount.
+- Suppressed core VMs dont get reservation discounts.
+- Following VM Series dont get reservation discounts: A-series, Av2-series, or G-series.
 - VMs in Preview: Any VM-series or size that is in preview are not available for reservation purchase.
 - Clouds: reservations are not available for purchase in the Azure US Government, Germany, or China regions.
 - Insufficient quota: A reservation that is scoped to a single subscription must have vCPU quota available in the subscription for the new RI. For example, if the target subscription has a quota limit of 10 vCPUs for D-Series, then you can't buy a reservation for 11 Standard_D1 instances. The quota check for reservations includes the VMs already deployed in the subscription. For example, if the subscription has a quota of 10 vCPUs for D-Series and has two standard_D1 instances deployed, then you can buy a reservation for 10 standard_D1 instances in this subscription. 

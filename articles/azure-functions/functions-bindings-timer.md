@@ -4,7 +4,7 @@ description: Understand how to use timer triggers in Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 08/08/2018
 ms.author: glenga
 
 ms.custom: 
@@ -48,6 +48,7 @@ See the language-specific example:
 * [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### C# example
 
@@ -147,6 +148,21 @@ module.exports = function (context, myTimer) {
 
     context.done();
 };
+```
+
+### Java example
+
+The following example function triggers and executes every five minutes. The `@TimerTrigger` annotation on the function defines the schedule using the same string format as [CRON expressions](http://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
 ```
 
 ## Attributes
@@ -259,6 +275,8 @@ Or create an app setting for your function app named `WEBSITE_TIME_ZONE` and set
 ```json
 "schedule": "0 0 10 * * *"
 ```	
+
+When you use `WEBSITE_TIME_ZONE`, the time is adjusted for time changes in the specific timezone, such as daylight savings time. 
 
 ## TimeSpan
 

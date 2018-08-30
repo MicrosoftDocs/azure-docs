@@ -14,16 +14,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 08/09/2018
 ms.author: markvi
 ms.reviewer: ravenn
+
+#Customer intent: As a IT admin, I want to manage the local administrators group assignment during an Azure AD join, so that I can control who can manage Azure AD joined devices
 
 ---
 # How to manage the local administrators group on Azure AD joined devices
 
 To manage a Windows device, you need to be a member of the local administrators group. As part of the Azure Active Directory (Azure AD) join process, Azure AD updates the membership of this group on a device. You can customize the membership update to satisfy your business requirements. A membership update is, for example, helpful if you want to enable your helpdesk staff to do tasks requiring administrator rights on a device.
 
-This article explains how the membership update works and how you can customize it.
+This article explains how the membership update works and how you can customize it during an Azure AD Join. The content of this article doesn't apply to a **hybrid** Azure AD join.
 
 
 ## How it works

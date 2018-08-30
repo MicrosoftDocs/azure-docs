@@ -77,7 +77,7 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-To set the deployment mode in a [linked or nested template](resource-group-linked-templates.md), use the `mode` property.
+When using a [linked or nested template](resource-group-linked-templates.md), you must set the `mode` property to `Incremental`. Only root-level templates support the complete deployment mode.
 
 ```json
 "resources": [

@@ -25,9 +25,6 @@ This article helps you get started with Azure Key Vault using PowerShell and wal
 
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
-> [!NOTE]
-> This article does not include instructions on how to write an Azure application. You can use the [Azure Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343) for these steps.
-
 For Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli2.md).
 
 ## Requirements
@@ -266,7 +263,7 @@ To change the authorization of an application to use keys or secrets:
 ## <a id="HSM"></a>Working with a hardware security module (HSM)
 For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets](#delete).
 
-To create these HSM-protected keys, you must use the [Azure Key Vault Premium service tier to support HSM-protected keys](https://azure.microsoft.com/pricing/free-trial/). In addition, note that this functionality is not available for Azure China.
+To create these HSM-protected keys, you must use the [Azure Key Vault Premium service tier to support HSM-protected keys](https://azure.microsoft.com/pricing/details/key-vault/). In addition, note that this functionality is not available for Azure China.
 
 When you create the key vault, add the **-SKU** parameter:
 

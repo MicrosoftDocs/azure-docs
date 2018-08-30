@@ -4,9 +4,9 @@ description: Get answers to common questions about using Apache Storm with Azure
 keywords: Azure HDInsight, Storm, FAQ, troubleshooting guide, common problems
 services: hdinsight
 ms.service: hdinsight
-author: raviperi
-ms.author: raviperi
-editor: jasonwhowell
+author: jasonwhowell
+ms.author: jasonwhowell
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/2/2017
 ---

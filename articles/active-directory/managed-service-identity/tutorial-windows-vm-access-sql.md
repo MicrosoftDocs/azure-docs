@@ -22,11 +22,13 @@ ms.author: daveba
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to use a Managed Service Identity for a Windows virtual machine (VM) to access an Azure SQL server. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. You learn how to:
+This tutorial shows you how to use a system assigned identity for a Windows virtual machine (VM) to access an Azure SQL server. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. You learn how to:
 
 > [!div class="checklist"]
-> * Enable Managed Service Identity on a Windows VM 
 > * Grant your VM access to an Azure SQL server
+> * Create a group in Azure AD and make the VM Managed Service Identity a member of the group
+> * Enable Azure AD authentication for the SQL server
+> * Create a contained user in the database that represents the Azure AD group
 > * Get an access token using the VM identity and use it to query an Azure SQL server
 
 ## Prerequisites
@@ -35,32 +37,11 @@ This tutorial shows you how to use a Managed Service Identity for a Windows virt
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## Sign in to Azure
+- [Sign in to Azure portal](https://portal.azure.com)
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+- [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
 
-## Create a Windows virtual machine in a new resource group
-
-For this tutorial, we create a new Windows VM.  You can also enable Managed Service Identity on an existing VM.
-
-1.	Click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
-2.	Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
-3.	Enter the virtual machine information. The **Username** and **Password** created here is the credentials you use to login to the virtual machine.
-4.  Choose the proper **Subscription** for the virtual machine in the dropdown.
-5.	To select a new **Resource Group** in which to create your virtual machine, choose **Create New**. When complete, click **OK**.
-6.	Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the Settings page, keep the defaults, and click **OK**.
-
-    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## Enable Managed Service Identity on your VM 
-
-A VM Managed Service Identity enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling Managed Service Identity tells Azure to create a managed identity for your VM. Under the covers, enabling Managed Service Identity does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM.
-
-1.	Select the **Virtual Machine** that you want to enable Managed Service Identity on.  
-2.	On the left navigation bar click **Configuration**. 
-3.	You see **Managed Service Identity**. To register and enable the Managed Service Identity, select **Yes**, if you wish to disable it, choose No. 
-4.	Ensure you click **Save** to save the configuration.  
-    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Grant your VM access to a database in an Azure SQL server
 
@@ -75,7 +56,7 @@ There are three steps to granting your VM access to a database:
 > Normally you would create a contained user that maps directly to the VM's Managed Service Identity.  Currently, Azure SQL does not allow the Azure AD Service Principal that represents the VM Managed Service Identity to be mapped to a contained user.  As a supported workaround, you make the VM Managed Service Identity a member of an Azure AD group, then create a contained user in the database that represents the group.
 
 
-### Create a group in Azure AD and make the VM Managed Service Identity a member of the group
+## Create a group in Azure AD and make the VM Managed Service Identity a member of the group
 
 You can use an existing Azure AD group, or create a new one using Azure AD PowerShell.  
 
@@ -129,7 +110,7 @@ ObjectId                             AppId                                Displa
 b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTestWinVM
 ```
 
-### Enable Azure AD authentication for the SQL server
+## Enable Azure AD authentication for the SQL server
 
 Now that you have created the group and added the VM Managed Service Identity to the membership, you can [configure Azure AD authentication for the SQL server](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) using the following steps:
 
@@ -140,12 +121,12 @@ Now that you have created the group and added the VM Managed Service Identity to
 5.	Select an Azure AD user account to be made an administrator of the server, and click **Select.**
 6.	In the command bar, click **Save.**
 
-### Create a contained user in the database that represents the Azure AD group
+## Create a contained user in the database that represents the Azure AD group
 
 For this next step, you will need [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Before beginning, it may also be helpful to review the following articles for background on Azure AD integration:
 
-- [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication.md)
-- [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure.md)
+- [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
+- [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
 
 1.  Start SQL Server Management Studio.
 2.  In the **Connect to Server** dialog, Enter your SQL server name in the **Server name** field.

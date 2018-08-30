@@ -72,7 +72,7 @@ Cloud Shell includes pre-configured authentication for open-source tools such as
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.0.2](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.1.0-preview.4](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 and 3.5 (default)|
 
 ## Next steps

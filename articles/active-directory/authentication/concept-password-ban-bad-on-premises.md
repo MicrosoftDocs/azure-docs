@@ -34,7 +34,7 @@ There are three software components that make up Azure AD password protection:
 ## Requirements
 
 * All machines where Azure AD password protection components are installed including domain controllers must be running Windows Server 2012 or later.
-* All machines where Azure AD password protection components are installed including domain controllers must have the Universal C runtime installed. This is preferably accomplished by fully patching the machine via Windows Update. Otherwise an appropriate OS-specific update package may be installed - see [Update for Universal C Runtime in Windows](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)
+* All machines where Azure AD password protection components are installed including domain controllers must have the Universal C runtime installed. This is preferably accomplished by fully patching the machine via Windows Update. Otherwise an appropriate OS-specific update package may be installed - see [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
 * Network connectivity must exist between at least one domain controller in each domain and at least one server hosting the Azure AD password protection proxy service.
 * Any Active Directory domain running the DC agent service software must use DFSR for sysvol replication.
 * A global administrator account to register the Azure AD password protection proxy service with Azure AD.

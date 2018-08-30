@@ -4,14 +4,14 @@ description: Learn how you can use Azure Cosmos DB to store and query massive vo
 keywords: what is MongoDB
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
+manager: slyons
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
-ms.author: sngun
+ms.author: sclyon
 experimental: true
 experiment_id: "662dc5fd-886f-4a"
 ---
@@ -46,11 +46,6 @@ Azure Cosmos DB databases can be used as the data store for apps written for [Mo
 **Automatic indexing**: By default, Azure Cosmos DB automatically indexes all the properties within documents in your MongoDB database and does not expect or require any schema or creation of secondary indices. In addition, the unique index capability enables a uniqueness constraint on any document fields that are already auto-indexed in Azure Cosmos DB.
 
 **Enterprise grade**: Azure Cosmos DB supports multiple local replicas to deliver 99.99% availability and data protection in the face of local and regional failures. Azure Cosmos DB has enterprise grade [compliance certifications](https://www.microsoft.com/trustcenter) and security features. 
-
-Learn more in this video with Azure Cosmos DB Senior Program Manager, Aleksey Savateyev.
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T136/player]
-> 
 
 ## How to get started
 

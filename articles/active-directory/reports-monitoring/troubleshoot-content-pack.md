@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: compliance-reports
+ms.component: report-monitor
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
@@ -65,6 +65,6 @@ This article provides you with information about the possible causes and how to 
 
 ## Next steps
 
-To install the Power BI Content Pack for Azure Active Directory Preview, click [here](https://powerbi.microsoft.com/en-us/blog/azure-active-directory-meets-power-bi/).
+To install the Power BI Content Pack for Azure Active Directory Preview, click [here](https://powerbi.microsoft.com/blog/azure-active-directory-meets-power-bi/).
 
 
