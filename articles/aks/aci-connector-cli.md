@@ -1,6 +1,6 @@
 ---
-title: Connect an AKS cluster to Azure Container Instances (ACI)
-description: Learn how to use the Azure Container Instances (ACI) connector to run pods from an Azure Kubernetes Service (AKS) cluster
+title: Create an AKS cluster configured with ACI connector with the Azure CLI
+description: Learn how to use the Azure CLI to create an Azure Kubernetes Services (AKS) cluster that uses the Azure Container Instances (ACI) connector to run pods.
 services: container-service
 author: iainfoulds
 
@@ -9,7 +9,7 @@ ms.date: 09/24/2018
 ms.author: iainfou
 ---
 
-# Connect an Azure Kubernetes Services (AKS) cluster to Azure Container Instances (ACI)
+# Create and configure an Azure Kubernetes Services (AKS) cluster to use the Azure Container Instances (ACI) connector with the Azure CLI
 
 To rapidly scale application workloads in an Azure Kubernetes Service (AKS) cluster, you can connect to Azure Container Instances (ACI). With ACI, you have quick provisioning of container instances, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy underlying compute nodes to run the additional pods. This article shows you how to create and configure the virtual network resources and AKS cluster, then enable the ACI connector.
 
@@ -18,7 +18,7 @@ To rapidly scale application workloads in an Azure Kubernetes Service (AKS) clus
 
 ## Before you begin
 
-The ACI connector enables network communication between pods that run in ACI and the AKS cluster. To provide this communication, a virtual network subnet is created for use with ACI. The ACI connector only works with AKS clusters created using *advanced* networking. By default, AKS clusters are created with *basic* networking. This article details all the steps to create a virtual network and subnets, delegate access for AKS to use and manage those network resources, then deploy an AKS cluster that uses advanced networking.
+The ACI connector enables network communication between pods that run in ACI and the AKS cluster. To provide this communication, a virtual network subnet is created for use with ACI. The ACI connector only works with AKS clusters created using *advanced* networking. By default, AKS clusters are created with *basic* networking. This article shows you the steps to create a virtual network and subnets, delegate access for AKS to use and manage those network resources, then deploy an AKS cluster that uses advanced networking.
 
 For more information, see [AKS advanced networking][].
 
@@ -147,13 +147,13 @@ To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks ge
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes. It can take a few minutes for the nodes to appear.
+To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes.
 
 ```console
 kubectl get nodes
 ```
 
-Output:
+The following example output shows the single node created and then ACI connectors for Linux and Windows:
 
 ```
 # Add output showing the VK node(s), I guess?
@@ -193,6 +193,6 @@ The ACI connector is often one component of a scaling solution in AKS. For more 
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az aks disable-addons]: cli/azure/aks#az-aks-disable-addons
+[az aks disable-addons]: /cli/azure/aks#az-aks-disable-addons
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: autoscaler.md
