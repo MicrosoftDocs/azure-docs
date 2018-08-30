@@ -251,7 +251,7 @@ To explore using the IoT Hub Device Provisioning Service to enable zero-touch, j
 [lnk-rfc7232]: https://tools.ietf.org/html/rfc7232
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-export]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-devguide-opmon]: iot-hub-operations-monitoring.md
+[lnk-devguide-mon]: iot-hub-monitor-resource-health.md
 
 [lnk-devguide-security]: iot-hub-devguide-security.md
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
@@ -261,5 +261,7 @@ To explore using the IoT Hub Device Provisioning Service to enable zero-touch, j
 [lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
 
-
-[**device disconnected** event](https://docs.microsoft.com/azure/iot-hub/iot-hub-event-grid#event-types) on Event Grid to get alerts and monitor the device connection state. Use this [tutorial](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-how-to-order-connection-state-events) 
+[lnk-AM]: ../monitoring-and-diagnostics/index.yml
+[lnk-ARH]: ../service-health/resource-health-overview.md
+[lnk-devguide-evgrid-evtype]: iot-hub-event-grid.md#event-types
+[lnk-howto-evgrid-connstate]: iot-hub-how-to-order-connection-state-events.md
