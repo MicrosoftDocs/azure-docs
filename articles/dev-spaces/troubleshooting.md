@@ -101,6 +101,16 @@ You might see this error if azds.exe is not installed or configured correctly.
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
     ```
 
+## Warning 'Dockerfile could not be generated due to unsupported language'
+Azure Dev Spaces provides native support for C# and Node.js. When you run *azds prep* in a directory containing code written in one of these languages, Azure Dev Spaces will automatically create an appropriate Dockerfile for you.
+
+You can still use Azure Dev Spaces with code written in other languages, but you will need to create the Dockerfile yourself prior to running *azds up* for the first time.
+
+### Try:
+If your application is written in a language that Azure Dev Spaces does not natively support, you'll need to provide an appropriate Dockerfile to build a container image running your code. Docker provides a [list of best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) as well as a [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) that can help you do this.
+
+Once you have an appropriate Dockerfile in place, you can proceed with running *azds up* to run your application in Azure Dev Spaces.
+
 ## Error 'upstream connect error or disconnect/reset before headers'
 You may see this error when trying to access your service. For example, when you go to the service's URL in a browser. 
 
