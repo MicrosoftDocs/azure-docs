@@ -1,5 +1,5 @@
 ---
-title: Deploy web services to an Azure Container Instance | Azure Machine Learning
+title: Deploy web services to an Azure Container Instances | Azure Machine Learning
 description: Learn how to deploy a trained model as a web service API on Azure Container Instances with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.reviewer: sgilley
 ms.date: 09/24/2018
 ---
 
-# How to deploy web services to an Azure Container Instance
+# How to deploy web services to an Azure Container Instances
 
 You can deploy your trained model as a web service API on either [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) (ACI) or  [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS).
 
-In this article, you'll learn how to deploy on ACI.  ACI is cheaper than AKS and setup can be done in a few minutes with just a 4-6 lines of code. ACI is the perfect option for testing deployments.
+In this article, you'll learn how to deploy on ACI.  ACI is generally cheaper than AKS and setup can be done in a few minutes with just a 4-6 lines of code. ACI is the perfect option for testing deployments.
 
 When you're ready to use your models and web services for high-scale, production usage, [deploy them to AKS](how-to-deploy-to-aks.md) instead.
 
@@ -27,9 +27,9 @@ When you're ready to use your models and web services for high-scale, production
 
 - A model to deploy.  Learn how to create one in the [Train and deploy model on Azure Machine Learning with MNIST dataset and TensorFlow tutorial](tutorial-train-models-with-aml.md).  
 
-While the [tutorial](tutorial-deploy-models-with-aml.md) shows deployment, this article shows a more advanced approach that gives you more control over model versions and Docker image versions.  
+While [this tutorial](tutorial-deploy-models-with-aml.md) shows deployment, this article shows a more advanced approach that gives you more control over the steps for model registration and Docker image creation. The end result, however, is the same web service API.
 
-## Install libraries and initialize your workspace
+## Import libraries and initialize your workspace
 
 ```python
 import azureml.core
@@ -51,7 +51,7 @@ import getpass
 username = getpass.getuser()
 
 from azureml.core.model import Model
-model_name = username + "best_model.pkl"
+model_name = "diabetes_model"
 model = Model.register(model_path = "best_model.pkl",
                        model_name = model_name,
                        tags = ["diabetes", "regression", username],
@@ -61,7 +61,7 @@ model = Model.register(model_path = "best_model.pkl",
 
 ## Create Docker image
 
-At a minimum, you must include a model file and an entry script to load and call the model for scoring. Include any additional dependencies in a .yml file.
+At a minimum, you must include a model file and an execution script to load and call the model for inferencing. Include any additional dependencies in a .yml file.
 
 The parameter in the `get_model_path` call is referring to a model registered under the workspace. It is NOT referencing the local file.
 
@@ -106,7 +106,7 @@ def run(raw_data):
     
     def init():
         global model
-        model_path = Model.get_model_path("raymondl_diabetes_best_model.pkl")
+        model_path = Model.get_model_path("diabetes_model")
         model = joblib.load(model_path)
     
     # note you can pass in multiple rows for scoring
@@ -134,7 +134,9 @@ dependencies:
     - azureml-core
 ```    
 
-The following command could take a few minutes. You can add optional tags and a description to your image. An image can contain one or more models.
+You can add optional tags and a description to your image. An image can contain one or more models.
+
+The following command could take a few minutes. 
 
 
 ```python
@@ -148,16 +150,13 @@ image = Image.create(name = username + "image1",
                      tags = ["diabetes","regression",username],
                      description = "Image with ridge regression model",
                      workspace = ws)
-```
-    
 
-```python
 image.wait_for_creation(show_output = True)
 ```    
 
 ## Deploy image on ACI
 
-The service creation can take few minutes.
+Now you can deploy the image as a service. The service creation can take a few minutes.
 
 
 ```python
@@ -173,7 +172,7 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 ```python
 from azureml.core.webservice import Webservice
 
-aci_service_name = 'my-aci-service-1'
+aci_service_name = 'aci_diabetes_1'
 aci_service = Webservice.deploy_from_image(deployment_config = aciconfig,
                                            image = image,
                                            name = aci_service_name,
