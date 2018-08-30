@@ -1,6 +1,6 @@
 ---
-title:  Assign roles for Azure resources by using Privileged Identity Management | Microsoft Docs
-description: Describes how to assign roles in PIM.
+title: Assign Azure resource roles in PIM | Microsoft Docs
+description: Learn how to assign Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,7 +16,18 @@ ms.author: rolyon
 ms.custom: pim
 ---
 
-# Assign roles for Azure resources by using Privileged Identity Management
+# Assign Azure resource roles in PIM
+
+Azure AD PIM can manage the built-in Azure resource roles, as well as custom roles, including (but not limited to):
+
+- Owner
+- User Access Administrator
+- Contributor
+- Security Admin
+- Security Manager, and more
+
+>[!NOTE]
+Users or members of a group assigned to the Owner or User Access Administrator roles, and Global Administrators that enable subscription management in Azure AD are Resource Administrators. These administrators may assign roles, configure role settings, and review access using PIM for Azure Resources. View the list of [built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
 
 ## Assign roles
 
@@ -71,3 +82,8 @@ If you have a role pending activation, a notification banner is displayed at the
 To modify existing assignments from the user/group detail view, select **Change settings** from the action bar. Change the assignment type to **Just in time** or **Direct**.
 
 !["User details" pane with the "Change settings" button](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+
+## Next steps
+
+- [Configure Azure resource role settings in PIM](pim-resource-roles-configure-role-settings.md)
+- [Assign Azure AD directory roles in PIM](pim-how-to-add-role-to-user.md)
