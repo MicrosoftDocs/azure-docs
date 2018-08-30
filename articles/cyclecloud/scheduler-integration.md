@@ -54,9 +54,6 @@ Azure CycleCloud supports autoscaling for Grid Engine, which means that the soft
 Autoscale = True
 ```
 
-> [!NOTE]
-> For autoscaling to work, the nodes in the cloud **must** have a route back to the CycleCloud machine. The easiest way to accomplish this is to install your CycleCloud instance in the cloud along with the nodes it will be spinning up. Alternatively, if you are in a VPC environment, you can set up a route back to your machine, port forward the CycleCloud port on your router to your machine, or use the IsReturnProxy feature.
-
 By default, all jobs submitted into the Grid Engine queue will run on machines of type 'execute', these are machines defined by the node array named "execute". You are not limited to the name 'execute', nor are you limited to a single type of machine configuration to run jobs and autoscale on.
 
 As an example, a common case may be that you have a cluster with two different node definitions one is for running 'normal' jobs that consume standard CPU while another type of job may use GPU machines. In this case you would want to independently scale your queue by both normal jobs as well as GPU jobs to make sure you have an appropriate amount of each machine to consume the work queue. An example definition would be something like:
@@ -97,13 +94,13 @@ You can verify the number of slots and slot_type your machines have by running t
     -bash-4.1# qstat -F slot_type
     queuename                      qtype resv/used/tot. load_avg arch          states
     ---------------------------------------------------------------------------------
-    all.q@domU-12-31-39-07-B9-38.c BIP   0/0/4          0.17     linux-x64
+    all.q@ip-0A000404              BIP   0/0/4          0.17     linux-x64
         hf:slot_type=execute
     ---------------------------------------------------------------------------------
-    all.q@ip-10-16-2-253.ec2.inter BIP   0/0/2          2.18     linux-x64
+    all.q@ip-0A000405              BIP   0/0/2          2.18     linux-x64
         hf:slot_type=gpu
     ---------------------------------------------------------------------------------
-    all.q@ip-10-183-146-119.ec2.in BIP   0/0/4          0.25     linux-x64
+    all.q@ip-0A000406              BIP   0/0/4          0.25     linux-x64
 ```
 
 Notice that there are one of each 'slot_type' that we specified (execute and gpu) and the number of slots for the 'execute' slot is 4, which is the number of CPUs on the machine. The number of slots for the 'gpu' slot type is 2, which we specified in our cluster configuration template. The third machine is the master node which does not run jobs.
@@ -303,9 +300,6 @@ CycleCloud supports autoscaling for HTCondor, which means that the software will
 [cluster htcondor]
 Autoscale = True
 ```
-
-> [!NOTE]
-> For autoscaling to work, the nodes in the cloud **must** have a route back to the CycleCloud Server machine. The easiest way to accomplish this is to install your CycleCloud instance in the cloud along with the nodes it will be spinning up. Alternatively if you are in a VPC environment you can set up a route back to your machine or port forward the CycleCloud port on your router to your machine.
 
 ## HTCondor Advanced Usage
 
