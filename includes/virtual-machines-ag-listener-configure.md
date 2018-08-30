@@ -21,7 +21,7 @@ The availability group listener is an IP address and network name that the SQL S
 
     c. In the **Name** box, create a name for this new listener. 
    The name for the new listener is the network name that applications use to connect to databases in the SQL Server availability group.
-   
+
     d. To finish creating the listener, click **Next** twice, and then click **Finish**. Do not bring the listener or resource online at this point.
 
 3. <a name="congroup"></a>Configure the IP resource for the availability group.
@@ -72,46 +72,54 @@ The availability group listener is an IP address and network name that the SQL S
 
 
 6. <a name="setparam"></a>Set the cluster parameters in PowerShell.
-    
-    a. Copy the following PowerShell script to one of your SQL Server instances. Update the variables for your environment.     
-    
-    ```PowerShell
-    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-    $IPResourceName = "<IPResourceName>" # the IP Address resource name
-    $ILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-    [int]$ProbePort = <nnnnn>
-    
-    Import-Module FailoverClusters
-    
-    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-    ```
 
-    b. Set the cluster parameters by running the PowerShell script on one of the cluster nodes.  
+  a. Copy the following PowerShell script to one of your SQL Server instances. Update the variables for your environment.
+
+  - `$ILBIP` is the IP address that you created on the Azure load balancer for the availability group listener.
+    
+  - `$ProbePort` is the port you configured on the Azure load balancer for the availability group listener.
+
+  ```PowerShell
+  $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+  $IPResourceName = "<IPResourceName>" # the IP Address resource name
+  $ILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
+  [int]$ProbePort = <nnnnn>
+  
+  Import-Module FailoverClusters
+
+  Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+  ```
+
+  b. Set the cluster parameters by running the PowerShell script on one of the cluster nodes.  
 
 Repeat the steps above to set the cluster parameters for the WSFC cluster IP address.
 
-1. Get the IP address name of the WSFC Cluster IP address. In **Failover Cluster Manager** under **CLuster Core Resources**, locate **Server Name**.
+1. Get the IP address name of the WSFC Cluster IP address. In **Failover Cluster Manager** under **Cluster Core Resources**, locate **Server Name**.
 
 1. Right-click **IP Address**, and select **Properties**.
 
 1. Copy the **Name** of the IP address. It may be `Cluster IP Address`. 
 
 1. <a name="setwsfcparam"></a>Set the cluster parameters in PowerShell.
-    
-    a. Copy the following PowerShell script to one of your SQL Server instances. Update the variables for your environment.     
-    
-    ```PowerShell
-    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
-    $ILBIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
-    [int]$ProbePort = <nnnnn>
-    
-    Import-Module FailoverClusters
-    
-    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-    ```
+  
+  a. Copy the following PowerShell script to one of your SQL Server instances. Update the variables for your environment.
 
-    b. Set the cluster parameters by running the PowerShell script on one of the cluster nodes.  
+  - `$ILBIP` is the IP address that you created on the Azure load balancer for the WSFC core cluster resource. It is different from the IP address for the availability group listener.
 
-    > [!NOTE]
-    > If your SQL Server instances are in separate regions, you need to run the PowerShell script twice. The first time, use the `$ILBIP` and `$ProbePort` from the first region. The second time, use the `$ILBIP` and `$ProbePort` from the second region. The cluster network name and the cluster IP resource name are the same. 
+  - `$ProbePort` is the port you configured on the Azure load balancer for the WSFC health probe. It is different from the probe for the availability group listener.
+
+  ```PowerShell
+  $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+  $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
+  $ILBIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
+  [int]$ProbePort = <nnnnn> # The probe port from the WSFCEndPointprobe in the Azure portal. This port must be different from the probe port for the availability grouop listener probe port.
+  
+  Import-Module FailoverClusters
+  
+  Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+  ```
+
+  b. Set the cluster parameters by running the PowerShell script on one of the cluster nodes.  
+
+  > [!NOTE]
+  > If your SQL Server instances are in separate regions, you need to run the PowerShell script twice. The first time, use the `$ILBIP` and `$ProbePort` from the first region. The second time, use the `$ILBIP` and `$ProbePort` from the second region. The cluster network name and the cluster IP resource name are the same.

@@ -890,9 +890,8 @@ You only need to set your deployment environment once. If you don't have one yet
 
 Learn more about Azure Machine Learning Package for Text Analytics in these articles:
 
-+ Read the [package overview and learn how to install it](https://aka.ms/aml-packages/text).
++ Read the [package overview](https://aka.ms/aml-packages/text).
 
 + Explore the [reference documentation](https://aka.ms/aml-packages/text) for this package.
 
 + Learn about [other Python packages for Azure Machine Learning](reference-python-package-overview.md).
-

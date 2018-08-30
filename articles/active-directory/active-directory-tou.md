@@ -160,7 +160,7 @@ The following procedure describes how to add a Terms of use language.
 
 1. Select the Terms of use you want to edit.
 
-1. In the the details pane, click the **Languages** tab.
+1. In the details pane, click the **Languages** tab.
 
     ![Add TOU](media/active-directory-tou/languages-tou.png)
 

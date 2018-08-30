@@ -17,6 +17,9 @@ What are ML pipelines in general?
 
 (Add a graphic. It should include a pipeline layer over the  pillars (data prep, experimentation/training pillar, and the deployment/model management.)
 
+![png](./media/concept-ml-pipelines/pipelines.png)
+
+
 ## Python pipeline SDK
 In Azure, you can create ML pipelines in Python using the Azure Machine Learning SDK. The SDK offers imperative constructs for sequencing and parallelizing steps. With the use of declarative data dependencies, optimized execution of the tasks can be achieved. The SDK can be easily used from Jupyter Notebook or any other preferred IDE. The SDK includes a framework of pre-built modules for common tasks such as data transfer, provisioning, and model publishing. The framework can be extended by users to model their own conventions. A pipeline can be saved as a template for schedules runs for batch-scoring or retraining.
 

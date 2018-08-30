@@ -70,7 +70,7 @@ Learn more about Azure Machine Learning Package for Computer Vision in these art
 
 + Learn how to [improve the accuracy of this model](how-to-improve-accuracy-for-computer-vision-models.md).
 
-+ Read the [package overview and learn how to install it](https://aka.ms/aml-packages/vision).
++ Read the [package overview](https://aka.ms/aml-packages/vision).
 
 + Explore the [reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) for this package.
 
