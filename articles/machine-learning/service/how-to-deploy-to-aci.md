@@ -1,5 +1,5 @@
 ---
-title: Deploy web services to an Azure Container Instance | Azure Machine Learning
+title: Deploy web services to an Azure Container Instances | Azure Machine Learning
 description: Learn how to deploy a trained model as a web service API on Azure Container Instances with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.reviewer: sgilley
 ms.date: 09/24/2018
 ---
 
-# How to deploy web services to an Azure Container Instance
+# How to deploy web services to an Azure Container Instances
 
 You can deploy your trained model as a web service API on either [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) (ACI) or  [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS).
 
-In this article, you'll learn how to deploy on ACI.  ACI is cheaper than AKS and setup can be done in a few minutes with just a 4-6 lines of code. ACI is the perfect option for testing deployments.
+In this article, you'll learn how to deploy on ACI.  ACI is generally cheaper than AKS and setup can be done in a few minutes with just a 4-6 lines of code. ACI is the perfect option for testing deployments.
 
 When you're ready to use your models and web services for high-scale, production usage, [deploy them to AKS](how-to-deploy-to-aks.md) instead.
 
@@ -27,15 +27,17 @@ When you're ready to use your models and web services for high-scale, production
 
 - A model to deploy.  Learn how to create one in the [Train and deploy model on Azure Machine Learning with MNIST dataset and TensorFlow tutorial](tutorial-train-models-with-aml.md).  
 
-While the [tutorial](tutorial-deploy-models-with-aml.md) shows deployment, this article shows a more advanced approach that gives you more control over model versions and Docker image versions.  
+While [this tutorial](tutorial-deploy-models-with-aml.md) shows deployment, this article shows a more advanced approach that gives you more control over the steps for model registration and Docker image creation. The end result, however, is the same web service API.
 
-## Install libraries and initialize your workspace
+## Import libraries and initialize your workspace
 
 ```python
 import azureml.core
 # Check core SDK version number
 print("SDK version:", azureml.core.VERSION)
+```
 
+```python
 from azureml.core import Workspace
 
 ws = Workspace.from_config()
@@ -43,7 +45,7 @@ print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
 ```
 
 ## Register a model
-To register the model, you need the file `best_model.pkl` to be in the current directory. This call registers that file as a model called `best_model.pkl` in the workspace.
+To register the model, you need the file `mnist_model.pkl` to be in the current working directory. This call registers that file as a model called `mnist_model` in the workspace.
 
 
 ```python
@@ -51,19 +53,20 @@ import getpass
 username = getpass.getuser()
 
 from azureml.core.model import Model
-model_name = username + "best_model.pkl"
-model = Model.register(model_path = "best_model.pkl",
-                       model_name = model_name,
-                       tags = ["diabetes", "regression", username],
-                       description = "Ridge regression model to predict diabetes",
+model_name = "diabetes_model"
+model = Model.register(model_path = "mnist_model.pkl",
+                       model_name = "mnist_model",
+                       tags = ["mnist",username],
+                       description = "Mnist handwriting recognition",
                        workspace = ws)
 ```    
 
 ## Create Docker image
 
-At a minimum, you must include a model file and an entry script to load and call the model for scoring. Include any additional dependencies in a .yml file.
+At a minimum, you must include a model file and an execution script to load and call the model for inferencing. Include any additional dependencies in a .yml file.
 
 The parameter in the `get_model_path` call is referring to a model registered under the workspace. It is NOT referencing the local file.
+
 
 
 ```python
@@ -89,35 +92,12 @@ def run(raw_data):
         result = str(e)
     return json.dumps({'result': result.tolist()})'''
 
-%store score_file > ./score.py
+%store score_file > ./mnist_score.py
 ```
 
 ```python
-!cat ./score.py
+!cat ./mnist_score.py
 ```
-
-    import pickle
-    import json
-    import numpy
-    from sklearn.externals import joblib
-    from sklearn.linear_model import Ridge
-    #from azureml.assets.persistence.persistence import get_model_path
-    from azureml.core.model import Model
-    
-    def init():
-        global model
-        model_path = Model.get_model_path("raymondl_diabetes_best_model.pkl")
-        model = joblib.load(model_path)
-    
-    # note you can pass in multiple rows for scoring
-    def run(raw_data):
-        try:
-            data = json.loads(raw_data)['data']
-            data = numpy.array(data)
-            result = model.predict(data)
-        except Exception as e:
-            result = str(e)
-        return json.dumps({'result': result.tolist()})
     
 
 ```python
@@ -134,30 +114,33 @@ dependencies:
     - azureml-core
 ```    
 
-The following command could take a few minutes. You can add optional tags and a description to your image. An image can contain one or more models.
+You can add optional tags and a description to your image. An image can contain one or more models.
+
+The following command could take a few minutes. 
 
 
 ```python
-from azureml.core.image import Image
-image = Image.create(name = username + "image1",
-                     # this is the model object 
-                     models = [model],
-                     runtime = "python",
-                     execution_script = "score.py",
-                     conda_file = "myenv.yml",
-                     tags = ["diabetes","regression",username],
-                     description = "Image with ridge regression model",
-                     workspace = ws)
-```
-    
+from azureml.core.image import ContainerImage
 
-```python
+image_config = ContainerImage.image_configuration(execution_script = "mnist_score.py",
+                                                  runtime = "python",
+                                                  conda_file = "myenv.yml",
+                                                  description = "Image with mnist model",
+                                                  tags = ["mnist","classification"]
+                                                 )
+                                                 
+image = ContainerImage.create(name = "myimage1",
+                              # this is the model object
+                              models = [model],
+                              image_config = image_config,
+                              workspace = ws)
+
 image.wait_for_creation(show_output = True)
 ```    
 
 ## Deploy image on ACI
 
-The service creation can take few minutes.
+Now you can deploy the image as a service. The service creation can take a few minutes.
 
 
 ```python
@@ -165,15 +148,15 @@ from azureml.core.webservice import AciWebservice
 
 aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1, 
                                                memory_gb = 1, 
-                                               tags = ['regression','diabetes',username], 
-                                               description = 'Predict diabetes using regression model')
+                                               tags = ['mnist','classification'], 
+                                               description = 'Handwriting recognition')
 ```
 
 
 ```python
 from azureml.core.webservice import Webservice
 
-aci_service_name = 'my-aci-service-1'
+aci_service_name = 'aci-mnist-1'
 aci_service = Webservice.deploy_from_image(deployment_config = aciconfig,
                                            image = image,
                                            name = aci_service_name,
@@ -184,23 +167,25 @@ print(aci_service.state)
 
 ## Test web service
 
-Call the web service with some dummy input data to get a prediction.
-
+Call the web service with test input data to get a prediction.
 
 ```python
+from sklearn import datasets
+import numpy as np
 import json
 
-test_sample = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10], 
-    [10,9,8,7,6,5,4,3,2,1]
-]})
-test_sample = bytes(test_sample,encoding = 'utf8')
+# Get sample data
+mnist_data = datasets.load_digits()
+features = mnist_data.images
+features = features.reshape(features.shape[0],-1)
 
-prediction = aci_service.run(input_data = test_sample)
+# Pick the data row that corresponds to number 8
+test_samples = json.dumps({"data": features[8:9, :].tolist()})
+prediction = aci_service.run(input_data = test_samples)
 print(prediction)
 ```
 
-    {"result": [5215.198131579869, 3726.995485938573]}
+    {"result": [8]}
     
 
 ## Delete the service to clean up

@@ -33,6 +33,8 @@
     href: concept-accelerate-with-fpgas.md  
   - name: Machine learning pipelines
     href: concept-ml-pipelines.md        
+  - name: ONNX
+    href: concept-onnx.md        
 - name: How-to guides
   items:  
   - name: Manage workspaces
@@ -62,12 +64,15 @@
     - name: Track run history and training metrics
   - name: Deploy models in production	
     items:    
-    - name: Prepare models for deployment
     - name: Where to deploy models
-    - name: Deploy to ACI
-      href: how-to-deploy-to-aci.md
-    - name: Deploy to AKS
-      href: how-to-deploy-to-aks.md
+      href: deploy-models.md
+      items:
+       - name: Deploy to ACI
+         href: how-to-deploy-to-aci.md
+       - name: Deploy to AKS
+         href: how-to-deploy-to-aks.md
+       - name: Deploy to FPGAs
+         href: how-to-deploy-fpga-web-service.md  
     - name: Consume a deployed model
       href: how-to-consume-web-services.md
 - name: Reference
@@ -165,8 +170,6 @@
         href: ../desktop-workbench/how-to-use-mmlspark.md
     - name: Deploy & consume models
       items:
-      - name: Deploy models to FPGAs
-        href: how-to-deploy-fpga-web-service.md
       - name: Set up Model Management
         href: ../desktop-workbench/deployment-setup-configuration.md
       - name: Scale clusters and services

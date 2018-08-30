@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/27/2018
 ---
 
 # Migrate MySQL to Azure Database for MySQL online using DMS
@@ -209,5 +209,6 @@ After the initial Full load is completed, the databases are marked **Ready to cu
 4. When the database migration status shows **Completed**, connect your applications to the new target Azure SQL Database.
  
 ## Next steps
--	For information about the Azure Database Migration Service, see the article [What is the Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
--	For information about the Azure Database for MySQL, see the article [What is the Azure Database for MySQL?](https://docs.microsoft.com/azure/mysql/overview).
+- For information about known issues and limitations when performing online migrations to Azure Database for MySQL, see the article [Known issues and workarounds with Azure Database for MySQL online migrations](known-issues-azure-mysql-online.md).
+- For information about the Azure Database Migration Service, see the article [What is the Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
+- For information about the Azure Database for MySQL, see the article [What is the Azure Database for MySQL?](https://docs.microsoft.com/azure/mysql/overview).

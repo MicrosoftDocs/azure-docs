@@ -82,7 +82,7 @@ In each module folder, there are several Docker files for different container ty
 
     ![Add **.debug** to your image name](./media/how-to-develop-c-module/image-debug.png)
 
-2. Replace the Node.js module createOptions in **deployment.template.json** with below content and save this file: 
+2. Replace the C module createOptions in **deployment.template.json** with below content and save this file: 
     
     ```json
     "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
@@ -90,7 +90,7 @@ In each module folder, there are several Docker files for different container ty
 
 2. In the VS Code command palette, enter and run the command **Edge: Build IoT Edge solution**.
 3. Select the `deployment.template.json` file for your solution from the command palette. 
-4. In Azure IoT Hub Device Explorer, right-click an IoT Edge device ID. Then select **Create deployment for IoT Edge device**. 
+4. In Azure IoT Hub Device Explorer, right-click an IoT Edge device ID. Then select **Create deployment for Single Device**. 
 5. Open your solution's **config** folder. Then select the `deployment.json` file. Choose **Select Edge Deployment Manifest**. 
 
 You'll see the deployment successfully created with a deployment ID in a VS Code-integrated terminal.
@@ -110,7 +110,7 @@ VS Code keeps debugging configuration information in a `launch.json` file locate
 
 4. In VS Code Debug view, you'll see the variables in the left panel. 
 
-The preceding example shows how to debug C IoT Edge modules on containers. It added exposed ports in your module container createOptions. After you finish debugging your Node.js modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.
+The preceding example shows how to debug C IoT Edge modules on containers. It added exposed ports in your module container createOptions. After you finish debugging your C modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.
 
 ## Next steps
 

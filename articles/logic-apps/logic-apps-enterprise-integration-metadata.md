@@ -1,24 +1,18 @@
 ---
 title: Manage integration account artifact metadata - Azure Logic Apps | Microsoft Docs
-description: Add or retrieve artifact metadata from integration accounts for Azure Logic Apps
-author: padmavc
-manager: jeconnoc
-editor: ''
+description: Add or retrieve artifact metadata from integration accounts in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: ''
-
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 02/23/2018
-ms.author: LADocs; padmavc
 ---
 
-# Manage artifact metadata in integration accounts for logic apps
+# Manage artifact metadata from integration accounts in Azure Logic Apps with Enterprise Integration Pack
 
 You can define custom metadata for artifacts in integration accounts 
 and retrieve that metadata during runtime for your logic app. 

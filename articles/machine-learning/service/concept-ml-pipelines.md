@@ -10,22 +10,20 @@ author: sanpil
 ms.date: 09/24/2018
 ---
 
-# ML pipelines with Azure Machine Learning
+# ML Pipelines with Azure Machine Learning
 
-Machine learning pipelines are great for reproducible machine learning tasks.
-What are ML pipelines in general? 
+Machine learning pipelines are great for building and managing machine learning workflows. A typical machine learning workflow will have multiple tasks to prepare data, train model, and deploy and evaluate models. ML Pipelines enable data scientists to model and visualize such workflows. Tasks involved in the workflow are represented as nodes in a directed acyclic graph (DAG) in ML Pipelines. Therefore, ML Pipeline is a dataflow graph for building, training, validating, and deploying machine learning models with individual nodes in the pipeline can make use of diverse compute clusters (for e.g.: CPU for data preparation, GPU for training, and FPGA for deployment), toolkits (TensorFlow, CNTK) and programming languages (Python, C#).
 
 (Add a graphic. It should include a pipeline layer over the  pillars (data prep, experimentation/training pillar, and the deployment/model management.)
 
-## Python pipeline SDK
-In Azure, you can create ML pipelines in Python using the Azure Machine Learning SDK. The SDK offers imperative constructs for sequencing and parallelizing steps. With the use of declarative data dependencies, optimized execution of the tasks can be achieved. The SDK can be easily used from Jupyter Notebook or any other preferred IDE. The SDK includes a framework of pre-built modules for common tasks such as data transfer, provisioning, and model publishing. The framework can be extended by users to model their own conventions. A pipeline can be saved as a template for schedules runs for batch-scoring or retraining.
+## Python Pipeline SDK
+In Azure, you can create ML Pipelines in Python using the Azure Machine Learning SDK. The SDK offers imperative constructs for sequencing and parallelizing steps. With the use of declarative data dependencies, optimized execution of the tasks can be achieved. The SDK can be easily used from Jupyter Notebook or any other preferred IDE. The SDK includes a framework of pre-built modules for common tasks such as data transfer, provisioning, and model publishing. The framework can be extended by users to model their own conventions. A pipeline can be saved as a template for scheduled runs for batch-scoring or retraining.
 
 ## Why build pipelines?
 
 Pipelines allow you to optimize for simplicity, speed, portability, and reuse. When building them with Azure Machine Learning, you can focus on machine learning rather than infrastructure.
 
-Do AML pipelines offer anything over other ML pipeline offerings?
-(Can we make this shorter... easier to scan)
+AML Pipelines offer platform and toolkit agnostic options for data preparation, training, and deployment for end-to-end machine learning scenarios. Data and module reuse enable machine learning inner loop agile as AML Pipelines infrastructure can identify to upload only updated datasources and run modified compute steps in the workflow. AML Pipelines takes care of intermediate data management of making the output of a preceding step available as the input of the subsequent steps regardless of the compute clusters used for the steps.
 
 The key advantages to building pipelines for your machine learning workflows is:
 
@@ -37,7 +35,7 @@ The key advantages to building pipelines for your machine learning workflows is:
 |**Reusability**|Pipelines can be templatized for scenarios such as retraining and batch scoring so they can be triggered from external systems via a simple REST call.|
 |**Tracking**|Instead of manually keeping track of data and result paths as you iterate, you can use the SDK to explicit named data sources, inputs, and outputs to version and manage scripts and data separately resulting in increased productivity.|
 |**Collaboration**|Share experiments you've run so other data scientists can reuse components that worked well.|
-|**Dynamic compute target management**|Define and automate policies for setting up, tearing down, and scaling compute targets on a per-task basis.|
+
 
 
 ## Next steps

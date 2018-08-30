@@ -14,7 +14,7 @@ ms.author: wolfma
 
 # Quickstart: Recognize speech in C++ on Linux using the Speech SDK
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you learn how to create a C++ console application on Linux (Ubuntu 16.04) using the Cognitive Services Speech SDK to transcribe speech to text.
 
@@ -31,7 +31,7 @@ In this article, you learn how to create a C++ console application on Linux (Ubu
 
 ## Get the Speech SDK
 
-[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 The current version of the Cognitive Services Speech SDK is `0.6.0`.
 
@@ -68,7 +68,7 @@ Download and install the SDK as follows:
    It should show third-party notice and license files, as well as an `include`
    directory for headers and a `lib` directory for libraries.
 
-   [!include[Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
+   [!INCLUDE [Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
 ## Add the sample code
 
@@ -126,7 +126,7 @@ Download and install the SDK as follows:
    We recognized: What's the weather
    ```
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/cpp-linux` folder.
 
 ## Next steps
