@@ -44,7 +44,7 @@ Pitch control adds the ability to change the pitch of the map. The third block a
 
 The first code block in the above code creates a map object. See [create a map](./map-create.md) for instructions on how to create a map.
 
-The second block of code creates a compass control object using the atlas [CompassControl](https://docs.microsoft.com/en-us/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol). It also adds the compass control to the map using map's [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method.
+The second block of code creates a compass control object using the atlas [Compass Control](https://docs.microsoft.com/en-us/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol). It also adds the compass control to the map using map's [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method.
 
 ## A Map with all controls
 

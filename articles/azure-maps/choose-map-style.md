@@ -28,7 +28,7 @@ The code above creates a map object with the style set to Grayscale. See [create
 
 The first block of code in the above code creates a map object without pre-setting the style. See [create a map](./map-create.md) for instructions on how to create a map.
 
-The second code clock uses the map's [setstyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle) method to set the map style to satellite.
+The second code clock uses the map's [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle) method to set the map style to satellite.
 
 ## Adding the style picker
 
@@ -52,5 +52,5 @@ Learn more about the classes and methods used in this article:
     * [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol)
     
 For more code examples to add to your maps, see the following articles:
-* [Add map controls](./map-add-popup.md)
+* [Add map controls](./map-add-controls.md)
 * [Add a pin](./map-add-pin.md)
