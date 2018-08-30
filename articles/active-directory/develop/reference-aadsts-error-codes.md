@@ -30,7 +30,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 
 | Error | Description |
 |---|---|
-| AADSTS16000 | SelectUserAccount - This is an interrupt thrown by Azure AD, which results in UI that allows the user to select from among multiple valid SSO sessions. This error is fairly common and may be returned to the application if prompt=none is specified. |
+| AADSTS16000 | SelectUserAccount - This is an interrupt thrown by Azure AD, which results in UI that allows the user to select from among multiple valid SSO sessions. This error is fairly common and may be returned to the application if `prompt=none` is specified. |
 | AADSTS16001 | UserAccountSelectionInvalid - You'll see this error if the user clicks on a tile that the session select logic has rejected. When triggered, this error allows the user to recover by picking from an updated list of tiles/sessions, or by choosing another account. This error can occur due to a code defect or race condition. |
 | AADSTS16002 | AppSessionSelectionInvalid - The app-specified SID requirement was not met.  |
 | AADSTS16003 | SsoUserAccountNotFoundInResourceTenant |
@@ -43,9 +43,9 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS40010 | OAuth2IdPRetryableServerError - There's an issue with your federated Identity Provider. Contact your IDP to resolve this issue. |
 | AADSTS40015 | OAuth2IdPAuthCodeRedemptionUserError - There's an issue with your federated Identity Provider. Contact your IDP to resolve this issue. |
 | AADSTS50000 | TokenIssuanceError - There's an issue with the sign-in service. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) to resolve this issue. |
-| AADSTS50001 | InvalidResource - The resource is disabled. |
+| AADSTS50001 | InvalidResource - The resource is disabled or does not exist. Check your app's code to ensure that you have specified the exact resource URL for the resource you are trying to access.  |
 | AADSTS50002 | NotAllowedTenant - Sign-in failed due to restricted proxy access on tenant. If it's your own tenant policy, you can change your restricted tenant settings to fix this issue. |
-| AADSTS50003 | MissingSigningKey - Sign-in failed due to missing signing key or certificate. This might be because there was no signing key configured in the app. Check out the resolutions outlined at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). If you still see issues, contact the app owner or the app admin. |
+| AADSTS50003 | MissingSigningKey - Sign-in failed due to missing signing key or certificate. This might be because there was no signing key configured in the app. Check out the resolutions outlined at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). If you still see issues, contact the app owner or an app admin. |
 | AADSTS50005 | DevicePolicyError - User tried to log in to a device from a platform that's currently not supported through conditional access policy. |
 | AADSTS50006 | InvalidSignature - Signature verification failed due to an invalid signature. |
 | AADSTS50007 | PartnerEncryptionCertificateMissing - The partner encryption certificate was not found for this app. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) with Microsoft to get this fixed. |
