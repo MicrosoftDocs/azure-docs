@@ -211,6 +211,8 @@ Labeling the entities in these steps may be easier if the prebuilt keyPhrase ent
 
 The intent prediction score is only about 50%. If your client application requires a higher number, this needs to be fixed. The entities were not predicted either.
 
+One of the locations was extracted but the other location was not. 
+
 Patterns will help the prediction score, however, the entities must be correctly predicted before the pattern matches the utterance. 
 
 ## Pattern with roles
@@ -376,12 +378,13 @@ In this tutorial, the Human Resources app detects utterances about moving new em
 |[Hierarchical (no roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
 |This tutorial (with roles)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
 
-
 ## Clean up resources
 
 [!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
+
+This tutorial added an entity with roles and an intent with example utterances. The first endpoint prediction using the entity correctly predicted the intent but with a low confidence score. Only one of the two entities was detected. Next, the tutorial added a pattern that used the entity roles, and a phrase list to boost the value of the city names in the utterances. The second endpoint prediction returned a high-confidence score and found both entity roles. 
 
 > [!div class="nextstepaction"]
 > [Learn best practices for LUIS apps](luis-concept-best-practices.md)
