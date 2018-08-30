@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 ---
@@ -35,12 +35,18 @@ To ensure that user traffic immediately and transparently recovers from failure,
 
 ![BGP routing](media/azure-stack-border-connectivity/bgp-routing.png)
 
+> <sup>\*</sup> The BMC network is optional after deployment.
+
+> <sup>\*\*</sup> The Switch Infrastructure network is optional, as the whole network can be included in the Switch Management network.
+
+> <sup>\*\*\*</sup> The Switch Management network is required and can be added seperately from the Switch Infrastructure network.
+
 ## Static routing
 Static routing requires additional configuration to the border devices. It requires more manual intervention and management as well as thorough analysis before any change and issues caused by a configuration error may take more time to rollback depending on the changes made. It is not the recommended routing method, but it is supported.
 
 To integrate Azure Stack into your networking environment using static routing, all four physical links between the border and the TOR device must be connected and high availability cannot be guaranteed because of how static routing works.
 
-The border device must be configured with static routes pointing to the TOR devices P2P for traffic destined to the external network or public VIPs and the infrastructure network. It requires static routes to the BMC network for the deployment. Customers may choose to leave static routes in the border to access some resources that reside on the BMC network.  Adding static routes to *switch infrastructure* and *switch management* networks is optional.
+The border device must be configured with static routes pointing to the TOR devices P2P for traffic destined to the *External* network or Public VIPs and the *Infrastructure* network. It will require static routes to the *BMC* and the *External* networks for the deployment. Operaters can choose to leave static routes in the border to access management resources that reside on the *BMC* network. Adding static routes to *switch infrastructure* and *switch management* networks is optional.
 
 The TOR devices come configured with a static default route sending all traffic to the border devices. The one traffic exception to the default rule is for the private space, which is blocked using an Access Control List applied on the TOR to border connection.
 
