@@ -15,7 +15,7 @@ ms.service: iot-edge
 
 # Use Visual Studio Code to develop and debug C modules for Azure IoT Edge
 
-You can turn your business logic into modules for Azure IoT Edge. This article shows you how to use Visual Studio Code (VS Code) as the main tool to develop and debug C modules.
+You can turn your business logic into modules for Azure IoT Edge. This article shows you how to use [Visual Studio Code (VS Code)](https://code.visualstudio.com/) as the main tool to develop and debug C modules.
 
 ## Prerequisites
 This article assumes that you use a computer or virtual machine running Windows or Linux as your development machine. And you simulate your IoT Edge device on your development machine.
@@ -52,7 +52,7 @@ Take these steps to create an IoT Edge module based on Azure IoT C SDK using Vis
 6. Enter a name for your solution. 
 7. Select **C Module** as the template for the first module in the solution.
 8. Enter a name for your module. Choose a name that's unique within your container registry. 
-9. Provide the name of the module's image repository. VS Code autopopulates the module name with **localhost:5000**. Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**.
+9. Provide the name of the module's image repository. VS Code autopopulates the module name with **localhost:5000**. Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**. The final string looks like **\<registry name\>.azurecr.io/nodemodule**.
 
 VS Code takes the information you provided, creates an IoT Edge solution, and then loads it in a new window.
 
@@ -82,18 +82,18 @@ In each module folder, there are several Docker files for different container ty
 
     ![Add **.debug** to your image name](./media/how-to-develop-c-module/image-debug.png)
 
-2. Replace the Node.js module createOptions in **deployment.template.json** with below content and save this file: 
+2. Replace the C module createOptions in **deployment.template.json** with below content and save this file: 
     
     ```json
-    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
+    "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
     ```
 
 2. In the VS Code command palette, enter and run the command **Edge: Build IoT Edge solution**.
 3. Select the `deployment.template.json` file for your solution from the command palette. 
-4. In Azure IoT Hub Device Explorer, right-click an IoT Edge device ID. Then select **Create deployment for IoT Edge device**. 
-5. Open your solution's **config** folder. Then select the `deployment.json` file. Choose **Select Edge Deployment Manifest**. 
+4. In Azure IoT Hub Device Explorer, right-click an IoT Edge device ID. Then select **Create Deployment for Single Device**. 
+5. Open your solution's **config** folder. Then select the `deployment.json` file. Choose **Select Edge Deployment Manifest**.
 
-You'll see the deployment successfully created with a deployment ID in a VS Code-integrated terminal.
+You'll see the deployment successfully created with the IoT Edge device Id in the output window of the VS Code-integrated terminal.
 
 Check your container status in the VS Code Docker explorer or by running the `docker ps` command in the terminal.
 
@@ -110,7 +110,7 @@ VS Code keeps debugging configuration information in a `launch.json` file locate
 
 4. In VS Code Debug view, you'll see the variables in the left panel. 
 
-The preceding example shows how to debug C IoT Edge modules on containers. It added exposed ports in your module container createOptions. After you finish debugging your Node.js modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.
+The preceding example shows how to debug C IoT Edge modules on containers. It added exposed ports in your module container createOptions. After you finish debugging your C modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.
 
 ## Next steps
 
