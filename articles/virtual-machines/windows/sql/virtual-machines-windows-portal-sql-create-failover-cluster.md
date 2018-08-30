@@ -4,7 +4,7 @@ description: "This article explains how to create SQL Server Failover Cluster In
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 
@@ -15,9 +15,8 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/17/2017
+ms.date: 06/11/2018
 ms.author: mikeray
-
 ---
 
 # Configure SQL Server Failover Cluster Instance on Azure Virtual Machines
@@ -45,6 +44,18 @@ For details about S2D, see [Windows Server 2016 Datacenter edition Storage Space
 
 S2D supports two types of architectures - converged and hyper-converged. The architecture in this document is hyper-converged. A hyper-converged infrastructure places the storage on the same servers that host the clustered application. In this architecture, the storage is on each SQL Server FCI node.
 
+## Licensing and pricing
+
+On Azure Virtual Machines you can license SQL Server using pay as you go (PAYG) or bring your own license (BYOL) VM images. The type of image you choose affects how you are charged.
+
+With PAYG licensing, a failover cluster instance (FCI) of SQL Server on Azure Virtual Machines incurs charges for all nodes of FCI, including the passive nodes. For more information, see [SQL Server Enterprise Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+
+Customers with Enterprise Agreement with Software Assurance have the right to use one free passive FCI node for each active node. To take advantage of this benefit In Azure, use BYOL VM images and then use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+
+To compare PAYG and BYOL licensing for SQL Server on Azure Virtual Machines see [Get started with SQL VMs](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
+
+For complete information about licensing SQL Server, see [Pricing](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
+
 ### Example Azure template
 
 You can create the entire solution in Azure from a template. An example of a template is available in the GitHub [Azure Quickstart Templates](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad). This example is not designed or tested for any specific workload. You can run the template to create a SQL Server FCI with S2D storage connected to your domain. You can evaluate the template, and modify it for your purposes.
@@ -57,12 +68,15 @@ There are a few things you need to know and a couple of things that you need in 
 You should have an operational understanding of the following technologies:
 
 - [Windows cluster technologies](http://technet.microsoft.com/library/hh831579.aspx)
--  [SQL Server Failover Cluster Instances](http://msdn.microsoft.com/library/ms189134.aspx).
+- [SQL Server Failover Cluster Instances](http://msdn.microsoft.com/library/ms189134.aspx).
 
 Also, you should have a general understanding of the following technologies:
 
 - [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Azure resource groups](../../../azure-resource-manager/resource-group-portal.md)
+
+> [!IMPORTANT]
+> At this time, the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) is not supported for SQL Server FCI on Azure. We recommend that you uninstall the extension from VMs that participate in the FCI. This extension supports features, such as Automated Backup and Patching and some portal features for SQL. These features will not work for SQL VMs after the agent is uninstalled.
 
 ### What to have
 
@@ -83,7 +97,7 @@ With these prerequisites in place, you can proceed with building your failover c
 
 1. Log in to the [Azure portal](http://portal.azure.com) with your subscription.
 
-1. [Create an Azure availability set](../create-availability-set.md).
+1. [Create an Azure availability set](../tutorial-availability-sets.md).
 
    The availability set groups virtual machines across fault domains and update domains. The availability set makes sure that your application is not affected by single points of failure, like the network switch or the power unit of a rack of servers.
 
@@ -115,13 +129,13 @@ With these prerequisites in place, you can proceed with building your failover c
       >[!IMPORTANT]
       >You cannot set or change availability set after a virtual machine has been created.
 
-   Choose an image from the Azure Marketplace. You can use a Marketplace image with that includes Windows Server and SQL Server, or just the Windows Server. For details, see [Overview of SQL Server on Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)
+   Choose an image from the Azure Marketplace. You can use a Marketplace image with that includes Windows Server and SQL Server, or just the Windows Server. For details, see [Overview of SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md)
 
    The official SQL Server images in the Azure Gallery include an installed SQL Server instance, plus the SQL Server installation software, and the required key.
 
    Choose the right image according to how you want to pay for the SQL Server license:
 
-   - **Pay per usage licensing**: The per-minute cost of these images includes the SQL Server licensing:
+   - **Pay per usage licensing**: The per-second cost of these images includes the SQL Server licensing:
       - **SQL Server 2016 Enterprise on Windows Server Datacenter 2016**
       - **SQL Server 2016 Standard on Windows Server Datacenter 2016**
       - **SQL Server 2016 Developer on Windows Server Datacenter 2016**
@@ -160,7 +174,7 @@ With these prerequisites in place, you can proceed with building your failover c
    | SQL Server | 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened.
    | Health probe | 59999 | Any open TCP port. In a later step, configure the load balancer [health probe](#probe) and the cluster to use this port.  
 
-1. Add storage to the virtual machine. For detailed information, see [add storage](../../../storage/storage-premium-storage.md).
+1. Add storage to the virtual machine. For detailed information, see [add storage](../premium-storage.md).
 
    Both virtual machines need at least two data disks.
 
@@ -264,7 +278,7 @@ Cloud Witness is a new type of cluster quorum witness stored in an Azure Storage
 
 1. Save the access keys and the container URL.
 
-1. Configure the failover cluster cluster quorum witness. See, [Configure the quorum witness in the user interface].(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in the UI.
+1. Configure the failover cluster quorum witness. See, [Configure the quorum witness in the user interface](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in the UI.
 
 ### Add storage
 
@@ -361,27 +375,13 @@ To create the load balancer:
 
 1. Return to the Azure Resource Group with the virtual machines and locate the new load balancer. You may have to refresh the view on the Resource Group. Click the load balancer.
 
-1. On the load balancer blade, click **Backend pools**.
+1. Click **Backend pools** and click **+ Add** to add a backend pool.
 
-1. Click **+ Add** to add a backend pool.
+1. Associate the backend pool with the availability set that contains the VMs.
 
-1. Type a name for the backend pool.
+1. Under **Target network IP configurations**, check **VIRTUAL MACHINE** and choose the virtual machines that will participate as cluster nodes. Be sure to include all virtual machines that will host the FCI. 
 
-1. Click **Add a virtual machine**.
-
-1. On the **Choose virtual machines** blade, click **Choose an availability set**.
-
-1. Choose the availability set that you placed the SQL Server virtual machines in.
-
-1. On the **Choose virtual machines** blade, click **Choose the virtual machines**.
-
-   Your Azure portal should look like the following picture:
-
-   ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-load-balancer-back-end.png)
-
-1. Click **Select** on the **Choose virtual machines** blade.
-
-1. Click **OK** twice.
+1. Click **OK** to create the backend pool.
 
 ### Configure a load balancer health probe
 
@@ -423,19 +423,37 @@ To create the load balancer:
 
 Set the cluster probe port parameter in PowerShell.
 
-To set the cluster probe port parameter, update variables in the following script from your environment.
+To set the cluster probe port parameter, update variables in the following script with values from your environment. Remove the angle brackets `<>` from the script. 
 
-  ```PowerShell
-   $ClusterNetworkName = "<Cluster Network Name>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
-   $IPResourceName = "IP Address Resource Name" # the IP Address cluster resource name.
-   $ILBIP = "<10.0.0.x>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-   [int]$ProbePort = <59999>
+   ```PowerShell
+   $ClusterNetworkName = "<Cluster Network Name>"
+   $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
+   $ILBIP = "<n.n.n.n>" 
+   [int]$ProbePort = <nnnnn>
 
    Import-Module FailoverClusters
 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
+In the preceding script, set the values for your environment. The following list describes the values:
+
+   - `<Cluster Network Name>`: Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click on the network and click **Properties**. The correct value is under **Name** on the **General** tab. 
+
+   - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right click the IP address resource, and click **Properties**. The correct value is under **Name** on the **General** tab. 
+
+   - `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI IP Address Resource Name>`.  
+
+   - `<nnnnn>`: Is the probe port you configured in the load balancer health probe. Any unused TCP port is valid. 
+
+>[!IMPORTANT]
+>The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.
+
+After you set the cluster probe you can see all of the cluster parameters in PowerShell. Run the following script:
+
+   ```PowerShell
+   Get-ClusterResource $IPResourceName | Get-ClusterParameter 
+  ```
 
 ## Step 7: Test FCI failover
 
@@ -459,7 +477,13 @@ To test connectivity, log in to another virtual machine in the same virtual netw
 >If necessary, you can [download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
 
 ## Limitations
-On Azure virtual machines, Microsoft Distributed Transaction Coordinator (DTC) is not supported on FCIs because the RPC port is not supported by the load balancer.
+
+Azure Virtual Machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on clustered shared volumes (CSV) and a [standard load balancer](../../../load-balancer/load-balancer-standard-overview.md).
+
+On Azure virtual machines, MSDTC is not supported on Windows Server 2016 and earlier because:
+
+- The clustered MSDTC resource cannot be configured to use shared storage. With Windows Server 2016 if you create an MSDTC resource, it will not show any shared storage available for use, even if the storage is there. This issue has been fixed in Windows Server 2019.
+- The basic load balancer does not handle RPC ports.
 
 ## See Also
 

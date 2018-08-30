@@ -4,17 +4,18 @@ description: A complete list of all the settings that will be roamed or backed u
 services: active-directory
 keywords: enterprise state roaming, windows cloud
 documentationcenter: ''
-author: tanning
-manager: femila
+author: MarkusVi
+manager: mtillman
 editor: curtand
 
+ms.component: devices
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 07/23/2018
 ms.author: markvi
 
 ---
@@ -44,11 +45,15 @@ The following settings groups are available for end-users to enable/disable sett
 * Ease of Access: narrator, on-screen keyboard, magnifier 
 * Other Windows Settings: see Windows Settings details
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 Edge browser setting group (favorites, reading list) syncing can be enabled or disabled by end users through Edge browser Settings menu option.
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-edge.png)
+
+For Windows 10 version 1803 or later, Internet Explorer setting group (favorites, typed URLs) syncing can be enabled or disabled by end users through Internet Explorer Settings menu option. 
+
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-ie.png)
 
 ## Windows Settings details
 In the following table, Other entries in the Settings Group column refers to settings that can be disabled by going to Settings > Accounts > Sync your settings > Other Windows settings. 

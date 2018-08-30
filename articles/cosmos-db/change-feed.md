@@ -3,362 +3,193 @@ title: Working with the change feed support in Azure Cosmos DB | Microsoft Docs
 description: Use Azure Cosmos DB change feed support to track changes in documents and perform event-based processing like triggers and keeping caches and analytics systems up-to-date. 
 keywords: change feed
 services: cosmos-db
-author: arramac
-manager: jhubbard
-editor: mimig
-documentationcenter: ''
+author: rafats
+manager: kfile
 
-ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: rest-api
-ms.topic: article
-ms.date: 07/24/2017
-ms.author: arramac
+ms.devlang: dotnet
+ms.topic: conceptual
+ms.date: 03/26/2018
+ms.author: rafats
 
 ---
 # Working with the change feed support in Azure Cosmos DB
-[Azure Cosmos DB](../cosmos-db/introduction.md) is a fast and flexible globally replicated database service that is used for storing high-volume transactional and operational data with predictable single-digit millisecond latency for reads and writes. This makes it well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to track changes made to Azure Cosmos DB data, and update materialized views, perform real-time analytics, archive data to cold storage, and trigger notifications on certain events based on these changes. The **change feed support** in Azure Cosmos DB enables you to build efficient and scalable solutions for each of these patterns.
 
-With change feed support, Azure Cosmos DB provides a sorted list of documents within an Azure Cosmos DB collection in the order in which they were modified. This feed can be used to listen for modifications to data within the collection and perform actions such as:
+[Azure Cosmos DB](../cosmos-db/introduction.md) is a fast and flexible globally replicated database, well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to use changes to the data to kick off additional actions. These additional actions could be any of the following: 
 
-* Trigger a call to an API when a document is inserted or modified
-* Perform real-time (stream) processing on updates
-* Synchronize data with a cache, search engine, or data warehouse
+* Triggering a notification or a call to an API when a document is inserted or modified.
+* Stream processing for IoT or performing analytics.
+* Additional data movement by synchronizing with a cache, search engine, or data warehouse, or archiving data to cold storage.
 
-Changes in Azure Cosmos DB are persisted and can be processed asynchronously, and distributed across one or more consumers for parallel processing. Let's look at the APIs for change feed and how you can use them to build scalable real-time applications. This article shows how to work with Azure Cosmos DB change feed and the DocumentDB API. 
+The **change feed support** in Azure Cosmos DB enables you to build efficient and scalable solutions for each of these patterns, as shown in the following image:
 
 ![Using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Change feed support is only provided for the DocumentDB API at this time; the Graph API and Table API are not currently supported.
+> Change feed support is provided for all data models and containers in Azure Cosmos DB. However, the change feed is read using the SQL client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed.
 
-## Use cases and scenarios
-Change feed allows for efficient processing of large datasets with a high volume of writes, and offers an alternative to querying entire datasets to identify what has changed. For example, you can perform the following tasks efficiently:
+## How does change feed work?
 
-* Update a cache, search index, or a data warehouse with data stored in Azure Cosmos DB.
-* Implement application-level data tiering and archival, that is, store "hot data" in Azure Cosmos DB, and age out "cold data" to [Azure Blob Storage](../storage/storage-introduction.md) or [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
-* Implement batch analytics on data using [Apache Hadoop](run-hadoop-with-hdinsight.md).
-* Implement [lambda pipelines on Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) with Azure Cosmos DB. Azure Cosmos DB provides a scalable database solution that can handle both ingestion and query, and implement lambda architectures with low TCO. 
-* Perform zero down-time migrations to another Azure Cosmos DB account with a different partitioning scheme.
+Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos DB collection for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The changes are persisted, can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing. 
 
-**Lambda Pipelines with Azure Cosmos DB for ingestion and query:**
+You can read the change feed in three different ways, as discussed later in this article:
 
-![Azure Cosmos DB based lambda pipeline for ingestion and query](./media/change-feed/lambda.png)
+*	[Using Azure Functions](#azure-functions)
+*	[Using the Azure Cosmos DB SDK](#sql-sdk)
+*	[Using the Azure Cosmos DB change feed processor library](#change-feed-processor)
 
-You can use Azure Cosmos DB to receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real-time with [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), or [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
-
-Within web and mobile apps, you can track events such as changes to your customer's profile, preferences, or location to trigger certain actions like sending push notifications to their devices using [Azure Functions](../azure-functions/functions-bindings-documentdb.md) or [App Services](https://azure.microsoft.com/services/app-service/). If you're using Azure Cosmos DB to build a game, you can, for example, use change feed to implement real-time leaderboards based on scores from completed games.
-
-## How change feed works in Azure Cosmos DB
-Azure Cosmos DB provides the ability to incrementally read updates made to an Azure Cosmos DB collection. This change feed has the following properties:
-
-* Changes are persistent in Azure Cosmos DB and can be processed asynchronously.
-* Changes to documents within a collection are available immediately in the change feed.
-* Each change to a document appears only once in the change feed. Only the most recent change for a given document is included in the change log. Intermediate changes may not be available.
-* The change feed is sorted by order of modification within each partition key value. There is no guaranteed order across partition-key values.
-* Changes can be synchronized from any point-in-time, that is, there is no fixed data retention period for which changes are available.
-* Changes are available in chunks of partition key ranges. This capability allows changes from large collections to be processed in parallel by multiple consumers/servers.
-* Applications can request for multiple change feeds simultaneously on the same collection.
-
-Azure Cosmos DB's change feed is enabled by default for all accounts. You can use your [provisioned throughput](request-units.md) in your write region or any [read region](distribute-data-globally.md) to read from the change feed, just like any other operation from Azure Cosmos DB. The change feed includes inserts and update operations made to documents within the collection. You can capture deletes by setting a "soft-delete" flag within your documents in place of deletes. Alternatively, you can set a finite expiration period for your documents via the [TTL capability](time-to-live.md), for example, 24 hours and use the value of that property to capture deletes. With this solution, you have to process changes within a shorter time interval than the TTL expiration period. The change feed is available for each partition key range within the document collection, and thus can be distributed across one or more consumers for parallel processing. 
+The change feed is available for each partition key range within the document collection, and thus can be distributed across one or more consumers for parallel processing as shown in the following image.
 
 ![Distributed processing of Azure Cosmos DB change feed](./media/change-feed/changefeedvisual.png)
 
-You have a few options in how you implement a change feed in your client code. The sections that immediately follow describe how to implement the change feed using the Azure Cosmos DB REST API and the DocumentDB SDKs. However, for .NET applications, we recommend using the new [Change feed processor library](#change-feed-processor) for processing events from the change feed as it simplifies reading changes across partitions and enables multiple threads working in parallel.
+Additional details:
+* Change feed is enabled by default for all accounts.
+* You can use your [provisioned throughput](request-units.md) in your write region or any [read region](distribute-data-globally.md) to read from the change feed, just like any other Azure Cosmos DB operation.
+* The change feed includes inserts and update operations made to documents within the collection. You can capture deletes by setting a "soft-delete" flag within your documents in place of deletes. Alternatively, you can set a finite expiration period for your documents via the [TTL capability](time-to-live.md), for example, 24 hours and use the value of that property to capture deletes. With this solution, you have to process changes within a shorter time interval than the TTL expiration period.
+* Each change to a document appears exactly once in the change feed, and clients manage their checkpointing logic. The change feed processor library provides automatic checkpointing and "at least once" semantics.
+* Only the most recent change for a given document is included in the change log. Intermediate changes may not be available.
+* The change feed is sorted by order of modification within each partition key value. There is no guaranteed order across partition-key values.
+* Changes can be synchronized from any point-in-time, that is, there is no fixed data retention period for which changes are available.
+* Changes are available in chunks of partition key ranges. This capability allows changes from large collections to be processed in parallel by multiple consumers/servers.
+* Applications can request multiple change feeds simultaneously on the same collection.
+* ChangeFeedOptions.StartTime can be used to provide an initial starting point, for example, to find the continuation token corresponding to given clock time. The ContinuationToken, if specified, wins over the StartTime and StartFromBeginning values. The precision of ChangeFeedOptions.StartTime is ~5 secs. 
 
-## <a id="rest-apis"></a>Working with the REST API and DocumentDB SDKs
-Azure Cosmos DB provides elastic containers of storage and throughput called **collections**. Data within collections is logically grouped using [partition keys](partition-data.md) for scalability and performance. Azure Cosmos DB provides various APIs for accessing this data, including lookup by ID (Read/Get), query, and read-feeds (scans). The change feed can be obtained by populating two new request headers to the DocumentDB `ReadDocumentFeed` API, and can be processed in parallel across ranges of partition keys.
+## Use cases and scenarios
 
-### ReadDocumentFeed API
-Let's take a brief look at how ReadDocumentFeed works. Azure Cosmos DB supports reading a feed of documents within a collection via the `ReadDocumentFeed` API. For example, the following request returns a page of documents inside the `serverlogs` collection. 
+The change feed enables efficient processing of large datasets with a high volume of writes, and offers an alternative to querying an entire dataset to identify what has changed. 
 
-	GET https://mydocumentdb.documents.azure.com/dbs/smalldb/colls/serverlogs HTTP/1.1
-	x-ms-date: Tue, 22 Nov 2016 17:05:14 GMT
-	authorization: type%3dmaster%26ver%3d1.0%26sig%3dgo7JEogZDn6ritWhwc5hX%2fNTV4wwM1u9V2Is1H4%2bDRg%3d
-	Cache-Control: no-cache
-	x-ms-consistency-level: Strong
-	User-Agent: Microsoft.Azure.Documents.Client/1.10.27.5
-	x-ms-version: 2016-07-11
-	Accept: application/json
-	Host: mydocumentdb.documents.azure.com
+For example, with a change feed, you can perform the following tasks efficiently:
 
-Results can be limited by using the `x-ms-max-item-count` header, and reads can be resumed by resubmitting the request with a `x-ms-continuation` header returned in the previous response. When performed from a single client, `ReadDocumentFeed` iterates through results across partitions serially. 
+* Update a cache, search index, or a data warehouse with data stored in Azure Cosmos DB.
+* Implement application-level data tiering and archival, that is, store "hot data" in Azure Cosmos DB, and age out "cold data" to [Azure Blob Storage](../storage/common/storage-introduction.md) or [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
+* Perform zero down-time migrations to another Azure Cosmos DB account with a different partitioning scheme.
+* Implement [lambda pipelines on Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) with Azure Cosmos DB. Azure Cosmos DB provides a scalable database solution that can handle both ingestion and query, and implement lambda architectures with low TCO. 
+* Receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real time with [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/storm/apache-storm-overview.md), or [Apache Spark](../hdinsight/spark/apache-spark-overview.md). 
 
-**Serial read document feed**
+The following image shows how lambda pipelines that both ingest and query using Azure Cosmos DB can use change feed support: 
 
-You can also retrieve the feed of documents using one of the supported [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md). For example, the following snippet shows how to use the [ReadDocumentFeedAsync method](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentfeedasync?view=azure-dotnet) in .NET.
+![Azure Cosmos DB-based lambda pipeline for ingestion and query](./media/change-feed/lambda.png)
 
-```csharp
-FeedResponse<dynamic> feedResponse = null;
-do
-{
-    feedResponse = await client.ReadDocumentFeedAsync(collection, new FeedOptions { MaxItemCount = -1 });
-}
-while (feedResponse.ResponseContinuation != null);
-```
+Also, within your [serverless](http://azure.com/serverless) web and mobile apps, you can track events such as changes to your customer's profile, preferences, or location to trigger certain actions like sending push notifications to their devices using [Azure Functions](#azure-functions). If you're using Azure Cosmos DB to build a game, you can, for example, use change feed to implement real-time leaderboards based on scores from completed games.
 
-### Distributed execution of ReadDocumentFeed
-For collections that contain terabytes of data or more, or ingest a large volume of updates, serial execution of read feed from a single client machine might not be practical. In order to support these big data scenarios, Azure Cosmos DB provides APIs to distribute `ReadDocumentFeed` calls transparently across multiple client readers/consumers. 
+<a id="azure-functions"></a>
+## Using Azure Functions 
 
-**Distributed Read Document Feed**
+If you're using Azure Functions, the simplest way to connect to an Azure Cosmos DB change feed is to add an Azure Cosmos DB trigger to your Azure Functions app. When you create an Azure Cosmos DB trigger in an Azure Functions app, you select the Azure Cosmos DB collection to connect to, and the function is triggered whenever a change to the collection is made. 
 
-To provide scalable processing of incremental changes, Azure Cosmos DB supports a scale-out model for the change feed API based on ranges of partition keys.
+Triggers can be created in the Azure Functions portal, in the Azure Cosmos DB portal, or programmatically. For more information, see [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md).
 
-* You can obtain a list of partition key ranges for a collection performing a `ReadPartitionKeyRanges` call. 
-* For each partition key range, you can perform a `ReadDocumentFeed` to read documents with partition keys within that range.
+<a id="sql-sdk"></a>
+## Using the SDK
 
-### Retrieving partition key ranges for a collection
-You can retrieve the partition key ranges by requesting the `pkranges` resource within a collection. For example the following request retrieves the list of partition key ranges for the `serverlogs` collection:
+The [SQL SDK](sql-api-sdk-dotnet.md) for Azure Cosmos DB gives you all the power to read and manage a change feed. But with great power comes lots of responsibilities, too. If you want to manage checkpoints, deal with document sequence numbers, and have granular control over partition keys, then using the SDK may be the right approach.
 
-	GET https://querydemo.documents.azure.com/dbs/bigdb/colls/serverlogs/pkranges HTTP/1.1
-	x-ms-date: Tue, 15 Nov 2016 07:26:51 GMT
-	authorization: type%3dmaster%26ver%3d1.0%26sig%3dEConYmRgDExu6q%2bZ8GjfUGOH0AcOx%2behkancw3LsGQ8%3d
-	x-ms-consistency-level: Session
-	x-ms-version: 2016-07-11
-	Accept: application/json
-	Host: querydemo.documents.azure.com
+This section walks through how to use the SQL SDK to work with a change feed.
 
-This request returns the following response containing metadata about the partition key ranges:
+1. Start by reading the following resources from appconfig. Instructions on retrieving the endpoint and authorization key are available in [Update your connection string](create-sql-api-dotnet.md#update-your-connection-string).
 
-	HTTP/1.1 200 Ok
-	Content-Type: application/json
-	x-ms-item-count: 25
-	x-ms-schemaversion: 1.1
-	Date: Tue, 15 Nov 2016 07:26:51 GMT
+    ``` csharp
+    DocumentClient client;
+    string DatabaseName = ConfigurationManager.AppSettings["database"];
+    string CollectionName = ConfigurationManager.AppSettings["collection"];
+    string endpointUrl = ConfigurationManager.AppSettings["endpoint"];
+    string authorizationKey = ConfigurationManager.AppSettings["authKey"];
+    ```
 
-	{
-	   "_rid":"qYcAAPEvJBQ=",
-	   "PartitionKeyRanges":[
-	      {
-	         "_rid":"qYcAAPEvJBQCAAAAAAAAUA==",
-	         "id":"0",
-	         "_etag":"\"00002800-0000-0000-0000-580ac4ea0000\"",
-	         "minInclusive":"",
-	         "maxExclusive":"05C1CFFFFFFFF8",
-	         "_self":"dbs\/qYcAAA==\/colls\/qYcAAPEvJBQ=\/pkranges\/qYcAAPEvJBQCAAAAAAAAUA==\/",
-	         "_ts":1477100776
-	      },
-	      ...
-	   ],
-	   "_count": 25
-	}
+2. Create the client as follows:
 
+    ```csharp
+    using (client = new DocumentClient(new Uri(endpointUrl), authorizationKey,
+    new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp }))
+    {
+    }
+    ```
 
-**Partition key range properties**:
-Each partition key range includes the metadata properties in the following table:
+3. Get the partition key ranges:
 
-<table>
-	<tr>
-		<th>Header name</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td>id</td>
-		<td>
-			<p>The ID for the partition key range. This is a stable and unique ID within each collection.</p>
-			<p>Must be used in the following call to read changes by partition key range.</p>
-		</td>
-	</tr>
-	<tr>
-		<td>maxExclusive</td>
-		<td>The maximum partition key hash value for the partition key range. For internal use.</td>
-	</tr>
-	<tr>
-		<td>minInclusive</td>
-		<td>The minimum partition key hash value for the partition key range. For internal use.</td>
-	</tr>		
-</table>
-
-You can do this using one of the supported [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md). For example, the following snippet shows how to retrieve partition key ranges in .NET using the [ReadPartitionKeyRangeFeedAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readpartitionkeyrangefeedasync?view=azure-dotnet) method.
-
-```csharp
-string pkRangesResponseContinuation = null;
-List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
-
-do
-{
-    FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
-        collectionUri, 
-        new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
-
+    ```csharp
+    FeedResponse pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+        collectionUri,
+        new FeedOptions
+            {RequestContinuation = pkRangesResponseContinuation });
+     
     partitionKeyRanges.AddRange(pkRangesResponse);
     pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
-}
-while (pkRangesResponseContinuation != null);
-```
+    ```
 
-Azure Cosmos DB supports retrieval of documents per partition key range by setting the optional `x-ms-documentdb-partitionkeyrangeid` header. 
+4. Call ExecuteNextAsync for every partition key range:
 
-### Performing an incremental ReadDocumentFeed
-ReadDocumentFeed supports the following scenarios/tasks for incremental processing of changes in Azure Cosmos DB collections:
-
-* Read all changes to documents from the beginning, that is, from collection creation.
-* Read all changes to future updates to documents from current time.
-* Read all changes to documents from a logical version of the collection (ETag). You can checkpoint your consumers based on the returned ETag from incremental read-feed requests.
-
-The changes include inserts and updates to documents. To capture deletes, you must use a "soft delete" property within your documents, or use the [built-in TTL property](time-to-live.md) to signal a pending deletion in the change feed.
-
-The following table lists the [request](/rest/api/documentdb/common-documentdb-rest-request-headers.md) and [response headers](/rest/api/documentdb/common-documentdb-rest-response-headers.md) for ReadDocumentFeed operations.
-
-**Request headers for incremental ReadDocumentFeed**:
-
-<table>
-	<tr>
-		<th>Header name</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td>A-IM</td>
-		<td>Must be set to "Incremental feed", or omitted otherwise</td>
-	</tr>
-	<tr>
-		<td>If-None-Match</td>
-		<td>
-			<p>No header: returns all changes from the beginning (collection creation)</p>
-			<p>"*": returns all new changes to data within the collection</p>
-			<p>&lt;etag&gt;: If set to a collection ETag, returns all changes made since that logical timestamp</p>
-		</td>
-	</tr>
-	<tr>
-		<td>x-ms-documentdb-partitionkeyrangeid</td>
-		<td>The partition key range ID for reading data.</td>
-	</tr>
-</table>
-
-**Response headers for incremental ReadDocumentFeed**:
-
-<table>
-	<tr>
-		<th>Header name</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td>etag</td>
-		<td>
-			<p>The logical sequence number (LSN) of last document returned in the response.</p>
-			<p>Incremental ReadDocumentFeed can be resumed by resubmitting this value in If-None-Match.</p>
-		</td>
-	</tr>
-</table>
-
-Here's a sample request to return all incremental changes in collection from the logical version/ETag `28535` and partition key range = `16`:
-
-	GET https://mydocumentdb.documents.azure.com/dbs/bigdb/colls/bigcoll/docs HTTP/1.1
-	x-ms-max-item-count: 1
-	If-None-Match: "28535"
-	A-IM: Incremental feed
-	x-ms-documentdb-partitionkeyrangeid: 16
-	x-ms-date: Tue, 22 Nov 2016 20:43:01 GMT
-	authorization: type%3dmaster%26ver%3d1.0%26sig%3dzdpL2QQ8TCfiNbW%2fEcT88JHNvWeCgDA8gWeRZ%2btfN5o%3d
-	x-ms-version: 2016-07-11
-	Accept: application/json
-	Host: mydocumentdb.documents.azure.com
-
-Changes are ordered by time within each partition key value within the partition key range. There is no guaranteed order across partition-key values. If there are more results than can fit in a single page, you can read the next page of results by resubmitting the request with the `If-None-Match` header with value equal to the `etag` from the previous response. If multiple documents were inserted or updated transactionally within a stored procedure or trigger, they will all be returned within the same response page.
+    ```csharp
+    foreach (PartitionKeyRange pkRange in partitionKeyRanges){
+        string continuation = null;
+        checkpoints.TryGetValue(pkRange.Id, out continuation);
+        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
+            collectionUri,
+            new ChangeFeedOptions
+            {
+                PartitionKeyRangeId = pkRange.Id,
+                StartFromBeginning = true,
+                RequestContinuation = continuation,
+                MaxItemCount = -1,
+                // Set reading time: only show change feed results modified since StartTime
+                StartTime = DateTime.Now - TimeSpan.FromSeconds(30)
+            });
+        while (query.HasMoreResults)
+            {
+                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
+    
+                foreach (dynamic changedDocument in readChangesResponse)
+                    {
+                         Console.WriteLine("document: {0}", changedDocument);
+                    }
+                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
+            }
+    }
+    ```
 
 > [!NOTE]
-> With change feed, you might get more items returned in a page than specified in `x-ms-max-item-count` in the case of multiple documents inserted or updated inside a stored procedures or triggers. 
+> Instead of `ChangeFeedOptions.PartitionKeyRangeId`, you can use `ChangeFeedOptions.PartitionKey` to specify a single partition key for which to get a change feed. For example, `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
+> 
+>
 
-The .NET SDK provides the [CreateDocumentChangeFeedQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery?view=azure-dotnet) and [ChangeFeedOptions](/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) helper classes to access changes made to a collection. The following snippet shows how to retrieve all changes from the beginning using the .NET SDK from a single client.
+If you have multiple readers, you can use **ChangeFeedOptions** to distribute read load to different threads or different clients.
 
-```csharp
-private async Task<Dictionary<string, string>> GetChanges(
-    DocumentClient client,
-    string collection,
-    Dictionary<string, string> checkpoints)
-{
-    string pkRangesResponseContinuation = null;
-    List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
+And that's it, with these few lines of code you can start reading the change feed. You can get the complete code used in this article from the [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
 
-    do
-    {
-        FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
-            collectionUri, 
-            new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
+In the code in step 4 above, the **ResponseContinuation** in the last line has the last logical sequence number (LSN) of the document, which you will use the next time you read new documents after this sequence number. By using the **StartTime** of the **ChangeFeedOption** you can widen your net to get the documents. So, if your **ResponseContinuation** is null, but your **StartTime** goes back in time then you will get all the documents that changed since the **StartTime**. But, if your **ResponseContinuation** has a value then system will get you all the documents since that LSN.
 
-        partitionKeyRanges.AddRange(pkRangesResponse);
-        pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
-    }
-    while (pkRangesResponseContinuation != null);
+So, your checkpoint array is just keeping the LSN for each partition. But if you don’t want to deal with the partitions, checkpoints, LSN, start time, etc. the simpler option is to use the change feed processor library.
 
-    foreach (PartitionKeyRange pkRange in partitionKeyRanges)
-    {
-        string continuation = null;
-        checkpoints.TryGetValue(pkRange.Id, out continuation);
+<a id="change-feed-processor"></a>
+## Using the change feed processor library 
 
-        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
-            collection,
-            new ChangeFeedOptions
-            {
-                PartitionKeyRangeId = pkRange.Id,
-                StartFromBeginning = true,
-                RequestContinuation = continuation,
-                MaxItemCount = 1
-            });
+The [Azure Cosmos DB change feed processor library](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) can help you easily distribute event processing across multiple consumers. This library simplifies reading changes across partitions and multiple threads working in parallel.
 
-        while (query.HasMoreResults)
-        {
-            FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+The main benefit of change feed processor library is that you don’t have to manage each partition and continuation token and you don’t have to poll each collection manually.
 
-            foreach (DeviceReading changedDocument in readChangesResponse)
-            {
-                Console.WriteLine(changedDocument.Id);
-            }
+The change feed processor library simplifies reading changes across partitions and multiple threads working in parallel.  It automatically manages reading changes across partitions using a lease mechanism. As you can see in the following image, if you start two clients that are using the change feed processor library, they divide the work among themselves. As you continue to increase the clients, they keep dividing the work among themselves.
 
-            checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
-        }
-    }
+![Distributed processing of Azure Cosmos DB change feed](./media/change-feed/change-feed-output.png)
 
-    return checkpoints;
-}
-```
-And the following snippet shows how to process changes in real-time with Azure Cosmos DB by using the change feed support and the preceding function. The first call returns all the documents in the collection, and the second only returns the two documents created that were created since the last checkpoint.
+The left client was started first and it started monitoring all the partitions, then the second client was started, and then the first let go of some of the leases to second client. As you can see this is the nice way to distribute the work between different machines and clients.
 
-```csharp
-// Returns all documents in the collection.
-Dictionary<string, string> checkpoints = await GetChanges(client, collection, new Dictionary<string, string>());
+Note that if you have two serverless Azure funtions monitoring the same collection and using the same lease then the two functions may get different documents depending upon how the processor library decides to processs the partitions.
 
-await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-201", MetricType = "Temperature", Unit = "Celsius", MetricValue = 1000 });
-await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-212", MetricType = "Pressure", Unit = "psi", MetricValue = 1000 });
+<a id="understand-cf"></a>
+### Understanding the change feed processor library
 
-// Returns only the two documents created above.
-checkpoints = await GetChanges(client, collection, checkpoints);
-```
+There are four main components of implementing the change feed processor library: the monitored collection, the lease collection, the processor host, and the consumers. 
 
-You can also filter the change feed using client side logic to selectively process events. For example, here's a snippet that uses client side LINQ to process only temperature change events from device sensors.
-
-```csharp
-FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
-
-foreach (DeviceReading changedDocument in 
-    readChangesResponse.AsEnumerable().Where(d => d.MetricType == "Temperature" && d.MetricValue > 1000L))
-{
-    // trigger an action, like call an API
-}
-```
-
-## <a id="change-feed-processor"></a>Change Feed Processor library
-Another option is to use the [Azure Cosmos DB Change Feed Processor library](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed), which can help you easily distribute event processing from a change feed across multiple consumers. The library is great for building change feed readers on the .NET platform. Some workflows that would be simplified by using the Change Feed Processor library over the methods included in the other Cosmos DB SDKs include: 
-
-* Pulling updates from change feed when data is stored across multiple partitions
-* Moving or replicating data from one collection to another
-* Parallel execution of actions triggered by updates to data and change feed 
-
-While using the APIs in the Cosmos SDKs provides precise access to change feed updates in each partition, using the Change Feed Processor library simplifies reading changes across partitions and multiple threads working in parallel. Instead of manually reading changes from each container and saving a continuation token for each partition, the Change Feed Processor automatically manages reading changes across partitions using a lease mechanism.
-
-The library is available as a NuGet Package: [Microsoft.Azure.Documents.ChangeFeedProcessor](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/) and from source code as a Github [sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor). 
-
-### Understanding Change Feed Processor library 
-
-There are four main components of implementing the Change Feed Processor: the monitored collection, the lease collection, the processor host, and the consumers. 
+> [!WARNING]
+> Creating a collection has pricing implications, as you are reserving throughput for the application to communicate with Azure Cosmos DB. For more details, please visit the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)
+> 
+> 
 
 **Monitored Collection:**
 The monitored collection is the data from which the change feed is generated. Any inserts and changes to the monitored collection are reflected in the change feed of the collection. 
 
 **Lease Collection:**
-The lease collection coordinates processing the change feed across multiple workers. A separate collection is used to store the leases with one lease per partition. It is advantageous to store this lease collection on a different account with the write region closer to where the Change Feed Processor is running. A lease object contains the following attributes: 
+The lease collection coordinates processing the change feed across multiple workers. A separate collection is used to store the leases with one lease per partition. It is advantageous to store this lease collection on a different account with the write region closer to where the change feed processor is running. A lease object contains the following attributes: 
 * Owner: Specifies the host that owns the lease
 * Continuation: Specifies the position (continuation token) in the change feed for a particular partition
 * Timestamp: Last time lease was updated; the timestamp can be used to check whether the lease is considered expired 
@@ -374,157 +205,345 @@ At this time the number of hosts cannot be greater than the number of partitions
 **Consumers:**
 Consumers, or workers, are threads that perform the change feed processing initiated by each host. Each processor host can have multiple consumers. Each consumer reads the change feed from the partition it is assigned to and notifies its host of changes and expired leases.
 
-To further understand how these four elements of Change Feed Processor work together, let's look at an example in the following diagram. The monitored collection stores documents and uses the "city" as the partition key. We see that the blue partition contains documents with the "city" field from "A-E" and so on. There are two hosts, each with two consumers reading from the four partitions in parallel. The arrows show the consumers reading from a specific spot in the change feed. In the first partition, the darker blue represents unread changes while the light blue represents the already read changes on the change feed. The hosts use the lease collection to store a "continuation" value to keep track of the current reading position for each consumer. 
+To further understand how these four elements of change feed processor work together, let's look at an example in the following diagram. The monitored collection stores documents and uses the "city" as the partition key. We see that the blue partition contains documents with the "city" field from "A-E" and so on. There are two hosts, each with two consumers reading from the four partitions in parallel. The arrows show the consumers reading from a specific spot in the change feed. In the first partition, the darker blue represents unread changes while the light blue represents the already read changes on the change feed. The hosts use the lease collection to store a "continuation" value to keep track of the current reading position for each consumer. 
 
 ![Using the Azure Cosmos DB change feed processor host](./media/change-feed/changefeedprocessornew.png)
 
-### Using Change Feed Processor Library 
-The following section explains how to use the Change Feed Processor library in the context of replicating changes from a source collection to a destination collection. Here, the source collection is the monitored collection in Change Feed Processor. 
+### Working with the change feed processor library
 
-**Install and include the Change Feed Processor NuGet package** 
+Before installing change feed processor NuGet package, first install: 
 
-Before installing Change Feed Processor NuGet Package, first install: 
-* Microsoft.Azure.DocumentDB, version 1.13.1 or above 
-* Newtonsoft.Json, version 9.0.1 or above
-Install `Microsoft.Azure.DocumentDB.ChangeFeedProcessor` and include it as a reference.
+* Microsoft.Azure.DocumentDB, latest version.
+* Newtonsoft.Json, latest version
 
-**Create a monitored, lease and destination collection** 
+Then install the [Microsoft.Azure.DocumentDB.ChangeFeedProcessor Nuget package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/) and include it as a reference.
 
-In order to use the Change Feed Processor Library, the lease collection needs to be created before running the processor host(s). Again, we recommend storing a lease collection on a different account with a write region closer to where the Change Feed Processor is running. In this data movement example, we need to create the destination collection before running the Change Feed Processor host. In the sample code we call a helper method to create the monitored, leased, and destination collections if they do not already exist. 
+To implement the change feed processor library you have to do following:
 
-> [!WARNING]
-> Creating a collection has pricing implications, as you are reserving throughput for the application to communicate with Azure Cosmos DB. For more details, please visit the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)
-> 
-> 
+1. Implement a **DocumentFeedObserver** object, which implements **IChangeFeedObserver**.
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.Azure.Documents;
+    using Microsoft.Azure.Documents.ChangeFeedProcessor.FeedProcessing;
+    using Microsoft.Azure.Documents.Client;
 
-*Creating a processor host*
+    /// <summary>
+    /// This class implements the IChangeFeedObserver interface and is used to observe 
+    /// changes on change feed. ChangeFeedEventHost will create as many instances of 
+    /// this class as needed. 
+    /// </summary>
+    public class DocumentFeedObserver : IChangeFeedObserver
+    {
+    private static int totalDocs = 0;
 
-The `ChangeFeedProcessorHost` class provides a thread-safe, multi-process, safe runtime environment for event processor implementations that also provides checkpointing and partition lease management. To use the `ChangeFeedProcessorHost` class, you can implement `IChangeFeedObserver`. This interface contains three methods:
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DocumentFeedObserver" /> class.
+        /// Saves input DocumentClient and DocumentCollectionInfo parameters to class fields
+        /// </summary>
+        /// <param name="client"> Client connected to destination collection </param>
+        /// <param name="destCollInfo"> Destination collection information </param>
+        public DocumentFeedObserver()
+        {
+            
+        }
 
-* `OpenAsync`: This function is called when change feed observer is opened. It can be modified to perform a specific action when consumer/observer is opened.  
-* `CloseAsync`: This function is called when change feed observer is terminated. It can be modified to perform a specific action when consumer/observer is closed.  
-* `ProcessChangesAsync`: This function is called when document new changes are available on change feed. It can be modified to perform a specific action upon every change feed update.  
+        /// <summary>
+        /// Called when change feed observer is opened; 
+        /// this function prints out observer partition key id. 
+        /// </summary>
+        /// <param name="context">The context specifying partition for this observer, etc.</param>
+        /// <returns>A Task to allow asynchronous execution</returns>
+        public Task OpenAsync(IChangeFeedObserverContext context)
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Observer opened for partition Key Range: {0}", context.PartitionKeyRangeId);
+            return Task.CompletedTask;
+        }
 
-In our example, we implement the interface `IChangeFeedObserver` through the `DocumentFeedObserver` class. Here, the `ProcessChangesAsync` function upserts (updates) a document from change feed into the destination collection. This example is useful for moving data from one collection to another in order to change the partition key of a data set. 
+        /// <summary>
+        /// Called when change feed observer is closed; 
+        /// this function prints out observer partition key id and reason for shut down. 
+        /// </summary>
+        /// <param name="context">The context specifying partition for this observer, etc.</param>
+        /// <param name="reason">Specifies the reason the observer is closed.</param>
+        /// <returns>A Task to allow asynchronous execution</returns>
+        public Task CloseAsync(IChangeFeedObserverContext context, ChangeFeedObserverCloseReason reason)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Observer closed, {0}", context.PartitionKeyRangeId);
+            Console.WriteLine("Reason for shutdown, {0}", reason);
+            return Task.CompletedTask;
+        }
 
-*Running the Processor Host*
+        public Task ProcessChangesAsync(IChangeFeedObserverContext context, IReadOnlyList<Document> docs, CancellationToken cancellationToken)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Change feed: PartitionId {0} total {1} doc(s)", context.PartitionKeyRangeId, Interlocked.Add(ref totalDocs, docs.Count));
+            foreach (Document doc in docs)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(doc.Id.ToString());
+            }
 
-Before beginning event processing, both change feed options and change feed host options can be customized. 
-```csharp
-    // Customizable change feed option and host options 
-    ChangeFeedOptions feedOptions = new ChangeFeedOptions();
+            return Task.CompletedTask;
+        }
+    }
+    ```
 
-    // ie customize StartFromBeginning so change feed reads from beginning
-    // can customize MaxItemCount, PartitonKeyRangeId, RequestContinuation, SessionToken and StartFromBeginning
-    feedOptions.StartFromBeginning = true;
+2. Implement a **DocumentFeedObserverFactory**, which implements a **IChangeFeedObserverFactory**.
+    ```csharp
+     using Microsoft.Azure.Documents.ChangeFeedProcessor.FeedProcessing;
 
-    ChangeFeedHostOptions feedHostOptions = new ChangeFeedHostOptions();
+    /// <summary>
+    /// Factory class to create instance of document feed observer. 
+    /// </summary>
+    public class DocumentFeedObserverFactory : IChangeFeedObserverFactory
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DocumentFeedObserverFactory" /> class.
+        /// Saves input DocumentClient and DocumentCollectionInfo parameters to class fields
+        /// </summary>
+        public DocumentFeedObserverFactory()
+        {
+        }
 
-    // ie. customizing lease renewal interval to 15 seconds
-    // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay 
-    feedHostOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+        /// <summary>
+        /// Creates document observer instance with client and destination collection information
+        /// </summary>
+        /// <returns>DocumentFeedObserver with client and destination collection information</returns>
+        public IChangeFeedObserver CreateObserver()
+        {
+            DocumentFeedObserver newObserver = new DocumentFeedObserver();
+            return newObserver as IChangeFeedObserver;
+        }
+    }
+    ```
+
+3. Define *CancellationTokenSource* and *ChangeFeedProcessorBuilder*
+
+    ```csharp
+    private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+    private readonly ChangeFeedProcessorBuilder builder = new ChangeFeedProcessorBuilder();
+    ```
+
+5. build the **ChangeFeedProcessorBuilder** after defining the relevant objects 
+
+    ```csharp
+            string hostName = Guid.NewGuid().ToString();
+      
+            // monitored collection info 
+            DocumentCollectionInfo documentCollectionInfo = new DocumentCollectionInfo
+            {
+                Uri = new Uri(this.monitoredUri),
+                MasterKey = this.monitoredSecretKey,
+                DatabaseName = this.monitoredDbName,
+                CollectionName = this.monitoredCollectionName
+            };
+            
+            DocumentCollectionInfo leaseCollectionInfo = new DocumentCollectionInfo
+                {
+                    Uri = new Uri(this.leaseUri),
+                    MasterKey = this.leaseSecretKey,
+                    DatabaseName = this.leaseDbName,
+                    CollectionName = this.leaseCollectionName
+                };
+            DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory();
+            ChangeFeedOptions feedOptions = new ChangeFeedOptions();
+
+            /* ie customize StartFromBeginning so change feed reads from beginning
+                can customize MaxItemCount, PartitonKeyRangeId, RequestContinuation, SessionToken and StartFromBeginning
+            */
+
+            feedOptions.StartFromBeginning = true;
+        
+            ChangeFeedProcessorOptions feedProcessorOptions = new ChangeFeedProcessorOptions();
+
+            // ie. customizing lease renewal interval to 15 seconds
+            // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay 
+            feedProcessorOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+
+            this.builder
+                .WithHostName(hostName)
+                .WithFeedCollection(documentCollectionInfo)
+                .WithLeaseCollection(leaseCollectionInfo)
+                .WithProcessorOptions (feedProcessorOptions)
+                .WithObserverFactory(new DocumentFeedObserverFactory());               
+                //.WithObserver<DocumentFeedObserver>();  If no factory then just pass an observer
+
+            var result =  await this.builder.BuildAsync();
+            await result.StartAsync();
+            Console.Read();
+            await result.StopAsync();    
+    ```
+
+That’s it. After these few steps documents will start showing up into the **DocumentFeedObserver.ProcessChangesAsync** method.
+
+Above code is for illustration purpose to show different kind of objects and their interaction. You have to define proper variables and initiate them with correct values. You can get the complete code used in this article from the [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessorV2).
+
+> [!NOTE]
+> You should never have a master key in your code or in config file as shown in above code. Please see [how to use Key-Vault to retrive the keys](https://sarosh.wordpress.com/2017/11/23/cosmos-db-and-key-vault/).
+
+
+## FAQ
+
+### What are the different ways you can read Change Feed? and when to use each method?
+
+There are three options for you to read change feed:
+
+* **[Using Azure Cosmos DB SQL API .NET SDK](#sql-sdk)**
+   
+   By using this method, you get low level of control on change feed. You can manage the checkpoint, you can access a particular partition key etc. If you have multiple readers, you can use [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) to distribute read load to different threads or different clients. .
+
+* **[Using the Azure Cosmos DB change feed processor library](#change-feed-processor)**
+
+   If you want to outsource lot of complexity of change feed then you can use change feed processor library. This library hides lot of complexity, but still gives you complete control on change feed. This library follows an [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern), your processing function is called by the SDK. 
+
+   If you have a high throughput change feed, you can instantiate multiple clients to read the change feed. Because you are using “change feed processor library”, it will automatically divide the load among different clients. You do not have to do anything. All the complexity is handled by SDK. However, if you want to have your own load balancer, then you can implement IParitionLoadBalancingStrategy for custom partition strategy. Implement IPartitionProcessor – for custom processing changes on a partition. However, with SDK, you can process a partition range but if you want to process a particular partition key then you have to use SDK for SQL API.
+
+* **[Using Azure Functions](#azure-functions)** 
+   
+   The last option Azure Function is the simplest option. We recommend using this option. When you create an Azure Cosmos DB trigger in an Azure Functions app, you select the Azure Cosmos DB collection to connect to and the function is triggered whenever a change to the collection is made. watch a [screen cast](https://www.youtube.com/watch?v=Mnq0O91i-0s&t=14s) of using Azure function and change feed
+
+   Triggers can be created in the Azure Functions portal, in the Azure Cosmos DB portal, or programmatically. Visual Studio and VS Code has great support to write Azure Function. You can write and debug the code on your desktop, and then deploy the function with one click. For more information, see [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md) article.
+
+### What is the sort order of documents in change feed?
+
+Change feed documents comes in order of their modification time. This sort order is guaranteed only per partition.
+
+### For a multi-region account, what happens to the change feed when the write-region fails-over? Does the change feed also failover? Would the change feed still appear contiguous or would the fail-over cause change feed to reset?
+
+Yes, change feed will work across the manual failover operation and it will be contiguous.
+
+### How long change feed persist the changed data if I set the TTL (Time to Live) property for the document to -1?
+
+Change feed will persist forever. If data is not deleted, it will remain in change feed.
+
+### How can I configure Azure functions to read from a particular region, as change feed is available in all the read regions by default?
+
+Currently it’s not possible to configure Azure Functions to read from a particular region. There is a GitHub issue in the Azure Functions repo to set the preferred regions of any Azure Cosmos DB binding and trigger.
+
+Azure Functions uses the default connection policy. You can configure connection mode in Azure Functions and by default, it reads from the write region, so it is best to co-locate Azure Functions on the same region.
+
+### What is the default size of batches in Azure Functions?
+
+100 documents at every invocation of Azure Functions. However, this number is configurable within the function.json file. Here is complete [list of configuration options](../azure-functions/functions-run-local.md). If you are developing locally, update the application settings within the [local.settings.json](../azure-functions/functions-run-local.md) file.
+
+### I am monitoring a collection and reading its change feed, however I see I am not getting all the inserted document, some documents are missing. What is going on here?
+
+Please make sure that there is no other function reading the same collection with the same lease collection. It happened to me, and later I realized the missing documents are processed by my other Azure functions, which is also using the same lease.
+
+Therefore, if you are creating multiple Azure Functions to read the same change feed then they must use different lease collection or use the “leasePrefix” configuration to share the same collection. However, when you use change feed processor library you can start multiple instances of your function and SDK will divide the documents between different instances automatically for you.
+
+### My document is updated every second, and I am not getting all the changes in Azure Functions listening to change feed.
+
+Azure Functions polls change feed for every 5 seconds, so any changes made between 5 seconds are lost. Azure Cosmos DB stores just one version for every 5 seconds so you will get the 5th change on the document. However, if you want to go below 5 second, and want to poll change Feed every second, You can configure the polling time “feedPollTime”, see [Azure Cosmos DB bindings](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). It is defined in milliseconds with a default of 5000. Below 1 second is possible but not advisable, as you will start burning more CPU.
+
+### I inserted a document in the Mongo API collection, but when I get the document in change feed, it shows a different id value. What is wrong here?
+
+Your collection is Mongo API collection. Remember, change feed is read using the SQL client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed. You are seeing is the representation of a BSON document in JSON. If you use binary attributes in a Mongo accounts, they are converted to JSON.
+
+### Is there a way to control change feed for updates only and not inserts?
+
+Not today, but this functionality is on roadmap. Today, you can add a soft marker on the document for updates.
+
+### Is there a way to get deletes in change feed?
+
+Currently change feed doesn’t log deletes. Change feed is continuously improving, and this functionality is on roadmap. Today, you can add a soft marker on the document for delete. Add an attribute on the document called “deleted” and set it to “true” and set a TTL on the document so that it can be automatically deleted.
+
+### Can I read change feed for historic documents(for example, documents that were added 5 years back) ?
+
+Yes, if the document is not deleted you can read the change feed as far as the origin of your collection.
+
+### Can I read change feed using JavaScript?
+
+Yes, Node.js SDK initial support for change feed is recently added. It can be used as shown in the following example, please update documentdb module to current version before you run the code:
+
+```js
+
+var DocumentDBClient = require('documentdb').DocumentClient;
+const host = "https://your_host:443/";
+const masterKey = "your_master_key==";
+const databaseId = "db";
+const collectionId = "c1";
+const dbLink = 'dbs/' + databaseId;
+const collLink = dbLink + '/colls/' + collectionId;
+var client = new DocumentDBClient(host, { masterKey: masterKey });
+let options = {
+    a_im: "Incremental feed",
+    accessCondition: {
+        type: "IfNoneMatch",        // Use: - empty condition (or remove accessCondition entirely) to start from beginning.
+        //      - '*' to start from current.
+        //      - specific etag value to start from specific continuation.
+        condition: ""
+    }
+};
+ 
+var query = client.readDocuments(collLink, options);
+query.executeNext((err, results, headers) =&gt; {
+    // Now we have headers.etag, which can be used in next readDocuments in accessCondition option.
+    console.log(results);
+    console.log(headers.etag);
+    console.log(results.length);
+    options.accessCondition = { type: "IfNoneMatch", condition: headers.etag };
+    var query = client.readDocuments(collLink, options);
+    query.executeNext((err, results, headers) =&gt; {
+        console.log("next one:", results[0]);
+    });
+});<span id="mce_SELREST_start" style="overflow:hidden;line-height:0;"></span>
 
 ```
-The specific fields that can be customized are summarized in the following tables. 
 
-**Change Feed Options**:
-<table>
-	<tr>
-		<th>Property Name</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td>MaxItemCount</td>
-		<td>Gets or sets the maximum number of items to be returned in the enumeration operation in the Azure Cosmos DB database service.</td>
-	</tr>
-	<tr>
-		<td>PartitionKeyRangeId</td>
-		<td>Gets or sets the partition key range id for the current request in the Azure Cosmos DB database service.</td>
-	</tr>
-	<tr>
-		<td>RequestContinuation</td>
-		<td>Gets or sets the request continuation token in the Azure Cosmos DB database service.</td>
-	</tr>
-		<tr>
-		<td>SessionToken</td>
-		<td>Gets or sets the session token for use with session consistency in the Azure Cosmos DB database service.</td>
-	</tr>
-		<tr>
-		<td>StartFromBeginning</td>
-		<td>Gets or sets whether change feed in the Azure Cosmos DB database service should start from the beginning (true) or from current (false). By default, it starts from current (false).</td>
-	</tr>
-</table>
+### Can I read change feed using Java?
 
-**Change Feed Host Options**:
-<table>
-	<tr>
-		<th>Property Name</th>
-		<th>Type</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td>LeaseRenewInterval</td>
-		<td>TimeSpan</td>
-		<td>The interval for all leases for partitions currently held by the ChangeFeedEventHost instance.</td>
-	</tr>
-	<tr>
-		<td>LeaseAcquireInterval</td>
-		<td>TimeSpan</td>
-		<td>The interval to kick off a task to compute whether partitions are distributed evenly among known host instances.</td>
-	</tr>
-	<tr>
-		<td>LeaseExpirationInterval</td>
-		<td>TimeSpan</td>
-		<td>The interval for which the lease is taken on a lease representing a partition. If the lease is not renewed within this interval, it is expired and ownership of the partition moves to another ChangeFeedEventHost instance.</td>
-	</tr>
-	<tr>
-		<td>FeedPollDelay</td>
-		<td>TimeSpan</td>
-		<td>The delay between polling a partition for new changes on the feed, after all current changes are drained.</td>
-	</tr>
-	<tr>
-		<td>CheckpointFrequency</td>
-		<td>CheckpointFrequency</td>
-		<td>The frequency to checkpoint leases.</td>
-	</tr>
-	<tr>
-		<td>MinPartitionCount</td>
-		<td>Int</td>
-		<td>The minimum partition count for the host.</td>
-	</tr>
-	<tr>
-		<td>MaxPartitionCount</td>
-		<td>Int</td>
-		<td>The maximum number of partitions the host can serve.</td>
-	</tr>
-	<tr>
-		<td>DiscardExistingLeases</td>
-		<td>Bool</td>
-		<td>Whether on the start of the host all existing leases should be deleted and the host should start from scratch.</td>
-	</tr>
-</table>
+Java library to read change feed is available in [Github repository](https://github.com/Azure/azure-documentdb-changefeedprocessor-java). However, currently Java library is few versions behind .NET library. Soon both the libraries will be in sync.
 
+### Can I use _etag, _lsn or _ts for internal bookkeeping, which I get in response?
 
-To start event processing, instantiate `ChangeFeedProcessorHost`, providing the appropriate parameters for your Azure Cosmos DB collection. Then, call `RegisterObserverAsync` to register your `IChangeFeedObserver` (DocumentFeedObserver in this example) implementation with the runtime. At this point, the host attempts to acquire a lease on every partition key range in the Azure Cosmos DB collection using a "greedy" algorithm. These leases last for a given timeframe and must then be renewed. As new nodes, worker instances, in this case, come online, they place lease reservations and over time the load shifts between nodes as each host attempts to acquire more leases. 
+_etag format is internal and you should not depend on it (do not parse it) because it can change anytime.
+_ts is modification or creation time stamp. You can use _ts for chronological comparison.
+_lsn is a batch id that is added only for change feed, it represents the transaction id from the store.. Many documents may have same _lsn.
+One more thing to note, ETag on FeedResponse is different than the _etag you see on the document. _etag is an internal identifier and used to concurrency, it tells about the version of the document and ETag is used for sequencing the feed.
 
-In the sample code, we use a factory class (DocumentFeedObserverFactory.cs) to create an observer and the `RegistObserverFactoryAsync` to register the observer. 
+### Does reading change feed add any additional cost ?
 
-```csharp
-using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destCollInfo.MasterKey))
-	{
-		DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory(destClient, destCollInfo);
-		ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation, feedOptions, feedHostOptions);
+You are charged for the RU’s consumed i.e. data movement in and out of Azure Cosmos DB collections always consume RU. Users will be charged for RU consumed by the lease collection.
 
-		await host.RegisterObserverFactoryAsync(docObserverFactory);
+### Can multiple Azure Functions read one collection’s change feed?
 
-		Console.WriteLine("Running... Press enter to stop.");
-		Console.ReadLine();
+Yes. Multiple Azure Functions can read the same collection’s change feed. However, the Azure Functions need to have a separate leaseCollectionPrefix defined.
 
-		await host.UnregisterObserversAsync();
-	}
-```
-Over time, an equilibrium is established. This dynamic capability enables CPU-based auto-scaling to be applied to consumers for both scale-up and scale-down. If changes are available in Azure Cosmos DB at a faster rate than consumers can process, the CPU increase on consumers can be used to cause an auto-scale on worker instance count.
+### Should the lease collection be partitioned?
+
+No, lease collection can be Fixed. Partitioned lease collection is not needed and it’s not currently supported.
+
+### Can I read change feed from Spark?
+
+Yes, you can. Please see [Azure Cosmos DB Spark Connector](spark-connector.md). Here is a [screen cast](https://www.youtube.com/watch?v=P9Qz4pwKm_0&t=1519s) showing how you can process change feed as a structured stream.
+
+### If I am processing change feed by using Azure Functions, say a batch of 10 documents, and I get an error at 7th Document. In that case the last three documents are not processed how can I start processing from the failed document(i.e 7th document) in my next feed?
+
+To handle the error, the recommended pattern is to wrap your code with try-catch block. Catch the error and put that document on a queue (dead-letter)and then define logic to deal with the documents that produced the error. With this method if you have a 200-document batch, and just one document failed, you do not have to throw away the whole batch.
+
+In case of error you should not rewind the check point back to beginning else you will can keep getting those documents from change feed. Remember, change feed keeps the last final snap shot of the documents, because of this you may lose the previous snapshot on the document. change feed keeps only one last version of the document, and in between other processes can come and change the document.
+
+As you keep fixing your code, you will soon find no documents on dead-letter queue.
+Azure Functions is automatically called by change feed system and check point etc is maintained internally by Azure Function. If you want to roll back the check point and control every aspect of it, you should consider using change feed Processor SDK.
+
 
 ## Next steps
-* Try the [Azure Cosmos DB Change feed code samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
-* Get started coding with the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md) or the [REST API](/rest/api/documentdb/).
+
+For more information about using Azure Cosmos DB with Azure Functions see [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md).
+
+For more information on using the change feed processor library, use the following resources:
+
+* [Information page](sql-api-sdk-dotnet-changefeed.md) 
+* [Nuget package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
+* [Sample code showing steps 1-6 above](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
+* [Additional samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
+
+For more information on using the change feed via the SDK, use the following resources:
+
+* [SDK information page](sql-api-sdk-dotnet.md)

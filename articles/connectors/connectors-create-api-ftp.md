@@ -1,27 +1,25 @@
 ---
-title: Learn how to use the FTP connector in logic apps| Microsoft Docs
-description: Create logic apps with Azure App service. Connect to FTP server to manage your files. You can perform various actions such as upload, update, get, and delete files in FTP server.
-services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: erikre
-editor: ''
-tags: connectors
-
-ms.assetid: d83c55fe-eb59-4b7b-a5ec-afac5c772616
-ms.service: logic-apps
-ms.devlang: multiple
+# required metadata
+title: Connect to FTP server - Azure Logic Apps | Microsoft Docs
+description: Create, monitor, and manage files on an FTP server with Azure Logic Apps
+author: ecfan
+manager: jeconnoc
+ms.author: estfan
+ms.date: 07/22/2016 
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 07/22/2016
-ms.author: mandia; ladocs
+ms.service: logic-apps
+services: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
+
 # Get started with the FTP connector
 Use the FTP connector to monitor, manage and create files on an  FTP server. 
 
-To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../logic-apps/logic-apps-create-a-logic-app.md).
+To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Connect to FTP
 Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](connectors-overview.md) provides connectivity between a logic app and another service.  
@@ -32,7 +30,7 @@ Before your logic app can access any service, you first need to create a *connec
 > 
 
 ## Use a FTP trigger
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!IMPORTANT]
 > The FTP connector requires an FTP server that  is accessible from the Internet and is configured to operate with PASSIVE mode. Also, the FTP connector is **not compatible with implicit FTPS (FTP over SSL)**. The FTP connector only supports explicit FTPS (FTP over SSL).  
@@ -58,11 +56,11 @@ At this point, your logic app has been configured with a trigger that will begin
 > 
 
 ## Use a FTP action
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Now that you have added a trigger, follow these steps to add an action that will get the contents of the new or modified file found by the trigger.    
 
-1. Select **+ New step** to add the the action to get the contents of the file on the FTP server  
+1. Select **+ New step** to add the action to get the contents of the file on the FTP server  
 2. Select the **Add an action** link.  
    ![FTP action image 1](./media/connectors-create-api-ftp/ftp-action-1.png)  
 3. Enter *FTP* to search for all actions related to FTP.
@@ -88,5 +86,5 @@ You can now add another action such as the [SQL Server - insert row](connectors-
 View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/ftpconnector/). 
 
 ## Next Steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
+[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

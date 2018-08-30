@@ -4,9 +4,8 @@ description: Here are answers to the most popular questions about the Custom Spe
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
-
 ms.service: cognitive-services
-ms.technology: custom-speech-service
+ms.component: custom-speech
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: panosper
@@ -30,11 +29,6 @@ We are working on improved methods for communication processing status, such as 
 For example, you cannot start a language model creation process if there is currently a language model in the process stage.
 You can, however, have an acoustic model and a language model processing at the same time. 
 
-**Question**: What does a status of Exception mean?
-
-**Answer**: The Exception status indicates that something has gone wrong in the processing.
-If you are unable to figure out what went wrong, please contact us and we can investigate.
-
 **Question**: I realized I made a mistake. How do I cancel my data import or model creation that’s in progress? 
 
 **Answer**: Currently you cannot roll back a acoustic or language adaptation process.
@@ -53,9 +47,10 @@ If you have a new data set and you want to customize an existing model you must 
 The old and new data sets must be combined in a single .zip (if it is acoustic data) or a .txt file if it is language data
 Once adaptation is done the new updated model needs to be de-deployed to obtain a new endpoint
 
-**Question**: What if I need higher concurrency than what either Tier1 or Tier 2 offer?
+**Question**: What if I need higher concurrency than the default value. 
 
-**Answer**: Tier1 offers up to 4 concurrent requests and Tier2 up to 12.
+**Answer**: You can scale up your model in increments of 5 concurrent requests which we call Scale Units. Each Scale unit guarantees that your model can process 5 audio stream simultaneously. You can buy up to 100 Scale units (or 500 concurrent requests).
+
 Please contact us if you require higher than that.
 
 **Question**: Can I download my model and run it locally?
@@ -64,8 +59,7 @@ Please contact us if you require higher than that.
 
 **Question**: Are my requests logged?
 
-**Answer**: Requests are typically logged in Azure in secure storage.
-If you have privacy concerns that prohibit you from using the Custom Speech Service please contact us and we can discuss logging/tracing alternatives.
+**Answer**: You have a choice during the creation of a deployment to switch off tracing, at which point no audio or transcriptions will be logged. Otherwise requests are typically logged in Azure in secure storage. If you have further privacy concerns that prohibit you from using the Custom Speech Service please contact us.
 
 ## Importing Data
 
@@ -101,11 +95,11 @@ environments, and types of speakers. In general, you should collect data from as
 **Answer**: You can create a standalone data collection application or use some off the shelf audio recording software.
 You can also create a version of your application that logs the audio data and uses that. 
 
-**Question**: Do I need to transcribe it myself? 
+**Question**: Do I need to transcribe adaptation data myself? 
 
 **Answer**: The data must be transcribed. You can transcribe it yourself
 or use a professional transcription service. Some of these use professional transcribers and others
-use crowdsourcing. 
+use crowdsourcing. We can also recommend a transcription service upon request.
 
 **Question**: How long does it take to create a custom acoustic model?
 

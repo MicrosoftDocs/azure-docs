@@ -3,23 +3,24 @@ title: Problem signing in to the access panel website | Microsoft Docs
 description: Guidance to troubleshoot issues you may encounter while trying to sign in to use the Access Panel
 services: active-directory
 documentationcenter: ''
-author: ajamess
-manager: femila
+author: barbkess
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.reviwer: japere
+ms.author: barbkess
+ms.reviwer: japere,asteen
 ---
 
 # Problem signing in to the access panel website
 
-The Access Panel is a web-based portal which enables a user who has a work or school account in Azure Active Directory (Azure AD) to view and launch cloud-based applications that the Azure AD administrator has granted them access to. A user who has Azure AD editions can also use self-service group and app management capabilities through the Access Panel. The Access Panel is separate from the Azure portal and does not require users to have an Azure subscription.
+The Access Panel is a web-based portal that enables a user who has a work or school account in Azure Active Directory (Azure AD) to view and launch cloud-based applications that the Azure AD administrator has granted them access to. A user who has Azure AD editions can also use self-service group and app management capabilities through the Access Panel. The Access Panel is separate from the Azure portal and does not require users to have an Azure subscription.
 
 Users can sign in to the Access Panel if they have a work or school account in Azure AD.
 
@@ -29,7 +30,7 @@ Users can sign in to the Access Panel if they have a work or school account in A
 
 -   Users can be authenticated by Windows Server Active Directory.
 
-If a user has a subscription for Azure or Office 365 and has been using the Azure portal or an Office 365 application, they'll be able to use the Access Panel seamlessly without needing to sign in again. Users who are not authenticated be prompted to sign in by using the username and password for their account in Azure AD. If the organization has configured federation, typing the username is sufficient.
+If a user has a subscription for Azure or Office 365 and has been using the Azure portal or an Office 365 application, they'll be able to use the Access Panel seamlessly without needing to sign in again. Users who are not authenticated are prompted to sign in by using the username and password for their account in Azure AD. If the organization has configured federation, typing the username is sufficient.
 
 ## General issues to check first 
 
@@ -37,7 +38,7 @@ If a user has a subscription for Azure or Office 365 and has been using the Azur
 
 -   Make sure the user’s browser has added the URL to its **trusted sites**
 
--   Make sure the user’s account is **enabled** for sign ins.
+-   Make sure the user’s account is **enabled** for sign-ins.
 
 -   Make sure the user’s account is **not locked out.**
 
@@ -47,7 +48,7 @@ If a user has a subscription for Azure or Office 365 and has been using the Azur
 
 -   Make sure a **Conditional Access policy** or **Identity Protection** policy is not blocking user access.
 
--   Make sure that a user’s **authentication contact info** is up to date to allow Multi-Factor Authentication or Conditional Access policies to be enforced.
+-   Make sure that a user’s **authentication contact info** is up-to-date to allow Multi-Factor Authentication or Conditional Access policies to be enforced.
 
 -   Make sure to also try clearing your browser’s cookies and trying to sign in again.
 
@@ -68,7 +69,7 @@ For password-based SSO, the end user’s browsers can be:
 
 ## Problems with the user’s account
 
-Access to the Access Panel can be blocked due to a problem with the user’s account. Below are some ways you can troubleshoot and solve problems with users and their account settings:
+Access to the Access Panel can be blocked due to a problem with the user’s account. Following are some ways you can troubleshoot and solve problems with users and their account settings:
 
 -   [Check if a user account exists in Azure Active Directory](#check-if-a-user-account-exists-in-azure-active-directory)
 
@@ -90,11 +91,11 @@ Access to the Access Panel can be blocked due to a problem with the user’s acc
 
 ### Check if a user account exists in Azure Active Directory
 
-To check if a user’s account is present, follow the steps below:
+To check if a user’s account is present, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -108,11 +109,11 @@ To check if a user’s account is present, follow the steps below:
 
 ### Check a user’s account status
 
-To check a user’s account status, follow the steps below:
+To check a user’s account status, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -128,11 +129,11 @@ To check a user’s account status, follow the steps below:
 
 ### Reset a user’s password
 
-To reset a user’s password, follow the steps below:
+To reset a user’s password, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -142,17 +143,17 @@ To reset a user’s password, follow the steps below:
 
 6.  **Search** for the user you are interested in and **click the row** to select.
 
-7.  click the **Reset password** button at the top of the user blade.
+7.  click the **Reset password** button at the top of the user pane.
 
-8.  click the **Reset password** button on the **Reset password** blade that appears.
+8.  click the **Reset password** button on the **Reset password** pane that appears.
 
 9.  Copy the **temporary password** or **enter a new password** for the user.
 
-10. Communicate this new password to the user, they be required to change this password during their next sign in to Azure Active Directory.
+10. Communicate this new password to the user, they be required to change this password during their next sign-in to Azure Active Directory.
 
 ### Enable self-service password reset
 
-To enable self-service password reset, follow the deployment steps below:
+To enable self-service password reset, follow these deployment steps:
 
 -   [Enable users to reset their Azure Active Directory passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
 
@@ -160,11 +161,11 @@ To enable self-service password reset, follow the deployment steps below:
 
 ### Check a user’s multi-factor authentication status
 
-To check a user’s multi-factor authentication status, follow the steps below:
+To check a user’s multi-factor authentication status, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -172,7 +173,7 @@ To check a user’s multi-factor authentication status, follow the steps below:
 
 5.  click **All users**.
 
-6.  click the **Multi-Factor Authentication** button at the top of the blade.
+6.  click the **Multi-Factor Authentication** button at the top of the pane.
 
 7.  Once the **Multi-Factor Authentication Administration Portal** loads, ensure you are on the **Users** tab.
 
@@ -181,17 +182,17 @@ To check a user’s multi-factor authentication status, follow the steps below:
 9.  Select the user from the list of users and **Enable**, **Disable**, or **Enforce** multi-factor authentication as desired.
 
    >[!NOTE]
-   >If a user is in an **Enforced** state, you may set them to **Disabled** temporarily to let them back into their account. Once they are back in, you can then change their state to **Enabled** again to require them to re-register their contact information during their next sign in. Alternatively, you can follow the steps in the [Check a user’s authentication contact info](#check-a-users-authentication-contact-info) to verify or set this data for them.
+   >If a user is in an **Enforced** state, you may set them to **Disabled** temporarily to let them back into their account. Once they are back in, you can then change their state to **Enabled** again to require them to re-register their contact information during their next sign-in. Alternatively, you can follow the steps in the [Check a user’s authentication contact info](#check-a-users-authentication-contact-info) to verify or set this data for them.
    >
    >
 
 ### Check a user’s authentication contact info
 
-To check a user’s authentication contact info used for Multi-factor authentication, Conditional Access, Identity Protection, and Password Reset, follow the steps below:
+To check a user’s authentication contact info used for Multi-factor authentication, Conditional Access, Identity Protection, and Password Reset, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -209,11 +210,11 @@ To check a user’s authentication contact info used for Multi-factor authentica
 
 ### Check a user’s group memberships
 
-To check a user’s group memberships, follow the steps below:
+To check a user’s group memberships, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -227,11 +228,11 @@ To check a user’s group memberships, follow the steps below:
 
 ### Check a user’s assigned licenses
 
-To check a user’s assigned licenses, follow the steps below:
+To check a user’s assigned licenses, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -245,11 +246,11 @@ To check a user’s assigned licenses, follow the steps below:
 
 ### Assign a user a license 
 
-To assign a license to a user, follow the steps below:
+To assign a license to a user, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -286,4 +287,4 @@ open a support ticket with the following information if available:
 -   Fiddler traces
 
 ## Next steps
-[Provide single sign-on to your apps with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Provide single sign-on to your apps with Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

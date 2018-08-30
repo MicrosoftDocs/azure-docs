@@ -4,16 +4,17 @@ description: Deployment scenarios for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/06/2017
+ms.topic: conceptual
+ms.date: 09/21/2017
 ms.author: maheshu
 
 ---
@@ -35,7 +36,7 @@ Consider the following important points for this deployment scenario:
 
 * Managed domains provided by Azure AD Domain Services provide a single flat OU (Organizational Unit) structure by default. All domain-joined machines reside in a single flat
   OU. You may however choose to create custom OUs.
-* Azure AD Domain Services supports simple Group Policy in the form of a built-in GPO each for the users and computers containers. You cannot target GP by OU/department, perform WMI filtering, or create custom GPOs.
+* Azure AD Domain Services supports simple Group Policy in the form of a built-in GPO each for the users and computers containers. You can create custom GPOs and target them to custom OUs.
 * Azure AD Domain Services supports the base AD computer object schema. You cannot extend the computer object's schema.
 
 ## Lift-and-shift an on-premises application that uses LDAP bind authentication to Azure Infrastructure Services
@@ -74,9 +75,13 @@ Consider the following important points for this deployment scenario:
 * Ensure that the application uses username/password for authentication. Certificate/Smartcard based authentication is not supported by Azure AD Domain Services.
 * You cannot change passwords directly against the managed domain. End users can change their password either using Azure AD's self-service password change mechanism or against the on-premises directory. These changes are automatically synchronized and available in the managed domain.
 
-## Azure RemoteApp
-Azure RemoteApp enables Contoso's administrator to create a domain-joined collection. This feature enables remote applications served by Azure RemoteApp to run on domain-joined computers and to access other resources using Windows-integrated authentication. Contoso can use Azure AD Domain Services to provide a managed domain used by Azure RemoteApp domain-joined collections.
+## Windows Server Remote desktop services deployments in Azure
+You can use Azure AD Domain Services to provide managed AD domain services to your remote desktop servers deployed in Azure.
 
-![Azure RemoteApp](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
+For more information about this deployment scenario, see how to [integrate Azure AD Domain Services with your RDS deployment](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds).
 
-For more information about this deployment scenario, see the Remote Desktop Services Blog article titled [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx).
+
+## Domain-joined HDInsight clusters (Preview)
+You can set up an Azure HDInsight cluster that is joined to an Azure AD Domain Services managed domain with Apache Ranger enabled. Create and apply Hive policies through Apache Ranger, and allow users (for example, data scientists) to connect to Hive using ODBC-based tools, for example Excel, Tableau etc. Microsoft is working on adding other workloads, such as HBase, Spark, and Storm, to Domain-joined HDInsight soon.
+
+For more information about this deployment scenario, see how to [configure domain-joined HDInsight clusters](../hdinsight/domain-joined/apache-domain-joined-configure.md)

@@ -4,7 +4,7 @@ description: Review detailed troubleshooting steps for remote desktop errors whe
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: cannot connect to remote desktop, troubleshoot remote desktop, remote desktop cannot connect, remote desktop errors, remote desktop troubleshooting, remote desktop problems
@@ -14,8 +14,8 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: support-article
-ms.date: 07/25/2017
+ms.topic: troubleshooting
+ms.date: 05/11/2018
 ms.author: genli
 
 ---
@@ -46,6 +46,8 @@ Before proceeding to the detailed troubleshooting,
 
 * Check the status of the virtual machine in the Azure portal for any obvious issues.
 * Follow the [quick fix steps for common RDP errors in the basic troubleshooting guide](troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
+* For custom images, make sure that your VHD is properly prepared prior to upload it. For more information, see [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md).
+
 
 Try reconnecting to the VM via Remote Desktop after these steps.
 
@@ -107,7 +109,7 @@ To check if the endpoint is the source of the problem, remove the current endpoi
 ## Source 4: Network Security Groups
 Network Security Groups allow more granular control of allowed inbound and outbound traffic. You can create rules spanning subnets and cloud services in an Azure virtual network.
 
-Use [IP flow verify](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) to confirm if a rule in a Network Security Group is blocking traffic to or from a virtual machine. You can also review effective security group rules to ensure inbound "Allow" NSG rule exists and is prioritized for RDP port(default 3389). For more information, see [Using Effective Security Rules to troubleshoot VM traffic flow](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+Use [IP flow verify](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) to confirm if a rule in a Network Security Group is blocking traffic to or from a virtual machine. You can also review effective security group rules to ensure inbound "Allow" NSG rule exists and is prioritized for RDP port(default 3389). For more information, see [Using Effective Security Rules to troubleshoot VM traffic flow](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ## Source 5: Windows-based Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

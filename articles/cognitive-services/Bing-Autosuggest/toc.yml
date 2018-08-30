@@ -1,29 +1,66 @@
-- name: Bing AutoSuggest Documentation
-  href: ../index.md
+- name: Bing Autosuggest Documentation
+  href: index.yml
 - name: Overview
   items:
-  - name: Get suggested search terms
+  - name: What is Bing Autosuggest?
     href: get-suggested-search-terms.md
-  - name: Upgrade from v5 to v7 Preview
-    href: bing-autosuggest-upgrade-guide-v5-to-v7.md
-  - name: Use and display requirements
-    href: UseAndDisplayRequirements.md
-- name: Quickstarts
+- name: REST API Quickstarts
   expanded: true
   items:
-  - name: Get started
-    href: quick-start.md
+  - name: C#
+    href: quickstarts/csharp.md
+  - name: Java
+    href: quickstarts/java.md
+  - name: Node.js
+    href: quickstarts/nodejs.md
+  - name: PHP
+    href: quickstarts/php.md
+  - name: Python
+    href: quickstarts/python.md
+  - name: Ruby
+    href: quickstarts/ruby.md
+- name: Tutorials
+  items:
+  - name: Single-page web app
+    href: tutorials/autosuggest.md
+  - name: Single-page web app (source code)
+    href: tutorials/autosuggest-source.md
+- name: How-to guides
+  items: 
+  - name: Use and display requirements
+    href: UseAndDisplayRequirements.md
+  - name: Upgrade from v5 to v7
+    href: bing-autosuggest-upgrade-guide-v5-to-v7.md
 - name: Reference
   items:
-  - name: REST v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference
-  - name: REST v7 Preview
+  - name: Bing Autosuggest API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference
+  - name: Bing Autosuggest API v5
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference
 - name: Resources
   items:
+  - name: FAQ
+    href: bing-autosuggest-resource-faq.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/598198-bing-autosuggest
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=bing+autosuggest
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Subscription key
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Get API key
     href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
   - name: Try it!
-    href: https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2
+    href: https://azure.microsoft.com/services/cognitive-services/autosuggest/
+  - name: Bing Autosuggest endpoint
+    href: autosuggest-endpoint.md
+  - name: Supported languages
+    href: bing-autosuggest-supported-languages.md
+  - name: Analytics for Bing Autosuggest API
+    href: bing-autosuggest-stats.md
+

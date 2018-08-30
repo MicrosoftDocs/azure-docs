@@ -4,7 +4,7 @@ description: Use continuous deployment facilities of Azure App Service to publis
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 
@@ -26,7 +26,7 @@ Continuous deployment is a great option for projects where multiple and frequent
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
 * External repository (Git or Mercurial)
-* [Git local repository](../app-service-web/app-service-deploy-local-git.md)
+* [Git local repository](../app-service/app-service-deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
 * [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
@@ -38,6 +38,8 @@ Deployments are configured on a per-function app basis. After continuous deploym
 You must have your deployment source configured and your functions code in the deployment source before you set up continuous deployment. In a given function app deployment, each function lives in a named subdirectory, where the directory name is the name of the function.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
+
+To be able to deploy from VSTS, you must first link your VSTS account with your Azure subscription. For more information, see [Set up billing for your VSTS account](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal).
 
 ## Set up continuous deployment
 Use this procedure to configure continuous deployment for an existing function app. These steps demonstrate integration with a GitHub repository, but similar steps apply for Visual Studio Team Services or other deployment services.
@@ -144,3 +146,8 @@ Before you can download files from your function app with FTP or local Git repos
     If requested, supply your [configured deployment credentials](#credentials).  
 
 [GitHub]: https://github.com/
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Best Practices for Azure Functions](functions-best-practices.md)

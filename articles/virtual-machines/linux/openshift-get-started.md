@@ -1,10 +1,10 @@
 ---
-title: Deploy OpenShift Origin to Azure| Microsoft Docs
-description: Learn to deploy OpenShift Origin to Azure virtual machines.
+title: OpenShift in Azure overview | Microsoft Docs
+description: An overview of OpenShift in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: jbinder
-manager: timlt 
+author: haroldw
+manager: najoshi
 editor: 
 tags: azure-resource-manager
 
@@ -15,148 +15,52 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
-ms.author: jbinder 
+ms.author: haroldw
 ---
 
-# Deploy OpenShift Origin to Azure Virtual Machines 
+# OpenShift in Azure
 
-[OpenShift Origin](https://www.openshift.org/) is an open source container platform built on [Kubernetes](https://kubernetes.io/). It simplifies the process of deploying, scaling, and operating multi-tenant applications. 
+OpenShift is an open and extensible container application platform that brings Docker and Kubernetes to the enterprise.  
 
-This guide describes how to deploy OpenShift Origin on Azure Virtual Machines using the Azure CLI and Azure Resource Manager Templates. In this tutorial you learn how to:
+OpenShift includes Kubernetes for container orchestration and management. It adds developer- and operations-centric tools that enable:
 
-> [!div class="checklist"]
-> * Create a KeyVault to manage SSH keys for the OpenShift cluster.
-> * Deploy an OpenShift cluster on Azure VMs. 
-> * Install and configure the [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) to manage the cluster.
-> * Customize the OpenShift deployment.
+- Rapid application development.
+- Easy deployment and scaling.
+- Long-term lifecycle maintenance for teams and applications.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+There are multiple versions of OpenShift available:
 
-This quick start requires the Azure CLI version 2.0.8 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+- OKD (Formerly OpenShift Origin)
+- OpenShift Container Platform
+- OpenShift Online
+- OpenShift Dedicated
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+Of the four versions covered in this article, only two are available for customers to deploy in Azure: OpenShift Origin and OpenShift Container Platform.
 
-## Log in to Azure 
-Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions or click **Try it** to use Cloud Shell.
+## OKD (Formerly OpenShift Origin)
 
-```azurecli 
-az login
-```
-## Create a resource group
+OKD is an [open-source](https://www.okd.io/) upstream project of OpenShift that's community supported. OKD can be installed on CentOS or Red Hat Enterprise Linux (RHEL).
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+## OpenShift Container Platform
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+Container Platform is an enterprise-ready [commercial version](https://www.openshift.com) from and supported by Red Hat. With this version, customers purchase the necessary entitlements for OpenShift Container Platform and are responsible for installation and management of the entire infrastructure.
 
-```azurecli 
-az group create --name myResourceGroup --location eastus
-```
+Because customers "own" the entire platform, they can install it in their on-premises datacenter, or in a public cloud (such as Azure, AWS, or Google).
 
-## Create a Key Vault
-Create a KeyVault to store the SSH keys for the cluster with the [az keyvault create](/cli/azure/keyvault#create) command.  
+## OpenShift Online
 
-```azurecli 
-az keyvault create --resource-group myResourceGroup --name myKeyVault \
-       --enabled-for-template-deployment true \
-       --location eastus
-```
+Online is a Red Hat-managed *multi-tenant* OpenShift that uses Container Platform. Red Hat manages all of the underlying infrastructure (such as VMs, OpenShift cluster, networking, and storage). 
 
-## Create an SSH key 
-An SSH key is needed to secure access to the OpenShift Origin cluster. Create an SSH key-pair using the `ssh-keygen` command. 
- 
- ```bash
-ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
-```
+With this version, the customer deploys containers but has no control over which hosts the containers run. Because Online is multi-tenant, containers may be located on the same VM hosts as containers from other customers. Cost is per container.
 
-> [!NOTE]
-> The SSH key pair you create must not have a passphrase.
+## OpenShift Dedicated
 
-For more information on SSH keys on Windows, [How to create SSH keys on Windows](/azure/virtual-machines/linux/ssh-from-windows).
-
-## Store SSH private key in Key Vault
-The OpenShift deployment uses the SSH key you created to secure access to the OpenShift master. To enable the deployment to securely retrieve the SSH key, store the key in Key Vault using the following command.
-
-# Enabled for template deployment
-```azurecli
-az keyvault secret set --vault-name KeyVaultName --name OpenShiftKey --file ~/.ssh/openshift.rsa
-```
-
-## Create a service principal 
-OpenShift communicates with Azure using a username and password or a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like OpenShift. You control and define the permissions as to what operations the service principal can perform in Azure. To improve security over just providing a username and password, this example creates a basic service principal.
-
-Create a service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) and output the credentials that OpenShift needs:
-
-```azurecli
-az ad sp create-for-rbac --name openshiftsp \
-          --role Contributor --password {strong password} \
-          --scopes $(az group show --name myResourceGroup --query id)
-```
-Take note of the appId property returned from the command.
-```json
-{
-  "appId": "a487e0c1-82af-47d9-9a0b-af184eb87646d",
-  "displayName": "openshiftsp",
-  "name": "http://openshiftsp",
-  "password": {strong password},
-  "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-}
-```
- > [!WARNING] 
- > Don't create an insecure password.  Follow the
- > [Azure AD password rules and restrictions](/azure/active-directory/active-directory-passwords-policy) guidance.
-
-For more information on service principals, see [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli)
-
-## Deploy the OpenShift Origin template
-Next deploy OpenShift Origin using an Azure Resource Manager template. 
-
-> [!NOTE] 
-> The following command requires az CLI 2.0.8 or later. You can verify the az CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
-
-Use the `appId` value from the service principal you created earlier for the `aadClientId` parameter.
-
-```azurecli 
-az group deployment create --name myOpenShiftCluster \
-      --template-uri https://raw.githubusercontent.com/Microsoft/openshift-origin/master/azuredeploy.json \
-      --params \ 
-        openshiftMasterPublicIpDnsLabel=myopenshiftmaster \
-        infraLbPublicIpDnsLabel=myopenshiftlb \
-        openshiftPassword=Pass@word!
-        sshPublicKey=~/.ssh/openshift_rsa.pub \
-        keyVaultResourceGroup=myResourceGroup \
-        keyVaultName=myKeyVault \
-        keyVaultSecret=OpenShiftKey \
-        aadClientId={appId} \
-        aadClientSecret={strong password} 
-```
-The deployment may take up to 20 minutes to complete. The URL of the OpenShift console and DNS name of the OpenShift master is printed to the terminal when the deployment completes.
-
-```json
-{
-  "OpenShift Console Uri": "http://openshiftlb.cloudapp.azure.com:8443/console",
-  "OpenShift Master SSH": "ocpadmin@myopenshiftmaster.cloudapp.azure.com"
-}
-```
-## Connect to the OpenShift cluster
-When the deployment completes, connect to the OpenShift console using the browser using the `OpenShift Console Uri`. Alternatively, you can connect to the OpenShift master using the following command.
-
-```bash
-$ ssh ocpadmin@myopenshiftmaster.cloudapp.azure.com
-```
-
-## Clean up resources
-When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, OpenShift cluster, and all related resources.
-
-```azurecli 
-az group delete --name myResourceGroup
-```
+Dedicated is a Red Hat-managed *single-tenant* OpenShift that uses Container Platform. Red Hat manages all of the underlying infrastructure (VMs, OpenShift cluster, networking, storage, etc.). The cluster is specific to one customer and runs in a public cloud (such as AWS or Google, with Azure coming in early 2018). A starting cluster includes four application nodes for $48,000 per year (paid up front).
 
 ## Next steps
 
-In this tutorial, learned how to:
-> [!div class="checklist"]
-> * Create a KeyVault to manage SSH keys for the OpenShift cluster.
-> * Deploy an OpenShift cluster on Azure VMs. 
-> * Install and configure the [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) to manage the cluster.
-
-Now that OpenShift Origin cluster is deployed. You can follow OpenShift tutorials to learn how to deploy your first application and use the OpenShift tools. See [Getting Started with OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html) to get started. 
+- [Configure common prerequisites for OpenShift in Azure](./openshift-prerequisites.md)
+- [Deploy OpenShift Origin in Azure](./openshift-origin.md)
+- [Deploy OpenShift Container Platform in Azure](./openshift-container-platform.md)
+- [Post-deployment tasks](./openshift-post-deployment.md)
+- [Troubleshoot OpenShift deployment](./openshift-troubleshooting.md)

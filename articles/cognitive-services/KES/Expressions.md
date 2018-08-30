@@ -4,9 +4,8 @@ description: Learn how to use structured query expressions in the Knowledge Expl
 services: cognitive-services
 author: bojunehsu
 manager: stesp
-
 ms.service: cognitive-services
-ms.technology: kes
+ms.component: knowledge-exploration
 ms.topic: article
 ms.date: 03/26/2016
 ms.author: paulhsu

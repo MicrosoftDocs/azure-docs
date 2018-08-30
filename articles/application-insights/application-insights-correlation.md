@@ -1,18 +1,19 @@
----
+﻿---
 title: Azure Application Insights Telemetry Correlation | Microsoft Docs
 description: Application Insights telemetry correlation
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
-ms.date: 04/25/2017
-ms.author: cfreeman
+ms.topic: conceptual
+ms.date: 04/09/2018
+ms.reviewer: sergkanz
+ms.author: mbullwin
 
 ---
 # Telemetry correlation in Application Insights
@@ -78,7 +79,7 @@ Application Insights defines the [extension](https://github.com/lmolkova/correla
 - `dependency` maps to **Span** with `span.kind = client`
 - `id` of a `request` and `dependency` maps to **Span.Id**
 - `operation_Id` maps to **TraceId**
-- `operation_ParentId` maps to **Reference** of type `ChileOf`
+- `operation_ParentId` maps to **Reference** of type `ChildOf`
 
 See [data model](application-insights-data-model.md) for Application Insights types and data model.
 
@@ -95,11 +96,36 @@ The [guide to Activities](https://github.com/dotnet/corefx/blob/master/src/Syste
 
 ASP.NET Core 2.0 supports extraction of Http Headers and starting the new Activity. 
 
-`System.Net.HttpClient` starting version `<fill in>` supports automatic injection of the correlation Http Headers and tracking the http call as an Activity.
+`System.Net.HttpClient` starting version `4.1.0` supports automatic injection of the correlation Http Headers and tracking the http call as an Activity.
 
 There is a new Http Module [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) for the ASP.NET Classic. This module implements telemetry correlation using DiagnosticsSource. It starts activity based on incoming request headers. It also correlates telemetry from the different stages of request processing. Even for the cases when every stage of IIS processing runs on a different manage threads.
 
 Application Insights SDK starting version `2.4.0-beta1` uses DiagnosticsSource and Activity to collect telemetry and associate it with the current activity. 
+
+<a name="java-correlation"></a>
+## Telemetry correlation in the Java SDK
+The [Application Insights Java SDK](app-insights-java-get-started.md) supports automatic correlation of telemetry beginning with version `2.0.0`. It automatically populates `operation_id` for all telemetry (traces, exceptions, custom events, etc) issued within the scope of a request. It also takes care of propagating the correlation headers (described above) for service to service calls via HTTP if the [Java SDK agent](app-insights-java-agent.md) is configured. Note: only calls made via Apache HTTP Client are supported for the correlation feature. If you're using Spring Rest Template or Feign, both can be used with Apache HTTP Client under the hood.
+
+Currently, automatic context propagation across messaging technologies (e.g. Kafka, RabbitMQ, Azure Service Bus) is not supported. It is possible, however to manually code such scenarios by using the `trackDependency` and `trackRequest` API's, whereby a dependency telemetry represents a message being enqueued by a producer and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
+
+<a name="java-role-name"></a>
+### Role Name
+At times, you might want to customize the way component names are displayed in the [Application Map](app-insights-app-map.md). To do so, you can manually set the `cloud_roleName` by doing one of the following:
+
+Via a telemetry initializer (all telemetry items are tagged)
+```Java
+public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
+
+    @Override
+    protected void onInitializeTelemetry(Telemetry telemetry) {
+        telemetry.getContext().getTags().put(ContextTagKeys.getKeys().getDeviceRoleName(), "My Component Name");
+    }
+  }
+```
+Via the [device context class](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (only this telemetry item is tagged)
+```Java
+telemetry.getContext().getDevice().setRoleName("My Component Name");
+```
 
 ## Next steps
 

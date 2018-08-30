@@ -1,9 +1,9 @@
----
+﻿---
 title: How do I ... in Azure Application Insights | Microsoft Docs
 description: FAQ in Application Insights.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
@@ -11,9 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
-ms.author: cfreeman
+ms.author: mbullwin
 
 ---
 # How do I ... in Application Insights?

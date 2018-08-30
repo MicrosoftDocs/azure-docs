@@ -10,7 +10,7 @@
 | North Central US    | 3                       |
 | South Central US    | 3                       |
 | West Central US     | 2                       |
-| Canada Central      | 2                       |
+| Canada Central      | 3                      |
 | Canada East         | 2                       |
 |                     |                         |
 | North Europe        | 3                       |
@@ -32,3 +32,9 @@
 | Australia Southeast | 2                       |
 |                     |                         |
 | Brazil South        | 2                       |
+|                     |                         |
+| US Gov Virginia     | 2                       |
+| US Gov Texas        | 2                       |
+| US Gov Arizona      | 2                       |
+| US DoD Central      | 2                       |
+| US DoD East         | 2                       |

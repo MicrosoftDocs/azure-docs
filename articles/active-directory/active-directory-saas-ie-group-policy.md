@@ -3,23 +3,22 @@ title: Deploy Azure Access Panel Extension for IE using a GPO | Microsoft Docs
 description: How to use group policy to deploy the Internet Explorer add-on for the My Apps portal.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: femila
-
-ms.assetid: 7c2d49c8-5be0-4e7e-abac-332f9dfda736
+author: barbkess
+manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
-ms.author: markvi
+ms.date: 07/30/2018
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 
 ---
 # How to Deploy the Access Panel Extension for Internet Explorer using Group Policy
-This tutorial shows how to use group policy to remotely install the Access Panel extension for Internet Explorer on your users' machines. This extension is required for Internet Explorer users who need to sign into apps that are configured using [password-based single sign-on](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+This tutorial shows how to use group policy to remotely install the Access Panel extension for Internet Explorer on your users' machines. This extension is required for Internet Explorer users who need to sign into apps that are configured using [password-based single sign-on](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
 
 It is recommended that admins automate the deployment of this extension. Otherwise, users have to download and install the extension themselves, which is prone to user error and requires administrator permissions. This tutorial covers one method of automating software deployments by using group policy. [Learn more about group policy.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
@@ -40,7 +39,7 @@ First, you must place the installer package on a network location that can be ac
    
     ![Open Files and Storage Services](./media/active-directory-saas-ie-group-policy/shares.png)
 4. Complete the **New Share Wizard** and set permissions to ensure that it can be accessed from your users' machines. [Learn more about shares.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Download the following Microsoft Windows Installer package (.msi file): [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)
+5. Download the following Microsoft Windows Installer package (.msi file): [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 6. Copy the installer package to a desired location on the share.
    
     ![Copy the .msi file to the share.](./media/active-directory-saas-ie-group-policy/copy-package.png)
@@ -159,6 +158,6 @@ Follow the steps below to verify if the extension deployment was successful:
 
 ## Related Articles
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [Application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Managing secrets in Service Fabric applications | Microsoft Docs
-description: This article describes how to secure secret values in a Service Fabric application.
+title: Manage Azure Service Fabric application secrets | Microsoft Docs
+description: Learn how to secure secret values in a Service Fabric application.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -10,35 +10,19 @@ editor: ''
 ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 03/21/2018
 ms.author: vturecek
 
 ---
-# Managing secrets in Service Fabric applications
+# Manage secrets in Service Fabric applications
 This guide walks you through the steps of managing secrets in a Service Fabric application. Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text.
 
-This guide uses Azure Key Vault to manage keys and secrets. However, *using* secrets in an application is cloud platform-agnostic to allow applications to be deployed to a cluster hosted anywhere. 
+[Azure Key Vault][key-vault-get-started] is used here as a safe storage location for certificates and as a way to get certificates installed on Service Fabric clusters in Azure. If you are not deploying to Azure, you do not need to use Key Vault to manage secrets in Service Fabric applications. However, *using* secrets in an application is cloud platform-agnostic to allow applications to be deployed to a cluster hosted anywhere. 
 
-## Overview
-The recommended way to manage service configuration settings is through [service configuration packages][config-package]. Configuration packages are versioned and updatable through managed rolling upgrades with health-validation and auto rollback. This is preferred to global configuration as it reduces the chances of a global service outage. Encrypted secrets are no exception. Service Fabric has built-in features for encrypting and decrypting values in a configuration package Settings.xml file using certificate encryption.
-
-The following diagram illustrates the basic flow for secret management in a Service Fabric application:
-
-![secret management overview][overview]
-
-There are four main steps in this flow:
-
-1. Obtain a data encipherment certificate.
-2. Install the certificate in your cluster.
-3. Encrypt secret values when deploying an application with the certificate and inject them into a service's Settings.xml configuration file.
-4. Read encrypted values out of Settings.xml by decrypting with the same encipherment certificate. 
-
-[Azure Key Vault][key-vault-get-started] is used here as a safe storage location for certificates and as a way to get certificates installed on Service Fabric clusters in Azure. If you are not deploying to Azure, you do not need to use Key Vault to manage secrets in Service Fabric applications.
-
-## Data encipherment certificate
+## Obtain a data encipherment certificate
 A data encipherment certificate is used strictly for encryption and decryption of configuration values in a service's Settings.xml and is not used for authentication or signing of cipher text. The certificate must meet the following requirements:
 
 * The certificate must contain a private key.
@@ -55,7 +39,7 @@ A data encipherment certificate is used strictly for encryption and decryption o
 This certificate must be installed on each node in the cluster. It will be used at runtime to decrypt values stored in a service's Settings.xml. See [how to create a cluster using Azure Resource Manager][service-fabric-cluster-creation-via-arm] for setup instructions. 
 
 ## Encrypt application secrets
-The Service Fabric SDK has built-in secret encryption and decryption functions. Secret values can be encrypted at built-time and then decrypted and read programmatically in service code. 
+When deploying an application, encrypt secret values with the certificate and inject them into a service's Settings.xml configuration file. The Service Fabric SDK has built-in secret encryption and decryption functions. Secret values can be encrypted at build-time and then decrypted and read programmatically in service code. 
 
 The following PowerShell command is used to encrypt a secret. This command only encrypts the value; it does **not** sign the cipher text. You must use the same encipherment certificate that is installed in your cluster to produce ciphertext for secret values:
 
@@ -63,7 +47,7 @@ The following PowerShell command is used to encrypt a secret. This command only 
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
 ```
 
-The resulting base-64 string contains both the secret ciphertext as well as information about the certificate that was used to encrypt it.  The base-64 encoded string can be inserted into a parameter in your service's Settings.xml configuration file with the `IsEncrypted` attribute set to `true`:
+The resulting base-64 encoded string contains both the secret ciphertext as well as information about the certificate that was used to encrypt it.  The base-64 encoded string can be inserted into a parameter in your service's Settings.xml configuration file with the `IsEncrypted` attribute set to `true`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -137,7 +121,7 @@ await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescript
 ```
 
 ## Decrypt secrets from service code
-Services in Service Fabric run under NETWORK SERVICE by default on Windows and don't have access to certificates installed on the node without some extra setup.
+You can read encrypted values out of Settings.xml by decrypting them with the encipherment certificate used to encrypt the secret. Services in Service Fabric run under NETWORK SERVICE by default on Windows and don't have access to certificates installed on the node without some extra setup.
 
 When using a data encipherment certificate, you need to make sure NETWORK SERVICE or whatever user account the service is running under has access to the certificate's private key. Service Fabric will handle granting access for your service automatically if you configure it to do so. This configuration can be done in ApplicationManifest.xml by defining users and security policies for certificates. In the following example, the NETWORK SERVICE account is given read access to a certificate defined by its thumbprint:
 
@@ -173,11 +157,11 @@ SecureString mySecretValue = configPackage.Settings.Sections["MySettings"].Param
 ```
 
 ## Next Steps
-Learn more about [running applications with different security permissions](service-fabric-application-runas-security.md)
+Learn more about [application and service security](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
-[config-package]: service-fabric-application-model.md
+[config-package]: service-fabric-application-and-service-manifests.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 
 <!-- Images -->

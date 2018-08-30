@@ -1,21 +1,14 @@
-﻿---
+---
 title: Export an Azure SQL database to a BACPAC file | Microsoft Docs
-description: Export an Azure SQL database to a BACPAC file  using the Azure Portal
+description: Export an Azure SQL database to a BACPAC file  using the Azure portal
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 41d63a97-37db-4e40-b652-77c2fd1c09b7
+manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.devlang: NA
-ms.date: 06/15/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.workload: data-management
-ms.topic: article
-ms.tgt_pltfrm: NA
+ms.topic: conceptual
 
 ---
 # Export an Azure SQL database to a BACPAC file
@@ -24,7 +17,7 @@ When you need to export a database for archiving or for moving to another platfo
 
 > [!IMPORTANT] 
 > Azure SQL Database Automated Export was retired on March 1, 2017. You can use [long-term backup retention](sql-database-long-term-retention.md
-) or [Azure Automation](https://github.com/Microsoft/azure-docs-pr/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md) to periodically archive SQL databases using PowerShell according to a schedule of your choice. For a sample, download the [sample PowerShell script](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export) from Github.
+) or [Azure Automation](https://github.com/Microsoft/azure-docs/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md) to periodically archive SQL databases using PowerShell according to a schedule of your choice. For a sample, download the [sample PowerShell script](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export) from Github.
 >
 
 ## Considerations when exporting an Azure SQL database
@@ -85,9 +78,9 @@ $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $e
 [Console]::Write("Exporting")
 while ($exportStatus.Status -eq "InProgress")
 {
-    $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
-    [Console]::Write(".")
     Start-Sleep -s 10
+    $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
+    [Console]::Write(".")   
 }
 [Console]::WriteLine("")
 $exportStatus
@@ -100,3 +93,4 @@ $exportStatus
 * To learn about importing a BACPAC to a SQL Server database, see [Import a BACPCAC to a SQL Server database](https://msdn.microsoft.com/library/hh710052.aspx).
 * To learn about exporting a BACPAC from a SQL Server database, see [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) and [Migrate your first database](sql-database-migrate-your-sql-server-database.md).
 * If you are exporting from SQL Server as a prelude to migration to Azure SQL Database, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
+* To learn how to manage and share storage keys and shared access signitures securely, see [Azure Storage Security Guide](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

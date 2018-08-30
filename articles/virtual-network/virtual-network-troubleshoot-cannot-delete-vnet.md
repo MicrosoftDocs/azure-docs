@@ -10,10 +10,10 @@ tags: azure-resource-manager
 
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2017
+ms.date: 05/11/2018
 ms.author: genli
 
 ---
@@ -63,13 +63,7 @@ If the Active Directory Domain Service is enabled and connected to the virtual n
 
 ![Check the connected device](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-To disable the service, follow these steps:
-
-1. Go to the [Azure classic portal](https://manage.windowsazure.com).
-2. In the left pane, select  **Active Directory**.
-3. Select the Azure Active Directory (Azure AD) directory that has Active Directory Domain Service enabled.
-4. Select the **Configure** tab.
-5. Under **domain services**, change the **Enable domain services for this directory** option to **No**.  
+To disable the service, see [Disable Azure Active Directory Domain Services using the Azure portal](../active-directory-domain-services/active-directory-ds-disable-aadds.md).
 
 ### Check whether the virtual network is connected to other resource
 

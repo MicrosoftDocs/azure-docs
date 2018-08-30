@@ -1,22 +1,13 @@
 ---
-title: Save searches and pin data assets in Azure Data Catalog | Microsoft Docs
+title: Save searches and pin data assets in Azure Data Catalog
 description: How-to article highlighting capabilities in Azure Data Catalog for saving data sources and data assets for later use.
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
+ms.author: maroche
 ms.assetid: 6bd00a81-820d-4b7c-91fa-ab09e575474c
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 05/15/2017
-ms.author: maroche
-
+ms.topic: conceptual
+ms.date: 01/18/2018
 ---
 # Save searches and pin data assets in Azure Data Catalog
 ## Introduction

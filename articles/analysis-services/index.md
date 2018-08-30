@@ -2,15 +2,15 @@
 title: Azure Analysis Services Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to set up data modeling with Analysis Services in the cloud. Documentation shows you how to create an enterprise BI solution using tabular data.
 services: analysis-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 02/14/2018
 ms.author: carolz
 ---
 # Analysis Services Documentation

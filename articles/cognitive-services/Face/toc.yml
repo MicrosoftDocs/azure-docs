@@ -1,28 +1,24 @@
 - name: Face API Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
-  href: Overview.md
-- name: How to
-  items:
-  - name: Detect faces in image
-    href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-  - name: Identify faces in image
-    href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
-  - name: Add faces
-    href: Face-API-How-to-Topics/face-how-to-add-faces.md
-  - name: Analyze videos in real time
-    href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
-- name: Quickstarts
   expanded: true
   items:
-  - name: cURL
-    href: QuickStarts/curl.md
+  - name: What is Face API?
+    href: Overview.md
+- name: Quickstarts
+  items:
   - name: C#
     href: QuickStarts/CSharp.md
+  - name: cURL
+    href: QuickStarts/curl.md
+  - name: Go
+    href: QuickStarts/go.md
   - name: Java
     href: QuickStarts/Java.md
   - name: JavaScript
     href: QuickStarts/JavaScript.md
+  - name: Node.js
+    href: QuickStarts/node.md
   - name: PHP
     href: QuickStarts/PHP.md
   - name: Python
@@ -33,33 +29,63 @@
   items:
   - name: C#
     href: Tutorials/FaceAPIinCSharpTutorial.md
-  - name: Java for Android
+  - name: Android
     href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
-  - name: Python
-    href: Tutorials/FaceAPIinPythonTutorial.md
+- name: How to guides
+  items:
+  - name: First Face API apps
+    items:
+    - name: Python
+      href: Tutorials/FaceAPIinPythonTutorial.md
+  - name: Detect faces in image
+    href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
+  - name: Identify faces in image
+    href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
+  - name: Add faces
+    href: Face-API-How-to-Topics/how-to-add-faces.md
+  - name: Use the large-scale feature
+    href: Face-API-How-to-Topics/how-to-use-large-scale.md
+  - name: Analyze videos in real time
+    href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
+  - name: Work with Visual Studio
+    items:
+    - name: Use the Face API Connected Service
+      href: vs-face-connected-service.md
 - name: Reference
   items:
-  - name: Face API reference
+  - name: Face API
     href: APIReference.md
+  - name: Glossary
+    href: Glossary.md
   - name: SDKs
     items:
+    - name: Windows
+      href: https://github.com/Microsoft/Cognitive-Face-Windows
+    - name: Node.js
+      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules
+    - name: Python
+      href: https://github.com/Microsoft/Cognitive-Face-Python
+    - name: Go
+      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face
     - name: Android
       href: https://github.com/Microsoft/Cognitive-Face-Android
     - name: iOS
       href: https://github.com/Microsoft/Cognitive-Face-iOS
-    - name: Python
-      href: https://github.com/Microsoft/Cognitive-Face-Python
-    - name: Windows
-      href: https://github.com/Microsoft/Cognitive-Face-Windows
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
-  - name: Glossary
-    href: Glossary.md
   - name: FAQ
     href: FAQ.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/430315-face-api
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Release notes
     href: ReleaseNotes.md

@@ -1,25 +1,27 @@
 ---
-title: Create custom VM images with the Azure CLI | Microsoft Docs
-description: Tutorial - Create a custom VM image using the Azure CLI.
+title: Tutorial - Create custom VM images with the Azure CLI | Microsoft Docs
+description: In this tutorial, you learn how to use the Azure CLI 2.0 to create a custom virtual machine image in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/21/2017
+ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
+
+#Customer intent: As an IT administrator, I want to learn about how to create custom VM images to minimize the number of post-deployment configuration tasks.
 ---
 
-# Create a custom image of an Azure VM using the CLI
+# Tutorial: Create a custom image of an Azure VM with the Azure CLI 2.0
 
 Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. In this tutorial, you create your own custom image of an Azure virtual machine. You learn how to:
 
@@ -30,14 +32,13 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * List all the images in your subscription
 > * Delete an image
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Before you begin
 
-The steps below detail how to take an existing VM and turn it into a re-usable custom image that you can use to create new VM instances.
+The steps below detail how to take an existing VM and turn it into a reusable custom image that you can use to create new VM instances.
 
 To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
 
@@ -49,7 +50,7 @@ To create an image of a virtual machine, you need to prepare the VM by deprovisi
 
 Deprovisioning generalizes the VM by removing machine-specific information. This generalization makes it possible to deploy many VMs from a single image. During deprovisioning, the host name is reset to *localhost.localdomain*. SSH host keys, nameserver configurations, root password, and cached DHCP leases are also deleted.
 
-To deprovision the VM, use the Azure VM agent (waagent). The Azure VM agent is installed on the VM and manages provisioning and interacting with the Azure Fabric Controller. For more information, see the [Azure Linux Agent user guide](agent-user-guide.md).
+To deprovision the VM, use the Azure VM agent (waagent). The Azure VM agent is installed on the VM and manages provisioning and interacting with the Azure Fabric Controller. For more information, see the [Azure Linux Agent user guide](../extensions/agent-linux.md).
 
 Connect to your VM using SSH and run the command to deprovision the VM. With the `+user` argument, the last provisioned user account and any associated data are also deleted. Replace the example IP address with the public IP address of your VM.
 
@@ -95,7 +96,7 @@ az image create \
  
 ## Create VMs from the image
 
-Now that you have an image, you can create one or more new VMs from the image using [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
+Now that you have an image, you can create one or more new VMs from the image using [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
 
 ```azurecli-interactive 
 az vm create \
@@ -114,7 +115,7 @@ List all images by name in a table format.
 
 ```azurecli-interactive 
 az image list \
-  --resource-group myResourceGroup
+    --resource-group myResourceGroup
 ```
 
 Delete an image. This example deletes the image named *myOldImage* from the *myResourceGroup*.

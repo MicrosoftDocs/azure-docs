@@ -1,21 +1,13 @@
 ---
 title: Use metrics to monitor Azure IoT Hub | Microsoft Docs
 description: How to use Azure IoT Hub metrics to assess and monitor the overall health of your IoT hubs.
-services: iot-hub
-documentationcenter: ''
 author: nberdy
-manager: timlt
-editor: ''
-
-ms.assetid: a47108fd-f994-4105-b21d-5b8f697b699c
+manager: briz
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/22/2017
+services: iot-hub
+ms.topic: conceptual
+ms.date: 08/25/2017
 ms.author: nberdy
-ms.custom: H1Hack27Feb2017
 
 ---
 # Understand IoT Hub metrics
@@ -97,13 +89,13 @@ Now that you’ve seen an overview of IoT Hub metrics, follow this link to learn
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with Azure IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: media/iot-hub-metrics/enable-metrics-1.png
 [2]: media/iot-hub-metrics/enable-metrics-2.png
 
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
+[lnk-get-started]: quickstart-send-telemetry-dotnet.md
 [lnk-operations-monitoring]: iot-hub-operations-monitoring.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
@@ -111,4 +103,4 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

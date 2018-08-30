@@ -17,12 +17,14 @@ Currently Linux containers are supported with all orchestrators. Support for Win
 ### Do you recommend a specific orchestrator in Azure Container Service? 
 Generally we do not recommend a specific orchestrator. If you have experience with one of the supported orchestrators, you can apply that experience in Azure Container Service. Data trends suggest, however, that DC/OS is production proven for Big Data and IoT workloads, Kubernetes is suited for cloud-native workloads, and Docker Swarm is known for its integration with Docker tools and easy learning curve.
 
-Depending on your scenario, you can also build and manage custom container solutions with other Azure services. These services include [Virtual Machines](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Web Apps](../articles/app-service-web/app-service-web-overview.md), and [Batch](../articles/batch/batch-technical-overview.md).  
+Depending on your scenario, you can also build and manage custom container solutions with other Azure services. These services include [Virtual Machines](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Web Apps](../articles/app-service/app-service-web-overview.md), and [Batch](../articles/batch/batch-technical-overview.md).  
 
 ### What is the difference between Azure Container Service and ACS Engine? 
 Azure Container Service is an SLA-backed Azure service with features in the Azure portal, Azure command-line tools, and Azure APIs. The service enables you to quickly implement and manage clusters running standard container orchestration tools with a relatively small number of configuration choices. 
 
 [ACS Engine](http://github.com/Azure/acs-engine) is an open-source project that enables power users to customize the cluster configuration at every level. This ability to alter the configuration of both infrastructure and software means that we offer no SLA for ACS Engine. Support is handled through the open-source project on GitHub rather than through official Microsoft channels. 
+
+For additional details please refer to our [support policy for containers](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
 
 ## Cluster management
 
@@ -62,7 +64,7 @@ You can find commonly used URLs for your cluster in the Azure portal, the Azure 
 
 ### How do I tell which orchestrator version is running in my cluster?
 
-* DC/OS: See the [Mesosphere documentation](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-)
+* DC/OS: See the [Mesosphere documentation](https://docs.mesosphere.com/1.7/usage/cli/command-reference/)
 * Docker Swarm: Run `docker version`
 * Kubernetes: Run `kubectl version`
 
@@ -89,6 +91,16 @@ ssh userName@masterFQDN –A –p 22 
 ```
 
 For more information, see [Connect to an Azure Container Service cluster](../articles/container-service/kubernetes/container-service-connect.md).
+
+### My DNS name resolution isn't working on Windows. What should I do?
+
+There are some known DNS issues on Windows whose fixes are still actively being phased out. Please ensure you are using the most updated acs-engine and Windows version (with [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) and [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) installed) so that your environment can benefit from this. Otherwise, please see the table below for mitigation steps:
+
+| DNS Symptom | Workaround  |
+|-------------|-------------|
+|When workload container is unstable and crashes, the network namespace is cleaned up | Redeploy any affected services |
+| Service VIP access is broken | Configure a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) to always keep one normal (non-privileged) pod running |
+|When node on which container is running becomes unavailable, DNS queries may fail resulting in a "negative cache entry" | Run the following inside affected containers: <ul><li> `New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxCacheTtl -Value 0 -Type DWord`</li><li>`New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxNegativeCacheTtl -Value 0 -Type DWord`</li><li>`Restart-Service dnscache` </li></ul><br> If this still doesn't resolve the problem, then try to disable DNS caching completely: <ul><li>`Set-Service dnscache -StartupType disabled`</li><li>`Stop-Service dnscache`</li></ul> |
 
 ## Next steps
 

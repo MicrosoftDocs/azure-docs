@@ -1,64 +1,44 @@
 ---
 title: Compare Azure IoT Hub to Azure Event Hubs | Microsoft Docs
 description: A comparison of the IoT Hub and Event Hubs Azure services highlighting functional differences and use cases. The comparison includes supported protocols, device management, monitoring, and file uploads.
-services: iot-hub
-documentationcenter: ''
-author: fsautomata
+author: kgremban
 manager: timlt
-editor: ''
-
-ms.assetid: aeddea62-8302-48e2-9aad-c5a0e5f5abe9
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/31/2017
-ms.author: elioda
-
+services: iot-hub
+ms.topic: conceptual
+ms.date: 04/01/2018
+ms.author: kgremban
 ---
-# Comparison of Azure IoT Hub and Azure Event Hubs
-One of the main use cases for IoT Hub is to gather telemetry from devices. For this reason, IoT Hub is often compared to [Azure Event Hubs][Azure Event Hubs]. Like IoT Hub, Event Hubs is an event processing service that enables event and telemetry ingress to the cloud at massive scale, with low latency and high reliability.
 
-However, the services have many differences, which are detailed in the following table:
+# Connecting IoT Devices to Azure: IoT Hub and Event Hubs
 
-| Area | IoT Hub | Event Hubs |
-| --- | --- | --- |
-| Communication patterns | Enables [device-to-cloud communications][lnk-d2c-guidance] (messaging, file uploads, and reported properties) and [cloud-to-device communications][lnk-c2d-guidance] (direct methods, desired properties, messaging). |Only enables event ingress (usually considered for device-to-cloud scenarios). |
-| Device state information | [Device twins][lnk-twins] can store and query device state information. | No device state information can be stored. |
-| Device protocol support |Supports MQTT, MQTT over WebSockets, AMQP, AMQP over WebSockets, and HTTP. Additionally, IoT Hub works with the [Azure IoT protocol gateway][lnk-azure-protocol-gateway], a customizable protocol gateway implementation to support custom protocols. |Supports AMQP, AMQP over WebSockets, and HTTP. |
-| Security |Provides per-device identity and revocable access control. See the [Security section of the IoT Hub developer guide]. |Provides Event Hubs-wide [shared access policies][Event Hubs - security], with limited revocation support through [publisher's policies][Event Hubs publisher policies]. IoT solutions are often required to implement a custom solution to support per-device credentials and anti-spoofing measures. |
-| Operations monitoring |Enables IoT solutions to subscribe to a rich set of device identity management and connectivity events such as individual device authentication errors, throttling, and bad format exceptions. These events enable you to quickly identify connectivity problems at the individual device level. |Exposes only aggregate metrics. |
-| Scale |Is optimized to support millions of simultaneously connected devices. |Meters the connections as per [Azure Service Bus quotas][Azure Service Bus quotas]. On the other hand, Event Hubs enables you to specify the partition for each message sent. |
-| Device SDKs |Provides [device SDKs][Azure IoT SDKs] for a large variety of platforms and languages, in addition to direct MQTT, AMQP, and HTTP APIs. |Is supported on .NET, Java, and C, in addition to AMQP and HTTP send interfaces. |
-| File upload |Enables IoT solutions to upload files from devices to the cloud. Includes a file notification endpoint for workflow integration and an operations monitoring category for debugging support. | Not supported. |
-| Route messages to multiple endpoints | Up to 10 custom endpoints are supported. Rules determine how messages are routed to custom endpoints. For more information, see [Send and receive messages with IoT Hub][lnk-devguide-messaging]. | Requires additional code to be written and hosted for message dispatching. |
+Azure provides services specifically developed for diverse types of connectivity and communication to help you connect your data to the power of the cloud. Both Azure IoT Hub and Azure Event Hubs are cloud services that can ingest large amounts of data and process or store that data for business insights. The two services are similar in that they both support ingestion of data with low latency and high reliability, but they are designed for different purposes. IoT Hub was developed specifically to address the unique requirements of connecting IoT devices, at-scale, to the Azure Cloud while Event Hubs was designed for big data streaming. This is why Microsoft recommends using Azure IoT Hub to connect IoT devices to Azure
 
-In summary, even if the only use case is device-to-cloud telemetry ingress, IoT Hub provides a service that is designed for IoT device connectivity. It continues to expand the value propositions for these scenarios with IoT-specific features. Event Hubs is designed for event ingress at a massive scale, both in the context of inter-datacenter and intra-datacenter scenarios.
+Azure IoT Hub is the cloud gateway that connects IoT devices to gather data to drive business insights and automation. In addition, IoT Hub includes features that enrich the relationship between your devices and your backend systems. Bi-directional communication capabilities mean that while you receive data from devices you can also send commands and policies back to devices, for example, to update properties or invoke device management actions.  This cloud-to-device connectivity also powers the important capability of delivering cloud intelligence to your edge devices with Azure IoT Edge. The unique device-level identity provided by IoT Hub helps better secure your IoT solution from potential attacks. 
 
-It is not uncommon to use both IoT Hub and Event Hubs in the same solution. IoT Hub handles the device-to-cloud communication, and Event Hubs handles later-stage event ingress into real-time processing engines.
+[Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is the big data streaming service of Azure. It is designed for high throughput data streaming scenarios where customers may send billions of requests per day. Event Hubs uses a partitioned consumer model to scale out your stream and is integrated into the big data and analytics services of Azure including Databricks, Stream Analytics, ADLS, and HDInsight. With features like Event Hubs Capture and Auto-Inflate, this service is designed to support your big data apps and solutions. Additionally, IoT Hub leverages Event Hubs for its telemetry flow path, so your IoT solution also benefits from the tremendous power of Event Hubs.
+
+To summarize, while both solutions are designed for data ingestion at a massive scale, only IoT Hub provides the rich IoT-specific capabilities that are designed for you to maximize the business value of connecting your IoT devices to the Azure cloud.  If your IoT journey is just beginning, starting with IoT Hub to support your data ingestion scenarios will assure that you have instant access to the full-featured IoT capabilities once your business and technical needs require them.
+
+The following table provides details about how the two tiers of IoT Hub compare to Event Hubs when you're evaluating them for IoT capabilities. For more information about the standard and basic tiers of IoT Hub, see [How to choose the right IoT Hub tier](iot-hub-scaling.md).
+
+| IoT Capability | IoT Hub standard tier | IoT Hub basic tier | Event Hubs |
+| --- | --- | --- | --- |
+| Device-to-cloud messaging | ![Check][checkmark] | ![Check][checkmark] | ![Check][checkmark] |
+| Protocols: HTTPS, AMQP, AMQP over webSockets | ![Check][checkmark] | ![Check][checkmark] | ![Check][checkmark] |
+| Protocols: MQTT, MQTT over webSockets | ![Check][checkmark] | ![Check][checkmark] |  |
+| Per-device identity | ![Check][checkmark] | ![Check][checkmark] |  |
+| File upload from devices | ![Check][checkmark] | ![Check][checkmark] |  |
+| Device Provisioning Service | ![Check][checkmark] | ![Check][checkmark] |  |
+| Cloud-to-device messaging | ![Check][checkmark] |  |  |
+| Device twin and device management | ![Check][checkmark] |  |  |
+| IoT Edge | ![Check][checkmark] |  |  |
+
+Even if the only use case is device-to-cloud data ingestion, we highly recommend using IoT Hub as it provides a service that is designed for IoT device connectivity. 
 
 ### Next steps
-To learn more about planning your IoT Hub deployment, see [Scaling, HA, and DR][lnk-scaling].
 
-To further explore the capabilities of IoT Hub, see:
+To further explore the capabilities of IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).
 
-* [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with IoT Edge][lnk-iotedge]
-
-[lnk-twins]: iot-hub-devguide-device-twins.md
-[lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
-[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
-
-[Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
-[Security section of the IoT Hub developer guide]: iot-hub-devguide-security.md
-[Event Hubs - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
-[Event Hubs publisher policies]: ../event-hubs/event-hubs-features.md#event-publishers
-[Azure Service Bus quotas]: ../service-bus-messaging/service-bus-quotas.md
-[Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks
-[lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
-
-[lnk-scaling]: iot-hub-scaling.md
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
-[lnk-devguide-messaging]: iot-hub-devguide-messaging.md
+<!-- This one reference link is used over and over. --robinsh -->
+[checkmark]: ./media/iot-hub-compare-event-hubs/ic195031.png

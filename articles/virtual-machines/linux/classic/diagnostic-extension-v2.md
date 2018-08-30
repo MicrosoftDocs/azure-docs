@@ -1,9 +1,9 @@
----
+﻿---
 title: Monitoring a Linux VM with a VM extension | Microsoft Docs
 description: Learn how to use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM in Azure.
 services: virtual-machines-linux
 author: NingKuang
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 
@@ -49,7 +49,7 @@ The latest version of the extension is **2.3**, and **any old versions (2.0, 2.1
 
 You can enable this extension by using the [Azure portal](https://portal.azure.com/#), Azure PowerShell, or Azure CLI scripts.
 
-To view and configure the system and performance data directly from the Azure portal, follow [these steps on the Azure blog](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
+To view and configure the system and performance data directly from the Azure portal, follow [these steps on the Azure blog](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
 
 This article focuses on how to enable and configure the extension by using Azure CLI commands. This allows you to read and view the data directly from the storage table.
 
@@ -84,7 +84,7 @@ Step 1. Create a file named PrivateConfig.json with the following content:
         "storageAccountKey" : "the key of the account"
     }
 
-Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.\* --private-config-path PrivateConfig.json**.
 
 ### Scenario 2. Customize the performance monitor metrics
 
@@ -149,7 +149,7 @@ Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExten
 
 ## Review your data
 
-The performance and diagnostic data are stored in an Azure Storage table. Review [How to use Azure Table Storage from Ruby](../../../storage/storage-ruby-how-to-use-table-storage.md) to learn how to access the data in the storage table by using Azure CLI scripts.
+The performance and diagnostic data are stored in an Azure Storage table. Review [How to use Azure Table Storage from Ruby](../../../cosmos-db/table-storage-how-to-use-ruby.md) to learn how to access the data in the storage table by using Azure CLI scripts.
 
 In addition, you can use following UI tools to access the data:
 

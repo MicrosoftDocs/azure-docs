@@ -4,10 +4,9 @@ description: Identifies the parts of your application that you need to update to
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: FA7DDF07-97AC-4EBE-8C50-A9737D43B38E
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
@@ -15,16 +14,13 @@ ms.author: scottwhi
 
 # Video Search API upgrade guide
 
-> [!NOTE]
-> V7 is a Preview release. All aspects of the API and documentation are subject to change. Use only for testing in a non-production environment.
-
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Video Search API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
 
 ## Breaking changes
 
 ### Endpoints
 
-- The endpoint's version number changed from v5 to v7. For example, https://api.cognitive.microsoft.com/bing/\*\*v7.0**/videos/search.
+- The endpoint's version number changed from v5 to v7. For example, `https://api.cognitive.microsoft.com/bing/v7.0/videos/search`.
 
 ### Error response objects and error codes
 

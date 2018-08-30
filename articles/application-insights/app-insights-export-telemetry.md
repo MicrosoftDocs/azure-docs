@@ -3,7 +3,7 @@ title: Continuous export of telemetry from Application Insights | Microsoft Docs
 description: Export diagnostic and usage data to storage in Microsoft Azure, and download it from there.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
@@ -11,15 +11,13 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 02/23/2017
-ms.author: cfreeman
+ms.topic: conceptual
+ms.date: 08/20/2018
+ms.author: mbullwin
 
 ---
 # Export telemetry from Application Insights
 Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
-
-Using Continuous Export may incur an additional charge. Check your [pricing model](http://azure.microsoft.com/pricing/details/application-insights/).
 
 Before you set up continuous export, there are some alternatives you might want to consider:
 
@@ -28,6 +26,7 @@ Before you set up continuous export, there are some alternatives you might want 
 * [Analytics](app-insights-analytics.md) provides a powerful query language for telemetry. It can also export results.
 * If you're looking to [explore your data in Power BI](app-insights-export-power-bi.md), you can do that without using Continuous Export.
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
+* You can also access setup [continuous export via Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
 After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](app-insights-data-retention-privacy.md).
 
@@ -38,7 +37,7 @@ After Continuous Export copies your data to storage (where it can stay for as lo
 
 2. Choose the telemetry data types you want to export.
 
-3. Create or select an [Azure storage account](../storage/storage-introduction.md) where you want to store the data.
+3. Create or select an [Azure storage account](../storage/common/storage-introduction.md) where you want to store the data.
 
     > [!Warning]
     > By default, the storage location will be set to the same geographical region as your Application Insights resource. If you store in a different region, you may incur transfer charges.
@@ -73,7 +72,7 @@ The exported data is the raw telemetry we receive from your application, except 
 
 Data that has been discarded by [sampling](app-insights-sampling.md) is not included in the exported data.
 
-Other calculated metrics are not included. For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
+Other calculated metrics are not included. For example, we don't export average CPU utilization, but we do export the raw telemetry from which the average is computed.
 
 The data also includes the results of any [availability web tests](app-insights-monitor-web-app-availability.md) that you have set up.
 
@@ -109,7 +108,7 @@ Where
 
 ![View the telemetry with a suitable tool](./media/app-insights-export-telemetry/06-json.png)
 
-Time durations are in ticks, where 10 000 ticks = 1ms. For example, these values show a time of 1ms to send a request from the browser, 3ms to receive it, and 1.8s to process the page in the browser:
+Time durations are in ticks, where 10 000 ticks = 1 ms. For example, these values show a time of 1 ms to send a request from the browser, 3 ms to receive it, and 1.8 s to process the page in the browser:
 
     "sendRequest": {"value": 10000.0},
     "receiveRequest": {"value": 30000.0},

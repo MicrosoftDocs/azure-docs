@@ -10,14 +10,15 @@ tags: billing
 
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
+ms.date: 08/31/2017
 ms.author: tonguyen
 
 ---
 # Understand terms on your Microsoft Azure detailed usage charges 
+
 The detailed usage charges CSV file contains daily and meter level usage charges for the current billing period. 
 
 To get your detailed usage file,
@@ -30,11 +31,15 @@ available, download version 2. That's the most current file format.
 Usage charges are the total **monthly** charges on a subscription. The
 usage charges don’t take into account any credits or discounts.
 
+>[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
+
 ## Detailed terms and descriptions of your detailed usage file
+
 The following sections describe the important terms shown in version 2
 of the detailed usage file.
 
 ### Statement
+
 The top section of the detailed usage CSV file shows the services that
 you used during the month's billing period. The following table lists
 the terms and descriptions shown in this section.

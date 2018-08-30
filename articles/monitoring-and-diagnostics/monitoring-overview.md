@@ -1,100 +1,156 @@
 ---
-title: Monitoring in Microsoft Azure | Microsoft Docs
-description:  Choices when you want to monitor anything in Microsoft Azure. Azure Monitor, Application Insights Log Analytics
-author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/12/2017
-ms.author: robb
-
+title: Monitoring Azure applications and resources
+description: Overview of Microsoft services and functionalities that contribute to a complete monitoring strategy for your Azure services and applications.
+author: bwren
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: overview
+ms.date: 03/05/2018
+ms.author: bwren
+ms.component: ""
 ---
 
-# Overview of Monitoring in Microsoft Azure
-This article provides an overview of tools available for monitoring Microsoft Azure. It applies to 
-- monitoring applications running in Microsoft Azure 
-- tools/services that run outside of Azure that can monitor objects in Azure. 
+# Monitoring Azure applications and resources
 
-It discusses the various products and services available and how they work together. It can assist you to determine which tools are most appropriate for you in what cases.  
+Monitoring is the act of collecting and analyzing data to determine the performance, health, and availability of your business application and the resources that it depends on. An effective monitoring strategy helps you understand the detailed operation of the components of your application. It also helps you increase your uptime by proactively notifying you of critical issues so that you can resolve them before they become problems.
 
-## Why use Monitoring and Diagnostics?
+Azure includes multiple services that individually perform a specific role or task in the monitoring space. Together, these services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your application and the Azure resources that support them. They can also work to monitor critical on-premises resources in order to provide a hybrid monitoring environment. Understanding the tools and data that are available is the first step in developing a complete monitoring strategy for your application.
 
-Performance issues in your cloud app can impact your business. With multiple interconnected components and frequent releases, degradations can happen at any time. And if you’re developing an app, your users usually discover issues that you didn’t find in testing. You should know about these issues immediately, and have tools for diagnosing and fixing the problems. Microsoft Azure has a range of tools for identifying these problems.
+The following diagram shows a conceptual view of the components that work together to provide monitoring of Azure resources. The following sections describe these components and provide links to detailed technical information.
 
-## How do I monitor my Azure cloud apps?
-
-There is a range of tools for monitoring Azure applications and services. Some of their features overlap. This is partly for historical reasons and partly due to the blurring between development and operation of an application. 
-
-Here are the principal tools:
-
--	**Azure Monitor** is basic tool for monitoring services running on Azure. It gives you infrastructure-level data about the throughput of a service and the surrounding environment. If you are managing your apps all in Azure, deciding whether to scale up or down resources, then Azure Monitor gives you what you use to start.
-
--	**Application Insights** can be used for development and as a production monitoring solution. It works by installing a package into your app, and so gives you a more internal view of what’s going on. Its data includes response times of dependencies, exception traces, debugging snapshots, execution profiles. It provides powerful smart tools for analyzing all this telemetry both to help you debug an app and to help you understand what users are doing with it. You can tell whether a spike in response times is due to something in an app, or some external resourcing issue. If you use Visual Studio and the app is at fault, you can be taken right to the problem line(s) of code so you can fix it.  
-
--	**Log Analytics** is for those who need to tune performance and plan maintenance on applications running in production. It is based in Azure. It collects and aggregates data from many sources, though with a delay of 10 to 15 minutes. It provides a holistic IT management solution for Azure, on-premises, and third-party cloud-based infrastructure (such as Amazon Web Services). It provides richer tools to analyze data across more sources, allows complex queries across all logs, and can proactively alert on specified conditions.  You can even collect custom data into its central repository so can query and visualize it. 
-
--	**System Center Operations Manager (SCOM)** is for managing and monitoring large cloud installations. You might be already familiar with it as a management tool for on-premises Windows Sever and Hyper-V based-clouds, but it can also integrate with and manage Azure apps. Among other things, it can install Application Insights on existing live apps.  If an app goes down, it tells you in seconds. Note that Log Analytics does not replace SCOM. It works well in conjunction with it.  
+![Monitoring overview](media/monitoring-overview/monitoring-products-overview.png)
 
 
-## Accessing monitoring in the Azure portal
-All Azure monitoring services are now available in a single UI pane. For more information on how to access this area, see [Get started with Azure Monitor](monitoring-get-started.md). 
+## Shared Capabilities
+The core and deep monitoring service share functionality which provides the following capabilities.
 
-You can also access monitoring functions for specific resources by highlighting those resources and drilling down into their monitoring options. 
+### Alerts
+[Azure alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) proactively notify you of critical conditions and potentially take corrective action. Alert rules can use data from multiple sources, including metrics and logs. They use [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md), which contain unique sets of recipients and actions in response to an alert. Based on your requirements, you can have alerts start external actions by using webhooks and integrate with your ITSM tools.
 
-## Examples of when to use which tool 
+### Dashboards
+You can use [Azure dashboards](../azure-portal/azure-portal-dashboards.md) to combine different kinds of data into a single pane in the [Azure portal](https://portal.azure.com). You can then share the dashboard with other Azure users.
 
-The following sections show some basic scenarios and which tools should be used together. 
+For example, you can create a dashboard that combines:
+- Tiles that show a graph of metrics
+- A table of activity logs
+- A usage chart from Application Insights
+- The output of a log search in Log Analytics
 
-### Scenario 1 – Fix errors in an Azure Application under development   
+You can also export Log Analytics data to [Power BI](https://docs.microsoft.com/power-bi/). There, you can take advantage of additional visualizations. You can also make the data available to others within and outside your organization.
 
-**The best option is to use Application Insights, Azure Monitor, and Visual Studio together**
+### Metrics Explorer
+[Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md) are numerical values generated by an Azure resource to help you understand the operation and performance of the resource. By using Metrics Explorer, you can send metrics to Log Analytics for analysis with data from other sources.
 
-Azure now provides the full power of the Visual Studio debugger in the cloud. Configure Azure Monitor to send telemetry to Application Insights. Enable Visual Studio to include the Application Insights SDK in your application. Once in Application Insights, you can use the Application Map to discover visually which parts of your running application are unhealthy or not. For those parts that are not healthy, errors and exceptions are already available for exploration. You can use the various analytics in Application Insights to go deeper. If you are not sure about the error, you can use the Visual Studio debugger to trace into code and pin point a problem further. 
 
-For more information, see [Monitoring Web Apps](../application-insights/app-insights-azure-web-apps.md) and refer to the table of contents on the left for instructions on various types of apps and languages.  
+## Core monitoring
+Core monitoring provides fundamental, required monitoring across Azure resources. These services require minimal configuration and collect core telemetry that the premium monitoring services use.    
 
-### Scenario 2 – Debug an Azure .NET web application for errors that only show in production 
+### Azure Monitor
+[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) enables core monitoring for Azure services by allowing the collection of [metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md), [activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), and [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). For example, the activity log tells you when new resources are created or modified.
+
+Metrics are available that provide performance statistics for different resources and even the operating system inside a virtual machine. You can view this data with one of the explorers in the Azure portal and create alerts based on these metrics. Azure Monitor provides the fastest metrics pipeline (5 minute down to 1 minute), so you should use it for time critical alerts and notifications.
+
+You can also send these metrics and logs to Azure Log Analytics for trending and detailed analysis, or create additional alert rules to proactively notify you of critical issues as a result of that analysis.  
 
 > [!NOTE]
-> These features are in preview. 
+> Sending multi-dimensional metrics to Log Analytics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
+>
+> *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported to Log Analytics the metric will be represented as all incoming messages across all queues in the Event Hub.
+>
+>
 
-**The best option is to use Application Insights and if possible Visual Studio for the full debugging experience.**
+### Azure Advisor
+[Azure Advisor](../advisor/advisor-overview.md) constantly monitors your resource configuration and usage telemetry. It then gives you personalized recommendations based on best practices. Following these recommendations helps you improve the performance, security, and availability of the resources that support your applications.
 
-Use the Application Insights Snapshot Debugger to debug your app. When a certain error threshold occurs with production components, the system automatically captures telemetry in windows of time called “snapshots." The amount captured is safe for a production cloud because it’s small enough not to affect performance but significant enough to allow tracing.  The system can capture multiple snapshots. You can look at a point in time in the Azure portal or use Visual Studio for the full experience. With Visual Studio, developers can walk through that snapshot as if they were debugging in real-time. Local variables, parameters, memory, and frames are all available. Developers must be granted access to this production data via an RBAC role.  
+### Service Health
+The health of your application relies on the Azure services that it depends on. [Azure Service Health](../service-health/service-health-overview.md) identifies any issues with Azure services that might affect your application. Service Health also helps you plan for scheduled maintenance.
 
-For more information, see [Snapshot debugging](../application-insights/app-insights-snapshot-debugger.md). 
+### Activity Log
+[Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) provides data about the operation of an Azure resource. This information includes:
+- Configuration changes to the resource.
+- Service health incidents.
+- Recommendations on better utilizing the resource.
+- Information related to autoscale operations.
 
-### Scenario 3 – Debug an Azure application that uses containers or microservices 
+You can view logs for a particular resource on its page in the Azure portal. Or you can view logs from multiple resources in Activity Log Explorer.
 
-**Same as scenario 1. Use Application Insights, Azure Monitor, and Visual Studio together**
-Application Insights also supports gathering telemetry from processes running inside containers and from microservices (Kubernetes, Docker, Azure Service Fabric). For more information, [see this video on debugging containers and microservices](https://go.microsoft.com/fwlink/?linkid=848184). 
+You can also send activity log entries to Log Analytics. There, you can analyze the logs by using data collected by management solutions, agents on virtual machines, and other sources.
+
+## Deep monitoring services
+The following Azure services provide rich capabilities for collecting and analyzing monitoring data at a deeper level. These services build on core monitoring and take advantage of common functionality in Azure. They provide powerful analytics with collected data to give you unique insights into your applications and infrastructure. They present data in the context of scenarios that are targeted to different audiences.
+
+## Deep application monitoring
+### Application Insights
+You can use [Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) to monitor availability, performance, and usage of your application, whether it's hosted in the cloud or on-premises.
+
+By instrumenting your application to work with Application Insights, you can achieve deep insights and implement DevOps scenarios. You can quickly identify and diagnose errors without waiting for a user to report them. With the information that you collect, you can make informed choices on your application's maintenance and improvements.
+
+Application Insights has extensive tools for interacting with the data that it collects. Application Insights stores its data in a common repository. It can take advantage of shared functionality such as alerts, dashboards, and deep analysis with the Log Analytics query language.
+
+## Deep infrastructure monitoring
+### Log Analytics
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) plays a central role in Azure monitoring by collecting data from a variety of resources (including non-Microsoft tools) into a single repository. There, you can analyze the data by using a powerful query language.
+
+Application Insights and Azure Security Center store their data in the Log Analytics data store and use its analytics engine. Data is also collected from Azure Monitor, management solutions, and agents installed on virtual machines in the cloud or on-premises. This shared functionality helps you form a complete picture of your environment.
+
+### Management solutions
+[Management solutions](../log-analytics/log-analytics-add-solutions.md) are packaged sets of logic that provide insights for a particular application or service. They rely on Log Analytics to store and analyze the monitoring data that they collect.
+
+Management solutions are available from Microsoft and partners to provide monitoring for various Azure and third-party services. Examples of monitoring solutions include:
+* [Container Monitoring](../log-analytics/log-analytics-containers.md), which helps you view and manage your container hosts.
+* [Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md), which collects and visualizes performance metrics for Azure SQL databases.
+
+You can view all available management solutions in the Azure Portal under the *Monitor* screen.
+
+### Network Monitoring
+There are several tools that work together to monitor various aspects of your network, whether in Azure or on-premises.  
+
+[Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) provides scenario-based monitoring and diagnostics for different network scenarios in Azure. It stores data in Azure metrics and diagnostics for further analysis. It works with the following solutions for monitoring various aspects of your network.
+
+[Network Performance Monitor (NPM)](../log-analytics/log-analytics-network-performance-monitor.md) is a cloud-based network monitoring solution that monitors connectivity across public clouds, datacenters, and on-premises environments.
+
+[ExpressRoute Monitor](../expressroute/how-to-npm.md) is an  NPM capability that monitors the end-to-end connectivity and performance over Azure ExpressRoute circuits.
+
+[DNS Analytics](../log-analytics/log-analytics-dns.md) is a solution that provides security, performance, and operations-related insights, based on your DNS servers.
+
+[Service Endpoint Monitor](../networking/network-monitoring-overview.md) tests the reachability of applications and detects performance bottlenecks across on-premises, carrier networks, and cloud/private data centers.
 
 
-### Scenario 4 – Fix performance issues in your Azure application
+### Service Map
+[Service Map](../operations-management-suite/operations-management-suite-service-map.md) provides insight into your IaaS environment by analyzing virtual machines with their different processes and dependencies on other computers and external processes. It integrates events, performance data, and management solutions in Log Analytics. You can then view this data in the context of each computer and its relation to the rest of your environment.
 
-The [Application Insights profiler](../application-insights/app-insights-profiler.md) is designed to help troubleshoot these types of issues. You can identify and troubleshoot performance issues for applications running in App Services (Web Apps, Logic Apps, Mobile Apps, API Apps) and other compute resources such as Virtual Machines, Virtual machine scale sets (VMSS), Cloud Services, and Service Fabric. 
+Service Map is similar to [Application Map in Application Insights](../application-insights/app-insights-app-map.md). It focuses on the infrastructure components that support your applications.
 
-> [!NOTE]
-> Ability to profile Virtual Machines, Virtual machine scale sets (VMSS), Cloud Services and Services Fabric is in preview.   
 
-In addition, you are proactively notified by email about certain types of errors, such as slow page load times, by the Smart Detection tool.  You don’t need to do any configuration on this tool. For more information, see [Smart Detection - Performance Anomalies](../application-insights/app-insights-proactive-performance-diagnostics.md) and [Smart Detection - Performance Anomalies](https://azure.microsoft.com/blog/Enhancments-ApplicationInsights-SmartDetection/preview).
+## Example scenarios
+Following are high-level examples that illustrate how you can use different monitoring tools in Azure for different scenarios.
+
+### Monitoring a web application
+Consider a web application deployed in Azure through Azure App Service, Azure Storage, and a SQL database. You start by accessing [metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) for these resources on their pages in the Azure portal. You look for critical information, such as the number of requests to the application and average response time. You also identify any configuration changes.
+
+You then go to Monitor in the portal in order to view metrics and logs for the different resources together. As you determine standard parameters for the metrics, you [create alert rules](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md). These rules proactively notify you when, for example, average response time increases beyond a threshold. To get a quick view of your application's daily performance, you create an Azure dashboard to show graphs of metrics that represent critical KPIs.
+
+To perform deeper monitoring of your application, you [configure it for Application Insights](../application-insights/quick-monitor-portal.md). You can now collect additional data that provides further insight into the operation and performance of your application. Application Insights detects the underlying relationships between your app’s components. It allows for visual representation via [Application Map](../application-insights/app-insights-app-map.md) coupled with [end-to-end tracing](../application-insights/app-insights-transaction-diagnostics.md) to diagnose the exact component, dependency, or exception where a problem has occurred.
+
+You create [Availability tests](../application-insights/app-insights-monitor-web-app-availability.md) to proactively test your application from different regions. To help your developers, you [enable the Profiler](../application-insights/enable-profiler-compute.md) so you can track requests and any exceptions down to a specific line of code. To gain further visibility into services used in your application, you add the [SQL Analytics solution](../log-analytics/log-analytics-azure-sql.md) to collect additional data in Log Analytics.
+
+After some time, you decide to investigate the root cause for periods when performance on the site has fallen below a threshold. You write a query by using Log Analytics. It helps you correlate the usage and performance data collected by Application Insights with configuration and performance data across the Azure resources that support your application.
+
+
+### Monitoring virtual machines
+You have a mix of Windows and Linux virtual machines running in Azure. You use Azure Monitor to view [activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) and [host-level metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md). You add the [Azure Diagnostics extension](../virtual-machines/linux/tutorial-monitoring.md#install-diagnostics-extension) to the virtual machines in order to collect metrics from the guest operating system. You then create [alert rules](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) to proactively notify you when basic metrics like processor utilization and memory cross thresholds.
+
+To collect more details about virtual machines running a business application, you [create a Log Analytics workspace and enable the VM extension](../log-analytics/log-analytics-quick-collect-azurevm.md) on each machine. You configure the [collection of different data sources](../log-analytics/log-analytics-data-sources.md) for your application and [create views](../log-analytics/log-analytics-view-designer.md) to report on its daily operation and performance. You then [create alert rules](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) to notify you when particular error events are received.
+
+To continuously monitor the health of the installed agent, you add the [Agent Health management solution](../operations-management-suite/oms-solution-agenthealth.md). To gain further insight into the application, you [add the dependency agent](../operations-management-suite/operations-management-suite-service-map-configure.md) to the virtual machines in order to add them to [Service Map](../operations-management-suite/operations-management-suite-service-map.md). Service Map discovers critical processes and identifies connections between machines with other services.
+
+After a reported outage, you use Service Map to perform forensics to identify the particular machines that experienced the problem. You then create a [query on the Log Analytics data](../log-analytics/log-analytics-log-search-new.md) to identify the issue in the future. And you create an alert rule to proactively notify you when the condition is detected.
 
 
 
 ## Next steps
-Learn more about
+Learn more about:
 
-* [Azure Monitor in a video from Ignite 2016](https://myignite.microsoft.com/videos/4977)
-* [Getting Started with Azure Monitor](monitoring-get-started.md)
-* [Azure Diagnostics](../azure-diagnostics.md) if you are attempting to diagnose problems in your Cloud Service, Virtual Machine, Virtual machine scale set, or Service Fabric application.
-* [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) if you are trying to diagnostic problems in your App Service Web app.
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) and the [Operations Management Suite](https://www.microsoft.com/oms/)
-production monitoring solution
+* [Azure Monitor](https://azure.microsoft.com/services/monitor/) to get started with core monitoring metrics and alerts.
+* [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) if you're trying to diagnose problems in your App Service web app.
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) for analyzing collected monitoring data and logs.

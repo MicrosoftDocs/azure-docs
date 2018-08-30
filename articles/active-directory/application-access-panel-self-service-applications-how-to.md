@@ -3,18 +3,19 @@ title: How to use self-service application access | Microsoft Docs
 description: Enable self-service application access to allow users to find their own applications
 services: active-directory
 documentationcenter: ''
-author: ajamess
-manager: femila
+author: barbkess
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.reviewer: japere
+ms.author: barbkess
+ms.reviewer: japere,asteen
 ---
 
 # How to use self-service application access
@@ -45,7 +46,7 @@ To enable self-service application access to an application, follow the steps be
 
 1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -80,4 +81,4 @@ Once you complete Self-service application configuration, users can navigate to 
 These approvals support single approval workflows only, meaning that if you specify multiple approvers, any single approver may approve access to the application.
 
 ## Next steps
-[Setting up Azure Active Directory for self-service group management](active-directory-accessmanagement-self-service-group-management.md)
+[Setting up Azure Active Directory for self-service group management](users-groups-roles/groups-self-service-management.md)

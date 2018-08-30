@@ -3,17 +3,19 @@ title: Problem installing the Application Proxy Agent Connector | Microsoft Docs
 description: How to troubleshoot issues you might face when installing the Application Proxy Agent Connector 
 services: active-directory
 documentationcenter: ''
-author: ajamess
-manager: femila
+author: barbkess
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
+ms.topic: conceptual
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: asteen
 
 ---
 
@@ -35,9 +37,9 @@ When the installation of a connector fails, the root cause is usually one of the
 
 **Objective:** Verify that the connector machine can connect to the AAD Application Proxy registration endpoint as well as Microsoft login page.
 
-1.  Open a browser and go to the following web page: <https://aadap-portcheck.connectorporttest.msappproxy.net> , and verify that the connectivity to Central US and East US datacenters with ports 9090 and 9091 is working.
+1.  Open a browser and go to the following web page: <https://aadap-portcheck.connectorporttest.msappproxy.net> , and verify that the connectivity to Central US and East US datacenters with ports 80 and 443 is working.
 
-2.  If any of those ports is not successful (doesn’t have a green checkmark), verify that the Firewall or backend proxy has \*.msappproxy.net with ports 9090 and 9091 defined correctly.
+2.  If any of those ports is not successful (doesn’t have a green checkmark), verify that the Firewall or backend proxy has \*.msappproxy.net with ports 80 and 443 defined correctly.
 
 3.  Open a browser (separate tab) and go to the following web page: <https://login.microsoftonline.com>, make sure that you can login to that page.
 
@@ -67,4 +69,4 @@ Connect to <https://login.microsoftonline.com> and use the same credentials. Mak
 Select your user account, then “Directory Role” in the resulting menu. Verify that the selected role is “Global administrator”. If you are unable to access any of the pages along these steps, you are not a global administrator.
 
 ## Next steps
-[Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md)
+[Understand Azure AD Application Proxy connectors](manage-apps/application-proxy-connectors.md)

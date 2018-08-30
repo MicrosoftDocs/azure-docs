@@ -3,8 +3,8 @@ title: Use Azure Resource Manager templates to Create and Configure a Log Analyt
 description: You can use Azure Resource Manager templates to create and configure Log Analytics workspaces.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
-manager: jochan
+author: mgoedtel
+manager: carmonm
 editor: ''
 
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
@@ -12,15 +12,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
-ms.topic: article
-ms.date: 06/01/2017
-ms.author: richrund
-
+ms.topic: conceptual
+ms.date: 06/11/2018
+ms.author: magoedte
+ms.component: na
 ---
+
 # Manage Log Analytics using Azure Resource Manager templates
 You can use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces. Examples of the tasks you can perform with templates include:
 
-* Create a workspace
+* Create a workspace including setting pricing tier 
 * Add a solution
 * Create saved searches
 * Create a computer group
@@ -28,28 +29,123 @@ You can use [Azure Resource Manager templates](../azure-resource-manager/resourc
 * Collect performance counters from Linux and Windows computers
 * Collect events from syslog on Linux computers 
 * Collect events from Windows event logs
-* Collect custom event logs
 * Add the log analytics agent to an Azure virtual machine
 * Configure log analytics to index data collected using Azure diagnostics
 
-This article provides a template samples that illustrate some of the configuration that you can perform from templates.
+This article provides template samples that illustrate some of the configuration that you can perform with templates.
 
-## Create and configure a Log Analytics Workspace
+## API versions
+The following table lists the API version for the resources used in this example.
+
+| Resource | Resource type | API version |
+|:---|:---|:---|:---|
+| Workspace   | workspaces    | 2017-03-15-preview |
+| Search      | savedSearches | 2017-03-15-preview |
+| Data source | datasources   | 2015-11-01-preview |
+| Solution    | solutions     | 2015-11-01-preview |
+
+## Create a Log Analytics workspace
+The following example creates a workspace using a template from  your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment.  
+
+The following parameters set a default value:
+
+* Location - defaults to East US
+* SKU - defaults to the new Per-GB pricing tier released in the April 2018 pricing model
+
+>[!WARNING]
+>If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**. 
+>
+
+### Create and deploy template
+
+1. Copy and paste the following JSON syntax into your file:
+
+    ```json
+    {
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "String",
+			"metadata": {
+              "description": "Specifies the name of the workspace."
+            }
+        },
+        "location": {
+            "type": "String",
+			"allowedValues": [
+			  "eastus",
+			  "westus"
+			],
+			"defaultValue": "eastus",
+			"metadata": {
+			  "description": "Specifies the location in which to create the workspace."
+			}
+        },
+        "sku": {
+            "type": "String",
+			"allowedValues": [
+              "Standalone",
+              "PerNode",
+		      "PerGB2018"
+            ],
+			"defaultValue": "PerGB2018",
+	        "metadata": {
+            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
+		}
+          },
+    },
+    "resources": [
+        {
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('workspaceName')]",
+            "apiVersion": "2017-03-15-preview",
+            "location": "[parameters('location')]",
+            "properties": {
+                "sku": {
+                    "Name": "[parameters('sku')]"
+                },
+                "features": {
+                    "searchVersion": 1
+                }
+            }
+          }
+       ]
+    }
+    ```
+2. Edit the template to meet your requirements.  Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
+3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
+4. You are ready to deploy this template. You use either PowerShell or the command line to cretae the workspace.
+
+   * For PowerShell use the following commands from the folder containing the template:
+   
+        ```powershell
+        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        ```
+
+   * For command line, use the following commands from the folder containing the template:
+
+        ```cmd
+        azure config mode arm
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+        ```
+
+The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:<br><br> ![Example result when deployment is complete](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+
+## Configure a Log Analytics workspace
 The following template sample illustrates how to:
 
-1. Create a workspace, including setting data retention
-2. Add solutions to the workspace
-3. Create saved searches
-4. Create a computer group
-5. Enable collection of IIS logs from computers with the Windows agent installed
-6. Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
-7. Collect syslog events from Linux computers
-8. Collect Error and Warning events from the Application Event Log from Windows computers
-9. Collect Memory Available Mbytes performance counter from Windows computers
-10. Collect a custom log 
-11. Collect IIS logs and Windows Event logs written by Azure diagnostics to a storage account
+1. Add solutions to the workspace
+2. Create saved searches
+3. Create a computer group
+4. Enable collection of IIS logs from computers with the Windows agent installed
+5. Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
+6. Collect syslog events from Linux computers
+7. Collect Error and Warning events from the Application Event Log from Windows computers
+8. Collect Memory Available Mbytes performance counter from Windows computers
+9. Collect IIS logs and Windows Event logs written by Azure diagnostics to a storage account
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -65,10 +161,11 @@ The following template sample illustrates how to:
       "allowedValues": [
         "Free",
         "Standalone",
-        "PerNode"
+        "PerNode",
+        "PerGB2018"
       ],
       "metadata": {
-        "description": "Service Tier: Free, Standalone, or PerNode"
+        "description": "Service Tier: Free, Standalone, PerNode, or PerGB2018"
     }
       },
     "dataRetention": {
@@ -119,7 +216,7 @@ The following template sample illustrates how to:
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -127,11 +224,11 @@ The following template sample illustrates how to:
         "sku": {
           "Name": "[parameters('serviceTier')]"
         },
-    "retention": "[parameters('dataRetention')]"
+    "retentionInDays": "[parameters('dataRetention')]"
       },
       "resources": [
         {
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2017-03-15-preview",
           "name": "VMSS Queries2",
           "type": "savedSearches",
           "dependsOn": [
@@ -141,7 +238,7 @@ The following template sample illustrates how to:
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Type:Event Source=ServiceFabricNodeBootstrapAgent | dedup Computer | measure count () by Computer",
+            "Query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },
@@ -281,61 +378,6 @@ The following template sample illustrates how to:
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLog1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLog",
-          "properties": {
-            "customLogName": "sampleCustomLog1",
-            "description": "test custom log datasources",
-            "inputs": [
-              {
-                "location": {
-                  "fileSystemLocations": {
-                    "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ],
-                    "linuxFileTypeLogPaths": [ "/var/logs" ]
-                  }
-                },
-                "recordDelimiter": {
-                  "regexDelimiter": {
-                    "pattern": "\\n",
-                    "matchIndex": 0,
-                    "matchIndexSpecified": true,
-                    "numberedGroup": null
-                  }
-                }
-              }
-            ],
-            "extractions": [
-              {
-                "extractionName": "TimeGenerated",
-                "extractionType": "DateTime",
-                "extractionProperties": {
-                  "dateTimeExtraction": {
-                    "regex": null,
-                    "joinStringRegex": null
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLogCollection1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLogCollection",
-          "properties": {
-            "state": "LinuxLogsEnabled"
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [
@@ -415,9 +457,33 @@ The following template sample illustrates how to:
     }
   ],
   "outputs": {
-    "workspaceOutput": {
-      "value": "[reference(concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName')), '2015-11-01-preview')]",
-      "type": "object"
+    "workspaceName": {
+      "type": "string",
+      "value": "[parameters('workspaceName')]"
+    },
+    "provisioningState": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').provisioningState]"
+    },
+    "source": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').source]"
+    },
+    "customerId": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').customerId]"
+    },
+    "pricingTier": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').sku.name]"
+    },
+    "retentionInDays": {
+      "type": "int",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
+    },
+    "portalUrl": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').portalUrl]"
     }
   }
 }
@@ -431,14 +497,15 @@ To deploy the sample template:
 3. Use PowerShell or the command line to deploy the template
 
 #### PowerShell
-`New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
+```powershell
+New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+```
 
 #### Command line
-```
+```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
-
 
 ## Example Resource Manager templates
 The Azure quickstart template gallery includes several templates for Log Analytics, including:
@@ -447,10 +514,9 @@ The Azure quickstart template gallery includes several templates for Log Analyti
 * [Deploy a virtual machine running Linux with the Log Analytics VM extension](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Monitor Azure Site Recovery using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Monitor Azure Web Apps using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Monitor SQL Azure using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-* [Deploy a Service Fabric cluster and monitor it with an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-* [Deploy a Service Fabric cluster and create a Log Analytics workspace to monitor it](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
+* [Add an existing storage account to OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## Next steps
-* [Deploy agents into Azure VMs using Resource Manager templates](log-analytics-azure-vm-extension.md)
+* [Deploy Windows agent to Azure VMs using Resource Manager template](../virtual-machines/windows/extensions-oms.md).
+* [Deploy Linux agent to Azure VMs using Resource Manager template](../virtual-machines/linux/extensions-oms.md).
 

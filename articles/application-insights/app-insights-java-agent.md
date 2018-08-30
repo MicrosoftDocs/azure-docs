@@ -1,9 +1,9 @@
----
+﻿---
 title: Performance monitoring for Java web apps in Azure Application Insights | Microsoft Docs
 description: Extended performance and usage monitoring of your Java website with Application Insights.
 services: application-insights
 documentationcenter: java
-author: harelbr
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
@@ -11,27 +11,27 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/24/2016
-ms.author: cfreeman
+ms.author: mbullwin
 
 ---
-# Monitor dependencies, exceptions and execution times in Java web apps
+# Monitor dependencies, caught exceptions and method execution times in Java web apps
 
 
 If you have [instrumented your Java web app with Application Insights][java], you can use the Java Agent to get deeper insights, without any code changes:
 
 * **Dependencies:** Data about calls that your application makes to other components, including:
-  * **REST calls** made via HttpClient, OkHttp, and RestTemplate (Spring).
-  * **Redis** calls made via the Jedis client. If the call takes longer than 10s, the agent also fetches the call arguments.
-  * **[JDBC calls](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB or Apache Derby DB. "executeBatch" calls are supported. For MySQL and PostgreSQL, if the call takes longer than 10s, the agent reports the query plan.
-* **Caught exceptions:** Data about exceptions that are handled by your code.
-* **Method execution time:** Data about the time it takes to execute specific methods.
+  * **REST calls** made via HttpClient, OkHttp, and RestTemplate (Spring) are captured.
+  * **Redis** calls made via the Jedis client are captured.
+  * **[JDBC calls](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - MySQL, SQL Server and Oracle DB commands are automatically captured. For MySQL, if the call takes longer than 10s, the agent reports the query plan.
+* **Caught exceptions:** Information about exceptions that are handled by your code.
+* **Method execution time:** Information about the time it takes to execute specific methods.
 
 To use the Java agent, you install it on your server. Your web apps must be instrumented with the [Application Insights Java SDK][java]. 
 
 ## Install the Application Insights agent for Java
-1. On the machine running your Java server, [download the agent](https://aka.ms/aijavasdk).
+1. On the machine running your Java server, [download the agent](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Please ensure to download the same verson of Java Agent as Application Insights Java SDK core and web packages.
 2. Edit the application server startup script, and add the following JVM:
    
     `javaagent:`*full path to the agent JAR file*

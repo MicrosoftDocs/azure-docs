@@ -1,21 +1,13 @@
 ---
-title: Get started with Data Catalog | Microsoft Docs
+title: Get started with Azure Data Catalog
 description: End-to-end tutorial presenting the scenarios and capabilities of Azure Data Catalog.
-documentationcenter: ''
 services: data-catalog
 author: steelanddata
-manager: jhubbard
-editor: ''
-tags: ''
-
+ms.author: spelluru
 ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 05/03/2017
-ms.author: spelluru
+ms.topic: conceptual
+ms.date: 01/18/2018
 
 ---
 # Get started with Azure Data Catalog
@@ -37,14 +29,14 @@ This tutorial helps you get started with Azure Data Catalog. You perform the fol
 ### Azure subscription
 To set up Azure Data Catalog, you must be the owner or co-owner of an Azure subscription.
 
-Azure subscriptions help you organize access to cloud service resources like Azure Data Catalog. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by department, project, regional office, and so on. Every cloud service belongs to a subscription, and you need to have a subscription before setting up Azure Data Catalog. To learn more, see [Manage accounts, subscriptions, and administrative roles](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+Azure subscriptions help you organize access to cloud service resources like Azure Data Catalog. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by department, project, regional office, and so on. Every cloud service belongs to a subscription, and you need to have a subscription before setting up Azure Data Catalog. To learn more, see [Manage accounts, subscriptions, and administrative roles](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 If you don't have a subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/) for details.
 
 ### Azure Active Directory
 To set up Azure Data Catalog, you must be signed in with an Azure Active Directory (Azure AD) user account. You must be the owner or co-owner of an Azure subscription.  
 
-Azure AD provides an easy way for your business to manage identity and access, both in the cloud and on-premises. You can use a single work or school account to sign in to any cloud or on-premises web application. Azure Data Catalog uses Azure AD to authenticate sign-in. To learn more, see [What is Azure Active Directory](../active-directory/active-directory-whatis.md).
+Azure AD provides an easy way for your business to manage identity and access, both in the cloud and on-premises. You can use a single work or school account to sign in to any cloud or on-premises web application. Azure Data Catalog uses Azure AD to authenticate sign-in. To learn more, see [What is Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
 
 ### Azure Active Directory policy configuration
 You may encounter a situation where you can sign in to the Azure Data Catalog portal, but when you attempt to sign in to the data source registration tool, you encounter an error message that prevents you from signing in. This error may occur when you are on the company network or when you are connecting from outside the company network.

@@ -1,4 +1,3 @@
-# Scale agent nodes in a Container Service cluster
 After [deploying an Azure Container Service cluster](../articles/container-service/dcos-swarm/container-service-deployment.md), you might need to change the number of agent nodes. For example, you might need more agents so you can run more container applications or instances. 
 
 You can change the number of agent nodes in a DC/OS, Docker Swarm, or Kubernetes cluster by using the Azure portal or the Azure CLI 2.0. 
@@ -15,7 +14,7 @@ You can change the number of agent nodes in a DC/OS, Docker Swarm, or Kubernetes
 
 ## Scale with the Azure CLI 2.0
 
-Make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI 2.0 and logged in to an azure account (`az login`).
+Make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI 2.0 and signed in to an Azure account (`az login`).
 
 ### See the current agent count
 To see the number of agents currently in the cluster, run the `az acs show` command. This shows the cluster configuration. For example, the following command shows the configuration of the container service named `containerservice-myACSName` in the resource group `myResourceGroup`:
@@ -49,7 +48,6 @@ For more command options, run `az acs scale --help`.
 
 * Depending on the orchestrator you deploy in your cluster, you can separately scale the number of instances of a container running on the cluster. For example, in a DC/OS cluster, use the [Marathon UI](../articles/container-service/dcos-swarm/container-service-mesos-marathon-ui.md) to change the number of instances of a container application.
 
-* Currently, autoscaling of agent nodes in a container service cluster is not supported.
 
 ## Next steps
 * See [more examples](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) of using Azure CLI 2.0 commands with Azure Container Service.

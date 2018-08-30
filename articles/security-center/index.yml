@@ -1,0 +1,70 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Security Center Documentation
+metadata:
+  title: Azure Security Center Documentation - Tutorials, API Reference | Microsoft Doc
+  meta.description: Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. Learn how to get started with Security Center, apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks with our quickstarts and tutorials..
+  services: security-center
+  author: cmcclister
+  manager: carolz
+  ms.service: security-center
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/26/18
+  ms.author: cmcclister
+abstract:
+  description: Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. Learn how to get started with Security Center, apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks with our quickstarts and tutorials.
+sections:
+- title: 5-Minute Quickstarts
+  items: 
+  - type: paragraph
+    text: Learn how to onboard your VMs and computers to Security Center and connect your security solutions.
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /media/common/i_subscription.svg
+      text: Onboard Azure subscriptions
+      href: /azure/security-center/security-center-get-started
+    - image: 
+        src: /media/logos/logo_Windows.svg
+      text: Onboard Windows computers
+      href: /azure/security-center/quick-onboard-windows-computer
+    - image: 
+        src: /media/logos/logo_linux.svg
+      text: Onboard Linux computers
+      href: /azure/security-center/quick-onboard-linux-computer
+    - image: 
+        src: /media/common/i_multi-connect.svg
+      text: Connect security solutions
+      href: /azure/security-center/quick-security-solutions
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to define security policies, protect your resources against malicious activity, and respond to security alerts and incidents.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/security-center/tutorial-security-policy">Define and assess security policies</a>
+    - html: <a href="/azure/security-center/tutorial-protect-resources">Protect your resources</a>
+    - html: <a href="/azure/security-center/tutorial-security-incident">Respond to security incidents</a>
+- title: Free Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure Security Center Fundamentals
+      href: https://mva.microsoft.com/en-US/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=Ld0LK42jE_006218965
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_azure.svg
+        href: https://mva.microsoft.com/en-US/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=Ld0LK42jE_006218965
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - html: <a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">REST API Reference</a>
+    - html: <a href="https://azure.microsoft.com/updates/?product=security-center">Service updates</a>

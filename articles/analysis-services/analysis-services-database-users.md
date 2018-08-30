@@ -1,26 +1,18 @@
 ---
 title: Manage database roles and users in Azure Analysis Services | Microsoft Docs
 description: Learn how to manage database roles and users on an Analysis Services server in Azure.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
-manager: erikre
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 06/26/2016
+manager: kfile
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Manage database roles and users
 
-At the model database level, all users must belong to a role. Roles define users with particular permissions for the model database. Any user or security group added to a role must have an account in an Azure AD tenant in the same subscription as the server.
+At the model database level, all users must belong to a role. Roles define users with particular permissions for the model database. Any user or security group added to a role must have an account in an Azure AD tenant in the same subscription as the server. 
 
 How you define roles is different depending on the tool you use, but the effect is the same.
 
@@ -30,6 +22,9 @@ Role permissions include:
 *  **Read** -  Users can use a client application to connect to and analyze model database data.
 
 When creating a tabular model project, you create roles and add users or groups to those roles by using Role Manager in SSDT. When deployed to a server, you use SSMS, [Analysis Services PowerShell cmdlets](https://msdn.microsoft.com/library/hh758425.aspx), or [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) to add or remove roles and user members.
+
+> [!NOTE]
+> Security groups must have the `MailEnabled` property set to `True`.
 
 ## To add or manage roles and users in SSDT  
   

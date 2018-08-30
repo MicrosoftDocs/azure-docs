@@ -1,105 +1,104 @@
 ---
 title: Configuring your Azure project using multiple service configurations | Microsoft Docs
-description: Learn how to configure an Azure cloud service project by changing the ServiceDefinition.csdef and ServiceConfiguration.cscfg files.
+description: Learn how to configure an Azure cloud service project by changing the ServiceDefinition.csdef, ServiceConfiguration.Local.cscfg, and ServiceConfiguration.Cloud.cscfg files.
 services: visual-studio-online
-documentationcenter: na
-author: TomArcher
+author: ghogen
 manager: douge
-editor: ''
-
-ms.assetid: a4fb79ed-384f-4183-9f74-5cac257206b9
-ms.service: multiple
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/11/2016
-ms.author: tarcher
-
+assetId: a4fb79ed-384f-4183-9f74-5cac257206b9
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
+ms.date: 11/11/2017
+ms.author: ghogen
 ---
-# Configuring Your Azure Project Using Multiple Service Configurations
-An Azure cloud service project includes two configuration files: ServiceDefinition.csdef and ServiceConfiguration.cscfg. These files are packaged with your Azure cloud service application and deployed to Azure.
+# Configuring your Azure project in Visual Studio to use multiple service configurations
 
-* The **ServiceDefinition.csdef** file contains the metadata that is required by the Azure environment for the requirements of your cloud service application, including what roles it contains. This file also contains configuration settings that apply to all instances. These configuration settings can be read at runtime using the Azure Service Hosting Runtime API. This file cannot be updated while your service is running in Azure.
-* The **ServiceConfiguration.cscfg** file sets values for the configuration settings defined in the service definition file and specifies the number of instances to run for each role. This file can be updated while your cloud service is running in Azure.
+An Azure cloud service project in Visual Studio includes three configuration files: `ServiceDefinition.csdef`, `ServiceConfiguration.Local.cscfg`, and `ServiceConfiguration.Cloud.cscfg`:
 
-The Azure Tools for Microsoft Visual Studio provide property pages that you can use to set configuration settings stored in these files. To access the property pages, double-click the role reference underneath the Azure cloud service project in Solution Explorer, or right-click the role reference and choose **Properties**, as shown in the following figure.
+- `ServiceDefinition.csdef` is deployed to Azure to describe the requirements of the cloud service and its roles, and to provide settings that apply to all instances. Settings can be read at runtime using the Azure Service Hosting Runtime API. This file can be updated on Azure only when the cloud service is stopped.
+- `ServiceConfiguration.Local.cscfg` and `ServiceConfiguration.Cloud.cscfg` provide values for settings in the definition file and specify the number of instances to run for each role. The "Local" file contains values used in local debugging; the "Cloud" file is deployed to Azure as `ServiceConfiguration.cscfg` and provides settings for the server environment. This file can be updated while your cloud service is running in Azure.
+
+Configuration settings are managed and modified in Visual Studio using property pages for the applicable role (right-click the role and select **Properties**, or double-click the role). Changes can be scoped to whichever configuration is chosen in the **Service Configuration** drop-down. The properties for web and worker roles are similar, except where described in the following sections.
 
 ![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-For information about the underlying schemas for the service definition and service configuration files, see the [Schema Reference](https://msdn.microsoft.com/library/azure/dd179398.aspx). For more information about service configuration, see [How to Configure Cloud Services](cloud-services/cloud-services-how-to-configure.md).
+For information about the underlying schemas for the service definition and service configuration files, see the [.csdef XML Schema](cloud-services/schema-csdef-file.md) and [.cscfg XML Schema](cloud-services/schema-cscfg-file.md) articles. For more information about service configuration, see [How to Configure Cloud Services](cloud-services/cloud-services-how-to-configure-portal.md).
 
-## Configuring role properties
-The property pages for a web role and a worker role are similar, although there are a few differences, pointed out in the following sections.
 
-From the **Caching** page, you can configure the Azure caching services.
+## Configuration page
 
-### Configuration page
-On the **Configuration** page, you can set these properties:
+### Service Configuration
 
-**Instances**
+Selects which `ServiceConfiguration.*.cscfg` file is affected by changes. By default, there are Local and Cloud variants, and you can use the **Manage...** command to copy, rename, and remove configuration files. These files are added to your cloud service project and appear in **Solution Explorer**. However, renaming or removing configurations can be done only from this control.
+
+### Instances
 
 Set the **Instance** count property to the number of instances the service should run for this role.
 
 Set the **VM size** property to **Extra Small**, **Small**, **Medium**, **Large**, or **Extra Large**.  For more information, see [Sizes for Cloud Services](cloud-services/cloud-services-sizes-specs.md).
 
-**Startup Action** (Web Role Only)
+### Startup Action (Web role only)
 
 Set this property to specify that Visual Studio should launch a web browser for either the HTTP endpoints or the HTTPS endpoints, or both when you start debugging.
 
-The HTTPS endpoint option is available only if you have already defined an HTTPS endpoint for your role. You can define an HTTPS endpoint on the **Endpoints** property page.
+The **HTTPS endpoint** option is available only if you have already defined an HTTPS endpoint for your role. You can define an HTTPS endpoint on the **Endpoints** property page.
 
-If you have already added an HTTPS endpoint, the HTTPS endpoint option is enabled by default, and Visual Studio will launch a browser for this endpoint when you start debugging, in addition to a browser for your HTTP endpoint. This assumes that both startup options are enabled.
+If you have already added an HTTPS endpoint, the HTTPS endpoint option is enabled by default, and Visual Studio launches a browser for this endpoint when you start debugging, in addition to a browser for your HTTP endpoint, assuming both startup options are enabled.
 
-**Diagnostics**
+### Diagnostics
 
-By default, diagnostics is enabled for the Web role. The Azure cloud service project and storage account are set to use the local storage emulator. When you are ready to deploy to Azure, you can select the builder button (**…**) to update the storage account to use Azure storage in the cloud. You can transfer the diagnostics data to the storage account on demand or at automatically scheduled intervals. For more information about Azure diagnostics, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](cloud-services/cloud-services-dotnet-diagnostics.md).
+By default, diagnostics are enabled for the Web role. The Azure cloud service project and storage account are set to use the local storage emulator. When you are ready to deploy to Azure, you can select the builder button (**...**) to use Azure storage instead. You can transfer the diagnostics data to the storage account on demand or at automatically scheduled intervals. For more information about Azure diagnostics, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## Settings page
-On the **Settings** page, you can add configuration settings for your service. Configuration settings are name-value pairs. Code running in the role can read the values of your configuration settings at runtime using classes provided by the [Azure Managed Library](http://go.microsoft.com/fwlink?LinkID=171026). Specifically, the [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) method returns the value of a named configuration setting at runtime.
 
-### Configuring a connection string to a storage account
-A connection string is a configuration setting that provides connection and authentication information for the storage emulator or for an Azure storage account. Whenever your code must access Azure storage services data – that is, blob, queue, or table data – from code running in a role, you will have to define a connection string for that storage account.
+On the **Settings** page, you can add settings to a configuration as name-value pairs. Code running in the role can read the values of your configuration settings at runtime using classes provided by the [Azure Managed Library](http://go.microsoft.com/fwlink?LinkID=171026), specifically, the [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) method.
 
-A connection string that points to an Azure storage account must use a defined format. For information about how to create connection strings, see [Configure Azure Storage Connection Strings](storage/storage-configure-connection-string.md).
+### Configuring a connection string for a storage account
 
-When you are ready to test your service against the Azure storage services, or when you are ready to deploy your cloud service to Azure, you can change the value of any connection strings to point to your Azure storage account. Select (**…**), select **Enter storage account credentials**. Enter your account information that includes your account name and account key. In the **Storage Account Connection String** dialog box, you can also indicate whether you want to use the default HTTPS endpoints (the default option), the default HTTP endpoints, or custom endpoints. You might decide to use custom endpoints if you have registered a custom domain name for your service, as described in [Configure a custom domain name for blob data in an Azure storage account](storage/storage-custom-domain-name.md).
+A connection string is a setting that provides connection and authentication information for the storage emulator or for an Azure storage account. Whenever code in a role accesses Azure storage (blobs, queues, or tables), it needs a connection string.
 
-> [!IMPORTANT]
-> You must modify your connection strings to point to an Azure storage account before you deploy your service. Failing to do this may cause your role not to start, or to cycle through the initializing, busy, and stopping states.
-> 
-> 
+> [!Note]
+> A connection string for Azure storage account must use a defined format (see [Configure Azure Storage Connection Strings](storage/common/storage-configure-connection-string.md)).
+
+You can set the connection string to use local storage as needed, then set to an Azure storage account when you deploy the application the cloud service. Failure to set the connection string properly may cause your role not to start, or to cycle through the initializing, busy, and stopping states.
+
+To create a connection string, select **Add Setting** and set **Type** to "Connection String".
+
+For new or existing connection strings, select **...*** on the right of the **Value** field to open the **Create Storage Connection String** dialog:
+
+1. Under **Connect using**, choose the **Your subscription** option to select a storage account from a subscription. Visual Studio then obtains the storage account credentials automatically from the `.publishsettings` file.
+1. Selecting **Manually entered credentials** lets you specify the account name and key directly using information from the Azure portal. To copy the account key:
+    a. Navigate to the storage account on the Azure portal and select **Manage Keys**.
+    2. To copy the account key, navigate to the storage account on the Azure portal, select **Settings > Access keys**, then use the copy button to copy the primary access key to the clipboard.
+1. Select one of the connection options. **Specify custom endpoints** asks you to specify specific URLs for blobs, tables, and queues. Custom endpoints allow you to use [custom domains](storage/blobs/storage-custom-domain-name.md) and to control access more exactly. See [Configure Azure Storage Connection Strings](./storage/common/storage-configure-connection-string.md).
+1. Select **OK**, then **File > Save** to update the configuration with the new connection string.
+
+Again, when you publish your application to Azure, choose the service configuration that contains the Azure storage account for the connection string. After your application is published, verify that the application works as expected against the Azure storage services.
+
+For more information about how to update service configurations, see the section [Manage connection strings for storage accounts](vs-azure-tools-configure-roles-for-cloud-service.md#manage-connection-strings-for-storage-accounts).
 
 ## Endpoints page
-A worker role can have any number of HTTP, HTTPS, or TCP endpoints. Endpoints can be input endpoints, which are available to external clients, or internal endpoints, which are available to other roles that are running in the service.
 
-* To make an HTTP endpoint available to external clients and Web browsers, change the endpoint type to input, and specify a name and a public port number.
-* To make an HTTPS endpoint available to external clients and Web browsers, change the endpoint type to **input**, and specify a name, a public port number, and a management certificate name.
-  
-    Note that before you can specify a management certificate, you must define the certificate on the **Certificates** property page.
-* To make an endpoint available for internal access by other roles in the cloud service, change the endpoint type to internal, and specify a name and possible private ports for this endpoint.
+A web role typically has a single HTTP endpoint on port 80. A worker role, on the other hand, can have any number of HTTP, HTTPS, or TCP endpoints. Endpoints can be input endpoints, which are available to external clients, or internal endpoints, which are available to other roles that are running in the service.
+
+- To make an HTTP endpoint available to external clients and Web browsers, change the endpoint type to input, and specify a name and a public port number.
+- To make an HTTPS endpoint available to external clients and Web browsers, change the endpoint type to **input**, and specify a name, a public port number, and a management certificate name. You must also define the certificate on the **Certificates** property page before you can specify a management certificate. 
+- To make an endpoint available for internal access by other roles in the cloud service, change the endpoint type to internal, and specify a name and possible private ports for this endpoint.
 
 ## Local storage page
+
 You can use the **Local Storage** property page to reserve one or more local storage resources for a role. A local storage resource is a reserved directory in the file system of the Azure virtual machine in which an instance of a role is running.
 
 ## Certificates page
-On the **Certificates** page, you can associate certificates with your role. The certificates that you add can be used to configure your HTTPS endpoints on the **Endpoints** property page.
 
-The **Certificates** property page adds information about your certificates to your service configuration. Note that your certificates are not packaged with your service; you must upload your certificates separately to Azure through the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+The **Certificates** property page adds information about your certificates to your service configuration. Note that your certificates are not packaged with your service; you must upload your certificates separately to Azure through the [Azure portal](http://portal.azure.com).
 
-To associate a certificate with your role, provide a name for the certificate. You use this name to refer to the certificate when you configure an HTTPS endpoint on the **Endpoints** property page. Next, specify whether the certificate store is **Local Machine** or **Current User** and the name of the store. Finally, enter the certificate's thumbprint. If the certificate is in the Current User\Personal (My) store, you can enter the certificate's thumbprint by selecting the certificate from a populated list. If it resides in any other location, enter the thumbprint value by hand.
+Adding a certificate here adds information about your certificates to your service configuration. Certificates are not packaged with the service; you must upload your certificates separately through the Azure portal.
 
-When you add a certificate from the certificate store, any intermediate certificates are automatically added to the configuration settings for you. These intermediate certificates must also be uploaded to Azure in order to correctly configure your service for SSL.
+To associate a certificate with your role, provide a name for the certificate. You use this name to refer to the certificate when you configure an HTTPS endpoint on the **Endpoints** page. Next, specify whether the certificate store is **Local Machine** or **Current User** and the name of the store. Finally, enter the certificate's thumbprint. If the certificate is in the Current User\Personal (My) store, you can enter the certificate's thumbprint by selecting the certificate from a populated list. If it resides in any other location, enter the thumbprint value by hand.
+
+When you add a certificate from the certificate store, any intermediate certificates are automatically added to the configuration settings for you. In addition, these intermediate certificates must be uploaded to Azure to correctly configure your service for SSL.
 
 Any management certificates that you associate with your service apply to your service only when it is running in the cloud. When your service is running in the local development environment, it uses a standard certificate that is managed by the compute emulator.
-
-## Configuring the Azure cloud service project
-To configure settings that apply to an entire Azure cloud service project, you first open the shortcut menu for that project node, and then you choose Properties to open its property pages. The following table shows those property pages.
-
-| Property Page | Description |
-| --- | --- |
-| Application |From this page, you can display information about the version of Azure Tools that this cloud service project uses, and you can upgrade to the current version of the tools. |
-| Build Events |From this page, you can set pre-build and post-build events. |
-| Development |From this page, you can specify build configuration instructions and the conditions under which any post-build events are run. |
-| Web |From this page, you can configure settings that relate to the web server. |
-

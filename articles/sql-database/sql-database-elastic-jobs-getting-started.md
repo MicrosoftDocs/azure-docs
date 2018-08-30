@@ -1,43 +1,42 @@
 ---
 title: Getting started with elastic database jobs | Microsoft Docs
-description: how to use elastic database jobs
+description: Use elastic database jobs to execute T-SQL scripts that span multiple databases.
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: ddove
-
-ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/06/2016
-ms.author: ddove
+ms.topic: conceptual
+ms.date: 07/16/2018
+ms.author: sstein
 
 ---
 # Getting started with Elastic Database jobs
-Elastic Database jobs (preview) for Azure SQL Database allows you to reliability execute T-SQL scripts that span multiple databases while automatically retrying and providing eventual completion guarantees. For more information about the Elastic Database job feature, please see the [feature overview page](sql-database-elastic-jobs-overview.md).
 
-This topic extends the sample found in [Getting started with Elastic Database tools](sql-database-elastic-scale-get-started.md). When completed, you will: learn how to create and manage jobs that manage a group of related databases. It is not required to use the Elastic Scale tools in order to take advantage of the benefits of Elastic jobs.
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
+Elastic Database jobs (preview) for Azure SQL Database allows you to reliably execute T-SQL scripts that span multiple databases while automatically retrying and providing eventual completion guarantees. For more information about the Elastic Database job feature, see [Elastic jobs](sql-database-elastic-jobs-overview.md).
+
+This article extends the sample found in [Getting started with Elastic Database tools](sql-database-elastic-scale-get-started.md). When completed, you learn how to create and manage jobs that manage a group of related databases. It is not required to use the Elastic Scale tools in order to take advantage of the benefits of Elastic jobs.
 
 ## Prerequisites
 Download and run the [Getting started with Elastic Database tools sample](sql-database-elastic-scale-get-started.md).
 
 ## Create a shard map manager using the sample app
-Here you will create a shard map manager along with several shards, followed by insertion of data into the shards. If you already have shards set up with sharded data in them, you can skip the following steps and move to the next section.
+Here you create a shard map manager along with several shards, followed by insertion of data into the shards. If you already have shards set up with sharded data in them, you can skip the following steps and move to the next section.
 
-1. Build and run the **Getting started with Elastic Database tools** sample application. Follow the steps until step 7 in the section [Download and run the sample app](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). At the end of Step 7, you will see the following command prompt:
+1. Build and run the **Getting started with Elastic Database tools** sample application. Follow the steps until step 7 in the section [Download and run the sample app](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). At the end of Step 7, you see the following command prompt:
 
    ![command prompt](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 
 2. In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat this action four times. This inserts sample data rows in your shards.
-3. The [Azure Portal](https://portal.azure.com) should show three new databases:
+3. The [Azure portal](https://portal.azure.com) should show three new databases:
 
    ![Visual Studio confirmation](./media/sql-database-elastic-query-getting-started/portal.png)
 
-   At this point, we will create a custom database collection that reflects all the databases in the shard map. This will allow us to create and execute a job that add a new table across shards.
+   At this point, we create a custom database collection that reflects all the databases in the shard map. This allows us to create and execute a job that adds a new table across shards.
 
 Here we would usually create a shard map target, using the **New-AzureSqlJobTarget** cmdlet. The shard map manager database must be set as a database target and then the specific shard map is specified as a target. Instead, we are going to enumerate all the databases in the server and add the databases to the new custom collection with the exception of master database.
 
@@ -160,13 +159,13 @@ Use the same **Get-AzureSqlJobExecution** cmdlet with the **IncludeChildren** pa
 ## View the state across multiple job executions
 The **Get-AzureSqlJobExecution** cmdlet has multiple optional parameters that can be used to display multiple job executions, filtered through the provided parameters. The following demonstrates some of the possible ways to use Get-AzureSqlJobExecution:
 
-Retrieve all active top level job executions:
+Retrieve all active top-level job executions:
 
    ```
     Get-AzureSqlJobExecution
    ```
 
-Retrieve all top level job executions, including inactive job executions:
+Retrieve all top-level job executions, including inactive job executions:
 
    ```
     Get-AzureSqlJobExecution -IncludeInactive
@@ -223,7 +222,7 @@ The following PowerShell script can be used to view the details of a job task ex
    ```
 
 ## Retrieve failures within job task executions
-The JobTaskExecution object includes a property for the Lifecycle of the task along with a Message property. If a job task execution failed, the Lifecycle property will be set to *Failed* and the Message property will be set to the resulting exception message and its stack. If a job did not succeed, it is important to view the details of job tasks that did not succeed for a given job.
+The JobTaskExecution object includes a property for the Lifecycle of the task along with a Message property. If a job task execution failed, the Lifecycle property is set to *Failed* and the Message property is set to the resulting exception message and its stack. If a job did not succeed, it is important to view the details of job tasks that did not succeed for a given job.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -251,7 +250,7 @@ Elastic Database jobs supports creating custom execution policies that can be ap
 Execution policies currently allow for defining:
 
 * Name: Identifier for the execution policy.
-* Job Timeout: Total time before a job will be canceled by Elastic Database Jobs.
+* Job Timeout: Total time before a job is canceled by Elastic Database Jobs.
 * Initial Retry Interval: Interval to wait before first retry.
 * Maximum Retry Interval: Cap of retry intervals to use.
 * Retry Interval Backoff Coefficient: Coefficient used to calculate the next interval between retries.  The following formula is used: (Initial Retry Interval) * Math.pow((Interval Backoff Coefficient), (Number of Retries) - 2).
@@ -294,14 +293,14 @@ Update the desired execution policy to update:
    ```
 
 ## Cancel a job
-Elastic Database Jobs supports jobs cancellation requests.  If Elastic Database Jobs detects a cancellation request for a job currently being executed, it will attempt to stop the job.
+Elastic Database Jobs supports jobs cancellation requests.  If Elastic Database Jobs detects a cancellation request for a job currently being executed, it attempts to stop the job.
 
 There are two different ways that Elastic Database Jobs can perform a cancellation:
 
-1. Canceling Currently Executing Tasks: If a cancellation is detected while a task is currently running, a cancellation will be attempted within the currently executing aspect of the task.  For example: If there is a long running query currently being performed when a cancellation is attempted, there will be an attempt to cancel the query.
-2. Canceling Task Retries: If a cancellation is detected by the control thread before a task is launched for execution, the control thread will avoid launching the task and declare the request as canceled.
+1. Canceling Currently Executing Tasks: If a cancellation is detected while a task is currently running, a cancellation is attempted within the currently executing aspect of the task.  For example: If there is a long running query currently being performed when a cancellation is attempted, there is an attempt to cancel the query.
+2. Canceling Task Retries: If a cancellation is detected by the control thread before a task is launched for execution, the control thread avoids launching the task and declare the request as canceled.
 
-If a job cancellation is requested for a parent job, the cancellation request will be honored for the parent job and for all of its child jobs.
+If a job cancellation is requested for a parent job, the cancellation request is honored for the parent job and for all of its child jobs.
 
 To submit a cancellation request, use the **Stop-AzureSqlJobExecution** cmdlet and set the **JobExecutionId** parameter.
 
@@ -311,7 +310,7 @@ To submit a cancellation request, use the **Stop-AzureSqlJobExecution** cmdlet a
    ```
 
 ## Delete a job by name and the job's history
-Elastic Database jobs supports asynchronous deletion of jobs. A job can be marked for deletion and the system will delete the job and all its job history after all job executions have completed for the job. The system will not automatically cancel active job executions.  
+Elastic Database jobs supports asynchronous deletion of jobs. A job can be marked for deletion and the system deletes the job and all its job history after all job executions have completed for the job. The system does not automatically cancel active job executions.  
 
 Instead, Stop-AzureSqlJobExecution must be invoked to cancel active job executions.
 
@@ -344,7 +343,7 @@ Set the following variables to reflect the desired custom collection target conf
    ```
 
 ### Add databases to a custom database collection target
-Database targets can be associated with custom database collection targets to create a group of databases. Whenever a job is created that targets a custom database collection target, it will be expanded to target the databases associated to the group at the time of execution.
+Database targets can be associated with custom database collection targets to create a group of databases. Whenever a job is created that targets a custom database collection target, it is expanded to target the databases associated to the group at the time of execution.
 
 Add the desired database to a specific custom collection:
 
@@ -366,7 +365,7 @@ Use the **Get-AzureSqlJobTarget** cmdlet to retrieve the child databases within 
    ```
 
 ### Create a job to execute a script across a custom database collection target
-Use the **New-AzureSqlJob** cmdlet to create a job against a group of databases defined by a custom database collection target. Elastic Database jobs will expand the job into multiple child jobs each corresponding to a database associated with the custom database collection target and ensure that the script is executed against each database. Again, it is important that scripts are idempotent to be resilient to retries.
+Use the **New-AzureSqlJob** cmdlet to create a job against a group of databases defined by a custom database collection target. Elastic Database jobs expands the job into multiple child jobs each corresponding to a database associated with the custom database collection target and ensure that the script is executed against each database. Again, it is important that scripts are idempotent to be resilient to retries.
 
    ```
     $jobName = "{Job Name}"
@@ -381,7 +380,7 @@ Use the **New-AzureSqlJob** cmdlet to create a job against a group of databases 
 ## Data collection across databases
 **Elastic Database jobs** supports executing a query across a group of databases and sends the results to a specified database’s table. The table can be queried after the fact to see the query’s results from each database. This provides an asynchronous mechanism to execute a query across many databases. Failure cases such as one of the databases being temporarily unavailable are handled automatically via retries.
 
-The specified destination table will be automatically created if it does not yet exist, matching the schema of the returned result set. If a script execution returns multiple result sets, Elastic Database jobs will only send the first one to the provided destination table.
+The specified destination table is automatically created if it does not yet exist, matching the schema of the returned result set. If a script execution returns multiple result sets, Elastic Database jobs only sends the first one to the provided destination table.
 
 The following PowerShell script can be used to execute a script collecting its results into a specified table. This script assumes that a T-SQL script has been created which outputs a single result set and a custom database collection target has been created.
 
@@ -462,7 +461,7 @@ All the rows from **Customers** table, stored in different shards populate the E
 You can now use Excel’s data functions. Use the connection string with your server name, database name and credentials to connect your BI and data integration tools to the elastic query database. Make sure that SQL Server is supported as a data source for your tool. Refer to the elastic query database and external tables just like any other SQL Server database and SQL Server tables that you would connect to with your tool.
 
 ### Cost
-There is no additional charge for using the Elastic Database query feature. However, at this time this feature is available only on premium databases as an end point, but the shards can be of any service tier.
+There is no additional charge for using the Elastic Database query feature. However, at this time this feature is available only on Premium and Business Critical databases and elastic pools as an end point, but the shards can be of any service tier.
 
 For pricing information see [SQL Database Pricing Details](https://azure.microsoft.com/pricing/details/sql-database/).
 

@@ -1,9 +1,9 @@
----
+﻿---
 title: Monitoring usage and performance for Windows desktop apps
-description: Analyze usage and performance of your Windows desktop app with HockeyApp and Application Insights.
+description: Analyze usage and performance of your Windows desktop app with Application Insights.
 services: application-insights
 documentationcenter: windows
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
@@ -11,30 +11,22 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/26/2016
-ms.author: cfreeman
+ms.topic: conceptual
+ms.date: 05/15/2018
+ms.author: mbullwin
 
 ---
-# Monitoring usage and performance in Windows Desktop apps
+# Monitoring usage and performance in Classic Windows Desktop apps
 
+Applications hosted on premises, in Azure, and in other clouds can all take advantage of Application Insights. The only limitation is the need to [allow communication](app-insights-ip-addresses.md) to the Application Insights service. For monitoring Universal Windows Platform (UWP) applications, we recommend [Visual Studio App Center](app-insights-mobile-center-quickstart.md).
 
-[Azure Application Insights](app-insights-overview.md) and [HockeyApp](https://hockeyapp.net) let you monitor your deployed application for usage and performance.
-
-> [!IMPORTANT]
-> We recommend [HockeyApp](https://hockeyapp.net) to distribute and monitor desktop and device apps. With HockeyApp, you can manage distribution, live testing, and user feedback, as well as monitor usage and crash reports. You can also [export and query your telemetry with Analytics](app-insights-hockeyapp-bridge-app.md).
-> 
-> Although telemetry can be sent to Application Insights from a desktop application, this is chiefly useful for debugging and experimental purposes.
-> 
-> 
-
-## To send telemetry to Application Insights from a Windows application
+## To send telemetry to Application Insights from a Classic Windows application
 1. In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](app-insights-create-new-resource.md). For application type, choose ASP.NET app.
 2. Take a copy of the Instrumentation Key. Find the key in the Essentials drop-down of the new resource you just created. 
 3. In Visual Studio, edit the NuGet packages of your app project, and add Microsoft.ApplicationInsights.WindowsServer. (Or choose Microsoft.ApplicationInsights if you just want the bare API, without the standard telemetry collection modules.)
 4. Set the instrumentation key either in your code:
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *your key* `";` 
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *your key* `";`
    
     or in ApplicationInsights.config (if you installed one of the standard telemetry packages):
    
@@ -45,7 +37,7 @@ ms.author: cfreeman
 6. Run your app, and see the telemetry in the resource you created in the Azure Portal.
 
 ## <a name="telemetry"></a>Example code
-```C#
+```csharp
 
     public partial class Form1 : Form
     {

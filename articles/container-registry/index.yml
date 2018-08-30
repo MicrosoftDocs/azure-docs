@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Container Registry Documentation
+metadata:
+  title: Azure Container Registry Documentation - Tutorials | Microsoft Docs
+  description: Azure Container Registry allows you to build, store, and manage images for all types of container deployments. Learn how to use Azure Container Registry with these quickstarts, tutorials, and samples.
+  services: container-registry
+  author: czeumault
+  manager: carolz
+  ms.service: container-registry
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/26/2017
+  ms.author: carolz
+abstract:
+  description: Azure Container Registry allows you to build, store, and manage images for all types of container deployments. Learn how to use Azure Container Registry with these quickstarts, tutorials, and samples.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to deploy an Azure Container Registry.'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
+      text: Azure CLI
+      href: /azure/container-registry/container-registry-get-started-azure-cli
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure Portal
+      href: /azure/container-registry/container-registry-get-started-portal
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/container-registry/container-registry-get-started-powershell
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to use Azure Container Registry with these tutorials.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-build">Build container images with ACR Build (preview)</a>
+    - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Container Registry geo-replication</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry with Azure Container Instances</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Container Registry with Azure Kubernetes Service (AKS)</a>
+    - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Container Registry with Service Fabric</a>
+
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure/acr">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/java/api/overview/azure/containerregistry">Java</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/containerregistry">REST API Reference</a></p><p><a href="/azure/templates/microsoft.containerregistry/registries">Resource Manager template</a></p><p><a href="/azure/container-registry/container-registry-webhook-reference">Webhook schema</a></p>

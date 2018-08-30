@@ -4,19 +4,15 @@ description: Azure PowerShell script examples to help you create and manage Azur
 services: sql-database
 documentationcenter: sql-database
 author: CarlRabeler
-manager: jhubbard
+manager: craigg
 editor: tysonn
 tags: azure-service-management
-
-ms.assetid:
 ms.service: sql-database
-ms.custom: overview-samples
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 06/23/2017
-ms.author: janeng
+ms.custom: overview-samples, mvc
+ms.devlang: PowerShell
+ms.topic: sample
+ms.date: 07/16/2018
+ms.author: carlrab
 ---
 
 # Azure PowerShell samples for Azure SQL Database
@@ -31,7 +27,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |**Configure geo-replication and failover**||
 | [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures active geo-replication for a single Azure SQL database and fails it over to the secondary replica. |
 | [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures active geo-replication for an Azure SQL database in a SQL elastic pool, and fails it over to the secondary replica. |
-| [Configure and failover a failover group for a single database (preview)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script configures a failover group for an Azure SQL Database server instance, adds a database to the failover group, and fails it over to the secondary server |
+| [Configure and failover a failover group for a single database](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script configures a failover group for an Azure SQL Database server instance, adds a database to the failover group, and fails it over to the secondary server |
 |**Scale a single databases and an elastic pool**||
 | [Scale a single database](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script monitors the performance metrics of an Azure SQL database, scales it to a higher performance level and creates an alert rule on one of the performance metrics. |
 | [Scale an elastic pool](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script monitors the performance metrics of an Azure SQL Database elastic pool, scales it to a higher performance level, and creates an alert rule on one of the performance metrics.  |
@@ -44,5 +40,5 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | **Sync data between databases**||
 | [Sync data between SQL databases](scripts/sql-database-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script configures Data Sync to sync between multiple Azure SQL databases. |
 | [Sync data between SQL Database and SQL Server on-premises](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script configures Data Sync to sync between an Azure SQL database and a SQL Server on-premises database. |
-|||
+| [Update the SQL Data Sync sync schema](scripts/sql-database-sync-update-schema.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script adds or removes items from the Data Sync sync schema. |
 |||

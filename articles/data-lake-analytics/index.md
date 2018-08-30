@@ -1,21 +1,18 @@
 ---
-title: Azure Data Lake Analytics Documentation - Tutorials, API Reference | Microsoft Docs
-description: Learn big data analysis with Data Lake Analytics. Tutorials show you how to run batch, real-time, and interactive analytics, and how to write U-SQL queries.
+title: Azure Data Lake Analytics Documentation - Tutorials, API Reference
+description: Learn big data analysis with Azure Data Lake Analytics. Tutorials show you how to run batch, real-time, and interactive analytics, and how to write U-SQL queries.
 services: data-lake-analytics
-author: saveenr
-manager: saveenr
-layout: LandingPage
-ms.assetid: 
 ms.service: data-lake-analytics
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+
+layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
 ---
-# Data Lake Analytics Documentation
+# Azure Data Lake Analytics Documentation
 
-Learn how to use Data Lake Analytics to run big data analysis jobs that scale to massive data sets. Tutorials and other documentation show you how to create and manage batch, real-time, and interactive analytics jobs, and how to query using the U-SQL language.
+Learn how to use Azure Data Lake Analytics to run big data analysis jobs that scale to massive data sets. Tutorials and other documentation show you how to create and manage batch, real-time, and interactive analytics jobs, and how to query using the U-SQL language.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -93,7 +90,6 @@ Learn how to use Data Lake Analytics to run big data analysis jobs that scale to
         <td><a href="data-lake-analytics-manage-use-cli.md">Azure CLI</a></td>
         <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">.NET SDK</a></td>
         <td><a href="data-lake-analytics-get-started-python.md">Python SDK</a></td>
-        <td><a href="data-lake-analytics-get-started-java-sdk.md">Java SDK</a></td>
     </tr>
 </table>
 
@@ -107,7 +103,7 @@ Learn how to use Data Lake Analytics to run big data analysis jobs that scale to
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.datalakeanalytics">PowerShell</a></p>
                         <p><a href="/cli/azure/dla">CLI 2.0</a></p>
                     </div>
                 </div>
@@ -122,7 +118,7 @@ Learn how to use Data Lake Analytics to run big data analysis jobs that scale to
                         <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.datalake.analytics">.NET</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-analytics">Node​.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html">Python</a></p>
+                        <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.analytics.account">Python</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt591959">U-SQL</a></p>
                     </div>
                 </div>

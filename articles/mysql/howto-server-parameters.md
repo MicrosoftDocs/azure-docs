@@ -1,54 +1,107 @@
 ---
-title: How To Configure Server Parameters in Azure Database for MySQL | Microsoft Docs
-description: This article describes how to configure available server parameters in Azure Database for MySQL using the Azure portal.
+title: How To Configure Server Parameters in Azure Database for MySQL
+description: This article describes how to configure MySQL server parameters in Azure Database for MySQL using the Azure portal.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 07/18/2018
 ---
 
-# How to configure server parameters in Azure Database for MySQL using the Azure portal
+# How to configure server parameters in Azure Database for MySQL by using the Azure portal
 
-Azure Database for MySQL supports configuration of some server parameters. This article describes how to configure these parameters using the Azure portal, and lists the supported parameters, the default values, and the range of valid values. Not all server parameters can be adjusted. Only the ones listed here are supported.
+Azure Database for MySQL supports configuration of some server parameters. This article describes how to configure these parameters by using the Azure portal. Not all server parameters can be adjusted.
 
-## Navigate to Server Parameters blade on Azure portal
+## Navigate to Server Parameters on Azure portal
 
-Log in to the Azure portal, then click your Azure Database for MySQL server name. Under the **SETTINGS** section, click **Server parameters** to open the Server parameters blade for the Azure Database for MySQL.
-
-![Azure portal server parameters blade](./media/howto-server-parameters/auzre-portal-server-parameters.png)
+1. Sign in to the Azure portal, then locate your Azure Database for MySQL server.
+2. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL server.
+![Azure portal server parameters page](./media/howto-server-parameters/auzre-portal-server-parameters.png)
+3. Locate any settings you need to adjust. Review the **Description** column to understand the purpose and allowed values.
+![Enumerate drop down](./media/howto-server-parameters/3-toggle_parameter.png)
+4. Click  **Save** to save your changes.
+![Save or Discard changes](./media/howto-server-parameters/4-save_parameters.png)
+5. If you have saved new values for the parameters, you can always revert everything back to the default values by selecting **Reset all to default**.
+![Reset all to default](./media/howto-server-parameters/5-reset_parameters.png)
 
 ## List of configurable server parameters
 
-The following table lists the currently supported server parameters. The parameters can be configured according to your application requirements.
+The list of supported server parameters is constantly growing. Use the server parameters tab in Azure portal to get the definition and configure server parameters based on your application requirements.
 
-> [!div class="mx-tableFixed"]
-|Parameter Name|Default Value|Range|Description|
-|---|---|---|---|
-|binlog_group_commit_sync_delay|1000|0, 11-1000000|Controls how many microseconds the binary log commit waits before synchronizing the binary log file to disk.|
-|binlog_group_commit_sync_no_delay_count|0|0-1000000|The maximum number of transactions to wait for before aborting the current delay as specified by binlog-group-commit-sync-delay.|
-|character_set_server|LATIN1|BIG5, UTF8MB4, etc.|Use charset_name as the default server character set.|
-|div_precision_increment|4|0-30|Number of digits by which to increase the scale of the result of division operations.|
-|group_concat_max_len|1024|4-16777216|Maximum allowed result length in bytes for the GROUP_CONCAT().|
-|innodb_adaptive_hash_index|ON|ON, OFF|Whether innodb adaptive hash indexes are enabled or disabled.|
-|innodb_lock_wait_timeout|50|1-3600|The length of time in seconds an InnoDB transaction waits for a row lock before giving up.|
-|interactive_timeout|1800|10-1800|Number of seconds the server waits for activity on an interactive connection before closing it.|
-|log_bin_trust_function_creators|OFF|ON, OFF|This variable applies when binary logging is enabled. It controls whether stored function creators can be trusted not to create stored functions that cause unsafe events to be written to the binary log.|
-|log_queries_not_using_indexes|OFF|ON, OFF|Logs queries that are expected to retrieve all rows to slow query log.|
-|log_slow_admin_statements|OFF|ON, OFF|Include slow administrative statements in the statements written to the slow query log.|
-|log_throttle_queries_not_using_indexes|0|0-4294967295|Limits the number of such queries per minute that can be written to the slow query log.|
-|long_query_time|10|1-1E+100|If a query takes longer than this many seconds, the server increments the Slow_queries status variable.|
-|max_allowed_packet|536870912|1024-1073741824|The maximum size of one packet or any generated/intermediate string, or any parameter sent by the mysql_stmt_send_long_data() C API function.|
-|min_examined_row_limit|0|0-18446744073709551615|Logs queries that have greater than the configured number of rows into the slow query log. |
-|server_id|3293747068|1000-4294967295|The server ID, used in replication to give each master and slave a unique identity.|
-|slave_net_timeout|60|30-3600|The number of seconds to wait for more data from the master before the slave considers the connection broken, aborts the read, and tries to reconnect.|
-|slow_query_log|OFF|ON, OFF|Enable or disable the slow query log.|
-|sql_mode|0 selected|ALLOW_INVALID_DATES, IGNORE_SPACE, etc.|The current server SQL mode.|
-|time_zone|SYSTEM|examples: -8:00, +05:30|The server time zone.|
-|wait_timeout|120|60-240|The number of seconds the server waits for activity on a noninteractive connection before closing it.|
+## Non-configurable server parameters
+
+InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pricing tier](concepts-service-tiers.md).
+
+|**Pricing Tier**| **Compute Generation**|**vCore(s)**|**InnoDB Buffer Pool (MB)**| **Max Connections**|
+|---|---|---|---|--|
+|Basic| Gen 4| 1| 1024| 50|
+|Basic| Gen 4| 2| 2560| 100|
+|Basic| Gen 5| 1| 1024| 50|
+|Basic| Gen 5| 2| 2560| 100|
+|General Purpose| Gen 4| 2| 3584| 300|
+|General Purpose| Gen 4| 4| 7680| 625|
+|General Purpose| Gen 4| 8| 15360| 1250|
+|General Purpose| Gen 4| 16| 31232| 2500|
+|General Purpose| Gen 4| 32| 62976| 5000|
+|General Purpose| Gen 5| 2| 3584| 300|
+|General Purpose| Gen 5| 4| 7680| 625|
+|General Purpose| Gen 5| 8| 15360| 1250|
+|General Purpose| Gen 5| 16| 31232| 2500|
+|General Purpose| Gen 5| 32| 62976| 5000|
+|Memory Optimized| Gen 5| 2| 7168| 600|
+|Memory Optimized| Gen 5| 4| 15360| 1250|
+|Memory Optimized| Gen 5| 8| 30720| 2500|
+|Memory Optimized| Gen 5| 16| 62464| 5000|
+
+These additional server parameters are not configurable in the system:
+
+|**Parameter**|**Fixed value**|
+| :------------------------ | :-------- |
+|innodb_file_per_table in Basic tier|OFF|
+|innodb_flush_log_at_trx_commit|1|
+|sync_binlog|1|
+|innodb_log_file_size|512MB|
+
+Other server parameters that are not listed here are set to their MySQL out-of-box default values for versions [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) and [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+
+## Working with the time zone parameter
+
+### Populating the time zone tables
+
+The time zone tables on your server can be populated by calling the `az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench.
+
+> [!NOTE]
+> If you are running the `az_load_timezone` command from MySQL Workbench, you may need to turn off safe update mode first using `SET SQL_SAFE_UPDATES=0;`.
+
+```sql
+CALL mysql.az_load_timezone();
+```
+
+To view available time zone values, run the following command:
+
+```sql
+SELECT name FROM mysql.time_zone_name;
+```
+
+### Setting the global level time zone
+
+The global level time zone can be set from the **Server parameters** page in the Azure portal. The below sets the global time zone to the value "US/Pacific".
+
+![Set time zone parameter](./media/howto-server-parameters/timezone.png)
+
+### Setting the session level time zone
+
+The session level time zone can be set by running the `SET time_zone` command from a tool like the MySQL command line or MySQL Workbench. The example below sets the time zone to the **US/Pacific** time zone.
+
+```sql
+SET time_zone = 'US/Pacific';
+```
+
+Refer to the MySQL documentation for [Date and Time Functions](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
 
 ## Next steps
-- [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md)
+
+- [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md).

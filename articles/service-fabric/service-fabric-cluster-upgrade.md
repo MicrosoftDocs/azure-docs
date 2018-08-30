@@ -3,18 +3,18 @@ title: Upgrade an Azure Service Fabric cluster | Microsoft Docs
 description: Upgrade the Service Fabric code and/or configuration that runs a Service Fabric cluster, including setting cluster update mode, upgrading certificates, adding application ports, doing OS patches, and so on. What can you expect when the upgrades are performed?
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
 editor: ''
 
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2017
-ms.author: chackdan
+ms.date: 8/10/2017
+ms.author: aljo
 
 ---
 # Upgrade an Azure Service Fabric cluster
@@ -27,7 +27,7 @@ ms.author: chackdan
 For any modern system, designing for upgradability is key to achieving long-term success of your product. An Azure Service Fabric cluster is a resource that you own, but is partly managed by Microsoft. This article describes what is managed automatically and what you can configure yourself.
 
 ## Controlling the fabric version that runs on your Cluster
-You can set your cluster to receive automatic fabric upgrades, when Microsoft releases a new version or choose to select a supported fabric version you want your cluster to be on.
+You can set your cluster to receive automatic fabric upgrades as they are released by Microsoft or you can select a supported fabric version you want your cluster to be on.
 
 You do this by setting the "upgradeMode" cluster configuration on the portal or using Resource Manager at the time of creation or later on a live cluster 
 

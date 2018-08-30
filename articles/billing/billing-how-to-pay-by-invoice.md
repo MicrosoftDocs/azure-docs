@@ -12,8 +12,8 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/14/2017
+ms.topic: conceptual
+ms.date: 05/11/2018
 ms.author: genli
 
 ---
@@ -23,7 +23,7 @@ You can change the payment method for your Azure subscription to invoice by subm
 
 > [!IMPORTANT]
 > * Invoice pay is only available for business accounts.
-> * [Third party and external services](billing-understand-your-azure-marketplace-charges.md) cannot be purchased or paid for using invoice pay. If your subscription contains resources from external services like ClearDB or SendGrid, they need be deleted before changing to invoice pay. To purchase external services after switching to invoice pay, you need a separate subscription with a credit or debit card.
+> * [Third party and external services](billing-understand-your-azure-marketplace-charges.md) cannot be purchased or paid for using invoice pay. If your subscription contains resources from external services like SendGrid, they need be deleted before changing to invoice pay. To purchase external services after switching to invoice pay, you need a separate subscription with a credit or debit card.
 > * Once you switch to invoice pay, you can't switch back to credit or debit card payment.
 
 ## Request pay by invoice
@@ -31,8 +31,11 @@ You can change the payment method for your Azure subscription to invoice by subm
 1. Sign into the [Azure portal](https://portal.azure.com/). Select **Help + support** > **New support request**.
 
     ![help and support button](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
+
 1. Select **Billing** as the issue type, select the subscription for which you want to pay by invoice, select a support plan, and then select **Next**.
-1. In the **Problem** blade, select **Pay by Invoice** in the **Problem Type** box.
+
+1. Select **Pay by Invoice** in the **Problem Type** box.
+
 1. Enter the following information in the **Details** box, and then select **Next**.
 
     * Company name

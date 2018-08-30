@@ -3,8 +3,8 @@ title: Networking for Azure virtual machine scale sets | Microsoft Docs
 description: Configuration networking properties for Azure virtual machine scale sets.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: guybo
+ms.author: negat
 
 ---
 # Networking for Azure virtual machine scale sets
@@ -25,7 +25,7 @@ When you deploy an Azure virtual machine scale set through the portal, certain n
 You can configure all of the features covered in this article using Azure Resource Manager templates. Azure CLI and PowerShell examples are also included for selected features. Use CLI 2.10, and PowerShell 4.2.0 or later.
 
 ## Accelerated Networking
-Azure [Accelerated Networking](../virtual-network/virtual-network-create-vm-accelerated-networking.md) improves  network performance by enabling single root I/O virtualization (SR-IOV) to a virtual machine. To use accelerated networking with scale sets, set enableAcceleratedNetworking to **true** in your scale set's networkInterfaceConfigurations settings. For example:
+Azure Accelerated Networking improves network performance by enabling single root I/O virtualization (SR-IOV) to a virtual machine. To learn more about using Accelerated networking, see Accelerated networking for [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) virtual machines. To use accelerated networking with scale sets, set enableAcceleratedNetworking to **true** in your scale set's networkInterfaceConfigurations settings. For example:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -52,9 +52,28 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 
 ```
 
+## Create a scale set that references an Application Gateway
+To create a scale set that uses an application gateway, reference the backend address pool of the application gateway in the ipConfigurations section of your scale set as in this ARM template config:
+```json
+"ipConfigurations": [{
+  "name": "{config-name}",
+  "properties": {
+  "subnet": {
+    "id": "{subnet-id}"
+  },
+  "ApplicationGatewayBackendAddressPools": [{
+    "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/applicationGateways/{gateway-name}/backendAddressPools/{pool-name}"
+  }]
+}]
+```
+
+>[!NOTE]
+> Note that the application gateway must be in the same virtual network as the scale set but must be in a different subnet from the scale set.
+
+
 ## Configurable DNS Settings
 By default, scale sets take on the specific DNS settings of the VNET and subnet they were created in. You can however, configure the DNS settings for a scale set directly.
-~
+
 ### Creating a scale set with configurable DNS servers
 To create a scale set with a custom DNS configuration using CLI 2.0, add the **--dns-servers** argument to the **vmss create** command, followed by space separated server ip addresses. For example:
 ```bash
@@ -135,7 +154,7 @@ To list scale set public IP addresses using PowerShell, use the _Get-AzureRmPubl
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
-You can also query the public IP addresses by referencing the resource id of the public IP address configuration directly. For example:
+You can also query the public IP addresses by referencing the resource ID of the public IP address configuration directly. For example:
 ```PowerShell
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
@@ -191,7 +210,10 @@ Example output:
 Every NIC attached to a VM in a scale set can have one or more IP configurations associated with it. Each configuration is assigned one private IP address. Each configuration may also have one public IP address resource associated with it. To understand how many IP addresses can be assigned to a NIC, and how many public IP addresses you can use in an Azure subscription, refer to [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## Multiple NICs per virtual machine
-You can have up to 8 NICs per virtual machine, depending on machine size. The maximum number of NICs per machine is available in the [VM size article](../virtual-machines/windows/sizes.md). The following example is a scale set network profile showing multiple NIC entries, and multiple public IPs per virtual machine:
+You can have up to 8 NICs per virtual machine, depending on machine size. The maximum number of NICs per machine is available in the [VM size article](../virtual-machines/windows/sizes.md). All NICs connected to a VM instance must connect to the same virtual network. The NICs can connect to different subnets, but all subnets must be part of the same virtual network.
+
+The following example is a scale set network profile showing multiple NIC entries, and multiple public IPs per virtual machine:
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -304,4 +326,4 @@ For example:
 ```
 
 ## Next steps
-For more information about Azure virtual networks, refer to [this documentation](../virtual-network/virtual-networks-overview.md).
+For more information about Azure virtual networks, see [Azure virtual networks overview](../virtual-network/virtual-networks-overview.md).

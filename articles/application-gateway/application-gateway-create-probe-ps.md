@@ -1,10 +1,10 @@
----
+﻿---
 title: Create a custom probe - Azure Application Gateway - PowerShell | Microsoft Docs
 description: Learn how to create a custom probe for Application Gateway by using PowerShell in Resource Manager
 services: application-gateway
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: gwallace
+ms.author: victorh
 
 ---
 # Create a custom probe for Azure Application Gateway by using PowerShell for Azure Resource Manager
@@ -36,10 +36,10 @@ In this article, you add a custom probe to an existing application gateway with 
 
 ### Sign in and create resource group
 
-1. Use `Login-AzureRmAccount` to authenticate.
+1. Use `Connect-AzureRmAccount` to authenticate.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 1. Get the subscriptions for the account.

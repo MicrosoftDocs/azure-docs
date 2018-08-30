@@ -1,21 +1,12 @@
 ---
-title: How to view related data assets in Azure Data Catalog | Microsoft Docs
+title: How to view related data assets in Azure Data Catalog
 description: This article explains how to view related data assets of a selected data asset in Azure Data Catalog.
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
-ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 06/23/2017
 ms.author: maroche
-
+ms.service: data-catalog
+ms.topic: conceptual
+ms.date: 01/18/2018
 ---
 # How to view related data assets in Azure Data Catalog?
 Azure Data Catalog allows you to view data assets related to a selected data asset and view relationships between them. 
@@ -27,6 +18,9 @@ When you register data assets from the following data sources, Azure Data Catalo
 - Azure SQL Database
 - MySQL
 - Oracle
+
+> [!NOTE]
+> For Data Catalog to import relationship between two data assets, you must register both the assets at the same time. If you had added one of them separately, add it again and the other data asset to import relationship between them.
 
 ## View related data assets
 To view data assets that are related to a selected dataset, use the **Relationships** tab as shown in the following image: 

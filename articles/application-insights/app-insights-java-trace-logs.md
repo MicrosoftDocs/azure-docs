@@ -1,9 +1,9 @@
----
+﻿---
 title: Explore Java trace logs in Azure Application Insights | Microsoft Docs
 description: Search Log4J or Logback traces in Application Insights
 services: application-insights
 documentationcenter: java
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: fc0a9e2f-3beb-4f47-a9fe-3f86cd29d97a
@@ -11,9 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 12/12/2016
-ms.author: cfreeman
+ms.topic: conceptual
+ms.date: 02/12/2018
+ms.author: mbullwin
 
 ---
 # Explore Java trace logs in Application Insights
@@ -21,10 +21,7 @@ If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your t
 
 ## Install the Java SDK
 
-Install [Application Insights SDK for Java][java], if you haven't already done that.
-
-(If you don't want to track HTTP requests, you can omit most of the .xml configuration file, but you must at least include the `InstrumentationKey` element. You should also call `new TelemetryClient()` to initialize the SDK.)
-
+Follow the instructions to install [Application Insights SDK for Java][java], if you haven't already done that.
 
 ## Add logging libraries to your project
 *Choose the appropriate way for your project.*
@@ -42,7 +39,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-logback</artifactId>
-          <version>[1.0,)</version>
+          <version>[2.0,)</version>
        </dependency>
     </dependencies>
 ```
@@ -55,7 +52,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-log4j2</artifactId>
-          <version>[1.0,)</version>
+          <version>[2.0,)</version>
        </dependency>
     </dependencies>
 ```
@@ -68,7 +65,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-log4j1_2</artifactId>
-          <version>[1.0,)</version>
+          <version>[2.0,)</version>
        </dependency>
     </dependencies>
 ```
@@ -82,29 +79,30 @@ Then refresh the project dependencies, to get the binaries downloaded.
 
 ```
 
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '1.0.+'
+    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '2.0.+'
 ```
 
 **Log4J v2.0**
 
 ```
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '1.0.+'
+    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '2.0.+'
 ```
 
 **Log4J v1.2**
 
 ```
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '1.0.+'
+    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '2.0.+'
 ```
 
 #### Otherwise ...
-Download and extract the appropriate appender, then add the appropriate library to your project:
+Follow the guidelines to manually install Application Insights Java SDK, download the jar (After ariving at Maven Central Page click on 'jar' link in download section) for appropriate appender and add the downloaded appender jar to the project.
 
 | Logger | Download | Library |
 | --- | --- | --- |
-| Logback |[SDK with Logback appender](https://aka.ms/xt62a4) |applicationinsights-logging-logback |
-| Log4J v2.0 |[SDK with Log4J v2 appender](https://aka.ms/qypznq) |applicationinsights-logging-log4j2 |
-| Log4j v1.2 |[SDK with Log4J v1.2 appender](https://aka.ms/ky9cbo) |applicationinsights-logging-log4j1_2 |
+| Logback |[Logback appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J v2.0 |[Log4J v2 appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4j v1.2 |[Log4J v1.2 appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+
 
 ## Add the appender to your logging framework
 To start getting traces, merge the relevant snippet of code to the Log4J or Logback configuration file: 
@@ -125,7 +123,7 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
 
 ```XML
 
-    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+    <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
       <Appenders>
         <ApplicationInsightsAppender name="aiAppender" />
       </Appenders>
@@ -154,6 +152,8 @@ The Application Insights appenders can be referenced by any configured logger, a
 
 ## Explore your traces in the Application Insights portal
 Now that you've configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the [Search][diagnostic] blade.
+
+Exceptions submited via loggers will be displayed on the portal as Exception Telemetry.
 
 ![In the Application Insights portal, open Search](./media/app-insights-java-trace-logs/10-diagnostics.png)
 

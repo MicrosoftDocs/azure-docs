@@ -1,9 +1,9 @@
----
+﻿---
 title: Filtering and preprocessing in the Azure Application Insights SDK | Microsoft Docs
 description: Write Telemetry Processors and Telemetry Initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 services: application-insights
 documentationcenter: ''
-author: beckylino
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
@@ -11,9 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/23/2016
-ms.author: cfreeman
+ms.author: mbullwin
 
 ---
 # Filtering and preprocessing telemetry in the Application Insights SDK
@@ -50,7 +50,7 @@ To filter telemetry, you write a telemetry processor and register it with the SD
 
     Notice that Telemetry Processors construct a chain of processing. When you instantiate a telemetry processor, you pass a link to the next processor in the chain. When a telemetry data point is passed to the Process method, it does its work and then calls the next Telemetry Processor in the chain.
 
-    ``` C#
+    ```csharp
 
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
@@ -97,7 +97,7 @@ To filter telemetry, you write a telemetry processor and register it with the SD
     ```
 1. Insert this in ApplicationInsights.config:
 
-```XML
+```xml
 
     <TelemetryProcessors>
       <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
@@ -119,7 +119,7 @@ You can pass string values from the .config file by providing public named prope
 
 **Alternatively,** you can initialize the filter in code. In a suitable initialization class - for example AppStart in Global.asax.cs - insert your processor into the chain:
 
-```C#
+```csharp
 
     var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -137,7 +137,7 @@ TelemetryClients created after this point will use your processors.
 #### Synthetic requests
 Filter out bots and web tests. Although Metrics Explorer gives you the option to filter out synthetic sources, this option reduces traffic by filtering them at the SDK.
 
-``` C#
+```csharp
 
     public void Process(ITelemetry item)
     {
@@ -152,7 +152,7 @@ Filter out bots and web tests. Although Metrics Explorer gives you the option to
 #### Failed authentication
 Filter out requests with a "401" response.
 
-```C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -178,7 +178,7 @@ If you only want to diagnose calls that are slow, filter out the fast ones.
 >
 >
 
-``` C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -204,13 +204,13 @@ Use telemetry initializers to define global properties that are sent with all te
 
 For example, the Application Insights for Web package collects telemetry about HTTP requests. By default, it flags as failed any request with a response code >= 400. But if you want to treat 400 as a success, you can provide a telemetry initializer that sets the Success property.
 
-If you provide a telemetry initializer, it is called whenever any of the Track*() methods is called. This includes methods called by the standard telemetry modules. By convention, these modules do not set any property that has already been set by an initializer.
+If you provide a telemetry initializer, it is called whenever any of the Track*() methods are called. This includes methods called by the standard telemetry modules. By convention, these modules do not set any property that has already been set by an initializer.
 
 **Define your initializer**
 
 *C#*
 
-```C#
+```csharp
 
     using System;
     using Microsoft.ApplicationInsights.Channel;
@@ -251,6 +251,7 @@ If you provide a telemetry initializer, it is called whenever any of the Track*(
 
 In ApplicationInsights.config:
 
+```xml
     <ApplicationInsights>
       <TelemetryInitializers>
         <!-- Fully qualified type name, assembly name: -->
@@ -258,10 +259,11 @@ In ApplicationInsights.config:
         ...
       </TelemetryInitializers>
     </ApplicationInsights>
+```
 
 *Alternatively,* you can instantiate the initializer in code, for example in Global.aspx.cs:
 
-```C#
+```csharp
     protected void Application_Start()
     {
         // ...
@@ -274,6 +276,25 @@ In ApplicationInsights.config:
 [See more of this sample.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
 <a name="js-initializer"></a>
+
+### Java telemetry initializers
+
+[Java SDK documentation](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility._telemetry_initializer?view=azure-java-stable)
+
+```Java
+public interface TelemetryInitializer
+{ /** Initializes properties of the specified object. * @param telemetry The {@link com.microsoft.applicationinsights.telemetry.Telemetry} to initialize. */
+
+void initialize(Telemetry telemetry); }
+```
+
+Then register the custom initializer in your applicationinsights.xml file.
+
+```xml
+<Add type="mypackage.MyConfigurableContextInitializer">
+<Param name="some_config_property" value="some_value" />
+</Add>
+```
 
 ### JavaScript telemetry initializers
 *JavaScript*
@@ -332,14 +353,17 @@ What's the difference between telemetry processors and telemetry initializers?
 * TelemetryProcessors allow you to completely replace or discard a telemetry item.
 * TelemetryProcessors don't process performance counter telemetry.
 
+## Troubleshooting ApplicationInsights.config
+* Confirm that the fully qualified type name and assembly name are correct.
+* Confirm that the applicationinsights.config file is in your output directory and contains any recent changes.
 
 ## Reference docs
 * [API Overview](app-insights-api-custom-events-metrics.md)
 * [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
 
 ## SDK Code
-* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Next steps

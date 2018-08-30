@@ -1,21 +1,85 @@
 - name: Bing Custom Search Documentation
-  href: ../index.md
+  href: index.yml
 - name: Overview
-  items:
-    - name: Customize your search
-      href: overview.md
-    - name: How it works
-      href: how-it-works.md
-- name: Quickstarts
   expanded: true
   items:
-    - name: Build a custom search service
-      href: quickstart.md
-- name: References
+    - name: What is Bing Custom Search?
+      href: overview.md
+- name: REST API Quickstarts
+  expanded: true
   items:
-    - name: Bing Web Search API Use and Display Requirements
-      href: https://docs.microsoft.com/azure/cognitive-services/bing-web-search/useanddisplayrequirements
+    - name: Create first instance
+      href: quick-start.md
+    - name: C#
+      href: call-endpoint-csharp.md
+    - name: Java
+      href: call-endpoint-java.md
+    - name: Node.js
+      href: call-endpoint-nodejs.md 
+    - name: Python
+      href: call-endpoint-python.md
+- name: SDK Quickstarts
+  items:
+    - name: SDK samples overview 
+      href: sdk.md
+    - name: Custom Search SDK C# quickstart
+      href: custom-search-sdk-quickstart.md 
+- name: Tutorials
+  items:
+    - name: Build a Custom Search web page
+      href: ./tutorials/custom-search-web-page.md
+- name: Samples
+  items:
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search
+- name: How-to guides 
+  items:        
+    - name: Configure custom search experience
+      href: define-your-custom-view.md
+    - name: Call custom search
+      href: search-your-custom-view.md
+    - name: Configure hosted UI experience
+      href: hosted-ui.md
+    - name: Share custom search
+      href: share-your-custom-search.md
+    - name: Configure custom autosuggest experience
+      href: define-custom-suggestions.md
+    - name: Get custom suggestions
+      href: get-custom-suggestions.md
+    - name: Handle hit highlighting
+      href: hit-highlighting.md
+    - name: Page webpages
+      href: page-webpages.md 
+- name: Reference
+  items:
+    - name: Bing Custom Autosuggest API Reference
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference
+    - name: Bing Custom Image Search API Reference
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference
+    - name: Bing Custom Search API Reference
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference
+    - name: Bing Search API use and display requirements
+      href: use-and-display-requirements.md  
 - name: Resources
   items:
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/598147-bing-custom-search-api
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=bing+custom+search
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Get API key
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api
+  - name: Try it!
+    href: https://aka.ms/bingcustomsearchtryit
+  - name: Bing Custom Search endpoint
+    href: endpoint-custom.md
+  - name: Supported countries and markets
+    href: supported-countries-markets.md
+

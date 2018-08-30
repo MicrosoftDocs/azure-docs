@@ -1,21 +1,16 @@
 ---
 title: Schedule jobs with Azure IoT Hub (Java) | Microsoft Docs
 description: How to schedule an Azure IoT Hub job to invoke a direct method and set a desired property on multiple devices. You use the Azure IoT device SDK for Java to implement the simulated device apps and the Azure IoT service SDK for Java to implement a service app to run the job.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: dobett
-
 ---
+
 # Schedule and broadcast jobs (Java)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
@@ -31,7 +26,9 @@ A job wraps one of these actions and tracks the execution against a set of devic
 To learn more about each of these capabilities, see:
 
 * Device twin and properties: [Get started with device twins](iot-hub-java-java-twin-getstarted.md)
-* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Tutorial: Use direct methods](iot-hub-java-java-direct-methods.md)
+* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Tutorial: Use direct methods](quickstart-control-device-java.md)
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 This tutorial shows you how to:
 
@@ -42,7 +39,7 @@ At the end of this tutorial, you have a java console device app and a java conso
 
 **simulated-device** that connects to your IoT hub, implements the **lockDoor** direct method, and handles desired property changes.
 
-**schedule-jobs that use jobs to call the **lockDoor** direct method and update the device twin desired properties on multiple devices.
+**schedule-jobs** that use jobs to call the **lockDoor** direct method and update the device twin desired properties on multiple devices.
 
 > [!NOTE]
 > The article [Azure IoT SDKs](iot-hub-devguide-sdks.md) provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.
@@ -59,7 +56,7 @@ To complete this tutorial, you need:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-If you prefer to create the device identity programmatically, read the corresponding section in the [Connect your device to your IoT hub using Java](iot-hub-java-java-getstarted.md#create-a-device-identity) article. You can also use the [iothub-explorer](https://github.com/Azure/iothub-explorer) tool to add a device to your IoT hub.
+You can also use the [IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) tool to add a device to your IoT hub.
 
 ## Create the service app
 
@@ -84,7 +81,7 @@ To create the app:
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.6.23</version>
+      <version>1.7.23</version>
       <type>jar</type>
     </dependency>
     ```
@@ -296,7 +293,7 @@ In this section, you create a Java console app that handles the desired properti
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     ```
 
@@ -345,7 +342,7 @@ In this section, you create a Java console app that handles the desired properti
     private static final int METHOD_NOT_DEFINED = 404;
     ```
 
-    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. Currently, to use device twin features you must use the MQTT protocol.
+    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object.
 
 1. To print device twin notifications to the console, add the following nested class to the **App** class:
 
@@ -480,5 +477,5 @@ In this tutorial, you configured a new IoT hub in the Azure portal, and then cre
 
 Use the following resources to learn how to:
 
-* Send telemetry from devices with the [Get started with IoT Hub](iot-hub-java-java-getstarted.md) tutorial.
-* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](iot-hub-java-java-direct-methods.md) tutorial.
+* Send telemetry from devices with the [Get started with IoT Hub](quickstart-send-telemetry-java.md) tutorial.
+* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](quickstart-control-device-java.md) tutorial.

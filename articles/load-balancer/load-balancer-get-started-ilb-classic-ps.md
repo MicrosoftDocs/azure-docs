@@ -3,8 +3,8 @@ title: Create an Azure Internal load balancer - PowerShell classic | Microsoft D
 description: Learn how to create an internal load balancer using PowerShell in the classic deployment model
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: genlin
+manager: cshepard
 editor: ''
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: kumud
+ms.author: genli
 ---
 
 # Get started creating an internal load balancer (classic) using PowerShell

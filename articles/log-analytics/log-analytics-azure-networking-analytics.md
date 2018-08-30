@@ -12,11 +12,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/09/2017
+ms.topic: conceptual
+ms.date: 06/21/2018
 ms.author: richrund
-
+ms.component: na
 ---
+
 # Azure networking monitoring solutions in Log Analytics
 
 Log Analytics offers the following solutions for monitoring your networks:
@@ -25,18 +26,19 @@ Log Analytics offers the following solutions for monitoring your networks:
 * Azure Application Gateway analytics to review
  * Azure Application Gateway logs
  * Azure Application Gateway metrics
-* Azure Network Security Group analytics to review
- * Azure Network Security Group logs
+* Solutions to monitor and audit network activity on your cloud network
+* [Traffic Analytics](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+* Azure Network Security Group Analytics
 
 ## Network Performance Monitor (NPM)
 
-The [Network Performance Monitor](log-analytics-network-performance-monitor.md) management solution is a network monitoring solution, that monitors the health, availability and reachability of networks.  It is used to monitor connectivity between:
+The [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) management solution is a network monitoring solution, that monitors the health, availability and reachability of networks.  It is used to monitor connectivity between:
 
 * Public cloud and on-premises
 * Data centers and user locations (branch offices)
 * Subnets hosting various tiers of a multi-tiered application.
 
-For more information, see [Network Performance Monitor](log-analytics-network-performance-monitor.md).
+For more information, see [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
 
 ## Azure Application Gateway and Network Security Group analytics
 To use the solutions:
@@ -59,7 +61,7 @@ The following table shows data collection methods and other details about how da
 
 | Platform | Direct agent | Systems Center Operations Manager agent | Azure | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Azure |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Yes](./media/log-analytics-azure-networking/oms-bullet-green.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |when logged |
+| Azure |  |  |&#8226; |  |  |when logged |
 
 
 ## Azure Application Gateway analytics solution in Log Analytics
@@ -72,7 +74,8 @@ The following logs are supported for Application Gateways:
 * ApplicationGatewayPerformanceLog
 * ApplicationGatewayFirewallLog
 
-The following metrics are supported for Application Gateways:
+The following metrics are supported for Application Gateways:again
+
 
 * 5 minute throughput
 
@@ -135,6 +138,12 @@ On any of the log search pages, you can view results by time, detailed results, 
 ## Azure Network Security Group analytics solution in Log Analytics
 
 ![Azure Network Security Group Analytics symbol](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+
+> [!NOTE]
+> The Network Security Group analytics solution is moving to community support since its functionality has been replaced by [Traffic Analytics](../network-watcher/traffic-analytics.md).
+> - The solution is now available in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) and will soon no longer be available in the Azure Marketplace.
+> - For existing customers who already added the solution to their workspace, it will continue to function with no changes.
+> - Microsoft will continue to support sending NSG diagnostic logs to your workspace using Diagnostics Settings.
 
 The following logs are supported for network security groups:
 
@@ -208,9 +217,9 @@ To use the updated solutions:
 
     | Instead of: | Use: |
     | --- | --- |
-    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayAccess`| `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayAccess` |
-    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayPerformance` | `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayPerformance` |
-    | `Type=NetworkSecuritygroups` | `Type=AzureDiagnostics ResourceType=NETWORKSECURITYGROUPS` |
+    | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; where ResourceType="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess" |
+    | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; where ResourceType=="APPLICATIONGATEWAYS" and OperationName=ApplicationGatewayPerformance |
+    | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
 
    + For any field that has a suffix of \_s, \_d, or \_g in the name, change the first character to lower case
    + For any field that has a suffix of \_o in name, the data is split into individual fields based on the nested field names.

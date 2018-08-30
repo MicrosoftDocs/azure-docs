@@ -1,9 +1,9 @@
----
+﻿---
 title: Dashboards and navigation in the Azure Application Insights | Microsoft Docs
 description: Create views of your key APM charts and queries.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
@@ -11,9 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
-ms.author: cfreeman
+ms.author: mbullwin
 
 ---
 # Navigation and Dashboards in the Application Insights portal
@@ -59,7 +59,7 @@ The chart is automatically refreshed with a frequency that depends on the chart'
 * Time range above 24 hours: (Time range)/60.
 
 ### Pin any query in Analytics
-You can also [pin Analytics](app-insights-analytics-using.md#pin-to-dashboard) charts to a [shared](#share-dashboards-with-your-team) dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics. (There is a charge for this feature.)
+You can also [pin Analytics](app-insights-analytics-using.md#pin-to-dashboard) charts to a [shared](#share-dashboards-with-your-team) dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics. 
 
 Results are automatically recalculated every hour. Click the Refresh icon on the chart to recalculate immediately. (Browser refresh doesn't recalculate.)
 
@@ -95,6 +95,9 @@ When you've created a dashboard, you can share it with other users.
 
 Learn about [Roles and access control](app-insights-resources-roles-access-control.md).
 
+## Create dashboards programmatically
+You can automate dashboard creation using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) and a simple JSON editor.
+
 ## App navigation
 The overview blade is the gateway to more information about your app.
 
@@ -111,7 +114,6 @@ The overview blade is the gateway to more information about your app.
 
 ### Essentials tab
 * [Instrumentation key](app-insights-create-new-resource.md#copy-the-instrumentation-key) - Identifies this app resource.
-* Pricing - Make features available and set volume caps.
 
 ### App navigation bar
 ![Left navigation bar](./media/app-insights-dashboards/app-left-nav-bar.png)

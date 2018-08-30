@@ -1,9 +1,9 @@
 ---
-title: Network Performance Monitor solution in Azure Log Analytics | Microsoft Docs
-description: Network Performance Monitor in Azure Log Analytics helps you monitor the performance of your networks-in near real-time-to detect and locate network performance bottlenecks.
+title: Network Performance Monitor solution in Azure | Microsoft Docs
+description: Network Performance Monitor in Azure helps you monitor the performance of your networks, in near real time, to detect and locate network performance bottlenecks.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: abshamsft
 manager: carmonm
 editor: ''
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
@@ -11,302 +11,270 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/07/2017
-ms.author: banders
-
+ms.topic: conceptual
+ms.date: 02/20/2018
+ms.author: abshamsft
+ms.component: na
 ---
-# Network Performance Monitor solution in Log Analytics
+
+# Network Performance Monitor solution in Azure
 
 ![Network Performance Monitor symbol](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 
-This document describes how to set-up and use the Network Performance Monitor solution in Log Analytics, which helps you monitor the performance of your networks-in near real-time-to detect and locate network performance bottlenecks. With the Network Performance Monitor solution, you can monitor the loss and latency between two networks, subnets or servers. Network Performance Monitor detects network issues like traffic blackholing, routing errors, and issues that conventional network monitoring methods are not able to detect. Network Performance Monitor generates alerts and notifies as and when a threshold is breached for a network link. These thresholds can be learned automatically by the system or you can configure them to use custom alert rules. Network Performance Monitor ensures timely detection of network performance issues and localizes the source of the problem to a particular network segment or device.
 
-You can detect network issues with the solution dashboard which displays summarized information about your network including recent network health events, unhealthy network links, and subnetwork links that are facing high packet loss and latency. You can drill-down into a network link to view the current health status of subnetwork links as well as node-to-node links. You can also view the historical trend of loss and latency at the network, subnetwork, and node-to-node level. You can detect transient network issues by viewing historical trend charts for packet loss and latency and locate network bottlenecks on a topology map. The interactive topology graph allows you to visualize the hop-by-hop network routes and determine the source of the problem. Like any other solutions, you can use Log Search for various analytics requirements to create custom reports based on the data collected by Network Performance Monitor.
+Network Performance Monitor is a cloud-based hybrid network monitoring solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to service and application endpoints and monitor the performance of Azure ExpressRoute. 
 
-The solution uses synthetic transactions as a primary mechanism to detect network faults. So, you can use it without regard for a specific network device's vendor or model. It works across on-premises, cloud (IaaS), and hybrid environments. The solution automatically discovers the network topology and various routes in your network.
+Network Performance Monitor detects network issues like traffic blackholing, routing errors, and issues that conventional network monitoring methods aren't able to detect. The solution generates alerts and notifies you when a threshold is breached for a network link. It also ensures timely detection of network performance issues and localizes the source of the problem to a particular network segment or device. 
 
-Typical network monitoring products focus on monitoring the network device (routers, switches etc.) health but do not provide insights into the actual quality of network connectivity between two points, which Network Performance Monitor does.
+Network Performance Monitor offers three broad capabilities: 
 
-### Using the solution standalone
-If you want to monitor the quality of network connections between their critical workloads, networks, datacenters or office sites, then you can use the Network Performance Monitor solution by itself to monitor connectivity health between:
+* [Performance Monitor](log-analytics-network-performance-monitor-performance-monitor.md): You can monitor network connectivity across cloud deployments and on-premises locations, multiple data centers, and branch offices and mission-critical multitier applications or microservices. With Performance Monitor, you can detect network issues before users complain.
 
-* multiple datacenters or office sites that are connected using a public or private network
-* critical workloads that are running line of business applications
-* public cloud services like Microsoft Azure or Amazon Web Services (AWS) and on-premises networks, if you have IaaS (VM) available and you have gateways configured to allow communication between on-premises networks and cloud networks
-* Azure and on-premises networks when you use Express Route
+* [Service Connectivity Monitor](log-analytics-network-performance-monitor-service-endpoint.md): You can monitor the connectivity from your users to the services you care about, determine what infrastructure is in the path, and identify where network bottlenecks occur. You can know about outages before your users, and see the exact location of the issues along your network path. 
 
-### Using the solution with other networking tools
-If you want to monitor a line of business application, you can use the Network Performance Monitor solution as a companion solution to other network tools. A slow network can lead to slow applications and Network Performance Monitor can help you investigate application performance issues that are caused by underlying networking issues. Because the solution does not require any access to network devices, the application administrator doesn't need to rely on a networking team to provide information about how the network is affecting applications.
+    This capability helps you perform tests based on HTTP, HTTPS, TCP, and ICMP to monitor in near real time or historically the availability and response time of your service. You also can monitor the contribution of the network in packet loss and latency. With a network topology map, you can isolate network slowdowns. You can identify problem spots that occur along the network path from the node to the service, with latency data on each hop. With built-in tests, you can monitor network connectivity to Office 365 and Dynamics CRM without any preconfiguration. With this capability, you can monitor network connectivity to any TCP-capable endpoint, such as websites, SaaS applications, PaaS applications, and SQL databases.
 
-Also, if you already invest in other network monitoring tools, then the solution can complement those tools because most traditional network monitoring solutions do not provide insights into end-to-end network performance metrics like loss and latency.  The Network Performance Monitor solution can help fill that gap.
+* [ExpressRoute Monitor](log-analytics-network-performance-monitor-expressroute.md): Monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute.  
 
-## Installing and configuring agents for the solution
-Use the basic processes to install agents at [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md) and [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md).
+More information on the various capabilities supported by [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) is available online.
+ 
+## Supported Regions
+NPM can monitor connectivity between networks and applications in any part of the world, from a workspace that is hosted in one of the following regions:
+* West Europe
+* West Central US
+* East US
+* East Japan
+* South East Asia
+* South East Australia
+* South UK
+* US Government Virginia
 
-> [!NOTE]
-> You'll need to install at least 2 agents in order to have enough data to discover and monitor your network resources. Otherwise, the solution will remain in a configuring state until you install and configure additional agents.
->
->
-
-### Where to install the agents
-Before you install agents, consider the topology of your network and what parts of the network you want to monitor. We recommend that you install more than one agent for each subnet that you want to monitor. In other words, for every subnet that you want to monitor, choose two or more servers or VMs and install the agent on them.
-
-If you are unsure about the topology of your network, install the agents on servers with critical workloads where you want to monitor the network performance. For example, you might want to keep track of a network connection between a Web server and a server running SQL Server. In this example, you'd install an agent on both servers.
-
-Agents monitor network connectivity (links) between hosts -- not the hosts themselves. So, to monitor a network link, you must install agents on both endpoints of that link.
-
-### Configure agents
-
-If you intend to use the ICMP protocol for synthetic transactions, you need to enable the following firewall rules for reliably utilizing ICMP:
-
-```
-netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow
-netsh advfirewall firewall add rule name="NPMDICMPV6Echo" protocol="icmpv6:128,any" dir=in action=allow
-netsh advfirewall firewall add rule name="NPMDICMPV4DestinationUnreachable" protocol="icmpv4:3,any" dir=in action=allow
-netsh advfirewall firewall add rule name="NPMDICMPV6DestinationUnreachable" protocol="icmpv6:1,any" dir=in action=allow
-netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmpv4:11,any" dir=in action=allow
-netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow
-```
+The list of supported regions for ExpressRoute Monitor is available in the [documentation](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions).
 
 
-If you intend to use the TCP protocol you need to open firewall ports for those computers to ensure that agents can communicate. You need to download and then run the [EnableRules.ps1 PowerShell script](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) without any parameters in a PowerShell window with administrative privileges.
+## Set up and configure
 
-The script creates registry keys required by the Network Performance Monitor and it creates Windows firewall rules to allow agents to create TCP connections with each other. The registry keys created by the script also specify whether to log the debug logs and the path for the logs file. It also defines the agent TCP port used for communication. The values for these keys are automatically set by the script, so you should not manually change these keys.
+### Install and configure agents 
 
-The port opened by default is 8084. You can use a custom port by providing the parameter `portNumber` to the script. However, the same port should be used on all the computers where the script is run.
+Use the basic processes to install agents at [Connect Windows computers to Azure Log Analytics](log-analytics-windows-agents.md) and [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md).
 
-> [!NOTE]
-> The EnableRules.ps1 script configures Windows firewall rules only on the computer where the script is run. If you have a network firewall, you should make sure that it allows traffic destined for the TCP port being used by Network Performance Monitor.
->
->
+### Where to install the agents 
 
-## Configuring the solution
-Use the following information to install and configure the solution.
+* **Performance Monitor**: Install Operations Management Suite agents on at least one node connected to each subnetwork from which you want to monitor network connectivity to other subnetworks.
 
-1. The Network Performance Monitor solution acquires data from computers running Windows Server 2008 SP 1 or later or Windows 7 SP1 or later, which are the same requirements as the Microsoft Monitoring Agent (MMA). NPM agents can also run on Windows desktop/client operating systems (Windows 10, Windows 8.1, Windows 8 and Windows 7).
+    To monitor a network link, install agents on both endpoints of that link. If you're unsure about the topology of your network, install the agents on servers with critical workloads between which you want to monitor the network performance. For example, if you want to monitor the network connection between a web server and a server running SQL, install an agent on both servers. Agents monitor network connectivity (links) between hosts, not the hosts themselves. 
+
+* **Service Connectivity Monitor**: Install an Operations Management Suite agent on each node from which you want to monitor the network connectivity to the service endpoint. An example is if you want to monitor network connectivity to Office 365 from your office sites labeled O1, O2, and O3. Install the Operations Management Suite agent on at least one node each in O1, O2, and O3. 
+
+* **ExpressRoute Monitor**: Install at least one Operations Management Suite agent in your Azure virtual network. Also install at least one agent in your on-premises subnetwork, which is connected through ExpressRoute private peering.  
+
+### Configure Operations Management Suite agents for monitoring 
+
+Network Performance Monitor uses synthetic transactions to monitor network performance between source and destination agents. You can choose between TCP and ICMP as the protocol for monitoring in Performance Monitor and Service Connectivity Monitor capabilities. Only TCP is available as the monitoring protocol for ExpressRoute Monitor. Make sure that the firewall allows communication between the Operations Management Suite agents used for monitoring on the protocol you choose. 
+
+* **TCP protocol**: If you choose TCP as the protocol for monitoring, open the firewall port on the agents used for Network Performance Monitor and ExpressRoute Monitor to make sure that the agents can connect to each other. To open the port, run the [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell script without any parameters in a PowerShell window with administrative privileges.
+
+    The script creates registry keys required by the solution. It also creates Windows Firewall rules to allow agents to create TCP connections with each other. The registry keys created by the script specify whether to log the debug logs and the path for the logs file. The script also defines the agent TCP port used for communication. The values for these keys are automatically set by the script. Don't manually change these keys. The port opened by default is 8084. You can use a custom port by providing the parameter portNumber to the script. Use the same port on all the computers where the script is run. 
+
     >[!NOTE]
-    >The agents for Windows server operating systems support both TCP and ICMP as the protocols for synthetic transaction. However, the agents for Windows client operating systems only support ICMP as the protocol for synthetic transaction.
+    > The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
 
-2. Add the Network Performance Monitor solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
-   ![Network Performance Monitor symbol](./media/log-analytics-network-performance-monitor/npm-symbol.png)
-3. In the OMS portal, you'll see a new tile titled **Network Performance Monitor** with the message *Solution requires additional configuration*. You'll need to configure the solution to add networks based on subnetworks and nodes that are discovered by agents. Click **Network Performance Monitor** to start configuring the default network.  
-   ![solution requires additional configuration](./media/log-analytics-network-performance-monitor/npm-config.png)
+    >[!NOTE]
+    > You don't need to run the [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell script for Service Endpoint Monitor.
 
-### Configure the solution with a default network
-On the configuration page, you'll see a single network named **Default**. When you haven't defined any networks, all the automatically-discovered subnets are placed in the Default network.
+    
 
-Whenever you create a network, you add a subnet to it and that subnet is removed from the Default network. If you delete a network, all its subnets are automatically returned to the Default network.
+* **ICMP protocol**: If you choose ICMP as the protocol for monitoring, enable the following firewall rules to reliably utilize ICMP:
+    
+   ```
+   netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow 
+   netsh advfirewall firewall add rule name="NPMDICMPV6Echo" protocol="icmpv6:128,any" dir=in action=allow 
+   netsh advfirewall firewall add rule name="NPMDICMPV4DestinationUnreachable" protocol="icmpv4:3,any" dir=in action=allow 
+   netsh advfirewall firewall add rule name="NPMDICMPV6DestinationUnreachable" protocol="icmpv6:1,any" dir=in action=allow 
+   netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmpv4:11,any" dir=in action=allow 
+   netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow 
+   ```
+ 
 
-In other words, the Default network is the container for all the subnets that are not contained in any user-defined network. You cannot edit or delete the Default network. It always remains in the system. However, you can create as many networks as you need.
+### Configure the solution 
 
-In most cases, the subnets in your organization will be arranged in more than one network and you should create one or more networks to logically group your subnets.
+1. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). You also can use the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). 
+2. Open your Log Analytics workspace, and select the **Overview** tile. 
+3. Select the **Network Performance Monitor** tile with the message *Solution requires additional configuration*.
 
-### Create new networks
-A network in Network Performance Monitor is a container for subnets. You can create a network with any name that you want and add subnets to the network. For example, you can create a network named *Building1* and then add subnets, or you can create a network named *DMZ* and then add all subnets belonging to demilitarized zone to this network.
+   ![Network Performance Monitor tile](media/log-analytics-network-performance-monitor/npm-config.png)
 
-#### To create a new network
-1. Click **Add network** and then type the network name and description.
-2. Select one or more subnets, and then click **Add**.
-3. Click **Save** to save the configuration.  
-   ![add network](./media/log-analytics-network-performance-monitor/npm-add-network.png)
+4. On the **Setup** page, you see the option to install Operations Management Suite agents and configure the agents for monitoring in the **Common Settings** view. As previously explained, if you installed and configured Operations Management Suite agents, select the **Setup** view to configure the capability you want to use. 
 
-### Wait for data aggregation
-After you've saved the configuration for first time, the solution starts collecting network packet loss and latency information between the nodes where agents are installed. This process can take a while, sometimes over 30 minutes. During this state, the Network Performance Monitor tile in the overview page displays a message stating *Data aggregation in process*.
+   **Performance Monitor**: Choose the protocol to use for synthetic transactions in the **Default** Performance Monitor rule, and select **Save & Continue**. This protocol selection only holds for the system-generated default rule. You need to choose the protocol each time you create a Performance Monitor rule explicitly. You can always move to the **Default** rule settings on the **Performance Monitor** tab (it appears after you complete your day-0 configuration) and change the protocol later. If you don't want the rPerfomance Monitor capability, you can disable the default rule from the **Default** rule settings on the **Performance Monitor** tab.
 
-![data aggregation in progress](./media/log-analytics-network-performance-monitor/npm-aggregation.png)
+   ![Performance Monitor view](media/log-analytics-network-performance-monitor/npm-synthetic-transactions.png)
+    
+   **Service Connectivity Monitor**: The capability provides built-in preconfigured tests to monitor network connectivity to Office 365 and Dynamics 365 from your agents. Choose the Office 365 and Dynamics 365 services that you want to monitor by selecting the check boxes beside them. To choose the agents from which you want to monitor, select **Add Agents**. If you don't want to use this capability or want to set it up later, don't choose anything and select **Save & Continue**.
 
-When the data has been uploaded, you'll see the Network Performance Monitor tile updated showing data.
+   ![Service Endpoint Monitor view](media/log-analytics-network-performance-monitor/npm-service-endpoint-monitor.png)
 
-![Network Performance Monitor tile](./media/log-analytics-network-performance-monitor/npm-tile.png)
+   **ExpressRoute Monitor**: Select **Discover Now** to discover all the ExpressRoute private peerings that are connected to the virtual networks in the Azure subscription linked with this Log Analytics workspace. 
 
-Click the tile to view the Network Performance Monitor dashboard.
+   >[!NOTE] 
+   > The solution currently discovers only ExpressRoute private peerings. 
 
-![Network Performance Monitor dashboard](./media/log-analytics-network-performance-monitor/npm-dash01.png)
+   >[!NOTE] 
+   > Only private peerings that are connected to the virtual networks associated with the subscription linked with this Log Analytics workspace are discovered. If ExpressRoute is connected to virtual networks outside of the subscription linked to this workspace, create a Log Analytics workspace in those subscriptions. Use Network Performance Monitor to monitor those peerings.
 
-### Edit monitoring settings for subnets
-All subnets where at least one agent was installed are listed on the **Subnetworks** tab in the configuration page.
+   ![ExpressRoute Monitor view](media/log-analytics-network-performance-monitor/npm-express-route.png)
 
-#### To enable or disable monitoring for particular subnetworks
-1. Select or clear the box next to the **subnetwork ID** and then ensure that **Use for Monitoring** is selected or cleared, as appropriate. You can select or clear multiple subnets. When disabled, subnetworks are not monitored as the agents will be updated to stop pinging other agents.
-2. Choose the nodes that you want to monitor for a particular subnetwork by selecting the subnetwork from the list and moving the required nodes between the lists containing unmonitored and monitored nodes.
-   You can add a custom **description** to the subnetwork, if you like.
-3. Click **Save** to save the configuration.  
-   ![edit subnet](./media/log-analytics-network-performance-monitor/npm-edit-subnet.png)
+   After the discovery is finished, the discovered private peerings are listed in a table. 
 
-### Choose nodes to monitor
-All the nodes that have an agent installed on them are listed in the **Nodes** tab.
+   ![Network Performance Monitor Configuration page](media/log-analytics-network-performance-monitor/npm-private-peerings.png)
+    
+The monitoring for these peerings is initially in a disabled state. Select each peering that you want to monitor, and configure monitoring for them from the details view on the right. Select **Save** to save the configuration. To learn more, see the "Configure ExpressRoute monitoring" article. 
 
-#### To enable or disable monitoring for nodes
-1. Select or clear the nodes that you want to monitor or stop monitoring.
-2. Click **Use for Monitoring**, or clear it, as appropriate.
-3. Click **Save**.  
-   ![enable node monitoring](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
+After the setup is finished, it takes 30 minutes to an hour for the data to populate. While the solution aggregates data from your network, you see the message *Solution requires additional configuration* on the Network Performance Monitor **Overview** tile. After the data is collected and indexed, the **Overview** tile changes and informs you of your network health in a summary. You then can edit the monitoring of the nodes on which Operations Management Suite agents are installed, as well as the subnets discovered from your environment.
 
-### Set monitoring rules
-Network Performance Monitor generates health events about the connectivity between a pair of nodes or subnetwork or network links when a threshold is breached. These thresholds can be learned automatically by the system or you can configure them custom alert rules.
+#### Edit monitoring settings for subnets and nodes 
 
-The *Default rule* is created by the system and it creates a health event whenever loss or latency between any pair of networks or subnetwork links breaches the system-learned threshold. You can choose to disable the default rule and create custom monitoring rules
-
-#### To create custom monitoring rules
-1. Click **Add Rule** in the **Monitor** tab and enter the rule name and description.
-2. Select the pair of network or subnetwork links to monitor from the lists.
-3. First select the network in which the first subnetwork/s of interest is contained from the network dropdown, and then select the subnetwork/s from the corresponding subnetwork dropdown.
-   Select **All subnetworks** if you want to monitor all the subnetworks in a network link. Similarly select the other subnetwork/s of interest. And, you can click **Add Exception** to exclude monitoring for particular subnetwork links from the selection you've made.
-4. Choose between ICMP and TCP protocols for executing synthetic transactions.
-5. If you don't want to create health events for the items you've selected, then clear **Enable health monitoring on the links covered by this rule**.
-6. Choose monitoring conditions.
-   You can set custom thresholds for health event generation by typing threshold values. Whenever the value of the condition goes above its selected threshold for the selected network/subnetwork pair, a health event is generated.
-7. Click **Save** to save the configuration.  
-   ![create custom monitoring rule](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
-
-After you save a monitoring rule, you can integrate that rule with Alert Management by clicking **Create Alert**. An alert rule is automatically created with the search query and other required parameters automatically filled-in. Using an alert rule, you can receive email-based alerts, in addition to the existing alerts within NPM. Alerts can also trigger remedial actions with runbooks or they can integrate with existing service management solutions using webhooks. You can click **Manage Alert** to edit the alert settings.
-
-### Choose the right protocol-ICMP or TCP
-
-Network Performance Monitor (NPM) uses synthetic transactions to calculate network performance metrics like packet loss and link latency. To understand this better, consider an NPM agent connected to one end of a network link. This NPM agent sends probe packets to a second NPM agent connected to another end of the network. The second agent replies with response packets. This process is repeated a few times. By measuring the number of replies and time taken to receive each reply, the first NPM agent assesses link latency and packet drops.
-
-The format, size and sequence of these packets is determined by the protocol that you choose when you create monitoring rules. Based on protocol of the packets, the intermediate network devices (routers, switches etc.) might process these packets differently. Consequently, your protocol choice affects the accuracy of the results. And, your protocol choice also determines whether you must take any manual steps after you deploy the NPM solution.
-
-NPM offers you the choice between ICMP and TCP protocols for executing synthetic transactions.
-If you choose ICMP when you create a synthetic transaction rule, the NPM agents use ICMP ECHO messages to calculate the network latency and packet loss. ICMP ECHO uses the same message that is sent by the conventional Ping utility. When you use TCP as the protocol, NPM agents send TCP SYN packet over the network. This is followed by a TCP handshake completion and then removing the connection using RST packets.
-
-#### Points to consider before choosing the protocol
-Consider the following information before you choose a protocol to use:
-
-##### Discovering multiple network routes
-TCP is more accurate when discovering multiple routes and it needs fewer agents in each subnet. For example, one or two agents using TCP can discover all redundant paths between subnets. However, you need several agents using ICMP to achieve similar results. Using ICMP, if you have *N* number of routes between two subnets you need more than 5*N* agents in either a source or destination subnet.
-
-##### Accuracy of results
-Routers and switches tend to assign lower priority to ICMP ECHO packets compared to TCP packets. In certain situations, when network devices are heavily loaded, the data obtained by TCP more closely reflects the loss and latency experienced by applications. This occurs because most of the application traffic flows over TCP. In such cases, ICMP provides less accurate results compared to TCP.
-
-##### Firewall configuration
-TCP protocol requires that TCP packets are sent to a destination port. The default port used by NPM agents is 8084, however you can change this when you configure agents. So, you need to ensure that your network firewalls or NSG rules (in Azure) are allowing traffic on the port. You also need to make sure that the local firewall on the computers where agents are installed is configured to allow traffic on this port.
-
-You can use PowerShell scripts to configure firewall rules on your computers running Windows, however you need to configure your network firewall manually.
-
-In contrast, ICMP does not operate using port. In most enterprise scenarios, ICMP traffic is permitted through the firewalls to allow you to use network diagnostics tools like the Ping utility. So, if you can Ping one machine from another, then you can use the ICMP protocol without having to configure firewalls manually.
-
-> [!NOTE]
-> In case you are not sure what protocol to use, choose ICMP to start with. If you are not satisfied with the results, you can always switch to TCP later.
+All subnets with at least one agent installed are listed on the **Subnetworks** tab on the configuration page. 
 
 
-#### How to switch the protocol
+To enable or disable monitoring of particular subnetworks:
 
-If you chose to use ICMP during deployment, you can switch to TCP at any time by editing the default monitoring rule.
+1. Select or clear the check box next to the **subnetwork ID**. Then make sure that **Use for Monitoring** is selected or cleared, as appropriate. You can select or clear multiple subnets. When disabled, subnetworks aren't monitored, and the agents are updated to stop pinging other agents. 
+2. Choose the nodes that you want to monitor in a particular subnetwork. Select the subnetwork from the list, and move the required nodes between the lists that contain unmonitored and monitored nodes. You can add a custom description to the subnetwork.
+3. Select **Save** to save the configuration. 
 
-##### To edit the default monitoring rule
-1.	Navigate to **Network Performance** > **Monitor** > **Configure** > **Monitor** and then click **Default rule**.
-2.	Scroll to the **Protocol** section and select the protocol that you want to use.
-3.	Click **Save** to apply the setting.
+#### Choose nodes to monitor
 
-Even if the default rule is using a specific protocol, you can create new rules with a different protocol. You can even create a mix of rules where some of the rules use ICMP and another uses TCP.
+All the nodes that have an agent installed on them are listed on the **Nodes** tab. 
+
+1. Select or clear the nodes that you want to monitor or stop monitoring. 
+2. Select **Use for Monitoring**, or clear it, as appropriate. 
+3. Select **Save**. 
 
 
+Configure the capabilities you want:
 
+- [Performance Monitor](log-analytics-network-performance-monitor-performance-monitor.md#configuration)
+- [Service Endpoint Monitor](log-analytics-network-performance-monitor-performance-monitor.md#configuration)
+- [ExpressRoute Monitor](log-analytics-network-performance-monitor-expressroute.md#configuration)
+
+ 
 
 ## Data collection details
-Network Performance Monitor uses TCP SYN-SYNACK-ACK handshake packets when TCP is chosen and ICMP ECHO ICMP ECHO REPLY when ICMP is chosen as the protocol to collect loss and latency information. Traceroute is also used to get topology information.
+To collect loss and latency information, Network Performance Monitor uses TCP SYN-SYNACK-ACK handshake packets when you choose TCP as the protocol. Network Performance Monitor uses ICMP ECHO ICMP ECHO REPLY when you choose ICMP as the protocol. Trace route is also used to get topology information.
 
 The following table shows data collection methods and other details about how data is collected for Network Performance Monitor.
 
-| platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+| Platform | Direct agent | System Center Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Yes](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Yes](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![No](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![No](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![No](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |TCP handshakes/ICMP ECHO messages every 5 seconds, data sent every 3 minutes |
+| Windows | &#8226; | &#8226; |  |  |  |TCP handshakes/ICMP ECHO messages every 5 seconds, data sent every 3 minutes |
+ 
 
-The solution uses synthetic transactions to assess the health of the network. OMS agents installed at various point in the network exchange TCP packets or ICMP Echo (depending on the protocol selected for monitoring) with one another. In the process, agents learn the round-trip time and packet loss, if any. Periodically, each agent also performs a trace route to other agents to find all the various routes in the network that must be tested. Using this data, the agents can deduce the network latency and packet loss figures. The tests are repeated every five seconds and data is aggregated for a period of three minutes by the agents before uploading it to the Log Analytics service.
+ 
+The solution uses synthetic transactions to assess the health of the network. Operations Management Suite agents installed at various points in the network exchange TCP packets or ICMP Echo with one another. Whether the agents use TCP packets or ICMP Echo depends on the protocol you selected for monitoring. In the process, agents learn the round-trip time and packet loss, if any. Periodically, each agent also performs a trace route to other agents to find all the various routes in the network that must be tested. Using this data, the agents can deduce the network latency and packet loss figures. The tests are repeated every five seconds. Data is aggregated for about three minutes by the agents before it's uploaded to the Log Analytics service.
 
-> [!NOTE]
-> Although agents communicate with each other frequently, they do not generate a lot of network traffic while conducting the tests. Agents rely only on TCP SYN-SYNACK-ACK handshake packets to determine the loss and latency -- no data packets are exchanged. During this process, agents communicate with each other only when needed and the agent communication topology is optimized to reduce network traffic.
->
->
 
-## Using the solution
-This section explains all the dashboard functions and how to use them.
 
-### Solution Overview tile
-After you've enabled the Network Performance Monitor solution, the solution tile on the OMS Overview page provides a quick overview of the network health. It displays a doughnut chart showing the number of healthy and unhealthy subnetwork links. When you click the tile, it opens the solution dashboard.
+>[!NOTE]
+> Although agents communicate with each other frequently, they don't generate significant network traffic while conducting the tests. Agents rely only on TCP SYN-SYNACK-ACK handshake packets to determine the loss and latency. No data packets are exchanged. During this process, agents communicate with each other only when needed. The agent communication topology is optimized to reduce network traffic.
 
-![Network Performance Monitor tile](./media/log-analytics-network-performance-monitor/npm-tile.png)
+## Use the solution 
 
-### Network Performance Monitor solution dashboard
-The **Network Summary** blade shows a summary of the networks along with their relative size. This is followed by tiles showing total number of network links, subnet links and paths in the system (a path consists of the IP addresses of two hosts with agents and all the hops between them).
+### Network Performance Monitor Overview tile 
 
-The **Top Network Health Events** blade provides a list of most recent health events and alerts in the system and the time since the event has been active. A health event or alert is generated whenever the packet loss or latency of a network or subnetwork link exceeds a threshold.
+After you enable the Network Performance Monitor solution, the solution tile on the **Overview** page provides a quick overview of the network health. 
 
-The **Top Unhealthy Network Links** blade shows a list of unhealthy network links. These are the network links that have one or more adverse health event for them at the moment.
+ ![Network Performance Monitor Overview tile](media/log-analytics-network-performance-monitor/npm-overview-tile.png)
 
-The **Top Subnetwork Links with Most Loss** and **Subnetwork Links with Most Latency** blades show the top subnetwork links by packet loss and top subnetwork links by latency respectively. High latency or some amount of packet loss might be expected on certain network links. Such links appear in the top ten lists but are not marked unhealthy.
+### Network Performance Monitor dashboard 
 
-The **Common Queries** blade contains a set of search queries that fetch raw network monitoring data directly. You can use these queries as a starting point for creating your own queries for customized reporting.
+* **Top Network Health Events**: This page provides a list of the most recent health events and alerts in the system and the time since the events have been active. A health event or alert is generated whenever the value of the chosen metric (loss, latency, response time, or bandwidth utilization) for the monitoring rule exceeds the threshold. 
 
-![Network Performance Monitor dashboard](./media/log-analytics-network-performance-monitor/npm-dash01.png)
+* **ExpressRoute Monitor**: This page provides health summaries for the various ExpressRoute peering connections the solution monitors. The **Topology** tile shows the number of network paths through the ExpressRoute circuits that are monitored in your network. Select this tile to go to the **Topology** view.
 
-### Drill-down for depth
-You can click various links on the solution dashboard to drill-down deeper into any area of interest. For example, when you see an alert or an unhealthy network link appear on the dashboard, you can click it to investigate further. You'll be taken to a page that lists all the subnetwork links for the particular network link. You will be able to see the loss, latency and health status of each subnetwork link and quickly find out what subnetwork links are causing the problem. You can then click **View node links** to see all the node links for the unhealthy subnet link. Then, you can see individual node-to-node links and find the unhealthy node links.
+* **Service Connectivity Monitor**: This page provides health summaries for the different tests you created. The **Topology** tile shows the number of endpoints that are monitored. Select this tile to go to the **Topology** view.
 
-You can click **View topology** to view the hop-by-hop topology of the routes between the source and destination nodes. The unhealthy routes or hops are shown in red so that you can quickly identify the problem to a particular portion of the network.
+* **Performance Monitor**: This page provides health summaries for the **Network** links and **Subnetwork** links that the solution monitors. The **Topology** tile shows the number of network paths that are monitored in your network. Select this tile to go to the **Topology** view. 
 
-![drill-down data](./media/log-analytics-network-performance-monitor/npm-drill.png)
+* **Common Queries**: This page contains a set of search queries that fetch raw network monitoring data directly. You can use these queries as a starting point to create your own queries for customized reporting. 
 
-### Network State Recorder
+   ![Network Performance Monitor dashboard](media/log-analytics-network-performance-monitor/npm-dashboard.png)
 
-Each view displays a snapshot of your network health at a particular point in time. By default, the most recent state is shown. The bar at the top of the page shows the point in time for which the state is being displayed. You can choose to go back in time and view the snapshot of your network health by clicking on the bar on **Actions**. You can also choose to enable or disable auto-refresh for any page while you view the latest state.
+ 
 
-![network state](./media/log-analytics-network-performance-monitor/network-state.png)
+### Drill down for depth 
 
-#### Trend charts
-At each level that you drill-down, you can see the trend of loss and latency for a network link. Trend charts are also available for Subnetwork and Node links. You can change the time interval for the graph to plot by using the time control at the top of the chart.
+You can select various links on the solution dashboard to drill down deeper into any area of interest. For example, when you see an alert or an unhealthy network link appear on the dashboard, select it to investigate further. A page lists all the subnetwork links for the particular network link. You can see the loss, latency, and health status of each subnetwork link. You can quickly find out which subnetwork link causes problems. Select **View node links** to see all the node links for the unhealthy subnet link. Then, you can see individual node-to-node links and find the unhealthy node links. 
 
-Trend charts show you a historical perspective of the performance of a network link. Some network issues are transient in nature and would be hard to catch only by looking at the current state of the network. This is because issues can surface quickly and disappear before anyone notices, only to reappear at a later point in time. Such transient issues can also be difficult for application administrators because those issues often surface as unexplained increases in application response time, even when all application components appear to run smoothly.
+Select **View topology** to view the hop-by-hop topology of the routes between the source and destination nodes. The unhealthy routes appear in red. You can view the latency contributed by each hop so that you can quickly identify the problem to a particular portion of the network.
 
-You can easily detect those kinds of issues by looking at a trend chart where the issue will appear as a sudden spike in network latency or packet loss.
+ 
 
-![trend chart](./media/log-analytics-network-performance-monitor/npm-trend.png)
+### Network State Recorder control
 
-#### Hop-by-hop topology map
-Network Performance Monitor shows you the hop-by-hop topology of routes between two nodes on an interactive topology map. You can view the topology map by selecting a node link and then clicking **View topology**. Also, you can view the topology map by clicking **Paths** tile on the dashboard. When you click **Paths** on the dashboard, you'll have to select the source and destination nodes from the left hand panel and then click **Plot** to plot the routes between the two nodes.
+Each view displays a snapshot of your network health at a particular point in time. By default, the most recent state is shown. The bar at the top of the page shows the point in time for which the state is displayed. To view a snapshot of your network health at a previous time, select **Actions**. You also can enable or disable auto-refresh for any page while you view the latest state. 
 
-The topology map displays how many routes are between the two nodes and what paths the data packets take. Network performance bottlenecks are marked in red on the topology map. You can locate a faulty network connection or a faulty network device by looking at red colored elements on the topology map.
+ ![Network State Recorder](media/log-analytics-network-performance-monitor/network-state-recorder.png)
 
-When you click a node or hover over it on the topology map, you'll see the properties of the node like FQDN and IP address. Click a hop to see it's IP address. You can choose to filter particular routes by using the filters in the collapsible action pane. And, you can also simplify the network topologies by hiding the intermediate hops using the slider in the action pane. You can zoom-in or out of the topology map by using your mouse wheel.
+ 
 
-Note that the topology shown in the map is layer 3 topology and doesn't contain layer 2 devices and connections.
+### Trend charts 
 
-![hop-by-hop topology map](./media/log-analytics-network-performance-monitor/npm-topology.png)
+At each level that you drill down, you can see the trend of the applicable metric. It can be loss, latency, response time, or bandwidth utilization. To change the time interval for the trend, use the time control at the top of the chart. 
 
-#### Fault localization
-Network Performance Monitor is able to find the network bottlenecks without connecting to the network devices. Based on the data that it gathers from the network and by applying advanced algorithms on the network graph, Network Performance Monitor makes a probabilistic estimate of the parts of network that are most likely the source of the problem.
+Trend charts show you a historical perspective of the performance of a performance metric. Some network issues are transient in nature and are hard to catch by looking at only the current state of the network. Issues can surface quickly and disappear before anyone notices, only to reappear at a later point in time. Such transient issues also can be difficult for application administrators. The issues often show up as unexplained increases in application response time, even when all application components appear to run smoothly. 
 
-This approach is useful to determine the network bottlenecks when access to hops isn't available because it doesn't require any data to be gathered from the network devices such as routers or switches. This is also useful when the hops between two nodes are not in your administrative control. For example, the hops may be ISP routers.
+You can easily detect these kinds of issues by looking at a trend chart. The issue appears as a sudden spike in network latency or packet loss. To investigate the issue, use the Network State Recorder control to view the network snapshot and topology for that point in time when the issue occurred.
 
-### Log Analytics search
-All data that is exposed graphically through the Network Performance Monitor dashboard and drill-down pages is also available natively in Log Analytics search. You can query the data using the search query language and create custom reports by exporting the data to Excel or PowerBI. The **Common Queries** blade in the dashboard has some useful queries that you can use as the starting point for creating your own queries and reports.
+ 
+![Trend charts](media/log-analytics-network-performance-monitor/trend-charts.png)
+ 
 
-![search queries](./media/log-analytics-network-performance-monitor/npm-queries.png)
+### Topology map 
 
-## Investigate the root cause of a health alert
-Now that you've read about Network Performance Monitor, let's look at a simple investigation into the root-cause for a health event.
+Network Performance Monitor shows you the hop-by-hop topology of routes between the source and destination endpoint on an interactive topology map. To view the topology map, select the **Topology** tile on the solution dashboard. You also can select the **View topology** link on the drill-down pages. 
 
-1. On the Overview page, you'll get a quick snapshot of the health of your network by observing the **Network Performance Monitor** tile. Notice that out of the 6 subnetworks links being monitored, 2 are unhealthy. This warrants investigation. Click the tile to view the solution dashboard.  
-   ![Network Performance Monitor tile](./media/log-analytics-network-performance-monitor/npm-investigation01.png)
-2. In the example image below, you'll notice that there is a health event a network link that is unhealthy. You decide to investigate the issue and click on the **DMZ2-DMZ1** network link to find out the root of the problem.  
-   ![unhealthy network link example](./media/log-analytics-network-performance-monitor/npm-investigation02.png)
-3. The drill-down page shows all the subnetwork links in **DMZ2-DMZ1** network link. You'll notice that for both the subnetwork links, the latency has crossed the threshold making the network link unhealthy. You can also see the latency trends of both the subnetwork links. You can use the time selection control in the graph to focus on the required time range. You can see the time of the day when latency has reached its peak. You can later search the logs for this time period to investigate the issue. Click **View node links** to drill-down further.  
-   ![unhealthy subnet links example](./media/log-analytics-network-performance-monitor/npm-investigation03.png)
-4. Similar to the previous page, the drill-down page for the particular subnetwork link lists down its constituent node links. You can perform similar actions  here as you did in the previous step. Click **View topology** to view the topology between the 2 nodes.  
-   ![unhealthy node links example](./media/log-analytics-network-performance-monitor/npm-investigation04.png)
-5. All the paths between the 2 selected nodes are plotted in the topology map. You can visualize the hop-by-hop topology of routes between two nodes on the topology map. It gives you a clear picture of how many routes exist between the two nodes and what paths the data packets are taking. Network performance bottlenecks are marked in red color. You can locate a faulty network connection or a faulty network device by looking at red colored elements on the topology map.  
-   ![unhealthy topology view example](./media/log-analytics-network-performance-monitor/npm-investigation05.png)
-6. The loss, latency, and the number of hops in each path can be reviewed in the **Action** pane. Use the scrollbar to view the details of those unhealthy paths.  Use the filters to select the paths with the unhealthy hop so that the topology for only the selected paths is plotted. You can use your mouse wheel to zoom in or out of the topology map.
+The topology map displays how many routes are between the source and destination and what paths the data packets take. The latency contributed by each network hop is also visible. All the paths for which the total path latency is above the threshold (set in the corresponding monitoring rule) are shown in red. 
 
-   In the below image you can clearly see the root-cause of the problem areas to the specific section of the network by looking at the paths and hops in red color. Clicking on a node in the topology map reveals the properties of the node, including the FQDN, and IP address. Clicking on a hop shows the IP address of the hop.  
-   ![unhealthy topology - path details example](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
+When you select a node or hover over it on the topology map, you see the node properties, such as FQDN and IP address. Select a hop to see its IP address. You can identify the troublesome network hop by noticing the latency it contributes. To filter particular routes, use the filters in the collapsible action pane. To simplify the network topologies, hide the intermediate hops by using the slider in the action pane. You can zoom in or zoom out of the topology map by using your mouse wheel. 
 
-## Provide feedback
+The topology shown in the map is layer 3 topology and doesn't contain layer 2 devices and connections. 
 
-- **UserVoice** - You can post your ideas for Network Performance Monitor features that you want us to work on. Visit our [UserVoice page](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring).
-- **Join our cohort** - We’re always interested in having new customers join our cohort. As part of it, you'll get early access to new features and help us improve Network Performance Monitor. If you're interested in joining, fill-out this [quick survey](https://aka.ms/npmcohort).
+ 
+![Topology map](media/log-analytics-network-performance-monitor/topology-map.png)
+ 
 
-## Next steps
-* [Search logs](log-analytics-log-searches.md) to view detailed network performance data records.
+## Log Analytics search 
+
+All data that is exposed graphically through the Network Performance Monitor dashboard and drill-down pages is also available natively in [Log Analytics search](log-analytics-log-search-new.md). You can perform interactive analysis of data in the repository and correlate data from different sources. You also can create custom alerts and views and export the data to Excel, Power BI, or a shareable link. The **Common Queries** area in the dashboard has some useful queries that you can use as the starting point to create your own queries and reports. 
+
+## Alerts
+
+Network Performance Monitor uses the alerting capabilities of [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
+
+This means that all alerting is managed using [action groups](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
+
+If you are an NPM user creating an alert via OMS: 
+1. You will see a link that will redirect you to Azure Portal. Click it to access the portal.
+2. Click the Network Performance Monitor solution tile. 
+3. Navigate to Configure.  
+4. Select the test you want to create an alert on and follow the below mentioned steps.
+
+If you are an NPM user creating an alert via Azure Portal:  
+1. You can choose to enter your email directly or you can choose to create alerts via action groups.
+2. If you choose to enter your email directly, an action group with the name **NPM Email ActionGroup** is created and the email id is added to that action group.
+3. If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group [here.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
+4. Once the alert is successfully created, you can use Manage Alerts link to manage your alerts. 
+
+##Pricing
+
+Information on pricing is available [online](log-analytics-network-performance-monitor-pricing-faq.md).
+
+## Provide feedback 
+
+* **UserVoice:** You can post your ideas for Network Performance Monitor features that you want us to work on. Visit the [UserVoice page](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
+
+* **Join our cohort:** We're always interested in having new customers join our cohort. As part of it, you get early access to new features and an opportunity to help us improve Network Performance Monitor. If you're interested in joining, fill out this [quick survey](https://aka.ms/npmcohort). 
+
+## Next steps 
+Learn more about [Performance Monitor](log-analytics-network-performance-monitor-performance-monitor.md), [Service Connectivity Monitor](log-analytics-network-performance-monitor-performance-monitor.md), and [ExpressRoute Monitor](log-analytics-network-performance-monitor-expressroute.md). 

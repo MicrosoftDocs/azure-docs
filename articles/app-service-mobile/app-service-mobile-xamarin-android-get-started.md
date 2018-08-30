@@ -3,8 +3,8 @@ title: Get Started with Azure Mobile Apps for Xamarin.Android apps
 description: Follow this tutorial to get started using Azure Mobile Apps for Xamarin Android development
 services: app-service\mobile
 documentationcenter: xamarin
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # Create a Xamarin.Android App

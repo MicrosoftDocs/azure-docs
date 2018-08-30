@@ -3,16 +3,17 @@ title: Investigate and share usage data with interactive Workbooks in Azure Appl
 description: Demographic analysis of users of your web app.
 services: application-insights
 documentationcenter: ''
-author: numberbycolors
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/12/2017
-ms.author: cfreeman
+ms.reviewer: daviste
+ms.author: mbullwin
 ---
 
 # Investigate and share usage data with interactive workbooks in Application Insights
@@ -113,8 +114,12 @@ To pin a link to a workbook to an Azure Dashboard:
 
 ## Next steps
 
-* [Usage overview](app-insights-usage-overview.md)
-* [Users, Sessions, and Events](app-insights-usage-segmentation.md)
-* [Retention](app-insights-usage-retention.md)
-* [Adding custom events to your app](app-insights-api-custom-events-metrics.md)
-
+## Next steps
+- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- If you already send custom events or page views, explore the Usage tools to learn how users use your service.
+    - [Users, Sessions, Events](app-insights-usage-segmentation.md)
+    - [Funnels](usage-funnels.md)
+    - [Retention](app-insights-usage-retention.md)
+    - [User Flows](app-insights-usage-flows.md)
+    - [Add user context](app-insights-usage-send-user-context.md)
+    

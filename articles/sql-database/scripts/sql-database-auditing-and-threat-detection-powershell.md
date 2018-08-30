@@ -3,8 +3,8 @@ title: PowerShell example-auditing-threat detection-Azure SQL Database  | Micros
 description: Azure PowerShell example script to configure auditing & threat detection in an Azure SQL Database
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: CarlRabeler
+manager: craigg
 editor: carlrab
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
-ms.author: janeng
+ms.date: 04/01/2018
+ms.author: carlrab
 ---
 
 # Use PowerShell to configure SQL Database auditing and threat detection
@@ -34,7 +34,7 @@ This PowerShell script example configures SQL Database auditing and threat detec
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## Script explanation

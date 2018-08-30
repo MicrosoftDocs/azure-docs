@@ -1,22 +1,13 @@
 ---
-title: Manage data assets in Azure Data Catalog | Microsoft Docs
+title: Manage data assets in Azure Data Catalog
 description: The article highlights how to control visibility and ownership of data assets registered in Azure Data Catalog.
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
+ms.author: maroche
 ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 05/15/2017
-ms.author: maroche
-
+ms.topic: conceptual
+ms.date: 01/18/2018
 ---
 # Manage data assets in Azure Data Catalog
 ## Introduction

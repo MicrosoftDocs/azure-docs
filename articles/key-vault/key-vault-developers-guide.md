@@ -1,14 +1,14 @@
-﻿---
+---
 title: Azure Key Vault Developer's Guide
 description: Developers can use Azure Key Vault to manage cryptographic keys within the Microsoft Azure environment.
 services: key-vault
-author: BrucePerlerMS
+author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 08/04/2017
-ms.author: bruceper
+ms.date: 10/12/2017
+ms.author: bryanla
 ---
 # Azure Key Vault Developer's Guide
 
@@ -17,13 +17,13 @@ Key Vault allows you to securely access sensitive information from within your a
 - Keys and secrets are protected without having to write the code yourself and you are easily able to use them from your applications.
 - You are able to have your customers own and manage their own keys so you can concentrate on providing the core software features. In this way, your applications will not own the responsibility or potential liability for your customers’ tenant keys and secrets.
 - Your application can use keys for signing and encryption yet keeps the key management external from your application, allowing your solution to be suitable as a geographically distributed app.
-- As of the September 2016 release of Key Vault, your applications can now use Key Vault [certificates](https://docs.microsoft.com/rest/api/keyvault/certificate-operations). For more information, see [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
+- As of the September 2016 release of Key Vault, your applications can now manage Key Vault certificates. For more information, see [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
 
 For more general information on Azure Key Vault, see [What is Key Vault](key-vault-whatis.md).
 
 ## Public Previews
 
-Periodically, we release a public preview of a new Key Vault feature. Please try out these and let us know what you think via azurekeyvault@microsoft.com, our feedback email address.
+Periodically, we release a public preview of a new Key Vault feature. Try out these and let us know what you think via azurekeyvault@microsoft.com, our feedback email address.
 
 ### Storage Account Keys - July 10, 2017
 
@@ -47,43 +47,64 @@ Resources mentioned in above video:
 
 ## Creating and Managing Key Vaults
 
-Before working with Azure Key Vault in your code, you can create and manage vaults through REST, Resource Manager Templates, PowerShell or CLI, as described in the following articles:
+Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code. 
 
-- [Create and Manage Key Vaults with REST](https://docs.microsoft.com/rest/api/keyvault/)
-- [Create and Manage Key Vaults with PowerShell](key-vault-get-started.md)
-- [Create and Manage Key Vaults with CLI](key-vault-manage-with-cli2.md)
+For more information on MSI, see [Managed Service Identity (MSI) for Azure resources](https://docs.microsoft.com/azure/active-directory/msi-overview).
+
+For more information on working with AAD, see [Integrating applications with Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
+
+Before working with keys, secrets or certificates in your key vault, you'll create and manage your key vault through CLI, PowerShell, Resource Manager Templates or REST, as described in the following articles:
+
+- [Create and manage Key Vaults with CLI](key-vault-manage-with-cli2.md)
+- [Create and manage Key Vaults with PowerShell](key-vault-get-started.md)
 - [Create a key vault and add a secret via an Azure Resource Manager template](../azure-resource-manager/resource-manager-template-keyvault.md)
+- [Create and manage Key Vaults with REST](https://docs.microsoft.com/rest/api/keyvault/)
 
-> [!NOTE]
-> Operations against key vaults are authenticated through AAD and authorized through Key Vault’s own Access Policy, defined per vault.
 
 ## Coding with Key Vault
 
-The Key Vault management system for programmers consists of several interfaces, with REST as the foundation. Through the REST interface, all of your key vaults resources are accessible; keys, secrets and certificates. [Key Vault REST API Reference](https://docs.microsoft.com/rest/api/keyvault/). 
+The Key Vault management system for programmers consists of several interfaces. This section contains links to all of the languages as well as some code exampls. 
 
-### Supported programming languages
+### Supported programming and scripting languages
+
+#### REST
+
+All of your Key Vault resources are accessible through the REST interface; vaults, keys, secrets, etc. 
+
+[Key Vault REST API Reference](https://docs.microsoft.com/rest/api/keyvault/). 
 
 #### .NET
 
-- [.NET API refence for Key Vault](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
+[.NET API refence for Key Vault](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
 
 For more information on the 2.x version of the .NET SDK, see the [Release notes](key-vault-dotnet2api-release-notes.md).
 
 #### Java
 
-- [Java SDK for Key Vault](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)
+[Java SDK for Key Vault](https://docs.microsoft.com/java/api/overview/azure/keyvault)
 
 #### Node.js
 
-In Node.js, the vault management API and the vault object API are separate. Key Vault Management allows creating and updating your key vault. Key Vault Operations API is for working with vault objects like; keys, secrets and certificates. 
+In Node.js, the Key Vault management API and the Key Vault object API are separate. The following overview article gives you access to both. 
 
-- [Node.js API reference for Key Vault Management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
-- [Node.js API reference for Key Vault Operations](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) 
+[Azure Key Vault modules for Node.js](https://docs.microsoft.com/nodejs/api/overview/azure/key-vault)
 
-### Quick start
+#### Python
+
+[Azure Key Vault libraries for Python](https://docs.microsoft.com/python/api/overview/azure/key-vault)
+
+#### Azure CLI 2
+
+[Azure CLI for Key Vault](https://docs.microsoft.com/cli/azure/keyvault)
+
+#### Azure PowerShell 
+
+[Azure PowerShell for Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault)
+
+### Quick start guides
 
 - [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [Getting started with Key Vault in Node.js](https://azure.microsoft.com/en-us/resources/samples/key-vault-node-getting-started/)
+- [Getting started with Key Vault in Node.js](https://azure.microsoft.com/resources/samples/key-vault-node-getting-started/)
 
 ### Code examples
 
@@ -115,7 +136,7 @@ These articles are about other scenarios and services that use or integrate with
 
 - [Azure Disk Encryption](../security/azure-security-disk-encryption.md) leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with Azure Key Vault to help you control and manage the disk encryption keys and secrets in your key vault subscription, while ensuring that all data in the virtual machine disks are encrypted at rest in your Azure storage.
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) provides option for encryption of data that is stored in the account. For key management, Data Lake Store provides two modes for managing your master encryption keys (MEKs), which are required for decrypting any data that is stored in the Data Lake Store. You can either let Data Lake Store manage the MEKs for you, or choose to retain ownership of the MEKs using your Azure Key Vault account. You specify the mode of key management while creating a Data Lake Store account. 
-- [Azure Information Protection](/information-protection/plan-design/plan-implement-tenant-key) allows you to manager your own tenant key. For example, instead of Microsoft managing your tenant key (the default), you can manage your own tenant key to comply with specific regulations that apply to your organization. Managing your own tenant key is also referred to as bring your own key, or BYOK.
+- [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) allows you to manager your own tenant key. For example, instead of Microsoft managing your tenant key (the default), you can manage your own tenant key to comply with specific regulations that apply to your organization. Managing your own tenant key is also referred to as bring your own key, or BYOK.
 
 ## Key Vault overviews and concepts
 

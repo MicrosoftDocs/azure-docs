@@ -1,22 +1,14 @@
 ---
-title: Understanding Stream Analytics Job Monitoring | Microsoft Docs
-description: Understanding Stream Analytics Job Monitoring
-keywords: query monitor
+title: Understand job monitoring in Azure Stream Analytics
+description: This article describes how to monitor jobs in Azure Stream Analytics
 services: stream-analytics
-documentationcenter: ''
-author: jeffstokes72
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
+author: jseb225
+ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/28/2017
-ms.author: jeffstok
-
 ---
 # Understand Stream Analytics job monitoring and how to monitor queries
 
@@ -37,7 +29,7 @@ The window will appear as shown:
 | Output Events          | Amount of data sent by the Stream Analytics job to the output target, in number of events. |
 | Out-of-Order Events    | Number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. This can be impacted by the configuration of the Out of Order Tolerance Window setting. |
 | Data Conversion Errors | Number of data conversion errors incurred by a Stream Analytics job. |
-| Runtime Errors         | The total number of errors that happen during execution of a Stream Analytics job. |
+| Runtime Errors         | Total number of errors related to query processing (excluding errors found while ingesting events or outputing results) |
 | Late Input Events      | Number of events arriving late from the source which have either been dropped or their timestamp has been adjusted, based on the Event Ordering Policy configuration of the Late Arrival Tolerance Window setting. |
 | Function Requests      | Number of calls to the Azure Machine Learning function (if present). |
 | Failed Function Requests | Number of failed Azure Machine Learning function calls (if present). |
@@ -51,8 +43,12 @@ You can adjust the type of chart, metrics shown, and time range in the Edit Char
   ![Query Monitor Time graph](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 
+## Latest output
+Another interesting data point to monitor your job is the time of the last output, shown in the Overview page.
+This time is the application time (i.e. the time using the timestamp from the event data) of the latest output of your job.
+
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

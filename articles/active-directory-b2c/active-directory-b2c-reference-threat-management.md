@@ -1,21 +1,16 @@
 ---
-title: 'Azure Active Directory B2C: Threat management | Microsoft Docs'
+title: Threat management in Azure Active Directory B2C | Microsoft Docs
 description: Learn about detection and mitigation techniques for denial-of-service attacks and password attacks in Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: vigunase
-manager: Ajith Alexander
-editor: ''
+author: davidmu1
+manager: mtillman
 
-ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2016
-ms.author: 
-
+ms.author: davidmu
+ms.component: B2C
 ---
 # Azure Active Directory B2C: Threat management
 
@@ -29,4 +24,4 @@ Azure AD B2C uses detection and mitigation techniques like SYN cookies, and rate
 
 Azure AD B2C also has mitigation techniques in place for password attacks. Mitigation includes brute-force password attacks and dictionary password attacks. Passwords that are set by users are required to be reasonably complex. By using various signals, Azure AD B2C analyzes the integrity of requests. Azure AD B2C is designed to intelligently differentiate intended users from hackers and botnets. Azure AD B2C provides a sophisticated strategy to lock accounts based on the passwords entered, in the likelihood of an attack.
 
-For more information, visit the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/security/threatmanagement).
+For more information, visit the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/default.aspx).

@@ -1,21 +1,13 @@
 ---
-title: Troubleshoot slow backup of files and folders in Azure Backup| Microsoft Docs
+title: Troubleshoot slow backup of files and folders in Azure Backup
 description: Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues
 services: backup
-documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: ''
-
-ms.assetid: e379180a-db13-4e0c-90e4-28e5dd6f5b14
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/13/2017
+ms.topic: troubleshooting
+ms.date: 05/11/2018
 ms.author: genli
-
 ---
 # Troubleshoot slow backup of files and folders in Azure Backup
 This article provides troubleshooting guidance to help you diagnose the cause of slow backup performance for files and folders when you're using Azure Backup. When you use the Azure Backup agent to back up files, the backup process might take longer than expected. This delay might be caused by one or more of the following:

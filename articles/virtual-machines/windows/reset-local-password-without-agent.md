@@ -3,8 +3,8 @@ title: Reset a local Windows password without Azure agent | Microsoft Docs
 description: How to reset the password of a local Windows user account when the Azure guest agent is not installed or functioning on a VM
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: ''
 
 ms.assetid: cf353dd3-89c9-47f6-a449-f874f0957013
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/07/2017
-ms.author: iainfou
+ms.date: 01/25/2018
+ms.author: cynthn
 
 ---
-# How to reset local Windows password for Azure VM
-You can reset the local Windows password of a VM in Azure using the [Azure portal or Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) provided the Azure guest agent is installed. This method is the primary way to reset a password for an Azure VM. If you encounter issues with the Azure guest agent not responding, or failing to install after uploading a custom image, you can manually reset a Windows password. This article details how to reset a local account password by attaching the source OS virtual disk to another VM. 
+# Reset local Windows password for Azure VM offline
+You can reset the local Windows password of a VM in Azure using the [Azure portal or Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) provided the Azure guest agent is installed. This method is the primary way to reset a password for an Azure VM. If you encounter issues with the Azure guest agent not responding, or failing to install after uploading a custom image, you can manually reset a Windows password. This article details how to reset a local account password by attaching the source OS virtual disk to another VM. The steps described in this article do not apply to Windows domain controllers. 
 
 > [!WARNING]
 > Only use this process as a last resort. Always try to reset a password using the [Azure portal or Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) first.
@@ -36,6 +36,12 @@ The core steps for performing a local password reset for a Windows VM in Azure w
 * When the new VM boots, the config files you create update the password of the required user.
 
 ## Detailed steps
+
+> [!NOTE]
+> The steps do not apply to Windows domain controllers. It only works on standalone server or a server that is a member of a domain.
+> 
+> 
+
 Always try to reset a password using the [Azure portal or Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before trying the following steps. Make sure you have a backup of your VM before you start. 
 
 1. Delete the affected VM in Azure portal. Deleting the VM only deletes the metadata, the reference of the VM within Azure. The virtual disks are retained when the VM is deleted:
@@ -84,7 +90,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
      ```
      
      ![Create gpt.ini](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders.
+5. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts\Startup`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders.
    
    * Add the following lines the `scripts.ini` file you created:
      
@@ -101,7 +107,6 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
     net user <username> <newpassword> /add
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
-
     ```
 
     ![Create FixAzureVM.cmd](./media/reset-local-password-without-agent/create_fixazure_cmd.png)
@@ -125,7 +130,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
      ![Copy disk URI](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Create a VM from the source VM’s OS disk:
    
-   * Use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) to create a VM from a specialized VHD. Click the `Deploy to Azure` button to open the Azure portal with the templated details populated for you.
+   * Use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) to create a VM from a specialized VHD. Click the `Deploy to Azure` button to open the Azure portal with the templated details populated for you.
    * If you want to retain all the previous settings for the VM, select *Edit template* to provide your existing VNet, subnet, network adapter, or public IP.
    * In the `OSDISKVHDURI` parameter text box, paste the URI of your source VHD obtain in the preceding step:
      

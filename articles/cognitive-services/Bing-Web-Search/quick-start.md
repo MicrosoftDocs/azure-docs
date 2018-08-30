@@ -4,10 +4,9 @@ description: Shows how to get started using the Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 27B4B51A-D017-44C8-8E4E-9684DC553886
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
@@ -20,59 +19,38 @@ Before you can make your first call, you need to get a Cognitive Services subscr
 To get Web search results, you'd send a GET request to the following endpoint:  
   
 ```
-https://api.cognitive.microsoft.com/bing/v5.0/search
-```
-
-> [!NOTE]
-> V7 Preview endpoint:
-> 
-> ```
-> https://api.cognitive.microsoft.com/bing/v7.0/search
-> ```  
-
+https://api.cognitive.microsoft.com/bing/v7.0/search
+```  
 
 The request must use the HTTPS protocol.
 
 We recommend that all requests originate from a server. Distributing the key as part of a client application provides more opportunity for a malicious third-party to access it. Also, making calls from a server provides a single upgrade point for future versions of the API.  
   
-The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#query) query parameter, which contains the user's search term. Although it's optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters such as `responseFilter` and `textDecorations`, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#query-parameters). All query parameter values must be URL encoded.  
+The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query) query parameter, which contains the user's search term. Although it's optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters such as `responseFilter` and `textDecorations`, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). All query parameter values must be URL encoded.  
   
-The request must specify the [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#subscriptionkey) header. Although optional, you are encouraged to also specify the following headers:  
+The request must specify the [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#subscriptionkey) header. Although optional, you are encouraged to also specify the following headers:  
   
--   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#useragent)  
--   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#clientid)  
--   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#clientip)  
--   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#location)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#useragent)  
+-   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientid)  
+-   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#location)  
 
 The client IP and location headers are important for returning location aware content. For example, if the user's query is *sailing+lessons*, they're probably interested in lessons located nearby their location. If you want the results to contain lessons that are available near the user's location, you need to include the location header and optionally, the client IP header. It's less important if the query term explicitly mentions a location (for example, sailing+lessons+florida+keys). 
 
-For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#headers).
+For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers).
 
 ## The request
 
 The following shows a search request that includes all the suggested query parameters and headers. If it's your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination. 
   
 ```  
-GET https://api.cognitive.microsoft.com/bing/v5.0/search?q=sailing+lessons+seattle&mkt=en-us HTTP/1.1  
+GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+lessons+seattle&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
-User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
-X-Search-ClientIP: 999.999.999.999  
+X-MSEdge-ClientIP: 999.999.999.999  
 X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```  
-
-> [!NOTE]
-> V7 Preview request:
->
-> ```  
-> GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+lessons+seattle&mkt=en-us HTTP/1.1  
-> Ocp-Apim-Subscription-Key: 123456789ABCDE  
-> X-MSEdge-ClientIP: 999.999.999.999  
-> X-Search-Location: lat:47.60357;long:-122.3295;re:100  
-> X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
-> Host: api.cognitive.microsoft.com  
-> ```  
 
 The following shows the response to the previous request. The example also shows the Bing-specific response headers.
 
@@ -87,7 +65,7 @@ BingAPIs-Market: en-US
         "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=70BE289346...",
         "totalEstimatedMatches" : 982000,
         "value" : [{
-            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.0",
+            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.0",
             "name" : "Seattle Sailing Club | Lessons, Membership & More",
             "url" : "https:\/\/www.bing.com\/cr?IG=70BE289346ED4594874FE...",
             "displayUrl" : "https:\/\/seattlesailing.com",
@@ -124,7 +102,7 @@ BingAPIs-Market: en-US
             "dateLastCrawled" : "2017-04-07T02:25:00"
         },
         {
-            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.1",
+            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.1",
             "name" : "Best Sailing lessons in Seattle, WA - yelp.com",
             "url" : "https:\/\/www.bing.com\/cr?IG=70BE289346ED4594874FEFDAD38AA...",
             "displayUrl" : "https:\/\/www.yelp.com\/search?find_desc=sailing+lessons&find_loc...",
@@ -132,7 +110,7 @@ BingAPIs-Market: en-US
             "dateLastCrawled" : "2017-04-01T10:49:00"
         },
         {
-            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.2",
+            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.2",
             "name" : "Seattle Sailing with Windworks Sailing Club - Sailing ...",
             "url" : "https:\/\/www.bing.com\/cr?IG=70BE289346ED4594874FEFDAD3...",
             "displayUrl" : "https:\/\/www.windworkssailing.com",
@@ -140,7 +118,7 @@ BingAPIs-Market: en-US
             "dateLastCrawled" : "2017-04-09T03:33:00"
         },
         {
-            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.3",
+            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.3",
             "name" : "Sailing Lessons in Downtown Seattle - SheSails Seattle",
             "url" : "http:\/\/www.bing.com\/cr?IG=70BE289346ED4594874FEFDAD38...",
             "displayUrl" : "shesailsseattle.com",
@@ -148,7 +126,7 @@ BingAPIs-Market: en-US
             "dateLastCrawled" : "2017-04-05T07:15:00"
         },
         {
-            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.4",
+            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.4",
             "name" : "Seattle Sailing Club - 19 Photos & 27 Reviews - Boating ...",
             "url" : "https:\/\/www.bing.com\/cr?IG=70BE289346ED4594874FE...",
             "displayUrl" : "https:\/\/www.yelp.com\/biz\/seattle-sailing-club-seattle",
@@ -156,7 +134,7 @@ BingAPIs-Market: en-US
             "dateLastCrawled" : "2017-04-08T14:40:00"
         },
         {
-            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.5",
+            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.5",
             "name" : "Puget Sound Sailing - Seattle and Tacoma - PUGET SOUND ...",
             "url" : "http:\/\/www.bing.com\/cr?IG=70BE289346ED4594874FEFDA...",
             "displayUrl" : "www.pugetsoundsailing.com",
@@ -164,7 +142,7 @@ BingAPIs-Market: en-US
             "dateLastCrawled" : "2017-04-09T01:39:00"
         },
         {
-            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.6",
+            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.6",
             "name" : "Seattle Yacht Club - Official Site",
             "url" : "http:\/\/www.bing.com\/cr?IG=70BE289346ED4594874FE...",
             "displayUrl" : "www.seattleyachtclub.org",
@@ -174,7 +152,7 @@ BingAPIs-Market: en-US
         "someResultsRemoved" : true
     },
     "relatedSearches" : {
-        "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#RelatedSearches",
+        "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#RelatedSearches",
         "value" : [{
             "text" : "sailing lessons",
             "displayText" : "sailing lessons",
@@ -222,49 +200,49 @@ BingAPIs-Market: en-US
                 "answerType" : "WebPages",
                 "resultIndex" : 0,
                 "value" : {
-                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.0"
+                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.0"
                 }
             },
             {
                 "answerType" : "WebPages",
                 "resultIndex" : 1,
                 "value" : {
-                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.1"
+                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.1"
                 }
             },
             {
                 "answerType" : "WebPages",
                 "resultIndex" : 2,
                 "value" : {
-                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.2"
+                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.2"
                 }
             },
             {
                 "answerType" : "WebPages",
                 "resultIndex" : 3,
                 "value" : {
-                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.3"
+                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.3"
                 }
             },
             {
                 "answerType" : "WebPages",
                 "resultIndex" : 4,
                 "value" : {
-                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.4"
+                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.4"
                 }
             },
             {
                 "answerType" : "WebPages",
                 "resultIndex" : 5,
                 "value" : {
-                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.5"
+                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.5"
                 }
             },
             {
                 "answerType" : "WebPages",
                 "resultIndex" : 6,
                 "value" : {
-                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.6"
+                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.6"
                 }
             }]
         },
@@ -272,7 +250,7 @@ BingAPIs-Market: en-US
             "items" : [{
                 "answerType" : "RelatedSearches",
                 "value" : {
-                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#RelatedSearches"
+                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#RelatedSearches"
                 }
             }]
         }

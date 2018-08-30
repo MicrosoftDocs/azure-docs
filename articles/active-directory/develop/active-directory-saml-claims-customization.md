@@ -1,25 +1,27 @@
 ---
-title: Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory | Microsoft Docs
-description: Learn how to customize the claims issued in the SAML token for pre-integrated apps in Azure Active Directory
+title: Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory | Microsoft Docs
+description: Learn how to customize the claims issued in the SAML token for enterprise applications in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: jeevansd
-manager: femila
+author: CelesteDG
+manager: mtillman
 editor: ''
 
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: jeedes
+ms.author: celested
+ms.reviewer: jeedes
 ms.custom: aaddev
-
 ---
-# Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory
-Today Azure Active Directory supports thousands of pre-integrated applications in the Azure AD Application Gallery, including over 360 that support single sign-on using the SAML 2.0 protocol. When a user authenticates to an application through Azure AD using SAML, Azure AD sends a token to the application (via an HTTP POST). And then, the application validates and uses the token to log the user in instead of prompting for a username and password. These SAML tokens contain pieces of information about the user known as "claims".
+
+# Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory
+Today Azure Active Directory supports single sign on with most enterprise applications, including both applications pre-integrated in the Azure AD app gallery as well as custom applications. When a user authenticates to an application through Azure AD using the SAML 2.0 protocol, Azure AD sends a token to the application (via an HTTP POST). And then, the application validates and uses the token to log the user in instead of prompting for a username and password. These SAML tokens contain pieces of information about the user known as "claims".
 
 In identity-speak, a “claim” is information that an identity provider states about a user inside the token they issue for that user. In [SAML token](http://en.wikipedia.org/wiki/SAML_2.0), this data is typically contained in the SAML Attribute Statement. The user’s unique ID is typically represented in the SAML Subject also called as Name Identifier.
 
@@ -37,7 +39,7 @@ You can edit any of the default claim values. Select the claim row in the SAML t
 
 ![Edit User Attribute][2]
 
-You can also remove claims (other than NameIdentifier) using the context menu, which opens by clicking on the **...** icon.  You can also add new claims using the **Add attribute** button.
+You can also remove claims (other than NameIdentifier) using the context menu, which opens by clicking on the **...** icon. You can also add new claims using the **Add attribute** button.
 
 ![Edit User Attribute][3]
 
@@ -125,8 +127,8 @@ There are some restricted claims in SAML. If you add these claims, then Azure AD
 
 ## Next steps
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
-* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../active-directory-saas-custom-apps.md)
-* [Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md)
+* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+* [Troubleshooting SAML-Based Single Sign-On](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png

@@ -1,25 +1,30 @@
 ---
 title: Azure Marketplace Documentation | Microsoft Docs
 description: Learn about Azure Marketplace.
-services: marketplace
-author: carolz
-manager: carolz
+services: Azure, marketplace
+author: jm-aditi-ms
+manager: pabutler
+editor:
+
 layout: LandingPage
+
 ms.assetid: 
 ms.service: marketplace
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 04/14/2017
-ms.author: carolz
----
+ms.date: 06/04/2018
+ms.author: ellacroi
+
+---  
+
 # Azure Marketplace Documentation
 
-Learn about Azure Marketplace, an online applications and services marketplace that enables ISVs from startups to enterprises to offer their solutions to customers around the world.
+Learn about Azure Marketplace, an online applications and services marketplace that enables ISVs from startups to enterprises to offer solutions to customers around the world.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide">
+        <a href="/azure/marketplace/marketplace-publishers-guide">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -29,7 +34,7 @@ Learn about Azure Marketplace, an online applications and services marketplace t
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Marketplace seller guide</h3>
+                        <h3>AppSource and Azure Marketplace Publisher guide</h3>
                     </div>
                 </div>
             </div>
@@ -55,5 +60,3 @@ Learn about Azure Marketplace, an online applications and services marketplace t
         </a>
     </li>    
 </ul>
-
-

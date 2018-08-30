@@ -10,10 +10,8 @@ editor: cgronlun
 ms.assetid: dc273ef8-96ef-47a6-b831-98e8a777a5c1
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/29/2017
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
 
 ---
@@ -46,7 +44,7 @@ Before you begin this article, you must have the following:
 ## Syntax of the AdlCopy tool
 Use the following syntax to work with the AdlCopy tool
 
-    AdlCopy /Source <Blob or Data Lake Store source> /Dest <Data Lake Store destination> /SourceKey <Key for Blob account> /Account <Data Lake Analytics account> /Unit <Number of Analytics units> /Pattern
+    AdlCopy /Source <Blob or Data Lake Store source> /Dest <Data Lake Store destination> /SourceKey <Key for Blob account> /Account <Data Lake Analytics account> /Units <Number of Analytics units> /Pattern
 
 The parameters in the syntax are described below:
 
@@ -135,13 +133,13 @@ To use your Data Lake Analytics account with AdlCopy to copy from an Azure Stora
 
 Run the following command to copy from an Azure Storage blob to a Data Lake Store account using Data Lake Analytics account:
 
-    AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Unit <number_of_data_lake_analytics_units_to_be_used>
+    AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Units <number_of_data_lake_analytics_units_to_be_used>
 
 For example:
 
     AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
-Similarly, run the following command to copy from an Azure Storage blob to a Data Lake Store account using Data Lake Analytics account:
+Similarly, run the following command to copy all files from a specific folder in the source Data Lake Store account to a folder in the destination Data Lake Store account using Data Lake Analytics account:
 
     AdlCopy /Source adl://mysourcedatalakestore.azuredatalakestore.net/mynewfolder/ /dest adl://mydestdatastore.azuredatalakestore.net/mynewfolder/ /Account mydatalakeanalyticaccount /Units 2
 
@@ -170,7 +168,7 @@ In this section, you learn how to use AdlCopy to copy data from a source (in our
 
 ## Performance considerations for using AdlCopy
 
-AdlCopy supports copying data containing thousands of files and folders. However, if you encounter issues copying a large dataset, you can distribute the files/folders into smaller sub-folders. AdlCopy was built for ad hoc copies. If you are trying to copy data on a recurring basis, you should consider using [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) that provides full management around the copy operations.
+AdlCopy supports copying data containing thousands of files and folders. However, if you encounter issues copying a large dataset, you can distribute the files/folders into smaller sub-folders. AdlCopy was built for ad hoc copies. If you are trying to copy data on a recurring basis, you should consider using [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) that provides full management around the copy operations.
 
 ## Release notes
 * 1.0.13 - If you are copying data to the same Azure Data Lake Store account across multiple adlcopy commands, you do not need to reenter your credentials for each run anymore. Adlcopy will now cache that information across multiple runs.

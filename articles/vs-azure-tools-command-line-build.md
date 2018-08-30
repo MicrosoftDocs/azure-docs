@@ -2,19 +2,16 @@
 title: Command-line build for Azure | Microsoft Docs
 description: Command-line build for Azure
 services: visual-studio-online
-documentationcenter: na
-author: TomArcher
+author: ghogen
 manager: douge
-editor: ''
-
-ms.assetid: 94b35d0d-0d35-48b6-b48b-3641377867fd
-ms.service: multiple
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: 94b35d0d-0d35-48b6-b48b-3641377867fd
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
 ms.date: 03/05/2017
-ms.author: tarcher
+ms.author: ghogen
 
 ---
 # Building Azure projects from the command line
@@ -33,5 +30,4 @@ By default, each Azure project includes one service-configuration file for local
 If you want to use an alternate directory for the stored package and configuration files, set the path by using the `/p:PublishDir=Directory\` option, including the trailing backslash separator.
 
 ## Next steps
-After the package is built, you can deploy it to Azure. For a tutorial that demonstrates how to automate that process, see [Continuous Delivery for Cloud Services in Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
-
+After the package is built, you can deploy it to Azure.

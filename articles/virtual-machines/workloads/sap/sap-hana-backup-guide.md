@@ -4,14 +4,14 @@ description: Backup guide for SAP HANA provides two major backup possibilities f
 services: virtual-machines-linux
 documentationcenter: 
 author: hermanndms
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 3/13/2017
+ms.date: 07/05/2018
 ms.author: rclaus
 
 ---
@@ -29,7 +29,7 @@ The focus of this article is on two major backup possibilities for SAP HANA on A
 
 SAP HANA offers a backup API, which allows third-party backup tools to integrate directly with SAP HANA. (That is not within the scope of this guide.) There is no direct integration of SAP HANA with Azure Backup service available right now based on this API.
 
-SAP HANA is officially supported on Azure VM type GS5 as single instance with an additional restriction to OLAP workloads (see [Find Certified IaaS Platforms](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html) on the SAP website). This article will be updated as new offerings for SAP HANA on Azure become available.
+SAP HANA is officially supported on various Azure VM types, like Azure M-Series. For a complete list of SAP HANA certified Azure VMs, check out [Find Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). This article will be updated as new offerings for SAP HANA on Azure become available.
 
 There is also an SAP HANA hybrid solution available on Azure, where SAP HANA runs non-virtualized on physical servers. However, this SAP HANA Azure backup guide covers a pure Azure environment where SAP HANA runs in an Azure VM, not SAP HANA running on &quot;large instances.&quot; See [SAP HANA (large instances) overview and architecture on Azure](hana-overview-architecture.md) for more information about this backup solution on &quot;large instances&quot; based on storage snapshots.
 
@@ -68,7 +68,7 @@ is enabled, after takeover to the secondary side, the log backups will automatic
 
 ### Why SAP HANA backup?
 
-Azure storage offers availability and reliability out of the box (see [Introduction to Microsoft Azure Storage](../../../storage/storage-introduction.md) for more information about Azure storage).
+Azure storage offers availability and reliability out of the box (see [Introduction to Microsoft Azure Storage](../../../storage/common/storage-introduction.md) for more information about Azure storage).
 
 The minimum for &quot;backup&quot; is to rely on the Azure SLAs, keeping the SAP HANA data and log files on Azure VHDs attached to the SAP HANA server VM. This approach covers VM failures, but not potential damage to the SAP HANA data and log files, or logical errors like deleting data or files by accident. Backups are also required for compliance or legal reasons. In short, there is always a need for SAP HANA backups.
 
@@ -166,13 +166,13 @@ On Microsoft Azure, a customer could use the IaaS VM encryption feature to encry
 
 Azure Backup service can handle encrypted VMs/disks (see [How to back up and restore encrypted virtual machines with Azure Backup](../../../backup/backup-azure-vms-encryption.md)).
 
-Another option would be to maintain the SAP HANA VM and its disks without encryption, and store the SAP HANA backup files in a storage account for which encryption was enabled (see [Azure Storage Service Encryption for Data at Rest](../../../storage/storage-service-encryption.md)).
+Another option would be to maintain the SAP HANA VM and its disks without encryption, and store the SAP HANA backup files in a storage account for which encryption was enabled (see [Azure Storage Service Encryption for Data at Rest](../../../storage/common/storage-service-encryption.md)).
 
 ## Test setup
 
 ### Test Virtual Machine on Azure
 
-An SAP HANA installation in an Azure GS5 VM was used for the following backup/restore tests.
+In order to perform our tests, an SAP HANA installation in an Azure GS5 VM was used for the following backup/restore tests. The principles are the same as for M-Series VMs.
 
 ![This figure shows part of the Azure portal overview for the HANA test VM](media/sap-hana-backup-guide/image007.png)
 

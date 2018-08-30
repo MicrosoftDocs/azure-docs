@@ -3,18 +3,18 @@ title: Azure Service Fabric Performance Monitoring | Microsoft Docs
 description: Learn about performance counters for monitoring and diagnostics of Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
-ms.author: dekapur
+ms.date: 04/16/2018
+ms.author: srrengar
 ---
 
 # Performance metrics
@@ -37,7 +37,7 @@ For the machines in your cluster, consider collecting the following performance 
 | PhysicalDisk(per Disk) | Disk Write Bytes/sec |
 | Memory | Available MBytes |
 | PagingFile | % Usage |
-| Process(Total) | % Processor Time |
+| Processor(Total) | % Processor Time |
 | Process (per service) | % Processor Time |
 | Process (per service) | ID Process |
 | Process (per service) | Private Bytes |
@@ -45,6 +45,11 @@ For the machines in your cluster, consider collecting the following performance 
 | Process (per service) | Virtual Bytes |
 | Process (per service) | Working Set |
 | Process (per service) | Working Set - Private |
+| Network Interface(all-instances) | Output Queue Length |
+| Network Interface(all-instances) | Packets Outbound Discarded |
+| Network Interface(all-instances) | Packets Received Discarded |
+| Network Interface(all-instances) | Packets Outbound Errors |
+| Network Interface(all-instances) | Packets Received Errors |
 
 ## .NET applications and services
 
@@ -75,4 +80,4 @@ If you use Reliable Collections, we recommend adding the `Avg. Transaction ms/Co
 ## Next steps
 
 * Learn more about [event generation at the platform level](service-fabric-diagnostics-event-generation-infra.md) in Service Fabric
-* Collect performance metrics through [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)
+* Collect performance metrics through [OMS Agent](service-fabric-diagnostics-oms-agent.md)
