@@ -73,6 +73,8 @@
     href: key-vault-group-permissions-for-apps.md
   - name: Secure your key vault
     href: key-vault-secure-your-key-vault.md
+  - name: Configure firewalls and virtual networks
+    href: key-vault-network-security.md
 - name: Reference
   items:
   - name: Azure PowerShell
