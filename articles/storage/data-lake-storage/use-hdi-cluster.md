@@ -1,13 +1,9 @@
 ---
 title: Use Azure Data Lake Storage Gen2 Preview with Azure HDInsight clusters
 description: Learn how to query data from Azure Data Lake Storage Gen2 Preview and store results of your analysis.
-keywords: hdfs,structured data,unstructured data,data lake store,Hadoop input,Hadoop output, hadoop storage, hdfs input,hdfs output,hdfs storage,wasb azure
-services: hdinsight,storage
-tags: azure-portal
 author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
