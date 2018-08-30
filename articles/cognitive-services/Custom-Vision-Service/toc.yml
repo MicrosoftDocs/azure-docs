@@ -55,6 +55,8 @@
       href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices
 - name: Resources
   items:
+  - name: Release Notes
+    href: release-notes.md
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: Pricing
