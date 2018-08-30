@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
 

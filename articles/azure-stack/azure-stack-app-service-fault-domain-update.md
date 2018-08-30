@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 09/05/2018
 ms.author: anwestg
 
 ---
