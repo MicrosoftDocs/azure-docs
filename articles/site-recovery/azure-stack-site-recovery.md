@@ -7,10 +7,7 @@ manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 08/30/2018
-
 ms.author: raynew
-
-
 ---
 # Replicate Azure Stack VMs to Azure (preview)
 
@@ -273,7 +270,7 @@ Before you run a test failover, verify the machine properties, and make sure tha
 1. In **Disks**, view information about the operating system and data disks on the VM.
    
 
-## Run a test failover
+### Run a test failover
 
 When you run a test failover, the following happens:
 
