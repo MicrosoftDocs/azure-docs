@@ -141,6 +141,8 @@
       href: memory-and-concurrency-limits.md
   - name: Manageability & monitoring
     items:
+    - name: Overview
+      href: sql-data-warehouse-overview-manageability-monitoring.md
     - name: Scale, pause, resume
       href: sql-data-warehouse-manage-compute-overview.md
     - name: Resource utilization & query activity 

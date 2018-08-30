@@ -1,5 +1,4 @@
 - name: Privileged Identity Management documentation
-  items:
 - name: Overview
   items:
   - name: What is Azure AD PIM?
@@ -25,7 +24,7 @@
   items:
   - name: Start using PIM
     href: pim-getting-started.md
-  - name: Activate roles
+  - name: Activate my roles
     items:
     - name: Activate my directory roles
       href: pim-how-to-activate-role.md
