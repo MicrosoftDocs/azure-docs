@@ -4,7 +4,7 @@ description: Learn how to serialize and deserialize data in Hadoop on HDInsight 
 keywords: avro,hadoop avro
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.topic: conceptual

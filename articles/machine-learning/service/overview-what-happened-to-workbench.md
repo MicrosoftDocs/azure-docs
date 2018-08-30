@@ -58,17 +58,10 @@ The older run histories will remain accessible for a while. When you are ready t
 
 In the latest version of Azure Machine Learning service, run histories are now called *experiments*. You can collect your model's experiments and explore them using the SDK and CLI as well as in the web portal.
 
+
 ## Can I still prepare data?
 
-Data preparation files are not portable to the latest release since we don't have Workbench anymore. However, you can still prepare your data for modeling.  With smaller data sets, you can use the Azure ML Data Prep SDK to quickly prepare your data prior to modeling. You can use this same SDK for larger data sets or use Azure Databricks to prepare big data sets.
-
-### Azure ML Data Prep SDK download and installation Links
-
-- [Azure ML Data Prep SDK](https://dataprepdownloads.azureedge.net/pypi/privPreview/latest/)
-
-```    
-pip install --upgrade --extra-index-url https://dataprepdownloads.azureedge.net/pypi/privPreview/latest/ azureml-dataprep
-```
+Data preparation files are not portable to the latest release since we don't have Workbench anymore. However, you can still prepare your data for modeling.  With smaller data sets, you can use the Azure Machine Learning Data Prep SDK to quickly prepare your data prior to modeling. You can use this same SDK for larger data sets or use Azure Databricks to prepare big data sets. Learn how to get the pip-installable data prep SDK. 
 
 ## Will projects persist?
 
@@ -88,11 +81,18 @@ In the newer version, models are deployed as web services to [Azure Container In
 
 Yes, they will continue to work for a while (see the [timeline](#timeline) above). But, you can start creating your new experiments and models with the latest SDK and/or CLI.
 
-In the latest release, the new Python SDK allows you to interact with the Azure Machine Learning service in any Python environment. Learn how to [install the SDK](reference-azure-machine-learning-sdk.md).  You can also use the [updated Azure CLI machine learning extension](reference-azure-machine-learning-cli.md),with the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
+In the latest release, the new Python SDK allows you to interact with the Azure Machine Learning service in any Python environment. Learn how to [install the SDK](reference-azure-machine-learning-sdk.md).  You can also use the [updated Azure CLI machine learning extension](reference-azure-machine-learning-cli.md) with the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
 
 ## What about Visual Studio Code Tools for AI?
 
 With this latest release, the Visual Studio Code Tools for AI extension has been expanded and improved to work with the above new features.
+
+## What about domain packages?
+
+The domain packages for Computer Vision, Text Analytics, and Forecasting cannot be used with the latest version of Azure Machine Learning. However, you can still build and train computer vision, text, and forecasting models with latest [Azure Machine Learning Python SDK](reference-azure-machine-learning-sdk.md). To learn how to migrate pre-existing models built using the following packages, contact us at AML-Packages@microsoft.com:
++ Azure Machine Learning Package for Computer Vision
++ Azure Machine Learning Package for Forecasting 
++ Azure Machine Learning Package for Text Analytics
 
 ## Next steps
 

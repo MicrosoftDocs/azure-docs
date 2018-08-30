@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: kumud
 ---
 
@@ -118,13 +118,23 @@ When using [Standard Load Balancer with Availability Zones](load-balancer-standa
 
 When a public Load Balancer resource is associated with VM instances, each outbound connection source is rewritten. The source is rewritten from the virtual network private IP address space to the frontend Public IP address of the load balancer. In the public IP address space, the 5-tuple of the flow (source IP address, source port, IP transport protocol, destination IP address, destination port) must be unique.  Port masquerading SNAT can be used with either TCP or UDP IP protocols.
 
-Ephemeral ports (SNAT ports) are used to achieve this after rewriting the private source IP address, because multiple flows originate from a single public IP address. 
+Ephemeral ports (SNAT ports) are used to achieve this after rewriting the private source IP address, because multiple flows originate from a single public IP address. The port masquerading SNAT algorithm allocates SNAT ports differently for UDP versus TCP.
 
-One SNAT port is consumed per flow to a single destination IP address, port, and protocol. For multiple flows to the same destination IP address, port, and protocol, each flow consumes a single SNAT port. This ensures that the flows are unique when they originate from the same public IP address and go to the same destination IP address, port, and protocol. 
+#### <a name="tcp"></a>TCP SNAT Ports
+
+One SNAT port is consumed per flow to a single destination IP address, port. For multiple TCP flows to the same destination IP address, port, and protocol, each TCP flow consumes a single SNAT port. This ensures that the flows are unique when they originate from the same public IP address and go to the same destination IP address, port, and protocol. 
 
 Multiple flows, each to a different destination IP address, port, and protocol, share a single SNAT port. The destination IP address, port, and protocol make flows unique without the need for additional source ports to distinguish flows in the public IP address space.
 
+#### <a name="udp"></a> UDP SNAT Ports
+
+UDP SNAT ports are managed by a different algorithm than TCP SNAT ports.  Load Balancer uses an algorithm known as "port-restricted cone NAT" for UDP.  One SNAT port is consumed for each flow, irrespective of destination IP address, port.
+
+#### Exhaustion
+
 When SNAT port resources are exhausted, outbound flows fail until existing flows release SNAT ports. Load Balancer reclaims SNAT ports when the flow closes and uses a [4-minute idle timeout](#idletimeout) for reclaiming SNAT ports from idle flows.
+
+UDP SNAT ports generally exhaust much faster than TCP SNAT ports due to the difference in algorithm used. You must design and scale test with this difference in mind.
 
 For patterns to mitigate conditions that commonly lead to SNAT port exhaustion, review the [Managing SNAT](#snatexhaust) section.
 
@@ -132,7 +142,7 @@ For patterns to mitigate conditions that commonly lead to SNAT port exhaustion, 
 
 Azure uses an algorithm to determine the number of preallocated SNAT ports available based on the size of the backend pool when using port masquerading SNAT ([PAT](#pat)). SNAT ports are ephemeral ports available for a particular public IP source address.
 
-The same number of SNAT ports are preallocated for UDP and TCP respectively and consumed independently per IP transport protocol. 
+The same number of SNAT ports are preallocated for UDP and TCP respectively and consumed independently per IP transport protocol.  However, the SNAT port usage is different depending on whether the flow is UDP or TCP.
 
 >[!IMPORTANT]
 >Standard SKU SNAT programming is per IP transport protocol and derived from the load balancing rule.  If only a TCP load balancing rule exists, SNAT is only available for TCP. If you have only a TCP load balancing rule and need outbound SNAT for UDP, create a UDP load balancing rule from the same frontend to the same backend pool.  This will trigger SNAT programming for UDP.  A working rule or health probe is not required.  Basic SKU SNAT always programs SNAT for both IP transport protocol, irrespective of the transport protocol specified in the load balancing rule.
