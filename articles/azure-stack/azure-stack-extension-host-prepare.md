@@ -5,7 +5,7 @@ services: azure-stack
 keywords: 
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 08/29/2018
+ms.date: 09/05/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
