@@ -106,6 +106,7 @@ Create an alias record that points to the Traffic Manager profile.
 2. Shut down the **Web-01** virtual machine, and wait a few minutes for it to completely shut down.
 3. Open a new web browser, and browse to your domain name apex again.
 4. You should again see the default IIS page again, since Traffic Manager has handled the situation and directed traffic to **Web-02**.
+
 ## Clean up resources
 
 When no longer needed, you can delete the **RG-DNS-Alias-TM** resource group to delete all the resources created for this tutorial.
