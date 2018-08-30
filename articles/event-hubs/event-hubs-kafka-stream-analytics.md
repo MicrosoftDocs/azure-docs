@@ -35,7 +35,7 @@ To complete this quickstart, make sure you have the following prerequisites:
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a Maven binary archive.
 * [Git](https://www.git-scm.com/)
-* An **Azure Storage account**. If you don't have one, [create one](../storage/common/storage-create-storage-account.md#create-a-storage-account) before proceding further. The Stream Analytics job in this walkthrough stores the output data in an Azure blob storage. 
+* An **Azure Storage account**. If you don't have one, [create one](../storage/common/storage-create-storage-account.md#create-a-storage-account) before proceeding further. The Stream Analytics job in this walkthrough stores the output data in an Azure blob storage. 
 
 
 ## Create a Kafka enabled Event Hubs namespace
@@ -92,8 +92,8 @@ You can now stream events from your applications that use the Kafka protocol int
                 final ProducerRecord<Long, String> record = new ProducerRecord<Long, String>(TOPIC, time, "{ \"eventData\": \"Test Data " + i + "\" }");            
     ```
 
-    This code sends the event data in **JSON** format. When you configure input for a Stream Analytics job later you specify JSON as the format for the input data. 
-7. **Run the producer** code and stream into Kafka-enabled Event Hubs. On a Windows machine, when using a **Node.js command prompt**, switch to the `azure-event-hubs/samples/kafka/quickstart/producer` folder before running these commands. 
+    This code sends the event data in **JSON** format. When you configure input for a Stream Analytics job, you specify JSON as the format for the input data. 
+7. **Run the producer** and stream into Kafka-enabled Event Hubs. On a Windows machine, when using a **Node.js command prompt**, switch to the `azure-event-hubs/samples/kafka/quickstart/producer` folder before running these commands. 
    
     ```shell
     mvn clean package
@@ -117,8 +117,8 @@ The query in the Stream Analytics job passes through the data without performing
 ### Create a Stream Analytics job 
 
 1. Select **+ Create a resource** in the [Azure portal](https://portal.azure.com).
-2. Select **Analytics** in the **Azure Marketplace** menu, and select **Stream Analtyics job**. 
-3. On the **New Stream Analtytics** page, do the following actions: 
+2. Select **Analytics** in the **Azure Marketplace** menu, and select **Stream Analytics job**. 
+3. On the **New Stream Analytics** page, do the following actions: 
     1. Enter a **name** for the job. 
     2. Select your **subscription**.
     3. Select **Create new** for the **resource group** and enter the name. You can also **use an existing** resource group. 
@@ -152,16 +152,14 @@ The query in the Stream Analytics job passes through the data without performing
     1. Specify an **alias** for the output. 
     2. Select your Azure **subscription**. 
     3. Select your **Azure Storage account**. 
-    4. Enter a **name for the containter** that stores the output data from the Stream Analytics query.
+    4. Enter a **name for the container** that stores the output data from the Stream Analytics query.
     5. Select **Save**.
 
         ![Blob Storage output configuration](./media/event-hubs-kafka-stream-analytics/output-blob-settings.png)
  
 
 ### Define a query
-After you have a Stream Analytics job setup to read an incoming data stream, the next step is to create a transformation that analyzes data in real time. You define the transformation query by using [Stream Analytics Query Language](https://msdn.microsoft.com/library/dn834998.aspx). 
-
-In this tutorial, you define a query that passes through the data without performing any transformation. . 
+After you have a Stream Analytics job setup to read an incoming data stream, the next step is to create a transformation that analyzes data in real time. You define the transformation query by using [Stream Analytics Query Language](https://msdn.microsoft.com/library/dn834998.aspx). In this walkthrough, you define a query that passes through the data without performing any transformation.
 
 1. Select **Query**.
 2. In the query window, replace `[YourOutputAlias]` with the output alias you created earlier.
