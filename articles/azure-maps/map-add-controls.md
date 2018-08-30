@@ -28,8 +28,8 @@ Zoom control adds the ability to zoom in and out of the map. The third block add
 
 ## Add pitch control
 
-<p data-height="500" data-theme-id="0" data-slug-hash="xJrwaP" data-default-tab="js,result" data-user="azuremaps" data-pen-title="Adding a pitch control" class="codepen">See the Pen <a href="https://codepen.io/azuremaps/pen/xJrwaP/">Adding a pitch control</a> by Azure Maps (<a href="https://codepen.io/azuremaps">@azuremaps</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe height='500' scrolling='no' title='Adding a pitch control' src='//codepen.io/azuremaps/embed/xJrwaP/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>Adding a pitch control</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 The first block of code above creates a map object with the style set to Grayscale. See [create a map](./map-create.md) for instructions on how to create a map.
 
@@ -47,6 +47,9 @@ The first code block in the above code creates a map object. See [create a map](
 The second block of code creates a compass control object using the atlas [Compass Control](https://docs.microsoft.com/en-us/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol). It also adds the compass control to the map using map's [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method.
 
 ## A Map with all controls
+
+<iframe height='500' scrolling='no' title='A map with all the controls' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>A map with all the controls</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 The first code block in the above code creates a map object. See [create a map](./map-create.md) for instructions on how to create a map.
 
