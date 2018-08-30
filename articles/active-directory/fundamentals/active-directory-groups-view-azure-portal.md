@@ -76,6 +76,8 @@ If you’re not going to continue to use this application, you can delete the gr
 
     The group and its associated members are deleted.
 
+    ![MDM policy – West Overview blade with Delete link highlighted](media/active-directory-groups-view-azure-portal/group-overview-blade-delete.png)
+
     >[!Important]
     >This doesn't delete the user Alain Charon, just his membership in the deleted group.
 
