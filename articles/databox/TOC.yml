@@ -32,10 +32,7 @@
       - name: FAQ
         href: data-box-faq.md  
     - name: How to
-      items:
-      - name: Manage via Azure portal
-        href: data-box-portal-ui-admin.md
-   
+      items:  
   - name: Data Box Disk 
     items:
     - name: Overview
