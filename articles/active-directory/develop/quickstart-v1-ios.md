@@ -25,7 +25,7 @@ ms.reviewer: brandwe
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-Azure Active Directory (Azure AD) provides the Active Directory Authentication Library (ADAL) for iOS clients that need to access protected resources. ADAL simplifies the process that your app uses to obtain access tokens. To demonstrate how easy it is, we'll show you how to build an Objective C To-Do List application that:
+Azure Active Directory (Azure AD) provides the Active Directory Authentication Library (ADAL) for iOS clients that need to access protected resources. ADAL simplifies the process that your app uses to get access tokens. To demonstrate how easy it is, we'll show you how to build an Objective C To-Do List application that:
 
 * Gets access tokens for calling the Azure AD Graph API by using the OAuth 2.0 authentication protocol
 * Searches a directory for users with a given alias
@@ -48,7 +48,7 @@ To get started, complete these prerequisites:
 
 ## Step 1: Determine what your redirect URI is for iOS
 
-To securely start your applications in certain SSO scenarios, you must create a *redirect URI* in a particular format. A redirect URI is used to ensure that the tokens return to the correct application that asked for them.
+To securely start your applications in certain SSO scenarios, you must create a *redirect URI* in a particular format. A redirect URI is used to make sure that the tokens return to the correct application that asked for them.
 
 The iOS format for a redirect URI is:
 
@@ -56,10 +56,12 @@ The iOS format for a redirect URI is:
 <app-scheme>://<bundle-id>
 ```
 
-* **app-scheme** - This is registered in your XCode project. It is how other applications can call you. You can find this under Info.plist -> URL types -> URL Identifier. You should create one if you don't already have one or more configured.
-* **bundle-id** - This is the Bundle Identifier found under "identity" in your XCode project settings.
+* **app-scheme** - Is registered in your XCode project and is how other applications can call you. You can find app-scheme under **Info.plist > URL types > URL Identifier**. Create an app-scheme if you don't already have one or more configured.
+* **bundle-id** - Is the Bundle Identifier found under **identity** in your XCode project settings.
 
-An example for this QuickStart code: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
+An example for this quickstart code:
+
+***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## Step 2: Register the DirectorySearcher application
 
@@ -70,10 +72,10 @@ To set up your app to get tokens, you need to register the app in your Azure AD 
 3. Select **All services** in the leftmost navigation pane, and then select **Azure Active Directory**.
 4. Select **App registrations**, and then select **Add**.
 5. Follow the prompts to create a new **Native** client application.
-    * **Name** is the application name and this describes your application to end users.
+    * **Name** is the application name and describes your application to end users.
     * **Redirect URI** is a scheme and string combination that Azure AD uses to return token responses. Enter a value that is specific to your application and is based on the previous redirect URI information.
 6. After you've completed the registration, Azure AD assigns your app a unique application ID. You'll need this value in the next sections, so copy it from the application tab.
-7. From the **Settings** page, select **Required permissions > Add > Microsoft Graph**, and then under **Delegated permissions** add the **Read directory data** permission. This sets up your application to query the Azure AD Graph API for users.
+7. From the **Settings** page, select **Required permissions > Add > Microsoft Graph**, and then under **Delegated permissions** add the **Read directory data** permission. This permission sets up your application to query the Azure AD Graph API for users.
 
 ## Step 3: Install and configure ADAL
 
@@ -103,7 +105,7 @@ Now that you have an application in Azure AD, you can install ADAL and write you
     ```
 
 1. In the QuickStart project, open the plist file `settings.plist`.
-1. Replace the values of the elements in the section to reflect the values that you entered in the Azure portal. Your code references these values whenever it uses ADAL.
+1. Replace the values of the elements in the section to use the same values that you entered in the Azure portal. Your code references these values whenever it uses ADAL.
     * `tenant` is the domain of your Azure AD tenant, for example, contoso.onmicrosoft.com.
     * `clientId` is the client ID of your application that you copied from the portal.
     * `redirectUri` is the redirect URL that you registered in the portal.
