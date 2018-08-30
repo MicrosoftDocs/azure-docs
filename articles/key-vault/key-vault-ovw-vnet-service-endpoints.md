@@ -1,7 +1,7 @@
 ---
 ms.assetid: 
 title: VNET Service Endpoints for Azure Key Vault | Microsoft Docs
-description: Overview of Virtual network service endpoints for Key Vault
+description: Overview of Virtual Network Service Endpoints for Key Vault
 ms.service: key-vault
 author: amitbapat
 ms.author: ambapat
@@ -10,7 +10,7 @@ ms.date: 08/31/2018
 ---
 # Virtual Network Service Endpoints for Azure Key Vault
 
-The virtual network service endpoints for Key Vault allow you to restrict access to key vault to specified Virtual Network and/or a list of IPv4 (Internet Protocol version 4) address ranges. Any caller connecting to that key vault from outside those sources will be denied access to this key vault. If customer has opted-in to allow "Trusted Microsoft services" such as Office 365 Exchange Online, Office 365 SharePoint Online, Azure compute, Azure Resource Manager, Azure Backup etc., connections from those services will be let through the firewall. Of course, such callers still need to present a valid AAD token and must have the permissions to perform the requested operation. Read more technical details about [Virtual Network Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
+The virtual Network Service Endpoints for Key Vault allow you to restrict access to key vault to specified Virtual Network and/or a list of IPv4 (Internet Protocol version 4) address ranges. Any caller connecting to that key vault from outside those sources will be denied access to this key vault. If customer has opted-in to allow "Trusted Microsoft services" such as Office 365 Exchange Online, Office 365 SharePoint Online, Azure compute, Azure Resource Manager, Azure Backup etc., connections from those services will be let through the firewall. Of course, such callers still need to present a valid AAD token and must have the permissions to perform the requested operation. Read more technical details about [Virtual Network Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## Usage scenarios
 

@@ -91,7 +91,7 @@ Key vault access policies grant permissions to keys, secrets and certificates se
 > [!IMPORTANT]
 > Note that key vault access policies apply at the vault level. For example, when a user is granted permission to create and delete keys, she can perform those operations on all keys in that key vault.
 
-In addition to access policies, data plane access can also be restricted using [Virtual network service endpoints for Azure Key Vault](key-vault-ovw-vnet-service-endpoints.md) by configuring [Firewalls and virtual network rules](key-vault-network-security.md) for an additional layer of security.
+In addition to access policies, data plane access can also be restricted using [Virtual Network Service Endpoints for Azure Key Vault](key-vault-ovw-vnet-service-endpoints.md) by configuring [Firewalls and virtual network rules](key-vault-network-security.md) for an additional layer of security.
 
 ## Example
 Let's say you are developing an application that uses a certificate for SSL, Azure storage for storing data, and uses an RSA 2048-bit key for sign operations. Let's say this application is running in a VM (or a VM Scale Set). You can use a key vault to store all the application secrets, and use key vault to store the bootstrap certificate that is used by the application to authenticate with Azure Active Directory.
