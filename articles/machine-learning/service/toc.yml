@@ -60,6 +60,7 @@
     items:    
     - name: Prepare models for deployment
     - name: Where to deploy models
+      href: where-to-deploy-models.md
     - name: Deploy to ACI
       href: how-to-deploy-to-aci.md
     - name: Deploy to AKS
