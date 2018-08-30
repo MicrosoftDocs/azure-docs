@@ -158,31 +158,33 @@ Health diagnostics page has three main sections:
 3. State Changes 
 
 ### Component model
+The left-most column in a Health diagnostics page is the component model. All the components and its discovered instances, which are associated with the VM, are displayed in this column. 
 
-The left-most column in a health diagnostics screen is the Component Model. All the components and its discovered instances, which are associated with the VM would be displayed in this column. 
-In the example below, the discovered components are disk, logical disk, processor, memory, and Operating System. Multiple instances of these components are discovered and displayed in this column (there are two instances of logical disk (/ and /mnt), one instance of network adapter (eth0), two instances of disk (sda and sdb), two instances of processor (0 and 1) and an Ubuntu Operating System). 
+In the following example, the discovered components are disk, logical disk, processor, memory, and operating system. Multiple instances of these components are discovered and displayed in this column, with two instances of logical disk **/** and **/mnt**, one instance of network adapter **eth0**, two instances of disk **sda** and **sdb**, two instances of processor **0 and 1**, and an **Ubuntu Operating System**). 
 
 ### Health criteria
-The center column in the Health Diagnostics page is the “Health Criteria” column. The health model defined for the VM structure in would be displayed in a tree this section. A health model for a VM would consist of unit, dependency and aggregate health criteria.  
-A health criterion measures the health of the monitored instance with some criteria which could be a threshold value or a state of an entity etc. A health criterion has either two or three health states as described in the above section. At any given point, the health criterion can be in only one of its potential states. 
-The overall health of a target is determined from the health of each of its health criteria defined in the health model. This will be a combination of health criteria targeted directly at the target, health criteria targeted at components rolling up to the target through a dependency health criterion. This hierarchy is illustrated in the Health Criteria section of the Health Diagnostics screen. The policy for how health is rolled up is part of the configuration of the aggregate and dependency health criteria. 
-You can find the list of default set of Health criteria running as part of this solution in Health Criteria Details document.  
-In the example below, the aggregate health criterion Core Windows Services Rollup assesses the health of the most critical Windows Services based on individual service health criteria. The status of each service such as DNS, DHCP etc., are evaluated and the health is rolled up to corresponding rollup health criterion (as shown below).  
+The center column in the Health Diagnostics page is the **Health Criteria** column. The health model defined for the VM is displayed in a hierarchical tree. The health model for a VM consist of unit, dependency and aggregate health criteria.  
 
-The health of the Core Windows Services Rollup rolls into the health of Operating System availability which eventually rolls up to the Availability of the VM. 
+A health criterion measures the health of the monitored instance with some criteria, which could be a threshold value or a state of an entity, etc. A health criterion has either two or three health states as described in the above section. At any given point, the health criterion can be in only one of its potential states. 
+
+The overall health of a target is determined from the health of each of its health criteria defined in the health model. This will be a combination of health criteria targeted directly at the target, health criteria targeted at components rolling up to the target through a dependency health criterion. This hierarchy is illustrated in the **Health Criteria** section of the Health Diagnostics page. The policy for how health is rolled up is part of the configuration of the aggregate and dependency health criteria. You can find a list of default set of health criteria running as part of this solution under the section [Health Criteria details](#health-criteria-details).  
+
+In the example below, the aggregate health criterion **Core Windows Services Rollup** assesses the health of the most critical Windows Services based on individual service health criteria. The status of each service such as DNS, DHCP etc., are evaluated and the health is rolled up to corresponding rollup health criterion (as shown below).  
+
+The health of the **Core Windows Services Rollup** rolls into the health of **Operating System availability**, which eventually rolls up to the **Availability** of the VM. 
 
 ### State changes
-The right-most column in health diagnostics screen is “State Changes”. This column lists all the state changes associated with the health criteria that is selected in the Health Criteria section or the state change of the VM if a VM is selected in the Component Model column or Health Criteria column. 
+The right-most column in the Health Diagnostics page is **State Changes**. It lists all the state changes associated with the health criteria that is selected in the **Health Criteria** section or the state change of the VM if a VM was selected from the **Component Model** or **Health Criteria** column of the table. 
 
-This section consists of the health criteria state and the associated time (with the latest state on the top). 
+This section consists of the health criteria state and the associated time sorted by the latest state on top.   
 
 ### Association of Component Model, Health Criteria and State change columns 
-The three columns are interlinked with each other. 
-When a user selects a discovered instance in the “Component Model”, the “Health Criteria” section will be filtered to that component view and correspondingly the “state changes” will be updated to the health criteria that is being selected. 
+The three columns are interlinked with each other. When a user selects a discovered instance in the Component Model, the **Health Criteria** section is filtered to that component view and correspondingly the **State Change** is updated based on the selected health criteria. 
 
-In the above example, when one selects /mnt (Logical Disk), the Health Criteria tree is filtered to /mnt(Logical Disk). The Availability/Performance/Configuration/Security tabs are filtered accordingly too. The State Change column shows the state change for the “availability” of /mnt(Logical Disk). 
+In the above example, when one selects **/mnt (Logical Disk)**, the Health Criteria tree is filtered to **/mnt(Logical Disk)**. The **Availability** and **Performance** tabs are filtered accordingly too. The **State Change** column shows the state change based on the availability of **/mnt(Logical Disk)**. 
 
-### Health diagnostics screen tasks option
+### Health Diagnostics page tasks 
+
 Health Diagnostics screen has two task options – 
 1) Refresh – This refreshes the entire health diagnostics page. If there is an update to the health criterion’s health state based on the predefined polling interval, this task would update the health criteria to the latest. 2) Health Criteria State – This is a filter. User can filter the whole health diagnostics screen based on the health criteria state – Healthy, Warning, Critical, Unknown and All. 
  
