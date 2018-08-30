@@ -12,7 +12,7 @@ ms.author: aahi
 ---
 # Quickstart: Send search queries using the Bing Image Search API and C#
 
-Use this quickstart to make your first call to the Bing Image Search API and view a search result from the JSON response. This simple C# application sends an image search query to the API, and displays the URL of the first image returned.
+Use this quickstart to make your first call to the Bing Image Search API and view a search result from the JSON response. This simple C# application sends an HTTP image search query to the API, and displays the URL of the first image returned.
 
 While this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
 
@@ -20,22 +20,22 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/). (The free Community Edition will work.)
-
-This application uses only .NET Core classes and runs on Windows using the .NET CLR, or on Linux and macOS using [Mono](http://www.mono-project.com/).
+* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package. 
+* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Create and initialize a project
 
-1. create a new console solution named `BingSearchApisQuickStart` in Visual Studio. Then import the following packages into the main code file.
+1. create a new console solution named `BingSearchApisQuickStart` in Visual Studio. Then add the following namespaces into the main code file.
 
     ```csharp
     using System;
-    using System.Text;
     using System.Net;
     using System.IO;
     using System.Collections.Generic;
+    using Newtonsoft.Json.Linq;
     ```
 
 2. Create variables for the API endpoint, your subscription key, and search term.
@@ -46,10 +46,10 @@ This application uses only .NET Core classes and runs on Windows using the .NET 
     {
         class Program
         {
-        // Replace the accessKey string value with your valid access key.
-        const string accessKey = "enter key here";
+        // Replace the this string with your valid access key.
+        const string subscriptionKey = "enter key here";
         const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/search";
-        const string searchTerm = "puppies";
+        const string searchTerm = "tropical ocean";
     //...
     ```
 
@@ -68,10 +68,10 @@ Define a `SearchResult` struct to contain the image search results, and JSON hea
                 public String jsonResult;
                 public Dictionary<String, String> relevantHeaders;
             }
-    //...
+//...
 ```
 
-## Make and handle a request
+## Create a method to send search requests
 
 Create a method named `BingImageSearch` to perform the call to the API, and return the results as a SearchResult.
 
@@ -79,51 +79,60 @@ Create a method named `BingImageSearch` to perform the call to the API, and retu
 //...
 namespace BingSearchApisQuickstart
 {
+    //...
     class Program
     {
-        static SearchResult BingImageSearch(string searchQuery)
+        //...
+        static SearchResult BingImageSearch(string searchTerm)
         {
         }
 //...
 ```
 
+## Create and handle an image search request
+ 
 In the `BingImageSearch` method, perform the following steps.
 
-1. Construct the URI for the search request. Note that `searchQuery` must be formatted before being appended to the string. 
+1. Construct the URI for the search request. Note that the search term `toSearch` must be formatted before being appended to the string. 
 
     ```csharp
-    static SearchResult BingImageSearch(string searchQuery)
-        {
-    var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery);
+    static SearchResult BingImageSearch(string toSearch){
+
+        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
+    //...
     ```
+
 2. Perform the web request and get the response as a JSON string.
 
     ```csharp
-    WebRequest request = HttpWebRequest.Create(uriQuery);
-    request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
+    WebRequest request = WebRequest.Create(uriQuery);
+    request.Headers["Ocp-Apim-Subscription-Key"] = subscriptionKey;
     HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-    // Create the result object for return
-    var searchResult = new SearchResult()
     ```
-3. Create the search result object, and extract the Bing HTTP headers.
+
+3. Create the search result object, and extract the Bing HTTP headers. Then return `searchResult`.
 
     ```csharp
-        var searchResult = new SearchResult()
-        {
-            jsonResult = json,
-            relevantHeaders = new Dictionary<String, String>()
-        };
+    // Create the result object for return
+    var searchResult = new SearchResult()
+    {
+        jsonResult = json,
+        relevantHeaders = new Dictionary<String, String>()
+    };
 
-        // Extract Bing HTTP headers
-        foreach (String header in response.Headers)
-        {
-            if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
-                searchResult.relevantHeaders[header] = response.Headers[header];
-        }
+    // Extract Bing HTTP headers
+    foreach (String header in response.Headers)
+    {
+        if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
+            searchResult.relevantHeaders[header] = response.Headers[header];
+    }
+    return searchResult;
     ```
 
 ## View the response
+
+In the 
 
 Write the resulting JSON to the console.
 
@@ -137,85 +146,47 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 
 ```json
 {
-  "_type": "Images",
-  "instrumentation": {},
-  "readLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=puppies",
-  "webSearchUrl": "https://www.bing.com/images/search?q=puppies&FORM=OIIARP",
-  "totalEstimatedMatches": 955,
-  "nextOffset": 1,
-  "value": [
-    {
-      "webSearchUrl": "https://www.bing.com/images/search?view=detailv...",
-      "name": "So cute - Puppies Wallpaper",
-      "thumbnailUrl": "https://tse3.mm.bing.net/th?id=OIP.jHrihoDNkXGS1t...",
-      "datePublished": "2014-02-01T21:55:00.0000000Z",
-      "contentUrl": "http://images4.contoso.com/image/photos/14700000/So-cute-puppies...",
-      "hostPageUrl": "http://www.contoso.com/clubs/puppies/images/14749028/...",
-      "contentSize": "394455 B",
-      "encodingFormat": "jpeg",
-      "hostPageDisplayUrl": "www.contoso.com/clubs/puppies/images/14749...",
-      "width": 1600,
-      "height": 1200,
-      "thumbnail": {
-        "width": 300,
-        "height": 225
-      },
-      "imageInsightsToken": "ccid_jHrihoDN*mid_F68CC526226E163FD1EA659747AD...",
-      "insightsMetadata": {
-        "recipeSourcesCount": 0
-      },
-      "imageId": "F68CC526226E163FD1EA659747ADCB8F9FA36",
-      "accentColor": "8D613E"
-    }
-  ],
-  "queryExpansions": [
-    {
-      "text": "Shih Tzu Puppies",
-      "displayText": "Shih Tzu",
-      "webSearchUrl": "https://www.bing.com/images/search?q=Shih+Tzu+Puppies...",
-      "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Shih...",
-      "thumbnail": {
-        "thumbnailUrl": "https://tse2.mm.bing.net/th?q=Shih+Tzu+Puppies&pid=Api..."
+  {
+   "_type":"Images",
+   "instrumentation":{
+      "_type":"ResponseInstrumentation"
+   },
+   "readLink":"images\/search?q=tropical ocean",
+   "webSearchUrl":"https:\/\/www.bing.com\/images\/search?q=tropical ocean&FORM=OIIARP",
+   "totalEstimatedMatches":842,
+   "nextOffset":47,
+   "value":[
+      {
+         "webSearchUrl":"https:\/\/www.bing.com\/images\/search?view=detailv2&FORM=OIIRPO&q=tropical+ocean&id=8607ACDACB243BDEA7E1EF78127DA931E680E3A5&simid=608027248313960152",
+         "name":"My Life in the Ocean | The greatest WordPress.com site in ...",
+         "thumbnailUrl":"https:\/\/tse3.mm.bing.net\/th?id=OIP.fmwSKKmKpmZtJiBDps1kLAHaEo&pid=Api",
+         "datePublished":"2017-11-03T08:51:00.0000000Z",
+         "contentUrl":"https:\/\/mylifeintheocean.files.wordpress.com\/2012\/11\/tropical-ocean-wallpaper-1920x12003.jpg",
+         "hostPageUrl":"https:\/\/mylifeintheocean.wordpress.com\/",
+         "contentSize":"897388 B",
+         "encodingFormat":"jpeg",
+         "hostPageDisplayUrl":"https:\/\/mylifeintheocean.wordpress.com",
+         "width":1920,
+         "height":1200,
+         "thumbnail":{
+            "width":474,
+            "height":296
+         },
+         "imageInsightsToken":"ccid_fmwSKKmK*mid_8607ACDACB243BDEA7E1EF78127DA931E680E3A5*simid_608027248313960152*thid_OIP.fmwSKKmKpmZtJiBDps1kLAHaEo",
+         "insightsMetadata":{
+            "recipeSourcesCount":0,
+            "bestRepresentativeQuery":{
+               "text":"Tropical Beaches Desktop Wallpaper",
+               "displayText":"Tropical Beaches Desktop Wallpaper",
+               "webSearchUrl":"https:\/\/www.bing.com\/images\/search?q=Tropical+Beaches+Desktop+Wallpaper&id=8607ACDACB243BDEA7E1EF78127DA931E680E3A5&FORM=IDBQDM"
+            },
+            "pagesIncludingCount":115,
+            "availableSizesCount":44
+         },
+         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
+         "accentColor":"0050B2"
       }
-    }
-  ],
-  "pivotSuggestions": [
-    {
-      "pivot": "puppies",
-      "suggestions": [
-        {
-          "text": "Dog",
-          "displayText": "Dog",
-          "webSearchUrl": "https://www.bing.com/images/search?q=Dog&tq=%7b%22pq%...",
-          "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Dog...",
-          "thumbnail": {
-            "thumbnailUrl": "https://tse1.mm.bing.net/th?q=Dog&pid=Api&mkt=en-US..."
-          }
-        }
-      ]
-    }
-  ],
-  "similarTerms": [
-    {
-      "text": "cute",
-      "displayText": "cute",
-      "webSearchUrl": "https://www.bing.com/images/search?q=cute&FORM=...",
-      "thumbnail": {
-        "url": "https://tse2.mm.bing.net/th?q=cute&pid=Api&mkt=en-US..."
-      }
-    }
-  ],
-  "relatedSearches": [
-    {
-      "text": "Cute Puppies",
-      "displayText": "Cute Puppies",
-      "webSearchUrl": "https://www.bing.com/images/search?q=Cute+Puppies",
-      "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/sear...",
-      "thumbnail": {
-        "thumbnailUrl": "https://tse4.mm.bing.net/th?q=Cute+Puppies&pid=..."
-      }
-    }
-  ]
+  }
 }
 ```
 

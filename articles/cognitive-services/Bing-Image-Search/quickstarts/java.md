@@ -1,5 +1,6 @@
 ---
 title: "Quickstart: Send search queries using the REST API for the Bing Image Search API and Java"
+titleSuffix: Azure Cognitive Services
 description: Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response.
 services: cognitive-services
 documentationcenter: ''
@@ -52,14 +53,14 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Construct the search request and query
 
-Use the variables from the last step to format a search URL for the API request. Note that your search term must be URL-encoded before being appended to the request.
+1. Use the variables from the last step to format a search URL for the API request. Note that your search term must be URL-encoded before being appended to the request.
 
-```java
-// construct the search request URL (in the form of endpoint + query string)
-URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
-HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-```
+    ```java
+    // construct the search request URL (in the form of endpoint + query string)
+    URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
+    HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+    connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+    ```
 
 ## Receive and process the JSON response
 
@@ -84,7 +85,7 @@ connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
     }
     ```
 
-3. Close the Stream, and print the response
+3. Close the stream, and print the response
 
     ```java
     stream.close();

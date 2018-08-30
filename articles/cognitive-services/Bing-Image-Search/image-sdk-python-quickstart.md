@@ -39,7 +39,7 @@ The source code for this sample is available [on Github](https://github.com/Azur
 2. Create variables for your subscription key and search term.
 
     ```python
-    subscription_key = "COPY-YOUR-KEY-HERE"
+    subscription_key = "Enter your key here"
     search_term = "canadian rockies"
     ```
 
@@ -59,11 +59,11 @@ If the response contains search results, store the first result and print out it
 ```python
     if image_results.value:
         first_image_result = image_results.value[0]
-        print("Image result count: {}".format(len(image_results.value)))
+        print("Total number of images returned: {}".format(len(image_results.value)))
         print("First image thumbnail url: {}".format(first_image_result.thumbnail_url))
         print("First image content url: {}".format(first_image_result.content_url))
     else:
-        print("Couldn't find image results!")
+        print("No image results returned!")
 ```
 
 ## Next steps
