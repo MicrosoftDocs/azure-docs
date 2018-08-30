@@ -64,12 +64,12 @@ The following diagram is a taxonomy of the workspace:
 
 ## Scripts
 
-To train a model, you submit the training scripts and associated files to the compute target that contains the training environment. To use a local directory, you attach it to a workspace and provide an experiment name. For an example of how to attach a directory to a workspace, see one of the following documents:
+To train a model, you specify the directory that contains the training script and associated files. You also specify an experiment name, which is used to store information gathered during training. During training, the entire directory is copied to the training environment (compute target), and the script specified by the __run configuration__ is started. A snapshot of the directory is also stored under the experiment in the workspace.
+
+For an example of using scripts to train a model, see one of the following documents:
 
 * [Create a workspace with Python](quickstart-get-started.md)
 * [Create a workspace with Azure CLI](quickstart-get-started-with-cli.md)
-
-When you submit the scripts for training, the entire directory is copied to the compute target. The entry script is run in the Python environment configured through the __run configuration__. A snapshot of the copy is also stored in the workspace under the experiment name.
 
 ## Model
 
@@ -81,7 +81,7 @@ Azure Machine Learning is framework agnostic. You can use any popular machine le
 
 We use images to group all the assets for your deployment. We currently support only Docker images. A Docker image is created from your scripts, and registered with the workspace. It encapsulates:
 
-* A model file, or a folder of model files
+* A model file, or a directory of model files
 * A scoring script or application for device deployments
 * Any number of supporting library files (optional)
 * A Conda environment file listing Python package dependencies (optional)
@@ -121,7 +121,7 @@ It contains the following information:
 * Metadata about the run (timestamp, duration etc.)
 * Metrics logged by your script
 * Output files auto-collected by the experiment, or explicitly uploaded by you.
-* A snapshot of the folder that contains your scripts, prior to the run is executed
+* A snapshot of the directory that contains your scripts, prior to the run is executed
 
 A run can have zero or more child runs.
 
@@ -154,7 +154,7 @@ When developing your solution, you can use the Azure Machine Learning Python SDK
 
 ## Snapshots
 
-When submitting a training run, Azure Machine Learning compresses the folder that contains the script as a zip file and sends it to the compute target. The zip is then expanded and the script is executed there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
+When submitting a training run, Azure Machine Learning compresses the directory that contains the script as a zip file and sends it to the compute target. The zip is then expanded and the script is executed there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
 
 ## Task
 
