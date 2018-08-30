@@ -12,7 +12,7 @@ ms.author: a-kiwels
 
 # Manual Installation
 
-Azure CycleCloud can be installed using an [ARM template](quickstart-install-cyclecloud.md), via [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azurecyclecloud.azure-cyclecloud-vm?tab=Overview) or using a container in the [Azure Registry](https://hub.docker.com/r/microsoft/azure-cyclecloud/). For production instances of CycleCloud, we recommend installing the product manually as outlined below.
+Azure CycleCloud can be installed using an [ARM template](quickstart-install-cyclecloud.md), via [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azurecyclecloud.azure-cyclecloud-vm?tab=Overview) or using a container in the [Azure Container Registry](https://hub.docker.com/r/microsoft/azure-cyclecloud/). For production instances of CycleCloud, we recommend installing the product manually as outlined below.
 
 > [!NOTE]
 > The CycleCloud product encompasses many pieces, including a command line transfer tool called [pogo](pogo-overview.md), node configuration software known as [Jetpack](jetpack.md), and a installable webserver platform called CycleServer. Because of this, you will find CycleServer referenced in many commands and directory names on the machine where the CycleCloud server is installed.
