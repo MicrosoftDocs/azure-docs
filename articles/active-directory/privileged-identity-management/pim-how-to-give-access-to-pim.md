@@ -78,7 +78,7 @@ Before you remove someone from the Privileged Role Administrator role, always ma
 
     ![Privileged Role Administrator - Remove member](./media/pim-how-to-give-access-to-pim/pim-pra-remove-member.png)
 
-1. In the message that appears asking if you want to remove member from role, click **Yes**.
+1. In the message that appears asking if you want to remove the member from the role, click **Yes**.
 
 ## Next steps
 
