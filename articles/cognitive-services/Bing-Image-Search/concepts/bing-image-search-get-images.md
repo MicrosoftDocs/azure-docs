@@ -67,10 +67,10 @@ Host: api.cognitive.microsoft.com
 
 To get images from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator.
 
-    > [!NOTE]
-    > Responses to queries using the `site:` operator might include adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) setting. Only use `site:` if you're aware of the content on the domain.
+ > [!NOTE]
+ > Responses to queries using the `site:` operator might include adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) setting. Only use `site:` if you're aware of the content on the domain.
 
-The following example shows how to get small images from ContosoSailing.com that Bing has discovered in the past week.  
+The following example shows how to get small images from ContosoSailing.com that Bing discovered in the past week.  
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&size=small&freshness=week&mkt=en-us HTTP/1.1  
@@ -112,7 +112,7 @@ The response message from Bing contains an [Images](https://docs.microsoft.com/r
 },
 ```
 
-When you call the Bing Image Search API, Bing returns a list of results. The list is a subset of the total number of results that are relevant to the query. The response's `totalEstimatedMatches` field contains an estimate of the number of images that are available to view. For details about how to page through the remaining images, see [Paging Images](../paging-images.md).
+When you call the Bing Image Search API, Bing returns a list of results. The list is a subset of the total number of results that are relevant to the query. The response's `totalEstimatedMatches` field contains an estimate of the number of images that are available to view. For details about how to page through the rest of the images, see [Paging Images](../paging-images.md).
 
 ## Next steps
 
