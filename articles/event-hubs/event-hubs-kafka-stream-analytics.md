@@ -172,7 +172,16 @@ In this tutorial, you define a query that passes through the data without perfor
 
 ## Test the scenario
 1. Run the **Kafka producer** again to send events to the event hub. 
-2. Confirm that you see **output data** is generated in the **Azure blob storage**.
+2. Confirm that you see **output data** is generated in the **Azure blob storage**. You see a JSON file in the container with 100 rows that look like the following sample rows: 
+
+    ```
+    {"eventData":"Test Data 0","EventProcessedUtcTime":"2018-08-30T03:27:23.1592910Z","PartitionId":0,"EventEnqueuedUtcTime":"2018-08-30T03:27:22.9220000Z"}
+    {"eventData":"Test Data 1","EventProcessedUtcTime":"2018-08-30T03:27:23.3936511Z","PartitionId":0,"EventEnqueuedUtcTime":"2018-08-30T03:27:22.9220000Z"}
+    {"eventData":"Test Data 2","EventProcessedUtcTime":"2018-08-30T03:27:23.3936511Z","PartitionId":0,"EventEnqueuedUtcTime":"2018-08-30T03:27:22.9220000Z"}
+    ```
+
+    The Azure Stream Analytics job received input data from the event hub and stored it in the Azure blob storage in this scenario. 
+
 
 
 ## Next steps
