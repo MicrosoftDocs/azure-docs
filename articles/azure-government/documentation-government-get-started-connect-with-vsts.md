@@ -4,7 +4,7 @@ description: Information on configuring continuous deployment to your applicatio
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: yujhongmicrosoft
+author: Juliako
 manager: zakramer
 
 ms.service: azure-government
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/10/2018
-ms.author: yujhong
+ms.author: juliako
 ---
 
 # Develop with Visual Studio Team Services
