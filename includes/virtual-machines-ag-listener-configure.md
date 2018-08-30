@@ -74,8 +74,10 @@ The availability group listener is an IP address and network name that the SQL S
 6. <a name="setparam"></a>Set the cluster parameters in PowerShell.
 
   a. Copy the following PowerShell script to one of your SQL Server instances. Update the variables for your environment.
-    `$ILBIP` is the IP address that you created on the Azure load balancer for the availability group listener.
-    `$ProbePort` is the port you configured on the Azure load balancer for the availability group listener.
+
+  - `$ILBIP` is the IP address that you created on the Azure load balancer for the availability group listener.
+    
+  - `$ProbePort` is the port you configured on the Azure load balancer for the availability group listener.
 
   ```PowerShell
   $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
@@ -101,8 +103,10 @@ Repeat the steps above to set the cluster parameters for the WSFC cluster IP add
 1. <a name="setwsfcparam"></a>Set the cluster parameters in PowerShell.
   
   a. Copy the following PowerShell script to one of your SQL Server instances. Update the variables for your environment.
-    `$ILBIP` is the IP address that you created on the Azure load balancer for the WSFC core cluster resource. It is different from the IP address for the availability group listener.
-    `$ProbePort` is the port you configured on the Azure load balancer for the WSFC health probe. It is different from the probe for the availability group listener.
+
+  - `$ILBIP` is the IP address that you created on the Azure load balancer for the WSFC core cluster resource. It is different from the IP address for the availability group listener.
+
+  - `$ProbePort` is the port you configured on the Azure load balancer for the WSFC health probe. It is different from the probe for the availability group listener.
 
   ```PowerShell
   $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
