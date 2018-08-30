@@ -52,7 +52,7 @@ To customize the default OS security configuration in Security Center, do the fo
 
 2.  In the left pane, select **Security policy**.      
 
-    ![Security Policy list](media/security-center-customize-os-security-config/mnaual-provision.png)
+    ![Security Policy list](media/security-center-customize-os-security-config/manual-provision.png)
 
 3.  In the row of the subscription you want to customize, click **Edit settings**.
 
