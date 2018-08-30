@@ -89,8 +89,7 @@ After you have your Azure and on-premises infrastructure in place, you can set u
     - Set up includes registering the configuration server in the vault, downloading MySQL Server and VMware PowerCLI, and specifying the accounts created for automatic discovery and Mobility service installation.
 4. **Target environment**: You set up your target Azure environment by specifying your Azure subscription, storage, and network settings.
 5. **Replication policy**: You specify how replication should occur. Settings include how often recovery points are created and stored, and whether app-consistent snapshots should be created.
-6. The broad steps for setting up VMware to Azure disaster recovery or migration are as follows:
-7. **Enable replication**. You enable replication for on-premises machines. If you created an account to install the Mobility service, then it will be installed when you enable replication for a machine. 
+6. **Enable replication**. You enable replication for on-premises machines. If you created an account to install the Mobility service, then it will be installed when you enable replication for a machine. 
 
 *Need more help?*
 
