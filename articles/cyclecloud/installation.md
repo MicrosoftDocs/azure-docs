@@ -34,7 +34,7 @@ To install CycleCloud, you must have administrator rights. In addition, your sys
 
 ## SSH Key
 
-The default SSH key used in CycleCloud is _~/.ssh/cyclecloud.pem_. If this does not already exist, it will be automatically generated upon startup (or restart) of CycleCloud.
+The default SSH key used in CycleCloud is */opt/cycle_server/.ssh/cyclecloud.pem*. If this does not already exist, it will be automatically generated upon startup (or restart) of CycleCloud.
 
 ## Installation
 
