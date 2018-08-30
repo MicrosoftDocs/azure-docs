@@ -174,7 +174,7 @@ Set up the configuration server machine, register it in the vault, and discover 
 5. Download the Site Recovery Unified Setup installation file.
 6. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for five days after you generate it.
 
-	![Set up source](./media/azure-stack-site-recover/set-source2.png)
+	![Set up source](./media/azure-stack-site-recovery/set-source2.png)
 
 
 ### Run Azure Site Recovery Unified Setup
