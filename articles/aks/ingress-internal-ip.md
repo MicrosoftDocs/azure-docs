@@ -19,6 +19,7 @@ This article shows you how to deploy the [NGINX ingress controller][nginx-ingres
 You can also:
 
 - [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
+- [Enable the HTTP application routing add-on][aks-http-app-routing]
 - [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
 - [Create an ingress controller with a static public IP address and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-static-tls]
 
@@ -179,6 +180,7 @@ This article included some external components to AKS. To learn more about these
 You can also:
 
 - [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
+- [Enable the HTTP application routing add-on][aks-http-app-routing]
 - [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
 - [Create an ingress controller with a static public IP address and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-static-tls]
 
@@ -192,3 +194,4 @@ You can also:
 [aks-ingress-basic]: ingress-basic.md
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-static-tls]: ingress-static-ip.md
+[aks-http-app-routing]: http-application-routing.md
