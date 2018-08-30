@@ -14,7 +14,7 @@ ms.author: diberry
 
 --- 
 
-# Tutorial: 8. Add keyPhrase entity 
+# Tutorial: 8. Extract key phrases 
 In this tutorial, use the prebuilt keyPhrase entity to extract key subject matter from utterances. You do not need to label any utterances with prebuilt entities. The entity is detected automatically.
 
 The following utterances show examples of key phrases:

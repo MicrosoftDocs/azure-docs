@@ -1,5 +1,5 @@
 ---
-title: Tutorial - 7 - simple entity - phrase list - extract data - Azure Cognitive Service | Microsoft Docs 
+title: Tutorial - 7 - simple entity - phrase list - extract name data - Azure Cognitive Service | Microsoft Docs 
 description: In this tutorial, extract machine-learned data from an utterance using the Simple entity. To increase the extraction accuracy, add a phrase list of terms specific to the simple entity. This tutorial adds a new simple entity to extract the job name. The purpose of the simple entity in this LUIS app is to teach LUIS what a job name is and where it can be found in an utterance. The part of the utterance that is the job name can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of job names  across all intents that use job names.  
 services: cognitive-services
 author: diberry
@@ -13,7 +13,7 @@ ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 --- 
 
-# Tutorial: 7. Add simple entity and phrase list
+# Tutorial: 7. Extract names
 In this tutorial, extract machine-learned data of employment job name from an utterance using the **Simple** entity. To increase the extraction accuracy, add a phrase list of terms specific to the simple entity.
 
 This tutorial adds a new simple entity to extract the job name. The purpose of the simple entity in this LUIS app is to teach LUIS what a job name is and where it can be found in an utterance. The part of the utterance that is the job name can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of job names  across all intents that use job names.  

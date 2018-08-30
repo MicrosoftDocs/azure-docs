@@ -14,7 +14,7 @@ ms.author: diberry
 
 --- 
 
-# Tutorial: 9.  Add sentiment analysis
+# Tutorial: 9.  Extract sentiment
 In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
 
 Sentiment analysis is the ability to determine if a user's utterance is positive, negative, or neutral. 
