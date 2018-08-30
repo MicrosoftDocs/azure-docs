@@ -71,18 +71,20 @@
       href: ../application-insights/app-insights-troubleshoot-faq.md?toc=/azure/azure-monitor/toc.json
   - name: Azure management
     href: ../monitoring/index.md?toc=/azure/azure-monitor/toc.json
-  - name: Data collection
-    href: ../monitoring/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
+  - name: Data sources
+    items:
+    - name: Overview
+      href: ../monitoring/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
+    - name: Activity log
+      href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=/azure/azure-monitor/toc.json
+    - name: Diagnostic logs
+      href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json 
   - name: Monitoring data
     items: 
     - name: Metrics and logs
       href: ../monitoring/monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json
-    - name: Activity log
-      href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=/azure/azure-monitor/toc.json
-    - name: Diagnostic logs
-      href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json
-    - name: Data ingestion time
-      href: ../log-analytics/log-analytics-data-ingestion-time.md?toc=/azure/azure-monitor/toc.json    
+    - name: Log data ingestion time
+      href: ../log-analytics/log-analytics-data-ingestion-time.md?toc=/azure/azure-monitor/toc.json      
     - name: Data security
       items:
       - name: Log data
@@ -115,7 +117,7 @@
           href: ../log-analytics/log-analytics-oms-portal-transition.md?toc=/azure/azure-monitor/toc.json
         - name: Common questions
           href: ../log-analytics/log-analytics-oms-portal-faq.md?toc=/azure/azure-monitor/toc.json
-  - name: Alerts
+  - name: Respond to incidents
     href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md?toc=/azure/azure-monitor/toc.json
     items:
     - name: About alerts (classic)  
