@@ -32,16 +32,12 @@ An ExpressRoute circuit has multiple routing domains associated with it: Azure p
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
-### Azure Private peering
+### Azure private peering
 Azure compute services, namely virtual machines (IaaS) and cloud services (PaaS), that are deployed within a virtual network can be connected through the private peering domain. The private peering domain is considered to be a trusted extension of your core network into Microsoft Azure. You can set up bi-directional connectivity between your core network and Azure virtual networks (VNets). This peering lets you connect to virtual machines and cloud services directly on their private IP addresses.  
 
 You can connect more than one virtual network to the private peering domain. Review the [FAQ page](expressroute-faqs.md) for information on limits and limitations. You can visit the [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md) page for up-to-date information on limits.  Refer to the [Routing](expressroute-routing.md) page for detailed information on routing configuration.
 
 ### Microsoft peering
-
-> [!NOTE]
-> All Azure PaaS services are accessible through Microsoft peering. 
->   
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
@@ -66,12 +62,12 @@ For more information about services supported through the public peering routing
 ## Routing domain comparison
 The following table compares the three routing domains:
 
-|  | **Private Peering** | **Public Peering** (Deprecated for new creations) | **Microsoft Peering** |
+|  | **Private Peering** | **Microsoft Peering** |  **Public Peering** (deprecated for circuits) |
 | --- | --- | --- | --- |
 | **Max. # prefixes supported per peering** |4000 by default, 10,000 with ExpressRoute Premium |200 |200 |
 | **IP address ranges supported** |Any valid IP address within your WAN. |Public IP addresses owned by you or your connectivity provider. |Public IP addresses owned by you or your connectivity provider. |
 | **AS Number requirements** |Private and public AS numbers. You must own the public AS number if you choose to use one. |Private and public AS numbers. However, you must prove ownership of public IP addresses. |Private and public AS numbers. However, you must prove ownership of public IP addresses. |
-| **IP protocols supported**| IPv4 | IPv4 | IPv4, IPv6 |
+| **IP protocols supported**| IPv4 |  IPv4, IPv6 | IPv4 |
 | **Routing Interface IP addresses** |RFC1918 and public IP addresses |Public IP addresses registered to you in routing registries. |Public IP addresses registered to you in routing registries. |
 | **MD5 Hash support** |Yes |Yes |Yes |
 
@@ -82,7 +78,7 @@ If you choose to have all three peering sessions, you must have three pairs of B
 ## ExpressRoute health
 ExpressRoute circuits may be monitored for availability, connectivity to VNets and bandwidth utilization using [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
 
-NPM monitors the health of Azure Private peering and Microsoft peering.  Check out our [post](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) for more information.
+NPM monitors the health of Azure private peering and Microsoft peering.  Check out our [post](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) for more information.
 
 ## Next steps
 * Find a service provider. See [ExpressRoute service providers and locations](expressroute-locations.md).

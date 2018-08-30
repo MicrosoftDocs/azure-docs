@@ -65,11 +65,11 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 ### Microsoft peering
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
-  * Dynamics 365 
-  * Power BI
-  * Azure Active Directory
-  * Visual Studio Team Services Load Testing
-  * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support. The following services are not supported:
+* Dynamics 365 
+* Power BI
+* Azure Active Directory
+* Visual Studio Team Services Load Testing
+* Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>The following services are **not supported**:
     * CDN
     * Multi-factor Authentication
     * Traffic Manager
@@ -212,18 +212,6 @@ BGP sessions will be dropped. They will be reset once the prefix count goes belo
 ### What is the ExpressRoute BGP hold time? Can it be adjusted?
 
 The hold time is 180. The keep-alive messages are sent every 60 seconds. These are fixed settings on the Microsoft side that cannot be changed. It is possible for you to configure different timers, and the BGP session parameters will be negotiated accordingly.
-
-### After I advertise the default route (0.0.0.0/0) to my virtual networks, I can't activate Windows running on my Azure VMs. How to I fix this?
-
-The following steps help Azure recognize the activation request:
-
-1. Establish the public peering for your ExpressRoute circuit.
-2. Perform a DNS lookup and find the IP address of **kms.core.windows.net**
-3. The Key Management Service must recognize that the activation request comes from Azure and honor the request. Perform one of the following three tasks:
-
-   * On your on-premises network, route the traffic destined for the IP address that you obtained in step 2 back to Azure via the public peering.
-   * Have your NSP provider hair-pin the traffic back to Azure via the public peering.
-   * Create a user-defined route that points the IP that has Internet as a next hop, and apply it to the subnet(s) where these virtual machines are.
 
 ### Can I change the bandwidth of an ExpressRoute circuit?
 
