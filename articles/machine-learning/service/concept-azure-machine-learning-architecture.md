@@ -127,7 +127,7 @@ A run can have zero or more child runs.
 
 ## Experiment
 
-An experiment is a logical grouping of many runs executed from a given script. It always belongs to a workspace. You can submit a run using an arbitrary experiment name, and the submitted run is then listed unfer that experiment.
+An experiment is a logical grouping of many runs executed from a given script. It always belongs to a workspace. You can submit a run using an arbitrary experiment name, and the submitted run is then listed under that experiment.
 
 ## Run configuration
 
