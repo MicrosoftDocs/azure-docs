@@ -51,7 +51,7 @@ The resource group insights page provides several other tools scoped to help you
    | [**Activity logs**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Subscription level events that have occurred in Azure.  |
    | [**Application map**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Navigate your distributed application's topology to identify performance bottlenecks or failure hotspots. |
 
-## Failures and Performance
+## Failures and performance
 
 What if you've noticed your application is running slowly, or users have reported errors? It's time consuming to search through all of your resources to isolate problems.
 
@@ -59,7 +59,7 @@ The **Performance** and **Failures** tabs simplify this process by bringing toge
 
 Most resource types will open a gallery of Azure Monitor Workbook templates. Each workbook you create can be customized, saved, shared with your team, and reused in the future to diagnose similar issues.
 
-### Investigate Failures
+### Investigate failures
 
 To test out the Failures tab select **Failures** under **Investigate** in the left-hand menu.
 
@@ -95,7 +95,7 @@ This reveals the underlying Log Analytics query that is driving the table visual
 
 You can modify the query directly. Or you can use it as a reference and borrow from it when designing your own custom parameterized workbook.
 
-### Investigate Performance
+### Investigate performance
 
 Performance offers its own gallery of workbooks. For App Service the prebuilt Application Performance workbook offers the following view:
 
