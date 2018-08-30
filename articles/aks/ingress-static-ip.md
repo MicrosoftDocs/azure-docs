@@ -1,22 +1,26 @@
 ---
-title: Configure ingress with Azure Kubernetes Service (AKS) cluster
-description: Learn how to install and configure an NGINX ingress controller that uses Let's Encrypt for automatic SSL certificate generation in an Azure Kubernetes Service (AKS) cluster.
+title: Create an HTTP ingress controller with a static IP address in AKS
+description: Learn how to install and configure an NGINX ingress controller with a static public IP address in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.custom: mvc
 ---
 
-# Deploy an HTTPS ingress controller on Azure Kubernetes Service (AKS)
+# Create an ingress controller with a static public IP address in Azure Kubernetes Service (AKS)
 
 An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster.
 
-This article shows you how to deploy the [NGINX ingress controller][nginx-ingress] in an Azure Kubernetes Service (AKS) cluster. The [cert-manager][cert-manager] project is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, several applications are run in the AKS cluster, each of which is accessible over a single IP address.
+This article shows you how to deploy the [NGINX ingress controller][nginx-ingress] in an Azure Kubernetes Service (AKS) cluster. The ingress controller is configured with a static public IP address. The [cert-manager][cert-manager] project is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, two applications are run in the AKS cluster, each of which is accessible over a single IP address.
+
+You can also:
+
+- [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
+- [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
+- [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
 
 ## Before you begin
 
@@ -24,36 +28,7 @@ This article uses Helm to install the NGINX ingress controller, cert-manager, an
 
 This article also requires that you are running the Azure CLI version 2.0.41 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-## Install an ingress controller
-
-The following example installs the ingress controller in the `kube-system` namespace. You can specify a different namespace for your own environment if desired. If your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the commands.
-
-By default, an ingress controller is created with a dynamic public IP address. If this is the behavior you desire, complete the following steps in the section. Alternate steps for specific scenarios can be used instead:
-
-- [Use an existing static public IP address](#use-an-existing-static-public-ip-address)
-- [Use an internal-only network and IP](#use-an-internal-only-network-and-ip)
-
-```console
-helm install stable/nginx-ingress --namespace kube-system
-```
-
-During the installation, an Azure public IP address is created for the ingress controller. To get the public IP address, use the `kubectl get service` command. It takes a few minutes for the IP address to be assigned to the service.
-
-```
-$ kubectl get service -l app=nginx-ingress --namespace kube-system
-
-NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
-eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.155.210  80:30920/TCP,443:30426/TCP   20m
-eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
-```
-
-No ingress rules have been created yet. If you browse to the public IP address, the NGINX ingress controller's default 404 page is displayed, as shown in the following example:
-
-![Default NGINX backend](media/ingress/default-back-end.png)
-
-Continue to the section to [Configure a DNS name](#configure-a-dns-name).
-
-### Use an existing static public IP address
+## Create an ingress controller
 
 By default, an NGINX ingress controller is created with a new, dynamic public IP address assignment. A common configuration requirement is to provide an existing *static* public IP address. This approach allows you to use existing DNS records and network configurations in a consistent manner.
 
@@ -69,7 +44,10 @@ Next, create a public IP address with the *static* allocation method using the [
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
 ```
 
-Now deploy the *nginx-ingress* chart with Helm. Add the `--set controller.service.loadBalancerIP` parameter, and specify your own public IP address created in the previous step:
+Now deploy the *nginx-ingress* chart with Helm. Add the `--set controller.service.loadBalancerIP` parameter, and specify your own public IP address created in the previous step.
+
+> [!TIP]
+> The following example installs the ingress controller in the `kube-system` namespace. You can specify a different namespace for your own environment if desired. If your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the commands.
 
 ```console
 helm install stable/nginx-ingress --namespace kube-system --set controller.service.loadBalancerIP="40.121.63.72"
@@ -86,42 +64,6 @@ dinky-panda-nginx-ingress-default-backend   ClusterIP      10.0.95.248   <none> 
 ```
 
 No ingress rules have been created yet, so the NGINX ingress controller's default 404 page is displayed if you browse to the public IP address. Ingress rules are configured in the following steps.
-
-Continue to the section to [Configure a DNS name](#configure-a-dns-name).
-
-### Use an internal-only network and IP
-
-By default, an NGINX ingress controller is created with a new, dynamic public IP address assignment. A common configuration requirement is to use an internal, private network and IP address. This approach allows you to restrict access to your services to internal users, with no external access.
-
-Create a file named *internal-ingress.yaml* using the following example manifest file. This example assigns *10.240.0.42* to the *loadBalancerIP* resource. Provide your own internal IP address for use with the ingress controller. Make sure that this IP address is not already in use within your virtual network.
-
-```yaml
-controller:
-  service:
-    loadBalancerIP: 10.240.0.42
-    annotations:
-      service.beta.kubernetes.io/azure-load-balancer-internal: "true"
-```
-
-Now deploy the *nginx-ingress* chart with Helm. To use the manifest file created in the previous step, add the `-f internal-ingress.yaml` parameter:
-
-```console
-helm install stable/nginx-ingress --namespace kube-system -f internal-ingress.yaml
-```
-
-When the Kubernetes load balancer service is created for the NGINX ingress controller, your internal IP address is assigned, as shown in the following example output:
-
-```
-$ kubectl get service -l app=nginx-ingress --namespace kube-system
-
-NAME                                              TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)                      AGE
-alternating-coral-nginx-ingress-controller        LoadBalancer   10.0.97.109   10.240.0.150   80:31507/TCP,443:30707/TCP   1m
-alternating-coral-nginx-ingress-default-backend   ClusterIP      10.0.134.66   <none>         80/TCP                       1m
-```
-
-No ingress rules have been created yet, so the NGINX ingress controller's default 404 page is displayed if you browse to the internal IP address. Ingress rules are configured in the following steps.
-
-As you don't have a public IP address, skip the next section on configuring a public DNS name. Instead, continue to the section to [Install cert-manager](#install-cert-manager).
 
 ## Configure a DNS name
 
@@ -258,7 +200,7 @@ helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set s
 
 Both applications are now running on your Kubernetes cluster, however they're configured with a service of type `ClusterIP`. As such, the applications aren't accessible from the internet. To make them publicly available, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
 
-In the following example, traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/` is routed to the service named `aks-helloworld`. Traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two` is routed to the `ingress-demo` service. Update the *hosts* and *host* to the DNS name you created in a previous step. If you use an internal-only ingress controller, specify the internal DNS name for your service.
+In the following example, traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/` is routed to the service named `aks-helloworld`. Traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two` is routed to the `ingress-demo` service. Update the *hosts* and *host* to the DNS name you created in a previous step.
 
 Create a file named `hello-world-ingress.yaml` and copy in the following example YAML.
 
@@ -326,6 +268,12 @@ This article included some external components to AKS. To learn more about these
 - [NGINX ingress controller][nginx-ingress]
 - [cert-manager][cert-manager]
 
+You can also:
+
+- [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
+- [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
+- [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
+
 <!-- LINKS - external -->
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
 [cert-manager]: https://github.com/jetstack/cert-manager
@@ -340,3 +288,6 @@ This article included some external components to AKS. To learn more about these
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[aks-ingress-internal]: ingress-internal-ip.md
+[aks-ingress-basic]: ingress-basic.md
+[aks-ingress-tls]: ingress-tls.md
