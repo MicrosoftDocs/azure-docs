@@ -58,9 +58,10 @@ To monitor physical or virtual machines in a hybrid environment with VM Insights
    - West Central US
    - East US
    - West Europe
-   - Southeast Asia [^1]  
+   - Southeast Asia <sup>1</sup>  
 
-    [^1]: This region does not support the Health feature of VM Insights and it will be made available at a later date.   
+    <sup>1</sup> 
+    This region does not support the Health feature of VM Insights and it will be available at a later date.   
 
     If you do not have a workspace, you can you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).  
 
