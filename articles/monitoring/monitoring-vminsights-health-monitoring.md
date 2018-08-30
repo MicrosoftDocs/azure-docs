@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/24/2018
+ms.date: 08/29/2018
 ms.author: magoedte
 ---
 
@@ -27,7 +27,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## View health directly from a virtual machine 
 
-To view the health of an Azure VM, select **Insights (preview)** from the left-hand pane of the virtual machine.  On the VM Insights page, the **Health** tab to switch to the health view of the VM.  
+To view the health of an Azure VM, select **Insights (preview)** from the left-hand pane of the virtual machine. On the VM Insights page, the **Health** tab to switch to the health view of the VM.  
 
 ![VM Insights of a selected Azure virtual machine](./media/monitoring-vminsights-health-monitoring/vminsights-health-page-01.png)
 
@@ -43,7 +43,7 @@ The information presented under **Top health issues** and on the **Health Criter
 |Health Criteria |The name of the health criteria. |
 |Component type |Indicates the component type the health criteria is monitoring.  Example, Logical disk, Disk, Network adapter, etc. |
 |Component name |The name of the component instance on the VM monitored by the health criteria. |
-|Last State Change |The time difference of the last state change, which is a change from a unhealthy to health state. | 
+|Last State Change |The time difference of the last state change, which is a change from an unhealthy to health state. | 
 |Category |Represented as *Availability* or *Performance*. |
 |Type | The category of health criteria, which is represented as *Unit*, *Dependency*, *Aggregate*. |
 
@@ -75,7 +75,7 @@ On the Operating Systems tab, the table shows VMs listed by Windows edition or L
 1. **Healthy** – no issues detected for the VM and it is functioning as required. 
 2. **Critical** – one or more critical issues are detected, which need to be addressed in order to restore normal functionality as expected.
 3. **Warning** -  one or more issues are detected, which need to be addressed or the health condition could become critical.
-4. **Unknown** – if the service were not able to make a connection with the VM, the status changes to an unknown state.
+4. **Unknown** – if the service was not able to make a connection with the VM, the status changes to an unknown state.
 
 You can click on any column item - **VM count**, **Critical**, **Warning**, **Healthy** or **Unknown** to drill down into that specific VM view to get more details. Based on the column cell selected, the results are filtered on the list view page. For example, if we want to check all VMs running **Ubuntu 16.04 (x86_64)**, click on the VM count value for that OS and it will open the following page, listing the two virtual machines that are in a critical health state.  
 
@@ -87,7 +87,7 @@ From the VM list view, clicking on the name of a VM opens the **VM instance** pa
 
 ![Example of selected virtual machine health state overview page](./media/monitoring-vminsights-health-monitoring/vminsights-vminstance-overview-01.png)
 
-On this page it shows a rollup **Health Status** for the virtual machine and **Fired alerts**, categorized by severity.  Selecting **Health State** will show the **Health Diagnostics** view of the VM, and here you can find out which health criteria is reflecting a health state issue. When the **Health Diagnostics** page opens, it shows all the components of the VM and their associated health criteria with current health state.  Refer to the [Health Diagnostic](#health-diagnostics) section for more details.  
+On this page, it shows a rollup **Health Status** for the virtual machine and **Fired alerts**, categorized by severity.  Selecting **Health State** will show the **Health Diagnostics** view of the VM, and here you can find out which health criteria is reflecting a health state issue. When the **Health Diagnostics** page opens, it shows all the components of the VM and their associated health criteria with current health state.  Refer to the [Health Diagnostic](#health-diagnostics) section for more details.  
 
 Select any of the severities to open the [All Alerts](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md#all-alerts-page) page filtered by that severity.
 
@@ -103,16 +103,16 @@ The **Fired alerts** table shows the top alerts raised and the **Top health issu
 
 Selecting **See All Health Criteria** opens a page show a list view of all the health criteria available with this solution.  The information can be further filtered based on the following options:
 
-1. **Type** – There are three kinds of health criteria types to assess conditions and roll up overall health state of the monitored VM .
-   a. **Unit** – Measures some aspect of the virtual machine. This might be checking a performance counter to determine the performance of the component, running a script to perform a synthetic transaction, or watch for an event that indicates an error.  By default the filter is set to unit.  
-   b. **Dependency** - Provides health rollup between different entities. This allows the health of an entity to depend on the health of another kind of entity that it relies on for successful operation.
+1. **Type** – There are three kinds of health criteria types to assess conditions and roll up overall health state of the monitored VM.
+   a. **Unit** – Measures some aspect of the virtual machine. This health criteria type might be checking a performance counter to determine the performance of the component, running a script to perform a synthetic transaction, or watch for an event that indicates an error.  By default the filter is set to unit.  
+   b. **Dependency** - Provides health rollup between different entities. This health criteria allows the health of an entity to depend on the health of another kind of entity that it relies on for successful operation.
    c. **Aggregate** -  Provides a combined health state of similar health criteria. Unit and dependency health criterion will typically be configured under an aggregate health criterion. In addition to providing better general organization of the many different health criteria targeted at an entity, aggregate health criterion provides a unique health state for distinct categories of the entities.
 
 2. **Category** - Type of health criteria used to group criteria of similar type for reporting purposes.  They are either **Availability** or **Performance**.
 
 You can drill further down to see which instances are unhealthy by clicking on a value under the **Unhealthy Component** column.  On the page a table lists the components which are in a critical health state.    
 
-Navigating back to the **VM Distribution** page, selecting the **Components** tab shows the health state of the four major components of a VM in the table - CPU, disk, memory, and network. The data is presented from the perspective of out of all the VMs monitored, one or more have exceeded a threshold for that component.  You can drill-down to the list view of the VM and analyze the results.  
+Navigating back to the **VM Distribution** page, selecting the **Components** tab shows the health state of the four major components of a VM in the table - CPU, disk, memory, and network. The data is presented from the perspective of out of all the VMs monitored, one or more have exceeded a threshold for that component.  You can drill down to the list view of the VM and analyze the results.  
 
 ## Health diagnostics
 Health diagnostics view gives the user the ability to view all the components of the VM, associated health criteria, state changes and other significant issues encountered by monitoring objects related to the VM. 
@@ -161,8 +161,8 @@ Health diagnostics page has three main sections:
 
 ### Component model
 
-The left most column in a health diagnostics screen is the Component Model. All the components and its discovered instances, which are associated with the VM would be displayed in this column. 
-In the example below, the discovered components are disk, logical disk, processor, memory and Operating System. Multiple instances of these components are discovered and displayed in this column (there are two instances of logical disk (/ and /mnt), one instance of network adapter (eth0), two instances of disk (sda and sdb), two instances of processor (0 and 1) and an Ubuntu Operating System). 
+The left-most column in a health diagnostics screen is the Component Model. All the components and its discovered instances, which are associated with the VM would be displayed in this column. 
+In the example below, the discovered components are disk, logical disk, processor, memory, and Operating System. Multiple instances of these components are discovered and displayed in this column (there are two instances of logical disk (/ and /mnt), one instance of network adapter (eth0), two instances of disk (sda and sdb), two instances of processor (0 and 1) and an Ubuntu Operating System). 
 
 ### Health criteria
 The center column in the Health Diagnostics page is the “Health Criteria” column. The health model defined for the VM structure in would be displayed in a tree this section. A health model for a VM would consist of unit, dependency and aggregate health criteria.  
@@ -174,7 +174,7 @@ In the example below, the aggregate health criterion Core Windows Services Rollu
 The health of the Core Windows Services Rollup rolls into the health of Operating System availability which eventually rolls up to the Availability of the VM. 
 
 ### State changes
-The right most column in health diagnostics screen is “State Changes”. This column lists all the state changes associated with the health criteria that is selected in the Health Criteria section or the state change of the VM if a VM is selected in the Component Model column or Health Criteria column. 
+The right-most column in health diagnostics screen is “State Changes”. This column lists all the state changes associated with the health criteria that is selected in the Health Criteria section or the state change of the VM if a VM is selected in the Component Model column or Health Criteria column. 
 
 This section consists of the health criteria state and the associated time (with the latest state on the top). 
 
