@@ -73,7 +73,7 @@ Here's what you need to set up this scenario.
 
 ### Prerequisites for the configuration server
 
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 
  
