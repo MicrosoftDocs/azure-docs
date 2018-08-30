@@ -1,6 +1,6 @@
 ---
-title: Build an Android app that integrates with Azure AD for sign-in and calls protected APIs using OAuth 2.0 | Microsoft Docs
-description: How to build an Android application that integrates with Azure AD for sign-in and calls Azure AD protected APIs using OAuth2.0.
+title: Sign in users and call the Microsoft Graph API from an Android app | Microsoft Docs
+description: Learn how to sign-in users and call the Microsoft Graph API from my Android app.
 services: active-directory
 documentationcenter: android
 author: CelesteDG
@@ -18,7 +18,7 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to build an Android app that integrates with Azure AD for sign-in and calls Azure AD protected APIs using OAuth 2.0.
+#Customer intent: As an application developer, I want to know how to sign-in users and call the Microsoft Graph API from my Android app.
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an Android app
@@ -90,7 +90,7 @@ You will need to have a native client application registered with Microsoft usin
     - In **Redirect URI**, enter `http://localhost`.
 
 3. Configure Microsoft Graph
-    - Select **Settings > Required Permissions**.
+    - Select **Settings > Required permissions**.
     - Select **Add**, inside **Select an API** select ***Microsoft Graph***.
     - Select the permission **Sign in and read user profile**, then hit **Select** to save.
         - This permission maps to the `User.Read` scope.

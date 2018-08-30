@@ -18,6 +18,7 @@ ms.author: andret
 ms.custom: include file 
 
 ---
-> **Applies to:**
-> * Azure AD v1.0 endpoint
-> * Azure Active Directory Authentication Library (ADAL)
+|   |
+|---|
+| **Applies to:**<br><ul><li>Azure AD v1.0 endpoint<li>Azure Active Directory Authentication Library (ADAL)</ul> |
+|   |

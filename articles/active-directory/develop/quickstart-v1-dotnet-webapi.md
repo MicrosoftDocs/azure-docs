@@ -50,20 +50,16 @@ To get started, complete these prerequisites:
 To help secure your application, you first need to create an application in your tenant and provide Azure AD with a few key pieces of information.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. Choose your Azure AD tenant by clicking on your account in the top right corner of the page, followed by clicking on the **Switch Directory** navigation and then select the appropriate tenant.
+2. Choose your Azure AD tenant by selecting your account in the top right corner of the page, then select the **Switch directory** navigation and then select the appropriate tenant.
     * Skip this step, if you've only one Azure AD tenant under your account or if you've already selected the appropriate Azure AD tenant.
 
 3. In the left hand navigation pane, click on **Azure Active Directory**.
-
 4. Select **App registrations**, and then select **Add**.
-
 5. Follow the prompts and create a new **Web Application and/or Web API**.
     * **Name** describes your application to users. Enter **To Do List Service**.
-    * **Redirect Uri** is a scheme and string combination that Azure AD uses to return any tokens that your app has requested. Enter `https://localhost:44321/` for this value.
+    * **Redirect URI** is a scheme and string combination that Azure AD uses to return any tokens that your app has requested. Enter `https://localhost:44321/` for this value.
 
-6. From the **Settings** -> **Properties** page for your application, update the App ID URI. Enter a tenant-specific identifier. For example, enter `https://contoso.onmicrosoft.com/TodoListService`.
-
+6. From the **Settings > Properties** page for your application, update the App ID URI. Enter a tenant-specific identifier. For example, enter `https://contoso.onmicrosoft.com/TodoListService`.
 7. Save the configuration. Leave the portal open, because you'll also need to register your client application shortly.
 
 ## Step 2: Set up the app to use the OWIN authentication pipeline
@@ -133,33 +129,31 @@ To validate incoming requests and tokens, you need to set up your application to
     ```
 
 7. Open the `web.config` file in the root of the TodoListService project, and enter your configuration values in the `<appSettings>` section.
-  * `ida:Tenant` is the name of your Azure AD tenant--for example, contoso.onmicrosoft.com.
-  * `ida:Audience` is the App ID URI of the application that you entered in the Azure portal.
+    * `ida:Tenant` is the name of your Azure AD tenant--for example, contoso.onmicrosoft.com.
+    * `ida:Audience` is the App ID URI of the application that you entered in the Azure portal.
 
 ## Step 3: Configure a client application and run the service
 
 Before you can see the To Do List Service in action, you need to configure the To Do List client so it can get tokens from Azure AD and make calls to the service.
 
 1. Go back to the [Azure portal](https://portal.azure.com).
-
 2. Create a new application in your Azure AD tenant, and select **Native Client Application** in the resulting prompt.
-  * **Name** describes your application to users.
-  * Enter `http://TodoListClient/` for the **Redirect Uri** value.
+    * **Name** describes your application to users.
+    * Enter `http://TodoListClient/` for the **Redirect URI** value.
 
 3. After you finish registration, Azure AD assigns a unique application ID to your app. You’ll need this value in the next steps, so copy it from the application page.
 
 4. From the **Settings** page, select **Required Permissions**, and then select **Add**. Locate and select the To Do List Service, add the **Access TodoListService** permission under **Delegated Permissions**, and then click **Done**.
 
 5. In Visual Studio, open `App.config` in the TodoListClient project, and then enter your configuration values in the `<appSettings>` section.
-
-  * `ida:Tenant` is the name of your Azure AD tenant--for example, contoso.onmicrosoft.com.
-  * `ida:ClientId` is the app ID that you copied from the Azure portal.
-  * `todo:TodoListResourceId` is the App ID URI of the To Do List Service application that you entered in the Azure portal.
+    * `ida:Tenant` is the name of your Azure AD tenant, for example, contoso.onmicrosoft.com.
+    * `ida:ClientId` is the app ID that you copied from the Azure portal.
+    * `todo:TodoListResourceId` is the App ID URI of the To Do List Service application that you entered in the Azure portal.
 
 Finally, clean, build, and run each project. If you haven’t already, now is the time to create a new user in your tenant with a *.onmicrosoft.com domain. Sign in to the To Do List client with that user, and add some tasks to the user's to-do list.
 
 ## Next steps
 
-* For reference, download the completed sample (without your configuration values) from [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). You can now move on to more identity scenarios.
+* For reference, download the completed sample (without your configuration values) from [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). You can now move on to other identity scenarios.
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

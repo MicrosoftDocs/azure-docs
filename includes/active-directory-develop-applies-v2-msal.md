@@ -18,6 +18,8 @@ ms.author: andret
 ms.custom: include file 
 
 ---
-> **Applies to:**
-> * Azure AD v2.0 endpoint
-> * Microsoft Authentication Library (MSAL)
+
+|   |
+|---|
+| **Applies to:**<br><ul><li>Azure AD v2.0 endpoint<li>Microsoft Authentication Library (MSAL)</ul> |
+|   |
