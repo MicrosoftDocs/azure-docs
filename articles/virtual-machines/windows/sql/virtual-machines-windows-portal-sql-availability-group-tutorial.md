@@ -15,7 +15,7 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/09/2017
+ms.date: 08/30/2018
 ms.author: mikeray
 
 ---
@@ -424,9 +424,9 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 
 ### Add the front end IP address for the WSFC
 
-The WSFC IP address also needs to be on the load balancer. 
+The WSFC IP address also needs to be on the load balancer.
 
-1. In the portal, add a new Frontend IP configuration for the WSFC. Use the IP Address you configured for the WSFC in the cluster core resources. Set the IP address as static. 
+1. In the portal, add a new Frontend IP configuration for the WSFC. Use the IP Address you configured for the WSFC in the cluster core resources. Set the IP address as static.
 
 1. Click the load balancer, click **Health probes**, and click **+Add**.
 
@@ -447,7 +447,7 @@ The WSFC IP address also needs to be on the load balancer.
 1. Set the load balancing rules as follows.
    | Setting | Description | Example
    | --- | --- |---
-   | **Name** | Text | WSFCPointListener |
+   | **Name** | Text | WSFCEndPointListener |
    | **Frontend IP address** | Choose an address |Use the address that you created when you configured the WSFC IP address. |
    | **Protocol** | Choose TCP |TCP |
    | **Port** | Use the port for the availability group listener | 58888 |
@@ -495,38 +495,20 @@ To test the connection:
 
 1. Use **sqlcmd** utility to test the connection. For example, the following script establishes a **sqlcmd** connection to the primary replica through the listener with Windows authentication:
 
-    ```
-    sqlcmd -S <listenerName> -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName> -E
+  ```
 
-    If the listener is using a port other than the default port (1433), specify the port in the connection string. For example, the following sqlcmd command connects to a listener at port 1435:
+  If the listener is using a port other than the default port (1433), specify the port in the connection string. For example, the following sqlcmd command connects to a listener at port 1435:
 
-    ```
-    sqlcmd -S <listenerName>,1435 -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName>,1435 -E
+  ```
 
 The SQLCMD connection automatically connects to whichever instance of SQL Server hosts the primary replica.
 
 > [!TIP]
 > Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx).
->
->
-
-
-
-<!--**Notes**: *Notes provide just-in-time info: A Note is “by the way” info, an Important is info users need to complete a task, Tip is for shortcuts. Don’t overdo*.-->
-
-
-<!--**Procedures**: *This is the second “step." They often include substeps. Again, use a short title that tells users what they’ll do*. *("Configure a new web project.")*-->
-
-<!--**UI**: *Note the format for documenting the UI: bold for UI elements and arrow keys for sequence. (Ex. Click **File > New > Project**.)*-->
-
-<!--**Screenshot**: *Screenshots really help users. But don’t include too many since they’re difficult to maintain. Highlight areas you are referring to in red.*-->
-
-<!--**No. of steps**: *Make sure the number of steps within a procedure is 10 or fewer. Seven steps is ideal. Break up long procedure logically.*-->
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
 
 ## Next steps
 
