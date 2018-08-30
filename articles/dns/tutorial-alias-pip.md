@@ -62,7 +62,7 @@ Install IIS on **Web-01**.
 
 ## Create an alias record
 
-Create an alias record that points to the Traffic Manager profile.
+Create an alias record that points to the public IP address.
 
 1. Click your Azure DNS zone to open the zone.
 2. Click **Record set**.
