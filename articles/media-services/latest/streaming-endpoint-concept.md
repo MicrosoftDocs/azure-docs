@@ -19,9 +19,9 @@ ms.author: juliako
 
 In Microsoft Azure Media Services (AMS), the [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) entity represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. The outbound stream from a Streaming Endpoint service can be a live stream, or a video on-demand Asset in your Media Services account. When you create a Media Services account a **Default** Streaming Endpoint is created for you in a stopped state. You cannot delete the default Streaming Endpoint. Additional Streaming Endpoints can be created under the account. To start streaming videos, you need to start the Streaming Endpoint. 
 
-## Streaming Endpoint types  
+## StreamingEndpoint types  
 
-There are two types of Streaming Endpoints: **Standard** and **Premium**. The type is defined by the number of scale units you allocate for the streaming endpoint. Use the `scaleUnits` property to set the number of units.
+There are two **StreamingEndpoint** types: **Standard** and **Premium**. The type is defined by the number of scale units (`scaleUnits`) you allocate for the streaming endpoint. 
 
 The table describes the types:  
 
@@ -30,7 +30,7 @@ The table describes the types:
 |**Standard Streaming Endpoint** (recommended)|0|The **Standard** type is the recommended option for virtually all streaming scenarios and audience sizes. For customers with extremely demanding requirements AMS also offer **Premium** streaming endpoints, which can be used to scale out capacity for the largest internet audiences. If you expect large audiences and concurrent viewers, please contact us for guidance on whether you need to move to the **Premium** type. A good guide post is to contact us (amsstreaming at microsoft.com) if you expect a concurrent audience size larger than 50,000 viewers.<br/>The **Standard** type scales outbound bandwidth automatically. |
 |**Premium Streaming Endpoint**|>0|**Premium** streaming endpoints are suitable for advanced workloads, providing dedicated and scalable bandwidth capacity. You move to a **Premium** type by adjusting `scaleUnits`. `scaleUnits` provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. When using the **Premium** type, each enabled unit provides additional bandwidth capacity to the application. |
 
-## Using CDN 
+## Working with CDN
 
 In most cases, you should have CDN enabled. However, if you are anticipating max concurrency lower than 500 viewers then it is recommended to disable CDN since CDN scales best with concurrency.
 
@@ -42,9 +42,9 @@ From a customer's perspective the CDN effectively has unlimited bandwidth. It do
  
 You also need to consider how adaptive streaming works. Each individual video fragment is cached as it's own entity. For example, if the first time a certain video is watched, the person skips around watching only a few seconds here and there only the video fragments associated with what the person watched get cached in the CDN. With adaptive streaming, you typically have 5 to 7 different bitrates of video. If one person is watching one bitrate and another person is watching a different bitrate, then they are each cached separately in the CDN. Even if two people are watching the same bitrate they could be streaming over different protocols. Each protocol (HLS, MPEG-DASH, Smooth Streaming) is cached separately. So each bitrate and protocol are cached separately and only those video fragments that have been requested are cached.
  
-## StreamingEndpoint entity properties 
+## StreamingEndpoint properties 
 
-This section gives details about some properties. For examples of how to create a new streaming endpoint and descriptions of all properties, see [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
+This section gives details about some of the StreamingEndpoint's properties. For examples of how to create a new streaming endpoint and descriptions of all properties, see [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
 
 |Property|Description|  
 |--------------|----------|
