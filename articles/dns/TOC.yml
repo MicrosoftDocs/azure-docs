@@ -22,9 +22,9 @@
   - name: Create private DNS zone and record
     href: private-dns-getstarted-powershell.md
   - name: Alias records for Traffic Manager
-    href: tutorial-tm.md
+    href: tutorial-alias-tm.md
   - name: Alias records for Public IP addresses
-    href: tutorial-pip.md
+    href: tutorial-alias-pip.md
 - name: Samples
   items:
   - name: Azure CLI
