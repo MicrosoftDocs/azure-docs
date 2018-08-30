@@ -117,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/start`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Figma Client support team](https://help.figma.com/) to get these values.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Figma Client support team]( mailto:services-404040@figma.com) to get these values.
 
 5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
 
@@ -127,7 +127,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/figma-tutorial/tutorial_general_400.png)
 
-7. To configure single sign-on on **Figma** side, you need to send the downloaded **App Federation Metadata Url** to [Figma support team](https://help.figma.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+7. To configure single sign-on on **Figma** side, you need to send the **App Federation Metadata Url** to [Figma support team]( mailto:services-404040@figma.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -166,13 +166,13 @@ The objective of this section is to create a test user in the Azure portal calle
 The objective of this section is to create a user called Britta Simon in Figma. Figma supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Figma if it doesn't exist yet.
 
 > [!Note]
-> If you need to create a user manually, contact [Figma support team](https://help.figma.com/).
+> If you need to create a user manually, contact [Figma support team]( mailto:services-404040@figma.com).
 
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Figma.
 
-![Assign the user role][200] 
+![Assign the user role][200]
 
 **To assign Britta Simon to Figma, perform the following steps:**
 
@@ -223,4 +223,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/figma-tutorial/tutorial_general_201.png
 [202]: ./media/figma-tutorial/tutorial_general_202.png
 [203]: ./media/figma-tutorial/tutorial_general_203.png
-
