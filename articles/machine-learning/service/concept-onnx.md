@@ -46,5 +46,5 @@ Download [this Jupyter notebook](https://aka.ms/aml-onnx-notebook) to try it out
 ## Next steps
 
 Learn more about ONNX or contribute to the project:
-+ [ONNX.ai project website](ONNX.ai)
++ [ONNX.ai project website](http://ONNX.ai)
 + [ONNX code on GitHub](https://github.com/onnx/onnx)
