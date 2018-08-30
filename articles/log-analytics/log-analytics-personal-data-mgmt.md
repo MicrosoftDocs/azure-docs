@@ -105,7 +105,7 @@ Once the Azure Resource Manager role has been assigned, two new API paths are av
     ```
 
 > [!IMPORTANT]
->  While we expect the vast majority of purge operations to complete much quicker than our SLA, due to their heavy impact on the data platform used by Log Analytics, the formal SLA for the completion of purge operations is set at 30 days. 
+>  While we expect the vast majority of purge operations to complete much quicker than our SLA, due to their heavy impact on the data platform used by Log Analytics, **the formal SLA for the completion of purge operations is set at 30 days**. 
 
 #### Application data
 
