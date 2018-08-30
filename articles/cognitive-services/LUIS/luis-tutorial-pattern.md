@@ -63,8 +63,14 @@ Remember that employees were created in the [list entity tutorial](luis-quicksta
 
 > [!div class="checklist"]
 > * Use existing tutorial app 
+> * Create intent
+> * Train
+> * Publish
+> * Get intents and entities from endpoint
 > * Create a pattern
 > * Verify pattern prediction improvements
+> * Mark text as ignorable and nest within pattern
+> * Use test panel to verify pattern success
 
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
