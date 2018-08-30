@@ -77,7 +77,7 @@ Create an alias record that points to the Traffic Manager profile.
 1. From a web browser, browse to the fully qualified domain name for Web01-01 virtual machine. For example: **web01.contoso.com**. You should see the IIS default web page.
 2. Close the web browser.
 3. Stop the **Web-01** virtual machine, and then restart it.
-4. When it restarts, note the new public IP address for theh virtual machine.
+4. When it restarts, note the new public IP address for the virtual machine.
 5. Open a new browser and browse again to the fully qualified domain name for Web01-01 virtual machine. For example: **web01.contoso.com**.
 6. This should still succeed, since you used an alias record to point to the public IP address resource, and not a standard A record.
 
