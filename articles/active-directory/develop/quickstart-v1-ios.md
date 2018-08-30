@@ -1,6 +1,6 @@
 ---
 title: Build an iOS app that integrates with Azure AD for sign-in and calls protected APis using OAuth 2.0 | Microsoft Docs
-description: How to build an iOS application that integrates with Azure AD for sign-in and calls Azure AD protected APIs by using OAuth.
+description: Learn how to sign in users and call the Microsoft Graph API from my iOS app.
 services: active-directory
 documentationcenter: ios
 author: CelesteDG
@@ -18,19 +18,19 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
-#Customer intent: As an application developer, I want to build an iOS application that integrates with Azure AD for sign-in and calls Azure AD protected APIs using OAuth 2.0.
+#Customer intent: As an application developer, I want to know how to sign in users and call the Microsoft Graph API from my iOS app.
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an iOS app
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-Azure Active Directory (Azure AD) provides the Active Directory Authentication Library (ADAL) for iOS clients that need to access protected resources. ADAL simplifies the process that your app uses to obtain access tokens. To demonstrate how easy it is, we'll show you how to build an Objective C To-Do List application that:
+Azure Active Directory (Azure AD) provides the Active Directory Authentication Library (ADAL) for iOS clients that need to access protected resources. ADAL simplifies the process that your app uses to get access tokens. To demonstrate how easy it is, we'll show you how to build an Objective C To-Do List application that:
 
 * Gets access tokens for calling the Azure AD Graph API by using the OAuth 2.0 authentication protocol
 * Searches a directory for users with a given alias
 
-To build the complete working application, you need to:
+In this quickstart, we'll show you how to:
 
 1. Register your application with Azure AD.
 1. Install and configure ADAL.
@@ -38,17 +38,17 @@ To build the complete working application, you need to:
 
 ## Prerequisites
 
-To get started, complete these requirements:
+To get started, complete these prerequisites:
 
-1. [Download the app skeleton](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).
-1. Have an Azure AD tenant in which you can create users and register an application. If you don't already have a tenant, [learn how to get one](quickstart-create-new-tenant.md).
+* [Download the app skeleton](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).
+* Have an Azure AD tenant in which you can create users and register an application. If you don't already have a tenant, [learn how to get one](quickstart-create-new-tenant.md).
 
 > [!TIP]
 > Try the [developer portal](https://identity.microsoft.com/Docs/iOS) to get up and running with Azure AD in just a few minutes. The developer portal guides you through the process of registering an app and integrating Azure AD into your code. When you’re finished, you'll have a simple application that can authenticate users in your tenant, and a back end that can accept tokens and perform validation.
 
 ## Step 1: Determine what your redirect URI is for iOS
 
-To securely start your applications in certain SSO scenarios, you must create a *redirect URI* in a particular format. A redirect URI is used to ensure that the tokens return to the correct application that asked for them.
+To securely start your applications in certain SSO scenarios, you must create a *redirect URI* in a particular format. A redirect URI is used to make sure that the tokens return to the correct application that asked for them.
 
 The iOS format for a redirect URI is:
 
@@ -56,10 +56,12 @@ The iOS format for a redirect URI is:
 <app-scheme>://<bundle-id>
 ```
 
-* **app-scheme** - This is registered in your XCode project. It is how other applications can call you. You can find this under Info.plist -> URL types -> URL Identifier. You should create one if you don't already have one or more configured.
-* **bundle-id** - This is the Bundle Identifier found under "identity" in your XCode project settings.
+* **app-scheme** - Is registered in your XCode project and is how other applications can call you. You can find app-scheme under **Info.plist > URL types > URL Identifier**. Create an app-scheme if you don't already have one or more configured.
+* **bundle-id** - Is the Bundle Identifier found under **identity** in your XCode project settings.
 
-An example for this QuickStart code: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
+An example for this quickstart code:
+
+***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## Step 2: Register the DirectorySearcher application
 
@@ -69,11 +71,11 @@ To set up your app to get tokens, you need to register the app in your Azure AD 
 2. On the top bar, select your account. Under the **Directory** list, choose the Active Directory tenant where you want to register your application.
 3. Select **All services** in the leftmost navigation pane, and then select **Azure Active Directory**.
 4. Select **App registrations**, and then select **Add**.
-5. Follow the prompts to create a new **Native Client Application**.
-  * **Name** is the application name and this describes your application to end users.
-  * **Redirect Uri** is a scheme and string combination that Azure AD uses to return token responses. Enter a value that is specific to your application and is based on the previous redirect URI information.
+5. Follow the prompts to create a new **Native** client application.
+    * **Name** is the application name and describes your application to end users.
+    * **Redirect URI** is a scheme and string combination that Azure AD uses to return token responses. Enter a value that is specific to your application and is based on the previous redirect URI information.
 6. After you've completed the registration, Azure AD assigns your app a unique application ID. You'll need this value in the next sections, so copy it from the application tab.
-7. From the **Settings** page, select **Required Permissions > Add > Microsoft Graph**, and then add the **Read Directory Data** permission under **Delegated Permissions**. This sets up your application to query the Azure AD Graph API for users.
+7. From the **Settings** page, select **Required permissions > Add > Microsoft Graph**, and then under **Delegated permissions** add the **Read directory data** permission. This permission sets up your application to query the Azure AD Graph API for users.
 
 ## Step 3: Install and configure ADAL
 
@@ -103,16 +105,18 @@ Now that you have an application in Azure AD, you can install ADAL and write you
     ```
 
 1. In the QuickStart project, open the plist file `settings.plist`.
-1. Replace the values of the elements in the section to reflect the values that you entered in the Azure portal. Your code references these values whenever it uses ADAL.
-  * `tenant` is the domain of your Azure AD tenant, for example, contoso.onmicrosoft.com.
-  * `clientId` is the client ID of your application that you copied from the portal.
-  * `redirectUri` is the redirect URL that you registered in the portal.
+1. Replace the values of the elements in the section to use the same values that you entered in the Azure portal. Your code references these values whenever it uses ADAL.
+    * `tenant` is the domain of your Azure AD tenant, for example, contoso.onmicrosoft.com.
+    * `clientId` is the client ID of your application that you copied from the portal.
+    * `redirectUri` is the redirect URL that you registered in the portal.
 
 ## Step 4: Use ADAL to get tokens from Azure AD
 
 The basic principle behind ADAL is that whenever your app needs an access token, it simply calls a completionBlock `+(void) getToken : `, and ADAL does the rest.
 
-1. In the `QuickStart` project, open `GraphAPICaller.m` and locate the `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` comment near the top. This is where you pass ADAL the coordinates through a CompletionBlock, to communicate with Azure AD, and tell it how to cache tokens.
+1. In the `QuickStart` project, open `GraphAPICaller.m` and locate the `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` comment near the top.
+
+    This is where you pass ADAL the coordinates through a CompletionBlock, to communicate with Azure AD, and tell it how to cache tokens.
 
     ```ObjC
     +(void) getToken : (BOOL) clearCache
@@ -153,7 +157,9 @@ The basic principle behind ADAL is that whenever your app needs an access token,
 
     ```
 
-2. You need to use this token to search for users in the graph. Find the `// TODO: implement SearchUsersList` comment. This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term. To query the Azure AD Graph API, you need to include an access_token in the `Authorization` header of the request. This is where ADAL comes in.
+2. You need to use this token to search for users in the graph. Find the `// TODO: implement SearchUsersList` comment. This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term. 
+
+    To query the Azure AD Graph API, you need to include an access_token in the `Authorization` header of the request. This is where ADAL comes in.
 
     ```ObjC
     +(void) searchUserList:(NSString*)searchString
@@ -239,7 +245,7 @@ For reference, the completed sample (without your configuration values) is provi
 
 ## Next steps
 
-You can now move on to additional scenarios. You may want to try:
+You can now move on to additional scenarios. We suggest trying these next:
 
 * [Secure a Node.JS Web API with Azure AD](quickstart-v1-nodejs-webapi.md)
 * Learn [how to enable cross-app SSO on iOS using ADAL](howto-v1-enable-sso-ios.md)  

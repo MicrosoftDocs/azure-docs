@@ -18,5 +18,8 @@ ms.author: andret
 ms.custom: include file 
 
 ---
-> **Applies to:**
-> * Azure AD v2.0 endpoint
+
+|   |
+|---|
+| **Applies to:**<br><ul><li>Azure AD v2.0 endpoint</ul> |
+|   |
