@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To create the sample in Visual Studio, do the following steps:
 
-1. Create a new application, using the Visual C# Console App in Visual Studio.
+1. Create a new Visual Studio solution in Visual Studio, using the Visual C# Console App template.
 1. Install the Newtonsoft.Json NuGet package.
     1. On the menu, click **Tools**, select **NuGet Package Manager**, then **Manage NuGet Packages for Solution**.
     1. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json".
