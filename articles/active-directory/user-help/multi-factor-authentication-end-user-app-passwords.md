@@ -34,14 +34,13 @@ When using app passwords, it's important to remember:
 
 You're given an app password during your initial two-step verification registration. If you need more than that one password, you can create additional passwords, based on how you use two-step verification:
 
-- **You use two-step verification with your Microsoft Azure account.** Create and delete your app passwords using the [MyApps portal](http://myapps.microsoft.com). For more info, see the [What is the MyApps portal in Azure Active Directory?](active-directory-saas-access-panel-introduction.md) article.
+- **You use two-step verification with your work or school account and the MyApps portal.** Create and delete your app passwords using the instructions in the [#create-and-delete-app-passwords-using-the-MyApps-portal] section of this article. For more info about the MyApps portal and how to use it, see [What is the MyApps portal in Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
 
-- **You use two-step verification with your work or school account and your Office 365 apps.** Create and delete your app passwords using the instructions in the [Create and delete app passwords using the Office 365 portal](#create-and-delete-app-passwords-using-the-office-365-portal) section of this article.
+- **You use two-step verification with your work or school account and the Office 365 portal.** Create and delete your app passwords using the instructions in the [Create and delete app passwords using the Office 365 portal](#create-and-delete-app-passwords-using-the-office-365-portal) section of this article.
 
-- **You use two-step verification with your personal Microsoft account.** Create and delete your app passwords using the [Security basics](https://account.microsoft.com/account/) page with your Microsoft account. For more info, see the [App passwords and two-step verification](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) article.
+- **You use two-step verification with your personal Microsoft account.** Create and delete your app passwords using the [Security basics](https://account.microsoft.com/account/) page with your personal Microsoft account. For more info, see the [App passwords and two-step verification](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) article.
 
-## Manage app passwords with the MyApps portal
-
+## Create and delete app passwords using the MyApps portal
 You can create and delete app passwords through the MyApps portal.
 
 ### To create an app password using the MyApps portal
