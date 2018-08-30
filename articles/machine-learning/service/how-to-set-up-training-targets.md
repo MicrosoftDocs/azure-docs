@@ -20,20 +20,27 @@ A compute target is the compute resource used to execute your training script or
 ## Supported compute targets
 
 Azure Machine Learning supports the following compute targets:
+Us
+|Compute target| GPU acceleration | Automated hyperparameter tuning | Automated model selection | Can be used in pipelines|
+|----|:----:|:----:|:----:|:----:|
+|Local computer| Maybe | &nbsp; | ✓ | &nbsp; |
+|Data Science Virtual Machine (DSVM) | ✓ | ✓ | ✓ | ✓ |
+|Azure Batch AI| ✓ | ✓ | ✓ | ✓ | ✓ |
+|Azure Container Instance| &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+|Azure HDInsight| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
-* Your local computer
-* Data Science Virtual Machines (DSVM)
-* Azure Batch AI clusters
-* Linux-Based Container instances in Azure Container Instances (ACI)
-* HDInsight 
+The key differentiators between the computer targets are:
+* __GPU acceleration__: GPUs are available with the Data Science Virtual Machine and Azure Batch AI. You may have access to a GPU on your local computer, depending on the hardware that is installed.
+* __Automated hyperparameter tuning__: Azure Machine Learning automated hyperparameter optimization helps you find the best hyperparameters for your model. For more information, see the [tbd] document.
+* __Automated model selection__: Azure Machine Learning can intelligently recommend algorithm and hyperparameter selection when building a model. This helps you converge to a high quality model faster than manually trying different combinations. For more information, see the [tbd] document.
+* __Pipelines__: Azure Machine Learning enables you to combine different tasks such as training and deployment into a pipeline. Pipelines can be ran in parallel or in sequence, and provide a reliable automation mechanism. For more information, see the [tbd] document.
 
-|Compute target|Key differentiators|SDK/CLI | Azure portal| Hyper Parameter Optimization|Automated Machine Learning| Pipelines|
-|----|-----|----|----|----|----|----|
-|Local computer|Run directly on your own computer.| ✔ | &nbsp; | &nbsp; | ✔ | &nbsp; |
-|DSVM|Train models on the Data Science Virtual Machine. This Azure VM is configured specifically for doing data science.| Create, Attach| Create, Attach | ✔ | ✔ | ✔ |
-|Azure Batch AI|Train models at scale across GPU and CPU clusters with multiple CPUs or GPUs per model, running experiments in parallel, and having shared storage for training data, logs, and model outputs.|Create, Attach|Create, Attach| ✔ | ✔ | ✔ | ✔ |
-|Azure Container Instance| Train in isolated containers without having to manage any virtual machines and with faster startup times. | Create only| &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-|Azure HDInsight| A popular platform for big-data analytics supporting Apache Spark.|Attach only |&nbsp; | &nbsp; | &nbsp; | ✔ |
+You can use the Azure Machine Learning SDK, Azure CLI, or Azure portal to create compute targets. You can also use existing compute targets by adding (attaching) them to your workspace.
+
+> [!IMPORTANT]
+> You cannot attach an existing Azure Containers Instance to your workspace. Instead, you must create a new instance.
+>
+> You cannot create an Azure HDInsight cluster within a workspace. Instead, you must attach an existing cluster.
 
 ## Workflow
 
