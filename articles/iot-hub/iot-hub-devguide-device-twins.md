@@ -1,4 +1,4 @@
----
+﻿---
 title: Understand Azure IoT Hub device twins | Microsoft Docs
 description: Developer guide - use device twins to synchronize state and configuration data between IoT Hub and your devices
 author: fsautomata
@@ -249,7 +249,7 @@ Tags, desired properties, and reported properties are JSON objects with the foll
     }
     ```
 
-* All string values can be at most 4 KB in length.
+* All string values can be at most 512 bytes in length.
 
 ## Device twin size
 IoT Hub enforces an 8KB size limitation on each of the respective total values of `tags`, `properties/desired`, and `properties/reported`, excluding read-only elements.
