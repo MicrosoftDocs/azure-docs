@@ -31,9 +31,9 @@ Us
 
 The key differentiators between the computer targets are:
 * __GPU acceleration__: GPUs are available with the Data Science Virtual Machine and Azure Batch AI. You may have access to a GPU on your local computer, depending on the hardware that is installed.
-* __Automated hyperparameter tuning__: Azure Machine Learning automated hyperparameter optimization helps you find the best hyperparameters for your model. For more information, see the [tbd] document.
-* __Automated model selection__: Azure Machine Learning can intelligently recommend algorithm and hyperparameter selection when building a model. This helps you converge to a high quality model faster than manually trying different combinations. For more information, see the [tbd] document.
-* __Pipelines__: Azure Machine Learning enables you to combine different tasks such as training and deployment into a pipeline. Pipelines can be ran in parallel or in sequence, and provide a reliable automation mechanism. For more information, see the [tbd] document.
+* __Automated hyperparameter tuning__: Azure Machine Learning automated hyperparameter optimization helps you find the best hyperparameters for your model.
+* __Automated model selection__: Azure Machine Learning can intelligently recommend algorithm and hyperparameter selection when building a model. This helps you converge to a high quality model faster than manually trying different combinations.
+* __Pipelines__: Azure Machine Learning enables you to combine different tasks such as training and deployment into a pipeline. Pipelines can be ran in parallel or in sequence, and provide a reliable automation mechanism.
 
 You can use the Azure Machine Learning SDK, Azure CLI, or Azure portal to create compute targets. You can also use existing compute targets by adding (attaching) them to your workspace.
 
