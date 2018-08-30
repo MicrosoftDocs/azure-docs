@@ -8,13 +8,14 @@ author: tanning
 manager: mtillman
 editor: curtand
 
+ms.component: devices
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.author: markvi
 
 ---
@@ -52,7 +53,7 @@ Follow these steps to view a per-user device sync status report.
 
 1. Sign in to [Azure AD admin center](https://aad.portal.azure.com/).
 
-2. Select **Azure Active Directory** &gt; **Users and groups** &gt; **All users**.
+2. Select **Azure Active Directory** &gt; **Users** &gt; **All users**.
 
 3. Select the user, and then select **Devices**.
 

@@ -175,7 +175,7 @@ If you're interested in learning about the preview of Data Lake Storage Gen2, se
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.datalakestore">PowerShell</a></p>
                         <p><a href="/cli/azure/dls">Azure CLI 2.0</a></p>
                     </div>
                 </div>

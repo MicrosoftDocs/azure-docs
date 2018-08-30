@@ -117,7 +117,7 @@ Add the following code to the **Main** method.
 > Your Content Moderator service key has a requests per second (RPS)
 > rate limit, and if you exceed the limit, the SDK throws an exception with a 429 error code.
 >
-> A free tier key has a one RPS rate limit.
+> When using a free tier key, the rate of requests is limited to one request per second.
 
 ## Run the program and review the output
 

@@ -3,7 +3,7 @@ title: Virtual Machine sizes supported in Azure Stack | Microsoft Docs
 description: Reference for the supported VM sizes in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: mabrigg
 
 ---
 
@@ -104,7 +104,7 @@ General purpose VM sizes provide a balanced CPU-to-memory ratio. They are used f
 
 |Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS) | Max temp storage throughput (IOPS) | Max data disks / throughput (IOPS) | Max NICs / expected network bandwidth (Mbps) |
 |-----------------|----|----|-----|----|------|------------|---------|
-|**Standard_F1**  |1   |2   |16   |500 |3000  |4 / 4x400   |2 / 750  |
+|**Standard_F1**  |1   |2   |16   |500 |3000  |4 / 4x500   |2 / 750  |
 |**Standard_F2**  |2   |4   |32   |500 |6000  |8 / 8x500   |2 / 1500 |
 |**Standard_F4**  |4   |8   |64   |500 |12000 |16 / 16x500 |4 / 3000 |
 |**Standard_F8**  |8   |16  |128  |500 |24000 |32 / 32x500 |8 / 6000 |

@@ -47,7 +47,7 @@ While completing this tutorial, you can see these resources created:
 - *myVNet* - The virtual network that the VMs use to communicate with each other and the internet.
 - *myFrontendSubnet* - The subnet in *myVNet* used by the front-end resources.
 - *myPublicIPAddress* - The public IP address used to access *myFrontendVM* from the internet.
-- *myFrontentNic* - The network interface used by *myFrontendVM* to communicate with *myBackendVM*.
+- *myFrontendNic* - The network interface used by *myFrontendVM* to communicate with *myBackendVM*.
 - *myFrontendVM* - The VM used to communicate between the internet and *myBackendVM*.
 - *myBackendNSG* - The network security group that controls communication between the *myFrontendVM* and *myBackendVM*.
 - *myBackendSubnet* - The subnet associated with *myBackendNSG* and used by the back-end resources.

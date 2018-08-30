@@ -10,7 +10,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/23/2018
 ms.author: douglasl
 ---
 # Create a trigger that runs a pipeline in response to an event
@@ -18,6 +18,14 @@ ms.author: douglasl
 This article describes the event-based triggers that you can create in your Data Factory pipelines.
 
 Event-driven architecture (EDA) is a common data integration pattern that involves production, detection, consumption, and reaction to events. Data integration scenarios often require Data Factory customers to trigger pipelines based on events. Data Factory is now integrated with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/), which lets you trigger pipelines on an event.
+
+For a ten-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
+
+
+> [!NOTE]
+> The integration described in this article depends on [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Make sure that your subscription is registered with the Event Grid resource provider. For more info, see [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md#portal).
 
 ## Data Factory UI
 
@@ -30,17 +38,25 @@ A typical event is the arrival of a file, or the deletion of a file, in your Azu
 
 ![Create new event trigger](media/how-to-create-event-trigger/event-based-trigger-image1.png)
 
-### Select the event trigger type
-
-As soon as the file arrives in your storage location and the corresponding blob is created, this event triggers and runs your Data Factory pipeline. You can create a trigger that responds to a blob creation event, a blob deletion event, or both events, in your Data Factory pipelines.
-
-![Select trigger type as event](media/how-to-create-event-trigger/event-based-trigger-image2.png)
-
 ### Configure the event trigger
 
 With the **Blob path begins with** and **Blob path ends with** properties, you can specify the containers, folders, and blob names for which you want to receive events. You can use variety of patterns for both **Blob path begins with** and **Blob path ends with** properties, as shown in the examples later in this article. At least one of these properties is required.
 
-![Configure the event trigger](media/how-to-create-event-trigger/event-based-trigger-image3.png)
+![Configure the event trigger](media/how-to-create-event-trigger/event-based-trigger-image2.png)
+
+### Select the event trigger type
+
+As soon as the file arrives in your storage location and the corresponding blob is created, this event triggers and runs your Data Factory pipeline. You can create a trigger that responds to a blob creation event, a blob deletion event, or both events, in your Data Factory pipelines.
+
+![Select trigger type as event](media/how-to-create-event-trigger/event-based-trigger-image3.png)
+
+### Map trigger properties to pipeline parameters
+
+When an event trigger fires for a specific blob, the event captures the folder path and file name of the blob into the properties `@triggerBody().folderPath` and `@triggerBody().fileName`. To use the values of these properties in a pipeline, you must map the properties to pipeline parameters. After mapping the properties to parameters, you can access the values captured by the trigger through the `@pipeline.parameters.parameterName` expression throughout the pipeline.
+
+![Mapping properties to pipeline parameters](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+
+For example, in the preceding screenshot. the trigger is configured to fire when a blob path ending in `.csv` is created in the Storage Account. As a result, when a blob with the `.csv` extension is created anywhere in the Storage Account, the `folderPath` and `fileName` properties capture the location of the new blob. For example, `@triggerBody().folderPath` has a value like `/containername/foldername/nestedfoldername` and `@triggerBody().fileName` has a value like `filename.csv`. These values are mapped in the example to the pipeline parameters `sourceFolder` and `sourceFile`. You can use them throughout the pipeline as `@pipeline.parameters.sourceFolder` and `@pipeline.parameters.sourceFile` respectively.
 
 ## JSON schema
 
@@ -66,12 +82,6 @@ This section provides examples of event-based trigger settings.
 
 > [!NOTE]
 > You have to include the `/blobs/` segment of the path whenever you specify container and folder, container and file, or container, folder, and file.
-
-## Using Blob Events Trigger Properties
-
-When a blob events trigger fires, it makes two variables available to your pipeline: *folderPath* and *fileName*. To access these variables, use the `@triggerBody().fileName` or `@triggerBody().folderPath` expressions.
-
-For example, consider a trigger configured to fire when a blob is created with `.csv` as the value of `blobPathEndsWith`. When a .csv file is dropped into the storage account, the *folderPath* and *fileName* describe the location of the .csv file. For example, *folderPath* has the value `/containername/foldername/nestedfoldername` and *fileName* has the value `filename.csv`.
 
 ## Next steps
 For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers).

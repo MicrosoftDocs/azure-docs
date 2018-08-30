@@ -371,8 +371,6 @@ For more info about SQL Data Sync, see:
 -   Complete PowerShell examples that show how to configure SQL Data Sync:
     -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](sql-database-sync-data-between-azure-onprem.md)
 
--   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
-
 For more info about SQL Database, see:
 
 -   [SQL Database Overview](../sql-database-technical-overview.md)

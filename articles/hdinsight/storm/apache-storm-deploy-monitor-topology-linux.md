@@ -1,22 +1,16 @@
 ---
-title: Deploy and manage Apache Storm topologies on Linux-based HDInsight | Microsoft Docs
+title: Deploy and manage Apache Storm topologies on Azure HDInsight 
 description: Learn how to deploy, monitor and manage Apache Storm topologies using the Storm Dashboard on Linux-based HDInsight. Use Hadoop tools for Visual Studio.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 35086e62-d6d8-4ccf-8cae-00073464a1e1
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: larryfr
-
 ---
-# Deploy and manage Apache Storm topologies on HDInsight
+# Deploy and manage Apache Storm topologies on Azure HDInsight 
 
 In this document, learn the basics of managing and monitoring Storm topologies running on Storm on HDInsight clusters.
 

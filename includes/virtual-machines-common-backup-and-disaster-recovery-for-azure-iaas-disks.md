@@ -1,4 +1,4 @@
----
+﻿---
 title: "include file"
 description: "include file"
 services: storage
@@ -143,15 +143,15 @@ Use the following steps to enable backups of your VMs by using the [Azure portal
 
     b. On the **Recovery Services vaults** menu, click **Add** and follow the steps to create a new vault in the same region as the VM. For example, if your VM is in the West US region, pick West US for the vault.
 
-2.	Verify the storage replication for the newly created vault. Access the vault under **Recovery Services vaults** and go to **Settings** > **Backup Configuration**. Ensure the **geo-redundant storage** option is selected by default. This option ensures that your vault is automatically replicated to a secondary datacenter. For example, your vault in West US is automatically replicated to East US.
+1.	Verify the storage replication for the newly created vault. Access the vault under **Recovery Services vaults** and go to **Settings** > **Backup Configuration**. Ensure the **geo-redundant storage** option is selected by default. This option ensures that your vault is automatically replicated to a secondary datacenter. For example, your vault in West US is automatically replicated to East US.
 
-3.	Configure the backup policy and select the VM from the same UI.
+1.	Configure the backup policy and select the VM from the same UI.
 
-4.	Make sure the Backup Agent is installed on the VM. If your VM is created by using an Azure gallery image, then the Backup Agent is already installed. Otherwise (that is, if you use a custom image), use the instructions to [install the VM agent on a virtual machine](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
+1.	Make sure the Backup Agent is installed on the VM. If your VM is created by using an Azure gallery image, then the Backup Agent is already installed. Otherwise (that is, if you use a custom image), use the instructions to [install the VM agent on a virtual machine](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.	Make sure that the VM allows network connectivity for the backup service to function. Follow the instructions for [network connectivity](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+1.	Make sure that the VM allows network connectivity for the backup service to function. Follow the instructions for [network connectivity](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
-6.	After the previous steps are completed, the backup runs at regular intervals as specified in the backup policy. If necessary, you can trigger the first backup manually from the vault dashboard on the Azure portal.
+1.	After the previous steps are completed, the backup runs at regular intervals as specified in the backup policy. If necessary, you can trigger the first backup manually from the vault dashboard on the Azure portal.
 
 For automating Azure Backup by using scripts, refer to [PowerShell cmdlets for VM backup](../articles/backup/backup-azure-vms-automation.md).
 
@@ -183,9 +183,9 @@ To avoid this situation, the backup process must implement the following steps:
 
 1.	Freeze all the disks.
 
-2.	Flush all the pending writes.
+1.	Flush all the pending writes.
 
-3.	[Create a blob snapshot](../articles/storage/blobs/storage-blob-snapshots.md) for all the disks.
+1.	[Create a blob snapshot](../articles/storage/blobs/storage-blob-snapshots.md) for all the disks.
 
 Some Windows applications, like SQL Server, provide a coordinated backup mechanism via a volume shadow service to create application-consistent backups. On Linux, you can use a tool like *fsfreeze* for coordinating the disks. This tool provides file-consistent backups, but not application-consistent snapshots. This process is complex, so you should consider using [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) or a third-party backup solution that already implements this procedure.
 
@@ -197,11 +197,11 @@ Another option to create consistent backups is to shut down the VM and take blob
 
 1. Shut down the VM.
 
-2. Create a snapshot of each virtual hard drive blob, which only takes a few seconds.
+1. Create a snapshot of each virtual hard drive blob, which only takes a few seconds.
 
     To create a snapshot, you can use [PowerShell](../articles/storage/common/storage-powershell-guide-full.md), the [Azure Storage REST API](https://msdn.microsoft.com/library/azure/ee691971.aspx), [Azure CLI](/cli/azure/), or one of the Azure Storage client libraries, such as [the Storage client library for .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx).
 
-3. Start the VM, which ends the downtime. Typically, the entire process finishes within a few minutes.
+1. Start the VM, which ends the downtime. Typically, the entire process finishes within a few minutes.
 
 This process yields a collection of consistent snapshots for all the disks, providing a backup restore point for the VM.
 

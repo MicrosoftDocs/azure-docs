@@ -1,6 +1,6 @@
 ---
-title: Eligible assignments and resource visibility for Azure in Privileged Identity Management | Microsoft Docs
-description: Describes how to assign members as eligible for resource roles when using PIM.
+title: Eligible assignments and resource visibility in PIM - Azure | Microsoft Docs
+description: Describes how to assign members as eligible for Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: protection
+ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ---
 
 
-# Eligible assignments and resource visibility with Privileged Identity Management
+# Eligible assignments and resource visibility in PIM
 
 Privileged Identity Management (PIM) for Azure resource roles provides enhanced security for organizations that have critical Azure resources. Resource administrators can use PIM to assign members as eligible for resource roles. Learn more about the different assignment types and assignment states for Azure resource roles in the following sections. 
 
@@ -66,4 +66,4 @@ When you view a membership that's listed in **Active roles**, you can use the va
 
 ## Next steps
 
-[Assign roles in Privileged Identity Manager](pim-resource-roles-assign-roles.md)
+- [Assign Azure resource roles in PIM](pim-resource-roles-assign-roles.md)

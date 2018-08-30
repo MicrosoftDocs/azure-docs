@@ -48,7 +48,7 @@ The **Solutions** page shows some of the SAP CAL HANA-based solutions available 
     > [!NOTE]
     The next steps show how to create an SAP CAL account for Resource Manager deployments. If you already have an SAP CAL account that is linked to the classic deployment model, you *need* to follow these steps to create a new SAP CAL account. The new SAP CAL account needs to deploy in the Resource Manager model.
 
-2. Create a new SAP CAL account. The **Accounts** page shows three choices for Azure: 
+1. Create a new SAP CAL account. The **Accounts** page shows three choices for Azure: 
 
     a. **Microsoft Azure (classic)** is the classic deployment model and is no longer preferred.
 
@@ -60,27 +60,27 @@ The **Solutions** page shows some of the SAP CAL HANA-based solutions available 
 
     ![SAP CAL Account Details](./media/cal-s4h/s4h-pic-2a.png)
 
-3. Enter the Azure **Subscription ID** that can be found on the Azure portal.
+1. Enter the Azure **Subscription ID** that can be found on the Azure portal.
 
    ![SAP CAL Accounts](./media/cal-s4h/s4h-pic3c.png)
 
-4. To authorize the SAP CAL to deploy into the Azure subscription you defined, click **Authorize**. The following page appears in the browser tab:
+1. To authorize the SAP CAL to deploy into the Azure subscription you defined, click **Authorize**. The following page appears in the browser tab:
 
    ![Internet Explorer cloud services sign-in](./media/cal-s4h/s4h-pic4c.png)
 
-5. If more than one user is listed, choose the Microsoft account that is linked to be the coadministrator of the Azure subscription you selected. The following page appears in the browser tab:
+1. If more than one user is listed, choose the Microsoft account that is linked to be the coadministrator of the Azure subscription you selected. The following page appears in the browser tab:
 
    ![Internet Explorer cloud services confirmation](./media/cal-s4h/s4h-pic5a.png)
 
-6. Click **Accept**. If the authorization is successful, the SAP CAL account definition displays again. After a short time, a message confirms that the authorization process was successful.
+1. Click **Accept**. If the authorization is successful, the SAP CAL account definition displays again. After a short time, a message confirms that the authorization process was successful.
 
-7. To assign the newly created SAP CAL account to your user, enter your **User ID** in the text box on the right and click **Add**.
+1. To assign the newly created SAP CAL account to your user, enter your **User ID** in the text box on the right and click **Add**.
 
    ![Account to user association](./media/cal-s4h/s4h-pic8a.png)
 
-8. To associate your account with the user that you use to sign in to the SAP CAL, click **Review**. 
+1. To associate your account with the user that you use to sign in to the SAP CAL, click **Review**. 
  
-9. To create the association between your user and the newly created SAP CAL account, click **Create**.
+1. To create the association between your user and the newly created SAP CAL account, click **Create**.
 
    ![User to SAP CAL account association](./media/cal-s4h/s4h-pic9b.png)
 
@@ -118,29 +118,29 @@ We demonstrate the basic path to deployment here.
 
    ![SAP CAL Basic Mode: Create Instance](./media/cal-s4h/s4h-pic10a.png)
 
-2. Click **Create**, and in the message box that appears, click **OK**.
+1. Click **Create**, and in the message box that appears, click **OK**.
 
    ![SAP CAL Supported VM Sizes](./media/cal-s4h/s4h-pic10b.png)
 
-3. In the **Private Key** dialog box, click **Store** to store the private key in the SAP CAL. To use password protection for the private key, click **Download**. 
+1. In the **Private Key** dialog box, click **Store** to store the private key in the SAP CAL. To use password protection for the private key, click **Download**. 
 
    ![SAP CAL Private Key](./media/cal-s4h/s4h-pic10c.png)
 
-4. Read the SAP CAL **Warning** message, and click **OK**.
+1. Read the SAP CAL **Warning** message, and click **OK**.
 
    ![SAP CAL Warning](./media/cal-s4h/s4h-pic10d.png)
 
     Now the deployment takes place. After some time, depending on the size and complexity of the solution (the SAP CAL provides an estimate), the status is shown as active and ready for use.
 
-5. To find the virtual machines collected with the other associated resources in one resource group, go to the Azure portal: 
+1. To find the virtual machines collected with the other associated resources in one resource group, go to the Azure portal: 
 
    ![SAP CAL objects deployed in the new portal](./media/cal-s4h/sapcaldeplyment_portalview.png)
 
-6. On the SAP CAL portal, the status appears as **Active**. To connect to the solution, click **Connect**. Different options to connect to the different components are deployed within this solution.
+1. On the SAP CAL portal, the status appears as **Active**. To connect to the solution, click **Connect**. Different options to connect to the different components are deployed within this solution.
 
    ![SAP CAL Instances](./media/cal-s4h/active_solution.png)
 
-7. Before you can use one of the options to connect to the deployed systems, click **Getting Started Guide**. 
+1. Before you can use one of the options to connect to the deployed systems, click **Getting Started Guide**. 
 
    ![Connect to the Instance](./media/cal-s4h/connect_to_solution.png)
 

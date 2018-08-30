@@ -1,20 +1,19 @@
 ---
 title: Tutorial - CI/CD from Jenkins to Azure VMs with Team Services | Microsoft Docs
 description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app by using Jenkins to Azure VMs from Release Management in Visual Studio Team Services or Microsoft Team Foundation Server
-author: ahomer
-manager: douge
-editor: tysonn
+author: tomarcher
+manager: jpconnock
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: devops
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/19/2017
-ms.author: ahomer
-ms.custom: mvc
+ms.date: 07/31/2018
+ms.author: tarcher
+ms.custom: jenkins
 
 #Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use services like VSTS and Jenkins to build and deploy my applications automatically.
 ---
@@ -169,6 +168,10 @@ To create the release definition in Team Services:
 6. Go to the source Git repository and modify the contents of the **h1** heading in the file app/views/index.jade with some changed text.
 7. Commit your change.
 8. After a few minutes, you will see a new release created on the **Releases** page of Team Services or Team Foundation Server. Open the release to see the deployment taking place. Congratulations!
+
+## Troubleshooting the Jenkins plugin
+
+If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
 ## Next steps
 

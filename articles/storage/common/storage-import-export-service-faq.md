@@ -1,15 +1,13 @@
-﻿---
+---
 title: FAQ for Azure Import/Export service | Microsoft Docs
 description: Read answers to frequently asked questions about Azure Import Export service.
 author: alkohli
-manager: jeconnoc
 services: storage
-
 ms.service: storage
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: alkohli
-
+ms.component: common
 ---
 # Azure Import/Export service: frequently asked questions 
 The following are questions and answers that you may have when you use your Azure Import/Export service to transfer data into Azure storage. Questions and answers are arranged in the following categories:

@@ -1,19 +1,13 @@
-﻿---
+---
 title: Using Azure PowerShell with Azure Storage | Microsoft Docs
 description: Learn how to use the Azure PowerShell cmdlets for Azure Storage.
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-
-ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: rogarana
+ms.component: common
 ---
 
 # Using Azure PowerShell with Azure Storage
@@ -216,7 +210,6 @@ Now that you understand how to manage your storage account with PowerShell, you 
 Azure Cosmos DB Table API provides premium features for table storage such as turnkey global distribution, low latency reads and writes, automatic secondary indexing, and dedicated throughput. 
 
 * For more information, see [Azure Cosmos DB Table API](../../cosmos-db/table-introduction.md). 
-* To learn how to use PowerShell to perform Azure Cosmos DB Table API operations, see [Perform Azure Cosmos DB Table API operations with PowerShell](../../cosmos-db/table-powershell.md).
 
 ## Independent cloud deployments of Azure
 

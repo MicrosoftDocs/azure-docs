@@ -6,7 +6,7 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -31,12 +31,21 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+An Azure IoT Edge device:
+
+* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+
+Cloud resources:
+
+* A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+
+Development resources:
+
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
-* [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [C# for Visual Studio Code (powered by OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) extension for Visual Studio Code. 
+* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension for Visual Studio Code. 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download). 
-* [Docker CE](https://docs.docker.com/install/) on your development machine. 
+* [Docker CE](https://docs.docker.com/install/). 
 
 ## Create a container registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
@@ -61,7 +70,7 @@ To send data into a database, you need a module that can structure the data prop
 The following steps show you how to create an IoT Edge function using Visual Studio Code and the Azure IoT Edge extension.
 
 1. Open Visual Studio Code.
-2. Open the VS Code integrated terminal by selecting **View** > **Integrated Terminal**.
+2. Open the VS Code integrated terminal by selecting **View** > **Terminal**.
 3. Open the VS Code command palette by selecting **View** > **Command palette**.
 4. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you've already signed in, you can skip this step.
 3. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
@@ -241,15 +250,15 @@ You can set modules on a device through the IoT Hub, but you can also access you
 2. Follow the prompts to sign in to your Azure account. 
 3. In the command palette, select your Azure subscription then select your IoT Hub. 
 4. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
-5. Right-click on the device that you want to target with your deployment and select **Create deployment for IoT Edge device**. 
+5. Right-click on the device that you want to target with your deployment and select **Create deployment for single device**. 
 6. In the file explorer, navigate to the **config** folder inside your solution and choose **deployment.json**. Click **Select Edge deployment manifest**. 
 
 If the deployment is successful, and confirmation message is printed in the VS Code output. You can also check to see that all the modules are up and running on your device. 
 
 On your IoT Edge device, run the following command to see the status of the modules. It may take a few minutes.
 
-   ```bash
-   sudo iotedge list
+   ```PowerShell
+   iotedge list
    ```
 
 ## Create the SQL database
@@ -281,7 +290,7 @@ This section guides you through setting up the SQL database to store the tempera
    * Linux container: 
 
       ```bash
-      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Password'
+      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
       ```
 
 3. Create your database: 
@@ -328,45 +337,13 @@ From inside the SQL command tool, run the following command to view your formatt
 
 ## Clean up resources
 
-[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)]
+If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them. You can also keep using the same IoT Edge device as a test device. 
 
-Remove the IoT Edge service runtime based on your IoT device platform (Linux or Windows).
+Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges. 
 
-#### Windows
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-Remove the IoT Edge runtime.
-
-```Powershell
-stop-service iotedge -NoWait
-sleep 5
-sc.exe delete iotedge
-```
-
-Delete the containers that were created on your device. 
-
-```Powershell
-docker rm -f $(docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor")
-```
-
-#### Linux
-
-Remove the IoT Edge runtime.
-
-```bash
-sudo apt-get remove --purge iotedge
-```
-
-Delete the containers that were created on your device. 
-
-```bash
-sudo docker rm -f $(sudo docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor")
-```
-
-Remove the container runtime.
-
-```bash
-sudo apt-get remove --purge moby
-```
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 

@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 08/08/2018
 ms.author: marsma
 ---
 
@@ -17,14 +17,13 @@ When you create an Azure Kubernetes Service (AKS) cluster, you can select from t
 
 ## Basic networking
 
-The **Basic** networking option is the default configuration for AKS cluster creation. The network configuration of the cluster and its pods are managed completely by Azure, and is appropriate for deployments that do not require custom VNet configuration. You do not have control over network configuration such as subnets or the IP address ranges assigned to the cluster when you select Basic networking.
+The **Basic** networking option is the default configuration for AKS cluster creation. The network configuration of the cluster and its pods is managed completely by Azure, and is appropriate for deployments that do not require custom VNet configuration. You do not have control over network configuration such as subnets or the IP address ranges assigned to the cluster when you select Basic networking.
 
 Nodes in an AKS cluster configured for Basic networking use the [kubenet][kubenet] Kubernetes plugin.
 
 ## Advanced networking
 
-**Advanced** networking places your pods in an Azure Virtual Network (VNet) that you configure, providing them automatic connectivity to VNet resources and integration with the rich set of capabilities that VNets offer.
-Advanced networking is available when deploying AKS clusters with the [Azure portal][portal], Azure CLI, or with a Resource Manager template.
+**Advanced** networking places your pods in an Azure Virtual Network (VNet) that you configure, providing them automatic connectivity to VNet resources and integration with the rich set of capabilities that VNets offer. Advanced networking is available when deploying AKS clusters with the [Azure portal][portal], Azure CLI, or with a Resource Manager template.
 
 Nodes in an AKS cluster configured for Advanced networking use the [Azure Container Networking Interface (CNI)][cni-networking] Kubernetes plugin.
 
@@ -42,16 +41,14 @@ Advanced networking provides the following benefits:
 * Use user-defined routes (UDR) to route traffic from pods to a Network Virtual Appliance.
 * Pods can access resources on the public Internet. Also a feature of Basic networking.
 
-> [!IMPORTANT]
-> Each node in an AKS cluster configured for Advanced networking can host a maximum of **30 pods** when configured using the Azure portal.  You can change the maximum value only by modifying the maxPods property when deploying a cluster with a Resource Manager template. Each VNet provisioned for use with the Azure CNI plugin is limited to **4096 configured IP addresses**.
-
 ## Advanced networking prerequisites
 
 * The VNet for the AKS cluster must allow outbound internet connectivity.
 * Do not create more than one AKS cluster in the same subnet.
-* Advanced networking for AKS does not support VNets that use Azure Private DNS Zones.
 * AKS clusters may not use `169.254.0.0/16`, `172.30.0.0/16`, or `172.31.0.0/16` for the Kubernetes service address range.
-* The service principal used for the AKS cluster must have `Contributor` permissions to the resource group containing the existing VNet.
+* The service principal used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) permissions on the subnet within your VNet. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
+  * `Microsoft.Network/virtualNetworks/subnets/join/action`
+  * `Microsoft.Network/virtualNetworks/subnets/read`
 
 ## Plan IP addressing for your cluster
 
@@ -63,31 +60,47 @@ The IP address plan for an AKS cluster consists of a VNet, at least one subnet f
 
 | Address range / Azure resource | Limits and sizing |
 | --------- | ------------- |
-| Virtual network | Azure VNet can be as large as /8 but may only have 4096 configured IP addresses. |
-| Subnet | Must be large enough to accommodate the nodes and Pods. To calculate your minimum subnet size: (Number of nodes) + (Number of nodes * Pods per node). For a 50 node cluster: (50) + (50 * 30) = 1,550, your subnet would need to be a /21 or larger. |
+| Virtual network | Azure VNet can be as large as /8 but may only have 16,000 configured IP addresses. |
+| Subnet | Must be large enough to accommodate the nodes, pods, and all Kubernetes and Azure resources that might be provisioned in your cluster. For example, if you deploy an internal Azure Load Balancer, its front-end IPs are allocated from the cluster subnet, not public IPs. <p/>To calculate *minimum* subnet size: `(number of nodes) + (number of nodes * pods per node)` <p/>Example for a 50 node cluster: `(50) + (50 * 30) = 1,550` (/21 or larger) |
 | Kubernetes service address range | This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. |
 | Kubernetes DNS service IP address | IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). |
 | Docker bridge address | IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Default of 172.17.0.1/16. |
 
-As mentioned previously, each VNet provisioned for use with the Azure CNI plugin is limited to **4096 configured IP addresses**. Each node in a cluster configured for Advanced networking can host a maximum of **30 pods**.
+Each VNet provisioned for use with the Azure CNI plugin is limited to **16,000 configured IP addresses**.
+
+## Maximum pods per node
+
+The default maximum number of pods per node in an AKS cluster varies between basic and advanced networking, and the method of cluster deployment.
+
+### Default maximum
+
+* Basic networking: **110 pods per node**
+* Advanced networking **30 pods per node**
+
+### Configure maximum
+
+Depending on your method of deployment, you may be able to modify the maximum number of pods per node in an AKS cluster.
+
+* **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [az aks create][az-aks-create] command.
+* **Resource Manager template**: Specify the `maxPods` property in the [ManagedClusterAgentPoolProfile] object when you deploy a cluster with a Resource Manager template.
+* **Azure portal**: You cannot modify the maximum number of pods per node when you deploy a cluster with the Azure portal. Advanced networking clusters are limited to 30 pods per node when deployed in the Azure portal.
 
 ## Deployment parameters
 
-When create an AKS cluster, the following parameters are configurable for advanced networking:
+When you create an AKS cluster, the following parameters are configurable for advanced networking:
 
-**Virtual network**: The VNet into which you want to deploy the Kubernetes cluster. If you want to create a new VNet for your cluster, select *Create new* and follow the steps in the *Create virtual network* section.
+**Virtual network**: The VNet into which you want to deploy the Kubernetes cluster. If you want to create a new VNet for your cluster, select *Create new* and follow the steps in the *Create virtual network* section. The VNet is limited to 16,000 configured IP addresses.
 
 **Subnet**: The subnet within the VNet where you want to deploy the cluster. If you want to create a new subnet in the VNet for your cluster, select *Create new* and follow the steps in the *Create subnet* section.
 
-**Kubernetes service address range**: The *Kubernetes service address range* is the IP range from which addresses are assigned to Kubernetes services in your cluster (for more information on Kubernetes services, see [Services][services] in the Kubernetes documentation).
-
-The Kubernetes service IP address range:
+**Kubernetes service address range**: This is the set of virtual IPs that Kubernetes assigns to [services][services] in your cluster. You can use any private address range that satisfies the following requirements:
 
 * Must not be within the VNet IP address range of your cluster
 * Must not overlap with any other VNets with which the cluster VNet peers
 * Must not overlap with any on-premises IPs
+* Must not be within the ranges `169.254.0.0/16`, `172.30.0.0/16`, or `172.31.0.0/16`
 
-Unpredictable behavior can result if overlapping IP ranges are used. For example, if a pod tries to access an IP outside the cluster, and that IP also happens to be a service IP, you might see unpredictable behavior and failures.
+Although it's technically possible to specify a service address range within the same VNet as your cluster, doing so is not recommended. Unpredictable behavior can result if overlapping IP ranges are used. For more information, see the [FAQ](#frequently-asked-questions) section of this article. For more information on Kubernetes services, see [Services][services] in the Kubernetes documentation.
 
 **Kubernetes DNS service IP address**:  The IP address for the cluster's DNS service. This address must be within the *Kubernetes service address range*.
 
@@ -121,10 +134,6 @@ The following screenshot from the Azure portal shows an example of configuring t
 
 The following questions and answers apply to the **Advanced** networking configuration.
 
-* *Can I configure Advanced networking with the Azure CLI?*
-
-  No. Advanced networking is currently available only when deploying AKS clusters in the Azure portal or with a Resource Manager template.
-
 * *Can I deploy VMs in my cluster subnet?*
 
   No. Deploying VMs in the subnet used by your Kubernetes cluster is not supported. VMs may be deployed in the same VNet, but in a different subnet.
@@ -135,11 +144,15 @@ The following questions and answers apply to the **Advanced** networking configu
 
 * *Is the maximum number of pods deployable to a node configurable?*
 
-  By default, each node can host a maximum of 30 pods. You can change the maximum value only by modifying the `maxPods` property when deploying a cluster with a Resource Manager template.
+  Yes, when you deploy a cluster with the Azure CLI or a Resource Manager template. See [Maximum pods per node](#maximum-pods-per-node).
 
 * *How do I configure additional properties for the subnet that I created during AKS cluster creation? For example, service endpoints.*
 
   The complete list of properties for the VNet and subnets that you create during AKS cluster creation can be configured in the standard VNet configuration page in the Azure portal.
+
+* *Can I use a different subnet within my cluster VNet for the* **Kubernetes service address range**?
+
+  It's not recommended, but this configuration is possible. The service address range is a set of virtual IPs (VIPs) that Kubernetes assigns to the services in your cluster. Azure Networking has no visibility into the service IP range of the Kubernetes cluster. Because of the lack of visibility into the cluster's service address range, it's possible to later create a new subnet in the cluster VNet that overlaps with the service address range. If such an overlap occurs, Kubernetes could assign a service an IP that's already in use by another resource in the subnet, causing unpredictable behavior or failures. By ensuring you use an address range outside the cluster's VNet, you can avoid this overlap risk.
 
 ## Next steps
 
@@ -172,4 +185,5 @@ Kubernetes clusters created with ACS Engine support both the [kubenet][kubenet] 
 
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[aks-ssh]: aks-ssh.md
+[aks-ssh]: ssh.md
+[ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object

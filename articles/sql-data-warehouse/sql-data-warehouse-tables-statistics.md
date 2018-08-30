@@ -60,6 +60,8 @@ One best practice is to update statistics on date columns each day as new dates 
 
 The following are recommendations updating statistics:
 
+|||
+|-|-|
 | **Frequency of stats updates**  | Conservative: Daily <br></br> After loading or transforming your data |
 | **Sampling** |  Less than 1 billion rows, use default sampling (20 percent) <br></br> With more than 1 billion rows, statistics on a 2-percent range is good |
 

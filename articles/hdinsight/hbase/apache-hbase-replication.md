@@ -1,18 +1,15 @@
 ---
-title: Set up HBase cluster replication in Azure virtual networks | Microsoft Docs
+title: Set up HBase cluster replication in Azure virtual networks 
 description: Learn how to set up HBase replication from one HDInsight version to another for load balancing, high availability, zero-downtime migration and updates, and disaster recovery.
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Set up HBase cluster replication in Azure virtual networks
@@ -58,7 +55,7 @@ To help you set up the environments, we have created some [Azure Resource Manage
 
 ### Set up two virtual networks in two different regions
 
-To create two virtual networks in two different regions and the VPN connection between the VNets, select the following image to create the . The template is stored in a [public blob storage]](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
+To use a template that creates two virtual networks in two different regions and the VPN connection between the VNets, select the following **Deploy to Azure** button. The template definition is stored in a [public blob storage](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 

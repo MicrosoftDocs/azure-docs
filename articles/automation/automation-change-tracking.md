@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 08/27/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
@@ -16,6 +16,25 @@ ms.custom: H1Hack27Feb2017
 This article helps you use the Change Tracking solution to easily identify changes in your environment. The solution tracks changes to Windows and Linux software, Windows and Linux files, Windows registry keys, Windows services, and Linux daemons. Identifying configuration changes can help you pinpoint operational issues.
 
 Changes to installed software, Windows services, Windows registry and files, and Linux daemons on the monitored servers are sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
+
+## Supported Windows operating systems
+
+The following versions of the Windows operating system are officially supported for the Windows agent:
+
+* Windows Server 2008 Service Pack 1 (SP1) or later
+* Windows 7 SP1 and later.
+
+## Supported Linux operating systems
+
+The following Linux distributions are officially supported. However, the Linux agent might also run on other distributions not listed. Unless otherwise noted, all minor releases are supported for each major version listed.  
+
+* Amazon Linux 2012.09 to 2015.09 (x86/x64)
+* CentOS Linux 5, 6, and 7 (x86/x64)  
+* Oracle Linux 5, 6, and 7 (x86/x64)
+* Red Hat Enterprise Linux Server 5, 6 and 7 (x86/x64)
+* Debian GNU/Linux 6, 7, and 8 (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
+* SUSE Linux Enterprise Server 11 and 12 (x86/x64)
 
 ## Enable Change Tracking and Inventory
 
@@ -69,12 +88,22 @@ Use the following steps to configure files tracking on Windows computers:
 |Enabled     | Determines if the setting is applied.        |
 |Item Name     | Friendly name of the file to be tracked.        |
 |Group     | A group name for logically grouping files.        |
-|Enter Path     | The path to check for the file For example: "c:\temp\myfile.txt"       |
+|Enter Path     | The path to check for the file For example: "c:\temp\\\*.txt"<br>You can also use environment variables such as "%winDir%\System32\\\*.*"       |
+|Recursion     | Determines if recursion is used when looking for the item to be tracked.        |
 |Upload file content for all settings| Turns on or off file content upload on tracked changes. Available options: **True** or **False**.|
+
+## Wildcard, recursion, and environment settings
+
+Recursion allows you to specify wildcards to simplify tracking across directories, and environment variables to allow you to track files across environments with multiple or dynamic drive names. The following is a list of common information you should know when configuring recursion:
+
+* Wildcards are required for tracking multiple files
+* If using wildcards, they can only be used in the last segment of a path. (such as C:\folder\\**file** or /etc/*.conf)
+* If an environment variable has an invalid path, validation will succeed but that path will fail when inventory runs.
+* Avoid general paths such as `c:\*.*` when setting the path, as this would result in too many folders being traversed.
 
 ## Configure File Content tracking
 
-You can view the the contents before and after a change of a file with File Content Change Tracking. This is available for Windows and Linux files, for each change to the file, the contents of the file is stored in a storage account, and shows the file before and after the change, inline or side by side. To learn more, see [View the contents of a tracked file](change-tracking-file-contents.md).
+You can view the contents before and after a change of a file with File Content Change Tracking. This is available for Windows and Linux files, for each change to the file, the contents of the file is stored in a storage account, and shows the file before and after the change, inline or side by side. To learn more, see [View the contents of a tracked file](change-tracking-file-contents.md).
 
 ![view changes in a file](./media/change-tracking-file-contents/view-file-changes.png)
 
@@ -97,13 +126,8 @@ Use the following steps to configure registry key tracking on Windows computers:
 
 The Change Tracking solution does not currently support the following items:
 
-* Folders (directories) for Windows file tracking
-* Recursion for Windows file tracking
-* Wild cards for Windows file tracking
 * Recursion for Windows registry tracking
-* Path variables
 * Network file systems
-* File Content
 
 Other limitations:
 

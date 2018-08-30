@@ -1,43 +1,41 @@
 ---
-title: "Create an index (portal - Azure Search) | Microsoft Docs"
-description: Create an index using the Azure Portal.
+title: Create an Azure Search index in the portal | Microsoft Docs
+description: Learn how to create an index for Azure Search using built-in portal index designers.
 manager: cgronlun
 author: heidisteen
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: quickstart
-ms.date: 06/20/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
 
 ---
-# Create an Azure Search index using the Azure Portal
+# How to create an Azure Search index using the Azure portal
 
-Use the built-in index designer in Azure portal to prototype or create a [search index](search-what-is-an-index.md) to run on your Azure Search service. 
+Azure Search includes a built-in index designer in the portal useful for prototypes or creating a [search index](search-what-is-an-index.md) hosted on your Azure Search service. The tool is used for schema construction. When you save the definition, an empty index becomes fully expressed in Azure Search. How you load it with searchable data is up to you.
 
-Alternatively, create an index using the [.NET](search-create-index-dotnet.md) or [REST](search-create-index-rest-api.md) APIs.
+The index designer is only one approach for creating an index. Programmatically, you can create an index using the [.NET](search-create-index-dotnet.md) or [REST](search-create-index-rest-api.md) APIs.
 
 ## Prerequisites
 
-This article assumes an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and [Azure Search service](search-create-service-portal.md).  
+This article assumes an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and [Azure Search service](search-create-service-portal.md).
 
-## Find your search service
-1. Sign in to the Azure portal page and review the [search services for your subscription](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
-2. Select your Azure Search service.
+## Open index designer and name an index
 
-## Name the index
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the service dashboard. You can click **All services** in the jump bar to search for existing "search services" in the current subscription. 
 
-1. Click the **Add index** button in the command bar at the top of the page.
-2. Name your Azure Search index. 
+2.  Click the **Add index** button in the command bar at the top of the page.
+
+3. Name your Azure Search index. Index names are referenced in indexing and query operations. The index name becomes part of the endpoint URL used on connections to the index and for sending HTTP requests in the Azure Search REST API.
+
    * Start with a letter.
    * Use only lowercase letters, digits, or dashes ("-").
    * Limit the name to 60 characters.
 
-  The index name becomes part of the endpoint URL used on connections to the index and for sending HTTP requests in the Azure Search REST API.
-
 ## Define the fields of your index
 
-Index composition includes a *Fields collection* that defines the searchable data in your index. More specifically, it specifies the structure of documents that you upload separately. The Fields collection includes required and optional fields, named and typed, with index attributes to determine how the field can be used.
+Index composition includes a *Fields collection* that defines the searchable data in your index. Altogether, the fields collection specifies the structure of documents that you upload separately. A Fields collection includes required and optional fields, named and typed, with index attributes that determine how the field can be used.
 
 1. In the **Add Index** blade, click **Fields >** to slide open the field definition blade. 
 
@@ -58,6 +56,7 @@ Creating an index in the portal is keyboard intensive. Minimize steps by followi
 2. Next, use the check boxes at the top of each attribute to bulk enable the setting for all fields, and then selectively clear boxes for the few fields that don't require it. For example, string fields are typically searchable. As such, you might click **Retrievable** and **Searchable** to both return the values of the field in search results, as well as allow full text search on the field. 
 
 <a name="design"></a>
+
 ## Design guidance for setting attributes
 
 Although you can add new fields at any time, existing field definitions are locked in for the lifetime of the index. For this reason, developers typically use the portal for creating simple indexes, testing ideas, or using the portal pages to look up a setting. Frequent iteration over an index design is more efficient if you follow a code-based approach so that you can rebuild the index easily.

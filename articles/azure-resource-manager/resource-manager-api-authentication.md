@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2017
+ms.date: 07/12/2018
 ms.author: dugill
 
 ---
@@ -65,19 +65,25 @@ Manage your connected subscriptions:
 ## Register application
 Before you start coding, register your web app with Azure Active Directory (AD). The app registration creates a central identity for your app in Azure AD. It holds basic information about your application like OAuth Client ID, Reply URLs, and credentials that your application uses to authenticate and access Azure Resource Manager APIs. The app registration also records the various delegated permissions that your application needs when accessing Microsoft APIs on behalf of the user.
 
-Because your app accesses other subscription, you must configure it as a multi-tenant application. To pass validation, provide a domain associated with your Azure Active Directory. To see the domains associated with your Azure Active Directory, log in to the portal.
+Because your app accesses other subscription, you must configure it as a multi-tenant application. To pass validation, provide a domain associated with your Azure Active Directory. To see the domains associated with your Azure Active Directory, sign in to the portal.
 
 The following example shows how to register the app by using Azure PowerShell. You must have the latest version (August 2016) of Azure PowerShell for this command to work.
 
-    $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```azurepowershell-interactive
+$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```
 
-To log in as the AD application, you need the application ID and password. To see the application ID that is returned from the previous command, use:
+To sign in as the AD application, you need the application ID and password. To see the application ID that is returned from the previous command, use:
 
-    $app.ApplicationId
+```azurepowershell-interactive
+$app.ApplicationId
+```
 
 The following example shows how to register the app by using Azure CLI.
 
-    azure ad app create --name {app name} --home-page https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available true
+```azurecli-interactive
+az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
+```
 
 The results include the AppId, which you need when authenticating as the application.
 
@@ -98,14 +104,14 @@ The request fails because the user has not logged in yet, but you can retrieve t
 ## Get user + app access token
 Your application redirects the user to Azure AD with an OAuth 2.0 Authorize Request - to authenticate the user's credentials and get back an authorization code. Your application uses the authorization code to get an access token for Resource Manager. The [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) method creates the authorization request.
 
-This article shows the REST API requests to authenticate the user. You can also use helper libraries to perform authentication in your code. For more information about these libraries, see [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). For guidance on integrating identity management in an application, see [Azure Active Directory developer's guide](../active-directory/active-directory-developers-guide.md).
+This article shows the REST API requests to authenticate the user. You can also use helper libraries to perform authentication in your code. For more information about these libraries, see [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). For guidance on integrating identity management in an application, see [Azure Active Directory developer's guide](../active-directory/develop/azure-ad-developers-guide.md).
 
 ### Auth request (OAuth 2.0)
 Issue an Open ID Connect/OAuth2.0 Authorize Request to the Azure AD Authorize endpoint:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize
 
-The query string parameters that are available for this request are described in the [request an authorization code](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) article.
+The query string parameters that are available for this request are described in the [request an authorization code](../active-directory/develop/v1-protocols-oauth-code.md#request-an-authorization-code) article.
 
 The following example shows how to request OAuth2.0 authorization:
 
@@ -118,7 +124,7 @@ Azure AD authenticates the user, and, if necessary, asks the user to grant permi
 ### Auth request (Open ID Connect)
 If you not only wish to access Azure Resource Manager on behalf of the user, but also allow the user to sign in to your application using their Azure AD account, issue an Open ID Connect Authorize Request. With Open ID Connect, your application also receives an id_token from Azure AD that your app can use to sign in the user.
 
-The query string parameters that are available for this request are described in the [Send the sign-in request](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) article.
+The query string parameters that are available for this request are described in the [Send the sign-in request](../active-directory/develop/v1-protocols-openid-connect-code.md#send-the-sign-in-request) article.
 
 An example Open ID Connect request is:
 
@@ -135,7 +141,7 @@ Now that your application has received the authorization code from Azure AD, it 
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-The query string parameters that are available for this request are described in the [use the authorization code](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) article.
+The query string parameters that are available for this request are described in the [use the authorization code](../active-directory/develop/v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) article.
 
 The following example shows a request for code grant token with password credential:
 
@@ -146,7 +152,7 @@ The following example shows a request for code grant token with password credent
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-When working with certificate credentials, create a JSON Web Token (JWT) and sign (RSA SHA256) using the private key of your application's certificate credential. The claim types for the token are shown in [JWT token claims](../active-directory/develop/active-directory-protocols-oauth-code.md#jwt-token-claims). For reference, see the [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) to sign Client Assertion JWT tokens.
+When working with certificate credentials, create a JSON Web Token (JWT) and sign (RSA SHA256) using the private key of your application's certificate credential. The claim types for the token are shown in [JWT token claims](../active-directory/develop/v1-protocols-oauth-code.md#jwt-token-claims). For reference, see the [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) to sign Client Assertion JWT tokens.
 
 See the [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) for details on client authentication.
 
@@ -170,7 +176,7 @@ A successful token response contains the (user + app) access token for Azure Res
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-The parameters to use with the refresh request are described in [refreshing the access token](../active-directory/develop/active-directory-protocols-oauth-code.md#refreshing-the-access-tokens).
+The parameters to use with the refresh request are described in [refreshing the access token](../active-directory/develop/v1-protocols-oauth-code.md#refreshing-the-access-tokens).
 
 The following example shows how to use the refresh token:
 
@@ -227,7 +233,7 @@ To authenticate your app and get a token to Azure AD Graph API, issue a Client C
 
 The [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) method of the ASP.net MVC sample application gets an app-only access token for Graph API using the Active Directory Authentication Library for .NET.
 
-The query string parameters that are available for this request are described in the [Request an Access Token](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) article.
+The query string parameters that are available for this request are described in the [Request an Access Token](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#request-an-access-token) article.
 
 An example request for client credential grant token:
 

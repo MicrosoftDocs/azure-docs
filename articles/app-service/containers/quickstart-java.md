@@ -104,35 +104,37 @@ Update the following placeholders in the plugin configuration:
 
 The `linuxRuntime` element of the configuration controls what built-in Linux image is used with your application. All supported runtime stacks can be found at [this link](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin#runtime-stacks). 
 
-If you are building a JAR web application, you can also add the following plugin definition inside the `<build>` element of the *pom.xml* file:
 
-```xml
-    <plugins>
-      <plugin>
-        <groupId>com.microsoft.azure</groupId> 
-        <artifactId>azure-webapp-maven-plugin</artifactId> 
-        <version>1.2.0</version>
-        <configuration> 
-          <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
-          <appName>YOUR_WEB_APP</appName> 
-          <linuxRuntime>jre8</linuxRuntime>   
-          <!-- This is to make sure the jar file will not be occupied during the deployment -->
-          <stopAppDuringDeployment>true</stopAppDuringDeployment>
-          <deploymentType>ftp</deploymentType> 
-          <resources> 
-              <resource> 
-                  <directory>${project.basedir}/target</directory> 
-                  <targetPath>webapps</targetPath> 
-                  <includes> 
-                      <!-- Currently it is required to set as app.jar -->
-                      <include>app.jar</include> 
-                  </includes>  
-              </resource> 
-          </resources> 
-        </configuration>
-      </plugin>
-    </plugins>
-```    
+> [!NOTE] 
+> In this article we are only working with WAR files. However, the plugin does support JAR web applications, using the following plugin definition inside the `<build>` element of a *pom.xml* file:
+>
+>```xml
+>    <plugins>
+>      <plugin>
+>        <groupId>com.microsoft.azure</groupId> 
+>        <artifactId>azure-webapp-maven-plugin</artifactId> 
+>        <version>1.2.0</version>
+>        <configuration> 
+>          <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
+>          <appName>YOUR_WEB_APP</appName> 
+>          <linuxRuntime>jre8</linuxRuntime>   
+>          <!-- This is to make sure the jar file will not be occupied during the deployment -->
+>          <stopAppDuringDeployment>true</stopAppDuringDeployment>
+>          <deploymentType>ftp</deploymentType> 
+>          <resources> 
+>              <resource> 
+>                  <directory>${project.basedir}/target</directory> 
+>                  <targetPath>webapps</targetPath> 
+>                  <includes> 
+>                      <!-- Currently it is required to set as app.jar -->
+>                      <include>app.jar</include> 
+>                  </includes>  
+>              </resource> 
+>          </resources> 
+>        </configuration>
+>      </plugin>
+>    </plugins>
+>```    
 
 Execute the following command and follow all directions to authenticate with the Azure CLI:
 

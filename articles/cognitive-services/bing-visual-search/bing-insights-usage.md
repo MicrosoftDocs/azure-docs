@@ -57,7 +57,7 @@ The following shows how Bing might display related searches of images made by ot
 
 ## Entity insight example
 
-The following shows how Bing might display information about the entity (person, place, or thing) shown in the image. If the user clicks the entity link, the user is taken to the Bing.com search results page for entity.
+The following shows how Bing might display information about the entity (person, place, or thing) shown in the image. If the user clicks the entity link, the user is taken to the Bing.com search results page for the entity.
 
 ![Entity shown in image](./media/entity.PNG)
 

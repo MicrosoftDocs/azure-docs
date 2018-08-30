@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 07/26/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 ---
@@ -36,13 +36,15 @@ To ensure that user traffic immediately and transparently recovers from failure,
 ![BGP routing](media/azure-stack-border-connectivity/bgp-routing.png)
 
 ## Static routing
-Using static routes adds more fixed configuration to the border and TOR devices. It requires thorough analysis before any change. Issues caused by a configuration error may take more time to rollback depending on the changes made. It is not the recommended routing method, but it is supported.
+Static routing requires additional configuration to the border devices. It requires more manual intervention and management as well as thorough analysis before any change and issues caused by a configuration error may take more time to rollback depending on the changes made. It is not the recommended routing method, but it is supported.
 
-To integrate Azure Stack into your networking environment using this method, the border device must be configured with static routes pointing to the TOR devices for traffic destined to external network, public VIPs.
+To integrate Azure Stack into your networking environment using static routing, all four physical links between the border and the TOR device must be connected and high availability cannot be guaranteed because of how static routing works.
 
-The TOR devices must be configured with a static default route sending all traffic to the border devices. The one traffic exception to this rule is for the private space which will be blocked using an Access Control List applied on the TOR to border connection.
+The border device must be configured with static routes pointing to the TOR devices P2P for traffic destined to the external network or public VIPs and the infrastructure network. It requires static routes to the BMC network for the deployment. Customers may choose to leave static routes in the border to access some resources that reside on the BMC network.  Adding static routes to *switch infrastructure* and *switch management* networks is optional.
 
-Everything else should be the same as the first method. The BGP dynamic routing will still be used inside the rack because it is an essential tool for the SLB and other components and can’t be disabled or removed.
+The TOR devices come configured with a static default route sending all traffic to the border devices. The one traffic exception to the default rule is for the private space, which is blocked using an Access Control List applied on the TOR to border connection.
+
+Static routing applies only to the uplinks between the TOR and border switches. BGP dynamic routing is used inside the rack because it is an essential tool for the SLB and other components and can’t be disabled or removed.
 
 ![Static routing](media/azure-stack-border-connectivity/static-routing.png)
 

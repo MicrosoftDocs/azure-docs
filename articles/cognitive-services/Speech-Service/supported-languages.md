@@ -1,10 +1,9 @@
 ---
-title: Speech service supported languages - Microsoft Cognitive Services | Microsoft Docs
+title: Speech service supported languages - Microsoft Cognitive Services
 description: A list of the languages supported by the Speech service.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service
@@ -47,11 +46,11 @@ cs-CZ | Czech | Male | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jak
 da-DK | Danish | Female | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)"
 de-AT | German (Austria) | Male | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)"
 de-CH | German (Switzerland) | Male | "Microsoft Server Speech Text to Speech Voice (de-CH, Karsten)"
-de-DE | German (Germany) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda) "
+de-DE | German (Germany) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda)"
 | | | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, HeddaRUS)"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo) "
+| | | Male | "Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)"
 el-GR | Greek | Male | "Microsoft Server Speech Text to Speech Voice (el-GR, Stefanos)"
-en-AU | English (Australia) | Female | "Microsoft Server Speech Text to Speech Voice (en-AU, Catherine) "
+en-AU | English (Australia) | Female | "Microsoft Server Speech Text to Speech Voice (en-AU, Catherine)"
 | | | Female | "Microsoft Server Speech Text to Speech Voice (en-AU, HayleyRUS)"
 en-CA | English (Canada) | Female | "Microsoft Server Speech Text to Speech Voice (en-CA, Linda)"
 | | | Female | "Microsoft Server Speech Text to Speech Voice (en-CA, HeatherRUS)"
@@ -218,4 +217,4 @@ You can obtain the list of languages either programmatically or using the REST A
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-windows.md)
+* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)

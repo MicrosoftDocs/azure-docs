@@ -85,7 +85,7 @@ In terms of implementation, the TF specification consists of a set of policies t
 
 - The metadata for establishing network communications between participants. This metadata, along with the technical profiles, are used during a transaction to plumb “on the wire” interoperability between the relying party and other community participants.
 
-- The protocol conversion if any (for example, SAML, OAuth2, WS-Federation, and OpenID Connect).
+- The protocol conversion if any (for example, SAML 2.0, OAuth2, WS-Federation, and OpenID Connect).
 
 - The authentication requirements.
 

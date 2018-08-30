@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 08/27/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -23,12 +23,15 @@ ms.custom: it-pro
 Using Azure Active Directory (Azure AD), you can designate separate administrators to serve different functions. Administrators can be designated in the Azure AD portal to perform tasks such as adding or changing users, assigning administrative roles, resetting user passwords, managing user licenses, and managing domain names.
 
 ## Details about the global administrator role
+
 The global administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the global administrator role for the directory. Only global administrators can assign other administrator roles.
 
 ## Assign or remove administrator roles
+
 To learn how to assign administrative roles to a user in Azure Active Directory, see [Assign a user to administrator roles in Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Available roles
+
 The following administrator roles are available:
 
 * **[Application Administrator](#application-administrator)**: Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings. This role also grants the ability to consent to delegated permissions, and application permissions excluding Microsoft Graph and Azure AD Graph. Members of this role are not added as owners when creating new application registrations or enterprise applications.
@@ -43,17 +46,17 @@ The following administrator roles are available:
 
 * **[Conditional Access Administrator](#conditional-access-administrator)**: Users with this role have the ability to manage Azure Active Directory conditional access settings.
   > [!NOTE]
-  > To deploy Exchange ActiveSync conditional access policy in Azure, the user must also be Global Administrator.
+  > To deploy Exchange ActiveSync conditional access policy in Azure, the user must also be a Global Administrator.
   
-* **[Dynamics 365 service administrator / CRM Service Administrator](#crm-service-administrator)**: Users with this role have global permissions within Microsoft CRM Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Use the service admin role to manage your tenant](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
+* **[Device Administrators](#device-administrators)**: This role is available for assignment only as an additional local administrator in [Device settings](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory. 
 
-* **[Device Administrators](#device-administrators)**: Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage device objects in Azure Active Directory.
-
-* **[Directory Readers](#directory-readers)**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](../develop/active-directory-integrating-applications.md). It should not be assigned to any users.
+* **[Directory Readers](#directory-readers)**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). It should not be assigned to any users.
 
 * **[Directory Synchronization Accounts](#directory-synchronization-accounts)**: Do not use. This role is automatically assigned to the Azure AD Connect service, and is not intended or supported for any other use.
 
-* **[Directory Writers](#directory-writers)**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](../develop/active-directory-integrating-applications.md). It should not be assigned to any users.
+* **[Directory Writers](#directory-writers)**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). It should not be assigned to any users.
+
+* **[Dynamics 365 service administrator / CRM Service Administrator](#dynamics-365-service-administrator)**: Users with this role have global permissions within Microsoft Dynamics 365 Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Use the service admin role to manage your tenant](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 * **[Exchange Service Administrator](#exchange-service-administrator)**: Users with this role have global permissions within Microsoft Exchange Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -68,7 +71,10 @@ The following administrator roles are available:
 
 * **[Information Protection Administrator](#information-protection-administrator)**: Users with this role have all permissions in the Azure Information Protection service. This role allows configuring labels for the Azure Information Protection policy, managing protection templates, and activating protection. This role does not grant any permissions in Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, or Office 365 Security & Compliance Center.
 
-* **[Intune Service Administrator](#intune-service-administrator)**: Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](https://docs.microsoft.com/en-us/intune/role-based-access-control)
+* **[Intune Service Administrator](#intune-service-administrator)**: Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
+
+* **[License Administrator](#license-administrator)**: 
+Users in this role can add, remove, and update license assignments on users, groups (using group-based licensing), and manage the usage location on users. The role does not grant the ability to purchase or manage subscriptions, create or manage groups, or create or manage users beyond the usage location.
 
 * **[Message Center Reader](#message-center-reader)**: Users in this role can monitor notifications and advisory health updates in [Office 365 Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) for their organization on configured services such as Exchange, Intune and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Office 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. 
 
@@ -83,7 +89,7 @@ The following administrator roles are available:
   >
   >
   
-* **[Power BI Service Administrator](#power-bi-service-administrator)**: Users with this role have global permissions within Microsoft Power BI, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Understanding the Power BI admin role](https://docs.microsoft.com/en-us/power-bi/service-admin-role).
+* **[Power BI Service Administrator](#power-bi-service-administrator)**: Users with this role have global permissions within Microsoft Power BI, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Understanding the Power BI admin role](https://docs.microsoft.com/power-bi/service-admin-role).
 
 * **[Privileged Role Administrator](#privileged-role-administrator)**: Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. In addition, this role allows management of all aspects of Privileged Identity Management.
 
@@ -157,7 +163,7 @@ The following tables describe the specific permissions in Azure Active Directory
 Can create and manage all aspects of app registrations and enterprise apps.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -192,7 +198,7 @@ Can create and manage all aspects of app registrations and enterprise apps.
 Can create application registrations independent of the **Users can register applications** setting.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -207,7 +213,7 @@ Can create application registrations independent of the **Users can register app
 Can perform common billing related tasks like updating payment information.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -229,7 +235,7 @@ Can perform common billing related tasks like updating payment information.
 Can create and manage all aspects of app registrations and enterprise apps except App Proxy.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -262,11 +268,6 @@ Can create and manage all aspects of app registrations and enterprise apps excep
 
 ### Company Administrator
 Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities. In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Company Administrator". It is "Global Administrator" in the [Azure portal](https://portal.azure.com).
-
-  > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
 
   > [!NOTE]
   > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
@@ -317,7 +318,7 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 Can read and manage compliance configuration and reports in Azure AD and Office 365.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -340,7 +341,7 @@ Can read and manage compliance configuration and reports in Azure AD and Office 
 Can manage conditional access capabilities.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -354,45 +355,17 @@ Can manage conditional access capabilities.
 | microsoft.aad.directory/ConditionalAccessPolicy/Update | Update standard properties on ConditionalAccessPolicys in Azure Active Directory. |
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Update ConditionalAccessPolicys.Owners property in Azure Active Directory. |
 
-### CRM Service Administrator
-Can manage all aspects of the Dynamics 365 product.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
-  > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
-  >
-  >
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Read Organizations.TrustedCAsForPasswordlessAuth property in Azure Active Directory. |
-| microsoft.aad.accessservice/AllEntities/AllActions | Create and delete all resources, and read and update standard properties in Azure Access Control. |
-| microsoft.aad.servicehealth/AllEntities/AllActions | Read and configure Office 365 Service Health. |
-| microsoft.aad.supporttickets/AllEntities/AllActions | Create and manage Office 365 support tickets. |
-| microsoft.crm/AllEntities/AllActions | Manage all aspects of Dynamics 365. |
-
 ### Device Administrators
-Members of this role are added to the local administrators group on Azure AD-joined devices.
+
+Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage device objects in Azure Active Directory.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
-| **Actions** | **Description** |
-| --- | --- |
-
-### Directory Reader
-Can read basic directory information. For granting access to applications
-
-  > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
+### Directory Readers
+Can read basic directory information. For granting access to applications.
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -446,11 +419,6 @@ Can read basic directory information. For granting access to applications
 ### Directory Synchronization Accounts
 Only used by Azure AD Connect service.
 
-  > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/Policy/Create | Create Policies in Azure Active Directory. |
@@ -480,11 +448,6 @@ Only used by Azure AD Connect service.
 ### Directory Writer
 Can read & write basic directory information. For granting access to applications
 
-  > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/DirectorySetting/Create | Create DirectorySettings in Azure Active Directory. |
@@ -505,11 +468,32 @@ Can read & write basic directory information. For granting access to application
 | microsoft.aad.directory/User/Update/AppRoleAssignments | Update Users.AppRoleAssignments property in Azure Active Directory. |
 | microsoft.aad.directory/User/Update/Manager | Update Users.Manager property in Azure Active Directory. |
 
+### Dynamics 365 Service Administrator
+Can manage all aspects of the Dynamics 365 product.
+
+  > [!NOTE]
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
+  >
+  >
+
+  > [!NOTE]
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Read Organizations.TrustedCAsForPasswordlessAuth property in Azure Active Directory. |
+| microsoft.aad.accessservice/AllEntities/AllActions | Create and delete all resources, and read and update standard properties in Azure Access Control. |
+| microsoft.aad.servicehealth/AllEntities/AllActions | Read and configure Office 365 Service Health. |
+| microsoft.aad.supporttickets/AllEntities/AllActions | Create and manage Office 365 support tickets. |
+| microsoft.crm/AllEntities/AllActions | Manage all aspects of Dynamics 365. |
+
 ### Exchange Service Administrator
 Can manage all aspects of the Exchange product.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -552,7 +536,7 @@ Can invite guest users independent of the **Members can invite guests** setting.
 Can reset passwords for non-administrators and Helpdesk Administrators.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -569,7 +553,7 @@ Can reset passwords for non-administrators and Helpdesk Administrators.
 Can manage all aspects of the Azure Information Protection product.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -590,7 +574,7 @@ Can manage all aspects of the Azure Information Protection product.
 Can manage all aspects of the Intune product.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -627,11 +611,28 @@ Can manage all aspects of the Intune product.
 | microsoft.aad.supporttickets/AllEntities/AllActions | Create and manage Office 365 support tickets. |
 | microsoft.intune/AllEntities/AllActions | Manage all aspects of Intune. |
 
+
+### License Administrator
+Can manage product licenses on users and groups.
+ 
+  > [!NOTE]
+  > This role inherits additional permissions from the Directory Readers role.
+  >
+  >
+ 
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
+| microsoft.aad.directory/users/usageLocation/update | Update users.usageLocation property in Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+
 ### Lync Service Administrator
 Can manage all aspects of the Skype for Business product.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -670,7 +671,7 @@ Can read messages and updates for their organization in Office 365 Message Cente
 Do not use - not intended for general use.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -706,7 +707,7 @@ Do not use - not intended for general use.
 Do not use - not intended for general use.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -745,7 +746,7 @@ Do not use - not intended for general use.
 Can manage all aspects of the Power BI product.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -766,7 +767,7 @@ Can manage all aspects of the Power BI product.
 Can manage role assignments in Azure AD
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -780,11 +781,30 @@ Can manage role assignments in Azure AD
 | microsoft.aad.directory/DirectoryRole/Update | Update standard properties on DirectoryRoles in Azure Active Directory. |
 | microsoft.aad.privilegedrolemanagement/AllEntities/AllActions | Manage all aspects of the Privileged Role Management service. |
 
+### Reports Reader
+Can read sign-in and audit reports.
+
+  > [!NOTE]
+  > This role inherits additional permissions from the Directory Readers role.
+  >
+  >
+
+  > [!NOTE]
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.reports/AllEntities/Read | Read Azure AD Reports. |
+| microsoft.aad.servicehealth/AllEntities/AllActions | Read and configure Office 365 Service Health. |
+| microsoft.office365.usagereports/AllEntities/Read | Read Office 365 usage reports. |
+
 ### Security Administrator
 Can read security information and reports
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -807,25 +827,6 @@ Can read security information and reports
 | microsoft.aad.privilegedrolemanagement/AllEntities/Read | Read all aspects of Privileged Identity Management. |
 | microsoft.protectioncenter/AllEntities/Read | Read all aspects of Office 365 Protection Center. |
 | microsoft.protectioncenter/AllEntities/Update | Manage Office 365 Protection Center. |
-
-### Reports Reader
-Can read sign-in and audit reports.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
-  >
-  >
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.aad.reports/AllEntities/Read | Read Azure AD Reports. |
-| microsoft.aad.servicehealth/AllEntities/AllActions | Read and configure Office 365 Service Health. |
-| microsoft.office365.usagereports/AllEntities/Read | Read Office 365 usage reports. |
 
 ### Security Reader
 Can read security information and reports in Azure AD and Office 365.
@@ -852,7 +853,7 @@ Can read security information and reports in Azure AD and Office 365.
 Can read service health information and manage support tickets.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -872,7 +873,7 @@ Can read service health information and manage support tickets.
 Can manage all aspects of the SharePoint service.
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -892,7 +893,7 @@ Can manage all aspects of the SharePoint service.
 Can manage all aspects of users and groups
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 

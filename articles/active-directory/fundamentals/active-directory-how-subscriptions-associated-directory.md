@@ -54,7 +54,7 @@ Changing the subscription directory is a service-level operation. It doesn't aff
 
 ## Next steps
 
-* To learn more about creating a new Azure AD directory for free, see [How to get an Azure Active Directory tenant](../develop/active-directory-howto-tenant.md)
+* To learn more about creating a new Azure AD directory for free, see [How to get an Azure Active Directory tenant](../develop/quickstart-create-new-tenant.md)
 * To learn more about transferring billing ownership of an Azure subscription, see [Transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md)
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
