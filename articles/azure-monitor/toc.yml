@@ -83,8 +83,6 @@
         href: ../log-analytics/log-analytics-data-security.md?toc=/azure/azure-monitor/toc.json
       - name: Personal log data handling
         href: ../log-analytics/log-analytics-personal-data-mgmt.md?toc=/azure/azure-monitor/toc.json
-      - name: Personal application data handling
-        href: ../application-insights/app-insights-customer-data.md?toc=/azure/azure-monitor/toc.json
       - name: Application data collection, retention, and storage
         href: ../application-insights/app-insights-data-retention-privacy.md?toc=/azure/azure-monitor/toc.json
   - name: Insights

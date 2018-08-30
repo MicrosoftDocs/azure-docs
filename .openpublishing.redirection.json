@@ -9228,6 +9228,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/application-insights/app-insights-customer-data.md",
+            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/machine-learning-apps-text-analytics.md",
             "redirect_url": "/azure/cognitive-services/cognitive-services-text-analytics-quick-start",
             "redirect_document_id": false
