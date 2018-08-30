@@ -22,6 +22,8 @@
     href: stream-analytics-javascript-user-defined-functions.md
   - name: 4 - Deploy with CI/CD in VSTS
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
+  - name: 5 - Run C# UDF on Edge
+    href: stream-analytics-edge-csharp-udf.md
 - name: Samples
   items:
   - name: Code samples
