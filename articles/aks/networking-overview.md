@@ -162,7 +162,7 @@ Learn more about networking in AKS in the following articles:
 
 [Use a static IP address with the Azure Kubernetes Service (AKS) load balancer](static-ip.md)
 
-[HTTPS ingress on Azure Container Service (AKS)](ingress.md)
+[HTTPS ingress on Azure Container Service (AKS)](ingress-tls.md)
 
 [Use an internal load balancer with Azure Container Service (AKS)](internal-lb.md)
 
