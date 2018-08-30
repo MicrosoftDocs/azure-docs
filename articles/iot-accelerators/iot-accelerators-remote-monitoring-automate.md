@@ -109,11 +109,23 @@ To make a change to an existing rule, select it in the list of rules, and click 
 
 ## Disable a rule
 
-To temporarily switch off a rule, you can disable it in the list of rules. Choose the rule to disable, and then choose **Disable**. The **Status** of the rule in the list changes to indicate the rule is now disabled. You can re-enable a rule that you previously disabled using the same procedure.
+To temporarily switch off a rule, you can disable it in the list of rules. Select the rule to disable, and then choose **Disable**. The **Status** of the rule in the list changes to indicate the rule is now disabled. You can re-enable a rule that you previously disabled using the same procedure.
 
 [![Disable rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
 
 You can enable and disable multiple rules at the same time by selecting multiple rules in the list.
+
+## Delete a rule
+
+To permanently delete a rule, you can delete it in the list of rules. Select the rule to delete, and then choose **Delete**.
+
+[![Delete rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+
+After you confirm that you want to delete the rule, you are given the opportunity to delete any alerts associated with the rule from the **Maintenance** page.
+
+[![Delete rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-expanded.png#lightbox)
+
+You can only delete one rule at a time.
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 

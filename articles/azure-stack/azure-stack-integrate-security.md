@@ -6,7 +6,7 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/14/2018
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords:
@@ -171,17 +171,33 @@ While UDP with no encryption is the easiest to configure, it does not provide an
 
 To remove the syslog server configuration altogether and stop syslog forwarding:
 
-```powershell
-# Remove the syslog server configuration from the client
-Set-SyslogServer -Remove  
+**Remove the syslog server configuration from the client**
 
-# Remove the client certificate from the client
-Set-SyslogClient -RemoveCertificate 
+```PowerShell  
+Set-SyslogServer -Remove
+```
+
+**Remove the client certificate from the client**
+
+```PowerShell  
+Set-SyslogClient -RemoveCertificate
 ```
 
 ## Verifying the syslog setup
 
-If you successfully connected the syslog client to your syslog server, you should soon start receiving events from three different channels: Azure, Azure Stack and Windows. If you don't see any event, or not channel is visible, please verify your setup.
+If you successfully connected the syslog client to your syslog server, you should soon start receiving events. If you don't see any event, verify the configuration of your syslog client, by running the following cmdlets:
+
+**Verify the server configuration in the syslog client**
+
+```PowerShell  
+Get-SyslogServer
+```
+
+**Verify the certificate setup in the syslog client**
+
+```PowerShell  
+Get-SyslogClient
+```
 
 ## Syslog message schema
 

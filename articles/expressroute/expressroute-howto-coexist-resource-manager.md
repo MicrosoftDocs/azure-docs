@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/05/2018
+ms.date: 08/17/2018
 ms.author: charwen,cherylmc,rambala
 
 ---
@@ -179,14 +179,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
   ```
 
 ## <a name="add"></a>To configure coexisting connections for an already existing VNet
-If you have an existing virtual network, check the gateway subnet size. If the gateway subnet is /28 or /29, you have to first delete the virtual network gateway and increase the gateway subnet size. The steps in this section show you how to do that.
-
-If the gateway subnet is /27 or larger and the virtual network is connected via ExpressRoute, you can skip the steps below and proceed to ["Step 4 - Create a Site-to-Site VPN gateway"](#vpngw) in the previous section. 
-
-> [!NOTE]
-> When you delete the existing gateway, your local premises will lose the connection to your virtual network while you are working on this configuration. 
-> 
-> 
+If you have a virtual network that has only one virtual network gateway (let's say, Site-to-Site VPN gateway) and you want to add another gateway of a different type (let's say, ExpressRoute gateway), check the gateway subnet size. If the gateway subnet is /27 or larger, you can skip the steps below and follow the steps in the previous section to add either a Site-to-Site VPN gateway or an ExpressRoute gateway. If the gateway subnet is /28 or /29, you have to first delete the virtual network gateway and increase the gateway subnet size. The steps in this section show you how to do that.
 
 1. You'll need to install the latest version of the Azure PowerShell cmdlets. For more information about installing cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). The cmdlets that you use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions. 
 2. Delete the existing ExpressRoute or Site-to-Site VPN gateway.
@@ -216,7 +209,7 @@ If the gateway subnet is /27 or larger and the virtual network is connected via 
   ```powershell
   $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-5. At this point, you have a VNet with no gateways. To create new gateways and complete your connections, you can proceed with [Step 4 - Create a Site-to-Site VPN gateway"](#vpngw), found in the preceding set of steps.
+5. At this point, you have a virtual network with no gateways. To create new gateways and set up the connections, follow the steps in the previous section.
 
 ## To add point-to-site configuration to the VPN gateway
 You can follow the steps below to add Point-to-Site configuration to your VPN gateway in a co-existence setup.

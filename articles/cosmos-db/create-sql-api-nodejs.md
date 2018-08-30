@@ -11,7 +11,7 @@ ms.custom: quick start connect, mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 04/10/2018
-ms.author: Deborah.Chen
+ms.author: dech
 
 ---
 # Azure Cosmos DB: Build a SQL API app with Node.js and the Azure portal

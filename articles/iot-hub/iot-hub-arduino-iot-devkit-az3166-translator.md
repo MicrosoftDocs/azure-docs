@@ -118,10 +118,6 @@ On the translation result screen, you can:
 
 The Arduino sketch records your voice then posts an HTTP request to trigger an Azure Function. The Azure Function calls the cognitive service speech translator API to do the translation. After the Azure Function gets the translation text, it sends a C2D (cloud-to-device) message to the device. Then the translation is displayed on the screen.
 
-## Change device ID
-
-The default device ID registered in Azure IoT Hub is **AZ3166**. To modify the device ID, see how to [Customize the IoT Device ID for the DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/).
-
 ## Problems and feedback
 
 If you encounter problems, refer to the [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) or reach out to us using the following channels:

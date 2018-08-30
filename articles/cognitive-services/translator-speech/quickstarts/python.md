@@ -21,7 +21,7 @@ You will need [Python 3.x](https://www.python.org/downloads/) to run this code.
 
 You will need to install the [websocket-client package](https://pypi.python.org/pypi/websocket-client) for Python.
 
-You will need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16bit, 16kHz, mono format. You can obtain such a .wav file from the [Text to Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+You will need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16bit, 16kHz, mono format. 
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft Translator Speech API**. You will need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

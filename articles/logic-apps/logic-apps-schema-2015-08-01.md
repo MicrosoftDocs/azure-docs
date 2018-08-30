@@ -1,21 +1,15 @@
 ---
-title: Schema updates August-1-2015 preview - Azure Logic Apps | Microsoft Docs
-description: Create JSON definitions for Azure Logic Apps with schema version 2015-08-01-preview
-author: stepsic-microsoft-com
-manager: jeconnoc
-editor: 
+title: Schema updates for August-1-2015 preview - Azure Logic Apps | Microsoft Docs
+description: Updated schema version 2015-08-01-preview for logic app definitions in Azure Logic Apps
 services: logic-apps
-documentationcenter: 
-
-ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.suite: integration
+author: stepsic-microsoft-com
+ms.author: stepsic
+ms.reviewer: klam, estfan, LADocs
+ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
-ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
-ms.author: stepsic; LADocs 
 ---
 
 # Schema updates for Azure Logic Apps - August 1, 2015 preview

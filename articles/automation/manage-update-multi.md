@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/20/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -121,7 +121,7 @@ In the **New update deployment** pane, specify the following information:
 
 - **Name**: Enter a unique name to identify the update deployment.
 - **Operating system**: Select **Windows** or **Linux**.
-- **Machines to update**: Select the virtual machines that you want to update. The readiness of the machine is shown in the **UPDATE AGENT READINESS** column. You can see the health state of the machine before you schedule the update deployment.
+- **Machines to update**: Select a Saved Search, Imported group, or select Machines, to choose the machines that you want to update. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
   ![New update deployment pane](./media/manage-update-multi/update-select-computers.png)
 
@@ -144,10 +144,16 @@ In the **New update deployment** pane, specify the following information:
    ![Schedule Settings dialog box](./media/manage-update-multi/update-set-schedule.png)
 - **Maintenance window (minutes)**: Specify the period of time that you want the update deployment to occur. This setting helps ensure that changes are performed within your defined service windows.
 
-When you're finished configuring the schedule, select the **Create** button to return to the status dashboard. The **Scheduled** table shows the deployment schedule that you created.
+- **Reboot control** - This setting determines how reboots are handled for the update deployment.
 
-> [!WARNING]
-> For updates that require a restart, the virtual machine restarts automatically.
+   |Option|Description|
+   |---|---|
+   |Reboot if required| **(Default)** If required, a reboot is initiated if the maintenance window allows.|
+   |Always reboot|A reboot is initiated regardless of whether one is required. |
+   |Never reboot|Regardless of if a reboot is required, reboots are suppressed.|
+   |Only reboot - will not install updates|This option ignores installing updates, and only initiates a reboot.|
+
+When you're finished configuring the schedule, select the **Create** button to return to the status dashboard. The **Scheduled** table shows the deployment schedule that you created.
 
 ## View results of an update deployment
 

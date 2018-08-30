@@ -17,13 +17,7 @@ ms.author: andrl
 
 Learn how Azure Cosmos DB's language-integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers**, and **user-defined functions (UDFs)** natively in an [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Javascript integration enables you to write program logic that can be shipped and executed directly within the database storage partitions. 
 
-We recommend getting started by watching the following video, where Andrew Liu provides an introduction to Azure Cosmos DB's server-side database programming model. 
-
-> [!VIDEO https://www.youtube.com/embed/s0cXdHNlVI0]
->
-> 
-
-Then, return to this article, where you'll learn the answers to the following questions:  
+In this article you'll learn the answers to the following questions:  
 
 * How do I write a stored procedure, trigger, or UDF using JavaScript?
 * How does Cosmos DB guarantee ACID?
@@ -679,7 +673,7 @@ JavaScript stored procedures and triggers are sandboxed so that the effects of o
 Stored procedures, triggers, and UDFs are implicitly precompiled to the byte code format in order to avoid compilation cost at the time of each script invocation. Pre-compilation ensures invocation of stored procedures is fast and have a low footprint.
 
 ## Client SDK support
-In addition to the Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB has [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/), and [Python SDKs](sql-api-sdk-python.md) for the SQL API as well. Stored procedures, triggers, and UDFs can be created and executed using any of these SDKs as well. The following example shows how to create and execute a stored procedure using the .NET client. Note how the .NET types are passed into the stored procedure as JSON and read back.
+In addition to the Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB has [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), and [Python SDKs](sql-api-sdk-python.md) for the SQL API as well. Stored procedures, triggers, and UDFs can be created and executed using any of these SDKs as well. The following example shows how to create and execute a stored procedure using the .NET client. Note how the .NET types are passed into the stored procedure as JSON and read back.
 
 ```javascript
 var markAntiquesSproc = new StoredProcedure

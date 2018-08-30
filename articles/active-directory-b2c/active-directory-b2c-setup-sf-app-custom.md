@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/11/2017
+ms.date: 08/15/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -146,7 +146,7 @@ You need to define Salesforce as a claims provider so users can sign in by using
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="username"/>
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="externalIdp"/>
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication"/>
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAMLIdp" />
           </OutputClaims>
           <OutputClaimsTransformations>

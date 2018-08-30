@@ -1,23 +1,18 @@
 ---
 title: Transform XML with XSLT maps - Azure Logic Apps | Microsoft Docs
-description: Add XSLT maps to transform XML data with Azure Logic Apps and the Enterprise Integration Pack
+description: Add XSLT maps that transform XML in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-
-ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-
 ---
-# Add maps for XML data transform
+
+# Add maps for XML transformation in Azure Logic Apps with Enterprise Integration Pack
 
 Enterprise integration uses maps to transform XML data between formats. 
 A map is an XML document that defines the data in a document that 

@@ -69,7 +69,7 @@ There are four items within the solution:
 
 * A **deployment.template.json** file lists your new module along with a sample **tempSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md). 
 
-## Devlop your module
+## Develop your module
 
 The default Azure Function code that comes with the solution is located at **modules** > **\<your module name\>** > **Program.cs**. The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the tempSensor module that simulates data) and pipe it to IoT Hub. 
 
@@ -85,7 +85,7 @@ In each module folder, there are several Docker files for different container ty
 
 2. In the VS Code command palette, enter and run the command **Edge: Build IoT Edge solution**.
 3. Select the `deployment.template.json` file for your solution from the command palette. 
-4. In Azure IoT Hub Device Explorer, right-click an IoT Edge device ID. Then select **Create deployment for IoT Edge device**. 
+4. In Azure IoT Hub Device Explorer, right-click an IoT Edge device ID. Then select **Create deployment for Single Device**. 
 5. Open your solution's **config** folder. Then select the `deployment.json` file. Choose **Select Edge Deployment Manifest**. 
 
 You'll see the deployment successfully created with a deployment ID in a VS Code-integrated terminal.

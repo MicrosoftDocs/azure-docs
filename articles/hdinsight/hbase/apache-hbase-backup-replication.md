@@ -3,7 +3,7 @@ title: Set up HBase and Phoenix backup and replication - Azure HDInsight
 description: Set up backup and replication for HBase and Phoenix.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive

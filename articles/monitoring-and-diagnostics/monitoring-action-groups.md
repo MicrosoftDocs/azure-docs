@@ -59,11 +59,11 @@ For information on how to use Azure Resource Manager templates to configure acti
 
 <dt>Email</dt>
 <dd>Emails will be sent from the following email addresses. Ensure that your email filtering is configured appropriately
-
-    - azure-noreply@microsoft.com
-    - azureemail-noreply@microsoft.com
-    - alerts-noreply@mail.windowsazure.com
-    
+<ul>
+    <li>azure-noreply@microsoft.com</li>
+    <li>azureemail-noreply@microsoft.com</li>
+    <li>alerts-noreply@mail.windowsazure.com</li>
+</ul>
 </dd>
 <dd>You may have up to 1000 email actions in an Action Group</dd>
 <dd>See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article</dd>

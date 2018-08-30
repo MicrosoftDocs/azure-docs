@@ -41,7 +41,7 @@ Name the application **MyConsoleSearchApp**, and then click **OK**.
 JSON.net allows you to work with the JSON responses returned by the API. Add its NuGet package to your project:
 
 - In **Solution Explorer** right-click on the project and select **Manage NuGet Packages...**. 
-- On the  **Browse** tab, search search for `Newtonsoft.Json`. Select the latest version, and then click **Install**. 
+- On the  **Browse** tab, search for `Newtonsoft.Json`. Select the latest version, and then click **Install**. 
 - Click the **OK** button on the **Review Changes** window.
 - Close the Visual Studio tab titled **NuGet: MyConsoleSearchApp**.
 

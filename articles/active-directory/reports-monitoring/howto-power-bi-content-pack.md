@@ -142,7 +142,7 @@ As soon as the new version of the content pack is working, you can remove the ol
 
 ## Still having issues? 
 
-Check out our [troubleshooting guide](troubleshoot-content-pack.md). For general help with Power BI, check out these [help articles](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/).
+Check out our [troubleshooting guide](troubleshoot-content-pack.md). For general help with Power BI, check out these [help articles](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
  
 
 ## Next steps

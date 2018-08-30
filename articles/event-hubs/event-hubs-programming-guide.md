@@ -7,7 +7,7 @@ author: ShubhaVijayasarathy
 
 ms.service: event-hubs
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 08/12/2018
 ms.author: shvija
 
 ---
