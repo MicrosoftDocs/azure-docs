@@ -27,7 +27,7 @@ Not yet. You can use one of the supported SDKs. See tutorials and samples in thi
 
 The Media Services team is eliminating RUs in v3. However the necessary service work is not complete. Until then, customers have to use the Azure portal or AMS v2 APIs to set RUs (as described in [Scaling media processing](../previous/media-services-scale-media-processing-overview.md). 
 
-S3 RUs are necessary for the **VideoAnalyzerPreset** and **AudioAnalyzerPreset** V3 presets.
+When using **VideoAnalyzerPreset** and/or **AudioAnalyzerPreset**, set your Media Services account to 10 S3 Media Reserved Units.
 
 ## Does V3 Asset have no AssetFile concept?
 

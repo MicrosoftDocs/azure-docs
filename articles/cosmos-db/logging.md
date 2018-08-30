@@ -38,7 +38,7 @@ In this article, we focus on the Azure Activity Log, Azure Diagnostic Logs, and 
 
 The Azure Activity Log is a subscription log that provides insight into subscription-level events that have occurred in Azure. The Activity Log reports control-plane events for your subscriptions under the Administrative category. You can use the Activity Log to determine the "what, who, and when" for any write operation (PUT, POST, DELETE) on the resources in your subscription. You can also understand the status of the operation and other relevant properties. 
 
-The Activity Log differs from Diagnostic Logs. The Activity Log provides data about the operations on a resource from the outside (the _control plane_). In the Azure Cosmos DB context, control plane operations include create collection, list keys, delete keys, list database, and so on. Diagnostics Logs are emitted by a resource and provide information about the operation of that resource (the _data plane_). Some examples of the data plane operations in the diagnostic log are Delete, Insert, and ReadFeed.
+The Activity Log differs from Diagnostic Logs. The Activity Log provides data about the operations on a resource from the outside (the _control plane_). In the Azure Cosmos DB context, control plane operations include create container, list keys, delete keys, list database, and so on. Diagnostics Logs are emitted by a resource and provide information about the operation of that resource (the _data plane_). Some examples of the data plane operations in the diagnostic log are Delete, Insert, and ReadFeed.
 
 Activity Logs (control plane operations) can be richer in nature and can include the full email address of the caller, caller IP address, resource name, operation name, TenantId, and more. The Activity Log contains several [categories](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) of data. For full details on the schemata of these categories, see [Azure Activity Log event schema](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). However, Diagnostic Logs can be restrictive in nature as personal data is often stripped from these logs. You might have the IP address of the caller, but the last octant is removed.
 
@@ -350,7 +350,7 @@ Diagnostic Logs are made available in your account for two hours from the time t
 <a id="#view-in-loganalytics"></a>
 ## View logs in Log Analytics
 
-If you selected the **Send to Log Analytics** option when you turned on diagnostic logging, diagnostic data from your collection is forwarded to Log Analytics within two hours. When you look at Log Analytics immediately after you turn on logging, you won't see any data. Just wait two hours and try again. 
+If you selected the **Send to Log Analytics** option when you turned on diagnostic logging, diagnostic data from your container is forwarded to Log Analytics within two hours. When you look at Log Analytics immediately after you turn on logging, you won't see any data. Just wait two hours and try again. 
 
 Before you view your logs, check and see if your Log Analytics workspace has been upgraded to use the new Log Analytics query language. To check, open the [Azure portal](https://portal.azure.com), select **Log Analytics** on the far left, then select the workspace name as shown in the next image. The **OMS Workspace** page is displayed:
 
@@ -442,7 +442,7 @@ The following table describes the content of each log entry.
 | **properties** | n/a | The contents of this field are described in the rows that follow. |
 | **activityId** | **activityId_g** | The unique GUID for the logged operation. |
 | **userAgent** | **userAgent_s** | A string that specifies the client user agent that's performing the request. The format is {user agent name}/{version}.|
-| **resourceType** | **ResourceType** | The type of the resource accessed. This value can be any of the following resource types: Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction, or Offer. |
+| **resourceType** | **ResourceType** | The type of the resource accessed. This value can be any of the following resource types: Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction, or Offer. |
 | **statusCode** | **statusCode_s** | The response status of the operation. |
 | **requestResourceId** | **ResourceId** | The resourceId that pertains to the request. The value may point to databaseRid, collectionRid, or documentRid depending on the operation performed.|
 | **clientIpAddress** | **clientIpAddress_s** | The client's IP address. |

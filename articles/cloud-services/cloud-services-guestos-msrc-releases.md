@@ -13,12 +13,58 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/1/2018
+ms.date: 8/3/2018
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+
+## July Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-07 | [4338814] |Windows 10 Security |5.21 |July 10, 2018 |
+| Rel 18-07 | [4338823] |Windows Security only |2.76 |July 10, 2018 |
+| Rel 18-07 | [4338820] |Windows Security only |3.63 |July 10, 2018 |
+| Rel 18-07 | [4338824] |Windows Security only |4.56 |July 10, 2018 |
+| Rel 18-07 | [4345459] |Security rollup refresh |2.76 |July 10, 2018 |
+| Rel 18-07 | [4345425] |Security rollup refresh |3.63 |July 10, 2018 |
+| Rel 18-07 | [4345424] |Security rollup refresh |4.56 |July 10, 2018 |
+| Rel 18-07 | [4345418] |Security rollup refresh |5.21 |July 10, 2018 |
+| Rel 18-07 | [4338612], [4338602] |.NET 3.5, 4.x Security |2.76 |July 10, 2018 |
+| Rel 18-07 | [4338601], [4338604] |.NET 3.5, 4.x, 4.5x Security |3.63 |July 10, 2018 |
+| Rel 18-07 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x, 4.5x Security |4.56|July 10, 2018 |
+| Rel 18-07 | [4338832] |Flash |3.63, 4.76, 5.21 |July 10, 2018 |
+| Rel 18-07 | [4339093] |Internet Explorer |2.76, 3.63, 4.76 |July 10, 2018 |
+| N/A | [4284826] |June non-security rollup |2.76 |June 12, 2018 |
+| N/A | [4284855] |June non-security rollup |3.63 |June 12, 2018 |
+| N/A | [4284815] |June non-security rollup |4.56 |June 12, 2018 |
+
+## June Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-06 | [4284880] |Windows 10 Security |5.20 |June 12, 2018 |
+| Rel 18-06 | [4284867] |Windows Security only |2.75 |June 12, 2018 |
+| Rel 18-06 | [4284846] |Windows Security only |3.62 |June 12, 2018 |
+| Rel 18-06 | [4284878] |Windows Security only |4.55 |June 12, 2018 |
+| Rel 18-06 | [4230450] |Internet Explorer |2.75, 3.62, 4.75 |June 12, 2018 |
+| Rel 18-06 | [4287903] |Flash |3.62, 4.75, 5.20 |June 12, 2018 |
+| N/A | [4103718] |May non-security rollup |2.75 |May 8, 2018 |
+| N/A | [4103730] |May non-security rollup |3.62 |May 8, 2018 |
+| N/A | [4103725] |May non-security rollup |4.55 |May 8, 2018 |
+| N/A | [4040980], [4040977] |Sept ’17 .NET non-security rollup |2.75 |November 14, 2017 |
+| N/A | [4095874] |May .NET 3.5 non-security release |2.75 |May 8, 2018 |
+| N/A | [4096495] |May .NET 4.x non-security release |2.75 |May 8, 2018 |
+| N/A | [4040975] |Sept ’17 .NET non-security rollup |3.62 |November 14, 2017 |
+| N/A | [4095872] |May .NET 3.5 non-security release |3.62 |May 8, 2018 |
+| N/A | [4096494] |May .NET 4.x non-security release |3.62 |May 8, 2018 |
+| N/A | [4096416] |May .NET 4.5x non-security release |3.62 |May 8, 2018 |
+| N/A | [4040974], [4040972] |Sept ’17 .NET non-security rollup |4.55 |November 14, 2017 |
+| N/A | [4043763] |Oct ’17 .NET non-security rollup |4.55 |September 12, 2017 |
+| N/A | [4095876] |May .NET 4.x non-security release |4.55 |May 8, 2018 |
+| N/A | [4096417] |May .NET 4.5x non-security release |4.55 |May 8, 2018 |
+| N/A | [4132216] |May SSU |5.20 |May 8, 2018 |
 
 ## May Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -644,6 +690,54 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3007054] |PIN-protected printing option always shows when you print a document within a Windows Store application in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+
+
+[4338814]: http://support.microsoft.com/kb/4338814
+[4338823]: http://support.microsoft.com/kb/4338823
+[4338820]: http://support.microsoft.com/kb/4338820
+[4338824]: http://support.microsoft.com/kb/4338824
+[4345459]: http://support.microsoft.com/kb/4345459
+[4345425]: http://support.microsoft.com/kb/4345425
+[4345424]: http://support.microsoft.com/kb/4345424
+[4345418]: http://support.microsoft.com/kb/4345418
+[4338612]: http://support.microsoft.com/kb/4338612
+[4338602]: http://support.microsoft.com/kb/4338602
+[4338601]: http://support.microsoft.com/kb/4338601
+[4338604]: http://support.microsoft.com/kb/4338604
+[4338613]: http://support.microsoft.com/kb/4338613
+[4338600]: http://support.microsoft.com/kb/4338600
+[4338605]: http://support.microsoft.com/kb/4338605
+[4338832]: http://support.microsoft.com/kb/4338832
+[4284826]: http://support.microsoft.com/kb/4284826
+[4284855]: http://support.microsoft.com/kb/4284855
+[4284815]: http://support.microsoft.com/kb/4284815
+[4339093]: http://support.microsoft.com/kb/4339093
+
+[4284880]: http://support.microsoft.com/kb/4284880
+[4284867]: http://support.microsoft.com/kb/4284867
+[4284846]: http://support.microsoft.com/kb/4284846
+[4284878]: http://support.microsoft.com/kb/4284878
+[4230450]: http://support.microsoft.com/kb/4230450
+[4287903]: http://support.microsoft.com/kb/4287903
+[4103718]: http://support.microsoft.com/kb/4103718
+[4103718]: http://support.microsoft.com/kb/4103718
+[4103730]: http://support.microsoft.com/kb/4103730
+[4103725]: http://support.microsoft.com/kb/4103725
+[4040980]: http://support.microsoft.com/kb/4040980
+[4040977]: http://support.microsoft.com/kb/4040977
+[4095874]: http://support.microsoft.com/kb/4095874
+[4096495]: http://support.microsoft.com/kb/4096495
+[4040975]: http://support.microsoft.com/kb/4040975
+[4095872]: http://support.microsoft.com/kb/4095872
+[4096494]: http://support.microsoft.com/kb/4096494
+[4096416]: http://support.microsoft.com/kb/4096416
+[4040974]: http://support.microsoft.com/kb/4040974
+[4040972]: http://support.microsoft.com/kb/4040972
+[4043763]: http://support.microsoft.com/kb/4043763
+[4095876]: http://support.microsoft.com/kb/4095876
+[4096417]: http://support.microsoft.com/kb/4096417
+[4132216]: http://support.microsoft.com/kb/4132216
 
 [4103721]: http://support.microsoft.com/kb/4103721
 [4103727]: http://support.microsoft.com/kb/4103727 

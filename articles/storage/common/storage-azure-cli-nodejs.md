@@ -2,20 +2,12 @@
 title: Using the Azure CLI 1.0 with Azure Storage | Microsoft Docs
 description: Learn how to use the Azure Command-Line Interface (Azure CLI) 1.0 with Azure Storage to create and manage storage accounts and work with Azure blobs and files. The Azure CLI is a cross-platform tool
 services: storage
-documentationcenter: na
 author: seguler
-manager: jahogg
-editor: tysonn
-
-ms.assetid: b502232a-e8f6-4d6c-befd-3476592e0e35
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-
+ms.component: common
 ---
 # Using the Azure CLI 1.0 with Azure Storage
 
@@ -39,7 +31,7 @@ This guide uses Ubuntu for examples, but other OS platforms should perform simil
 
 **New to Azure:** Get a Microsoft Azure subscription and a Microsoft account associated with that subscription. For information on Azure purchase options, see [Free Trial](https://azure.microsoft.com/pricing/free-trial/), [Purchase Options](https://azure.microsoft.com/pricing/purchase-options/), and [Member Offers](https://azure.microsoft.com/pricing/member-offers/) (for members of MSDN, Microsoft Partner Network, and BizSpark, and other Microsoft programs).
 
-See [Assigning administrator roles in Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/hh531793.aspx) for more information about Azure subscriptions.
+See [Assigning administrator roles in Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) for more information about Azure subscriptions.
 
 **After creating a Microsoft Azure subscription and account:**
 

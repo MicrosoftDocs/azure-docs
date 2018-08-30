@@ -1,5 +1,5 @@
 ﻿---
-title: Understand your bill for Azure
+title: Understand your bill for Azure | Microsoft Docs
 description: Learn how to read and understand your usage and bill for your Azure subscription
 services: ''
 documentationcenter: ''
@@ -29,6 +29,9 @@ To obtain a PDF of your invoice and a copy of your detailed daily usage file CSV
 For detailed terms and descriptions of your invoice and detailed daily usage file, see [Understand terms on your Microsoft Azure invoice](billing-understand-your-invoice.md) and [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md). 
 
 For details on the cost management reports, see [Azure portal cost management](https://docs.microsoft.com/azure/billing/billing-getting-started).
+
+> [!div class="nextstepaction"]
+> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="charges"></a>How do I make sure that the charges in my invoice are correct?
 

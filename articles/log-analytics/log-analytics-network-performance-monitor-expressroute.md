@@ -1,6 +1,6 @@
 ---
 title: Network Performance Monitor solution in Azure Log Analytics | Microsoft Docs
-description: Use the ExpressRoute Manager capability in Network Performance Monitor to monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute.
+description: Use the ExpressRoute Monitor capability in Network Performance Monitor to monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute.
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -11,14 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-
+ms.component: na
 ---
-# ExpressRoute Manager
 
-You can use the Azure ExpressRoute Manager capability in [Network Performance Monitor](log-analytics-network-performance-monitor.md) to monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute. Key advantages are: 
+# ExpressRoute Monitor
+
+You can use the Azure ExpressRoute Monitor capability in [Network Performance Monitor](log-analytics-network-performance-monitor.md) to monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute. Key advantages are: 
 
 - Autodetection of ExpressRoute circuits associated with your subscription.
 - Tracking of bandwidth utilization, loss and latency at the circuit, peering, and Azure Virtual Network level for ExpressRoute.

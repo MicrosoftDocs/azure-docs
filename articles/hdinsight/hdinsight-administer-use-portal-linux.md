@@ -1,20 +1,15 @@
 ---
-title: Manage Hadoop clusters in HDInsight using Azure portal | Microsoft Docs
+title: Manage Hadoop clusters in HDInsight using Azure portal 
 description: Learn how to create and manage HDInsight clusters using the Azure portal.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Manage Hadoop clusters in HDInsight by using the Azure portal
@@ -103,7 +98,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
     * **Monitoring**: Monitor the cluster in Azure Log Analytics.
     * **Properties**: View the cluster properties.
     * **Storage accounts**: View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.
-    * **Data Lake Store access**: Configure access Data Lake Stores.  See [Create HDInsight clusters with Data Lake Store by using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * **Data Lake Store access**: Configure access Data Lake Stores.  See [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
     * **Resource health**: See [Azure resource health overview](../service-health/resource-health-overview.md).
     * **New support request**: Allows you to create a support ticket with Microsoft support.
     

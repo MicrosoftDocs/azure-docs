@@ -3,17 +3,18 @@ title: Azure SQL Analytics solution in Log Analytics | Microsoft Docs
 description: Azure SQL Analytics solution helps you manage your Azure SQL databases
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: danimir
 manager: carmonm
-editor: ''
+ms.reviewer: carlrab
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: magoedte
+ms.author: v-daljep
+ms.component: na
 ---
 
 # Monitor Azure SQL Databases using Azure SQL Analytics (Preview)
@@ -33,14 +34,14 @@ For a hands-on overview on using Azure SQL Analytics solution and for typical us
 
 ## Connected sources
 
-Azure SQL Analytics is a cloud monitoring solution supporting streaming of diagnostics telemetry for Azure SQL Databases and elastic pools. As it does not use agents to connect to the Log Analytics service, the solution does not support connectivity with Windows, Linux or SCOM resources, see the compatibility table below.
+Azure SQL Analytics is a cloud monitoring solution supporting streaming of diagnostics telemetry for Azure SQL Databases and elastic pools. As it doesn't use agents to connect to the Log Analytics service, the solution doesn't support connectivity with Windows, Linux or SCOM resources, see the compatibility table below.
 
 | Connected Source | Support | Description |
 | --- | --- | --- |
 | **[Azure Diagnostics](log-analytics-azure-storage.md)** | **Yes** | Azure metric and log data are sent to Log Analytics directly by Azure. |
-| [Azure storage account](log-analytics-azure-storage.md) | No | Log Analytics does not read the data from a storage account. |
-| [Windows agents](log-analytics-windows-agent.md) | No | Direct Windows agents are not used by the solution. |
-| [Linux agents](log-analytics-linux-agents.md) | No | Direct Linux agents are not used by the solution. |
+| [Azure storage account](log-analytics-azure-storage.md) | No | Log Analytics doesn't read the data from a storage account. |
+| [Windows agents](log-analytics-windows-agent.md) | No | Direct Windows agents aren't used by the solution. |
+| [Linux agents](log-analytics-linux-agents.md) | No | Direct Linux agents aren't used by the solution. |
 | [SCOM management group](log-analytics-om-agents.md) | No | A direct connection from the SCOM agent to Log Analytics is not used by the solution. |
 
 ## Configuration
@@ -113,7 +114,7 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 
 ### Elastic Pool and Database reports
 
-Both Elastic Pools and Databases have their own specific reports which show all the data that is collected for the resource in the specified time.
+Both Elastic Pools and Databases have their own specific reports that show all the data that is collected for the resource in the specified time.
 
 ![Azure SQL Analytics Database](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
 
@@ -127,29 +128,79 @@ Through the Query duration and query waits perspectives, you can correlate the p
 
 ### Analyze data and create alerts
 
-You can easily [create alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use use with a log alert:
+You can easily [create alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use with a log alert:
 
-
-
-*High DTU on Azure SQL Database*
+*High CPU on Azure SQL Database*
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/DATABASES/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
-*High DTU on Azure SQL Database Elastic Pool*
+> [!NOTE]
+> - Pre-requirement of setting up this alert is that monitored databases stream diagnostics metrics ("All metrics" option) to the solution.
+> - Replace the MetricName value cpu_percent with dtu_consumption_percent to obtain high DTU results instead.
+
+*High CPU on Azure SQL Database Elastic Pools*
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/ELASTICPOOLS/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
+> [!NOTE]
+> - Pre-requirement of setting up this alert is that monitored databases stream diagnostics metrics ("All metrics" option) to the solution.
+> - Replace the MetricName value cpu_percent with dtu_consumption_percent to obtain high DTU results instead.
 
+*Azure SQL Database storage in average above 95% in the last 1hr*
+
+```
+let time_range = 1h;
+let storage_threshold = 95;
+AzureMetrics
+| where ResourceId contains "/DATABASES/"
+| where MetricName == "storage_percent"
+| summarize max_storage = max(Average) by ResourceId, bin(TimeGenerated, time_range)
+| where max_storage > storage_threshold
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - Pre-requirement of setting up this alert is that monitored databases stream diagnostics metrics ("All metrics" option) to the solution.
+> - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on some databases. The output is a list of database resources that are above the storage_threshold within the time_range defined.
+> - The output is a list of database resources that are above the storage_threshold within the time_range defined.
+
+*Alert on Intelligent insights*
+
+```
+let alert_run_interval = 1h;
+let insights_string = "hitting its CPU limits";
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| where TimeGenerated > ago(alert_run_interval)
+| where rootCauseAnalysis_s contains insights_string
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - Pre-requirement of setting up this alert is that monitored databases stream SQLInsights diagnostics log to the solution.
+> - This query requires an alert rule to be set up to run with the same frequency as alert_run_interval in order to avoid duplicate results. The rule should be set up to fire off the alert when there exist results (> 0 results) from the query.
+> - Customize the alert_run_interval to specify the time range to check if the condition has occurred on databases configured to stream SQLInsights log to the solution.
+> - Customize the insights_string to capture the output of the Insights root cause analysis text. This is the same text displayed in the UI of the solution that you can use from the existing insights. Alternatively, you can use the query below to see the text of all Insights generated on your subscription. Use the output of the query to harvest the distinct strings for setting up alerts on Insights.
+
+```
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| distinct rootCauseAnalysis_s
+```
 
 ## Next steps
 

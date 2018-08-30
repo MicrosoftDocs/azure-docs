@@ -1,23 +1,18 @@
 ---
 title: Troubleshoot and diagnose failures - Azure Logic Apps | Microsoft Docs
-description: Understand how and why logic apps fail
+description: Learn how to troubleshoot and diagnose workflow failures in Azure Logic Apps
 services: logic-apps
-documentationcenter: 
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-
-ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.service: logic-apps
-ms.devlang: 
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
+ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.date: 10/15/2017
-ms.author: LADocs; jehollan
 ---
 
-# Troubleshoot and diagnose logic app failures
+# Troubleshoot and diagnose workflow failures in Azure Logic Apps
 
 Your logic app generates information that can help you 
 diagnose and debug problems in your app. 
@@ -142,21 +137,20 @@ Under **Runs history**, select the run that you want to examine.
 
 To help with debugging, you can add diagnostic steps to a workflow, 
 along with reviewing the trigger and runs history. For example, 
-you can add steps that use the [RequestBin](http://requestb.in) 
+you can add steps that use the [Webhook Tester](https://webhook.site/) 
 service so that you can inspect HTTP requests and determine 
 their exact size, shape, and format.
 
-1. Create a RequestBin, 
-which you can make private and viewable only in your browser.
+1. Visit [Webhook Tester](https://webhook.site/) and copy the unique URL created
 
 2. In your logic app, add an HTTP POST action with the 
 body content that you want to test, 
 for example, an expression or another step output.
 
-3. Paste the URL for your RequestBin into the HTTP POST action.
+3. Paste the URL for your Webhook Tester into the HTTP POST action.
 
 4. To review how a request is formed when generated from the Logic Apps engine, 
-run the logic app, and refresh your RequestBin.
+run the logic app, and see Webhook Tester for details.
 
 ## Next steps
 

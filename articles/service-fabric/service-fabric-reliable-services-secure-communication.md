@@ -53,7 +53,12 @@ To help secure a service when you're using service remoting with C# services, fo
     ```
 2. Add listener settings and security credentials.
 
-    Make sure the certificate that you want to use to help secure your service communication is installed on all the nodes in the cluster. There are two ways that you can provide listener settings and security credentials:
+    Make sure the certificate that you want to use to help secure your service communication is installed on all the nodes in the cluster. 
+    
+    > [!NOTE]
+    > On Linux nodes, the certificate must be present as PEM-formatted files in the */var/lib/sfcerts* directory. To learn more, see [Location and format of X.509 certificates on Linux nodes](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
+
+    There are two ways that you can provide listener settings and security credentials:
 
    1. Provide them directly in the service code:
 
@@ -198,5 +203,6 @@ To help secure a service when you're using service remoting with C# services, fo
     string message = await client.GetHelloWorld();
 
     ```
+
 
 As a next step, read [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md).

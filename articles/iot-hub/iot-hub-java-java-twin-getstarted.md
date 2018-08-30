@@ -18,7 +18,7 @@ ms.author: dobett
 In this tutorial, you create two Java console apps:
 
 * **add-tags-query**, a Java back-end app that adds tags and queries device twins.
-* **simulated-device**, a Java device app that that connects to your IoT hub and reports its connectivity condition using a reported property.
+* **simulated-device**, a Java device app that connects to your IoT hub and reports its connectivity condition using a reported property.
 
 > [!NOTE]
 > The article [Azure IoT SDKs](iot-hub-devguide-sdks.md) provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.
@@ -345,8 +345,8 @@ In this tutorial, you configured a new IoT hub in the Azure portal, and then cre
 
 Use the following resources to learn how to:
 
-* Send telemetry from devices with the [Get started with IoT Hub](iot-hub-java-java-getstarted.md) tutorial.
-* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](iot-hub-java-java-direct-methods.md) tutorial.
+* Send telemetry from devices with the [Get started with IoT Hub](quickstart-send-telemetry-java.md) tutorial.
+* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](quickstart-control-device-java.md) tutorial.
 
 <!-- Images. -->
 [7]: ./media/iot-hub-java-java-twin-getstarted/invoke-method.png

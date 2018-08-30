@@ -4,16 +4,18 @@ description: Provides answers to some questions IT administrators might have abo
 services: active-directory
 keywords: enterprise state roaming settings, windows cloud, frequently asked questions on enterprise state roaming
 documentationcenter: ''
-author: tanning
+author: MarkusVi
 manager: mtillman
 editor: curtand
+
+ms.component: devices
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.author: markvi
 
 ---
@@ -96,7 +98,7 @@ Enterprise State Roaming stores all synced data in the Azure cloud. UE-V offers 
 ## Who owns the data that’s being roamed?
 The enterprises own the data roamed via Enterprise State Roaming. Data is stored in an Azure datacenter. All user data is encrypted both in transit and at rest in the cloud using the Azure Rights Management service from Azure Information Protection. This is an improvement compared to Microsoft account-based settings sync, which encrypts only certain sensitive data such as user credentials before it leaves the device.
 
-Microsoft is committed to safeguarding customer data. An enterprise user’s settings data is automatically encrypted by the Azure Rights Management service before it leaves a Windows 10 device, so no other user can read this data. If your organization has a paid subscription for the Azure Rights Management service, you can use other protection features, such as track and revoke documents, automatically protect emails that contain sensitive information, and manage your own keys (the "bring your own key" solution, also known as BYOK). For more information about these features and how this protection service works, see [What is Azure Rights Management](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
+Microsoft is committed to safeguarding customer data. An enterprise user’s settings data is automatically encrypted by the Azure Rights Management service before it leaves a Windows 10 device, so no other user can read this data. If your organization has a paid subscription for the Azure Rights Management service, you can use other protection features, such as track and revoke documents, automatically protect emails that contain sensitive information, and manage your own keys (the "bring your own key" solution, also known as BYOK). For more information about these features and how this protection service works, see [What is Azure Rights Management](/azure/information-protection/what-is-information-protection).
 
 ## Can I manage sync for a specific app or setting?
 In Windows 10, there is no MDM or Group Policy setting to disable roaming for an individual application. Tenant administrators can disable appdata sync for all apps on a managed device, but there is no finer control at a per-app or within-app level.

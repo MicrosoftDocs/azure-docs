@@ -1,10 +1,9 @@
 ---
-title: AudioInputStream concepts | Microsoft Docs
+title: AudioInputStream concepts
 description: An overview of the capabilities of the AudioInputStream API.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: fmegen
-manager: wolfma61
 
 ms.service: cognitive-services
 ms.component: speech-service
@@ -137,4 +136,4 @@ In general, the following steps are involved when using audio input streams:
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-windows.md)
+* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)

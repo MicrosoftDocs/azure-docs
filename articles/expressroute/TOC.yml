@@ -35,6 +35,8 @@
     href: expressroute-workflows.md
   - name: Routing requirements
     href: expressroute-routing.md
+  - name: BFD over ExpressRoute
+    href: expressroute-bfd.md
   - name: QoS requirements
     href: expressroute-qos.md
   - name: About moving circuits from classic to Resource Manager
@@ -83,12 +85,16 @@
       href: how-to-routefilter-powershell.md
     - name: Azure CLI
       href: how-to-routefilter-cli.md
+  - name: Enable and disable peerings
+    href: expressroute-howto-reset-peering.md
   - name: Move from public peering to Microsoft peering
     href: how-to-move-peering.md
   - name: Move a circuit from classic to Resource Manager
     href: expressroute-howto-move-arm.md
   - name: Migrate associated virtual networks from classic to Resource Manager
     href: expressroute-migration-classic-resource-manager.md
+  - name: Create a zone-redundant VNet gateway in Azure Availability Zones
+    href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
   - name: Configure a router for ExpressRoute
     items:
     - name: Configure a router

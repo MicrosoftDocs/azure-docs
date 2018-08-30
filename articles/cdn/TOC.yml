@@ -91,6 +91,8 @@
       href: cdn-resource-health.md
     - name: Override behavior with rules
       href: cdn-rules-engine.md
+    - name: Use Traffic Manager
+      href: cdn-traffic-manager.md      
   - name: Analyze
     href: cdn-log-analysis.md
     items:

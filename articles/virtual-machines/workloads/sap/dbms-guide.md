@@ -284,7 +284,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
-[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
+[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
@@ -1159,7 +1159,7 @@ The installation and operation of SRS works as well functionally in a VM hosted 
 ASE HADR via SAP Replication Server is NOT supported at this point in time. It might be tested with and released for Microsoft Azure platforms in the future.
 
 ## Specifics to Oracle Database on Windows
-Oracle software is supported by Oracle to run on Microsoft Windows Hyper-V and Azure. For details on the general support of Windows Hyper-V and Azure, check: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle software is supported by Oracle to run on Microsoft Windows Hyper-V and Azure. 
 
 Following the general support, the specific scenario of SAP applications leveraging Oracle Databases is supported as well. Details are named in this part of the document.
 
@@ -1199,7 +1199,7 @@ in [this][virtual-machines-windows-classic-configure-oracle-data-guard] document
 All other general areas like Azure Availability Sets or SAP monitoring apply as described in the first three chapters of this document for deployments of VMs with the Oracle Database as well.
 
 ## Specifics to Oracle Database on Oracle Linux
-Oracle software is supported by Oracle to run on Microsoft Windows Hyper-V and Azure. For details on the general support of Windows Hyper-V and Azure, check: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle software is supported by Oracle to run on Microsoft Windows Hyper-V and Azure. 
 
 Following the general support, the specific scenario of SAP applications leveraging Oracle Databases is supported as well. Details are named in this part of the document.
 

@@ -8,16 +8,14 @@ manager: cfowler
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 07/25/2018
 ms.author: juliako
 ---
 
 # Examine the Video Indexer output produced by v2 API
 
 > [!Note]
-> The Video Indexer V1 APIs are now deprecated, and will be removed on August 1st, 2018. You should start using the Video Indexer v2 APIs to avoid disruptions.
->
-> To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
+> The Video Indexer V1 API was deprecated on August 1st, 2018. You should now use the Video Indexer v2 API. <br/>To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
 
 When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, ocrs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimension appeared in the video.  
 
@@ -43,9 +41,9 @@ This article examines the JSON content returned by the  **Get Video Index** API.
 |created|The playlist's creation time.|
 |privacyMode|The playlist’s privacy mode (Private/Public).|
 |state|The playlist’s (uploaded, processing, processed, failed, quarantined).|
-|isOwned|Whether the playlist was created by the current user.|
-|isEditable|Whether the current user is authorized to edit the playlist.|
-|isBase|Whether the playlist is a base playlist (a video) or a playlist made of other videos (derived).|
+|isOwned|Indicates whether the playlist was created by the current user.|
+|isEditable|Indicates whether the current user is authorized to edit the playlist.|
+|isBase|Indicates whether the playlist is a base playlist (a video) or a playlist made of other videos (derived).|
 |durationInSeconds|The total duration of the playlist.|
 |summarizedInsights|Contains one [summarizedInsights](#summarizedinsights).
 |videos|A list of [videos](#videos) constructing the playlist.<br/>If this playlist of constructed of time ranges of other videos (derived), the videos in this list will contain only data from the included time ranges.|
@@ -79,41 +77,33 @@ This section shows the summary of the insights.
 |shortId|The ID of the video. For example, 63c6d532ff.|
 |privacyMode|Your breakdown can have one of the following modes: **Private**, **Public**. **Public** - the video is visible to everyone in your account and anyone that has a link to the video. **Private** - the video is visible to everyone in your account.|
 |duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.|
-|thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').|
-|faces|May contain one or more faces. For more information, see [faces](#faces).|
-|topics|May contain one or more topics. For more information, see [topics](#topics).|
-|sentiments|May contain one or more sentiments. For more information, see [sentiments](#sentiments).|
-|audioEffects| May contain one or more audioEffects. For more information, see [audioEffects](#audioeffects).|
-|brands| May contain zero or more brands. For more information, see [brands](#brands).|
-|statistics | For more information, see [statistics](#statistics).|
-
-### statistics
-
-|Name|Description|
-|---|---|
-|CorrespondenceCount|Number of correspondences in the video.|
-|WordCount|The number of words per speaker.|
-|SpeakerNumberOfFragments|The amount of fragments the speaker has in a video.|
-|SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
-|SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
+|thumbnailVideoId|The ID of the video from which the thumbnail was taken.
+|thumbnailId|The video's thumbnail ID. To get the actual thumbnail call Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) and pass it thumbnailVideoId and  thumbnailId.|
+|faces|May contain zero or more faces. For more detailed information, see [faces](#faces).|
+|keywords|May contain zero or more keywords. For more detailed information, see [keywords](#keywords).|
+|sentiments|May contain zero or more sentiments. For more detailed information, see [sentiments](#sentiments).|
+|audioEffects| May contain zero or more audioEffects. For more detailed information, see [audioEffects](#audioeffects).|
+|labels| May contain zero or more labels. For detailed more information, see [labels](#labels).|
+|brands| May contain zero or more brands. For more detailed information, see [brands](#brands).|
+|statistics | For more detailed information, see [statistics](#statistics).|
 
 ## videos
 
 |Name|Description|
 |---|---|
-|accountId|The video’s VI account ID.|
+|accountId|The video's VI account ID.|
 |id|The video's ID.|
 |name|The video's name.
 |state|The video’s state (uploaded, processing, processed, failed, quarantined).|
 |processingProgress|The processing progress during processing (for example, 20%).|
 |failureCode|The failure code if failed to process (for example, 'UnsupportedFileType').|
 |failureMessage|The failure message if failed to process.|
-|externalId|The video's external id (if specified by the user).|
+|externalId|The video's external ID (if specified by the user).|
 |externalUrl|The video's external url (if specified by the user).|
 |metadata|The video's external metadata (if specified by the user).|
-|isAdult|Whether the video was manually reviewed and identified as an adult video.|
-|insights|The insights object.|
-|thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').|
+|isAdult|Indicates whether the video was manually reviewed and identified as an adult video.|
+|insights|The insights object. For more information, see [insights](#insights).|
+|thumbnailId|The video's thumbnail ID. To get the actual thumbnail call Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) and pass it the video ID and thumbnailId.|
 |publishedUrl|A url to stream the video.|
 |publishedUrlProxy|A url to stream the video from (for Apple devices).|
 |viewToken|A short lived view token for streaming the video.|
@@ -122,6 +112,7 @@ This section shows the summary of the insights.
 |indexingPreset|The preset used to index the video.|
 |streamingPreset|The preset used to publish the video.|
 |linguisticModelId|The CRIS model used to transcribe the video.|
+|statistics | For more information, see [statistics](#statistics).|
 
 ```json
 {
@@ -161,6 +152,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |transcript|The [transcript](#transcript) dimension.|
 |ocr|The [ocr](#ocr) dimension.|
 |keywords|The [keywords](#keywords) dimension.|
+|blocks|May contain one or more [blocks](#blocks)|
 |faces|The [faces](#faces) dimension.|
 |labels|The [labels](#labels) dimension.|
 |shots|The [shots](#shots) dimension.|
@@ -190,6 +182,13 @@ Example:
   "textualConentModeration": ...
 }
 ```
+
+#### blocks
+
+Attribute | Description
+---|---
+id|ID of the block.|
+instances|A list of time ranges of this block.|
 
 #### transcript
 
@@ -276,7 +275,7 @@ Example:
 
 |Name|Description|
 |---|---|
-|id|The keyword id.|
+|id|The keyword ID.|
 |text|The keyword text.|
 |confidence|The keyword's recognition confidence.|
 |language|The keyword language (when translated).|
@@ -327,8 +326,8 @@ Example:
 |id|The face ID.|
 |name|The face name. It can be ‘Unknown #0’, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
-|description|If it is a celebrity, its description might be: "Satya Nadella was born at...". |
-|thumbnalId|The id of the thumbnail of that face.|
+|description|A description of the celebrity. |
+|thumbnalId|The ID of the thumbnail of that face.|
 |knownPersonId|If it is a known person, its internal ID.|
 |referenceId|If it is a Bing celebrity, its Bing ID.|
 |referenceType|Currently just Bing.|
@@ -542,6 +541,16 @@ Business and product brand names detected in the speech to text transcript and/o
 ]
 ```
 
+#### statistics
+
+|Name|Description|
+|---|---|
+|CorrespondenceCount|Number of correspondences in the video.|
+|WordCount|The number of words per speaker.|
+|SpeakerNumberOfFragments|The amount of fragments the speaker has in a video.|
+|SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
+|SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
+
 #### audioEffects
 
 |Name|Description|
@@ -578,12 +587,14 @@ Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negativ
 |id|The sentiment ID.|
 |averageScore |The average of all scores of all instances of that sentiment type - Positive/Neutral/Negative|
 |instances|A list of time ranges where this sentiment appeared.|
+|sentimentType |The type can be 'Positive', 'Neutral', or 'Negative'.|
 
 ```json
 "sentiments": [
 {
     "id": 0,
     "averageScore": 0.87,
+    "sentimentType": "Positive",
     "instances": [
     {
         "start": "00:00:23",
@@ -593,6 +604,7 @@ Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negativ
 }, {
     "id": 1,
     "averageScore": 0.11,
+    "sentimentType": "Positive",
     "instances": [
     {
         "start": "00:00:13",
@@ -654,7 +666,7 @@ Videos that are found to contain adult or racy content might be available for pr
 
 ## Next steps
 
-[Video Indexer API](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4)
+[Video Indexer API](https://api-portal.videoindexer.ai)
 
 For information about how to embed widgets in your application, see [Embed Video Indexer widgets into your applications](video-indexer-embed-widgets.md). 
 

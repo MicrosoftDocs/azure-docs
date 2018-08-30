@@ -21,6 +21,20 @@
         href: quickstart-csharp-languages.md
       - name: Get sentence lengths in text
         href: quickstart-csharp-sentences.md
+    - name: Go
+      items:
+      - name: Translate text
+        href: quickstart-go-translate.md
+      - name: Convert text script
+        href: quickstart-go-transliterate.md
+      - name: Identify language from text
+        href: quickstart-go-detect.md
+      - name: Get alternate translations
+        href: quickstart-go-dictionary.md
+      - name: Get supported languages
+        href: quickstart-go-languages.md
+      - name: Get sentence lengths in text
+        href: quickstart-go-sentences.md
     - name: Java
       items:
       - name: Translate text
@@ -91,6 +105,10 @@
         href: quickstart-ruby-languages.md
       - name: Get sentence lengths in text
         href: quickstart-ruby-sentences.md
+- name: Tutorials
+  items:
+  - name: Create a WPF app for Translator Text
+    href: tutorial-wpf-translation-csharp.md
 - name: Concepts
   items:
   - name: Supported languages
@@ -111,8 +129,6 @@
     href: word-alignment.md
   - name: Use the dynamic dictionary feature
     href: dynamic-dictionary.md
-  - name: Create a Translator Text app with WPF
-    href: tutorial-wpf-translation-csharp.md
 - name: Reference
   items: 
   - name: v3 Translator Text API reference
@@ -143,15 +159,17 @@
       href: return-n-best-translations.md
 - name: Resources
   items:
-  - name: FAQ
-    href: https://www.microsoft.com/translator/faq.aspx 
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/ 
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/558796-translator
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-translator
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
   - name: Code samples on GitHub
     href: https://aka.ms/TranslatorGitHub
+  - name: FAQ
+    href: https://www.microsoft.com/translator/faq.aspx 
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/ 
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-translator
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/558796-translator

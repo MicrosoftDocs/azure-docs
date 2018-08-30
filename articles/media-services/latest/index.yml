@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03-20-2018
+  ms.date: 07-27-2018
   ms.author: juliako
 abstract:
   description: Learn how to stream videos on-demand, broadcast live, and analyze your videos with Media Services. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
@@ -31,7 +31,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to stream files on demand, broadcast live, and analyze your videos with Media Services:'
+    text: 'Learn how to stream files on demand, broadcast live, and analyze your videos with Media Services v3:'
   - type: list
     style: icon48
     items: 
@@ -47,6 +47,33 @@ sections:
         src: media/index/AMSIcons-media_analytics.svg
       text: Analyze your videos
       href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+- title: Samples
+  items:
+  - type: paragraph
+    text: 'Samples that show how to use APIs to stream videos, broadcast live, and analyze your videos with Media Services v3:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: media/index/cli.svg
+      text: Azure CLI
+      href: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services
+    - image: 
+        src: media/index/rest.svg
+      text: REST with Postman
+      href: https://github.com/Azure-Samples/media-services-v3-rest-postman
+    - image: 
+        src: media/index/logo_dotnet_core.svg
+      text: .NET Core with Visual Studio Code
+      href: https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials
+    - image: 
+        src: media/index/dotnet.svg
+      text: .NET with Visual Studio 
+      href: https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials
+    - image: 
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: https://github.com/Azure-Samples/media-services-v3-node-tutorials 
 - title: Reference
   items:
   - type: paragraph
@@ -55,10 +82,10 @@ sections:
     style: unordered
     items:
     - html: <a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview">OpenAPI Specification (Swagger)</a>
-    - html: <a href="https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest">Azure CLI</a>
-    - html: <a href="https://go.microsoft.com/fwlink/p/?linkid=873030">REST</a>
-    - html: <a href="https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet">.NET</a>
-    - html: <a href="https://docs.microsoft.com/java/api/overview/azure/mediaservices">Java</a>
-    - html: <a href="https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python">Python</a>
-    - html: <a href="https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest">Node .js</a>
+    - html: <a href="https://aka.ms/ams-v3-cli-ref">Azure CLI</a>
+    - html: <a href="https://aka.ms/ams-v3-rest-ref">REST</a>
+    - html: <a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>
+    - html: <a href="https://aka.ms/ams-v3-java-ref">Java</a>
+    - html: <a href="https://aka.ms/ams-v3-python-ref">Python</a>
+    - html: <a href="https://aka.ms/ams-v3-nodejs-ref">Node .js</a>
     

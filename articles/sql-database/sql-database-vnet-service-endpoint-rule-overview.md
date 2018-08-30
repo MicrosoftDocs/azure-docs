@@ -8,7 +8,7 @@ author: DhruvMsft
 manager: craigg
 ms.custom: "VNet Service endpoints"
 ms.topic: conceptual
-ms.date: 06/13/2018
+ms.date: 08/28/2018
 ms.reviewer: genemi
 ms.author: dmalik
 ms.reviewer: carlrab
@@ -139,7 +139,6 @@ For Azure SQL Database, the virtual network rules feature has the following limi
 When using service endpoints for Azure SQL Database, review the following considerations:
 
 - **Outbound to Azure SQL Database Public IPs is required**: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG [Service Tags](../virtual-network/security-overview.md#service-tags) for Azure SQL Database.
-- **Azure Database for PostgreSQL and MySQL are unsupported**: Service endpoints are not supported for Azure Database for PostgreSQL or MySQL. Enabling service endpoints to SQL Database will break connectivity to these services. We have a mitigation for this, and you may contact *dmalik@microsoft.com* for more information.
 
 #### ExpressRoute
 
@@ -178,11 +177,10 @@ Azure Storage has implemented the same feature that allows you to limit connecti
 If you choose to use this feature with a Storage account that is being used by an Azure SQL Server, you can run into issues. Next is a list and discussion of Azure SQLDB features that are impacted by this.
 
 #### Azure SQLDW PolyBase
-PolyBase is commonly used to load data into Azure SQLDW from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. There is a mitigation for this, and you may contact *dmalik@microsoft.com* for more information.
+PolyBase is commonly used to load data into Azure SQLDW from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. There is a mitigation for this, and you may contact Microsoft support for more information.
 
 #### Azure SQLDB Blob Auditing
 Blob auditing pushes audit logs to your own storage account. If this storage account uses the VENT Service endpoints feature then connectivity from Azure SQLDB to the storage account will break.
-
 
 ## Adding a VNET Firewall rule to your server without turning On VNET Service Endpoints
 

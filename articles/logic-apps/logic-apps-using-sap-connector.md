@@ -149,7 +149,7 @@ so you can set up your SAP action.
 
    **Create on-premises SAP connection**
 
-   1. For **Gateways**, select **Connect via on-premise data gateway** 
+   1. For **Gateways**, select **Connect via on-premises data gateway** 
    so that the on-premises connection properties appear.
 
    2. Provide the connection information for your SAP server. 

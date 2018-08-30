@@ -6,7 +6,6 @@ documentationcenter: na
 author: cawa
 manager: paulyuk
 editor: ''
-
 ms.assetid:
 ms.service: storage
 ms.devlang: multiple
@@ -19,17 +18,163 @@ ms.author: cawa
 ---
 # Microsoft Azure Storage Explorer release notes
 
-This article contains the release notes for Azure Storage Explorer 1.2.0 release, as well as release notes for previous versions.
+This article contains the release notes for Azure Storage Explorer 1.4.1 release, as well as release notes for previous versions.
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
+## Version 1.4.1
+08/28/2018
+
+### Download Azure Storage Explorer 1.4.1
+- [Azure Storage Explorer 1.4.1 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.4.1 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.4.1 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### Hotfixes
+* On first launch, Storage Explorer was unable to generate the key used to encrypt sensitive data. This would cause issues when using Quick Access and attaching resources. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
+* If your account did not require MFA for its home tenant, but did for some other tenants, Storage Explorer would be unable to list subscriptions. Now, after signing in with such an account, Storage Explorer will ask you to reenter your credentials and perform MFA. [#74](https://github.com/Microsoft/AzureStorageExplorer/issues/74)
+* Storage Explorer was unable to attach resources from Azure Germany and Azure US Government. [#572](https://github.com/Microsoft/AzureStorageExplorer/issues/572)
+* If you signed in to two accounts that had the same email address, Storage Explorer would sometimes fail to show your resources in the tree view. [#580](https://github.com/Microsoft/AzureStorageExplorer/issues/580)
+* On slower Windows machines, the splash screen would sometimes take a significant amount of time to appear. [#586](https://github.com/Microsoft/AzureStorageExplorer/issues/586)
+* The connect dialog would appear even if there were attached accounts or services. [#588](https://github.com/Microsoft/AzureStorageExplorer/issues/588)
+
+### New
+* External resource attachments, such as for SAS connections and emulators, has been significantly improved. Now you can:
+   * Customize the display name of the resource you are attaching. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Attach to multiple local emulators using different ports. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Add attached resources to Quick Access. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Storage Explorer now supports Soft Delete. You can:
+   * Configure a Soft Delete policy by right-clicking on the Blob Containers node for your Storage account.
+   * View soft deleted blobs in the Blob Editor by selecting "Active and deleted blobs" in the dropdown next to the navigation bar.
+   * Undelete soft deleted blobs.
+
+### Fixes
+* The "Configure CORS Settings" action is no longer available on Premium Storage accounts because Premium Storage accounts do not support CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* There is now a Shared Access Signature property for SAS Attached Services. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* The "Set Default Access Tier" action is now available For Blob and GPV2 Storage accounts that have been pinned to Quick Access. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* Sometimes, Storage Explorer would fail to show Classic Storage accounts. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### Known Issues
+* When using emulators, such as Azure Storage Emulator or Azurite, you will need to have them listen for connections on their default ports. Otherwise, Storage Explorer will not be able to connect to them.
+* If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, please comment on [this issue](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
+* In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
+* Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron.
+* When targeting Azure Stack, uploading certain files as append blobs may fail.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described [here](https://github.com/Azure/azure-storage-node/issues/317).
+* If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
+* Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
+* The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+	```
+
+* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo apt-get install libgconf-2-4
+	```
+
+## Previous releases
+
+* [Version 1.3.0](#version-130)
+* [Version 1.2.0](#version-120)
+* [Version 1.1.0](#version-110)
+* [Version 1.0.0](#version-100)
+* [Version 0.9.6](#version-096)
+* [Version 0.9.5](#version-095)
+* [Version 0.9.4 and 0.9.3](#version-094-and-093)
+* [Version 0.9.2](#version-092)
+* [Version 0.9.1 and 0.9.0](#version-091-and-090)
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Version 0.8.12 and 0.8.11 and 0.8.10](#version-0812-and-0811-and-0810)
+* [Version 0.8.9 and 0.8.8](#version-089-and-088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
+
+## Version 1.3.0
+07/09/2018
+
+### New
+* Accessing the $web containers used by Static Websites is now supported. This allows you to easily upload and manage files and folders used by your website. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
+* The app bar on macOS has been reorganized. Changes include a File menu, some shortcut key changes, and several new commands under the app menu. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
+* The authority endpoint for signing in to Azure US Government has been changed to https://login.microsoftonline.us/
+* Accessibility: When a screen reader is active, keyboard navigation now works with the tables used for displaying items on the right-hand side. You can use the arrow keys to navigate rows and columns, Enter to invoke default actions, the context menu key to open up the context menu for an item, and Shift or Control to multiselect. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+
+### Fixes
+*  On some machines, child processes were taking a long time to start. When this would happen, a "child process failed to start in a timely manner" error would appear. The time allotted for a child process to start has now been increased from 20 to 90 seconds. If you are still affected by this issue, please comment on the linked GitHub issue. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
+* When using a SAS that did not have read permissions, it was not possible to upload a large blob. The logic for upload has been modified to work in this scenario. [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
+* Setting the public access level for a container would remove all access policies, and vice versa. Now, public access level and access policies are preserved when setting either of the two. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
+* "AccessTierChangeTime" was truncated in the Properties dialog. This has been fixed. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
+* The "Microsoft Azure Storage Explorer -" prefix was missing from the Create New Directory dialog. This has been fixed. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
+* Accessibility: The Add Entity dialog was difficult to navigate when using VoiceOver. Improvements have been made. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* Accessibility: The background color of the collapse/expand button for the Actions and Properties pane was inconsistent with similar UI controls in High Contrast Black theme. The color has been changed. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
+* Accessibility: In High Contrast Black theme, the focus styling for the 'X' button in the Properties dialog was not visible. This has been fixed. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
+* Accessibility: The Actions and Properties tabs were missing several aria values which resulted in a subpar screen reader experience. The missing aria values have now been added. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
+* Accessibility: Collapsed tree nodes on the left hand side were not being given an aria-expanded value of false. This has been fixed. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+
+### Known Issues
+* Detatching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. See [this issue](https://github.com/Microsoft/AzureStorageExplorer/issues/537) for more information.
+* If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, please comment on [this issue](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
+* In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
+* Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron.
+* When targeting Azure Stack, uploading certain files as append blobs may fail.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described [here](https://github.com/Azure/azure-storage-node/issues/317).
+* If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
+* Azure Stack does not support the following features, and attempting to use them while working with Azure Stack may result in unexpected errors:
+   * File shares
+   * Access tiers
+   * Soft Delete
+* The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+	```
+
+* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo apt-get install libgconf-2-4
+	```
+
 ## Version 1.2.0
 06/12/2018
-
-### Download Azure Storage Explorer 1.2.0
-- [Azure Storage Explorer 1.2.0 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.2.0 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.2.0 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### New
 * If Storage Explorer fails to load subscriptions from only a subset of your tenants, then any successfully loaded subscriptions will be shown along with an error message specifically for the tenants that failed. [#159](https://github.com/Microsoft/AzureStorageExplorer/issues/159)
@@ -85,48 +230,8 @@ This article contains the release notes for Azure Storage Explorer 1.2.0 release
 	sudo apt-get install libgconf-2-4
 	```
 
-
-
-
-
-
-
-
-## Previous releases
-
-* [Version 1.1.0](#version-110)
-* [Version 1.0.0](#version-100)
-* [Version 0.9.6](#version-096)
-* [Version 0.9.5](#version-095)
-* [Version 0.9.4 and 0.9.3](#version-094-and-093)
-* [Version 0.9.2](#version-092)
-* [Version 0.9.1 and 0.9.0](#version-091-and-090)
-* [Version 0.8.16](#version-0816)
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Version 0.8.12 and 0.8.11 and 0.8.10](#version-0812-and-0811-and-0810)
-* [Version 0.8.9 and 0.8.8](#version-089-and-088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
-
-
 ## Version 1.1.0
 05/09/2018
-
-### Download Azure Storage Explorer 1.1.0
-- [Azure Storage Explorer 1.1.0 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.1.0 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.1.0 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### New
 * Storage Explorer now supports the use of Azurite. Note: the connection to Azurite is hardcoded to the default development endpoints.
@@ -182,8 +287,6 @@ This article contains the release notes for Azure Storage Explorer 1.2.0 release
 
 ## Version 1.0.0
 04/16/2018
-
-### Download Azure Storage Explorer 1.0.0
 
 ### New
 * Enhanced authentication that allows Storage Explorer to use the same account store as Visual Studio 2017. To use this feature, you will need to re-login to your accounts and re-set your filtered subscriptions.
@@ -250,11 +353,6 @@ This article contains the release notes for Azure Storage Explorer 1.2.0 release
 ## Version 0.9.6
 02/28/2018
 
-### Download Azure Storage Explorer 0.9.6 (Preview)
-- [Azure Storage Explorer 0.9.6 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 0.9.6 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 0.9.6 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
-
 ### Fixes
 * An issue prevented expected blobs/files from being listed in the editor. This issue has been fixed.
 * An issue caused switching between snapshot views to display items incorrectly. This issue has been fixed.
@@ -290,11 +388,6 @@ This article contains the release notes for Azure Storage Explorer 1.2.0 release
 
 ## Version 0.9.5
 02/06/2018
-
-### Download Azure Storage Explorer 0.9.5 (Preview)
-- [Azure Storage Explorer 0.9.5 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 0.9.5 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 0.9.5 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### New
 
@@ -344,11 +437,6 @@ This article contains the release notes for Azure Storage Explorer 1.2.0 release
 
 ## Version 0.9.4 and 0.9.3
 01/21/2018
-
-### Download Azure Storage Explorer 0.9.4 (Preview)
-* [Download Azure Storage Explorer 0.9.4 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Download Azure Storage Explorer 0.9.4 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Download Azure Storage Explorer 0.9.4 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### New
 * Your existing Storage Explorer window will be re-used when:

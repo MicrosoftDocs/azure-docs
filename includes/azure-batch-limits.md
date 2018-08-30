@@ -3,8 +3,8 @@
 | Batch accounts per region per subscription | 1 - 3 |50 |
 | Dedicated cores per Batch account | 10 - 100 | N/A<sup>1</sup> |
 | Low-priority cores per Batch account | 10 - 100 | N/A<sup>2</sup> |
-| Active jobs and job schedules<sup>3</sup> per Batch account | 100 - 300 | 5000<sup>4</sup> |
-| Pools per Batch account | 20 - 100 | 2500 |
+| Active jobs and job schedules<sup>3</sup> per Batch account | 100 - 300 | 2500<sup>4</sup> |
+| Pools per Batch account | 20 - 100 | 500 |
 
 > [!NOTE]
 > Default limits vary depending on the type of subscription you use to create a Batch account. Cores quotas shown are for Batch accounts in Batch service mode. [View the quotas in your Batch account](../articles/batch/batch-quota-limit.md#view-batch-quotas). 

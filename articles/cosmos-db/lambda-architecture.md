@@ -3,7 +3,7 @@ title: 'Lambda architecture with Azure Cosmos DB and HDInsight (Apache Spark) | 
 description: This article describes how to implement a lambda architecture using Azure Cosmos DB, HDInsight, and Spark
 keywords: lambda-architecture
 services: cosmos-db
-author: dennyglee
+author: tknandu
 manager: kfile
 editor: ''
 
@@ -11,7 +11,7 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: denlee
+ms.author: ramkris
 
 ---
 # Azure Cosmos DB: Implement a lambda architecture on the Azure platform 
@@ -25,11 +25,6 @@ To implement a lambda architecture on Azure, you can combine the following techn
 * The [Spark to Azure Cosmos DB Connector](spark-connector.md)
 
 This article describes the fundamentals of a lambda architecture based on the original multi-layer design and the benefits of a "rearchitected" lambda architecture that simplifies operations.  
-
-For an overview of the lambda architecture and the resources available in the lambda architecture sample, watch the following video:
-
-> [!VIDEO https:///channel9.msdn.com/Events/Connect/2017/T135/player]
->
 
 ## What is a lambda architecture?
 A lambda architecture is a generic, scalable, and fault-tolerant data processing architecture to address batch and speed latency scenarios as described by [Nathan Marz](https://twitter.com/nathanmarz).

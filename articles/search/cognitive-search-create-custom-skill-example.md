@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 06/29/2018
 ms.author: luisca
 ---
 
@@ -46,23 +46,29 @@ Visual Studio creates a project and in it a class that contains boilerplate code
 Now, replace all of the content of the file *Function1.cs* with the following code:
 
 ```csharp
+using System;
+using System.Net.Http;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.IO;
+using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
-using System.Net.Http;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Text;
 
 namespace TranslateFunction
 {
     // This function will simply translate messages sent to it.
     public static class Function1
     {
+        static string path = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0";
+
+        // NOTE: Replace this example key with a valid subscription key.
+        static string key = "<enter your api key here>";
+
         #region classes used to serialize the response
         private class WebApiResponseError
         {
@@ -88,21 +94,16 @@ namespace TranslateFunction
         }
         #endregion
 
-
-        /// <summary>
-        /// Note that this function can translate up to 1000 characters. If you expect to need to translate more characters, use 
-        /// the paginator skill before calling this custom enricher
-        /// </summary>
         [FunctionName("Translate")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequest req, 
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequest req,
             TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
 
             string recordId = null;
             string originalText = null;
-            string originalLanguage = null;
+            string toLanguage = null;
             string translatedText = null;
 
             string requestBody = new StreamReader(req.Body).ReadToEnd();
@@ -121,24 +122,15 @@ namespace TranslateFunction
 
             recordId = data?.values?.First?.recordId?.Value as string;
             originalText = data?.values?.First?.data?.text?.Value as string;
-            originalLanguage = data?.values?.First?.data?.language?.Value as string;
+            toLanguage = data?.values?.First?.data?.language?.Value as string;
 
             if (recordId == null)
             {
                 return new BadRequestObjectResult("recordId cannot be null");
             }
 
-            // Only translate records that actually need to be translated. 
-            if (!originalLanguage.Contains("en"))
-            {
-                translatedText = TranslateText(originalText, "en-us").Result;
-            }
-            else
-            {
-                // text is already in English.
-                translatedText = originalText;
-            }
-
+            translatedText = TranslateText(originalText, toLanguage).Result;
+	    
             // Put together response.
             WebApiResponseRecord responseRecord = new WebApiResponseRecord();
             responseRecord.data = new Dictionary<string, object>();
@@ -149,47 +141,41 @@ namespace TranslateFunction
             response.values = new List<WebApiResponseRecord>();
             response.values.Add(responseRecord);
 
-            return (ActionResult)new OkObjectResult(response); 
+            return (ActionResult)new OkObjectResult(response);
         }
+
 
         /// <summary>
         /// Use Cognitive Service to translate text from one language to antoher.
         /// </summary>
-        /// <param name="myText">The text to translate</param>
-        /// <param name="destinationLanguage">The language you want to translate to.</param>
+        /// <param name="originalText">The text to translate.</param>
+        /// <param name="toLanguage">The language you want to translate to.</param>
         /// <returns>Asynchronous task that returns the translated text. </returns>
-        async static Task<string> TranslateText(string myText, string destinationLanguage)
+        async static Task<string> TranslateText(string originalText, string toLanguage)
         {
-            string host = "https://api.microsofttranslator.com";
-            string path = "/V2/Http.svc/Translate";
+            System.Object[] body = new System.Object[] { new { Text = originalText } };
+            var requestBody = JsonConvert.SerializeObject(body);
 
-            // NOTE: Replace this example key with a valid subscription key.
-            string key = "064d8095730d4a99b49f4bcf16ac67f8";
+            var uri = $"{path}&to={toLanguage}";
 
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+            string result = "";
 
-            List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>() {
-                new KeyValuePair<string, string>(myText, "en-us")
-            };
-
-            StringBuilder totalResult = new StringBuilder();
-
-            foreach (KeyValuePair<string, string> i in list)
+            using (var client = new HttpClient())
+            using (var request = new HttpRequestMessage())
             {
-                string uri = host + path + "?to=" + i.Value + "&text=" + System.Net.WebUtility.UrlEncode(i.Key);
+                request.Method = HttpMethod.Post;
+                request.RequestUri = new Uri(uri);
+                request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
+                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
-                HttpResponseMessage response = await client.GetAsync(uri);
+                var response = await client.SendAsync(request);
+                var responseBody = await response.Content.ReadAsStringAsync();
 
-                string result = await response.Content.ReadAsStringAsync();
+                dynamic data = JsonConvert.DeserializeObject(responseBody);
+                result = data?.First?.translations?.First?.text?.Value as string;
 
-                // Parse the response XML
-                System.Xml.XmlDocument xmlResponse = new System.Xml.XmlDocument();
-                xmlResponse.LoadXml(result);
-                totalResult.Append(xmlResponse.InnerText); 
             }
-
-            return totalResult.ToString();
+            return result;
         }
     }
 }
@@ -201,7 +187,7 @@ This example is a simple enricher that only works on one record at a time. This 
 
 ## Test the function from Visual Studio
 
-Press **F5** to run the program and test function behaviors. Use Postman or Fiddler to issue a call like the one shown below:
+Press **F5** to run the program and test function behaviors. In this case we'll use the function below to translate a text in Spanish to English. Use Postman or Fiddler to issue a call like the one shown below:
 
 ```http
 POST https://localhost:7071/api/Translate
@@ -215,7 +201,7 @@ POST https://localhost:7071/api/Translate
         	"data":
 	        {
 	           "text":  "Este es un contrato en Inglés",
-	           "language": "es"
+	           "language": "en"
 	        }
         }
    ]
@@ -253,6 +239,13 @@ When you are satisfied with the function behavior, you can publish it.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the Translate Function you published. Under the **Manage** section, you should see Host Keys. Select the **Copy** icon for the *default* host key.  
 
+## Update SSL Settings
+
+All Azure Functions created after June 30th, 2018 have disabled TLS 1.0, which is not currently compatible with custom skills.
+
+1. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the Translate Function you published. Under the **Platform features** section, you should see SSL.
+
+1. After selecting SSL, you should change the **Minimum TLS version** to 1.0. TLS 1.2 functions are not yet supported as custom skills.
 
 ## Test the function in Azure
 
@@ -270,7 +263,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
         	"data":
 	        {
 	           "text":  "Este es un contrato en Inglés",
-	           "language": "es"
+	           "language": "en"
 	        }
         }
    ]
@@ -299,7 +292,7 @@ Now that you have a new custom skill, you can add it to your skillset. The examp
           },
           {
             "name": "language",
-            "source": "/document/languageCode"
+            "source": "/document/destinationLanguage"
           }
         ],
         "outputs": [

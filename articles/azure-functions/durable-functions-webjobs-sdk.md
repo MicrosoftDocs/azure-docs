@@ -2,7 +2,7 @@
 title: How to run durable functions as WebJobs - Azure
 description: Learn how to code and configure Durable Functions to run in WebJobs by using the WebJobs SDK.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -218,7 +218,7 @@ The main change introduced by 3.x is the use of .NET Core instead of .NET Framew
   * `Microsoft.Azure.WebJobs.Extensions`
   * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-2. Change `Main` method code to get the Storage connection string and the Application Insights instrumentation key from an *appsettings.json* file, using the .NET Core configuration framework.  Here's an example:
+1. Change `Main` method code to get the Storage connection string and the Application Insights instrumentation key from an *appsettings.json* file, using the .NET Core configuration framework.  Here's an example:
 
    ```cs
    static void Main(string[] args)

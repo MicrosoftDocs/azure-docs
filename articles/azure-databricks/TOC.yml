@@ -31,12 +31,17 @@
     href: https://docs.azuredatabricks.net/user-guide/jobs.html 
   - name: Connect to data sources 
     href: databricks-connect-to-data-sources.md
+  - name: Use with Azure Data Factory
+    href: ../data-factory/transform-data-using-databricks-notebook.md
+    maintainContext: true
   - name: Connect with Excel, R, and Python 
     href: connect-databricks-excel-python-r.md
   - name: Use Databricks CLI from Azure Cloud Shell
     href: databricks-cli-from-azure-cloud-shell.md
   - name: Use BI tools
     href: https://docs.azuredatabricks.net/user-guide/bi/index.html
+  - name: Plan disaster recovery
+    href: howto-regional-disaster-recovery.md
 - name: Reference
   items:
   - name: REST API

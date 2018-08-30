@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 01/10/2018
-ms.author: xiaochen.wu
+ms.author: xiwu
 ms.reviewer: douglasl
 ---
 # Use PowerShell to update the sync schema in an existing sync group
@@ -98,8 +98,6 @@ For more info about SQL Data Sync, see:
 -   Complete PowerShell examples that show how to configure SQL Data Sync:
     -   [Use PowerShell to sync between multiple Azure SQL databases](sql-database-sync-data-between-sql-databases.md)
     -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](sql-database-sync-data-between-azure-onprem.md)
-
--   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 For more info about SQL Database, see:
 

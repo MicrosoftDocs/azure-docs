@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -48,11 +48,11 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
   
 5.  In Navigator, select the **AdventureWorksDW2014** database, and then click **OK**.This creates the connection to the database. 
   
-6.  In Navigator, select the check box for the following tables: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory**, and **FactInternetSales**.  
+6.  In Navigator, select the check box for the following tables: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory**, and **FactInternetSales**, and then click **Edit**.
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
-After you click OK, Query Editor opens. In the next section, you select only the data you want to import.
+    The Query Editor opens. In the next section, you select only the data you want to import.
 
   
 ## Filter the table data  

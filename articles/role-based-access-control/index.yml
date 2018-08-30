@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Role-Based Access Control Documentation
+title: Role-based access control documentation
 metadata:
   document_id: 
-  title: Azure Role-Based Access Control Documentation | Microsoft Docs
+  title: Role-based access control (RBAC) documentation in Azure | Microsoft Docs
   description: Learn about role-based access control (RBAC) to manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
   services: active-directory
   author: rolyon
@@ -26,26 +26,17 @@ abstract:
     href: https://www.youtube.com/embed/FKBoWWKRnvI
     width: 200
 sections:
-- title: 5-Minute Quickstarts
+- title: 5-minute quickstarts
   items:
   - type: list
     style: unordered
     items: 
     - html: <a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Grant access for a user</a>
-- title: Step-by-Step Tutorials
+- title: Step-by-step tutorials
   items:
   - type: list
     style: unordered
     items: 
-    - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-user-powershell">Grant access for a user - PowerShell</a>
     - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Grant access for a group - PowerShell</a>
     - html: <a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Create a custom role - PowerShell</a>
     - html: <a href="/azure/role-based-access-control/tutorial-custom-role-cli">Create a custom role - CLI</a>
-- title: Reference
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/powershell/module/azurerm.resources">Azure PowerShell</a>
-    - html: <a href="/cli/azure/role?view=azure-cli-latest">Azure CLI</a>
-    - html: <a href="/rest/api/authorization/">REST API</a>

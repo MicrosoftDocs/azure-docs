@@ -35,7 +35,7 @@
         href: ../hdinsight-connect-hive-zeppelin.md
         maintainContext: true
       - name: Tools for Visual Studio
-        href: ../hdinsight-hadoop-visual-studio-tools-get-started.md
+        href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
         maintainContext: true
       - name: Tools for VSCode
         href: ../hdinsight-for-vscode.md
@@ -369,6 +369,10 @@
   - name: Release notes
     href: ../hdinsight-release-notes.md
     maintainContext: true
+    items:
+    - name: Archived release notes
+      href: ../hdinsight-release-notes-archive.md
+      maintainContext: true
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Get help on the forum

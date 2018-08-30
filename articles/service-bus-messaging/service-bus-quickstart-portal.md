@@ -87,7 +87,7 @@ To run the code, do the following:
 
 3. Navigate to the sample folder `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
 
-4. Copy the the connection string and queue name you obtained in the [Obtain the management credentials](#obtain-the-management-credentials) section.
+4. Copy the connection string and queue name you obtained in the [Obtain the management credentials](#obtain-the-management-credentials) section.
 
 5.	At a command prompt, type the following command:
 

@@ -1,21 +1,14 @@
 ---
 title: Introduction to Azure Queue storage | Microsoft Docs
-description:  Introduction to Azure Queue storage 
+description: Introduction to Azure Queue storage
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
-
+ms.component: queues
 ---
 # Introduction to Queues
 
@@ -35,11 +28,11 @@ The Queue service contains the following components:
 ![Queue Concepts](./media/storage-queues-introduction/queue1.png)
 
 * **URL format:** Queues are addressable using the following URL format:   
-    http://`<storage account>`.queue.core.windows.net/`<queue>` 
+    https://`<storage account>`.queue.core.windows.net/`<queue>` 
   
     The following URL addresses a queue in the diagram:  
   
-    `http://myaccount.queue.core.windows.net/images-to-download`
+    `https://myaccount.queue.core.windows.net/images-to-download`
 
 * **Storage account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) for details about storage account capacity.
 

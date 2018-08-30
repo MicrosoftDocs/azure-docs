@@ -1,21 +1,14 @@
 ---
-title: Troubleshoot a slow or failing HDInsight cluster - Azure HDInsight | Microsoft Docs
+title: Troubleshoot a slow or failing HDInsight cluster - Azure HDInsight 
 description: Diagnose and troubleshoot a slow or failing HDInsight cluster.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
+ms.author: ashishth
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
-ms.author: ashishth
-
 ---
 # Troubleshoot a slow or failing HDInsight cluster
 

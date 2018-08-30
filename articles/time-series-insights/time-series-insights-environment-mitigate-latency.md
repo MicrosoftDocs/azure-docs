@@ -4,8 +4,8 @@ description: This article describes how to monitor, diagnose, and mitigate perfo
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: jasonh
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
@@ -47,15 +47,15 @@ From there, you can configure alerts using the following metrics:
 |**Ingress Received Messages**   | Count of messages read from all Event Hubs or IoT Hubs event sources.        |
 |**Ingress Stored Bytes**     | Total size of events stored and available for query. Size is computed only on the property value.        |
 |**Ingress Stored Events**     |   Count of flattened events stored and available for query.      |
-|**Ingress Recieved Message Time Lag**    |  Difference between the time that the message is enqueued in the event source and the time it is processed in Ingress.      |
-|**Ingress Recieved Message Count Lag**    |  Difference between the sequence number of last enqueued message in the event source partition and sequence number of message being processed in Ingress.      |
+|**Ingress Received Message Time Lag**    |  Difference in seconds between the time that the message is enqueued in the event source and the time it is processed in Ingress.      |
+|**Ingress Received Message Count Lag**    |  Difference between the sequence number of last enqueued message in the event source partition and sequence number of message being processed in Ingress.      |
 
 
 ![Latency](media/environment-mitigate-latency/latency.png)
 
-If you are being throttled, you will see a value for the *Ingress Recieved Message Time Lag*, informing you of how many minutes behind TSI is from the actual time the message hits the event source (excluding indexing time of appx. 30-60 seconds).  *Ingress Recieved Message Count Lag* should also have a value, allowing you to determine how many messages behind you are.  The easiest way to get caught up is to increase your environment's capacity to a size that will enable you to overcome the difference.  
+If you are being throttled, you will see a value for the *Ingress Received Message Time Lag*, informing you of how many seconds behind TSI is from the actual time the message hits the event source (excluding indexing time of appx. 30-60 seconds).  *Ingress Received Message Count Lag* should also have a value, allowing you to determine how many messages behind you are.  The easiest way to get caught up is to increase your environment's capacity to a size that will enable you to overcome the difference.  
 
-For example, if you have a single unit S1 environment and see that there is a five million message lag, you could increase the size of your environment to six units for around a day to get caught up.  You could increase even further to catch up faster.  This is a common occurance when initially provisioning an environment, particularly when you connect it to an event source that already has events in it or when you bulk upload lots of historical data.
+For example, if you have a single unit S1 environment and see that there is a five million message lag, you could increase the size of your environment to six units for around a day to get caught up.  You could increase even further to catch up faster.  The catch-up period is a common occurence when initially provisioning an environment, particularly when you connect it to an event source that already has events in it or when you bulk upload lots of historical data.
 
 Another technique is to set an **Ingress Stored Events** alert >= a threshold slightly below your total environment capacity for a period of 2 hours.  This alert can help you understand if you are constantly at capacity, which indicates a high likelihood of latency.  
 

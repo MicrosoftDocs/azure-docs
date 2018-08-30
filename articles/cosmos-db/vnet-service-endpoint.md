@@ -246,9 +246,9 @@ To learn more about NSG tags see [virtual network service tags](../virtual-netwo
 
 These two features complement each other to ensure isolation of Azure Cosmos DB assets and secure them. Using IP firewall ensures that static IPs can access Azure Cosmos DB account.  
 
-### Can an on-premise device’s IP address that is connected through Azure Virtual Network gateway(VPN) or Express route gateway access Azure Cosmos DB account?  
+### Can an on-premises device’s IP address that is connected through Azure Virtual Network gateway(VPN) or Express route gateway access Azure Cosmos DB account?  
 
-The on-premise device’s IP address or IP address range should be added to the list of static IPs’ in order to access the Azure Cosmos DB account.  
+The on-premises device’s IP address or IP address range should be added to the list of static IPs’ in order to access the Azure Cosmos DB account.  
 
 ### What happens if you delete a virtual network that has service endpoint setup for Azure Cosmos DB?  
 

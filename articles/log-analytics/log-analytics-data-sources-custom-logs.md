@@ -4,19 +4,20 @@ description: Log Analytics can collect events from text files on both Windows an
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/27/2018
 ms.author: bwren
-
+ms.component: na
 ---
+
 # Custom logs in Log Analytics
 The Custom Logs data source in Log Analytics allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog.  Once collected, you can parse each record in the login to individual fields using the [Custom Fields](log-analytics-custom-fields.md) feature of Log Analytics.
 
@@ -38,13 +39,7 @@ The log files to be collected must match the following criteria.
 ## Defining a custom log
 Use the following procedure to define a custom log file.  Scroll to the end of this article for a walkthrough of a sample of adding a custom log.
 
-### Step 1. Enable Custom Logs preview
-1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
-2. In the Log Analytics subscriptions pane, select a workspace and then select the **OMS Portal** tile.<br><br> ![Log Search button](media/log-analytics-data-sources-custom-logs/azure-portal-01.png)<br><br> 
-3. After you are redirected to the OMS portal, click the Settings tile on the top right-hand side of the page.<br><br> ![OMS portal Settings option](media/log-analytics-data-sources-custom-logs/oms-portal-settings-option.png)<br><br> 
-4. From the **Settings** page, select **Preview Features** and on the page, select **Enable** for Custom Logs.    
-
-### Step 2. Open the Custom Log Wizard
+### Step 1. Open the Custom Log Wizard
 The Custom Log Wizard runs in the Azure portal and allows you to define a new custom log to collect.
 
 1. In the Azure portal, select **Log Analytics** > your workspace > **Advanced Settings**.
@@ -52,7 +47,7 @@ The Custom Log Wizard runs in the Azure portal and allows you to define a new cu
 3. By default, all configuration changes are automatically pushed to all agents.  For Linux agents, a configuration file is sent to the Fluentd data collector.  If you wish to modify this file manually on each Linux agent, then uncheck the box *Apply below configuration to my Linux machines*.
 4. Click **Add+** to open the Custom Log Wizard.
 
-### Step 3. Upload and parse a sample log
+### Step 2. Upload and parse a sample log
 You start by uploading a sample of the custom log.  The wizard will parse and display the entries in this file for you to validate.  Log Analytics will use the delimiter that you specify to identify each record.
 
 **New Line** is the default delimiter and is used for log files that have a single entry per line.  If the line starts with a date and time in one of the available formats, then you can specify a **Timestamp** delimiter which supports entries that span more than one line.
@@ -66,7 +61,7 @@ If a timestamp delimiter is used, then the TimeGenerated property of each record
 4. Change the delimiter that is used to identify a new record and select the delimiter that best identifies the records in your log file.
 5. Click **Next**.
 
-### Step 4. Add log collection paths
+### Step 3. Add log collection paths
 You must define one or more paths on the agent where it can locate the custom log.  You can either provide a specific path and name for the log file, or you can specify a path with a wildcard for the name.  This supports applications that create a new file each day or when one file reaches a certain size.  You can also provide multiple paths for a single log file.
 
 For example, an application might create a log file each day with the date included in the name as in log20100316.txt. A pattern for such a log might be *log\*.txt* which would apply to any log file following the application’s naming scheme.
@@ -84,14 +79,14 @@ The following table provides examples of valid patterns to specify different log
 2. Type in the path and click the **+** button.
 3. Repeat the process for any additional paths.
 
-### Step 5. Provide a name and description for the log
+### Step 4. Provide a name and description for the log
 The name that you specify will be used for the log type as described above.  It will always end with _CL to distinguish it as a custom log.
 
 1. Type in a name for the log.  The **\_CL** suffix is automatically provided.
 2. Add an optional **Description**.
 3. Click **Next** to save the custom log definition.
 
-### Step 6. Validate that the custom logs are being collected
+### Step 5. Validate that the custom logs are being collected
 It may take up to an hour for the initial data from a new custom log to appear in Log Analytics.  It will start collecting entries from the logs found in the path you specified from the point that you defined the custom log.  It will not retain the entries that you uploaded during the custom log creation, but it will collect already existing entries in the log files that it locates.
 
 Once Log Analytics starts collecting from the custom log, its records will be available with a Log Search.  Use the name that you gave the custom log as the **Type** in your query.
@@ -101,7 +96,7 @@ Once Log Analytics starts collecting from the custom log, its records will be av
 >
 >
 
-### Step 7. Parse the custom log entries
+### Step 6. Parse the custom log entries
 The entire log entry will be stored in a single property called **RawData**.  You will most likely want to separate the different pieces of information in each entry into individual properties stored in the record.  You do this using the [Custom Fields](log-analytics-custom-fields.md) feature of Log Analytics.
 
 Detailed steps for parsing the custom log entry are not provided here.  Please refer to the [Custom Fields](log-analytics-custom-fields.md) documentation for this information.

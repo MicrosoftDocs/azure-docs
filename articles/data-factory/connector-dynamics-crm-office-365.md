@@ -20,9 +20,6 @@ ms.author: jingwang
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Microsoft Dynamics 365 or Microsoft Dynamics CRM. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of Data Factory, which is generally available, see [Copy Activity in version 1](v1/data-factory-data-movement-activities.md).
-
 ## Supported capabilities
 
 You can copy data from Dynamics 365 (Common Data Service) or Dynamics CRM to any supported sink data store. You also can copy data from any supported source data store to Dynamics 365 (Common Data Service) or Dynamics CRM. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
@@ -209,6 +206,9 @@ To copy data from Dynamics, set the source type in the copy activity to **Dynami
 | type | The type property of the copy activity source must be set to **DynamicsSource**. | Yes |
 | query | FetchXML is a proprietary query language that is used in Dynamics (online and on-premises). See the following example. To learn more, see [Build queries with FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | No (if "entityName" in the dataset is specified) |
 
+>[!NOTE]
+>The PK column will always be copied out even if the column projection you configure in the FetchXML query doesn't contain it.
+
 **Example:**
 
 ```json
@@ -329,7 +329,7 @@ Configure the corresponding Data Factory data type in a dataset structure based 
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | ✓ |
+| AttributeType.Lookup | Guid | ✓ | ✓ (with single target associated) |
 | AttributeType.ManagedProperty | Boolean | ✓ | |
 | AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |

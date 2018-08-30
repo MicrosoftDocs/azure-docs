@@ -5,7 +5,7 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
+
 layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
@@ -103,7 +103,7 @@ Learn how to use Azure Data Lake Analytics to run big data analysis jobs that sc
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.datalakeanalytics">PowerShell</a></p>
                         <p><a href="/cli/azure/dla">CLI 2.0</a></p>
                     </div>
                 </div>
@@ -118,7 +118,7 @@ Learn how to use Azure Data Lake Analytics to run big data analysis jobs that sc
                         <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.datalake.analytics">.NET</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-analytics">Node​.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html">Python</a></p>
+                        <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.analytics.account">Python</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt591959">U-SQL</a></p>
                     </div>
                 </div>

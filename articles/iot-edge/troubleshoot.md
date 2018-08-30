@@ -4,7 +4,7 @@ description: Resolve common issues and learn troubleshooting skills for Azure Io
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/23/2018
+ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -18,36 +18,160 @@ If you experience issues running Azure IoT Edge in your environment, use this ar
 
 When you encounter an issue, learn more about the state of your IoT Edge device by reviewing the container logs and messages that pass to and from the device. Use the commands and tools in this section to gather information. 
 
-* Look at the logs of the docker containers to detect issues. Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: Edge Agent and Edge Hub. The Edge Agent logs typically provide info on the lifecycle of each container. The Edge Hub logs provide info on messaging and routing. 
+### Check the status of the IoT Edge Security Manager and its logs:
 
-   ```cmd
-   docker logs <container name>
+On Linux:
+- To view the status of the IoT Edge Security Manager:
+
+   ```bash
+   sudo systemctl status iotedge
    ```
 
-* View the messages going through the Edge Hub, and gather insights on device properties updates with verbose logs from the runtime containers.
+- To view the logs of the IoT Edge Security Manager:
 
-   ```cmd
-   iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
-   ```
+    ```bash
+    sudo journalctl -u iotedge -f
+    ```
+
+- To view more detailed logs of the IoT Edge Security Manager:
+
+   - Edit the iotedge daemon settings:
+
+      ```bash
+      sudo systemctl edit iotedge.service
+      ```
    
-* View verbose logs from iotedgectl commands:
+   - Update the following lines:
+    
+      ```
+      [Service]
+      Environment=IOTEDGE_LOG=edgelet=debug
+      ```
+    
+   - Restart the IoT Edge Security Daemon:
+    
+      ```bash
+      sudo systemctl cat iotedge.service
+      sudo systemctl daemon-reload
+      sudo systemctl restart iotedge
+      ```
 
-   ```cmd
-   iotedgectl --verbose DEBUG <command>
+On Windows:
+- To view the status of the IoT Edge Security Manager:
+
+   ```powershell
+   Get-Service iotedge
    ```
 
-* If you experience connectivity issues, inspect your edge device environment variables like your device connection string:
+- To view the logs of the IoT Edge Security Manager:
+
+   ```powershell
+   # Displays logs from today, newest at the bottom.
+ 
+   Get-WinEvent -ea SilentlyContinue `
+   -FilterHashtable @{ProviderName= "iotedged";
+     LogName = "application"; StartTime = [datetime]::Today} |
+   select TimeCreated, Message |
+   sort-object @{Expression="TimeCreated";Descending=$false} |
+   format-table -autosize -wrap
+   ```
+
+### If the IoT Edge Security Manager is not running, verify your yaml configuration file
+
+> [!WARNING]
+> YAML files cannot contain tabs as identation. Use 2 spaces instead.
+
+On Linux:
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+On Windows:
 
    ```cmd
-   docker exec edgeAgent printenv
+   notepad C:\ProgramData\iotedge\config.yaml
    ```
+
+### Check container logs for issues
+
+Once the IoT Edge Security Daemon is running, look at the logs of the containers to detect issues. Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: Edge Agent and Edge Hub. The Edge Agent logs typically provide info on the lifecycle of each container. The Edge Hub logs provide info on messaging and routing. 
+
+   ```cmd
+   iotedge logs <container name>
+   ```
+
+### View the messages going through the Edge hub
+
+View the messages going through the Edge hub, and gather insights on device properties updates with verbose logs from the edgeAgent and edgeHub runtime containers. To turn on verbose logs on these containers, set `RuntimeLogLevel` in your yaml configuration file. To open the file:
+
+On Linux:
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+On Windows:
+
+   ```cmd
+   notepad C:\ProgramData\iotedge\config.yaml
+   ```
+
+By default, the `agent` element will look something like this:
+
+   ```yaml
+   agent:
+     name: edgeAgent
+     type: docker
+     env: {}
+     config:
+       image: mcr.microsoft.com/azureiotedge-agent:1.0
+       auth: {}
+   ```
+
+Replace `env: {}` with:
+
+> [!WARNING]
+> YAML files cannot contain tabs as identation. Use 2 spaces instead.
+
+   ```yaml
+   env:
+     RuntimeLogLevel: debug
+   ```
+
+Save the file and restart the IoT Edge security manager.
 
 You can also check the messages being sent between IoT Hub and the IoT Edge devices. View these messages by using the [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension for Visual Studio Code. For more guidance, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
-After investigating the logs and messages for information, you can also try restarting the Azure IoT Edge runtime:
+### Restart containers
+After investigating the logs and messages for information, you can try restarting containers:
+
+```
+iotedge restart <container name>
+```
+
+Restart the IoT Edge runtime containers:
+
+```
+iotedge restart edgeAgent && iotedge restart edgeHub
+```
+
+### Restart the IoT Edge security manager
+
+If issue is still persisting, you can try restarting the IoT Edge security manager.
+
+On Linux:
 
    ```cmd
-   iotedgectl restart
+   sudo systemctl restart iotedge
+   ```
+
+On Windows:
+
+   ```powershell
+   Stop-Service iotedge -NoWait
+   sleep 5
+   Start-Service iotedge
    ```
 
 ## Edge Agent stops after about a minute
@@ -95,29 +219,11 @@ A container fails to run, and the Edge Agent logs show a 403 error.
 The Edge Agent doesn't have permissions to access a module's image. 
 
 ### Resolution
-Try running the `iotedgectl login` command again.
+Make sure that your registry credentials are correctly specified in your deployment manifest
 
-## iotedgectl can't find Docker
+## IoT Edge security daemon fails with an invalid hostname
 
-The commands `iotedgectl setup` or `iotedgectl start` fail and print the following message to the logs:
-```output
-File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
-  info = self._client.info()
-File "/usr/local/lib/python2.7/dist-packages/docker/client.py", line 174, in info
-  return self.api.info(*args, **kwargs)
-File "/usr/local/lib/python2.7/dist-packages/docker/api/daemon.py", line 88, in info
-  return self._result(self._get(self._url("/info")), True)
-```
-
-### Root cause
-iotedgectl can't find Docker, which is a pre-requisite.
-
-### Resolution
-Install Docker, make sure that it is running and retry.
-
-## iotedgectl setup fails with an invalid hostname
-
-The command `iotedgectl setup` fails and prints the following message: 
+The command `sudo journalctl -u iotedge` fails and prints the following message: 
 
 ```output
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
@@ -138,9 +244,71 @@ When you see this error, you can resolve it by configuring the DNS name of your 
 4. Copy the new DNS name, which should be in the format **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
 5. Inside the virtual machine, use the following command to set up the IoT Edge runtime with your DNS name:
 
-   ```input
-   iotedgectl setup --connection-string "<connection string>" --nopass --edge-hostname "<DNS name>"
-   ```
+   - On Linux:
+
+      ```bash
+      sudo nano /etc/iotedge/config.yaml
+      ```
+
+   - On Windows:
+
+      ```cmd
+      notepad C:\ProgramData\iotedge\config.yaml
+      ```
+
+## Stability issues on resource constrained devices 
+You may encounter stability problems on constrained devices like the Raspberry Pi, especially when used as a gateway. Symptoms include out of memory exceptions in the edge hub module, downstream devices cannot connect or the device stops sending telemetry messages after a few hours.
+
+### Root cause
+The edge hub, which is part of the edge runtime, is optimized for performance by default and attempts to allocate large chunks of memory. This is not ideal for constrained edge devices and can cause stability problems.
+
+### Resolution
+For the edge hub set an environment variable **OptimizeForPerformance** to **false**. There are two ways to do this:
+
+In the UI: 
+
+In the portal from *Device Details*->*Set Modules*->*Configure advanced Edge Runtime settings*, create an environment variable called *OptimizeForPerformance* that is set to *false* for the *Edge Hub*.
+
+![optimizeforperformance][img-optimize-for-perf]
+
+**OR**
+
+In the deployment manifest:
+
+```json
+  "edgeHub": {
+    "type": "docker",
+    "settings": {
+      "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+      "createOptions": <snipped>
+    },
+    "env": {
+      "OptimizeForPerformance": {
+          "value": "false"
+      }
+    },
+```
+## Can't get the IoT Edge daemon logs on Windows
+If you get an EventLogException when using `Get-WinEvent` on Windows, check your registry entries.
+
+### Root cause
+The `Get-WinEvent` PowerShell command relies on an registry entry to be present to find logs by a specific `ProviderName`.
+
+### Resolution
+Set a registry entry for the IoT Edge daemon. Create a **iotedge.reg** file with the following content, and import in to the Windows Registry by double-clicking it or using the `reg import iotedge.reg` command:
+
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
+"CustomSource"=dword:00000001
+"EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
+"TypesSupported"=dword:00000007
+```
+
 
 ## Next steps
-Do you think that you found a bug in the IoT Edge platform? Please, [submit an issue](https://github.com/Azure/iot-edge/issues) so that we can continue to improve. 
+Do you think that you found a bug in the IoT Edge platform? Please, [submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve. 
+
+<!-- Images -->
+[img-optimize-for-perf]: ./media/troubleshoot/OptimizeForPerformanceFalse.png

@@ -3,8 +3,8 @@ title: Support for AppSource | Azure
 description: Support information and links for AppSource.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor:
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 07/02/2018
 ms.author: ellacroi
 
 ---  
@@ -29,6 +29,6 @@ The support options for AppSource.
 | StackOverflow: Azure Active Directory located at [stackoverflow.com/questions/tagged/azure-active-directory](https://stackoverflow.com/questions/tagged/azure-active-directory "Azure AD on stackoverflow") | Stack Overflow environment to get solutions and ask questions about everything related to Azure Active Directory (Azure AD). |  
 
 ## Next steps
-*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
+Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
 ---  

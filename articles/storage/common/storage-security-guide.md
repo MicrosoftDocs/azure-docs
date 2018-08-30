@@ -3,12 +3,11 @@ title: Azure Storage security guide | Microsoft Docs
 description: Details the many methods of securing Azure Storage, including but not limited to RBAC, Storage Service Encryption, Client-side Encryption, SMB 3.0, and Azure Disk Encryption.
 services: storage
 author: craigshoemaker
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
+ms.component: common
 ---
 
 # Azure Storage security guide
@@ -150,7 +149,6 @@ Note: it is recommended to use only one of the keys in all of your applications 
 * [Operations on storage accounts](https://msdn.microsoft.com/library/ee460790.aspx)
 
   This article in the Storage Service Manager REST API Reference contains links to specific articles on retrieving and regenerating the storage account keys using the REST API. Note: This is for the Classic storage accounts.
-* [Say goodbye to key management – manage access to Azure Storage data using Azure AD](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
 
   This article shows how to use Active Directory to control access to your Azure Storage keys in Azure Key Vault. It also shows how to use an Azure Automation job to regenerate the keys on an hourly basis.
 

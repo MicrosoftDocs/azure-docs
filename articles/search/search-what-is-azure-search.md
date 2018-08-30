@@ -6,11 +6,16 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 06/19/2018
+ms.date: 08/09/2018
 ms.author: heidist
 ---
 # What is Azure Search?
-Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogenous content in web, mobile, and enterprise applications.
+Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogenous content in web, mobile, and enterprise applications. Query execution is over a user-defined index.
+
++ Build a search corpus containing only your data, sourced from multiple content types and platforms. 
++ Leverage AI-powered indexing to extract text and features from image files, or entities and key phrases from raw text.
++ Create intuitive search experiences with facet navigation and filters, synonyms, auto-complete, and text analysis for "did you mean" auto-corrected search terms.
++ Add geo-search for "find near me", language analyzers for non-English full text search, and scoring logic for search rank.
 
 Functionality is exposed through a simple [REST API](/rest/api/searchservice/) or [.NET SDK](search-howto-dotnet-sdk.md) that masks the inherent complexity of information retrieval. In addition to APIs, the Azure portal provides administration and content management support, with tools for prototyping and querying your indexes. Because the service runs in the cloud, infrastructure and availability are managed by Microsoft.
 
@@ -22,10 +27,10 @@ Functionality is exposed through a simple [REST API](/rest/api/searchservice/) o
 |----------|----------|
 |Full text search and text analysis | [Full text search](search-lucene-query-architecture.md) is a primary use case for most search-based apps. Queries can be formulated using a supported syntax. <br/><br/>[**Simple query syntax**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) provides logical operators, phrase search operators, suffix operators, precedence operators.<br/><br/>[**Lucene query syntax**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) includes all operations in simple syntax, with extensions for fuzzy search, proximity search, term boosting, and regular expressions.|
 |Cognitive search (preview) | [AI-powered algorithms](cognitive-search-concept-intro.md) for image and text analysis can be applied to an indexing pipeline to extract text information from raw content. A few examples of [built-in skills](cognitive-search-predefined-skills.md) include optical character recognition (making scanned JPEGs searchable), entity recognition (identifying an organization, name, or location), and key phrase recognition. You can also [code custom skills](cognitive-search-create-custom-skill-example.md) to attach to the pipeline. |
-| Data integration | Azure Search indexes accept data from any source, provided it is submitted as a JSON data structure. <br/><br/> Optionally, for supported data sources in Azure, you can use [**indexers**](search-indexer-overview.md) to automatically crawl [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md), or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) to sync your search index's content with your primary data store. Azure Blob indexers can perform *document cracking* for [indexing major file formats](search-howto-indexing-azure-blob-storage.md), including Microsoft Office, PDF, and HTML documents. |
+| Data integration | Azure Search indexes accept data from any source, provided it is submitted as a JSON data structure. <br/><br/> Optionally, for supported data sources in Azure, you can use [**indexers**](search-indexer-overview.md) to automatically crawl [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md), or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) for searchable content in primary data stores. Azure Blob indexers can perform *document cracking* to [extract text from  major file formats](search-howto-indexing-azure-blob-storage.md), including Microsoft Office, PDF, and HTML documents. |
 | Linguistic analysis | Analyzers are components used for text processing during indexing and search operations. There are two types. <br/><br/>[**Custom lexical analyzers**](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) are used for complex search queries using phonetic matching and regular expressions. <br/><br/>[**Language analyzers**](https://docs.microsoft.com/rest/api/searchservice/language-support) from Lucene or Microsoft are used to intelligently handle language-specific linguistics including verb tenses, gender, irregular plural nouns (for example, 'mouse' vs. 'mice'), word de-compounding, word-breaking (for languages with no spaces), and more. |
 | Geo-search | Azure Search processes, filters, and displays geographic locations. It enables users to explore data based on the proximity of a search result to a physical location. [Watch this video](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) or [review this sample](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) to learn more. |
-| User experience features | [**Search suggestions**](https://docs.microsoft.com/rest/api/searchservice/suggesters) can be enabled for type-ahead queries in a search bar. Actual documents in your index are suggested as users enter partial search input. <br/><br/>[**Faceted navigation**](https://docs.microsoft.com/azure/search/search-faceted-navigation) is enabled through a single query parameter. Azure Search returns a faceted navigation structure you can use as the code behind a categories list, for self-directed filtering (for example, to filter catalog items by price-range or brand). <br/><br/> [**Filters**](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) can be used to incorporate faceted navigation into your application's UI, enhance query formulation, and filter based on user- or developer-specified criteria. Create filters using the OData syntax.<br/><br/> [**Hit highlighting**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) applies text formatting to a matching keyword in search results. You can choose which fields return highlighted snippets.<br/><br/>[**Sorting**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) is offered for multiple fields via the index schema and then toggled at query-time with a single search parameter.<br/><br/> [**Paging**](search-pagination-page-layout.md) and throttling your search results is straightforward with the finely tuned control that Azure Search offers over your search results.  
+| User experience features | [**Auto-complete (preview)**](search-autocomplete-tutorial.md) can be enabled for type-ahead queries in a search bar. <br/><br/>[**Search suggestions**](https://docs.microsoft.com/rest/api/searchservice/suggesters) also works off of partial text inputs in a search bar, but the results are actual documents in your index rather than query terms. <br/><br/>[**Synonyms**](search-synonyms.md) associates equivalent terms that implicitly expand the scope of a query, without the user having to provide the alternate terms. <br/><br/>[**Faceted navigation**](search-faceted-navigation.md) is enabled through a single query parameter. Azure Search returns a faceted navigation structure you can use as the code behind a categories list, for self-directed filtering (for example, to filter catalog items by price-range or brand). <br/><br/> [**Filters**](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) can be used to incorporate faceted navigation into your application's UI, enhance query formulation, and filter based on user- or developer-specified criteria. Create filters using the OData syntax.<br/><br/> [**Hit highlighting**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) applies text formatting to a matching keyword in search results. You can choose which fields return highlighted snippets.<br/><br/>[**Sorting**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) is offered for multiple fields via the index schema and then toggled at query-time with a single search parameter.<br/><br/> [**Paging**](search-pagination-page-layout.md) and throttling your search results is straightforward with the finely tuned control that Azure Search offers over your search results.  
 | Relevance | [**Simple scoring**](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) is a key benefit of Azure Search. Scoring profiles are used to model relevance as a function of values in the documents themselves. For example, you might want newer products or discounted products to appear higher in the search results. You can also build scoring profiles using tags for personalized scoring based on customer search preferences you've tracked and stored separately. |
 | Monitoring and reporting | [**Search traffic analytics**](search-traffic-analytics.md) are collected and analyzed to unlock insights from what users are typing into the search box. <br/><br/>Metrics on queries per second, latency, and throttling are captured and reported in portal pages with no additional configuration required. You can also easily monitor index and document counts so that you can adjust capacity as needed. For more information, see [Service administration](search-manage.md) |
 | Tools for prototyping and inspection | In the portal, you can use the [**Import data wizard**](search-import-data-portal.md) to configure indexers, index designer to stand up an index, and [**Search explorer**](search-explorer.md) to test queries and refine scoring profiles. You can also open any index to view its schema. |
@@ -45,7 +50,7 @@ Before you can upload searchable content, you must first define an Azure Search 
 
 A schema can be created in the Azure portal, or programmatically using the [.NET SDK](search-howto-dotnet-sdk.md) or [REST API](/rest/api/searchservice/).
 
-### Step 3: Index data
+### Step 3: Load data
 After you define an index, you're ready to upload content. You can use either a push or pull model.
 
 The pull model retrieves data from external data sources. It's supported through *indexers* that streamline and automate aspects of data ingestion, such as connecting to, reading, and serializing data. [Indexers](/rest/api/searchservice/Indexer-operations) are available for Azure Cosmos DB, Azure SQL Database, Azure Blob Storage, and SQL Server hosted in an Azure VM. You can configure an indexer for on demand or scheduled data refresh.
@@ -55,7 +60,7 @@ The push model is provided through the SDK or REST APIs, used for sending update
 ### Step 4: Search
 After populating an index, you can [issue search queries](/rest/api/searchservice/Search-Documents) to your service endpoint using simple HTTP requests with REST API or the .NET SDK.
 
-## How Azure Search compares
+## How it compares
 
 Customers often ask how Azure Search compares with other search-related solutions. The following table summarizes key differences.
 
@@ -98,13 +103,16 @@ Alternatively, you can [activate MSDN subscriber benefits](https://azure.microso
 
 ## How to get started
 
-1. Create a service in the [Free tier](search-create-service-portal.md).
+1. Create a [free service](search-create-service-portal.md). All quickstarts and tutorials can be completed on the free service.
 
-2. Step through one or more of the following tutorials. 
+2. Step through the [tutorial on using built-in tools for indexing and queries](search-get-started-portal.md). Learn important concepts and gain familiarity with information the portal provides.
 
-  + [How to use the .NET SDK](search-howto-dotnet-sdk.md) demonstrates the main steps in managed code.  
-  + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) shows the same steps using the REST API.  
-  + [Create your first index in the portal](search-get-started-portal.md) using built-in indexing and prototype features.   
+3. Move forward with code using either the .NET or REST API:
+
+  + [How to use the .NET SDK](search-howto-dotnet-sdk.md) demonstrates the main workflow in managed code.  
+  + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) shows the same steps using the REST API. You can also use this quickstart to call REST APIs from Postman or Fiddler: [Explore Azure Search REST APIs](search-fiddler.md).
+
+## Watch this video
 
 Search engines are the common drivers of information retrieval in mobile apps, on the web, and in corporate data stores. Azure Search gives you tools for creating a search experience similar to those on large commercial web sites.
 
@@ -115,6 +123,4 @@ In this 9-minute video from program manager Liam Cavanagh, learn how integrating
 + 0-3 minutes covers key features and use-cases.
 + 3-4 minutes covers service provisioning. 
 + 4-6 minutes covers Import Data wizard used to create an index using the built-in real estate dataset.
-+ 6-9 minutes covers Search Explorer and various queries.
-
-
++ 6-9 minutes covers Search explorer and various queries.

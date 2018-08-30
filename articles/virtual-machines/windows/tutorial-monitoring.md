@@ -3,7 +3,7 @@ title: Tutorial - Monitor and update Windows virtual machines in Azure | Microso
 description: In this tutorial, you learn how to monitor boot diagnostics and performance metrics, and manage package updates on a Windows virtual machine
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/04/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn about monitoring and update management so that I can review the health status, perform troubleshooting, and install updates on Windows virtual machines.

@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/19/2018
+ms.date: 08/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -324,6 +324,10 @@ For the support matrix of the different SAP HANA versions with the different Lin
 For the compatibility matrix of the operating system and HLI firmware/driver versions, refer [OS Upgrade for HLI](os-upgrade-hana-large-instance.md).
 
 
+> [!IMPORTANT] 
+> For Type II units only the SLES 12 SP2 OS version is supported at this point. 
+
+
 **Database**
 
 - Licenses and software installation components for SAP HANA (platform or enterprise edition).
@@ -390,6 +394,8 @@ These sizes are rough volume numbers that can vary slightly based on deployment 
 You might need more storage. You can add storage by purchasing additional storage in 1-TB units. This additional storage can be added as additional volume. It also can be used to extend one or more of the existing volumes. It isn't possible to decrease the sizes of the volumes as originally deployed and mostly documented by the previous tables. It also isn't possible to change the names of the volumes or mount names. The storage volumes previously described are attached to the HANA Large Instance units as NFS4 volumes.
 
 You can use storage snapshots for backup and restore and disaster recovery purposes. For more information, see [SAP HANA (Large Instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+Refer [HLI supported scenarios](hana-supported-scenario.md) for storage layout details for your scenario.
 
 ### Encryption of data at rest
 The storage used for HANA Large Instance allows a transparent encryption of the data as it's stored on the disks. When a HANA Large Instance unit is deployed, you can enable this kind of encryption. You also can change to encrypted volumes after the deployment takes place. The move from non-encrypted to encrypted volumes is transparent and doesn't require downtime. 

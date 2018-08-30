@@ -1,32 +1,26 @@
 ---
-title: Compute context options for R Server on HDInsight - Azure | Microsoft Docs
-description: Learn about the different compute context options available to users with R Server on HDInsight 
+title: Compute context options for ML Services on HDInsight - Azure 
+description: Learn about the different compute context options available to users with ML Services on HDInsight 
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 0deb0b1c-4094-459b-94fc-ec9b774c1f8a
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/22/2018
-ms.author: nitinme
-
+ms.date: 06/27/2018
 ---
-# Compute context options for R Server on HDInsight
+# Compute context options for ML Services on HDInsight
 
-Microsoft R Server on Azure HDInsight controls how calls are executed by setting the compute context. This article outlines the options that are available to specify whether and how execution is parallelized across cores of the edge node or HDInsight cluster.
+ML Services on Azure HDInsight controls how calls are executed by setting the compute context. This article outlines the options that are available to specify whether and how execution is parallelized across cores of the edge node or HDInsight cluster.
 
 The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of RevoScaleR across the cores of the edge node server. You can also run them across the nodes of the cluster by using RevoScaleR’s Hadoop Map Reduce or Spark compute contexts.
 
-## Microsoft R Server on Azure HDInsight
-[Microsoft R Server on Azure HDInsight](r-server-overview.md) provides the latest capabilities for R-based analytics. It can use data that is stored in an HDFS container in your [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage account, a Data Lake store, or the local Linux file system. Since R Server is built on open source R, the R-based applications you build can apply any of the 8000+ open source R packages. They can also use the routines in [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), Microsoft’s big data analytics package that is included with R Server.  
+## ML Services on Azure HDInsight
+[ML Services on Azure HDInsight](r-server-overview.md) provides the latest capabilities for R-based analytics. It can use data that is stored in an HDFS container in your [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage account, a Data Lake store, or the local Linux file system. Since ML Services is built on open source R, the R-based applications you build can apply any of the 8000+ open source R packages. They can also use the routines in [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), Microsoft’s big data analytics package that is included with ML Services.  
 
 ## Compute contexts for an edge node
-In general, an R script that's run in R Server on the edge node runs within the R interpreter on that node. The exceptions are those steps that call a RevoScaleR function. The RevoScaleR calls run in a compute environment that is determined by how you set the RevoScaleR compute context.  When you run your R script from an edge node, the possible values of the compute context are:
+In general, an R script that's run in ML Services cluster on the edge node runs within the R interpreter on that node. The exceptions are those steps that call a RevoScaleR function. The RevoScaleR calls run in a compute environment that is determined by how you set the RevoScaleR compute context.  When you run your R script from an edge node, the possible values of the compute context are:
 
 - local sequential (*local*)
 - local parallel (*localpar*)
@@ -74,9 +68,9 @@ For more information and examples of RevoScaleR compute contexts, see the inline
 You can also refer to the [Distributed computing overview](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) in [Machine Learning Server documentation](https://docs.microsoft.com/machine-learning-server/).
 
 ## Next steps
-In this article, you learned about the options that are available to specify whether and how execution is parallelized across cores of the edge node or HDInsight cluster. To learn more about how to use R Server with HDInsight clusters, see the following topics:
+In this article, you learned about the options that are available to specify whether and how execution is parallelized across cores of the edge node or HDInsight cluster. To learn more about how to use ML Services with HDInsight clusters, see the following topics:
 
-* [Overview of R Server for Hadoop](r-server-overview.md)
-* [Get started with R Server for Hadoop](r-server-get-started.md)
-* [Azure Storage options for R Server on HDInsight](r-server-storage.md)
+* [Overview of ML Services for Hadoop](r-server-overview.md)
+* [Get started with ML Services for Hadoop](r-server-get-started.md)
+* [Azure Storage options for ML Services on HDInsight](r-server-storage.md)
 

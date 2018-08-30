@@ -1,21 +1,16 @@
 ---
-title: 'Quickstart: Get started with Hadoop and Hive in Azure HDInsight using Resource Manager template | Microsoft Docs'
+title: 'Quickstart: Get started with Hadoop and Hive in Azure HDInsight using Resource Manager template '
 description: Learn how to create HDInsight clusters, and query data with Hive.
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-
-
-ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: jgao
+
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Resource Manager template and run a Hive job
 ---
 # Quickstart: Get started with Hadoop and Hive in Azure HDInsight using Resource Manager template
@@ -252,6 +247,7 @@ In this article, you learned how to create a Linux-based HDInsight cluster using
 If you're ready to start working with your own data and need to know more about how HDInsight stores data or how to get data into HDInsight, see the following articles:
 
 * For information on how HDInsight uses Azure Storage, see [Use Azure Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+* For information on how to create an HDInsight cluster with Data Lake Storage, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * For information on how to upload data to HDInsight, see [Upload data to HDInsight](../hdinsight-upload-data.md).
 
 To learn more about analyzing data with HDInsight, see the following articles:

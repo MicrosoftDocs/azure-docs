@@ -30,7 +30,7 @@ The bulk executor library helps you leverage this massive throughput and storage
  
 * It significantly reduces the client-side compute resources needed to saturate the throughput allocated to a container. A single threaded application that writes data using the bulk import API achieves 10 times greater write throughput when compared to a multi-threaded application that writes data in parallel while saturating the client machine's CPU.  
 
-* It abstracts away the tedious tasks of writing application logic to handle request throttling, request timeouts, and other transient exceptions by efficiently handling them within the library.  
+* It abstracts away the tedious tasks of writing application logic to handle rate limiting of request, request timeouts, and other transient exceptions by efficiently handling them within the library.  
 
 * It provides a simplified mechanism for applications performing bulk operations to scale out. A single bulk executor instance running on an Azure VM can consume greater than 500 K RU/s and you can achieve a higher throughput rate by adding additional instances on individual client VMs.  
  
@@ -44,7 +44,7 @@ When a bulk operation to import or update documents is triggered with a batch of
 
 ![Bulk executor architecture](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-The Bulk Executor library makes sure to maximally utilize the throughput allocated to a collection. It uses an [AIMD-style congestion control mechanism](https://tools.ietf.org/html/rfc5681) for each Azure Cosmos DB partition key range to efficiently handle throttling and timeouts. 
+The Bulk Executor library makes sure to maximally utilize the throughput allocated to a collection. It uses an [AIMD-style congestion control mechanism](https://tools.ietf.org/html/rfc5681) for each Azure Cosmos DB partition key range to efficiently handle rate limiting and timeouts. 
 
 ## Next Steps 
   

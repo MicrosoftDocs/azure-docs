@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: sstein
 
 ---
@@ -202,5 +202,5 @@ The following errors do not fall into any previous categories.
 ## Next steps
 * Read about [Azure SQL Database features](sql-database-features.md).
 * Read about [DTU-based purchasing model](sql-database-service-tiers-dtu.md).
-* Read about [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md).
+* Read about [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 

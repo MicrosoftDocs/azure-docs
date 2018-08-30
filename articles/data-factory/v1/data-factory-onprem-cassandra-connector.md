@@ -20,11 +20,11 @@ robots: noindex
 ---
 # Move data from an on-premises Cassandra database using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-onprem-cassandra-connector.md)
-> * [Version 2 - Preview](../connector-cassandra.md)
+> * [Version 1](data-factory-onprem-cassandra-connector.md)
+> * [Version 2 (current version)](../connector-cassandra.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Cassandra connector in V2](../connector-cassandra.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Cassandra connector in V2](../connector-cassandra.md).
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises Cassandra database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/20/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
 
 ---
@@ -144,6 +144,7 @@ Resource Manager provides the following functions for working with integers:
 ## Resource functions
 Resource Manager provides the following functions for getting resource values:
 
+* [listAccountSas](resource-group-template-functions-resource.md#list)
 * [listKeys](resource-group-template-functions-resource.md#listkeys)
 * [listSecrets](resource-group-template-functions-resource.md#list)
 * [list*](resource-group-template-functions-resource.md#list)

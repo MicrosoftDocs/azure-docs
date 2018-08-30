@@ -1,18 +1,14 @@
 ---
-title: Add additional Azure storage accounts to HDInsight | Microsoft Docs
+title: Add additional Azure storage accounts to HDInsight 
 description: Learn how to add additional Azure storage accounts to an existing HDInsight cluster.
 services: hdinsight
-documentationCenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---

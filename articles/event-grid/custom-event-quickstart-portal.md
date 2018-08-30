@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 06/04/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
 ---
@@ -14,6 +14,8 @@ ms.service: event-grid
 Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to create a custom topic, subscribe to the topic, and trigger the event to view the result. You send the event to an Azure Function that logs the event data. When you're finished, you see that the event data has been sent to an endpoint and logged.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 ## Create a custom topic
 
@@ -33,7 +35,7 @@ An event grid topic provides a user-defined endpoint that you post your events t
 
    ![Start steps](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Provide a unique name for the custom topic. The topic name must be unique because it is represented by a DNS entry. Do not use the name shown in the image. Instead, create your own name. Select one of the [supported regions](overview.md). Provide a name for the resource group. Select **Create**.
+1. Provide a unique name for the custom topic. The topic name must be unique because it is represented by a DNS entry. Do not use the name shown in the image. Instead, create your own name. Provide a name for the resource group. Select **Create**.
 
    ![Provide event grid topic values](./media/custom-event-quickstart-portal/create-custom-topic.png)
 

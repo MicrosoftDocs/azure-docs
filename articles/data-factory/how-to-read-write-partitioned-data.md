@@ -1,6 +1,6 @@
 ---
 title: How to read or write partitioned data in Azure Data Factory | Microsoft Docs
-description: Learn how to read or write partitioned data in Azure Data Factory version 2. 
+description: Learn how to read or write partitioned data in Azure Data Factory. 
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -16,8 +16,8 @@ ms.date: 05/15/2018
 ms.author: shlo
 
 ---
-# How to read or write partitioned data in Azure Data Factory version 2
-In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In version 2, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. 
+# How to read or write partitioned data in Azure Data Factory
+In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In the current version of Data Factory, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. 
 
 ## Use a pipeline parameter 
 In version 1, you could use the partitionedBy property and SliceStart system variable as shown in the following example: 
@@ -33,7 +33,7 @@ In version 1, you could use the partitionedBy property and SliceStart system var
 
 For more information about the partitonedBy property, see [version 1 Azure Blob connector](v1/data-factory-azure-blob-connector.md#dataset-properties) article. 
 
-In version 2, a way to achieve this behavior is to do the following actions: 
+In the current version of Data Factory, a way to achieve this behavior is to do the following actions: 
 
 1. Define a **pipeline parameter** of type string. In the following example, name of the pipeline parameter is **windowStartTime**. 
 2. Set **folderPath** in the dataset definition to reference the value of pipeline parameter. 

@@ -3,7 +3,7 @@ title: Create a Service Principal for Azure Stack | Microsoft Docs
 description: Describes how to create a new service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: azure-resource-manager
 documentationcenter: na
-author: mattbriggs
+author: sethmanheim
 manager: femila
 
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
-ms.author: mabrigg
+ms.date: 08/22/2018
+ms.author: sethm
 
 ---
 # Provide applications access to Azure Stack
@@ -94,16 +94,48 @@ The following information is required as input for the automation parameters:
    > [!NOTE]
    > This example creates a self-signed certificate. When you run these commands in a production deployment, use Get-Certificate to retrieve the certificate object for the certificate you want to use.
 
-   ```
-   $creds = Get-Credential
+   ```PowerShell  
+    # Credential for accessing the ERCS PrivilegedEndpoint typically domain\cloudadmin
+    $creds = Get-Credential
 
-   $session = New-PSSession -ComputerName <IP Address of ECRS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+    # Creating a PSSession to the ERCS PrivilegedEndpoint
+    $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-   $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=testspn2" -KeySpec KeyExchange
+    # This produces a self signed cert for testing purposes.  It is prefered to use a managed certificate for this.
+    $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
 
-   Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name 'MyApp' -ClientCertificates $using:cert}
+    $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}
+    $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
+    $session|remove-pssession
 
-   $session|remove-pssession
+    # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
+
+    # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
+
+    # TenantID for the stamp. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    $TenantID = $AzureStackInfo.AADTenantID
+
+    # Register an AzureRM environment that targets your Azure Stack instance
+    Add-AzureRMEnvironment `
+    -Name "AzureStackUser" `
+    -ArmEndpoint $ArmEndpoint
+
+    # Set the GraphEndpointResourceId value
+    Set-AzureRmEnvironment `
+    -Name "AzureStackUser" `
+    -GraphAudience $GraphAudience `
+    -EnableAdfsAuthentication:$true
+
+    Add-AzureRmAccount -EnvironmentName "azurestackuser" `
+    -ServicePrincipal `
+    -CertificateThumbprint $ServicePrincipal.Thumbprint `
+    -ApplicationId $ServicePrincipal.ClientId `
+    -TenantId $TenantID
+
+    # Output the SPN details
+    $ServicePrincipal
 
    ```
 
@@ -119,6 +151,7 @@ The following information is required as input for the automation parameters:
    PSComputerName        : azs-ercs01
    RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
    ```
+
 ### Assign a role
 Once the Service Principal is created, you must [assign it to a role](azure-stack-create-service-principals.md#assign-role-to-service-principal)
 

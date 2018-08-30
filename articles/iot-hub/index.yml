@@ -50,6 +50,7 @@ sections:
     items:
     - html: <a href="/azure/iot-hub/tutorial-routing">Configure automated message routing in IoT Hub</a>
     - html: <a href="/azure/iot-hub/tutorial-device-twins">Configure your devices from a back-end service</a>
+    - html: <a href="/azure/iot-hub/tutorial-firmware-update">Implement a device firmware update process</a>
     - html: <a href="/azure/iot-hub/tutorial-connectivity">Use a simulated device to test connectivity with your IoT hub</a>
 - title: Reference
   items:
@@ -62,4 +63,4 @@ sections:
     - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.devices">.NET (Service)</a></p><p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (Devices)</a></p><p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">C (Device SDK)</a></p><p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (Service)</a></p><p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (Devices)</a></p><p><a href="/javascript/api/azure-iothub/?view=azure-iot-typescript-latest">Node.js (Service)</a></p><p><a href="/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest">Node.js (Devices)</a></p>
     - title: REST
-      html: <p><a href="/rest/api/iothub/iothubresource">REST (Resource Provider)</a></p><p><a href="/rest/api/iothub/deviceapi">REST (Device Identities)</a></p><p><a href="/rest/api/iothub/devicetwinapi">REST (Device Twins)</a></p><p><a href="/rest/api/iothub/httpruntime">REST (Device Messaging)</a></p><p><a href="/rest/api/iothub/jobapi">REST (Jobs)</a></p>
+      html: <p><a href="/rest/api/iothub/device">REST (Device)</a></p><p><a href="/rest/api/iothub/service">REST (Service)</a></p><p><a href="/rest/api/iothub/iothubresource">REST (IoT Hub Resource)</a></p><p><a href="/rest/api/iothub/certificates">REST (Certificates)</a></p>

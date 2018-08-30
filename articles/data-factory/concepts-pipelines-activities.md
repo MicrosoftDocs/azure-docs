@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
 
@@ -19,18 +19,13 @@ ms.author: shlo
 
 # Pipelines and activities in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-create-pipelines.md)
-> * [Version 2 - Preview](concepts-pipelines-activities.md)
+> * [Version 1](v1/data-factory-create-pipelines.md)
+> * [Current version](concepts-pipelines-activities.md)
 
 This article helps you understand pipelines and activities in Azure Data Factory and use them to construct end-to-end data-driven workflows for your data movement and data processing scenarios.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Pipelines in Data Factory version 1](v1/data-factory-create-pipelines.md).
->
-> This article assumes that you have gone through [Introduction to Azure Data Factory](introduction.md) and the [quickstart tutorial](quickstart-create-data-factory-powershell.md).
-
 ## Overview
-A data factory can have one or more pipelines. A pipeline is a logical grouping of activities that together perform a task. For example, a pipeline could contain a set of activities that ingest and clean log data, and then kick of a Spark job on an HDInsight cluster to analyze the log data. The beauty of this is that the pipeline allows you to manage the activities as a set instead of each one individually. For example, you can deploy and schedule the pipeline, instead of the activities independently.
+A data factory can have one or more pipelines. A pipeline is a logical grouping of activities that together perform a task. For example, a pipeline could contain a set of activities that ingest and clean log data, and then kick off a Spark job on an HDInsight cluster to analyze the log data. The beauty of this is that the pipeline allows you to manage the activities as a set instead of each one individually. For example, you can deploy and schedule the pipeline, instead of the activities independently.
 
 The activities in a pipeline define actions to perform on your data. For example, you may use a copy activity to copy data from an on-premises SQL Server to an Azure Blob Storage. Then, use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process/transform data from the blob storage to produce output data. Finally, use a second copy activity to copy the output data to an Azure SQL Data Warehouse on top of which business intelligence (BI) reporting solutions are built.
 
@@ -60,6 +55,8 @@ Data transformation activity | Compute environment
 [Machine Learning activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) | Azure VM
 [Stored Procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse, or SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
+[Custom Code](transform-data-using-dotnet-custom-activity.md) | Azure Batch
+[Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
 
 For more information, see the [data transformation activities](transform-data.md) article.
 
@@ -97,7 +94,7 @@ Here is how a pipeline is defined in JSON format:
 
 Tag | Description | Type | Required
 --- | ----------- | ---- | --------
-name | Name of the pipeline. Specify a name that represents the action that the pipeline performs. <br/><ul><li>Maximum number of characters: 140</li><li>Must start with a letter number, or an underscore (_)</li><li>•	Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Yes
+name | Name of the pipeline. Specify a name that represents the action that the pipeline performs. <br/><ul><li>Maximum number of characters: 140</li><li>Must start with a letter, number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Yes
 description | Specify the text describing what the pipeline is used for. | String | No
 activities | The **activities** section can have one or more activities defined within it. See the [Activity JSON](#activity-json) section for details about the activities JSON element. | Array | Yes
 parameters | The **parameters** section can have one or more parameters defined within the pipeline, making your pipeline flexible for reuse. | List | No
