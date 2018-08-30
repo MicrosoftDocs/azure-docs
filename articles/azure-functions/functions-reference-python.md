@@ -17,20 +17,23 @@ ms.author: glenga
 
 # Azure Functions Python developer guide
 
-This article is an introduction to developing Azure Functions by using Python.
+This article is an introduction to developing Azure Functions using Python. The content below assumes that you've already read the [Azure Functions developers guide](functions-reference.md).
 
-This article assumes that you've already read the [Azure Functions developers guide](functions-reference.md). To jump right in with Python functions, see **Create your first function with Python**.
- 
-## Prerequisites
+[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
 
-Azure Functions for Python requires Python 3.6 or a later version.
+## Programming model
 
-## Programming model 
+An Azure Function should be a stateless method in your Python script that processes input and produces output. By default, the runtime expects this to be implemented as a global method called `main()` in the `__init__.py` file. You can change the default  configuration using the `scriptFile` property in the function.json file to specify the name of your Python file. Similarly, the name of the file can be configured as well by specifying the `scriptFile` property, also in function.json.
 
-A *function* is the primary concept in Azure Functions. In Python, you implement your function as a global function `main()` in a file named `__init__.py`. The name of the Python function can be changed by specifying the `entryPoint` property in the function.json file. The name of the file can be changed by specifying the `scriptFile`
-property, also in function.json.
+```json
+{
+  "scriptFile": "__init__.py",
+  "entryPoint": "main",
+  ...
+}
+```
 
-A function and its bindings are declared in the function.json file. The function parameters and return type may additionally be declared as Python type annotations. The annotations must match the types expected by the bindings declared in function.json.
+Data from triggers and bindings is bound to the function via method attributes using the `name` property in the function.json file. Optionally, the function parameter types and the return type may also be declared as Python type annotations. The annotations must match the types expected by the bindings declared in function.json.
 
 The following  _function.json_ file describes a simple function triggered by an HTTP request:
 
@@ -53,23 +56,60 @@ The following  _function.json_ file describes a simple function triggered by an 
   ]
 }
 ```
+
 The `__init__.py` file contains the following function code:
 
 ```python
 import azure.functions
 
-```python
 def main(req):
     user = req.params.get('user', 'User')
     return f'Hello, {user}!'
 ```
 
 The same function can be written using annotations, as follows:
+
 ```python
 def main(req: azure.functions.HttpRequest) -> str:
     user = req.params.get('user', 'User')
     return f'Hello, {user}!'
 ```  
+
+## Inputs
+
+Inputs are divided into two categories in Azure Functions: one is the trigger input and the other is the additional input. Although they are different in `function.json`, the usage is identical in Python code. Let's take the following code snippet as an example:
+
+```json
+TBD
+```
+
+```python
+TBD
+```
+
+When this function is triggered, the HTTP request is passed to the function as `in`. An entry will be retrieved from the Azure Blob Storage based on the ID in the route URL and made available as `obj` in the function body.
+
+## Outputs
+
+Output can be expressed both in return value and/or output parameters. If there is only one output, we recommend using the return value. For multiple outputs, you will have to use output parameters.
+
+To use the return value of the function as the value of an output binding, the name of the property should be `$return` in `function.json`.
+
+To produce multiple output values, use the `set()` method provided by the `azure.functions.Out` interface to set the value of the output parameter. For example, the following function can push a message to a queue and also return an HTTP response.
+
+```json
+TBD
+```
+
+```python
+TBD
+```
+
+To write multiple values to a single output binding, or if a successful function invocation might not result in anything to pass to the output binding, use a Python tuple. For example, the following function writes multiple messages into the same queue. 
+
+```python
+TBD
+```
 
 ## Logging
 

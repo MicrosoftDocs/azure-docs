@@ -25,7 +25,7 @@ The following steps are supported on a Mac, Windows, or Linux computer.
 
 To complete this tutorial:
 
-+ Install [Python 3.6.4](https://www.python.org/downloads/) or a later version of Python 3.x.
++ Install [Python 3.6](https://www.python.org/downloads/)
 
 + Install [Azure Core Tools version 2.x](functions-run-local.md#v2).
 
