@@ -19,21 +19,6 @@ ms.author: diberry
 
 In this tutorial, use patterns to increase intent and entity prediction while providing fewer example utterances. The pattern is provided with a template utterance and entities and ignorable text.   
 
-> [!div class="checklist"]
-* How to identify that a pattern would help your app
-* How to create a pattern
-* How to verify pattern prediction improvements
-
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## Use existing app
-
-If you don't have the Human Resources app from the [batch test](luis-tutorial-batch-testing.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json) GitHub repository.
-
-If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `patterns`. Cloning is a great way to play with various LUIS features without affecting the original version. 
-
-## Patterns teach LUIS common utterances with fewer examples
-
 Because of the nature of the Human Resource domain, there are a few common ways of asking about employee relationships in organizations. For example:
 
 |Utterances|
@@ -43,32 +28,63 @@ Because of the nature of the Human Resource domain, there are a few common ways 
 
 These utterances are too close to determine the contextual uniqueness of each without providing many utterance examples. By adding a pattern for an intent, LUIS learns common utterance patterns for an intent without supplying many utterance examples. 
 
-Example template utterances for this intent include:
+Template utterance examples for this intent include:
 
-|Example template utterances|
-|--|
-|Who does {Employee} report to?|
-|Who reports to {Employee}?|
+|Template utterances examples|syntax meaning|
+|--|--|
+|Who does {Employee} report to[?]|interchangeable {Employee}, ignore [?]}|
+|Who reports to {Employee}[?]|interchangeable {Employee}, ignore [?]}|
 
-The pattern is provided by way of a template utterance example, which includes syntax to identify entities and ignorable text. A pattern is a combination of regular expression matching and machine learning.  The template utterance example, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent.
+The pattern is provided by way of a template utterance example, which includes syntax to identify entities and ignorable text. A pattern is a combination of expression matching and machine learning.  The template utterance example, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent. 
+
+The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. The optional syntax, `[?]`, marks words, or punctuation that are optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
+
+While the syntax looks like regular expressions, it is not regular expressions. Only the curly bracket, `{}`, and square bracket, `[]`, syntax is supported. They can be nested up to two levels.
 
 In order for a pattern to be matched to an utterance, the entities within the utterance have to match the entities in the template utterance first. However, the template doesn't help predict entities, only intents. 
 
 **While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern does not match.**
 
-Remember that employees were created in the [list entity tutorial](luis-quickstart-intent-and-list-entity.md).
+In this tutorial, add two new intents: `OrgChart-Manager` and `OrgChart-Reports`. 
 
-## Create new intents and their utterances
+|Intent|Utterance|
+|--|--|
+|OrgChart-Manager|Who does Jill Jones report to?|
+|OrgChart-Reports|Who reports to Jill Jones?|
 
-Add two new intents: `OrgChart-Manager` and `OrgChart-Reports`. Once LUIS returns a prediction to the client app, the intent name can be used as a function name in the client app and that the Employee entity could be used as a parameter to that function.
+Once LUIS returns a prediction to the client app, the intent name can be used as a function name in the client app and that the Employee entity could be used as a parameter to that function.
 
 ```Javascript
-OrgChart-Manager(employee){
+OrgChartManager(employee){
     ///
 }
 ```
 
-1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
+Remember that employees were created in the [list entity tutorial](luis-quickstart-intent-and-list-entity.md).
+
+
+> [!div class="checklist"]
+> * Use existing tutorial app 
+> * Create a pattern
+> * Verify pattern prediction improvements
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## Use existing app
+
+Continue with the app created in the last tutorial, named **HumanResources**. 
+
+If you do not have the HumanResources app from the previous tutorial, use the following steps:
+
+1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json).
+
+2. Import the JSON into a new app.
+
+3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `patterns`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
+
+## Create new intents and their utterances
+
+[!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. On the **Intents** page, select **Create new intent**. 
 
@@ -108,17 +124,17 @@ OrgChart-Manager(employee){
 
 ## Caution about example utterance quantity
 
-The quantity of example utterances in these intents is not enough to train LUIS properly. In a real-world app, each intent should have a minimum of 15 utterances with a variety of word choice and utterance length. These few utterances are selected specifically to highlight patterns. 
+[!include[Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
-## Train the LUIS app
+## Train
 
 [!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## Publish the app to get the endpoint URL
+## Publish
 
 [!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## Query the endpoint with a different utterance
+## Get intent and entities from endpoint
 
 1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -213,13 +229,13 @@ Use patterns to make the correct intent's score significantly higher in percenta
 
 Leave this second browser window open. You use it again later in the tutorial. 
 
-## Add the template utterances
+## Template utterances
 
 1. Select **Build** in the top menu.
 
 2. In the left navigation, under **Improve app performance**, select **Patterns** from the left navigation.
 
-3. Select the **OrgChart-Manager** intent, then enter the following template utterances, one at a time, selecting enter after each template utterance:
+3. Select the **OrgChart-Manager** intent, then enter the following template utterances:
 
     |Template utterances|
     |:--|
@@ -230,17 +246,13 @@ Leave this second browser window open. You use it again later in the tutorial.
     |Who is {Employee}['s] supervisor[?]|
     |Who is the boss of {Employee}[?]|
 
-    The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. 
-
     Entities with roles use syntax that includes the role name, and are covered in a [separate tutorial for roles](luis-tutorial-pattern-roles.md). 
-
-    The optional syntax, `[]`, marks words or punctuation that are optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
 
     If you type the template utterance, LUIS helps you fill in the entity when you enter the left curly bracket, `{`.
 
     [![Screenshot of entering template utterances for intent](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. Select the **OrgChart-Reports** intent, then enter the following template utterances, one at a time, selecting enter after each template utterance:
+4. Select the **OrgChart-Reports** intent, then enter the following template utterances:
 
     |Template utterances|
     |:--|
@@ -425,6 +437,8 @@ All of these utterances found the entities inside, therefore they match the same
 [!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
+
+This tutorial adds two intents for utterances that were difficult to prediction with high accuracy without having many example utterances. Adding patterns for these allowed LUIS to better predict the intent with a significantly higher score. Marking entities and ignorable text allowed LUIS to apply the pattern to a wider variety of utterances.
 
 > [!div class="nextstepaction"]
 > [Learn how to use roles with a pattern](luis-tutorial-pattern-roles.md)
