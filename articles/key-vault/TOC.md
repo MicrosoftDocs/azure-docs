@@ -7,7 +7,8 @@
 ## [Create a Key Vault - CLI](quick-create-cli.md)
 ## [Create a Key Vault - PowerShell](quick-create-powershell.md)
 ## [Create a Key Vault - Portal](quick-create-portal.md)
-
+## [Read from a Key Vault - .NET](quick-create-net.md)
+## [Read from a Key Vault - Node.js](quick-create-node.md)
 # Tutorials
 ## [Read a secret from Key Vault ](tutorial-web-application-keyvault.md)
 ## [Get started with Key Vault](key-vault-get-started.md)
@@ -21,7 +22,6 @@
 ## [Soft-delete](key-vault-ovw-soft-delete.md)
 ## [Storage account keys](key-vault-ovw-storage-keys.md)
 ## [Throttling](key-vault-ovw-throttling.md)
-## [Virtual network service endpoints](key-vault-ovw-vnet-service-endpoints.md)
 
 
 # How-to guides
@@ -35,7 +35,6 @@
 ### [How to use Key Vault soft-delete Azure PowerShell](key-vault-soft-delete-powershell.md)
 ### [Use groups to grant access](key-vault-group-permissions-for-apps.md)
 ### [Secure your key vault](key-vault-secure-your-key-vault.md)
-### [Configure firewalls and virtual networks](key-vault-network-security.md)
 
 ## Automate
 ### [Azure automation](automation-manage-key-vault.md)
@@ -43,12 +42,11 @@
 # Reference
 ## [Azure PowerShell](/powershell/module/azurerm.keyvault)
 ## [Azure CLI](/cli/azure/keyvault)
-## [.NET](/dotnet/api/microsoft.azure.keyvault)
-## [Java](/java/api/com.microsoft.azure.keyvault)
+## [.NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/keyvault/client?view=azure-dotnet)
+## [Java](/java/api/overview/azure/keyvault?view=azure-java-stable)
 ## Node.js
-### [Vault management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
-### [Vault contents management](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
-## [REST](/rest/api/keyvault)
+### [Vault Management](https://docs.microsoft.com/javascript/api/azure-arm-keyvault/)
+### [Vault Client Library](https://docs.microsoft.com/javascript/api/azure-keyvault/)
 ## Develop
 ### [Developer quick start video](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
 ### [Key Vault developer's guide](key-vault-developers-guide.md)

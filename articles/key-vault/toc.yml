@@ -42,6 +42,8 @@
     href: key-vault-ovw-storage-keys.md
   - name: Throttling
     href: key-vault-ovw-throttling.md
+  - name: Virtual Network Service Endpoints
+    href: key-vault-ovw-vnet-service-endpoints.md
   - name: About keys, secrets and certificates
     href: about-keys-secrets-and-certificates.md
     items:
