@@ -80,4 +80,4 @@ If you’re not going to continue to use this application, you can delete the gr
     >This doesn't delete the user Alain Charon, just his membership in the deleted group.
 
 ## Next steps
-For more ways to interact with your groups and members, you can see the [Groups How-to guides](active-directory-groups-how-to-overview.md). For more complex scenarios around your groups, see the [../user-groups-roles/index.yml](Azure Active Directory users, groups, roles, and licenses documentation).
+For more ways to interact with your groups and members, you can see the [Groups How-to guides](active-directory-groups-how-to-overview.md). For more complex scenarios around your groups, see the [Azure Active Directory users, groups, roles, and licenses documentation](../user-groups-roles/index.yml).
