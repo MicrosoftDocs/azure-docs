@@ -40,11 +40,13 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     > [!IMPORTANT]
     > The process to add Application Insights varies by ASP.NET template type. If you are using the **Empty** or **Azure Mobile App** template select **Project** > **Add Application Insights Telemetry**. For all other ASP.NET templates consult the instructions in the step above. 
 
-3. Click **Start Free**, select your preferred billing plan, and click **Register**.
+3. Click **Get Started** (earlier versions of Visual Studio have a **Start Free** button instead).
 
-    ![Adding Application Insights to Visual Studio](./media/quick-monitor-portal/add-application-insights.png)
+    ![Adding Application Insights to Visual Studio](./media/quick-monitor-portal/add-application-insights-b.png)
 
-4. Run your application by either selecting **Start Debugging** from the **Debug** menu or by pressing the
+4. Select your subscription and click **Register**.
+
+5. Run your application by either selecting **Start Debugging** from the **Debug** menu or by pressing the
   F5 key.
 
 ## Confirm app configuration
