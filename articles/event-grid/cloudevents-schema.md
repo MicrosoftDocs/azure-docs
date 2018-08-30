@@ -57,7 +57,7 @@ CloudEvents v0.1 has the following properties available:
 | CloudEvents        | Type     | Example JSON Value             | Description                                                        | Event Grid Mapping
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
 | eventType          | String   | "com.example.someevent"          | Type of occurrence that happened                                   | eventType
-| eventTypeVersion   | String   | "1.0"                            | The version of the eventType (Optional)                            | dataVersion
+| eventTypeVersion   | String   | "1.0" it can be empty ex: ""     | The version of the eventType (Optional)                            | dataVersion
 | cloudEventsVersion | String   | "0.1"                            | The version of the CloudEvents specification the event uses        | *passed through*
 | source             | URI      | "/mycontext"                     | Describes the event producer                                       | topic#subject
 | eventID            | String   | "1234-1234-1234"                 | ID of the event                                                    | id
