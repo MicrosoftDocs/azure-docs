@@ -14,7 +14,7 @@ ms.author: v-jerkin
 
 # Recognize speech by using the REST API
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-how-to-recognize-speech-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-how-to-recognize-speech-selector.md)]
 
 The REST API can be used to recognize short utterances by using an HTTP POST request.
 

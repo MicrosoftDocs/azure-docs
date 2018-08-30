@@ -55,7 +55,7 @@ Use Event Grid instead of the Blob storage trigger for the following scenarios:
 
 * Blob-only storage accounts
 * High scale
-* Cold-start delay
+* Minimizing cold-start delay
 
 ### Blob-only storage accounts
 
