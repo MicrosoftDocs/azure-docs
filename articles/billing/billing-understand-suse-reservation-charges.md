@@ -1,6 +1,6 @@
 ---
-title: Understand Azure reservation discount and usage for SUSE | Microsoft Docs
-description: Learn how a reservation discount is applied and the usage when you run SUSE software on virtual machines.
+title: Understand SUSE plan discount and usage - Azure Reservations  | Microsoft Docs
+description: Learn how SUSE plan discounts are applied to SUSE software on virtual machines.
 services: 'billing'
 documentationcenter: ''
 author: yashesvi
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2018
+ms.date: 08/28/2018
 ms.author: yashar
 ---
-# Understand how the SUSE Linux Enterprise software reservation discount is applied
+# Understand how the SUSE Linux Enterprise software plan discount is applied
 
-After you buy a SUSE Linux Enterprise Server software reservation, the reservation discount is automatically applied when you deploy a SUSE image and virtual machine (VM) that matches the reservation. A SUSE Linux Enterprise Server software reservation covers the cost of running the SUSE software on an Azure VM.
+After you buy a SUSE Linux plan, the discount is automatically applied to deployed SUSE virtual machines (VMs) that match the reservation. A SUSE Linux plan covers the cost of running the SUSE software on an Azure VM.
 
-To get the full benefit of the reservation discount, you need to understand your SUSE usage and vCPUs on the VMs where you run SUSE. Use the following sections to help identify from your usage CSV file what reservation to buy.  
+To buy the right SUSE Linux plan, you need to understand what SUSE VMs you run and the number of vCPUs on those VMs. Use the following sections to help identify from your usage CSV file what plan to buy.
 
-## Understand reservation usage for SUSE
+## Discount applies to different VM sizes with instance size flexibility
 
-The following tables show the software plans you can buy a reservation for, their associated usage meters, and the ratios for each. The ratio column that's listed in the following tables compares the relative footprint for each meter in that group. The ratio depends on the VM vCPUs. Use the ratio value to calculate how many instances of SUSE the reservation discount covers.
+Like Reserved VM Instances, SUSE plan purchases offer instance size flexibility. This means that your discount applies even when you deploy a VM with a different vCPU count. The discount applies to different VM sizes within the software plan.
 
-For example, if you buy a reservation for SUSE Linux Enterprise Server for HPC Priority for a VM with 3 or 4 vCPUs, the ratio for that reservation is 2. The discount covers the SUSE software cost for:
+The discount amount depends on the ratio listed in the following tables. The ratio compares the relative footprint for each meter in that group. The ratio depends on the VM vCPUs. Use the ratio value to calculate how many VM instances get the SUSE Linux plan discount.
+
+For example, if you buy a plan for SUSE Linux Enterprise Server for HPC Priority for a VM with 3 or 4 vCPUs, the ratio for that reservation is 2. The discount covers the SUSE software cost for:
 
 - 2 deployed VMs with 1 or 2 vCPUs,
 - 1 deployed VM with 3 or 4 vCPUs,
@@ -33,7 +35,11 @@ For example, if you buy a reservation for SUSE Linux Enterprise Server for HPC P
 
 The ratio for 5 or more vCPUs is 2.6. So a reservation for SUSE with a VM with 5 or more vCPUs covers a only portion of the software cost, which is about 77%.
 
-## SUSE Linux Enterprise Server for HPC Priority
+## Understand your SUSE VM usage before buying a SUSE Linux plan
+
+The following tables show the software plans you can buy a reservation for, their associated usage meters, and the ratios for each.
+
+### SUSE Linux Enterprise Server for HPC Priority
 
 Azure portal marketplace name:
 
@@ -57,7 +63,7 @@ Azure portal marketplace name:
 |SLES for HPC 3-4 vCPUs|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1.92308|D4s_v3|
 |SLES for HPC 5+ vCPUs |907a85de-024f-4dd6-969c-347d47a1bdff|2.92308|D8s_v3|
 
-## SUSE Linux Enterprise Server for SAP Priority
+### SUSE Linux Enterprise Server for SAP Priority
 
 Azure portal marketplace names:
 
@@ -71,7 +77,7 @@ Azure portal marketplace names:
 |SLES for SAP Priority 3-4 vCPUs |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
 |SLES for SAP Priority 5+ vCPUs |18ae79cd-dfce-48c9-897b-ebd3053c6058|2.41176|D8s_v3|
 
-## SUSE Linux Enterprise Server Priority
+### SUSE Linux Enterprise Server Priority
 
 Azure portal marketplace names:
 
@@ -97,7 +103,7 @@ Azure portal marketplace names:
 |SLES 96 cores vCPUs |2018c3a8-ff13-41f8-b64d-9558c5206547|3.2||
 |SLES 128 cores vCPUss |ac27e4d7-44b5-4fee-bc1a-78ac5b4abaf7|3.2| M128ms|
 
-## SUSE Linux Enterprise Server Standard
+### SUSE Linux Enterprise Server Standard
 
 Azure portal marketplace names:
 
@@ -115,14 +121,12 @@ Azure portal marketplace names:
 
 To learn more about reservations, see the following articles:
 
-- [What are Azure reservations?](billing-save-compute-costs-reservations.md)
+- [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
+- [Prepay for SUSE software plans with Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
-- [Manage Azure reservations](billing-manage-reserved-vm-instance.md)
+- [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
-- [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
-- [Windows software costs not included with reservations](billing-reserved-instance-windows-software-costs.md)
 
 ## Need help? Contact support
 
