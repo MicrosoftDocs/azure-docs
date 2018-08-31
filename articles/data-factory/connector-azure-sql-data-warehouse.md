@@ -397,13 +397,14 @@ SQL Data Warehouse PolyBase directly supports Azure Blob and Azure Data Lake Sto
 If the requirements aren't met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
 1. The **Source linked service** type is Azure Blob storage (**AzureBLobStorage**/**AzureStorage**) with account key authentication or Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) with service principal authentication.
-1. The **input dataset** type is **AzureBlob** or **AzureDataLakeStoreFile**. The format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat**, with the following configurations:
+2. The **input dataset** type is **AzureBlob** or **AzureDataLakeStoreFile**. The format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat**, with the following configurations:
 
-   1. `rowDelimiter` must be **\n**.
-   1. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is not set to false.
-   1. `encodingName` is set to **utf-8**, which is the default value.
-   1. `escapeChar`, `quoteChar` and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
-   1. `compression` can be **no compression**, **GZip**, or **Deflate**.
+   1. `fileName` doesn't contain wildcard filter.
+   2. `rowDelimiter` must be **\n**.
+   3. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is not set to false.
+   4. `encodingName` is set to **utf-8**, which is the default value.
+   5. `escapeChar`, `quoteChar` and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
+   6. `compression` can be **no compression**, **GZip**, or **Deflate**.
 
 	```json
 	"typeProperties": {
