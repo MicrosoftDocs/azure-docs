@@ -189,9 +189,9 @@ Add the [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft
                 Console.WriteLine("Registering EventProcessor...");
 
                 var eventProcessorHost = new EventProcessorHost(
-                    EhEntityPath,
+                    EventHubName,
                     PartitionReceiver.DefaultConsumerGroupName,
-                    EhConnectionString,
+                    EventHubConnectionString,
                     StorageConnectionString,
                     StorageContainerName);
 

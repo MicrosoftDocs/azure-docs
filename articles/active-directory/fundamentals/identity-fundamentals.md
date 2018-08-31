@@ -22,7 +22,7 @@ As more and more company digital resources live outside the corporate network, i
 
 Microsoft has been securing cloud-based identities for over a decade and now, with [Azure Active Directory (AD)](active-directory-whatis.md), these same protection systems are available to you. With Azure AD, enterprise administrators can easily ensure user and administrator accountability with better security and governance than ever before.
 
-Azure AD Premium is a cloud-based identity and access management solution with advanced protection capabilities that enables one secure identity for all apps, identity protection (enhanced by the [Microsoft intelligence security graph](https://www.microsoft.com/en-us/security/intelligence)), and Privileged Identity Management. Not just another monitoring or reporting tool, Azure AD Premium can protect your user’s identities in real time and enable you to create risk-based, adaptive access policies to protect your organization’s data.
+Azure AD Premium is a cloud-based identity and access management solution with advanced protection capabilities that enables one secure identity for all apps, identity protection (enhanced by the [Microsoft intelligence security graph](https://www.microsoft.com/security/intelligence)), and Privileged Identity Management. Not just another monitoring or reporting tool, Azure AD Premium can protect your user’s identities in real time and enable you to create risk-based, adaptive access policies to protect your organization’s data.
 
 Watch this short video for a quick overview of Azure AD identity management and protection:
 >[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 08/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -25,9 +25,7 @@ The resource provider operations are always evolving. To get the latest operatio
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## A
-
-### Microsoft.AAD
+## Microsoft.AAD
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -39,7 +37,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.AAD/Operations/read |  |
 > | Action | Microsoft.AAD/register/action | Register Domain Service |
 
-### microsoft.aadiam
+## microsoft.aadiam
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -52,7 +50,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | microsoft.aadiam/tenants/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Action | microsoft.aadiam/tenants/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for tenants |
 
-### Microsoft.Addons
+## Microsoft.Addons
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -64,7 +62,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Addons/supportProviders/supportPlanTypes/read | Get the specified Canonical support plan state. |
 > | Action | Microsoft.Addons/supportProviders/supportPlanTypes/write | Adds the Canonical support plan type specified. |
 
-### Microsoft.ADHybridHealthService
+## Microsoft.ADHybridHealthService
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -135,7 +133,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ADHybridHealthService/services/write | Creates a service instance in the tenant. |
 > | Action | Microsoft.ADHybridHealthService/unregister/action | Unregisters the subscription for ADHybrid Health Service Resource Provider. |
 
-### Microsoft.Advisor
+## Microsoft.Advisor
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -156,7 +154,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Advisor/suppressions/write | Creates/updates suppressions |
 > | Action | Microsoft.Advisor/unregister/action | Unregisters the subscription for the Microsoft Advisor |
 
-### Microsoft.AlertsManagement
+## Microsoft.AlertsManagement
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -168,7 +166,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.AlertsManagement/smartGroups/changestate/action | Change the state of the smart group |
 > | Action | Microsoft.AlertsManagement/smartGroups/read | Get all the smart groups for the input filters |
 
-### Microsoft.AnalysisServices
+## Microsoft.AnalysisServices
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -191,7 +189,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.AnalysisServices/servers/write | Creates or updates the specified Analysis Server. |
 > | Action | Microsoft.AnalysisServices/skus/read | Retrieves the information of Skus |
 
-### Microsoft.ApiManagement
+## Microsoft.ApiManagement
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -383,15 +381,19 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ApiManagement/service/write | Create a new instance of API Management Service |
 > | Action | Microsoft.ApiManagement/unregister/action | Un-register subscription for Microsoft.ApiManagement resource provider |
 
-### Microsoft.Authorization
+## Microsoft.Authorization
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
 > | Action | Microsoft.Authorization/checkAccess/action | Checks if the caller is authorized to perform a particular action |
 > | Action | Microsoft.Authorization/classicAdministrators/delete | Removes the administrator from the subscription. |
+> | Action | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Gets the administrator opreation statuses of the subscription. |
 > | Action | Microsoft.Authorization/classicAdministrators/read | Reads the administrators for the subscription. |
 > | Action | Microsoft.Authorization/classicAdministrators/write | Add or modify administrator to a subscription. |
+> | Action | Microsoft.Authorization/denyAssignments/delete | Delete a deny assignment at the specified scope. |
+> | Action | Microsoft.Authorization/denyAssignments/read | Get information about a deny assignment. |
+> | Action | Microsoft.Authorization/denyAssignments/write | Create a deny assignment at the specified scope. |
 > | Action | Microsoft.Authorization/elevateAccess/action | Grants the caller User Access Administrator access at the tenant scope |
 > | Action | Microsoft.Authorization/locks/delete | Delete locks at the specified scope. |
 > | Action | Microsoft.Authorization/locks/read | Gets locks at the specified scope. |
@@ -415,7 +417,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Authorization/roleDefinitions/read | Get information about a role definition. |
 > | Action | Microsoft.Authorization/roleDefinitions/write | Create or update a custom role definition with specified permissions and assignable scopes. |
 
-### Microsoft.Automation
+## Microsoft.Automation
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -530,7 +532,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Automation/operations/read | Gets Available Operations for Azure Automation resources |
 > | Action | Microsoft.Automation/register/action | Registers the subscription to Azure Automation |
 
-### Microsoft.AzureActiveDirectory
+## Microsoft.AzureActiveDirectory
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -541,7 +543,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.AzureActiveDirectory/operations/read | Read all API operations available for Microsoft.AzureActiveDirectory resource provider |
 > | Action | Microsoft.AzureActiveDirectory/register/action | Register subscription for Microsoft.AzureActiveDirectory resource provider |
 
-### Microsoft.AzureStack
+## Microsoft.AzureStack
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -558,9 +560,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.AzureStack/registrations/read | Gets the properties of an Azure Stack registration |
 > | Action | Microsoft.AzureStack/registrations/write | Creates or updates an Azure Stack registration |
 
-## B
-
-### Microsoft.Batch
+## Microsoft.Batch
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -601,7 +601,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Batch/register/action | Registers the subscription for the Batch Resource Provider and enables the creation of Batch accounts |
 > | Action | Microsoft.Batch/unregister/action | Unregisters the subscription for the Batch Resource Provider preventing the creation of Batch accounts |
 
-### Microsoft.BatchAI
+## Microsoft.BatchAI
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -633,7 +633,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.BatchAI/workspaces/read | Lists Batch AI workspaces or gets the properties of a Batch AI workspace |
 > | Action | Microsoft.BatchAI/workspaces/write | Creates a new Batch AI workspace or updates an existing Batch AI workspace |
 
-### Microsoft.Billing
+## Microsoft.Billing
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -641,7 +641,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Billing/billingPeriods/read | Lists available billing periods |
 > | Action | Microsoft.Billing/invoices/read | Lists available invoices |
 
-### Microsoft.BingMaps
+## Microsoft.BingMaps
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -654,7 +654,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.BingMaps/mapApis/Write | Write Operation |
 > | Action | Microsoft.BingMaps/Operations/read | Description of the operation. |
 
-### Microsoft.BotService
+## Microsoft.BotService
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -671,9 +671,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.BotService/locations/operationresults/read | Read the status of an asynchronous operation |
 > | Action | Microsoft.BotService/Operations/read | Read the operations for all resource types |
 
-## C
-
-### Microsoft.Cache
+## Microsoft.Cache
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -705,7 +703,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Cache/register/action | Registers the 'Microsoft.Cache' resource provider with a subscription |
 > | Action | Microsoft.Cache/unregister/action | Unregisters the 'Microsoft.Cache' resource provider with a subscription |
 
-### Microsoft.Capacity
+## Microsoft.Capacity
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -721,7 +719,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Capacity/reservationorders/reservations/write | Create any Reservation |
 > | Action | Microsoft.Capacity/reservationorders/write | Create any Reservation |
 
-### Microsoft.Cdn
+## Microsoft.Cdn
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -787,7 +785,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Cdn/register/action | Registers the subscription for the CDN resource provider and enables the creation of CDN profiles. |
 > | Action | Microsoft.Cdn/ValidateProbe/action |  |
 
-### Microsoft.CertificateRegistration
+## Microsoft.CertificateRegistration
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -811,7 +809,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.CertificateRegistration/register/action | Register the Microsoft Certificates resource provider for the subscription |
 > | Action | Microsoft.CertificateRegistration/validateCertificateRegistrationInformation/Action | Validate certificate purchase object without submitting it |
 
-### Microsoft.ClassicCompute
+## Microsoft.ClassicCompute
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -922,7 +920,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ClassicCompute/virtualMachines/stop/action | Stops the virtual machine. |
 > | Action | Microsoft.ClassicCompute/virtualMachines/write | Add or modify virtual machines. |
 
-### Microsoft.ClassicNetwork
+## Microsoft.ClassicNetwork
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -999,7 +997,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/virtualNetworkPeerings/read | Gets the virtual network peering. |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/write | Add a new virtual network. |
 
-### Microsoft.ClassicStorage
+## Microsoft.ClassicStorage
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1047,7 +1045,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ClassicStorage/storageAccounts/write | Adds a new storage account. |
 > | Action | Microsoft.ClassicStorage/vmImages/read | Lists virtual machine images. |
 
-### Microsoft.CognitiveServices
+## Microsoft.CognitiveServices
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1068,7 +1066,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.CognitiveServices/register/action | Registers Subscription for Cognitive Services |
 > | Action | Microsoft.CognitiveServices/skus/read | Reads available SKUs for Cognitive Services. |
 
-### Microsoft.Commerce
+## Microsoft.Commerce
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1076,7 +1074,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Commerce/RateCard/read | Returns offer data, resource/meter metadata and rates for the given subscription. |
 > | Action | Microsoft.Commerce/UsageAggregates/read | Retrieves Microsoft Azure’s consumption  by a subscription. The result contains aggregates usage data, subscription and resource related information, on a particular time range. |
 
-### Microsoft.Compute
+## Microsoft.Compute
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1168,6 +1166,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Compute/virtualMachineScaleSets/instanceView/read | Gets the instance view of the Virtual Machine Scale Set |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/manualUpgrade/action | Manually updates instances to latest model of the Virtual Machine Scale Set |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/networkInterfaces/read | Get properties of all network interfaces of a Virtual Machine Scale Set |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/osRollingUpgrade/action | Starts a rolling upgrade to move all Virtual Machine Scale Set instances to the latest available Platform Image OS version. |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/osUpgradeHistory/read | Gets the history of OS upgrades for a Virtual Machine Scale Set |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/performMaintenance/action | Performs planned maintenance on the instances of the Virtual Machine Scale Set |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/powerOff/action | Powers off the instances of the Virtual Machine Scale Set |
@@ -1202,7 +1201,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/write | Updates the properties of a Virtual Machine in a VM Scale Set |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/write | Creates a new Virtual Machine Scale Set or updates an existing one |
 
-### Microsoft.Consumption
+## Microsoft.Consumption
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1221,7 +1220,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Consumption/terms/read | List the terms for a subscription or a management group. |
 > | Action | Microsoft.Consumption/usageDetails/read | List the usage details for a scope for EA and WebDirect subscriptions. |
 
-### Microsoft.ContainerInstance
+## Microsoft.ContainerInstance
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1237,7 +1236,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ContainerInstance/containerGroups/write | Create or update a specific container group. |
 > | Action | Microsoft.ContainerInstance/register/action | Registers the subscription for the container instance resource provider and enables the creation of container groups. |
 
-### Microsoft.ContainerRegistry
+## Microsoft.ContainerRegistry
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1247,10 +1246,23 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ContainerRegistry/locations/operationResults/read | Gets an async operation result |
 > | Action | Microsoft.ContainerRegistry/operations/read | Lists all of the available Azure Container Registry REST API operations |
 > | Action | Microsoft.ContainerRegistry/register/action | Registers the subscription for the container registry resource provider and enables the creation of container registries. |
+> | Action | Microsoft.ContainerRegistry/registries/builds/cancel/action | Cancels an existing build. |
+> | Action | Microsoft.ContainerRegistry/registries/builds/getLogLink/action | Gets a link to download the build logs. |
+> | Action | Microsoft.ContainerRegistry/registries/builds/read | Gets the properties of the specified build or lists all the builds for the specified container registry. |
+> | Action | Microsoft.ContainerRegistry/registries/builds/write | Updates a build for a container registry with the specified parameters. |
+> | Action | Microsoft.ContainerRegistry/registries/buildTasks/delete | Deletes a build task from a container registry. |
+> | Action | Microsoft.ContainerRegistry/registries/buildTasks/listSourceRepositoryProperties/action | Lists the source control properties for a build task. |
+> | Action | Microsoft.ContainerRegistry/registries/buildTasks/read | Gets the properties of the specified build task or lists all the build tasks for the specified container registry. |
+> | Action | Microsoft.ContainerRegistry/registries/buildTasks/steps/delete | Deletes a build step from a build task. |
+> | Action | Microsoft.ContainerRegistry/registries/buildTasks/steps/listBuildArguments/action | Lists the build arguments for a build step including the secret arguments. |
+> | Action | Microsoft.ContainerRegistry/registries/buildTasks/steps/read | Gets the properties of the specified build step or lists all the build steps for the specified build task. |
+> | Action | Microsoft.ContainerRegistry/registries/buildTasks/steps/write | Creates or updates a build step for a build task with the specified parameters. |
+> | Action | Microsoft.ContainerRegistry/registries/buildTasks/write | Creates or updates a build task for a container registry with the specified parameters. |
 > | Action | Microsoft.ContainerRegistry/registries/delete | Deletes a container registry. |
 > | Action | Microsoft.ContainerRegistry/registries/eventGridFilters/delete | Deletes an event grid filter from a container registry. |
 > | Action | Microsoft.ContainerRegistry/registries/eventGridFilters/read | Gets the properties of the specified event grid filter or lists all the event grid filters for the specified container registry. |
 > | Action | Microsoft.ContainerRegistry/registries/eventGridFilters/write | Creates or updates an event grid filter for a container registry with the specified parameters. |
+> | Action | Microsoft.ContainerRegistry/registries/getBuildSourceUploadUrl/action | Gets the upload location for the user to be able to upload the source. |
 > | Action | Microsoft.ContainerRegistry/registries/importImage/action | Import Image to container registry with the specified parameters. |
 > | Action | Microsoft.ContainerRegistry/registries/listCredentials/action | Lists the login credentials for the specified container registry. |
 > | Action | Microsoft.ContainerRegistry/registries/listPolicies/read | Lists the policies for the specified container registry |
@@ -1259,12 +1271,18 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
 > | Action | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Action | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Microsoft ContainerRegistry |
+> | Action | Microsoft.ContainerRegistry/registries/pull/read | Pull or Get images from a container registry. |
+> | Action | Microsoft.ContainerRegistry/registries/push/write | Push or Write images to a container registry. |
+> | Action | Microsoft.ContainerRegistry/registries/quarantineRead/read | Pull or Get quarantined images from container registry |
+> | Action | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Write/Modify quarantine state of quarantined images |
+> | Action | Microsoft.ContainerRegistry/registries/queueBuild/action | Creates a new build based on the request parameters and add it to the build queue. |
 > | Action | Microsoft.ContainerRegistry/registries/read | Gets the properties of the specified container registry or lists all the container registries under the specified resource group or subscription. |
 > | Action | Microsoft.ContainerRegistry/registries/regenerateCredential/action | Regenerates one of the login credentials for the specified container registry. |
 > | Action | Microsoft.ContainerRegistry/registries/replications/delete | Deletes a replication from a container registry. |
 > | Action | Microsoft.ContainerRegistry/registries/replications/operationStatuses/read | Gets a replication async operation status |
 > | Action | Microsoft.ContainerRegistry/registries/replications/read | Gets the properties of the specified replication or lists all the replications for the specified container registry. |
 > | Action | Microsoft.ContainerRegistry/registries/replications/write | Creates or updates a replication for a container registry with the specified parameters. |
+> | Action | Microsoft.ContainerRegistry/registries/sign/write | Push/Pull content trust metadata for a container registry. |
 > | Action | Microsoft.ContainerRegistry/registries/updatePolicies/write | Updates the policies for the specified container registry |
 > | Action | Microsoft.ContainerRegistry/registries/webhooks/delete | Deletes a webhook from a container registry. |
 > | Action | Microsoft.ContainerRegistry/registries/webhooks/getCallbackConfig/action | Gets the configuration of service URI and custom headers for the webhook. |
@@ -1275,7 +1293,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ContainerRegistry/registries/webhooks/write | Creates or updates a webhook for a container registry with the specified parameters. |
 > | Action | Microsoft.ContainerRegistry/registries/write | Creates or updates a container registry with the specified parameters. |
 
-### Microsoft.ContainerService
+## Microsoft.ContainerService
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1302,7 +1320,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ContainerService/register/action | Registers Subscription with Microsoft.ContainerService resource provider |
 > | Action | Microsoft.ContainerService/unregister/action | Unregisters Subscription with Microsoft.ContainerService resource provider |
 
-### Microsoft.ContentModerator
+## Microsoft.ContentModerator
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1317,7 +1335,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ContentModerator/operations/read | read operations |
 > | Action | Microsoft.ContentModerator/updateCommunicationPreference/action | Update communication preference |
 
-### Microsoft.CustomerInsights
+## Microsoft.CustomerInsights
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1422,9 +1440,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.CustomerInsights/register/action | Registers the subscription for the Customer Insights resource provider and enables the creation of Customer Insights resources |
 > | Action | Microsoft.CustomerInsights/unregister/action | Unregisters the subscription for the Customer Insights resource provider |
 
-## D
-
-### Microsoft.DataBox
+## Microsoft.DataBox
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1441,7 +1457,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DataBox/locations/availableSkus/action | This method returns the list of available skus. |
 > | Action | Microsoft.DataBox/locations/validateAddress/action | Validates the shipping address and provides alternate addresses if any. |
 
-### Microsoft.Databricks
+## Microsoft.Databricks
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1450,7 +1466,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Databricks/workspaces/read | Retrieves a list of workspaces. |
 > | Action | Microsoft.Databricks/workspaces/write | Creates an workspace. |
 
-### Microsoft.DataCatalog
+## Microsoft.DataCatalog
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1463,7 +1479,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DataCatalog/register/action | Registers subscription with Microsoft.DataCatalog resource provider. |
 > | Action | Microsoft.DataCatalog/unregister/action | Unregisters subscription from Microsoft.DataCatalog resource provider. |
 
-### Microsoft.DataFactory
+## Microsoft.DataFactory
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1529,9 +1545,11 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DataFactory/factories/pipelineruns/activityruns/read | Reads the activity runs for the specified pipeline run ID. |
 > | Action | Microsoft.DataFactory/factories/pipelineruns/cancel/action | Cancels the pipeline run specified by the run ID. |
 > | Action | Microsoft.DataFactory/factories/pipelineruns/queryactivityruns/action | Queries the activity runs for the specified pipeline run ID. |
+> | Action | Microsoft.DataFactory/factories/pipelineruns/queryactivityruns/read | Reads the result of query activity runs for the specified pipeline run ID. |
 > | Action | Microsoft.DataFactory/factories/pipelineruns/read | Reads the Pipeline Runs. |
 > | Action | Microsoft.DataFactory/factories/pipelines/createrun/action | Creates a run for the Pipeline. |
 > | Action | Microsoft.DataFactory/factories/pipelines/delete | Deletes Pipeline. |
+> | Action | Microsoft.DataFactory/factories/pipelines/pipelineruns/activityruns/progress/read | Gets the Progress of Activity Runs. |
 > | Action | Microsoft.DataFactory/factories/pipelines/pipelineruns/read | Reads the Pipeline Run. |
 > | Action | Microsoft.DataFactory/factories/pipelines/read | Reads Pipeline. |
 > | Action | Microsoft.DataFactory/factories/pipelines/write | Create or Update Pipeline |
@@ -1540,7 +1558,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DataFactory/factories/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for factories |
 > | Action | Microsoft.DataFactory/factories/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for factories |
 > | Action | Microsoft.DataFactory/factories/querypipelineruns/action | Queries the Pipeline Runs. |
+> | Action | Microsoft.DataFactory/factories/querypipelineruns/read | Reads the Result of Query Pipeline Runs. |
 > | Action | Microsoft.DataFactory/factories/querytriggerruns/action | Queries the Trigger Runs. |
+> | Action | Microsoft.DataFactory/factories/querytriggerruns/read | Reads the Result of Trigger Runs. |
 > | Action | Microsoft.DataFactory/factories/read | Reads Data Factory. |
 > | Action | Microsoft.DataFactory/factories/triggerruns/read | Reads the Trigger Runs. |
 > | Action | Microsoft.DataFactory/factories/triggers/delete | Deletes any Trigger. |
@@ -1551,10 +1571,11 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DataFactory/factories/triggers/write | Creates or Updates any Trigger. |
 > | Action | Microsoft.DataFactory/factories/write | Create or Update Data Factory |
 > | Action | Microsoft.DataFactory/locations/configureFactoryRepo/action | Configures the repository for the factory. |
+> | Action | Microsoft.DataFactory/operations/read | Reads all Operations in Microsoft Data Factory Provider. |
 > | Action | Microsoft.DataFactory/register/action | Registers the subscription for the Data Factory Resource Provider. |
 > | Action | Microsoft.DataFactory/unregister/action | Unregisters the subscription for the Data Factory Resource Provider. |
 
-### Microsoft.DataLakeAnalytics
+## Microsoft.DataLakeAnalytics
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1588,7 +1609,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DataLakeAnalytics/operations/read | Get available operations of DataLakeAnalytics. |
 > | Action | Microsoft.DataLakeAnalytics/register/action | Register subscription to DataLakeAnalytics. |
 
-### Microsoft.DataLakeStore
+## Microsoft.DataLakeStore
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1618,7 +1639,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DataLakeStore/operations/read | Get available operations of DataLakeStore. |
 > | Action | Microsoft.DataLakeStore/register/action | Register subscription to DataLakeStore. |
 
-### Microsoft.DataMigration
+## Microsoft.DataMigration
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1650,7 +1671,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DataMigration/services/write | Create or update resources and their properties |
 > | Action | Microsoft.DataMigration/skus/read | Get a list of SKUs supported by DMS resources. |
 
-### Microsoft.DBforMySQL
+## Microsoft.DBforMySQL
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1674,7 +1695,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DBforMySQL/servers/virtualNetworkRules/write | Creates a virtual network rule with the specified parameters or update the properties or tags for the specified virtual network rule. |
 > | Action | Microsoft.DBforMySQL/servers/write | Creates a server with the specified parameters or update the properties or tags for the specified server. |
 
-### Microsoft.DBforPostgreSQL
+## Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1703,7 +1724,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/write | Creates a virtual network rule with the specified parameters or update the properties or tags for the specified virtual network rule. |
 > | Action | Microsoft.DBforPostgreSQL/servers/write | Creates a server with the specified parameters or update the properties or tags for the specified server. |
 
-### Microsoft.Devices
+## Microsoft.Devices
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1791,7 +1812,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Devices/register/action | Register the subscription for the IotHub resource provider and enables the creation of IotHub resources |
 > | Action | Microsoft.Devices/usages/Read | Get subscription usage details for this provider. |
 
-### Microsoft.DevTestLab
+## Microsoft.DevTestLab
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1897,7 +1918,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DevTestLab/schedules/Retarget/action | Updates a schedule's target resource Id. |
 > | Action | Microsoft.DevTestLab/schedules/write | Add or modify schedules. |
 
-### Microsoft.DocumentDB
+## Microsoft.DocumentDB
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1948,7 +1969,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DocumentDB/operations/read | Read operations available for the Microsoft DocumentDB  |
 > | Action | Microsoft.DocumentDB/register/action |  Register the Microsoft DocumentDB resource provider for the subscription |
 
-### Microsoft.DomainRegistration
+## Microsoft.DomainRegistration
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1973,7 +1994,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DomainRegistration/topLevelDomains/Read | Get toplevel domain |
 > | Action | Microsoft.DomainRegistration/validateDomainRegistrationInformation/Action | Validate domain purchase object without submitting it |
 
-### Microsoft.DynamicsLcs
+## Microsoft.DynamicsLcs
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -1986,9 +2007,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DynamicsLcs/lcsprojects/read | Display Microsoft Dynamics Lifecycle Services projects that belong to a user |
 > | Action | Microsoft.DynamicsLcs/lcsprojects/write | Create and update Microsoft Dynamics Lifecycle Services projects that belong to the user. Only the name and description properties can be updated. The subscription and location associated with the project cannot be updated after creation |
 
-## E
-
-### Microsoft.EventGrid
+## Microsoft.EventGrid
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2013,7 +2032,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.EventGrid/topics/regenerateKey/action | Regenerate key for the topic |
 > | Action | Microsoft.EventGrid/topics/write | Create or update a topic |
 
-### Microsoft.EventHub
+## Microsoft.EventHub
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2066,9 +2085,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.EventHub/sku/regions/read | Get list of SkuRegions Resource Descriptions |
 > | Action | Microsoft.EventHub/unregister/action | Registers the EventHub Resource Provider |
 
-## F
-
-### Microsoft.Features
+## Microsoft.Features
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2080,9 +2097,15 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Features/providers/features/unregister/action | Unregisters the feature for a subscription in a given resource provider. |
 > | Action | Microsoft.Features/register/action | Registers the feature of a subscription. |
 
-## H
+## Microsoft.GuestConfiguration
 
-### Microsoft.HDInsight
+> [!div class="mx-tdCol2BreakAll"]
+> | Action Type | Operation | Description |
+> | --- | --- | --- |
+> | Action | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | Get guest configuration assignment. |
+> | Action | Microsoft.GuestConfiguration/guestConfigurationAssignments/write | Create new guest configuration assignment. |
+
+## Microsoft.HDInsight
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2100,9 +2123,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.HDInsight/locations/capabilities/read | Get Subscription Capabilities |
 > | Action | Microsoft.HDInsight/locations/checkNameAvailability/read | Check Name Availability |
 
-## I
-
-### Microsoft.ImportExport
+## Microsoft.ImportExport
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2114,7 +2135,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ImportExport/locations/read | Gets the properties for the specified location or returns the list of locations. |
 > | Action | Microsoft.ImportExport/register/action | Registers the subscription for the import/export resource provider and enables the creation of import/export jobs. |
 
-### Microsoft.Insights
+## Microsoft.Insights
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2236,9 +2257,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Insights/Webtests/Read | Reading a webtest configuration |
 > | Action | Microsoft.Insights/Webtests/Write | Writing to a webtest configuration |
 
-## K
-
-### Microsoft.KeyVault
+## Microsoft.KeyVault
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2268,7 +2287,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.KeyVault/vaults/secrets/write | Create a new secret or update the value of an existing secret |
 > | Action | Microsoft.KeyVault/vaults/write | Create a new key vault or update the properties of an existing key vault |
 
-### Microsoft.Kusto
+## Microsoft.Kusto
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2289,9 +2308,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Kusto/locations/operationresults/read | Reads operations resources |
 > | Action | Microsoft.Kusto/Operations/read | Reads operations resources |
 
-## L
-
-### Microsoft.LabServices
+## Microsoft.LabServices
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2338,7 +2355,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.LabServices/users/StartEnvironment/action | Starts an environment by starting all resources inside the environment. |
 > | Action | Microsoft.LabServices/users/StopEnvironment/action | Stops an environment by stopping all resources inside the environment |
 
-### Microsoft.LocationBasedServices
+## Microsoft.LocationBasedServices
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2353,7 +2370,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.LocationBasedServices/accounts/write | (Deprecated: Please use /providers/Microsoft.Maps) Create or update a Location Based Services Account. |
 > | Action | Microsoft.LocationBasedServices/register/action | (Deprecated: Please use /providers/Microsoft.Maps) Register the provider |
 
-### Microsoft.LocationServices
+## Microsoft.LocationServices
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2368,7 +2385,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.LocationServices/accounts/write | (Deprecated: Please use /providers/Microsoft.Maps) Create or update a Location Services Account. |
 > | Action | Microsoft.LocationServices/register/action | (Deprecated: Please use /providers/Microsoft.Maps) Register the provider |
 
-### Microsoft.LogAnalytics
+## Microsoft.LogAnalytics
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2520,10 +2537,11 @@ The resource provider operations are always evolving. To get the latest operatio
 > | DataAction | Microsoft.LogAnalytics/logs/WindowsFirewall/read | Read data from the WindowsFirewall table |
 > | DataAction | Microsoft.LogAnalytics/logs/WindowsServerAssessmentRecommendation/read | Read data from the WindowsServerAssessmentRecommendation table |
 > | DataAction | Microsoft.LogAnalytics/logs/WireData/read | Read data from the WireData table |
+> | DataAction | Microsoft.LogAnalytics/logs/WorkloadMonitoringPerf/read | Read data from the WorkloadMonitoringPerf table |
 > | DataAction | Microsoft.LogAnalytics/logs/WUDOAggregatedStatus/read | Read data from the WUDOAggregatedStatus table |
 > | DataAction | Microsoft.LogAnalytics/logs/WUDOStatus/read | Read data from the WUDOStatus table |
 
-### Microsoft.Logic
+## Microsoft.Logic
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2614,9 +2632,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Logic/workflows/versions/triggers/listCallbackUrl/action | Gets the callback URL for trigger. |
 > | Action | Microsoft.Logic/workflows/write | Creates or updates the workflow. |
 
-## M
-
-### Microsoft.MachineLearning
+## Microsoft.MachineLearning
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2643,7 +2659,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | Resync keys of storage account configured for a Machine Learning Workspace |
 > | Action | Microsoft.MachineLearning/Workspaces/write | Create or Update any Machine Learning Workspace |
 
-### Microsoft.MachineLearningCompute
+## Microsoft.MachineLearningCompute
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2656,7 +2672,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.MachineLearningCompute/operationalizationClusters/write | Create or update any hosting account |
 > | Action | Microsoft.MachineLearningCompute/register/action | Registers subscription ID to the resource provider and enables the creation of a machine learning compute resources |
 
-### Microsoft.MachineLearningModelManagement
+## Microsoft.MachineLearningModelManagement
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2666,7 +2682,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.MachineLearningModelManagement/accounts/write | Create or update any hosting account |
 > | Action | Microsoft.MachineLearningModelManagement/register/action | Registers subscription ID to the resource provider and enables the creation of a hosting account |
 
-### Microsoft.MachineLearningServices
+## Microsoft.MachineLearningServices
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2681,7 +2697,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.MachineLearningServices/workspaces/read | Gets the Machine Learning Services Workspace(s) |
 > | Action | Microsoft.MachineLearningServices/workspaces/write | Creates or updates a Machine Learning Services Workspace(s) |
 
-### Microsoft.ManagedIdentity
+## Microsoft.ManagedIdentity
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2691,7 +2707,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ManagedIdentity/userAssignedIdentities/read | Gets an existing user assigned identity |
 > | Action | Microsoft.ManagedIdentity/userAssignedIdentities/write | Creates a new user assigned identity or updates the tags associated with an existing user assigned identity |
 
-### Microsoft.ManagedLab
+## Microsoft.ManagedLab
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2715,7 +2731,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ManagedLab/locations/operations/read | Read operations. |
 > | Action | Microsoft.ManagedLab/register/action | Registers the subscription |
 
-### Microsoft.Management
+## Microsoft.Management
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2729,11 +2745,12 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Management/managementGroups/write | Create or update a management group. |
 > | Action | Microsoft.Management/register/action | Register the specified subscription with Microsoft.Management |
 
-### Microsoft.Maps
+## Microsoft.Maps
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
+> | DataAction | Microsoft.Maps/accounts/data/read | Grants data read access to a maps account. |
 > | Action | Microsoft.Maps/accounts/delete | Delete a Maps Account. |
 > | Action | Microsoft.Maps/accounts/listKeys/action | List Maps Account keys |
 > | Action | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
@@ -2744,7 +2761,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Maps/accounts/write | Create or update a Maps Account. |
 > | Action | Microsoft.Maps/register/action | Register the provider |
 
-### Microsoft.Marketplace
+## Microsoft.Marketplace
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2755,7 +2772,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/read | Returns a config. |
 > | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/write | Saves a config. |
 
-### Microsoft.MarketplaceApps
+## Microsoft.MarketplaceApps
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2767,7 +2784,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.MarketplaceApps/ClassicDevServices/regenerateKey/action | Generates a classic dev service resource management keys. |
 > | Action | Microsoft.MarketplaceApps/Operations/read | Read the operations for all resource types. |
 
-### Microsoft.MarketplaceOrdering
+## Microsoft.MarketplaceOrdering
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2779,7 +2796,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/read | Get an agreement for a given marketplace virtual machine item |
 > | Action | Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/write | Sign or Cancel an agreement for a given marketplace virtual machine item |
 
-### Microsoft.Media
+## Microsoft.Media
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2838,7 +2855,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Media/register/action | Registers the subscription for the Media Services resource provider and enables the creation of Media Services accounts |
 > | Action | Microsoft.Media/unregister/action | Unregisters the subscription for the Media Services resource provider |
 
-### Microsoft.Migrate
+## Microsoft.Migrate
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2862,9 +2879,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Migrate/projects/write | Creates a new project or updates an existing project |
 > | Action | Microsoft.Migrate/register/action | Registers Subscription with Microsoft.Migrate resource provider |
 
-## N
-
-### Microsoft.NetApp
+## Microsoft.NetApp
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -2894,7 +2909,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.NetApp/netAppAccounts/write | Writes an account resource. |
 > | Action | Microsoft.NetApp/Operations/read | Reads an operation resources. |
 
-### Microsoft.Network
+## Microsoft.Network
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3308,7 +3323,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/vpnsites/read | Gets a Vpn Site resource. |
 > | Action | Microsoft.Network/vpnsites/write | Creates or updates a Vpn Site resource. |
 
-### Microsoft.NotificationHubs
+## Microsoft.NotificationHubs
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3341,9 +3356,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.NotificationHubs/register/action | Registers the subscription for the NotifciationHubs resource provider and enables the creation of Namespaces and NotificationHubs |
 > | Action | Microsoft.NotificationHubs/unregister/action | Unregisters the subscription for the NotifciationHubs resource provider and enables the creation of Namespaces and NotificationHubs |
 
-## O
-
-### Microsoft.OffAzure
+## Microsoft.OffAzure
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3402,7 +3415,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.OffAzure/VMwareSites/write | Creates or updates the VMware site |
 > | Action | Microsoft.OffAzure/VMwareSites/write | Creates or updates the VMware site |
 
-### Microsoft.OperationalInsights
+## Microsoft.OperationalInsights
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3449,7 +3462,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.OperationalInsights/workspaces/usages/read | Gets usage data for a workspace including the amount of data read by the workspace. |
 > | Action | Microsoft.OperationalInsights/workspaces/write | Creates a new workspace or links to an existing workspace by providing the customer id from the existing workspace. |
 
-### Microsoft.OperationsManagement
+## Microsoft.OperationsManagement
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3465,21 +3478,22 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.OperationsManagement/solutions/read | Get exiting OMS solution |
 > | Action | Microsoft.OperationsManagement/solutions/write | Create new OMS solution |
 
-## P
-
-### Microsoft.PolicyInsights
+## Microsoft.PolicyInsights
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
 > | Action | Microsoft.PolicyInsights/asyncOperationResults/read | Gets the async operation result. |
 > | Action | Microsoft.PolicyInsights/policyEvents/queryResults/action | Query information about policy events. |
+> | Action | Microsoft.PolicyInsights/policyEvents/queryResults/read | Query information about policy events. |
 > | Action | Microsoft.PolicyInsights/policyStates/queryResults/action | Query information about policy states. |
+> | Action | Microsoft.PolicyInsights/policyStates/queryResults/read | Query information about policy states. |
 > | Action | Microsoft.PolicyInsights/policyStates/summarize/action | Query summary information about policy latest states. |
+> | Action | Microsoft.PolicyInsights/policyStates/summarize/read | Query summary information about policy latest states. |
 > | Action | Microsoft.PolicyInsights/policyStates/triggerEvaluation/action | Triggers a new compliance evaluation for the selected scope. |
 > | Action | Microsoft.PolicyInsights/register/action | Registers the policy insights resource provider and enables actions on it. |
 
-### Microsoft.Portal
+## Microsoft.Portal
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3488,7 +3502,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Portal/dashboards/read | Reads the dashboards for the subscription. |
 > | Action | Microsoft.Portal/dashboards/write | Add or modify dashboard to a subscription. |
 
-### Microsoft.PowerBIDedicated
+## Microsoft.PowerBIDedicated
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3510,9 +3524,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.PowerBIDedicated/register/action | Registers Power BI Dedicated resource provider. |
 > | Action | Microsoft.PowerBIDedicated/skus/read | Retrieves the information of Skus |
 
-## R
-
-### Microsoft.RecoveryServices
+## Microsoft.RecoveryServices
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3679,7 +3691,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
 > | Action | Microsoft.RecoveryServices/Vaults/write | Create Vault operation creates an Azure resource of type 'vault' |
 
-### Microsoft.Relay
+## Microsoft.Relay
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3730,7 +3742,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Relay/register/action | Registers the subscription for the Relay resource provider and enables the creation of Relay resources |
 > | Action | Microsoft.Relay/unregister/action | Registers the subscription for the Relay resource provider and enables the creation of Relay resources |
 
-### Microsoft.ResourceHealth
+## Microsoft.ResourceHealth
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3747,7 +3759,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ResourceHealth/impactedResources/read | Get Impacted Resources for given subscription |
 > | Action | Microsoft.ResourceHealth/register/action | Registers the subscription for the Microsoft ResourceHealth |
 
-### Microsoft.Resources
+## Microsoft.Resources
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3789,9 +3801,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Resources/subscriptions/tagNames/write | Adds a subscription tag. |
 > | Action | Microsoft.Resources/tenants/read | Gets the list of tenants. |
 
-## S
-
-### Microsoft.Scheduler
+## Microsoft.Scheduler
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3808,7 +3818,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Scheduler/jobcollections/read | Get Job Collection |
 > | Action | Microsoft.Scheduler/jobcollections/write | Creates or updates job collection. |
 
-### Microsoft.Search
+## Microsoft.Search
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3831,7 +3841,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Search/searchServices/stop/action | Stops the search service. |
 > | Action | Microsoft.Search/searchServices/write | Creates or updates the search service. |
 
-### Microsoft.Security
+## Microsoft.Security
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3879,7 +3889,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Security/workspaceSettings/read | Gets the workspace settings |
 > | Action | Microsoft.Security/workspaceSettings/write | Updates the workspace settings |
 
-### Microsoft.SecurityGraph
+## Microsoft.SecurityGraph
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3889,7 +3899,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.SecurityGraph/diagnosticsettings/write | Writing a diagnostic setting |
 > | Action | Microsoft.SecurityGraph/diagnosticsettingscategories/read | Reading a diagnostic setting categories |
 
-### Microsoft.ServiceBus
+## Microsoft.ServiceBus
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3961,7 +3971,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ServiceBus/sku/regions/read | Get list of SkuRegions Resource Descriptions |
 > | Action | Microsoft.ServiceBus/unregister/action | Registers the subscription for the ServiceBus resource provider and enables the creation of ServiceBus resources |
 
-### Microsoft.ServiceFabric
+## Microsoft.ServiceFabric
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -3993,7 +4003,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ServiceFabric/operations/read | Read any Available Operations |
 > | Action | Microsoft.ServiceFabric/register/action | Register any Action |
 
-### Microsoft.SignalRService
+## Microsoft.SignalRService
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -4008,7 +4018,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.SignalRService/SignalR/write | Modify the SignalR's settings and configurations in the management portal or through API |
 > | Action | Microsoft.SignalRService/unregister/action | Unregisters the 'Microsoft.SignalRService' resource provider with a subscription |
 
-### Microsoft.Solutions
+## Microsoft.Solutions
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -4022,7 +4032,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Solutions/locations/operationStatuses/read | Reads the operation status for the resource. |
 > | Action | Microsoft.Solutions/register/action | Register to Solutions. |
 
-### Microsoft.Sql
+## Microsoft.Sql
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -4306,7 +4316,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Sql/virtualClusters/read | Return the list of virtual clusters or gets the properties for the specified virtual cluster. |
 > | Action | Microsoft.Sql/virtualClusters/write | Updates virtual cluster tags. |
 
-### Microsoft.Storage
+## Microsoft.Storage
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -4377,7 +4387,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Storage/storageAccounts/write | Creates a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account. |
 > | Action | Microsoft.Storage/usages/read | Returns the limit and the current usage count for resources in the specified subscription |
 
-### Microsoft.StorageSync
+## Microsoft.StorageSync
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -4410,7 +4420,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | microsoft.storagesync/storageSyncServices/syncGroups/write | Create or Update any Sync Groups |
 > | Action | microsoft.storagesync/storageSyncServices/write | Create or Update any Storage Sync Services |
 
-### Microsoft.StorSimple
+## Microsoft.StorSimple
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -4587,7 +4597,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.StorSimple/operations/read | Lists or gets the Operations |
 > | Action | Microsoft.StorSimple/register/action | Register Provider Microsoft.StorSimple |
 
-### Microsoft.StreamAnalytics
+## Microsoft.StreamAnalytics
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -4627,7 +4637,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.StreamAnalytics/streamingjobs/transformations/Write | Write Stream Analytics Job Transformation |
 > | Action | Microsoft.StreamAnalytics/streamingjobs/Write | Write Stream Analytics Job |
 
-### Microsoft.Subscription
+## Microsoft.Subscription
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -4636,7 +4646,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Subscription/SubscriptionDefinitions/read | Get an Azure subscription definition within a management group. |
 > | Action | Microsoft.Subscription/SubscriptionDefinitions/write | Create an Azure subscription definition |
 
-### Microsoft.Support
+## Microsoft.Support
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -4645,9 +4655,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Support/supportTickets/read | Gets Support Ticket details (including status, severity, contact details and communications) or gets the list of Support Tickets across subscriptions. |
 > | Action | Microsoft.Support/supportTickets/write | Creates or Updates a Support Ticket. You can create a Support Ticket for Technical, Billing, Quotas or Subscription Management related issues. You can update severity, contact details and communications for existing support tickets. |
 
-## T
-
-### Microsoft.TimeSeriesInsights
+## Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -4673,9 +4681,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.TimeSeriesInsights/environments/write | Creates a new environment, or updates an existing environment. |
 > | Action | Microsoft.TimeSeriesInsights/register/action | Registers the subscription for the Time Series Insights resource provider and enables the creation of Time Series Insights environments. |
 
-## V
-
-### Microsoft.VisualStudio
+## Microsoft.VisualStudio
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -4694,9 +4700,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.VisualStudio/Project/Write | Set Project |
 > | Action | Microsoft.VisualStudio/Register/Action | Register Azure Subscription with Microsoft.VisualStudio provider |
 
-## W
-
-### microsoft.web
+## microsoft.web
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -4844,6 +4848,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | microsoft.web/sites/config/delete | Delete Web Apps Config. |
 > | Action | Microsoft.Web/sites/config/list/Action | List Web App's security sensitive settings, such as publishing credentials, app settings and connection strings |
 > | Action | Microsoft.Web/sites/config/Read | Get Web App configuration settings |
+> | Action | microsoft.web/sites/config/snapshots/read | Get Web Apps Config Snapshots. |
 > | Action | Microsoft.Web/sites/config/Write | Update Web App's configuration settings |
 > | Action | microsoft.web/sites/containerlogs/action | Get Zipped Container Logs for Web App. |
 > | Action | microsoft.web/sites/continuouswebjobs/delete | Delete Web Apps Continuous Web Jobs. |
@@ -4892,6 +4897,8 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | microsoft.web/sites/hostnamebindings/delete | Delete Web Apps Hostname Bindings. |
 > | Action | microsoft.web/sites/hostnamebindings/read | Get Web Apps Hostname Bindings. |
 > | Action | microsoft.web/sites/hostnamebindings/write | Update Web Apps Hostname Bindings. |
+> | Action | Microsoft.Web/sites/hostruntime/host/_master/read | Get Function App's master key for admin operations |
+> | Action | Microsoft.Web/sites/hostruntime/host/action | Perform Function App runtime action like sync triggers, add functions, invoke functions, delete functions etc. |
 > | Action | microsoft.web/sites/hybridconnection/delete | Delete Web Apps Hybrid Connection. |
 > | Action | microsoft.web/sites/hybridconnection/read | Get Web Apps Hybrid Connection. |
 > | Action | microsoft.web/sites/hybridconnection/write | Update Web Apps Hybrid Connection. |
@@ -4906,6 +4913,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | microsoft.web/sites/instances/extensions/read | Get Web Apps Instances Extensions. |
 > | Action | microsoft.web/sites/instances/processes/delete | Delete Web Apps Instances Processes. |
 > | Action | microsoft.web/sites/instances/processes/read | Get Web Apps Instances Processes. |
+> | Action | microsoft.web/sites/instances/processes/threads/read | Get Web Apps Instances Processes Threads. |
 > | Action | microsoft.web/sites/instances/read | Get Web Apps Instances. |
 > | Action | microsoft.web/sites/listsyncfunctiontriggerstatus/action | List Sync Function Trigger Status Web Apps. |
 > | Action | microsoft.web/sites/metricdefinitions/read | Get Web Apps Metric Definitions. |
@@ -4921,6 +4929,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | microsoft.web/sites/premieraddons/delete | Delete Web Apps Premier Addons. |
 > | Action | microsoft.web/sites/premieraddons/read | Get Web Apps Premier Addons. |
 > | Action | microsoft.web/sites/premieraddons/write | Update Web Apps Premier Addons. |
+> | Action | microsoft.web/sites/privateaccess/read | Get data around private site access enablement and authorized Virtual Networks that can access the site. |
 > | Action | microsoft.web/sites/processes/read | Get Web Apps Processes. |
 > | Action | microsoft.web/sites/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
 > | Action | microsoft.web/sites/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
@@ -4942,6 +4951,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Web/sites/restart/Action | Restart a Web App |
 > | Action | microsoft.web/sites/restore/read | Get Web Apps Restore. |
 > | Action | microsoft.web/sites/restore/write | Restore Web Apps. |
+> | Action | microsoft.web/sites/restorefrombackupblob/action | Restore Web App From Backup Blob. |
 > | Action | microsoft.web/sites/restorefromdeletedwebapp/action | Restore Web Apps From Deleted App. |
 > | Action | microsoft.web/sites/restoresnapshot/action | Restore Web Apps Snapshots. |
 > | Action | microsoft.web/sites/siteextensions/delete | Delete Web Apps Site Extensions. |
@@ -4952,6 +4962,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Web/sites/slots/backup/Action | Create new Web App Slot backup. |
 > | Action | microsoft.web/sites/slots/backup/read | Get Web Apps Slots Backup. |
 > | Action | microsoft.web/sites/slots/backup/write | Update Web Apps Slots Backup. |
+> | Action | microsoft.web/sites/slots/backups/action | Discover Web Apps Slots Backups. |
 > | Action | microsoft.web/sites/slots/backups/delete | Delete Web Apps Slots Backups. |
 > | Action | microsoft.web/sites/slots/backups/list/action | List Web Apps Slots Backups. |
 > | Action | Microsoft.Web/sites/slots/backups/Read | Get the properties of a web app slots' backup |
@@ -4960,6 +4971,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Web/sites/slots/config/list/Action | List Web App Slot's security sensitive settings, such as publishing credentials, app settings and connection strings |
 > | Action | Microsoft.Web/sites/slots/config/Read | Get Web App Slot's configuration settings |
 > | Action | Microsoft.Web/sites/slots/config/Write | Update Web App Slot's configuration settings |
+> | Action | microsoft.web/sites/slots/containerlogs/action | Get Zipped Container Logs for Web App Slot. |
 > | Action | microsoft.web/sites/slots/continuouswebjobs/delete | Delete Web Apps Slots Continuous Web Jobs. |
 > | Action | microsoft.web/sites/slots/continuouswebjobs/read | Get Web Apps Slots Continuous Web Jobs. |
 > | Action | microsoft.web/sites/slots/continuouswebjobs/start/action | Start Web Apps Slots Continuous Web Jobs. |
@@ -4969,6 +4981,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | microsoft.web/sites/slots/deployments/log/read | Get Web Apps Slots Deployments Log. |
 > | Action | microsoft.web/sites/slots/deployments/read | Get Web Apps Slots Deployments. |
 > | Action | microsoft.web/sites/slots/deployments/write | Update Web Apps Slots Deployments. |
+> | Action | microsoft.web/sites/slots/detectors/read | Get Web Apps Slots Detectors. |
 > | Action | microsoft.web/sites/slots/diagnostics/analyses/execute/Action | Run Web Apps Slots Diagnostics Analysis. |
 > | Action | microsoft.web/sites/slots/diagnostics/analyses/read | Get Web Apps Slots Diagnostics Analysis. |
 > | Action | microsoft.web/sites/slots/diagnostics/aspnetcore/read | Get Web Apps Slots Diagnostics for ASP.NET Core app. |
@@ -4993,6 +5006,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | microsoft.web/sites/slots/diagnostics/workeravailability/read | Get Web Apps Slots Diagnostics Workeravailability. |
 > | Action | microsoft.web/sites/slots/diagnostics/workerprocessrecycle/read | Get Web Apps Slots Diagnostics Worker Process Recycle. |
 > | Action | microsoft.web/sites/slots/domainownershipidentifiers/read | Get Web Apps Slots Domain Ownership Identifiers. |
+> | Action | microsoft.web/sites/slots/functions/read | Get Web Apps Slots Functions. |
 > | Action | microsoft.web/sites/slots/hostnamebindings/delete | Delete Web Apps Slots Hostname Bindings. |
 > | Action | microsoft.web/sites/slots/hostnamebindings/read | Get Web Apps Slots Hostname Bindings. |
 > | Action | microsoft.web/sites/slots/hostnamebindings/write | Update Web Apps Slots Hostname Bindings. |
@@ -5034,6 +5048,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Web/sites/slots/restart/Action | Restart a Web App Slot |
 > | Action | microsoft.web/sites/slots/restore/read | Get Web Apps Slots Restore. |
 > | Action | microsoft.web/sites/slots/restore/write | Restore Web Apps Slots. |
+> | Action | microsoft.web/sites/slots/restorefrombackupblob/action | Restore Web Apps Slot From Backup Blob. |
 > | Action | microsoft.web/sites/slots/restorefromdeletedwebapp/action | Restore Web App Slots From Deleted App. |
 > | Action | microsoft.web/sites/slots/restoresnapshot/action | Restore Web Apps Slots Snapshots. |
 > | Action | microsoft.web/sites/slots/siteextensions/delete | Delete Web Apps Slots Site Extensions. |
@@ -5087,26 +5102,20 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | microsoft.web/validate/action | Validate . |
 > | Action | microsoft.web/verifyhostingenvironmentvnet/action | Verify Hosting Environment Vnet. |
 
-### Microsoft.WorkloadMonitor
+## Microsoft.WorkloadMonitor
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
-> | Action | Microsoft.WorkloadMonitor/components/read | Read operations resources |
-> | Action | Microsoft.WorkloadMonitor/healthInstances/read | Read operations resources |
-> | Action | Microsoft.WorkloadMonitor/Operations/read | Read operations resources |
-> | Action | Microsoft.WorkloadMonitor/workloadInsights/delete | Deletes a workloadInsights resource |
-> | Action | Microsoft.WorkloadMonitor/workloadInsights/delete | Deletes a workloadInsights resource |
-> | Action | Microsoft.WorkloadMonitor/workloadInsights/read | Reads a workloadInsights resource |
-> | Action | Microsoft.WorkloadMonitor/workloadInsights/read | Reads a workloadInsights resource |
-> | Action | Microsoft.WorkloadMonitor/workloadInsights/write | Writes a workloadInsights resource |
-> | Action | Microsoft.WorkloadMonitor/workloadInsights/write | Writes a workloadInsights resource |
-> | Action | Microsoft.WorkloadMonitor/workloads/delete |  |
-> | Action | Microsoft.WorkloadMonitor/workloads/delete |  |
-> | Action | Microsoft.WorkloadMonitor/workloads/read | Reads a workload resource |
-> | Action | Microsoft.WorkloadMonitor/workloads/read | Reads a workload resource |
-> | Action | Microsoft.WorkloadMonitor/workloads/write | Writes a workload resource |
-> | Action | Microsoft.WorkloadMonitor/workloads/write | Writes a workload resource |
+> | Action | Microsoft.WorkloadMonitor/components/read | Gets components for the resource |
+> | Action | Microsoft.WorkloadMonitor/componentsSummary/read | Gets summary of components |
+> | Action | Microsoft.WorkloadMonitor/monitorInstances/read | Gets instances of monitors for the resource |
+> | Action | Microsoft.WorkloadMonitor/monitorInstancesSummary/read | Gets summary of monitor instances |
+> | Action | Microsoft.WorkloadMonitor/monitors/read | Gets monitors for the resource |
+> | Action | Microsoft.WorkloadMonitor/monitors/write | Configure monitor for the resource |
+> | Action | Microsoft.WorkloadMonitor/notificationSettings/read | Gets notification settings for the resource |
+> | Action | Microsoft.WorkloadMonitor/notificationSettings/write | Configure notification settings for the resource |
+> | Action | Microsoft.WorkloadMonitor/operations/read | Gets the supported operations |
 
 ## Next steps
 

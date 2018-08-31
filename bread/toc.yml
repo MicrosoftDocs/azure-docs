@@ -6,6 +6,9 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/
     items:
+      - name: Devices
+        tocHref: /azure/active-directory/devices/
+        topicHref: /azure/active-directory/devices/
       - name: Conditional Access
         tocHref: /azure/active-directory/conditional-access/
         topicHref: /azure/active-directory/conditional-access/
@@ -36,6 +39,9 @@
       - name: Domain Services
         tocHref: /azure/active-directory-domain-services/
         topicHref: /azure/active-directory-domain-services/
+      - name: Users, groups, and roles
+        tocHref: /azure/active-directory/users-groups-roles/
+        topicHref: /azure/active-directory/users-groups-roles/
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/

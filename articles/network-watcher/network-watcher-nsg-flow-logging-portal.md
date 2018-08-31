@@ -122,9 +122,6 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 
 ## View flow log
 
-> [!NOTE]
-> The format of NSG flow logs is changing soon. For details, see [Network security group flow log changes](prepare-flow-log.md).
-
 The following json is an example of what you'll see in the PT1H.json file for each flow that data is logged for:
 
 ```json

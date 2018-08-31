@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 08/30/2018
 
 ms.author: jeffgilb
 ms.reviewer: wamota
@@ -23,7 +23,7 @@ The following architectural diagram shows the different network layers and ACLs:
 
 ## Ports and protocols (inbound)
 
-A set of infrastructure VIPs are required for publishing Azure Stack endpoints to external networks. The *Endpoint (VIP)* table shows each endpoint, the required port, and protocol. Refer to the specific resource provider deployment documentation for endpoints that require additional resource providers, such as the SQL resource provider.
+A set of infrastructure VIPs is required for publishing Azure Stack endpoints to external networks. The *Endpoint (VIP)* table shows each endpoint, the required port, and protocol. Refer to the specific resource provider deployment documentation for endpoints that require additional resource providers, such as the SQL resource provider.
 
 Internal infrastructure VIPs aren't listed because they’re not required for publishing Azure Stack.
 
@@ -72,7 +72,8 @@ Azure Stack supports only transparent proxy servers. In a deployment where a tra
 |DNS|     |TCP<br>UDP|53|
 |     |     |     |     |
 
-
+> [!Note]  
+> Outbound URLs are load balanced using Azure traffic manager to provide the best possible connectivity based on geographical location. With load balanced URLs, Microsoft can update and change backend endpoints without impacting customers. Microsoft does not share the list of IP addresses for the load balanced URLs. You should use a device that supports filtering by URL rather than by IP.
 
 ## Next steps
 
