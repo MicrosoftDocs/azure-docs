@@ -47,4 +47,4 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **Applicable APIs:**
-* JS map control
+* JS map control 
