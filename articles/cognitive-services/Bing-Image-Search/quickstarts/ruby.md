@@ -16,6 +16,7 @@ Use this quickstart to make your first call to the Bing Image Search API and rec
 
 While this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages.
 
+The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingImageSearchv7.rb).
 ## Prerequisites
 
 * [The latest version of Ruby](https://www.ruby-lang.org/en/downloads/).

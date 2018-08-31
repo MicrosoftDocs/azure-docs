@@ -16,7 +16,7 @@ Use this quickstart to make your first call to the Bing Image Search API and vie
 
 While this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
 
-The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7.cs) with additional error handling, and code annotations.
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) with additional error handling, and code annotations.
 
 ## Prerequisites
 
