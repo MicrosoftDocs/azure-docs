@@ -105,7 +105,7 @@ Create a regular expression entity to tell LUIS what an HRF-number format is in 
 
     ![Screenshot of pop-up dialog setting new entity properties](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
 
-4. Select **Intents**, then **FindForm** intent to see the regular expression labeled in the utterances. 
+4. Select **Intents** from the left menu, then **FindForm** intent to see the regular expression labeled in the utterances. 
 
     [![Screenshot of Label utterance with existing entity and regex pattern](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png)](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png#lightbox)
 
