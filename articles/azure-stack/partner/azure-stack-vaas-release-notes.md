@@ -292,6 +292,4 @@ _Version 1.0.3_
 * Integration/Scenario Admin & Tenant operations
 
 
-## Next steps
-
 - To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).
