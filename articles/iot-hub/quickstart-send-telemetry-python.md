@@ -123,7 +123,7 @@ The `iothub-explorer` CLI utility connects to the service-side **Events** endpoi
 In another terminal window, run the following commands replacing `{your hub service connection string}` with the service connection string you made a note of previously:
 
 ```cmd/sh
-iothub-explorer monitor-events MyPythonDevice --login {your hub service connection string}
+iothub-explorer monitor-events MyPythonDevice --login "{your hub service connection string}"
 ```
 
 The following screenshot shows the output as the utility receives telemetry sent by the simulated device to the hub:
