@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 08/31/2018
 ms.author: jingwang
 
 ---
@@ -73,8 +73,8 @@ To use service principal authentication, register an application entity in Azure
 
 >[!IMPORTANT]
 > Make sure you grant the service principal proper permission in Azure Data Lake Store:
->- **As source**, in Data explorer -> Access, grant at least **Read + Execute** permission to list and copy the files in folder/subfolders, or **Read** permission to copy a single file; and choose to add to **This folder and all chidren** for recursive and add as **an access permission and a default permission entry**. No requirement on account level access control (IAM).
->- **As sink**, in Data explorer -> Access, grant at least **Write + Execute** permission to create child items in the folder, and choose to add to **This folder and all chidren** for recursive and add as **an access permission and a default permission entry**. If you use Azure IR to copy (both source and sink are in cloud), in Access control (IAM), grant at least **Reader** role in order to let Data Factory detect Data Lake Store's region. If you want to avoid this IAM role, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your Data Lake Store, and associate in the Data Lake Store linked service as the following example.
+>- **As source**, in Data explorer -> Access, grant at least **Read + Execute** permission to list and copy the files in folder/subfolders, or **Read** permission to copy a single file; and choose to add to **This folder and all children** for recursive and add as **an access permission and a default permission entry**. No requirement on account level access control (IAM).
+>- **As sink**, in Data explorer -> Access, grant at least **Write + Execute** permission to create child items in the folder, and choose to add to **This folder and all children** for recursive and add as **an access permission and a default permission entry**. If you use Azure IR to copy (both source and sink are in cloud), in Access control (IAM), grant at least **Reader** role in order to let Data Factory detect Data Lake Store's region. If you want to avoid this IAM role, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your Data Lake Store, and associate in the Data Lake Store linked service as the following example.
 
 The following properties are supported:
 
@@ -121,8 +121,8 @@ To use managed service identity (MSI) authentication:
 
 >[!IMPORTANT]
 > Make sure you grant the data factory service identity proper permission in Azure Data Lake Store:
->- **As source**, in Data explorer -> Access, grant at least **Read + Execute** permission to list and copy the files in folder/subfolders, or **Read** permission to copy a single file; and choose to add to **This folder and all chidren** for recursive and add as **an access permission and a default permission entry**. No requirement on account level access control (IAM).
->- **As sink**, in Data explorer -> Access, grant at least **Write + Execute** permission to create child items in the folder, and choose to add to **This folder and all chidren** for recursive and add as **an access permission and a default permission entry**. If you use Azure IR to copy (both source and sink are in cloud), in Access control (IAM), grant at least **Reader** role in order to let Data Factory detect Data Lake Store's region. If you want to avoid this IAM role, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your Data Lake Store, and associate in the Data Lake Store linked service as the following example.
+>- **As source**, in Data explorer -> Access, grant at least **Read + Execute** permission to list and copy the files in folder/subfolders, or **Read** permission to copy a single file; and choose to add to **This folder and all children** for recursive and add as **an access permission and a default permission entry**. No requirement on account level access control (IAM).
+>- **As sink**, in Data explorer -> Access, grant at least **Write + Execute** permission to create child items in the folder, and choose to add to **This folder and all children** for recursive and add as **an access permission and a default permission entry**. If you use Azure IR to copy (both source and sink are in cloud), in Access control (IAM), grant at least **Reader** role in order to let Data Factory detect Data Lake Store's region. If you want to avoid this IAM role, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your Data Lake Store, and associate in the Data Lake Store linked service as the following example.
 
 In Azure Data Factory, you don't need to specify any properties besides the general Data Lake Store information in linked service.
 
