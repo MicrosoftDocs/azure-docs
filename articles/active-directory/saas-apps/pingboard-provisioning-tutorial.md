@@ -23,7 +23,7 @@ ms.reviewer: asmalser
 
 # Tutorial: Configure Pingboard for automatic user provisioning
 
-The objective of this tutorial is to show you the steps you need to follow to enable automatic provisioning and de-provisioning of user accounts from Azure Active Directory (Azure AD) to Pingboard.
+The purpose of this tutorial is to show you the steps you need to follow to enable automatic provisioning and de-provisioning of user accounts from Azure Active Directory (Azure AD) to Pingboard.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ We recommend that you assign a single Azure AD user to Pingboard to test the pro
 
 ## Configure user provisioning to Pingboard 
 
-This section guides you through connecting your Azure AD to the Pingboard user account provisioning API. You also configure the provisioning service to create, update, and disable assigned user accounts in Pingboard based on user assignments in Azure AD.
+This section guides you through connecting your Azure AD to the Pingboard user account provisioning API. You also configure the provisioning service to create, update, and disable assigned user accounts in Pingboard that are based on user assignments in Azure AD.
 
 > [!TIP]
 > To enable SAML-based single sign-on for Pingboard, follow the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, although these two features complement each other.
@@ -93,7 +93,7 @@ This section guides you through connecting your Azure AD to the Pingboard user a
 
 1. Select **Save** to start the initial synchronization of users assigned to Pingboard.
 
-The initial synchronization takes longer to run than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. Use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs. The logs describe all actions performed by the provisioning service on your Pingboard app.
+The initial synchronization takes longer to run than following syncs, which occur approximately every 40 minutes as long as the service is running. Use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs. The logs describe all actions taken by the provisioning service on your Pingboard app.
 
 For more information on how to read the Azure AD provisioning logs, see [Report on automatic user account provisioning](../active-directory-saas-provisioning-reporting.md).
 
