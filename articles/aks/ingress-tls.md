@@ -50,9 +50,7 @@ eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.
 eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
 ```
 
-No ingress rules have been created yet. If you browse to the public IP address, the NGINX ingress controller's default 404 page is displayed, as shown in the following example:
-
-![Default NGINX backend](media/ingress/default-back-end.png)
+No ingress rules have been created yet. If you browse to the public IP address, the NGINX ingress controller's default 404 page is displayed.
 
 ## Configure a DNS name
 
