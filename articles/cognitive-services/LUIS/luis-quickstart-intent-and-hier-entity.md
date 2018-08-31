@@ -67,9 +67,6 @@ In order to see the entire utterance and mark the hierarchical children, tempora
 
 3. Select the ellipsis ***(...)*** button to the right of the number entity in the list. Select **Delete**. 
 
-    [ ![Screenshot of LUIS app on entities list page, with delete button highlighted for Number prebuilt entity](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
-
-
 ## Add utterances to MoveEmployee intent
 
 1. Select **Intents** from the left menu.
