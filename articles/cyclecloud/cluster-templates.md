@@ -216,7 +216,7 @@ Once this parameter has been added to your cluster template, your user can use t
 
 To reduce the cost of your workloads, you can set `interruptible = true`. This will flag your instance as low-priority, and will use surplus capacity when available. It is important to note that these instances are not always available and can be preempted at any time, meaning they are not always appropriate for your workload.
 
-If you have an existing [Azure Batch accoun](https://azure.microsoft.com/en-us/services/batch/), you can add `BatchAccount = foo` to your node. This will allow low-priority VMs via Batch nodes for your job(s).
+If you have an existing [Azure Batch account](https://azure.microsoft.com/en-us/services/batch/), you can add `BatchAccount = foo` to your node. This will allow low-priority VMs via Batch nodes for your job(s).
 
 ## Lookup Tables
 
@@ -225,14 +225,14 @@ You can have one parameter reference another and compute a certain value with a 
 ``` ini
 [[parameter MachineImage]]
     Label = Image
-    DefaultValue = ami-1000
+    DefaultValue = image-1000
     Description = CentOS 5.10
     Config.Plugin = pico.control.AutoCompleteDropdown
     [[[list Config.Entries]]]
-        Name = ami-1000
+        Name = image-1000
         Label = CentOS 5.10
     [[[list Config.Entries]]]
-        Name = ami-2000
+        Name = image-2000
             Label = CentOS 6.5
 ```
 
@@ -242,8 +242,8 @@ You can also get the OS version of the chosen image and use it for other configu
 [[parameter AmiLookup]]
   ParameterType = hidden
   [[[record DefaultValue]]]
-      ami-1000 = CentOS_5.10
-      ami-2000 = CentOS_6.5
+      image-1000 = CentOS_5.10
+      image-2000 = CentOS_6.5
 ```
 
 Note that this is hidden, so that it does not appear in the UI.
