@@ -59,9 +59,9 @@ You need to purchase the domain name if you want to link your DNS zone into the 
 
 ## Azure DNS Features
 
-### Are there any restrictions when using alias records for a zone name apex with Traffic Manager?
+### Are there any restrictions when using alias records for a domain name apex with Traffic Manager?
 
-Yes. You must use a static public IP address with Traffic Manager. Configure the **External endpoint** target using the static IP address. 
+Yes. You must use static public IP addresses with Traffic Manager. Configure the **External endpoint** target using a static IP address. 
 
 ### Does Azure DNS support DNS-based traffic routing or endpoint failover?
 
