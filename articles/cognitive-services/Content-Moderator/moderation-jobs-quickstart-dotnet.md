@@ -28,7 +28,7 @@ This article assumes that you are already familiar with Visual Studio and C#.
 Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key.
 Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
 
-## Sign up for a review tool account if not created in the previous step
+## Sign up for a review tool account if not completed in the previous step
 
 If you got your Content Moderator from the Azure portal, also [sign up for the review tool account](https://contentmoderator.cognitive.microsoft.com/) and create a review team. You need the team Id and the review tool to call the review API to start a Job and view the reviews in the review tool.
 
