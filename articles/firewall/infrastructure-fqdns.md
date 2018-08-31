@@ -5,29 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 9/24/2018
+ms.date: 9/25/2018
 ms.author: victorh
 ---
 
 # Infrastructure FQDNs
 
-Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. The allowed infrastructure FQDNs include:
+Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. 
+
+The following services are included in the build-in rule collection:
 
 - Compute access to storage Platform Image Repository (PIR)
 - Managed disks status storage access
-- Windows Diagnostics
-
-## FQDN list
-
-The following FQDNs are allowed for each service:
-
-
-|Service  |FQDNs  |
-|---------|---------|
-|Compute access to storage Platform Image Repository (PIR)     |one <br>two<br>three|
-|Managed disks status storage access     |one <br>two<br>three|
-|Windows Diagnostics     |one <br>two<br>three|
-
+- Azure Diagnostics and Logging (MDS)
+- Azure Active Directory
 
 ## Overriding 
 
