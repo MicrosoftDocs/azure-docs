@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 01/04/2018
 ms.author: jingwang
 
