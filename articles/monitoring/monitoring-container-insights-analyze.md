@@ -36,16 +36,14 @@ To view the health status of all AKS clusters deployed, select **Monitor** from 
 The health states defined are: 
 
 1. **Healthy** – no issues detected for the VM and it is functioning as required. 
-2. **Critical** – one or more critical issues are detected, which need to be addressed in order to restore normal operational state as expected.
-3. **Warning** -  one or more issues are detected, which need to be addressed or the health condition could become critical.
+2. **Available** - 
+3. **Critical** – one or more critical issues are detected, which need to be addressed in order to restore normal operational state as expected.
+4. **Warning** -  one or more issues are detected, which need to be addressed or the health condition could become critical.
 4. **Unknown** – if the service was not able to make a connection with the node or pod, the status changes to an unknown state.​
 
 Health state calculates overall cluster status as *worst of*” the three states with one exception – if any of the three states is *unknown*, overall cluster state will show **Unknown**.  
 
-From the list of clusters, you can drill-down to the **Nodes** performance page by clicking on a v
-
-
-you can drill-down to the **Nodes** performance page by clicking on the rollup of nodes in the **Nodes** column for that specific cluster, or drill-down to the **Controllers** performance page by clicking on the rollup of **User pods** or **System pods** column.   ​
+From the list of clusters, you can drill-down to the **Nodes** performance page by clicking on the rollup of nodes in the **Nodes** column for that specific cluster, or drill-down to the **Controllers** performance page by clicking on the rollup of **User pods** or **System pods** column.   ​
 
 ## View performance directly from an AKS cluster
 When you open Container Insights, the page presents performance charts showing the performance utilization of your entire cluster. Viewing information about your AKS cluster is organized into four perspectives:
