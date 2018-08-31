@@ -1,5 +1,5 @@
 ---
-title: View Azure Kubernetes Service (AKS) Container Insights (preview) metrics | Microsoft Docs
+title: View Azure Kubernetes Service (AKS) Container Insights (preview) performance | Microsoft Docs
 description: This article describes how you can view and analyze the performance and log data from the Azure AKS Container Insights solution.
 services: log-analytics
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 08/31/2018
 ms.author: magoedte
 ---
 
-## View performance utilization directly from a AKS cluster
+## View performance utilization of your AKS cluster
 Viewing the performance of your Azure Kubernetes Service (AKS) clusters and container instances can be observed in two ways with Container Insights, from a AKS cluster or across all AKS clusters in a subscription from Azure Monitor. This article will help you understand the experience between the two perspectives and how to quickly assess, investigate, and resolve issues detected.
 
 For information about configuring Container Insights, see [Configuring solution in Azure](monitoring-container-insights-onboard.md).
