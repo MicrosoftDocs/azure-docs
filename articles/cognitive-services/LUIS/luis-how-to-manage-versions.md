@@ -50,18 +50,9 @@ Select a version from the list, then select **Make Active** from the toolbar.
 
     Once you import a version, the new version becomes the active version.
 
-## Export version
+## Other actions
 
-Select a version from the list, then select **Export app** from the toolbar. The file is downloaded to your local machine. 
+* To **delete** a version, select a version from the list, then select **Delete** from the toolbar. Select **Ok**. 
+* To **rename** a version, select a version from the list, then select **Rename** from the toolbar. Enter new name and select **Done**. 
+* To **export** a version, select a version from the list, then select **Export app** from the toolbar. The file is downloaded to your local machine. 
 
-## Delete a version
-
-Select a version from the list, then select **Delete** from the toolbar. Select **Ok**
-
-![Manage section, versions page](./media/luis-how-to-manage-versions/versions-delete.png)
-
-## Rename a version
-
-Select a version from the list, then select **Rename** from the toolbar. Enter new name and select **Done**.
-
-![Manage section, versions page](./media/luis-how-to-manage-versions/versions-rename.png)

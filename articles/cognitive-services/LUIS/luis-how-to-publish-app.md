@@ -52,6 +52,8 @@ Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) 
 
 For more information about the JSON endpoint response with sentiment analysis, see [Sentiment analysis](luis-concept-data-extraction.md#sentiment-analysis)
 
+<!--
+
 ### Publish after enabling speech priming
  
 <a name="enable-bing-spell-checker"></a>
@@ -71,6 +73,9 @@ In order to complete the use of Speech priming, you need the following informati
 For more information, see the [Speech to Intent](http://aka.ms/speechsdk) sample.
 
 When your LUIS app is deleted or the Speech service is deleted, your model data is removed. 
+
+-->
+
 <!--
 ## Endpoint URL settings
 Endpoint URL services settings include **[Timezone](#set-timezone-offset)** offset, **[all predicted intent scores](#include-all-predicted-intent-scores)**, and **[Bing spell checker](#enable-bing-spell-checker)**.
