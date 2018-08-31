@@ -75,7 +75,7 @@ For an example of using scripts to train a model, see one of the following docum
 
 A model is a scoring logic operation materialized in one or more files. A model can be produced by a run in Azure Machine Learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under a Workspace, and can be version-managed. It is used to create a Docker image and deployment. 
 
-Azure Machine Learning is framework agnostic. You can use any popular machine learning framework, including scikit-learn, xgboost, TensorFlow, and CNTK.
+Azure Machine Learning is framework agnostic. You can use any popular machine learning framework, including scikit-learn, xgboost, PyTorch, TensorFlow, Chainer, and CNTK.
 
 ## Image
 
