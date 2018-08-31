@@ -8,7 +8,6 @@ manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.technology: vs-azure
 ms.workload: azure-vs
 ms.devlang: dotnet
 ms.topic: tutorial

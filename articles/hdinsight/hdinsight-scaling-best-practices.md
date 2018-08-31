@@ -3,7 +3,7 @@ title: Scale cluster sizes - Azure HDInsight
 description: Scale an HDInsight cluster to your workload.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive

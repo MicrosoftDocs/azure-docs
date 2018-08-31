@@ -96,6 +96,8 @@
       href: managed-disks-overview.md
     - name: Premium storage
       href: premium-storage.md
+    - name: Standard SSDs
+      href: disks-standard-ssd.md
     - name: Premium storage performance
       href: premium-storage-performance.md
     - name: Standard storage
@@ -218,9 +220,9 @@
       href: nested-virtualization.md
   - name: Manage costs
     items:
-    - name: Prepay for VMs - Azure reservations
+    - name: Prepay for VMs - Azure Reservations
       href: prepay-reserved-vm-instances.md
-    - name: What are Azure reservations?
+    - name: What are Azure Reservations?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: VM instance size flexibility
       href: reserved-vm-instance-size-flexibility.md
@@ -433,6 +435,11 @@
         href: storage-resource-deletion-errors.md  
       - name: Unexpected reboots of VMs with attached VHDs  
         href: unexpected-reboots-attached-vhds.md
+      - name: Troubleshoot boot errrors
+      items:
+      - name: Checking file system errors
+        href: troubleshoot-check-disk-boot-error.md  
+
 - name: Reference
   items:
   - name: Azure CLI

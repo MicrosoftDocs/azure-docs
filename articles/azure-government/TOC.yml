@@ -42,16 +42,12 @@
       href: documentation-government-manage-marketplace.md
 - name: How-to guides
   items: 
-  - name: Use dev tools
-    items:
-      - name: Visual Studio
-        href: documentation-government-get-started-connect-with-vs.md
-      - name: Visual Studio Team Services
-        href: documentation-government-get-started-connect-with-vsts.md
-      - name: SQL Server Management Studio
-        href: documentation-government-connect-ssms.md
-      - name: Azure Storage
-        href: documentation-government-get-started-connect-to-storage.md    
+  - name: Use Visual Studio
+    href: documentation-government-get-started-connect-with-vs.md
+  - name: Use SQL Server Management Studio
+    href: documentation-government-connect-ssms.md
+  - name: Use Azure Storage
+    href: documentation-government-get-started-connect-to-storage.md    
   - name: Use Cognitive Services API
     href: documentation-government-cognitiveservices.md     
   - name: Deploy Kubernetes cluster

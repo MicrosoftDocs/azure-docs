@@ -477,7 +477,13 @@ To test connectivity, log in to another virtual machine in the same virtual netw
 >If necessary, you can [download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
 
 ## Limitations
-On Azure virtual machines, Microsoft Distributed Transaction Coordinator (DTC) is not supported on FCIs because the RPC port is not supported by the load balancer.
+
+Azure Virtual Machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on clustered shared volumes (CSV) and a [standard load balancer](../../../load-balancer/load-balancer-standard-overview.md).
+
+On Azure virtual machines, MSDTC is not supported on Windows Server 2016 and earlier because:
+
+- The clustered MSDTC resource cannot be configured to use shared storage. With Windows Server 2016 if you create an MSDTC resource, it will not show any shared storage available for use, even if the storage is there. This issue has been fixed in Windows Server 2019.
+- The basic load balancer does not handle RPC ports.
 
 ## See Also
 

@@ -71,11 +71,11 @@ Condition defines the criteria that is monitored by the rule.
     >[!NOTE] 
     >More than one event measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each conditon gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
 
-### Configure the action
+### Configure actions
 
-This section shows you how to specify an action in the rule. Actions get invoked when all the conditions specified in the rule evaluate to true.
+This section shows you how to set up actions to take when the rule is fired. Actions get invoked when all the conditions specified in the rule evaluate to true.
 
-1. Choose the **+** next to **Actions**. Here you see the list of available actions. During public preview, **Email** is the only supported action.
+1. Choose the **+** next to **Actions**. Here you see the list of available actions. 
 
     ![Add Action](media\howto-create-event-rules\Add_Action.png)
 
@@ -87,6 +87,11 @@ This section shows you how to specify an action in the rule. Actions get invoked
    ![Configure Action](media\howto-create-event-rules\Configure_Action.png)
 
 1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring the events being sent to your application. When the condition specified in the rule matches, the rule triggers the configured email action.
+
+You can add other actions to the rule such as Microsoft Flow and webhooks. You can add up to 5 actions per rule.
+
+- [Microsoft Flow action](howto-add-microsoft-flow.md) to kick off a workflow in Microsoft Flow when a rule is triggered 
+- [Webhook action](howto-create-webhooks.md) to notify other services when a rule is triggered
 
 ## Parameterize the rule
 
