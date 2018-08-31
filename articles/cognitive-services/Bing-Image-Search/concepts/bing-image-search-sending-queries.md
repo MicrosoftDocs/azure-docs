@@ -20,7 +20,7 @@ The Bing Image Search API provides an experience similar to Bing.com/Images. You
 
 After a search term is entered, URL-encode the term before you set the [**q**](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) query parameter. For example, if you enter *sailing dinghies*, set `q` to `sailing+dinghies` or `sailing%20dinghies`.
 
-If your app has a search box where search terms are entered, you can use the [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API can display suggested search terms in real time. The API returns suggested query strings based on partial search terms and Azure Cognitive Services.
+If your app has a search box where search terms are entered, you can use the [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API can display suggested search terms in real time. The API returns suggested query strings based on partial search terms and Cognitive Services.
 
 ## Pivot the query
 
