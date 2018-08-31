@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2017
+ms.date: 9/25/2018
 ms.author: victorh
 ---
 
@@ -58,6 +58,10 @@ You do not need to purchase a domain to host a DNS zone in Azure DNS. You can cr
 You need to purchase the domain name if you want to link your DNS zone into the global DNS hierarchy – this linking enables DNS queries from anywhere in the world to find your DNS zone and be answered with your DNS records.
 
 ## Azure DNS Features
+
+### Are there any restrictions when using alias records for a zone name apex with Traffic Manager?
+
+Yes. You must use a static public IP address with Traffic Manager. Configure the **External endpoint** target using the static IP address. 
 
 ### Does Azure DNS support DNS-based traffic routing or endpoint failover?
 

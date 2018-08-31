@@ -44,8 +44,10 @@ First, create a VNet and a subnet to place your web servers in.
 1. Click **Create a resource**, click **Windows Server 2016 VM**.
 2. Type **Web-01** for the name, and place the VM in the **RG-DNS-Alias-TM** resource group. Type a username, password, and click **OK**.
 3. For **Size**, choose a SKU with 8 GB RAM.
-4. For **Settings**, select the **VNet-Servers** virtual network, the **SN-Web** subnet. For public inbound ports, select **HTTP**, **HTTPS**, and **RDP (3389)** and then click **OK**.
-5. One the Summary page, click **Create**.
+4. For **Settings**, select the **VNet-Servers** virtual network, the **SN-Web** subnet.
+5. Click **Public IP address**, and under **Assignment**, click **Static** and the click **OK**.
+6. For public inbound ports, select **HTTP**, **HTTPS**, and **RDP (3389)** and then click **OK**.
+7. One the Summary page, click **Create**.
 
    This takes a few minutes to complete.
 6. Repeat this procedure to create another virtual machine named **Web-02**.
@@ -78,16 +80,20 @@ Repeat this process to install IIS on **Web-02**.
 
 ## Create a Traffic Manager profile
 
+Due 
+
+1. Open the **RG-DNS-Alias-TM** resource group and click the **Web-01-ip** Public IP address. Note the IP addess for later use. Repeat for the **Web-02-ip** Public IP address.
 1. Click **Create a resource**, click **Networking**, and then click **Traffic Manager profile**.
 2. For the name, type **TM-alias-test**, and place it in the **RG-DNS-Alias-TM** resource group.
 3. Click **Create**.
 4. When deployment completes, click **Go to resource**.
 5. On the traffic manager profile page, under **Settings**, click **Endpoints**.
 6. Click **Add**.
-7. For **Type**, select **Azure endpoint**, for **Name** type **EP-Web01** for **Target resource type**, select **Public IP address**, and for Target resource select **Web-01-ip**.
-8. Click **OK**.
+7. For **Type**, select **External endpoint**, for **Name** type **EP-Web01**.
+8. In the **Fully-qualified domain name (FQDN) or IP** text box, type the IP address for **Web-01-ip** that you noted previously.
+9. Select the same **Location** as your other resources, and then click **OK**.
 
-Repeat this procedure to add the **Web-02** endpoint.
+Repeat this procedure to add the **Web-02** endpoint, using the IP address you noted previously for **Web-02-ip**.
 
 ## Create an alias record
 
