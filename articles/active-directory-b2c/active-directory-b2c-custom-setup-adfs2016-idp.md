@@ -47,7 +47,7 @@ If you want users to sign in by using an ADFS account, you need to define the ac
 Define ADFS as a claims provider, by adding **ClaimsProvider** element in your extension policy file.
 
 1. Open the *TrustFrameworkExtensions.xml* policy file in your working directory. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), which is a lightweight cross-platform editor.
-2. Add the following XML under the **ClaimsProviders** element and replace the value of the **identityProvider** output claim with your DNS (Arbitrary value that indicates your domain), and save the file. 
+2. Add the following XML under the **ClaimsProviders** element and replace **your-ADFS-domain** with your ADFS domain name and replace the value of the **identityProvider** output claim with your DNS (Arbitrary value that indicates your domain), and save the file. 
 
     ```xml
     <ClaimsProvider>
@@ -61,7 +61,7 @@ Define ADFS as a claims provider, by adding **ClaimsProvider** element in your e
           <Metadata>
             <Item Key="RequestsSigned">false</Item>
             <Item Key="WantsEncryptedAssertions">false</Item>
-            <Item Key="PartnerEntity">https://{your_ADFS_domain}/federationmetadata/2007-06/federationmetadata.xml</Item>
+            <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
@@ -195,7 +195,7 @@ To add a new relying party trust by using the ADFS Management snap-in and manual
 
 ### Update the relying party metadata
 
-Changing the SAML technical profile requires you to update ADFS with the updated metadata version. 
+Changing the SAML technical profile requires you to update ADFS with the updated metadata version. You don’t need to update the metadata when you create the relying party application, but when you make a change, you update the metadata in ADFS.
 
 1. In Server Manager, select **Tools**, and then select **ADFS Management**.
 2. Select the relying party trust you created, select **Update from Federation Metadata**, and then click **Update**. 
