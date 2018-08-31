@@ -35,7 +35,7 @@ When you use the UX **Authoring canvas** to author directly with the Data Factor
 ![Publish mode](media/author-visually/data-factory-publish.png)
 
 ## Author with Azure DevOps Git integration
-Visual authoring with Azure DevOps Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with an Azure DevOps Git organization repository for source control, collaboration, versioning, and so on. A single Azure DevOps Git organization can have multiple repositories, but an Azure DevOps Git repository can be associated with only one data factory. If you don't have an Azure DevOps organization or repository, follow [these instructions](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) to create your resources.
+Visual authoring with Azure DevOps Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with an Azure DevOps Git organization repository for source control, collaboration, versioning, and so on. A single Azure DevOps Git organization can have multiple repositories, but an Azure DevOps Git repository can be associated with only one data factory. If you don't have an Azure DevOps organization or repository, follow [these instructions](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to create your resources.
 
 > [!NOTE]
 > You can store script and data files in an Azure DevOps Git repository. However, you have to upload the files manually to Azure Storage. A Data Factory pipeline does not automatically upload script or data files stored in an Azure DevOps Git repository to Azure Storage.

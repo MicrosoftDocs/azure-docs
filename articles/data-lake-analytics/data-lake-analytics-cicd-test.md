@@ -113,7 +113,7 @@ After you build the test project, you can run all test cases though **Test Explo
 
 ## Run test cases in Azure DevOps
 
-Both **U-SQL script test projects** and **C# UDO test projects** inherit C# unit test projects. The [Visual Studio test task](https://docs.microsoft.com/vsts/pipelines/test/getting-started-with-continuous-testing?view=vsts) in Azure DevOps can run these test cases. 
+Both **U-SQL script test projects** and **C# UDO test projects** inherit C# unit test projects. The [Visual Studio test task](https://docs.microsoft.com/azure/devops/pipelines/test/getting-started-with-continuous-testing?view=vsts) in Azure DevOps can run these test cases. 
 
 ### Run U-SQL test cases in Azure DevOps
 

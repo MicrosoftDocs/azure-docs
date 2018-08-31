@@ -71,7 +71,7 @@ Here are the steps to set up a Azure DevOps Services Release so you can automate
 
 ### Requirements
 
--   An Azure subscription linked to Team Foundation Server or Azure DevOps Services using the [*Azure Resource Manager service endpoint*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+-   An Azure subscription linked to Team Foundation Server or Azure DevOps Services using the [*Azure Resource Manager service endpoint*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
 -   A Data Factory with Azure DevOps Services Git configured.
 
@@ -144,7 +144,7 @@ There are two ways to handle the secrets:
 
     -   The parameters file needs to be in the publish branch as well.
 
-1.  Add an [Azure Key Vault task](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment described in the previous section:
+1.  Add an [Azure Key Vault task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment described in the previous section:
 
     -   Select the **Tasks** tab, create a new task, search for **Azure Key Vault** and add it.
 
