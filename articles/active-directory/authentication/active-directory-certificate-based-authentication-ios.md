@@ -77,7 +77,7 @@ On iOS 9 or later, the native iOS mail client is supported. For all other Exchan
 
 ## Next steps
 
-If you want to configure certificate-based authentication in your environment, see [Get started with certificate-based authentication on Android](active-directory-certificate-based-authentication-get-started.md) for instructions.
+If you want to configure certificate-based authentication in your environment, see [Get started with certificate-based authentication on Android](../authentication/active-directory-certificate-based-authentication-get-started.md) for instructions.
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png
