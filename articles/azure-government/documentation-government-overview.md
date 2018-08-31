@@ -23,7 +23,7 @@ This site describes the capabilities of [Microsoft Azure Government](https://azu
 
 Refer to the [Microsoft Azure Trust Center Compliance Page](http://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx) for current information on the Azure Government services covered under specific accreditations and regulations. Additional Microsoft services might also be available, but are not within the scope of the Azure Government covered services and are not addressed by this document. Azure Government services might also permit you to use a variety of additional resources, applications, or services that are provided by third parties—or by Microsoft under separate terms of use and privacy policies—which are not included in the scope of this document. You are responsible for reviewing the terms of all such “add-on” offerings, such as Marketplace offerings, to ensure that they meet your needs regarding compliance.
 
-Azure Government is available to entities that handle data that is subject to certain government regulations and requirements (such as NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 and CJIS) where use of Azure Government is required to comply with regulations. Azure Government customers are subject to validation of eligibility.
+Azure Government is available to entities that handle data that is subject to certain government regulations and requirements (such as NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS) where use of Azure Government is required to comply with regulations. Azure Government customers are subject to validation of eligibility.
 
 Entities with questions about eligibility for Azure Government should consult their account team.
 
@@ -35,7 +35,7 @@ The following diagram shows the Azure defense-in-depth model. For example, Micro
 
 ![alt text](./media/azure-government-Defenseindepth.png)
 
-This page outlines the foundational principles for securing your Services and applications, providing guidance and best practices on how to apply these principles; in other words, how customers should make smart use of Azure Government to meet the obligations and responsibilities that are required for a solution that handles ITAR information.
+This page outlines the foundational principles for securing your Services and applications, providing guidance and best practices on how to apply these principles. In other words, how customers should make smart use of Azure Government to meet the obligations and responsibilities that are required for a solution that handles ITAR information.
 
 The overarching principles for securing customer data are:
 
@@ -72,10 +72,10 @@ Secure key management is essential for protecting data in the cloud. Customers s
 
 ### <a name="Overview"></a>Best Practices for Managing Secrets
 * Use Key Vault to minimize the risks of secrets being exposed through hard-coded configuration files, scripts, or in source code. Azure Key Vault encrypts keys (such as the encryption keys for Azure Disk Encryption) and secrets (such as passwords), by storing them in FIPS 140-2 Level 2 validated hardware security modules (HSMs). For added assurance, you can import or generate keys in these HSMs.
-* Application code and templates should only contain URI references to the secrets (which means the actual secrets are not in code, configuration or source code repositories). This prevents key phishing attacks on internal or external repos, such as harvest-bots in GitHub.
+* Application code and templates should only contain URI references to the secrets (which means the actual secrets are not in code, configuration, or source code repositories). This prevents key phishing attacks on internal or external repos, such as harvest-bots in GitHub.
 * Utilize strong RBAC controls within Key Vault. If a trusted operator leaves the company or transfers to a new group within the company, they should be prevented from being able to access the secrets.  
 
-For additional information, see [Azure Key Vault](/azure/key-vault/key-vault-get-started)
+For more information, see [Azure Key Vault](/azure/key-vault/key-vault-get-started)
 
 ## Isolation to Restrict Data Access
 Isolation is all about using boundaries, segmentation, and containers to limit data access to only authorized users, services, and applications. For example, the separation between tenants is an essential security mechanism for multitenant cloud platforms such as Microsoft Azure. Logical isolation helps prevent one tenant from interfering with the operations of any other tenant.
@@ -84,12 +84,12 @@ Isolation is all about using boundaries, segmentation, and containers to limit d
 The Azure Government environment is a physical instance that is separate from the rest of Microsoft's network. This is achieved through a series of physical and logical controls that include the following:  Securing of physical barriers using biometric devices and cameras.  Use of specific credentials and multifactor authentication by Microsoft personnel requiring logical access to the production environment.  All service infrastructure for Azure Government is located within the United States.
 
 #### <a name="Overview"></a>Per-Customer Isolation
-Azure implements network access control and segregation through VLAN isolation, ACLs, load balancers and IP filters
+Azure implements network access control and segregation through VLAN isolation, ACLs, load balancers, and IP filters
 
 Customers can further isolate their resources across subscriptions, resource groups, virtual networks, and subnets.
 
 For more information on isolation in Microsoft Azure, see the [Isolation section of the Azure Security Guide](/azure/security/azure-security-getting-started/).
 
-For supplemental information and updates, please subscribe to the
+For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
 
