@@ -46,7 +46,7 @@ To access the default dashboard select _Application Dashboard_ in the upper left
 
 If this is your first time accessing the dashboard, it will launch a default view:
 
-![Dashboard view](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
+![Dashboard view](.\media\app-insights-overview-dashboard\0001-dashboard.png)
 
 You can keep the default view if you like it. Or you can also add, and delete from the dashboard to best fit the needs of your team.
 
@@ -55,7 +55,7 @@ You can keep the default view if you like it. Or you can also add, and delete fr
 
 To navigate back to the overview experience just select:
 
-![Overview Button](.\media\app-insights-overview-dashboard\0001-dashboard.png)
+![Overview Button](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
 
 ## Next steps
 
