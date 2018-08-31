@@ -1,6 +1,6 @@
 ---
-title: 'Azure Database for MySQL Server vnet services endpoint overview | Microsoft Docs'
-description: 'Describes how vnet service endpoints work for your Azure Database for MySQL server.'
+title: 'Azure Database for MySQL Server VNet services endpoint overview | Microsoft Docs'
+description: 'Describes how VNet service endpoints work for your Azure Database for MySQL server.'
 services: mysql
 author: mbolz
 ms.author: mbolz
@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/29/2018
+ms.date: 08/20/2018
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for MySQL
 
@@ -19,7 +19,7 @@ To create a virtual network rule, there must first be a [virtual network][vm-vir
 ![Example of how a VNet Service Endpoint works](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
 > [!NOTE]
-> For Azure Database for MySQL, this feature is available in public preview in all regions of Azure public cloud where Azure Database for MySQL is deployed.
+> This feature is available in all regions of Azure where Azure Database for MySQL is deployed for General Purpose and Memory Optimized servers.
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -63,7 +63,7 @@ However, the static IP approach can become difficult to manage, and it is costly
 
 If your **Microsoft.Sql** server was a node on a subnet in your virtual network, all nodes within the virtual network could communicate with your Azure Database for MySQL server. In this case, your VMs could communicate with Azure Database for MySQL without needing any virtual network rules or IP rules.
 
-However as of May 2018, the Azure Database for MySQL service is not yet among the services that can be assigned directly to a subnet.
+However as of August 2018, the Azure Database for MySQL service is not yet among the services that can be assigned directly to a subnet.
 
 <a name="anch-details-about-vnet-rules-38q" />
 
@@ -111,8 +111,6 @@ For Azure Database for MySQL, the virtual network rules feature has the followin
 
 - Turning ON virtual network service endpoints to Azure Database for MySQL using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure SQL Data Warehouse.
 
-- At the time of public preview, there is no support for VNet move operations. To move a virtual network rule, drop and recreate it.
-
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
@@ -124,6 +122,12 @@ For Azure Database for MySQL, the virtual network rules feature has the followin
 If your network is connected to the Azure network through use of [ExpressRoute][expressroute-indexmd-744v], each circuit is configured with two public IP addresses at the Microsoft Edge. The two IP addresses are used to connect to Microsoft Services, such as to Azure Storage, by using Azure Public Peering.
 
 To allow communication from your circuit to Azure Database for MySQL, you must create IP network rules for the public IP addresses of your circuits. In order to find the public IP addresses of your ExpressRoute circuit, open a support ticket with ExpressRoute by using the Azure portal.
+
+## Adding a VNET Firewall rule to your server without turning On VNET Service Endpoints
+
+Merely setting a Firewall rule does not help secure the server to the VNet. You must also turn VNet service endpoints **On** for the security to take effect. When you turn service endpoints **On**, your VNet-subnet experiences downtime until it completes the transition from **Off** to **On**. This is especially true in the context of large VNets. You can use the **IgnoreMissingServiceEndpoint** flag to reduce or eliminate the downtime during transition.
+
+You can set the **IgnoreMissingServiceEndpoint** flag by using the Azure CLI or portal.
 
 ## Related articles
 - [Azure virtual networks][vm-virtual-network-overview]

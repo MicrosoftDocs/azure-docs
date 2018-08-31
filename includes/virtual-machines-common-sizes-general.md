@@ -16,7 +16,7 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 
 - Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) or E5-2673 v4 2.3 GHz  (Broadwell) processors, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 
-- The Dv3-series features the same processor(s) as the Dv2-series, but in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads, and bringing the Dv3 into alignment with the general purpose VMs of most other clouds.  Memory has been expanded (from ~3.5 GiB/vCPU to 4 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyperthreading.  The Dv3 no longer has the high memory VM sizes of the D/Dv2 families, those have been moved to the new Ev3 family.
+- The Dv3-series features the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor or the latest 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads.  Memory has been expanded (from ~3.5 GiB/vCPU to 4 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyperthreading.  The Dv3 no longer has the high memory VM sizes of the D/Dv2 families, those have been moved to the new Ev3 family.
 
 
 ## B-series

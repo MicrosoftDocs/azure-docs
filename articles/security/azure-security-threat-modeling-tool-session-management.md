@@ -3,9 +3,9 @@ title: Session Management - Microsoft Threat Modeling Tool - Azure | Microsoft D
 description: mitigations for threats exposed in the Threat Modeling Tool 
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
+ms.date: 02/07/2017
+ms.author: jegeib
 
 ---
 
@@ -558,8 +558,10 @@ Assuming all is well, the request goes through as normal. But if not, then an au
 
 ### Example
 The Web API has to be informed to rely ONLY on bearer tokens and not on cookies. It can be done by the following configuration in `WebApiConfig.Register` method:
-```C-Sharp code
+
+```csharp
 config.SuppressDefaultHostAuthentication();
 config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 ```
+
 The SuppressDefaultHostAuthentication method tells Web API to ignore any authentication that happens before the request reaches the Web API pipeline, either by IIS or by OWIN middleware. That way, we can restrict Web API to authenticate only using bearer tokens.

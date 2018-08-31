@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/14/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
@@ -97,6 +97,7 @@ Currently, library support for the v2.0 endpoint is limited. If you want to use 
 * If you are building a desktop or mobile application, you can use one of the preview Microsoft Authentication Libraries (MSAL). These libraries are in a production-supported preview, so it is safe to use them in production applications. You can read more about the terms of the preview and the available libraries in [authentication libraries reference](reference-v2-libraries.md).
 * For platforms not covered by Microsoft libraries, you can integrate with the v2.0 endpoint by directly sending and receiving protocol messages in your application code. The v2.0 OpenID Connect and OAuth protocols [are explicitly documented](active-directory-v2-protocols.md) to help you perform such an integration.
 * Finally, you can use open-source Open ID Connect and OAuth libraries to integrate with the v2.0 endpoint. The v2.0 protocol should be compatible with many open-source protocol libraries without major changes. The availability of these kinds of libraries varies by language and platform. The [Open ID Connect](http://openid.net/connect/) and [OAuth 2.0](http://oauth.net/2/) websites maintain a list of popular implementations. For more information, see [Azure Active Directory v2.0 and authentication libraries](reference-v2-libraries.md), and the list of open-source client libraries and samples that have been tested with the v2.0 endpoint.
+  * For reference, the `.well-known` endpoint for the v2.0 common endpoint is `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` .  Replace `common` with your tenant ID to get data specific to your tenant.  
 
 ## Restrictions on protocols
 
@@ -105,7 +106,6 @@ The v2.0 endpoint does not support SAML or WS-Federation; it only supports Open 
 The following protocol features and capabilities currently are *not available* in the v2.0 endpoint:
 
 * Currently, the `email` claim is returned only if an optional claim is configured and scope is scope=email was specified in the request. However, this behavior will change as the v2.0 endpoint is updated to further comply with the Open ID Connect and OAuth2.0 standards.
-* The OpenID Connect UserInfo endpoint is not implemented on the v2.0 endpoint. However, all user profile data that you potentially would receive at this endpoint is available from the Microsoft Graph `/me` endpoint.
 * The v2.0 endpoint does not support issuing role or group claims in ID tokens.
 * The [OAuth 2.0 Resource Owner Password Credentials Grant](https://tools.ietf.org/html/rfc6749#section-4.3) is not supported by the v2.0 endpoint.
 

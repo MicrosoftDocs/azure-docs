@@ -144,7 +144,7 @@ There are some features that are supported on Windows, but not on Linux. To lear
 ### Standalone clusters
 Service Fabric provides an installation package for you to create standalone Service Fabric clusters on-premises or on any cloud provider. Standalone clusters give you the freedom to host a cluster wherever you want. If your data is subject to compliance or regulatory constraints, or you want to keep your data local, you can host your own cluster and applications. Service Fabric applications can run in multiple hosting environments with no changes, so your knowledge of building applications carries over from one hosting environment to another. 
 
-[Create your first Service Fabric standalone cluster](service-fabric-get-started-standalone-cluster.md)
+[Create your first Service Fabric standalone cluster](service-fabric-cluster-creation-for-windows-server.md)
 
 Linux standalone clusters are not yet supported.
 

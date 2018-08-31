@@ -159,19 +159,11 @@ You can pass a complete or partial street address to the search address API and 
 
     | Key | Value |
     |-----|------------|
-    | spatialKeys | true |
-
-    When the [spatialKeys](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response contains proprietary geo-spatial key information for a specified location.
-
-6. Add the following Key / Value pair to the **Params** section and click **Send**:
-
-    | Key | Value |
-    |-----|------------|
     | returnSpeedLimit | true |
     
     When the [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response return of the posted speed limit.
 
-7. Add the following Key / Value pair to the **Params** section and click **Send**:
+6. Add the following Key / Value pair to the **Params** section and click **Send**:
 
     | Key | Value |
     |-----|------------|
@@ -179,7 +171,7 @@ You can pass a complete or partial street address to the search address API and 
 
     When the [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response returns the road use array for reversegeocodes at street level.
 
-8. Add the following Key / Value pair to the **Params** section and click **Send**:
+7. Add the following Key / Value pair to the **Params** section and click **Send**:
 
     | Key | Value |
     |-----|------------|

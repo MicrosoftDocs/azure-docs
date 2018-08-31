@@ -96,6 +96,8 @@
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
     - name: Monitor jobs- Azure .Net SDK
       href: stream-analytics-monitor-jobs.md
+    - name: Monitor jobs- Visual Studio
+      href: stream-analytics-monitor-jobs-use-vs.md
   - name: Scale
     items:
     - name: Scale with streaming units
@@ -117,8 +119,10 @@
     items:
     - name: Install tools
       href: stream-analytics-tools-for-visual-studio-install.md
-    - name: Develop a cloud job
-      href: stream-analytics-tools-for-visual-studio.md
+    - name: Test a job locally
+      href: stream-analytics-vs-tools-local-run.md
+    - name: View jobs in Visual Studio
+      href: stream-analytics-vs-tools.md
     - name: Develop an Edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Set up CI/CD pipeline

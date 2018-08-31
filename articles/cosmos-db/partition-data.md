@@ -2,14 +2,14 @@
 title: Partitioning and horizontal scaling in Azure Cosmos DB | Microsoft Docs
 description: Learn about how partitioning works in Azure Cosmos DB, how to configure partitioning and partition keys, and how to pick the right partition key for your application.
 services: cosmos-db
-author: rimman
+author: aliuy
 manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/26/2018
-ms.author: rimman
+ms.author: andrl
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -17,11 +17,6 @@ ms.custom: H1Hack27Feb2017
 # Partition and scale in Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a globally distributed, multi-model database service designed to help you achieve fast, predictable performance. It scales seamlessly along with your application. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB. It also describes how to configure Azure Cosmos DB containers to effectively scale your applications.
-
-Partitioning and partition keys are discussed in this video:
-
-> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
-> 
 
 ## Partitioning in Azure Cosmos DB
 Azure Cosmos DB provides containers for storing data called collections (for documents), graphs, or tables. Containers are logical resources and can span one or more physical partitions or servers. The number of partitions is determined by Azure Cosmos DB based on the storage size and throughput provisioned for a container or a set of containers. 

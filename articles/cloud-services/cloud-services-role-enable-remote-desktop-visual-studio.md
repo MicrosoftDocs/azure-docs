@@ -7,8 +7,9 @@ manager: douge
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
+ms.custom: vs-azure
 ms.topic: conceptual
-ms.workload: azure
+ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
 

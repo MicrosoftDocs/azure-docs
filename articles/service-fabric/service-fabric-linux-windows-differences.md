@@ -19,17 +19,14 @@ ms.author: subramar
 ---
 # Differences between Service Fabric on Linux and Windows
 
-There are some features that are supported on Windows, but not yet on Linux. Eventually, the feature sets will be at parity and with each release this feature gap will shrink. The following differences exist between the latest available releases (that is, between version 6.0 on Windows and version 6.0 on Linux): 
+There are some features that are supported on Windows, but not yet on Linux. Eventually, the feature sets will be at parity and with each release this feature gap will shrink. The following differences exist between the latest available releases.
 
-* All programming models are in preview (Java/C# Reliable Actors, Reliable Stateless Services and Reliable Stateful Services)
-* Envoy (ReverseProxy) is in preview on Linux
+* Envoy (Reverse Proxy) is in preview on Linux
 * Standalone installer for Linux is not yet available on Linux
 * Console redirection (not supported in Linux or Windows production clusters)
 * The Fault Analysis Service (FAS) on Linux
 * DNS service for Service Fabric services (DNS service is supported for containers on Linux)
 * CLI command equivalents of certain Powershell commands (list below, most of which apply only to standalone clusters)
-
-Development tooling is also different between Windows and Linux. Visual Studio, Powershell, VSTS, and ETW are used on Windows while Yeoman, Eclipse, Jenkins, and LTTng are used on Linux.
 
 ## Powershell cmdlets that do not work against a Linux Service Fabric cluster
 

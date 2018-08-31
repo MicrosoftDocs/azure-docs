@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 08/14/2018
 ms.author: shlo
 
 ---
@@ -38,10 +38,10 @@ When you use the UX **Authoring canvas** to author directly with the Data Factor
 Visual authoring with VSTS Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a VSTS Git account repository for source control, collaboration, versioning, and so on. A single VSTS Git account can have multiple repositories, but a VSTS Git repository can be associated with only one data factory. If you don't have a VSTS account or repository, follow [these instructions](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) to create your resources.
 
 > [!NOTE]
-> You can store script and data files in a VSTS GIT repository. However, you have to upload the files manually to Azure Storage. A Data Factory pipeline does not automatically upload script or data files stored in a VSTS GIT repository to Azure Storage.
+> You can store script and data files in a VSTS Git repository. However, you have to upload the files manually to Azure Storage. A Data Factory pipeline does not automatically upload script or data files stored in a VSTS Git repository to Azure Storage.
 
 ### Configure a VSTS Git repository with Azure Data Factory
-You can configure a VSTS GIT repository with a data factory through two methods.
+You can configure a VSTS Git repository with a data factory through two methods.
 
 #### <a name="method1"></a> Configuration method 1 (VSTS Git repo): Let's get started page
 
@@ -73,26 +73,30 @@ A configuration pane appears. For details about the configuration settings, see 
 
 ![Configure the code repository settings for UX authoring](media/author-visually/configure-repo-2.png)
 
-#### Switch to a different Git repo
+## Use a different Azure Active Directory tenant
+
+You can create a VSTS Git repo in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using.
+
+## Switch to a different Git repo
 
 To switch to a different Git repo, locate the icon in the upper right corner of the Data Factory overview page, as shown in the following screenshot. If you can’t see the icon, clear your local browser cache. Select the icon to remove the association with the current repo.
 
 After you remove the association with the current repo, you can configure your Git settings to use a different repo. Then you can import existing Data Factory resources to the new repo.
 
-![Remove the association with the current Git repo.](media/author-visually/remove-repo.png)
+![Remove the association with the current Git repo](media/author-visually/remove-repo.png)
 
-### Use version control
+## Use version control
 Version control systems (also known as _source control_) let developers collaborate on code and track changes that are made to the code base. Source control is an essential tool for multi-developer projects.
 
 Each VSTS Git repository that's associated with a data factory has a collaboration branch. (`master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** and do development in the feature branches.
 
 ![Change the code by syncing or publishing](media/author-visually/sync-publish.png)
 
-When you are ready with the feature development in your feature branch, you can click **Create pull request**. This action takes you to VSTS GIT where you can raise pull requests, do code reviews, and merge changes to your collaboration branch. (`master` is the default). You are only allowed to publish to the Data Factory service from your collaboration branch. 
+When you are ready with the feature development in your feature branch, you can click **Create pull request**. This action takes you to VSTS Git where you can raise pull requests, do code reviews, and merge changes to your collaboration branch. (`master` is the default). You are only allowed to publish to the Data Factory service from your collaboration branch. 
 
 ![Create a new pull request](media/author-visually/create-pull-request.png)
 
-#### Publish code changes
+## Publish code changes
 After you have merged changes to the collaboration branch (`master` is the default), select **Publish** to manually publish your code changes in the master branch to the Data Factory service.
 
 ![Publish changes to the Data Factory service](media/author-visually/publish-changes.png)
@@ -100,18 +104,27 @@ After you have merged changes to the collaboration branch (`master` is the defau
 > [!IMPORTANT]
 > The master branch is not representative of what's deployed in the Data Factory service. The master branch *must* be published manually to the Data Factory service.
 
-### Author with Github integration
+## Author with GitHub integration
 
-Visual authoring with Github integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a Github account repository for source control, collaboration,
-versioning. A single Github account can have multiple repositories, but a Github repository can be associated with only one data factory. If you don't have aGithub account or repository, follow [these instructions](https://github.com/join) to create your resources. The GitHub integration with Data Factory supports both public Github as well as GitHub
-Enterprise.
+Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. A single GitHub account can have multiple repositories, but a GitHub repository can be associated with only one data factory. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources. The GitHub integration with Data Factory supports both public GitHub as well as GitHub Enterprise.
 
-> [!NOTE]
-> You can store script and data files in a Github repository. However, you have to upload the files manually to Azure  Storage. A Data Factory pipeline does not automatically upload script or data files stored in a Github repository to Azure Storage.
+To configure a GitHub repo, you have to have administrator permissions for the Azure subscription that you're using.
 
-#### Configure a public Github repository with Azure Data Factory
+For a nine-minute introduction and demonstration of this feature, watch the following video:
 
-You can configure a Github repository with a data factory through two methods.
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Azure-Data-Factory-visual-tools-now-integrated-with-GitHub/player]
+
+### Limitations
+
+- You can store script and data files in a GitHub repository. However, you have to upload the files manually to Azure Storage. A Data Factory pipeline does not automatically upload script or data files stored in a GitHub repository to Azure Storage.
+
+- GitHub Enterprise with a version older than 2.14.0 doesn't work in the Microsoft Edge browser.
+
+- GitHub integration with the Data Factor visual authoring tools only works in the generally available version of Data Factory.
+
+### Configure a public GitHub repository with Azure Data Factory
+
+You can configure a GitHub repository with a data factory through two methods.
 
 **Configuration method 1 (public repo): Let's get started page**
 
@@ -128,24 +141,24 @@ The pane shows the following VSTS code repository settings:
 | **Setting**                                              | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Value**          |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
 | **Repository Type**                                      | The type of the VSTS code repository.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
-| **GitHub account**                                       | Your GitHub account name. This name can be found from https://github.com/{account name}/{repository name}. Navigating to this page prompts you to enter Github OAuth credentials to your GitHub account.                                                                                                                                                                                                                                               |                    |
+| **GitHub account**                                       | Your GitHub account name. This name can be found from https://github.com/{account name}/{repository name}. Navigating to this page prompts you to enter GitHub OAuth credentials to your GitHub account.                                                                                                                                                                                                                                               |                    |
 | **RepositoryName**                                       | Your GitHub code repository name. GitHub accounts contain Git repositories to manage your source code. You can create a new repository or use an existing repository that's already in your account.                                                                                                                                                                                                                              |                    |
 | **Collaboration branch**                                 | Your GitHub collaboration branch that is used for publishing. By default, it is master. Change this setting in case you want to publish resources from another branch.                                                                                                                                                                                                                                                               |                    |
 | **Root folder**                                          | Your root folder in your GitHub collaboration branch.                                                                                                                                                                                                                                                                                                                                                                             |                    |
 | **Import existing Data Factory resources to repository** | Specifies whether to import existing data factory resources from the UX **Authoring canvas** into a GitHub repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
 | **Branch to import resource into**                       | Specifies into which branch the data factory resources (pipelines, datasets, linked services etc.) are imported. You can import resources into one of the following branches: a. Collaboration b. Create new c. Use Existing                                                                                                                                                                                                     |                    |
 
-**Configuration method 2 (public repo): UX authoring canvas**
+#### Configuration method 2 (public repo): UX authoring canvas
 
 In the Azure Data Factory UX **Authoring canvas**, locate your data factory. Select the **Data Factory** drop-down menu, and then select **Configure Code Repository**.
 
 A configuration pane appears. For details about the configuration settings, see the descriptions in *Configuration method 1* above.
 
-#### Configure a Github Enterprise Repository with Azure Data Factory
+### Configure a GitHub Enterprise Repository with Azure Data Factory
 
-You can configure a Github Enterprise repository with a data factory through two methods.
+You can configure a GitHub Enterprise repository with a data factory through two methods.
 
-**Configuration method 1 (Enterprise repo): Let's get started page**
+ #### Configuration method 1 (Enterprise repo): Let's get started page
 
 In Azure Data Factory, go to the **Let's get started** page. Select **Configure Code Repository**:
 
@@ -162,14 +175,14 @@ The pane shows the following VSTS code repository settings:
 | **Repository Type**                                      | The type of the VSTS code repository.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
 | **Use GitHub Enterprise**                                | Checkbox to select GitHub Enterprise                                                                                                                                                                                                                                                                                                                                                                                              |                    |
 | **GitHub Enterprise URL**                                | The GitHub Enterprise root URL. For example: https://github.mydomain.com                                                                                                                                                                                                                                                                                                                                                          |                    |
-| **GitHub account**                                       | Your GitHub account name. This name can be found from https://github.com/{account name}/{repository name}. Navigating to this page prompts you to enter Github OAuth credentials to your GitHub account.                                                                                                                                                                                                                                               |                    |
+| **GitHub account**                                       | Your GitHub account name. This name can be found from https://github.com/{account name}/{repository name}. Navigating to this page prompts you to enter GitHub OAuth credentials to your GitHub account.                                                                                                                                                                                                                                               |                    |
 | **RepositoryName**                                       | Your GitHub code repository name. GitHub accounts contain Git repositories to manage your source code. You can create a new repository or use an existing repository that's already in your account.                                                                                                                                                                                                                              |                    |
 | **Collaboration branch**                                 | Your GitHub collaboration branch that is used for publishing. By default, it is master. Change this setting in case you want to publish resources from another branch.                                                                                                                                                                                                                                                               |                    |
 | **Root folder**                                          | Your root folder in your GitHub collaboration branch.                                                                                                                                                                                                                                                                                                                                                                             |                    |
 | **Import existing Data Factory resources to repository** | Specifies whether to import existing data factory resources from the UX **Authoring canvas** into a GitHub repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
 | **Branch to import resource into**                       | Specifies into which branch the data factory resources (pipelines, datasets, linked services etc.) are imported. You can import resources into one of the following branches: a. Collaboration b. Create new c. Use Existing                                                                                                                                                                                                     |                    |
 
-**Configuration method 2 (Enterprise repo): UX authoring canvas**
+#### Configuration method 2 (Enterprise repo): UX authoring canvas
 
 In the Azure Data Factory UX **Authoring canvas**, locate your data factory. Select the **Data Factory** drop-down menu, and then select **Configure Code Repository**.
 

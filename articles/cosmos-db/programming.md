@@ -17,13 +17,7 @@ ms.author: andrl
 
 Learn how Azure Cosmos DB's language-integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers**, and **user-defined functions (UDFs)** natively in an [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Javascript integration enables you to write program logic that can be shipped and executed directly within the database storage partitions. 
 
-We recommend getting started by watching the following video, where Andrew Liu provides an introduction to Azure Cosmos DB's server-side database programming model. 
-
-> [!VIDEO https://www.youtube.com/embed/s0cXdHNlVI0]
->
-> 
-
-Then, return to this article, where you'll learn the answers to the following questions:  
+In this article you'll learn the answers to the following questions:  
 
 * How do I write a stored procedure, trigger, or UDF using JavaScript?
 * How does Cosmos DB guarantee ACID?
@@ -94,7 +88,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-The context object provides access to all operations that can be performed on Cosmos DB storage, as well as access to the request and response objects. In this case, you use the response object to set the body of the response that was sent back to the client. For more information, see the [Azure Cosmos DB JavaScript server SDK documentation](http://azure.github.io/azure-documentdb-js-server/).  
+The context object provides access to all operations that can be performed on Cosmos DB storage, as well as access to the request and response objects. In this case, you use the response object to set the body of the response that was sent back to the client. For more information, see the [Azure Cosmos DB JavaScript server SDK documentation](https://azure.github.io/azure-cosmosdb-js-server/).  
 
 Let us expand on this example and add more database-related functionality to the stored procedure. Stored procedures can create, update, read, query, and delete documents and attachments inside the collection.    
 
@@ -587,7 +581,7 @@ The following JavaScript constructs do not get optimized for Azure Cosmos DB ind
 * Control flow (for example, if, for, while)
 * Function calls
 
-For more information, see the [Server-Side JSDocs](http://azure.github.io/azure-documentdb-js-server/).
+For more information, see the [Server-Side JSDocs](https://azure.github.io/azure-cosmosdb-js-server/).
 
 ### Example: Write a stored procedure using the JavaScript query API
 The following code sample is an example of how the JavaScript Query API can be used in the context of a stored procedure. The stored procedure inserts a document, given by an input parameter, and updates a metadata document, using the `__.filter()` method, with minSize, maxSize, and totalSize based upon the input document's size property.
@@ -670,7 +664,7 @@ The following descriptions explain each query in the table above.
 
 
 ## Runtime support
-The Azure Cosmos DB [JavaScript server side API](http://azure.github.io/azure-documentdb-js-server/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+The Azure Cosmos DB [JavaScript server side API](https://azure.github.io/azure-cosmosdb-js-server/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### Security
 JavaScript stored procedures and triggers are sandboxed so that the effects of one script do not leak to the other without going through the snapshot transaction isolation at the database level. The runtime environments are pooled but cleaned of the context after each run. Hence they are guaranteed to be safe of any unintended side effects from each other.
@@ -679,7 +673,7 @@ JavaScript stored procedures and triggers are sandboxed so that the effects of o
 Stored procedures, triggers, and UDFs are implicitly precompiled to the byte code format in order to avoid compilation cost at the time of each script invocation. Pre-compilation ensures invocation of stored procedures is fast and have a low footprint.
 
 ## Client SDK support
-In addition to the Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB has [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/), and [Python SDKs](sql-api-sdk-python.md) for the SQL API as well. Stored procedures, triggers, and UDFs can be created and executed using any of these SDKs as well. The following example shows how to create and execute a stored procedure using the .NET client. Note how the .NET types are passed into the stored procedure as JSON and read back.
+In addition to the Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB has [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), and [Python SDKs](sql-api-sdk-python.md) for the SQL API as well. Stored procedures, triggers, and UDFs can be created and executed using any of these SDKs as well. The following example shows how to create and execute a stored procedure using the .NET client. Note how the .NET types are passed into the stored procedure as JSON and read back.
 
 ```javascript
 var markAntiquesSproc = new StoredProcedure
@@ -824,7 +818,7 @@ Triggers, unlike stored procedures, cannot be executed directly. Instead they ar
 Here the pre-trigger to be run with the request is specified in the x-ms-documentdb-pre-trigger-include header. Correspondingly, any post-triggers are given in the x-ms-documentdb-post-trigger-include header. Both pre- and post-triggers can be specified for a given request.
 
 ## Sample code
-You can find more server-side code examples (including [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), and [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) in the [GitHub repository](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+You can find more server-side code examples (including [bulk-delete](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/bulkDelete.js), and [update](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/update.js)) in the [GitHub repository](https://github.com/Azure/azure-cosmosdb-js-server/tree/master/samples).
 
 Want to share your awesome stored procedure? contribute to the repository and create a pull-request! 
 

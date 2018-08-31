@@ -37,7 +37,7 @@ In addition to these three accounts used to run Azure AD Connect, you will also 
 - **AD DS Enterprise Administrator account**:      used to install Azure AD Connect
 - **Azure AD Global Administrator account**:  used to create the Azure AD Connector account and configure Azure AD.
 
-- **SQL SA account (optional)**:     used to create the ADSync database when using the full version of SQL Server.  This SQL Server may be local or remote to the Azure AD Connect installation.  This account may be the same account as the Enterprise Administrator.  Provisioning the database can now be performed out of band by the SQL administrator and then installed by the Azure AD Connect administrator with database owner rights.  For information on this see [Install Azure AD Connect using SQL delegated administrator permissions]()
+- **SQL SA account (optional)**:     used to create the ADSync database when using the full version of SQL Server.  This SQL Server may be local or remote to the Azure AD Connect installation.  This account may be the same account as the Enterprise Administrator.  Provisioning the database can now be performed out of band by the SQL administrator and then installed by the Azure AD Connect administrator with database owner rights.  For information on this see [Install Azure AD Connect using SQL delegated administrator permissions](active-directory-aadconnect-sql-delegation.md)
 
 ## Installing Azure AD Connect
 The Azure AD Connect installation wizard offers two different paths:
@@ -116,7 +116,7 @@ Which permissions you require depends on the optional features you enable. If yo
 
 | Feature | Permissions |
 | --- | --- |
-| msDS-ConsistencyGuid feature |Write permissions to the msDS-ConsistencyGuid attribute documented in [Design Concepts - Using msDS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
+| ms-DS-ConsistencyGuid feature |Write permissions to the ms-DS-ConsistencyGuid attribute documented in [Design Concepts - Using ms-DS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Password hash sync |<li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All |
 | Exchange hybrid deployment |Write permissions to the attributes documented in [Exchange hybrid writeback](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts. |
 | Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) for public folders. | 
