@@ -20,6 +20,8 @@ This app is the simplest type of LUIS app because it doesn't extract various dat
 
 By creating an intent, you are creating a category of information that you want to identify. Giving the category a name allows the client application to find an appropriate answer in the JSON response. 
 
+The purpose of the app is to determine the intention of conversational, natural language text. These intentions are categorized into **Intents**. This app has a few intents. The first intent, **`GetJobInformation`**, identifies when a user wants information about jobs available inside a company. The second intent, **`None`**, is used for any utterances from the user that are outside the _domain_ (scope) of this app. Later, a third intent, **`ApplyForJob`**, is added for any utterances about applying for a job. This third intent is different from `GetJobInformation` because the job information should already be known when someone applies for the job. However, depending on the word choice, determining which intent may be tricky because both are about a job.
+
 After LUIS returns the JSON response, LUIS is done with this request. The client application, such as a chat bot, can take the **topScoringIntent** in the JSON response and either find information (not stored in LUIS) to answer the question or end the conversation. These are programmatic options for the client application. LUIS doesn't do that work. LUIS only determines what is the user's intention.
 
 LUIS doesn't provide answers to user utterances, it only identifies what type of information is being asked for in natural language. 
@@ -35,10 +37,6 @@ LUIS doesn't provide answers to user utterances, it only identifies what type of
 > * Get intent from endpoint
 
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## Scenario
-
-The purpose of the app is to determine the intention of conversational, natural language text. These intentions are categorized into **Intents**. This app has a few intents. The first intent, **`GetJobInformation`**, identifies when a user wants information about jobs available inside a company. The second intent, **`None`**, is used for any utterances from the user that are outside the _domain_ (scope) of this app. Later, a third intent, **`ApplyForJob`**, is added for any utterances about applying for a job. This third intent is different from `GetJobInformation` because the job information should already be known when someone applies for the job. However, depending on the word choice, determining which intent may be tricky because both are about a job.
 
 ## Create a new app
 
