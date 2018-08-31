@@ -1,6 +1,6 @@
 ---
-title: Use Managed Service Identity for a Linux VM to access Azure Data Lake Store
-description: A tutorial that shows you how to use Managed Service Identity for a Linux VM to access Azure Data Lake Store.
+title: Use a Linux VM system-assigned managed identity to access Azure Data Lake Store
+description: A tutorial that shows you how to use a Linux VM system-assigned managed identity to access Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
 author: daveba
@@ -17,17 +17,17 @@ ms.date: 11/20/2017
 ms.author: daveba
 ---
 
-# Tutorial: Use Managed Service Identity for a Linux VM to access Azure Data Lake Store
+# Tutorial: Use a Linux VM system-assigned managed identity to access Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to to use a system assigned identity for a Linux virtual machine (VM) to access Azure Data Lake Store. Azure automatically manages identities that you create through Managed Service Identity. You can use Managed Service Identity to authenticate to services that support Azure Active Directory (Azure AD) authentication, without needing to insert credentials into your code. 
+This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to access Cosmos DB. You learn how to: 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Grant your VM access to Azure Data Lake Store.
-> * Get an access token by using the VM identity and use it to access Azure Data Lake Store.
+> * Get an access token by using the VM's system-assigned managed identity to access Azure Data Lake Store.
 
 ## Prerequisites
 
@@ -39,13 +39,13 @@ In this tutorial, you learn how to:
 
 - [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
 
-- [Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+- [Enable system-assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Grant your VM access to Azure Data Lake Store
 
 Now you can grant your VM access to files and folders in Azure Data Lake Store. For this step, you can use an existing Data Lake Store instance or create a new one. To create a Data Lake Store instance by using the Azure portal, follow the [Azure Data Lake Store quickstart](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). There are also quickstarts that use Azure CLI and Azure PowerShell in the [Azure Data Lake Store documentation](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
-In Data Lake Store, create a new folder and grant Managed Service Identity permission to read, write, and execute files in that folder:
+In Data Lake Store, create a new folder and grant our Linux VM system-assigned managed identity permission to read, write, and execute files in that folder:
 
 1. In the Azure portal, select **Data Lake Store** in the left pane.
 2. Select the Data Lake Store instance that you want to use.
@@ -59,22 +59,22 @@ In Data Lake Store, create a new folder and grant Managed Service Identity permi
 10. Similar to step 5, select **Add**. In the **Select** box, enter the name of your VM. Select your VM from the search results, and then click **Select**.
 11. Similar to step 6, select **Select Permissions**. Select **Read**, **Write**, and **Execute**, add to **This folder**, and add as **An access permission entry and a default permission entry**. Select **Ok**.  The permission should be added successfully.
 
-MSI can now perform all operations on files in the folder that you created. For more information on managing access to Data Lake Store, see [Access Control in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+Managed identities for Azure resources can now perform all operations on files in the folder that you created. For more information on managing access to Data Lake Store, see [Access Control in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
 ## Get an access token and call the Data Lake Store file system
 
-Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained via Managed Service Identity. To authenticate to the Data Lake Store file system, you send an access token issued by Azure AD to your Data Lake Store file system endpoint. The access token is in an authorization header in the format "Bearer \<ACCESS_TOKEN_VALUE\>".  To learn more about Data Lake Store support for Azure AD authentication, see [Authentication with Data Lake Store using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
+Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained via using managed identities for Azure resources. To authenticate to the Data Lake Store file system, you send an access token issued by Azure AD to your Data Lake Store file system endpoint. The access token is in an authorization header in the format "Bearer \<ACCESS_TOKEN_VALUE\>".  To learn more about Data Lake Store support for Azure AD authentication, see [Authentication with Data Lake Store using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
 
 In this tutorial, you authenticate to the REST API for the Data Lake Store file system by using cURL to make REST requests.
 
 > [!NOTE]
-> The client SDKs for the Data Lake Store file system do not yet support Managed Service Identity.
+> The client SDKs for the Data Lake Store file system do not yet support managed identities for Azure resources.
 
 To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md) or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. In the portal, browse to your Linux VM. In **Overview**, select **Connect**.  
 2. Connect to the VM by using the SSH client of your choice. 
-3. In the terminal window, by using cURL, make a request to the local Managed Service Identity endpoint to get an access token for the Data Lake Store file system. The resource identifier for Data Lake Store is "https://datalake.azure.net/".  It's important to include the trailing slash in the resource identifier.
+3. In the terminal window, by using cURL, make a request to the local managed identities Azure for Azure resources endpoint to get an access token for the Data Lake Store file system. The resource identifier for Data Lake Store is "https://datalake.azure.net/".  It's important to include the trailing slash in the resource identifier.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   
@@ -153,11 +153,9 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 
 By using other APIs for the Data Lake Store file system, you can append to files, download files, and more.
 
-Congratulations! You've authenticated to the Data Lake Store file system by using Managed Service Identity for a Linux VM.
-
 ## Next steps
 
-In this tutorial, you learned how to use a Managed Service Identity for a Linux virtual machine to access an Azure Data Lake Store. To learn more about Azure Data Lake Store see:
+In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access an Azure Data Lake Store. To learn more about Azure Data Lake Store see:
 
 > [!div class="nextstepaction"]
 >[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)

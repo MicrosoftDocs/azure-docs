@@ -28,7 +28,7 @@ Reserved VM Instances are available for most VM sizes with some exceptions:
 - Suppressed core VMs dont get reservation discounts.
 - Following VM Series dont get reservation discounts: A-series, Av2-series, or G-series.
 - VMs in Preview: Any VM-series or size that is in preview are not available for reservation purchase.
-- Clouds: reservations are not available for purchase in the Azure US Government, Germany, or China regions.
+- Clouds: Reservations are not available for purchase in the Azure US Government, Germany, or China regions.
 - Insufficient quota: A reservation that is scoped to a single subscription must have vCPU quota available in the subscription for the new RI. For example, if the target subscription has a quota limit of 10 vCPUs for D-Series, then you can't buy a reservation for 11 Standard_D1 instances. The quota check for reservations includes the VMs already deployed in the subscription. For example, if the subscription has a quota of 10 vCPUs for D-Series and has two standard_D1 instances deployed, then you can buy a reservation for 10 standard_D1 instances in this subscription. 
 - Capacity restrictions: In rare circumstances, Azure limits the purchase of new reservations for subset of VM sizes, due to low capacity in a region.
 
@@ -62,17 +62,17 @@ Reserved VM Instances are available for most VM sizes with some exceptions:
 
 The reservation discount is applied automatically to the number of running virtual machines that match the reservation scope and attributes. You can update the scope of the reservation through [Azure portal](https://portal.azure.com), PowerShell, CLI, or through the API.
 
-To learn how to manage a reservation, see [Manage Azure reservations](../articles/billing/billing-manage-reserved-vm-instance.md).
+To learn how to manage a reservation, see [Manage Azure Reservations](../articles/billing/billing-manage-reserved-vm-instance.md).
 
-To learn more about Azure reservations, see the following articles:
+To learn more about Azure Reservations, see the following articles:
 
-- [What are Azure reservations?](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Manage reservations in Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [What are Azure Reservations?](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Manage Reservations in Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
 - [Understand how the reservation discount is applied](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with reservations](../articles/billing/billing-reserved-instance-windows-software-costs.md)
-- [Azure reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## Need help? Contact support
 
