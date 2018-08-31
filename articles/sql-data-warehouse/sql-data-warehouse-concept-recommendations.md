@@ -3,7 +3,7 @@ title: SQL Data Warehouse Recommendations - Concepts | Microsoft Docs
 description: Learn about SQL Data Warehouse recommendations and how they are generated
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage

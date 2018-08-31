@@ -28,12 +28,6 @@ The **change feed support** in Azure Cosmos DB enables you to build efficient an
 > [!NOTE]
 > Change feed support is provided for all data models and containers in Azure Cosmos DB. However, the change feed is read using the SQL client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed.
 
-In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates how the Azure Cosmos DB change feed works.
-
-> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
->
->
-
 ## How does change feed work?
 
 Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos DB collection for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The changes are persisted, can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing. 
@@ -510,7 +504,7 @@ Java library to read change feed is available in [Github repository](https://git
 
 _etag format is internal and you should not depend on it (do not parse it) because it can change anytime.
 _ts is modification or creation time stamp. You can use _ts for chronological comparison.
-_lsn is is a batch id that is added only for change feed, it represents the transaction id from the store.. Many documents may have same _lsn.
+_lsn is a batch id that is added only for change feed, it represents the transaction id from the store.. Many documents may have same _lsn.
 One more thing to note, ETag on FeedResponse is different than the _etag you see on the document. _etag is an internal identifier and used to concurrency, it tells about the version of the document and ETag is used for sequencing the feed.
 
 ### Does reading change feed add any additional cost ?

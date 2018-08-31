@@ -117,9 +117,13 @@ Now go back to the Azure portal to get your connection string information and co
 
     `<add key="endpoint" value="FILLME" />`
 
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the authKey in web.config. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+4. Then copy your PRIMARY KEY value from the portal and make it the value of the authKey in web.config. 
 
     `<add key="authKey" value="FILLME" />`
+    
+5. Then update the database value to match the name of the database you have created earlier. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+
+    `<add key="database" value="Tasks" />`    
     
 ## Run the web app
 1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 

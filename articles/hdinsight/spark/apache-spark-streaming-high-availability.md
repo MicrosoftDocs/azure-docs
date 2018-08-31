@@ -5,7 +5,7 @@ services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.topic: conceptual

@@ -1,20 +1,15 @@
 ---
-title: Create logic apps from Azure Resource Manager templates | Microsoft Docs
-description: Create and deploy logic app workflows with Azure Resource Manager templates
+title: Create logic apps with Azure Resource Manager templates - Azure Logic Apps | Microsoft Docs
+description: Create and deploy logic app workflows with Azure Resource Manager templates in Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
+ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.author: LADocs; estfan
 ---
 
 # Create and deploy logic apps with Azure Resource Manager templates
