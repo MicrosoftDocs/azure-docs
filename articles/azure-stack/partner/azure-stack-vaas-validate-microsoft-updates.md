@@ -23,6 +23,8 @@ ms.reviewer: johnhas
 
 Microsoft will periodically release updates to the Azure Stack software. These updates are provided to Azure Stack co-engineering partners in advance of being made publicly available so that they can validate the updates against their solutions and provide feedback to Microsoft.
 
+[!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
+
 ## Apply monthly update
 
 [!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]

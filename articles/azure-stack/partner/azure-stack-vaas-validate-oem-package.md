@@ -23,7 +23,7 @@ ms.reviewer: johnhas
 
 You can test a new OEM package when there has been a change to the firmware or drivers for a completed solution validation. When your package has passed the test, it is signed by Microsoft. Your test must contain the updated OEM extension package with the drivers and firmware that have passed Windows Server logo and PCS tests.
 
-All tests finish within 24 hours with result of **succeeded**. If any of the tests have a result of **failed**, file a bug in [Microsoft Collaborate](https://aka.ms/collaborate) and notify Microsoft by sending an email to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
+[!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
 ## Managing packages for validation
 
