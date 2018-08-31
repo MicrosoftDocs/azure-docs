@@ -37,13 +37,13 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-*  Use [these instructions](how-to-configure-environment.md) to:  
-    * Create a workspace and its configuration file (**config.json**)  
-    * Configure a development environment for Jupyter notebooks. In step 4 the new packages you need are matplotlib, scikit-learn, pandas, and seaborn:
+Use [these instructions](how-to-configure-environment.md) to:  
+* Create a workspace and its configuration file (**config.json**)  
+* Configure a development environment for Jupyter notebooks. In step 4 the new packages you need are matplotlib, scikit-learn, pandas, and seaborn:
 
-        ```shell
-        conda install -y matplotlib scikit-learn pandas seaborn
-        ``` 
+    ```shell
+    conda install -y matplotlib scikit-learn pandas seaborn
+    ``` 
 
 
 ### Start the notebook
