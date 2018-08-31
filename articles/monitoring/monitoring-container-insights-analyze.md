@@ -13,19 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.author: magoedte
 ---
 
 ## View performance utilization directly from a AKS cluster
-Viewing the health of your Azure Kubernetes Service (AKS) clusters and virtual machines can be observed in two ways with VM Insights, from a virtual machine directly or across all VMs in a subscription from Azure Monitor. This article will help you understand the experience between the two perspectives and how to quickly assess, investigate and resolve issues detected.
+Viewing the performance of your Azure Kubernetes Service (AKS) clusters and container instances can be observed in two ways with Container Insights, from a AKS cluster or across all AKS clusters in a subscription from Azure Monitor. This article will help you understand the experience between the two perspectives and how to quickly assess, investigate, and resolve issues detected.
 
-For information about configuring VM Insights, see [Configuring solution in Azure](monitoring-vminsights-onboard.md).
+For information about configuring Container Insights, see [Configuring solution in Azure](monitoring-container-insights-onboard.md).
 
+Azure Monitor provides a multi-cluster view showing the health status of all monitored AKS clusters deployed across resource groups in your subscriptions, and AKS clusters not monitored by the solution.  Immediately, you can understand cluster health and from here you can drill down to the node, and controller performance page or you can navigate to the  see the performance charts for the chosen cluster.  For unmonitored AKS clusters discovered by the solution, you can chose to enable Container Insights for that cluster at any time.  ​
+​
 ## Sign in to the Azure portal
 Sign in to the [Azure portal](https://portal.azure.com). 
 
-## View health directly from a virtual machine
+## Multi-cluster view from Azure Monitor 
+To view the health status of all AKS clusters deployed, select **Monitor** from the left-hand pane in the Azure portal.  Under the **Insights** section select **Containers (preview)**.  On the **Monitored clusters** tab, you are able to learn the following:
+
+1. How many clusters are in a critical or unhealthy state, versus how many are healthy or not reporting (referred to as an unknown state)?
+2. How many nodes, user and system pods are deployed per cluster.  
+
+The health states defined are: 
+
+1. **Healthy** – no issues detected for the VM and it is functioning as required. 
+2. **Critical** – one or more critical issues are detected, which need to be addressed in order to restore normal operational state as expected.
+3. **Warning** -  one or more issues are detected, which need to be addressed or the health condition could become critical.
+4. **Unknown** – if the service was not able to make a connection with the node or pod, the status changes to an unknown state.​
+
+Health state calculates overall cluster status as *worst of*” the three states with one exception – if any of the three states is *unknown*, overall cluster state will show **Unknown**.  
+
+From the list of clusters, you can drill-down to the **Nodes** performance page by clicking on a v
+
+
+you can drill-down to the **Nodes** performance page by clicking on the rollup of nodes in the **Nodes** column for that specific cluster, or drill-down to the **Controllers** performance page by clicking on the rollup of **User pods** or **System pods** column.   ​
+
+## View performance directly from an AKS cluster
 When you open Container Insights, the page presents performance charts showing the performance utilization of your entire cluster. Viewing information about your AKS cluster is organized into four perspectives:
 
 - Cluster
