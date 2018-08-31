@@ -194,21 +194,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure app URL](./media/servicenow-tutorial/ic7694981.png "Configure app URL")
 
-	  * As **Enable multiple provider SSO**, select **Yes**.
+	* As **Enable multiple provider SSO**, select **Yes**.
 
-	  * As **Enable Auto Importing of users from all identity providers into the user table**, select **Yes**.
+	* As **Enable Auto Importing of users from all identity providers into the user table**, select **Yes**.
 
-	  * As **Enable debug logging for the multiple provider SSO integration**, select **Yes**.
+	* As **Enable debug logging for the multiple provider SSO integration**, select **Yes**.
 
-	  * In **The field on the user table that...** textbox, type **user_name**.
+	* In **The field on the user table that...** textbox, type **user_name**.
 
-	  * Click **Save**.
+	* Click **Save**.
 
 	n. Click on the menu icon from your new identity provider that you created as part of the configuration and from the list select **copy sys_id**
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694992.png "Configure single sign-on")
 
-	o. In the upper left search box, search for **sys_properties.list** and press enter.
+	* In the upper left search box, search for **sys_properties.list** and press enter.
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694993.png "Configure single sign-on")
 
@@ -220,13 +220,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694995.png "Configure single sign-on")
 
-	  * Enter `glide.authenticate.sso.redirect.idp` value in the name textbox.
+	* Enter `glide.authenticate.sso.redirect.idp` value in the name textbox.
 
-	  * In the **Value** textbox, paste the copy sys_id value which you have copied in the preceding steps.
+	* In the **Value** textbox, paste the copy sys_id value which you have copied in the preceding steps.
 
-	  * Select **Private**.
+	* Select **Private**.
 
-	  * Click **Submit**.
+	* Click **Submit**.
 
 	r. Click **New**.
 
@@ -236,11 +236,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694996.png "Configure single sign-on")
 
-	  * Enter `glide.authenticate.multisso.test.connection.mandatory` value in the name textbox.
+	* Enter `glide.authenticate.multisso.test.connection.mandatory` value in the name textbox.
 
-	  * In the **Value** textbox, enter **false**.
+	* In the **Value** textbox, enter **false**.
 
-	  * Click **Submit**.
+	* Click **Submit**.
 
 	t. After doing above step, now you will be able to activate your new identity provider and your SSO should work
 
