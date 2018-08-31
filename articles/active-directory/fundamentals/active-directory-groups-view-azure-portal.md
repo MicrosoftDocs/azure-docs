@@ -20,7 +20,7 @@ You can search for a specific group and review the assigned members using the Az
 
 In this quickstart, you’ll view all your existing groups, select the **MDM policy – West** group, and then view the assigned members.
 
-If you don’t have an Azure subscription, create a [free account](active-directory-get-started-premium.md) before you begin. 
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 
 ## Prerequisites
 Before you begin, you’ll need to:
