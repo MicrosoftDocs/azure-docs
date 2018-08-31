@@ -8,10 +8,10 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/26/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: v-deken
 ---
-# Quickstart: Generate a thumbnail with Ruby
+# Quickstart: Generate a thumbnail - REST, Ruby
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 
