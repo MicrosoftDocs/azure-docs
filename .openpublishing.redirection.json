@@ -27430,6 +27430,11 @@
             "source_path": "articles/cognitive-services/LUIS/luis-reference-gdpr.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-user-privacy",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vsts.md",
+            "redirect_url": "/azure/azure-government/documentation-government-get-started-connect-with-vs",
+            "redirect_document_id" : true
         }
     ]
 }
