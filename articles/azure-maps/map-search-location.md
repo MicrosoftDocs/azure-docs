@@ -1,6 +1,6 @@
 ---
 title: Show search results with Azure Maps | Microsoft Docs
-description: How to perform a search request with Azure Maps then display the results on a Javascrip map
+description: How to perform a search request with Azure Maps then display the results on a Javascript map
 author: jingjing-z
 ms.author: jinzh
 ms.date: 08/26/2018
@@ -17,7 +17,7 @@ This article shows you how to search for location of interest and show the searc
 
 ## Understand the code
 
-<iframe height='305' scrolling='no' title='Show search results on a map (Service Module)' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>Show search results on a map (Service Module)</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Show search results on a map (Service Module)' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>Show search results on a map (Service Module)</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 In the code above, the first block of code constructs a map object and instantiates a client service. You can see [create a map](./map-create.md) for instructions.
