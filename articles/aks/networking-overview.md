@@ -6,7 +6,8 @@ author: mmacy
 manager: jeconnoc
 
 ms.service: container-service
-ms.topic: articlems.date: 08/31/2018
+ms.topic: article
+ms.date: 08/31/2018
 ms.author: marsma
 ---
 
