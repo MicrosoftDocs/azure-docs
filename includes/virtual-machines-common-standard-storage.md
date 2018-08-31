@@ -40,7 +40,7 @@ For information on how to create a VM with Managed Disks, see one of the followi
 Let's take a look at some of the features of Standard Storage. For more details, please see [Introduction to Azure
 Storage](../articles/storage/common/storage-introduction.md).
 
-**Standard Storage**: Azure Standard Storage supports Azure Disks, Azure Blobs, Azure Files, Azure Tables, and Azure Queues. To use Standard Storage services, start with [Create an Azure Storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
+**Standard Storage**: Azure Standard Storage supports Azure Disks, Azure Blobs, Azure Files, Azure Tables, and Azure Queues. To use Standard Storage services, start with [Create an Azure Storage account](../articles/storage/common/storage-quickstart-create-account.md).
 
 **Standard SSD disks:** Standard SSD disks provide more reliable performance than Standard HDD disks, and are currently available in preview. For more information about region availability of Standard SSD disks, see [region availability of Standard SSD disks (Preview)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 

@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 08/16/2018
 ms.author: douglasl
 ---
 # Continuous integration and deployment in Azure Data Factory
@@ -42,6 +42,10 @@ This action takes you to the Azure portal, where you can import the exported tem
 Select **Load file** to select the exported Resource Manager template and provide all the configuration values (for example, linked services).
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
+
+**Connection strings**. You can find the info required to create connection strings in the articles about the individual connectors. For example, for Azure SQL Database, see [Copy data to or from Azure SQL Database by using Azure Data Factory](connector-azure-sql-database.md). To verify the correct connection string - for a linked service, for example - you can also open code view for the resource in the Data Factory UI. In code view, however, the password or account key portion of the connection string is removed. To open code view, select the icon highlighted in the following screen shot.
+
+![Open code view to see connection string](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## Continuous integration lifecycle
 Here is the entire lifecycle for continuous integration & deployment

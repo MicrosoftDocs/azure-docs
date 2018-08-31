@@ -148,7 +148,7 @@ Where `<TENANTID>` and `<PRINCIPALID>` are replaced with GUIDs. The tenantId pro
 An app can use its identity to get tokens to other resources protected by AAD, such as Azure Key Vault. These tokens represent the application accessing the resource, and not any specific user of the application. 
 
 > [!IMPORTANT]
-> You may need to configure the target resource to allow access from your application. For example, if you request a token to Key Vault, you need to make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Managed Service Identity tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-service-identity/overview.md#which-azure-services-support-managed-service-identity).
+> You may need to configure the target resource to allow access from your application. For example, if you request a token to Key Vault, you need to make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Managed Service Identity tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-service-identity/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
 
 There is a simple REST protocol for obtaining a token in App Service and Azure Functions. For .NET applications, the Microsoft.Azure.Services.AppAuthentication library provides an abstraction over this protocol and supports a local development experience.
 

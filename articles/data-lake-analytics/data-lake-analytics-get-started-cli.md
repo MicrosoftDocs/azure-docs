@@ -5,10 +5,9 @@ ms.service: data-lake-analytics
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
-ms.topic: get-started-article
-ms.date: 06/11/2018
+ms.reviewer: jasonwhowell
+ms.topic: conceptual
+ms.date: 06/18/2017
 ---
 # Get started with Azure Data Lake Analytics using Azure CLI
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]

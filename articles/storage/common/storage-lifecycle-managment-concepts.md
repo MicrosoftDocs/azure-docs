@@ -32,7 +32,7 @@ Lifecycle management policy is available with both General Purpose v2 (GPv2) acc
 Lifecycle management feature is free of charge in preview. Customers are charged the regular operation cost for the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) and [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API calls. See [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) to learn more about pricing.
 
 ## Register for preview 
-To enroll in public preview, you will need to submit a request to register this feature to your subscription. After your request is approved (within a few days), any existing and new GPv2 or Blob Storage account in West US 2 and West Central US will have the feature enabled. During preview, only block blob is supported. As with most previews, this feature should not be used for production workloads until it reaches GA.
+To enroll in public preview, you will need to submit a request to register this feature to your subscription. After your request is approved (within a few days), any existing and new GPv2 or Blob Storage account in West US 2, West Central US, and West Europe will have the feature enabled. During preview, only block blob is supported. As with most previews, this feature should not be used for production workloads until it reaches GA.
 
 To submit a request, run the following PowerShell or CLI commands.
 

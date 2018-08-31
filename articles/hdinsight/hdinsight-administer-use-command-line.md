@@ -2,7 +2,7 @@
 title: Manage Hadoop clusters using Azure Classic CLI - Azure HDInsight
 description: Learn how to use the Azure classic CLI to manage Hadoop clusters in Azure HDInsight.
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: jasonwhowell
 
 ms.service: hdinsight

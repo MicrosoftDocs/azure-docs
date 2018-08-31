@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/05/2017
+ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
 
@@ -77,10 +77,11 @@ for i in `seq 1 2`; do
      --name myVM$i \
      --availability-set myAvailabilitySet \
      --size Standard_DS1_v2  \
+     --vnet-name myVnet \
+     --subnet mySubnet \
      --image UbuntuLTS \
      --admin-username azureuser \
-     --generate-ssh-keys \
-	 --no-wait
+     --generate-ssh-keys
 done
 ```
 

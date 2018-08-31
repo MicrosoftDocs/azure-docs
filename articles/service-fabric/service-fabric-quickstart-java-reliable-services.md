@@ -62,8 +62,8 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![Local cluster healthy](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. Open Eclipse.
-3. Click File -> Open Projects from File System...
-4. Click Directory and choose the `Voting` directory from the `service-fabric-java-quickstart` folder you cloned from Github. Click Finish.
+3. Click File -> Import -> Gradle -> Existing Gradle Project and follow the wizard.
+4. Click Directory and choose the `Voting` directory from the `service-fabric-java-quickstart` folder you cloned from Github. Click Finish. 
 
     ![Eclipse Import Dialog](./media/service-fabric-quickstart-java/eclipseimport.png)
 

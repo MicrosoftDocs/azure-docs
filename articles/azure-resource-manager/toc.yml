@@ -167,6 +167,10 @@
       href: resource-manager-sku-not-available-errors.md
     - name: Windows deployment issues
       href: ../virtual-machines/windows/troubleshoot-deploy-vm.md
+  - name: Throttling requests
+    href: resource-manager-request-limits.md
+  - name: Track asynchronous operations
+    href: resource-manager-async-operations.md
 - name: Reference
   items:
   - name: Template reference
@@ -212,9 +216,5 @@
     href: http://stackoverflow.com/questions/tagged/azure-resource-manager
   - name: Manage personal data
     href: resource-manager-personal-data.md
-  - name: Throttling requests
-    href: resource-manager-request-limits.md
-  - name: Track asynchronous operations
-    href: resource-manager-async-operations.md
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager

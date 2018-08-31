@@ -60,7 +60,7 @@ To configure a metric alert in the portal:
 2. Under **Monitoring**, click **Alert rules** > **Add metric alert**.
 3. Select a metric, an alert condition (such as when a metric exceeds a particular value during a period), and one or more notifications.
 
-You can also configure a near real-time alert using the [REST API](). For more information, see [Use the newer metric alerts for Azure services in Azure portal](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
+You can also configure a near real-time alert using the [REST API](https://docs.microsoft.com/rest/api/monitor/). For more information, see [Use the newer metric alerts for Azure services in Azure portal](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
 ## Batch diagnostics
 
 Diagnostic logs contain information emitted by Azure resources that describe the operation of each resource. For Batch, you can collect the following logs:
