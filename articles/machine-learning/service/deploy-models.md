@@ -46,17 +46,17 @@ For more information, see the [Deploy a model to Azure Kubernetes Service](how-t
 
 ## Azure IoT Edge
 
-With IoT devices, it is faster to perform scoring on the device instead of sending data to the cloud and waiting on a cloud hosted model to return data. With IoT Edge, you can host your model on edge devices. Deploy your model to IoT Edge if you need one or more of the following capabilities:
+With IoT devices, it is faster to perform scoring on the device instead of sending data to the cloud and waiting on a cloud-hosted model to return data. With [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/), you can host your model on edge devices. Deploy your model to IoT Edge if you need one or more of the following capabilities:
 - Handle priority tasks locally, even without a cloud connection
 - Work with generated data that is too large to pull rapidly from the cloud
-- Enable real-time processing through intelligence in or near to local devices
+- Enable real-time processing through intelligence in or near local devices
 - Accommodate data privacy-related requirements 
 
 For more information, see [Deploy to Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
 
 ## Field-programmable gate arrays (FPGA)
 
-FPGAs make it possible to achieve low latency for real-time inferencing requests. Project Brainwave is an Azure offering that hosts your model on FPGAs in the Azure cloud.
+Azure ML Hardware Accelerated Models Powered by Project Brainwave make it possible to achieve ultra-low latency for real-time inferencing requests by accelerating deep neural networks on FPGAs. This service is an Azure offering that hosts your model on FPGAs in the Azure cloud.  Commonly used DNNs are available as featurizers for transfer learning or customizable with weights trained from your own data.
 
 For more information, see the [Deploy to a FPGA](how-to-deploy-fpga-web-service.md) document.
 
