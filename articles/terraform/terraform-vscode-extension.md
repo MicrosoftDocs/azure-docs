@@ -1,6 +1,7 @@
 ---
 title: Install and use the Azure Terraform Visual Studio Code extension
 description: Learn how to install and use the Azure Terraform extension in Visual Studio Code.
+service: terraform
 ms.service: terraform
 keywords: terraform, azure, devops, visual studio code, extension
 author: tomarcher
