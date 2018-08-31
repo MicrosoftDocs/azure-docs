@@ -31,7 +31,7 @@ To use this feature, you need:
 * An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
 * An Azure AD tenant.
 * A user who's a *global administrator* or *security administrator* for the Azure AD tenant.
-* An Event Hubs namespace and an event hub in your Azure subscription. Learn how to [create an event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create.md).
+* An Event Hubs namespace and an event hub in your Azure subscription. Learn how to [create an event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 ## Archive logs to an event hub
 
