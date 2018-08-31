@@ -1,6 +1,6 @@
 ---
-title: Roles in Azure AD Privileged Identity Management | Microsoft Docs
-description: Learn what roles are used for privileged identities with the Azure Privileged Identity Management extension.
+title: Azure AD directory roles you can manage in PIM | Microsoft Docs
+description: Describes the Azure AD directory roles you can manage in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,7 +15,7 @@ ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ---
-# Directory roles you can manage using Azure AD PIM
+# Azure AD directory roles you can manage in PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 You can assign users in your organization to different administrative roles in Azure AD. These role assignments control which tasks, such as adding or removing users or changing service settings, the users are able to perform on Azure AD, Office 365, and other Microsoft Online Services and connected applications.  
@@ -81,5 +81,7 @@ Access to Microsoft Online Services may require the user also be assigned a lice
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Start using PIM](pim-getting-started.md)
+- [Assign Azure AD directory roles in PIM](pim-how-to-add-role-to-user.md)
 
