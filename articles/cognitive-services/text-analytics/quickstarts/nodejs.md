@@ -56,7 +56,7 @@ let accessKey = 'enter key here';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 let uri = 'westus.api.cognitive.microsoft.com';
-let path = '/text/analytics/v2.0/languages';
+let path = '/text/analytics/v2.0/';
 
 let response_handler = function (response) {
     let body = '';
@@ -79,7 +79,7 @@ let get_language = function (documents) {
 	let request_params = {
 		method : 'POST',
 		hostname : uri,
-		path : path,
+		path : path + 'languages',
 		headers : {
 			'Ocp-Apim-Subscription-Key' : accessKey,
 		}
@@ -160,7 +160,7 @@ let get_sentiments = function (documents) {
 	let request_params = {
 		method : 'POST',
 		hostname : uri,
-		path : path,
+		path : path + 'sentiment',
 		headers : {
 			'Ocp-Apim-Subscription-Key' : accessKey,
 		}
@@ -214,7 +214,7 @@ let get_key_phrases = function (documents) {
 	let request_params = {
 		method : 'POST',
 		hostname : uri,
-		path : path,
+		path : path + 'keyPhrases',
 		headers : {
 			'Ocp-Apim-Subscription-Key' : accessKey,
 		}
@@ -289,7 +289,7 @@ let get_entities = function (documents) {
 	let request_params = {
 		method : 'POST',
 		hostname : uri,
-		path : path,
+		path : path + 'entities',
 		headers : {
 			'Ocp-Apim-Subscription-Key' : accessKey,
 		}
