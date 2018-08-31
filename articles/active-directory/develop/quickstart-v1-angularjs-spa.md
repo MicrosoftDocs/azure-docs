@@ -13,14 +13,14 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: article
-ms.date: 11/30/2017
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ---
 
-# Azure AD AngularJS getting started
+# Quickstart: Azure AD AngularJS getting started
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -29,7 +29,6 @@ Azure Active Directory (Azure AD) makes it simple and straightforward for you to
 For JavaScript applications running in a browser, Azure AD provides the Active Directory Authentication Library (ADAL), or adal.js. The sole purpose of adal.js is to make it easy for your app to get access tokens. To demonstrate just how easy it is, here we'll build an AngularJS To Do List application that:
 
 * Signs the user in to the app by using Azure AD as the identity provider.
-
 * Displays some information about the user.
 * Securely calls the app's To Do List API by using bearer tokens from Azure AD.
 * Signs the user out of the app.

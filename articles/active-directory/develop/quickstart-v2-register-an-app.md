@@ -18,10 +18,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to register an app with the Azure AD v2.0 endpoint so I can build an app that accepts both personal Microsoft accounts, and work and school accounts (Azure AD) to sign in.
+#Customer intent: As an application developer, I want to register an app with the Azure Active Directory v2.0 endpoint so I can build an app that accepts both personal Microsoft accounts, and work and school accounts (Azure AD) to sign in.
 ---
 
 # Quickstart: Register an app with the Azure Active Directory v2.0 endpoint
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 To build an app that accepts both personal Microsoft account (MSA), and work or school account (Azure AD) sign-in, you'll need to register an app with the Azure Active Directory (Azure AD) v2.0 endpoint. At this time, you won't be able to use any existing apps you may have with Azure AD or MSA - you'll need to create a brand new one.
 

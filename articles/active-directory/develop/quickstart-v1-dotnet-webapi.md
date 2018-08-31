@@ -21,7 +21,7 @@ ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to build a .NET MVC web API that integrates with Azure AD for authentication and authorization.
 ---
 
-# Azure AD .NET Web API getting started
+# Quickstart: Build a .NET web API that integrates with Azure AD for authentication and authorization
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -50,10 +50,10 @@ To get started, complete these prerequisites:
 To help secure your application, you first need to create an application in your tenant and provide Azure AD with a few key pieces of information.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Choose your Azure AD tenant by selecting your account in the top right corner of the page, then select the **Switch directory** navigation and then select the appropriate tenant.
+2. Choose your Azure AD tenant by selecting your account in the top right corner of the page, select the **Switch directory** navigation, and then select the appropriate tenant.
     * Skip this step, if you've only one Azure AD tenant under your account or if you've already selected the appropriate Azure AD tenant.
 
-3. In the left hand navigation pane, click on **Azure Active Directory**.
+3. In the left-hand navigation pane, select **Azure Active Directory**.
 4. Select **App registrations**, and then select **Add**.
 5. Follow the prompts and create a new **Web Application and/or Web API**.
     * **Name** describes your application to users. Enter **To Do List Service**.
@@ -101,7 +101,7 @@ To validate incoming requests and tokens, you need to set up your application to
     }
     ```
 
-5. Now you can use `[Authorize]` attributes to help protect your controllers and actions with JSON Web Token (JWT) bearer authentication. Decorate the `Controllers\TodoListController.cs` class with an authorize tag. This will force the user to sign in before accessing that page.
+5. Use the `[Authorize]` attributes to help protect your controllers and actions with JSON Web Token (JWT) bearer authentication. Decorate the `Controllers\TodoListController.cs` class with an authorize tag, which forces the user to sign in before accessing that page.
 
     ```csharp
     [Authorize]
@@ -111,7 +111,7 @@ To validate incoming requests and tokens, you need to set up your application to
 
     When an authorized caller successfully invokes one of the `TodoListController` APIs, the action might need access to information about the caller. OWIN provides access to the claims inside the bearer token via the `ClaimsPrincpal` object.  
 
-6. A common requirement for web APIs is to validate the "scopes" present in the token. This ensures that the user has consented to the permissions required to access the To Do List Service.
+6. A common requirement for web APIs is to validate the "scopes" present in the token to ensure that the user has consented to the permissions required to access the To Do List Service.
 
     ```csharp
     public IEnumerable<TodoItem> Get()
@@ -143,7 +143,7 @@ Before you can see the To Do List Service in action, you need to configure the T
 
 3. After you finish registration, Azure AD assigns a unique application ID to your app. You’ll need this value in the next steps, so copy it from the application page.
 
-4. From the **Settings** page, select **Required Permissions**, and then select **Add**. Locate and select the To Do List Service, add the **Access TodoListService** permission under **Delegated Permissions**, and then click **Done**.
+4. From the **Settings** page, select **Required Permissions**, and then select **Add**. Locate and select the To Do List Service, add the **Access TodoListService** permission under **Delegated Permissions**, and then select **Done**.
 
 5. In Visual Studio, open `App.config` in the TodoListClient project, and then enter your configuration values in the `<appSettings>` section.
     * `ida:Tenant` is the name of your Azure AD tenant, for example, contoso.onmicrosoft.com.
