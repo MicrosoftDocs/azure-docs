@@ -15,11 +15,16 @@ ms.author: seanmck
 
 There are several best practice that you should follow on your Kubernetes deployments to ensure the best performance and resilience for your applications. You can use the kube-advisor tool to look for deployments that are not following those suggestions.
 
-## Running the tool
+## About kube-advisor
 
-The kube-advisor tool is a single container designed to be run on your cluster. It queries the Kubernetes API server for information about your deployments and returns a set of suggested improvements.
+The [kube-advisor tool][kube-advisor-github] is a single container designed to be run on your cluster. It queries the Kubernetes API server for information about your deployments and returns a set of suggested improvements.
 
-To run the tool on a cluster that is configured for [role-based access control (RBAC)](aad-integration), use the following commands:
+> [!NOTE]
+> The kube-advisor tool is supported by Microsoft on a best-effort basis. Issues and suggestions should be filed on GitHub.
+
+## Running kube-advisor
+
+To run the tool on a cluster that is configured for [role-based access control (RBAC)](aad-integration), using the following commands. The first command creates a Kubernetes service account.The second command runs the tool in a pod using that service account and configures the pod to be deleted after it exits. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml?token=ABLLDrNcuHMro9jQ0xduCaEbpzLupzQUks5bh3RhwA%3D%3D
@@ -35,7 +40,7 @@ kubectl run --rm -i -t kube-advisor --image=mcr.microsoft.com/kube-advisor --res
 
 Within a few seconds, you should see a table describing potential improvements to your deployments.
 
-## Suggested improvements
+## Checks performed
 
 The tool validates several Kubernetes best practices, each with their own suggested remediation.
 
@@ -53,6 +58,8 @@ If your cluster has RBAC enabled, you can clean up the `ClusterRoleBinding` afte
 kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml?token=ABLLDrNcuHMro9jQ0xduCaEbpzLupzQUks5bh3RhwA%3D%3D
 ```
 
+If you are running the tool against a cluster that is not RBAC-enabled, no cleanup is required.
+
 ## Next steps
 
 - [Troubleshoot issues with Azure Kubernetes Service](troubleshooting.md)
@@ -60,3 +67,4 @@ kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa
 <!-- RESOURCES -->
 
 [kube-cpumem]: https://github.com/Azure/azure-quickstart-templates
+[kube-advisor-github]: https://github.com/azure/kube-advisor
