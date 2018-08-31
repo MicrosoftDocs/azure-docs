@@ -60,13 +60,14 @@ The vCore reservation discount is applied automatically to the number of SQL Dat
 
 To learn how to manage the SQL Database reserved capacity reservation, see [Manage SQL Database reserved capacity](../billing/billing-manage-reserved-vm-instance.md).
 
-To learn more about Azure reservation, see the following articles:
+To learn more about Azure Reservations, see the following articles:
 
-- [What are Azure reservations?](../billing/billing-save-compute-costs-reservations.md)
-- [Manage Azure reservations](../billing/billing-manage-reserved-vm-instance.md)
+- [What are Azure Reservations?](../billing/billing-save-compute-costs-reservations.md)
+- [Manage Azure Reservations](../billing/billing-manage-reserved-vm-instance.md)
+- [Understand Azure Reservations discount](../billing/billing-understand-reservation-charges.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](../billing/billing-understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](../billing/billing-understand-reserved-instance-usage-ea.md)
-- [Azure reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## Need help? Contact support
 
