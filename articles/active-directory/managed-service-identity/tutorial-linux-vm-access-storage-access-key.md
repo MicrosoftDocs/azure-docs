@@ -1,6 +1,6 @@
 ---
-title: Use a Linux VM Managed Service Identity to access Azure Storage
-description: A tutorial that walks you through the process of using a Linux VM Managed Service Identity to access Azure Storage.
+title: Use a Linux VM system-assigned managed identity to access Azure Storage
+description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Storage.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -18,14 +18,13 @@ ms.author: daveba
 ---
 
 
-# Tutorial: Use a Linux VM Managed Service Identity to access Azure Storage via access key
+# Tutorial: Use a Linux VM system-assigned managed identity to access Azure Storage via access key
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity for a Linux Virtual Machine and then use that identity to retrieve storage account access keys. You can use a storage access key as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we upload and download blobs using Azure CLI. You will learn how to:
+This tutorial shows you how to to use a system-assigned managed identity for a Linux virtual machine (VM) to retrieve storage account access keys. You can use a storage access key as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we upload and download blobs using Azure CLI. You will learn how to:
 
 > [!div class="checklist"]
-> * Enable Managed Service Identity on a Linux Virtual Machine 
 > * Grant your VM access to storage account access keys in Resource Manager 
 > * Get an access token using your VM's identity, and use it to retrieve the storage access keys from Resource Manager  
 
@@ -35,38 +34,15 @@ This tutorial shows you how to enable Managed Service Identity for a Linux Virtu
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## Sign in to Azure
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+- [Sign in to Azure portal](https://portal.azure.com)
 
+- [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
 
-## Create a Linux virtual machine in a new resource group
-
-For this tutorial, we create a new Linux VM. You can also enable Managed Service Identity on an existing VM.
-
-1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
-2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
-3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
-
-    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. Choose a **Subscription** for the virtual machine in the dropdown.
-5. To select a new **Resource Group** you would like the virtual machine to be created in, choose **Create New**. When complete, click **OK**.
-6. Select the size for the VM. To see more sizes, select **View all** or change the Supported disk type filter. On the settings blade, keep the defaults and click **OK**.
-
-## Enable Managed Service Identity on your VM
-
-A Virtual Machine Managed Service Identity enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling Managed Service Identity on a VM, does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM.  
-
-1. Navigate to the resource group of your new virtual machine, and select the virtual machine you created in the previous step.
-2. Under the VM "Settings" on the left, click **Configuration**.
-3. To register and enable the Managed Service Identity, select **Yes**, if you wish to disable it, choose No.
-4. Ensure you click **Save** to save the configuration.
-
-    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Create a storage account 
 
-If you don't already have one, you will now create a storage account.  You can also skip this step and grant your VM Managed Service Identity access to the keys of an existing storage account. 
+If you don't already have one, you will now create a storage account.  You can also skip this step and grant your VM system-assigned managed identity access to the keys of an existing storage account. 
 
 1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
 2. Click **Storage**, then **Storage Account**, and a new "Create storage account" panel will display.
@@ -88,9 +64,9 @@ Later we will upload and download a file to the new storage account. Because fil
 
     ![Create storage container](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## Grant your VM's Managed Service Identity access to use storage account access keys
+## Grant your VM's system-assigned managed identity access to use storage account access keys
 
-Azure Storage does not natively support Azure AD authentication.  However, you can use an Managed Service Identity to retrieve storage account access keys from the Resource Manager, then use a key to access storage.  In this step, you grant your VM Managed Service Identity access to the keys to your storage account.   
+Azure Storage does not natively support Azure AD authentication.  However, you can use managed identities for Azure resources to retrieve storage account access keys from the Resource Manager, then use a key to access storage.  In this step, you grant your VM's system-assigned managed identity access to the keys to your storage account.   
 
 1. Navigate back to your newly created storage account.
 2. Click the **Access control (IAM)** link in the left panel.  
@@ -224,7 +200,7 @@ Response:
 
 ## Next steps
 
-In this tutorial, you learned how to use a Managed Service Identity for a Linux virtual machine to access Azure Storage using an access key.  To learn more about Azure Storage access keys see:
+In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure Storage using an access key.  To learn more about Azure Storage access keys see:
 
 > [!div class="nextstepaction"]
 >[Manage your storage access keys](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)

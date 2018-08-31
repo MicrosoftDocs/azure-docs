@@ -46,4 +46,4 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 
 ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost.  The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
 
-**Hyper-threaded. 
+**Hyper-threaded and capable of running nested virtualization

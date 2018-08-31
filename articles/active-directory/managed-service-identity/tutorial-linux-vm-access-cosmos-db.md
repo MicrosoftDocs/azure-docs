@@ -1,6 +1,6 @@
 ---
-title: Use a Linux VM Managed Service Identity to access Azure Cosmos DB
-description: A tutorial that walks you through the process of using a System-Assigned Managed Service Identity on a Linux VM, to access Azure Cosmos DB.
+title: Use a Linux VM system-assigned managed identity to access Azure Cosmos DB
+description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Cosmos DB.
 services: active-directory
 documentationcenter: 
 author: daveba
@@ -17,60 +17,37 @@ ms.date: 04/09/2018
 ms.author: daveba
 
 ---
-# Tutorial: Use a Linux VM Managed Service Identity to access Azure Cosmos DB 
+# Tutorial: Use a Linux VM system-assigned managed identity to access Azure Cosmos DB 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 
-This tutorial shows you how to create and use a Linux VM Managed Service Identity. You learn how to:
+This tutorial shows you how to to use a system-assigned managed identity for a Linux virtual machine (VM) to access Azure Cosmos DB. You learn how to:
 
 > [!div class="checklist"]
-> * Create a Linux VM with  enabled
 > * Create a Cosmos DB account
 > * Create a collection in the Cosmos DB account
-> * Grant the Managed Service Identity access to an Azure Cosmos DB instance
-> * Retrieve the `principalID` of the of the Linux VM's Managed Service Identity
+> * Grant the system-assigned managed identity access to an Azure Cosmos DB instance
+> * Retrieve the `principalID` of the of the Linux VM's system-assigned managed identity
 > * Get an access token and use it to call Azure Resource Manager
 > * Get access keys from Azure Resource Manager to make Cosmos DB calls
 
 ## Prerequisites
 
-If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com) before continuing.
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+- [Sign in to Azure portal](https://portal.azure.com)
+
+- [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
+
+- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 To run the CLI script examples in this tutorial, you have two options:
 
 - Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) either from the Azure portal, or via the **Try It** button, located in the top right corner of each code block.
-- [Install the latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) if you prefer to use a local CLI console.
-
-## Sign in to Azure
-
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-
-## Create a Linux virtual machine in a new resource group
-
-For this tutorial, create a new Managed Service Identity enabled Linux VM.
-
-To create an Managed Service Identity enabled VM:
-
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az-login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
-
-   ```azurecli-interactive
-   az login
-   ```
-
-2. Create a [resource group](../../azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group/#az-group-create). You can skip this step if you already have resource group you would like to use instead:
-
-   ```azurecli-interactive 
-   az group create --name myResourceGroup --location westus
-   ```
-
-3. Create a VM using [az vm create](/cli/azure/vm/#az-vm-create). The following example creates a VM named *myVM* with an Managed Service Identity, as requested by the `--assign-identity` parameter. The `--admin-username` and `--admin-password` parameters specify the administrative user name and password account for virtual machine sign-in. Update these values as appropriate for your environment: 
-
-   ```azurecli-interactive 
-   az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
-   ```
+- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 or later) if you prefer to use a local CLI console.
 
 ## Create a Cosmos DB account 
 
@@ -91,14 +68,14 @@ Next, add a data collection in the Cosmos DB account that you can query in later
 2. On the **Overview** tab click the **+/Add Collection** button, and an "Add Collection" panel slides out.
 3. Give the collection a database ID, collection ID, select a storage capacity, enter a partition key, enter a throughput value, then click **OK**.  For this tutorial, it is sufficient to use "Test" as the database ID and collection ID, select a fixed storage capacity and lowest throughput (400 RU/s).  
 
-## Retrieve the `principalID` of the Linux VM's Managed Service Identity
+## Retrieve the `principalID` of the Linux VM's system-assigned managed identity
 
-To gain access to the Cosmos DB account access keys from the Resource Manager in the following section, you need to retrieve the `principalID` of the Linux VM's Managed Service Identity.  Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (resource group in which you VM resides), and `<VM NAME>` parameter values with your own values.
+To gain access to the Cosmos DB account access keys from the Resource Manager in the following section, you need to retrieve the `principalID` of the Linux VM's system-assigned managed identity.  Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (resource group in which you VM resides), and `<VM NAME>` parameter values with your own values.
 
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01
 ```
-The response includes the details of the system-assigned Managed Service Identity (note the principalID as it is used in the next section):
+The response includes the details of the system-assigned managed identity (note the principalID as it is used in the next section):
 
 ```bash  
 {
@@ -110,14 +87,14 @@ The response includes the details of the system-assigned Managed Service Identit
  }
 
 ```
-## Grant your Linux VM Managed Service Identity access to the Cosmos DB account access keys
+## Grant your Linux VM's system-assigned identity access to the Cosmos DB account access keys
 
-Cosmos DB does not natively support Azure AD authentication. However, you can use an Managed Service Identity to retrieve a Cosmos DB access key from the Resource Manager, then use the key to access Cosmos DB. In this step, you grant your Managed Service Identity access to the keys to the Cosmos DB account.
+Cosmos DB does not natively support Azure AD authentication. However, you can use a managed identity to retrieve a Cosmos DB access key from the Resource Manager, then use the key to access Cosmos DB. In this step, you grant your system-assigned managed identity access to the keys to the Cosmos DB account.
 
-To grant the Managed Service Identity identity access to the Cosmos DB account in Azure Resource Manager using the Azure CLI, update the values for `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` for your environment. Replace `<MSI PRINCIPALID>` with the `principalId` property returned by the `az resource show` command in [Retrieve the principalID of the Linux VM's MSI](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB supports two levels of granularity when using access keys:  read/write access to the account, and read-only access to the account.  Assign the `DocumentDB Account Contributor` role if you want to get read/write keys for the account, or assign the `Cosmos DB Account Reader Role` role if you want to get read-only keys for the account:
+To grant the system-assigned managed identity access to the Cosmos DB account in Azure Resource Manager using the Azure CLI, update the values for `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` for your environment. Replace `<MI PRINCIPALID>` with the `principalId` property returned by the `az resource show` command in [Retrieve the principalID of the Linux VM's MI](#retrieve-the-principalID-of-the-linux-VM's-system-assigned-identity).  Cosmos DB supports two levels of granularity when using access keys:  read/write access to the account, and read-only access to the account.  Assign the `DocumentDB Account Contributor` role if you want to get read/write keys for the account, or assign the `Cosmos DB Account Reader Role` role if you want to get read-only keys for the account:
 
 ```azurecli-interactive
-az role assignment create --assignee <MSI PRINCIPALID> --role '<ROLE NAME>' --scope "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMODS DB ACCOUNT NAME>"
+az role assignment create --assignee <MI PRINCIPALID> --role '<ROLE NAME>' --scope "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMODS DB ACCOUNT NAME>"
 ```
 
 The response includes the details for the role assignment created:
@@ -136,7 +113,7 @@ The response includes the details for the role assignment created:
 }
 ```
 
-## Get an access token using the Linux VM's Managed Service Identity and use it to call Azure Resource Manager
+## Get an access token using the Linux VM's system-assigned managed identity and use it to call Azure Resource Manager
 
 For the remainder of the tutorial, work from the VM created earlier.
 
@@ -251,7 +228,7 @@ This CLI command returns details about the collection:
 
 ## Next steps
 
-In this tutorial, you learned how to use a Managed Service Identity on a Linux virtual machine to access Cosmos DB.  To learn more about Cosmos DB see:
+In this tutorial, you learned how to use a system-assigned managed identity on a Linux virtual machine to access Cosmos DB.  To learn more about Cosmos DB see:
 
 > [!div class="nextstepaction"]
 >[Azure Cosmos DB overview](/azure/cosmos-db/introduction)

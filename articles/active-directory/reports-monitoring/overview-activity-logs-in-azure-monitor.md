@@ -121,13 +121,23 @@ This section answers frequently asked questions and discusses known issues with 
 
 **Q: How much will it cost to store my data?**
 
-**A**: The storage costs depend on both the size of your logs and the retention period you choose. For a list of the estimated costs for tenants, which depend on the volume of logs generated, go to the [Storage size for activity logs](https://review.docs.microsoft.com/en-us/azure/active-directory/reporting-azure-monitor-diagnostics-overview?branch=pr-en-us-47660#storage-size-for-activity-logs) section.
+**A**: The storage costs depend on both the size of your logs and the retention period you choose. For a list of the estimated costs for tenants, which depend on the volume of logs generated, see the [Storage size for activity logs](#storage-size-for-activity-logs) section.
 
 ---
 
 **Q: How much will it cost to stream my data to an event hub?**
 
 **A**: The streaming costs depend on the number of messages you receive per minute. This article discusses how the costs are calculated and lists cost estimates, which are based on the number of messages. 
+
+---
+
+**Q: How do I integrate Azure AD activity logs with my SIEM system?**
+
+**A**: You can do this in two ways:
+
+- Use Azure Monitor with Event Hubs to stream logs to your SIEM system. First, [stream the logs to an event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md) and then [set up your SIEM tool](quickstart-azure-monitor-stream-logs-to-event-hub.md#access-data-from-your-event-hub) with the configured event hub. 
+
+- Use the [Reporting Graph API](concept-reporting-api.md) to access the data, and push it into the SIEM system using your own scripts.
 
 ---
 

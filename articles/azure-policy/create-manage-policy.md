@@ -4,7 +4,7 @@ description: Use Azure Policy to enforce standards, meet regulatory compliance a
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/13/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
@@ -30,26 +30,26 @@ The first step in enforcing compliance with Azure Policy is to assign a policy d
 
    ![Search for policy](media/create-manage-policy/search-policy.png)
 
-2. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that has been assigned to take place within a specific scope.
-3. Select **Assign Policy** from the top of the **Policy - Assignments** page.
+1. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that has been assigned to take place within a specific scope.
+1. Select **Assign Policy** from the top of the **Policy - Assignments** page.
 
    ![Assign a policy definition](media/create-manage-policy/select-assign-policy.png)
 
-4. On the **Assign Policy** page, select the **Scope** by clicking the ellipsis and selecting a subscription (required) and resource group (optional). A scope determines what resources or grouping of resources the policy assignment gets enforced on.  Then click **Select** at the bottom of the **Scope** page.
+1. On the **Assign Policy** page, select the **Scope** by clicking the ellipsis and selecting a subscription (required) and resource group (optional). A scope determines what resources or grouping of resources the policy assignment gets enforced on.  Then click **Select** at the bottom of the **Scope** page.
 
    This example uses the **Contoso Subscription**. Your subscription will differ.
 
-5. If you wanted to exclude one or more resource groups (if you only scoped a subscription) or specific resources within a resource group (either scoping case), you could configure **Exclusions** from the policy assignment. Leave it blank for now.
+1. If you wanted to exclude one or more resource groups (if you only scoped a subscription) or specific resources within a resource group (either scoping case), you could configure **Exclusions** from the policy assignment. Leave it blank for now.
 
-6. Select the **Policy definition** ellipsis to open the list of available definitions. You can filter the policy definition **Type** to *Built-in* to view all and read their descriptions.
+1. Select the **Policy definition** ellipsis to open the list of available definitions. You can filter the policy definition **Type** to *Built-in* to view all and read their descriptions.
 
-7. Select **Require SQL Server version 12.0**. If you cannot find it right away, type **require sql server** into the search box and then press ENTER or click out of the search box. Click **Select** at the bottom of the **Available Definitions** page once you have found and selected the policy definition.
+1. Select **Require SQL Server version 12.0**. If you cannot find it right away, type **require sql server** into the search box and then press ENTER or click out of the search box. Click **Select** at the bottom of the **Available Definitions** page once you have found and selected the policy definition.
 
    ![Locate a policy](media/create-manage-policy/select-available-definition.png)
 
-8. The **Assignment name** is automatically populated with the policy name you selected, but you can change it. For this example, leave *Require SQL Server version 12.0*. You can also add an optional **Description**. The description provides details about this policy assignment.
+1. The **Assignment name** is automatically populated with the policy name you selected, but you can change it. For this example, leave *Require SQL Server version 12.0*. You can also add an optional **Description**. The description provides details about this policy assignment.
 
-9. Click **Assign**.
+1. Click **Assign**.
 
 ## Implement a new custom policy
 
@@ -59,8 +59,8 @@ Now that you've assigned a built-in policy definition, you can do more with Azur
 
    ![Definition under authoring](media/create-manage-policy/definition-under-authoring.png)
 
-2. Select **+ Policy definition** at the top of the page. This opens to the **Policy definition** page.
-3. Enter the following:
+1. Select **+ Policy definition** at the top of the page. This opens to the **Policy definition** page.
+1. Enter the following:
 
    - The management group or subscription in which the policy definition is saved. Select by using the ellipsis on **Definition location**.
 
@@ -102,7 +102,7 @@ Now that you've assigned a built-in policy definition, you can do more with Azur
 
     To view more Azure policy samples, see [Templates for Azure Policy](json-samples.md).
 
-4. Select **Save**.
+1. Select **Save**.
 
 ## Create a policy definition with REST API
 
@@ -241,7 +241,7 @@ Get-AzureRmPolicyDefinition
 
 It returns all available policy definitions, including built-in policies. Each policy is returned in the following format:
 
-```
+```output
 Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
 ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
 ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
@@ -321,19 +321,19 @@ With an initiative definition, you can group several policy definitions to achie
 
    ![Select definitions](media/create-manage-policy/select-definitions.png)
 
-2. Select **+ Initiative Definition** at the top of the page to open the **Initiative definition** page.
+1. Select **+ Initiative Definition** at the top of the page to open the **Initiative definition** page.
 
    ![Initiative definition](media/create-manage-policy/initiative-definition.png)
 
-3. Use the **Definition location** ellipsis to select a subscription to store the definition.
+1. Use the **Definition location** ellipsis to select a management group or subscription to store the definition.
 
-4. Enter the **Name** and **Description** of the initiative.
+1. Enter the **Name** and **Description** of the initiative.
 
    This example will ensure that resources are in compliance with policy definitions about getting secure. So, the name of the initiative would be **Get Secure** and the description would be: **This initiative has been created to handle all policy definitions associated with securing resources**.
 
-5. For **Category**, choose from existing options or create a new category.
+1. For **Category**, choose from existing options or create a new category.
 
-6. Browse through the list of **Available Definitions** (right half of **Initiative definition** page) and select the policy definition(s) you would like to add to this initiative. For the **Get secure** initiative, add the following built-in policy definitions by clicking the **+** next to the policy definition information or clicking a policy definition row and then the **+ Add** option in the details page:
+1. Browse through the list of **Available Definitions** (right half of **Initiative definition** page) and select the policy definition(s) you would like to add to this initiative. For the **Get secure** initiative, add the following built-in policy definitions by clicking the **+** next to the policy definition information or clicking a policy definition row and then the **+ Add** option in the details page:
    - Require SQL Server version 12.0
    - [Preview]: Monitor unprotected web applications in Security Center.
    - [Preview]: Monitor permissive network across in Security Center.
@@ -344,13 +344,25 @@ With an initiative definition, you can group several policy definitions to achie
 
    ![Initiative definitions](media/create-manage-policy/initiative-definition-2.png)
 
-7. Click **Save**.
+1. If a policy definition being added to the initiative has parameters, they are shown under the policy name in the **POLICIES AND PARAMETERS** area. The _value_ can be set to either 'Set value' (hard coded for all assignments of this initiative) or 'Use Initiative Parameter' (set during each initiative assignment). If 'Set value' is selected, the drown-down to the right of _Values_ allows entering or selecting the desired value(s). If 'Use Initiative Parameter' is selected, a new **Initiative parameters** section is displayed allowing you to define the parameter that will be set during initiative assignment. The allowed values on this initiative parameter can further restrict what may be set during initiative assignment.
+
+   ![Initiative definition parameters](media/create-manage-policy/initiative-definition-3.png)
+
+   > [!NOTE]
+   > In the case of some `strongType` parameters, the list of values cannot be automatically
+   > determined. In these cases, an ellipsis will appear to the right of the parameter row. Clicking
+   > it will open the 'Parameter scope (&lt;parameter name&gt;)' page. On this page, select the
+   > subscription to use for providing the value options. This parameter scope is only used during
+   > creation of the initiative definition and has no impact on policy evaluation or the scope of
+   > the initiative when assigned.
+
+1. Click **Save**.
 
 ### Assign an initiative definition
 
 1. Select **Definitions** under **AUTHORING** in the left side of the Azure Policy page.
-2. Locate the **Get Secure** initiative definition you previously created and select it.
-3. Select **Assign** at the top of the page to open to the **Get Secure: Assign Initiative** page.
+1. Locate the **Get Secure** initiative definition you previously created and select it.
+1. Select **Assign** at the top of the page to open to the **Get Secure: Assign Initiative** page.
 
    ![Assign a definition](media/create-manage-policy/assign-definition.png)
 
@@ -358,14 +370,14 @@ With an initiative definition, you can group several policy definitions to achie
 
    ![Right-click a row](media/create-manage-policy/select-right-click.png)
 
-4. Fill out the **Get Secure: Assign Initiative** page by entering the following example information. You can use your own information.
+1. Fill out the **Get Secure: Assign Initiative** page by entering the following example information. You can use your own information.
 
    - Scope: The subscription you saved the initiative to will be the default.  You can change scope to assign the initiative to a resource group within the subscription save location.
    - Exclusions: Configure any resources within the scope to prevent the initiative assignment from being applied to them.
    - Initiative definition and Assignment name: Get Secure (pre-populated as name of initiative being assigned).
    - Description: This initiative assignment is tailored to enforce this group of policy definitions.
 
-5. Click **Assign**.
+1. Click **Assign**.
 
 ## Exempt a non-compliant or denied resource using Exclusion
 
@@ -386,15 +398,15 @@ In this example, Trent Baker, one of Contoso's Sr. Virtualization specialists, w
 ### Update assignment with exclusion
 
 1. Select **Assignments** under **AUTHORING** in the left side of the Azure Policy page.
-2. Browse through all policy assignments and open the *Require SQL Server version 12.0* assignment.
-3. Set the **Exclusion** by clicking the ellipsis and selecting the resource group to exclude, *SQLServers_Excluded* in this example.
+1. Browse through all policy assignments and open the *Require SQL Server version 12.0* assignment.
+1. Set the **Exclusion** by clicking the ellipsis and selecting the resource group to exclude, *SQLServers_Excluded* in this example.
 
    ![Request exclusion](media/create-manage-policy/request-exclusion.png)
 
    > [!NOTE]
    > Depending on the policy and its effect, the exclusion could also be granted to specific resources within a resource group inside the scope of the assignment. As a **Deny** effect was used in this tutorial, it would not make sense to set the exclusion on a specific resource that already exists.
 
-4. Click **Select** and then click **Save**.
+1. Click **Select** and then click **Save**.
 
 In this section, you resolved the denial of the attempt to create a prohibited version of SQL server by creating an exclusion on a single resource group.
 
@@ -403,8 +415,8 @@ In this section, you resolved the denial of the attempt to create a prohibited v
 If you are done working with resources from this tutorial, use the following steps to delete any of the assignments or definitions created above:
 
 1. Select **Definitions** (or **Assignments** if you are trying to delete an assignment) under **AUTHORING** in the left side of the Azure Policy page.
-2. Search for the new initiative or policy definition (or assignment) you want to remove.
-3. Right-click the row or select the ellipses at the end of the definition (or assignment), and select **Delete definition** (or **Delete assignment**).
+1. Search for the new initiative or policy definition (or assignment) you want to remove.
+1. Right-click the row or select the ellipses at the end of the definition (or assignment), and select **Delete definition** (or **Delete assignment**).
 
 ## Next steps
 
