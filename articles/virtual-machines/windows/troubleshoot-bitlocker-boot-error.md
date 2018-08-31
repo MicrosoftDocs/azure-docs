@@ -90,14 +90,14 @@ If this method does not the resolve the problem, follow these steps to restore t
 
     The following is sample of the output. Locate the BEK file name for the attached disk. In this case, we assume that the drive letter of the attached disk is F, and the BEK file is EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK.
 
+    ```
     Created             Content Type Volume DiskEncryptionKeyFileName               
     -------             ------------ ------ -------------------------               
     4/5/2018 7:14:59 PM Wrapped BEK  C:\    B4B3E070-836C-4AF5-AC5B-66F6FDE6A971.BEK
     4/7/2018 7:21:16 PM Wrapped BEK  F:\    EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     4/7/2018 7:26:23 PM Wrapped BEK  G:\    70148178-6FAE-41EC-A05B-3431E6252539.BEK
     4/7/2018 7:26:26 PM Wrapped BEK  H:\    5745719F-4886-4940-9B51-C98AFABE5305.BEK
-
-
+    ```
 
     If you see two duplicated volumes, the volume that has the newer timestamp is the current BEK file that is used by the recovery VM.
 
