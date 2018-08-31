@@ -58,7 +58,7 @@ To use the Terraform visualize function, you need to [install GraphViz](http://g
 >[!NOTE]
 >To verify if GraphViz is installed, open a terminal window and enter `dot -V`.
 
-### Install the Azure Terraform Visual Studio Code extension:
+### Install the Azure Terraform Visual Studio Code extension
 
 1. Launch Visual Studio Code.
 
