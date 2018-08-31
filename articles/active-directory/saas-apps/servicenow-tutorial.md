@@ -166,31 +166,31 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	e. In the automatic configuration all the necessary settings are configured on the **ServiceNow** side but the **X.509 Certificate** is not enabled by default. You have to map it manually to your identity provider in ServiceNow. follow the below steps for the same:
 
-	  * In the navigation pane on the left side, click **Identity Providers** Under **Multi-Provider SSO**.
+	f. In the navigation pane on the left side, click **Identity Providers** Under **Multi-Provider SSO**.
 
 		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configure single sign-on")
 
-	  * Click on the automatically generated identity provider
+	g. Click on the automatically generated identity provider
 
 		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_08.png "Configure single sign-on")
 
-	  * Scroll down to the **X.509 Certificate** section. Select **Edit**.
+	h. Scroll down to the **X.509 Certificate** section. Select **Edit**.
 
 		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_09.png "Configure single sign-on")
 
-	  * Select on the certificate and click right arrow icon to add the certificate
+	i. Select on the certificate and click right arrow icon to add the certificate
 
 		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_11.png "Configure single sign-on")
 
-	  * Click **Save**.
+	j. Click **Save**.
 
-	  * Click on **Activate** at the top right corner of the page.
+	k. Click on **Activate** at the top right corner of the page.
   
-	f. In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **Properties**.
+	l. In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **Properties**.
 
 	![Configure app URL](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
 
-	g. On the **Multiple Provider SSO Properties** dialog, perform the following steps:
+	m. On the **Multiple Provider SSO Properties** dialog, perform the following steps:
 
 	![Configure app URL](./media/servicenow-tutorial/ic7694981.png "Configure app URL")
 
@@ -204,19 +204,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	  * Click **Save**.
 
-	h. Click on the menu icon from your new identity provider that you created as part of the configuration and from the list select **copy sys_id**
+	n. Click on the menu icon from your new identity provider that you created as part of the configuration and from the list select **copy sys_id**
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694992.png "Configure single sign-on")
 
-	i. In the upper left search box, search for **sys_properties.list** and press enter.
+	o. In the upper left search box, search for **sys_properties.list** and press enter.
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694993.png "Configure single sign-on")
 
-	j. Click **New**.
+	p. Click **New**.
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694994.png "Configure single sign-on")
 
-	k. In the **System Property** section, perform the following steps:
+	q. In the **System Property** section, perform the following steps:
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694995.png "Configure single sign-on")
 
@@ -228,11 +228,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	  * Click **Submit**.
 
-	l. Click **New**.
+	r. Click **New**.
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694994.png "Configure single sign-on")
 
-	m. In the **System Property** section, perform the following steps:
+	s. In the **System Property** section, perform the following steps:
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694996.png "Configure single sign-on")
 
@@ -242,7 +242,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	  * Click **Submit**.
 
-	n. After doing above step, now you will be able to activate your new identity provider and your SSO should work
+	t. After doing above step, now you will be able to activate your new identity provider and your SSO should work
 
 	> [!NOTE]
 	> Also please note that, you have to test your new Idp configuration in a new incognito window
