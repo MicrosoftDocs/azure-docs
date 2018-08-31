@@ -38,9 +38,10 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 *  Use [these instructions](how-to-configure-environment.md) to:  
-    * Create a workspace configuration file (**config.json**)  
+    * Create a workspace and its configuration file (**config.json**)  
     * Configure a development environment for Jupyter notebooks. In step 4 the new packages you need are matplotlib and scikit-learn:
-       ```sh
+
+       ```shell
        conda install -y matplotlib scikit-learn
        ``` 
 
