@@ -12,7 +12,7 @@ ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 08/30/2018
 ms.author: gokuma
 
 ---
@@ -62,7 +62,7 @@ To create a Microsoft Data Science Virtual Machine, you must have an Azure subsc
 ## Create your Microsoft Data Science Virtual Machine
 To create an instance of the Microsoft Data Science Virtual Machine, follow these steps:
 
-1. Navigate to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
+1. Navigate to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016). You may be prompted to login to your Azure account if you are not already signed in.
 1. Select the **Create** button at the bottom to be taken into a wizard.
 
   ![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png) 

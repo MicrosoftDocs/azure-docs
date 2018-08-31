@@ -7,7 +7,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 5/02/2018
+ms.date: 8/30/2018
 ms.author: ashmaka
 ---
 

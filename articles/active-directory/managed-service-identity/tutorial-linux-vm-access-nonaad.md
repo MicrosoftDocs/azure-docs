@@ -1,6 +1,6 @@
 ---
-title: Use a Linux VM Managed Service Identity to access Azure Key Vault 
-description: A tutorial that walks you through the process of using a Linux VM Managed Service Identity to access Azure Resource Manager.
+title: Use a Linux VM system-assigned managed identity to access Azure Key Vault 
+description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -17,11 +17,11 @@ ms.date: 11/20/2017
 ms.author: daveba
 ---
 
-# Tutorial: Use a Linux VM Managed Service Identity to access Azure Key Vault 
+# Tutorial: Use a Linux VM system-assigned managed identity to access Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to to use a system assigned identity for a Linux virtual machine (VM) to access Azure Key Vault. Serving as a bootstrap, Key Vault makes it possible for your client application to then use the secret to access resources not secured by Azure Active Directory (AD). Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
+This tutorial shows you how to to use a system-assigned managed identity for a Linux virtual machine (VM) to access Azure Key Vault. Serving as a bootstrap, Key Vault makes it possible for your client application to then use the secret to access resources not secured by Azure Active Directory (AD). Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
 
 You learn how to:
 
@@ -39,13 +39,13 @@ You learn how to:
 
 - [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
 
-- [Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Grant your VM access to a Secret stored in a Key Vault  
 
-Using Managed Service Identity your code can get access tokens to authenticate to resources that support Azure Active Directory authentication. However, not all Azure services support Azure AD authentication. To use Managed Service Identity with those services, store the service credentials in Azure Key Vault, and use Managed Service Identity to access Key Vault to retrieve the credentials. 
+Using managed service identities for Azure resources your code can get access tokens to authenticate to resources that support Azure Active Directory authentication. However, not all Azure services support Azure AD authentication. To use managed identities for Azure resources with those services, store the service credentials in Azure Key Vault, and use managed identities for Azure resources to access Key Vault to retrieve the credentials. 
 
-First, we need to create a Key Vault and grant our VM’s identity access to the Key Vault.   
+First, we need to create a Key Vault and grant our VM’s system-assigned managed identity access to the Key Vault.   
 
 1. At the top of the left navigation bar, select **Create a resource** > **Security + Identity** > **Key Vault**.  
 2. Provide a **Name** for the new Key Vault. 
@@ -73,7 +73,7 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
  
 1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**. 
 2. **Connect** to the VM with the SSH client of your choice. 
-3. In the terminal window, using CURL, make a request to the local Managed Service Identity endpoint to get an access token for Azure Key Vault.  
+3. In the terminal window, using CURL, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Key Vault.  
  
     The CURL request for the access token is below.  
     
@@ -110,7 +110,7 @@ Once you’ve retrieved the secret from the Key Vault, you can use it to authent
 
 ## Next steps
 
-In this tutorial, you learned how to use a Managed Service Identity on a Linux virtual machine to access Azure Key Vault.  To learn more about Azure Key Vault see:
+In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure Key Vault.  To learn more about Azure Key Vault see:
 
 > [!div class="nextstepaction"]
 >[Azure Key Vault](/azure/key-vault/key-vault-whatis)
