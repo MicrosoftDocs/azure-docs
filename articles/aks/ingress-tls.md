@@ -279,6 +279,6 @@ You can also:
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
 [aks-ingress-internal]: ingress-internal-ip.md
-[aks-ingress-tls]: ingress-tls.md
+[aks-ingress-static-tls]: ingress-static-ip.md
 [aks-ingress-basic]: ingress-basic.md
 [aks-http-app-routing]: http-application-routing.md

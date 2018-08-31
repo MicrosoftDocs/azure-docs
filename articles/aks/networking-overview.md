@@ -194,4 +194,4 @@ Kubernetes clusters created with ACS Engine support both the [kubenet][kubenet] 
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
-[aks-ingress-internal]: ingress-internal.md
+[aks-ingress-internal]: ingress-internal-ip.md

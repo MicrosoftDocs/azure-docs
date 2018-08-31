@@ -79,7 +79,7 @@
         - name: HTTP application routing
           href: http-application-routing.md
         - name: Use internal network
-          href: ingress-internal.md
+          href: ingress-internal-ip.md
         - name: HTTPS with Let's Encrypt
           href: ingress-tls.md
         - name: HTTPS with static public IP
