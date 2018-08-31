@@ -20,7 +20,7 @@ ms.author: genli
 
  This article describes BitLocker errors that you may experience when you start a Windows virtual machine (VM) in Microsoft Azure.
 
->  [!NOTE] Azure has two different deployment models for creating and working with 
+> [!NOTE] Azure has two different deployment models for creating and working with 
 > resources: [Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of using the classic deployment model.
 
  ## Symptom
@@ -121,8 +121,7 @@ If this method does not the resolve the problem, follow these steps to restore t
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
-
-    Together with the **-unlock** or **-disable** switch, the drive letter refers to the encrypted drive. Therefore, make sure that you use the correct drive letter. 
+    In this sample, the attached OS disk is drive F. Make sure that you use the correct drive letter. 
 
     - If the disk was successfully unlocked by using the BEK key. we can consider the BItLocker problem to be resolved. 
 
@@ -243,7 +242,7 @@ For a Key Encryption Key scenario, follow these steps:
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
-    Make sure that you use the correct drive letter. 
+    In this sample, the attached OS disk is drive F. Make sure that you use the correct drive letter. 
 
     - If the disk was successfully unlocked by using the BEK key. we can consider the BItLocker problem to be resolved. 
 
