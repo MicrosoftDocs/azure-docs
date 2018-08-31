@@ -37,7 +37,7 @@ Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
 
 If you got your Content Moderator from the Azure portal, also [sign up for the review tool account](https://contentmoderator.cognitive.microsoft.com/) and create a review team. You need the team Id and the review tool to call the review API to start a Job and view the reviews in the review tool.
 
-## Ensure your API key can call the review API (Job creation)
+## Ensure your API key can call the review API for review creation
 
 After completing the previous steps, you may end up with two Content Moderator keys if you started from the Azure portal. 
 
