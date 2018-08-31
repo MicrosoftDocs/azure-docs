@@ -2,7 +2,7 @@
 ms.assetid: 
 title: VNET Service Endpoints for Azure Key Vault | Microsoft Docs
 description: Overview of Virtual Network Service Endpoints for Key Vault
-ms.service: key-vault
+services: key-vault
 author: amitbapat
 ms.author: ambapat
 manager: mbaldwin
