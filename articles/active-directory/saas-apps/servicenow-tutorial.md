@@ -166,43 +166,43 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	e. In the automatic configuration all the necessary settings are configured on the **ServiceNow** side but the **X.509 Certificate** is not enabled by default. You have to map it manually to your identity provider in ServiceNow. follow the below steps for the same:
 
-	* In the navigation pane on the left side, click **Identity Providers** Under **Multi-Provider SSO**.
+	  * In the navigation pane on the left side, click **Identity Providers** Under **Multi-Provider SSO**.
 
 		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configure single sign-on")
 
-	* Click on the automatically generated identity provider
+	  * Click on the automatically generated identity provider
 
 		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_08.png "Configure single sign-on")
 
-	* Scroll down to the **X.509 Certificate** section. Select **Edit**.
+	  * Scroll down to the **X.509 Certificate** section. Select **Edit**.
 
 		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_09.png "Configure single sign-on")
 
-	* Select on the certificate and click right arrow icon to add the certificate
+	  * Select on the certificate and click right arrow icon to add the certificate
 
 		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_11.png "Configure single sign-on")
 
-	* Click **Save**.
+	  * Click **Save**.
 
-	* Click on **Activate** at the top right corner of the page.
+	  * Click on **Activate** at the top right corner of the page.
   
 	f. In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **Properties**.
 
 	![Configure app URL](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
-	
+
 	g. On the **Multiple Provider SSO Properties** dialog, perform the following steps:
 
 	![Configure app URL](./media/servicenow-tutorial/ic7694981.png "Configure app URL")
 
-	* As **Enable multiple provider SSO**, select **Yes**.
+	  * As **Enable multiple provider SSO**, select **Yes**.
 
-	* As **Enable Auto Importing of users from all identity providers into the user table**, select **Yes**.
+	  * As **Enable Auto Importing of users from all identity providers into the user table**, select **Yes**.
 
-	* As **Enable debug logging for the multiple provider SSO integration**, select **Yes**.
+	  * As **Enable debug logging for the multiple provider SSO integration**, select **Yes**.
 
-	* In **The field on the user table that...** textbox, type **user_name**.
+	  * In **The field on the user table that...** textbox, type **user_name**.
 
-	* Click **Save**.
+	  * Click **Save**.
 
 	h. Click on the menu icon from your new identity provider that you created as part of the configuration and from the list select **copy sys_id**
 
@@ -220,13 +220,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694995.png "Configure single sign-on")
 
-	* Enter `glide.authenticate.sso.redirect.idp` value in the name textbox.
+	  * Enter `glide.authenticate.sso.redirect.idp` value in the name textbox.
 
-	* In the **Value** textbox, paste the copy sys_id value which you have copied in the preceding steps.
+	  * In the **Value** textbox, paste the copy sys_id value which you have copied in the preceding steps.
 
-	* Select **Private**.
+	  * Select **Private**.
 
-	* Click **Submit**.
+	  * Click **Submit**.
 
 	l. Click **New**.
 
@@ -236,11 +236,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694996.png "Configure single sign-on")
 
-	* Enter `glide.authenticate.multisso.test.connection.mandatory` value in the name textbox.
+	  * Enter `glide.authenticate.multisso.test.connection.mandatory` value in the name textbox.
 
-	* In the **Value** textbox, enter **false**.
+	  * In the **Value** textbox, enter **false**.
 
-	* Click **Submit**.
+	  * Click **Submit**.
 
 	n. After doing above step, now you will be able to activate your new identity provider and your SSO should work
 
