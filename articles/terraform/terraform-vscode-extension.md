@@ -23,7 +23,7 @@ In this article, you learn how to:
 ## Prerequisites
 - **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-- **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Terraform**: [Install and configure Terraform](/azure/virtual-machines/linux/terraform-install-configure).
 
 - **Visual Studio Code**: Install the version of [Visual Studio Code](https://code.visualstudio.com/download) that is appropriate for your environment.
 
