@@ -191,24 +191,24 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure app URL](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
 
 	m. On the **Multiple Provider SSO Properties** dialog, perform the following steps:
-
+	
 	![Configure app URL](./media/servicenow-tutorial/ic7694981.png "Configure app URL")
-
+	
 	* As **Enable multiple provider SSO**, select **Yes**.
-
+  
 	* As **Enable Auto Importing of users from all identity providers into the user table**, select **Yes**.
-
+	 
 	* As **Enable debug logging for the multiple provider SSO integration**, select **Yes**.
 
 	* In **The field on the user table that...** textbox, type **user_name**.
-
+  
 	* Click **Save**.
 
 	n. Click on the menu icon from your new identity provider that you created as part of the configuration and from the list select **copy sys_id**
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694992.png "Configure single sign-on")
-
-	* In the upper left search box, search for **sys_properties.list** and press enter.
+	
+	o. In the upper left search box, search for **sys_properties.list** and press enter.
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694993.png "Configure single sign-on")
 
@@ -219,7 +219,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	q. In the **System Property** section, perform the following steps:
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694995.png "Configure single sign-on")
-
+	
 	* Enter `glide.authenticate.sso.redirect.idp` value in the name textbox.
 
 	* In the **Value** textbox, paste the copy sys_id value which you have copied in the preceding steps.
