@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 08/30/2018
+ms.date: 08/31/2018
 ms.author: jovanpop-msft
 
 ---
@@ -81,17 +81,12 @@ The following steps show you how to create your Managed Instance after your prev
 8. When complete, click **Apply** to save your selection.  
 9. Click **Create** to deploy the Managed Instance.
 10. Click the **Notifications** icon to view the status of deployment.
- 
-   ![deployment progress](./media/sql-database-managed-instance-get-started/deployment-progress.png)
-
 11. Click **Deployment in progress** to open the Managed Instance window to further monitor the deployment progress.
- 
-   ![deployment progress 2](./media/sql-database-managed-instance-get-started/managed-instance-deploying.png)
 
 While deployment occurs, continue to the next procedure.
 
 > [!IMPORTANT]
-> For the first instance in a subnet, deployment time is typically much longer than in case of the subsequent instances - sometimes more than 24 hours to complete. Do not cancel deployment operation because it lasts longer than you expected. This length of time to deploy your first instance is a temporary situation. Expect a significant reduction of deployment time shortly after the beginning of the public preview. Creating the second Managed Instance in the subnet will take a couple of minutes.
+> For the first instance in a subnet, deployment time is typically much longer than in case of the subsequent instances. Do not cancel deployment operation because it lasts longer than you expected. Creating the second Managed Instance in the subnet will take a couple of minutes.
 
 ## Prepare client machine
 

@@ -193,6 +193,7 @@ Note the following guidelines on availability group listener in Azure using inte
 
 * With an internal load balancer, you only access the listener from within the same virtual network.
 
+* If you are restricting access with an Azure Network Security Group, ensure that the allow rules include the backend SQL Server VM IP addresses, and the load balancer floating IP addresses for the AG listener and the cluster core IP address, if applicable.
 
 ## For more information
 For more information, see [Configure Always On availability group in Azure VM manually](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
