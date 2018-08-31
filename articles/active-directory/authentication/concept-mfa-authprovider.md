@@ -22,6 +22,9 @@ An Azure Multi-Factor Auth Provider is used to take advantage of features provid
 
 If you have licenses that cover all of the users in your organization, then you do not need an Azure Multi-Factor Auth Provider. Create an Azure Multi-Factor Authentication Provider only if you also need to provide two-step verification for some users that don't have licenses.
 
+> [!NOTE]
+> Effective September 1st, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
+
 ## Caveats related to the Azure MFA SDK
 
 An Azure Multi-Factor Auth provider is required to download the SDK. Note the SDK has been deprecated and is no longer supported for new customers and will only continue to work until November 14, 2018. After that time, calls to the SDK will fail.

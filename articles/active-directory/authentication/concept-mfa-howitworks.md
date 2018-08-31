@@ -37,7 +37,7 @@ Multi-Factor Authentication comes as part of the following offerings:
 * **Azure Active Directory Global Administrators** - A subset of Azure Multi-Factor Authentication capabilities are available as a means to protect global administrator accounts.
 
 > [!NOTE]
-> New customers will no longer be able to purchase the Azure Multi-Factor Authentication as a standalone offering effective September 1st, 2018. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
+> New customers may no longer purchase Azure Multi-Factor Authentication as a standalone offering effective September 1st, 2018. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
 
 ### Auth Provider or MFA license
 

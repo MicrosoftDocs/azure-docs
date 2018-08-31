@@ -32,7 +32,7 @@ The following table describes the differences between three versions of multi-fa
 | Azure Multi-Factor Authentication | Often referred to as the "full" version, Azure Multi-Factor Authentication offers the richest set of capabilities. It provides additional configuration options via the [Azure portal](https://portal.azure.com), advanced reporting, and support for a range of on-premises and cloud applications. Azure Multi-Factor Authentication is a feature of [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features), and can be deployed either in the cloud or on-premises. |
 
 > [!NOTE]
-> New customers will no longer be able to purchase the Azure Multi-Factor Authentication as a standalone offering effective September 1st, 2018. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
+> New customers may no longer purchase Azure Multi-Factor Authentication as a standalone offering effective September 1st, 2018. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
 
 ## Feature comparison of versions
 
@@ -76,6 +76,9 @@ Purchase licenses that include Azure Multi-Factor Authentication, like Azure Act
 If you use this option, you should create an Azure Multi-Factor Authentication Provider only if you also need to provide two-step verification for some users that don't have licenses. Otherwise, you might be billed twice.
 
 ### Option 2 - MFA consumption-based model
+
+> [!NOTE]
+> Effective September 1st, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
 
 Create an Azure Multi-Factor Authentication Provider within an Azure subscription. Azure MFA Providers are Azure resources that are billed against your Enterprise Agreement, Azure monetary commitment, or credit card like all other Azure resources. These providers can only be created in full Azure subscriptions, not limited Azure subscriptions that have a $0 spending limit. Limited subscriptions are created when you activate licenses, like in options 1.
 
