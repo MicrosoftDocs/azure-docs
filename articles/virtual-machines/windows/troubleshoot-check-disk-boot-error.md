@@ -26,9 +26,10 @@ This article describes the “Checking file system” error that you may encount
 
 ## Symptom 
 
-A Windows VM doesn't start. When you check the boot screenshots in [Boot diagnostics](./boot-diagnostics.md), you see that the Check Disk process (chkdsk.exe) is running:
- 
+A Windows VM doesn't start. When you check the boot screenshots in [Boot diagnostics](./boot-diagnostics.md), you see that the Check Disk process (chkdsk.exe) is running with one of the following messages:
 
+    - Scanning and repairing drive (C:)
+    - Checking file system on C:
 
 ## Cause
 
