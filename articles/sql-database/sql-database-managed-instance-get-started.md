@@ -86,7 +86,7 @@ The following steps show you how to create your Managed Instance after your prev
 
 11. Click **Deployment in progress** to open the Managed Instance window to further monitor the deployment progress.
  
-   ![deployment progress 2](./media/sql-database-managed-instance-get-started/managed-instance.png)
+   ![deployment progress 2](./media/sql-database-managed-instance-get-started/managed-instance-deploying.png)
 
 While deployment occurs, continue to the next procedure.
 
