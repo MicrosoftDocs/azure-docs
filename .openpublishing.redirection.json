@@ -23543,6 +23543,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-require-mfa.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
             "redirect_url": "/azure/cosmos-db/storage-explorer",
             "redirect_document_id": true
