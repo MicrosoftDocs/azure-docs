@@ -14,11 +14,11 @@ ms.date: 08/31/2018
 
 The Microsoft Azure Terraform Visual Studio Code extension is designed to increase developer productivity while authoring, testing, and using Terraform with Azure. The extension provides Terraform command support, resource graph visualization, and CloudShell integration within Visual Studio Code.
 
-In this article, you learn:
-
-- How Terraform can automate and simplify the provisioning of Azure services.
-- How to install and use the Microsoft Terraform Visual Studio Code extension for Azure services.
-- How to use Visual Studio Code to write, plan, and execute Terraform plans.
+In this article, you learn how to:
+> [!div class="checklist"]
+> * use Terraform to automate and simplify the provisioning of Azure services.
+> * install and use the Microsoft Terraform Visual Studio Code extension for Azure services.
+> * use Visual Studio Code to write, plan, and execute Terraform plans.
 
 ## Prerequisites
 - **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
