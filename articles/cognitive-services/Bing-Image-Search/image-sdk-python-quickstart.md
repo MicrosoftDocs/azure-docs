@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 08/28/2018
 ms.author: aahi
 ---
-# Quickstart: Search for images using the Bing Image Search SDK and Python
+# Quickstart: Search for images with the Bing Image Search SDK and Python
 
 Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple Python application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 
