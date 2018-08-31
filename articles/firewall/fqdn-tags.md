@@ -25,7 +25,9 @@ The following table shows the current FQDN tags you can use. Microsoft maintains
 |---------|---------|
 |Windows Update     |Allow outbound access to Microsoft Update as described in [How to Configure a Firewall for Software Updates](https://technet.microsoft.com/library/bb693717.aspx).|
 |Windows Diagnostics|Allow outbound access to all [Windows Diagnostics endpoints](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
-|App Service Environment (ASE)|Allows outbound access to [ASE platform traffic](https://docs.microsoft.com/azure/app-service/environment/network-info#ase-dependencies). This tag doesn’t cover customer-specific Storage and SQL endpoints created by ASE. These should be enabled via [Service Endpoints](../virtual-network/tutorial-restrict-network-access-to-resources.md) or added manually.|
+|Microsoft Active Protection Service (MAPS)|Allow outbound access to [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
+|App Service Environment (ASE)|Allows outbound access to ASE platform traffic. This tag doesn’t cover customer-specific Storage and SQL endpoints created by ASE. These should be enabled via [Service Endpoints](../virtual-network/tutorial-restrict-network-access-to-resources.md) or added manually.|
+|Azure Backup|Allows outbound access to the Azure Backup services.
 
 
 ## Next steps
