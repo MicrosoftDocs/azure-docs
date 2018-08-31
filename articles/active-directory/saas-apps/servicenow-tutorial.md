@@ -168,19 +168,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	f. In the navigation pane on the left side, click **Identity Providers** Under **Multi-Provider SSO**.
 
-		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configure single sign-on")
+	![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configure single sign-on")
 
 	g. Click on the automatically generated identity provider
 
-		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_08.png "Configure single sign-on")
+	![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_08.png "Configure single sign-on")
 
 	h. Scroll down to the **X.509 Certificate** section. Select **Edit**.
 
-		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_09.png "Configure single sign-on")
+	![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_09.png "Configure single sign-on")
 
 	i. Select on the certificate and click right arrow icon to add the certificate
 
-		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_11.png "Configure single sign-on")
+	![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_11.png "Configure single sign-on")
 
 	j. Click **Save**.
 
