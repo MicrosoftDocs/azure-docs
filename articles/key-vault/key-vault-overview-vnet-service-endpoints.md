@@ -7,6 +7,9 @@ author: amitbapat
 ms.author: ambapat
 manager: mbaldwin
 ms.date: 08/31/2018
+ms.service: key-vault
+ms.workload: identity
+ms.topic: article
 ---
 # Virtual Network Service Endpoints for Azure Key Vault
 
@@ -19,18 +22,18 @@ You can configure [Key Vault firewalls and virtual networks](key-vault-network-s
 > [!NOTE]
 > Key Vault firewalls and virtual network rules ONLY apply to key vault [data plane](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control). Key Vault control plane operations (such as key vault create, delete, modify operations, setting access policies, setting firewalls and virtual network rules) are not affected by firewalls and virtual network rules.
 
-For example, 
+For example,
 * If you are using Key Vault to store encryption keys, application secrets, certificates, and want to block access to your key vault from public internet.
 * You want to lock down access to your key vault so that only your application or a short list of designated hosts can connect to your key vault
 * You have an application running in your Azure virtual network (VNET) and this VNET is locked down for all inbound and outbound traffic. Your application still needs to connect to key vault to either fetch secrets or certificates or use cryptographic keys.
 
-## Configuring Key Vault firewalls and virtual networks
+## Configure Key Vault firewalls and virtual networks
 
 Here are the steps required to configure firewalls and virtual networks. These steps remain same irrespective of what interface (PowerShell, CLI, Azure portal) you will use to set up the firewall and virtual network rules.
-* Optional but highly recommended: Enable [key vault logging](key-vault-logging.md) to see detailed access logs. This will help you in diagnostics when firewalls and virtual network rules prevent access to a key vault.
-* Enable 'service endpoints for key vault' for target virtual network(s) and subnet(s)
-* Set firewalls and virtual network rules for a key vault to restrict access to that key vault from specific virtual network(s), subnet(s), and IPv4 address ranges.
-* If this key vault needs to be accessible by any trusted Microsoft services, you need to enable the option to allow 'Trusted Azure Services' to connect to key vault.
+1. Optional but highly recommended: Enable [key vault logging](key-vault-logging.md) to see detailed access logs. This will help you in diagnostics when firewalls and virtual network rules prevent access to a key vault.
+2. Enable 'service endpoints for key vault' for target virtual network(s) and subnet(s)
+3. Set firewalls and virtual network rules for a key vault to restrict access to that key vault from specific virtual network(s), subnet(s), and IPv4 address ranges.
+4. If this key vault needs to be accessible by any trusted Microsoft services, you need to enable the option to allow 'Trusted Azure Services' to connect to key vault.
 
 Refer to [Configure Azure Key Vault Firewalls and Virtual Networks](key-vault-network-security.md) for detailed step-by-step instructions.
 
@@ -65,3 +68,7 @@ Here is a list of trusted services that are allowed to access a key vault if 'Al
 > [!NOTE]
 > The relevant key vault access policies must be set to allow the corresponding services to get access to key vault.
 
+## Next steps
+
+* [Secure your key vault](key-vault-secure-your-key-vault.md)
+* [Configure Azure Key Vault Firewalls and Virtual Networks](key-vault-network-security.md)
