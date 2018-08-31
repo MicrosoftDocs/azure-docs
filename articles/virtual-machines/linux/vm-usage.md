@@ -119,7 +119,7 @@ Both Basic and Standard A-Series VMs are offered. If you deploy a Basic VM, in t
 ### What are ExtraSmall, Small, Medium, Large, and ExtraLarge sizes?
 ExtraSmall - ExtraLarge are the legacy names for Standard\_A0 – Standard\_A4. In classic VM usage records, you might see this convention used if you have deployed these sizes.
 ### What is the difference between Meter Region and Resource Location?
-The Meter Region is associated with the meter. For some Azure services who use one price for all regions, the Meter Region field could be blank. However, since VMs have dedicated prices per region for Virtual Machines, this field is populated. Similarly, the Resource Location for Virtual Machines is the location where the VM is deployed. The Azure region in both fields are the same, although they might have a different string convention for the region name.
+The Meter Region is associated with the meter. For some Azure services who use one price for all regions, the Meter Region field could be blank. However, since VMs have dedicated prices per region for Virtual Machines, this field is populated. Similarly, the Resource Location for Virtual Machines is the location where the VM is deployed. The Azure regions in both fields are the same, although they might have a different string convention for the region name.
 ### Why is the ImageType value blank in the Additional Info field?
 The ImageType field is only populated for a subset of images. If you did not deploy one of the images above, the ImageType is blank.
 ### Why is the VMName blank in the Additional Info?
