@@ -1,6 +1,6 @@
 ---
-title: Azure Services that support Managed Service Identity
-description: List of services that support Managed Service Identity and Azure AD authentication
+title: Azure Services that support managed identities for Azure resources
+description: List of services that support managed identities for Azure resources and Azure AD authentication
 services: active-directory
 author: daveba
 ms.author: daveba
@@ -11,15 +11,15 @@ ms.component: msi
 manager: mtillman
 ---
 
-# Services that support Managed Service Identity 
+# Services that support managed identities for Azure resources
 
-Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. Using a managed identity, you can authenticate to any service that supports Azure AD authentication without having credentials in your code. We are in the process of integrating Managed Service Identity and Azure AD authentication across Azure. Check back often for updates.
+Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. Using a managed identity, you can authenticate to any service that supports Azure AD authentication without having credentials in your code. We are in the process of integrating managed identities for Azure resources and Azure AD authentication across Azure. Check back often for updates.
 
-## Azure services that support Managed Service Identity
+## Azure services that support managed identities for Azure resources
 
-The following Azure services support Managed Service Identity.
+The following Azure services support managed identities for Azure resources:
 
-| Service | System assigned status | User assigned status| Configure | Get a token |
+| Service | System-assigned status | user-assigned status| Configure | Get a token |
 | ------- | ------ | ---- | --------- | ----------- |
 | Azure Virtual Machines | Preview | Preview | [Azure portal](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Azure CLI](qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager templates](qs-configure-template-windows-vm.md)<br>[REST](qs-configure-rest-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
 | Virtual Machine Scale Sets | Preview | Preview | [Azure Portal](qs-configure-portal-windows-vmss.md)<br>[PowerShell](qs-configure-powershell-windows-vmss.md)<br>[Azure CLI](qs-configure-cli-windows-vmss.md)<br>[Azure Resource Manager templates](qs-configure-template-windows-vmss.md)<br>[REST](qs-configure-rest-vmss.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell)
@@ -31,7 +31,7 @@ The following Azure services support Managed Service Identity.
 
 ## Azure services that support Azure AD authentication
 
-The following services support Azure AD authentication, and have been tested with client services that use Managed Service Identity.
+The following services support Azure AD authentication, and have been tested with client services that use managed identities for Azure resources.
 
 | Service | Resource ID | Status | Date | Assign access |
 | ------- | ----------- | ------ | ---- | ------------- |
