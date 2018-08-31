@@ -15,8 +15,8 @@ ms.author: sajagtap
 
 You get started with Content Moderator in the following ways:
 
-- [Start with the review tool](#start-with-the-review-tool) to create both the API keys and a review team. Explore the content moderation capabilities and the review tool without writing any code.
-- [Subscribe to Content Moderator](#start-with-the-apis) in the Azure portal. Check out the [API reference](api-reference) and the [SDKs](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). You still need to sign up online to create a review team.
+- [Start with the review tool](#start-with-the-review-tool) to get the API key and create a review team. The benefit is that you can use the API key to call the moderation APIs for scanning content and the review APIs for generating reviews, without additional steps.
+- [Subscribe to Content Moderator](#start-with-the-apis) in Azure to get the API key. Check out the [API reference](api-reference) and the [SDKs](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). You still need to sign up online to create a review team.
 - [Use the Flow connector and templates](https://flow.microsoft.com/connectors/shared_cognitiveservicescontentmoderator/content-moderator/) to check out a wide range of integrations with an easy-to-use designer.
 
 Regardless of the option you choose, see the [Managing credentials](review-tool-user-guide/credentials.md) article to find your API credentials.
