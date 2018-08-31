@@ -129,7 +129,7 @@ Parameters are case-sensitive.
                             "celebrities": [
                                 {
                                     "name": "Satya Nadella",
-                                    "faceRectangle": {
+                                    "faceBoundingBox": {
                                         "left": 597,
                                         "top": 162,
                                         "width": 248,
@@ -196,7 +196,7 @@ Parameters are case-sensitive.
                     {
                         "age": 44,
                         "gender": "Male",
-                    "faceRectangle": {
+                    "faceBoundingBox": {
                             "left": 593,
                             "top": 160,
                             "width": 250,

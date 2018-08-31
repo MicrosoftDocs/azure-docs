@@ -57,4 +57,4 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
 This article showed you how to create a basic map with your Azure Maps key. For more code examples to add to your maps, see the following articles: 
 
 * [Create a map](map-create.md)
-* [Add a pin](map-add-pin.md)
+* [Choose a map style](choose-map-style.md)
