@@ -29,6 +29,3 @@ Use the rich set of `az ml` commands to interact the service in any command-line
 
 Look up commands in [the CLI reference documentation]().
 
-## Next steps
-
-[Install the CLI and get started](quickstart-get-started-with-cli.md).
