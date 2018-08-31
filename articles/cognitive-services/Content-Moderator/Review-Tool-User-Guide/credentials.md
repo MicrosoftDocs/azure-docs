@@ -63,11 +63,11 @@ Also note your region identifier for your API endpoint. For example, **westus** 
 
 ### Resource ID
 
-We covered this section in the [How to use your Azure acsount with the review tool and API](credentials.md#how-to-use-your-azure-account-with-the-review-tool) section. This field is usually blank unless you add your Azure Resource Id to this field as explained in the previous section.
+We covered this section in the [How to use your Azure account with the review tool and API](credentials.md#how-to-use-your-azure-account-with-the-review-tool) section. This field is usually blank unless you add your Azure Resource Id to this field as explained in the previous section.
 
 ### Workflows
 
-We covered this set of fields in the previous section on using your Azure key to run the workflows. By default, the review tool uses its auto-generated trial key for running the workflows. The other two fields allow using term and image lists in the Screen Text and Evaluate Image operations respectively.
+We covered this set of fields in the previous section on [Using your Azure key to run the workflows](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). By default, the review tool uses its auto-generated trial key for running the workflows, and that's what shows up to begin with. The other two fields allow using term and image lists in the Screen Text and Evaluate Image operations respectively.
 
 ## Next steps
 
