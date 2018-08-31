@@ -90,7 +90,7 @@ To specify a different maximum number of pods per node when you deploy an AKS cl
 
 ### Configure maximum - existing clusters
 
-You can't change the maximum pods per node on an existing AKS cluster. You can adjust the number only when you intially deploy the cluster.
+You can't change the maximum pods per node on an existing AKS cluster. You can adjust the number only when you initially deploy the cluster.
 
 ## Deployment parameters
 
