@@ -42,6 +42,9 @@ Azure Monitor tracks different operations that occur in IoT Hub. Each category h
 
 The connections category tracks device connect and disconnect events from an IoT hub as well as errors. Tracking this category is useful for identifying unauthorized connection attempts and for tracking when a connection is lost for devices in areas of poor connectivity.
 
+> [!NOTE]
+> For reliable connection status of devices check [Device heartbeat][lnk-devguide-heartbeat].
+
 ```json
 {
     "time": "UTC timestamp",
@@ -330,3 +333,4 @@ To learn more about how to interpret health data, see [Azure resource health ove
 [lnk-AM-schemas]: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md
 [lnk-ARH-checks]: ../service-health/resource-health-checks-resource-types.md
 [lnk-monitoring-notifications]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+[lnk-devguide-heartbeat]: iot-hub-devguide-identity-registry.md#device-heartbeat

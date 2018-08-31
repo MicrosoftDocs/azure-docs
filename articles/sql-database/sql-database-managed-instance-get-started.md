@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 08/13/2018
+ms.date: 08/30/2018
 ms.author: jovanpop-msft
 
 ---
@@ -55,7 +55,7 @@ The following steps show you how to create your Managed Instance after your prev
 2. Locate **Managed Instance** and then select **Azure SQL Database Managed Instance (preview)**.
 3. Click **Create**.
 
-   ![Create managed instance](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![Create managed instance](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
 4. Select your subscription and verify that the preview terms show **Accepted**.
 
@@ -72,21 +72,21 @@ The following steps show you how to create your Managed Instance after your prev
    |**Location**|The location that you previously selected|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
    |**Virtual network**|The virtual network that you created earlier| Choose **MyNewVNet/ManagedInstances** item if you have not changed the names in the previous step. Otherwise, choose the VNet name and managed instance subnet that you have entered in the previous section. **Do not use default subnet because it is not configured to host Managed Instances**. |
 
-   ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
+   ![managed instance create form](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
 6. Click **Pricing tier** to size compute and storage resources as well as review the pricing tier options. By default, your instance gets 32 GB of storage space free of charge, **which may not be sufficient for your applications**.
 7. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. 
-   ![managed instance pricing tier](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+   ![managed instance pricing tier](./media/sql-database-managed-instance-get-started/managed-instance-pricing-tier.png)
 
 8. When complete, click **Apply** to save your selection.  
 9. Click **Create** to deploy the Managed Instance.
 10. Click the **Notifications** icon to view the status of deployment.
  
-   ![deployment progress](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
+   ![deployment progress](./media/sql-database-managed-instance-get-started/deployment-progress.png)
 
 11. Click **Deployment in progress** to open the Managed Instance window to further monitor the deployment progress.
  
-   ![deployment progress 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
+   ![deployment progress 2](./media/sql-database-managed-instance-get-started/managed-instance-deploying.png)
 
 While deployment occurs, continue to the next procedure.
 

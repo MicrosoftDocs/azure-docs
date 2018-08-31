@@ -26,6 +26,21 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory-certificate-based-authentication-get-started.md",
+            "redirect_url": "/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-certificate-based-authentication-android.md",
+            "redirect_url": "/azure/active-directory/authentication/active-directory-certificate-based-authentication-android",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-certificate-based-authentication-ios.md",
+            "redirect_url": "/azure/active-directory/authentication/active-directory-certificate-based-authentication-ios",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-service-limits-restrictions.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/directory-service-limits-restrictions",
             "redirect_document_id": true
@@ -23543,6 +23558,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-require-mfa.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
             "redirect_url": "/azure/cosmos-db/storage-explorer",
             "redirect_document_id": true
@@ -25924,7 +25944,12 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-test.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-test",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-create-simulated-device",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-test.md",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-create-simulated-device",
             "redirect_document_id": false
         },
         {
@@ -27405,6 +27430,11 @@
             "source_path": "articles/cognitive-services/LUIS/luis-reference-gdpr.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-user-privacy",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vsts.md",
+            "redirect_url": "/azure/azure-government/documentation-government-get-started-connect-with-vs",
+            "redirect_document_id" : true
         }
     ]
 }
