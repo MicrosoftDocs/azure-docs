@@ -166,4 +166,4 @@ To enable Visual Studio to connect to global Azure, you need to remove the regis
 
 ## Next steps
 
-[Develop with Visual Studio Team Services](documentation-government-get-started-connect-with-vsts.md)
+[Develop with SQL Server Management Studio](documentation-government-connect-ssms.md)

@@ -295,6 +295,8 @@ If an availability group participates in a distributed availability group, the l
 
 Repeat these steps for the load balancer on the other availability groups that participate in the distributed availability groups.
 
+If you are restricting access with an Azure Network Security Group, ensure that the allow rules include the backend SQL Server VM IP addresses, and the load balancer floating IP addresses for the AG listener and the cluster core IP address, if applicable.
+
 ## Next steps
 
 - [Configure a SQL Server Always On availability group on Azure virtual machines in different regions](virtual-machines-windows-portal-sql-availability-group-dr.md)
