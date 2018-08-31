@@ -168,4 +168,4 @@ When you configured your CI/CD process in this tutorial, a build and release def
 To learn more about the Azure DevOps pipeline see this tutorial:
 
 > [!div class="nextstepaction"]
-> [Customize CD process](https://docs.microsoft.com/vsts/pipelines/release/define-multistage-release-process?view=vsts)
+> [Customize CD process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
