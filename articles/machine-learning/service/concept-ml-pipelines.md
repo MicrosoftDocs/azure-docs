@@ -12,11 +12,15 @@ ms.date: 09/24/2018
 
 # ML pipelines with Azure Machine Learning
 
-Machine learning (ML) pipelines are great for building and managing ML workflows. A typical ML workflow has multiple tasks covering data preparation, model training and validation, deployment, and finally model evaluation.  
+Machine learning (ML) pipelines are used by data scientists to build and manage ML workflows. A typical ML pipeline has multiple steps covering data preparation, model training and validation, deployment, and finally model evaluation.  
 
-ML Pipeline is a dataflow graph for the machine learning models workflow. Individual nodes in the pipeline can use different compute targets that can best handle the job. For example, the data preparation node can use CPU, training can use GPU, and deployment could be with FPGAs. Nodes can also use the best toolkit, programming language or framework for the task. 
+When you visualize this pipeline, you might start with a set of data sources, apply compute steps on the source data, and produce intermediate data. It is referred to as intermediate since it becomes input for the next step. This happens from one step to the next, and so on, throughout the pipeline.  Once the flow is designed, you might optimize a training script by testing and validating it. Often, the pipeline starts with several data preparation steps and ends with some deployment steps and the training is in-between them. 
 
-(Add a graphic. It should include a pipeline layer over the  pillars (data prep, experimentation/training pillar, and the deployment/model management.)
+Using these distinct steps makes it possible to rerun only those you need when tweaking or testing. When you rerun a pipeline, Azure recognizes the steps that didn't change and skips those to save time and resources. Instead, the execution jumps directly to the steps that require re-execution, for example, your training script you updated. The training and tuning steps are referred to as the “inner loop” of the model building process. Azure will automatically orchestrate between the various compute targets you use so that your intermediate data can be shared with the downstream compute target. 
+ 
+The same paradigm applies to module reuse as well. If the script and the associated metadata remain the same, the files associated with a given step are not reloaded. 
+
+With Azure Machine Learning, your ML pipelines can benefit from platform and toolkit agnostic options for  end-to-end machine learning scenarios. Each step in the pipeline can use the best toolkit, programming language, or framework for the task. 
 
 ![png](./media/concept-ml-pipelines/pipelines.png)
 
@@ -28,7 +32,7 @@ With Azure Machine Learning, your ML pipelines can benefit from platform and too
 
 The key advantages to building pipelines for your machine learning workflows is:
 
-|Advantage|Description|
+|Key advantage|Description|
 |:-------:|-----------|
 |**Unattended&nbsp;execution**|Schedule a few scripts to run in parallel or in sequence in a reliable and unattended manner. Since data prep and modeling can last days or weeks, you can now focus on other tasks while your pipeline is running. |
 |**Agility**|Use Python methods to build and run your pipelines, even automatically retrying after errors.|
