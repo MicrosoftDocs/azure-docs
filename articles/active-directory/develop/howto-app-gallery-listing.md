@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/30/2018
+ms.date: 08/31/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
@@ -43,12 +43,11 @@ Azure Active Directory (Azure AD) is a cloud-based identity service. The [Azure 
 
 ## Prerequisites
 
+- For Federated applications (Open ID and SAML/WS-Fed), the application must support the SaaS model for getting listed in Azure AD gallery. The enterprise gallery applications should support multiple customer configurations and not any specific customer.
+
 - For Open ID Connect, the application should be multi-tenanted  and [Azure AD consent framework](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) should be properly implemented for the application. The user can send the login request to a common endpoint so that any customer can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token.
 
 - For SAML 2.0/WS-Fed, your application needs to have the capability to do the SAML/WS-Fed SSO integration in SP or IDP mode. Please ensure this is working correctly before submitting the request.
-
->[!Note] 
->For Federated applications (Open ID and SAML/WS-Fed), the application must support the SaaS model for getting listed in Azure AD gallery. The enterprise gallery applications should support multiple customer configurations and not any specific customer.
 
 - For Password SSO, please ensure that your application supports form authentication so that password vaulting can be done to get single sign-on work as expected.
 
