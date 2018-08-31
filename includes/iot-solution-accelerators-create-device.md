@@ -196,7 +196,7 @@ In this section, you add a new **Internal Temperature** telemetry type to the ex
 
 1. Save the **C:\temp\devicemodels\scripts\chiller-01-state.js** file.
 
-## Create the light bulb
+## Create the lightbulb
 
 In this section, you define a new **Lightbulb** device type:
 
