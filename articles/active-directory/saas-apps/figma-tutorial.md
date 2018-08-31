@@ -37,11 +37,8 @@ To configure Azure AD integration with Figma, you need the following items:
 - A Figma [single sign-on enabled subscription](https://www.figma.com/pricing/)
 
 > [!NOTE]
-> New customers and active subscribers of Figma Professional Team
+> To test the steps in this tutorial, we do not recommend using a production environment. New customers and active subscribers of Figma Professional Team
 may contact Figma to [upgrade their subscription](https://www.figma.com/pricing/) to the Figma Organization Tier.
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
 
 To test the steps in this tutorial, you should follow these recommendations:
 
@@ -84,7 +81,7 @@ In this section, you configure and test Azure AD single sign-on with Figma based
 
 For single sign-on to work, Azure AD needs to be linked to Figma.  To configure and test Azure AD single sign-on with Figma, complete the following steps:
 
-1. [Contact support@figma.com](mailto:support@figma.com?subject=SAML+Config) to initiate a SAML configuration for your organization and get an ORG_SAML_CONFIG_ID.
+1. [**Contact Figma support team**](mailto:support@figma.com?subject=SAML+Config) to initiate a SAML configuration for your organization and get an ORG_SAML_CONFIG_ID.
 2. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Create a Figma test user](#create-a-figma-test-user)** - to have a counterpart of Britta Simon in Figma that is linked to the Azure AD representation of user.
@@ -120,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/start`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Figma Client support team](mailto:support@figma.com?subject=SAML+Config) to get these values.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Figma support team](mailto:support@figma.com?subject=SAML+Config) to get these values.
 
 5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
 
