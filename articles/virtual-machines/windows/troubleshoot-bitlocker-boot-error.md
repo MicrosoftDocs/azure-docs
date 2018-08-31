@@ -1,5 +1,4 @@
 ﻿---
-
 title: Troubleshooting BitLocker boot errors on an Azure VM
 | Microsoft Docs
 description: Learn how to troubleshoot BitLocker boot errors in an Azure VM
@@ -14,9 +13,8 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/13/2018
+ms.date: 08/31/2018
 ms.author: genli
-
 ---
 
 # BitLocker boot errors on an Azure VM
@@ -67,15 +65,14 @@ If this method does not the resolve the problem, follow these steps to restore t
     Add-AzureRmVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
 
     Update-AzureRMVM -VM $vm -ResourceGroupName $recoveryVMRG
-     ```
+    ```
      You cannot attach a managed disk to a VM that was restored from a blob image.
 
 3. After the disk is attached, make a remote desktop connection to the recovery VM so that you can run some Azure PowerShell scripts. Make sure that you have the [latest version of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) installed on the recovery VM.
 
 4. Open an elevated Azure PowerShell session (Run as administrator). Run the following commands to sign in to Azure subscription:
 
-
-    ```powershell
+    ```Powershell
     Add-AzureRMAccount -SubscriptionID [SubscriptionID]
     ```
 
@@ -108,9 +105,9 @@ If this method does not the resolve the problem, follow these steps to restore t
 
     Now that you have the name of the BEK file for the drive, you have to create the secret-file-name.BEK file to unlock the drive. 
 
-5.	Download the BEK file to the recovery disk. The following sample saves the BEK file to the C:\BEK folder. Make sure that the `C:\BEK\` path exists before you run the scripts.
+6.	Download the BEK file to the recovery disk. The following sample saves the BEK file to the C:\BEK folder. Make sure that the `C:\BEK\` path exists before you run the scripts.
 
-```powershell
+    ```powershell
     $vault = "myKeyVault"
     $bek = " EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK"
     $keyVaultSecret = Get-AzureKeyVaultSecret -VaultName $vault -Name $bek
@@ -118,9 +115,9 @@ If this method does not the resolve the problem, follow these steps to restore t
     $bekFileBytes = [Convert]::FromBase64String($bekSecretbase64)
     $path = "C:\BEK\DiskEncryptionKeyFileName.BEK"
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
-```
+    ```
 
-6.	To unlock the attached disk by using the BEK file, run the following script:
+7.	To unlock the attached disk by using the BEK file, run the following script:
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
@@ -134,7 +131,7 @@ If this method does not the resolve the problem, follow these steps to restore t
           
     - If you are going to rebuild the VM by using the dytem disk, you must fully decrypt the drive. To do this, use `manage-bde -off F:`.
 
-7.	Detach the disk from the recovery VM, and then re-attach the disk to the affected VM as a system disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks.md).
+8.	Detach the disk from the recovery VM, and then re-attach the disk to the affected VM as a system disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks.md).
 
 ### Key Encryption Key scenario
 
@@ -237,7 +234,6 @@ For a Key Encryption Key scenario, follow these steps:
 
     When the script finishes, you see the following output:
 
-
         VERBOSE: POST https://myvault.vault.azure.net/keys/rondomkey/<KEY-ID>/unwrapkey?api-
         version=2015-06-01 with -1-byte payload
         VERBOSE: received 360-byte response of content type application/json; charset=utf-8
@@ -248,8 +244,7 @@ For a Key Encryption Key scenario, follow these steps:
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
-
-    Together with the **-unlock** or **-disable** switch, the drive letter refers to the encrypted drive. Therefore, make sure that you use the correct drive letter. 
+    Make sure that you use the correct drive letter. 
 
     - If the disk was successfully unlocked by using the BEK key. we can consider the BItLocker problem to be resolved. 
 
