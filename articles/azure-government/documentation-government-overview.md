@@ -19,9 +19,9 @@ ms.author: ryansoc
 ---
 # Azure Government Documentation Overview
 ## Introduction to Azure Government Documentation
-This site describes the capabilities of [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) services, and provides general guidance applicable to all customers. Before including specifically regulated data in your Azure Government subscription, you should familiarize yourself with the Azure Government capabilities and consult your account team if you have any questions.
+This site describes the capabilities of [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) services, and provides general guidance applicable to all customers. Before including regulated data in your Azure Government subscription, you should familiarize yourself with the Azure Government capabilities and consult your account team if you have any questions.
 
-You should refer to the [Microsoft Azure Trust Center Compliance Page](http://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx) for current information on the Azure Government services covered under specific accreditations and regulations. Additional Microsoft services might also be available, but are not within the scope of the Azure Government covered services and are not addressed by this document. Azure Government services might also permit you to use a variety of additional resources, applications, or services that are provided by third parties—or by Microsoft under separate terms of use and privacy policies—which are not included in the scope of this document. You are responsible for reviewing the terms of all such “add-on” offerings, such as Marketplace offerings, to ensure that they meet your needs regarding compliance.
+Refer to the [Microsoft Azure Trust Center Compliance Page](http://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx) for current information on the Azure Government services covered under specific accreditations and regulations. Additional Microsoft services might also be available, but are not within the scope of the Azure Government covered services and are not addressed by this document. Azure Government services might also permit you to use a variety of additional resources, applications, or services that are provided by third parties—or by Microsoft under separate terms of use and privacy policies—which are not included in the scope of this document. You are responsible for reviewing the terms of all such “add-on” offerings, such as Marketplace offerings, to ensure that they meet your needs regarding compliance.
 
 Azure Government is available to entities that handle data that is subject to certain government regulations and requirements (such as NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 and CJIS) where use of Azure Government is required to comply with regulations. Azure Government customers are subject to validation of eligibility.
 
@@ -63,9 +63,9 @@ The basic encryption available for connectivity to Azure Government supports Tra
 
 ### <a name="Overview"></a>Best practices for Encryption
 * IaaS VMs: Use Azure Disk Encryption. Turn on Storage Service Encryption to encrypt the VHD files that are used to back up those disks in Azure Storage, but this only encrypts newly written data. This means that, if you create a VM and then enable Storage Service Encryption on the storage account that holds the VHD file, only the changes will be encrypted, not the original VHD file.
-* Client-Side Encryption: This is the most secure method for encrypting your data, because it encrypts it before transit, and encrypts the data at rest. However, it does require that you add code to your applications using storage, which you might not want to do. In those cases, you can use HTTPs for your data in transit, and Storage Service Encryption to encrypt the data at rest. Client-Side Encryption also involves more load on the client—you have to account for this in your scalability plans, especially if you are encrypting and transferring a lot of data.
+* Client-Side Encryption: This is the most secure method for encrypting your data, because it encrypts it before transit, and encrypts the data at rest. However, it does require that you add code to your applications using storage, which you might not want to do. In those cases, you can use HTTPs for your data in transit, and Storage Service Encryption to encrypt the data at rest. Client-Side Encryption also involves more load on the client—you have to account for this in your scalability plans, especially if you are encrypting and transferring large amounts of data.
 
-For more information on the encryption options in Azure see the [Storage Security Guide](https://docs.microsoft.com/azure/storage/storage-security-guide).
+For more information on the encryption options in Azure, see the [Storage Security Guide](https://docs.microsoft.com/azure/storage/storage-security-guide).
 
 ## Protecting Customer Data by Managing Secrets
 Secure key management is essential for protecting data in the cloud. Customers should strive to simplify key management and maintain control of keys used by cloud applications and services to encrypt data.
@@ -75,7 +75,7 @@ Secure key management is essential for protecting data in the cloud. Customers s
 * Application code and templates should only contain URI references to the secrets (which means the actual secrets are not in code, configuration or source code repositories). This prevents key phishing attacks on internal or external repos, such as harvest-bots in GitHub.
 * Utilize strong RBAC controls within Key Vault. If a trusted operator leaves the company or transfers to a new group within the company, they should be prevented from being able to access the secrets.  
 
-For additional information please see [Azure Key Vault](/azure/key-vault/key-vault-get-started)
+For additional information, see [Azure Key Vault](/azure/key-vault/key-vault-get-started)
 
 ## Isolation to Restrict Data Access
 Isolation is all about using boundaries, segmentation, and containers to limit data access to only authorized users, services, and applications. For example, the separation between tenants is an essential security mechanism for multitenant cloud platforms such as Microsoft Azure. Logical isolation helps prevent one tenant from interfering with the operations of any other tenant.
@@ -88,8 +88,8 @@ Azure implements network access control and segregation through VLAN isolation, 
 
 Customers can further isolate their resources across subscriptions, resource groups, virtual networks, and subnets.
 
-For more information on isolation in Microsoft Azure see the [Isolation section of the Azure Security Guide](/azure/security/azure-security-getting-started/).
+For more information on isolation in Microsoft Azure, see the [Isolation section of the Azure Security Guide](/azure/security/azure-security-getting-started/).
 
-For supplemental information and updates please subscribe to the
+For supplemental information and updates, please subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
 
