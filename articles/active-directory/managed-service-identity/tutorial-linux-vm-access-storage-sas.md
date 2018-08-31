@@ -1,6 +1,6 @@
 ---
-title: Use a Linux VM Managed Service Identity to access Azure Storage using a SAS credential
-description: A tutorial that shows you how to use a Linux VM Managed Service Identity to access Azure Storage, using a SAS credential instead of a storage account access key.
+title: Use a Linux VM system-assigned managed identity to access Azure Storage using a SAS credential
+description: A tutorial that shows you how to use a Linux VM system-assigned managed identity to access Azure Storage, using a SAS credential instead of a storage account access key.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -18,11 +18,11 @@ ms.author: daveba
 ---
 
 
-# Tutorial: Use a Linux VM Managed Service Identity to access Azure Storage via a SAS credential
+# Tutorial: Use a Linux VM system-assigned identity to access Azure Storage via a SAS credential
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to to use a system assigned identity for a Linux virtual machine (VM) to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+This tutorial shows you how to to use a system-assigned managed identity for a Linux virtual machine (VM) to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 A Service SAS provides the ability to grant limited access to objects in a storage account, for a limited time and a specific service (in our case, the blob service), without exposing an account access key. You can use a SAS credential as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we demonstrate uploading and downloading a blob using Azure Storage CLI. You will learn how to:
 
@@ -43,11 +43,11 @@ A Service SAS provides the ability to grant limited access to objects in a stora
 
 - [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
 
-- [Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Create a storage account 
 
-If you don't already have one, you will now create a storage account.  You can also skip this step and grant your VM Managed Service Identity access to the keys of an existing storage account. 
+If you don't already have one, you will now create a storage account.  You can also skip this step and grant your VM system-assigned managed identity access to the keys of an existing storage account. 
 
 1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
 2. Click **Storage**, then **Storage Account**, and a new "Create storage account" panel will display.
@@ -69,9 +69,9 @@ Later we will upload and download a file to the new storage account. Because fil
 
     ![Create storage container](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## Grant your VM's Managed Service Identity access to use a storage SAS 
+## Grant your VM's system-assigned managed identity access to use a storage SAS 
 
-Azure Storage does not natively support Azure AD authentication.  However, you can use an Managed Service Identity to retrieve a storage SAS from the Resource Manager, then use the SAS to access storage.  In this step, you grant your VM Managed Service Identity access to your storage account SAS.   
+Azure Storage does not natively support Azure AD authentication.  However, you can use your VM's system-assigned managed identity to retrieve a storage SAS from the Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS.   
 
 1. Navigate back to your newly created storage account..   
 2. Click the **Access control (IAM)** link in the left panel.  
@@ -229,7 +229,7 @@ Response:
 
 ## Next steps
 
-In this tutorial, you learned how to use a Managed Service Identity on a Linux virtual machine to access Azure Storage using a SAS credential.  To learn more about Azure Storage SAS see:
+In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure Storage using a SAS credential.  To learn more about Azure Storage SAS see:
 
 > [!div class="nextstepaction"]
 >[Using shared access signatures (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)

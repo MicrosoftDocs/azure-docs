@@ -1,6 +1,6 @@
 ---
-title: Use a Windows VM Managed Service Identity to access Azure Storage
-description: A tutorial that walks you through the process of using a Windows VM Managed Service Identity to access Azure Storage.
+title: Use a Windows VM system-assigned managed identity to access Azure Storage
+description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Storage.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -17,11 +17,11 @@ ms.date: 11/20/2017
 ms.author: daveba
 ---
 
-# Tutorial: Use a Windows VM Managed Service Identity to access Azure Storage via access key
+# Tutorial: Use a Windows VM system-assigned managed identity to access Azure Storage via access key
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to use a system assigned identity for Windows virtual machine (VM) to retrieve storage account access keys. You can use storage access keys as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we upload and download blobs using Azure Storage PowerShell. You will learn how to:
+This tutorial shows you how to use a system-assigned managed identity for Windows virtual machine (VM) to retrieve storage account access keys. You can use storage access keys as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we upload and download blobs using Azure Storage PowerShell. You will learn how to:
 
 
 > [!div class="checklist"]
@@ -39,11 +39,11 @@ This tutorial shows you how to use a system assigned identity for Windows virtua
 
 - [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
 
-- [Enable system assigned identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Create a storage account 
 
-If you don't already have one, you will now create a storage account. You can also skip this step and grant your VM Managed Service Identity access to the keys of an existing storage account. 
+If you don't already have one, you will now create a storage account. You can also skip this step and grant your VM's system-assigned managed identity access to the keys of an existing storage account. 
 
 1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
 2. Click **Storage**, then **Storage Account**, and a new "Create storage account" panel will display.
@@ -65,9 +65,9 @@ Later we will upload and download a file to the new storage account. Because fil
 
     ![Create storage container](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## Grant your VM's Managed Service Identity access to use storage account access keys 
+## Grant your VM's system-assigned managed identity access to use storage account access keys 
 
-Azure Storage does not natively support Azure AD authentication.  However, you can use an Managed Service Identity to retrieve storage account access keys from the Resource Manager, then use a key to access storage.  In this step, you grant your VM Managed Service Identity access to the keys to your storage account.   
+Azure Storage does not natively support Azure AD authentication.  However, you can use your VM's system-assigned managed identity to retrieve storage account access keys from the Resource Manager, then use a key to access storage.  In this step, you grant your VM's system-assigned managed identity access to the keys to your storage account.   
 
 1. Navigate back to your newly created storage account.  
 2. Click the **Access control (IAM)** link in the left panel.  
@@ -79,7 +79,7 @@ Azure Storage does not natively support Azure AD authentication.  However, you c
 
     ![Alt image text](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
-## Get an access token using the VM's identity and use it to call Azure Resource Manager 
+## Get an access token using the VM's system-assigned managed identity to call Azure Resource Manager 
 
 For the remainder of the tutorial, we will work from the VM we created earlier. 
 
@@ -88,7 +88,7 @@ You will need to use the Azure Resource Manager PowerShell cmdlets in this porti
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Windows virtual machine, then from the **Overview** page click **Connect** at the top. 
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
 3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open PowerShell in the remote session.
-4. Using Powershell’s Invoke-WebRequest, make a request to the local Managed Service Identity endpoint to get an access token for Azure Resource Manager.
+4. Using Powershell’s Invoke-WebRequest, make a request to the local managed identity for Azure resources endpoint to get an access token for Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
@@ -172,7 +172,7 @@ Name              : testblob
 
 ## Next steps
 
-In this tutorial, you learned how to create a Managed Service Identity to access Azure Storage using an access key.  To learn more about Azure Storage access keys see:
+In this tutorial, you learned how to create a system-assigned managed identity to access Azure Storage using an access key.  To learn more about Azure Storage access keys see:
 
 > [!div class="nextstepaction"]
 >[Manage your storage access keys](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
