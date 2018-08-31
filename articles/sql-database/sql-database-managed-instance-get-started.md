@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 08/30/2018
+ms.date: 08/31/2018
 ms.author: jovanpop-msft
 
 ---
@@ -82,8 +82,6 @@ The following steps show you how to create your Managed Instance after your prev
 9. Click **Create** to deploy the Managed Instance.
 10. Click the **Notifications** icon to view the status of deployment.
 11. Click **Deployment in progress** to open the Managed Instance window to further monitor the deployment progress.
- 
-   ![deployment progress 2](./media/sql-database-managed-instance-get-started/managed-instance-deploying.png)
 
 While deployment occurs, continue to the next procedure.
 
