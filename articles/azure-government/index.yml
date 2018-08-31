@@ -67,10 +67,6 @@ sections:
       text: Visual Studio
       href: documentation-government-get-started-connect-with-vs.md
     - image:
-        src: media/index/logo_vsts.svg
-      text: VSTS
-      href: documentation-government-get-started-connect-with-vsts.md
-    - image:
         src: media/index/SSMS_Logo.svg
       text: SSMS
       href: documentation-government-connect-ssms.md
