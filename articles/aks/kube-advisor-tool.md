@@ -19,16 +19,12 @@ There are several best practice that you should follow on your Kubernetes deploy
 
 The [kube-advisor tool][kube-advisor-github] is a single container designed to be run on your cluster. It queries the Kubernetes API server for information about your deployments and returns a set of suggested improvements.
 
-<<<<<<< HEAD
 > [!NOTE]
 > The kube-advisor tool is supported by Microsoft on a best-effort basis. Issues and suggestions should be filed on GitHub.
 
 ## Running kube-advisor
 
-To run the tool on a cluster that is configured for [role-based access control (RBAC)](aad-integration), using the following commands. The first command creates a Kubernetes service account.The second command runs the tool in a pod using that service account and configures the pod to be deleted after it exits. 
-=======
-To run the tool on a cluster that is configured for [role-based access control (RBAC)](aad-integration.md), use the following commands:
->>>>>>> c3d5dc5034e2398f027aeaf088de530b4d5db0d6
+To run the tool on a cluster that is configured for [role-based access control (RBAC)](aad-integration.md), using the following commands. The first command creates a Kubernetes service account.The second command runs the tool in a pod using that service account and configures the pod to be deleted after it exits. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml?token=ABLLDrNcuHMro9jQ0xduCaEbpzLupzQUks5bh3RhwA%3D%3D
