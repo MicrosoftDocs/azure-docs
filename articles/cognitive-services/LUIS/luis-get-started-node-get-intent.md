@@ -7,12 +7,12 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 08/31/2018
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the LUIS service, I want to query the LUIS endpoint of a published model using Node.js so that I can see the JSON prediction response.
 ---
 
-# Quickstart: Analyze text using Node.js
+# Quickstart: Get intent using Node.js
 
 [!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -32,11 +32,11 @@ ms.author: diberry
 
 [!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## Analyze text with browser
+## Get intent with browser
 
 [!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## Analyze text with Node.js
+## Get intent programmatically
 
 You can use Node.js to access the same results you saw in the browser window in the previous step.
 
