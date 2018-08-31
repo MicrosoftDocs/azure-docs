@@ -8,7 +8,7 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: quickstart
-ms.date: 07/09/2018
+ms.date: 08/30/2018
 ms.author: nolachar
 ---
 # Quickstart for Text Analytics API with Go 
@@ -66,9 +66,9 @@ func main() {
     a free trial access key, you should not need to change this region.
     */
     const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
-    const uriPath = "/text/analytics/v2.0/languages"
+    const uriPath = "/text/analytics/v2.0/"
 
-    const uri = uriBase + uriPath
+    uri := uriBase + uriPath + "languages"
 
     data := []map[string]string{
         {"id": "1", "text": "This is a document written in English."},
@@ -119,7 +119,6 @@ func main() {
         return
     }
     fmt.Println(string(jsonFormatted))
-}
 ```
 
 ## Detect language response
@@ -173,45 +172,10 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Sentiment Analysis API detects the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
-1. Create a new Go project in your favorite code editor.
-1. Add the code provided below.
-1. Replace the `subscriptionKey` value with an access key valid for your subscription.
-1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
-1. Save the file with a '.go' extension.
-1. Open a command prompt on a computer with Go installed.
-1. Build the file, for example: 'go build quickstart.go'.
-1. Run the file, for example: 'quickstart'.
+Add the following code to the code from the previous sections.
 
 ```golang
-package main
-
-import (
-    "encoding/json"
-    "fmt"
-    "io/ioutil"
-    "net/http"
-    "strings"
-    "time"
-)
-
-func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
-
-    /*
-    Replace or verify the region.
-
-    You must use the same region in your REST API call as you used to obtain your access keys.
-    For example, if you obtained your access keys from the westus region, replace 
-    "westcentralus" in the URI below with "westus".
-
-    NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-    a free trial access key, you should not need to change this region.
-    */
-    const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
-    const uriPath = "/text/analytics/v2.0/sentiment"
-
-    const uri = uriBase + uriPath
+    uri := uriBase + uriPath + sentiment
 
     data := []map[string]string{
         {"id": "1", "language": "en", "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."},
@@ -261,7 +225,6 @@ func main() {
         return
     }
     fmt.Println(string(jsonFormatted))
-}
 ```
 
 ## Analyze sentiment response
@@ -290,45 +253,10 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). The following example extracts key phrases for both English and Spanish documents.
 
-1. Create a new Go project in your favorite code editor.
-1. Add the code provided below.
-1. Replace the `subscriptionKey` value with an access key valid for your subscription.
-1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
-1. Save the file with a '.go' extension.
-1. Open a command prompt on a computer with Go installed.
-1. Build the file, for example: 'go build quickstart.go'.
-1. Run the file, for example: 'quickstart'.
+Add the following code to the code from the previous sections.
 
 ```golang
-package main
-
-import (
-    "encoding/json"
-    "fmt"
-    "io/ioutil"
-    "net/http"
-    "strings"
-    "time"
-)
-
-func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
-
-    /*
-    Replace or verify the region.
-
-    You must use the same region in your REST API call as you used to obtain your access keys.
-    For example, if you obtained your access keys from the westus region, replace 
-    "westcentralus" in the URI below with "westus".
-
-    NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-    a free trial access key, you should not need to change this region.
-    */
-    const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
-    const uriPath = "/text/analytics/v2.0/keyPhrases"
-
-    const uri = uriBase + uriPath
+    uri := uriBase + uriPath + "keyPhrases"
 
     data := []map[string]string{
         {"id": "1", "language": "en", "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."},
@@ -428,45 +356,10 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Entity Linking API identifies well-known entities in a text document, using the [Entity Linking method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
 
-1. Create a new Go project in your favorite code editor.
-1. Add the code provided below.
-1. Replace the `subscriptionKey` value with an access key valid for your subscription.
-1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
-1. Save the file with a '.go' extension.
-1. Open a command prompt on a computer with Go installed.
-1. Build the file, for example: 'go build quickstart.go'.
-1. Run the file, for example: 'quickstart'.
+Add the following code to the code from the previous sections.
 
 ```golang
-package main
-
-import (
-    "encoding/json"
-    "fmt"
-    "io/ioutil"
-    "net/http"
-    "strings"
-    "time"
-)
-
-func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
-
-    /*
-    Replace or verify the region.
-
-    You must use the same region in your REST API call as you used to obtain your access keys.
-    For example, if you obtained your access keys from the westus region, replace 
-    "westcentralus" in the URI below with "westus".
-
-    NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-    a free trial access key, you should not need to change this region.
-    */
-    const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
-    const uriPath = "/text/analytics/v2.0/entities"
-
-    const uri = uriBase + uriPath
+    uri := uriBase + uriPath + "entities"
 
     data := []map[string]string{
         {"id": "1", "language": "en", "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."},
