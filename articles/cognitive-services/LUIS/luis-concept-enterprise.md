@@ -45,9 +45,7 @@ Use the [Dispatch][dispatch-tool] command-line tool, found in [BotBuilder-tools]
 
 ![Conceptual image of dispatch architecture](./media/luis-concept-enterprise/dispatch-architecture.png)
 
-The parent domain is noted in LUIS as a **V Dispatch** app. 
-
-![Screenshot of LUIS apps list with LUIS app created by dispatch tool](./media/luis-concept-enterprise/dispatch.png)
+The parent domain is noted in LUIS with a version named `Dispatch` in the apps list. 
 
 The chatbot receives the utterance, then sends to the parent LUIS app for prediction. The top predicted intent from the parent app determines which child LUIS app is called next. The chatbot sends the utterance to the child app for a more specific prediction.
 
