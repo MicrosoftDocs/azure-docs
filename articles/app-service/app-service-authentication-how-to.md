@@ -30,9 +30,9 @@ To get started quickly, see one of the following tutorials:
 * [How to configure your app to use Microsoft Account login](app-service-mobile-how-to-configure-microsoft-authentication.md)
 * [How to configure your app to use Twitter login](app-service-mobile-how-to-configure-twitter-authentication.md)
 
-## Configure multiple sign-in options
+## Use multiple sign-in providers
 
-The portal configuration doesn't offer a turn-key way to present multiple sign-in options to your users (such as both Facebook and Twitter). However, it isn't difficult to add the functionality to your web app. The steps are outlined as follows:
+The portal configuration doesn't offer a turn-key way to present multiple sign-in providers to your users (such as both Facebook and Twitter). However, it isn't difficult to add the functionality to your web app. The steps are outlined as follows:
 
 First, in the **Authentication / Authorization** page in the Azure portal, configure each of the identity provider you want to enable.
 
@@ -58,17 +58,17 @@ To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_
 
 ## Sign out of a session
 
-Users can initiate a sign-out by sending a `GET` request to the app's `/.auth/logout` endpoint. Here's a simple example of a sign-out link in a webpage:
-
-```HTML
-<a href="/.auth/logout">Sign out</a>
-```
-
-The `GET` request does the following:
+Users can initiate a sign-out by sending a `GET` request to the app's `/.auth/logout` endpoint. The `GET` request does the following:
 
 - Clears authentication cookies from the current session.
 - Deletes the current user's tokens from the token store.
 - For Azure Active Directory and Google, performs a server-side sign-out on the identity provider.
+
+Here's a simple sign-out link in a webpage:
+
+```HTML
+<a href="/.auth/logout">Sign out</a>
+```
 
 By default, a successful sign-out redirects the client to the URL `/.auth/logout/done`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
 
@@ -92,7 +92,7 @@ az webapp auth update --name <app_name> --resource-group <group_name> --allowed-
 
 ## Preserve URL fragments
 
-After users sign in to your app, they usually want to be redirected to the same section of the same page, such as `/wiki/Main_Page#SectionZ`. However, because [URL fragments](https://wikipedia.org/wiki/Fragment_identifier) (for example, `#SectionZ`) are never sent to the server, they are not preserved by default after the OAuth sign-in completes and redirects back to your app. Users then get a suboptimal when they need to navigate to the desired anchor again. This limitation applies to all server-side authentication solutions.
+After users sign in to your app, they usually want to be redirected to the same section of the same page, such as `/wiki/Main_Page#SectionZ`. However, because [URL fragments](https://wikipedia.org/wiki/Fragment_identifier) (for example, `#SectionZ`) are never sent to the server, they are not preserved by default after the OAuth sign-in completes and redirects back to your app. Users then get a suboptimal experience when they need to navigate to the desired anchor again. This limitation applies to all server-side authentication solutions.
 
 In App Service authentication, you can preserve URL fragments across the OAuth sign-in. To do this, set an app setting called `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` to `true`. You can do it in the [Azure portal](https://portal.azure.com), or simply run the following command in the [Azure Cloud Shell](../cloud-shell/quickstart.md):
 
