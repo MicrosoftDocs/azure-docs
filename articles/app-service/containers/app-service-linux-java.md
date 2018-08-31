@@ -41,7 +41,7 @@ For more information, see [Streaming logs with the Azure CLI](/azure/app-service
 
 ### App logging
 
-Enable [application logging](/azure/app-service/web-sites-enable-diagnostic-log#enablediag) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. A restart of the application is required for the setting to take effect. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, you will need to configure the setting to write to Blob storage.
+Enable [application logging](/azure/app-service/web-sites-enable-diagnostic-log#enablediag) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. A restart of the application is required for the setting to take effect. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, configure the application to write output to a Blob storage container.
 
 If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](/azure/application-insights/app-insights-java-trace-logs). 
 
@@ -75,7 +75,7 @@ Developers should check their app service configuration and plan tier to find th
 
 Azure does not allow customers to set per-instance runtime memory limits directly in their app settings. Give your apps more memory by subscribing to a larger plan and then customizing Java runtime using the steps above. 
 
-### Turn on web socket support
+### Turn on web sockets
 
 Turn on support for web sockets in the Azure portal in the **Application settings** for the application. You'll need to restart the application for the setting to take effect.
 
@@ -107,17 +107,25 @@ Using the Maven plugin, add name/value tags in the Azure plugin section:
 </appSettings> 
 ```
 
-## Security
+## Secure application
 
 Java applications running in App Service for Linux have the same set of [security best practices](/azure/security/security-paas-applications-using-app-services) as other applications. 
 
-## Authenticate users
+### Authenticate users
 
 Set up app authentication in the Azure Portal with the  **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social logins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider.  For more information, see [Configure your App Service app to use Azure Active Directory login](/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) and the related articles for other identity providers.
 
 If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-how-to) article.
 
  Spring Boot developers can use the [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) to secure applications using familiar Spring Security annotations and APIs.
+
+### Configure TLS/SSL
+
+Follow the instructions in the [Bind an existing custom SSL certificate](/azure/app-service/app-service-web-tutorial-custom-ssl) to upload an existing SSL certificate and bind it to your application's domain name. By default your application will still allow HTTP connections-follow the specific steps in the tutorial to enforce SSL and TLS.
+
+### Use certificates to access external resources
+
+The [Use an SSL certificate in your application code](/azure/app-service/app-service-web-ssl-cert-load) how-to guide provides the steps for uploading and making certificates available to your application code. You can use these certificates to authenticate with external resources, such as secured databases or APIs.
 
 ## Tomcat configuration
 
