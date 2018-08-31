@@ -68,6 +68,10 @@ Now, you can access your secrets in code. The next steps are different depending
 
 ## Access your secrets in code (ASP.NET Core projects)
 
+The connection to Key Vault is set up at startup by a class that implements IHostingStartup. The stertup class uses two environment variables that contain the keyvault connection information: ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED, set to "true", and ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT, set to your keyvault URL. These are added to the launchsettings.json file when you run through the **Add Connected Service** process.
+
+To access your secrets:
+
 1. In Visual Studio, in your ASP.NET Core project, you can now reference these secrets by using the following expressions in code:
  
    ```csharp
@@ -93,6 +97,10 @@ Now, you can access your secrets in code. The next steps are different depending
 1. Build and run the web application, navigate to the About page, and see the "secret" value.
 
 ## Access your secrets in code (ASP.NET 4.7.1 projects)
+
+The connection to your key vault is set up by the configuration builder using information that was added to your web.config file when you ran through the **Add Connected Service** process.
+
+To access your secrets:
 
 1. Modify web.config as follows. The keys are placeholders that will be replaced by the AzureKeyVault ConfigurationBuilder with the values of secrets in Key Vault.
 
