@@ -340,7 +340,7 @@ At this point, you have an Availability Group with replicas on two instances of 
 
 On Azure virtual machines, a SQL Server Availability Group requires a load balancer. The load balancer holds the IP addresses for the Availability Group listeners and the Windows Server Failover Cluster. This section summarizes how to create the load balancer in the Azure portal.
 
-An Azure Load Balancer can be either a Standard Load Balancer or a Basic Load Balancer. Standard Load Balaner has more features than the Basic Load Balancer. For an availability group, the Standard Load Balancer is required if you use an Availability Zone (instead of an Availability Set). For details on the difference between the load balancer types, see [Load Balancer SKU comparison](..\..\..\load-balancer\load-balancer-overview.md#skus).
+An Azure Load Balancer can be either a Standard Load Balancer or a Basic Load Balancer. Standard Load Balaner has more features than the Basic Load Balancer. For an availability group, the Standard Load Balancer is required if you use an Availability Zone (instead of an Availability Set). For details on the difference between the load balancer types, see [Load Balancer SKU comparison](../../../load-balancer/load-balancer-overview.md#skus).
 
 1. In the Azure portal, go to the resource group where your SQL Servers are and click **+ Add**.
 2. Search for **Load Balancer**. Choose the load balancer published by Microsoft.
@@ -412,8 +412,8 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
    | **Name** | Text | SQLAlwaysOnEndPointListener |
    | **Frontend IP address** | Choose an address |Use the address that you created when you created the load balancer. |
    | **Protocol** | Choose TCP |TCP |
-   | **Port** | Use the port for the availability group listener | 1435 |
-   | **Backend Port** | This field is not used when Floating IP is set for direct server return | 1435 |
+   | **Port** | Use the port for the availability group listener | 1433 |
+   | **Backend Port** | This field is not used when Floating IP is set for direct server return | 1433 |
    | **Probe** |The name you specified for the probe | SQLAlwaysOnEndPointProbe |
    | **Session Persistence** | Drop down list | **None** |
    | **Idle Timeout** | Minutes to keep a TCP connection open | 4 |
