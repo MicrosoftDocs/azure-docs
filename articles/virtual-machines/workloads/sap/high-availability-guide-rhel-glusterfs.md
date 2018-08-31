@@ -97,7 +97,7 @@ Follow these steps to deploy the template:
 
 ### Deploy Linux manually via Azure portal
 
-You first need to create the virtual machines for this NFS cluster. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
+You first need to create the virtual machines for this cluster. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
 
 1. Create a Resource Group
 1. Create a Virtual Network
@@ -127,7 +127,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment
 
-   <pre><code># IP address of the load balancer frontend configuration for NFS
+   <pre><code># IP addresses of the Gluster nodes
    <b>10.0.0.40 glust-0</b>
    <b>10.0.0.41 glust-1</b>
    <b>10.0.0.42 glust-2</b>
