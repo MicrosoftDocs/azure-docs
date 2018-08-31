@@ -60,8 +60,6 @@
       href: pim-resource-roles-assign-roles.md
     - name: Configure role settings
       href: pim-resource-roles-configure-role-settings.md
-    - name: Require MFA
-      href: pim-resource-roles-require-mfa.md
     - name: Configure alerts
       href: pim-resource-roles-configure-alerts.md
     - name: Approve requests
