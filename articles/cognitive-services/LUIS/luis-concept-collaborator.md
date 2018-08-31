@@ -45,7 +45,7 @@ Exported apps are JSON-formatted files, which can be compared for changes. Combi
 This method allows you to have one active version, one stage version, and one published version. You can compare the results in the interactive testing pane across the three versions.
 
 ### Manage multiple versions as apps
-[Export](luis-how-to-manage-versions.md#export-version) the base version. Each author imports the version. The person that imports the app is the owner of the version. When they are done modifying the app, export the version. 
+Export the base version. Each author imports the version. The person that imports the app is the owner of the version. When they are done modifying the app, export the version. 
 
 Exported apps are JSON-formatted files, which can be compared with the base export for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app.
 
