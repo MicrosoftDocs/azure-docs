@@ -23,11 +23,12 @@ ms.author: genli
 
  This article describes BitLocker errors that you may experience when you start a Windows virtual machine (VM) in Microsoft Azure.
 
- [!NOTE] Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of using the classic deployment model.
+>  [!NOTE] Azure has two different deployment models for creating and working with 
+> resources: [Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of using the classic deployment model.
 
  ## Symptom
 
- A Windows VM doesn't start. When you check the screen shots in the [Boot diagnostics](boot-diagnostics.md) window, you see one of the following error messages:
+ A Windows VM doesn't start. When you check the screenshots in the [Boot diagnostics](boot-diagnostics.md) window, you see one of the following error messages:
 
 - Plug in the USB driver that has the BitLocker key
 
@@ -52,39 +53,38 @@ If this method does not the resolve the problem, follow these steps to restore t
     When you attach a managed disk, you might receive a "contains encryption settings and therefore cannot be used as a data disk” error message. In this situation, run the following script to try again to attach the disk:
 
     ```Powershell
-        $rgName = "myResourceGroup"
-        $osDiskName = "ProblemOsDisk"
+    $rgName = "myResourceGroup"
+    $osDiskName = "ProblemOsDisk"
 
-        New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzureRmDisk -diskName $osDiskName -ResourceGroupName $rgName
+    New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzureRmDisk -diskName $osDiskName -ResourceGroupName $rgName
 
-        $recoveryVMName = "myRecoveryVM" 
-        $recoveryVMRG = "RecoveryVMRG" 
-        $OSDisk = Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $osDiskName;
+    $recoveryVMName = "myRecoveryVM" 
+    $recoveryVMRG = "RecoveryVMRG" 
+    $OSDisk = Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $osDiskName;
 
-        $vm = get-AzureRMVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
+    $vm = get-AzureRMVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
 
-        Add-AzureRmVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
+    Add-AzureRmVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
 
-        Update-AzureRMVM -VM $vm -ResourceGroupName $recoveryVMRG
-
+    Update-AzureRMVM -VM $vm -ResourceGroupName $recoveryVMRG
      ```
-     **Note** You cannot attach a managed disk to a VM that was restored from a blob image.
+     You cannot attach a managed disk to a VM that was restored from a blob image.
 
 3. After the disk is attached, make a remote desktop connection to the recovery VM so that you can run some Azure PowerShell scripts. Make sure that you have the [latest version of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) installed on the recovery VM.
 
-4. Open an elevated Azure PowerShell session (**Run as administrator**). Run the following commands to log in to Azure subscription:
+4. Open an elevated Azure PowerShell session (Run as administrator). Run the following commands to sign in to Azure subscription:
 
 
     ```powershell
-        Add-AzureRMAccount -SubscriptionID [SubscriptionID]
+    Add-AzureRMAccount -SubscriptionID [SubscriptionID]
     ```
 
 5. Run the following script to check the name of the BEK file:
 
     ```powershell
-        $vmName = "myVM"
-        $vault = "myKeyVault"
-        Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq $vmName) -and ($_.ContentType -match 'BEK')} `
+    $vmName = "myVM"
+    $vault = "myKeyVault"
+    Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq $vmName) -and ($_.ContentType -match 'BEK')} `
             | Sort-Object -Property Created `
             | ft  Created, `
                 @{Label="Content Type";Expression={$_.ContentType}}, `
@@ -106,7 +106,7 @@ If this method does not the resolve the problem, follow these steps to restore t
 
     If the **Content Type** value is **Wrapped BEK**, go to the [Key Encryption Key (KEK) scenarios](#key-encryption-key-scenario).
 
-    Now that you have the name of the .BEK file for the drive, you have to create the secret-file-name.BEK file to unlock the drive. 
+    Now that you have the name of the BEK file for the drive, you have to create the secret-file-name.BEK file to unlock the drive. 
 
 5.	Download the BEK file to the recovery disk. The following sample saves the BEK file to the C:\BEK folder. Make sure that the `C:\BEK\` path exists before you run the scripts.
 
