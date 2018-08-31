@@ -8,13 +8,6 @@
     href: azure-stack-vaas-overview.md
   - name: Release notes
     href: azure-stack-vaas-release-notes.md
-    items:
-    - name: 2018-04-02 update 
-      href: azure-stack-partner-update-1803.md
-    - name: 2018-01-30 update 
-      href: azure-stack-partner-update-1802.md
-  - name: Known issues
-    href: azure-stack-vaas-known-issues.md
 - name: Quickstart
   items:
     - name: Schedule your first Test Pass

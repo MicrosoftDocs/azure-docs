@@ -25,7 +25,7 @@ You can use PowerShell for the following workflow:
 
 - Test Pass
 
-This script encompasses the four elements of a workflow:
+This script performs the following actions:
 
 - Installs prerequisites.
 - Installs and starts the local agent.
