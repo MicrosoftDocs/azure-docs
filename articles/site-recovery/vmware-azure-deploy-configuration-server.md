@@ -76,7 +76,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 1. In the vSphere Client inventory, right-click the VM and select **Edit Settings**.
 2. In **Hardware**, select **Add** > **Ethernet Adapter**. Then select **Next**.
-3. Select an adapter type and a network. 
+3. Select an adapter type and a network.
 4. To connect the virtual NIC when the VM is turned on, select **Connect at power-on**. Then select **Next** > **Finish** > **OK**.
 
 ## Register the configuration server with Azure Site Recovery services
@@ -97,7 +97,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
     > [!NOTE]
     > Once registered, there is no flexibility to change the recovery services vault.
-    
+
 3. In **Install third-party software**,
 
     |Scenario   |Steps to follow  |
@@ -139,6 +139,10 @@ If you want to add an additional NIC to the configuration server, add it before 
 ## Upgrade the configuration server
 
 To upgrade the configuration server to the latest version, read the steps given [here](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+
+## Manage the configuration server
+
+To avoid interruptions in ongoing replication, ensure that IP address of the configuration server does not change after the configuration server has been registered to a vault. You can learn more about common configuration server management tasks [here](vmware-azure-manage-configuration-server.md).
 
 ## Troubleshoot deployment issues
 

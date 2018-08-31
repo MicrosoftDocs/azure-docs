@@ -26,13 +26,13 @@ To use a Facebook account as an identity provider in Azure Active Directory (Azu
 5. Click **Create App ID**. This may require you to accept Facebook platform policies and complete an online security check.
 6. Select **Settings** > **Basic**.
 7. At the bottom of the page, select **Add Platform**, and then select **Website**.
-8. Enter `https://login.microsoftonline.com/` in **Site URL**. Enter a URL for the **Privacy Policy URL**, for example `http://www.contoso.com`.
+8. Enter `https://{tenantname}.b2clogin.com/` in **Site URL**. Enter a URL for the **Privacy Policy URL**, for example `http://www.contoso.com`.
 9. Select **Save Changes**.
 11. At the top of the page, copy the value of **App ID**. 
 12. Click **Show** and copy the value of **App Secret**. You use both of them to configure Facebook as an identity provider in your tenant. **App Secret** is an important security credential.
 13. Select **Products**, and then select **Set up** under **Facebook Login**.
 14. Select **Settings** under **Facebook Login**.
-15. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in **Valid OAuth redirect URIs** . Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com). Click **Save Changes** at the bottom of the page.
+15. Enter `https://{tenantname}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` in **Valid OAuth redirect URIs** . Replace **{tenant}** with your tenant's name (for example, contosob2c). Click **Save Changes** at the bottom of the page.
 16. To make your Facebook application available to Azure AD B2C, select **App Review**, set **Make My Application public?** to **YES**, choose a category, for example `Business and Pages` and then click **Confirm**.
 
 ## Configure a Facebook account as an identity provider
