@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 08/31/2018
 ---
 
 # Replicate data into Azure Database for MySQL
@@ -34,6 +34,7 @@ The [*mysql system database*](https://dev.mysql.com/doc/refman/5.7/en/system-dat
 - User must have permissions to configure binary logging and create new users on the primary server.
 
 ### Other
+- Data-in replication is only supported in General Purpose and Memory Optimized pricing tiers
 - Global transaction identifiers (GTID) are not supported.
 
 ## Next steps
