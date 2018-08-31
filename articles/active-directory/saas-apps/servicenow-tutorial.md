@@ -189,7 +189,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	f. In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **Properties**.
 
 	![Configure app URL](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
-
+	
 	g. On the **Multiple Provider SSO Properties** dialog, perform the following steps:
 
 	![Configure app URL](./media/servicenow-tutorial/ic7694981.png "Configure app URL")
@@ -205,7 +205,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	* Click **Save**.
 
 	h. Click on the menu icon from your new identity provider that you created as part of the configuration and from the list select **copy sys_id**
-	
+
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694992.png "Configure single sign-on")
 
 	i. In the upper left search box, search for **sys_properties.list** and press enter.
