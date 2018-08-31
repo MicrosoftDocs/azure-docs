@@ -23,7 +23,7 @@ This guide provides key concepts and instructions for Java developers using in A
 
 ## Logging and debugging apps
 
-Diagnostic error and response time reports, traffic visualizations, and health checkups are available for App Service on Linux apps through the Azure Portal. See the [Azure App Service diagnostics overview](/azure/app-service/app-service-diagnostics) for more information.
+Performance reports, traffic visualizations, and health checkups are available for eeach app through the Azure portal. See the [Azure App Service diagnostics overview](/azure/app-service/app-service-diagnostics) for more information on how to access and use these diagnostic tools.
 
 ### SSH console access 
 
@@ -73,11 +73,11 @@ To configure the app setting from the Azure App Service Linux Maven plugin, add 
 
 Developers should check their app service configuration and plan tier to find the optimal allocation of memory for their Java applications. Weigh the service plan against the number of applications instances and deployment slots when making your calculations.
 
-Azure does not allow customers to set per-instance runtime memory limits directly in their app settings. Allocate more memory to your runtime instances by subscribing to a larger App Service Plan and then customizing the Java runtime using the steps above to use the additional memory. 
+Azure does not allow customers to set per-instance runtime memory limits directly in their app settings. Give your apps more memory by subscribing to a larger plan and then customizing Java runtime using the steps above. 
 
 ### Turn on web socket support
 
-Enable web socket support through the Azure portal from the **General settings** section in **Application settings** for the application. Restart the application for the setting to take effect.
+Turn on support for web sockets in the Azure portal in the **Application settings** for the application. You'll need to restart the application for the setting to take effect.
 
 Turn on web socket support using the Azure CLI with the following command:
 
@@ -126,8 +126,8 @@ If you need to enable multiple sign-in providers, follow the instructions in the
 >[!NOTE]
 > If your application uses the Spring Framework or Spring Boot, you can set database connection information for Spring Data JPA as environment variables [in your application properties file]. Then use [app settings](/azure/app-service/web-sites-configure#app-settings) to define these values for your application in the Azure portal or CLI.
 
-To configure apps running in Tomcat to use managed connections to databases using Java Database Connectivity (JDBC) or the Java Persistence API (JPA), first 
-add the database user name, password, and driver URL to the CATALINA_OPTS environment variable read in by Tomcat when it starts. Set these values through an app setting in Maven:
+To configure Tomcat to use managed connections to databases using Java Database Connectivity (JDBC) or the Java Persistence API (JPA), first 
+customize the CATALINA_OPTS environment variable read in by Tomcat at start up. Set these values through an app setting in App Service Maven plugin:
 
 ```xml
 <appSettings> 
