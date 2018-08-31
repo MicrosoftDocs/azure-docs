@@ -1,14 +1,13 @@
 ---
 title: Create a VM cluster with Terraform and HCL
 description: Use Terraform and HashiCorp Configuration Language (HCL) to create a Linux virtual machine cluster with a load balancer in Azure
+ms.service: terraform
 keywords: terraform, devops, virtual machine, network, modules
 author: tomarcher
-manager: routlaw
-ms.service: virtual-machines-linux
-ms.custom: devops
-ms.topic: article
-ms.date: 11/13/2017
+manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
+ms.date: 11/13/2017
 ---
 
 # Create a VM cluster with Terraform and HCL
