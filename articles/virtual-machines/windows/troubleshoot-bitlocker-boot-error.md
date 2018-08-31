@@ -1,13 +1,13 @@
 ﻿---
 
-title: Troubleshoot BitLocker boot errors in an Azure VM
+title: Troubleshooting BitLocker boot errors on an Azure VM
 | Microsoft Docs
 description: Learn how to troubleshoot BitLocker boot errors in an Azure VM
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+authors: genli
 manager: cshepard
-editor: ''
+editor: v-jesits
 
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -19,15 +19,15 @@ ms.author: genli
 
 ---
 
-# BitLocker boot errors in an Azure VM
+# BitLocker boot errors on an Azure VM
 
- This article describes BitLocker errors you may encounter when you boot a Windows VM in Microsoft Azure.
+ This article describes BitLocker errors that you may experience when you start a Windows virtual machine (VM) in Microsoft Azure.
 
- [!NOTE] Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Microsoft recommends for new deployments instead of the classic deployment model.
+ [!NOTE] Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of using the classic deployment model.
 
- ## Symptom 
+ ## Symptom
 
- Windows VM doesn't start. When you check the boot screenshots in the [Boot diagnostics](boot-diagnostics.md), you see one of the following error messages:
+ A Windows VM doesn't start. When you check the screen shots in the [Boot diagnostics](boot-diagnostics.md) window, you see one of the following error messages:
 
 - Plug in the USB driver that has the BitLocker key
 
@@ -38,18 +38,18 @@ ms.author: genli
 
 ## Cause
 
-This problem may occur if the VM cannot find the BitLocker Recovery Key (BEK) file for decrypting the encrypted disk.
+This problem may occur if the VM cannot locate the BitLocker Recovery Key (BEK) file to decrypt the encrypted disk.
 
 ## Solution
 
-To resolve this issue, stop and deallocate the VM, and then restart it. This operation will force the VM to retrieve the BEK file from the Azure Key Vault and place it in the encrypted disk. 
+To resolve this problem, stop and deallocate the VM, and then restart it. This operation forces the VM to retrieve the BEK file from the Azure Key Vault, and then put it on the encrypted disk. 
 
-If this method does not the resolve the issue, follow these steps to restore the BEK file manually.
+If this method does not the resolve the problem, follow these steps to restore the BEK file manually:
 
-1. Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](./snapshot-copy-managed-disk.md).
-2. [Attach the OS disk to a recovery VM](./troubleshoot-recovery-disks-portal.md) that is encrypted by BitLocker.  We will need to run [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) command that is only available on the BitLocker encrypted VM.
+1. Take a snapshot of the system disk of the affected VM as a backup. For more information, see [Snapshot a disk](./snapshot-copy-managed-disk.md).
+2. [Attach the system disk to a recovery VM](./troubleshoot-recovery-disks-portal.md) that is encrypted by BitLocker. This is required to run the [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) command that is available only on the BitLocker-encrypted VM.
 
-    If you receive the” contains encryption settings and therefore cannot be used as a data disk” error when you attach an managed disk, run the following script to attach the disk again:
+    When you attach a managed disk, you might receive a "contains encryption settings and therefore cannot be used as a data disk” error message. In this situation, run the following script to try again to attach the disk:
 
     ```Powershell
         $rgName = "myResourceGroup"
@@ -68,18 +68,18 @@ If this method does not the resolve the issue, follow these steps to restore the
         Update-AzureRMVM -VM $vm -ResourceGroupName $recoveryVMRG
 
      ```
-     **Note** You cannot attach a managed disk to a VM that was restored from a blob image
+     **Note** You cannot attach a managed disk to a VM that was restored from a blob image.
 
-3. After the disk is attached, remote desktop to the recovery the VM. We need to run some Azure PowerShell scripts on this recovery VM. Make sure that you have the [latest Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) installed on the recovery VM.
+3. After the disk is attached, make a remote desktop connection to the recovery VM so that you can run some Azure PowerShell scripts. Make sure that you have the [latest version of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) installed on the recovery VM.
 
-4. Open an elevated Azure PowerShell session (Run as administrator). Run the following commands to log in to Azure subscription:
+4. Open an elevated Azure PowerShell session (**Run as administrator**). Run the following commands to log in to Azure subscription:
 
 
     ```powershell
         Add-AzureRMAccount -SubscriptionID [SubscriptionID]
     ```
 
-5. Run following and the script to check the name of the BEK file. 
+5. Run the following script to check the name of the BEK file:
 
     ```powershell
         $vmName = "myVM"
@@ -92,8 +92,7 @@ If this method does not the resolve the issue, follow these steps to restore the
                 @{Label ="DiskEncryptionKeyFileName"; Expression = {$_.Tags.DiskEncryptionKeyFileName}}
     ```
 
-    The following is sample of the output. Locate the BKE file name for the attached disk. In this case, we assume driver letter of the attached disk is F, and the BEK file is EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK.
-
+    The following is sample of the output. Locate the BEK file name for the attached disk. In this case, we assume that the drive letter of the attached disk is F, and the BEK file is EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK.
 
 
         Created             Content Type Volume DiskEncryptionKeyFileName               
@@ -103,13 +102,13 @@ If this method does not the resolve the issue, follow these steps to restore the
         4/7/2018 7:26:23 PM Wrapped BEK  G:\    70148178-6FAE-41EC-A05B-3431E6252539.BEK
         4/7/2018 7:26:26 PM Wrapped BEK  H:\    5745719F-4886-4940-9B51-C98AFABE5305.BEK
 
-    You might see two duplicated volumes. In that case, the volume with newer timestamp is the current BEK file that used by the recovery VM.  
+    If you see two duplicated volumes, the volume that has the newer timestamp is the current BEK file that is used by the recovery VM.
 
-    If the Content Type is Wrapped BEK, move to the [Key Encryption Key (KEK) scenarios](#key-encryption-key-scenario).
+    If the **Content Type** value is **Wrapped BEK**, go to the [Key Encryption Key (KEK) scenarios](#key-encryption-key-scenario).
 
-    Now that you have the name of the .BEK for the drive, you need to create the secret-file-name.BEK file to unlock the drive. 
+    Now that you have the name of the .BEK file for the drive, you have to create the secret-file-name.BEK file to unlock the drive. 
 
-5.	Download the BEK file to the recovery disk. The following sample saves the BEK file into C:\BEK folder. Make sure that the `C:\BEK\` path exists before running the scripts.
+5.	Download the BEK file to the recovery disk. The following sample saves the BEK file to the C:\BEK folder. Make sure that the `C:\BEK\` path exists before you run the scripts.
 
 ```powershell
     $vault = "myKeyVault"
@@ -121,36 +120,28 @@ If this method does not the resolve the issue, follow these steps to restore the
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
 ```
 
-6.	To unlock the attached disk by using the BEK file:
+6.	To unlock the attached disk by using the BEK file, run the following script:
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
 
-    **Note** With the -unlock or -disable switch, the drive letter refers to the encrypted drive, so make sure you put the correct drive letter. 
+    Together with the **-unlock** or **-disable** switch, the drive letter refers to the encrypted drive. Therefore, make sure that you use the correct drive letter. 
 
-    A. If the disk was successfully unlocked by using the BEK key. we can consider the BItLocker problem is resolved. 
+    - If the disk was successfully unlocked by using the BEK key. we can consider the BItLocker problem to be resolved. 
 
-    B.	If the disk fails to unlock by using the BEK key, you can use suspend protection, so that BitLocker is temporarily OFF:
+    - If using the BEK key does not unlock the disk, you can use suspend protection to temporarily turn BitLocker OFF by running `manage-bde -protectors -disable F: -rc 0`.
+          
+    - If you are going to rebuild the VM by using the dytem disk, you must fully decrypt the drive. To do this, use `manage-bde -off F:`.
 
-    ```powershell
-    manage-bde -protectors -disable F: -rc 0
-    ```
-
-    C. If you are going to rebuild the VM with the OS disk, then it is required to fully decrypt the drive, using this command:
-
-    ```powershell
-    manage-bde -off F:
-    ```
-
-7.	Detach the disk from the recovery VM, and then re-attach the disk to the affected VM as OS disk.  For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks.md).
+7.	Detach the disk from the recovery VM, and then re-attach the disk to the affected VM as a system disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks.md).
 
 ### Key Encryption Key scenario
 
-For Key Encryption Key scenario, follow these steps:
+For a Key Encryption Key scenario, follow these steps:
 
-1. Make sure that the logged in user account must have "unwrapped" permission in the Key Vault Access policies in the **USER|Key permissions|Cryptographic Operations|Unwrap Key**.
-2. Save the following scripts into a .PS1 file:
+1. Make sure that the logged-in user account requires the "unwrapped" permission in the Key Vault Access policies in the **USER|Key permissions|Cryptographic Operations|Unwrap Key**.
+2. Save the following scripts to a .PS1 file:
 
     ```powershell
     #Set the Parameters for the script
@@ -235,16 +226,16 @@ For Key Encryption Key scenario, follow these steps:
     $bekFileBytes = [System.Convert]::FromBase64String($base64Bek);
     [System.IO.File]::WriteAllBytes($bekFilePath,$bekFileBytes)
     ```
-3. Set the parameters. The script will process the KEK secret to create the BEK key, and save it into a local folder in the recovery VM.
+3. Set the parameters. The script will process the KEK secret to create the BEK key, and then save it to a local folder on the recovery VM.
 
-4. You will see the following output when the script begins:
+4. You see the following output when the script begins:
 
         GAC    Version        Location                                                                              
         ---    -------        --------                                                                              
         False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\AzureRM.profile\4.0.0\Microsoft.Identity...
         False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\AzureRM.profile\4.0.0\Microsoft.Identity...
 
-    When the script completes, you will see the following output:
+    When the script finishes, you see the following output:
 
 
         VERBOSE: POST https://myvault.vault.azure.net/keys/rondomkey/<KEY-ID>/unwrapkey?api-
@@ -252,31 +243,18 @@ For Key Encryption Key scenario, follow these steps:
         VERBOSE: received 360-byte response of content type application/json; charset=utf-8
 
 
-5. To unlock the attached disk by using the BEK file. In this case, we assume the BEK key is C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
+5. To unlock the attached disk by using the BEK file, run the following script:
 
- 
+    ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
+    ```
 
+    Together with the **-unlock** or **-disable** switch, the drive letter refers to the encrypted drive. Therefore, make sure that you use the correct drive letter. 
 
+    - If the disk was successfully unlocked by using the BEK key. we can consider the BItLocker problem to be resolved. 
 
-    A. You will then see that BDE was successfully able to use the BEK key to unlock the drive.
+    - If using the BEK key does not unlock the disk, you can use suspend protection to temporarily turn BitLocker OFF by running `manage-bde -protectors -disable F: -rc 0`.
+          
+    - If you are going to rebuild the VM by using the dytem disk, you must fully decrypt the drive. To do this, use `manage-bde -off F:`.
 
-    B. If the disk fails to unlock by using the BEK key, you can use suspend protection, so that BitLocker is temporarily OFF:
-
-        manage-bde -protectors -disable F: -rc 0
-
-
-    C. If you are going to rebuild the VM with the OS disk, then it is required to fully decrypt the drive, using this command:
-
-        manage-bde -off F:
-
-6. Detach the disk from the recovery VM, and then re-attach the disk to the affected VM as OS disk.  For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks.md).
-
-
-
-
-
-
-
-
-
+6. Detach the disk from the recovery VM, and then re-attach the disk to the affected VM as a system disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks.md).
