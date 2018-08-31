@@ -37,27 +37,27 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-* A development environment [configured to run Azure Machine Learning service in Jupyter notebooks](how-to-configure-environment.md) (approximately 2 minutes).  In step 4 the new packages you need are matplotlib and scikit-learn:
+* Create a **config.json** file and configure a development environment for Jupyter notebooks by following [these instructions](how-to-configure-environment.md) (approximately 5 minutes).  In the Jupyter notebook instructions, step 4  the new packages you need are matplotlib and scikit-learn:
    ```
    conda install -y matplotlib scikit-learn
    ``` 
-* An Azure Machine Learning Workspace and its accompanying  **aml_config** directory created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart (approximately 3 minutes).
 
-* The file [utils.py](https://aka.ms/aml-file-utils-py) downloaded into the same directory as **aml_config**.
+
+* The file [utils.py](https://aka.ms/aml-file-utils-py) downloaded into the same directory as **config.json**.
 
 ### Start the notebook
 
-(Optional) Download [this tutorial as a notebook](https://aka.ms/aml-notebook-train) into the same directory as **aml_config** and **utils.py**.  
+(Optional) Download [this tutorial as a notebook](https://aka.ms/aml-notebook-train) into the same directory as **config.json** and **utils.py**.  
 
-Or start your own notebook from the same directory as **aml_config** and **utils.py** and copy the code from the sections below.
+Or start your own notebook from the same directory as **config.json** and **utils.py** and copy the code from the sections below.
 
 ## Set up your development environment
 
 All the setup for your development work can be accomplished in a Python notebook.  Setup includes:
 
 * Importing Python packages
-* Configuring a workspace to enable communication between your local computer and remote resources
-* Creating a directory to store training scripts
+* Connecting to a workspace to enable communication between your local computer and remote resources
+* Creating an experiment to track all your runs
 * Creating a remote compute target to use for training
 
 ### Import packages
@@ -77,26 +77,24 @@ from azureml.core import Workspace, Project, Run
 print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```
 
-### Load workspace
+### Connect to workspace
 
-Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **config.json** and loads the details into an object named `ws`.
 
 ```python
 ws = Workspace.from_config()
 print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 ```
 
-### Create directory
+### Create experiment
 
-Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace.  This directory is the one that is used to deliver the necessary code from your computer to the cloud later in this tutorial. The history of all runs is recorded under the specified run history.
-
+Create an experiment to track all the runs in your workspace.  
 
 ```python
-# create a new project or get hold of an existing one.
-history_name = 'sklearn-mnist'
-proj = Project.attach(history_name = history_name, directory = './sklearn-mnist-proj', workspace_object = ws)
-# show project details
-proj.get_details()
+experiment_name = 'sklearn-mnist'
+
+from azureml.core import Experiment
+exp = Experiment(workspace_object = ws, name = experiment_name)
 ```
 
 ### Create remote compute target
@@ -244,16 +242,27 @@ With just a few lines of code, you have a 92% accuracy.
 Now you can expand on this simple model by building a model with a different regularization rate. This time you'll train the model on a remote resource.  
 
 For this task, submit the job to the remote training cluster you set up earlier.  To submit a job you:
+* Create a directory
 * Create a training script
 * Create an estimator
 * Submit the job 
 
-### Create a training script
+### Create a directory
 
-To submit the job to the cluster, first create a training script. Run the following code to create the training script called `train.py` in a place the workspace can find it. This training adds a regularization rate to the training algorithm, so produces a slightly different model than the local version.
+Create a directory to deliver the necessary code from your computer to the remote resource.
 
 ```python
-%%writefile $proj.project_directory/train.py
+import os
+project_folder = './sklearn-mnist-proj'
+os.makedirs(project_folder, exist_ok = True)
+```
+
+### Create a training script
+
+To submit the job to the cluster, first create a training script. Run the following code to create the training script called `train.py` in the directory you just created. This training adds a regularization rate to the training algorithm, so produces a slightly different model than the local version.
+
+```python
+%%writefile $project_folder/train.py
 
 import argparse
 import os
@@ -306,7 +315,6 @@ os.makedirs('outputs', exist_ok = True)
 joblib.dump(value = clf, filename = 'outputs/sklearn_mnist_model.pkl')
 ```
 
-
 Notice how the script gets data and saves models:
 
 + The training script reads an argument to find the directory containing the data.  When you submit the job later, you point to the datastore for this argument:
@@ -322,19 +330,21 @@ Copy the utility library that loads the dataset into the project directory to be
 
 ```python
 import shutil
-shutil.copy('utils.py', proj.project_directory)
+shutil.copy('utils.py', project_folder)
 ```
 
 
 ### Create an estimator
 
 An estimator object is used to submit the run.  Create your estimator by running the following code to define:
+
 * The name of the estimator object, `est`
-* The compute target, such as the Managed Compute cluster you created
+* The directory that contains your scripts. All the files in this directory are uploaded into the cluster nodes for execution. 
+* The compute target.  In this case you will use the Managed Compute cluster you created
 * The training script name, train.py
 * The `data-folder` parameter used by the training script to access the data
-* Any necessary Python packages that are needed for training
-
+* Any Python packages needed for training
+In this tutorial, this target is the Managed Compute cluster. All files in the project directory are uploaded into the cluster nodes for execution. 
 
 ```python
 from azureml.train.estimator import Estimator
@@ -344,7 +354,7 @@ script_params = {
     '--regularization': 0.8
 }
 
-est = Estimator(project = proj,
+est = Estimator(folder=project_folder,
                 script_params = script_params,
                 compute_target = compute_target,
                 entry_script = 'train.py',
@@ -354,13 +364,10 @@ est = Estimator(project = proj,
 
 ### Submit the job to the cluster
 
-Call the `fit` function on the estimator to submit the job to execution in the target you defined. 
-
-In this tutorial, this target is the Managed Compute cluster. All files in the project directory are uploaded into the cluster nodes for execution. 
-
+Run the experiment by submitting the estimator object.
 
 ```python
-run = est.fit()
+run = exp.submit(method=est)
 print(run.get_details().status)
 ```
 
@@ -415,9 +422,9 @@ You now have a model trained on a remote cluster.  Retrieve the accuracy of the 
 ```python
 print(run.get_metrics())
 ```
-The model trained remotely has an accuracy slightly higher than the local model, due to the addition of the regularization rate during training.  
+The output shows the remote model has an accuracy slightly higher than the local model, due to the addition of the regularization rate during training.  
 
-`0.9204`
+`{'regularization rate': 0.8, 'accuracy': 0.9204}`
 
 In the next tutorial you will explore this model in more detail.
 
