@@ -113,12 +113,10 @@
     href: Vision-API-How-to-Topics/HowToSubscribe.md
   - name: Call the Computer Vision API
     href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+  - name: Use the Computer Vision Connected Service
+    href: vs-computer-vision-connected-service.md
   - name: Analyze videos in real time
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
-  - name: Work with Visual Studio
-    items:
-    - name: Use the Computer Vision Connected Service
-      href: vs-computer-vision-connected-service.md
 - name: Reference
   items: 
   - name: Azure CLI
