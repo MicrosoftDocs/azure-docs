@@ -25,7 +25,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 Before you begin, you’ll need to:
 
-1.	Create an Azure Active Directory tenant. For more information, see Create your new Azure Active Directory tenant active-directory-create-new-tenant.md. - topic in other branch, will update at merge.
+1.	Create an Azure Active Directory tenant. For more information, see Create your new Azure Active Directory tenant active-directory-create-new-tenant.md. - article in other branch, will update at merge.
 
 2.	Create the _MDM policy - West_ group and add member, _Alain Charon_. For more information, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md).
 
@@ -82,6 +82,6 @@ If you’re not going to continue to use this application, you can delete the gr
     >This doesn't delete the user Alain Charon, just his membership in the deleted group.
 
 ## Next steps
-For more ways to interact with your groups and members, you can see the Groups How-to guides active-directory-groups-how-to-overview.md.. - topic in other branch, will update at merge.
+For more ways to interact with your groups and members, you can see the Groups How-to guides active-directory-groups-how-to-overview.md. - article in other branch, will update at merge.
 
 For more complex concepts and processes about groups, see the [Azure Active Directory users, groups, roles, and licenses documentation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/).
