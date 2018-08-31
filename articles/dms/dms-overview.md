@@ -23,13 +23,9 @@ The Azure Database Migration Service is currently available in the following reg
 ![Azure Database Migration Service regional availability](media\overview\dms-regional-availability.png)
 
 > [!NOTE]
-> Online migrations and SKU recommendation functionality are currently available only in the following regions:
-> - Cental US
-> - East US2
-> - West Europe
+> Online migrations and SKU recommendation functionality are currently available only in the **Cental US**, **East US2**, and **West Europe** regions.
 
 For the most up-to-date information about regional availability of the Azure Database Migration Service, on the Azure global infrastructure site, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
-
 
 ## Next steps
 - [Create an instance of the Azure Database Migration Service by using the Azure portal](quickstart-create-data-migration-service-portal.md).
