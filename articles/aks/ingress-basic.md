@@ -45,9 +45,9 @@ When the Kubernetes load balancer service is created for the NGINX ingress contr
 ```
 $ kubectl get service -l app=nginx-ingress --namespace kube-system
 
-NAME                                              TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)                      AGE
-alternating-coral-nginx-ingress-controller        LoadBalancer   10.0.97.109   10.240.0.150   80:31507/TCP,443:30707/TCP   1m
-alternating-coral-nginx-ingress-default-backend   ClusterIP      10.0.134.66   <none>         80/TCP                       1m
+NAME                                         TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)                      AGE
+masked-otter-nginx-ingress-controller        LoadBalancer   10.0.92.99    40.117.74.8   80:31077/TCP,443:32592/TCP   7m
+masked-otter-nginx-ingress-default-backend   ClusterIP      10.0.46.106   <none>        80/TCP                       7m
 ```
 
 No ingress rules have been created yet, so the NGINX ingress controller's default 404 page is displayed if you browse to the internal IP address. Ingress rules are configured in the following steps.
@@ -78,7 +78,7 @@ helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set s
 
 Both applications are now running on your Kubernetes cluster. To route traffic to each application, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
 
-In the following example, traffic to the address `http://10.240.0.42/` is routed to the service named `aks-helloworld`. Traffic to the address `http://10.240.0.42/hello-world-two` is routed to the `ingress-demo` service.
+In the following example, traffic to the address `http://40.117.74.8/` is routed to the service named `aks-helloworld`. Traffic to the address `http://40.117.74.8/hello-world-two` is routed to the `ingress-demo` service.
 
 Create a file named `hello-world-ingress.yaml` and copy in the following example YAML.
 
@@ -89,6 +89,7 @@ metadata:
   name: hello-world-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
@@ -114,13 +115,13 @@ ingress.extensions/hello-world-ingress created
 
 ## Test the ingress controller
 
-Open a web browser to the FQDN of your Kubernetes ingress controller, such as *https://demo-aks-ingress.eastus.cloudapp.azure.com*.
+To test the routes for the ingress controller, browse to the two applications. Open a web browser to the IP address of your NGINX ingress controller, such as *http://40.117.74.8*. The first demo application is displayed in the web browser, as shown in the follow example:
 
-The demo application is shown in the web browser:
+![First app running behind the ingress controller](media/ingress-basic/app-one.png)
 
+Now add the */hello-world-two* path to the IP address, such as *http://40.117.74.8/hello-world-two*. The second demo application with the custom title is displayed:
 
-Now add the */hello-world-two* path to the FQDN, such as *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*. The second demo application with the custom title is shown:
-
+![Second app running behind the ingress controller](media/ingress-basic/app-two.png)
 
 ## Next steps
 

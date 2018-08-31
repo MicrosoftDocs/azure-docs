@@ -101,6 +101,7 @@ metadata:
   name: hello-world-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
@@ -141,13 +142,13 @@ apt-get update && apt-get install -y curl
 Now access the address of your Kubernetes ingress controller using `curl`, such as *http://10.240.0.42*. Provide your own internal IP address specified when you deployed the ingress controller in the first step of this article.
 
 ```console
-curl -L -k http://10.240.0.42
+curl -L http://10.240.0.42
 ```
 
 No additional path was provided with the address, so the ingress controller defaults to the */* route. The first demo application is returned, as shown in the following condensed example output:
 
 ```
-$ curl -L -k 10.240.0.42
+$ curl -L 10.240.0.42
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
