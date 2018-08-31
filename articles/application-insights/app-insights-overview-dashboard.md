@@ -11,7 +11,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/31/2018
 ms.author: mbullwin
 
 ---
@@ -55,7 +55,7 @@ You can keep the default view if you like it. Or you can also add, and delete fr
 
 To navigate back to the overview experience just select:
 
-![Overview Button](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
+![Overview Button](.\media\app-insights-overview-dashboard\0001-dashboard.png)
 
 ## Next steps
 
