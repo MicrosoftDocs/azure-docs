@@ -13,7 +13,7 @@ ms.author: victorh
 
 Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. 
 
-The following services are included in the build-in rule collection:
+The following services are included in the built-in rule collection:
 
 - Compute access to storage Platform Image Repository (PIR)
 - Managed disks status storage access
