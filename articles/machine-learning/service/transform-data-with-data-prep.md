@@ -25,7 +25,7 @@ More will be added in the future.
 
 ## Add Column using Expression
 
-DataPrep has the ability to add a new column to data using an expression to calculate the value from existing columns. In this case, we will attempt to add additional columns to the input data.
+DataPrep can add a new column to data using an expression to calculate the value from existing columns. In this case, we'll try to add additional columns to the input data.
 
 ```
 import azureml.dataprep as dprep
@@ -80,7 +80,7 @@ case_id.head(3)
 
 ## Impute missing values
 
-DataPrep has the ability to impute missing values in specified columns. In this case, we will attempt to impute the missing Latitude and Longitude values in the input data.
+The data prep SDK can impute missing values in specified columns. In this case, we'll try to impute the missing Latitude and Longitude values in the input data.
 
 ```
 import azureml.dataprep as dprep
@@ -100,7 +100,7 @@ df.head(5)
 |3|10139885|false|41.902152|-87.754883|
 |4|10140379|false|41.885610|-87.657009|
 
-The third record from input data has Latitude and Longitude missing. To impute those missing values, we can use ImputeMissingValuesBuilder to learn a fixed program which imputes the columns with either a calculated MIN, MAX or MEAN value or a CUSTOM value. When group_by_columns is specified, missing values will be imputed by group with MIN, MAX and MEAN calculated per group.
+The third record from input data has Latitude and Longitude missing. To impute those missing values, we can use ImputeMissingValuesBuilder to learn a fixed program. It can impute the columns with either a calculated MIN, MAX, or MEAN value or a CUSTOM value. When group_by_columns is specified, missing values will be imputed by group with MIN, MAX, and MEAN calculated per group.
 
 Firstly, let us quickly see check the MEAN value of Latitude column.
 ```
@@ -116,7 +116,7 @@ df_mean.head(1)
 |-----|-----|----|
 |0|false|41.878961|
 
-The MEAN value of Latitude looks good. So we will impute Latitude with it. As for Longitude, we will impute it using 42 based on external knowledge.
+The MEAN value of Latitude looks good. So we'll impute Latitude with it. As for Longitude, we'll impute it using 42 based on external knowledge.
 
 
 ```# impute with MEAN
@@ -145,7 +145,7 @@ df_imputed.head(5)
 |3|10139885|false|41.902152|-87.754883|
 |4|10140379|false|41.885610|-87.657009|
 
-As the result above, the missing Latitude has been imputed with the MEAN value of Arrest=='false' group, and the missing Longitude has been imputed with 42.
+As the result above, the missing Latitude has been imputed with the MEAN value of Arrest=='false' group. Also, the missing Longitude has been imputed with 42.
 ```
 # TEST CELL: impute CUSTOM returns correct result
 imputed_longitude = df_imputed.to_pandas_dataframe()['Longitude'][2]
@@ -153,7 +153,7 @@ assert imputed_longitude == 42
 ```
 
 ## Derive Column by Example
-One of the more advanced tools in DataPrep is the ability to derive columns by providing examples of desired results and letting DataPrep generate code to achieve the intended derivation.
+One of the more advanced tools in the data prep SDK is the ability to derive columns by giving examples of wanted results. Letting the data prep SDK generate code to achieve the intended derivation.
 
 ```
 import azureml.dataprep as dprep
@@ -174,7 +174,7 @@ df
 |8|1/1/2015 6:54|FM-15|23|50|14|
 |9|1/1/2015 7:00|FM-12|23|50|14|
 
-As you can see, this file is fairly simple, but let's assume that we need to be able to join this with a dataset where date and time come in a format 'Mar 10, 2018 | 2AM-4AM'.
+As you can see, this file is fairly simple. However, let's assume that we need to have to join this file with a dataset where date and time come in a format 'Mar 10, 2018 | 2AM-4AM'.
 
 Let's wrangle the data into the shape we need.
 
@@ -197,7 +197,7 @@ builder.preview()
 |8|1/1/2015 6:54|Jan 1, 2015 6AM-8AM|
 |9|1/1/2015 7:00|Jan 1, 2015 6AM-8AM|
 
-The code above first creates a builder for the derived column by providing an array of source columns to consider ('DATE') and name for the new column to be added.
+The code above first creates a builder for the derived column. It does it by providing an array of source columns to consider ('DATE') and name for the new column to be added.
 
 Then, we provide the first example by passing in the second row (index 1) of the DataFrame printed above and giving an expected value for the derived column.
 
@@ -303,7 +303,7 @@ examples
 
 Here we can see that we have provided inconsistent examples. To fix the issue, we need to replace the first three examples with correct ones (including '|' between date and time).
 
-We can achieve this by deleting examples that are incorrect (by either passing in example_row from examples DataFrame, or by just passing in example_id value) and then adding new modified examples back.
+We can achieve it by deleting examples that are incorrect (by either passing in example_row from examples DataFrame, or by just passing in example_id value) and then adding new modified examples back.
 
 ```
 builder.delete_example(example_id=-1)
@@ -328,7 +328,7 @@ builder.preview()
 | 8 | 1/1/2015 6:54 | Jan 1, 2015```|```6AM-8AM|
 | 9 | 1/1/2015 7:00 | Jan 1, 2015```|```6AM-8AM|
 
-Now this looks correct and we can finally call to_dataflow() on the builder, which would return a dataflow with the desired derived columns added.
+Now the data looks correct and we can finally call to_dataflow() on the builder, which would return a dataflow with the desired derived columns added.
 
 ```
 dataflow = builder.to_dataflow()
@@ -468,7 +468,7 @@ There will be scenarios when the easiest thing for you to do is just to write so
 - New Script Filter
 - Transform Partition
 
-Each of these are supported in both the scale up and the scale out runtime. A key advantage of using these extension points is that you don't need to pull all of the data in order to create a dataframe. Your custom python code will be run just like other transforms, at scale, by partition, and typically in parallel.
+Each of the extensions is supported in both the scale up and the scale-out runtime. A key advantage of using these extension points is that you don't need to pull all of the data in order to create a dataframe. Your custom python code will be run just like other transforms, at scale, by partition, and typically in parallel.
 
 ### Initial data prep
 
@@ -489,7 +489,7 @@ df.head(5)
 |3|ALABAMA|1|101710|Hale County|10171000588|2|
 |4|ALABAMA|1|101710|Hale County|10171000589| |
 
-We trim the dataset down and do some basic tranforms.
+We trim down the dataset and do some basic transforms.
 
 ```
 df = df.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
@@ -521,7 +521,7 @@ df.filter(col('MAM_MTH00numvalid_1011').is_null()).head(5)
 
 ### Transform Partition
 
-We want to replace all null values with a 0, so we decide to use a handy pandas function. This code will be run by partition, not on all of the dataset at a time. This means that on a large dataset, this code may run in parallel as the runtime processes the data partition by partition.
+We want to replace all null values with a 0, so we decide to use a handy pandas function. This code will be run by partition, not on all of the dataset at a time. It means that on a large dataset, this code may run in parallel as the runtime processes the data partition by partition.
 
 ```
 df = df.transform_partition("""
