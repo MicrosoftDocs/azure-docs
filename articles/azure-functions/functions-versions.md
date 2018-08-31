@@ -38,6 +38,53 @@ Runtime 2.x uses a new language extensibility model. Initially, JavaScript and J
 
 For more information, see [Supported languages](supported-languages.md).
 
+## Migrating from 1.x to 2.x
+
+You may wish to move an existing app written in 1.x to 2.x.  Most of the considerations required in moving between versions are related to the language runtime changes listed above (for example C# moving from .NET Framework 4.7 to .NET Core 2).  You'll need to make sure your code and libraries are compatible with the language runtimes being used.
+
+### Changes in triggers and bindings
+
+While most of the trigger and binding properties and configurations remain the same between versions, in 2.x you will need to install any trigger or binding to the app. The only exception for this is HTTP and Timer triggers.  See [Register and install binding extensions](./functions-triggers-bindings.md#register-binding-extensions).  Note that there may also be changes in the `function.json` or attributes of the function between versions (for example, CosmosDB `connection` property is now `ConnectionStringSetting`).  Reference the [existing binding table](#bindings) for links to documentation for each binding.
+
+### Upgrading a locally developed application
+
+If your v1.x app was developed locally, you can make changes to the app or project to make it compatible with v2.  It is recommended to create a new app and port over the code to the new app.  While there are changes that could be made to an existing app to perform an in place upgrade, there are a number of other improvements between v1 and v2 that legacy code likely is not taking advantage of (for example in C# the change from `TraceWriter` to `ILogger`).  
+
+There are also changes in required properties in application settings (`local.settings.json`) and `host.json` including:
+
+* Application settings (`local.settings.json`) require a value for the property `FUNCTIONS_WORKER_RUNTIME` that maps to the language of the app `dotnet | node | java | python`.
+* Host configuration (`host.json`) should either be empty or contain `version` of `2.0`.
+
+The recommended path is start from one of the v2 templates and move over code into a new project or app.
+
+#### Visual Studio runtime versions
+
+In Visual Studio you select the runtime version when you create a project.  Visual Studio has the bits for both major versions and can dynamically utilize the right one for the project.  These settings are derived from the `.csproj` file.  For 1.x apps the project has the properties
+
+```xml
+<TargetFramework>net461</TargetFramework>
+<AzureFunctionsVersion>v1</AzureFunctionsVersion>
+```
+
+In v2 the project properties are
+
+```xml
+<TargetFramework>netstandard2.0</TargetFramework>
+<AzureFunctionsVersion>v2</AzureFunctionsVersion>
+```
+
+Clicking debug or publish will correctly set the right version for the project settings.
+
+#### VS Code and Azure Functions Core Tools
+
+Other local tooling relies on the Azure Functions Core Tools.  Those tools are installed to the machine, and generally only one version is installed on a development machine at one time.  See [instructions how to install specific versions of the core tools](./functions-run-local.md).
+
+For VS Code you may also need to update the user setting for the `azureFunctions.projectRuntime` to match the version of the tools installed.  This will also update the templates and languages surfaced during the creation of new apps.
+
+### Changing version of apps in Azure
+
+Published app versions are set through the application setting `FUNCTIONS_RUNTIME_VERSION`.  This is set to `~2` for v2 apps, and `~1` for v1 apps.  It is strongly discouraged to change the runtime version of an app that has existing functions published to it without also changing the code of those functions.  The recommended path is to create a new function app and set to the appropriate version, test changes, and then disable or delete the previous app.
+
 ## Bindings 
 
 Runtime 2.x uses a new [binding extensibility model](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) that offers these advantages:
