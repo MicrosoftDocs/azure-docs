@@ -45,7 +45,7 @@ First, create a VNet and a subnet to place your web servers in.
 2. Type **Web-01** for the name, and place the VM in the **RG-DNS-Alias-TM** resource group. Type a username, password, and click **OK**.
 3. For **Size**, choose a SKU with 8 GB RAM.
 4. For **Settings**, select the **VNet-Servers** virtual network, the **SN-Web** subnet.
-5. Click **Public IP address**, and under **Assignment**, click **Static** and the click **OK**.
+5. Click **Public IP address**, and under **Assignment**, click **Static** and then click **OK**.
 6. For public inbound ports, select **HTTP**, **HTTPS**, and **RDP (3389)** and then click **OK**.
 7. One the Summary page, click **Create**.
 
