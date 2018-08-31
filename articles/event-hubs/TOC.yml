@@ -88,6 +88,8 @@
     items:
       - name: Create Apache Kafka-enabled event hubs
         href: event-hubs-create-kafka-enabled.md    
+      - name: Process Apache Kafka for Event Hubs events using Stream analytics
+        href: event-hubs-kafka-stream-analytics.md
   - name: Available APIs
     href: event-hubs-api-overview.md
     items:
