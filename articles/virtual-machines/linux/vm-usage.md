@@ -42,7 +42,7 @@ To begin, [download your usage details](https://docs.microsoft.com/azure/billing
 | Additional Info    | Service-specific metadata. For VMs, we populate the following data in the additional info field: <ul><li>Image Type- specific image that you ran. Find the full list of supported strings below under Image Types.</li><li>Service Type: the size that you deployed.</li><li>VMName: name of your VM. This field is only populated for scale set VMs. If you need your VM Name for scale set VMs, you can find that in the Instance ID string above.</li><li>UsageType: This specifies the type of usage this represents.<ul><li>ComputeHR is the Compute Hour usage for the underlying VM, like Standard_D1_v2.</li><li>ComputeHR_SW is the premium software charge if the VM is using premium software, like Microsoft R Server.</li></ul></li></ul>    | Virtual Machines {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}<br><br>Virtual Machine Scale Sets {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}<br><br>Premium Software {"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"} |
 
 ## Image Type
-For some images in the Azure gallery, the image type is populated in the Additional Info field. This enables users to understand and track what they have deployed on their Virtual Machine. The values that are populated in this field based on the image you have deployed are the following:
+For some images in the Azure gallery, the image type is populated in the Additional Info field. This enables users to understand and track what they have deployed on their Virtual Machine. The following values that are populated in this field based on the image you have deployed:
   - BitRock 
   - Canonical 
   - FreeBSD 
@@ -125,7 +125,7 @@ The ImageType field is only populated for a subset of images. If you did not dep
 ### Why is the VMName blank in the Additional Info?
 The VMName is only populated in the Additional Info field for VMs in a scale set. The InstanceID field contains the VM name for non-scale set VMs.
 ### What does ComputeHR mean in the UsageType field in the Additional Info?
-ComputeHR stands for Compute Hour which represents the usage event for the underlying infrasturcture cost. If the UsageType is ComputeHR\_SW, the usage event represents the premium software charge for the VM.
+ComputeHR stands for Compute Hour, which represents the usage event for the underlying infrasturcture cost. If the UsageType is ComputeHR\_SW, the usage event represents the premium software charge for the VM.
 ### How do I know if I am charged for premium software?
 When exploring which VM Image best fits your needs, be sure to check out the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). The image has the software plan rate. If you see “Free” for the rate, there is no additional cost for the software. 
 ### What is the difference between Microsoft.ClassicCompute and Microsoft.Compute in the Consumed service?
