@@ -1,7 +1,7 @@
 ---
 title: Using Terraform with Azure
 description: Introduction to using Terraform to vesion and deploy Azure infrastructure.
-service: terraform
+services: terraform
 ms.service: terraform
 keywords: terraform, devops, overview, plan, apply, automate
 author: tomarcher

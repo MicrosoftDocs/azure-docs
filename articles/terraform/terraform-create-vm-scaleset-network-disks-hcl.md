@@ -1,7 +1,7 @@
 ---
 title: Use Terraform to create an Azure virtual machine scale set
 description: Tutorial about using Terraform to configure and version an Azure virtual machine scale set complete with a virtual network and managed attached disks
-service: terraform
+services: terraform
 ms.service: terraform
 keywords: terraform, devops, virtual machine, Azure, scale set, network, storage, modules
 author: tomarcher
