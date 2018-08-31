@@ -68,7 +68,7 @@ To follow this how-to guide, you need:
 
 * Visual Studio Code. You can [download Visual Studio Code for Mac, Linux, and Windows](https://code.visualstudio.com/download).
 * .NET Core. You can download [.NET Core for Mac, Linux, and Windows](https://www.microsoft.com/net/download).
-* Postman. You can download [Postman for Mac, windows, or Linux](https://www.getpostman.com/apps).
+* Postman. You can download [Postman for Mac, Windows, or Linux](https://www.getpostman.com/apps).
 * An [IoT hub deployed to your Azure subscription](../articles/iot-hub/iot-hub-create-through-portal.md). You need the IoT hub's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
 * A Cosmos DB database that uses the SQL API and that is configured for [strong consistency](../articles/cosmos-db/manage-account.md). You need the Cosmos DB database's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
 
@@ -453,9 +453,7 @@ Leave the event monitor running while you test the simulated devices.
 
 ### Create a simulation with the updated chiller device type
 
-In this section, you use the Postman tool to request the device simulation microservice to run a simulation using the updated chiller device type. Postman is a tool that lets you send REST requests to a web service.
-
-TODOTODOTODO - see if we can host the config files in GitHub
+In this section, you use the Postman tool to request the device simulation microservice to run a simulation using the updated chiller device type. Postman is a tool that lets you send REST requests to a web service. The Postman configuration files you need are in your local copy of the **device-simulation-dotnet** repository.
 
 To set up Postman:
 
@@ -463,7 +461,7 @@ To set up Postman:
 
 1. Click **File > Import**. Then click **Choose Files**.
 
-1. Select **Azure IoT Device Simulation solution accelerator.postman_collection** and **Azure IoT Device Simulation solution accelerator.postman_environment** and click **Open**.
+1. Navigate to the **device-simulation-dotnet/docs/postman** folder. Select **Azure IoT Device Simulation solution accelerator.postman_collection** and **Azure IoT Device Simulation solution accelerator.postman_environment** and click **Open**.
 
 1. Expand the **Azure IoT Device Simulation solution accelerator** to the requests you can send.
 
